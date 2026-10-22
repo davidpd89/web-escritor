@@ -127,11 +127,15 @@ def normalize(source: object, now: datetime) -> tuple[str, dict]:
         raise ValueError(f"{key}: future-dated observation, including unfinished Madrid day")
     stale = observed is not None and now - observed > MAX_AGE
     fresh = count is not None and not stale
+    # A public JSON file can outlive the collector. Give the browser an
+    # absolute deadline; otherwise a cached last-good number looks live.
+    valid_until = observed + MAX_AGE if count is not None else None
     return key, {
         "id": key,
         "profile_url": PROFILES[key],
         "followers": count if fresh else None,
         "observed_at": stamp,
+        "valid_until": valid_until.isoformat(timespec="seconds").replace("+00:00", "Z") if valid_until else None,
         "source": name,
         "status": "stale" if stale else ("ok" if fresh else "pending"),
     }
@@ -151,15 +155,20 @@ def compose(sources: list, *, now: datetime | None = None) -> dict:
             observed[key] = normalized
     networks = [observed.get(key, {
         "id": key, "profile_url": PROFILES[key], "followers": None,
-        "observed_at": None, "source": None, "status": "pending",
+        "observed_at": None, "valid_until": None,
+        "source": None, "status": "pending",
     }) for key in PROFILES]
     valid = [n["followers"] for n in networks if n["followers"] is not None]
+    # The aggregate must stop displaying when its FIRST component expires,
+    # even if no background job runs to refresh the static JSON file.
+    deadlines = [n["valid_until"] for n in networks if n["followers"] is not None]
     return {
         "schema_version": 1,
         "generated_at": now.isoformat(timespec="seconds").replace("+00:00", "Z"),
         "networks": networks,
         "totals": {
             "follower_relationships": sum(valid) if valid else None,
+            "valid_until": min(deadlines) if deadlines else None,
             "coverage": len(valid),
             "eligible": len(PROFILES),
             "label": "Seguidores sumados en redes con datos vigentes (no personas únicas)",
