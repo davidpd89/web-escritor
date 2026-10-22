@@ -49,6 +49,43 @@ Salida estructural sin cifras inventadas:
 
 La fecha del ejemplo representa una ejecución de prueba, no un dato extraído de una API. La futura ruta `data/social-metrics.generated.json` se mantiene **sin crear**; el programa permite probar en `/tmp` antes de autorizar la publicación.
 
+## 6 pruebas cruzadas nuevas sin fusionar PR
+
+[tests/test_gpt_social_pipeline.py](../../../../tests/test_gpt_social_pipeline.py) importa **los propios normalizadores de las tres PR hermanas**, construye respuestas sintéticas, compone sus salidas, escribe un fichero real en un directorio temporal y valida cifras y privacidad. Si esas ramas no están presentes, los **6 tests quedan `skipped`**: la PR #704 aislada no afirma tener los módulos de las otras hijas.
+
+Reproducción exacta de la prueba cruzada en un directorio local temporal desde un checkout del repositorio. Solo lectura: **NO merge, NO Actions, NO commits y NO métricas reales**:
+
+~~~bash
+git fetch origin \
+  research/gpt-social-ux-2026-10-22 \
+  research/gpt-social-metricool-2026-10-22 \
+  research/gpt-social-bluesky-2026-10-22 \
+  research/gpt-social-mastodon-2026-10-22
+
+tmp="$(mktemp -d)"
+mkdir -p "$tmp/scripts/research" "$tmp/tests"
+copy_from() {
+  git show "origin/$1:$2" > "$tmp/$2"
+}
+copy_from research/gpt-social-ux-2026-10-22 scripts/research/gpt_social_compose.py
+copy_from research/gpt-social-ux-2026-10-22 tests/test_gpt_social_compose.py
+copy_from research/gpt-social-ux-2026-10-22 tests/test_gpt_social_pipeline.py
+copy_from research/gpt-social-metricool-2026-10-22 scripts/research/gpt_metricool_threads.py
+copy_from research/gpt-social-metricool-2026-10-22 tests/test_gpt_metricool_threads.py
+copy_from research/gpt-social-bluesky-2026-10-22 scripts/research/gpt_social_bluesky.py
+copy_from research/gpt-social-bluesky-2026-10-22 tests/test_gpt_social_bluesky.py
+copy_from research/gpt-social-mastodon-2026-10-22 scripts/research/gpt_social_mastodon.py
+copy_from research/gpt-social-mastodon-2026-10-22 tests/test_gpt_social_mastodon.py
+
+python -m unittest discover -s "$tmp/tests" -p 'test_gpt_*.py' -v
+~~~
+
+**Resultado en entorno local de investigación:** 74 pruebas unitarias de las PR individuales + **6 pruebas cruzadas** = **80 PASS**, Python 3.13, sin red ni GitHub Actions. Los **4 scripts bajo test** coincidían byte a byte con el Git blob de su PR (hashes de adaptadores: #704 `20c9650b`, #705 `cccaa4cf`, #706 `1f4de0ab`, #707 `79345fd8`). Las pruebas cruzadas no son lecturas live de APIs: repetir el comando anterior tras unir temporalmente las versiones definitivas.
+
+**Casos de integración:** las tres salidas producen suma y cobertura correctas; archivos fuente → CLI → JSON público; salida sin DID ni ID local; los seguidores caducados no inflan totales; vistas no verificadas se rechazan; identidades falsas se rechazan antes de componer.
+
+**Pendiente:** comprobar Bluesky/Mastodon contra las API reales, integración del frontend, accesibilidad y transporte automatizado de Metricool. Las 80 pruebas offline NO equivalen a despliegue funcional.
+
 ## Verificación realizada
 
 `python -m unittest discover -s tests -p test_gpt_social_compose.py -v` → **26/26 PASS** en Python 3.13, fuera de GitHub Actions. Se cotejaron los hashes Git exactos de script y test locales contra los blobs de la PR.
