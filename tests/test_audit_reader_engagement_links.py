@@ -34,6 +34,8 @@ class AuditLinksTest(unittest.TestCase):
         r = module.analyse_html(html)
         self.assertFalse(r["ctas"]["amazon_review"])
         self.assertFalse(r["ctas"]["goodreads_review"])
+        self.assertEqual(len(r["ctas"]["amazon_review_view"]), 1)
+        self.assertEqual(len(r["amazon_nonpurchase_links_also_match_purchase_listener"]), 1)
         self.assertFalse(r["amazon_review_links_also_match_purchase_listener"])
 
     def test_follow_requires_real_author_destination_and_call_to_action(self):
@@ -45,6 +47,23 @@ class AuditLinksTest(unittest.TestCase):
         <a href="https://example.com/stores/author/B0GZFP1JV3">Seguir autor</a>"""
         r = module.analyse_html(html)
         self.assertEqual(len(r["ctas"]["amazon_follow"]), 1)
+
+    def test_profile_view_is_not_purchase_or_follow(self):
+        html = '<a href="https://www.amazon.es/stores/author/B0GZFP1JV3">Ver perfil</a>'
+        r = module.analyse_html(html)
+        self.assertEqual(len(r["ctas"]["amazon_author_profile_view"]), 1)
+        self.assertFalse(r["ctas"]["amazon_follow"])
+        self.assertEqual(len(r["amazon_nonpurchase_links_also_match_purchase_listener"]), 1)
+
+    def test_href_fragment_detects_view_without_review_text(self):
+        html = '<a href="https://www.amazon.es/dp/ASIN#customerReviews">Leer opiniones</a>'
+        r = module.analyse_html(html)
+        self.assertEqual(len(r["ctas"]["amazon_review_view"]), 1)
+
+    def test_domains_are_exact_not_suffix_matches(self):
+        html = '<a href="https://www.amazon.es.example.net/dp/ASIN#customerReviews">Dejar reseña</a>'
+        r = module.analyse_html(html)
+        self.assertFalse(r["ctas"]["amazon_review"])
 
     def test_aria_label_used_when_anchor_has_icon(self):
         html = (
