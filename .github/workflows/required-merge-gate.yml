@@ -88,6 +88,9 @@ jobs:
       - name: Verify no public email exposure
         run: python scripts/audit-public-email-exposure.py --strict
 
+      - name: Verify public text encoding and JSON parsing
+        run: python scripts/check-public-text-encoding.py
+
       - name: Verify sitemap is current
         run: python scripts/build-sitemap.py --check
 
