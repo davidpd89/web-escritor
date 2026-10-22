@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseHash, writeHash, matchesMulti, availableOptions } from './multifacet-contract.mjs';
+import { parseHash, writeHash, matchesMulti, availableOptions, sanitizeFacetSelections } from './multifacet-contract.mjs';
 
 // Four real titles and facets taken from recomendaciones/index.html (main, 22-10-2026).
 const books = [
@@ -68,4 +68,33 @@ test('la URL elimina solo parámetros vacíos y conserva búsqueda, orden y grup
   state.genero=[];
   assert.deepEqual(parseHash(writeHash(state)),{...state,valoracion:''});
   assert(!writeHash(state).includes('valoracion='));
+});
+
+test('una faceta eliminada de la taxonomía no bloquea el catálogo sin control visible', () => {
+  const old = parseHash('#formato=tapa-dura&formato=desconocido&genero=no-existe');
+  const master = {
+    formato: [{ value: 'tapa-dura', label: 'Tapa dura' }],
+    genero: [{ value: 'fantasia', label: 'Fantasía' }]
+  };
+  const clean = sanitizeFacetSelections(old, master);
+  assert.deepEqual(clean.formato, ['tapa-dura']);
+  assert.deepEqual(clean.genero, []);
+  assert(!writeHash(clean).includes('desconocido'));
+  assert(!writeHash(clean).includes('no-existe'));
+});
+
+test('selección conocida que ahora devuelve 0 libros NO se elimina por sanear URL', () => {
+  const state = selected({grupo:'cocina', genero:['fantasia']});
+  const clean = sanitizeFacetSelections(state, { genero: [{value:'fantasia',label:'Fantasía'}] });
+  assert.deepEqual(clean.genero, ['fantasia']);
+  assert.deepEqual(books.filter(book => matchesMulti(book, clean)), []);
+  assert.deepEqual(state.genero, ['fantasia'], 'sin mutar el estado original');
+});
+
+test('sanear una faceta mantiene valores, búsqueda y filtros escalares no tratados', () => {
+  const state = selected({ q:'Coraline', paginas:'breve', genero:['fantasia'], formato:['ebook'] });
+  const cleaned = sanitizeFacetSelections(state, { formato:[{value:'ebook',label:'Ebook'}] });
+  assert.deepEqual(cleaned.genero,['fantasia']);
+  assert.equal(cleaned.paginas,'breve');
+  assert.equal(cleaned.q,'Coraline');
 });
