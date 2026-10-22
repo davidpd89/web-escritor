@@ -29,7 +29,7 @@ class MetricoolTests(unittest.TestCase):
         self.assertEqual(got["followers"],129)
         self.assertIsNone(got["views_30d"])
         self.assertEqual(got["coverage"]["days_with_post_views"],30)
-        self.assertIn("not verified period activity",got["views_not_published_reason"])
+        self.assertIn("not verified as views generated",got["views_not_published_reason"])
         self.assertEqual(got["status"],"ok")
         self.assertEqual(got["observed_at"],END.isoformat())
 
