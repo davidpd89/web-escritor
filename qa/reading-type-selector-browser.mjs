@@ -51,8 +51,11 @@ try {
     await page.waitForFunction(() => document.querySelector('input[data-facet="genero"][value="terror"]')?.checked);
     assert.equal(await visibleBooks().count(), Math.min(either, 24), 'Recuperar la URL restaura la selección múltiple');
     await page.waitForFunction(() => [...document.querySelectorAll('[data-rating-book]')].every(box => box.textContent.trim()));
-    const unrated = await page.locator('[data-rating-book]:not(:has(.catalogue-stars)) a').allInnerTexts();
-    assert.ok(unrated.every(text => text.startsWith('Aún sin valoraciones públicas')), 'Sin valoración verificada se indica con honestidad');
+    const ratings = await page.locator('[data-rating-book] a').allInnerTexts();
+    assert.ok(ratings.length > 0 && ratings.every(text => text.startsWith('Goodreads') && /\d,\d+\s+\(\d/.test(text)), 'Valoración: «Goodreads», estrellas y nota (n), sin textos largos');
+    const tagCounts = await page.locator('[data-catalogue-book] .catalogue-tags li').evaluateAll(list => list.length);
+    assert.ok(await page.locator('[data-catalogue-book]').evaluateAll(cards => cards.every(c => c.querySelectorAll('.catalogue-tags li').length <= 3)), 'Máximo 3 categorías por tarjeta');
+    assert.ok(tagCounts >= 0);
     assert.equal(await page.locator('.catalogue-extra-tags').count(), 0, 'Sin desplegable de «Más categorías» en las tarjetas');
 
     // Filtros dependientes: con un tipo elegido, las opciones sin libros compatibles quedan desactivadas y vuelven al quitarlo.
