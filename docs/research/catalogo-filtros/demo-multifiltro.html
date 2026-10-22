@@ -29,6 +29,7 @@
     <button type="button" id="reset">Quitar todos los filtros</button>
     <p id="count" role="status" aria-live="polite" tabindex="-1">Cargando catálogo…</p>
     <p class="notice">OR dentro de cada filtro; AND entre formatos, género y temática. Opciones disponibles recalculadas. Solo se aplican los tres filtros visibles; otros parámetros de URL se conservan para comprobar compatibilidad, pero no modifican este laboratorio. Muestra 24 fichas por página; no es una propuesta visual definitiva.</p>
+    <p id="empty" hidden>No hay libros con esta combinación. Puedes quitar algún filtro o pulsar «Quitar todos los filtros».</p>
     <ul id="results" class="results"></ul>
     <nav id="pagination" aria-label="Páginas de resultados"></nav>
   </main>
@@ -99,6 +100,7 @@
       try {
         const effective=labState();
         const shown=books.filter(book=>matchesMulti(book,effective));
+        document.querySelector('#empty').hidden=shown.length!==0;
         const totalPages = Math.max(1, Math.ceil(shown.length / 24));
         state.pagina = Math.max(1, Math.min(totalPages, state.pagina));
         document.querySelector('#count').textContent=shown.length+' de '+books.length+' libros · página '+state.pagina+' de '+totalPages;
