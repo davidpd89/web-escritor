@@ -27,7 +27,7 @@ La **PR #687 aún abierta** introduce `data/reading-publishers.json`: **11 sello
 - **E1 COMPLETADO (auditoría de los JSON de main y #687, sin ejecutar código del proyecto):** no hay coincidencias exactas ni de nombre normalizado entre los 11 sellos del catálogo y las 150 editoriales del directorio; 35 de los 55 libros de #687 enlazan a fichas del directorio, todas con `status=unknown`; otros 20 enlazan a 9 de los 11 sellos exclusivamente bibliográficos. **Beascoa y Montena** tienen ficha de sello/fuente, pero cero libros publicados asociados en esa rama; revisarlas como huérfanas antes de indexarlas. Los estados de manuscritos no se pueden inferir de esta distribución. No he encontrado colisiones de nombres normalizados dentro de las 150 editoriales. Estos recuentos son instantáneas de #687, **no** de `main`.
 - **E2 INVESTIGADO / RUTA ELEGIDA:** consultar límites del ISBN y DILVE, descartando la copia de resultados ISBN sin autorización explícita; fuente estructurada inicial **Wikidata CC0**, solo para proponer entidades y webs. Se ha creado adaptador offline de Wikibase JSON y 9 pruebas escritas sin ejecutar. Pendiente piloto con QIDs reales contrastados, confirmación de permisos de webs editoriales y petición de autorización/volcado a Agencia ISBN para ampliar cobertura. Véase hallazgo fechado abajo.
 - **E3 CÓDIGO PREPARADO:** `scripts/research/gpt_editoriales_reconcile.py` ya compara, en modo solo lectura y con ficheros suministrados explícitamente, slugs, alias sugeridos, datos obsoletos, fuentes de ficha, registros sin libros y enlaces rotos. Devuelve JSON para revisión sin filtrar correos ni escribir `data/editoriales.json`. **No probado todavía**; #692 no contiene los 11 sellos porque viven en #687. Se utilizará una copia local de esos datos después de aprobación.
-- **E4 EN PREPARACIÓN:** `tests/test_gpt_editoriales_reconcile.py` añade 11 pruebas sintéticas escritas **sin ejecutar** (estado cerrado que sigue publicando, alias, homónimos/colisiones, fuente impostora, libro sin enlace y caducidad). Pendiente contrastar los primeros 20 candidatos reales, criterios de correspondencia jurídica y contactos oficiales.
+- **E4 INVESTIGACIÓN Y CÓDIGO PREPARADOS, SIN EJECUTAR:** se revisó una muestra de **15 entidades reales** (13 sellos/editoriales y 2 grupos), con 6 QIDs localizados (uno es Bruguera histórico y no se debe unir al sello actual) y 18 observaciones de contactos tipificados. Documentación y resultados en [`editoriales-e4-resultados-2026-10-22.md`](editoriales-e4-resultados-2026-10-22.md). Se preparó `gpt_editoriales_contact_evidence.py` con allowlist independiente, caducidad y conflictos; **15 pruebas sintéticas adicionales sin ejecutar**. Las 11 pruebas de E3 tampoco se han ejecutado.
 - **E5:** piloto incremental con presupuesto y reporte; integración futura al único publicador, después de QA y revisión legal, sin segundo workflow.
 
 **Criterio de salida:** demo offline reproducible, cero duplicados publicados, contactos con procedencia, ninguno de los 150 estados alterado sin verificación y coste de servicios externos 0 €. Si no se permite usar una fuente, se documenta NO-GO y alternativa.
@@ -94,7 +94,7 @@ Salida: JSON en stdout con recuentos, colisiones, casos huérfanos y `imprint_ca
 ### Código preparado en E2, pendiente de ejecutar
 
 - `scripts/research/gpt_editoriales_wikidata_candidates.py`: interpreta únicamente **snapshot Wikibase JSON suministrado**, sin HTTP; saca label, aliases, webs HTTPS candidatas (no páginas privadas, localhost ni dominios de ejemplo), identificadores de grupo/país/clase y posibles slugs del directorio por nombre/dominio. Descarta claims `deprecated` y prioriza `preferred`. **Siempre requiere revisión** y no genera correo ni estado de manuscritos. Una web P856 **no** se considera demostración de propiedad/control: se debe comprobar.
-- `tests/test_gpt_editoriales_wikidata_candidates.py`: **9 pruebas sintéticas escritas y no ejecutadas**; validan URL sospechosa, prioridad y obsolescencia, homónimos, empresas que comparten dominio, y ninguna fusión/publicación automática.
+- `tests/test_gpt_editoriales_wikidata_candidates.py`: **10 pruebas sintéticas escritas y no ejecutadas**; validan URL sospechosa, prioridad y obsolescencia, homónimos, empresas que comparten dominio, y ninguna fusión/publicación automática.
 - No se integra el módulo en el builder, no se realizan peticiones a Wikidata, no se copian ficheros externos protegidos y no se instala dependencia.
 
 Ejemplo de acceso documentado, **para un piloto futuro con identificadores confirmados y respetando condiciones/cuotas**, no ejecutado en esta investigación:
@@ -116,8 +116,13 @@ Destinatario oficial: **agencia@agenciaisbn.es** ([Ministerio de Cultura](https:
 
 Este texto **no representa autorización concedida ni una comunicación enviada**. No iniciar importación masiva mientras no haya respuesta/licencia aplicable.
 
-### Próxima pasada concreta — E2 validación / E4
+### E4 realizada: consultar el informe enlazado y continuar E5
 
 - Investigar **QIDs reales** de 10–20 sellos de catálogo, verificar correspondencia con fichas originales y cuantificar cobertura de Wikidata (`P856`, `P749`, `P17`, `P31`). Guardar solo un informe de fuentes, no nombres inferidos. Validar adaptador únicamente con datos autorizados, primero offline.
 - Definir el **contrato de evidencia del contacto**, lectura de páginas oficiales con controles de licencia/robots y detección no ambigua de sección de manuscritos. Preparar pruebas sintéticas y cola manual.
 - **No** avanzar a llamadas masivas a ISBN ni al Global Register: no existe permiso documentado de reutilización. Si recibimos autorización de Agencia ISBN, reevaluar esta decisión y documentar coste/condiciones antes de escribir el conector.
+
+
+## Estado actual y próxima pasada (22/10/2026)
+
+**E4 terminada como investigación, no como integración técnica**: [ver informe específico](editoriales-e4-resultados-2026-10-22.md). Código y fixtures preparados en #692; sin tests ejecutados. **Próxima petición «siguiente investigación de GPT» → E5:** reconciliar datos con #687 en el nuevo estado, diseñar integración con el *único* flujo diario y su puerta de revisión, incluyendo identidad histórica vs sello, comprobación por sello de formularios del grupo, caducidad y presupuesto de consultas. No contactar masivamente ni publicar automáticamente.
