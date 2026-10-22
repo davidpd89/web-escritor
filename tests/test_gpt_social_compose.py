@@ -174,6 +174,22 @@ class ComposeTests(unittest.TestCase):
                 self.assertEqual(sc.main([str(incoming), "--output", str(old)]), 1)
             self.assertEqual(json.loads(old.read_text()), {"old": True})
 
+    def test_no_sources_never_overwrite_previous_publication(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            old = Path(tmp) / "public.json"
+            old.write_text('{"old":true}', encoding="utf-8")
+            with redirect_stderr(io.StringIO()):
+                self.assertEqual(sc.main(["--output", str(old)]), 1)
+            self.assertEqual(json.loads(old.read_text()), {"old": True})
+
+    def test_publication_cannot_overwrite_input_file(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            old = Path(tmp) / "source.json"
+            old.write_text(json.dumps(bsky()), encoding="utf-8")
+            with redirect_stderr(io.StringIO()):
+                self.assertEqual(sc.main([str(old), "--output", str(old)]), 1)
+            self.assertEqual(json.loads(old.read_text())["id"], "bluesky")
+
     def test_atomic_write_good_payload(self):
         with tempfile.TemporaryDirectory() as tmp:
             file = Path(tmp) / "json" / "metrics.json"
