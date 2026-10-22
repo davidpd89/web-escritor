@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseHash, writeHash, matchesMulti, availableOptions, sanitizeFacetSelections } from './multifacet-contract.mjs';
+import { parseHash, writeHash, matchesMulti, availableOptions, sanitizeFacetSelections, matchingOffersMulti } from './multifacet-contract.mjs';
 
 // Four real titles and facets taken from recomendaciones/index.html (main, 22-10-2026).
 const books = [
@@ -111,4 +111,37 @@ test('categoría activa con 0 libros se conserva, la categoría eliminada no', (
   assert.deepEqual(options.map(o=>[o.value,o.count,o.selected]),[
     ['fantasia',3,false],['romantasy',0,true]
   ]);
+});
+
+const syntheticVerifiedOffers = [
+  {formato:'tapa-blanda',precio_centimos:950,precio_referencia_centimos:1500},
+  {formato:'tapa-dura',precio_centimos:2590,precio_referencia_centimos:2700},
+  {formato:'ebook',precio_centimos:690}
+];
+
+test('precio máximo y formato deben cumplirse en una misma oferta, nunca en dos distintas',()=>{
+  const wanted={formato:['tapa-dura'],precio_max:'10'};
+  assert.deepEqual(matchingOffersMulti(syntheticVerifiedOffers,wanted),[]);
+});
+
+test('OR entre formatos sí admite la tapa blanda cuando está dentro del presupuesto',()=>{
+  const wanted={formato:['tapa-blanda','tapa-dura'],precio_max:'10'};
+  assert.deepEqual(matchingOffersMulti(syntheticVerifiedOffers,wanted).map(o=>o.formato),['tapa-blanda']);
+});
+
+test('rango de precios y descuento se evalúan juntos sobre cada formato elegible',()=>{
+  const wanted={formato:['tapa-blanda','tapa-dura'],precio_min:'9',precio_max:'27',descuento:'30'};
+  assert.deepEqual(matchingOffersMulti(syntheticVerifiedOffers,wanted).map(o=>o.formato),['tapa-blanda']);
+});
+
+test('formato escalar antiguo, sin formato y sin ofertas preservan semántica',()=>{
+  assert.deepEqual(matchingOffersMulti(syntheticVerifiedOffers,{formato:'tapa-dura'}).map(o=>o.formato),['tapa-dura']);
+  assert.equal(matchingOffersMulti(syntheticVerifiedOffers,{}).length,3);
+  assert.deepEqual(matchingOffersMulti([],{formato:['tapa-blanda','tapa-dura'],precio_max:'30'}),[]);
+});
+
+test('mínimo por formato solo usa ofertas de ese formato, útil para ordenar precios',()=>{
+  const accepted=matchingOffersMulti(syntheticVerifiedOffers,{formato:['tapa-dura','ebook']});
+  assert.equal(Math.min(...accepted.map(o=>o.precio_centimos)),690);
+  assert.equal(Math.min(...matchingOffersMulti(syntheticVerifiedOffers,{formato:['tapa-dura']}).map(o=>o.precio_centimos)),2590);
 });
