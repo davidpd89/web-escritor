@@ -114,6 +114,14 @@ Las cifras son un **snapshot del catálogo del 22-10-2026**, no límites fijos p
 
 **Alcance del laboratorio: evitar filtros invisibles.** Se verificó por lectura de código que, al restaurar hashes antiguos, podían activarse `q`, `grupo`, `temporada`, `edad`, `contenido` y `epoca` sin que el laboratorio mostrase controles para retirarlos. El laboratorio ahora calcula resultados y opciones sobre `labState()`, que aplica **solo formato, género y temática**. Conserva otros parámetros en la URL para ensayar la compatibilidad, pero avisa expresamente que no se aplican en la demo. `qa-demo.mjs` incluye un caso de URL antigua con tres filtros sin control visible; ejecución pendiente de Playwright. **No replicar este recorte en producción:** la página real sí tiene esos filtros y debe seguir aplicándolos.
 
+## Validación incremental adicional (22-10-2026)
+
+**Nuevo caso con prueba:** una URL antigua puede contener `genero=no-existe`. El anterior `matchesMulti()` no mostraba libros, aunque el selector no presentara ninguna opción que desmarcar. `sanitizeFacetSelections(state,master)` elimina únicamente valores ausentes de la **taxonomía maestra**, antes de cargar/restaurar el hash; **no** elimina selecciones existentes con cuenta 0. Se han añadido 3 tests para este contrato.
+
+**Ejecución independiente:** se cargaron desde esta misma rama los archivos JS del adaptador y su suite y se ejecutaron en un intérprete V8, con implementación mínima de `URLSearchParams` para las pruebas. **15/15 pasaron**. Esta ejecución no sustituye el `node --test` nativo; solo los **12 tests anteriores** fueron ejecutados previamente como suite Node en local. Además, 9 combinaciones se calcularon ejecutando el adaptador exacto sobre las **55 tarjetas reales**: 9/9 iguales a los conteos esperados.
+
+**Corregido el test Playwright, no la web:** cuatro comprobaciones hacían `new URLSearchParams(location.hash)`. Node confirma que `#formato` no equivale a `formato`; se cambió por `location.hash.slice(1)`. El QA ahora usa `data-value` del código oficial Choices.js y cubre dos formatos, dos géneros y dos temáticas elegidos simultáneamente, además de enlaces obsoletos. Todos los módulos JS superan **comprobación sintáctica V8**, pero **no** se ha ejecutado aún Chromium con la rama completa. No marcar verde el navegador.
+
 ## Riesgo real y condiciones para Claude
 
 La PR de implementación NO debe reemplazar `reading-catalogue.js` a ciegas: ya resuelve 24 fichas/página, sort, filtros financieros con caducidad, rating y test. Iniciar con **género y formato multiselección**, luego temática. El resto de facetas solo después de verificar que sus opciones producen resultados reales. Mantener el selector «Tipo de libro» exclusivo y su orden editorial salvo decisión posterior.
