@@ -20,16 +20,27 @@ Página semántica indexable en móvil/teclado, visible sin JavaScript, tamaño 
 
 1. Registro data/social-profiles.json con id, URL, handle, nombre, orden y visibilidad; migrar gradualmente desde autor.html, mantener consistencia con builder y sameAs.
 2. Recogida fuera del navegador: público sin token para Bluesky/Mastodon; Metricool/insights/OAuth solo cuando esté permitida una integración independiente desatendida; nunca publicar tokens.
-3. Un normalizador recibe, por red, {id, observed_at, source, followers, posts, impressions_30d, views_30d, interactions_30d, status}; los campos sin datos son null (no 0) y tienen periodo, definición y origen.
+3. Los **adaptadores internos** pueden recibir {id, observed_at, source, followers, posts, impressions_30d, views_30d, interactions_30d, status}; el **compositor público v1 probado** expone solo identificador, enlace canónico, seguidores, fecha, fuente, estado, totales y cobertura. Las métricas no justificadas quedan fuera del documento público.
 4. Exportar JSON público generado a data/social-metrics.generated.json, consumido con mejoras progresivas por UI; refresco recomendado 12–24 h, no «tiempo real» falso. Mantener último dato válido con sello stale cuando falle la fuente; no sobrescribir null por cero.
 5. Agregados: únicamente mismas definiciones + misma ventana, con cobertura visible (por ejemplo «6 de 9 perfiles con datos»); no inferir usuarios únicos, ni sumar impresiones y alcance. Si hay dos fechas comparables mostrar evolución, en otro caso no.
    - **Corrección concreta (22/10, PR #705):** el conector Metricool denomina `THEV06` «Post Views», pero [su documentación oficial](https://help.metricool.com/es/diferencia-entre-posts-publicados-y-posts-vistos-en-el-periodo-2pwtf) separa vistas acumuladas de posts publicados y vistas generadas durante el período. `THEV06` **no se debe mapear a `views_30d`** hasta demostrar el alcance real de esa serie. El adaptador Threads lo suprime deliberadamente. **La PR #708 ha corregido la sugerencia anterior que equiparaba `THEV06` con `views_30d`** y ahora remite al código probado de #705/#704. `THEV11` son vistas del perfil, no de los posts.
 
-Ejemplo de contrato propuesto (datos ficticios prohibidos, cifras deliberadamente ausentes):
+Contrato **v1 efectivamente implementado en PR #704** (salida vacía de ejemplo, sin números de cuenta). El esquema inicial de investigación que contenía `period` y `views_30d` **NO coincidía** con el compositor; se elimina para evitar que Claude implemente un JSON incompatible. `generated_at` es siempre timestamp UTC de ejecución; aquí se utiliza una fecha ilustrativa. Solo se admiten tres redes hasta comprobar identidades y fuentes de otras plataformas.
 
 ~~~json
-{"schema_version":1,"generated_at":null,"period":{"from":null,"to":null,"tz":"Europe/Madrid"},"networks":[{"id":"bluesky","followers":null,"views_30d":null,"impressions_30d":null,"observed_at":null,"source":null,"status":"pending"}]}
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-22T12:00:00Z",
+  "networks": [
+    {"id": "bluesky", "profile_url": "https://bsky.app/profile/davidportoescritor.bsky.social", "followers": null, "observed_at": null, "source": null, "status": "pending"},
+    {"id": "mastodon", "profile_url": "https://mastodon.social/@davidportodiaz", "followers": null, "observed_at": null, "source": null, "status": "pending"},
+    {"id": "threads", "profile_url": "https://www.threads.com/@davidportodiaz", "followers": null, "observed_at": null, "source": null, "status": "pending"}
+  ],
+  "totals": {"follower_relationships": null, "coverage": 0, "eligible": 3, "label": "Seguidores sumados en redes con datos vigentes (no personas únicas)"}
+}
 ~~~
+
+**Puerta de calidad cruzada, 22/10/2026:** se han montado en un directorio local los cuatro scripts de #704/#705/#706/#707, con hashes Git que coinciden con los de sus respectivas ramas, y se han pasado **80 tests offline**: 74 unitarios de esas ramas más 6 nuevas pruebas de integración (captura simulada → normalizadores → compositor → fichero JSON). **Esto no prueba respuestas live, ejecución en GitHub Actions ni web desplegada.** Las 6 pruebas están incorporadas en `tests/test_gpt_social_pipeline.py` de #704, que se omiten deliberadamente en su rama aislada hasta combinar los cuatro scripts.
 
 ## Viabilidad por red (fuentes revisadas)
 
