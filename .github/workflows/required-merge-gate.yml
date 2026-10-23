@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - main
+    # edited: re-check title/body, which become the squash commit message.
+    types: [opened, synchronize, reopened, edited]
   workflow_dispatch:
 
 permissions:
