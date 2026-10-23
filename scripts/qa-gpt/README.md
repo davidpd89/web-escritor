@@ -10,3 +10,7 @@ Comandos (`scripts\qa-gpt.cmd <cmd>`): `estado`, `iniciar [--ahora]` (tarea prog
 - Servicio continuo con arranque/parada manual (INICIAR-QA-GPT.bat, PARAR-QA-GPT.bat, ESTADO-QA-GPT.bat). Sin horario, cupos ni esperas entre rondas correctas; solo backoff ante limites reales de ChatGPT. 1 worker. Estado fuera de Git: C:GITqa-gpt-state. Tests/Actions solo con autorizar-noche + lote-nocturno --confirmar.
 - Instrucciones del Project: `project_instructions.md` (pegado manual en Ajustes del Project).
 - Pruebas offline: `python scripts/qa-gpt/test_qa_gpt.py` (sin navegador ni GPT). Recuperacion: rama `automation/qa-gpt` + `.ci/qa-gpt/estado.pre-fix.db`.
+
+## EJECUTAR-ACTIONS-QA-GPT.bat (4.º BAT)
+Doble clic = autorización. Procesa las propuestas `preparada` existentes en ese momento: valida en local (worktree desacoplado + merge de origin/main), clasifica (local_ok / defecto_demostrado / fallo_test / infra / sin_entorno), empuja solo `gpt-qa/*` por sha y lanza `workflow_dispatch` del workflow que realmente ejecuta el test. Sin PRs, sin tocar main. Idempotente (lock + clave rama@sha), reanuda lotes abiertos y reconcilia con GitHub. Tests: `python scripts/qa-gpt/test_qa_lote.py`.
+Requisito para ramas que modifican workflows: `gh auth refresh -s workflow`.

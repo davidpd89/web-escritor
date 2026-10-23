@@ -1,0 +1,219 @@
+"""Pruebas offline del lote EJECUTAR-ACTIONS (repo git local + remoto bare + GitHub simulado; sin red, sin GPT): python scripts/qa-gpt/test_qa_lote.py"""
+import json, os, subprocess, sys, tempfile, unittest
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import qa_gpt as q, qa_lote as L
+
+WF = "name: tool\\non:\\n  workflow_dispatch:\\n  pull_request:\\n    paths:\\n      - 'tests/**'\\njobs:\\n  t:\\n    steps:\\n      - run: |\\n          for f in tests/test-*.py; do python $f; done\\n".replace("\\n", "\n")
+OK_PY = "print('ok')\n"
+FAIL_PY = "import unittest\nclass T(unittest.TestCase):\n    def test_x(self): self.assertEqual(0, 1, 'DEFECTO')\nunittest.main()\n"
+INFRA_PY = "import sys; sys.stderr.write('Error: connect ECONNRESET 1.2.3.4\\n'); sys.exit(1)\n"
+BROKEN_PY = "def x(:\n"
+
+
+def g(*a, cwd):
+    r = subprocess.run(["git", "-c", "user.name=t", "-c", "user.email=t@t", *a], cwd=cwd, capture_output=True, text=True)
+    assert r.returncode == 0, (a, r.stderr)
+    return r.stdout.strip()
+
+
+class FakeGh:
+    """GitHub simulado: remoto en memoria, runs que avanzan con `tick()`."""
+    def __init__(self): self.remote, self.runs_, self.n, self.caido, self.scope = {}, [], 100, False, {"repo", "workflow"}; self.dispatches = []; self.pushes = []; self.log_text = "AssertionError: boom"
+    def _chk(self):
+        if self.caido: raise L.GhError("HTTP 502 simulado")
+    def ok(self): self._chk(); return True
+    def scopes(self): return self.scope
+    def remote_sha(self, rama): self._chk(); return self.remote.get(rama)
+    def push(self, sha, rama): self._chk(); self.remote[rama] = sha; self.pushes.append((rama, sha))
+    def runs(self, wf, rama): self._chk(); return [dict(r) for r in self.runs_ if r["wf"] == wf and r["rama"] == rama]
+    def run(self, rid): self._chk(); return next(dict(r) for r in self.runs_ if r["databaseId"] == rid)
+    def dispatch(self, wf, rama):
+        self._chk(); self.n += 1; self.dispatches.append((wf, rama))
+        self.runs_.append({"wf": wf, "rama": rama, "databaseId": self.n, "headSha": self.remote[rama], "status": "queued", "conclusion": None, "url": f"https://x/runs/{self.n}", "event": "workflow_dispatch"})
+    def log_failed(self, rid): return self.log_text
+    def tick(self, concl="success"):
+        for r in self.runs_:
+            if r["status"] == "queued": r["status"] = "in_progress"
+            elif r["status"] == "in_progress": r["status"], r["conclusion"] = "completed", concl
+
+
+class Base(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory(ignore_cleanup_errors=True); t = Path(self.tmp.name)
+        self.bare, self.src, q.STATE = t / "bare.git", t / "src", t / "state"
+        q.DB_PATH = q.STATE / "e.db"; q.Lock.path = q.STATE / "worker.lock"; q.ROOT = self.src; q.WT = q.STATE / "wt"
+        subprocess.run(["git", "init", "-q", "--bare", "-b", "main", str(self.bare)], check=True)
+        subprocess.run(["git", "init", "-q", "-b", "main", str(self.src)], check=True)
+        (self.src / ".github/workflows").mkdir(parents=True); (self.src / ".github/workflows/tool-tests.yml").write_text(WF); (self.src / "tests").mkdir()
+        (self.src / "tests/test-base.py").write_text(OK_PY)
+        g("add", "-A", cwd=self.src); g("commit", "-qm", "base", cwd=self.src); g("remote", "add", "origin", str(self.bare), cwd=self.src); g("push", "-q", "origin", "main", cwd=self.src); g("fetch", "-q", "origin", cwd=self.src)
+        self.c = q.db(); self.gh = FakeGh(); self.out = []; self.n = 0
+        self.cfg = {"poll_s": 0, "concurrencia": 2, "max_horas": 1, "node_modules": str(t / "no-nm"), "timeout_test_s": 60}
+
+    def tearDown(self):
+        self.c.close(); self.tmp.cleanup()
+
+    def preparar(self, nombre, contenido, categoria="regresion", workflow="tool-tests.yml", ruta=None):
+        """Crea rama gpt-qa/<nombre> con un commit de test y las filas ramas/propuestas como lo deja stage()."""
+        self.n += 1; ruta = ruta or f"tests/test-{nombre}.py"; rama = f"gpt-qa/{nombre}"
+        g("checkout", "-q", "-b", rama, "origin/main", cwd=self.src); (self.src / ruta).parent.mkdir(parents=True, exist_ok=True); (self.src / ruta).write_text(contenido); g("add", "-A", cwd=self.src); g("commit", "-qm", f"test {nombre}", cwd=self.src)
+        sha = g("rev-parse", "HEAD", cwd=self.src); g("checkout", "-q", "main", cwd=self.src)
+        datos = {"titulo": nombre, "categoria": categoria, "workflow": workflow, "ficheros_nuevos": [{"ruta": ruta, "contenido": contenido}]}
+        self.c.execute("INSERT INTO propuestas(id,huella,area,titulo,datos,estado,rama,creado,actualizado) VALUES(?,?,?,?,?,?,?,?,?)", (self.n, nombre, f"zona:{nombre}", nombre, json.dumps(datos), "preparada", rama, q.now(), q.now()))
+        self.c.execute("INSERT INTO ramas(rama,area,ruta,sha,estado) VALUES(?,?,?,?,?)", (rama, f"zona:{nombre}", "", sha, "preparada")); self.c.commit()
+        return rama, sha, self.n
+
+    def lote(self, gh=None, **cfg):
+        return L.Lote(q, gh or self.gh, sleep=lambda s: self.gh.tick(), out=self.out.append, cfg={**self.cfg, **cfg})
+
+    def estado(self, rama): return self.c.execute("SELECT estado FROM lote_items WHERE rama=? ORDER BY actualizado DESC", (rama,)).fetchone()[0]
+    def prop(self, pid): return self.c.execute("SELECT estado FROM propuestas WHERE id=?", (pid,)).fetchone()[0]
+
+
+class Lotes(Base):
+    def test_cero_pendientes(self):
+        self.assertEqual(self.lote().ejecutar(), 0)
+        self.assertEqual(self.c.execute("SELECT COUNT(*) FROM lote_items").fetchone()[0], 0); self.assertEqual(self.gh.pushes, [])
+
+    def test_un_test_correcto_llega_a_actions_ok(self):
+        rama, sha, pid = self.preparar("uno", OK_PY)
+        self.lote().ejecutar()
+        self.assertEqual(self.estado(rama), "actions_ok"); self.assertEqual(self.gh.pushes, [(rama, sha)]); self.assertEqual(self.gh.dispatches, [("tool-tests.yml", rama)])
+        self.assertEqual(self.prop(pid), "ejecutada")
+        self.assertEqual(g("rev-parse", "origin/main", cwd=self.src), g("rev-parse", "main", cwd=self.src))  # main intacto
+
+    def test_varios_y_doble_pulsacion_no_duplica(self):
+        for n in "abc": self.preparar(n, OK_PY)
+        self.lote().ejecutar(); d1, p1 = list(self.gh.dispatches), list(self.gh.pushes)
+        self.assertEqual(len(d1), 3)
+        self.lote().ejecutar()  # segundo clic
+        self.assertEqual(self.gh.dispatches, d1); self.assertEqual(self.gh.pushes, p1)
+        self.assertEqual(self.c.execute("SELECT COUNT(*) FROM lote_items").fetchone()[0], 3)
+
+    def test_defecto_real_se_registra_con_evidencia_y_no_gasta_actions(self):
+        rama, sha, pid = self.preparar("def", FAIL_PY, categoria="descubre_defecto")
+        self.lote().ejecutar()
+        it = self.c.execute("SELECT * FROM lote_items").fetchone()
+        self.assertEqual(it["estado"], "defecto_demostrado"); self.assertEqual(self.gh.dispatches, [])
+        log = Path(it["local_log"]).read_text(encoding="utf-8"); self.assertIn(sha, log); self.assertIn("DEFECTO", log)
+        self.assertEqual(self.prop(pid), "ejecutada")
+
+    def test_regresion_que_falla_es_fallo_de_test_no_defecto(self):
+        self.preparar("reg", FAIL_PY, categoria="regresion"); self.lote().ejecutar()
+        self.assertEqual(self.c.execute("SELECT estado FROM lote_items").fetchone()[0], "fallo_test")
+
+    def test_test_roto_de_sintaxis_es_fallo_de_test(self):
+        self.preparar("rot", BROKEN_PY); self.lote().ejecutar()
+        self.assertEqual(self.c.execute("SELECT estado FROM lote_items").fetchone()[0], "fallo_test")
+
+    def test_infra_local_se_reintenta_y_queda_infra(self):
+        self.preparar("inf", INFRA_PY); self.lote().ejecutar()
+        it = self.c.execute("SELECT * FROM lote_items").fetchone(); self.assertEqual(it["estado"], "infra"); self.assertEqual(it["local_clase"], "infra")
+        self.assertGreaterEqual(it["intentos"], 2)  # reintentos acotados
+
+    def test_actions_falla_con_aserciones_en_regresion_es_actions_fallida(self):
+        rama, _, _ = self.preparar("af", OK_PY); lo = self.lote(); lo.sleep = lambda s: self.gh.tick("failure"); lo.ejecutar()
+        self.assertEqual(self.estado(rama), "actions_fallida")
+
+    def test_actions_cancelado_es_infra(self):
+        rama, _, _ = self.preparar("ac", OK_PY); lo = self.lote(); lo.sleep = lambda s: self.gh.tick("cancelled"); lo.ejecutar()
+        self.assertEqual(self.estado(rama), "infra")
+
+    def test_workflow_en_curso_no_se_relanza_y_se_reconcilia(self):
+        rama, sha, _ = self.preparar("run", OK_PY)
+        self.gh.remote[rama] = sha; self.gh.n = 500; self.gh.runs_.append({"wf": "tool-tests.yml", "rama": rama, "databaseId": 777, "headSha": sha, "status": "in_progress", "conclusion": None, "url": "u", "event": "workflow_dispatch"})
+        self.lote().ejecutar()
+        self.assertEqual(self.gh.dispatches, []); self.assertEqual(self.estado(rama), "actions_ok")
+        self.assertEqual(json.loads(self.c.execute("SELECT runs FROM lote_items").fetchone()[0])["tool-tests.yml"]["id"], 777)
+
+    def test_no_cableado_va_a_revision_humana(self):
+        rama, _, _ = self.preparar("nc", OK_PY, ruta="qa/otro-browser.py"); self.lote().ejecutar()
+        it = self.c.execute("SELECT * FROM lote_items").fetchone(); self.assertEqual(it["estado"], "revision_humana"); self.assertIn("cableado", it["detalle"]); self.assertEqual(self.gh.dispatches, [])
+
+    def test_rama_que_toca_workflows_sin_scope(self):
+        rama, sha, _ = self.preparar("wf", OK_PY)
+        g("checkout", "-q", rama, cwd=self.src); (self.src / ".github/workflows/tool-tests.yml").write_text(WF + "# x\n"); g("commit", "-qam", "wf", cwd=self.src)
+        sha2 = g("rev-parse", "HEAD", cwd=self.src); g("checkout", "-q", "main", cwd=self.src)
+        self.c.execute("UPDATE ramas SET sha=? WHERE rama=?", (sha2, rama)); self.c.execute("UPDATE propuestas SET datos=json_set(datos,'$.ficheros_modificados',json('[{\"ruta\":\".github/workflows/tool-tests.yml\"}]'))"); self.c.commit()
+        self.gh.scope = {"repo"}; self.lote().ejecutar()
+        it = self.c.execute("SELECT * FROM lote_items").fetchone(); self.assertEqual(it["estado"], "revision_humana"); self.assertIn("workflow", it["detalle"]); self.assertEqual(self.gh.pushes, [])
+
+    def test_commit_que_toca_ficheros_no_declarados_se_rechaza(self):
+        rama, sha, _ = self.preparar("sucio", OK_PY)
+        g("checkout", "-q", rama, cwd=self.src); (self.src / "index.html").write_text("<html>"); g("add", "-A", cwd=self.src); g("commit", "-q", "--amend", "--no-edit", cwd=self.src)
+        sha2 = g("rev-parse", "HEAD", cwd=self.src); g("checkout", "-q", "main", cwd=self.src); self.c.execute("UPDATE ramas SET sha=?", (sha2,)); self.c.commit()
+        self.lote().ejecutar(); it = self.c.execute("SELECT * FROM lote_items").fetchone()
+        self.assertEqual(it["estado"], "revision_humana"); self.assertIn("no declarados", it["detalle"]); self.assertEqual(self.gh.pushes, [])
+
+    def test_github_caido_valida_local_y_reanuda_despues(self):
+        rama, _, pid = self.preparar("gh", OK_PY); self.gh.caido = True
+        self.lote().ejecutar()
+        self.assertEqual(self.estado(rama), "local_ok"); self.assertEqual(self.c.execute("SELECT estado FROM lotes").fetchone()[0], "en_curso")  # no se pierde
+        self.assertEqual(self.prop(pid), "aprobada")  # sin evidencia de Actions no se marca ejecutada
+        self.gh.caido = False; self.lote().ejecutar()
+        self.assertEqual(self.estado(rama), "actions_ok"); self.assertEqual(len(self.gh.dispatches), 1)
+
+    def test_interrupcion_tras_push_sin_run_registrado_se_recupera_sin_duplicar(self):
+        rama, sha, _ = self.preparar("int", OK_PY); lo = self.lote(); lo.abrir_lote(); it = lo.item(f"{rama}@{sha[:12]}")
+        lo.validar_local(it)
+        # el BAT murio justo despues de dispatch: estado `enviado` sin run id, pero el run existe en GitHub
+        self.gh.remote[rama] = sha; self.gh.n = 900
+        self.gh.runs_.append({"wf": "tool-tests.yml", "rama": rama, "databaseId": 901, "headSha": sha, "status": "in_progress", "conclusion": None, "url": "u", "event": "workflow_dispatch"})
+        lo.set(it["clave"], "enviado", "simulado"); lo.c.close()
+        self.lote().ejecutar()
+        self.assertEqual(self.gh.dispatches, []); self.assertEqual(self.estado(rama), "actions_ok")
+
+    def test_interrupcion_a_mitad_de_validacion_local_reanuda(self):
+        rama, sha, _ = self.preparar("mid", OK_PY); lo = self.lote(); lid = lo.abrir_lote()
+        lo.set(f"{rama}@{sha[:12]}", "validacion_local", "interrumpido"); lo.c.close()
+        self.lote().ejecutar(); self.assertEqual(self.estado(rama), "actions_ok")
+        self.assertEqual(self.c.execute("SELECT COUNT(*) FROM lotes").fetchone()[0], 1)  # mismo lote
+
+    def test_lo_generado_durante_el_lote_queda_para_el_siguiente(self):
+        rama1, _, _ = self.preparar("v1", OK_PY); lo = self.lote(); orig = lo.validar_local; nuevo = {}
+        def mientras(it):
+            if not nuevo: nuevo["r"] = self.preparar("v2", OK_PY)  # el servicio genera una propuesta nueva en pleno lote
+            return orig(it)
+        lo.validar_local = mientras; lo.ejecutar()
+        self.assertEqual(self.estado(rama1), "actions_ok"); self.assertEqual(self.prop(nuevo["r"][2]), "preparada"); self.assertEqual(len(self.gh.dispatches), 1)
+        self.lote().ejecutar(); self.assertEqual(self.estado(nuevo["r"][0]), "actions_ok"); self.assertEqual(len(self.gh.dispatches), 2)
+
+    def test_misma_rama_con_sha_nuevo_es_item_nuevo_y_conserva_el_viejo(self):
+        rama, sha, _ = self.preparar("re", OK_PY); self.lote().ejecutar()
+        g("checkout", "-q", rama, cwd=self.src); (self.src / "tests/test-re2.py").write_text(OK_PY); g("add", "-A", cwd=self.src); g("commit", "-qm", "m", cwd=self.src)
+        sha2 = g("rev-parse", "HEAD", cwd=self.src); g("checkout", "-q", "main", cwd=self.src)
+        self.c.execute("INSERT INTO propuestas(id,huella,area,titulo,datos,estado,rama,creado,actualizado) VALUES(50,'h','a','t',?,?,?,?,?)",
+                       (json.dumps({"categoria": "regresion", "ficheros_nuevos": [{"ruta": "tests/test-re2.py"}]}), "preparada", rama, q.now(), q.now()))
+        self.c.execute("UPDATE ramas SET sha=?,estado='preparada' WHERE rama=?", (sha2, rama)); self.c.commit()
+        self.lote().ejecutar()
+        self.assertEqual(self.c.execute("SELECT COUNT(*) FROM lote_items").fetchone()[0], 2); self.assertEqual(len(self.gh.dispatches), 2)
+
+    def test_lock_impide_dos_lotes_simultaneos(self):
+        with L.LoteLock(q):
+            (q.STATE / "lote.lock").write_text(f"{os.getpid() + 0} x")  # el propio pid se tolera; simulamos otro vivo con el padre
+            (q.STATE / "lote.lock").write_text(f"{os.getppid()} x")
+            if q.pid_alive(os.getppid()):
+                with self.assertRaises(SystemExit): L.LoteLock(q).__enter__()
+
+    def test_panel_resume_el_lote(self):
+        for n in ("p", "d"): self.preparar(n, OK_PY if n == "p" else FAIL_PY, categoria="regresion" if n == "p" else "descubre_defecto")
+        self.lote().ejecutar(); txt = "\n".join(L.bloque_estado(q, self.c))
+        for k in ("Lote Actions", "Correctos: 1", "Defectos demostrados: 1", "Tests preparados pendientes: 0", "Ultimo lote", "Ultima ejecucion"): self.assertIn(k, txt)
+
+
+class Clasificacion(unittest.TestCase):
+    def test_clasificar(self):
+        c = L.Lote.clasificar
+        self.assertEqual(c(None, 0, "ok", "regresion"), "local_ok")
+        self.assertEqual(c(None, 1, "AssertionError: x", "descubre_defecto"), "defecto_demostrado")
+        self.assertEqual(c(None, 1, "AssertionError [ERR_ASSERTION]", "regresion"), "fallo_test")
+        self.assertEqual(c(None, 1, "Error: Cannot find package 'playwright'", "regresion"), "sin_entorno")
+        self.assertEqual(c(None, 1, "connect ECONNRESET", "regresion"), "infra")
+        self.assertEqual(c(None, 1, "SyntaxError", "regresion"), "fallo_test")
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=1)

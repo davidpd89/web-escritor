@@ -58,6 +58,7 @@ def db():
     CREATE TABLE IF NOT EXISTS ramas(rama TEXT PRIMARY KEY, area TEXT, ruta TEXT, sha TEXT, estado TEXT, pr INTEGER, url TEXT);
     """)
     cob.migrar(c); cob.sembrar_tecnicas(c, CFG, now())
+    import qa_lote; qa_lote.migrar(c)
     return c
 
 def pid_alive(pid):
@@ -561,7 +562,8 @@ def stage(c):
             git("commit", "-q", "-m", f"test(qa-gpt/{area}): {len(done)} tests preparados por revision GPT\n\n" + "\n".join("- " + t for t in done) +
                 "\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>", cwd=wt)
             cmds = sorted({json.loads(x["datos"]).get("como_ejecutar") or "" for x in rows if x["area"] == area})
-            c.execute("INSERT OR REPLACE INTO ramas(rama,area,ruta,sha,estado,pr,url,base_sha,comandos) VALUES(?,?,?,?,?,NULL,NULL,?,?)",
+            c.execute("INSERT INTO ramas(rama,area,ruta,sha,estado,pr,url,base_sha,comandos) VALUES(?,?,?,?,?,NULL,NULL,?,?) "
+                      "ON CONFLICT(rama) DO UPDATE SET sha=excluded.sha,comandos=excluded.comandos,estado=CASE WHEN ramas.estado IN ('publicada','ejecutada') THEN ramas.estado ELSE 'preparada' END",
                       (branch, area, str(wt), git("rev-parse", "HEAD", cwd=wt), "preparada", base[:10], json.dumps([x for x in cmds if x])))
             print(f"  rama local {branch}: {len(done)} propuestas (sin push, sin tests)")
         c.commit()
@@ -645,7 +647,7 @@ def cmd_status(a):
     print(f"  Ultima actividad correcta: {sv.get('ultimo_ok') or '(ninguna)'} | ultimo error: {sv.get('ultimo_error') or '(ninguno)'}")
     ts = sh(["powershell", "-NoProfile", "-Command", f"try{{(Get-ScheduledTask -TaskName {TASK} -ErrorAction Stop).State}}catch{{'no existe'}}"], check=False)
     print(f"Tarea programada heredada {TASK}: {ts} (el servicio NO usa horarios)")
-    print(f"Ejecucion de tests/Actions: {'AUTORIZADA hoy' if autorizada() else 'DESACTIVADA (requiere autorizar-noche + lote-nocturno --confirmar)'}")
+    print(f"Ejecucion de tests/Actions: {'AUTORIZADA hoy' if autorizada() else 'solo al pulsar EJECUTAR-ACTIONS-QA-GPT.bat (el servicio nunca los ejecuta)'}")
     print("Cola:", {r[0]: r[1] for r in c.execute("SELECT estado,COUNT(*) FROM jobs GROUP BY estado")})
     rean = c.execute("SELECT id,tipo,area,chat_id,error FROM jobs WHERE chat_id IS NOT NULL AND estado='pendiente' AND respuesta IS NULL").fetchall()
     for r in rean: print(f"  reanudable job{r[0]} {r[1]} {r[2]} chat {str(r[3])[:8]} ({(r[4] or '')[:70]})")
@@ -658,7 +660,7 @@ def cmd_status(a):
     utiles = q("SELECT COUNT(*) FROM propuestas WHERE estado IN ('aceptada','preparada','aprobada','publicada','ejecutada','informe')")
     print(f"Peticiones a ChatGPT: hoy {usadas}, total {tot} (sin cupo configurado; solo cuentan los limites reales de la cuenta)")
     n = lambda *es: q(f"SELECT COUNT(*) FROM propuestas WHERE estado IN ({','.join('?' * len(es))})", *es)
-    defectos = q("SELECT COUNT(*) FROM propuestas WHERE estado IN ('ejecutada','publicada') AND datos LIKE '%descubre_defecto%true%'")
+    defectos = q("SELECT COUNT(*) FROM lote_items WHERE estado='defecto_demostrado'")  # antes: LIKE '%descubre_defecto%true%' no casaba nunca (0 eterno)
     print(f"Ciclo de vida: descubiertas {q('SELECT COUNT(*) FROM propuestas')} | esperando PASS B {n('propuesta')} | con veredicto PASS B {q('SELECT COUNT(*) FROM propuestas WHERE veredicto IS NOT NULL AND estado<>?', 'propuesta')} "
           f"(aceptadas {n('aceptada', 'preparada', 'aprobada', 'publicada', 'ejecutada', 'informe')}, en revision {n('revisar')}, bloqueadas {n('bloqueada')}, rechazadas {n('rechazada', 'invalida', 'descartada', 'duplicada')}) | "
           f"parches generados {q('SELECT COUNT(*) FROM ramas')} | en rama local (STAGED) {n('preparada')} | ejecutadas {n('ejecutada', 'publicada')} | defectos de producto confirmados {defectos}")
@@ -668,8 +670,12 @@ def cmd_status(a):
     el = elegir_modo(c)
     print(f"Proxima ronda: {'modo ' + el[0] + ' -> ' + el[1] if el else 'todo en descanso'} (a partir de la hora de la tarea)")
     print(f"Tests preparados (rama local, sin ejecutar): {q('SELECT COUNT(*) FROM propuestas WHERE estado=?', 'preparada')} | aprobados esperando noche: {q('SELECT COUNT(*) FROM propuestas WHERE estado=?', 'aprobada')} | ejecutados/validados: {q('SELECT COUNT(*) FROM propuestas WHERE estado IN (?,?)', 'ejecutada', 'publicada')}")
+    vivas = set()
+    for j in c.execute("SELECT payload FROM jobs WHERE estado IN ('pendiente','en_curso','manual') AND tipo IN ('B','R')"):
+        p = json.loads(j[0]); vivas.update(p.get("ids") or [p.get("id")])
     for r in c.execute("SELECT id,estado,siguiente,titulo FROM propuestas WHERE estado IN ('revisar','bloqueada','invalida','propuesta')"):
-        print(f"  ATASCADA? #{r['id']} [{r['estado']}] {r['titulo'][:55]} -> {r['siguiente'] or 'SIN SIGUIENTE PASO (se reconcilia en la proxima ronda)'}")
+        tag = "EN COLA " if r["id"] in vivas else ("BLOQUEADA (decide David)" if r["estado"] in ("bloqueada", "invalida") else "ESPERA (se reconcilia en la proxima ronda)")
+        print(f"  {tag} #{r['id']} [{r['estado']}] {r['titulo'][:55]} -> {r['siguiente'] or '-'}")
     prob = [r for r in c.execute("SELECT id,error FROM jobs WHERE estado='pendiente' AND error IS NOT NULL")]
     print("Sesion/navegador:", "; ".join(f"job{r['id']}: {r['error'][:60]}" for r in prob) if prob else "sin incidencias pendientes")
     inf = edge_info(); tabs = tabs_chatgpt()
@@ -680,6 +686,7 @@ def cmd_status(a):
     for modo in dict.fromkeys(CFG["ciclo"]):
         sc, clave, pl = candidates(c, modo)[0]; print(f"  siguiente {modo:<9} {clave:<34} {'(en descanso)' if sc < 0 else f'prioridad {sc:.1f}'}")
     for r in c.execute("SELECT id,tipo,area,error FROM jobs WHERE estado='error' ORDER BY id DESC LIMIT 5"): print(f"  ERROR job{r[0]} {r[1]} {r[2]}: {r[3]}")
+    import qa_lote; print(chr(10).join(qa_lote.bloque_estado(sys.modules[__name__], c)))
 
 def respaldar(c):
     """Copia consistente del estado fuera del repo (sqlite backup API); conserva las 7 ultimas."""
@@ -1017,7 +1024,7 @@ def cmd_nightly(a):
     for r, num, sha in out:
         runs = gh_json("run", "list", "-R", repo, "--branch", r["rama"], "--commit", sha, "--json", "workflowName,databaseId")
         have = {x["workflowName"] for x in runs}
-        wfs = {json.loads(p["datos"]).get("workflow") for p in c.execute("SELECT datos FROM propuestas WHERE rama=?", (r["rama"],))} - {None, "", "null"}
+        wfs = {Path(w).name for w in (json.loads(p["datos"]).get("workflow") for p in c.execute("SELECT datos FROM propuestas WHERE rama=?", (r["rama"],))) if w and w != "null"}
         for wf in sorted(wfs):
             f = ROOT / ".github/workflows" / wf
             if not f.exists(): print(f"  workflow desconocido {wf}"); continue
@@ -1098,6 +1105,7 @@ def main():
     add(["autorizar-noche"], cmd_autorizar)
     add(["nightly-run", "lote-nocturno"], cmd_nightly, (["--confirmar"], dict(action="store_true")))
     add(["morning-report", "informe-matinal"], cmd_morning)
+    add(["ejecutar-actions"], lambda a: __import__("qa_lote").main(sys.modules[__name__], a))
     a = ap.parse_args()
     return ALIAS[a.cmd](a)
 
