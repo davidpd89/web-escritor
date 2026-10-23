@@ -13,7 +13,9 @@ spec=importlib.util.spec_from_file_location("builder",ROOT/"scripts"/"build-edit
 builder=importlib.util.module_from_spec(spec);assert spec.loader;spec.loader.exec_module(builder)
 payload=json.loads((ROOT/"data"/"editoriales.json").read_text(encoding="utf-8"))
 base=next(r for r in payload["publishers"] if r.get("publish") is True)
-today=date(2026,10,5)
+# Fecha de referencia = la verificación más reciente de los datos; una fecha fija
+# convierte cada reverificación legítima en "futuro" y rompe el test.
+today=max(date.fromisoformat(r[k]) for r in payload["publishers"] for k in ("verified_at","page_updated_at"))
 
 def expect_invalid(record:dict,needle:str)->None:
     try:
