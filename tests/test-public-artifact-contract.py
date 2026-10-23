@@ -159,6 +159,17 @@ def main() -> None:
         assert not builder.is_publishable("apoyar/index.html", fixture)
         assert assetsignore_blocks("apoyar/index.html")
 
+        # URL incorrecta y registros malformados: siempre cerrado, nunca abierto.
+        registry["entries"] = [dict(support, url="/apoyar")]
+        write_registry()
+        assert not builder.is_publishable("apoyar/index.html", fixture)
+        registry["entries"] = [dict(support, url="https://example.com/apoyar/")]
+        write_registry()
+        assert not builder.is_publishable("apoyar/index.html", fixture)
+        for malformed in ('{"entries": "apoyar"}', '{"entries": ["x", 1, null]}', '[]'):
+            registry_path.write_text(malformed, encoding="utf-8")
+            assert builder.support_page_authorized(fixture) is False, malformed
+
     assert "!/pagefind/" in rendered
     assert "/press-kit/package-manifest.json" in rendered
     assert "**/wrangler*.jsonc" in rendered

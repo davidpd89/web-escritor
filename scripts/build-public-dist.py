@@ -201,8 +201,11 @@ def support_page_authorized(root: Path) -> bool:
     sus contratos ni el comportamiento de otras secciones.
     """
     data = registry_data(root)
-    support = [entry for entry in data.get("entries", [])
-               if entry.get("id") == "support-project"]
+    entries = data.get("entries", []) if isinstance(data, dict) else []
+    if not isinstance(entries, list):
+        return False
+    support = [entry for entry in entries
+               if isinstance(entry, dict) and entry.get("id") == "support-project"]
     return (
         len(support) == 1
         and support[0].get("url") == "/apoyar/"

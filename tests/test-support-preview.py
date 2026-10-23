@@ -83,8 +83,10 @@ def main() -> None:
     assert "lab" in sitemap.EXCLUDE_DIRS
     with tempfile.TemporaryDirectory() as tmp:
         fixture = Path(tmp)
-        (fixture / "index.html").write_text(
-            '<link rel="canonical" href="https://davidportodiaz.com/" />',
+        control = fixture / "control" / "index.html"
+        control.parent.mkdir(parents=True)
+        control.write_text(
+            '<link rel="canonical" href="https://davidportodiaz.com/control/" />',
             encoding="utf-8",
         )
         preview = fixture / "lab" / "donaciones-preview" / "index.html"
@@ -94,7 +96,8 @@ def main() -> None:
             encoding="utf-8",
         )
         sitemap_urls = sitemap.collect_urls(fixture)
-        assert "https://davidportodiaz.com/" in sitemap_urls
+        # El control prueba que el walker funciona: sin él, "ausente" sería vacuo.
+        assert "https://davidportodiaz.com/control/" in sitemap_urls
         assert "https://davidportodiaz.com/apoyar/" not in sitemap_urls
 
     print("support-preview: OK (shell real, noindex y cero checkout; sin publicación)")
