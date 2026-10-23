@@ -85,6 +85,9 @@ jobs:
       - name: Verify generated site shell is current
         run: python scripts/build-site-shell.py --check
 
+      - name: Verify public HTML safety invariants
+        run: python scripts/check-public-html-safety.py
+
       - name: Verify no public email exposure
         run: python scripts/audit-public-email-exposure.py --strict
 
