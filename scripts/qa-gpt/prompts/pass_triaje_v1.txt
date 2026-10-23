@@ -1,0 +1,11 @@
+[TRIAJE · web-escritor] Repo davidpd89/web-escritor, rama main, commit {{HEAD_SHA}}; lee el codigo con tu conector de GitHub.
+Estos tests de QA han fallado al ejecutarse (item {{ITEM}}). Para cada fallo decide, leyendo el codigo del sitio y el del test, si es:
+- "defecto_web": el sitio incumple lo que el test comprueba, y el test es razonable;
+- "test_roto": el test es incorrecto (selector, supuesto falso, falso positivo);
+- "flaky": depende de tiempos/red/navegador;
+- "infraestructura": fallo del entorno (servidor, dependencia, permisos).
+Agrupa los fallos por causa raiz (un grupo puede abarcar varias propuestas). Para defecto_web propone un arreglo concreto y reproducible (fichero, cambio, comando que lo verifica); NO lo apliques. Para test_roto indica como reparar el test.
+
+FALLOS: {{FALLOS}}
+
+Responde SOLO JSON valido: {"grupos":[{"causa_raiz":"...","clase":"defecto_web|test_roto|flaky|infraestructura","propuestas":[ids],"evidencia":"cita del log/codigo","reproduccion":"comando y resultado esperado","arreglo_propuesto":"..."}]}

@@ -141,6 +141,9 @@ class Planificador(unittest.TestCase):
     def test_json_con_texto_alrededor(self):
         self.assertEqual(q.load_json_block('hola ```json\n{"a": 1}\n``` adios'), {"a": 1})
         with self.assertRaises(ValueError): q.load_json_block("sin json")
+        # ChatGPT envuelve a veces la respuesta en <CodeBlock>: con plantilla JS escapada o con JSON directo
+        self.assertEqual(q.load_json_block('<CodeBlock language="json" editable>{`{"a": "x\\\\b", "b": 2}`}</CodeBlock>'), {"a": "x\b", "b": 2})
+        self.assertEqual(q.load_json_block('<CodeBlock language="json" editable={true}>\n{"a": 1}\n</CodeBlock>'), {"a": 1})
 
     def test_autorizacion_congela_lote(self):
         q.AUTORIZ = q.STATE / "aut"

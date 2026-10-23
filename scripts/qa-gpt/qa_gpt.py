@@ -59,6 +59,7 @@ def db():
     """)
     cob.migrar(c); cob.sembrar_tecnicas(c, CFG, now()); c.commit()
     import qa_lote; qa_lote.migrar(c)
+    import qa_triaje; qa_triaje.migrar(c)
     return c
 
 def pid_alive(pid):
@@ -99,7 +100,15 @@ class Lock:
 
 def flag(name): return (STATE / name).exists()
 
+def _desenvolver_codeblock(text):
+    """ChatGPT a veces entrega <CodeBlock ...>{`json`}</CodeBlock>: plantilla JS con \\, \` y \$ escapados."""
+    m = re.search(r"<CodeBlock[^>]*>\s*\{`(.*)`\s*\}\s*</CodeBlock>", text, re.S)
+    if not m:  # variante sin plantilla: <CodeBlock ...>{json}</CodeBlock>
+        return re.sub(r"</?CodeBlock[^>]*>", "", text)
+    return re.sub(r"\\([\\`$])", r"\1", m.group(1))
+
 def load_json_block(text):
+    text = _desenvolver_codeblock(text)
     t = re.sub(r"```(?:json)?", "", text)
     i, j = t.find("{"), t.rfind("}")
     if i < 0 or j < i: raise ValueError("sin bloque JSON")
@@ -258,6 +267,8 @@ def prompt_for(job, c):
     """Prompt compacto SIN adjuntos: el Project lee el repo por GitHub; solo se le dan rutas y contexto minimo."""
     p = json.loads(job["payload"]); head = git("rev-parse", "--short", "origin/main")
     modo, ident = job["area"].split(":", 1)
+    if job["tipo"] == "T":
+        import qa_triaje; return qa_triaje.prompt(sys.modules[__name__], job, c)
     if job["tipo"] == "A":
         blk = {"zona": "modo_zona", "tipo": "modo_tipo", "audit": "modo_auditoria", "familia": "modo_familia", "cambio": "modo_cambio"}[modo]
         tpl = (HERE / "prompts" / f"{blk}.txt").read_text(encoding="utf-8")
@@ -430,6 +441,9 @@ def fallo(c, job, err, nuevo_chat=True):
 def ingest_answer(c, job, answer, herramientas):
     data = load_json_block(answer)
     if not isinstance(data, dict): raise ValueError("la respuesta no es un objeto JSON")
+    if job["tipo"] == "T":
+        import qa_triaje; qa_triaje.ingest(sys.modules[__name__], c, job, data)
+        c.execute("UPDATE jobs SET estado='hecho',error=NULL,actualizado=? WHERE id=?", (now(), job["id"])); c.commit(); return
     n_leidos = validar_lectura(data, herramientas)
     area = job["area"]
     if job["tipo"] == "R":
@@ -791,6 +805,11 @@ def trabajador_vivo():
 def paso_servicio(c):
     """Un paso del bucle continuo: ejecuta el siguiente job o elige objetivo nuevo. True=hizo trabajo; 'limite'/('login',msg)=esperar; False=nada ejecutable."""
     job = next_job(c)
+    if job is None:  # fallos sin triar: un job T por tanda (el servicio nunca ejecuta tests; solo analiza los ya fallados)
+        import qa_triaje
+        for it in qa_triaje.pendientes(c):
+            enqueue(c, "T", "triaje:" + it["item"].split("@")[0].split("/")[-1], it, "T:" + it["item"])
+        job = next_job(c)
     if job is None:
         elegido = elegir_modo(c)
         if elegido:
@@ -1130,6 +1149,7 @@ def main():
     add(["nightly-run", "lote-nocturno"], cmd_nightly, (["--confirmar"], dict(action="store_true")))
     add(["morning-report", "informe-matinal"], cmd_morning)
     add(["ejecutar-actions"], lambda a: __import__("qa_lote").main(sys.modules[__name__], a))
+    add(["triaje"], lambda a: __import__("qa_triaje").cmd_triaje(sys.modules[__name__], a))
     add(["contratos"], cmd_contratos, (["--completo"], dict(action="store_true")))
     add(["coste-actions"], lambda a: __import__("qa_coste").main(sys.modules[__name__], a))
     add(["migrar-datos"], cmd_migrar_datos, (["--ensayo"], dict(action="store_true")))
