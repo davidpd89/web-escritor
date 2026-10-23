@@ -12,7 +12,7 @@ import html
 import json
 import re
 import sys
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 from PIL import Image
@@ -383,6 +383,52 @@ def amazon_action_label(b):
 MONTHS_ES = ('', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre')
 
 
+ICS_PATH = 'recomendaciones/proximos-lanzamientos.ics'
+
+
+def data_anchor(books):
+    """Fecha de referencia derivada de los datos (no del reloj): la salida es determinista."""
+    return max((b.get('fecha_actualizacion') or b.get('fecha_verificacion') or '' for b in books), default='')
+
+
+def upcoming_books(books):
+    anchor = data_anchor(books)
+    return sorted((b for b in books if b.get('fecha_publicacion', '') > anchor), key=lambda b: (b['fecha_publicacion'], b['titulo']))
+
+
+def ics_text(value):
+    BS = chr(92)
+    return str(value).replace(BS, BS * 2).replace(chr(10), BS + 'n').replace(',', BS + ',').replace(';', BS + ';')
+
+
+def ics_fold(line):
+    out, cur = [], ''
+    for ch in line:
+        if len((cur + ch).encode('utf-8')) > 75:
+            out.append(cur)
+            cur = ' ' + ch
+        else:
+            cur += ch
+    out.append(cur)
+    return (chr(13) + chr(10)).join(out)
+
+
+def render_release_ics(books):
+    """Calendario .ics de próximos lanzamientos (eventos de día completo)."""
+    stamp = data_anchor(books).replace('-', '')
+    lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//David Porto Diaz//Proximos lanzamientos//ES', 'CALSCALE:GREGORIAN',
+             'METHOD:PUBLISH', 'X-WR-CALNAME:Próximos lanzamientos de libros recomendados']
+    for b in upcoming_books(books):
+        d = date.fromisoformat(b['fecha_publicacion'])
+        lines += ['BEGIN:VEVENT', 'UID:' + b['id'].lower() + '@davidportodiaz.com', 'DTSTAMP:' + stamp + 'T000000Z',
+                  'DTSTART;VALUE=DATE:' + d.strftime('%Y%m%d'), 'DTEND;VALUE=DATE:' + (d + timedelta(days=1)).strftime('%Y%m%d'),
+                  'SUMMARY:' + ics_text('Sale a la venta: ' + b['titulo']),
+                  'DESCRIPTION:' + ics_text(', '.join(b['autores']) + ' · ' + (b.get('editorial') or '')),
+                  'URL:' + SITE + url(b), 'END:VEVENT']
+    lines += ['END:VCALENDAR', '']
+    return (chr(13) + chr(10)).join(ics_fold(line) for line in lines)
+
+
 def publication_date_label(b):
     """Never manufacture a precise release day from year/month metadata."""
     exact = b.get('fecha_publicacion')
@@ -485,8 +531,8 @@ def render_book(data,b,template):
     title=book_title(b)
     description=synopsis(b)
     cats=categories(data,b)
-    rows=[('Edición',b['edicion']),('Editorial',b.get('editorial')),('Publicación',publication_date_label(b)),('ISBN-13',b.get('isbn13')),('Idioma',b.get('idioma')),('Páginas',b.get('numero_paginas')),('PVP editorial',pvp_label(b) if b.get('pvp_centimos') else None),('Edad orientativa',b.get('edad_recomendada'))]
-    details='<details class="catalogue-details"><summary>Datos de esta edición</summary><dl>'+''.join(f'<dt>{esc(k)}</dt><dd>' + (publisher_link(b) if k == 'Editorial' and (b.get('editorial_slug') or b.get('editorial_catalogo_slug')) else esc(v)) + '</dd>' for k,v in rows if v)+'</dl></details>'
+    rows=[('Edición',b['edicion']),('Editorial',b.get('editorial')),('Publicación',publication_date_label(b)+(' · <a href="/'+ICS_PATH+'">Añadir al calendario</a>' if b in upcoming_books(data['libros']) else '')),('ISBN-13',b.get('isbn13')),('Idioma',b.get('idioma')),('Páginas',b.get('numero_paginas')),('PVP editorial',pvp_label(b) if b.get('pvp_centimos') else None),('Edad orientativa',b.get('edad_recomendada'))]
+    details='<details class="catalogue-details"><summary>Datos de esta edición</summary><dl>'+''.join(f'<dt>{esc(k)}</dt><dd>' + (publisher_link(b) if k == 'Editorial' and (b.get('editorial_slug') or b.get('editorial_catalogo_slug')) else (esc(v.split(' · <a ')[0]) + ' · <a ' + v.split(' · <a ')[1] if k == 'Publicación' and ' · <a ' in v else esc(v))) + '</dd>' for k,v in rows if v)+'</dl></details>'
     fragment=''  # Audio and samples are not rendered until all editions can support them.
     reviews=approved_reviews_for(b)
     extra=render_approved_reviews(reviews)
@@ -715,6 +761,7 @@ def main():
         for p in active_publishers:
             outputs[publisher_url(p).lstrip('/') + 'index.html'] = render_publisher(p, data, books, template, {a['nombre'] for a in authors})
         outputs['recomendaciones/editoriales/index.html'] = render_publishers_index(catalogue_publishers, books, template)
+        outputs[ICS_PATH] = render_release_ics(books)
         existing = root / 'recomendaciones/libros'
         orphans = [p for p in existing.glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
         orphans += [p for p in (root / 'recomendaciones/autores').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
@@ -729,11 +776,12 @@ def main():
         drift = []
         for rel, text in outputs.items():
             target = root / rel
-            if not target.exists() or target.read_text(encoding='utf-8') != text:
+            current = None if not target.exists() else (target.read_bytes().decode('utf-8') if rel.endswith('.ics') else target.read_text(encoding='utf-8'))
+            if current != text:
                 drift.append(rel)
                 if not args.check:
                     target.parent.mkdir(parents=True, exist_ok=True)
-                    target.write_text(text, encoding='utf-8', newline='\n')
+                    (target.write_bytes(text.encode('utf-8')) if rel.endswith('.ics') else target.write_text(text, encoding='utf-8', newline='\n'))
         require(not args.check or not drift, 'Catálogo desactualizado: ' + ', '.join(drift))
         print(f'Catálogo OK: {len(books)} libros publicados; {len(drift)} archivos {"pendientes" if args.check else "actualizados"}.')
         return 0
