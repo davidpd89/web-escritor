@@ -427,7 +427,8 @@ def upcoming_books(books):
 
 def ics_text(value):
     BS = chr(92)
-    return str(value).replace(BS, BS * 2).replace(chr(10), BS + 'n').replace(',', BS + ',').replace(';', BS + ';')
+    normalized = str(value).replace(chr(13) + chr(10), chr(10)).replace(chr(13), chr(10))
+    return normalized.replace(BS, BS * 2).replace(chr(10), BS + 'n').replace(',', BS + ',').replace(';', BS + ';')
 
 
 def ics_fold(line):
