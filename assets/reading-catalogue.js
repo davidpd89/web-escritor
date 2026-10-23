@@ -58,8 +58,11 @@
     }
   }
   const values = () => ({...Object.fromEntries(fields.map(f => [f.dataset.filter, f.disabled ? '' : f.value])), ...Object.fromEntries(FACETS.map(k => [k, boxes.filter(b => b.dataset.facet === k && b.checked).map(b => b.value)]))});
-  const matchingOffers = (card, v) => offersFor(card.dataset.bookId).filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.precio_min || o.precio_centimos >= Math.round(Number(v.precio_min) * 100)) && (!v.precio_max || o.precio_centimos <= Math.round(Number(v.precio_max) * 100)) && (!v.descuento || discount(o) >= Number(v.descuento)));
-  const minPrice = (card, v) => { const o = matchingOffers(card, v); return o.length ? Math.min(...o.map(x => x.precio_centimos)) : null; };
+  const matchingOffers = (card, v) => offersFor(card.dataset.bookId).filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.descuento || discount(o) >= Number(v.descuento)));
+  // El precio que se filtra y ordena es el PVP de la edición publicada por la editorial: siempre disponible y comparable.
+  const pvpOf = card => Number(card.dataset.pvp) || null;
+  const priceOk = (card, v) => { const c = pvpOf(card); return (!v.precio_min || (c !== null && c >= Math.round(Number(v.precio_min) * 100))) && (!v.precio_max || (c !== null && c <= Math.round(Number(v.precio_max) * 100))); };
+  const minPrice = card => pvpOf(card);
   function renderMarket() {
     offersIndex = new Map(); ratingsIndex = new Map();
     for (const offer of market.offers.filter(validOffer)) {
@@ -74,16 +77,17 @@
     for (const box of root.querySelectorAll('[data-rating-book]')) {
       const r = ratingFor(box.dataset.ratingBook); box.replaceChildren();
       if (!r) {
-        // Sin valoración pública verificada: se dice tal cual y se enlaza a la ficha del ISBN.
+        // Sin valoración pública verificada: Goodreads con cinco estrellas vacías y 0,0 (0), enlazado a la ficha del ISBN.
         if (/^\d{13}$/.test(box.dataset.isbn || '')) {
           const none = document.createElement('a'); none.href = 'https://www.goodreads.com/book/isbn/' + box.dataset.isbn; none.target = '_blank'; none.rel = 'noopener noreferrer';
-          none.textContent = 'Aún sin valoraciones públicas · Ver en Goodreads ↗'; box.append(none);
+          const empty = document.createElement('span'); empty.className = 'catalogue-stars'; empty.setAttribute('aria-hidden', 'true'); empty.style.setProperty('--rating', '0%'); empty.textContent = '★★★★★';
+          none.append('Goodreads ', empty, ' 0,0 (0)'); none.setAttribute('aria-label', 'Goodreads: aún sin valoraciones públicas'); box.append(none);
         }
         continue;
       }
       const link = document.createElement('a'); link.href = r.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
       const stars = document.createElement('span'); stars.className = 'catalogue-stars'; stars.setAttribute('aria-hidden', 'true'); stars.style.setProperty('--rating', r.puntuacion / 5 * 100 + '%'); stars.textContent = '★★★★★';
-      link.append(stars, ' ' + r.puntuacion.toLocaleString('es-ES') + '/5 · ' + ratingLabel(r) + ' · ' + r.numero_valoraciones.toLocaleString('es-ES') + ' valoraciones'); link.title = 'Consultado el ' + new Date(r.actualizado_en).toLocaleDateString('es-ES'); box.append(link);
+      link.append(ratingLabel(r) + ' ', stars, ' ' + r.puntuacion.toLocaleString('es-ES', {minimumFractionDigits: 1}) + ' (' + r.numero_valoraciones.toLocaleString('es-ES') + ')'); link.title = 'Consultado el ' + new Date(r.actualizado_en).toLocaleDateString('es-ES'); box.append(link);
     }
     for (const f of root.querySelectorAll('[data-market-control]')) {
       f.disabled = !market[f.dataset.marketControl].some(f.dataset.marketControl === 'offers' ? validOffer : validRating);
@@ -99,7 +103,7 @@
       const lower = published || (month ? month + '-01' : year ? year + '-01-01' : '');
       const upper = published || (month ? new Date(Date.UTC(Number(month.slice(0, 4)), Number(month.slice(5)), 0)).toISOString().slice(0, 10) : year ? year + '-12-31' : '');
       const pages = Number(card.dataset.pages), range = !pages ? 'sin-dato' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga';
-      return normalize(card.dataset.search).includes(normalize(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !pick(v[k]).length || pick(v[k]).some(x => cats.includes(x))) && (!pick(v.grupo).length || pick(v.grupo).includes(card.dataset.group)) && (!pick(v.formato).length || pick(v.formato).some(x => formats.has(x))) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && (!(v.precio_min || v.precio_max || v.descuento) || matchingOffers(card, v).length > 0);
+      return normalize(card.dataset.search).includes(normalize(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !pick(v[k]).length || pick(v[k]).some(x => cats.includes(x))) && (!pick(v.grupo).length || pick(v.grupo).includes(card.dataset.group)) && (!pick(v.formato).length || pick(v.formato).some(x => formats.has(x))) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
   }
   // Cada filtro cuenta sus opciones con el resto de filtros aplicados (sin el suyo): una opcion sin libros se atenua y nunca se oculta si esta marcada.
   const cardFacets = new Map(cards.map(card => [card, {}]));
