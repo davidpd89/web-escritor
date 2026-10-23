@@ -24,14 +24,15 @@ JSON Schema comprueba formas, no existencia de claves externas ni que una fuente
 
 **Visibilidad:** permitir POIs culturales (librería, biblioteca) con fuente propia aunque no tengan novela relacionada. Las conexiones a novelas/rodajes/autores tienen evidencia individual y estado propio.
 
-### Ejecución de revisión pendiente
+### Ejecución de revisión
 
 ```sh
-# SOLO cuando se reactive QA local/CI:
-python -m unittest tests/test_atlas_contract_check.py
-python scripts/atlas_contract_check.py ruta/a/snapshot-interno.json
-# Validar también schemas/atlas/catalogue-v1.schema.json con JSON Schema 2020-12
+pip install jsonschema==4.26.0   # solo para la capa JSON Schema de las pruebas
+python -m unittest discover -s tests -p 'test_atlas_contract_*.py'
+python scripts/atlas_contract_check.py ruta/a/snapshot-interno.json   # 0 ok, 1 fallos, 2 JSON ilegible
 ```
+
+Dos capas complementarias: `tests/test_atlas_contract_schema.py` valida el schema con un validador real Draft 2020-12 (con `format: date`); el gate Python cubre lo que JSON Schema no puede expresar (referencias, estados aprobado/candidato, slugs únicos, parada de ruta del mismo destino). El workflow `atlas-contract.yml` las ejecuta en cada cambio de estos ficheros.
 
 ## No metas estos cambios en un cron automáticamente
 
@@ -57,10 +58,16 @@ Las decisiones de esquema vigentes están en [ADR-000](https://github.com/davidp
 
 ## Auditoría correctiva posterior (21/10/2026)
 
-El gate Python anterior podía **aprobar un lugar con una fuente que solo tuviera `id`**, sin título, fecha ni evidencia, porque comprobaba únicamente la existencia de `source_ids`. Ya está corregido: para lugares y relaciones `approved`, cada fuente referenciada exige URL HTTPS, título, `retrieved_at` y `evidence_summary`; una imagen `approved` no puede apuntar a un lugar `candidate`. Las listas `author_ids`, `source_ids`, `image_ids` y `place_ids` malformadas generan errores de contrato, no excepciones inesperadas. **13 pruebas sintéticas escritas, NO ejecutadas**.
+El gate Python anterior podía **aprobar un lugar con una fuente que solo tuviera `id`**, sin título, fecha ni evidencia, porque comprobaba únicamente la existencia de `source_ids`. Ya está corregido: para lugares y relaciones `approved`, cada fuente referenciada exige URL HTTPS, título, `retrieved_at` y `evidence_summary`; una imagen `approved` no puede apuntar a un lugar `candidate`. Las listas `author_ids`, `source_ids`, `image_ids` y `place_ids` malformadas generan errores de contrato, no excepciones inesperadas. 13 pruebas sintéticas, ejecutadas.
 
 La comprobación Python sigue siendo **suplementaria**, no sustituye a JSON Schema 2020-12 ni verifica que la URL responda 200 o que el texto fuente sea legalmente reproducible. El constructor HTML #672 conserva su propio gate provisional y deberá reutilizar el contrato de 9 colecciones durante la integración. No afirmar mergeable hasta QA.
 
 ### URL de fuente: bloqueo adicional
 
-El parser `urlsplit` más una regex para espacios/control exige **URL HTTPS con hostname**, sin credenciales incrustadas ni puertos ajenos a 443 para fuentes aprobadas. Esto corrige un caso que antes pasaba: la cadena `https://` cumplía un simple `startswith('https://')` pese a no ser un enlace válido. **14 casos sintéticos escritos, no ejecutados**. La comprobación de que un sitio externo responde y licencia material sigue pendiente de QA con permisos.
+El parser `urlsplit` más una regex para espacios/control exige **URL HTTPS con hostname**, sin credenciales incrustadas ni puertos ajenos a 443 para fuentes aprobadas. Esto corrige un caso que antes pasaba: la cadena `https://` cumplía un simple `startswith('https://')` pese a no ser un enlace válido. **14 casos sintéticos, ejecutados**. La comprobación de que un sitio externo responde y licencia material sigue pendiente de QA con permisos.
+
+### Hallazgos de compatibilidad verificados (23/10/2026)
+
+- [#673](https://github.com/davidpd89/web-escritor/pull/673) `atlas_overture_to_contract.py` escribe `overture_confidence: row.get("provider_confidence")`; si el proveedor no la trae emite `null`, que el schema rechaza (`type: number`). Debe omitir la clave cuando es `None`. Salida por lo demás schema-válida como `places` candidatas (probado con la forma del fragmento).
+- [#672](https://github.com/davidpd89/web-escritor/pull/672) mantiene su gate propio (aprobado + `verified_at` + HTTPS); es menos estricto que este contrato (no comprueba slugs únicos, paradas del mismo destino ni fechas reales). Debe reutilizar `atlas_contract_check.problems()` antes de renderizar.
+- `works.reading_book_id`: los IDs de `data/reading-catalogue.json` (63) cumplen el patrón de ID del contrato; la existencia/`estado=publicado` del libro la comprueba #672 con `--reading-catalogue`, no este gate.

@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -35,6 +36,21 @@ def valid_https_url(url: object) -> bool:
         return False
 
 
+def valid_date(value: object) -> bool:
+    """Real ISO calendar date (YYYY-MM-DD); the schema regex alone accepts 2026-13-45."""
+    if not isinstance(value, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
+        return False
+    try:
+        date.fromisoformat(value)
+    except ValueError:
+        return False
+    return True
+
+
+def has_text(value: object) -> bool:
+    return isinstance(value, str) and bool(value.strip())
+
+
 APPROVED = "approved"
 COLLECTIONS = ("destinations", "places", "works", "authors", "adaptations",
                "sources", "relationships", "images", "routes")
@@ -42,7 +58,8 @@ COLLECTIONS = ("destinations", "places", "works", "authors", "adaptations",
 
 def problems(data: dict) -> list[str]:
     errors: list[str] = []
-    if not isinstance(data, dict) or data.get("schema_version") != 1:
+    if (not isinstance(data, dict) or data.get("schema_version") != 1
+            or isinstance(data.get("schema_version"), bool)):
         return ["schema_version debe ser 1"]
     tables: dict[str, dict[str, dict]] = {}
     for category in COLLECTIONS:
@@ -65,6 +82,16 @@ def problems(data: dict) -> list[str]:
             table[eid] = entry
         tables[category] = table
 
+    for category in ("destinations", "places", "routes"):
+        seen: dict[str, str] = {}
+        for entry in tables[category].values():
+            slug = entry.get("slug")
+            if isinstance(slug, str):
+                if slug in seen:
+                    errors.append(f"{category}: slug duplicado {slug!r} en {seen[slug]} y {entry['id']}")
+                else:
+                    seen[slug] = entry["id"]
+
     def require(category: str, key: object, scope: str) -> None:
         if not isinstance(key, str) or key not in tables[category]:
             errors.append(f"{scope}: referencia {category}={key!r} no existe")
@@ -84,10 +111,19 @@ def problems(data: dict) -> list[str]:
         src = tables["sources"].get(source_id)
         if src is None:
             return  # require() ya informa de referencia inexistente
-        if not all(src.get(k) for k in ("url", "title", "retrieved_at", "evidence_summary")):
+        if not all(has_text(src.get(k)) for k in ("url", "title", "retrieved_at", "evidence_summary")):
             errors.append(f"{scope}: fuente {source_id!r} requiere URL, título, fecha y evidencia")
+        elif not valid_date(src["retrieved_at"]):
+            errors.append(f"{scope}: fuente {source_id!r} tiene retrieved_at que no es una fecha real")
         elif not valid_https_url(src["url"]):
             errors.append(f"{scope}: fuente {source_id!r} requiere URL HTTPS")
+
+    for dest in tables["destinations"].values():
+        parent = dest.get("parent_id")
+        if parent is not None:
+            require("destinations", parent, f"destinations/{dest['id']}")
+            if parent == dest["id"]:
+                errors.append(f"destinations/{dest['id']}: parent_id no puede ser el propio destino")
 
     for place in tables["places"].values():
         scope = f"places/{place['id']}"
@@ -101,26 +137,35 @@ def problems(data: dict) -> list[str]:
         if lon is not None and (not isinstance(lon, (int, float)) or isinstance(lon, bool)
                                 or not -180 <= lon <= 180):
             errors.append(scope + ": longitude fuera de rango")
-        if place.get("geo_precision") == "unlocated" and lat is not None:
+        if place.get("geo_precision") == "unlocated" and (lat is not None or lon is not None):
             errors.append(scope + ": unlocated no admite coordenadas")
+        if place.get("geo_precision") in ("point", "building") and (lat is None or lon is None):
+            errors.append(scope + ": point/building requiere coordenadas")
         if place.get("status") == APPROVED:
-            if not place.get("summary_original") or not place.get("source_ids"):
+            if not has_text(place.get("summary_original")) or not place.get("source_ids"):
                 errors.append(scope + ": aprobado requiere texto original y fuente")
             require_approved("destinations", place.get("destination_id"), scope)
         for image_id in id_list(place.get("image_ids", []), scope, "image_ids"):
             require("images", image_id, scope)
+            image = tables["images"].get(image_id)
+            if image is not None and image.get("place_id") != place["id"]:
+                errors.append(f"{scope}: image_ids={image_id!r} pertenece a otro lugar")
         for source_id in id_list(place.get("source_ids", []), scope, "source_ids"):
             require("sources", source_id, scope)
             if place.get("status") == APPROVED:
                 check_source_evidence(source_id, scope)
-        if place.get("osm_id") and not place.get("osm_type"):
-            errors.append(scope + ": osm_id requiere osm_type")
+        if bool(place.get("osm_id")) != bool(place.get("osm_type")):
+            errors.append(scope + ": osm_id y osm_type deben aparecer juntos")
 
     for work in tables["works"].values():
         for author_id in id_list(work.get("author_ids", []), f"works/{work['id']}", "author_ids"):
             require("authors", author_id, f"works/{work['id']}")
+            if work.get("status") == APPROVED:
+                require_approved("authors", author_id, f"works/{work['id']}")
     for adaptation in tables["adaptations"].values():
         require("works", adaptation.get("original_work_id"), f"adaptations/{adaptation['id']}")
+        if adaptation.get("status") == APPROVED:
+            require_approved("works", adaptation.get("original_work_id"), f"adaptations/{adaptation['id']}")
     for relation in tables["relationships"].values():
         scope = f"relationships/{relation['id']}"
         require("places", relation.get("place_id"), scope)
@@ -148,7 +193,7 @@ def problems(data: dict) -> list[str]:
                     require_approved(table, relation.get("subject_id"), scope)
             for source_id in source_ids:
                 check_source_evidence(source_id, scope)
-            if not relation.get("verified_at") or not relation.get("evidence_note"):
+            if not valid_date(relation.get("verified_at")) or not has_text(relation.get("evidence_note")):
                 errors.append(scope + ": aprobado exige fecha y evidencia")
             if typ == "popular_claim_unverified":
                 errors.append(scope + ": mito no verificado nunca puede aprobarse")
@@ -157,8 +202,10 @@ def problems(data: dict) -> list[str]:
         require("places", image.get("place_id"), scope)
         if image.get("status") == APPROVED:
             require_approved("places", image.get("place_id"), scope)
-            if not all(image.get(k) for k in ("license", "license_url", "attribution", "source_url")):
+            if not all(has_text(image.get(k)) for k in ("license", "license_url", "attribution", "source_url")):
                 errors.append(scope + ": imagen aprobada sin derechos/atribución")
+            elif not (valid_https_url(image["source_url"]) and valid_https_url(image["license_url"])):
+                errors.append(scope + ": imagen aprobada requiere URLs HTTPS válidas")
     for route in tables["routes"].values():
         scope = f"routes/{route['id']}"
         require("destinations", route.get("destination_id"), scope)
@@ -167,14 +214,21 @@ def problems(data: dict) -> list[str]:
             errors.append(scope + ": paradas duplicadas")
         for stop in stops:
             require("places", stop, scope)
+            stop_place = tables["places"].get(stop)
+            if stop_place is not None and stop_place.get("destination_id") != route.get("destination_id"):
+                errors.append(f"{scope}: parada {stop!r} pertenece a otro destino")
             if route.get("status") == APPROVED:
                 require_approved("places", stop, scope)
         if route.get("status") == APPROVED:
             require_approved("destinations", route.get("destination_id"), scope)
     for section in ("destinations", "places", "works", "authors", "adaptations", "routes"):
         for item in tables[section].values():
-            if item.get("status") == APPROVED and not item.get("verified_at"):
+            if item.get("status") != APPROVED:
+                continue
+            if not item.get("verified_at"):
                 errors.append(f"{section}/{item['id']}: aprobación sin verified_at")
+            elif not valid_date(item["verified_at"]):
+                errors.append(f"{section}/{item['id']}: verified_at no es una fecha real")
     return errors
 
 
@@ -182,7 +236,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("catalogue", type=Path, help="JSON de trabajo, NO público")
     args = parser.parse_args()
-    data = json.loads(args.catalogue.read_text(encoding="utf-8"))
+    try:
+        data = json.loads(args.catalogue.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        print(f"ERROR: no se puede leer el JSON: {exc}")
+        return 2
     failures = problems(data)
     for failure in failures:
         print("ERROR: " + failure)

@@ -96,13 +96,29 @@
         },
         "verified_at": {
           "type": "string",
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "format": "date"
         }
       },
       "required": [
         "id",
         "status"
-      ]
+      ],
+      "if": {
+        "properties": {
+          "status": {
+            "const": "approved"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "verified_at"
+        ]
+      }
     },
     "destination": {
       "allOf": [
@@ -156,7 +172,8 @@
             }
           }
         }
-      ]
+      ],
+      "unevaluatedProperties": false
     },
     "place": {
       "allOf": [
@@ -291,9 +308,101 @@
               "maximum": 1,
               "description": "Calidad del registro proveedor NO certeza literaria"
             }
-          }
+          },
+          "dependentRequired": {
+            "latitude": [
+              "longitude"
+            ],
+            "longitude": [
+              "latitude"
+            ],
+            "osm_id": [
+              "osm_type"
+            ],
+            "osm_type": [
+              "osm_id"
+            ]
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "geo_precision": {
+                    "enum": [
+                      "point",
+                      "building"
+                    ]
+                  }
+                },
+                "required": [
+                  "geo_precision"
+                ]
+              },
+              "then": {
+                "required": [
+                  "latitude",
+                  "longitude"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "geo_precision": {
+                    "const": "unlocated"
+                  }
+                },
+                "required": [
+                  "geo_precision"
+                ]
+              },
+              "then": {
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "latitude"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "longitude"
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "approved"
+                  }
+                },
+                "required": [
+                  "status"
+                ]
+              },
+              "then": {
+                "required": [
+                  "summary_original",
+                  "source_ids"
+                ],
+                "properties": {
+                  "summary_original": {
+                    "pattern": "\\S"
+                  },
+                  "source_ids": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
         }
-      ]
+      ],
+      "unevaluatedProperties": false
     },
     "work": {
       "allOf": [
@@ -341,7 +450,8 @@
             }
           }
         }
-      ]
+      ],
+      "unevaluatedProperties": false
     },
     "author": {
       "allOf": [
@@ -372,7 +482,8 @@
             }
           }
         }
-      ]
+      ],
+      "unevaluatedProperties": false
     },
     "adaptation": {
       "allOf": [
@@ -408,7 +519,8 @@
             }
           }
         }
-      ]
+      ],
+      "unevaluatedProperties": false
     },
     "source": {
       "type": "object",
@@ -442,7 +554,8 @@
         },
         "retrieved_at": {
           "type": "string",
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "format": "date"
         },
         "source_kind": {
           "enum": [
@@ -561,7 +674,8 @@
         },
         "verified_at": {
           "type": "string",
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "format": "date"
         },
         "chapter_reference": {
           "type": "string"
@@ -579,7 +693,161 @@
         "reviewer_note_private": {
           "type": "string"
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "approved"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "verified_at"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "approved"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "relationship_type": {
+                "not": {
+                  "const": "popular_claim_unverified"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "relationship_type": {
+                "const": "narrative_explicit"
+              }
+            },
+            "required": [
+              "relationship_type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "subject_type": {
+                "const": "work"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "relationship_type": {
+                "const": "inspiration_documented"
+              }
+            },
+            "required": [
+              "relationship_type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "subject_type": {
+                "const": "work"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "relationship_type": {
+                "const": "filming_location"
+              }
+            },
+            "required": [
+              "relationship_type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "subject_type": {
+                "const": "adaptation"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "relationship_type": {
+                "const": "author_public_history"
+              }
+            },
+            "required": [
+              "relationship_type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "subject_type": {
+                "const": "author"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "relationship_type": {
+                "const": "literary_homage"
+              }
+            },
+            "required": [
+              "relationship_type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "subject_type": {
+                "const": "work"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "relationship_type": {
+                "const": "popular_claim_unverified"
+              }
+            },
+            "required": [
+              "relationship_type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "subject_type": {
+                "const": "work"
+              }
+            }
+          }
+        }
+      ]
     },
     "image": {
       "type": "object",
@@ -677,7 +945,8 @@
             }
           }
         }
-      ]
+      ],
+      "unevaluatedProperties": false
     }
   }
 }
