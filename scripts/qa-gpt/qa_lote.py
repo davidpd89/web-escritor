@@ -6,7 +6,7 @@ Flujo por item: preparada -> validacion_local -> local_ok | fallo_test | defecto
 Nunca toca main, nunca abre/fusiona PRs: empuja SOLO la rama gpt-qa/* (sha exacto) y lanza el workflow que ejecuta el test (workflow_dispatch).
 `q` = modulo qa_gpt (inyectado); `gh` y `runner` se sustituyen en las pruebas.
 """
-import datetime as dt, fnmatch, json, os, re, socket, subprocess, sys, time
+import sqlite3, datetime as dt, fnmatch, json, os, re, socket, subprocess, sys, time
 from pathlib import Path
 import qa_cobertura as cob
 
@@ -98,7 +98,7 @@ class Lote:
         self.cfg = {"concurrencia": 2, "max_horas": 8, "poll_s": 30, "timeout_test_s": 300, "reintentos_infra": 3, "puerto_estatico": 4173,
                     "node_modules": r"C:\GIT\web-escritor\node_modules", "actions_siempre": False, **q.CFG.get("lote", {}), **(cfg or {})}
         self.dir = q.STATE / "lote"; self.dir.mkdir(parents=True, exist_ok=True)
-        self.c = q.db()
+        self.c = q.db(); self.c.execute("PRAGMA busy_timeout=180000")
 
     # ---------- persistencia ----------
     def git(self, *a, check=True): return self.q.git(*a, cwd=self.q.ROOT, check=check)  # ROOT en tiempo de llamada (las pruebas lo redirigen)
@@ -111,8 +111,14 @@ class Lote:
     def set(self, clave, estado, detalle=None, **extra):
         cols = {"estado": estado, "actualizado": self.q.now(), **extra}
         if detalle is not None: cols["detalle"] = detalle[:600]
-        self.c.execute(f"UPDATE lote_items SET {','.join(k + '=?' for k in cols)} WHERE clave=?", (*cols.values(), clave))
-        self.c.execute("INSERT INTO lote_hist VALUES(?,?,?,?)", (clave, self.q.now(), estado, (detalle or "")[:300])); self.c.commit()
+        for intento in range(6):  # el worker escribe en la misma base: un bloqueo transitorio no debe tumbar el lote
+            try:
+                self.c.execute(f"UPDATE lote_items SET {','.join(k + '=?' for k in cols)} WHERE clave=?", (*cols.values(), clave))
+                self.c.execute("INSERT INTO lote_hist VALUES(?,?,?,?)", (clave, self.q.now(), estado, (detalle or "")[:300])); self.c.commit(); break
+            except sqlite3.OperationalError:
+                self.c.rollback()
+                if intento == 5: raise
+                self.sleep(5)
         self.log(f"{clave.split('@')[0].replace('gpt-qa/', '')}: {estado}" + (f" - {detalle[:140]}" if detalle else ""))
 
     def item(self, clave): return self.c.execute("SELECT * FROM lote_items WHERE clave=?", (clave,)).fetchone()

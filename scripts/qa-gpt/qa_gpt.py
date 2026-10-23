@@ -57,7 +57,7 @@ def db():
     CREATE TABLE IF NOT EXISTS peticiones(fecha TEXT, hora TEXT, tipo TEXT, area TEXT, chars_in INTEGER, chars_out INTEGER, ok INTEGER);
     CREATE TABLE IF NOT EXISTS ramas(rama TEXT PRIMARY KEY, area TEXT, ruta TEXT, sha TEXT, estado TEXT, pr INTEGER, url TEXT);
     """)
-    cob.migrar(c); cob.sembrar_tecnicas(c, CFG, now())
+    cob.migrar(c); cob.sembrar_tecnicas(c, CFG, now()); c.commit()
     import qa_lote; qa_lote.migrar(c)
     return c
 
@@ -848,6 +848,7 @@ def cmd_servicio(a):
                     vacias += 1
                     prox = c.execute("SELECT MIN(no_antes) FROM jobs WHERE estado='pendiente'").fetchone()[0]
                     seg = 600 if not prox else max(15, min(600, (dt.datetime.fromisoformat(prox) - _ahora()).total_seconds()))
+                    c.commit()  # no dormir con una transaccion abierta: bloquearia a EJECUTAR
                     marcar(estado="esperando", tarea=None, area=None, hasta=(_ahora() + dt.timedelta(seconds=seg)).isoformat(timespec="seconds"))
                     if vacias == 1: print(f"{now()} Sin trabajo util ahora: espera {int(seg)} s")
                     dormir(seg)
@@ -982,7 +983,7 @@ def cmd_recuperar(a):
 def cmd_ingest(a):
     c = db(); job = c.execute("SELECT * FROM jobs WHERE id=?", (a.job,)).fetchone()
     ingest_answer(c, job, Path(a.fichero).read_text(encoding="utf-8"), None)
-    if job["tipo"] == "B": stage(c)
+    if job["tipo"] == "B" or (job["tipo"] == "A" and lote_activo()): stage(c)
 
 
 # ---------- noche y manana: SOLO manual ----------
