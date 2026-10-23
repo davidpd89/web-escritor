@@ -34,6 +34,7 @@ import html
 import json
 import re
 import shutil
+from html.parser import HTMLParser
 import subprocess
 import sys
 from pathlib import Path
@@ -50,9 +51,22 @@ MANIFEST_NAME = "eligible-manifest.json"
 # every single search result would also match "Explorar" navigation text.
 EXCLUDE_SELECTORS = "header.site-header, dialog.explore-dialog, footer.site-footer"
 
-ROBOTS_NOINDEX_RE = re.compile(
-    r'<meta\s+name=["\']robots["\']\s+content=["\'][^"\']*noindex', re.IGNORECASE
-)
+class RobotsMetaParser(HTMLParser):
+    """Read noindex tokens regardless of HTML attribute order or quoting."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.noindex = False
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() != "meta":
+            return
+        values = {key.lower(): value or "" for key, value in attrs}
+        if values.get("name", "").strip().casefold() != "robots":
+            return
+        directives = re.split(r"[,\s]+", values.get("content", "").casefold().strip())
+        if "noindex" in directives:
+            self.noindex = True
 
 
 def git_tracked_html(root: Path) -> list[str]:
@@ -74,7 +88,11 @@ def load_registry_by_source(root: Path) -> dict[str, dict]:
 
 
 def is_noindex(text: str) -> bool:
-    return bool(ROBOTS_NOINDEX_RE.search(text))
+    if "<meta" not in text.lower():
+        return False
+    parser = RobotsMetaParser()
+    parser.feed(text)
+    return parser.noindex
 
 
 # Internal, non-page HTML: build-time fragments, test fixtures/templates --
