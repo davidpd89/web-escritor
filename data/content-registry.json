@@ -5208,6 +5208,96 @@
       "sourceFile": "recomendaciones/libros/todo-bajo-control-menos-tu-9788467083378/index.html"
     },
     {
+      "id": "reading-book-isbn-9788467083316",
+      "url": "/recomendaciones/libros/las-mitford-9788467083316/",
+      "label": "Las Mitford",
+      "shortLabel": "Las Mitford",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/las-mitford-9788467083316/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788466380096",
+      "url": "/recomendaciones/libros/quiza-si-quiero-edicion-limitada-verano-quererte-2-9788466380096/",
+      "label": "Quizá sí quiero (edición limitada · Verano) (Quererte 2)",
+      "shortLabel": "Quizá sí quiero (edición limitada · Verano) (Quererte 2)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/quiza-si-quiero-edicion-limitada-verano-quererte-2-9788466380096/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788466685344",
+      "url": "/recomendaciones/libros/la-buena-muerte-9788466685344/",
+      "label": "La buena muerte",
+      "shortLabel": "La buena muerte",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-buena-muerte-9788466685344/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788401040740",
+      "url": "/recomendaciones/libros/el-crimen-de-la-navidad-9788401040740/",
+      "label": "El crimen de la Navidad",
+      "shortLabel": "El crimen de la Navidad",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/el-crimen-de-la-navidad-9788401040740/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788408074496",
+      "url": "/recomendaciones/libros/regreso-al-reino-de-la-fantasia-9788408074496/",
+      "label": "Regreso al Reino de la Fantasía",
+      "shortLabel": "Regreso al Reino de la Fantasía",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/regreso-al-reino-de-la-fantasia-9788408074496/index.html"
+    },
+    {
       "id": "reading-author-neil-gaiman",
       "url": "/recomendaciones/autores/neil-gaiman/",
       "label": "Neil Gaiman",
@@ -6376,6 +6466,96 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/autores/megan-maxwell/index.html"
+    },
+    {
+      "id": "reading-author-carmen-posadas",
+      "url": "/recomendaciones/autores/carmen-posadas/",
+      "label": "Carmen Posadas",
+      "shortLabel": "Carmen Posadas",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/carmen-posadas/index.html"
+    },
+    {
+      "id": "reading-author-violeta-reed",
+      "url": "/recomendaciones/autores/violeta-reed/",
+      "label": "Violeta Reed",
+      "shortLabel": "Violeta Reed",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/violeta-reed/index.html"
+    },
+    {
+      "id": "reading-author-pedro-feijoo",
+      "url": "/recomendaciones/autores/pedro-feijoo/",
+      "label": "Pedro Feijoo",
+      "shortLabel": "Pedro Feijoo",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/pedro-feijoo/index.html"
+    },
+    {
+      "id": "reading-author-modesto-garcia",
+      "url": "/recomendaciones/autores/modesto-garcia/",
+      "label": "Modesto García",
+      "shortLabel": "Modesto García",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/modesto-garcia/index.html"
+    },
+    {
+      "id": "reading-author-geronimo-stilton",
+      "url": "/recomendaciones/autores/geronimo-stilton/",
+      "label": "Geronimo Stilton",
+      "shortLabel": "Geronimo Stilton",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/geronimo-stilton/index.html"
     },
     {
       "id": "reading-publisher-aguilar",

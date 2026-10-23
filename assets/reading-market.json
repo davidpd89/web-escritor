@@ -1,6 +1,18 @@
 {
   "schema_version": 1,
-  "offers": [],
+  "offers": [
+    {
+      "libro_id": "isbn-9788408326380",
+      "formato": "tapa-dura",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2270,
+      "url": "https://www.amazon.es/dp/8408326384?tag=davidporto-21",
+      "actualizado_en": "2026-10-23T11:02:26Z",
+      "caduca_en": "2026-10-24T11:02:26Z",
+      "precio_referencia_centimos": 2390
+    }
+  ],
   "ratings": [
     {
       "libro_id": "isbn-9788401036897",

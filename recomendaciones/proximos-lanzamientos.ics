@@ -6,7 +6,7 @@ METHOD:PUBLISH
 X-WR-CALNAME:Próximos lanzamientos de libros recomendados
 BEGIN:VEVENT
 UID:isbn-9788467083378@davidportodiaz.com
-DTSTAMP:20261022T000000Z
+DTSTAMP:20261023T000000Z
 DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261029
 SUMMARY:Sale a la venta: Todo bajo control\, menos tú
@@ -15,8 +15,28 @@ URL:https://davidportodiaz.com/recomendaciones/libros/todo-bajo-control-men
  os-tu-9788467083378/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788466685344@davidportodiaz.com
+DTSTAMP:20261023T000000Z
+DTSTART;VALUE=DATE:20261029
+DTEND;VALUE=DATE:20261030
+SUMMARY:Sale a la venta: La buena muerte
+DESCRIPTION:Pedro Feijoo · Ediciones B
+URL:https://davidportodiaz.com/recomendaciones/libros/la-buena-muerte-97884
+ 66685344/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788401040740@davidportodiaz.com
+DTSTAMP:20261023T000000Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:Sale a la venta: El crimen de la Navidad
+DESCRIPTION:Modesto García · Plaza & Janés
+URL:https://davidportodiaz.com/recomendaciones/libros/el-crimen-de-la-navid
+ ad-9788401040740/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9791388092268@davidportodiaz.com
-DTSTAMP:20261022T000000Z
+DTSTAMP:20261023T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Ponte fino
