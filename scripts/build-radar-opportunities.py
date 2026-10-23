@@ -401,6 +401,10 @@ def build_ics(items, today):
         lines.extend([
             "BEGIN:VEVENT",
             f"UID:{item['id']}@davidportodiaz.com",
+            # RFC 5545 requires DTSTAMP on each VEVENT. Pin it to the last
+            # verified civil date (UTC midnight) rather than the runner clock:
+            # unchanged source evidence must regenerate identical bytes.
+            f"DTSTAMP:{iso_date(item['verified_at'], 'verified_at'):%Y%m%d}T000000Z",
             f"DTSTART;VALUE=DATE:{deadline:%Y%m%d}",
             f"DTEND;VALUE=DATE:{deadline + timedelta(days=1):%Y%m%d}",
             f"SUMMARY:{ics_escape(item['title'])}",
