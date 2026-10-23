@@ -16,10 +16,18 @@ sys.path.insert(0,str(ROOT/"scripts"))
 from site_clock import site_today
 builder=importlib.util.module_from_spec(spec);assert spec.loader;spec.loader.exec_module(builder)
 payload=json.loads((ROOT/"data"/"editoriales.json").read_text(encoding="utf-8"))
-base=next(r for r in payload["publishers"] if r.get("publish") is True)
+real_today=site_today()
 # Fecha civil Europe/Madrid; inyectable con SITE_TODAY=YYYY-MM-DD. Nunca se deriva
 # de los datos: así un registro con fecha futura no puede validarse a sí mismo.
-today=date.fromisoformat(os.environ["SITE_TODAY"]) if os.environ.get("SITE_TODAY") else site_today()
+today=date.fromisoformat(os.environ["SITE_TODAY"]) if os.environ.get("SITE_TODAY") else real_today
+# Registro base coherente con `today` (sea cual sea): las mutaciones solo pueden
+# fallar por el motivo que prueban, no porque los datos reales sean "futuro".
+base=copy.deepcopy(next(r for r in payload["publishers"] if r.get("publish") is True))
+base["verified_at"]=(today-timedelta(days=10)).isoformat()
+base["page_updated_at"]=(today-timedelta(days=5)).isoformat()
+for h in base["history"]:
+    h["date"]=(today-timedelta(days=20)).isoformat()
+builder.validate_record(copy.deepcopy(base),set(),today)
 
 def expect_invalid(record:dict,needle:str)->None:
     try:
@@ -46,9 +54,9 @@ expect_invalid(history_after_page,"no puede ser posterior")
 # Los datos reales no pueden estar fechados después de hoy (Madrid).
 for r in payload["publishers"]:
     for k in ("verified_at","page_updated_at"):
-        assert date.fromisoformat(r[k])<=today,f"{r.get('slug')}.{k} en el futuro respecto a {today}"
+        assert date.fromisoformat(r[k])<=real_today,f"{r.get('slug')}.{k} en el futuro respecto a {real_today}"
     for h in r.get("history",[]):
-        assert date.fromisoformat(h["date"])<=today,f"{r.get('slug')} history en el futuro respecto a {today}"
+        assert date.fromisoformat(h["date"])<=real_today,f"{r.get('slug')} history en el futuro respecto a {real_today}"
 
 # Regresión negativa: con hoy inyectado anterior a la verificación más reciente, se rechaza.
 latest=max(date.fromisoformat(r["page_updated_at"]) for r in payload["publishers"] if r.get("publish") is True)
