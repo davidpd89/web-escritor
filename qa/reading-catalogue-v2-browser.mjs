@@ -63,13 +63,13 @@ try {
       await page.getByRole('button',{name:'Me da igual, continuar',exact:true}).click();
     }
     await page.getByRole('button',{name:'Ver mis resultados',exact:true}).click();
-    assert.equal(await page.locator('[data-filter="temporada"]').inputValue(),'halloween');
+    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
     assert.equal(await page.locator('[data-filter="novedad"]').inputValue(),'15');
     assert(await page.locator('[data-catalogue-book]:visible').count()>0);
     const selected=await page.locator('[data-catalogue-book]:visible').evaluateAll(es=>es.map(e=>({cats:e.dataset.categories,date:e.dataset.published})));
     assert(selected.every(b=>b.cats.split(' ').includes('halloween')));
     await page.reload({waitUntil:'networkidle'});
-    assert.equal(await page.locator('[data-filter="temporada"]').inputValue(),'halloween');
+    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
     assert.deepEqual(errors,[]);
     results.push({books:count,filter_ms:Math.round(ms),quiz_results:selected.length});
     await context.close();

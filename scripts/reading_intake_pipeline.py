@@ -28,6 +28,8 @@ from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
 from reading_taxonomy import extra_categories
 from reading_catalogue_publishers import catalogue_publisher, PublisherError
+from reading_planeta_source import COVER_HOSTS as PLANETA_COVER_HOSTS, planeta_edition, planeta_links
+from urllib.parse import urlsplit
 from reading_author_wikipedia import WikipediaSummaries, fill_missing_bios
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -272,15 +274,32 @@ def author_identity_conflicts(record,state):
             if profile.fullmatch(source) and name in known and source not in known[name]]
 
 
+REVIEWED_PROVIDERS = {'penguin': ['www.penguinlibros.com'], 'planeta': ['www.planetadelibros.com']}
+
+
+def provider_of(url, providers):
+    host = urlsplit(url).hostname
+    return next((s for s in providers if host in s['hosts']), None)
+
+
+def discover_links(source, document, index):
+    return planeta_links(document, index) if source['provider'] == 'planeta' else product_links(document, index)
+
+
+def read_edition(source, document, url):
+    return planeta_edition(document, url) if source['provider'] == 'planeta' else penguin_edition(document, url)
+
+
 def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False, today=None):
     today = today or datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
     day = date.fromisoformat(today)
     if config.get('schema_version') != 1 or not config.get('enabled'):
         raise SourceError('La ingesta editorial no está habilitada')
     providers = [p for p in config['sources'] if p.get('enabled')]
-    if any(p['provider'] != 'penguin' or p['hosts'] != ['www.penguinlibros.com'] for p in providers):
+    if any(REVIEWED_PROVIDERS.get(p['provider']) != p['hosts'] for p in providers):
         raise SourceError('Conector editorial no revisado')
-    http = CachedHTTP(cache / 'http', ['www.penguinlibros.com'], budget=max_requests or config['max_requests'], delay=config['request_delay_seconds'])
+    fetch_hosts = [h for p in providers for h in p['hosts']] + (list(PLANETA_COVER_HOSTS) if any(p['provider'] == 'planeta' for p in providers) else [])
+    http = CachedHTTP(cache / 'http', fetch_hosts, budget=max_requests or config['max_requests'], delay=config['request_delay_seconds'])
     catalogue = read_json(root / 'data/reading-catalogue.json')
     authors = read_json(root / 'data/reading-authors.json')
     registry = read_json(root / 'data/editoriales.json')
@@ -293,6 +312,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
     publishers = {p['slug']: p for p in allowed}
     existing = {b.get('isbn13') for b in catalogue['libros']}
     by_isbn = {b.get('isbn13'): b for b in catalogue['libros']}
+    known_urls = {b['fuente_bibliografica_url']: b['isbn13'] for b in catalogue['libros'] if b.get('fuente_bibliografica_url')}
     works = {work_key(b['titulo'], b['autores']) for b in catalogue['libros']}
     state = read_json(root / 'data/reading-intake-state.json', {'schema_version': 1, 'items': {}})
     cached_state = read_json(cache / 'state.json', {'schema_version': 1, 'items': {}})
@@ -305,7 +325,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
     # Revisit at most two older automatic entries per run; manual books stay pinned.
     for book in sorted(catalogue['libros'], key=lambda b: b.get('fecha_verificacion', '')):
         if book['id'].startswith('isbn-') and (day - date.fromisoformat(book['fecha_verificacion'])).days >= 7:
-            source = next((s for s in providers if book['fuente_bibliografica_url'].startswith('https://www.penguinlibros.com/es/')), None)
+            source = provider_of(book['fuente_bibliografica_url'], providers)
             if source and len(queue) < 2:
                 queue[book['fuente_bibliografica_url']] = source
     refresh_urls = set(queue)
@@ -313,7 +333,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
         for index in source['index_urls']:
             try:
                 document = http.get(index, ttl=12 * 3600).decode('utf-8')
-                for url in product_links(document, index):
+                for url in discover_links(source, document, index):
                     queue.setdefault(url, source)
             except (OSError, ValueError, TimeoutError) as exc:
                 stats['errors'].append({'source': source['id'], 'error': str(exc)[:180]})
@@ -345,13 +365,14 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
         for url, source in ordered:
             if len(new_books) >= limit or http.requests >= http.budget:
                 break
-            isbn = url.rsplit('-', 1)[-1].rstrip('/')
+            # Penguin lleva el ISBN en la URL; Planeta no: se conoce por una ficha ya publicada o se lee de la propia ficha.
+            isbn = url.rsplit('-', 1)[-1].rstrip('/') if source['provider'] == 'penguin' else known_urls.get(url)
             old_book = by_isbn.get(isbn)
             refresh = bool(old_book and url in refresh_urls)
             if isbn in existing and not refresh:
                 stats['already_published'] += 1
                 continue
-            key = 'isbn13:' + isbn
+            key = 'isbn13:' + isbn if isbn else 'url:' + url
             previous = state['items'].get(key, {})
             if previous.get('retry_after', '') > today:
                 continue
@@ -360,7 +381,18 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 print(f'Ingesta: {stats["examined"]} candidatos revisados; {len(new_books)} aceptados', file=sys.stderr, flush=True)
             record = None
             try:
-                record = penguin_edition(http.get(url, ttl=7 * 86400).decode('utf-8'), url)
+                record = read_edition(source, http.get(url, ttl=7 * 86400).decode('utf-8', errors='replace'), url)
+                if not isbn:
+                    isbn = record['isbn13']
+                    known_urls[url] = isbn
+                    key = 'isbn13:' + isbn
+                    previous = state['items'].get(key, {})
+                    old_book = by_isbn.get(isbn)
+                    refresh = bool(old_book and url in refresh_urls)
+                    if isbn in existing and not refresh:
+                        stats['already_published'] += 1
+                        stats['examined'] -= 1
+                        continue
                 if not record.get('sinopsis_breve'):
                     raise SourceError('Sinopsis editorial ausente; se conserva la ficha anterior o queda pendiente')
                 if author_identity_conflicts(record,state):

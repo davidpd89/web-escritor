@@ -5,15 +5,6 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Convocatorias para escritores
 BEGIN:VEVENT
-UID:luz-luna-diversidad-literaria-2026@davidportodiaz.com
-DTSTART;VALUE=DATE:20261022
-DTEND;VALUE=DATE:20261023
-SUMMARY:VII Concurso de Microrrelatos «Luz de luna» 2026
-DESCRIPTION:Diversidad Literaria
-URL:https://www.diversidadliteraria.com/info-concursos/concursos-microrrela
- tos/luzdeluna
-END:VEVENT
-BEGIN:VEVENT
 UID:alberto-magno-ciencia-ficcion-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
