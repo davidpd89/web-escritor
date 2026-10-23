@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - main
+    # edited: re-check title/body, which become the squash commit message.
+    types: [opened, synchronize, reopened, edited]
   workflow_dispatch:
 
 permissions:
@@ -17,6 +19,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      # A [skip ci] marker in any PR commit ends up in the squash commit and
+      # silently prevents Deploy Pages on push to main.
+      - name: Reject CI-skip markers
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: python3 scripts/check-no-skip-ci-markers.py
 
       - name: Set up Python
         uses: actions/setup-python@v6
