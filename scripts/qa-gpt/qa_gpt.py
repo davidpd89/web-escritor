@@ -836,15 +836,26 @@ AUTORIZ = STATE / "ejecucion_autorizada"
 def autorizada():
     return AUTORIZ.exists() and AUTORIZ.read_text().split()[0] == today()
 
+def lote_congelado():
+    """Ramas (rama, sha) fijadas por autorizar-noche; nada generado o aprobado despues entra."""
+    return {l.split()[0]: l.split()[1] for l in AUTORIZ.read_text().splitlines()[1:] if len(l.split()) == 2} if autorizada() else {}
+
 def cmd_autorizar(a):
-    STATE.mkdir(parents=True, exist_ok=True); AUTORIZ.write_text(f"{today()} autorizado manualmente {now()}")
-    print(f"Autorizacion de ejecucion valida SOLO hoy ({today()}). Ahora: lote-nocturno --confirmar")
+    c = db(); ramas = c.execute("SELECT rama,sha FROM ramas WHERE estado='aprobada'").fetchall(); c.close()
+    if not ramas: print("No hay ramas aprobadas: nada que autorizar (usa pendientes / aprobar)."); return 1
+    STATE.mkdir(parents=True, exist_ok=True)
+    lineas = [f"{today()} autorizado manualmente {now()}", *(f"{r['rama']} {r['sha']}" for r in ramas)]
+    AUTORIZ.write_text(chr(10).join(lineas) + chr(10))
+    print(f"Autorizado SOLO hoy ({today()}) este lote congelado:"); [print(f"  {r['rama']} {r['sha'][:8]}") for r in ramas]
+    print("Ahora: lote-nocturno --confirmar")
 
 def gh_json(*args): return json.loads(sh(["gh", *args]) or "[]")
 
 def cmd_nightly(a):
     """Publica ramas APROBADAS y lanza Actions. Exige autorizar-noche (valida hoy) Y --confirmar. Nunca lo invoca el servicio diurno."""
     c = db(); ramas = c.execute("SELECT * FROM ramas WHERE estado IN ('aprobada','publicada')").fetchall()
+    if a.confirmar and autorizada():
+        fijo = lote_congelado(); ramas = [r for r in ramas if fijo.get(r["rama"]) == r["sha"]]
     if not ramas: print("No hay ramas aprobadas (usa pendientes / aprobar)."); return 0
     print("Lote congelado:"); [print(f"  {r['rama']} {r['sha'][:8]} ({r['estado']})") for r in ramas]
     if not (a.confirmar and autorizada()):

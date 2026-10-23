@@ -95,6 +95,21 @@ class Planificador(unittest.TestCase):
         self.assertEqual(q.load_json_block('hola ```json\n{"a": 1}\n``` adios'), {"a": 1})
         with self.assertRaises(ValueError): q.load_json_block("sin json")
 
+    def test_autorizacion_congela_lote(self):
+        q.AUTORIZ = q.STATE / "aut"
+        ins = lambda r, sha: self.c.execute("INSERT INTO ramas(rama,area,ruta,sha,estado) VALUES(?,?,?,?,?)", (r, "a", "x", sha, "aprobada"))
+        ins("qa/a", "aaa"); self.c.commit()
+        q.cmd_autorizar(None)
+        ins("qa/b", "bbb"); self.c.execute("UPDATE ramas SET sha='ccc' WHERE rama='qa/a'"); self.c.commit()
+        self.assertEqual(q.lote_congelado(), {"qa/a": "aaa"})  # la rama nueva no entra; la modificada ya no coincide por sha
+        self.assertEqual(q.cmd_autorizar.__module__, q.__name__)
+        q.AUTORIZ.unlink(); self.assertEqual(q.lote_congelado(), {})
+
+    def test_servicio_diurno_no_invoca_lote_nocturno(self):
+        import inspect
+        src = inspect.getsource(q.cmd_scan_once) + inspect.getsource(q.process) + inspect.getsource(q.stage)
+        self.assertNotIn("cmd_nightly", src); self.assertNotIn("gh\", \"workflow", src); self.assertNotIn('"push"', src)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=1)
