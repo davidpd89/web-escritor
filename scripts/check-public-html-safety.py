@@ -16,6 +16,46 @@ ROOT = Path(__file__).resolve().parents[1]
 EXTRA_PUBLIC_HTML = ("404.html", "offline.html", "privacidad.html", "aviso-legal.html")
 URL_ATTRS = ("href", "src", "action", "formaction", "poster")
 
+SRCSET_ATTRS = ("srcset", "imagesrcset")
+ASCII_WS = " \t\n\r\f"
+
+
+def srcset_urls(value: str):
+    """Yield candidate URLs using the WHATWG srcset token-boundary rules.
+
+    A comma may be part of a URL (notably data: URLs); it is a separator
+    only after a URL token or a descriptor. Never split srcset on commas.
+    """
+    pos = 0
+    size = len(value)
+    while pos < size:
+        while pos < size and (value[pos] in ASCII_WS or value[pos] == ","):
+            pos += 1
+        if pos >= size:
+            break
+        start = pos
+        while pos < size and value[pos] not in ASCII_WS:
+            pos += 1
+        token = value[start:pos]
+        url = token.rstrip(",")
+        if url:
+            yield url
+        if token.endswith(","):
+            continue
+
+        # Consume optional descriptors (1x, 480w, etc.) until a separator.
+        # Parentheses inside a descriptor must not split a candidate.
+        in_parens = False
+        while pos < size:
+            ch = value[pos]
+            pos += 1
+            if ch == "(":
+                in_parens = True
+            elif ch == ")":
+                in_parens = False
+            elif ch == "," and not in_parens:
+                break
+
 
 def route_to_file(url: str) -> Path:
     path = urlparse(url).path
@@ -58,16 +98,11 @@ class AuditParser(HTMLParser):
 
         for attr in URL_ATTRS:
             for raw in data.get(attr, []):
-                value = raw.strip()
-                low = value.lower()
-                if low.startswith("javascript:"):
-                    self.errors.append(f"{self.rel}: {attr} uses javascript: URL")
-                elif value.startswith("//"):
-                    self.errors.append(f"{self.rel}: {attr} uses protocol-relative URL {value}")
-                elif low.startswith("http://"):
-                    host = (urlparse(value).hostname or "").lower()
-                    if host not in {"www.w3.org", "w3.org"}:
-                        self.errors.append(f"{self.rel}: mixed-content {attr} {value}")
+                self._check_url(attr, raw)
+        for attr in SRCSET_ATTRS:
+            for raw in data.get(attr, []):
+                for candidate in srcset_urls(raw):
+                    self._check_url(attr, candidate)
 
         if tag == "meta" and any(v.lower() == "refresh" for v in data.get("http-equiv", [])):
             for value in data.get("content", []):
@@ -76,6 +111,18 @@ class AuditParser(HTMLParser):
                     target = value[marker + 4:].strip(" \t'\"")
                     if target.startswith("//") or target.lower().startswith(("http://", "javascript:")):
                         self.errors.append(f"{self.rel}: unsafe meta refresh target {target}")
+
+    def _check_url(self, attr: str, raw: str):
+        value = raw.strip()
+        low = value.lower()
+        if low.startswith("javascript:"):
+            self.errors.append(f"{self.rel}: {attr} uses javascript: URL")
+        elif value.startswith("//"):
+            self.errors.append(f"{self.rel}: {attr} uses protocol-relative URL {value}")
+        elif low.startswith("http://"):
+            host = (urlparse(value).hostname or "").lower()
+            if host not in {"www.w3.org", "w3.org"}:
+                self.errors.append(f"{self.rel}: mixed-content {attr} {value}")
 
 
 def main() -> int:
