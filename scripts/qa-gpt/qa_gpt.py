@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
 """qa-gpt: descubrimiento y preparacion de tests QA asistidos por GPT (web-escritor).
 
-Estado en .ci/qa-gpt/ (ignorado por Git). El descubrimiento corre solo; NUNCA ejecuta tests ni lanza Actions
+Estado en C:\GIT\qa-gpt-state (fuera de los worktrees). El descubrimiento corre solo; NUNCA ejecuta tests ni lanza Actions
 salvo `lote-nocturno --confirmar` tras `autorizar-noche` (ambos manuales). Ver README.md.
 """
 import argparse, datetime as dt, glob, hashlib, json, os, re, sqlite3, subprocess, sys, time
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[1]
-STATE = ROOT / ".ci" / "qa-gpt"
+# Aislamiento: codigo = HERE (worktree propio, rama automation/qa-gpt); contenido leido = ROOT (worktree desacoplado en origin/main,
+# solo lo toca este servicio); estado persistente = STATE (fuera de cualquier worktree). Sobrescribibles por entorno (tests).
+ROOT = Path(os.environ.get("QA_GPT_SRC", r"C:\GIT\web-escritor-qa-gpt-src"))
+STATE = Path(os.environ.get("QA_GPT_STATE", r"C:\GIT\qa-gpt-state"))
+if not ROOT.exists(): ROOT = HERE.parents[1]
 DB_PATH = STATE / "estado.db"
-WT = ROOT / ".ci" / "qa-gpt-wt"
+WT = STATE / "wt"
 CFG = json.loads((HERE / "config.json").read_text(encoding="utf-8"))
 TASK = "web-escritor-qa-gpt"
 sys.path.insert(0, str(HERE))
@@ -667,6 +670,7 @@ def cmd_scan_once(a, manual=False):
     with Lock():
         c = db(); print(f"{now()} ronda")
         git("fetch", "origin", "main", "--quiet", check=False)
+        if ROOT != HERE.parents[1]: git("checkout", "--detach", "--quiet", "origin/main", check=False)  # worktree de lectura propio del servicio
         c.execute("UPDATE jobs SET estado='pendiente' WHERE estado='en_curso'"); c.commit()  # recuperacion tras caida: bajo Lock no hay nadie mas
         reconciliar(c); respaldar(c)
         if not manual: edge_asegurar()
@@ -915,7 +919,7 @@ def cmd_morning(a):
                 lines += [f"  - Clasificacion (heuristica): {classify(log)}", "  ```", *("  " + l for l in tail.splitlines()), "  ```"]
         lines.append("")
     lines += ["## Siguiente cobertura", *[f"- {k} ({d['ficheros']} ficheros, {len(d['huecos'])} huecos)" for k, d in sorted(matriz(c).items(), key=lambda t: -len(t[1]["huecos"]))[:5]]]
-    out = ROOT / ".ci" / f"qa-gpt-morning-{today()}.md"; out.write_text("\n".join(lines), encoding="utf-8"); print(f"Informe: {out}")
+    out = STATE / f"qa-gpt-morning-{today()}.md"; out.write_text("\n".join(lines), encoding="utf-8"); print(f"Informe: {out}")
 
 
 def main():
