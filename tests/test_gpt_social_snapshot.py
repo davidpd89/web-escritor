@@ -49,10 +49,16 @@ class SnapshotPipelineTests(unittest.TestCase):
         self.assertEqual(snap.main(self.args()), 0)
         self.assertEqual(self.out.stat().st_mtime, 1)
 
-    def test_changed_content_rewrites(self):
+    def test_same_values_within_refresh_window_do_not_rewrite(self):
         snap.main(self.args())
         os.utime(self.out, (1, 1))
-        snap.main(self.args(now="2026-10-22T09:00:00Z"))  # observed_at changed
+        snap.main(self.args(now="2026-10-22T09:00:00Z"))  # only observed_at moved, 1 h
+        self.assertEqual(self.out.stat().st_mtime, 1)
+
+    def test_same_values_after_refresh_window_rewrite_to_extend_freshness(self):
+        snap.main(self.args())
+        os.utime(self.out, (1, 1))
+        snap.main(self.args(now="2026-10-22T15:00:00Z"))  # 7 h: must renew observed_at
         self.assertNotEqual(self.out.stat().st_mtime, 1)
 
     def test_failed_source_keeps_unexpired_last_good_value(self):

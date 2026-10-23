@@ -15,7 +15,7 @@ rewritten only when published content changes (generated_at is ignored).
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 import json
 from pathlib import Path
 import sys
@@ -71,8 +71,33 @@ def carry_over(previous: object, sources: list[dict], now: datetime) -> list[dic
     return kept
 
 
+REFRESH = timedelta(hours=6)
+TIMING = ("generated_at", "observed_at", "valid_until")
+
+
 def comparable(payload: object) -> object:
     return {k: v for k, v in payload.items() if k != "generated_at"} if isinstance(payload, dict) else payload
+
+
+def same_content(previous: object, payload: dict, now: datetime) -> bool:
+    """True when only observation timestamps moved and the old ones are still recent."""
+    if comparable(previous) == comparable(payload):
+        return True
+    if not isinstance(previous, dict) or not isinstance(previous.get("networks"), list):
+        return False
+
+    def core(p: dict) -> list:
+        return [{k: v for k, v in n.items() if k not in TIMING} for n in p["networks"]]
+
+    try:
+        if core(previous) != core(payload) or previous.get("totals") != payload.get("totals"):
+            return False
+        moved = [old["observed_at"] for old, new in zip(previous["networks"], payload["networks"])
+                 if old.get("observed_at") != new.get("observed_at")]
+        return all(timedelta(0) <= now - datetime.fromisoformat(t.replace("Z", "+00:00")) < REFRESH
+                   for t in moved)
+    except (KeyError, TypeError, ValueError, AttributeError):
+        return False
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -99,7 +124,7 @@ def main(argv: list[str] | None = None) -> int:
         payload = compose.compose(sources, now=now)
         if not any(n["status"] == "ok" for n in payload["networks"]):
             raise ValueError("no fresh verified follower data; last-good output preserved")
-        changed = comparable(previous) != comparable(payload)
+        changed = not same_content(previous, payload, now)
         if changed:
             compose.atomic_write(args.output, payload)
     except (OSError, ValueError) as exc:

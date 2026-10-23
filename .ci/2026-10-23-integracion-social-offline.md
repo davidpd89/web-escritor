@@ -30,3 +30,10 @@ Sin `--*-fixture`, Bluesky y Mastodon se leen en vivo (pasar `--expected-did` / 
 
 ## Pendiente antes de publicar
 Fijar DID/ID reales; export real de Metricool; decidir ubicación del JSON y UI (script.js, autor.html fuera de alcance aquí); consolidar PRs tras merge de #703/#724 por el otro agente.
+
+## Validación adicional (2026-10-23, tarde)
+- Merge de `origin/main` limpio. Python `test_gpt_*.py`: 226 OK (225 + 1 nueva). Node reader + python->js: 22/22.
+- Real: Bluesky `davidportoescritor.bsky.social` DID `did:plc:i5nwasa74ucmiymxjmh57t7x` (cotejado con resolveHandle); Mastodon `@davidportodiaz@mastodon.social` id `117238993380408996` (cotejado con accounts/lookup). Seguidores y posts leídos en vivo; impresiones/interacciones/vistas son `null` (la API pública no las da).
+- Identidad errónea: ambas fuentes rechazadas; con todas caídas sale rc=1, conserva el fichero y el lector lo oculta a las 48 h.
+- Defecto corregido: con valores iguales `observed_at` cambiaba y el fichero se reescribía en cada ejecución; ahora solo se reescribe si cambia el contenido o pasan 6 h (para renovar la caducidad). 2 pruebas.
+- Metricool: sin export real ni conector accesible desde esta sesión -> **verificación real pendiente**; solo fixture sintético.
