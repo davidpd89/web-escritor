@@ -63,7 +63,7 @@ for malformed in (None, {}, [None], [{"number": 10}], [{"headRefName": "automati
 
 run, _ = fake_run([], error=subprocess.CalledProcessError(1, ["gh", "pr", "list"]))
 try:
-    guard.check_no_open_radar_pr(run=run)
+    guard.check_no_open_radar_pr('2026-10-23', run=run)
 except subprocess.CalledProcessError:
     pass
 else:
