@@ -632,9 +632,10 @@ def cmd_status(a):
     utiles = q("SELECT COUNT(*) FROM propuestas WHERE estado IN ('aceptada','preparada','aprobada','publicada','ejecutada','informe')")
     print(f"Quedan hoy: {max(CFG['max_peticiones_dia'] - usadas, 0)} peticiones de {CFG['max_peticiones_dia']} | peticiones registradas en total: {tot}")
     n = lambda *es: q(f"SELECT COUNT(*) FROM propuestas WHERE estado IN ({','.join('?' * len(es))})", *es)
+    defectos = q("SELECT COUNT(*) FROM propuestas WHERE estado IN ('ejecutada','publicada') AND datos LIKE '%descubre_defecto%true%'")
     print(f"Ciclo de vida: descubiertas {q('SELECT COUNT(*) FROM propuestas')} | esperando PASS B {n('propuesta')} | con veredicto PASS B {q('SELECT COUNT(*) FROM propuestas WHERE veredicto IS NOT NULL AND estado<>?', 'propuesta')} "
           f"(aceptadas {n('aceptada', 'preparada', 'aprobada', 'publicada', 'ejecutada', 'informe')}, en revision {n('revisar')}, bloqueadas {n('bloqueada')}, rechazadas {n('rechazada', 'invalida', 'descartada', 'duplicada')}) | "
-          f"parches generados {q('SELECT COUNT(*) FROM ramas')} | en rama local (STAGED) {n('preparada')} | ejecutadas {n('ejecutada', 'publicada')} | defectos de producto confirmados {q("SELECT COUNT(*) FROM propuestas WHERE estado IN ('ejecutada','publicada') AND datos LIKE '%descubre_defecto%true%'")}")
+          f"parches generados {q('SELECT COUNT(*) FROM ramas')} | en rama local (STAGED) {n('preparada')} | ejecutadas {n('ejecutada', 'publicada')} | defectos de producto confirmados {defectos}")
     if Lock.path.exists():
         try: pid, desde = Lock.path.read_text().split(None, 1); print(f"Lock del trabajador: pid {pid} desde {desde.strip()} (vivo: {pid_alive(int(pid))})")
         except Exception: print("Lock del trabajador: ilegible")
