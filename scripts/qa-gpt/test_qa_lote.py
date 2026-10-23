@@ -201,7 +201,61 @@ class Lotes(Base):
     def test_panel_resume_el_lote(self):
         for n in ("p", "d"): self.preparar(n, OK_PY if n == "p" else FAIL_PY, categoria="regresion" if n == "p" else "descubre_defecto")
         self.lote().ejecutar(); txt = "\n".join(L.bloque_estado(q, self.c))
-        for k in ("Lote Actions", "Correctos: 1", "Defectos demostrados: 1", "Tests preparados pendientes: 0", "Ultimo lote", "Ultima ejecucion"): self.assertIn(k, txt)
+        for k in ("aprobados 1", "Defectos de producto demostrados: 1", "Escritos, sin ejecutar: 0", "Ultimo lote", "Ultima ejecucion"): self.assertIn(k, txt)
+
+
+NL = chr(10)
+REC_WF = NL.join(["on:", "  workflow_dispatch:", "  pull_request:", "    paths:", "      - 'qa/reading-market-url-parity-browser.mjs'", "jobs:", "  t:", "    steps:", "      - run: |", "          node qa/reading-commerce-browser.mjs", ""])
+TEST11 = "qa/reading-market-url-parity-browser.mjs"
+
+class Cableado(unittest.TestCase):
+    def test_workflow_que_omite_el_test_se_rechaza_aunque_lo_liste_en_paths(self):
+        self.assertEqual(L.workflows_que_ejecutan([TEST11], {"rec.yml": REC_WF}), [])
+
+    def test_workflow_que_lo_ejecuta_se_acepta(self):
+        wf = REC_WF + "          node qa/reading-market-url-parity-browser.mjs" + NL + ""
+        self.assertEqual(L.workflows_que_ejecutan([TEST11], {"rec.yml": wf}), ["rec.yml"])
+
+    def test_comentario_no_cuenta_como_ejecucion(self):
+        wf = REC_WF + "          # node qa/reading-market-url-parity-browser.mjs" + NL + ""
+        self.assertEqual(L.workflows_que_ejecutan([TEST11], {"rec.yml": wf}), [])
+
+    def test_asterisco_suelto_no_da_falso_verde(self):
+        wf = REC_WF + "          grep -r foo * || true" + NL + ""
+        self.assertEqual(L.workflows_que_ejecutan([TEST11], {"rec.yml": wf}), [])
+
+    def test_glob_concreto(self):
+        self.assertTrue(L.glob_concreto("qa/reading-*.mjs", TEST11))
+        self.assertFalse(L.glob_concreto("*", TEST11)); self.assertFalse(L.glob_concreto("*.mjs", TEST11))
+        self.assertFalse(L.glob_concreto("qa/reading-*.py", TEST11))
+
+    def test_sin_workflow_dispatch_no_vale(self):
+        wf = REC_WF.replace("  workflow_dispatch:" + NL, "") + "          node " + TEST11 + NL
+        self.assertEqual(L.workflows_que_ejecutan([TEST11], {"rec.yml": wf}), [])
+
+
+class Entorno(Base):
+    def test_entorno_url_apunta_al_puerto_propio(self):
+        f = Path(self.tmp.name) / "t.mjs"; f.write_text("const u = process.env.BASE_URL || process.env.SITE_ORIGIN; process.env.HOME", encoding="utf-8")
+        self.assertEqual(L.Lote.entorno_url(f, 4199), {"BASE_URL": "http://127.0.0.1:4199", "SITE_ORIGIN": "http://127.0.0.1:4199"})
+
+    def test_puerto_libre_evita_el_rango_de_los_servicios_del_usuario(self):
+        p = self.lote().puerto_libre(); self.assertTrue(4173 + 20 <= p < 4173 + 60)
+
+
+class Autorizacion(Base):
+    def test_token_sin_permisos_no_se_reintenta_y_queda_en_revision_humana(self):
+        rama, _, pid = self.preparar("auth", OK_PY)
+        def push(sha, r): raise L.GhAuthError("HTTP 403: Resource not accessible by personal access token")
+        self.gh.push = push; self.lote().ejecutar()
+        self.assertEqual(self.estado(rama), "revision_humana"); self.assertEqual(self.gh.dispatches, [])
+        self.assertNotEqual(self.prop(pid), "ejecutada")
+
+    def test_panel_cuenta_cada_test_una_vez(self):
+        for n in ("a", "b", "c"): self.preparar(n, OK_PY)
+        self.lote().ejecutar(); txt = NL.join(L.bloque_estado(q, self.c))
+        self.assertIn("aprobados 3", txt)
+        self.assertEqual(self.c.execute("SELECT COUNT(*) FROM lote_items WHERE estado='actions_ok'").fetchone()[0], 3)
 
 
 class Clasificacion(unittest.TestCase):

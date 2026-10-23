@@ -945,6 +945,13 @@ def cmd_reabrir(a):
     enqueue(c, "B", ids[0]["area"], {"ids": [r["id"] for r in ids]}, f"B:{ids[0]['area']}:{'-'.join(str(r['id']) for r in ids)}:reabierta{n}"); c.commit()
     print(f"reabiertas {[r['id'] for r in ids]}: 1 job PASS B en cola")
 
+def cmd_migrar_datos(a):
+    """Normaliza `como_ejecutar` historico a `pasos` validados en estado.db (copia previa, transaccion, idempotente). --ensayo no escribe."""
+    import qa_migrar
+    r = qa_migrar.migrar(DB_PATH, STATE / "backups", now(), aplicar=not a.ensayo)
+    print(f"{'ENSAYO' if a.ensayo else 'MIGRACION'}: {'OK' if r['ok'] else 'FALLO ' + str(r['error'])} | propuestas a normalizar/normalizadas: {r['migradas']} | omitidas: {r['omitidas']} | copia previa: {r['backup'] or '(ninguna)'}")
+    return 0 if r["ok"] else 1
+
 def cmd_descartar(a):
     c = db()
     if not c.execute("SELECT 1 FROM propuestas WHERE id=?", (a.id,)).fetchone(): print("propuesta inexistente"); return 1
@@ -1108,6 +1115,8 @@ def main():
     add(["nightly-run", "lote-nocturno"], cmd_nightly, (["--confirmar"], dict(action="store_true")))
     add(["morning-report", "informe-matinal"], cmd_morning)
     add(["ejecutar-actions"], lambda a: __import__("qa_lote").main(sys.modules[__name__], a))
+    add(["coste-actions"], lambda a: __import__("qa_coste").main(sys.modules[__name__], a))
+    add(["migrar-datos"], cmd_migrar_datos, (["--ensayo"], dict(action="store_true")))
     a = ap.parse_args()
     return ALIAS[a.cmd](a)
 

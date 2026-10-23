@@ -31,7 +31,9 @@ class Gh:
     def __init__(self, q): self.q = q; self.repo = q.CFG["repo"]
     def _gh(self, *a):
         r = subprocess.run(["gh", *a], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
-        if r.returncode: raise GhError((r.stderr or r.stdout).strip()[:300])
+        if r.returncode:
+            msg = (r.stderr or r.stdout).strip()[:300]
+            raise (GhAuthError if re.search(r"HTTP 40[13]|Bad credentials|auth login|not logged|Resource not accessible|must have admin|requires.*scope", msg, re.I) else GhError)(msg)
         return r.stdout
     def ok(self): self._gh("api", "user", "--jq", ".login"); return True
     def scopes(self):
@@ -56,6 +58,7 @@ class Gh:
 
 
 class GhError(RuntimeError): pass
+class GhAuthError(GhError): """Token sin sesion o sin permisos: no es transitorio, reintentar no sirve."""
 
 
 def run_cmd(args, cwd, env=None, timeout=300):
@@ -65,6 +68,28 @@ def run_cmd(args, cwd, env=None, timeout=300):
         return r.returncode, (r.stdout or "") + (r.stderr or "")
     except subprocess.TimeoutExpired as e:
         return 124, f"TimeoutExpired tras {timeout}s\n{(e.stdout or '')[-1500:] if isinstance(e.stdout, str) else ''}"
+
+
+def glob_concreto(patron, ruta):
+    """Un glob de un paso `run:` ejecuta `ruta` solo si es especifico: extension literal y algo de literal alrededor del `*`.
+    Un `*` suelto (o `*.mjs`) casa con todo y daria por cableado un test que ningun paso ejecuta."""
+    m = re.fullmatch(r"([\w./-]*)\*([\w.*-]*)\.(\w+)", patron)
+    if not m: return False
+    literal = re.sub(r"[*/.]", "", m.group(1) + m.group(2))
+    if len(literal) < 3 or Path(ruta).suffix != "." + m.group(3): return False
+    return fnmatch.fnmatch(ruta, patron) if "/" in patron else fnmatch.fnmatch(Path(ruta).name, patron)
+
+
+def workflows_que_ejecutan(rutas, textos, preferidos=()):
+    """Workflows (con workflow_dispatch) cuyos pasos `run:` ejecutan TODAS las rutas. Las listas `paths:` y los comentarios no cuentan:
+    que un cambio dispare el workflow no significa que el workflow ejecute el test (GitHub devolveria verde sin probarlo)."""
+    res = {}
+    for nombre, txt in textos.items():
+        cuerpo = chr(10).join(l for l in txt.splitlines() if not re.match(r"\s*-\s*['\"]", l) and not l.strip().startswith("#"))
+        toks = re.findall(r"[\w./*\-\[\]?]+", cuerpo)
+        ejecuta = lambda r: r in cuerpo or any(glob_concreto(t, r) for t in toks if "*" in t)
+        if rutas and all(ejecuta(r) for r in rutas) and re.search(r"^\s*workflow_dispatch", txt, re.M): res[nombre] = True
+    return sorted(res, key=lambda w: (w not in preferidos, w))[:1]  # un solo workflow por test: el que GPT indico si realmente lo ejecuta
 
 
 class Lote:
@@ -129,12 +154,16 @@ class Lote:
             self.git("merge-base", "--is-ancestor", it["sha"], f"refs/heads/{it['rama']}")
         except RuntimeError as e: return f"rama/commit invalido: {str(e)[-160:]}"
         declarados = set()
-        for p in self.propuestas_de(it):
+        for p in self.c.execute("SELECT datos FROM propuestas WHERE rama=?", (it["rama"],)).fetchall():  # toda la historia de la rama, no solo lo que va en este lote
             d = json.loads(p["datos"]); declarados |= {f["ruta"] for f in d.get("ficheros_nuevos", [])} | {m["ruta"] for m in d.get("ficheros_modificados") or []}
-        tocados = set(self.git("diff", "--name-only", it["sha"] + "~1", it["sha"]).split())
+        tocados = set(self.git("diff", "--name-only", self.base_de(it["sha"]), it["sha"]).split())
         if tocados - declarados: return f"el commit toca ficheros no declarados: {sorted(tocados - declarados)[:4]}"
         if not tocados: return "el commit no cambia nada"
         return None
+
+    def base_de(self, sha):
+        """Punto de partida de la rama: merge-base con origin/main (todos sus commits cuentan, no solo el ultimo)."""
+        return self.git("merge-base", "origin/main", sha, check=False) or sha + "~1"
 
     def comandos(self, it):
         """(propuesta, ruta, argv, env). Usa los `pasos` validados al ingerir; solo `python|node <fichero declarado>`, nunca un shell."""
@@ -184,14 +213,28 @@ class Lote:
     def ejecutar_test(self, tmp, ruta, cmd, env=None):
         env, srv = dict(env or {}), None
         if "playwright" in (tmp / ruta).read_text(encoding="utf-8", errors="replace"):
-            puerto = self.cfg["puerto_estatico"]
-            with socket.socket() as s:
-                if s.connect_ex(("127.0.0.1", puerto)) == 0: return 0, f"SIN_ENTORNO: puerto {puerto} ocupado; se valida en Actions"
+            puerto = self.puerto_libre()
+            if puerto is None: return 0, "SIN_ENTORNO: ningun puerto libre; se valida en Actions"
+            env = {**env, **self.entorno_url(tmp / ruta, puerto)}  # el test apunta a NUESTRO servidor, nunca a uno ajeno que ya escuche en 4173
             srv = subprocess.Popen([sys.executable, "-m", "http.server", str(puerto), "--bind", "127.0.0.1", "--directory", str(tmp)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             time.sleep(1.5)
         try: return self.runner(cmd, tmp, env, self.cfg["timeout_test_s"])
         finally:
             if srv: srv.terminate(); srv.wait(10)
+
+    def puerto_libre(self):
+        base = self.cfg["puerto_estatico"]
+        for puerto in range(base + 20, base + 60):  # lejos de 4173, que los servicios del usuario suelen ocupar
+            with socket.socket() as s:
+                if s.connect_ex(("127.0.0.1", puerto)) != 0: return puerto
+        return None
+
+    @staticmethod
+    def entorno_url(fichero, puerto):
+        """Variables `process.env.X` del test que contienen la URL base (X termina en URL/ORIGIN/BASE) apuntadas al puerto propio."""
+        txt = fichero.read_text(encoding="utf-8", errors="replace")
+        nombres = set(re.findall(r"process\.env\.([A-Z][A-Z0-9_]*(?:URL|ORIGIN|BASE))", txt))
+        return {n: f"http://127.0.0.1:{puerto}" for n in nombres}
 
     def clasificar(self, rc, out, categoria):
         if rc == 0: return "sin_entorno" if out.startswith("SIN_ENTORNO") else "local_ok"
@@ -212,23 +255,15 @@ class Lote:
     # ---------- cableado: que workflow ejecuta realmente el test ----------
     def cableado(self, tmp, it):
         rutas = [r for _, r, _, _ in self.comandos(it)]
-        res = {}
-        for f in sorted((tmp / ".github" / "workflows").glob("*.yml")):
-            txt = f.read_text(encoding="utf-8", errors="replace")
-            cuerpo = "\n".join(l for l in txt.splitlines() if not re.match(r"\s*-\s*['\"]", l) and not l.strip().startswith("#"))
-            toks = re.findall(r"[\w./*\-\[\]?]+", cuerpo)
-            ejecuta = lambda r: r in cuerpo or any("*" in t and (fnmatch.fnmatch(r, t) or fnmatch.fnmatch(Path(r).name, t)) for t in toks)
-            if rutas and all(ejecuta(r) for r in rutas) and re.search(r"^\s*workflow_dispatch", txt, re.M): res[f.name] = True
-        pref = {Path(json.loads(p["datos"]).get("workflow") or "").name for p in self.propuestas_de(it)}
-        orden = sorted(res, key=lambda w: (w not in pref, w))
-        return orden[:1]  # un solo workflow por test: el que GPT indico si realmente lo ejecuta
+        textos = {f.name: f.read_text(encoding="utf-8", errors="replace") for f in sorted((tmp / ".github" / "workflows").glob("*.yml"))}
+        return workflows_que_ejecutan(rutas, textos, {Path(json.loads(p["datos"]).get("workflow") or "").name for p in self.propuestas_de(it)})
 
     # ---------- GitHub ----------
     def enviar(self, it):
         clave, rama, sha = it["clave"], it["rama"], it["sha"]
         wfs = json.loads(it["workflows"] or "[]")
         if not wfs: return self.set(clave, "revision_humana", "ningun workflow con workflow_dispatch ejecuta este test (no esta cableado): Actions no lo validaria")
-        tocado_wf = any(".github/workflows/" in f for f in self.git("diff", "--name-only", sha + "~1", sha).split())
+        tocado_wf = any(".github/workflows/" in f for f in self.git("diff", "--name-only", self.base_de(sha), sha).split())
         if tocado_wf and "workflow" not in self.gh.scopes():
             return self.set(clave, "revision_humana", "la rama modifica .github/workflows y el token de gh no tiene el scope 'workflow': ejecuta `gh auth refresh -s workflow` y pulsa de nuevo")
         try:
@@ -245,6 +280,8 @@ class Lote:
                         if prev: break
                 if prev: runs[wf] = {"id": prev[0]["databaseId"], "url": prev[0]["url"]}
                 self.set(clave, "enviado" if wf not in runs else "actions_pendiente", f"{wf}: run {runs[wf]['id']}" if wf in runs else f"{wf} lanzado, run por localizar", runs=json.dumps(runs))
+        except GhAuthError as e:
+            self.set(clave, "revision_humana", f"GitHub rechaza el token/permisos ({str(e)[:120]}): `gh auth refresh -s repo` y pulsa de nuevo")
         except GhError as e:
             self.set(clave, "infra", f"GitHub no responde: {e}")
         except RuntimeError as e:
@@ -290,6 +327,7 @@ class Lote:
     def ejecutar(self):
         q = self.q; t_fin = time.time() + self.cfg["max_horas"] * 3600
         try: self.gh.ok(); gh_ok = True
+        except GhAuthError as e: gh_ok = False; self.log(f"GitHub RECHAZA el token ({str(e)[:80]}): ejecuta `gh auth login` (o `gh auth refresh -s repo`). Se valida en local; los envios quedan para el siguiente clic")
         except (GhError, OSError) as e: gh_ok = False; self.log(f"GitHub no disponible ({str(e)[:80]}): se valida en local y se reintenta el envio en el siguiente clic")
         lid = self.abrir_lote()
         for it in self.items(lid):  # reconciliar lo ya enviado en ejecuciones anteriores
@@ -345,23 +383,28 @@ def main(q, a=None):
 
 
 def bloque_estado(q, c):
-    """Lineas para ESTADO: resumen del lote Actions."""
+    """Lineas para ESTADO. Todo sale de la FOTO ACTUAL de lote_items/propuestas (un test cuenta una sola vez, en su estado de hoy)."""
+    cnt = lambda tabla, *es: c.execute(f"SELECT COUNT(*) FROM {tabla} WHERE estado IN ({','.join('?' * len(es))})", es).fetchone()[0]
     try: c.execute("SELECT 1 FROM lote_items LIMIT 1")
     except Exception: return ["", "Lote Actions: (sin lotes todavia)"]
-    cnt = lambda *es: c.execute(f"SELECT COUNT(*) FROM lote_items WHERE estado IN ({','.join('?' * len(es))})", es).fetchone()[0]
-    pend_prop = c.execute("SELECT COUNT(*) FROM propuestas WHERE estado IN ('preparada','aprobada')").fetchone()[0]
-    lines = ["", f"Tests preparados pendientes: {pend_prop}", "Lote Actions:",
-             f"  - Pendientes: {cnt('preparada', 'validacion_local', 'local_ok', 'enviado', 'actions_pendiente')}  (validacion local {cnt('validacion_local')}, local ok {cnt('local_ok')})",
-             f"  - Ejecutandose: {cnt('actions_ejecutando')}",
-             f"  - Correctos: {cnt('actions_ok')}  (fallo del test: {cnt('fallo_test')}, Actions fallidas: {cnt('actions_fallida')})",
-             f"  - Defectos demostrados: {cnt('defecto_demostrado')}",
-             f"  - Errores de infraestructura: {cnt('infra')}  | requieren revision humana: {cnt('revision_humana')}"]
-    ul = c.execute("SELECT id,inicio,fin,estado FROM lotes ORDER BY id DESC LIMIT 1").fetchone()
-    lines.append(f"Ultimo lote: {ul['inicio'] + ' (' + ul['estado'] + ')' if ul else '(ninguno)'}")
+    li = lambda *es: cnt("lote_items", *es)
+    escritos = cnt("propuestas", "preparada", "aprobada")  # tests escritos y aun sin ejecutar
+    lines = ["", "Tests (foto actual, cada test cuenta una vez):",
+             f"  - Escritos, sin ejecutar: {escritos}  (preparada/aprobada; los capturara el proximo lote)",
+             f"  - En un lote, comprobacion local pendiente: {li('preparada', 'validacion_local')}",
+             f"  - Validados en local (aptos para Actions): {li('local_ok')}",
+             f"  - Defectos de producto demostrados: {li('defecto_demostrado')}  (el test falla por el defecto descrito: es un hallazgo, no un fallo)",
+             f"  - Fallo del propio test: {li('fallo_test')}",
+             f"  - Enviados a Actions: {li('enviado', 'actions_pendiente', 'actions_ejecutando', 'actions_ok', 'actions_fallida')}  "
+             f"(en cola {li('enviado', 'actions_pendiente')}, ejecutandose {li('actions_ejecutando')}, aprobados {li('actions_ok')}, fallidos {li('actions_fallida')})",
+             f"  - Errores de infraestructura: {li('infra')}  | requieren revision humana: {li('revision_humana')}"]
+    ul = c.execute("SELECT id,inicio,fin,estado,resumen FROM lotes ORDER BY id DESC LIMIT 1").fetchone()
+    lines.append(f"Ultimo lote: {('#' + str(ul['id']) + ' ' + ul['inicio'] + ' (' + ul['estado'] + ')') if ul else '(ninguno)'}")
     ue = c.execute("SELECT rama,sha,runs FROM lote_items WHERE runs LIKE '%\"id\"%' ORDER BY actualizado DESC LIMIT 1").fetchone()
-    if ue: rid = next(iter(json.loads(ue["runs"]).values()))["id"]; lines.append(f"Ultima ejecucion: {ue['rama']} / {ue['sha'][:8]} / run {rid}")
-    for r in c.execute("SELECT rama,sha,estado,detalle FROM lote_items WHERE estado IN ('defecto_demostrado','revision_humana','infra','fallo_test','actions_fallida') ORDER BY actualizado DESC LIMIT 6"):
+    if ue: rid = next(iter(json.loads(ue["runs"]).values()))["id"]; lines.append(f"Ultima ejecucion en Actions: {ue['rama']} / {ue['sha'][:8]} / run {rid}")
+    for r in c.execute("SELECT rama,sha,estado,detalle FROM lote_items WHERE estado IN ('defecto_demostrado','revision_humana','infra','fallo_test','actions_fallida') ORDER BY actualizado DESC LIMIT 8"):
         lines.append(f"    {r['estado']:<19} {r['rama'].replace('gpt-qa/', '')}@{r['sha'][:8]}: {(r['detalle'] or '')[:100]}")
-    sig = c.execute("SELECT p.id FROM propuestas p WHERE p.estado IN ('preparada','aprobada') ORDER BY p.id LIMIT 1").fetchone()
-    lines.append(f"Proximo test pendiente: {('propuesta #' + str(sig[0])) if sig else '(ninguno)'}")
+    sig = c.execute("SELECT id FROM propuestas WHERE estado IN ('preparada','aprobada') ORDER BY id LIMIT 1").fetchone()
+    sig_lote = c.execute("SELECT rama FROM lote_items WHERE estado IN ('preparada','validacion_local','local_ok','infra') ORDER BY rama LIMIT 1").fetchone()
+    lines.append(f"Proximo pendiente: {('propuesta #' + str(sig[0])) if sig else (sig_lote['rama'] + ' (ya en lote abierto)' if sig_lote else '(ninguno)')}")
     return lines
