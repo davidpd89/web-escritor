@@ -8,7 +8,7 @@ import vm from 'node:vm';
 import test from 'node:test';
 
 const base = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const script = readFileSync(resolve(base, 'script.js'), 'utf8');
+const script = readFileSync(resolve(base, 'script.js'), 'utf8').replace(/\r\n/g, '\n');
 const start = script.indexOf('function _amazonOutboundCategory(');
 const end = script.indexOf('\n}\n\n// Delegación', start);
 assert.ok(start > -1 && end > start, 'Falta función pura de clasificación');
@@ -55,4 +55,31 @@ test('todos los eventos están en autoridad y modal de Samuel queda separado', (
   const body = script.slice(script.indexOf('// Delegación imprescindible:'), script.indexOf('// Leer fragmento gratis --'));
   assert.match(body, /if \(category\) _gcEvent\(category,/);
   assert.equal((body.match(/_gcEvent\(/g) || []).length, 1, 'No emitir eventos duplicados');
+});
+
+// Ejecuta el listener real de script.js con un DOM mínimo simulado.
+function runClick({ href, page = '/', inside = [], throwing = false }) {
+  const events = [];
+  let handler;
+  const link = {
+    href,
+    getAttribute: () => href,
+    closest: (sel) => (inside.includes(sel) ? {} : null),
+  };
+  const section = script.slice(script.indexOf('function _amazonOutboundCategory('), script.indexOf('// Leer fragmento gratis --'));
+  vm.runInNewContext(section, {
+    URL,
+    document: { addEventListener: (type, fn) => { if (type === 'click') handler = fn; } },
+    window: { location: { pathname: page } },
+    _gcEvent: (name) => { if (throwing) throw new Error('boom'); events.push(name); },
+  });
+  handler({ target: { closest: (sel) => (sel === 'a[href]' ? link : null) } });
+  return events;
+}
+
+test('listener: exactamente un evento por clic y ninguno desde el modal de Samuel', () => {
+  assert.deepEqual(runClick({ href: product }), ['comprar-amazon-home']);
+  assert.deepEqual(runClick({ href: short, inside: ['.header-buy'] }), ['comprar-amazon-header']);
+  assert.deepEqual(runClick({ href: product, page: '/libros/samuel-entre-mundos/', inside: ['#buy-dialog'] }), []);
+  assert.deepEqual(runClick({ href: 'https://www.amazon.es/stores/author/B0GZFP1JV3' }), []);
 });
