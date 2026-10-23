@@ -9,7 +9,7 @@ import test from 'node:test';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = p => readFileSync(resolve(root, p), 'utf8');
-const script = read('script.js');
+const script = read('script.js').replace(/\r\n/g, '\n');
 const registry = JSON.parse(read('data/analytics-events.json'));
 const byName = new Map(registry.events.map(x => [x.name, x]));
 

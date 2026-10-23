@@ -8,7 +8,7 @@ import vm from 'node:vm';
 import test from 'node:test';
 
 const base = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const script = readFileSync(resolve(base, 'script.js'), 'utf8');
+const script = readFileSync(resolve(base, 'script.js'), 'utf8').replace(/\r\n/g, '\n');
 const start = script.indexOf('function _amazonOutboundCategory(');
 const end = script.indexOf('\n}\n\n// Delegación', start);
 assert.ok(start > -1 && end > start, 'Falta función pura de clasificación');
@@ -58,4 +58,41 @@ test('todos los eventos están en autoridad y modal de Samuel queda separado', (
   // Una emisión única para compra O reseña, y otra separada para Follow.
   assert.equal((body.match(/_gcEvent\(category,/g) || []).length, 1, 'Un solo evento para salida comercial/lectora');
   assert.equal((body.match(/_gcEvent\("seguir-autor-amazon",/g) || []).length, 1, 'Un solo evento de Follow');
+});
+
+// Ejecuta el listener real de script.js con un DOM mínimo simulado.
+function runClick({ follow = false, dataset = {}, href, page = '/', inside = [], throwing = false }) {
+  const events = [];
+  let handler;
+  const link = {
+    href,
+    dataset,
+    getAttribute: () => href,
+    closest: (sel) => (inside.includes(sel) ? {} : null),
+    matches: (sel) => follow && sel.includes('amazon-author-follow-link'),
+  };
+  const section = script.slice(script.indexOf('function _readerReviewOutboundCategory('), script.indexOf('// Leer fragmento gratis --'));
+  vm.runInNewContext(section, {
+    URL,
+    document: { addEventListener: (type, fn) => { if (type === 'click') handler = fn; } },
+    window: { location: { pathname: page } },
+    _gcEvent: (name) => { if (throwing) throw new Error('boom'); events.push(name); },
+  });
+  handler({ target: { closest: (sel) => (sel === 'a[href]' ? link : null) } });
+  return events;
+}
+
+test('listener: exactamente un evento por clic y ninguno desde el modal de Samuel', () => {
+  assert.deepEqual(runClick({ href: product }), ['comprar-amazon-home']);
+  assert.deepEqual(runClick({ href: short, inside: ['.header-buy'] }), ['comprar-amazon-header']);
+  assert.deepEqual(runClick({ href: product, page: '/libros/samuel-entre-mundos/', inside: ['#buy-dialog'] }), []);
+  assert.deepEqual(runClick({ href: 'https://www.amazon.es/stores/author/B0GZFP1JV3' }), []);
+  assert.deepEqual(runClick({ href: 'https://www.amazon.es/stores/author/B0GZFP1JV3', follow: true }), ['seguir-autor-amazon']);
+});
+
+test('listener: reseñas y Author Follow nunca cuentan como compra', () => {
+  const review = 'https://www.amazon.es/dp/B0GB6LGQFH#customerReviews';
+  assert.deepEqual(runClick({ href: review, page: '/libros/samuel-entre-mundos/', dataset: { readerReview: 'amazon', book: 'samuel' } }), ['visita-resenas-amazon-samuel']);
+  assert.deepEqual(runClick({ href: review, page: '/libros/samuel-entre-mundos/' }), []);
+  assert.deepEqual(runClick({ href: 'https://www.amazon.es/dp/OTRO000000#customerReviews', dataset: { readerReview: 'amazon', book: 'samuel' } }), []);
 });
