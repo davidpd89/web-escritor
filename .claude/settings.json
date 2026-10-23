@@ -1,0 +1,39 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${CLAUDE_PROJECT_DIR}/.claude/hooks/guard-main.sh\""
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "deny": [
+      "Bash(gh pr merge *)",
+      "Bash(git merge *)",
+      "Bash(git branch -d *)",
+      "Bash(git branch -D *)",
+      "Bash(git branch --delete *)",
+      "Bash(git branch -m *)",
+      "Bash(git branch -M *)",
+      "Bash(git branch -C *)",
+      "Bash(git branch -f *)",
+      "Bash(git branch --move *)",
+      "Bash(git branch --force *)",
+      "Bash(git switch -C *)",
+      "Bash(git switch --force-create *)",
+      "Bash(git switch --force-create=*)",
+      "Bash(git checkout -B *)",
+      "Bash(git checkout -B*)",
+      "Bash(git stash clear *)",
+      "Bash(git stash drop *)",
+      "Bash(git switch --orphan *)",
+      "Bash(git switch --orphan=*)"
+    ]
+  }
+}
