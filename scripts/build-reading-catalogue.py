@@ -442,15 +442,21 @@ def publication_date_label(b):
     return str(b.get('anio_publicacion') or '')
 
 
-def render_filters(data):
+def facet_group(key, label, options, opened=False):
+    boxes = ''.join(f'<label class="catalogue-check"><input type="checkbox" id="{key}={esc(v)}" name="{key}" value="{esc(v)}" data-facet="{key}"><span>{esc(t)}</span><small data-facet-count></small></label>' for v, t in options)
+    return f'<details class="catalogue-facet" data-facet-group="{key}"' + (' open' if opened else '') + f'><summary>{esc(label)} <small data-facet-selected></small></summary><div class="catalogue-facet__options">{boxes}</div></details>'
+
+
+def render_filters(data, type_options):
     def select(key, label, options, extra=''):
-        return f'<label>{label}<select name="{key}" data-filter="{key}" {extra}>' + ''.join(f'<option value="{esc(v)}"' + (f' id="{key}={esc(v)}"' if key in TYPES and v else '') + f'>{esc(t)}</option>' for v,t in options) + '</select></label>'
-    controls = '<label class="catalogue-search">Buscar por título, autor o ISBN<input type="search" name="q" data-filter="q" maxlength="200" autocomplete="off" placeholder="¿Qué te apetece leer?"></label>'
+        return f'<label>{label}<select name="{key}" data-filter="{key}" {extra}>' + ''.join(f'<option value="{esc(v)}">{esc(t)}</option>' for v, t in options) + '</select></label>'
+    search = '<label class="catalogue-search">Buscar por título, autor o ISBN<input type="search" name="q" data-filter="q" maxlength="200" autocomplete="off" placeholder="¿Qué te apetece leer?"></label>'
+    facets = facet_group('grupo', 'Tipo de libro', type_options, True)
     for kind, label in TYPES.items():
         choices = sorted((c for c in data['categorias'] if c['tipo'] == kind and c['activa']), key=lambda c: (c['orden'], c['id']))
-        controls += select(kind, label, [('', 'Todas las opciones')] + [(c['id'], c['nombre']) for c in choices])
-    controls += select('formato', 'Formato', [('', 'Todos los formatos')] + list(FORMATS.items()))
-    controls += select('novedad', 'Novedades', [('', 'Cualquier fecha'), ('15', 'Novedad · menos de 15 días'), ('30', 'Últimos 30 días'), ('90', 'Últimos 90 días'), ('180', 'Últimos 180 días'), ('proximamente', 'Próximos 30 días')])
+        facets += facet_group(kind, label, [(c['id'], c['nombre']) for c in choices])
+    facets += facet_group('formato', 'Formato', list(FORMATS.items()))
+    controls = select('novedad', 'Novedades', [('', 'Cualquier fecha'), ('15', 'Novedad · menos de 15 días'), ('30', 'Últimos 30 días'), ('90', 'Últimos 90 días'), ('180', 'Últimos 180 días'), ('proximamente', 'Próximos 30 días')])
     controls += select('paginas', 'Extensión', [('', 'Cualquier extensión'), ('breve', 'Menos de 200 páginas'), ('media', 'De 200 a 399 páginas'), ('larga', 'De 400 a 599 páginas'), ('muy-larga', '600 páginas o más'), ('sin-dato', 'Páginas sin confirmar')])
     advanced = '<div class="catalogue-filter-grid">'
     for key,label in [('desde', 'Publicado desde'), ('hasta', 'Publicado hasta')]:
@@ -460,7 +466,10 @@ def render_filters(data):
     advanced += select('descuento', 'Ofertas', [('', 'Todos los precios'), ('1', 'Con descuento'), ('10', '10 % o más'), ('25', '25 % o más'), ('50', '50 % o más')], 'data-market-control="offers" disabled')
     advanced += select('valoracion', 'Valoración de lectores', [('', 'Todas las valoraciones'), ('3', '3 estrellas o más'), ('4', '4 estrellas o más'), ('4.5', '4,5 estrellas o más')], 'data-market-control="ratings" disabled')
     advanced += '</div>'
-    return '<form class="catalogue-filters" data-catalogue-filters><fieldset disabled><legend>Encuentra tu próxima lectura</legend><div class="catalogue-filter-grid">' + controls + '</div><details class="catalogue-details catalogue-more-filters"><summary>Más filtros: fechas, precios y valoraciones <span aria-hidden="true">＋</span></summary>' + advanced + '</details><div class="catalogue-filter-actions"><button type="submit">Buscar libros</button><button type="reset" disabled>Restablecer</button></div></fieldset></form>'
+    return ('<aside class="catalogue-sidebar"><form class="catalogue-filters" data-catalogue-filters><fieldset disabled><legend>Encuentra tu próxima lectura</legend>' + search
+            + '<div class="catalogue-facets">' + facets + '</div><div class="catalogue-filter-grid">' + controls + '</div>'
+            '<details class="catalogue-details catalogue-more-filters"><summary>Más filtros: fechas, precios y valoraciones <span aria-hidden="true">＋</span></summary>' + advanced + '</details>'
+            '<div class="catalogue-filter-actions"><button type="submit">Buscar libros</button><button type="reset" disabled>Restablecer</button></div></fieldset></form></aside>')
 
 
 # Tipo de libro para el selector «Todos / Novela / Cocina…» junto al catálogo.
@@ -480,16 +489,12 @@ def book_group(cats):
     return next((gid for gid, _label, members in BOOK_GROUPS if ids & members), 'otros')
 
 
-def group_selector(groups):
+def group_options(groups):
     display_order = ('novela', 'infantil', 'cocina', 'crecimiento', 'biografias', 'ensayo')
     present = sorted(((gid, label) for gid, label, _m in BOOK_GROUPS if gid in groups), key=lambda g: display_order.index(g[0]))
     if groups.get('otros'):
         present.append(('otros', 'Otros'))
-    items = [('', 'Todos', sum(groups.values()))] + [(gid, label, groups[gid]) for gid, label in present]
-    radios = ''.join(
-        f'<label class="catalogue-type"><input type="radio" name="tipo-libro" value="{esc(v)}" data-type-radio disabled' + (' checked' if not v else '') + f'><span>{esc(label)} <small>({n})</small></span></label>'
-        for v, label, n in items)
-    return '<fieldset class="catalogue-types" data-catalogue-types><legend>Tipo de libro</legend>' + radios + '<input type="hidden" name="grupo" data-filter="grupo" form="catalogue-search-form" value=""></fieldset>'
+    return present
 
 
 def render_hub(data, books, template):
@@ -514,8 +519,8 @@ def render_hub(data, books, template):
         affiliate_cta = ('<a class="catalogue-buy-link catalogue-card__buy" href="' + esc(affiliate_link) + '" target="_blank" rel="sponsored nofollow noopener noreferrer">' + esc(amazon_action_label(b)) + ' <span aria-hidden="true">↗</span></a>') if affiliate_link else ''
         cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)">{image(b,i>1)}</a><div><p class="eyebrow">{novelty(b, "Libros recomendados")}</p>{tags(cats, compact=True)}<h3><a href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña">{esc(b["titulo"])}</a></h3><p class="catalogue-author">{author_links(b)}</p><p class="catalogue-card__description">{esc(synopsis(b))}</p>{synopsis_attribution(b)}<p class="catalogue-card__meta">' + edition_metadata + f'</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}" data-isbn="{esc(b.get("isbn13", ""))}"></div><p data-price-book="{esc(b["id"])}" class="catalogue-price" hidden></p><a class="text-action" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha del libro (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
     sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="titulo">Título · A–Z</option><option value="titulo_desc">Título · Z–A</option><option value="autor">Autor · A–Z</option><option value="fecha_asc">Publicación · más antigua</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option><option value="precio_asc" data-sort-market="offers" disabled>Precio · menor a mayor</option><option value="precio_desc" data-sort-market="offers" disabled>Precio · mayor a menor</option><option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
-    filters = render_filters(data).replace('<form class=', '<form id="catalogue-search-form" class=',1)
-    catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados">' + group_selector(groups) + filters + '<div class="catalogue-results-head"><h2>El catálogo</h2>' + sort + f'<p role="status" aria-live="polite" data-catalogue-count>{len(books)} ' + ('libro' if len(books)==1 else 'libros') + '</p></div><ul class="catalogue-grid">' + ''.join(cards) + '</ul><div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba con otros filtros o restablece la búsqueda.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas sin JavaScript. Los filtros requieren activarlo.</p></noscript></section>'
+    filters = render_filters(data, group_options(groups)).replace('<form class=', '<form id="catalogue-search-form" class=',1)
+    catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados"><div class="catalogue-layout">' + filters + '<div class="catalogue-main"><div class="catalogue-results-head"><h2>El catálogo</h2>' + sort + f'<p role="status" aria-live="polite" data-catalogue-count>{len(books)} ' + ('libro' if len(books)==1 else 'libros') + '</p></div><ul class="catalogue-grid">' + ''.join(cards) + '</ul><div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba con otros filtros o restablece la búsqueda.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas sin JavaScript. Los filtros requieren activarlo.</p></noscript></div></div></section>'
     quiz='<details class="catalogue-quiz"><summary>¿Qué te apetece leer? Haz el test y encuentra tu próximo libro</summary><div class="catalogue-quiz__panel"><p>Puedes explorar todas las fichas del catálogo que aparecen a continuación.</p></div></details>' if books else ''
     page=template.replace('{{catalogue}}',quiz+catalogue)
     modified=max((b['fecha_actualizacion'] for b in books),default='2026-10-20')
