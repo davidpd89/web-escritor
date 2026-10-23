@@ -109,8 +109,12 @@ def publish() -> int:
     except pub.PublishError as exc:
         log(f"publish failed: {exc}")
         return 4
+    publish.last_result = result
     log(f"publish: {result}")
     return 0
+
+
+publish.last_result = "none"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -138,13 +142,15 @@ def main(argv: list[str] | None = None) -> int:
                 break
         status = {"last_attempt": started, "last_exit_code": rc, "reauth_required": rc == 2,
                   "networks": networks()}
-        if rc == 0:
+        if rc in (0, 2):  # 2 = Metricool needs login, but fresh Bluesky/Mastodon data and kept values are valid
             status["last_success"] = started  # collection succeeded
             if args.publish:
-                rc = publish()
-                status["last_publish_ok"] = rc == 0
-                if rc == 0:
+                prc = publish()
+                status["last_publish_ok"] = prc == 0
+                status["last_publish_result"] = publish.last_result if prc == 0 else "failed"
+                if prc == 0 and publish.last_result == "published":
                     status["last_publish"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+                rc = prc or rc  # publication failure (4) outranks; reauth (2) survives a good publish
                 status["last_exit_code"] = rc
         write_status(status)
         log(f"finished rc={rc}")

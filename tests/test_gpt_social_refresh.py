@@ -70,7 +70,7 @@ class RefreshRunnerTests(unittest.TestCase):
         self.assertEqual(a.call_count, 1)
         status = json.loads((self.dir / "status.json").read_text())
         self.assertTrue(status["reauth_required"])
-        self.assertNotIn("last_success", status)
+        self.assertIn("last_success", status)  # other sources still collected
 
     def test_transient_failure_retries_then_succeeds(self):
         with mock.patch.object(refresh, "attempt", side_effect=[1, 0]) as a, mock.patch.object(refresh.time, "sleep"):
@@ -106,3 +106,22 @@ class PublicArtifactTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ReauthKeepsSnapshotTests(unittest.TestCase):
+    def test_expired_metricool_login_keeps_last_good_and_exits_2(self):
+        import gpt_social_snapshot as snap
+        d = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, d, True)
+        out = d / "m.json"
+        out.write_text((ROOT / "redes-sociales/social-metrics.json").read_text(encoding="utf-8"), encoding="utf-8")
+        def dead(now):
+            raise mcp.ReauthRequired("expired")
+        with mock.patch.object(snap.metricool_live, "read", dead):
+            rc = snap.main(["--output", str(out), "--metricool-live", "--bluesky-fixture",
+                            str(ROOT / "tests/fixtures/social/bluesky_profile.fixture.json"),
+                            "--mastodon-fixture", str(ROOT / "tests/fixtures/social/mastodon_search.fixture.json"),
+                            "--now", "2026-10-23T18:00:00Z"])
+        self.assertEqual(rc, 2)
+        kept = {n["id"]: n["status"] for n in json.loads(out.read_text(encoding="utf-8"))["networks"]}
+        self.assertEqual(kept["threads"], "ok")  # last-good Metricool value preserved

@@ -51,6 +51,9 @@ def collect(args: argparse.Namespace, errors: list[str], now: datetime) -> list[
     for name, job in jobs.items():
         try:
             sources.append(job())
+        except metricool_live.mcp.ReauthRequired as exc:
+            args.reauth_required = True  # keep the other sources and the last-good Metricool values
+            errors.append(f"{name}: REAUTH REQUIRED: {exc}")
         except Exception as exc:  # one failing source must not block the others
             errors.append(f"{name}: {exc}")
     return sources
@@ -140,7 +143,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"warning: {e}", file=sys.stderr)
     print(f"{'written' if changed else 'unchanged'}: {args.output} "
           f"({payload['totals']['coverage']}/{payload['totals']['eligible']} networks)")
-    return 0
+    return 2 if getattr(args, "reauth_required", False) else 0  # 2 = data kept, but Metricool needs `login`
 
 
 if __name__ == "__main__":
