@@ -54,17 +54,18 @@ test('todos los eventos están en autoridad y modal de Samuel queda separado', (
   assert.match(script, /if \(!link \|\| link\.closest\("#buy-dialog"\)\) return;/);
   const body = script.slice(script.indexOf('// Delegación imprescindible:'), script.indexOf('// Leer fragmento gratis --'));
   assert.match(body, /if \(category\) _gcEvent\(category,/);
-  assert.equal((body.match(/_gcEvent\(/g) || []).length, 1, 'No emitir eventos duplicados');
+  assert.equal((body.match(/_gcEvent\(/g) || []).length, 2, 'Una emisión de compra y una de Author Follow, excluyentes por URL');
 });
 
 // Ejecuta el listener real de script.js con un DOM mínimo simulado.
-function runClick({ href, page = '/', inside = [], throwing = false }) {
+function runClick({ follow = false, href, page = '/', inside = [], throwing = false }) {
   const events = [];
   let handler;
   const link = {
     href,
     getAttribute: () => href,
     closest: (sel) => (inside.includes(sel) ? {} : null),
+    matches: (sel) => follow && sel.includes('amazon-author-follow-link'),
   };
   const section = script.slice(script.indexOf('function _amazonOutboundCategory('), script.indexOf('// Leer fragmento gratis --'));
   vm.runInNewContext(section, {
@@ -82,4 +83,5 @@ test('listener: exactamente un evento por clic y ninguno desde el modal de Samue
   assert.deepEqual(runClick({ href: short, inside: ['.header-buy'] }), ['comprar-amazon-header']);
   assert.deepEqual(runClick({ href: product, page: '/libros/samuel-entre-mundos/', inside: ['#buy-dialog'] }), []);
   assert.deepEqual(runClick({ href: 'https://www.amazon.es/stores/author/B0GZFP1JV3' }), []);
+  assert.deepEqual(runClick({ href: 'https://www.amazon.es/stores/author/B0GZFP1JV3', follow: true }), ['seguir-autor-amazon']);
 });
