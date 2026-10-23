@@ -65,7 +65,7 @@ html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .
 html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-cover img{display:block;width:100%;height:auto;border:0;box-shadow:0 16px 34px rgba(23,20,18,.14)}
 html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-hero__copy>.eyebrow{
   width:fit-content;margin:0;padding:0 .08em .08em;color:var(--man-gold);
-  font-family:'Yellowtail',var(--font-ui),cursive;font-size:clamp(1.3rem,1.75vw,1.65rem);font-weight:400;
+  font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;font-size:clamp(1.3rem,1.75vw,1.65rem);font-weight:400;
   line-height:1.05;letter-spacing:0;text-transform:none;
   background:url('/assets/highlight-8-blue-rect.png') center bottom .02em/106% .52em no-repeat
 }
@@ -89,7 +89,7 @@ html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .
 /* Handwritten action grammar. */
 html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas :is(.book-actions .primary-action,.book-actions .text-action,.prose-field .text-action,.availability-list .text-action,.book-utility-actions .text-action){
   display:inline-flex;align-items:center;width:fit-content;min-width:0;min-height:30px;padding:0;border:0;border-radius:0;
-  background:transparent;box-shadow:none;color:var(--man-blue);font-family:'Yellowtail',var(--font-ui),cursive;
+  background:transparent;box-shadow:none;color:var(--man-blue);font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;
   font-size:1.16rem;font-weight:400;line-height:1.15;letter-spacing:0;text-transform:none;text-decoration:none;flex-wrap:wrap
 }
 html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas :is(.book-actions .primary-action,.book-actions .text-action,.prose-field .text-action,.availability-list .text-action,.book-utility-actions .text-action):hover,
@@ -127,7 +127,7 @@ html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .
 html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-dedication>.eyebrow,
 html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-newsletter>div>.eyebrow{
   width:fit-content;margin:0;padding:0 .08em .08em;color:var(--man-gold);
-  font-family:'Yellowtail',var(--font-ui),cursive;font-size:clamp(1.3rem,1.8vw,1.6rem);font-weight:400;
+  font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;font-size:clamp(1.3rem,1.8vw,1.6rem);font-weight:400;
   line-height:1.05;letter-spacing:0;text-transform:none;
   background:url('/assets/highlight-8-blue-rect.png') center bottom .02em/106% .52em no-repeat
 }
