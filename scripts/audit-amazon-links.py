@@ -17,7 +17,7 @@ from urllib.parse import parse_qs, urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
 EXCLUDED = {".git", ".preview-dist", "node_modules", "artifacts", "tests", "qa", "docs"}
-ASIN_RE = re.compile(r"/(?:dp|gp/product)/([A-Z0-9]{10})(?:/|$)", re.I)
+ASIN_RE = re.compile(r"/(?:[^/]+/)?(?:dp|gp/product)/([A-Z0-9]{10})(?:/|$)", re.I)
 
 
 def html_paths(root: Path) -> list[Path]:
