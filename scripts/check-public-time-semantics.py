@@ -26,9 +26,15 @@ YEAR_RE = re.compile(r"\d{4,}")
 MONTH_RE = re.compile(r"(\d{4,})-(\d{2})")
 DATE_RE = re.compile(r"\d{4,}-\d{2}-\d{2}")
 WEEK_RE = re.compile(r"(\d{4,})-W(\d{2})")
-YEARLESS_RE = re.compile(r"\d{2}-\d{2}")
-TIME_RE = re.compile(r"\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?")
+YEARLESS_RE = re.compile(r"(?:--)?\d{2}-\d{2}")
+TIME_RE = re.compile(r"\d{2}:\d{2}(?::\d{2}(?:\.\d{1,3})?)?")
 OFFSET_RE = re.compile(r"(?:Z|[+-]\d{2}:?\d{2})")
+HTML_DATETIME_BASE = (
+    r"\d{4,}-\d{2}-\d{2}[T ]\d{2}:\d{2}"
+    r"(?::\d{2}(?:\.\d{1,3})?)?"
+)
+HTML_LOCAL_DATETIME_RE = re.compile(HTML_DATETIME_BASE)
+HTML_GLOBAL_DATETIME_RE = re.compile(HTML_DATETIME_BASE + r"(?:Z|[+-]\d{2}:?\d{2})")
 
 
 def parse_temporal(value: str, *, html_time: bool = False):
@@ -52,6 +58,11 @@ def parse_temporal(value: str, *, html_time: bool = False):
         return ("month", (year, month))
 
     if DATE_RE.fullmatch(value):
+        if html_time and len(value.split("-", 1)[0]) > 4:
+            year, month, day = map(int, value.split("-"))
+            if year < 1 or not 1 <= month <= 12 or not 1 <= day <= calendar.monthrange(year, month)[1]:
+                raise ValueError(f"invalid HTML date {value!r}")
+            return ("html-only", value)
         try:
             return ("date", date.fromisoformat(value))
         except ValueError as exc:
@@ -63,18 +74,66 @@ def parse_temporal(value: str, *, html_time: bool = False):
     # denote a calendar date.
     if html_time:
         if YEARLESS_RE.fullmatch(value):
-            month, day = map(int, value.split("-"))
-            if not 1 <= month <= 12 or not 1 <= day <= 31:
+            month, day = map(int, value.removeprefix("--").split("-"))
+            # The yearless microsyntax uses a leap year so 02-29 is valid,
+            # but impossible month/day combinations must still fail.
+            if not 1 <= month <= 12 or not 1 <= day <= calendar.monthrange(2000, month)[1]:
                 raise ValueError(f"invalid yearless date {value!r}")
             return ("html-only", value)
         m = WEEK_RE.fullmatch(value)
         if m:
             year, week = map(int, m.groups())
-            if year >= 1 and 1 <= week <= 53:
-                return ("html-only", value)
+            if year >= 1:
+                jan1 = calendar.weekday(year, 1, 1)
+                last_week = 53 if (jan1 == 3 or (jan1 == 2 and calendar.isleap(year))) else 52
+                if 1 <= week <= last_week:
+                    return ("html-only", value)
             raise ValueError(f"invalid week {value!r}")
-        if TIME_RE.fullmatch(value) or OFFSET_RE.fullmatch(value):
-            return ("html-only", value)
+        if TIME_RE.fullmatch(value):
+            parts = value.split(":")
+            hour, minute = int(parts[0]), int(parts[1])
+            second = int(parts[2].split(".")[0]) if len(parts) == 3 else 0
+            if hour <= 23 and minute <= 59 and second <= 59:
+                return ("html-only", value)
+            raise ValueError(f"invalid time {value!r}")
+        if OFFSET_RE.fullmatch(value):
+            if value == "Z":
+                return ("html-only", value)
+            digits = value[1:].replace(":", "")
+            hours, minutes = int(digits[:2]), int(digits[2:])
+            # WHATWG permits +00:00 but forbids the negative sign for zero.
+            if hours <= 23 and minutes <= 59 and not (value.startswith("-") and hours == minutes == 0):
+                return ("html-only", value)
+            raise ValueError(f"invalid timezone offset {value!r}")
+
+    if html_time:
+        # <time datetime> permits either a local date/time (without timezone)
+        # or a global date/time (with timezone). Validate each microsyntax
+        # separately before asking Python to check actual clock/calendar values.
+        local = HTML_LOCAL_DATETIME_RE.fullmatch(value)
+        global_time = HTML_GLOBAL_DATETIME_RE.fullmatch(value)
+        if not (local or global_time) or (
+            global_time and value.endswith(("-00:00", "-0000"))
+        ):
+            raise ValueError(f"invalid HTML datetime {value!r}")
+
+    # HTML accepts years with more than four digits; Python datetime does not.
+    # Validate the rest using a leap-year surrogate, then check the actual
+    # calendar day of the original year and retain reduced precision.
+    if html_time and len(value.split("-", 1)[0]) > 4:
+        year_text, suffix = value.split("-", 1)
+        year = int(year_text)
+        if year < 1:
+            raise ValueError(f"invalid HTML year {year_text!r}")
+        surrogate = "2000-" + suffix
+        normalized = surrogate[:-1] + "+00:00" if surrogate.endswith("Z") else surrogate
+        try:
+            parsed = datetime.fromisoformat(normalized)
+            if parsed.day > calendar.monthrange(year, parsed.month)[1]:
+                raise ValueError("invalid day for original year")
+        except ValueError as exc:
+            raise ValueError(f"invalid HTML datetime {value!r}") from exc
+        return ("html-only", value)
 
     try:
         normalized = value[:-1] + "+00:00" if value.endswith("Z") else value
