@@ -630,7 +630,14 @@ def cmd_status(a):
     if ult: print(f"Ultima peticion: {ult[0]} {ult[1]} {ult[2]} -> {ult[3]} (lecturas repo {ult[4]}, {ult[5]} s)")
     usadas = q("SELECT COUNT(*) FROM peticiones WHERE fecha=?", today()); tot = q("SELECT COUNT(*) FROM peticiones")
     utiles = q("SELECT COUNT(*) FROM propuestas WHERE estado IN ('aceptada','preparada','aprobada','publicada','ejecutada','informe')")
-    print(f"Quedan hoy: {max(CFG['max_peticiones_dia'] - usadas, 0)} peticiones | rendimiento: {utiles} propuestas utiles / {tot} peticiones registradas | revisadas por PASS B: {q('SELECT COUNT(*) FROM propuestas WHERE veredicto IS NOT NULL')} de {q('SELECT COUNT(*) FROM propuestas')}")
+    print(f"Quedan hoy: {max(CFG['max_peticiones_dia'] - usadas, 0)} peticiones de {CFG['max_peticiones_dia']} | peticiones registradas en total: {tot}")
+    n = lambda *es: q(f"SELECT COUNT(*) FROM propuestas WHERE estado IN ({','.join('?' * len(es))})", *es)
+    print(f"Ciclo de vida: descubiertas {q('SELECT COUNT(*) FROM propuestas')} | esperando PASS B {n('propuesta')} | con veredicto PASS B {q('SELECT COUNT(*) FROM propuestas WHERE veredicto IS NOT NULL AND estado<>?', 'propuesta')} "
+          f"(aceptadas {n('aceptada', 'preparada', 'aprobada', 'publicada', 'ejecutada', 'informe')}, en revision {n('revisar')}, bloqueadas {n('bloqueada')}, rechazadas {n('rechazada', 'invalida', 'descartada', 'duplicada')}) | "
+          f"parches generados {q('SELECT COUNT(*) FROM ramas')} | en rama local (STAGED) {n('preparada')} | ejecutadas {n('ejecutada', 'publicada')} | defectos de producto confirmados {q("SELECT COUNT(*) FROM propuestas WHERE estado IN ('ejecutada','publicada') AND datos LIKE '%descubre_defecto%true%'")}")
+    if Lock.path.exists():
+        try: pid, desde = Lock.path.read_text().split(None, 1); print(f"Lock del trabajador: pid {pid} desde {desde.strip()} (vivo: {pid_alive(int(pid))})")
+        except Exception: print("Lock del trabajador: ilegible")
     el = elegir_modo(c)
     print(f"Proxima ronda: {'modo ' + el[0] + ' -> ' + el[1] if el else 'todo en descanso'} (a partir de la hora de la tarea)")
     print(f"Tests preparados (rama local, sin ejecutar): {q('SELECT COUNT(*) FROM propuestas WHERE estado=?', 'preparada')} | aprobados esperando noche: {q('SELECT COUNT(*) FROM propuestas WHERE estado=?', 'aprobada')} | ejecutados/validados: {q('SELECT COUNT(*) FROM propuestas WHERE estado IN (?,?)', 'ejecutada', 'publicada')}")
