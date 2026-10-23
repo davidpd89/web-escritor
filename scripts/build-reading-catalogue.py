@@ -12,7 +12,7 @@ import html
 import json
 import re
 import sys
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 from PIL import Image
@@ -217,12 +217,12 @@ def tags(cats, compact=False):
     def group(items):
         return '<ul class="catalogue-tags' + (' catalogue-tags--compact' if compact else '') + '">' + ''.join(f'<li><a href="/recomendaciones/#{esc(c["tipo"])}={esc(c["id"])}">{esc(c["nombre"])}</a></li>' for c in items) + '</ul>'
     if compact:
-        priority={'genero':0,'temporada':1,'tematica':2,'edad':3,'contenido':4,'epoca':5}
+        priority={'genero':0,'temporada':1,'tematica':2,'epoca':3,'contenido':4,'edad':5}
         cats=sorted(cats,key=lambda c:(priority[c['tipo']],c['orden'],c['id']))
     if compact:
         # Una sola fila de etiquetas pequeñas (sin desplegable): la tarjeta resume,
         # el resto de categorías sigue disponible en la ficha y en los filtros.
-        cats = cats[:5]
+        cats = cats[:3]
     return group(cats)
 
 
@@ -231,8 +231,6 @@ def synopsis(b):
 
 
 def synopsis_attribution(b):
-    if b.get('sinopsis_tipo') == 'extracto_editorial':
-        return '<p class="catalogue-source"><a href="' + esc(b['sinopsis_fuente_url']) + '" target="_blank" rel="noopener noreferrer">Sinopsis editorial ↗</a></p>'
     return ''
 
 
@@ -377,10 +375,88 @@ def amazon_destination(b):
 
 
 def amazon_action_label(b):
-    return 'Ver en Amazon' if b.get('url_amazon_afiliada') else 'Buscar este ISBN en Amazon'
+    return 'Comprar en Amazon'
+
+
+LANGUAGES = {'es': 'Español', 'ca': 'Català', 'gl': 'Galego', 'eu': 'Euskara', 'en': 'Inglés', 'fr': 'Francés', 'it': 'Italiano', 'pt': 'Portugués', 'de': 'Alemán'}
+
+
+def newtab(html):
+    """Los enlaces internos del contenido abren pestaña nueva; migas de pan, pie y descargas se quedan igual."""
+    def mark(m):
+        t = m.group(0)
+        if not re.search(r'href="/(?!/)', t) or 'target=' in t or '.ics' in t:
+            return t
+        return t[:-1] + ' target="_blank" rel="noopener">'
+    anchors = lambda chunk: re.sub(r'<a[^>]*>', mark, chunk)
+    keep = re.compile(r'<nav class="book-breadcrumb"[\s\S]*?</nav>|<div class="catalogue-end">[\s\S]*?</div>')
+    out, pos = [], 0
+    for m in keep.finditer(html):
+        out += [anchors(html[pos:m.start()]), m.group(0)]
+        pos = m.end()
+    return ''.join(out + [anchors(html[pos:])])
+
+
+def facts(b, upcoming=False):
+    """Datos clave de un vistazo: etiqueta pequeña y valor, en lugar de una línea corrida."""
+    when = esc(publication_date_label(b))
+    if when and upcoming:
+        when += ' · <a href="/' + ICS_PATH + '">Añadir al calendario</a>'
+    pvp_for = FORMATS.get(b.get('formato_edicion'), '').lower()
+    rows = [('Publicación', when), ('Editorial', publisher_link(b)),
+            ('Páginas', esc(b['numero_paginas']) if b.get('numero_paginas') else ''),
+            ('PVP' + (' ' + pvp_for if pvp_for else ''), ('<span class="catalogue-pvp" title="Precio fijado por la editorial, verificado el ' + esc(b.get('pvp_fecha_verificacion', '')) + '">' + esc(pvp_label(b)) + '</span>') if b.get('pvp_centimos') else '')]
+    return '<dl class="catalogue-facts">' + ''.join(f'<div><dt>{k}</dt><dd>{v}</dd></div>' for k, v in rows if v) + '</dl>'
 
 
 MONTHS_ES = ('', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre')
+
+
+ICS_PATH = 'recomendaciones/proximos-lanzamientos.ics'
+
+
+def data_anchor(books):
+    """Fecha de referencia derivada de los datos (no del reloj): la salida es determinista."""
+    return max((b.get('fecha_actualizacion') or b.get('fecha_verificacion') or '' for b in books), default='')
+
+
+def upcoming_books(books):
+    anchor = data_anchor(books)
+    return sorted((b for b in books if b.get('fecha_publicacion', '') > anchor), key=lambda b: (b['fecha_publicacion'], b['titulo']))
+
+
+def ics_text(value):
+    BS = chr(92)
+    normalized = str(value).replace(chr(13) + chr(10), chr(10)).replace(chr(13), chr(10))
+    return normalized.replace(BS, BS * 2).replace(chr(10), BS + 'n').replace(',', BS + ',').replace(';', BS + ';')
+
+
+def ics_fold(line):
+    out, cur = [], ''
+    for ch in line:
+        if len((cur + ch).encode('utf-8')) > 75:
+            out.append(cur)
+            cur = ' ' + ch
+        else:
+            cur += ch
+    out.append(cur)
+    return (chr(13) + chr(10)).join(out)
+
+
+def render_release_ics(books):
+    """Calendario .ics de próximos lanzamientos (eventos de día completo)."""
+    stamp = data_anchor(books).replace('-', '')
+    lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//David Porto Diaz//Proximos lanzamientos//ES', 'CALSCALE:GREGORIAN',
+             'METHOD:PUBLISH', 'X-WR-CALNAME:Próximos lanzamientos de libros recomendados']
+    for b in upcoming_books(books):
+        d = date.fromisoformat(b['fecha_publicacion'])
+        lines += ['BEGIN:VEVENT', 'UID:' + b['id'].lower() + '@davidportodiaz.com', 'DTSTAMP:' + stamp + 'T000000Z',
+                  'DTSTART;VALUE=DATE:' + d.strftime('%Y%m%d'), 'DTEND;VALUE=DATE:' + (d + timedelta(days=1)).strftime('%Y%m%d'),
+                  'SUMMARY:' + ics_text('Sale a la venta: ' + b['titulo']),
+                  'DESCRIPTION:' + ics_text(', '.join(b['autores']) + ' · ' + (b.get('editorial') or '')),
+                  'URL:' + SITE + url(b), 'END:VEVENT']
+    lines += ['END:VCALENDAR', '']
+    return (chr(13) + chr(10)).join(ics_fold(line) for line in lines)
 
 
 def publication_date_label(b):
@@ -396,25 +472,33 @@ def publication_date_label(b):
     return str(b.get('anio_publicacion') or '')
 
 
-def render_filters(data):
+def facet_group(key, label, options, opened=False):
+    boxes = ''.join(f'<label class="catalogue-check"><input type="checkbox" id="{key}={esc(v)}" name="{key}" value="{esc(v)}" data-facet="{key}"><span>{esc(t)}</span><small data-facet-count></small></label>' for v, t in options)
+    return f'<details class="catalogue-facet" data-facet-group="{key}"' + (' open' if opened else '') + f'><summary>{esc(label)} <small data-facet-selected></small></summary><div class="catalogue-facet__options">{boxes}</div></details>'
+
+
+def render_filters(data, type_options):
     def select(key, label, options, extra=''):
-        return f'<label>{label}<select name="{key}" data-filter="{key}" {extra}>' + ''.join(f'<option value="{esc(v)}"' + (f' id="{key}={esc(v)}"' if key in TYPES and v else '') + f'>{esc(t)}</option>' for v,t in options) + '</select></label>'
-    controls = '<label class="catalogue-search">Buscar por título, autor o ISBN<input type="search" name="q" data-filter="q" maxlength="200" autocomplete="off" placeholder="¿Qué te apetece leer?"></label>'
+        return f'<label>{label}<select name="{key}" data-filter="{key}" {extra}>' + ''.join(f'<option value="{esc(v)}">{esc(t)}</option>' for v, t in options) + '</select></label>'
+    search = '<label class="catalogue-search">Buscar por título, autor o ISBN<input type="search" name="q" data-filter="q" maxlength="200" autocomplete="off" placeholder="¿Qué te apetece leer?"></label>'
+    facets = facet_group('grupo', 'Tipo de libro', type_options, True)
     for kind, label in TYPES.items():
         choices = sorted((c for c in data['categorias'] if c['tipo'] == kind and c['activa']), key=lambda c: (c['orden'], c['id']))
-        controls += select(kind, label, [('', 'Todas las opciones')] + [(c['id'], c['nombre']) for c in choices])
-    controls += select('formato', 'Formato', [('', 'Todos los formatos')] + list(FORMATS.items()))
-    controls += select('novedad', 'Novedades', [('', 'Cualquier fecha'), ('15', 'Novedad · menos de 15 días'), ('30', 'Últimos 30 días'), ('90', 'Últimos 90 días'), ('180', 'Últimos 180 días'), ('proximamente', 'Próximos 30 días')])
+        facets += facet_group(kind, label, [(c['id'], c['nombre']) for c in choices])
+    facets += facet_group('formato', 'Formato de la edición', list(FORMATS.items()))
+    facets += '<div class="catalogue-facet catalogue-price-range"><p class="catalogue-facet__title">PVP de la edición (€)</p><div class="catalogue-price-range__fields">' + ''.join(f'<label>{t}<input type="number" min="0" max="100000" step="0.01" inputmode="decimal" name="{k}" data-filter="{k}" placeholder="{ph}"></label>' for k, t, ph in (('precio_min', 'Desde', '0'), ('precio_max', 'Hasta', '100'))) + '</div></div>'
+    controls = select('novedad', 'Novedades', [('', 'Cualquier fecha'), ('15', 'Novedad · menos de 15 días'), ('30', 'Últimos 30 días'), ('90', 'Últimos 90 días'), ('180', 'Últimos 180 días'), ('proximamente', 'Próximos 30 días')])
     controls += select('paginas', 'Extensión', [('', 'Cualquier extensión'), ('breve', 'Menos de 200 páginas'), ('media', 'De 200 a 399 páginas'), ('larga', 'De 400 a 599 páginas'), ('muy-larga', '600 páginas o más'), ('sin-dato', 'Páginas sin confirmar')])
     advanced = '<div class="catalogue-filter-grid">'
     for key,label in [('desde', 'Publicado desde'), ('hasta', 'Publicado hasta')]:
         advanced += f'<label>{label}<input type="date" name="{key}" data-filter="{key}" min="1000-01-01" max="2100-12-31"></label>'
-    for key,label in [('precio_min', 'Precio mínimo (€)'), ('precio_max', 'Precio máximo (€)')]:
-        advanced += f'<label>{label}<input type="number" min="0" max="100000" step="0.01" inputmode="decimal" name="{key}" data-filter="{key}" data-market-control="offers" disabled></label>'
     advanced += select('descuento', 'Ofertas', [('', 'Todos los precios'), ('1', 'Con descuento'), ('10', '10 % o más'), ('25', '25 % o más'), ('50', '50 % o más')], 'data-market-control="offers" disabled')
     advanced += select('valoracion', 'Valoración de lectores', [('', 'Todas las valoraciones'), ('3', '3 estrellas o más'), ('4', '4 estrellas o más'), ('4.5', '4,5 estrellas o más')], 'data-market-control="ratings" disabled')
     advanced += '</div>'
-    return '<form class="catalogue-filters" data-catalogue-filters><fieldset disabled><legend>Encuentra tu próxima lectura</legend><div class="catalogue-filter-grid">' + controls + '</div><details class="catalogue-details catalogue-more-filters"><summary>Más filtros: fechas, precios y valoraciones <span aria-hidden="true">＋</span></summary>' + advanced + '</details><div class="catalogue-filter-actions"><button type="submit">Buscar libros</button><button type="reset" disabled>Restablecer</button></div></fieldset></form>'
+    return ('<aside class="catalogue-sidebar"><form class="catalogue-filters" data-catalogue-filters><fieldset disabled><legend>Encuentra tu próxima lectura</legend>' + search
+            + '<div class="catalogue-facets">' + facets + '</div><div class="catalogue-filter-grid">' + controls + '</div>'
+            '<details class="catalogue-details catalogue-more-filters"><summary>Más filtros: fechas, ofertas y valoraciones <span aria-hidden="true">＋</span></summary>' + advanced + '</details>'
+            '<div class="catalogue-filter-actions"><button type="submit">Buscar libros</button><button type="reset" disabled>Restablecer</button></div></fieldset></form></aside>')
 
 
 # Tipo de libro para el selector «Todos / Novela / Cocina…» junto al catálogo.
@@ -434,16 +518,12 @@ def book_group(cats):
     return next((gid for gid, _label, members in BOOK_GROUPS if ids & members), 'otros')
 
 
-def group_selector(groups):
+def group_options(groups):
     display_order = ('novela', 'infantil', 'cocina', 'crecimiento', 'biografias', 'ensayo')
     present = sorted(((gid, label) for gid, label, _m in BOOK_GROUPS if gid in groups), key=lambda g: display_order.index(g[0]))
     if groups.get('otros'):
         present.append(('otros', 'Otros'))
-    items = [('', 'Todos', sum(groups.values()))] + [(gid, label, groups[gid]) for gid, label in present]
-    radios = ''.join(
-        f'<label class="catalogue-type"><input type="radio" name="tipo-libro" value="{esc(v)}" data-type-radio disabled' + (' checked' if not v else '') + f'><span>{esc(label)} <small>({n})</small></span></label>'
-        for v, label, n in items)
-    return '<fieldset class="catalogue-types" data-catalogue-types><legend>Tipo de libro</legend>' + radios + '<input type="hidden" name="grupo" data-filter="grupo" form="catalogue-search-form" value=""></fieldset>'
+    return present
 
 
 def render_hub(data, books, template):
@@ -457,19 +537,14 @@ def render_hub(data, books, template):
         formats = ' '.join(sorted(set([o['formato'] for o in purchase_formats(b)] + ([b['formato_edicion']] if b.get('formato_edicion') else []))))
         published = b.get('fecha_publicacion', '')
         year = b.get('anio_publicacion', '')
-        attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-search="{esc(b["titulo"] + " " + " ".join(b["autores"]) + " " + b.get("isbn13", ""))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}"'
-        edition_metadata = ' · '.join(v for v in (
-            esc(publication_date_label(b)), publisher_link(b),
-            esc((str(b['numero_paginas']) + ' páginas') if b.get('numero_paginas') else ''),
-            esc(('Edad: ' + b['edad_recomendada']) if b.get('edad_recomendada') else ''),
-            ('<span class="catalogue-pvp" title="Precio fijado por la editorial, verificado el ' + esc(b.get('pvp_fecha_verificacion', '')) + '">PVP ' + esc(pvp_label(b)) + '</span>') if b.get('pvp_centimos') else '',
-        ) if v)
+        attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-search="{esc(b["titulo"] + " " + " ".join(b["autores"]) + " " + b.get("isbn13", ""))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}" data-pvp="{esc(b.get("pvp_centimos", ""))}"'
+        edition_metadata = facts(b)
         affiliate_link = amazon_destination(b)
         affiliate_cta = ('<a class="catalogue-buy-link catalogue-card__buy" href="' + esc(affiliate_link) + '" target="_blank" rel="sponsored nofollow noopener noreferrer">' + esc(amazon_action_label(b)) + ' <span aria-hidden="true">↗</span></a>') if affiliate_link else ''
-        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)">{image(b,i>1)}</a><div><p class="eyebrow">{novelty(b, "Libros recomendados")}</p>{tags(cats, compact=True)}<h3><a href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña">{esc(b["titulo"])}</a></h3><p class="catalogue-author">{author_links(b)}</p><p class="catalogue-card__description">{esc(synopsis(b))}</p>{synopsis_attribution(b)}<p class="catalogue-card__meta">' + edition_metadata + f'</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}" data-isbn="{esc(b.get("isbn13", ""))}"></div><p data-price-book="{esc(b["id"])}" class="catalogue-price" hidden></p><a class="text-action" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha del libro (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
-    sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="titulo">Título · A–Z</option><option value="titulo_desc">Título · Z–A</option><option value="autor">Autor · A–Z</option><option value="fecha_asc">Publicación · más antigua</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option><option value="precio_asc" data-sort-market="offers" disabled>Precio · menor a mayor</option><option value="precio_desc" data-sort-market="offers" disabled>Precio · mayor a menor</option><option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
-    filters = render_filters(data).replace('<form class=', '<form id="catalogue-search-form" class=',1)
-    catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados">' + group_selector(groups) + filters + '<div class="catalogue-results-head"><h2>El catálogo</h2>' + sort + f'<p role="status" aria-live="polite" data-catalogue-count>{len(books)} ' + ('libro' if len(books)==1 else 'libros') + '</p></div><ul class="catalogue-grid">' + ''.join(cards) + '</ul><div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba con otros filtros o restablece la búsqueda.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas sin JavaScript. Los filtros requieren activarlo.</p></noscript></section>'
+        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)">{image(b,i>1)}</a><div><p class="eyebrow">{novelty(b, "Libros recomendados")}</p>{tags(cats, compact=True)}<h3><a href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña">{esc(b["titulo"])}</a></h3><p class="catalogue-author">{author_links(b)}</p><p class="catalogue-card__description">{esc(synopsis(b))}</p>' + edition_metadata + f'<div class="catalogue-rating" data-rating-book="{esc(b["id"])}" data-isbn="{esc(b.get("isbn13", ""))}"></div><p data-price-book="{esc(b["id"])}" class="catalogue-price" hidden></p><a class="text-action" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha del libro (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
+    sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="titulo">Título · A–Z</option><option value="titulo_desc">Título · Z–A</option><option value="autor">Autor · A–Z</option><option value="fecha_asc">Publicación · más antigua</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option><option value="precio_asc">PVP · menor a mayor</option><option value="precio_desc">PVP · mayor a menor</option><option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
+    filters = render_filters(data, group_options(groups)).replace('<form class=', '<form id="catalogue-search-form" class=',1)
+    catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados"><div class="catalogue-layout">' + filters + '<div class="catalogue-main"><div class="catalogue-results-head"><h2>El catálogo</h2>' + sort + f'<p role="status" aria-live="polite" data-catalogue-count>{len(books)} ' + ('libro' if len(books)==1 else 'libros') + '</p></div><ul class="catalogue-grid">' + newtab(''.join(cards)) + '</ul><div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba con otros filtros o restablece la búsqueda.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas sin JavaScript. Los filtros requieren activarlo.</p></noscript></div></div></section>'
     quiz='<details class="catalogue-quiz"><summary>¿Qué te apetece leer? Haz el test y encuentra tu próximo libro</summary><div class="catalogue-quiz__panel"><p>Puedes explorar todas las fichas del catálogo que aparecen a continuación.</p></div></details>' if books else ''
     page=template.replace('{{catalogue}}',quiz+catalogue)
     modified=max((b['fecha_actualizacion'] for b in books),default='2026-10-20')
@@ -485,18 +560,15 @@ def render_book(data,b,template):
     title=book_title(b)
     description=synopsis(b)
     cats=categories(data,b)
-    rows=[('Edición',b['edicion']),('Editorial',b.get('editorial')),('Publicación',publication_date_label(b)),('ISBN-13',b.get('isbn13')),('Idioma',b.get('idioma')),('Páginas',b.get('numero_paginas')),('PVP editorial',pvp_label(b) if b.get('pvp_centimos') else None),('Edad orientativa',b.get('edad_recomendada'))]
-    details='<details class="catalogue-details"><summary>Datos de esta edición</summary><dl>'+''.join(f'<dt>{esc(k)}</dt><dd>' + (publisher_link(b) if k == 'Editorial' and (b.get('editorial_slug') or b.get('editorial_catalogo_slug')) else esc(v)) + '</dd>' for k,v in rows if v)+'</dl></details>'
+    upcoming=b in upcoming_books(data['libros'])
+    rows=[('Edición',b['edicion'].split(' · ')[0]),('ISBN-13',b.get('isbn13')),('Idioma',LANGUAGES.get(b.get('idioma'),b.get('idioma')))]
+    details='<details class="catalogue-details"><summary>Más datos de la edición</summary><dl>'+''.join(f'<dt>{esc(k)}</dt><dd>{esc(v)}</dd>' for k,v in rows if v)+'</dl></details>'
     fragment=''  # Audio and samples are not rendered until all editions can support them.
     reviews=approved_reviews_for(b)
     extra=render_approved_reviews(reviews)
-    if b.get('resenas'):
-        extra+='<details class="catalogue-details"><summary>'+('Buscar reseñas' if all(r['url'].startswith('https://www.goodreads.com/search?') for r in b['resenas']) else 'Opiniones y referencias externas ('+str(len(b['resenas']))+')')+'</summary><ul>'+''.join(f'<li><a href="{esc(r["url"])}" target="_blank" rel="noopener noreferrer">{esc(r["titulo"])}</a></li>' for r in b['resenas'])+'</ul></details>'
-    extra+='<details class="catalogue-details"><summary>Fuentes de la edición y la portada</summary><ul>'+f'<li><a href="{esc(b["fuente_bibliografica_url"])}" target="_blank" rel="noopener noreferrer">Ficha editorial</a></li><li><a href="{esc(b["portada_fuente_url"])}" target="_blank" rel="noopener noreferrer">Portada: {esc(b.get("editorial") or "fuente editorial")}</a></li>'
-    for key,label in [('fuente_publicacion_url','Fecha de publicación'),('fuente_edad_url','Orientación de edad')]:
-        if b.get(key):
-            extra+=f'<li><a href="{esc(b[key])}" target="_blank" rel="noopener noreferrer">{label}</a></li>'
-    extra+='</ul></details>'
+    external=[r for r in b.get('resenas', []) if not r['url'].startswith('https://www.goodreads.com/search?')]
+    if external:
+        extra+='<details class="catalogue-details"><summary>Opiniones y referencias externas ('+str(len(external))+')</summary><ul>'+''.join(f'<li><a href="{esc(r["url"])}" target="_blank" rel="noopener noreferrer">{esc(r["titulo"])}</a></li>' for r in external)+'</ul></details>'
     options=purchase_formats(b)
     destination=amazon_destination(b)
     buy=('<a class="catalogue-buy-link" href="'+esc(destination)+'" target="_blank" rel="sponsored nofollow noopener noreferrer">'+esc(amazon_action_label(b))+' <span aria-hidden="true">↗</span></a>') if destination else ''
@@ -509,7 +581,7 @@ def render_book(data,b,template):
     if amazon_href:
         cover='<a href="'+esc(amazon_href)+'" aria-label="'+esc(amazon_action_label(b))+': '+esc(b['titulo'])+' (otra pestaña)" target="_blank" rel="sponsored nofollow noopener noreferrer">'+cover+'</a>'
     speech=''
-    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue" data-family="recomendaciones" data-reading-catalogue><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(b['titulo'])+'</li></ol></nav><article class="catalogue-book-layout"><div class="catalogue-cover-panel">'+cover+'</div><div><header class="catalogue-book-heading"><p class="eyebrow">'+novelty(b, "Libros recomendados")+'</p><h1>'+esc(b['titulo'])+'</h1><p class="catalogue-author">'+author_links(b)+'</p><div class="catalogue-rating" data-rating-book="'+esc(b['id'])+'" data-isbn="'+esc(b.get('isbn13',''))+'"></div></header><p data-catalogue-description>'+esc(description)+'</p>'+synopsis_attribution(b)+tags(cats)
+    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue" data-family="recomendaciones" data-reading-catalogue><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(b['titulo'])+'</li></ol></nav><article class="catalogue-book-layout"><div class="catalogue-cover-panel">'+cover+'</div><div><header class="catalogue-book-heading"><p class="eyebrow">'+novelty(b, "Libros recomendados")+'</p><h1>'+esc(b['titulo'])+'</h1><p class="catalogue-author">'+author_links(b)+'</p><div class="catalogue-rating" data-rating-book="'+esc(b['id'])+'" data-isbn="'+esc(b.get('isbn13',''))+'"></div></header><p data-catalogue-description>'+esc(description)+'</p>'+facts(b,upcoming)+tags(cats)
     if b.get('autoria_propia'):
         main+='<p>Obra de David Porto Díaz.</p>'
     if b.get('avisos_contenido'):
@@ -543,6 +615,7 @@ def render_detail_page(template,main,canonical,title,description,schema,b=None):
     if len(title) > 75:
         title = title[:63].rsplit(' ', 1)[0] + ' · ' + hashlib.sha256(canonical.encode()).hexdigest()[:8]
     page=template.replace('{{catalogue}}','')
+    main=newtab(main)
     page=re.sub(r'<main\b[\s\S]*?</main>',lambda _:main,page,count=1)
     page=re.sub(r'<title>.*?</title>',lambda _:'<title>'+esc(title)+'</title>',page,count=1)
     description=description if len(description)<=160 else description[:157].rsplit(' ',1)[0].rstrip('.,;:')+'…'
@@ -715,6 +788,7 @@ def main():
         for p in active_publishers:
             outputs[publisher_url(p).lstrip('/') + 'index.html'] = render_publisher(p, data, books, template, {a['nombre'] for a in authors})
         outputs['recomendaciones/editoriales/index.html'] = render_publishers_index(catalogue_publishers, books, template)
+        outputs[ICS_PATH] = render_release_ics(books)
         existing = root / 'recomendaciones/libros'
         orphans = [p for p in existing.glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
         orphans += [p for p in (root / 'recomendaciones/autores').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
@@ -729,11 +803,12 @@ def main():
         drift = []
         for rel, text in outputs.items():
             target = root / rel
-            if not target.exists() or target.read_text(encoding='utf-8') != text:
+            current = None if not target.exists() else (target.read_bytes().decode('utf-8') if rel.endswith('.ics') else target.read_text(encoding='utf-8'))
+            if current != text:
                 drift.append(rel)
                 if not args.check:
                     target.parent.mkdir(parents=True, exist_ok=True)
-                    target.write_text(text, encoding='utf-8', newline='\n')
+                    (target.write_bytes(text.encode('utf-8')) if rel.endswith('.ics') else target.write_text(text, encoding='utf-8', newline='\n'))
         require(not args.check or not drift, 'Catálogo desactualizado: ' + ', '.join(drift))
         print(f'Catálogo OK: {len(books)} libros publicados; {len(drift)} archivos {"pendientes" if args.check else "actualizados"}.')
         return 0

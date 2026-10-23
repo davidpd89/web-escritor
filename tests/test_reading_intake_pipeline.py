@@ -3,6 +3,7 @@ import copy
 import html
 import io
 import json
+import re
 import sys
 import tempfile
 import unittest
@@ -153,6 +154,53 @@ class ContractTests(unittest.TestCase):
             with self.assertRaises(builder.ValidationError):
                 builder.validate(data, root)
 
+    def test_planeta_sheet_reveals_isbn_and_is_not_republished(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'data').mkdir()
+            source = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+            source['libros'], source['libro_categorias'] = [], []
+            (root / 'data/reading-catalogue.json').write_text(json.dumps(source), encoding='utf-8')
+            (root / 'data/reading-authors.json').write_text(json.dumps({'schema_version': 1, 'autores': []}), encoding='utf-8')
+            shutil.copy(ROOT / 'data/editoriales.json', root / 'data/editoriales.json')
+            (root / 'editoriales/seix-barral').mkdir(parents=True); (root / 'editoriales/seix-barral/index.html').touch()
+            page_url = 'https://www.planetadelibros.com/libro-cosamala/458658'
+            index = 'https://www.planetadelibros.com/libros-novedades/p/1'
+            page = (ROOT / 'tests/fixtures/planeta-ficha-cosamala.html').read_text(encoding='utf-8')
+            cover_url = re.search(r'href="(https://proassetspdlcom[^"]+)"', page).group(1)
+            image = io.BytesIO(); Image.new('RGB', (600, 900), 'blue').save(image, 'PNG')
+            responses = {index: ('<a href="/libro-cosamala/458658">libro</a><a href="/libro-roto/1">roto</a>').encode(),
+                         page_url: page.encode(), cover_url: image.getvalue()}
+            class FakeHTTP:
+                def __init__(self, *args, **kwargs):
+                    self.requests = self.hits = 0; self.budget = 80
+                    FakeHTTP.hosts = args[1]
+                def get(self, url, **kwargs):
+                    self.requests += 1
+                    if url not in responses:
+                        raise OSError('sin respuesta')
+                    return responses[url]
+            config = json.loads((ROOT / 'data/reading-intake-config.json').read_text(encoding='utf-8'))
+            planeta = next(src for src in config['sources'] if src['provider'] == 'planeta')
+            config['sources'] = [planeta]
+            config['author_wikipedia']['enabled'] = False
+            with patch.object(pipeline, 'CachedHTTP', FakeHTTP):
+                today = '2026-10-20'
+                first = pipeline.ingest(config, root, root / '.cache', apply=True, today=today)
+                second = pipeline.ingest(config, root, root / '.cache', apply=True, today=today)
+            self.assertEqual(first['stats']['accepted'], 1, first['state'])
+            self.assertIn('proassetspdlcom.cdnstatics2.com', FakeHTTP.hosts)
+            saved = json.loads((root / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+            book = saved['libros'][0]
+            self.assertEqual((book['isbn13'], book['pvp_centimos'], book['editorial']), ('9788432251436', 2090, 'Seix Barral'))
+            self.assertEqual(book['fuente_bibliografica_url'], page_url)
+            self.assertEqual(book['editorial_slug'], 'seix-barral')
+            from reading_catalogue_publishers import catalogue_publisher
+            store = {'schema_version': 1, 'editoriales': []}
+            self.assertEqual(catalogue_publisher('PAIDÓS CÓMIC', store, page_url, today, directory_names=set(), directory_slugs=set())['grupo'], 'Grupo Planeta')
+            self.assertEqual(second['stats']['accepted'], 0)
+            self.assertEqual(second['stats']['already_published'], 1)
+
     def test_work_dedupe_preserves_series_volume(self):
         self.assertEqual(work_key('Obra (edición especial)', ['Autora']), work_key('Obra', ['Autora']))
         self.assertNotEqual(work_key('Obra 2', ['Autora']), work_key('Obra 3', ['Autora']))
@@ -191,6 +239,7 @@ class ContractTests(unittest.TestCase):
                     return responses[url]
             config = json.loads((ROOT / 'data/reading-intake-config.json').read_text(encoding='utf-8'))
             config['sources'][0]['index_urls'] = [index]
+            config['sources'] = config['sources'][:1]  # este contrato es solo de Penguin; Planeta tiene su propia prueba
             config['generate_audio'] = False
             with patch.object(pipeline, 'CachedHTTP', FakeHTTP):
                 first = pipeline.ingest(config, root, root / '.cache', apply=True, today='2026-10-20')

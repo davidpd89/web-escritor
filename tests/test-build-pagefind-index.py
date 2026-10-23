@@ -72,6 +72,13 @@ def make_fixture_repo(tmp: Path) -> Path:
     # 5. Sin entrada en el registry, pero con su propio <meta robots noindex>.
     (tmp / "404.html").write_text(PAGE.format(robots="noindex,follow", title="No encontrada"), encoding="utf-8")
 
+    # 5b. Real HTML may reorder attributes; Pagefind must still obey noindex
+    # even when this unregistered page lacks an explicit registry exclusion.
+    (tmp / "reordered-noindex.html").write_text(
+        '<html><head><meta content="noindex,follow" name="robots"></head>'
+        '<body><main>Solo QA: no indexar.</main></body></html>', encoding="utf-8"
+    )
+
     # 6. Fragmento bajo data/ -> siempre excluido, tenga o no <html>.
     (tmp / "data" / "fragment.html").write_text("<p>Solo un fragmento inyectado en otra pagina.</p>", encoding="utf-8")
 
@@ -106,6 +113,20 @@ def run() -> None:
         check("privada-busqueda.html" not in pages, "3. searchIndex:false -> excluida")
         check("gated/index.html" not in pages, "4. status != public (gated/staging) -> excluida")
         check("404.html" not in pages, "5. sin entrada en el registry pero con <meta robots noindex> propio -> excluida")
+        check("reordered-noindex.html" not in pages, "5b. noindex con content antes de name -> excluida")
+        for markup in (
+            '<meta content="noindex,follow" name="robots">',
+            "<META CONTENT='INDEX, NOINDEX' NAME='ROBOTS'>",
+            '<meta name=robots content=noindex>',
+            '<meta name="robots" content="follow">\n<meta content="NOINDEX" name="robots">',
+        ):
+            check(bpi.is_noindex(markup), "5c. robots meta noindex detectado sin depender del orden o comillas")
+        for markup in (
+            '<meta content="noindex" name="description">',
+            '<meta name="robots" content="index,follow">',
+            '<script>const fragment = \'<meta name="robots" content="noindex">\';</script>',
+        ):
+            check(not bpi.is_noindex(markup), "5d. no confundir una descripción, index o texto de script con robots noindex")
         check("data/fragment.html" not in pages, "6. fragmento bajo data/ -> siempre excluida")
         check(pages == sorted(pages), "7. eligible_pages() devuelve orden determinista (sorted)")
 

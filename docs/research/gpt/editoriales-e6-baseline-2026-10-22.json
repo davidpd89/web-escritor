@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "reviewed_date": "2026-10-22",
+  "status": "static_inspection_no_test_execution",
+  "main_commit_sha": "72ab6be7b8fee47dc82f29a7daf1373178e61ad1",
+  "source_file_git_blob_shas": {
+    "data/editoriales.json": "c2109088fc330c2f22187522639de88a74e0e9c4",
+    "data/reading-publishers.json": "7bc7707ddedf08ac98cde0334f8c18043098ccce",
+    "data/reading-catalogue.json": "8f831605e7b384196e05fd36e9ef373b2082f0c9"
+  },
+  "repo_observed": {
+    "directory_publishers": 150,
+    "manuscript_status": {
+      "open": 72,
+      "closed": 45,
+      "unknown": 26,
+      "indirect": 7
+    },
+    "catalogue_imprints": 11,
+    "catalogue_books": 55,
+    "books_linking_to_directory": 35,
+    "books_linking_to_catalogue_imprint": 20,
+    "books_with_no_publisher_link": 0,
+    "books_with_both_publisher_links": 0,
+    "directory_primary_source_missing": 0
+  },
+  "research_fixture_static_inspection": {
+    "manual_observations": 18,
+    "approved_host_entities": 13,
+    "observations_outside_host_allowlist": 0,
+    "observations_with_malformed_summary_or_date": 0,
+    "observations_against_non_directory_imprint_slugs": 4,
+    "non_directory_imprint_slugs": [
+      "bruguera",
+      "montena",
+      "beascoa",
+      "debate"
+    ],
+    "note": "These four cases are publisher_imprint bibliographic evidence only, not manuscript-status updates."
+  },
+  "review_threshold_experiment": {
+    "date": "2026-10-22",
+    "threshold_days": {
+      "status_known": 45,
+      "status_unknown": 90
+    },
+    "estimated_directory_reverifications_due": 24,
+    "importance": "Provisional E5 policy; not live website verifications and not an instruction to change statuses."
+  },
+  "schema_compatibility": {
+    "e3_inputs_present_in_main": true,
+    "e4_observation_input_available_on_research_branch": true,
+    "e4_host_allowlist_available_on_research_branch": true,
+    "e5_expects_same_day_e3_e4": true,
+    "e5_report_provenance_has_main_commit_binding": false,
+    "e6_intent_manifest_requires_exact_canonical_digest_for_directory_evidence_and_plan": true
+  },
+  "limitations": [
+    "Static reading and calculations only; Python modules and tests not executed.",
+    "A caller-supplied main SHA in offline data is not authenticated by the script; an integration must compare it against GitHub live head.",
+    "Reviewed manifest intent is not authenticated reviewer approval; the eventual protected PR must require human GitHub review.",
+    "24 entries are candidates under a proposed TTL policy; their current public state is not disproven.",
+    "No outreach to Agencia ISBN or new provider access was performed."
+  ]
+}

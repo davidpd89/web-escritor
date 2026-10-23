@@ -36,7 +36,7 @@ def report_job(repo, sha, context, state, url):
 
 
 def gh(*args: str):
-    result = subprocess.run(['gh', *args], check=True, capture_output=True, text=True)
+    result = subprocess.run(['gh', *args], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
     return result.stdout.strip()
 
 

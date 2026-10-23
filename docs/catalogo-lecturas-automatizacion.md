@@ -38,13 +38,15 @@ Una PR automática actual se reanuda antes de descubrir otro lote. Si quedó det
 
 ## Amazon, Goodreads y audio
 
-La ingesta editorial no requiere Creators API ni clave de Google Books. Después de la ingesta, el mismo escritor actualiza diariamente valoraciones y consulta los precios de Amazon cuando existen las credenciales. Los fallos de un proveedor no impiden consultar los demás ni renuevan la fecha de datos antiguos. El ciclo no llama a ningún LLM ni API de pago.
+La ingesta editorial no requiere Creators API ni clave de Google Books. Después de la ingesta, el mismo escritor actualiza diariamente valoraciones y el **PVP editorial**. El ciclo no llama a ningún LLM ni API de pago.
 
-Amazon es el destino de compra. Se conservan los productos/ASIN y formatos verificados. Sin producto comprobado aparece **Buscar este ISBN en Amazon**, con `davidporto-21`: una búsqueda no acredita stock, precio ni existencia del producto. Nunca se transforma un ISBN en ASIN supuesto. La identificación de afiliación está en el criterio editorial del pie común.
+**Precio sin Amazon.** El precio de cada ficha es el PVP fijo del editor (`price_without_reduction` de la ficha de Penguin Libros), guardado como `pvp_centimos` con su fecha de verificación y mostrado como «PVP editorial». En España el precio de venta de un libro nuevo es fijo, por lo que sirve como referencia fiable y no depende de ningún minorista. No es el precio de Amazon y así se rotula. El refresco diario revisa las dos fichas más antiguas.
+
+Amazon es solo el destino de compra, con búsqueda por ISBN y la etiqueta de afiliación `davidporto-21`: una búsqueda no acredita stock, precio ni existencia del producto, y nunca se transforma un ISBN en ASIN supuesto. La Creators API de Amazon exige un mínimo de ventas cualificadas todavía no alcanzado, así que el sistema se construye sin ella; el adaptador y los secretos siguen preparados y se activarán si algún día se alcanza ese umbral (entonces bastará con habilitar la fuente de precios, sin tocar el resto).
 
 Goodreads se consulta por ISBN desde su ficha pública, sin fingir acceso a su antigua API. Se comprueban ISBN, título y autor. Hardcover y Google Books son proveedores independientes y atribuidos, con sus secretos en GitHub. El piloto real de 26 libros del 21/10/2026 obtuvo 15 valoraciones de Goodreads y una de Hardcover para 15 libros distintos; Google Books respondió 503. No se inventan puntuaciones para los libros sin coincidencia. La evidencia y límites están en [acceso a proveedores](qa/catalogue-provider-access-2026-10-21.md).
 
-Creators API tiene adaptador diario y secretos configurados, pero la prueba real sigue sin acceso elegible y no hay precios publicados. No basta con crear una aplicación o credenciales. Solo se admiten ofertas EUR de compra nueva, formato/edición verificados y fecha vigente; se excluyen suscripciones, usado y promociones exclusivas. `assets/reading-market.json` limita ofertas a 24 horas y valoraciones a siete días. Los controles sin datos válidos se ocultan.
+Si en el futuro se habilita la Creators API, solo se admitirán ofertas EUR de compra nueva, formato/edición verificados y fecha vigente; `assets/reading-market.json` limita ofertas a 24 horas y valoraciones a siete días. Sin datos válidos los controles se ocultan.
 
 Audio y fragmentos están retirados de la interfaz de todas las fichas para mantener el catálogo homogéneo. El MP3 de Elvira, los archivos y datos anteriores de Coraline permanecen para no romper URLs. **`generate_audio=false`**: no se descargan ni narran automáticamente capítulos ajenos.
 

@@ -12,7 +12,7 @@ for path in ['data/reading-catalogue.json', 'recomendaciones/libros/obra-9780140
              'recomendaciones/autores/autora/index.html', 'assets/reading-covers/isbn-9780140328721-320.webp',
              'editoriales/salamandra/index.html', 'pagefind/fragment/es_test.pf_fragment',
              'data/reading-publishers.json', 'recomendaciones/editoriales/debate/index.html',
-             'recomendaciones/autores/index.html', 'recomendaciones/editoriales/index.html']:
+             'recomendaciones/autores/index.html', 'recomendaciones/editoriales/index.html', 'recomendaciones/proximos-lanzamientos.ics']:
     assert m.allowed_path(path), path
 for path in ['scripts/run.py', '.github/workflows/anything.yml', 'data/editoriales.json',
              'assets/reading-covers/inventada.webp', 'pagefind/../secrets', 'recomendaciones/../../scripts/run.py']:

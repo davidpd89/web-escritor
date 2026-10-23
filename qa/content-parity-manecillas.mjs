@@ -76,7 +76,9 @@ assert.deepEqual(bookSchema.genre, manecillas.genres);
 assert.equal(hasOffer(bookSchema), true, 'ficha: falta Offer ahora que existe purchaseUrl verificado');
 assert.equal(bookSchema.offers?.url, manecillas.purchaseUrl, 'ficha: Offer.url debe apuntar al purchaseUrl real de tapa blanda');
 assert.equal(bookSchema.offers?.price, String(manecillas.priceEUR), 'ficha: Offer.price debe coincidir con priceEUR');
-assert(!/amazon\.es|amazon\.com/i.test(bookHtml), 'ficha Manecillas: los enlaces de compra deben usar el short link amzn.to, no un dominio amazon.* directo');
+// Author Follow (perfil de autor) no es un enlace de compra.
+const purchaseHtml = bookHtml.replace(/<a [^>]*amazon-author-follow-link[^>]*>/gi, '');
+assert(!/amazon\.es|amazon\.com/i.test(purchaseHtml), 'ficha Manecillas: los enlaces de compra deben usar el short link amzn.to, no un dominio amazon.* directo');
 assert(!/book-crosspromo/.test(bookHtml), 'ficha Manecillas: no debe duplicar Samuel como upsell grande');
 assert(/<dt>Formato<\/dt>\s*<dd>Tapa blanda<\/dd>/.test(bookHtml), 'ficha: falta formato autorizado visible');
 assert(/PVP editorial/.test(bookHtml), 'ficha: el precio debe identificarse como dato editorial');

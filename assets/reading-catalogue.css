@@ -89,13 +89,27 @@ html.v1 .catalogue-more-filters>summary span { font-size:1.6rem; line-height:1; 
 html.v1 .catalogue-more-filters[open]>summary { background:var(--catalogue-blue); color:white; }
 html.v1 .catalogue-more-filters[open]>summary span { transform:rotate(45deg); }
 html.v1 .catalogue-more-filters>.catalogue-filter-grid { padding:1rem; }
-html.v1 .catalogue-types { min-width:0; max-width:100%; box-sizing:border-box; display:flex; flex-wrap:wrap; gap:.4rem .6rem; align-items:center; margin:0 0 1rem; padding:0; border:0; }
-html.v1 .catalogue-types legend { max-width:100%; float:left; margin:0 .6rem 0 0; padding:0; font:600 .8rem/1.5 var(--font-ui); color:var(--catalogue-ink,inherit); }
-html.v1 .catalogue-type { min-width:0; max-width:100%; box-sizing:border-box; overflow-wrap:anywhere; padding-block:.35rem; display:inline-flex; align-items:center; gap:.4rem; min-height:44px; padding:0 .8rem; border:1px solid var(--catalogue-rule); border-radius:999px; background:var(--catalogue-pale); color:var(--catalogue-blue); font:600 .82rem/1.4 var(--font-ui); cursor:pointer; }
-html.v1 .catalogue-type:has(input:checked) { background:var(--catalogue-blue); color:#fff; border-color:var(--catalogue-blue); }
-html.v1 .catalogue-type:has(input:focus-visible) { outline:3px solid currentColor; outline-offset:2px; }
-html.v1 .catalogue-type input { width:1rem; height:1rem; margin:0; accent-color:currentColor; }
-html.v1 .catalogue-type small { font-weight:500; opacity:.8; }
+html.v1 .catalogue-layout { display:grid; grid-template-columns:minmax(15rem,18.5rem) minmax(0,1fr); gap:0 2rem; align-items:start; }
+html.v1 .catalogue-sidebar { position:sticky; top:1rem; max-height:calc(100vh - 2rem); overflow:auto; min-width:0; }
+html.v1 .catalogue-sidebar .catalogue-filters { margin:1rem 0; padding:1rem; }
+html.v1 .catalogue-sidebar .catalogue-filter-grid { grid-template-columns:minmax(0,1fr); }
+html.v1 .catalogue-main { min-width:0; }
+html.v1 .catalogue-main .catalogue-results-head { padding-top:1.4rem; }
+html.v1 .catalogue-facets { display:grid; gap:.3rem; margin:1rem 0; }
+html.v1 .catalogue-facet { border-top:1px solid var(--catalogue-rule); min-width:0; }
+html.v1 .catalogue-facets, html.v1 .catalogue-facet__options { min-width:0; }
+html.v1 .catalogue-check span { min-width:0; overflow-wrap:anywhere; }
+html.v1 .catalogue-facet[hidden] { display:none; }
+html.v1 .catalogue-facet>summary { display:flex; align-items:center; gap:.4rem; min-height:44px; cursor:pointer; color:var(--catalogue-deep); font:700 .82rem/1.4 var(--font-ui); letter-spacing:.04em; text-transform:uppercase; }
+html.v1 .catalogue-facet>summary small { color:var(--catalogue-blue); font-weight:600; text-transform:none; letter-spacing:0; }
+html.v1 .catalogue-facet__options { display:grid; grid-template-columns:minmax(0,1fr); gap:0; margin:0; padding:0 0 .6rem; max-height:15rem; overflow:auto; }
+html.v1 .catalogue-check { display:flex!important; grid-template-columns:none; align-items:center; gap:.55rem; min-height:30px; margin:0; padding:.12rem .2rem; font:500 .88rem/1.35 var(--font-ui)!important; letter-spacing:0!important; text-transform:none!important; color:var(--catalogue-ink,inherit)!important; cursor:pointer; }
+html.v1 .catalogue-check[hidden] { display:none!important; }
+html.v1 .catalogue-check input { flex:none; width:1.05rem; height:1.05rem; margin:0; accent-color:var(--catalogue-blue); }
+html.v1 .catalogue-check small { margin-left:auto; color:#67635e; font-size:.78rem; }
+html.v1 .catalogue-check.is-empty { opacity:.5; cursor:default; }
+html.v1 .catalogue-check:has(input:focus-visible) { outline:3px solid var(--catalogue-blue); outline-offset:1px; }
+@media (max-width:900px) { html.v1 .catalogue-layout { grid-template-columns:minmax(0,1fr); } html.v1 .catalogue-sidebar { position:static; max-height:none; overflow:visible; } }
 html.v1 .catalogue-tags--compact { gap:.3rem; margin:.5rem 0; }
 html.v1 .catalogue-tags--compact a { min-height:28px; padding:.1rem .5rem; font-size:.7rem; border-radius:999px; }
 html.v1 .catalogue-extra-tags>summary { min-height:44px; color:var(--catalogue-blue); cursor:pointer; font:600 .75rem/1.5 var(--font-ui); display:list-item; align-content:center; }
@@ -126,3 +140,19 @@ html.v1 .catalogue-reader-reviews article { padding-block:1rem; border-top:1px s
 html.v1 .catalogue-reader-reviews h3 { color:var(--catalogue-blue); font:400 1.4rem/1.2 var(--font-display); }
 html.v1 .catalogue-review-text { white-space:pre-line; overflow-wrap:anywhere; }
 html.v1 .catalogue-card__meta { font-size:.82rem; line-height:1.65; color:#526071; }
+
+/* Datos clave: etiqueta pequeña + valor, en lugar de una línea corrida */
+html.v1 .catalogue-facts { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(7.5rem,100%),1fr)); gap:.35rem .9rem; margin:.7rem 0; padding:.6rem .75rem; background:#f6f2ea; border-left:3px solid var(--catalogue-gold,#c8a24a); }
+html.v1 .catalogue-facts div { min-width:0; }
+html.v1 .catalogue-facts dt { margin:0; font:600 .64rem/1.3 var(--font-ui); letter-spacing:.08em; text-transform:uppercase; color:#67635e; }
+html.v1 .catalogue-facts dd { margin:.1rem 0 0; font:500 .88rem/1.35 var(--font-ui); color:#1f2a37; overflow-wrap:anywhere; }
+html.v1 .catalogue-facts .catalogue-pvp { font-weight:700; color:var(--catalogue-deep,#1d3a5f); }
+html.v1 .catalogue-facts a { color:var(--catalogue-blue); }
+/* Comprar en Amazon: botón llamativo */
+html.v1 a.catalogue-buy-link { color:#1b1300; background:linear-gradient(180deg,#ffc94d,#f5a623); border:1px solid #c7861a; border-radius:999px; font-weight:700; letter-spacing:.01em; box-shadow:0 2px 0 #c7861a,0 6px 14px rgba(199,134,26,.28); transition:transform .12s,box-shadow .12s; }
+html.v1 a.catalogue-buy-link:hover,html.v1 a.catalogue-buy-link:focus-visible { color:#1b1300; background:linear-gradient(180deg,#ffd470,#ffb23d); border-color:#c7861a; transform:translateY(-1px); box-shadow:0 3px 0 #c7861a,0 9px 18px rgba(199,134,26,.34); }
+html.v1 .catalogue-card__buy { justify-content:center; font-size:.85rem; }
+html.v1 .catalogue-rating a { display:inline-flex; align-items:center; gap:.3rem; color:#1f2a37; text-decoration:none; font:500 .85rem/1.4 var(--font-ui); }
+html.v1 .catalogue-price-range__fields { display:grid; grid-template-columns:1fr 1fr; gap:.5rem; }
+html.v1 .catalogue-price-range__fields label { display:grid; gap:.2rem; font-size:.78rem; }
+html.v1 .catalogue-facet__title { margin:0 0 .4rem; font:600 .9rem/1.3 var(--font-ui); }

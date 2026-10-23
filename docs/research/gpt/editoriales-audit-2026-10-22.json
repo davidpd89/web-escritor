@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "source_note": "Recuento de JSON de main y de la PR #687 consultados por GitHub; no generado ejecutando el conciliador, sin datos personales ni correos.",
+  "observed_on": "2026-10-22",
+  "inputs": {
+    "directory": "main:data/editoriales.json",
+    "directory_main_sha_at_review": "1cade1ceff9db6430af30be3547e1eb77dda6108",
+    "catalogue": "PR #687 @ 630e03c0692aaf87052c2a24acb23c23cfb54eb2:data/reading-catalogue.json",
+    "catalogue_publishers": "PR #687 @ 630e03c0692aaf87052c2a24acb23c23cfb54eb2:data/reading-publishers.json"
+  },
+  "summary": {
+    "manual_directory": 150,
+    "manuscript_status": {
+      "open": 72,
+      "closed": 45,
+      "unknown": 26,
+      "indirect": 7
+    },
+    "manual_with_submission_email": 54,
+    "normalized_duplicate_names_manual": 0,
+    "new_catalogue_imprints": 11,
+    "normalized_equivalences_between_new_imprints_and_manual_directory": 0,
+    "new_catalogue_books_total": 55,
+    "linked_directory_books": 35,
+    "linked_directory_books_with_unknown_submission_status": 35,
+    "linked_imprint_books": 20,
+    "books_without_publisher_reference": 0,
+    "orphan_catalogue_imprints": 2
+  },
+  "imprints": [
+    {
+      "name": "Aguilar",
+      "linked_books": 3
+    },
+    {
+      "name": "Beascoa",
+      "linked_books": 0
+    },
+    {
+      "name": "Bruguera",
+      "linked_books": 4
+    },
+    {
+      "name": "Debate",
+      "linked_books": 3
+    },
+    {
+      "name": "Distrito Manga",
+      "linked_books": 1
+    },
+    {
+      "name": "DK",
+      "linked_books": 5
+    },
+    {
+      "name": "Montena",
+      "linked_books": 0
+    },
+    {
+      "name": "Penguin Bolsillo",
+      "linked_books": 1
+    },
+    {
+      "name": "Penguin Clásicos",
+      "linked_books": 1
+    },
+    {
+      "name": "Taurus",
+      "linked_books": 1
+    },
+    {
+      "name": "Vergara",
+      "linked_books": 1
+    }
+  ],
+  "interpretation": "Dos sellos huérfanos son solo señal de auditoría. La recepción de manuscritos es independiente de seguir editando libros. No se ha publicado ni fusionado información nueva.",
+  "tests_executed": false,
+  "production_modified": false
+}

@@ -13,7 +13,7 @@ from urllib.parse import urlsplit
 from reading_intake_core import normalize_text
 
 SMALL_WORDS = {'de', 'del', 'la', 'las', 'el', 'los', 'y', 'e', 'en', 'para', 'a'}
-GROUP = 'Penguin Random House Grupo Editorial'
+GROUPS = {'www.penguinlibros.com': 'Penguin Random House Grupo Editorial', 'www.planetadelibros.com': 'Grupo Planeta'}
 _VALID_NAME = re.compile(r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9][A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9 &.,'’·-]{1,58}\Z")
 _GENERIC = {'editorial', 'varios', 'sin editorial', 'desconocida', 'n/a'}
 
@@ -54,7 +54,7 @@ def catalogue_publisher(raw_name: str, store: dict, source_url: str, today: str,
     if key in directory_names:
         raise PublisherError('El sello ya existe en el directorio: añadir un alias en la configuración')
     host = urlsplit(source_url).hostname
-    if host != 'www.penguinlibros.com':
+    if host not in GROUPS:
         raise PublisherError('Fuente de sello no revisada')
     slug = slugify(name)
     if not slug or slug in directory_slugs:
@@ -66,7 +66,7 @@ def catalogue_publisher(raw_name: str, store: dict, source_url: str, today: str,
             if source_url not in {s['url'] for s in item['fuentes']} and len(item['fuentes']) < 5:
                 item['fuentes'].append({'titulo': 'Ficha oficial de un libro del sello', 'url': source_url})
             return item
-    item = {'slug': slug, 'nombre': name, 'grupo': GROUP,
+    item = {'slug': slug, 'nombre': name, 'grupo': GROUPS[host],
             'fuentes': [{'titulo': 'Ficha oficial de un libro del sello', 'url': source_url}],
             'fecha_verificacion': today}
     store['editoriales'].append(item)

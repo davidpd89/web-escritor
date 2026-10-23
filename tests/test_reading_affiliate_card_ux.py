@@ -55,7 +55,7 @@ class AffiliateNavigationTest(unittest.TestCase):
         b = self.imported
         html = builder.render_book(self.data, b, self.template)
         candidate = [x for x in self.links(html)
-                     if x["attrs"].get("aria-label", "").startswith("Buscar este ISBN en Amazon:")]
+                     if x["attrs"].get("aria-label", "").startswith("Comprar en Amazon:")]
         self.assertEqual(len(candidate), 1)
         self.assertEqual(candidate[0]["attrs"]["href"], b["amazon_busqueda_isbn"])
         self.assertEqual(candidate[0]["attrs"]["target"], "_blank")
@@ -65,7 +65,7 @@ class AffiliateNavigationTest(unittest.TestCase):
     def test_manual_coraline_preserves_verified_direct_link(self):
         b = self.coraline
         html = builder.render_book(self.data, b, self.template)
-        cover = [x for x in self.links(html) if x["attrs"].get("aria-label", "").startswith("Ver en Amazon:")]
+        cover = [x for x in self.links(html) if x["attrs"].get("aria-label", "").startswith("Comprar en Amazon:")]
         self.assertEqual(len(cover), 1)
         self.assertEqual(cover[0]["attrs"]["href"], b["url_amazon_afiliada"])
 
@@ -89,9 +89,11 @@ class AffiliateNavigationTest(unittest.TestCase):
         html = builder.render_hub(self.data, books, self.template)
         self.assertGreaterEqual(html.count('class="catalogue-tags'), 2)
         self.assertEqual(builder.publication_date_label(self.coraline), "1 de junio de 2009")
-        self.assertIn(" · " + self.imported["editorial"], html)
+        self.assertIn('<dl class="catalogue-facts">', html)
+        self.assertIn(self.imported["editorial"], html)
         if self.imported.get("numero_paginas"):
-            self.assertIn(str(self.imported["numero_paginas"]) + " páginas", html)
+            self.assertIn("<dt>Páginas</dt><dd>" + str(self.imported["numero_paginas"]) + "</dd>", html)
+        self.assertNotIn("Edad:", html)
         if self.imported.get("fecha_publicacion"):
             self.assertIn(" de ", builder.publication_date_label(self.imported))
         self.assertNotIn("Los filtros de precio y oferta estarán disponibles", html)

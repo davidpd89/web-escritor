@@ -24,11 +24,12 @@ try {
     assert.equal(await page.locator('[data-catalogue-book]').count(), realCount);
     assert(await page.locator('[data-catalogue-empty]').isHidden());
     assert.deepEqual(await page.locator('.section-context__links a').allInnerTexts(), ['Catálogo', 'Autores', 'Editoriales', 'Concursos']);
-    await page.locator('[data-filter="genero"]').selectOption('romantasy');
-    await page.locator('[data-filter="temporada"]').selectOption('halloween');
-    assert.equal(await page.locator('[data-catalogue-count]').innerText(), '0 libros');
+    await page.locator('details[data-facet-group="genero"]').evaluate(d => { d.open = true; });
+    // Sin libros compatibles la opción queda desactivada en lugar de llevar a una página vacía.
+    assert(await page.locator('input[data-facet="genero"][value="romantasy"]').isDisabled());
+    await page.locator('input[data-facet="grupo"][value="cocina"]').check();
     await page.getByRole('button', { name: 'Restablecer' }).click();
-    assert.equal(await page.locator('[data-filter="genero"]').inputValue(), '');
+    assert.equal(await page.locator('input[data-facet]:checked').count(), 0);
     await page.waitForFunction(n => document.querySelectorAll('[data-catalogue-book]:not([hidden])').length === Math.min(n,24), realCount);
     assert.equal(await page.locator('[data-catalogue-book]:visible').count(), Math.min(realCount,24));
     await page.getByRole('button', { name: 'Buscar libros', exact: true }).focus();
@@ -94,11 +95,11 @@ try {
   await page.clock.install({ time: new Date('2026-10-20T12:00:00Z') });
   await page.goto(`${BASE}/recomendaciones/`);
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 2);
-  await page.locator('[data-filter="genero"]').selectOption('romantasy');
-  await page.locator('[data-filter="temporada"]').selectOption('halloween');
+  await page.locator('details[data-facet-group="genero"]').evaluate(d => { d.open = true; }); await page.locator('details[data-facet-group="temporada"]').evaluate(d => { d.open = true; }); await page.locator('input[data-facet="genero"][value="romantasy"]').check();
+  await page.locator('input[data-facet="temporada"][value="halloween"]').check();
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
   const href = await page.locator('[data-catalogue-book]:visible h3 a').getAttribute('href');
-  await page.locator('[data-filter="genero"]').selectOption('fantasia');
+  await page.locator('input[data-facet="genero"][value="romantasy"]').uncheck(); await page.locator('input[data-facet="genero"][value="fantasia"]').check();
   assert.equal(await page.locator('[data-catalogue-book]:visible h3 a').getAttribute('href'), href);
   await page.locator('[data-filter="q"]').fill('TITULO');
   await page.locator('[data-filter="q"]').press('Enter');
@@ -130,7 +131,7 @@ try {
   const staticPage = await nojs.newPage();
   await staticPage.goto(`${BASE}/recomendaciones/`);
   assert(await staticPage.locator('a[href="/recomendaciones/libros/coraline/"]').first().isVisible());
-  assert(await staticPage.locator('[data-filter="genero"]').isDisabled());
+  assert(await staticPage.locator('input[data-facet="genero"]').first().isDisabled());
   await nojs.route('**/recomendaciones/', route => route.fulfill({ contentType: 'text/html; charset=utf-8', body: fixture.hub }));
   await staticPage.reload();
   assert.equal(await staticPage.locator('[data-catalogue-book]').count(), 2);

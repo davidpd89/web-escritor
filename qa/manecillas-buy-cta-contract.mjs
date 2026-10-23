@@ -59,7 +59,7 @@ async function withGoatcounterSpy(page) {
   });
 }
 
-async function checkSurface(page, { route, selector, label, waitMs = 800, expectedUrl = CANONICAL_BUY_URL }) {
+async function checkSurface(page, { route, selector, label, waitMs = 800, expectedUrl = CANONICAL_BUY_URL, expectedEvent }) {
   await page.goto(`${ORIGIN}${route}`, { waitUntil: 'load' });
   await page.waitForTimeout(waitMs);
   const links = page.locator(selector);
@@ -94,8 +94,12 @@ async function checkSurface(page, { route, selector, label, waitMs = 800, expect
   await page.locator(selector).first().click({ noWaitAfter: true }).catch(() => {});
   await page.waitForTimeout(300);
   const calls = await page.evaluate(() => window.__gcCalls);
-  const buyEvents = calls.filter((c) => c.path === 'comprar-amazon');
-  assert.equal(buyEvents.length, 1, `${label}: expected exactly 1 comprar-amazon event, got ${buyEvents.length}`);
+  // Desde #720 cada origen emite su propio evento (comprar-amazon-<origen>);
+  // 'comprar-amazon' queda solo como fallback. Exactamente un evento de compra
+  // por clic, y ninguno extra de Author Follow ni de reseñas.
+  const buyEvents = calls.filter((c) => /^comprar-amazon(-|$)/.test(c.path));
+  assert.equal(buyEvents.length, 1, `${label}: expected exactly 1 comprar-amazon* event, got ${buyEvents.length}`);
+  assert.equal(buyEvents[0].path, expectedEvent, `${label}: expected event ${expectedEvent}, got ${buyEvents[0].path}`);
 }
 
 try {
@@ -106,18 +110,21 @@ try {
     route: '/las-manecillas-del-recuerdo/',
     selector: '.site-header a.header-buy',
     label: 'header (sitewide)',
+    expectedEvent: 'comprar-amazon-header',
   });
 
   await checkSurface(page, {
     route: '/',
     selector: '.yale-lead__actions a[href*="amzn.to"]',
     label: 'Home hero (dynamic, paperback)',
+    expectedEvent: 'comprar-amazon-home',
   });
 
   await checkSurface(page, {
     route: '/',
     selector: '.yale-rail a[href*="amzn.to"]',
     label: 'Home rail (dynamic, Kindle card)',
+    expectedEvent: 'comprar-amazon-home',
     expectedUrl: KINDLE_BUY_URL,
   });
 
@@ -125,18 +132,21 @@ try {
     route: '/las-manecillas-del-recuerdo/',
     selector: '.book-actions a[href*="amzn.to"]',
     label: 'ficha (book page hero)',
+    expectedEvent: 'comprar-amazon-manecillas',
   });
 
   await checkSurface(page, {
     route: '/las-manecillas-del-recuerdo/fragmentos/',
     selector: '#cta-final a[href*="amzn.to"]',
     label: 'fragmentos (cta-final)',
+    expectedEvent: 'comprar-amazon-manecillas',
   });
 
   await checkSurface(page, {
     route: '/las-manecillas-del-recuerdo/kindle/',
     selector: '.book-actions a[href*="amzn.to"]',
     label: 'Kindle landing (hero)',
+    expectedEvent: 'comprar-amazon-manecillas',
     expectedUrl: KINDLE_BUY_URL,
   });
 

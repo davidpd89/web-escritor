@@ -22,6 +22,18 @@
       ],
       "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
       "enabled": true
+    },
+    {
+      "id": "planeta-es",
+      "provider": "planeta",
+      "hosts": [
+        "www.planetadelibros.com"
+      ],
+      "index_urls": [
+        "https://www.planetadelibros.com/libros-novedades/p/1"
+      ],
+      "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "enabled": true
     }
   ],
   "publisher_aliases": [

@@ -75,6 +75,26 @@
       "sourceFile": "accesibilidad/index.html"
     },
     {
+      "id": "site-social-stats",
+      "url": "/redes-sociales/",
+      "label": "Redes sociales: seguidores verificados",
+      "shortLabel": "Redes sociales",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "home",
+      "hubId": "home",
+      "discoverability": "secondary",
+      "footerEligible": false,
+      "audience": [
+        "reader",
+        "press"
+      ],
+      "jobs": [
+        "redes-sociales"
+      ],
+      "sourceFile": "redes-sociales/index.html"
+    },
+    {
       "id": "site-privacy",
       "url": "/privacidad.html",
       "label": "Privacidad",
@@ -5064,6 +5084,240 @@
       "sourceFile": "recomendaciones/libros/carino-y-este-recibo-9788402431332/index.html"
     },
     {
+      "id": "reading-book-isbn-9791388101700",
+      "url": "/recomendaciones/libros/lamu-no-08-17-9791388101700/",
+      "label": "Lamu nº 08/17",
+      "shortLabel": "Lamu nº 08/17",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/lamu-no-08-17-9791388101700/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788449346026",
+      "url": "/recomendaciones/libros/destroza-este-diario-diversion-extrema-9788449346026/",
+      "label": "Destroza este diario. Diversión EXTREMA",
+      "shortLabel": "Destroza este diario. Diversión EXTREMA",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/destroza-este-diario-diversion-extrema-9788449346026/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788408326427",
+      "url": "/recomendaciones/libros/magic-animals-misiones-especiales-2-el-templo-escondido-9788408326427/",
+      "label": "Magic Animals. Misiones especiales 2. El templo escondido",
+      "shortLabel": "Magic Animals. Misiones especiales 2. El templo escondido",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/magic-animals-misiones-especiales-2-el-templo-escondido-9788408326427/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788423441051",
+      "url": "/recomendaciones/libros/como-ganar-una-guerra-comercial-9788423441051/",
+      "label": "Cómo ganar una guerra comercial",
+      "shortLabel": "Cómo ganar una guerra comercial",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/como-ganar-una-guerra-comercial-9788423441051/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788467083330",
+      "url": "/recomendaciones/libros/corazon-de-silex-9788467083330/",
+      "label": "Corazón de sílex",
+      "shortLabel": "Corazón de sílex",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/corazon-de-silex-9788467083330/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788408326380",
+      "url": "/recomendaciones/libros/la-guerra-fria-contada-para-escepticos-9788408326380/",
+      "label": "La Guerra Fría contada para escépticos",
+      "shortLabel": "La Guerra Fría contada para escépticos",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-guerra-fria-contada-para-escepticos-9788408326380/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788467083354",
+      "url": "/recomendaciones/libros/la-vida-nueva-de-pedrito-de-andia-9788467083354/",
+      "label": "La vida nueva de Pedrito de Andía",
+      "shortLabel": "La vida nueva de Pedrito de Andía",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-vida-nueva-de-pedrito-de-andia-9788467083354/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788467083378",
+      "url": "/recomendaciones/libros/todo-bajo-control-menos-tu-9788467083378/",
+      "label": "Todo bajo control, menos tú",
+      "shortLabel": "Todo bajo control, menos tú",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/todo-bajo-control-menos-tu-9788467083378/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788467083316",
+      "url": "/recomendaciones/libros/las-mitford-9788467083316/",
+      "label": "Las Mitford",
+      "shortLabel": "Las Mitford",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/las-mitford-9788467083316/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788448873479",
+      "url": "/recomendaciones/libros/superdonuts-3-el-destino-de-los-donuts-9788448873479/",
+      "label": "Superdónuts 3 - El destino de los dónuts",
+      "shortLabel": "Superdónuts 3 - El destino de los dónuts",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/superdonuts-3-el-destino-de-los-donuts-9788448873479/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788466380096",
+      "url": "/recomendaciones/libros/quiza-si-quiero-edicion-limitada-verano-quererte-2-9788466380096/",
+      "label": "Quizá sí quiero (edición limitada · Verano) (Quererte 2)",
+      "shortLabel": "Quizá sí quiero (edición limitada · Verano) (Quererte 2)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/quiza-si-quiero-edicion-limitada-verano-quererte-2-9788466380096/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387962036",
+      "url": "/recomendaciones/libros/la-bestia-del-rey-13-shojo-9791387962036/",
+      "label": "La bestia del rey 13 (Shôjo)",
+      "shortLabel": "La bestia del rey 13 (Shôjo)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-bestia-del-rey-13-shojo-9791387962036/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788410442771",
+      "url": "/recomendaciones/libros/cocina-para-cara-almendras-9788410442771/",
+      "label": "Cocina para cara almendras",
+      "shortLabel": "Cocina para cara almendras",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/cocina-para-cara-almendras-9788410442771/index.html"
+    },
+    {
       "id": "reading-author-neil-gaiman",
       "url": "/recomendaciones/autores/neil-gaiman/",
       "label": "Neil Gaiman",
@@ -6054,6 +6308,276 @@
       "sourceFile": "recomendaciones/autores/angie-gil-ribera/index.html"
     },
     {
+      "id": "reading-author-rumiko-takahashi",
+      "url": "/recomendaciones/autores/rumiko-takahashi/",
+      "label": "Rumiko Takahashi",
+      "shortLabel": "Rumiko Takahashi",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/rumiko-takahashi/index.html"
+    },
+    {
+      "id": "reading-author-keri-smith",
+      "url": "/recomendaciones/autores/keri-smith/",
+      "label": "Keri Smith",
+      "shortLabel": "Keri Smith",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/keri-smith/index.html"
+    },
+    {
+      "id": "reading-author-susanna-isern",
+      "url": "/recomendaciones/autores/susanna-isern/",
+      "label": "Susanna Isern",
+      "shortLabel": "Susanna Isern",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/susanna-isern/index.html"
+    },
+    {
+      "id": "reading-author-carles-dalmau",
+      "url": "/recomendaciones/autores/carles-dalmau/",
+      "label": "Carles Dalmau",
+      "shortLabel": "Carles Dalmau",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/carles-dalmau/index.html"
+    },
+    {
+      "id": "reading-author-soumaya-keynes-y-chad-p-bown",
+      "url": "/recomendaciones/autores/soumaya-keynes-y-chad-p-bown/",
+      "label": "Soumaya Keynes y Chad P. Bown",
+      "shortLabel": "Soumaya Keynes y Chad P. Bown",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/soumaya-keynes-y-chad-p-bown/index.html"
+    },
+    {
+      "id": "reading-author-emilia-landaluce",
+      "url": "/recomendaciones/autores/emilia-landaluce/",
+      "label": "Emilia Landaluce",
+      "shortLabel": "Emilia Landaluce",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/emilia-landaluce/index.html"
+    },
+    {
+      "id": "reading-author-rosa-belmonte",
+      "url": "/recomendaciones/autores/rosa-belmonte/",
+      "label": "Rosa Belmonte",
+      "shortLabel": "Rosa Belmonte",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/rosa-belmonte/index.html"
+    },
+    {
+      "id": "reading-author-juan-eslava-galan",
+      "url": "/recomendaciones/autores/juan-eslava-galan/",
+      "label": "Juan Eslava Galán",
+      "shortLabel": "Juan Eslava Galán",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/juan-eslava-galan/index.html"
+    },
+    {
+      "id": "reading-author-rafael-sanchez-mazas",
+      "url": "/recomendaciones/autores/rafael-sanchez-mazas/",
+      "label": "Rafael Sánchez Mazas",
+      "shortLabel": "Rafael Sánchez Mazas",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/rafael-sanchez-mazas/index.html"
+    },
+    {
+      "id": "reading-author-megan-maxwell",
+      "url": "/recomendaciones/autores/megan-maxwell/",
+      "label": "Megan Maxwell",
+      "shortLabel": "Megan Maxwell",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/megan-maxwell/index.html"
+    },
+    {
+      "id": "reading-author-carmen-posadas",
+      "url": "/recomendaciones/autores/carmen-posadas/",
+      "label": "Carmen Posadas",
+      "shortLabel": "Carmen Posadas",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/carmen-posadas/index.html"
+    },
+    {
+      "id": "reading-author-neill-cameron",
+      "url": "/recomendaciones/autores/neill-cameron/",
+      "label": "Neill Cameron",
+      "shortLabel": "Neill Cameron",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/neill-cameron/index.html"
+    },
+    {
+      "id": "reading-author-violeta-reed",
+      "url": "/recomendaciones/autores/violeta-reed/",
+      "label": "Violeta Reed",
+      "shortLabel": "Violeta Reed",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/violeta-reed/index.html"
+    },
+    {
+      "id": "reading-author-rei-toma",
+      "url": "/recomendaciones/autores/rei-toma/",
+      "label": "Rei Tôma",
+      "shortLabel": "Rei Tôma",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/rei-toma/index.html"
+    },
+    {
+      "id": "reading-author-bosco-castro",
+      "url": "/recomendaciones/autores/bosco-castro/",
+      "label": "Bosco Castro",
+      "shortLabel": "Bosco Castro",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/bosco-castro/index.html"
+    },
+    {
       "id": "reading-publisher-aguilar",
       "url": "/recomendaciones/editoriales/aguilar/",
       "label": "Aguilar",
@@ -6070,6 +6594,24 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/editoriales/aguilar/index.html"
+    },
+    {
+      "id": "reading-publisher-beascoa",
+      "url": "/recomendaciones/editoriales/beascoa/",
+      "label": "Beascoa",
+      "shortLabel": "Beascoa",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/beascoa/index.html"
     },
     {
       "id": "reading-publisher-bruguera",
@@ -6108,6 +6650,42 @@
       "sourceFile": "recomendaciones/editoriales/debate/index.html"
     },
     {
+      "id": "reading-publisher-destino-infantil-juvenil",
+      "url": "/recomendaciones/editoriales/destino-infantil-juvenil/",
+      "label": "Destino Infantil & Juvenil",
+      "shortLabel": "Destino Infantil & Juvenil",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/destino-infantil-juvenil/index.html"
+    },
+    {
+      "id": "reading-publisher-deusto",
+      "url": "/recomendaciones/editoriales/deusto/",
+      "label": "Deusto",
+      "shortLabel": "Deusto",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/deusto/index.html"
+    },
+    {
       "id": "reading-publisher-distrito-manga",
       "url": "/recomendaciones/editoriales/distrito-manga/",
       "label": "Distrito Manga",
@@ -6144,6 +6722,24 @@
       "sourceFile": "recomendaciones/editoriales/dk/index.html"
     },
     {
+      "id": "reading-publisher-ediciones-paidos",
+      "url": "/recomendaciones/editoriales/ediciones-paidos/",
+      "label": "Ediciones Paidós",
+      "shortLabel": "Ediciones Paidós",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/ediciones-paidos/index.html"
+    },
+    {
       "id": "reading-publisher-penguin-bolsillo",
       "url": "/recomendaciones/editoriales/penguin-bolsillo/",
       "label": "Penguin Bolsillo",
@@ -6178,6 +6774,24 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/editoriales/penguin-clasicos/index.html"
+    },
+    {
+      "id": "reading-publisher-planeta-comic",
+      "url": "/recomendaciones/editoriales/planeta-comic/",
+      "label": "Planeta Cómic",
+      "shortLabel": "Planeta Cómic",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/planeta-comic/index.html"
     },
     {
       "id": "reading-publisher-taurus",

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-22",
+  "warning": "Manual allowlist of official organization hosts reviewed against URLs in the linked audit. Do not merge into crawler allowlists without separate robots, legal and QA review. Updated E6.3: Alienta official PlanetadeLibros URL checked 2026-10-22; no crawler activated.",
+  "publishers": {
+    "alfaguara": {
+      "hosts": [
+        "www.penguinrandomhousegrupoeditorial.com"
+      ]
+    },
+    "alienta-editorial": {
+      "hosts": [
+        "www.planetadelibros.com"
+      ]
+    },
+    "beascoa": {
+      "hosts": [
+        "www.penguinrandomhousegrupoeditorial.com"
+      ]
+    },
+    "bruguera": {
+      "hosts": [
+        "www.penguinrandomhousegrupoeditorial.com"
+      ]
+    },
+    "debate": {
+      "hosts": [
+        "www.penguinlibros.com"
+      ]
+    },
+    "editorial-anagrama": {
+      "hosts": [
+        "www.anagrama-ed.es"
+      ]
+    },
+    "editorial-planeta": {
+      "hosts": [
+        "www.planetadelibros.com"
+      ]
+    },
+    "grijalbo": {
+      "hosts": [
+        "www.penguinrandomhousegrupoeditorial.com"
+      ]
+    },
+    "minotauro": {
+      "hosts": [
+        "www.planetadelibros.com"
+      ]
+    },
+    "montena": {
+      "hosts": [
+        "www.penguinlibros.com"
+      ]
+    },
+    "nocturna-ediciones": {
+      "hosts": [
+        "www.nocturnaediciones.com"
+      ]
+    },
+    "plaza-y-janes": {
+      "hosts": [
+        "www.penguinrandomhousegrupoeditorial.com"
+      ]
+    },
+    "salamandra": {
+      "hosts": [
+        "www.penguinrandomhousegrupoeditorial.com"
+      ]
+    },
+    "tusquets-editores": {
+      "hosts": [
+        "www.planetadelibros.com"
+      ]
+    }
+  }
+}

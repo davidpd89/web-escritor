@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "notes": "Human-authored secondary observations of publisher official pages; summaries only, no email addresses. Never auto-publish or infer group admission.",
+  "observations": [
+    {
+      "id": "anagrama-pausa-20261022",
+      "publisher_slug": "editorial-anagrama",
+      "purpose": "submissions_paused",
+      "scope": "publisher_specific",
+      "source_url": "https://www.anagrama-ed.es/manuscritos",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "La editorial comunica expresamente una pausa temporal en recepción de manuscritos."
+    },
+    {
+      "id": "anagrama-general-20261022",
+      "publisher_slug": "editorial-anagrama",
+      "purpose": "general_contact",
+      "scope": "publisher_specific",
+      "source_url": "https://www.anagrama-ed.es/contacto",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "La editorial publica un canal general de atención separado del envío de originales."
+    },
+    {
+      "id": "anagrama-prensa-20261022",
+      "publisher_slug": "editorial-anagrama",
+      "purpose": "press_contact",
+      "scope": "publisher_specific",
+      "source_url": "https://www.anagrama-ed.es/contacto",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "La misma página distingue el contacto de comunicación corporativa."
+    },
+    {
+      "id": "nocturna-manuscritos-20261022",
+      "publisher_slug": "nocturna-ediciones",
+      "purpose": "submissions_open",
+      "scope": "publisher_specific",
+      "source_url": "https://www.nocturnaediciones.com/contacto",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "La editorial detalla una vía de recepción de novelas y sus requisitos de envío."
+    },
+    {
+      "id": "nocturna-prensa-20261022",
+      "publisher_slug": "nocturna-ediciones",
+      "purpose": "press_contact",
+      "scope": "publisher_specific",
+      "source_url": "https://www.nocturnaediciones.com/contacto",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "Existe una sección pública para relaciones con medios, diferente de originales."
+    },
+    {
+      "id": "minotauro-manuscritos-20261022",
+      "publisher_slug": "minotauro",
+      "purpose": "submissions_open",
+      "scope": "publisher_specific",
+      "source_url": "https://www.planetadelibros.com/editorial/minotauro/21",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "Minotauro establece requisitos y un canal específico para proyectos inéditos."
+    },
+    {
+      "id": "minotauro-general-20261022",
+      "publisher_slug": "minotauro",
+      "purpose": "general_contact",
+      "scope": "publisher_specific",
+      "source_url": "https://www.planetadelibros.com/editorial/minotauro/21",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "La ficha oficial distingue la información para lectores del envío de obras."
+    },
+    {
+      "id": "minotauro-prensa-20261022",
+      "publisher_slug": "minotauro",
+      "purpose": "press_contact",
+      "scope": "publisher_specific",
+      "source_url": "https://www.planetadelibros.com/editorial/minotauro/21",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "La ficha oficial distingue un contacto específico para prensa."
+    },
+    {
+      "id": "planeta-general-20261022",
+      "publisher_slug": "editorial-planeta",
+      "purpose": "general_contact",
+      "scope": "publisher_specific",
+      "source_url": "https://www.planetadelibros.com/editorial/editorial-planeta/8",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "La página del sello incluye datos de contacto editorial, sin prueba inequívoca de admisión."
+    },
+    {
+      "id": "tusquets-general-20261022",
+      "publisher_slug": "tusquets-editores",
+      "purpose": "general_contact",
+      "scope": "publisher_specific",
+      "source_url": "https://www.planetadelibros.com/editorial/tusquets-editores/59",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "La página oficial incluye datos de contacto general y no define una vía de manuscritos."
+    },
+    {
+      "id": "alfaguara-grupo-20261022",
+      "publisher_slug": "alfaguara",
+      "purpose": "group_submission_channel",
+      "scope": "group_general",
+      "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "El grupo describe un proceso web por sello; requiere corroborar disponibilidad individual."
+    },
+    {
+      "id": "salamandra-grupo-20261022",
+      "publisher_slug": "salamandra",
+      "purpose": "group_submission_channel",
+      "scope": "group_general",
+      "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "El procedimiento corporativo no garantiza admisión en este sello en este momento."
+    },
+    {
+      "id": "grijalbo-grupo-20261022",
+      "publisher_slug": "grijalbo",
+      "purpose": "group_submission_channel",
+      "scope": "group_general",
+      "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "La política general de grupo exige escoger un sello antes de remitir la obra."
+    },
+    {
+      "id": "plaza-grupo-20261022",
+      "publisher_slug": "plaza-y-janes",
+      "purpose": "group_submission_channel",
+      "scope": "group_general",
+      "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "La existencia del formulario corporativo no sustituye la revisión del sello."
+    },
+    {
+      "id": "bruguera-sello-20261022",
+      "publisher_slug": "bruguera",
+      "purpose": "publisher_imprint",
+      "scope": "publisher_specific",
+      "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sello/bruguera/",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "El grupo acredita el sello actual pese a la disolución de la empresa histórica."
+    },
+    {
+      "id": "montena-sello-20261022",
+      "publisher_slug": "montena",
+      "purpose": "publisher_imprint",
+      "scope": "publisher_specific",
+      "source_url": "https://www.penguinlibros.com/es/11375-montena",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "La página del sello lista un catálogo activo; no prueba recepción de originales."
+    },
+    {
+      "id": "beascoa-sello-20261022",
+      "publisher_slug": "beascoa",
+      "purpose": "publisher_imprint",
+      "scope": "group_general",
+      "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/?idsello=2662",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "El grupo identifica el sello y describe su área infantil sin prueba individual de recepción."
+    },
+    {
+      "id": "debate-sello-20261022",
+      "publisher_slug": "debate",
+      "purpose": "publisher_imprint",
+      "scope": "publisher_specific",
+      "source_url": "https://www.penguinlibros.com/es/11355-debate",
+      "checked_at": "2026-10-22",
+      "evidence_summary": "La ficha oficial explica el catálogo de ensayo del sello, sin contacto de originales."
+    }
+  ]
+}

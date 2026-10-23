@@ -1,0 +1,46 @@
+name: Small UI gaps audit (advisory)
+
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'assets/**/*.json'
+      - 'data/**/*.json'
+      - 'scripts/audit-small-ui-contracts.py'
+      - 'tests/test-small-ui-audit.py'
+      - '.github/workflows/small-ui-audit.yml'
+  schedule:
+    - cron: '17 7 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Small UI source findings (advisory)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Validate the audit with independent fixtures
+        run: python tests/test-small-ui-audit.py
+      - name: Audit tracked HTML and JSON sources
+        run: python scripts/audit-small-ui-contracts.py
+      - name: Publish findings in run summary
+        if: always()
+        run: |
+          if [ -f .ci/small-ui-audit/report.md ]; then
+            cat .ci/small-ui-audit/report.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve JSON and readable report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: small-ui-audit
+          path: .ci/small-ui-audit/
+          if-no-files-found: warn
+          retention-days: 30
