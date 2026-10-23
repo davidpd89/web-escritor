@@ -372,7 +372,9 @@ def render_page_body(items, today, watchlist=None):
 </html>'''
 
 def ics_escape(value):
-    return str(value).replace("\\", "\\\\").replace("\n", "\\n").replace(",", "\\,").replace(";", "\\;")
+    # RFC 5545 TEXT must escape logical newlines, not leak bare CR bytes.
+    normalized = str(value).replace("\r\n", "\n").replace("\r", "\n")
+    return normalized.replace("\\", "\\\\").replace("\n", "\\n").replace(",", "\\,").replace(";", "\\;")
 
 def fold_ics_line(line):
     chunks = []
