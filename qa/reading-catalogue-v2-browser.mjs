@@ -63,15 +63,86 @@ try {
       await page.getByRole('button',{name:'Me da igual, continuar',exact:true}).click();
     }
     await page.getByRole('button',{name:'Ver mis resultados',exact:true}).click();
-    assert.equal(await page.locator('[data-filter="temporada"]').inputValue(),'halloween');
+    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
     assert.equal(await page.locator('[data-filter="novedad"]').inputValue(),'15');
     assert(await page.locator('[data-catalogue-book]:visible').count()>0);
     const selected=await page.locator('[data-catalogue-book]:visible').evaluateAll(es=>es.map(e=>({cats:e.dataset.categories,date:e.dataset.published})));
     assert(selected.every(b=>b.cats.split(' ').includes('halloween')));
     await page.reload({waitUntil:'networkidle'});
-    assert.equal(await page.locator('[data-filter="temporada"]').inputValue(),'halloween');
+    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
     assert.deepEqual(errors,[]);
     results.push({books:count,filter_ms:Math.round(ms),quiz_results:selected.length});
+    await context.close();
+  }
+  // Metamorphic facet contract on the existing 100-book generator fixture:
+  // OR within groups, AND across group/season, dependent facet counts, empty
+  // selections, serialized URL state and reload. The oracle reads source card
+  // data independently of the catalogue's filtering implementation.
+  {
+    const context=await catalogueContext({viewport:{width:1280,height:900}});
+    const page=await context.newPage(), errors=[];
+    page.on('pageerror',error=>errors.push(error.message));
+    await page.clock.install({time:new Date('2026-10-21T10:00:00Z')});
+    await context.route('**/recomendaciones/',r=>r.fulfill({contentType:'text/html',body:fixture.catalogues[100].html}));
+    await context.route('**/assets/reading-market.json',r=>r.fulfill({json:{schema_version:1,offers:[],ratings:[]}}));
+    await page.goto(base+'/recomendaciones/',{waitUntil:'networkidle'});
+    const records=await page.locator('[data-catalogue-book]').evaluateAll(cards=>cards.map(card=>({
+      id:card.dataset.bookId,group:card.dataset.group,cats:card.dataset.categories.split(' '),search:card.dataset.search
+    })));
+    assert.equal(records.length,100);
+    assert(records.some(r=>r.group==='novela')&&records.some(r=>r.group==='cocina'));
+    const expected=(groups=[],seasons=[],query='')=>records.filter(r=>
+      (!groups.length||groups.includes(r.group))&&
+      (!seasons.length||seasons.some(s=>r.cats.includes(s)))&&
+      r.search.toLocaleLowerCase('es').includes(query.toLocaleLowerCase('es'))
+    ).map(r=>r.id);
+    const verify=async (groups=[],seasons=[],query='')=>{
+      const wanted=expected(groups,seasons,query);
+      const label=await page.locator('[data-catalogue-count]').innerText();
+      const count=Number(label.match(/^(\d+) libros?/)?.[1]);
+      assert.equal(count,wanted.length,`Incorrect results for ${JSON.stringify({groups,seasons,query})}: ${label}`);
+      const displayed=await page.locator('[data-catalogue-book]:visible').evaluateAll(cards=>cards.map(c=>c.dataset.bookId));
+      assert.equal(displayed.length,Math.min(24,wanted.length));
+      assert(displayed.every(id=>wanted.includes(id)),'Visible cards must all match independent filter oracle');
+      assert.equal(await page.locator('[data-catalogue-empty]').isVisible(),wanted.length===0);
+      return wanted.length;
+    };
+    const set=async (key,value,checked)=>{
+      await page.locator(`details[data-facet-group="${key}"]`).evaluate(e=>e.open=true);
+      await page.locator(`input[data-facet="${key}"][value="${value}"]`).setChecked(checked);
+    };
+    assert.equal(await verify(),100);
+    await set('grupo','cocina',true); assert.equal(await verify(['cocina']),50);
+    // A zero-result option is correctly disabled for new selections. A
+    // previously shared URL can still contain that combination and must
+    // remain recoverable; do not click an intentionally disabled checkbox.
+    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isDisabled());
+    await page.goto(base+'/recomendaciones/#grupo=cocina&temporada=halloween',{waitUntil:'networkidle'});
+    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
+    assert.equal(await verify(['cocina'],['halloween']),0);
+    const cooking=page.locator('input[data-facet="grupo"][value="cocina"]');
+    assert(await cooking.isChecked()&&!await cooking.isDisabled(),'Selected zero-result facet stays removable');
+    assert.equal(await cooking.locator('xpath=..').locator('[data-facet-count]').innerText(),'(0)');
+    assert.equal(await page.locator('input[data-facet="grupo"][value="novela"]').locator('xpath=..').locator('[data-facet-count]').innerText(),'(25)');
+    await set('grupo','novela',true); assert.equal(await verify(['cocina','novela'],['halloween']),25);
+    await set('grupo','cocina',false); assert.equal(await verify(['novela'],['halloween']),25);
+    await set('temporada','halloween',false); assert.equal(await verify(['novela']),50);
+    await set('grupo','cocina',true); assert.equal(await verify(['novela','cocina']),100);
+    await set('temporada','halloween',true); assert.equal(await verify(['novela','cocina'],['halloween']),25);
+    await set('grupo','cocina',false); assert.equal(await verify(['novela'],['halloween']),25);
+    await page.locator('[data-filter="q"]').fill('Prueba técnica 000');
+    assert.equal(await verify(['novela'],['halloween'],'Prueba técnica 000'),1);
+    const hash=new URLSearchParams(new URL(page.url()).hash.slice(1));
+    assert.deepEqual(hash.getAll('grupo'),['novela']);
+    assert.deepEqual(hash.getAll('temporada'),['halloween']);
+    assert.equal(hash.get('q'),'Prueba técnica 000');
+    await page.reload({waitUntil:'networkidle'});
+    assert(await page.locator('input[data-facet="grupo"][value="novela"]').isChecked());
+    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
+    assert.equal(await page.locator('[data-filter="q"]').inputValue(),'Prueba técnica 000');
+    assert.equal(await verify(['novela'],['halloween'],'Prueba técnica 000'),1);
+    assert.deepEqual(errors,[]);
+    results.push({area:'facet-metamorphic',books:100,transitions:10,oracle:'card data'});
     await context.close();
   }
   // Civil Madrid dates, including the DST transition, without rebuilding HTML.

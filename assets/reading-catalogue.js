@@ -8,6 +8,10 @@
   const cards = [...root.querySelectorAll('[data-catalogue-book]')];
   const originalOrder = new Map(cards.map((card, i) => [card, i]));
   const fields = form ? [...form.elements].filter(f => f.dataset.filter) : [];
+  // Filtros con varias opciones a la vez (OR dentro de cada uno, AND entre ellos), como casillas.
+  const FACETS = ['grupo', 'genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca', 'formato'];
+  const boxes = form ? [...form.querySelectorAll('input[data-facet]')] : [];
+  const pick = x => Array.isArray(x) ? x : x ? [x] : [];
   const collator = new Intl.Collator('es', { sensitivity: 'base', numeric: true });
   let market = { offers: [], ratings: [] };
   let currentPage = 1;
@@ -53,9 +57,12 @@
       } else { label.textContent = text; label.hidden = !text; }
     }
   }
-  const values = () => Object.fromEntries(fields.map(f => [f.dataset.filter, f.disabled ? '' : f.value]));
-  const matchingOffers = (card, v) => offersFor(card.dataset.bookId).filter(o => (!v.formato || o.formato === v.formato) && (!v.precio_min || o.precio_centimos >= Math.round(Number(v.precio_min) * 100)) && (!v.precio_max || o.precio_centimos <= Math.round(Number(v.precio_max) * 100)) && (!v.descuento || discount(o) >= Number(v.descuento)));
-  const minPrice = (card, v) => { const o = matchingOffers(card, v); return o.length ? Math.min(...o.map(x => x.precio_centimos)) : null; };
+  const values = () => ({...Object.fromEntries(fields.map(f => [f.dataset.filter, f.disabled ? '' : f.value])), ...Object.fromEntries(FACETS.map(k => [k, boxes.filter(b => b.dataset.facet === k && b.checked).map(b => b.value)]))});
+  const matchingOffers = (card, v) => offersFor(card.dataset.bookId).filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.descuento || discount(o) >= Number(v.descuento)));
+  // El precio que se filtra y ordena es el PVP de la edición publicada por la editorial: siempre disponible y comparable.
+  const pvpOf = card => Number(card.dataset.pvp) || null;
+  const priceOk = (card, v) => { const c = pvpOf(card); return (!v.precio_min || (c !== null && c >= Math.round(Number(v.precio_min) * 100))) && (!v.precio_max || (c !== null && c <= Math.round(Number(v.precio_max) * 100))); };
+  const minPrice = card => pvpOf(card);
   function renderMarket() {
     offersIndex = new Map(); ratingsIndex = new Map();
     for (const offer of market.offers.filter(validOffer)) {
@@ -70,16 +77,17 @@
     for (const box of root.querySelectorAll('[data-rating-book]')) {
       const r = ratingFor(box.dataset.ratingBook); box.replaceChildren();
       if (!r) {
-        // Sin valoración pública verificada: se dice tal cual y se enlaza a la ficha del ISBN.
+        // Sin valoración pública verificada: Goodreads con cinco estrellas vacías y 0,0 (0), enlazado a la ficha del ISBN.
         if (/^\d{13}$/.test(box.dataset.isbn || '')) {
           const none = document.createElement('a'); none.href = 'https://www.goodreads.com/book/isbn/' + box.dataset.isbn; none.target = '_blank'; none.rel = 'noopener noreferrer';
-          none.textContent = 'Aún sin valoraciones públicas · Ver en Goodreads ↗'; box.append(none);
+          const empty = document.createElement('span'); empty.className = 'catalogue-stars'; empty.setAttribute('aria-hidden', 'true'); empty.style.setProperty('--rating', '0%'); empty.textContent = '★★★★★';
+          none.append('Goodreads ', empty, ' 0,0 (0)'); none.setAttribute('aria-label', 'Goodreads: aún sin valoraciones públicas'); box.append(none);
         }
         continue;
       }
       const link = document.createElement('a'); link.href = r.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
       const stars = document.createElement('span'); stars.className = 'catalogue-stars'; stars.setAttribute('aria-hidden', 'true'); stars.style.setProperty('--rating', r.puntuacion / 5 * 100 + '%'); stars.textContent = '★★★★★';
-      link.append(stars, ' ' + r.puntuacion.toLocaleString('es-ES') + '/5 · ' + ratingLabel(r) + ' · ' + r.numero_valoraciones.toLocaleString('es-ES') + ' valoraciones'); link.title = 'Consultado el ' + new Date(r.actualizado_en).toLocaleDateString('es-ES'); box.append(link);
+      link.append(ratingLabel(r) + ' ', stars, ' ' + r.puntuacion.toLocaleString('es-ES', {minimumFractionDigits: 1}) + ' (' + r.numero_valoraciones.toLocaleString('es-ES') + ')'); link.title = 'Consultado el ' + new Date(r.actualizado_en).toLocaleDateString('es-ES'); box.append(link);
     }
     for (const f of root.querySelectorAll('[data-market-control]')) {
       f.disabled = !market[f.dataset.marketControl].some(f.dataset.marketControl === 'offers' ? validOffer : validRating);
@@ -95,11 +103,37 @@
       const lower = published || (month ? month + '-01' : year ? year + '-01-01' : '');
       const upper = published || (month ? new Date(Date.UTC(Number(month.slice(0, 4)), Number(month.slice(5)), 0)).toISOString().slice(0, 10) : year ? year + '-12-31' : '');
       const pages = Number(card.dataset.pages), range = !pages ? 'sin-dato' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga';
-      return normalize(card.dataset.search).includes(normalize(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !v[k] || cats.includes(v[k])) && (!v.grupo || card.dataset.group === v.grupo) && (!v.formato || formats.has(v.formato)) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && (!(v.precio_min || v.precio_max || v.descuento) || matchingOffers(card, v).length > 0);
+      return normalize(card.dataset.search).includes(normalize(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !pick(v[k]).length || pick(v[k]).some(x => cats.includes(x))) && (!pick(v.grupo).length || pick(v.grupo).includes(card.dataset.group)) && (!pick(v.formato).length || pick(v.formato).some(x => formats.has(x))) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
+  }
+  // Cada filtro cuenta sus opciones con el resto de filtros aplicados (sin el suyo): una opcion sin libros se atenua y nunca se oculta si esta marcada.
+  const cardFacets = new Map(cards.map(card => [card, {}]));
+  function facetValues(card, k) {
+    const cached = cardFacets.get(card);
+    if (k === 'formato') return new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)]);
+    return cached[k] || (cached[k] = new Set(k === 'grupo' ? [card.dataset.group] : card.dataset.categories.split(' ')));
+  }
+  function renderFacets(v) {
+    if (!form) return;
+    for (const k of FACETS) {
+      const own = boxes.filter(b => b.dataset.facet === k);
+      const candidates = cards.filter(card => matches(card, {...v, [k]: []}));
+      const sets = candidates.map(card => facetValues(card, k));
+      for (const box of own) {
+        const total = cards.some(card => facetValues(card, k).has(box.value));
+        const count = sets.filter(set => set.has(box.value)).length, label = box.closest('label');
+        label.hidden = !total && !box.checked;
+        label.querySelector('[data-facet-count]').textContent = '(' + count + ')';
+        box.disabled = !count && !box.checked;
+        label.classList.toggle('is-empty', box.disabled);
+      }
+      const group = form.querySelector('[data-facet-group="' + k + '"]'), chosen = own.filter(b => b.checked).length;
+      group.hidden = own.every(b => b.closest('label').hidden);
+      group.querySelector('[data-facet-selected]').textContent = chosen ? '(' + chosen + ' elegidas)' : '';
+      if (chosen) group.open = true;
+    }
   }
   function apply(save = true) {
     const v = values();
-    for (const radio of root.querySelectorAll('[data-type-radio]')) radio.checked = radio.value === (v.grupo || '');
     const nullable = (x, y, desc = false) => x == null ? (y == null ? 0 : 1) : y == null ? -1 : desc ? y - x : x - y;
     const dateOf = card => card.dataset.published || card.dataset.publishedMonth || card.dataset.year ? Date.parse(card.dataset.published || (card.dataset.publishedMonth ? card.dataset.publishedMonth + '-01' : card.dataset.year + '-01-01')) : null;
     const compare = (a, b) => {
@@ -117,25 +151,27 @@
     const grid = root.querySelector('.catalogue-grid'), sorted = [...cards].sort((a, b) => compare(a, b) || originalOrder.get(a) - originalOrder.get(b));
     if (grid && sorted.some((card, i) => grid.children[i] !== card)) { const fragment = document.createDocumentFragment(); sorted.forEach(card => fragment.append(card)); grid.replaceChildren(fragment); }
     const found = sorted.filter(card => matches(card, v)), visible = found.length;
+    renderFacets(v);
     const pages = Math.max(1, Math.ceil(visible / pageSize));
     currentPage = Math.min(currentPage, pages);
     const shown = new Set(found.slice((currentPage - 1) * pageSize, currentPage * pageSize));
     for (const card of cards) card.hidden = !shown.has(card);
     renderPagination(pages, visible);
     for (const box of root.querySelectorAll('[data-price-book]')) {
-      const offers = offersFor(box.dataset.priceBook).filter(o => !v.formato || o.formato === v.formato).sort((a, b) => a.precio_centimos - b.precio_centimos); box.replaceChildren(); box.hidden = !offers.length;
+      const offers = offersFor(box.dataset.priceBook).filter(o => !v.formato.length || v.formato.includes(o.formato)).sort((a, b) => a.precio_centimos - b.precio_centimos); box.replaceChildren(); box.hidden = !offers.length;
       if (offers.length) { const link = document.createElement('a'); link.href = offers[0].url; link.rel = 'sponsored nofollow noopener noreferrer'; link.target = '_blank'; link.textContent = 'Desde ' + money(offers[0].precio_centimos) + ' en Amazon'; link.title = 'Precio consultado el ' + new Date(offers[0].actualizado_en).toLocaleString('es-ES') + '. El precio aplicable será el de Amazon al comprar.'; box.append(link); }
     }
     if (form) {
       root.querySelector('[data-catalogue-count]').textContent = visible + (visible === 1 ? ' libro' : ' libros') + (pages > 1 ? ' · página ' + currentPage + ' de ' + pages : ''); root.querySelector('[data-catalogue-empty]').hidden = visible !== 0;
-      if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => value && !(k === 'orden' && value === 'editorial'))); if (currentPage > 1) hash.set('pagina', String(currentPage)); history.replaceState(null, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
+      if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => !FACETS.includes(k) && value && !(k === 'orden' && value === 'editorial'))); for (const k of FACETS) for (const x of v[k]) hash.append(k, x); if (currentPage > 1) hash.set('pagina', String(currentPage)); history.replaceState(null, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
     }
   }
   function restore() {
     const params = new URLSearchParams(location.hash.slice(1));
     currentPage = Math.max(1, Math.min(100000, Number.parseInt(params.get('pagina'), 10) || 1));
     for (const f of fields) { const v = params.get(f.dataset.filter) || (f.dataset.filter === 'orden' ? 'editorial' : ''); f.value = f.tagName === 'SELECT' && ![...f.options].some(o => o.value === v) ? (f.dataset.filter === 'orden' ? 'editorial' : '') : v; }
-    const advanced = form?.querySelector('details');
+    for (const box of boxes) box.checked = params.getAll(box.dataset.facet).includes(box.value);
+    const advanced = form?.querySelector('.catalogue-more-filters');
     if (advanced && fields.some(f => advanced.contains(f) && f.value && !f.disabled)) advanced.open = true;
     apply(false);
   }
@@ -168,7 +204,7 @@
     const panel = quiz.querySelector('.catalogue-quiz__panel');
     panel.replaceChildren();
     let criteria = {}, index = 0, history = [], started = false;
-    const optionsFrom = name => [...(fields.find(f => f.dataset.filter === name)?.options || [])].filter(o => o.value && !o.disabled).map(o => ({label: o.textContent, values: {[name]: o.value}}));
+    const optionsFrom = name => FACETS.includes(name) ? boxes.filter(b => b.dataset.facet === name).map(b => ({label: b.nextElementSibling.textContent, values: {[name]: b.value}})) : [...(fields.find(f => f.dataset.filter === name)?.options || [])].filter(o => o.value && !o.disabled).map(o => ({label: o.textContent, values: {[name]: o.value}}));
     const steps = [
       {key: 'novedad', question: '¿Buscas algo recién publicado?', options: () => [
         {label: 'Sí, una novedad', values: {novedad: '15'}},
@@ -210,6 +246,7 @@
         heading.textContent = count ? 'Tu próxima lectura te espera' : 'Los datos han cambiado. Prueba otra selección';
         if (count) choices.append(button('Ver mis resultados', () => {
           for (const field of fields) field.value = criteria[field.dataset.filter] || (field.dataset.filter === 'orden' ? 'editorial' : '');
+          for (const box of boxes) box.checked = pick(criteria[box.dataset.facet]).includes(box.value);
           currentPage = 1; apply(); quiz.open = false;
           const result = root.querySelector('.catalogue-results-head h2'); result.tabIndex = -1; result.focus({preventScroll: true}); result.scrollIntoView({block: 'start'});
         }));
@@ -225,11 +262,8 @@
     form.querySelector('fieldset').disabled = false; form.querySelector('[type="reset"]').disabled = false;
     const sort = root.querySelector('[data-filter="orden"]'); if (sort) sort.disabled = false;
     fields.forEach(f => f.addEventListener('input', () => { currentPage = 1; apply(); }));
-    for (const radio of root.querySelectorAll('[data-type-radio]')) {
-      radio.disabled = false;
-      radio.addEventListener('change', () => { const hidden = fields.find(f => f.dataset.filter === 'grupo'); hidden.value = radio.value; hidden.dispatchEvent(new Event('input', { bubbles: true })); });
-    }
-    form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; apply(); }); form.addEventListener('reset', () => setTimeout(() => { const type = fields.find(f => f.dataset.filter === 'grupo'); if (type) type.value = ''; currentPage = 1; apply(); }, 0)); window.addEventListener('hashchange', restore); restore();
+    boxes.forEach(b => b.addEventListener('change', () => { currentPage = 1; apply(); }));
+    form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; apply(); }); form.addEventListener('reset', () => setTimeout(() => { currentPage = 1; apply(); }, 0)); window.addEventListener('hashchange', restore); restore();
   }
   const refresh = () => { renderNovelty(); renderMarket(); apply(false); };
   window.addEventListener('pageshow', refresh); document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); }); setInterval(() => { if (!document.hidden) refresh(); }, 60000);
