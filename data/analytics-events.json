@@ -11,7 +11,13 @@
     { "name": "newsletter-popup",      "action": "newsletter_submit", "context": "popup",      "note": "Igual que newsletter-home; fuente = popup de captura (ver PR #56/#61)." },
 
     { "name": "abrir-modal-comprar-samuel", "action": "buy_open",  "context": "samuel", "note": "Apertura del selector de tienda. Identidad de libro explicita en el nombre para no mezclarse nunca con un futuro buy_open de Manecillas." },
-    { "name": "comprar-amazon",             "action": "buy_click", "context": "amazon", "note": "Clic generico a cualquier enlace amazon.es fuera del modal de Samuel (p. ej. desde una tarjeta de libro). Retailer = amazon." },
+    { "name": "comprar-amazon",             "action": "buy_click", "context": "amazon", "note": "Clic saliente Amazon en otras páginas; antes este evento mezclaba fuentes, desde #720 es fallback. No equivale a venta." },
+    { "name": "comprar-amazon-header",      "action": "buy_click", "context": "header", "note": "Clic al botón Comprar común, incluidas URL amzn.to; no indica venta." },
+    { "name": "comprar-amazon-home",        "action": "buy_click", "context": "home", "note": "Salida desde Home sin incluir cabecera ni modal." },
+    { "name": "comprar-amazon-samuel",      "action": "buy_click", "context": "samuel", "note": "Salida en ficha de Samuel fuera del modal propio." },
+    { "name": "comprar-amazon-manecillas",  "action": "buy_click", "context": "manecillas", "note": "Salida desde la ficha de Manecillas." },
+    { "name": "comprar-amazon-recomendaciones", "action": "buy_click", "context": "recomendaciones", "note": "Salida desde catálogo/ficha de recomendaciones, incluidas búsquedas ISBN mientras existan." },
+    { "name": "seguir-autor-amazon", "action": "author_follow_outbound", "context": "amazon_author_central", "note": "Clic al perfil público de Amazon para seguir al autor. NO certifica que Amazon haya registrado un seguidor." },
     { "name": "comprar-amazon-papel",       "action": "buy_click", "context": "amazon-samuel-papel", "note": "data-gc en el CTA principal del modal de Samuel (tapa blanda)." },
     { "name": "comprar-casadellibro",       "action": "buy_click", "context": "casadellibro-samuel", "note": "data-gc en el CTA secundario del modal de Samuel." },
     { "name": "fragmento-desde-modal",      "action": "sample_open", "context": "samuel-desde-modal", "note": "data-gc: clic a leer el fragmento gratis desde dentro del modal de compra de Samuel." },
@@ -24,7 +30,12 @@
     { "name": "explorar-noveris",    "action": "navigate_editorial", "context": "noveris",    "note": "Clic a cualquier enlace /universo/noveris/." },
     { "name": "ver-prensa",          "action": "navigate_editorial", "context": "prensa",     "note": "Clic a cualquier enlace /prensa*." },
     { "name": "download-press-kit",  "action": "download_resource",  "context": "press-kit",  "note": "Clic a cualquier enlace /press-kit/." },
-    { "name": "google-preferred-source", "action": "external_engagement", "context": "google-preferred-sources", "note": "Clic al CTA de /cuaderno/ hacia google.com/preferences/source -- criterio de cierre de docs/pending/google-preferred-sources.md, mide si alguien usa el enlace." }
+    { "name": "google-preferred-source", "action": "external_engagement", "context": "google-preferred-sources", "note": "Clic al CTA de /cuaderno/ hacia google.com/preferences/source -- criterio de cierre de docs/pending/google-preferred-sources.md, mide si alguien usa el enlace." },
+    { "name": "visita-resenas-amazon-samuel", "action": "review_outbound", "context": "samuel-amazon", "note": "Clic a opiniones de Samuel en Amazon, no implica compra ni reseña enviada." },
+    { "name": "visita-resenas-goodreads-samuel", "action": "review_outbound", "context": "samuel-goodreads", "note": "Clic a ficha Goodreads de Samuel; no confirma reseña publicada." },
+    { "name": "visita-resenas-casa-samuel", "action": "review_outbound", "context": "samuel-casa", "note": "Clic a Casa del Libro de Samuel; no confirma reseña publicada." },
+    { "name": "visita-resenas-goodreads-manecillas", "action": "review_outbound", "context": "manecillas-goodreads", "note": "Clic a ficha Goodreads de Manecillas; no confirma reseña publicada." },
+    { "name": "visita-resenas-casa-manecillas", "action": "review_outbound", "context": "manecillas-casa", "note": "Clic a Casa del Libro de Manecillas; no confirma reseña publicada." }
   ],
   "article_bridge": {
     "note": "assets/*.js (herramientas del Cuaderno y afines) nunca llaman a _gcEvent directamente: disparan un CustomEvent 'dp:analytics' local con {event:<nombre_snake_case>, target?}, y _dpAnalyticsBridge() en script.js lo valida (regex /^[a-z0-9_-]{1,64}$/i) y lo reenvia a GoatCounter como 'article-<nombre_snake_case>'. El checker valida el <nombre_snake_case> tal como aparece en cada fichero (antes del prefijo), no el nombre final con prefijo, porque asi es como se emite en el codigo fuente.",
