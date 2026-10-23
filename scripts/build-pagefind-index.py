@@ -64,7 +64,7 @@ class RobotsMetaParser(HTMLParser):
         values = {key.lower(): value or "" for key, value in attrs}
         if values.get("name", "").strip().casefold() != "robots":
             return
-        directives = re.split(r"[,\\s]+", values.get("content", "").casefold().strip())
+        directives = re.split(r"[,\s]+", values.get("content", "").casefold().strip())
         if "noindex" in directives:
             self.noindex = True
 
