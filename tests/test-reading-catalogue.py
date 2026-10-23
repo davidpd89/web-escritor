@@ -141,6 +141,16 @@ with tempfile.TemporaryDirectory() as tmp:
     past = copy.deepcopy(b)
     past.update(fecha_publicacion='2026-10-01', fecha_actualizacion='2026-10-21')
     assert '"datePublished": "2026-10-01"' in m.render_book(data, past, template)
+    # Calendario de lanzamientos: determinista (no usa el reloj) y solo con fechas completas posteriores a los datos.
+    soon, shown = copy.deepcopy(b), copy.deepcopy(b)
+    soon.update(id='contrato-futuro', slug='contrato-futuro', titulo='Lanzamiento, con coma; y punto y coma', fecha_publicacion='2999-01-01', fecha_actualizacion='2026-10-20')
+    ics = m.render_release_ics([shown, soon])
+    assert ics.count('BEGIN:VEVENT') == 1 and 'DTSTART;VALUE=DATE:29990101' in ics and 'DTEND;VALUE=DATE:29990102' in ics
+    BS, CRLF = chr(92), chr(13) + chr(10)
+    assert 'Lanzamiento' + BS + ', con coma' + BS + '; y punto' in ics.replace(CRLF + ' ', ''), 'el texto del evento debe escaparse'
+    assert ics == m.render_release_ics([shown, soon]) and all(len(line.encode()) <= 75 for line in ics.split(CRLF))
+    assert 'Añadir al calendario' in m.render_book({**data, 'libros': [shown, soon]}, soon, template)
+    assert 'Añadir al calendario' not in m.render_book({**data, 'libros': [shown, soon]}, shown, template)
     if '--browser-fixture' in sys.argv:
         # Only serialize synthetic HTML for interception in a browser test.
         b['titulo'] = 'Título de prueba técnica'

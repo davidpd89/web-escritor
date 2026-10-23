@@ -1,0 +1,74 @@
+name: Navigation round trips (advisory)
+
+on:
+  pull_request:
+    paths:
+      - 'data/navigation.json'
+      - 'data/content-registry.json'
+      - 'data/reading-catalogue.json'
+      - 'data/reading-authors.json'
+      - 'assets/v1-shell.js'
+      - 'assets/v1*.css'
+      - 'recomendaciones/**'
+      - 'cuaderno/index.html'
+      - 'qa/reading-navigation-roundtrips.mjs'
+      - '.github/workflows/navigation-roundtrip-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'data/navigation.json'
+      - 'data/content-registry.json'
+      - 'assets/v1-shell.js'
+      - 'recomendaciones/**'
+      - 'qa/reading-navigation-roundtrips.mjs'
+      - '.github/workflows/navigation-roundtrip-audit.yml'
+  schedule:
+    - cron: '23 7 * * 5'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: navigation-roundtrips-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  journeys:
+    name: Navigation history journeys (advisory)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Install existing browser dependencies
+        run: npm ci
+      - uses: actions/cache@v5
+        id: browsers
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+      - name: Install browser and OS dependencies
+        if: steps.browsers.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+      - name: Install OS dependencies for cached browser
+        if: steps.browsers.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+      - name: Follow links and exercise real document history
+        run: node qa/reading-navigation-roundtrips.mjs
+      - name: Publish diagnostic summary
+        if: always()
+        run: |
+          if [ -f .ci/navigation-roundtrips/report.md ]; then
+            cat .ci/navigation-roundtrips/report.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve results and failure screenshots
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: navigation-roundtrips
+          path: .ci/navigation-roundtrips/
+          retention-days: 30
+          if-no-files-found: warn
