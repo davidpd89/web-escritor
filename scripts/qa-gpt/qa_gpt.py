@@ -90,6 +90,11 @@ class Lock:
         self.path.write_text(f"{os.getpid()} {now()}")
         return self
     def __exit__(self, *a): self.path.unlink(missing_ok=True)
+    @classmethod
+    def latido(cls):
+        """El servicio continuo renueva la marca: un lock viejo = trabajador colgado (relevo), no un servicio largo."""
+        try: cls.path.write_text(f"{os.getpid()} {now()}")
+        except OSError: pass
 
 def flag(name): return (STATE / name).exists()
 
@@ -170,8 +175,8 @@ def fill(tpl, **kv):
     return tpl
 
 def budget(c, ronda):
-    dia = c.execute("SELECT COUNT(*) FROM peticiones WHERE fecha=?", (today(),)).fetchone()[0]
-    return dia < CFG["max_peticiones_dia"] and ronda < CFG["max_peticiones_ronda"], dia
+    """Sin cupo diario ni por ronda: solo se respetan los limites reales de ChatGPT (RateLimited). Devuelve (True, peticiones de hoy)."""
+    return True, c.execute("SELECT COUNT(*) FROM peticiones WHERE fecha=?", (today(),)).fetchone()[0]
 
 def enqueue(c, tipo, area, payload, clave):
     try:
@@ -377,8 +382,8 @@ def process(job, c, manual=False):
         raise SystemExit("ChatGPT sin sesion en el Edge 9230: inicia sesion y relanza (la cola se conserva).")
     except g.RateLimited as e:
         (STATE / "limite").write_text(now())
-        c.execute("UPDATE jobs SET estado='pendiente',error=?,no_antes=?,actualizado=? WHERE id=?", (str(e), (_ahora() + dt.timedelta(minutes=CFG.get("pausa_limite_min", 90))).isoformat(timespec="seconds"), jid)); c.commit()
-        raise SystemExit(f"Limite de uso de ChatGPT: pausa de {CFG.get('pausa_limite_min', 90)} min (no se reintenta en bucle).")
+        c.execute("UPDATE jobs SET estado='pendiente',error=?,no_antes=?,actualizado=? WHERE id=?", (str(e), (_ahora() + dt.timedelta(minutes=5)).isoformat(timespec="seconds"), jid)); c.commit()
+        raise SystemExit("Limite de uso de ChatGPT: pausa con espera escalonada (no se reintenta en bucle).")
     except g.Incompleta as e:
         cid = e.cid or estado_peticion.get("cid")
         c.execute("UPDATE peticiones SET estado=? WHERE chat_id=?", (e.estado, cid)); c.commit()
@@ -584,6 +589,19 @@ def edge_asegurar():
             for pid in inf["main"]: sh(["taskkill", "/PID", str(pid), "/T", "/F"], check=False)
             time.sleep(3); edge_launcher.main()
 
+def limpiar_pestanas_cdp():
+    """Cierra pestanas de ChatGPT ya guardadas/terminadas (nunca una generacion en curso)."""
+    import gpt_browser
+    try:
+        from playwright.sync_api import sync_playwright
+        p = sync_playwright().start()
+        try:
+            ctx = p.chromium.connect_over_cdp(f"http://127.0.0.1:{gpt_browser.PORT}").contexts[0]
+            n = gpt_browser.limpiar_pestanas(ctx)
+            print(f"Pestanas: {n} cerradas; quedan {len([x for x in ctx.pages if 'chatgpt.com' in x.url])} de ChatGPT")
+        finally: p.stop()
+    except Exception as e: print(f"limpieza de pestanas omitida: {str(e)[:100]}")
+
 def tabs_chatgpt():
     import edge_launcher
     try: return [t for t in edge_launcher.pages() if "chatgpt.com" in t["url"]]
@@ -613,10 +631,20 @@ def cmd_inventario(a):
 
 def cmd_status(a):
     c = db(); q = lambda s, *p: c.execute(s, p).fetchone()[0]
-    lim = (STATE / "limite")
-    print(f"Estado: {'STOP' if flag('stop') else 'PAUSADO' if flag('pause') else 'activo'}{' | LIMITE ChatGPT desde ' + lim.read_text() if lim.exists() else ''} | trabajador: {'si' if Lock.path.exists() else 'no'}")
-    tk = sh(["powershell", "-NoProfile", "-Command", f"try{{$t=Get-ScheduledTask -TaskName {TASK} -ErrorAction Stop;$i=$t|Get-ScheduledTaskInfo;'{{0}} | proxima {{1}} | ultima {{2}} | resultado {{3}}' -f $t.State,$i.NextRunTime,$i.LastRunTime,$i.LastTaskResult}}catch{{'NO INSTALADO (usa: iniciar)'}}"], check=False)
-    print(f"Servicio diurno (tarea programada {TASK}): {tk}")
+    try: sv = json.loads(SVC.read_text(encoding="utf-8"))
+    except Exception: sv = {}
+    pid = trabajador_vivo(); est = sv.get("estado", "parado") if pid else "PARADO"
+    est = {"pausado_limite": f"PAUSADO por limite de ChatGPT hasta {sv.get('hasta')}", "login": "ESPERANDO inicio de sesion de ChatGPT (Edge 9230)", "esperando": f"EN MARCHA, sin trabajo util ahora (reintenta {sv.get('hasta')})",
+           "ejecutando": "EN MARCHA", "arrancando": "ARRANCANDO", "pausado": "PAUSADO manualmente"}.get(est, est)
+    print(f"Servicio: {est}" + (f" | pid {pid} desde {sv.get('inicio')}" if pid else ""))
+    if pid and sv.get("tarea"): print(f"  Ahora: {sv['tarea']} sobre {sv.get('area')} (desde {sv.get('desde_tarea')})")
+    ini = sv.get("inicio") or "9999"
+    if pid:
+        print(f"  Esta sesion: {q('SELECT COUNT(*) FROM peticiones WHERE hora>=?', ini)} peticiones | propuestas decididas {q('SELECT COUNT(*) FROM propuestas WHERE actualizado>=? AND estado IN (?,?,?,?)', ini, 'aceptada', 'preparada', 'aprobada', 'publicada')} aceptadas, "
+              f"{q('SELECT COUNT(*) FROM propuestas WHERE actualizado>=? AND estado IN (?,?,?,?)', ini, 'rechazada', 'invalida', 'descartada', 'duplicada')} rechazadas")
+    print(f"  Ultima actividad correcta: {sv.get('ultimo_ok') or '(ninguna)'} | ultimo error: {sv.get('ultimo_error') or '(ninguno)'}")
+    ts = sh(["powershell", "-NoProfile", "-Command", f"try{{(Get-ScheduledTask -TaskName {TASK} -ErrorAction Stop).State}}catch{{'no existe'}}"], check=False)
+    print(f"Tarea programada heredada {TASK}: {ts} (el servicio NO usa horarios)")
     print(f"Ejecucion de tests/Actions: {'AUTORIZADA hoy' if autorizada() else 'DESACTIVADA (requiere autorizar-noche + lote-nocturno --confirmar)'}")
     print("Cola:", {r[0]: r[1] for r in c.execute("SELECT estado,COUNT(*) FROM jobs GROUP BY estado")})
     rean = c.execute("SELECT id,tipo,area,chat_id,error FROM jobs WHERE chat_id IS NOT NULL AND estado='pendiente' AND respuesta IS NULL").fetchall()
@@ -624,13 +652,11 @@ def cmd_status(a):
     print("Propuestas:", {r[0]: r[1] for r in c.execute("SELECT estado,COUNT(*) FROM propuestas GROUP BY estado")})
     print("  duplicadas detectadas:", q("SELECT COUNT(*) FROM eventos WHERE estado='duplicada_detectada'"), "| esperando aprobacion (preparada):", q("SELECT COUNT(*) FROM propuestas WHERE estado='preparada'"))
     print("Ramas:", {r[0]: r[1] for r in c.execute("SELECT estado,COUNT(*) FROM ramas GROUP BY estado")})
-    print(f"Uso hoy: {q('SELECT COUNT(*) FROM peticiones WHERE fecha=?', today())}/{CFG['max_peticiones_dia']} peticiones (max {CFG['max_peticiones_ronda']}/ronda), "
-          f"{q('SELECT COALESCE(SUM(chars_in+chars_out),0) FROM peticiones WHERE fecha=?', today())} caracteres (navegador: sin coste API)")
     ult = c.execute("SELECT hora,tipo,area,estado,herramientas,segundos FROM peticiones ORDER BY rowid DESC LIMIT 1").fetchone()
     if ult: print(f"Ultima peticion: {ult[0]} {ult[1]} {ult[2]} -> {ult[3]} (lecturas repo {ult[4]}, {ult[5]} s)")
     usadas = q("SELECT COUNT(*) FROM peticiones WHERE fecha=?", today()); tot = q("SELECT COUNT(*) FROM peticiones")
     utiles = q("SELECT COUNT(*) FROM propuestas WHERE estado IN ('aceptada','preparada','aprobada','publicada','ejecutada','informe')")
-    print(f"Quedan hoy: {max(CFG['max_peticiones_dia'] - usadas, 0)} peticiones de {CFG['max_peticiones_dia']} | peticiones registradas en total: {tot}")
+    print(f"Peticiones a ChatGPT: hoy {usadas}, total {tot} (sin cupo configurado; solo cuentan los limites reales de la cuenta)")
     n = lambda *es: q(f"SELECT COUNT(*) FROM propuestas WHERE estado IN ({','.join('?' * len(es))})", *es)
     defectos = q("SELECT COUNT(*) FROM propuestas WHERE estado IN ('ejecutada','publicada') AND datos LIKE '%descubre_defecto%true%'")
     print(f"Ciclo de vida: descubiertas {q('SELECT COUNT(*) FROM propuestas')} | esperando PASS B {n('propuesta')} | con veredicto PASS B {q('SELECT COUNT(*) FROM propuestas WHERE veredicto IS NOT NULL AND estado<>?', 'propuesta')} "
@@ -669,12 +695,7 @@ def next_job(c):
 def cmd_scan_once(a, manual=False):
     manual = manual or getattr(a, "manual", False)
     if flag("stop") or flag("pause"): print(f"{now()} Pausado/parado (usa reanudar)."); return 0
-    h0, h1 = CFG["horario"]
-    if not manual and not getattr(a, "fuera_de_horario", False) and not (h0 <= _ahora().hour < h1): print(f"{now()} Fuera de horario {h0}-{h1}h."); return 0
-    lim = STATE / "limite"
-    if lim.exists():
-        if (_ahora() - dt.datetime.fromisoformat(lim.read_text().strip())).total_seconds() < CFG.get("pausa_limite_min", 90) * 60: print(f"{now()} En pausa por limite de ChatGPT."); return 0
-        lim.unlink()
+    (STATE / "limite").unlink(missing_ok=True)
     with Lock():
         c = db(); print(f"{now()} ronda")
         git("fetch", "origin", "main", "--quiet", check=False)
@@ -707,16 +728,7 @@ def cmd_scan_once(a, manual=False):
             if manual: break
         if not manual:
             stage(c)
-            import gpt_browser
-            try:
-                from playwright.sync_api import sync_playwright
-                p = sync_playwright().start()
-                try:
-                    ctx = p.chromium.connect_over_cdp(f"http://127.0.0.1:{gpt_browser.PORT}").contexts[0]
-                    n = gpt_browser.limpiar_pestanas(ctx)
-                    print(f"Pestanas: {n} cerradas; quedan {len([x for x in ctx.pages if 'chatgpt.com' in x.url])} de ChatGPT")
-                finally: p.stop()
-            except Exception as e: print(f"limpieza de pestanas omitida: {str(e)[:100]}")
+            limpiar_pestanas_cdp()
     return 0
 
 def cmd_start(a):
@@ -737,21 +749,135 @@ def cmd_flag(name, on):
 def task_query():
     return sh(["schtasks", "/Query", "/TN", TASK], check=False)
 
+SVC = STATE / "servicio.json"
+
+def marcar(**kw):
+    """Estado vivo del servicio (lo lee `estado`); fichero pequeno, escritura atomica."""
+    try: cur = json.loads(SVC.read_text(encoding="utf-8"))
+    except Exception: cur = {}
+    cur.update(kw, actualizado=now())
+    tmp = SVC.with_suffix(".tmp"); tmp.write_text(json.dumps(cur, ensure_ascii=False), encoding="utf-8"); os.replace(tmp, SVC)
+
+def parada_vencida():
+    """Parada pedida y ya pasada la gracia: la generacion en curso se deja reanudable (no se pierde)."""
+    f = STATE / "stop"
+    return f.exists() and time.time() - f.stat().st_mtime > CFG.get("parada_gracia_min", 3) * 60
+
+def dormir(seg):
+    """Espera interrumpible: renueva el latido y sale en cuanto se pide parar."""
+    fin = time.monotonic() + seg
+    while time.monotonic() < fin and not flag("stop"):
+        Lock.latido(); time.sleep(min(5, max(fin - time.monotonic(), 0)))
+
+def trabajador_vivo():
+    try: pid = int(Lock.path.read_text().split()[0])
+    except Exception: return 0
+    return pid if pid_alive(pid) and es_qa_gpt(pid) else 0
+
+def paso_servicio(c):
+    """Un paso del bucle continuo: ejecuta el siguiente job o elige objetivo nuevo. True=hizo trabajo; 'limite'/('login',msg)=esperar; False=nada ejecutable."""
+    job = next_job(c)
+    if job is None:
+        elegido = elegir_modo(c)
+        if elegido:
+            modo, clave, pl = elegido
+            if enqueue(c, "A", clave, pl, f"A:{clave}:{pl['sha']}:{today()}"):
+                print(f"{now()} modo {modo}: {clave}: {pl['motivo']}"); job = next_job(c)
+    if job is None: return False
+    marcar(estado="ejecutando", tarea=f"PASS {job['tipo']}", area=job["area"], desde_tarea=now())
+    print(f"{now()} -> {job['tipo']} {job['area']}" + (f" (reanudando chat {job['chat_id'][:8]})" if job["fase"] == "generando" and job["chat_id"] else ""))
+    try: process(job, c, False)
+    except SystemExit as e:
+        return "limite" if (STATE / "limite").exists() else ("login", str(e))
+    marcar(ultimo_ok=now(), limite_n=0)
+    return True
+
+def cmd_servicio(a):
+    """Servicio CONTINUO (lo arranca INICIAR-QA-GPT.bat): una peticion cada vez, sin horario, cupos ni pausas entre rondas. Nunca ejecuta tests/Actions."""
+    import gpt_browser
+    (STATE / "stop").unlink(missing_ok=True)
+    with Lock():
+        c = db(); inicio = now(); gpt_browser.PARADA = parada_vencida
+        print(f"{inicio} SERVICIO CONTINUO iniciado (pid {os.getpid()})")
+        marcar(estado="arrancando", inicio=inicio, pid=os.getpid(), limite_n=0, ultimo_error=None, tarea=None, area=None, hasta=None, parado=None)
+        c.execute("UPDATE jobs SET estado='pendiente' WHERE estado='en_curso'")
+        c.execute("UPDATE jobs SET no_antes=? WHERE estado='pendiente' AND fase='generando' AND chat_id IS NOT NULL", (now(),))  # reanudar al instante, sin reenviar
+        c.commit(); (STATE / "limite").unlink(missing_ok=True)
+        reconciliar(c); respaldar(c); edge_asegurar()
+        vacias, ultimo_fetch = 0, 0.0
+        try:
+            while not flag("stop"):
+                Lock.latido()
+                if flag("pause"): marcar(estado="pausado"); dormir(30); continue
+                if time.monotonic() - ultimo_fetch > 1800:
+                    git("fetch", "origin", "main", "--quiet", check=False)
+                    if ROOT != HERE.parents[1]: git("checkout", "--detach", "--quiet", "origin/main", check=False)
+                    ultimo_fetch = time.monotonic()
+                try: r = paso_servicio(c)
+                except Exception as e:
+                    marcar(ultimo_error=f"{now()} {str(e)[:200]}"); print(f"{now()} ERROR en el paso: {e}"); dormir(60); continue
+                if r is True:
+                    vacias = 0
+                    try: stage(c)
+                    except Exception as e: marcar(ultimo_error=f"{now()} stage: {str(e)[:200]}"); print(f"stage: {e}")
+                    limpiar_pestanas_cdp()
+                    try: edge_asegurar()  # entre peticiones: sin generacion activa
+                    except Exception as e: print(f"edge: {e}")
+                elif r == "limite":
+                    n = json.loads(SVC.read_text(encoding="utf-8")).get("limite_n", 0); mins = min(180, 30 * 2 ** n)
+                    hasta = (_ahora() + dt.timedelta(minutes=mins)).isoformat(timespec="seconds")
+                    marcar(estado="pausado_limite", limite_n=n + 1, hasta=hasta, ultimo_error=f"{now()} limite de uso de ChatGPT")
+                    print(f"{now()} Limite de ChatGPT: espera {mins} min (hasta {hasta})"); dormir(mins * 60); (STATE / "limite").unlink(missing_ok=True)
+                elif isinstance(r, tuple):
+                    marcar(estado="login", hasta=None, ultimo_error=f"{now()} {r[1][:160]}"); print(f"{now()} Sin sesion de ChatGPT: reintento en 5 min"); dormir(300)
+                else:  # nada ejecutable ahora: backoff de jobs o todo cubierto
+                    vacias += 1
+                    prox = c.execute("SELECT MIN(no_antes) FROM jobs WHERE estado='pendiente'").fetchone()[0]
+                    seg = 600 if not prox else max(15, min(600, (dt.datetime.fromisoformat(prox) - _ahora()).total_seconds()))
+                    marcar(estado="esperando", tarea=None, area=None, hasta=(_ahora() + dt.timedelta(seconds=seg)).isoformat(timespec="seconds"))
+                    if vacias == 1: print(f"{now()} Sin trabajo util ahora: espera {int(seg)} s")
+                    dormir(seg)
+        finally:
+            marcar(estado="parado", tarea=None, area=None, parado=now()); gpt_browser.PARADA = None; c.close()
+            print(f"{now()} SERVICIO detenido")
+    return 0
+
 def cmd_iniciar(a):
-    """Activa el descubrimiento diurno: tarea programada cada `intervalo_min` dentro del horario. No ejecuta tests."""
-    cmd_flag("stop", False); cmd_flag("pause", False)
+    """INICIAR-QA-GPT.bat: arranca el servicio continuo desvinculado de esta consola. No ejecuta tests ni Actions."""
+    STATE.mkdir(parents=True, exist_ok=True)
+    pid = trabajador_vivo()
+    if pid: print(f"El servicio YA esta en marcha (pid {pid}). No se arranca otro."); return 0
+    db().close()
+    import edge_launcher
+    if edge_launcher.alive() is None: print("Abriendo Edge 9230 (perfil con la sesion de ChatGPT)..."); edge_launcher.main()
+    cmd_flag("pause", False); (STATE / "stop").unlink(missing_ok=True)
+    sh(["schtasks", "/Change", "/TN", TASK, "/DISABLE"], check=False)
     py = Path(sys.executable).with_name("pythonw.exe"); py = py if py.exists() else Path(sys.executable)
-    h0, h1 = CFG["horario"]
-    sh(["schtasks", "/Create", "/TN", TASK, "/TR", f'"{py}" "{HERE / "qa_gpt.py"}" scan-once', "/SC", "DAILY", "/ST", f"{h0:02d}:00",
-        "/RI", str(CFG["intervalo_min"]), "/DU", f"{h1 - h0:02d}:00", "/F"])
-    sh(["schtasks", "/Change", "/TN", TASK, "/ENABLE"], check=False)
-    sh(["powershell", "-NoProfile", "-Command", f"$t=Get-ScheduledTask '{TASK}'; $s=$t.Settings; $s.StartWhenAvailable=$true; $s.DisallowStartIfOnBatteries=$false; "
-        f"$s.StopIfGoingOnBatteries=$false; $s.ExecutionTimeLimit='PT{CFG.get('worker_max_min', 120) // 60 + 1}H'; $s.MultipleInstances='IgnoreNew'; Set-ScheduledTask -TaskName '{TASK}' -Settings $s | Out-Null"], check=False)
-    print(f"Servicio diurno activo: cada {CFG['intervalo_min']} min entre {h0}:00 y {h1}:00 (tarea {TASK}); tope {CFG['max_peticiones_dia']} peticiones/dia, {CFG['max_peticiones_ronda']}/ronda. Los tests NO se ejecutan.")
-    if a.ahora: subprocess.Popen([sys.executable, str(HERE / "qa_gpt.py"), "scan-once"], cwd=ROOT)
+    subprocess.Popen([str(py), str(HERE / "qa_gpt.py"), "servicio"], cwd=str(STATE), close_fds=True,
+                     creationflags=0x00000008 | 0x00000200 | 0x08000000)  # DETACHED_PROCESS | NEW_PROCESS_GROUP | NO_WINDOW
+    for _ in range(40):
+        time.sleep(0.5)
+        pid = trabajador_vivo()
+        if pid: break
+    if not pid: print(f"El servicio no arranco. Mira {STATE / 'servicio.log'}"); return 1
+    print(f"SERVICIO QA-GPT EN MARCHA (pid {pid}). Trabaja sin parar hasta que lo pares con PARAR-QA-GPT.bat.\nNo ejecuta tests ni GitHub Actions. Estado: ESTADO-QA-GPT.bat. Registro: {STATE / 'servicio.log'}")
+    return 0
 
 def cmd_parar(a):
-    cmd_flag("stop", True); sh(["schtasks", "/Change", "/TN", TASK, "/DISABLE"], check=False); print("Descubrimiento parado (tarea desactivada).")
+    """PARAR-QA-GPT.bat: parada ordenada y acotada. Solo toca el worker de qa-gpt; Edge se deja abierto (perfil intacto)."""
+    cmd_flag("stop", True)
+    sh(["schtasks", "/Change", "/TN", TASK, "/DISABLE"], check=False)
+    pid = trabajador_vivo()
+    if not pid: print("El servicio no estaba en marcha. Marcado como parado."); Lock.path.unlink(missing_ok=True); return 0
+    limite = time.monotonic() + (CFG.get("parada_gracia_min", 3) + 3) * 60
+    print(f"Parada solicitada (pid {pid}). Si hay una respuesta generandose se espera hasta {CFG.get('parada_gracia_min', 3)} min a capturarla; si no, queda reanudable.")
+    while time.monotonic() < limite and pid_alive(pid): time.sleep(2)
+    if pid_alive(pid):
+        print("El servicio no termino a tiempo: se cierra SOLO su proceso (la cola y el chat quedan recuperables).")
+        if es_qa_gpt(pid): sh(["taskkill", "/PID", str(pid), "/T", "/F"], check=False); time.sleep(1)
+        Lock.path.unlink(missing_ok=True); marcar(estado="parado", parado=now(), tarea=None, area=None)
+        print("PARADO (forzado, estado conservado)."); return 0
+    print("PARADO correctamente. Progreso guardado; el siguiente INICIAR continua donde quedo."); return 0
 
 def cmd_quitar_servicio(a):
     sh(["schtasks", "/Delete", "/TN", TASK, "/F"], check=False); print("Tarea programada eliminada.")
@@ -912,7 +1038,7 @@ def cmd_morning(a):
     c = db(); repo = CFG["repo"]; lines = [f"# GPT QA — informe {today()}", "", f"Padre: #{CFG['pr_padre']}", "", "## Descubrimiento"]
     q = lambda s, *p: c.execute(s, p).fetchall()
     hoy = {r[0]: r[1] for r in q("SELECT estado,COUNT(*) FROM propuestas GROUP BY estado")}
-    lines += [f"- Propuestas por estado: {hoy}", f"- Peticiones hoy: {c.execute('SELECT COUNT(*) FROM peticiones WHERE fecha=?', (today(),)).fetchone()[0]}/{CFG['max_peticiones_dia']}"]
+    lines += [f"- Propuestas por estado: {hoy}", f"- Peticiones hoy: {c.execute('SELECT COUNT(*) FROM peticiones WHERE fecha=?', (today(),)).fetchone()[0]}"]
     for r in q("SELECT id,area,titulo,estado,tecnica FROM propuestas ORDER BY id DESC LIMIT 15"): lines.append(f"  - #{r['id']} [{r['estado']}] {r['area']} · {r['tecnica']}: {r['titulo']}")
     fall = q("SELECT id,tipo,area,error FROM jobs WHERE estado='error' OR error IS NOT NULL ORDER BY id DESC LIMIT 5")
     if fall: lines += ["", "## Fallos a inspeccionar"] + [f"- job{r['id']} {r['tipo']} {r['area']}: {r['error']}" for r in fall]
@@ -963,9 +1089,10 @@ def main():
     add(["simular"], cmd_simular, (["--rondas"], dict(type=int, default=6)))
     add(["inventario"], cmd_inventario, (["--forzar"], dict(action="store_true")), (["--top"], dict(type=int, default=25)))
     add(["recuperar"], cmd_recuperar, (["--job"], dict(type=int, required=True)), (["--chat"], dict(default=None)))
-    add(["scan-once"], cmd_scan_once, (["--manual"], dict(action="store_true")), (["--fuera-de-horario"], dict(action="store_true")))
-    add(["start-discovery"], cmd_start, (["--rondas"], dict(type=int, default=3)), (["--intervalo"], dict(type=int, default=CFG["intervalo_min"])))
-    add(["iniciar"], cmd_iniciar, (["--ahora"], dict(action="store_true")))
+    add(["scan-once"], cmd_scan_once, (["--manual"], dict(action="store_true")))
+    add(["start-discovery"], cmd_start, (["--rondas"], dict(type=int, default=3)), (["--intervalo"], dict(type=int, default=0)))
+    add(["iniciar"], cmd_iniciar)
+    add(["servicio"], cmd_servicio)
     add(["quitar-servicio"], cmd_quitar_servicio)
     add(["ingest"], cmd_ingest, (["job"], dict(type=int)), (["fichero"], {}))
     add(["autorizar-noche"], cmd_autorizar)

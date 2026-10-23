@@ -1,5 +1,5 @@
 """Pruebas offline de qa-gpt (sin navegador, sin GPT, sin ejecutar tests del sitio): python scripts/qa-gpt/test_qa_gpt.py"""
-import json, os, sys, tempfile, unittest, datetime as dt
+import time, json, os, sys, tempfile, unittest, datetime as dt
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -46,17 +46,64 @@ class Planificador(unittest.TestCase):
         return self.c.execute("INSERT INTO propuestas(huella,area,titulo,datos,estado,creado,actualizado) VALUES(?,?,?,?,?,?,?)",
                               (os.urandom(4).hex(), "zona:x", "t", json.dumps(d), estado, q.now(), q.now())).lastrowid
 
-    def test_presupuesto_madrid_y_reinicio(self):
-        for _ in range(12): self.c.execute("INSERT INTO peticiones(fecha,hora,tipo,area,chars_in,chars_out,ok) VALUES(?,?,?,?,0,0,1)", (q.today(), q.now(), "A", "z"))
-        self.c.commit(); self.assertFalse(q.budget(self.c, 0)[0])
-        c2 = q.db()  # "reinicio": nueva conexion, el contador persiste
-        self.assertEqual(q.budget(c2, 0)[1], 12); c2.close()
-        self.c.execute("UPDATE peticiones SET fecha='2000-01-01'"); self.assertTrue(q.budget(self.c, 0)[0])  # otro dia -> se reinicia
-        self.assertEqual(q.today(), dt.datetime.now(q.TZ).date().isoformat() if q.TZ else q.today())
+    def test_sin_cupos_artificiales(self):
+        for _ in range(500): self.c.execute("INSERT INTO peticiones(fecha,hora,tipo,area,chars_in,chars_out,ok) VALUES(?,?,?,?,0,0,1)", (q.today(), q.now(), "A", "z"))
+        self.c.commit()
+        self.assertTrue(q.budget(self.c, 999)[0])  # ni cupo diario ni por ronda
+        for k in ("horario", "intervalo_min", "max_peticiones_dia", "max_peticiones_ronda"): self.assertNotIn(k, q.CFG)
 
-    def test_ronda_maximo_dos(self):
-        self.assertFalse(q.budget(self.c, q.CFG["max_peticiones_ronda"])[0])
+    def test_servicio_continuo_sin_esperas_y_parada(self):
+        q.SVC = q.STATE / "servicio.json"; q.Lock.path = q.STATE / "worker.lock"
+        hechos = []
+        def falso_proceso(job, c, manual=False):
+            hechos.append(job["id"]); c.execute("UPDATE jobs SET estado='hecho' WHERE id=?", (job["id"],)); c.commit()
+        for i in range(5): q.enqueue(self.c, "A", f"zona:t{i}", {"motivo": "t", "sha": str(i)}, f"A:t{i}:{i}:{q.today()}")
+        orig = (q.process, q.stage, q.limpiar_pestanas_cdp, q.edge_asegurar, q.reconciliar, q.respaldar, q.git, q.elegir_modo)
+        q.process, q.stage, q.limpiar_pestanas_cdp, q.edge_asegurar, q.reconciliar, q.respaldar = falso_proceso, lambda c: None, lambda: None, lambda: None, lambda c: None, lambda c: None
+        q.git = lambda *a, **k: ""; q.elegir_modo = lambda c: None
+        orig_ph = q.process
+        def parar_tras_cinco(job, c, manual=False):
+            falso_proceso(job, c)
+            if len(hechos) == 5: (q.STATE / "stop").write_text(q.now())
+        q.process = parar_tras_cinco
+        t0 = time.monotonic()
+        try:
+            q.cmd_servicio(None)
+        finally:
+            q.process, q.stage, q.limpiar_pestanas_cdp, q.edge_asegurar, q.reconciliar, q.respaldar, q.git, q.elegir_modo = orig
+        self.assertEqual(len(hechos), 5); self.assertLess(time.monotonic() - t0, 20)  # 5 jobs seguidos, sin pausa entre ellos
+        self.assertFalse(q.Lock.path.exists())  # lock liberado
+        self.assertEqual(json.loads(q.SVC.read_text())["estado"], "parado")
 
+    def test_servicio_reanuda_generando_sin_reenviar(self):
+        q.SVC = q.STATE / "servicio.json"
+        jid = self.c.execute("INSERT INTO jobs(clave,tipo,area,estado,payload,intentos,no_antes,creado,actualizado,chat_id,fase) VALUES('k','B','a','pendiente','{}',1,'2999-01-01T00:00:00',?,?,?,?)", (q.now(), q.now(), "cid-123", "generando")).lastrowid
+        self.c.commit()
+        vistos = []
+        orig = (q.process, q.stage, q.limpiar_pestanas_cdp, q.edge_asegurar, q.reconciliar, q.respaldar, q.git, q.elegir_modo)
+        def proc(job, c, manual=False): vistos.append((job["id"], job["chat_id"], job["fase"])); (q.STATE / "stop").write_text(q.now()); c.execute("UPDATE jobs SET estado='hecho' WHERE id=?", (job["id"],)); c.commit()
+        q.process, q.stage, q.limpiar_pestanas_cdp, q.edge_asegurar, q.reconciliar, q.respaldar, q.git, q.elegir_modo = proc, lambda c: None, lambda: None, lambda: None, lambda c: None, lambda c: None, lambda *a, **k: "", lambda c: None
+        try: q.cmd_servicio(None)
+        finally: q.process, q.stage, q.limpiar_pestanas_cdp, q.edge_asegurar, q.reconciliar, q.respaldar, q.git, q.elegir_modo = orig
+        self.assertEqual(vistos, [(jid, "cid-123", "generando")])  # recupera el chat existente al instante (no_antes futuro anulado)
+
+    def test_parada_vencida_y_latido(self):
+        q.Lock.path = q.STATE / "worker.lock"
+        self.assertFalse(q.parada_vencida())
+        f = q.STATE / "stop"; f.write_text("x"); self.assertFalse(q.parada_vencida())  # dentro de la gracia
+        os.utime(f, (time.time() - 3600, time.time() - 3600)); self.assertTrue(q.parada_vencida())
+        q.Lock.path.write_text(f"{os.getpid()} 2000-01-01T00:00:00"); q.Lock.latido()
+        self.assertGreater(q.Lock.path.read_text().split(None, 1)[1], "2020")  # el latido renueva la marca (no se relevaria un servicio largo)
+
+    def test_gpt_browser_parada_deja_chat_reanudable(self):
+        class P:  # pagina minima: _esperar solo usa leer_chat y wait_for_timeout
+            def wait_for_timeout(self, ms): pass
+        orig = g.leer_chat; g.leer_chat = lambda pg, cid: g.Resultado(cid=cid, texto="", estado="generando", nodos=1, herramientas=0) if hasattr(g, "Resultado") else None
+        g.PARADA = lambda: True
+        try:
+            with self.assertRaises(g.Incompleta) as cm: g._esperar(P(), "cid-9", 5, 5)
+            self.assertEqual((cm.exception.cid, cm.exception.estado), ("cid-9", "generando"))
+        finally: g.leer_chat = orig; g.PARADA = None
     def test_revisar_sin_job_se_cura(self):
         a, b = self.prop("revisar"), self.prop("revisar", revision=True)
         q.reconciliar(self.c)

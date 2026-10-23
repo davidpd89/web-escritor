@@ -16,6 +16,7 @@ SECRETS = re.compile(r"(^\.env|token|secret|credential|password|\.pem$|\.key$)",
 TOKEN_RE = re.compile(r"(EAA[A-Za-z0-9]{25,}|Bearer\s+[A-Za-z0-9_\-]{25,}|sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{30,})")
 LIMIT_RE = re.compile(r"(too many requests|has alcanzado el l[ií]mite|you.ve reached|l[ií]mite de uso|rate limit|vuelve a intentarlo m[aá]s tarde)", re.I)
 CID_RE = re.compile(r"/c/([0-9a-f-]{20,})")
+PARADA = None  # callable -> True cuando hay que abandonar la espera (parada pedida y gracia vencida); la conversacion queda reanudable
 
 
 class LoginRequired(RuntimeError):
@@ -157,6 +158,7 @@ def _esperar(pg, cid, wait_min, stall_min, progreso=None):
         fallos_seguidos = 0
         if progreso: progreso(r)
         if r.estado in ("terminada", "vacia", "fallida"): return r
+        if PARADA and PARADA(): raise Incompleta("parada solicitada con la generacion en curso", cid, "generando")
         clave = (r.nodos, r.estado)
         if clave != visto: visto, ultimo_cambio = clave, time.monotonic()
         elif time.monotonic() - ultimo_cambio > stall_min * 60 and pg.locator(STOP).count() == 0:

@@ -1,9 +1,6 @@
 {
  "repo": "davidpd89/web-escritor",
  "pr_padre": 613,
- "intervalo_min": 45,
- "max_peticiones_ronda": 2,
- "max_peticiones_dia": 12,
  "max_propuestas": 4,
  "cooldown_dias": 3,
  "reintentos": 2,
@@ -493,10 +490,6 @@
  "edge_mem_mb": 2500,
  "edge_reiniciar_cada": 10,
  "max_pestanas": 2,
- "horario": [
-  8,
-  23
- ],
  "tecnicas_semilla": [
   {
    "id": "contrato-esquema",
@@ -727,6 +720,6 @@
  "stall_min": 12,
  "max_tabs_chatgpt": 2,
  "reanudar_max_horas": 6,
- "pausa_limite_min": 90,
- "worker_max_min": 120
+ "worker_max_min": 120,
+ "parada_gracia_min": 3
 }
