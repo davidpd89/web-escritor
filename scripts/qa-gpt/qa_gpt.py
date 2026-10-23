@@ -1090,6 +1090,8 @@ def cmd_morning(a):
 
 def cmd_contratos(a):
     import qa_contratos
+    if getattr(a, "completo", False):
+        import qa_viaa; qa_viaa.ejecutar(db(), sys.modules[__name__], ROOT, forzar=True); return
     res = qa_contratos.ejecutar(ROOT); out = STATE / "auditoria"; out.mkdir(parents=True, exist_ok=True)
     (out / f"contratos-{today()}.json").write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
     print(qa_contratos.informe(res)); print(f"JSON: {out / f'contratos-{today()}.json'}")
@@ -1127,7 +1129,7 @@ def main():
     add(["nightly-run", "lote-nocturno"], cmd_nightly, (["--confirmar"], dict(action="store_true")))
     add(["morning-report", "informe-matinal"], cmd_morning)
     add(["ejecutar-actions"], lambda a: __import__("qa_lote").main(sys.modules[__name__], a))
-    add(["contratos"], cmd_contratos)
+    add(["contratos"], cmd_contratos, (["--completo"], dict(action="store_true")))
     add(["coste-actions"], lambda a: __import__("qa_coste").main(sys.modules[__name__], a))
     add(["migrar-datos"], cmd_migrar_datos, (["--ensayo"], dict(action="store_true")))
     a = ap.parse_args()

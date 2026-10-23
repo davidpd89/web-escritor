@@ -204,11 +204,40 @@ def sitemap_urls(root):
     return {u.rstrip("/") for u in urls}
 
 
+def familia_de(url):
+    """Familia de contrato segun la ruta: paginas que realmente comparten plantilla. Los indices/hubs y el resto van aparte."""
+    r = urlparse(url).path.strip("/").split("/")
+    if r[0] == "recomendaciones" and len(r) == 3 and r[1] in ("libros", "autores", "editoriales"): return {"libros": "libros", "autores": "autores", "editoriales": "recomendaciones-editoriales"}[r[1]]
+    if r[0] == "editoriales" and len(r) >= 2: return "editoriales"
+    if r[0] == "cuaderno" and len(r) >= 2: return "cuaderno"
+    if r[0] == "herramientas" and len(r) >= 2: return "herramientas"
+    return "generales"
+
+
+def paginas_del_sitio(root):
+    """Todas las paginas HTML listadas en los sitemaps que existen en disco -> {familia: [rutas]} (determinista)."""
+    root = Path(root); fams = defaultdict(list)
+    for u in sorted(sitemap_urls(root)):
+        path = unquote(urlparse(u).path).lstrip("/")
+        f = root / path / "index.html" if (not path or path.endswith("/") or "." not in path.rsplit("/", 1)[-1]) else root / path
+        if f.is_file() and f.suffix == ".html": fams[familia_de(u)].append(f)
+    return dict(fams)
+
+
 def ejecutar(root, familias=FAMILIAS, contratos=CONTRATOS):
+    return correr(root, {fam: muestra(root, pat, n) for fam, (pat, n) in familias.items()}, contratos)
+
+
+def ejecutar_sitio(root, contratos=CONTRATOS):
+    """Cobertura completa: todas las paginas aplicables del sitemap, por familia."""
+    return correr(root, paginas_del_sitio(root), contratos)
+
+
+def correr(root, rutas_por_familia, contratos=CONTRATOS):
     t0 = time.time(); root = Path(root); sm = sitemap_urls(root); paginas = {}; fallos = defaultdict(list); aserciones = 0
-    for fam, (pat, n) in familias.items():
+    for fam, rutas in rutas_por_familia.items():
         paginas[fam] = []
-        for ruta in muestra(root, pat, n):
+        for ruta in rutas:
             p = leer(root, ruta); url = url_de(root, ruta)
             paginas[fam].append({"p": p, "ruta": ruta, "url": url, "root": root, "en_sitemap": url.rstrip("/") in sm})
     for fam, ps in paginas.items():
@@ -216,8 +245,9 @@ def ejecutar(root, familias=FAMILIAS, contratos=CONTRATOS):
             for cid, _, fn in contratos:
                 aserciones += 1
                 for causa, det in fn(c): fallos[(cid, causa, fam)].append((c["url"], det))
-    for fam, c, causa, det in homogeneidad(paginas): aserciones += 1; fallos[("homogeneidad-plantilla", causa, fam)].append((c["url"], det))
-    grupos = [{"contrato": k[0], "causa": k[1], "familia": k[2], "paginas": len({u for u, _ in v}), "ejemplos": [f"{u} {d}".strip() for u, d in v[:3]]} for k, v in fallos.items()]
+    comparables = {f: v for f, v in paginas.items() if f != "generales" and len(v) >= 8}
+    for fam, c, causa, det in homogeneidad(comparables): aserciones += 1; fallos[("homogeneidad-plantilla", causa, fam)].append((c["url"], det))
+    grupos = [{"contrato": k[0], "causa": k[1], "familia": k[2], "paginas": len({u for u, _ in v}), "urls": sorted({u for u, _ in v}), "ejemplos": [f"{u} {d}".strip() for u, d in v[:3]]} for k, v in fallos.items()]
     grupos.sort(key=lambda g: -g["paginas"])
     n_pag = sum(len(v) for v in paginas.values())
     return {"segundos": round(time.time() - t0, 2), "paginas": n_pag, "familias": {f: len(v) for f, v in paginas.items()}, "contratos": len(contratos) + 1,

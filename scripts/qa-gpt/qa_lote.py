@@ -10,7 +10,7 @@ import datetime as dt, fnmatch, json, os, re, socket, subprocess, sys, time
 from pathlib import Path
 import qa_cobertura as cob
 
-ESTADOS_FINALES = {"fallo_test", "defecto_demostrado", "actions_ok", "actions_fallida", "revision_humana", "local_ok_sin_actions"}
+ESTADOS_FINALES = {"a_triar", "fallo_test", "defecto_demostrado", "actions_ok", "actions_fallida", "revision_humana", "local_ok_sin_actions"}
 REINTENTABLES = {"infra"}
 INFRA = re.compile(r"ECONNRESET|ETIMEDOUT|ENOTFOUND|EADDRINUSE|rate limit|\b50[234]\b|\b429\b|Could not resolve host|runner.*lost|npm ERR! network|socket hang up|Timeout .*exceeded.*launch|TimeoutExpired", re.I)
 SIN_ENTORNO = re.compile(r"Cannot find package '(playwright|@playwright)|Executable doesn't exist|browserType\.launch.*(not found|doesn't exist)", re.I)
@@ -203,10 +203,10 @@ class Lote:
                 partes.append(f"### propuesta #{pid} {' '.join(map(str, cmd[-2:]))} -> exit {rc} [{cl}]\n{salida[-6000:]}")
             logp = self.dir / f"{self.slug(clave)}.log"
             logp.write_text(f"rama {it['rama']}\nsha {it['sha']}\nmain {main}\nfecha {q.now()}\n\n" + "\n".join(partes), encoding="utf-8")
-            peor = next((x for x in ("defecto_demostrado", "fallo_test", "infra", "revision_humana") if x in clases), "local_ok")
+            peor = next((x for x in ("defecto_demostrado", "a_triar", "fallo_test", "infra", "revision_humana") if x in clases), "local_ok")
             upd = dict(local_exit=0 if peor == "local_ok" else 1, local_clase=peor, local_log=str(logp), main_sha=main, workflows=json.dumps(wfs))
             self.set(clave, "local_ok" if peor == "local_ok" else peor, {"local_ok": "tests locales correctos" + (" (parte sin navegador)" if "sin_entorno" in clases else ""),
-                     "defecto_demostrado": "el test falla por el defecto descrito: evidencia en el log", "fallo_test": "el test falla y no es el defecto esperado: revisar el test",
+                     "defecto_demostrado": "el test falla por el defecto descrito: evidencia en el log", "a_triar": "prueba exploratoria que falla: posible defecto o falso positivo, a triar", "fallo_test": "el test falla y no es el defecto esperado: revisar el test",
                      "infra": "fallo de entorno al ejecutar localmente"}.get(peor, ""), **upd)
         finally: self.limpiar_wt(tmp)
 
@@ -239,7 +239,7 @@ class Lote:
     def clasificar(self, rc, out, categoria):
         if rc == 0: return "sin_entorno" if out.startswith("SIN_ENTORNO") else "local_ok"
         if SIN_ENTORNO.search(out): return "sin_entorno"
-        if ASERCION.search(out): return "defecto_demostrado" if categoria == "descubre_defecto" else "fallo_test"
+        if ASERCION.search(out): return "defecto_demostrado" if categoria == "descubre_defecto" else "a_triar" if categoria == "exploratoria" else "fallo_test"
         if INFRA.search(out): return "infra"
         return "fallo_test"
 
@@ -308,7 +308,7 @@ class Lote:
         logp = self.dir / f"{self.slug(clave)}.actions.log"; logp.write_text(f"run {r['databaseId']} {r['url']}\nsha {sha}\n\n{log[-20000:]}", encoding="utf-8")
         cat = json.loads(self.propuestas_de(it)[0]["datos"]).get("categoria")
         if r["conclusion"] in ("cancelled", "timed_out", "startup_failure") or (INFRA.search(log) and not ASERCION.search(log)): est = "infra"
-        elif ASERCION.search(log): est = "defecto_demostrado" if cat == "descubre_defecto" else "actions_fallida"
+        elif ASERCION.search(log): est = "defecto_demostrado" if cat == "descubre_defecto" else "a_triar" if cat == "exploratoria" else "actions_fallida"
         else: est = "actions_fallida"
         self.set(clave, est, f"{wf}: {r['conclusion']} run {r['databaseId']} (log {logp.name})", runs=json.dumps(runs)); return "fin"
 
@@ -319,7 +319,8 @@ class Lote:
             est = self.item(it["clave"])["estado"]
             nota = f"lote {it['lote_id']}: {est} ({it['rama']}@{it['sha'][:8]})"
             actual = self.c.execute("SELECT estado FROM propuestas WHERE id=?", (pid,)).fetchone()[0]
-            if est == "defecto_demostrado" and actual in ("aprobada", "publicada", "preparada"): q.estado_prop(self.c, pid, "ejecutada", nota, siguiente="DEFECTO DE PRODUCTO DEMOSTRADO: ver log del lote; corregir el producto en main")
+            if est == "a_triar" and actual in ("aprobada", "publicada", "preparada"): q.estado_prop(self.c, pid, "ejecutada", nota, siguiente="POSIBLE DEFECTO A TRIAR: ver log; confirmar defecto o falso positivo")
+            elif est == "defecto_demostrado" and actual in ("aprobada", "publicada", "preparada"): q.estado_prop(self.c, pid, "ejecutada", nota, siguiente="DEFECTO DE PRODUCTO DEMOSTRADO: ver log del lote; corregir el producto en main")
             elif est in ("actions_ok", "actions_fallida", "fallo_test") and actual in ("aprobada", "publicada"): q.estado_prop(self.c, pid, "ejecutada", nota, siguiente=f"resultado {est}")
             elif est in ("enviado", "actions_pendiente", "actions_ejecutando") and actual == "aprobada": q.estado_prop(self.c, pid, "publicada", nota)
         self.c.commit()
@@ -329,6 +330,10 @@ class Lote:
         try: self.gh.ok(); gh_ok = True
         except GhAuthError as e: gh_ok = False; self.log(f"GitHub RECHAZA el token ({str(e)[:80]}): ejecuta `gh auth login` (o `gh auth refresh -s repo`). Se valida en local; los envios quedan para el siguiente clic")
         except (GhError, OSError) as e: gh_ok = False; self.log(f"GitHub no disponible ({str(e)[:80]}): se valida en local y se reintenta el envio en el siguiente clic")
+        try:  # Via A: contratos masivos locales (reutiliza el resultado si no cambian SHA ni contratos); un fallo aqui no bloquea la Via B
+            q.git("fetch", "origin", "main", "--quiet", check=False)
+            import qa_viaa; qa_viaa.ejecutar(self.c, q, q.ROOT, out=self.log)
+        except Exception as e: self.log(f"Via A: fallo de infraestructura ({str(e)[:120]}); se continua con los tests")
         lid = self.abrir_lote()
         for it in self.items(lid):  # reconciliar lo ya enviado en ejecuciones anteriores
             if it["estado"] in ("enviado", "actions_pendiente", "actions_ejecutando") and gh_ok: self.reconciliar(self.item(it["clave"]))
@@ -395,15 +400,18 @@ def bloque_estado(q, c):
              f"  - En un lote, comprobacion local pendiente: {li('preparada', 'validacion_local')}",
              f"  - Validados en local (aptos para Actions): {li('local_ok')}",
              f"  - Defectos de producto demostrados: {li('defecto_demostrado')}  (el test falla por el defecto descrito: es un hallazgo, no un fallo)",
+             f"  - Posible defecto, a triar (exploratorias que fallan): {li('a_triar')}",
              f"  - Fallo del propio test: {li('fallo_test')}",
              f"  - Enviados a Actions: {li('enviado', 'actions_pendiente', 'actions_ejecutando', 'actions_ok', 'actions_fallida')}  "
              f"(en cola {li('enviado', 'actions_pendiente')}, ejecutandose {li('actions_ejecutando')}, aprobados {li('actions_ok')}, fallidos {li('actions_fallida')})",
              f"  - Errores de infraestructura: {li('infra')}  | requieren revision humana: {li('revision_humana')}"]
+    try: import qa_viaa; lines += qa_viaa.bloque_estado(q, c)
+    except Exception: pass
     ul = c.execute("SELECT id,inicio,fin,estado,resumen FROM lotes ORDER BY id DESC LIMIT 1").fetchone()
     lines.append(f"Ultimo lote: {('#' + str(ul['id']) + ' ' + ul['inicio'] + ' (' + ul['estado'] + ')') if ul else '(ninguno)'}")
     ue = c.execute("SELECT rama,sha,runs FROM lote_items WHERE runs LIKE '%\"id\"%' ORDER BY actualizado DESC LIMIT 1").fetchone()
     if ue: rid = next(iter(json.loads(ue["runs"]).values()))["id"]; lines.append(f"Ultima ejecucion en Actions: {ue['rama']} / {ue['sha'][:8]} / run {rid}")
-    for r in c.execute("SELECT rama,sha,estado,detalle FROM lote_items WHERE estado IN ('defecto_demostrado','revision_humana','infra','fallo_test','actions_fallida') ORDER BY actualizado DESC LIMIT 8"):
+    for r in c.execute("SELECT rama,sha,estado,detalle FROM lote_items WHERE estado IN ('defecto_demostrado','a_triar','revision_humana','infra','fallo_test','actions_fallida') ORDER BY actualizado DESC LIMIT 8"):
         lines.append(f"    {r['estado']:<19} {r['rama'].replace('gpt-qa/', '')}@{r['sha'][:8]}: {(r['detalle'] or '')[:100]}")
     sig = c.execute("SELECT id FROM propuestas WHERE estado IN ('preparada','aprobada') ORDER BY id LIMIT 1").fetchone()
     sig_lote = c.execute("SELECT rama FROM lote_items WHERE estado IN ('preparada','validacion_local','local_ok','infra') ORDER BY rama LIMIT 1").fetchone()
