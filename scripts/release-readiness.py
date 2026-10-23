@@ -28,6 +28,7 @@ CHECKS = [
     ("CI parity: jsonld absolute URLs", "python scripts/check-jsonld-absolute-urls.py"),
     ("CI parity: canonical entity IDs", "python scripts/check-canonical-entity-ids.py"),
     ("CI parity: editorial facts", "python scripts/check-editorial-facts.py"),
+    ("CI parity: Noveris editorial quarantine", "python scripts/check-noveris-magic-quarantine.py --check"),
     ("CI parity: AI discoverability", "python scripts/check-ai-discoverability.py"),
     ("CI parity: social cards strict", "python scripts/check-social-cards.py --strict"),
     ("CI parity: copy tildes", "python scripts/check-copy-tildes.py"),
