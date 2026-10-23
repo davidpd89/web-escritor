@@ -113,7 +113,13 @@ try {
     };
     assert.equal(await verify(),100);
     await set('grupo','cocina',true); assert.equal(await verify(['cocina']),50);
-    await set('temporada','halloween',true); assert.equal(await verify(['cocina'],['halloween']),0);
+    // A zero-result option is correctly disabled for new selections. A
+    // previously shared URL can still contain that combination and must
+    // remain recoverable; do not click an intentionally disabled checkbox.
+    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isDisabled());
+    await page.goto(base+'/recomendaciones/#grupo=cocina&temporada=halloween',{waitUntil:'networkidle'});
+    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
+    assert.equal(await verify(['cocina'],['halloween']),0);
     const cooking=page.locator('input[data-facet="grupo"][value="cocina"]');
     assert(await cooking.isChecked()&&!await cooking.isDisabled(),'Selected zero-result facet stays removable');
     assert.equal(await cooking.locator('xpath=..').locator('[data-facet-count]').innerText(),'(0)');
