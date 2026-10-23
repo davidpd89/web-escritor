@@ -721,5 +721,7 @@
  "max_tabs_chatgpt": 2,
  "reanudar_max_horas": 6,
  "worker_max_min": 120,
- "parada_gracia_min": 3
+ "parada_gracia_min": 3,
+ "modo_generacion": "lote",
+ "max_propuestas_lote": 15
 }

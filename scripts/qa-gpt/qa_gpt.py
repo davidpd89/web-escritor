@@ -250,6 +250,10 @@ def elegir_modo(c):
 
 
 # ---------- prompts ----------
+def lote_activo(): return CFG.get("modo_generacion") == "lote"
+def tope_propuestas(): return CFG.get("max_propuestas_lote", 15) if lote_activo() else CFG["max_propuestas"]
+
+
 def prompt_for(job, c):
     """Prompt compacto SIN adjuntos: el Project lee el repo por GitHub; solo se le dan rutas y contexto minimo."""
     p = json.loads(job["payload"]); head = git("rev-parse", "--short", "origin/main")
@@ -277,7 +281,8 @@ def prompt_for(job, c):
             blk_txt = fill(tpl, NOMBRE=a["nombre"], ID=ident, FUENTES=", ".join(a["fuentes"]), TESTS=", ".join(Path(x).name for x in tests_for(a)[:30]) or "(ninguno)", COMMITS=commits)
         prev = " | ".join(r["titulo"][:70] for r in c.execute("SELECT titulo FROM propuestas ORDER BY id DESC LIMIT 15")) or "(ninguno)"
         tecs = ", ".join(t["id"] for t in cob.tecnicas(c))
-        return fill((HERE / "prompts" / "pass_a_v2.txt").read_text(encoding="utf-8"), MODO=modo, HEAD_SHA=head, MODO_INSTRUCCIONES=blk_txt, PREVIOS=prev, TECNICAS=tecs, MAX_PROPUESTAS=CFG["max_propuestas"])
+        plantilla = "pass_lote_v1.txt" if CFG.get("modo_generacion") == "lote" else "pass_a_v2.txt"
+        return fill((HERE / "prompts" / plantilla).read_text(encoding="utf-8"), MODO=modo, HEAD_SHA=head, MODO_INSTRUCCIONES=blk_txt, PREVIOS=prev, TECNICAS=tecs, MAX_PROPUESTAS=tope_propuestas())
     if job["tipo"] == "R":
         r = c.execute("SELECT datos, veredicto FROM propuestas WHERE id=?", (p["id"],)).fetchone(); v = json.loads(r["veredicto"])
         return fill((HERE / "prompts" / "pass_revision_v1.txt").read_text(encoding="utf-8"), HEAD_SHA=head, PROPUESTA=r["datos"],
@@ -440,7 +445,7 @@ def ingest_answer(c, job, answer, herramientas):
         print(f"  REVISION {area} #{pid}: {'reenviada a PASS B' if new else 'sin propuesta'}")
     elif job["tipo"] == "A":
         ids, desc, dups = [], 0, 0
-        for pr in data.get("propuestas", [])[: CFG["max_propuestas"]]:
+        for pr in data.get("propuestas", [])[: tope_propuestas()]:
             cob.normalizar_comandos(pr)
             d = cob.datos_prop(pr)
             malas = [f for f in d["fuentes"] if not existe_en_main(f)]
@@ -457,7 +462,7 @@ def ingest_answer(c, job, answer, herramientas):
             h = hashlib.sha1((area + pr.get("titulo", "") + json.dumps([f.get("ruta") for f in pr.get("ficheros_nuevos", [])])).encode()).hexdigest()[:16]
             try:
                 cur = c.execute("INSERT INTO propuestas(huella,area,titulo,datos,estado,creado,actualizado,tecnica,funcionalidad,huella_conductual,fuente_sha,familias) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",
-                                (h, area, pr.get("titulo", "?")[:200], json.dumps(pr, ensure_ascii=False), "propuesta", now(), now(), d["tecnica"], d["funcionalidad"], d["huella"],
+                                (h, area, pr.get("titulo", "?")[:200], json.dumps({**pr, "via": "lote"} if lote_activo() else pr, ensure_ascii=False), "aceptada" if lote_activo() else "propuesta", now(), now(), d["tecnica"], d["funcionalidad"], d["huella"],
                                  cob.sha_fuentes(ROOT, d["fuentes"]), json.dumps(pr.get("familias") or sorted({f.split('/')[0] for f in d["fuentes"]}))))
             except sqlite3.IntegrityError:
                 dups += 1; continue
@@ -469,7 +474,7 @@ def ingest_answer(c, job, answer, herramientas):
         ident = area.split(":", 1)[1]
         fsha = area_stats(AREAS[ident], c)[1] if area.startswith(("zona:", "audit:")) else (json.loads(job["payload"]).get("sha", "") if area.startswith(("familia:", "cambio:")) else "")
         c.execute("INSERT INTO analisis VALUES(?,?,?,?)", (area, today(), git("rev-parse", "--short", "origin/main"), fsha))
-        if ids: enqueue(c, "B", area, {"ids": ids}, f"B:{area}:{','.join(map(str, ids))}")
+        if ids and not lote_activo(): enqueue(c, "B", area, {"ids": ids}, f"B:{area}:{','.join(map(str, ids))}")
         print(f"  PASS A {area}: {len(ids)} nuevas, {dups} duplicadas, {desc} descartadas; lectura repo: {n_leidos} ficheros verificados")
     else:
         ids = json.loads(job["payload"])["ids"]; n = {"aceptar": 0, "revisar": 0, "rechazar": 0}; vistos = set()
@@ -538,7 +543,7 @@ def stage(c):
             try:
                 if d.get("tipo_propuesta") == "informe" or not d.get("ficheros_nuevos"):
                     estado_prop(c, r["id"], "informe", "informe sin fichero de test"); continue
-                if not (d.get("mutacion_que_lo_rompe") and d.get("por_que_pasa_hoy")): raise ValueError("falta mutacion/por_que_pasa_hoy")
+                if d.get("via") != "lote" and not (d.get("mutacion_que_lo_rompe") and d.get("por_que_pasa_hoy")): raise ValueError("falta mutacion/por_que_pasa_hoy")
                 validate_files(d["ficheros_nuevos"])
                 mods = d.get("ficheros_modificados") or []
                 for m in mods:
@@ -1083,6 +1088,13 @@ def cmd_morning(a):
     out = STATE / f"qa-gpt-morning-{today()}.md"; out.write_text("\n".join(lines), encoding="utf-8"); print(f"Informe: {out}")
 
 
+def cmd_contratos(a):
+    import qa_contratos
+    res = qa_contratos.ejecutar(ROOT); out = STATE / "auditoria"; out.mkdir(parents=True, exist_ok=True)
+    (out / f"contratos-{today()}.json").write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(qa_contratos.informe(res)); print(f"JSON: {out / f'contratos-{today()}.json'}")
+
+
 def main():
     ap = argparse.ArgumentParser(prog="qa-gpt"); sp = ap.add_subparsers(dest="cmd", required=True)
     ALIAS = {}
@@ -1115,6 +1127,7 @@ def main():
     add(["nightly-run", "lote-nocturno"], cmd_nightly, (["--confirmar"], dict(action="store_true")))
     add(["morning-report", "informe-matinal"], cmd_morning)
     add(["ejecutar-actions"], lambda a: __import__("qa_lote").main(sys.modules[__name__], a))
+    add(["contratos"], cmd_contratos)
     add(["coste-actions"], lambda a: __import__("qa_coste").main(sys.modules[__name__], a))
     add(["migrar-datos"], cmd_migrar_datos, (["--ensayo"], dict(action="store_true")))
     a = ap.parse_args()

@@ -1,0 +1,16 @@
+[LOTE · web-escritor · {{MODO}}] Repo davidpd89/web-escritor, rama main, commit {{HEAD_SHA}}. Lee codigo y tests directamente con tu conector de GitHub.
+
+{{MODO_INSTRUCCIONES}}
+
+Ya propuestos (no repetir): {{PREVIOS}}
+
+Mision: genera MUCHAS pruebas distintas y ejecutables (hasta {{MAX_PROPUESTAS}}) sobre lo que los tests existentes NO comprueban: UX, diseno, SEO, trazabilidad, rendimiento, accesibilidad, cada boton/enlace/formulario, coherencia entre paginas, datos, tipografia, consistencia entre familias (si un sitio tiene un test y otros no, replicalo). Mira los tests vecinos y copia su estilo y helpers.
+No hace falta que cada prueba encuentre un defecto: algunas pasaran y otras fallaran, ya se triara. Prefiere cantidad y variedad; no repitas la misma idea con otro nombre.
+Solo ficheros NUEVOS en tests/ o qa/. Sin red externa. Si no pudiste leer el repo, lista vacia.
+
+Responde SOLO JSON:
+{"modo":"{{MODO}}","lectura_repo":{"commit":"<sha>","ficheros_leidos":["ruta"]},"propuestas":[{
+ "titulo":"...","zona":"...","familias":["dir-raiz"],"tecnica":{"id":"kebab-case","nombre":"..."},
+ "funcionalidad":"1 frase","invariante":"lo que debe cumplirse","categoria":"exploratoria",
+ "ficheros_fuente":[{"ruta":"..."}],"ficheros_nuevos":[{"ruta":"tests/....","contenido":"codigo completo"}],
+ "como_ejecutar":"comando","workflow":"workflow-existente.yml|null"}]}
