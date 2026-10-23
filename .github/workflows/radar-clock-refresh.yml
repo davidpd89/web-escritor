@@ -139,6 +139,10 @@ jobs:
             exit 0
           fi
 
+          # A previous clock refresh may still have an open PR. Each run uses
+          # a new GITHUB_RUN_ID branch; refuse duplicate PRs before writing.
+          python scripts/radar_pr_guard.py --today "${{ steps.clock.outputs.today }}"
+
           today="${{ steps.clock.outputs.today }}"
           branch="automation/radar-clock-${today}-${GITHUB_RUN_ID}"
 
