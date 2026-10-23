@@ -78,6 +78,14 @@ class RefreshRunnerTests(unittest.TestCase):
         self.assertEqual(a.call_count, 2)
         self.assertIn("last_success", json.loads((self.dir / "status.json").read_text()))
 
+    def test_publish_failure_is_recorded_in_status(self):
+        with mock.patch.object(refresh, "attempt", return_value=0), mock.patch.object(refresh, "publish", return_value=4):
+            self.assertEqual(refresh.main(["--no-retry", "--publish"]), 4)
+        status = json.loads((self.dir / "status.json").read_text())
+        self.assertEqual(status["last_exit_code"], 4)
+        self.assertFalse(status["last_publish_ok"])
+        self.assertIn("last_success", status)  # collection itself worked
+
     def test_lock_released_after_run(self):
         with mock.patch.object(refresh, "attempt", return_value=0):
             refresh.main(["--no-retry"])

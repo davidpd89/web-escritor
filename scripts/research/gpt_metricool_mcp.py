@@ -47,6 +47,14 @@ def state_dir() -> Path:
     return root
 
 
+def restrict_permissions() -> None:
+    """Windows: drop inherited ACLs on the state dir so only the current user can read the tokens."""
+    if os.name == "nt":
+        import subprocess
+        subprocess.run(["icacls", str(state_dir()), "/inheritance:r", "/grant:r", f"{os.environ['USERNAME']}:(OI)(CI)F"],
+                       capture_output=True)
+
+
 def _creds_path() -> Path:
     return state_dir() / "metricool_oauth.json"
 
@@ -140,6 +148,7 @@ def login() -> int:
         print(f"token exchange failed: HTTP {status}", file=sys.stderr)
         return 1
     _store_tokens(creds, json.loads(text))
+    restrict_permissions()
     print("login ok: refresh token saved outside the repository")
     return 0
 

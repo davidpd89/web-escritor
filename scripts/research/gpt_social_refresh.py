@@ -7,7 +7,7 @@
 
 Single-instance lock, retry with backoff on transient errors, persistent log and
 status.json in the state dir (%LOCALAPPDATA%\\web-escritor-social or $SOCIAL_STATE_DIR).
-Exit codes: 0 ok/unchanged, 1 failed (last-good snapshot preserved), 2 REAUTH REQUIRED, 3 already running.
+Exit codes: 0 ok/unchanged, 1 failed (last-good snapshot preserved), 2 REAUTH REQUIRED, 3 already running, 4 publication failed (data was collected).
 """
 from __future__ import annotations
 
@@ -28,6 +28,7 @@ REPO = Path(__file__).resolve().parents[2]
 OUTPUT = REPO / "redes-sociales" / "social-metrics.json"
 BLUESKY_DID = "did:plc:i5nwasa74ucmiymxjmh57t7x"  # public identifiers
 MASTODON_ID = "117238993380408996"
+PUBLISH_REMOTE = "https://github.com/davidpd89/web-escritor.git"
 STALE_LOCK_SECONDS = 3600
 RETRY_DELAYS = (30, 120, 300)
 
@@ -101,21 +102,14 @@ def attempt() -> int:
 
 
 def publish() -> int:
-    """Commit and push only the JSON when it differs from origin/main (opt-in; needs git credentials)."""
-    def git(*a: str) -> subprocess.CompletedProcess:
-        return subprocess.run(["git", "-C", str(REPO), *a], capture_output=True, text=True)
-    rel = OUTPUT.relative_to(REPO).as_posix()
-    if not git("diff", "--quiet", "origin/main", "--", rel).returncode:
-        log("publish: identical to origin/main, nothing to do")
-        return 0
-    steps = [("add", rel), ("commit", "-m", "chore(social): refresh follower snapshot", "--", rel),
-             ("push", "origin", "HEAD:main")]
-    for step in steps:
-        r = git(*step)
-        if r.returncode:
-            log(f"publish failed at git {step[0]}: {r.stderr.strip()[:200]}")
-            return 1
-    log("publish: pushed")
+    """Delegate to the isolated data-only publisher (dedicated clone, never this worktree)."""
+    import gpt_social_publish as pub
+    try:
+        result = pub.publish(OUTPUT, mcp.state_dir() / "publish-clone", PUBLISH_REMOTE)
+    except pub.PublishError as exc:
+        log(f"publish failed: {exc}")
+        return 4
+    log(f"publish: {result}")
     return 0
 
 
@@ -145,9 +139,13 @@ def main(argv: list[str] | None = None) -> int:
         status = {"last_attempt": started, "last_exit_code": rc, "reauth_required": rc == 2,
                   "networks": networks()}
         if rc == 0:
-            status["last_success"] = started
+            status["last_success"] = started  # collection succeeded
             if args.publish:
                 rc = publish()
+                status["last_publish_ok"] = rc == 0
+                if rc == 0:
+                    status["last_publish"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+                status["last_exit_code"] = rc
         write_status(status)
         log(f"finished rc={rc}")
         return rc
