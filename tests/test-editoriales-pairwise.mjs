@@ -295,4 +295,12 @@ assert.ok(positive > 0 && empty > 0, `La matriz necesita resultados y vacíos: $
   view.el.reset.fire('click');
   assertView(view, {}, 'Limpiar filtros');
 }
+{
+  // Limpiar desde una ordenación no predeterminada debe devolver el control, el orden del DOM y la URL a disponibilidad.
+  const view = setup();
+  for (const [key, value] of [['status', 'open'], ['direct', true], ['sort', 'recent']]) view.change(key, value);
+  assertView(view, { status: 'open', direct: true, sort: 'recent' }, 'antes de limpiar con orden recent');
+  view.el.reset.fire('click');
+  assertView(view, {}, 'Limpiar filtros desde una ordenación no predeterminada');
+}
 console.log(`test-editoriales-pairwise: OK (${matrix.length} combinaciones, ${positive} positivas, ${empty} vacías, HTML real y restauración)`);
