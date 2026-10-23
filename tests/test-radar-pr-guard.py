@@ -23,10 +23,10 @@ def fake_run(rows, *, error=None):
     return run, calls
 
 
-def verify(rows, expected):
+def verify(rows, expected, today='2026-10-23'):
     run, calls = fake_run(rows)
     try:
-        guard.check_no_open_radar_pr(run=run)
+        guard.check_no_open_radar_pr(today, run=run)
     except RuntimeError as exc:
         assert expected, f"Unexpected rejection: {exc}"
         assert all(f"#{number}" in str(exc) for number in expected), str(exc)
@@ -46,15 +46,16 @@ def verify(rows, expected):
 verify([], [])
 verify([{"number": 5, "headRefName": "automation/reading-catalogue-2026"}], [])
 verify([{"number": 730, "headRefName": "automation/radar-clock-2026-10-23-manual"}], [730])
+verify([{"number": 689, "headRefName": "automation/radar-clock-2026-10-22-39701259246"}], [])
 verify([
     {"number": 730, "headRefName": "automation/radar-clock-2026-10-23-manual"},
-    {"number": 689, "headRefName": "automation/radar-clock-2026-10-22-39701259246"},
+    {"number": 731, "headRefName": "automation/radar-clock-2026-10-23-39900000000"},
     {"number": 33, "headRefName": "feature/radar-clock-design"},
-], [689, 730])
+], [730, 731])
 
 for malformed in (None, {}, [None], [{"number": 10}], [{"headRefName": "automation/radar-clock-2026-10-23"}]):
     try:
-        guard.active_radar_prs(malformed)
+        guard.active_radar_prs(malformed, '2026-10-23')
     except ValueError:
         pass
     else:
@@ -69,7 +70,7 @@ else:
     raise AssertionError("GitHub listing failure must stop publication")
 
 workflow = (ROOT / ".github/workflows/radar-clock-refresh.yml").read_text(encoding="utf-8")
-assert "python scripts/radar_pr_guard.py" in workflow
+assert 'python scripts/radar_pr_guard.py --today "${{ steps.clock.outputs.today }}"' in workflow
 assert workflow.index("python scripts/radar_pr_guard.py") < workflow.index('git switch -c "$branch"')
 assert "GITHUB_RUN_ID" in workflow  # Serialized runs still use independent branches.
-print("PASS radar duplicate PR guard: 4 scenarios, malformed input, API failure, guard before branch creation")
+print("PASS radar same-day PR guard: 5 scenarios, malformed input, API failure, guard before branch creation")
