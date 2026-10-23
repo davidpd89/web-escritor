@@ -92,14 +92,12 @@ class CalendarContract(unittest.TestCase):
         reading = load_script("reading_ics_text", "build-reading-catalogue.py")
         for escape in (radar.ics_escape, reading.ics_text):
             with self.subTest(generator=escape.__name__):
-                for raw in ("A\\rB", "A\\r\\nB", "A\\nB"):
-                    # Literal newline controls must become the same escaped TEXT,
-                    # never a raw physical break or CR-injection opportunity.
-                    payload = raw.encode("utf-8").decode("unicode_escape")
-                    self.assertEqual(escape(payload), r"A\\nB")
-                    self.assertNotIn("\\r", escape(payload))
-                    self.assertNotIn("\\n", escape(payload))
-                self.assertEqual(escape("A,B;C"), r"A\\,B\\;C")
+                for raw in ("A\rB", "A\r\nB", "A\nB"):
+                    encoded = escape(raw)
+                    self.assertEqual(encoded, r"A\nB")
+                    self.assertNotIn("\r", encoded)
+                    self.assertNotIn("\n", encoded)
+                self.assertEqual(escape("A,B;C"), r"A\,B\;C")
 
     def test_independent_parser_alone_is_not_a_sufficient_contract(self):
         radar = (ROOT / "convocatorias-escritores/deadlines.ics").read_bytes()
