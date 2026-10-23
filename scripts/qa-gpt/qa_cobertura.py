@@ -157,3 +157,34 @@ def buscar_duplicado(c, root, pr):
             continue  # el codigo cambio: se puede volver a mirar
         return r, f"{'huella igual' if exacta else f'similitud {jac:.2f}'} con #{r['id']} [{r['estado']}]"
     return None, None
+
+
+# ---------- como_ejecutar: de texto libre de GPT a pasos validados ----------
+_ENV = re.compile(r"\b([A-Z][A-Z0-9_]{2,40})=(https?://(?:127\.0\.0\.1|localhost):\d{2,5}/?|[\w.:/-]{1,80})(?=\s)")
+_TEST_EXT = {".py": "python", ".mjs": "node", ".js": "node"}
+
+
+def normalizar_comandos(pr):
+    """Devuelve la lista de pasos ejecutables de una propuesta y fija `como_ejecutar` en su forma canonica.
+
+    GPT escribe `como_ejecutar` como texto libre (comandos encadenados con `&&`, prosa de preparacion, variables de entorno).
+    Nada de ese texto se ejecuta: solo se extrae, por cada fichero de test nuevo, una invocacion `python|node <ruta>` cuya
+    ruta DEBE estar declarada en `ficheros_nuevos`, mas variables de entorno de forma estricta (clave en mayusculas, valor
+    sin metacaracteres; URLs solo a localhost). Los prechequeos (`py_compile`, `--check`) se descartan: la sintaxis ya
+    se verifica sobre los bytes guardados. Si no hay comando reconocible se deriva de la extension del fichero.
+    """
+    raw = str(pr.get("como_ejecutar") or "")
+    tests = [f["ruta"] for f in pr.get("ficheros_nuevos") or [] if isinstance(f, dict) and Path(f.get("ruta", "")).suffix in _TEST_EXT]
+    env = {}
+    for m in _ENV.finditer(raw + " "):
+        env[m.group(1)] = m.group(2)
+    pasos = []
+    for ruta in tests:
+        exe = _TEST_EXT[Path(ruta).suffix]
+        # `python -m py_compile ruta`, `node --check ruta` y similares NO cuentan como ejecucion del test
+        ejecutado = re.search(rf"(?<![\w-])(?:python3?|node)\s+{re.escape(ruta)}(?=[\s;&|,.]|$)", raw)
+        pasos.append({"argv": [exe, ruta], "env": env if ejecutado else {}, "origen": "texto" if ejecutado else "extension"})
+    pr["como_ejecutar_original"] = raw
+    pr["pasos"] = pasos
+    if len(pasos) == 1: pr["como_ejecutar"] = " ".join([f"{k}={v}" for k, v in pasos[0]["env"].items()] + pasos[0]["argv"])
+    return pasos

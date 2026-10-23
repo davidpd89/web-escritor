@@ -431,6 +431,7 @@ def ingest_answer(c, job, answer, herramientas):
         pid = json.loads(job["payload"])["id"]; new = (data.get("propuestas") or [None])[0]
         if new:
             new["revision"] = 1
+            cob.normalizar_comandos(new)
             d = cob.datos_prop(new)
             c.execute("UPDATE propuestas SET datos=?,tecnica=?,funcionalidad=?,huella_conductual=?,fuente_sha=? WHERE id=?",
                       (json.dumps(new, ensure_ascii=False), d["tecnica"], d["funcionalidad"], d["huella"], cob.sha_fuentes(ROOT, d["fuentes"]), pid))
@@ -440,6 +441,7 @@ def ingest_answer(c, job, answer, herramientas):
     elif job["tipo"] == "A":
         ids, desc, dups = [], 0, 0
         for pr in data.get("propuestas", [])[: CFG["max_propuestas"]]:
+            cob.normalizar_comandos(pr)
             d = cob.datos_prop(pr)
             malas = [f for f in d["fuentes"] if not existe_en_main(f)]
             if not d["fuentes"] or malas:

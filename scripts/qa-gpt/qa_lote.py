@@ -8,6 +8,7 @@ Nunca toca main, nunca abre/fusiona PRs: empuja SOLO la rama gpt-qa/* (sha exact
 """
 import datetime as dt, fnmatch, json, os, re, socket, subprocess, sys, time
 from pathlib import Path
+import qa_cobertura as cob
 
 ESTADOS_FINALES = {"fallo_test", "defecto_demostrado", "actions_ok", "actions_fallida", "revision_humana", "local_ok_sin_actions"}
 REINTENTABLES = {"infra"}
@@ -136,12 +137,15 @@ class Lote:
         return None
 
     def comandos(self, it):
+        """(propuesta, ruta, argv, env). Usa los `pasos` validados al ingerir; solo `python|node <fichero declarado>`, nunca un shell."""
         cmds = []
         for p in self.propuestas_de(it):
-            for f in json.loads(p["datos"]).get("ficheros_nuevos", []):
-                r = f["ruta"]
-                if r.endswith(".py"): cmds.append((p["id"], r, [sys.executable, r]))
-                elif r.endswith((".mjs", ".js")): cmds.append((p["id"], r, ["node", r]))
+            d = json.loads(p["datos"])
+            pasos = d.get("pasos") or cob.normalizar_comandos(dict(d))
+            for s in pasos:
+                exe, ruta = s["argv"]
+                if exe not in ("python", "node") or ruta not in {f["ruta"] for f in d.get("ficheros_nuevos", [])}: continue
+                cmds.append((p["id"], ruta, [sys.executable if exe == "python" else "node", ruta], s.get("env") or {}))
         return cmds
 
     # ---------- validacion local ----------
@@ -163,8 +167,8 @@ class Lote:
             if nm.exists() and not (tmp / "node_modules").exists(): subprocess.run(["cmd", "/c", "mklink", "/J", str(tmp / "node_modules"), str(nm)], capture_output=True)
             wfs = self.cableado(tmp, it)
             partes, clases = [], []
-            for pid, ruta, cmd in self.comandos(it):
-                rc, salida = self.ejecutar_test(tmp, ruta, cmd)
+            for pid, ruta, cmd, env in self.comandos(it):
+                rc, salida = self.ejecutar_test(tmp, ruta, cmd, env)
                 cat = json.loads(next(p["datos"] for p in self.propuestas_de(it) if p["id"] == pid)).get("categoria")
                 cl = self.clasificar(rc, salida, cat); clases.append(cl)
                 partes.append(f"### propuesta #{pid} {' '.join(map(str, cmd[-2:]))} -> exit {rc} [{cl}]\n{salida[-6000:]}")
@@ -177,8 +181,8 @@ class Lote:
                      "infra": "fallo de entorno al ejecutar localmente"}.get(peor, ""), **upd)
         finally: self.limpiar_wt(tmp)
 
-    def ejecutar_test(self, tmp, ruta, cmd):
-        env, srv = {}, None
+    def ejecutar_test(self, tmp, ruta, cmd, env=None):
+        env, srv = dict(env or {}), None
         if "playwright" in (tmp / ruta).read_text(encoding="utf-8", errors="replace"):
             puerto = self.cfg["puerto_estatico"]
             with socket.socket() as s:
@@ -207,7 +211,7 @@ class Lote:
 
     # ---------- cableado: que workflow ejecuta realmente el test ----------
     def cableado(self, tmp, it):
-        rutas = [r for _, r, _ in self.comandos(it)]
+        rutas = [r for _, r, _, _ in self.comandos(it)]
         res = {}
         for f in sorted((tmp / ".github" / "workflows").glob("*.yml")):
             txt = f.read_text(encoding="utf-8", errors="replace")
