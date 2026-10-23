@@ -1,0 +1,732 @@
+{
+ "repo": "davidpd89/web-escritor",
+ "pr_padre": 613,
+ "intervalo_min": 45,
+ "max_peticiones_ronda": 2,
+ "max_peticiones_dia": 12,
+ "max_propuestas": 4,
+ "cooldown_dias": 3,
+ "reintentos": 2,
+ "backoff_min": [
+  5,
+  20
+ ],
+ "espera_respuesta_min": 25,
+ "max_adjuntos": 8,
+ "max_bytes_adjunto": 120000,
+ "areas": [
+  {
+   "id": "navegacion",
+   "nombre": "Navegacion, menus y enlaces",
+   "riesgo": 4,
+   "fuentes": [
+    "index.html",
+    "script.js",
+    "mapa-del-sitio/**",
+    "empieza-aqui/**"
+   ],
+   "tests_kw": [
+    "nav",
+    "menu",
+    "link",
+    "roundtrip",
+    "map"
+   ]
+  },
+  {
+   "id": "responsive-a11y",
+   "nombre": "Responsive y accesibilidad",
+   "riesgo": 3,
+   "fuentes": [
+    "styles.css",
+    "accesibilidad/**",
+    "assets/*.css"
+   ],
+   "tests_kw": [
+    "aria",
+    "a11y",
+    "pa11y",
+    "responsive",
+    "viewport",
+    "contrast"
+   ]
+  },
+  {
+   "id": "lecturas-libros",
+   "nombre": "Libros, recomendaciones, autores y editoriales",
+   "riesgo": 5,
+   "fuentes": [
+    "lecturas/**",
+    "libros/**",
+    "recomendaciones/**",
+    "editoriales/**",
+    "editorial-facts.json"
+   ],
+   "tests_kw": [
+    "lectura",
+    "reading",
+    "libro",
+    "book",
+    "recomend",
+    "autor",
+    "editorial",
+    "catalogue"
+   ]
+  },
+  {
+   "id": "filtros-busqueda",
+   "nombre": "Filtros, orden, busqueda y Pagefind",
+   "riesgo": 4,
+   "fuentes": [
+    "lecturas/**/*.js",
+    "scripts/*pagefind*",
+    "scripts/*search*"
+   ],
+   "tests_kw": [
+    "filter",
+    "facet",
+    "search",
+    "pagefind",
+    "sort",
+    "findab"
+   ]
+  },
+  {
+   "id": "amazon-goodreads",
+   "nombre": "Enlaces Amazon y Goodreads",
+   "riesgo": 4,
+   "fuentes": [
+    "scripts/*amazon*",
+    "data/*amazon*",
+    "scripts/*goodreads*"
+   ],
+   "tests_kw": [
+    "amazon",
+    "goodreads",
+    "affiliate",
+    "buy"
+   ]
+  },
+  {
+   "id": "calendarios-eventos",
+   "nombre": "Calendarios, eventos y ferias",
+   "riesgo": 4,
+   "fuentes": [
+    "eventos.html",
+    "ferias.html",
+    "data/*event*",
+    "data/*feria*",
+    "**/*.ics"
+   ],
+   "tests_kw": [
+    "event",
+    "feria",
+    "ics",
+    "calendar",
+    "time"
+   ]
+  },
+  {
+   "id": "convocatorias-premios",
+   "nombre": "Convocatorias y premios literarios",
+   "riesgo": 4,
+   "fuentes": [
+    "convocatorias-escritores/**",
+    "premios.html",
+    "data/*convocatoria*",
+    "data/*premio*"
+   ],
+   "tests_kw": [
+    "convocatoria",
+    "premio",
+    "award",
+    "contest"
+   ]
+  },
+  {
+   "id": "seo-indexacion",
+   "nombre": "SEO, datos estructurados, sitemaps e indexacion",
+   "riesgo": 5,
+   "fuentes": [
+    "sitemap.xml",
+    "editoriales-sitemap.xml",
+    "robots.txt",
+    "llms.txt",
+    "scripts/*sitemap*",
+    "scripts/*seo*"
+   ],
+   "tests_kw": [
+    "seo",
+    "sitemap",
+    "robots",
+    "canonical",
+    "jsonld",
+    "schema",
+    "noindex",
+    "index"
+   ]
+  },
+  {
+   "id": "paridad-generados",
+   "nombre": "Paridad HTML/JSON/ICS generados",
+   "riesgo": 5,
+   "fuentes": [
+    "scripts/*build*",
+    "scripts/*generate*",
+    "scripts/*parity*",
+    "data/*.json"
+   ],
+   "tests_kw": [
+    "parity",
+    "generated",
+    "build",
+    "determin"
+   ]
+  },
+  {
+   "id": "rendimiento-red",
+   "nombre": "Rendimiento, carga y peticiones fallidas",
+   "riesgo": 3,
+   "fuentes": [
+    "service-worker.js",
+    "lighthouserc.json",
+    "assets/*.js"
+   ],
+   "tests_kw": [
+    "perf",
+    "lighthouse",
+    "budget",
+    "network",
+    "compression",
+    "pwa",
+    "offline"
+   ]
+  },
+  {
+   "id": "errores-progresivo",
+   "nombre": "Errores y mejora progresiva (sin JS, offline, fallos)",
+   "riesgo": 3,
+   "fuentes": [
+    "404.html",
+    "offline.html",
+    "service-worker.js",
+    "script.js"
+   ],
+   "tests_kw": [
+    "error",
+    "fallback",
+    "offline",
+    "nojs",
+    "progressive",
+    "404"
+   ]
+  },
+  {
+   "id": "multinavegador-estado",
+   "nombre": "Multinavegador y persistencia de estado",
+   "riesgo": 3,
+   "fuentes": [
+    "script.js",
+    "assets/*.js"
+   ],
+   "tests_kw": [
+    "cross-engine",
+    "webkit",
+    "firefox",
+    "storage",
+    "state",
+    "restor"
+   ]
+  },
+  {
+   "id": "newsletter-privacidad",
+   "nombre": "Newsletter, consentimiento, analitica y privacidad",
+   "riesgo": 4,
+   "fuentes": [
+    "cloudflare-worker-subscribe.js",
+    "privacidad.html",
+    "gracias-suscripcion/**",
+    "assets/*analytics*",
+    "assets/*consent*"
+   ],
+   "tests_kw": [
+    "newsletter",
+    "consent",
+    "analytics",
+    "privacy",
+    "subscribe",
+    "csp"
+   ]
+  },
+  {
+   "id": "asistente",
+   "nombre": "Asistente conversacional",
+   "riesgo": 3,
+   "fuentes": [
+    "asistente/**",
+    "cloudflare-worker-assistant.js"
+   ],
+   "tests_kw": [
+    "assistant"
+   ]
+  },
+  {
+   "id": "contenido-editorial",
+   "nombre": "Cuaderno, fragmentos, universo y paginas editoriales",
+   "riesgo": 2,
+   "fuentes": [
+    "cuaderno/**",
+    "fragmento/**",
+    "universo/**",
+    "las-manecillas-del-recuerdo/**",
+    "guias/**"
+   ],
+   "tests_kw": [
+    "cuaderno",
+    "manecillas",
+    "fragment",
+    "universo",
+    "guia",
+    "parity"
+   ]
+  },
+  {
+   "id": "ci-fiabilidad",
+   "nombre": "Fiabilidad de CI, flaky y builds deterministas",
+   "riesgo": 4,
+   "fuentes": [
+    ".github/workflows/*.yml",
+    "package.json"
+   ],
+   "tests_kw": [
+    "workflow",
+    "ci",
+    "determin",
+    "flaky",
+    "pin"
+   ]
+  }
+ ],
+ "ciclo": [
+  "zona",
+  "familia",
+  "tipo",
+  "cambio",
+  "auditoria"
+ ],
+ "cooldown_tipo_dias": 7,
+ "cooldown_auditoria_dias": 14,
+ "tipos": [
+  {
+   "id": "enlaces-internos",
+   "nombre": "Enlaces internos, anclas y round-trips validos",
+   "kw": [
+    "link",
+    "anchor",
+    "roundtrip",
+    "broken"
+   ]
+  },
+  {
+   "id": "a11y-estructura",
+   "nombre": "Accesibilidad estructural (landmarks, encabezados, nombres accesibles)",
+   "kw": [
+    "aria",
+    "a11y",
+    "pa11y",
+    "landmark",
+    "heading"
+   ]
+  },
+  {
+   "id": "seo-canonical-noindex",
+   "nombre": "Canonical, noindex, robots y sitemaps coherentes",
+   "kw": [
+    "canonical",
+    "noindex",
+    "robots",
+    "seo",
+    "sitemap"
+   ]
+  },
+  {
+   "id": "datos-estructurados",
+   "nombre": "JSON-LD / datos estructurados validos y coherentes con la pagina",
+   "kw": [
+    "jsonld",
+    "schema",
+    "structured"
+   ]
+  },
+  {
+   "id": "paridad-datos",
+   "nombre": "Paridad entre datos fuente y HTML/JSON/ICS generados",
+   "kw": [
+    "parity",
+    "generated"
+   ]
+  },
+  {
+   "id": "responsive-overflow",
+   "nombre": "Responsive: sin desbordes horizontales, objetivos tactiles, viewport",
+   "kw": [
+    "responsive",
+    "viewport",
+    "overflow",
+    "mobile",
+    "layout"
+   ]
+  },
+  {
+   "id": "estado-persistencia",
+   "nombre": "Persistencia y restauracion de estado (storage, URL, back/forward)",
+   "kw": [
+    "storage",
+    "state",
+    "restor",
+    "persist"
+   ]
+  },
+  {
+   "id": "fallos-red-offline",
+   "nombre": "Degradacion ante fallos de red, offline y mejora progresiva",
+   "kw": [
+    "offline",
+    "error",
+    "fallback",
+    "network",
+    "failed"
+   ]
+  },
+  {
+   "id": "rendimiento-presupuestos",
+   "nombre": "Presupuestos de rendimiento, CLS, compresion",
+   "kw": [
+    "perf",
+    "budget",
+    "lighthouse",
+    "cls",
+    "compression"
+   ]
+  },
+  {
+   "id": "fechas-determinismo",
+   "nombre": "Fechas, zonas horarias, caducidad y determinismo",
+   "kw": [
+    "time",
+    "date",
+    "determin",
+    "timezone",
+    "expire"
+   ]
+  },
+  {
+   "id": "seguridad-csp",
+   "nombre": "CSP, cabeceras, saneado de entradas y enlaces externos seguros",
+   "kw": [
+    "csp",
+    "header",
+    "security",
+    "xss",
+    "sanit"
+   ]
+  },
+  {
+   "id": "idempotencia-generadores",
+   "nombre": "Generadores idempotentes y builds reproducibles",
+   "kw": [
+    "idempot",
+    "build",
+    "generate",
+    "deterministic"
+   ]
+  },
+  {
+   "id": "tipografia-fuentes",
+   "nombre": "Tipografia: webfont vs fallback en primer pintado, document.fonts, estilos computados tras recarga/navegacion/back-forward, cambios de layout (CLS), fuentes lentas",
+   "kw": [
+    "font",
+    "typograph",
+    "fouc",
+    "swap",
+    "cls"
+   ]
+  },
+  {
+   "id": "menus-navegacion-interaccion",
+   "nombre": "Menus y submenus: raton, tactil y teclado, Escape, clic fuera, foco, ARIA, movil, back/forward y bfcache",
+   "kw": [
+    "menu",
+    "nav",
+    "keyboard",
+    "focus",
+    "bfcache",
+    "history",
+    "dropdown"
+   ]
+  },
+  {
+   "id": "layout-breakpoints",
+   "nombre": "Layout en movil/tablet/escritorio: desbordes, saltos de linea, consistencia de componentes entre paginas",
+   "kw": [
+    "breakpoint",
+    "viewport",
+    "overflow",
+    "responsive",
+    "design",
+    "visual"
+   ]
+  },
+  {
+   "id": "sin-js-degradacion",
+   "nombre": "Comportamiento con JavaScript desactivado y estados vacios/error de componentes dinamicos",
+   "kw": [
+    "nojs",
+    "no-js",
+    "noscript",
+    "fallback",
+    "empty",
+    "progressive"
+   ]
+  }
+ ],
+ "edge_mem_mb": 2500,
+ "edge_reiniciar_cada": 10,
+ "max_pestanas": 2,
+ "horario": [
+  8,
+  23
+ ],
+ "tecnicas_semilla": [
+  {
+   "id": "contrato-esquema",
+   "nombre": "Contratos, esquemas y consistencia de datos (JSON/ICS/XML con esquema o invariantes de campos)",
+   "kw": [
+    "schema",
+    "contract",
+    "validate",
+    "esquema",
+    "invariant"
+   ],
+   "aplica": [
+    "datos",
+    "generador"
+   ]
+  },
+  {
+   "id": "propiedad-metamorfica",
+   "nombre": "Property-based y metamorfica: propiedades que deben cumplirse para muchas entradas / al transformar la entrada",
+   "kw": [
+    "property",
+    "metamorph",
+    "fuzz",
+    "hypothesis",
+    "fast-check"
+   ],
+   "aplica": [
+    "generador",
+    "js",
+    "datos"
+   ]
+  },
+  {
+   "id": "mutacion",
+   "nombre": "Mutacion: el test debe fallar al romper la logica concreta",
+   "kw": [
+    "mutation",
+    "mutant"
+   ],
+   "aplica": [
+    "generador",
+    "js"
+   ]
+  },
+  {
+   "id": "combinatoria-pairwise",
+   "nombre": "Combinatoria / pairwise de entornos y estados (viewport x navegador x preferencias)",
+   "kw": [
+    "pairwise",
+    "matrix",
+    "combinat",
+    "projects"
+   ],
+   "aplica": [
+    "html",
+    "js",
+    "css"
+   ]
+  },
+  {
+   "id": "inyeccion-fallos",
+   "nombre": "Inyeccion de fallos y recuperacion (red caida, 404/500, JSON corrupto, storage lleno)",
+   "kw": [
+    "fault",
+    "inject",
+    "chaos",
+    "abort",
+    "route.fulfill",
+    "offline"
+   ],
+   "aplica": [
+    "js",
+    "html"
+   ]
+  },
+  {
+   "id": "concurrencia-idempotencia",
+   "nombre": "Concurrencia, carreras, idempotencia y persistencia (doble clic, doble ejecucion, escrituras parciales)",
+   "kw": [
+    "race",
+    "concurr",
+    "idempot",
+    "debounce",
+    "twice",
+    "double"
+   ],
+   "aplica": [
+    "js",
+    "generador"
+   ]
+  },
+  {
+   "id": "privacidad-consentimiento",
+   "nombre": "Privacidad, consentimiento y analitica (nada se carga/guarda antes de aceptar)",
+   "kw": [
+    "consent",
+    "privacy",
+    "cookie",
+    "analytics",
+    "clarity",
+    "tracking"
+   ],
+   "aplica": [
+    "html",
+    "js"
+   ]
+  },
+  {
+   "id": "enlaces-medios-descargas",
+   "nombre": "Enlaces externos, medios y descargas (rel, tamaños, existencia de ficheros, tipos MIME)",
+   "kw": [
+    "external",
+    "noopener",
+    "download",
+    "media",
+    "image",
+    "mime",
+    "alt"
+   ],
+   "aplica": [
+    "html",
+    "media"
+   ]
+  },
+  {
+   "id": "zonas-horarias-locale",
+   "nombre": "Zonas horarias, limites de fecha, calendarios y locale",
+   "kw": [
+    "timezone",
+    "tz",
+    "locale",
+    "calendar",
+    "dst",
+    "utc"
+   ],
+   "aplica": [
+    "datos",
+    "js",
+    "generador"
+   ]
+  },
+  {
+   "id": "navegador-cruzado",
+   "nombre": "Compatibilidad entre navegadores y motores",
+   "kw": [
+    "webkit",
+    "firefox",
+    "chromium",
+    "cross-browser",
+    "browserstack"
+   ],
+   "aplica": [
+    "html",
+    "js",
+    "css"
+   ]
+  },
+  {
+   "id": "accesibilidad-tecnologia-asistiva",
+   "nombre": "Accesibilidad dinamica: foco, lectores de pantalla, teclado, reduced-motion, zoom",
+   "kw": [
+    "focus",
+    "screen-reader",
+    "reduced-motion",
+    "tabindex",
+    "skip-link",
+    "zoom"
+   ],
+   "aplica": [
+    "html",
+    "js",
+    "css"
+   ]
+  },
+  {
+   "id": "reproducibilidad-build",
+   "nombre": "Paridad de salida generada y builds reproducibles",
+   "kw": [
+    "reproduc",
+    "drift",
+    "regenerate",
+    "up-to-date",
+    "check-generated"
+   ],
+   "aplica": [
+    "generador",
+    "datos"
+   ]
+  },
+  {
+   "id": "seguridad-entradas",
+   "nombre": "Seguridad: validacion/saneado de entradas, cabeceras, secretos",
+   "kw": [
+    "sanit",
+    "escape",
+    "inject",
+    "xss",
+    "secret",
+    "header"
+   ],
+   "aplica": [
+    "js",
+    "html",
+    "generador"
+   ]
+  },
+  {
+   "id": "recursos-cache",
+   "nombre": "Carga de recursos, cache y presupuestos (SW, cache-control, preload, fuentes)",
+   "kw": [
+    "cache",
+    "preload",
+    "service-worker",
+    "sw.js",
+    "budget"
+   ],
+   "aplica": [
+    "html",
+    "js",
+    "css",
+    "media"
+   ]
+  }
+ ],
+ "cooldown_familia_dias": 5,
+ "cooldown_cambio_dias": 2,
+ "ventana_cambio_dias": 7,
+ "stall_min": 12,
+ "max_tabs_chatgpt": 2,
+ "reanudar_max_horas": 6,
+ "pausa_limite_min": 90,
+ "worker_max_min": 120
+}

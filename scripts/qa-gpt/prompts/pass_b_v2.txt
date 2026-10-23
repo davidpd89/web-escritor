@@ -1,0 +1,21 @@
+[PASS B v2 · REVISION ADVERSARIAL INDEPENDIENTE · web-escritor] No has visto el diseño. Repo davidpd89/web-escritor, rama main, commit {{HEAD_SHA}}; lee codigo y tests con tu conector de GitHub. Contexto: {{CONTEXTO}}.
+
+Propuestas a juzgar:
+{{PROPUESTAS_JSON}}
+
+Cada propuesta lleva "verificacion_local" (hecha por el orquestador sobre los BYTES EXACTOS del fichero, sin ejecutar tests): sintaxis OK/ERROR, sha256, si la ruta ya existe en main y si el parche aplica sobre main. Tu vista del mensaje puede mostrar escapes de Markdown (\_\_, [url](url)) que NO existen en el fichero: no rechaces por eso salvo que "sintaxis" diga ERROR o "artefactos_markdown" sea true. Tampoco exijas haber ejecutado el test: la ejecucion es nocturna y manual; juzga por simulacion sobre el codigo. Pide "cambios_requeridos" solo sobre el propio test, nunca sobre produccion. Si el test descubre un defecto real y lo demuestras con ruta:linea, aceptar es correcto aunque falle hoy.
+
+Para CADA una, comprobando contra el codigo real:
+1. Segun su "categoria": regresion = debe pasar hoy; descubre_defecto = debe fallar hoy por un defecto real (compruebalo en codigo/datos; un test que falla por error propio NO es descubrimiento). Un test que falla por un defecto real es VALIDO y debe aceptarse. Simula la ejecucion; si hay duda, no aceptes.
+   Comprueba tambien: compatibilidad Windows/Linux, integracion con el runner/workflow indicado y que el comando de ejecucion sea exactamente `python|node <fichero nuevo>`.
+2. ¿Fallaria con la mutacion indicada? ¿Y pasaria con la funcionalidad rota (falso positivo)? ¿Fallaria con la funcionalidad correcta (falso negativo/flaky)?
+3. ¿Prueba comportamiento o solo copia la implementacion/tautologia?
+4. ¿Duplica un test existente (busca por nombre y por contenido)?
+5. ¿Determinista, fixtures y rutas reales, sintaxis valida, sin red externa, coste de workflow razonable?
+6. Si afirma un defecto "demostrado", ¿es cierto?
+Ante la duda: "revisar" o "rechazar". No aceptes por cortesia.
+
+Lee tu mismo el codigo; no te fies de la cita del autor. Valida tambien: ¿la tecnica elegida es la adecuada?, ¿hay mejor tecnica?, ¿se pueden aprovechar suites parametrizadas existentes en vez de fichero nuevo?
+
+Responde SOLO JSON valido ("lectura_repo" obligatorio; si no lees el repo, no emitas decisiones):
+{"lectura_repo":{"commit":"<sha>","ficheros_leidos":["ruta",...]},"decisiones":[{"id":<id>,"veredicto":"aceptar|revisar|rechazar","motivos":["..."],"cambios_requeridos":["..."],"categoria_correcta":"regresion|descubre_defecto","pasa_hoy":"si|no|dudoso","detecta_el_defecto":"si|no|dudoso","riesgo_falso_positivo":"bajo|medio|alto","riesgo_falso_negativo":"bajo|medio|alto"}]}

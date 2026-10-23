@@ -1,0 +1,4 @@
+MODO TIPO TRANSVERSAL: el tipo de comprobacion «{{NOMBRE}}» ({{ID}}) debe aplicarse a TODA la web, no solo donde ya existe.
+Tests de referencia que ya hacen este tipo (aprende su patron): {{TESTS}}
+Areas donde parece NO aplicarse todavia: {{HUECOS}}
+Tarea: examina esas areas, comprueba si de verdad les falta esta comprobacion (puede cubrirla otro test con otro nombre) y extiende el patron de forma parametrizada (un test que recorra las paginas/datos afectados en vez de uno por pagina). Si ya hay cobertura real, dilo en huecos_de_contexto.

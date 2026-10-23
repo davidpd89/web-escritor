@@ -1,0 +1,32 @@
+[PASS A v2 · web-escritor · modo {{MODO}}] Repo davidpd89/web-escritor, rama main, commit {{HEAD_SHA}}. Lee el codigo y los tests DIRECTAMENTE con tu conector de GitHub (no hay adjuntos).
+
+{{MODO_INSTRUCCIONES}}
+
+Tecnicas ya registradas (no es lista cerrada): {{TECNICAS}}
+Ya propuestos/hallados (no repetir): {{PREVIOS}}
+
+Mision abierta: encuentra comportamiento visible o de datos SIN proteccion, decide TU que tecnica de test aplica y por que (puedes inventar una nueva con "nueva":true si el codigo o un test existente la justifica). No apliques todas las tecnicas a todo: prioriza riesgo conductual y coste.
+
+Reglas de calidad (obligatorias, un test que las incumpla se descarta):
+- Dos categorias validas, declaradas en "categoria": (1) "regresion": PASA hoy sobre main (verificalo leyendo codigo/datos) y FALLA ante una mutacion concreta del codigo; (2) "descubre_defecto": FALLA hoy porque revela un defecto real, que debes demostrar con ruta:linea y reproduccion.
+- No afirmes que el test "esta probado": es una prediccion hasta que se ejecute.
+- Reutiliza y extiende tests parametrizados y fixtures existentes; no crees tests casi identicos por pagina. Si ya existe el patron en otra zona, extiendelo a las familias de rutas que no lo tienen.
+- Prohibido: asertar solo existencia/200/no-vacio, tautologias, copiar la logica de produccion en el test, depender de red externa, de la hora actual sin fijarla o de orden no determinista.
+- Cubre casos limite reales de ESTE repo (datos y plantillas existentes), no genericos.
+- Si hallas un defecto real, di cual y dalo como "demostrado" con linea de evidencia; el test debera fallar hoy y eso es valido (se marca).
+- Solo ficheros NUEVOS bajo tests/ o qa/, siguiendo el estilo y helpers de los tests vecinos. Como maximo {{MAX_PROPUESTAS}} propuestas; mejor 1 solida que 4 flojas. Si no hay nada solido, lista vacia.
+
+Responde SOLO JSON valido. "lectura_repo" es obligatorio y verificable: si no pudiste leer el repo, deja ficheros_leidos vacio y NO propongas nada.
+{"modo":"{{MODO}}","lectura_repo":{"commit":"<sha que viste en main>","ficheros_leidos":["ruta",...]},"huecos_de_contexto":["..."],"propuestas":[{
+ "titulo":"...","zona":"<id de area o transversal>","familias":["dir-raiz",...],
+ "tecnica":{"id":"kebab-case","nombre":"...","nueva":false,"palabras_clave":["..."],"aplica":["html|js|css|datos|generador|media|*"]},
+ "funcionalidad":"comportamiento protegido (1 frase)","invariante":"lo que siempre debe cumplirse","por_que_aplica":"por que esta tecnica y no otra",
+ "equivalentes_a_revisar":[{"familia":"dir-raiz","motivo":"..."}],"integracion":"suite existente que se extiende, o por que es fichero nuevo",
+ "ficheros_fuente":[{"ruta":"...","funcion_o_zona":"..."}],
+ "comportamiento":"...","por_que_no_esta_cubierto":"(cita los tests existentes revisados)",
+ "resultado_esperado":"...","condiciones_de_fallo":"...",
+ "categoria":"regresion|descubre_defecto","mutacion_que_lo_rompe":"descripcion","mutacion_parche":"diff unificado opcional sobre ficheros de produccion que debe hacer fallar el test","por_que_pasa_hoy":"(regresion) por que pasa / (descubre_defecto) por que falla",
+ "ficheros_nuevos":[{"ruta":"tests/....","contenido":"codigo completo"}],
+ "como_ejecutar":"comando","workflow":"workflow-existente.yml|null",
+ "defecto":"demostrado|hipotetico|ninguno","evidencia_defecto":"..."}]}
+Para hallazgos sobre tests existentes que no se arreglan con un fichero nuevo, usa "tipo_propuesta":"informe" con "ficheros_nuevos":[] y detalla fichero, linea y arreglo propuesto.

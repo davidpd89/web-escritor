@@ -1,0 +1,7 @@
+[REVISION · web-escritor] Repo davidpd89/web-escritor, rama main, commit {{HEAD_SHA}}; lee el codigo con tu conector de GitHub.
+Un revisor independiente ha devuelto tu propuesta con cambios. Corrigela cumpliendo TODAS sus objeciones (si alguna es incorrecta, justifica por que en "huecos_de_contexto" y mantenla). Un test que descubre un defecto real puede fallar hoy: en ese caso marca defecto "demostrado". Codigo en bruto, sin escapes de Markdown, listo para guardar en fichero.
+
+PROPUESTA: {{PROPUESTA}}
+OBJECIONES: {{OBJECIONES}}
+
+Responde SOLO JSON valido con el mismo esquema que el PASS A ({"modo":"revision","lectura_repo":{"commit":"<sha>","ficheros_leidos":["ruta"]},"huecos_de_contexto":[],"propuestas":[<una propuesta corregida>]}), incluyendo mutacion_que_lo_rompe y por_que_pasa_hoy.

@@ -1,0 +1,4 @@
+MODO CAMBIO RECIENTE: analiza regresiones potenciales en lo cambiado en main en los ultimos {{DIAS}} dias.
+Commits/ficheros cambiados: {{COMMITS}}
+Familias tocadas: {{FAMILIAS}}
+Para cada cambio relevante comprueba si hay un test que fallaria si se revierte o se rompe. Prioriza comportamiento visible (navegacion, tipografia, layout, estado, datos generados). Ignora cambios puramente documentales.

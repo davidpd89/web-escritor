@@ -1,0 +1,5 @@
+MODO ZONA: profundiza en el area «{{NOMBRE}}» ({{ID}}).
+Codigo del area (rutas/globs): {{FUENTES}}
+Tests/workflows existentes relacionados: {{TESTS}}
+Commits recientes: {{COMMITS}}
+Busca huecos verificables: comportamiento sin asercion, aserciones debiles, casos limite, regresiones potenciales, flakiness, paridad HTML/JSON/ICS.

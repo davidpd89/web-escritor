@@ -1,0 +1,4 @@
+MODO AUDITORIA de tests existentes del area «{{NOMBRE}}» ({{ID}}).
+Tests a auditar: {{TESTS}}
+Para cada uno busca: aserciones debiles o tautologicas, falsos positivos (pasa con la funcion rota), falsos negativos/flakiness (hora, orden, red, timeouts), fixtures obsoletas, duplicados y casos limite que le faltan. Prioriza hallazgos que cambiarian un resultado real.
+Entrega "informe" (fichero, linea, problema, arreglo) o un test nuevo que cubra el hueco; no reescribas tests existentes.

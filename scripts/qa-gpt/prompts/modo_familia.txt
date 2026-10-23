@@ -1,0 +1,5 @@
+MODO FAMILIA (matriz de cobertura): familia de rutas «{{ID}}» ({{FICHEROS}} ficheros, rasgos {{RASGOS}}).
+Tests que la referencian: {{TESTS}}
+Tecnicas ya cubiertas: {{CUBIERTAS}}. Candidatas con hueco (heuristica, DECIDE TU cuales aplican de verdad y por que): {{HUECOS}}
+Patrones que funcionan en otras familias y quiza falten aqui: {{CRUCES}}
+Elige el hueco de mayor riesgo conductual (no el mas facil). Extiende suites parametrizadas existentes. Si crees que otra tecnica no listada es mas valiosa, usala con "nueva":true.
