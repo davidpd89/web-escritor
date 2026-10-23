@@ -99,7 +99,7 @@ try {
     const verify=async (groups=[],seasons=[],query='')=>{
       const wanted=expected(groups,seasons,query);
       const label=await page.locator('[data-catalogue-count]').innerText();
-      const count=Number(label.match(/^(\\d+) libros?/)?.[1]);
+      const count=Number(label.match(/^(\d+) libros?/)?.[1]);
       assert.equal(count,wanted.length,`Incorrect results for ${JSON.stringify({groups,seasons,query})}: ${label}`);
       const displayed=await page.locator('[data-catalogue-book]:visible').evaluateAll(cards=>cards.map(c=>c.dataset.bookId));
       assert.equal(displayed.length,Math.min(24,wanted.length));
