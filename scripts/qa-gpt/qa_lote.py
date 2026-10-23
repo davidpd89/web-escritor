@@ -374,6 +374,7 @@ class LoteLock:
             try: pid = int(self.p.read_text().split()[0])
             except Exception: pid = 0
             if pid and pid != os.getpid() and self.q.pid_alive(pid): raise SystemExit(f"Ya hay un lote en marcha (pid {pid}). No se duplica nada; mira ESTADO-QA-GPT.bat.")
+        self.p.parent.mkdir(parents=True, exist_ok=True)
         self.p.write_text(f"{os.getpid()} {self.q.now()}"); return self
     def __exit__(self, *a): self.p.unlink(missing_ok=True)
 

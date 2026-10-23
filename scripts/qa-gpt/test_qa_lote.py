@@ -244,6 +244,12 @@ class Entorno(Base):
 
 
 class Autorizacion(Base):
+    def test_lock_crea_la_carpeta_de_estado_si_falta(self):
+        import shutil; self.c.close(); shutil.rmtree(q.STATE / "lote", ignore_errors=True)
+        class Q: STATE = Path(self.tmp.name) / "nuevo" / "estado"; now = staticmethod(q.now); pid_alive = staticmethod(q.pid_alive)
+        with L.LoteLock(Q): self.assertTrue((Q.STATE / "lote.lock").exists())
+        self.assertFalse((Q.STATE / "lote.lock").exists()); self.c = q.db()
+
     def test_token_sin_permisos_no_se_reintenta_y_queda_en_revision_humana(self):
         rama, _, pid = self.preparar("auth", OK_PY)
         def push(sha, r): raise L.GhAuthError("HTTP 403: Resource not accessible by personal access token")

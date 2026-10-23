@@ -10,6 +10,6 @@ echo  Es seguro cerrar esta ventana o pulsar de nuevo: el lote se reanuda sin du
 echo.
 "%PY%" "%QA%scripts\qa-gpt\qa_gpt.py" ejecutar-actions
 echo.
-"%PY%" "%QA%scripts\qa-gpt\qa_gpt.py" estado | findstr /B /C:"Tests preparados" /C:"Lote Actions" /C:"  - " /C:"Ultimo lote" /C:"Ultima ejecucion" /C:"    " /C:"Proximo test"
+"%PY%" "%QA%scripts\qa-gpt\qa_gpt.py" estado | findstr /B /C:"Tests preparados" /C:"Lote Actions" /C:"  - " /C:"Ultimo lote" /C:"Ultima ejecucion" /C:"    " /C:"Proximo pendiente"
 echo.
 pause
