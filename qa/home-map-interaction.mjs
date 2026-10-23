@@ -18,7 +18,7 @@ await fs.mkdir(OUT, { recursive: true });
 const TERRITORIES = [
   ['works-hub', '/libros/'],
   ['author', '/autor.html'],
-  ['notebook-hub', '/cuaderno/'],
+  ['recommendations-hub', '/recomendaciones/'],
   ['tools-hub', '/herramientas/'],
   ['press', '/prensa.html'],
 ];

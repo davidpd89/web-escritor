@@ -5007,7 +5007,7 @@
       "country": "España",
       "submission_email": null,
       "response_time": null,
-      "page_updated_at": "2026-10-03",
+      "page_updated_at": "2026-10-21",
       "slug": "editorial-amarante",
       "name": "Editorial Amarante",
       "group": "Editorial Amarante",
@@ -5017,19 +5017,18 @@
         "ciencia ficción",
         "fantasía"
       ],
-      "status": "open",
-      "direct_submission": true,
-      "submission_channel": "Contacto oficial enlazado desde «Publica con nosotros»",
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Canal oficial no disponible en la última comprobación",
       "submission_url": "https://editorialamarante.es/contacto",
       "website_url": "https://editorialamarante.es/",
       "requirements": [
-        "La web invita expresamente a autores a contactar y enlaza el envío de manuscritos.",
-        "Solicitar y revisar por escrito las condiciones editoriales y económicas antes de aceptar cualquier propuesta.",
-        "No asumir un modelo tradicional sin aportación económica solo por la existencia del canal de recepción."
+        "La recepción de originales queda pendiente de una nueva comprobación oficial.",
+        "Las instrucciones de la revisión anterior se conservan únicamente en el historial."
       ],
-      "summary": "Editorial Amarante mantiene en su web una sección «Publica con nosotros» y un canal de contacto para autores, además de catálogo de narrativa, ensayo y títulos de ciencia ficción y fantasía.",
-      "public_note": "La recepción está disponible, pero esta ficha no clasifica como tradicional un modelo económico que la fuente pública consultada no permite verificar con suficiente detalle.",
-      "verified_at": "2026-10-03",
+      "summary": "Editorial Amarante publica narrativa, ensayo y otros géneros. Su web invitaba a autores a contactar en la revisión anterior; la disponibilidad actual del canal de originales queda por verificar.",
+      "public_note": "La web oficial y su página de contacto no están disponibles en la comprobación del 21 de octubre de 2026. Se conserva la ficha y el historial de fuentes; la recepción actual de originales y el modelo editorial quedan pendientes de confirmación.",
+      "verified_at": "2026-10-21",
       "sources": [
         {
           "label": "Editorial Amarante — contacto y «Publica con nosotros»",
@@ -5047,7 +5046,16 @@
           "date": "2026-10-03",
           "event": "Comprobada la invitación pública a autores y el canal de contacto; se mantiene cautela explícita sobre el modelo económico.",
           "source_url": "https://editorialamarante.es/contacto"
+        },
+        {
+          "date": "2026-10-21",
+          "event": "Web oficial y contacto dejan de cargar (error de servidor confirmado también en navegador). La recepción pasa a «Por verificar» y se conservan las fuentes históricas sin enlaces activos.",
+          "source_url": "https://editorialamarante.es/contacto"
         }
+      ],
+      "unavailable_urls": [
+        "https://editorialamarante.es/",
+        "https://editorialamarante.es/contacto"
       ]
     },
     {

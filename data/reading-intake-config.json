@@ -13,18 +13,86 @@
     {
       "id": "penguin-es",
       "provider": "penguin",
-      "hosts": ["www.penguinlibros.com"],
+      "hosts": [
+        "www.penguinlibros.com"
+      ],
       "index_urls": [
         "https://www.penguinlibros.com/es/content/113-novedades-en-libros",
         "https://www.penguinlibros.com/es/"
       ],
       "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
       "enabled": true
+    },
+    {
+      "id": "planeta-es",
+      "provider": "planeta",
+      "hosts": [
+        "www.planetadelibros.com"
+      ],
+      "index_urls": [
+        "https://www.planetadelibros.com/libros-novedades/p/1"
+      ],
+      "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "enabled": true
     }
   ],
   "publisher_aliases": [
-    {"slug": "salamandra", "aliases": ["Salamandra Infantil y Juvenil", "Salamandra Bolsillo", "Salamandra Graphic"]},
-    {"slug": "nova", "aliases": ["Nova", "NOVA"]},
-    {"slug": "ediciones-b", "aliases": ["B", "B de Bolsillo"]}
-  ]
+    {
+      "slug": "salamandra",
+      "aliases": [
+        "Salamandra Infantil y Juvenil",
+        "Salamandra Bolsillo",
+        "Salamandra Graphic"
+      ]
+    },
+    {
+      "slug": "nova",
+      "aliases": [
+        "Nova",
+        "NOVA"
+      ]
+    },
+    {
+      "slug": "ediciones-b",
+      "aliases": [
+        "B",
+        "B de Bolsillo",
+        "B de Blok",
+        "B DE BLOK",
+        "B de Bolsillo Ediciones"
+      ]
+    },
+    {
+      "slug": "alfaguara",
+      "aliases": [
+        "Alfaguara IJC",
+        "Alfaguara Infantil y Juvenil",
+        "Alfaguara Juvenil"
+      ]
+    },
+    {
+      "slug": "suma-de-letras",
+      "aliases": [
+        "Suma",
+        "SUMA"
+      ]
+    }
+  ],
+  "amazon_price_refresh": {
+    "enabled": true,
+    "requests_per_day": 100,
+    "notes": "Solo Creators API, ISBN o ASIN verificado, EUR y compra nueva. Una denegación detiene el lote; se vuelve a comprobar al día siguiente. No se publican precios sin respuesta válida."
+  },
+  "ratings_refresh": {
+    "enabled": true,
+    "goodreads_requests_per_day": 100,
+    "google_books_requests_per_day": 40,
+    "hardcover_requests_per_day": 40,
+    "notes": "Hasta 100 consultas públicas por ISBN a Goodreads y 40 por API a Google Books y Hardcover; estas dos APIs solo se consultan si tienen su secreto. Cada valoración identifica su proveedor. No se consultan reseñas ni bibliotecas personales. Un proveedor indisponible o limitado se detiene hasta la siguiente ejecución, conservando los datos y sus fechas reales."
+  },
+  "author_wikipedia": {
+    "enabled": true,
+    "requests_per_run": 10,
+    "notes": "Biografía breve de Wikipedia (es) solo para autores bibliográficos sin ficha editorial; valida título exacto, ocupación y no desambiguación."
+  }
 }

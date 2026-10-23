@@ -657,10 +657,10 @@
       "label": "Libros recomendados",
       "shortLabel": "Libros recomendados",
       "type": "article",
-      "territory": "cuaderno",
-      "parentId": "notebook-hub",
-      "hubId": "notebook-hub",
-      "discoverability": "secondary",
+      "territory": "recomendaciones",
+      "parentId": "home",
+      "hubId": "recommendations-hub",
+      "discoverability": "primary",
       "footerEligible": true,
       "audience": [
         "reader"
@@ -676,9 +676,9 @@
       "label": "Libros con magia con coste",
       "shortLabel": "Libros con magia con coste",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "contextual",
       "audience": [
         "reader"
@@ -694,9 +694,9 @@
       "label": "Portal fantasy en español",
       "shortLabel": "Portal fantasy en español",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "contextual",
       "audience": [
         "reader"
@@ -1130,7 +1130,7 @@
       "shortLabel": "Editoriales",
       "type": "directory",
       "territory": "herramientas",
-      "parentId": "tools-hub",
+      "parentId": "recommendations-hub",
       "hubId": "tools-hub",
       "discoverability": "secondary",
       "footerEligible": true,
@@ -1212,16 +1212,17 @@
       "jobs": [
         "entender-metodologia"
       ],
-      "sourceFile": "metodologia-editorial/index.html"
+      "sourceFile": "metodologia-editorial/index.html",
+      "footerEligible": true
     },
     {
       "id": "opportunities",
       "url": "/convocatorias-escritores/",
-      "label": "Convocatorias para escritores",
-      "shortLabel": "Convocatorias",
+      "label": "Concursos y convocatorias para escritores",
+      "shortLabel": "Concursos",
       "type": "directory",
       "territory": "herramientas",
-      "parentId": "tools-hub",
+      "parentId": "recommendations-hub",
       "hubId": "tools-hub",
       "discoverability": "secondary",
       "footerEligible": true,
@@ -1344,7 +1345,7 @@
     {
       "id": "press",
       "url": "/prensa.html",
-      "label": "Prensa y kit de prensa",
+      "label": "Prensa y materiales",
       "shortLabel": "Prensa",
       "type": "press",
       "territory": "prensa-eventos",
@@ -4078,9 +4079,9 @@
       "label": "Coraline",
       "shortLabel": "Coraline",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4096,9 +4097,9 @@
       "label": "La hipótesis más peligrosa",
       "shortLabel": "La hipótesis más peligrosa",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4114,9 +4115,9 @@
       "label": "Otros mundos (El Talismán 3)",
       "shortLabel": "Otros mundos (El Talismán 3)",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4132,9 +4133,9 @@
       "label": "La hija del veneno",
       "shortLabel": "La hija del veneno",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4150,9 +4151,9 @@
       "label": "Plaza Brugmann, 33",
       "shortLabel": "Plaza Brugmann, 33",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4168,9 +4169,9 @@
       "label": "El vuelo de los gansos",
       "shortLabel": "El vuelo de los gansos",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4186,9 +4187,9 @@
       "label": "Mi amor no muere",
       "shortLabel": "Mi amor no muere",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4204,9 +4205,9 @@
       "label": "El linaje de Pierre",
       "shortLabel": "El linaje de Pierre",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4222,9 +4223,9 @@
       "label": "Tor",
       "shortLabel": "Tor",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4240,9 +4241,9 @@
       "label": "Canción de amor definitiva",
       "shortLabel": "Canción de amor definitiva",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4258,9 +4259,9 @@
       "label": "Esas muchachas que escriben poemas",
       "shortLabel": "Esas muchachas que escriben poemas",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4276,9 +4277,9 @@
       "label": "La Risa de mi vida",
       "shortLabel": "La Risa de mi vida",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4294,9 +4295,9 @@
       "label": "Los escalones",
       "shortLabel": "Los escalones",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4312,9 +4313,9 @@
       "label": "La merma",
       "shortLabel": "La merma",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4330,9 +4331,9 @@
       "label": "La Casa de la Ciénaga (Serie Slow Horses 7)",
       "shortLabel": "La Casa de la Ciénaga (Serie Slow Horses 7)",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4348,9 +4349,9 @@
       "label": "La luz y el hilo (Láurea)",
       "shortLabel": "La luz y el hilo (Láurea)",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4366,9 +4367,9 @@
       "label": "Resistencia biológica",
       "shortLabel": "Resistencia biológica",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4384,9 +4385,9 @@
       "label": "Sácate a esa persona de la cabeza",
       "shortLabel": "Sácate a esa persona de la cabeza",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4402,9 +4403,9 @@
       "label": "La historia de Romana y Uliana (Amadoca 1)",
       "shortLabel": "La historia de Romana y Uliana (Amadoca 1)",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4420,9 +4421,9 @@
       "label": "Mamá necesita un respiro",
       "shortLabel": "Mamá necesita un respiro",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4438,9 +4439,9 @@
       "label": "Más Simple",
       "shortLabel": "Más Simple",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4456,9 +4457,9 @@
       "label": "Muérdelo",
       "shortLabel": "Muérdelo",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4474,9 +4475,9 @@
       "label": "Cómete la vida a bocados con Pausa y Plato",
       "shortLabel": "Cómete la vida a bocados con Pausa y Plato",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4492,9 +4493,9 @@
       "label": "20 minutos ¡y listo!",
       "shortLabel": "20 minutos ¡y listo!",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4510,9 +4511,9 @@
       "label": "La fibra es la solución",
       "shortLabel": "La fibra es la solución",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4528,9 +4529,9 @@
       "label": "Barbacoa",
       "shortLabel": "Barbacoa",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4541,14 +4542,680 @@
       "sourceFile": "recomendaciones/libros/barbacoa-9788425374012/index.html"
     },
     {
+      "id": "reading-book-isbn-9791387975340",
+      "url": "/recomendaciones/libros/un-dia-en-la-vida-de-clarita-9791387975340/",
+      "label": "Un día en la vida de Clarita",
+      "shortLabel": "Un día en la vida de Clarita",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/un-dia-en-la-vida-de-clarita-9791387975340/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788401039836",
+      "url": "/recomendaciones/libros/familia-contamos-nuestra-historia-me-cuentas-tu-historia-9788401039836/",
+      "label": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?)",
+      "shortLabel": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/familia-contamos-nuestra-historia-me-cuentas-tu-historia-9788401039836/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788410466470",
+      "url": "/recomendaciones/libros/el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6-9788410466470/",
+      "label": "El ojo de la novia frenopática (Carl el Mazmorrero 6)",
+      "shortLabel": "El ojo de la novia frenopática (Carl el Mazmorrero 6)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6-9788410466470/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788401037917",
+      "url": "/recomendaciones/libros/las-pruebas-del-tarot-9788401037917/",
+      "label": "Las Pruebas del Tarot",
+      "shortLabel": "Las Pruebas del Tarot",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/las-pruebas-del-tarot-9788401037917/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788401031380",
+      "url": "/recomendaciones/libros/bajamar-9788401031380/",
+      "label": "Bajamar",
+      "shortLabel": "Bajamar",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/bajamar-9788401031380/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788430629664",
+      "url": "/recomendaciones/libros/los-pilares-de-la-historia-9788430629664/",
+      "label": "Los pilares de la historia",
+      "shortLabel": "Los pilares de la historia",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/los-pilares-de-la-historia-9788430629664/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788491058298",
+      "url": "/recomendaciones/libros/1984-edicion-especial-limitada-con-cantos-tintados-9788491058298/",
+      "label": "1984 (edición especial limitada con cantos tintados)",
+      "shortLabel": "1984 (edición especial limitada con cantos tintados)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/1984-edicion-especial-limitada-con-cantos-tintados-9788491058298/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9780241847640",
+      "url": "/recomendaciones/libros/hace-ruido-o-es-silencioso-enciclomini-9780241847640/",
+      "label": "¿Hace ruido o es silencioso? (Enciclomini)",
+      "shortLabel": "¿Hace ruido o es silencioso? (Enciclomini)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/hace-ruido-o-es-silencioso-enciclomini-9780241847640/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9780241847633",
+      "url": "/recomendaciones/libros/da-miedo-o-no-da-miedo-enciclomini-9780241847633/",
+      "label": "¿Da miedo o no da miedo? (Enciclomini)",
+      "shortLabel": "¿Da miedo o no da miedo? (Enciclomini)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/da-miedo-o-no-da-miedo-enciclomini-9780241847633/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788402431936",
+      "url": "/recomendaciones/libros/ibanez-mitico-2-el-preboste-de-seguridad-9788402431936/",
+      "label": "Ibáñez Mítico 2 - El preboste de seguridad",
+      "shortLabel": "Ibáñez Mítico 2 - El preboste de seguridad",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/ibanez-mitico-2-el-preboste-de-seguridad-9788402431936/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791388092053",
+      "url": "/recomendaciones/libros/menu-del-dia-mesa-y-mantel-9791388092053/",
+      "label": "Menú del día (Mesa y mantel)",
+      "shortLabel": "Menú del día (Mesa y mantel)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/menu-del-dia-mesa-y-mantel-9791388092053/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788403526853",
+      "url": "/recomendaciones/libros/treinta-y-cuatro-9788403526853/",
+      "label": "Treinta y cuatro",
+      "shortLabel": "Treinta y cuatro",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/treinta-y-cuatro-9788403526853/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387994303",
+      "url": "/recomendaciones/libros/me-llamo-goa-12-eres-unica-goa-9791387994303/",
+      "label": "Me llamo Goa 12 - ¡Eres única, Goa!",
+      "shortLabel": "Me llamo Goa 12 - ¡Eres única, Goa!",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/me-llamo-goa-12-eres-unica-goa-9791387994303/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387994532",
+      "url": "/recomendaciones/libros/amigos-de-verdad-9791387994532/",
+      "label": "Amigos de verdad",
+      "shortLabel": "Amigos de verdad",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/amigos-de-verdad-9791387994532/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788418967566",
+      "url": "/recomendaciones/libros/esmorzaret-mesa-y-mantel-9788418967566/",
+      "label": "Esmorzaret (Mesa y mantel)",
+      "shortLabel": "Esmorzaret (Mesa y mantel)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/esmorzaret-mesa-y-mantel-9788418967566/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387949938",
+      "url": "/recomendaciones/libros/alas-de-escarcha-y-oro-el-canto-del-cisne-9791387949938/",
+      "label": "Alas de escarcha y oro: El canto del cisne",
+      "shortLabel": "Alas de escarcha y oro: El canto del cisne",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/alas-de-escarcha-y-oro-el-canto-del-cisne-9791387949938/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9780241839362",
+      "url": "/recomendaciones/libros/antigua-roma-civilizaciones-antiguas-para-ninos-9780241839362/",
+      "label": "Antigua Roma (Civilizaciones antiguas para niños)",
+      "shortLabel": "Antigua Roma (Civilizaciones antiguas para niños)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/antigua-roma-civilizaciones-antiguas-para-ninos-9780241839362/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791388277030",
+      "url": "/recomendaciones/libros/juan-y-la-habichuela-magica-9791388277030/",
+      "label": "Juan y la habichuela mágica",
+      "shortLabel": "Juan y la habichuela mágica",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/juan-y-la-habichuela-magica-9791388277030/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788466396806",
+      "url": "/recomendaciones/libros/carrie-edicion-serie-9788466396806/",
+      "label": "Carrie (edición serie)",
+      "shortLabel": "Carrie (edición serie)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/carrie-edicion-serie-9788466396806/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9780241837986",
+      "url": "/recomendaciones/libros/lego-friends-lego-friends-rescatadoras-de-mascotas-fuga-de-conejitos-9780241837986/",
+      "label": "LEGO® Friends - LEGO Friends Rescatadoras de mascotas: ¡Fuga de conejitos!",
+      "shortLabel": "LEGO® Friends - LEGO Friends Rescatadoras de mascotas: ¡Fuga de conejitos!",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/lego-friends-lego-friends-rescatadoras-de-mascotas-fuga-de-conejitos-9780241837986/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788402431967",
+      "url": "/recomendaciones/libros/ansiedad-como-se-sale-de-aqui-9788402431967/",
+      "label": "Ansiedad. ¿Cómo se sale de aquí?",
+      "shortLabel": "Ansiedad. ¿Cómo se sale de aquí?",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/ansiedad-como-se-sale-de-aqui-9788402431967/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788403526761",
+      "url": "/recomendaciones/libros/sin-filtro-9788403526761/",
+      "label": "Sin filtro",
+      "shortLabel": "Sin filtro",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/sin-filtro-9788403526761/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387962050",
+      "url": "/recomendaciones/libros/para-dafne-2-9791387962050/",
+      "label": "Para Dafne 2",
+      "shortLabel": "Para Dafne 2",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/para-dafne-2-9791387962050/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788402431486",
+      "url": "/recomendaciones/libros/uketamo-abrazar-la-vida-tal-cual-viene-9788402431486/",
+      "label": "Uketamo. Abrazar la vida tal cual viene",
+      "shortLabel": "Uketamo. Abrazar la vida tal cual viene",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/uketamo-abrazar-la-vida-tal-cual-viene-9788402431486/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9780241837979",
+      "url": "/recomendaciones/libros/lego-ninjago-la-pluma-del-destino-el-ataque-del-guardian-de-los-pergaminos-9780241837979/",
+      "label": "LEGO® Ninjago - La pluma del destino: El ataque del guardián de los pergaminos",
+      "shortLabel": "LEGO® Ninjago - La pluma del destino: El ataque del guardián de los pergaminos",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/lego-ninjago-la-pluma-del-destino-el-ataque-del-guardian-de-los-pergaminos-9780241837979/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788403525238",
+      "url": "/recomendaciones/libros/el-alma-de-las-especias-9788403525238/",
+      "label": "El alma de las especias",
+      "shortLabel": "El alma de las especias",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/el-alma-de-las-especias-9788403525238/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791388092268",
+      "url": "/recomendaciones/libros/ponte-fino-9791388092268/",
+      "label": "Ponte fino",
+      "shortLabel": "Ponte fino",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/ponte-fino-9791388092268/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791388038280",
+      "url": "/recomendaciones/libros/cuando-tu-hijo-te-habla-peor-que-a-nadie-9791388038280/",
+      "label": "Cuando tu hijo te habla peor que a nadie",
+      "shortLabel": "Cuando tu hijo te habla peor que a nadie",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/cuando-tu-hijo-te-habla-peor-que-a-nadie-9791388038280/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788402431332",
+      "url": "/recomendaciones/libros/carino-y-este-recibo-9788402431332/",
+      "label": "Cariño, ¿y este recibo?",
+      "shortLabel": "Cariño, ¿y este recibo?",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/carino-y-este-recibo-9788402431332/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791388101700",
+      "url": "/recomendaciones/libros/lamu-no-08-17-9791388101700/",
+      "label": "Lamu nº 08/17",
+      "shortLabel": "Lamu nº 08/17",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/lamu-no-08-17-9791388101700/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788449346026",
+      "url": "/recomendaciones/libros/destroza-este-diario-diversion-extrema-9788449346026/",
+      "label": "Destroza este diario. Diversión EXTREMA",
+      "shortLabel": "Destroza este diario. Diversión EXTREMA",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/destroza-este-diario-diversion-extrema-9788449346026/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788408326427",
+      "url": "/recomendaciones/libros/magic-animals-misiones-especiales-2-el-templo-escondido-9788408326427/",
+      "label": "Magic Animals. Misiones especiales 2. El templo escondido",
+      "shortLabel": "Magic Animals. Misiones especiales 2. El templo escondido",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/magic-animals-misiones-especiales-2-el-templo-escondido-9788408326427/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788423441051",
+      "url": "/recomendaciones/libros/como-ganar-una-guerra-comercial-9788423441051/",
+      "label": "Cómo ganar una guerra comercial",
+      "shortLabel": "Cómo ganar una guerra comercial",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/como-ganar-una-guerra-comercial-9788423441051/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788467083330",
+      "url": "/recomendaciones/libros/corazon-de-silex-9788467083330/",
+      "label": "Corazón de sílex",
+      "shortLabel": "Corazón de sílex",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/corazon-de-silex-9788467083330/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788408326380",
+      "url": "/recomendaciones/libros/la-guerra-fria-contada-para-escepticos-9788408326380/",
+      "label": "La Guerra Fría contada para escépticos",
+      "shortLabel": "La Guerra Fría contada para escépticos",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-guerra-fria-contada-para-escepticos-9788408326380/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788467083354",
+      "url": "/recomendaciones/libros/la-vida-nueva-de-pedrito-de-andia-9788467083354/",
+      "label": "La vida nueva de Pedrito de Andía",
+      "shortLabel": "La vida nueva de Pedrito de Andía",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-vida-nueva-de-pedrito-de-andia-9788467083354/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788467083378",
+      "url": "/recomendaciones/libros/todo-bajo-control-menos-tu-9788467083378/",
+      "label": "Todo bajo control, menos tú",
+      "shortLabel": "Todo bajo control, menos tú",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/todo-bajo-control-menos-tu-9788467083378/index.html"
+    },
+    {
       "id": "reading-author-neil-gaiman",
       "url": "/recomendaciones/autores/neil-gaiman/",
       "label": "Neil Gaiman",
       "shortLabel": "Neil Gaiman",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4564,9 +5231,9 @@
       "label": "Arturo Pérez-Reverte",
       "shortLabel": "Arturo Pérez-Reverte",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4582,9 +5249,9 @@
       "label": "Peter Straub",
       "shortLabel": "Peter Straub",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4600,9 +5267,9 @@
       "label": "Sheila Masterson",
       "shortLabel": "Sheila Masterson",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4618,9 +5285,9 @@
       "label": "Alice Austen",
       "shortLabel": "Alice Austen",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4636,9 +5303,9 @@
       "label": "Ángel Boixadós",
       "shortLabel": "Ángel Boixadós",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4654,9 +5321,9 @@
       "label": "Roberto Saviano",
       "shortLabel": "Roberto Saviano",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4672,9 +5339,9 @@
       "label": "Anne Berest",
       "shortLabel": "Anne Berest",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4690,9 +5357,9 @@
       "label": "Carles Porta",
       "shortLabel": "Carles Porta",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4708,9 +5375,9 @@
       "label": "Jorge Martí Aguas",
       "shortLabel": "Jorge Martí Aguas",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4726,9 +5393,9 @@
       "label": "Alba Donati",
       "shortLabel": "Alba Donati",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4744,9 +5411,9 @@
       "label": "Jorge Bolaños",
       "shortLabel": "Jorge Bolaños",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4762,9 +5429,9 @@
       "label": "Sylvester Stallone",
       "shortLabel": "Sylvester Stallone",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4780,9 +5447,9 @@
       "label": "María Moreno",
       "shortLabel": "María Moreno",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4798,9 +5465,9 @@
       "label": "Mick Herron",
       "shortLabel": "Mick Herron",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4816,9 +5483,9 @@
       "label": "Han Kang",
       "shortLabel": "Han Kang",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4834,9 +5501,9 @@
       "label": "José Manuel Ruiz Lorenzo",
       "shortLabel": "José Manuel Ruiz Lorenzo",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4852,9 +5519,9 @@
       "label": "Michihito Sugawara",
       "shortLabel": "Michihito Sugawara",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4870,9 +5537,9 @@
       "label": "Sofía Andrujóvich",
       "shortLabel": "Sofía Andrujóvich",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4888,9 +5555,9 @@
       "label": "Inma Sáenz",
       "shortLabel": "Inma Sáenz",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4906,9 +5573,9 @@
       "label": "Yotam Ottolenghi",
       "shortLabel": "Yotam Ottolenghi",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4924,9 +5591,9 @@
       "label": "Stephen King",
       "shortLabel": "Stephen King",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4942,9 +5609,9 @@
       "label": "María Lo",
       "shortLabel": "María Lo",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4960,9 +5627,9 @@
       "label": "Juan Sánchez",
       "shortLabel": "Juan Sánchez",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4978,9 +5645,9 @@
       "label": "Jamie Oliver",
       "shortLabel": "Jamie Oliver",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4996,9 +5663,9 @@
       "label": "Kristen Stavridis",
       "shortLabel": "Kristen Stavridis",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -5007,6 +5674,980 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/autores/kristen-stavridis/index.html"
+    },
+    {
+      "id": "reading-author-rosa-montero",
+      "url": "/recomendaciones/autores/rosa-montero/",
+      "label": "Rosa Montero",
+      "shortLabel": "Rosa Montero",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/rosa-montero/index.html"
+    },
+    {
+      "id": "reading-author-elma-van-vliet",
+      "url": "/recomendaciones/autores/elma-van-vliet/",
+      "label": "Elma van Vliet",
+      "shortLabel": "Elma van Vliet",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/elma-van-vliet/index.html"
+    },
+    {
+      "id": "reading-author-matt-dinniman",
+      "url": "/recomendaciones/autores/matt-dinniman/",
+      "label": "Matt Dinniman",
+      "shortLabel": "Matt Dinniman",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/matt-dinniman/index.html"
+    },
+    {
+      "id": "reading-author-katee-robert",
+      "url": "/recomendaciones/autores/katee-robert/",
+      "label": "Katee Robert",
+      "shortLabel": "Katee Robert",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/katee-robert/index.html"
+    },
+    {
+      "id": "reading-author-ibon-martin",
+      "url": "/recomendaciones/autores/ibon-martin/",
+      "label": "Ibon Martín",
+      "shortLabel": "Ibon Martín",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/ibon-martin/index.html"
+    },
+    {
+      "id": "reading-author-javier-fernandez-sebastian",
+      "url": "/recomendaciones/autores/javier-fernandez-sebastian/",
+      "label": "Javier Fernández Sebastián",
+      "shortLabel": "Javier Fernández Sebastián",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/javier-fernandez-sebastian/index.html"
+    },
+    {
+      "id": "reading-author-george-orwell",
+      "url": "/recomendaciones/autores/george-orwell/",
+      "label": "George Orwell",
+      "shortLabel": "George Orwell",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/george-orwell/index.html"
+    },
+    {
+      "id": "reading-author-ingela-p-arrhenius",
+      "url": "/recomendaciones/autores/ingela-p-arrhenius/",
+      "label": "Ingela P. Arrhenius",
+      "shortLabel": "Ingela P. Arrhenius",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/ingela-p-arrhenius/index.html"
+    },
+    {
+      "id": "reading-author-francisco-ibanez",
+      "url": "/recomendaciones/autores/francisco-ibanez/",
+      "label": "Francisco Ibáñez",
+      "shortLabel": "Francisco Ibáñez",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/francisco-ibanez/index.html"
+    },
+    {
+      "id": "reading-author-lakshmi-aguirre",
+      "url": "/recomendaciones/autores/lakshmi-aguirre/",
+      "label": "Lakshmi Aguirre",
+      "shortLabel": "Lakshmi Aguirre",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/lakshmi-aguirre/index.html"
+    },
+    {
+      "id": "reading-author-carolina-lapausa",
+      "url": "/recomendaciones/autores/carolina-lapausa/",
+      "label": "Carolina Lapausa",
+      "shortLabel": "Carolina Lapausa",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/carolina-lapausa/index.html"
+    },
+    {
+      "id": "reading-author-miriam-tirado",
+      "url": "/recomendaciones/autores/miriam-tirado/",
+      "label": "Míriam Tirado",
+      "shortLabel": "Míriam Tirado",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/miriam-tirado/index.html"
+    },
+    {
+      "id": "reading-author-iris-perez-bonaventura",
+      "url": "/recomendaciones/autores/iris-perez-bonaventura/",
+      "label": "Iris Pérez-Bonaventura",
+      "shortLabel": "Iris Pérez-Bonaventura",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/iris-perez-bonaventura/index.html"
+    },
+    {
+      "id": "reading-author-marta-hortelano",
+      "url": "/recomendaciones/autores/marta-hortelano/",
+      "label": "Marta Hortelano",
+      "shortLabel": "Marta Hortelano",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/marta-hortelano/index.html"
+    },
+    {
+      "id": "reading-author-marta-morillo",
+      "url": "/recomendaciones/autores/marta-morillo/",
+      "label": "Marta Morillo",
+      "shortLabel": "Marta Morillo",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/marta-morillo/index.html"
+    },
+    {
+      "id": "reading-author-dk",
+      "url": "/recomendaciones/autores/dk/",
+      "label": "DK",
+      "shortLabel": "DK",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/dk/index.html"
+    },
+    {
+      "id": "reading-author-roald-dahl",
+      "url": "/recomendaciones/autores/roald-dahl/",
+      "label": "Roald Dahl",
+      "shortLabel": "Roald Dahl",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/roald-dahl/index.html"
+    },
+    {
+      "id": "reading-author-ruby-russo",
+      "url": "/recomendaciones/autores/ruby-russo/",
+      "label": "Ruby Russo",
+      "shortLabel": "Ruby Russo",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/ruby-russo/index.html"
+    },
+    {
+      "id": "reading-author-gemma-correll",
+      "url": "/recomendaciones/autores/gemma-correll/",
+      "label": "Gemma Correll",
+      "shortLabel": "Gemma Correll",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/gemma-correll/index.html"
+    },
+    {
+      "id": "reading-author-leslie-john",
+      "url": "/recomendaciones/autores/leslie-john/",
+      "label": "Leslie John",
+      "shortLabel": "Leslie John",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/leslie-john/index.html"
+    },
+    {
+      "id": "reading-author-kkam",
+      "url": "/recomendaciones/autores/kkam/",
+      "label": "KKAM",
+      "shortLabel": "KKAM",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/kkam/index.html"
+    },
+    {
+      "id": "reading-author-3-jokseom",
+      "url": "/recomendaciones/autores/3-jokseom/",
+      "label": "3_jokseom",
+      "shortLabel": "3_jokseom",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/3-jokseom/index.html"
+    },
+    {
+      "id": "reading-author-ana-galeote-frontelo",
+      "url": "/recomendaciones/autores/ana-galeote-frontelo/",
+      "label": "Ana Galeote Frontelo",
+      "shortLabel": "Ana Galeote Frontelo",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/ana-galeote-frontelo/index.html"
+    },
+    {
+      "id": "reading-author-jed-king",
+      "url": "/recomendaciones/autores/jed-king/",
+      "label": "Jed King",
+      "shortLabel": "Jed King",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/jed-king/index.html"
+    },
+    {
+      "id": "reading-author-jessica-ramos",
+      "url": "/recomendaciones/autores/jessica-ramos/",
+      "label": "Jessica Ramos",
+      "shortLabel": "Jessica Ramos",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/jessica-ramos/index.html"
+    },
+    {
+      "id": "reading-author-martin-berasategui",
+      "url": "/recomendaciones/autores/martin-berasategui/",
+      "label": "Martín Berasategui",
+      "shortLabel": "Martín Berasategui",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/martin-berasategui/index.html"
+    },
+    {
+      "id": "reading-author-david-de-jorge",
+      "url": "/recomendaciones/autores/david-de-jorge/",
+      "label": "David de Jorge",
+      "shortLabel": "David de Jorge",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/david-de-jorge/index.html"
+    },
+    {
+      "id": "reading-author-carlos-rodriguez-lorenzo",
+      "url": "/recomendaciones/autores/carlos-rodriguez-lorenzo/",
+      "label": "Carlos Rodríguez Lorenzo",
+      "shortLabel": "Carlos Rodríguez Lorenzo",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/carlos-rodriguez-lorenzo/index.html"
+    },
+    {
+      "id": "reading-author-angie-gil-ribera",
+      "url": "/recomendaciones/autores/angie-gil-ribera/",
+      "label": "Angie Gil Ribera",
+      "shortLabel": "Angie Gil Ribera",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/angie-gil-ribera/index.html"
+    },
+    {
+      "id": "reading-author-rumiko-takahashi",
+      "url": "/recomendaciones/autores/rumiko-takahashi/",
+      "label": "Rumiko Takahashi",
+      "shortLabel": "Rumiko Takahashi",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/rumiko-takahashi/index.html"
+    },
+    {
+      "id": "reading-author-keri-smith",
+      "url": "/recomendaciones/autores/keri-smith/",
+      "label": "Keri Smith",
+      "shortLabel": "Keri Smith",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/keri-smith/index.html"
+    },
+    {
+      "id": "reading-author-susanna-isern",
+      "url": "/recomendaciones/autores/susanna-isern/",
+      "label": "Susanna Isern",
+      "shortLabel": "Susanna Isern",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/susanna-isern/index.html"
+    },
+    {
+      "id": "reading-author-carles-dalmau",
+      "url": "/recomendaciones/autores/carles-dalmau/",
+      "label": "Carles Dalmau",
+      "shortLabel": "Carles Dalmau",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/carles-dalmau/index.html"
+    },
+    {
+      "id": "reading-author-soumaya-keynes-y-chad-p-bown",
+      "url": "/recomendaciones/autores/soumaya-keynes-y-chad-p-bown/",
+      "label": "Soumaya Keynes y Chad P. Bown",
+      "shortLabel": "Soumaya Keynes y Chad P. Bown",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/soumaya-keynes-y-chad-p-bown/index.html"
+    },
+    {
+      "id": "reading-author-emilia-landaluce",
+      "url": "/recomendaciones/autores/emilia-landaluce/",
+      "label": "Emilia Landaluce",
+      "shortLabel": "Emilia Landaluce",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/emilia-landaluce/index.html"
+    },
+    {
+      "id": "reading-author-rosa-belmonte",
+      "url": "/recomendaciones/autores/rosa-belmonte/",
+      "label": "Rosa Belmonte",
+      "shortLabel": "Rosa Belmonte",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/rosa-belmonte/index.html"
+    },
+    {
+      "id": "reading-author-juan-eslava-galan",
+      "url": "/recomendaciones/autores/juan-eslava-galan/",
+      "label": "Juan Eslava Galán",
+      "shortLabel": "Juan Eslava Galán",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/juan-eslava-galan/index.html"
+    },
+    {
+      "id": "reading-author-rafael-sanchez-mazas",
+      "url": "/recomendaciones/autores/rafael-sanchez-mazas/",
+      "label": "Rafael Sánchez Mazas",
+      "shortLabel": "Rafael Sánchez Mazas",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/rafael-sanchez-mazas/index.html"
+    },
+    {
+      "id": "reading-author-megan-maxwell",
+      "url": "/recomendaciones/autores/megan-maxwell/",
+      "label": "Megan Maxwell",
+      "shortLabel": "Megan Maxwell",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/megan-maxwell/index.html"
+    },
+    {
+      "id": "reading-publisher-aguilar",
+      "url": "/recomendaciones/editoriales/aguilar/",
+      "label": "Aguilar",
+      "shortLabel": "Aguilar",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/aguilar/index.html"
+    },
+    {
+      "id": "reading-publisher-bruguera",
+      "url": "/recomendaciones/editoriales/bruguera/",
+      "label": "Bruguera",
+      "shortLabel": "Bruguera",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/bruguera/index.html"
+    },
+    {
+      "id": "reading-publisher-debate",
+      "url": "/recomendaciones/editoriales/debate/",
+      "label": "Debate",
+      "shortLabel": "Debate",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/debate/index.html"
+    },
+    {
+      "id": "reading-publisher-destino-infantil-juvenil",
+      "url": "/recomendaciones/editoriales/destino-infantil-juvenil/",
+      "label": "Destino Infantil & Juvenil",
+      "shortLabel": "Destino Infantil & Juvenil",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/destino-infantil-juvenil/index.html"
+    },
+    {
+      "id": "reading-publisher-deusto",
+      "url": "/recomendaciones/editoriales/deusto/",
+      "label": "Deusto",
+      "shortLabel": "Deusto",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/deusto/index.html"
+    },
+    {
+      "id": "reading-publisher-distrito-manga",
+      "url": "/recomendaciones/editoriales/distrito-manga/",
+      "label": "Distrito Manga",
+      "shortLabel": "Distrito Manga",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/distrito-manga/index.html"
+    },
+    {
+      "id": "reading-publisher-dk",
+      "url": "/recomendaciones/editoriales/dk/",
+      "label": "DK",
+      "shortLabel": "DK",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/dk/index.html"
+    },
+    {
+      "id": "reading-publisher-ediciones-paidos",
+      "url": "/recomendaciones/editoriales/ediciones-paidos/",
+      "label": "Ediciones Paidós",
+      "shortLabel": "Ediciones Paidós",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/ediciones-paidos/index.html"
+    },
+    {
+      "id": "reading-publisher-penguin-bolsillo",
+      "url": "/recomendaciones/editoriales/penguin-bolsillo/",
+      "label": "Penguin Bolsillo",
+      "shortLabel": "Penguin Bolsillo",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/penguin-bolsillo/index.html"
+    },
+    {
+      "id": "reading-publisher-penguin-clasicos",
+      "url": "/recomendaciones/editoriales/penguin-clasicos/",
+      "label": "Penguin Clásicos",
+      "shortLabel": "Penguin Clásicos",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/penguin-clasicos/index.html"
+    },
+    {
+      "id": "reading-publisher-planeta-comic",
+      "url": "/recomendaciones/editoriales/planeta-comic/",
+      "label": "Planeta Cómic",
+      "shortLabel": "Planeta Cómic",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/planeta-comic/index.html"
+    },
+    {
+      "id": "reading-publisher-taurus",
+      "url": "/recomendaciones/editoriales/taurus/",
+      "label": "Taurus",
+      "shortLabel": "Taurus",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/taurus/index.html"
+    },
+    {
+      "id": "reading-publisher-vergara",
+      "url": "/recomendaciones/editoriales/vergara/",
+      "label": "Vergara",
+      "shortLabel": "Vergara",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/vergara/index.html"
+    },
+    {
+      "id": "reading-index-autores",
+      "url": "/recomendaciones/autores/",
+      "label": "Autores",
+      "shortLabel": "Autores",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/index.html"
+    },
+    {
+      "id": "reading-index-editoriales",
+      "url": "/recomendaciones/editoriales/",
+      "label": "Editoriales del catálogo",
+      "shortLabel": "Editoriales del catálogo",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/index.html"
     }
   ]
 }

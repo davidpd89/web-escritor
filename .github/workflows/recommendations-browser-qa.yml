@@ -12,6 +12,9 @@ on:
       - 'tests/test-reading-catalogue.py'
       - 'qa/reading-catalogue-browser.mjs'
       - 'qa/reading-commerce-browser.mjs'
+      - 'qa/reading-type-selector-browser.mjs'
+      - 'qa/reading-catalogue-v2-browser.mjs'
+      - 'qa/build-reading-scale-fixture.py'
       - 'assets/reading-market.json'
       - 'data/reading-authors.json'
       - 'qa/recommendations-browser.mjs'
@@ -78,6 +81,8 @@ jobs:
           node qa/reading-catalogue-browser.mjs
           node qa/reading-commerce-browser.mjs
           node qa/reading-intake-browser.mjs
+          node qa/reading-catalogue-v2-browser.mjs
+          node qa/reading-type-selector-browser.mjs
       - name: Install Lighthouse CI
         if: always()
         run: npm install --global @lhci/cli@0.15.1

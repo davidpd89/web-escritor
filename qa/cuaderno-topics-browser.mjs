@@ -98,10 +98,10 @@ async function assertCore(spec, page) {
   const badClasses = await page.locator('[class]').evaluateAll(nodes => [...new Set(nodes.flatMap(node => [...node.classList]).filter(cls => cls.startsWith('tool-') || cls === 'id-card' || cls === 'id-cards'))]);
   assert.deepEqual(badClasses, [], `${spec.key}: clases de Herramientas/ID cards residuales`);
 
-  const cuadernoExplore = page.locator('.explore-row[href="/cuaderno/"][data-preview="notebook-hub"]');
-  assert.equal(await cuadernoExplore.count(), 1, `${spec.key}: Cuaderno accesible desde Explorar`);
-  assert.equal(norm(await page.locator('[data-preview-label]').textContent()), 'Cuaderno', `${spec.key}: preview label`);
-  assert.equal(norm(await page.locator('[data-preview-copy]').textContent()), 'Archivo de artículos y catálogo de libros recomendados.', `${spec.key}: preview copy`);
+  // Cuaderno cuelga de Autor en el menú (sección propia desde el reordenado de menús).
+  const cuadernoExplore = page.locator('#explore-children-author a[href="/cuaderno/"]');
+  assert.equal(await cuadernoExplore.count(), 1, `${spec.key}: Cuaderno accesible desde Explorar (Autor)`);
+  assert.equal(norm(await cuadernoExplore.textContent()), 'Cuaderno', `${spec.key}: etiqueta de Cuaderno en Explorar`);
 
   const csp = await page.locator('meta[http-equiv="Content-Security-Policy"]').getAttribute('content');
   assert.ok(csp?.includes("connect-src 'none'"), `${spec.key}: CSP connect-src`);

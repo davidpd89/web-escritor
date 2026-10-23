@@ -4,6 +4,7 @@ import { chromium } from 'playwright';
 import { createServer } from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import { assertInitialHashNavigation } from './hash-scroll-browser.mjs';
 
 const ROOT = process.cwd();
 const MIME = new Map([
@@ -63,6 +64,7 @@ async function assertFocusInside(page, selector, presses = 8) {
 }
 
 try {
+  await assertInitialHashNavigation(browser, ORIGIN);
   {
     const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     const page = await context.newPage();

@@ -13,7 +13,7 @@ execFileSync(process.env.PYTHON || 'python', ['tests/test-reading-catalogue.py',
 const fixture = JSON.parse(await fs.readFile(fixturePath, 'utf8'));
 const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 try {
-  for (const width of [320, 390, 768, 1440]) {
+  for (const width of [320, 390, 768, 1024, 1440]) {
     const context = await browser.newContext({ viewport: { width, height: 1000 }, reducedMotion: 'reduce' });
     const page = await context.newPage();
     const errors = [];
@@ -23,17 +23,18 @@ try {
     assert.match(await page.locator('h1').innerText(), /Libros recomendados/);
     assert.equal(await page.locator('[data-catalogue-book]').count(), realCount);
     assert(await page.locator('[data-catalogue-empty]').isHidden());
-    assert.equal(await page.locator('.section-context__links a').count(), 2);
-    await page.locator('[data-filter="genero"]').selectOption('romantasy');
-    await page.locator('[data-filter="temporada"]').selectOption('halloween');
-    assert.equal(await page.locator('[data-catalogue-count]').innerText(), '0 libros');
+    assert.deepEqual(await page.locator('.section-context__links a').allInnerTexts(), ['Catálogo', 'Autores', 'Editoriales', 'Concursos']);
+    await page.locator('details[data-facet-group="genero"]').evaluate(d => { d.open = true; });
+    // Sin libros compatibles la opción queda desactivada en lugar de llevar a una página vacía.
+    assert(await page.locator('input[data-facet="genero"][value="romantasy"]').isDisabled());
+    await page.locator('input[data-facet="grupo"][value="cocina"]').check();
     await page.getByRole('button', { name: 'Restablecer' }).click();
-    assert.equal(await page.locator('[data-filter="genero"]').inputValue(), '');
-    await page.waitForFunction(n => document.querySelectorAll('[data-catalogue-book]:not([hidden])').length === n, realCount);
-    assert.equal(await page.locator('[data-catalogue-book]:visible').count(), realCount);
+    assert.equal(await page.locator('input[data-facet]:checked').count(), 0);
+    await page.waitForFunction(n => document.querySelectorAll('[data-catalogue-book]:not([hidden])').length === Math.min(n,24), realCount);
+    assert.equal(await page.locator('[data-catalogue-book]:visible').count(), Math.min(realCount,24));
     await page.getByRole('button', { name: 'Buscar libros', exact: true }).focus();
     await page.keyboard.press('Enter');
-    assert.equal(await page.locator('[data-catalogue-book]:visible').count(), realCount);
+    assert.equal(await page.locator('[data-catalogue-book]:visible').count(), Math.min(realCount,24));
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
     await page.evaluate(() => { document.activeElement?.blur(); window.scrollTo({ top: 0, behavior: 'instant' }); });
     await page.waitForFunction(() => window.scrollY === 0);
@@ -45,35 +46,24 @@ try {
     assert.deepEqual(errors, []);
     await context.close();
   }
-  // Real pilot: publisher cover, fixed MP3 and native disclosure sections.
+  // Real pilot: same purchase component and optional sections as other books.
   {
     const context = await browser.newContext({ viewport: { width: 390, height: 900 } });
     const page = await context.newPage();
     await page.goto(`${BASE}/recomendaciones/libros/coraline/`);
     assert.equal(await page.locator('main h1').innerText(), 'Coraline');
     await page.locator('.catalogue-book-cover').evaluate(img => img.decode());
-    const coverLink = page.getByRole('link', { name: 'Ver Coraline en Amazon', exact: true });
+    const coverLink = page.locator('.catalogue-cover-panel > a');
     assert.equal(await coverLink.getAttribute('href'), await page.locator('a[data-purchase-format="tapa-blanda"]').getAttribute('href'));
     assert.match(await coverLink.getAttribute('rel'), /sponsored/);
     await coverLink.focus();
     assert(await coverLink.evaluate(a => a === document.activeElement));
     assert.equal(await page.locator('[data-purchase-format]').count(), 4);
-    const audio = page.locator('audio');
-    assert.equal(await audio.getAttribute('preload'), 'none');
-    await audio.evaluate(element => element.load());
-    await page.waitForFunction(() => document.querySelector('audio')?.duration > 0);
-    const duration = await audio.evaluate(element => element.duration);
-    assert(duration > 5 && duration < 90);
-    assert.match(await audio.locator('source').getAttribute('src'), /^\/assets\/reading-audio\/coraline-/);
-    const reviews = page.locator('details').filter({ has: page.locator('summary', { hasText: 'Reseñas externas' }) });
+    assert.equal(await page.locator('audio,[data-catalogue-speak],.catalogue-fragment').count(), 0, 'No non-scalable audio or sample UI');
+    const reviews = page.locator('details').filter({ has: page.locator('summary', { hasText: 'Opiniones y referencias externas' }) });
     assert.equal(await reviews.getAttribute('open'), null);
     await reviews.locator('summary').click();
     assert(await reviews.locator('a').first().isVisible());
-    const sample = page.locator('details').filter({ has: page.locator('summary', { hasText: 'Leer un fragmento' }) });
-    await sample.locator('summary').focus();
-    await page.keyboard.press('Enter');
-    assert(await sample.locator('a').isVisible());
-    assert(await page.locator('[data-catalogue-description]').evaluate(el => !!(el.compareDocumentPosition(document.querySelector('.catalogue-fragment')) & Node.DOCUMENT_POSITION_FOLLOWING)));
     assert(!/Voz sintética|Esta comprobación no implica|compras adscritas/.test(await page.locator('main').innerText()));
     await page.screenshot({ path: `${OUT}/coraline-mobile.png`, fullPage: true });
     await context.close();
@@ -105,11 +95,11 @@ try {
   await page.clock.install({ time: new Date('2026-10-20T12:00:00Z') });
   await page.goto(`${BASE}/recomendaciones/`);
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 2);
-  await page.locator('[data-filter="genero"]').selectOption('romantasy');
-  await page.locator('[data-filter="temporada"]').selectOption('halloween');
+  await page.locator('details[data-facet-group="genero"]').evaluate(d => { d.open = true; }); await page.locator('details[data-facet-group="temporada"]').evaluate(d => { d.open = true; }); await page.locator('input[data-facet="genero"][value="romantasy"]').check();
+  await page.locator('input[data-facet="temporada"][value="halloween"]').check();
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
   const href = await page.locator('[data-catalogue-book]:visible h3 a').getAttribute('href');
-  await page.locator('[data-filter="genero"]').selectOption('fantasia');
+  await page.locator('input[data-facet="genero"][value="romantasy"]').uncheck(); await page.locator('input[data-facet="genero"][value="fantasia"]').check();
   assert.equal(await page.locator('[data-catalogue-book]:visible h3 a').getAttribute('href'), href);
   await page.locator('[data-filter="q"]').fill('TITULO');
   await page.locator('[data-filter="q"]').press('Enter');
@@ -134,32 +124,20 @@ try {
   await page.screenshot({ path: `${OUT}/book-fixture-mobile.png`, fullPage: true });
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.screenshot({ path: `${OUT}/book-fixture-desktop.png`, fullPage: true });
-  await page.addInitScript(() => {
-    window.SpeechSynthesisUtterance = class { constructor(text) { this.text = text; } };
-    Object.defineProperty(window, 'speechSynthesis', { value: {
-      cancel() { window.__stopped = true; },
-      speak(utterance) { window.__spoken = utterance.text; }
-    }, configurable: true });
-  });
   await page.reload();
-  await page.getByRole('button', { name: 'Escuchar descripción' }).click();
-  assert.match(await page.evaluate(() => window.__spoken), /Descripción original/);
-  assert(await page.getByRole('button', { name: 'Escuchar descripción' }).isDisabled());
-  await page.getByRole('button', { name: 'Detener lectura' }).click();
-  assert(await page.getByRole('button', { name: 'Escuchar descripción' }).isEnabled());
-  assert.match(await page.locator('[data-catalogue-speech-status]').innerText(), /detenida/);
+  assert.equal(await page.locator('[data-catalogue-speak],audio,.catalogue-fragment').count(),0);
   await context.close();
   const nojs = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 900 } });
   const staticPage = await nojs.newPage();
   await staticPage.goto(`${BASE}/recomendaciones/`);
   assert(await staticPage.locator('a[href="/recomendaciones/libros/coraline/"]').first().isVisible());
-  assert(await staticPage.locator('[data-filter="genero"]').isDisabled());
+  assert(await staticPage.locator('input[data-facet="genero"]').first().isDisabled());
   await nojs.route('**/recomendaciones/', route => route.fulfill({ contentType: 'text/html; charset=utf-8', body: fixture.hub }));
   await staticPage.reload();
   assert.equal(await staticPage.locator('[data-catalogue-book]').count(), 2);
   assert.equal(await staticPage.locator('[data-catalogue-book] h3 a').first().getAttribute('href'), href);
   await nojs.close();
-  console.log('PASS catálogo navegador: 4 tamaños, vacío real, filtros combinados, URL única, teclado, novedades, fichas y sin JS.');
+  console.log('PASS catálogo navegador: 5 tamaños, vacío real, filtros combinados, URL única, teclado, novedades, fichas y sin JS.');
 } finally {
   await browser.close();
 }
