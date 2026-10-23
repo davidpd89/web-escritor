@@ -37,6 +37,21 @@ class PlanetaSourceTests(unittest.TestCase):
             with self.subTest(old=old), self.assertRaises(SourceError):
                 planeta_edition(PAGE.replace(old, new), URL)
 
+    def test_canonical_reordering_cannot_hide_conflicting_edition(self):
+        original = f'<link rel="canonical" href="{URL}"/>'
+        self.assertIn(original, PAGE)
+        mismatched = PAGE.replace(original, '<link href="https://www.planetadelibros.com/libro-cosamala/999999" rel="canonical"/>', 1)
+        with self.assertRaises(SourceError):
+            planeta_edition(mismatched, URL)
+        reordered_valid = PAGE.replace(original, f"<link href='{URL}' REL='canonical'/>", 1)
+        self.assertEqual(planeta_edition(reordered_valid, URL)['isbn13'], '9788432251436')
+        duplicate = PAGE.replace(original, original + original, 1)
+        with self.assertRaises(SourceError):
+            planeta_edition(duplicate, URL)
+        missing_href = PAGE.replace(original, '<link rel="canonical"/>', 1)
+        with self.assertRaises(SourceError):
+            planeta_edition(missing_href, URL)
+
     def test_rejects_catalan_edition(self):
         catalan = ('Una novel·la que els lectors no podran deixar perquè amb aquesta història els personatges també ' * 3)
         start = PAGE.find('<article>')

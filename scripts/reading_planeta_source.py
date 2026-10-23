@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import html
 import re
+from html.parser import HTMLParser
 from decimal import Decimal, InvalidOperation
 from urllib.parse import urljoin, urlsplit
 
@@ -25,6 +26,27 @@ MONTHS = {'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4, 'mayo': 5, 'junio': 
           'septiembre': 9, 'setiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12}
 SPANISH = {'el', 'la', 'los', 'las', 'una', 'del', 'que', 'con', 'por', 'para', 'sus', 'pero', 'como', 'más', 'su', 'se', 'en', 'y'}
 CATALAN = {'els', 'les', 'amb', 'dels', 'però', 'una', 'del', 'que', 'per', 'aquest', 'aquesta', 'també', 'com', 'més', 'seva', 'seus', 'i', 'és'}
+
+
+class _CanonicalLinks(HTMLParser):
+    """Read canonical link attributes without relying on HTML attribute order."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.urls: list[str | None] = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag != 'link':
+            return
+        values = dict(attrs)
+        if 'canonical' in (values.get('rel') or '').casefold().split():
+            self.urls.append(values.get('href'))
+
+
+def canonical_urls(document: str) -> list[str | None]:
+    parser = _CanonicalLinks()
+    parser.feed(document)
+    return parser.urls
 
 
 def _text(fragment: str) -> str:
@@ -86,8 +108,8 @@ def planeta_edition(document: str, source: str) -> dict:
     path = PRODUCT_PATH.fullmatch(parts.path) if parts.hostname == HOST else None
     if not path:
         raise SourceError('Ficha de Planeta no reconocida')
-    canonical = re.search(r'<link[^>]*rel="canonical"[^>]*href="([^"]+)"', document)
-    if canonical and canonical.group(1).rstrip('/') != source.rstrip('/'):
+    canonicals = canonical_urls(document)
+    if len(canonicals) > 1 or (canonicals and (not canonicals[0] or canonicals[0].rstrip('/') != source.rstrip('/'))):
         raise SourceError('La ficha no conserva la edición canónica esperada')
     h1 = re.search(r'<h1[^>]*>(.*?)</h1>', document, re.S)
     title = _text(h1.group(1)) if h1 else ''
