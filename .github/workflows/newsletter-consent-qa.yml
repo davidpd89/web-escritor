@@ -12,9 +12,13 @@ on:
       - 'fragmento/**'
       - 'las-manecillas-del-recuerdo/**'
       - 'cuaderno/**'
+      - 'recomendaciones/**'
+      - 'universo/noveris/**'
+      - 'clubes-de-lectura/**'
       - 'privacidad.html'
       - 'tests/test-newsletter-client-contract.mjs'
       - 'qa/newsletter-consent-browser.mjs'
+      - 'qa/newsletter-popup-persistence-browser.mjs'
       - '.github/workflows/newsletter-consent-qa.yml'
   workflow_dispatch:
 
@@ -76,3 +80,6 @@ jobs:
         env:
           QA_ORIGIN: http://127.0.0.1:4173
         run: node qa/newsletter-consent-browser.mjs
+
+      - name: Run popup persistence browser contract
+        run: node qa/newsletter-popup-persistence-browser.mjs
