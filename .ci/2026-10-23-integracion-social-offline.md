@@ -37,3 +37,15 @@ Fijar DID/ID reales; export real de Metricool; decidir ubicación del JSON y UI 
 - Identidad errónea: ambas fuentes rechazadas; con todas caídas sale rc=1, conserva el fichero y el lector lo oculta a las 48 h.
 - Defecto corregido: con valores iguales `observed_at` cambiaba y el fichero se reescribía en cada ejecución; ahora solo se reescribe si cambia el contenido o pasan 6 h (para renovar la caducidad). 2 pruebas.
 - Metricool: sin export real ni conector accesible desde esta sesión -> **verificación real pendiente**; solo fixture sintético.
+
+## Turno 2 (2026-10-23): actualizacion automatica sin tokens de IA
+
+**Metodo confirmado**: MCP oficial de Metricool (OAuth 2.1, PKCE, cliente publico, refresh token) con cliente Python estandar (`gpt_metricool_mcp.py`), sin LLM. Edge/CDP NO hicieron falta (login en el navegador por defecto, puertos 53682-53699). Credenciales solo en `%LOCALAPPDATA%\web-escritor-social\` (fuera del repo).
+
+**Piezas**: `gpt_metricool_live.py` (lectura + verificacion de identidad por handle), `gpt_social_snapshot.py --metricool-live` (ventana de 6 h sin reescritura), `gpt_social_refresh.py` (lock, reintentos 30s/2m/5m, log, status.json, rc 2 = reautenticar, `--publish` opcional), `install-social-refresh-task.ps1` (tarea cada 6 h + al iniciar sesion + recuperar ejecuciones perdidas), pagina `/redes-sociales/`.
+
+**Verificado**: lectura real Metricool (4 redes), Bluesky y Mastodon; 6/6 normalizadas; 2a ejecucion = `unchanged`; tests Python gpt_* 235 OK; Node social OK; discoverability OK; pagina en 1280 y 360 px sin errores. Tests nuevos: `tests/test_gpt_social_refresh.py` (identidad, reauth, lock, reintento, lector identico, sin IDs privados).
+
+**No verificado / pendiente**: tarea programada NO instalada (decision del usuario); `--publish` no probado contra GitHub; main sin proteccion, `deploy-pages` se dispara en cada push a main (max ~4/dia con ventana de 6 h); GitHub Actions no puede ejecutarlo sin guardar el refresh token como secret (no autorizado). Con el PC apagado no hay actualizacion; al encender, `StartWhenAvailable` recupera. El JSON caduca a las 48 h en el lector (oculta datos viejos).
+
+**Uso**: `python scripts/research/gpt_metricool_mcp.py login` (una vez); `gpt_social_refresh.py [--publish]`; `--status`; `install-social-refresh-task.ps1 install|remove|status|run`; log en `refresh.log` del directorio de estado.

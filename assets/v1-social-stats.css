@@ -1,0 +1,10 @@
+/* Panel /redes-sociales/: capa local, solo enlazada desde esa página. */
+html.v1 [data-family="redes-sociales"] .social-grid{list-style:none;margin:0;padding:0;display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),1fr))}
+html.v1 [data-family="redes-sociales"] .social-card{padding:var(--space-4);border:1px solid var(--color-border);background:var(--surface-quiet)}
+html.v1 [data-family="redes-sociales"] .social-card__name{margin:0 0 var(--space-2);font:600 1.1rem/1.3 var(--font-ui)}
+html.v1 [data-family="redes-sociales"] .social-card__count{margin:0;font:600 1.5rem/1.2 var(--font-display);color:var(--color-text)}
+html.v1 [data-family="redes-sociales"] .social-card__meta{margin:var(--space-2) 0 0;font:400 .9rem/1.4 var(--font-ui);color:var(--color-muted)}
+html.v1 [data-family="redes-sociales"] .social-total{margin:var(--space-5) 0 0;font:600 1.05rem/1.5 var(--font-ui)}
+html.v1 [data-family="redes-sociales"] .social-note{max-width:68ch;margin:var(--space-4) 0 0;font:400 1rem/1.7 var(--font-reading);color:var(--color-muted)}
+html.v1 [data-family="redes-sociales"] .cuaderno-masthead h1{color:#1d4f96}
+html.v1 [data-family="redes-sociales"] .eyebrow{color:#b8860b}

@@ -62,6 +62,7 @@ PUBLIC_DIR_PREFIXES = (
     "press-kit/",
     "recomendaciones/",
     "recursos/",
+    "redes-sociales/",
     "universo/",
 )
 

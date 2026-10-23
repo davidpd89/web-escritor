@@ -25,7 +25,7 @@ function instant(value) {
 /** Return only fresh numbers; never surface profile URLs supplied in JSON. */
 export function visibleSocialMetrics(snapshot, nowMs = Date.now()) {
   const absent = {
-    networks: NETWORKS.map(id => ({id, followers: null, status: 'pending'})),
+    networks: NETWORKS.map(id => ({id, followers: null, observed_at: null, status: 'pending'})),
     totals: {follower_relationships: null, coverage: 0, eligible: NETWORKS.length},
   };
   if (!Number.isFinite(nowMs) || !snapshot || typeof snapshot !== 'object' ||
@@ -47,10 +47,13 @@ export function visibleSocialMetrics(snapshot, nowMs = Date.now()) {
         Number.isSafeInteger(row.followers) && row.followers >= 0 &&
         expires !== null && expires >= nowMs &&
         expires <= generated + MAX_SNAPSHOT_AGE_MS;
+    const observed = typeof row.observed_at === 'string' && /^\d{4}-\d{2}-\d{2}(T[\d:]{8}Z)?$/.test(row.observed_at)
+        ? row.observed_at : null;
     found.set(row.id, {id: row.id, followers: usable ? row.followers : null,
+                       observed_at: usable ? observed : null,
                        status: usable ? 'ok' : 'unavailable'});
   }
-  const networks = NETWORKS.map(id => found.get(id) ?? {id, followers: null, status: 'pending'});
+  const networks = NETWORKS.map(id => found.get(id) ?? {id, followers: null, observed_at: null, status: 'pending'});
   const fresh = networks.filter(row => row.followers !== null);
   const total = fresh.reduce((sum, row) => sum + row.followers, 0);
   return {

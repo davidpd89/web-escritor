@@ -75,6 +75,26 @@
       "sourceFile": "accesibilidad/index.html"
     },
     {
+      "id": "site-social-stats",
+      "url": "/redes-sociales/",
+      "label": "Redes sociales: seguidores verificados",
+      "shortLabel": "Redes sociales",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "home",
+      "hubId": "home",
+      "discoverability": "secondary",
+      "footerEligible": false,
+      "audience": [
+        "reader",
+        "press"
+      ],
+      "jobs": [
+        "redes-sociales"
+      ],
+      "sourceFile": "redes-sociales/index.html"
+    },
+    {
       "id": "site-privacy",
       "url": "/privacidad.html",
       "label": "Privacidad",

@@ -21,6 +21,7 @@ from pathlib import Path
 import sys
 
 import gpt_metricool_followers as metricool
+import gpt_metricool_live as metricool_live
 import gpt_social_bluesky as bluesky
 import gpt_social_compose as compose
 import gpt_social_mastodon as mastodon
@@ -44,6 +45,8 @@ def collect(args: argparse.Namespace, errors: list[str], now: datetime) -> list[
     }
     if args.metricool_export:
         jobs["metricool"] = lambda: metricool.normalize(load(args.metricool_export))
+    elif args.metricool_live:
+        jobs["metricool"] = lambda: metricool_live.read(now)
     sources = []
     for name, job in jobs.items():
         try:
@@ -106,6 +109,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--bluesky-fixture", type=Path)
     p.add_argument("--mastodon-fixture", type=Path)
     p.add_argument("--metricool-export", type=Path)
+    p.add_argument("--metricool-live", action="store_true",
+                   help="read Metricool through the authenticated official MCP (needs the one-time login)")
     p.add_argument("--expected-did")
     p.add_argument("--expected-mastodon-id")
     p.add_argument("--now", help="UTC ISO instant for reproducible runs (default: current time)")
