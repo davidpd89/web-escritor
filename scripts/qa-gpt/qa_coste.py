@@ -4,6 +4,7 @@ No inventa duraciones: usa los runs reales anteriores de cada workflow (mediana 
 reloj (startedAt->updatedAt), facturable (suma de minutos de cada job redondeados hacia arriba, como cobra GitHub) y cola (createdAt->startedAt).
 """
 import json, re, statistics, subprocess
+import qa_cobertura as cob
 from pathlib import Path
 import qa_lote as L
 
@@ -21,7 +22,7 @@ def jobs_de(texto):
 
 
 def _gh(*a):
-    r = subprocess.run(["gh", *a], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+    r = cob.run(["gh", *a], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
     if r.returncode: raise RuntimeError((r.stderr or r.stdout)[:200])
     return json.loads(r.stdout or "null")
 

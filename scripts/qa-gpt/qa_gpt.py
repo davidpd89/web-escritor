@@ -37,12 +37,15 @@ def now(): return _ahora().isoformat(timespec="seconds")
 def today(): return _ahora().date().isoformat()
 
 def sh(args, cwd=ROOT, check=True):
-    r = subprocess.run(args, cwd=cwd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    r = cob.run(args, cwd=cwd, capture_output=True, text=True, encoding="utf-8", errors="replace")
     if check and r.returncode:
         raise RuntimeError(f"{' '.join(map(str, args))[:120]}: {(r.stderr or r.stdout).strip()[:400]}")
     return r.stdout.strip()
 
-def git(*a, cwd=ROOT, check=True): return sh(["git", *a], cwd=cwd, check=check)
+def git(*a, cwd=ROOT, check=True):
+    if a and a[0] in ("fetch", "checkout", "reset", "commit", "merge", "rebase", "pull"): cob.olvidar_git()  # la historia pudo cambiar: la cache de lecturas ya no vale
+    if not check and cwd == ROOT and a and a[0] in ("log", "rev-list", "ls-files"): return cob._git(cwd, *a)  # lectura repetida: cache por (HEAD, origin/main, dia)
+    return sh(["git", *a], cwd=cwd, check=check)
 
 def db():
     STATE.mkdir(parents=True, exist_ok=True)
@@ -308,7 +311,7 @@ class RespuestaInvalida(ValueError):
     pass
 
 def existe_en_main(ruta):
-    return subprocess.run(["git", "cat-file", "-e", f"origin/main:{ruta}"], cwd=ROOT, capture_output=True).returncode == 0
+    return cob.run(["git", "cat-file", "-e", f"origin/main:{ruta}"], cwd=ROOT, capture_output=True).returncode == 0
 
 def validar_lectura(data, herramientas):
     """Una respuesta sin lectura verificable del repo se trata como INCOMPLETA (no se aceptan conjeturas)."""
@@ -349,9 +352,9 @@ def parche_aplica(m):
     if not re.match(r"^(\.github/workflows/[\w.-]+\.yml|(tests|qa)/[\w./-]+)$", rel) or ".." in rel: return f"ruta no permitida: {rel}"
     with tempfile.TemporaryDirectory() as td:
         env = {**os.environ, "GIT_INDEX_FILE": str(Path(td) / "idx")}
-        subprocess.run(["git", "read-tree", "origin/main"], cwd=ROOT, env=env, capture_output=True)
+        cob.run(["git", "read-tree", "origin/main"], cwd=ROOT, env=env, capture_output=True)
         pf = Path(td) / "p.diff"; pf.write_text(m["parche"], encoding="utf-8", newline="\n")
-        r = subprocess.run(["git", "apply", "--cached", "--check", str(pf)], cwd=ROOT, env=env, capture_output=True, text=True, encoding="utf-8", errors="replace")
+        r = cob.run(["git", "apply", "--cached", "--check", str(pf)], cwd=ROOT, env=env, capture_output=True, text=True, encoding="utf-8", errors="replace")
     return "OK" if r.returncode == 0 else f"NO APLICA: {r.stderr.strip()[:160]}"
 
 def guardar_respuesta(job, cid, texto):
@@ -541,7 +544,23 @@ def syntax_check(path):
     if path.suffix == ".py": sh([sys.executable, "-c", "import ast,sys;ast.parse(open(sys.argv[1],encoding='utf-8').read())", str(path)])
     else: sh(["node", "--check", str(path)])
 
+def reparar_perdidas(c):
+    """Una propuesta `preparada` cuyos ficheros no estan en el commit de su rama no es un test ejecutable (la perdio un rollback o un commit
+    interrumpido): vuelve a `aceptada` para que stage la prepare de nuevo desde su contenido guardado. Un solo proceso git para todas."""
+    ramas = {r["rama"]: r["sha"] for r in c.execute("SELECT rama,sha FROM ramas")}
+    props = [(r["id"], r["rama"], json.loads(r["datos"])) for r in c.execute("SELECT id,rama,datos FROM propuestas WHERE estado='preparada'") if r["rama"] in ramas]
+    pares = [(pid, f"{ramas[rama]}:{f['ruta']}") for pid, rama, d in props for f in d.get("ficheros_nuevos") or []]
+    if not pares: return 0
+    r = cob.run(["git", "cat-file", "--batch-check"], cwd=ROOT, input="".join(spec + "\n" for _, spec in pares), capture_output=True, text=True, encoding="utf-8", errors="replace")
+    sal = r.stdout.splitlines()
+    if r.returncode or len(sal) != len(pares): return 0  # sin certeza no se toca nada
+    perdidas = sorted({pid for (pid, _), ln in zip(pares, sal) if ln.endswith(" missing")})
+    for pid in perdidas: estado_prop(c, pid, "aceptada", "ficheros ausentes del commit de la rama: se prepara de nuevo", siguiente="reparada: pendiente de preparar otra vez")
+    if perdidas: c.commit(); print(f"  reparadas {len(perdidas)} propuestas sin fichero en su rama: {perdidas[:10]}")
+    return len(perdidas)
+
 def stage(c):
+    reparar_perdidas(c)
     rows = c.execute("SELECT * FROM propuestas WHERE estado='aceptada' ORDER BY area, id").fetchall()
     if not rows: print("Nada aceptado pendiente de preparar."); return
     base = git("rev-parse", "origin/main")
@@ -553,7 +572,7 @@ def stage(c):
             git("worktree", "add", "-b", branch, str(wt), base)
         done = []
         for r in [x for x in rows if x["area"] == area]:
-            d = json.loads(r["datos"]); created = []
+            d = json.loads(r["datos"]); created = []; nuevos = []
             try:
                 if d.get("tipo_propuesta") == "informe" or not d.get("ficheros_nuevos"):
                     estado_prop(c, r["id"], "informe", "informe sin fichero de test"); continue
@@ -565,7 +584,7 @@ def stage(c):
                     if ap != "OK": raise ValueError(f"parche de {m.get('ruta')}: {ap}")
                 for f in d["ficheros_nuevos"]:
                     p = wt / f["ruta"]; p.parent.mkdir(parents=True, exist_ok=True)
-                    p.write_text(f["contenido"], encoding="utf-8", newline="\n"); created.append(p); syntax_check(p)
+                    p.write_text(f["contenido"], encoding="utf-8", newline="\n"); created.append(p); nuevos.append(p); syntax_check(p)
                 for m in mods:
                     pf = wt.parent / f"{wt.name}-p{r['id']}.diff"; pf.write_text(m["parche"], encoding="utf-8", newline=chr(10))
                     try: git("apply", str(pf), cwd=wt)
@@ -576,7 +595,9 @@ def stage(c):
                 estado_prop(c, r["id"], "preparada", f"rama {branch} base {base[:8]} v{ver}", rama=branch, base_sha=base[:10], version_test=ver, siguiente="esperando `aprobar` + noche autorizada; NO ejecutado")
                 done.append(r["titulo"])
             except Exception as e:
-                git("reset", "-q", "--hard", cwd=wt, check=False); git("clean", "-fdq", cwd=wt, check=False)
+                # solo se deshace ESTA propuesta: un `reset --hard` borraba tambien las anteriores del area, ya marcadas preparadas pero aun sin commit
+                git("reset", "-q", "--", *[f["ruta"] for f in d.get("ficheros_nuevos") or []], cwd=wt, check=False)
+                for p in nuevos: p.unlink(missing_ok=True)
                 estado_prop(c, r["id"], "invalida", str(e)[:200], veredicto=str(e)[:300], siguiente="descartada: el diseño aceptado no se pudo preparar; `reabrir <id>` para nueva revision")
                 print(f"  invalida #{r['id']}: {e}")
         if done:
@@ -690,7 +711,7 @@ def cmd_status(a):
         except Exception: print("Lock del trabajador: ilegible")
     el = elegir_modo(c)
     print(f"Proxima ronda: {'modo ' + el[0] + ' -> ' + el[1] if el else 'todo en descanso'} (a partir de la hora de la tarea)")
-    print(f"Tests preparados (rama local, sin ejecutar): {q('SELECT COUNT(*) FROM propuestas WHERE estado=?', 'preparada')} | aprobados esperando noche: {q('SELECT COUNT(*) FROM propuestas WHERE estado=?', 'aprobada')} | ejecutados/validados: {q('SELECT COUNT(*) FROM propuestas WHERE estado IN (?,?)', 'ejecutada', 'publicada')}")
+    print(f"Tests preparados (rama local, sin ejecutar): {q('SELECT COUNT(*) FROM propuestas WHERE estado=?', 'preparada')} | aprobados esperando noche: {q('SELECT COUNT(*) FROM propuestas WHERE estado=?', 'aprobada')} (la aprobacion es el clic de EJECUTAR: antes es normal que sea 0) | ejecutados/validados: {q('SELECT COUNT(*) FROM propuestas WHERE estado IN (?,?)', 'ejecutada', 'publicada')}")
     vivas = set()
     for j in c.execute("SELECT payload FROM jobs WHERE estado IN ('pendiente','en_curso','manual') AND tipo IN ('B','R')"):
         p = json.loads(j[0]); vivas.update(p.get("ids") or [p.get("id")])
@@ -708,6 +729,64 @@ def cmd_status(a):
         sc, clave, pl = candidates(c, modo)[0]; print(f"  siguiente {modo:<9} {clave:<34} {'(en descanso)' if sc < 0 else f'prioridad {sc:.1f}'}")
     for r in c.execute("SELECT id,tipo,area,error FROM jobs WHERE estado='error' ORDER BY id DESC LIMIT 5"): print(f"  ERROR job{r[0]} {r[1]} {r[2]}: {r[3]}")
     import qa_lote; print(chr(10).join(qa_lote.bloque_estado(sys.modules[__name__], c)))
+
+SECRETOS = re.compile(r"(gh[pousr]_[A-Za-z0-9]{20,}|github_pat_\w{20,}|sk-[A-Za-z0-9_-]{20,}|Bearer\s+[A-Za-z0-9._~+/=-]{16,}|(?i:(?:token|secret|password|passwd|api[_-]?key|authorization)\s*[=:]\s*)\S+)")
+
+def texto_informe(c):
+    """Informe completo del estado en texto plano, pensado para pegar en ChatGPT. Sin listado de tecnicas (solo recuento) y sin secretos."""
+    import contextlib, io
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf): cmd_status(argparse.Namespace())
+    q = lambda sql, *p: c.execute(sql, p).fetchone()[0]
+    try: sv = json.loads(SVC.read_text(encoding="utf-8"))
+    except Exception: sv = {}
+    pid = trabajador_vivo(); ini = sv.get("inicio") or "9999"
+    n = lambda *es: q(f"SELECT COUNT(*) FROM propuestas WHERE estado IN ({','.join('?' * len(es))})", *es)
+    li = lambda *es: q(f"SELECT COUNT(*) FROM lote_items WHERE estado IN ({','.join('?' * len(es))})", *es)
+    hall = {r[0]: r[1] for r in c.execute("SELECT estado,COUNT(*) FROM hallazgos GROUP BY estado")} if c.execute("SELECT 1 FROM sqlite_master WHERE name='hallazgos'").fetchone() else {}
+    L = [f"INFORME QA-GPT web-escritor - {now()}", "",
+         "== METRICAS ==",
+         f"- Pruebas preparadas, sin ejecutar: {n('preparada', 'aprobada')}",
+         f"- Pruebas ejecutadas: {n('ejecutada', 'publicada')}",
+         f"- GitHub Actions aprobadas: {li('actions_ok')} (fallidas {li('actions_fallida')}, en curso {li('enviado', 'actions_pendiente', 'actions_ejecutando')})",
+         f"- Defectos de producto demostrados: {li('defecto_demostrado')} | posibles defectos a triar: {li('a_triar')}",
+         f"- Hallazgos de contratos masivos a revisar: {hall.get('a_triar', 0)} (defectos demostrados {hall.get('defecto_demostrado', 0)})",
+         f"- Consultas GPT en esta sesion: {q('SELECT COUNT(*) FROM peticiones WHERE hora>=?', ini)} (hoy {q('SELECT COUNT(*) FROM peticiones WHERE fecha=?', today())}, total {q('SELECT COUNT(*) FROM peticiones')})",
+         f"- Worker: {'activo, PID ' + str(pid) if pid else 'PARADO'}",
+         f"- Tecnicas registradas: {q('SELECT COUNT(*) FROM tecnicas')} (descubiertas por GPT {q('SELECT COUNT(*) FROM tecnicas WHERE origen=?', 'descubierta')}; no se listan)", "",
+         "== TESTS PENDIENTES (preparada/aprobada) POR RAMA =="]
+    ramas = c.execute("SELECT rama, COUNT(*) k FROM propuestas WHERE estado IN ('preparada','aprobada') GROUP BY rama ORDER BY rama").fetchall()
+    L += [f"- {r['rama'] or '(sin rama)'}: {r['k']}" for r in ramas] or ["(ninguno)"]
+    L += ["", "== ACTIONS EJECUTADAS =="]
+    acts = [f"- {r['rama']}@{r['sha'][:8]} [{r['estado']}] {', '.join(str(v.get('url') or v.get('id')) + ' ' + str(v.get('conclusion') or v.get('status') or '') for v in json.loads(r['runs'] or '{}').values())}"
+            for r in c.execute("SELECT rama,sha,estado,runs FROM lote_items WHERE runs LIKE '%\"id\"%' ORDER BY actualizado DESC")]
+    L += acts or ["(ninguna todavia)"]
+    L += ["", "== ERRORES =="]
+    errs = [f"- job{r['id']} {r['tipo']} {r['area']}: {(r['error'] or '')[:200]}" for r in c.execute("SELECT id,tipo,area,error FROM jobs WHERE estado='error' ORDER BY id DESC LIMIT 15")]
+    errs += [f"- {r['estado']} {r['rama']}@{r['sha'][:8]}: {(r['detalle'] or '')[:200]}" for r in c.execute("SELECT rama,sha,estado,detalle FROM lote_items WHERE estado IN ('infra','fallo_test','revision_humana','actions_fallida') ORDER BY actualizado DESC LIMIT 20")]
+    if sv.get("ultimo_error"): errs.append(f"- ultimo error del servicio: {str(sv['ultimo_error'])[:200]}")
+    L += errs or ["(ninguno)"]
+    L += ["", "== DEFECTOS DETECTADOS =="]
+    defs = [f"- {r['estado']} {r['rama'].replace('gpt-qa/', '')}@{r['sha'][:8]}: {(r['detalle'] or '')[:200]}" for r in c.execute("SELECT rama,sha,estado,detalle FROM lote_items WHERE estado IN ('defecto_demostrado','a_triar') ORDER BY estado, actualizado DESC LIMIT 30")]
+    defs += [f"- contrato a_triar [{r['contrato']}] {r['causa']} | {r['familia']} | {r['paginas']} pag." for r in c.execute("SELECT contrato,causa,familia,paginas FROM hallazgos WHERE estado='a_triar' ORDER BY paginas DESC LIMIT 15")] if hall else []
+    L += defs or ["(ninguno)"]
+    estado = [ln for ln in buf.getvalue().splitlines() if not ln.startswith("Tecnicas:")]
+    L += ["", "== SALIDA DE ESTADO-QA-GPT (sin listado de tecnicas) =="] + estado
+    return SECRETOS.sub("[SECRETO OCULTO]", "\n".join(L)) + "\n"
+
+def cmd_informe(a):
+    """`informe`: imprime el informe. `informe --copiar`: lo deja en el portapapeles (PowerShell Set-Clipboard, UTF-8) y comprueba que llego."""
+    texto = texto_informe(db())
+    if not a.copiar: print(texto); return 0
+    STATE.mkdir(parents=True, exist_ok=True); f = STATE / "informe-estado.txt"
+    f.write_text(texto, encoding="utf-8", newline="\r\n")
+    ps = lambda cmd: cob.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", "$ErrorActionPreference='Stop';[Console]::OutputEncoding=[Text.Encoding]::UTF8;" + cmd], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=60)
+    r = ps(f"Set-Clipboard -Value ([IO.File]::ReadAllText('{f}',[Text.Encoding]::UTF8))")
+    if r.returncode: print("No se pudo copiar:", (r.stderr or r.stdout).strip()[:300]); return 1
+    v = ps("Get-Clipboard -Raw")
+    n_cb = v.stdout.replace("\r\n", "\n").rstrip("\n"); n_tx = texto.rstrip("\n")
+    if v.returncode or n_cb != n_tx: print(f"COPIA NO VERIFICADA: portapapeles {len(n_cb)} caracteres, informe {len(n_tx)}. Fichero: {f}"); return 1
+    print(f"Informe copiado al portapapeles: {len(n_tx)} caracteres, {n_tx.count(chr(10)) + 1} lineas (verificado). Pegalo en ChatGPT con Ctrl+V.\nTambien guardado en {f}"); return 0
 
 def respaldar(c):
     """Copia consistente del estado fuera del repo (sqlite backup API); conserva las 7 ultimas."""
@@ -1038,8 +1117,8 @@ def cmd_nightly(a):
     git("fetch", "origin", "main"); repo = CFG["repo"]; out = []
     for r in ramas:
         wt = r["ruta"]
-        if subprocess.run(["git", "merge-base", "--is-ancestor", "origin/main", r["rama"]], cwd=ROOT).returncode:
-            if subprocess.run(["git", "rebase", "origin/main"], cwd=wt, capture_output=True, text=True).returncode:
+        if cob.run(["git", "merge-base", "--is-ancestor", "origin/main", r["rama"]], cwd=ROOT).returncode:
+            if cob.run(["git", "rebase", "origin/main"], cwd=wt, capture_output=True, text=True).returncode:
                 git("rebase", "--abort", cwd=wt, check=False); print(f"  CONFLICTO {r['rama']}: no se publica")
                 c.execute("UPDATE ramas SET estado='conflicto' WHERE rama=?", (r["rama"],)); c.commit(); continue
         sha = git("rev-parse", "HEAD", cwd=wt)
@@ -1127,6 +1206,7 @@ def main():
         return p
     add(["setup"], cmd_setup)
     add(["status", "estado"], cmd_status)
+    add(["informe"], cmd_informe, (["--copiar"], dict(action="store_true")))
     add(["pause", "pausa"], lambda a: cmd_flag("pause", True))
     add(["resume", "reanudar"], lambda a: (cmd_flag("pause", False), cmd_flag("stop", False)))
     add(["stop", "parar"], cmd_parar)

@@ -9,6 +9,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import qa_contratos
+import qa_cobertura as cob
 
 HERE = Path(__file__).parent
 ESTADOS = ("a_triar", "defecto_demostrado", "falso_positivo", "duplicado", "infra", "resuelto")
@@ -84,11 +85,11 @@ def navegador(c, q, root, por_familia=8, out=print, timeout=900):
     lista = elegir_navegador(c, root, por_familia); sal = q.STATE / "auditoria"; sal.mkdir(parents=True, exist_ok=True)
     (sal / "urls-navegador.json").write_text(json.dumps(lista), encoding="utf-8")
     puerto = _puerto(); sha = q.git("rev-parse", "HEAD", cwd=root, check=False).strip() or "?"
-    srv = subprocess.Popen([shutil.which("python") or "python", "-m", "http.server", str(puerto), "--bind", "127.0.0.1"], cwd=str(root), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    srv = cob.popen([shutil.which("python") or "python", "-m", "http.server", str(puerto), "--bind", "127.0.0.1"], cwd=str(root), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     try:
         time.sleep(1.5)
         env = {**os.environ, "QA_NODE_MODULES": NODE_MODULES}; res_f = sal / "navegador-ultimo.json"; res_f.unlink(missing_ok=True)
-        p = subprocess.run([node, str(HERE / "contratos_browser.mjs"), f"http://127.0.0.1:{puerto}", str(sal / "urls-navegador.json"), str(res_f)], env=env, capture_output=True, text=True, timeout=timeout)
+        p = cob.run([node, str(HERE / "contratos_browser.mjs"), f"http://127.0.0.1:{puerto}", str(sal / "urls-navegador.json"), str(res_f)], env=env, capture_output=True, text=True, timeout=timeout)
         if p.returncode != 0 or not res_f.exists(): out(f"Via A navegador: fallo de infraestructura: {(p.stderr or p.stdout)[-200:]}"); return None
     finally:
         srv.terminate()

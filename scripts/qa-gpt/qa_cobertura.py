@@ -3,7 +3,7 @@
 Todo se recalcula desde el repo (git ls-files) y se persiste en SQLite; nada esta fijado a una lista cerrada:
 las tecnicas semilla viven en config.json y GPT puede anadir nuevas (tabla `tecnicas`, origen 'descubierta').
 """
-import hashlib, json, re, subprocess, unicodedata
+import datetime as dt, hashlib, json, os, re, subprocess, unicodedata
 from pathlib import Path
 
 NO_FAMILIA = {"tests", "qa", ".github", "node_modules", "pagefind", "docs", "migrations", "video-ios-test", "artifacts", "_reddit", "_tools", "WEB DAVID PORTO nuevas ideas"}
@@ -15,9 +15,80 @@ GLOBAL_RE = re.compile(r"(rglob|glob\(|os\.walk|readdirSync|walk\(|\*\.html|\*\*
 STOP = set("para como este esta esos esas desde entre sobre cuando donde debe deben tiene tienen pero solo mismo todos todas test tests prueba".split())
 
 
+# ---------- procesos externos: sin ventana de consola y sin esperas ocultas ----------
+SIN_VENTANA = 0x08000000 if os.name == "nt" else 0  # CREATE_NO_WINDOW: el servicio corre sin consola (pythonw) y cada git abria su propia ventana negra
+_SIN_PROMPT = {"GIT_TERMINAL_PROMPT": "0", "GH_PROMPT_DISABLED": "1"}  # sin consola nadie vera un prompt de texto: que falle con error en vez de colgarse (el GCM grafico sigue saliendo)
+_GIT_QUIETO = ["-c", "gc.auto=0", "-c", "maintenance.auto=false"]  # fetch/merge no lanzan gc/maintenance en segundo plano (otra fuente de ventanas y de carga)
+
+
+def _preparar(args, kw):
+    kw.setdefault("creationflags", SIN_VENTANA)
+    if "input" not in kw: kw.setdefault("stdin", subprocess.DEVNULL)
+    exe = os.path.basename(str(args[0])).lower().removesuffix(".exe")
+    if exe in ("git", "gh"): kw["env"] = {**(kw.get("env") or os.environ), **_SIN_PROMPT}
+    if exe == "git" and "gc.auto=0" not in args: args = [args[0], *_GIT_QUIETO, *args[1:]]
+    return args, kw
+
+
+def run(args, **kw):
+    """subprocess.run sin ventana; la salida y los errores NO se ocultan (el llamador decide con returncode/stderr)."""
+    args, kw = _preparar(args, kw); return subprocess.run(args, **kw)
+
+
+def popen(args, **kw):
+    args, kw = _preparar(args, kw); return subprocess.Popen(args, **kw)
+
+
+# Lecturas de historial: se recuerdan por (HEAD, origin/main, dia). `git log/rev-list/ls-files` sobre la misma historia dan lo mismo,
+# asi ESTADO y el servicio no relanzan decenas de procesos git por cada familia y modo.
+_CACHE_DIR = Path(os.environ.get("QA_GPT_STATE", r"C:\GIT\qa-gpt-state"))
+_LEIBLES = {"log", "rev-list", "ls-files"}
+_mem, _cabezas = {}, {}
+
+
+def olvidar_git():
+    _mem.clear(); _cabezas.clear()
+
+
+def _cabeza(root):
+    k = str(root)
+    if k not in _cabezas:
+        r = run(["git", "rev-parse", "HEAD", "origin/main"], cwd=root, capture_output=True, text=True, encoding="utf-8", errors="replace")
+        _cabezas[k] = "|".join(r.stdout.split()) if r.returncode == 0 else None
+    return _cabezas[k]
+
+
 def _git(root, *a):
-    r = subprocess.run(["git", *a], cwd=root, capture_output=True, text=True, encoding="utf-8", errors="replace")
-    return r.stdout.strip()
+    """Salida de `git <a>` (vacia si falla). Las lecturas de historial usan la cache en memoria y en disco."""
+    cab = _cabeza(root) if a and a[0] in _LEIBLES else None
+    if cab:
+        vig = f"{dt.date.today()}|{cab}|{root}"; clave = f"{vig}|{a}"
+        if clave in _mem: return _mem[clave]
+        disco = _leer_disco(root, vig)
+        if clave in disco: _mem[clave] = disco[clave]; return disco[clave]
+    r = run(["git", *a], cwd=root, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    out = r.stdout.strip()
+    if cab and r.returncode == 0:
+        _mem[clave] = out; _guardar_disco(root, vig)
+    return out
+
+
+def _fichero_cache(root): return _CACHE_DIR / f"gitcache-{hashlib.sha1(str(root).encode()).hexdigest()[:8]}.json"
+
+
+def _leer_disco(root, vigencia):
+    try:
+        d = json.loads(_fichero_cache(root).read_text(encoding="utf-8"))
+        return d["datos"] if d.get("vigencia") == vigencia else {}
+    except Exception: return {}
+
+
+def _guardar_disco(root, vigencia):
+    try:
+        datos = {k: v for k, v in _mem.items() if k.startswith(vigencia + "|")}
+        f = _fichero_cache(root); tmp = f.with_suffix(f".{os.getpid()}.tmp"); _CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        tmp.write_text(json.dumps({"vigencia": vigencia, "datos": datos}), encoding="utf-8"); os.replace(tmp, f)
+    except Exception: pass
 
 
 def norm(s):

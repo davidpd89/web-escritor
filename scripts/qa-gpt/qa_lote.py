@@ -30,22 +30,29 @@ class Gh:
     """Fachada de `gh`/git remoto; todo fallo de red/API sale como GhError (transitorio)."""
     def __init__(self, q): self.q = q; self.repo = q.CFG["repo"]
     def _gh(self, *a):
-        r = subprocess.run(["gh", *a], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        r = cob.run(["gh", *a], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
         if r.returncode:
             msg = (r.stderr or r.stdout).strip()[:300]
             raise (GhAuthError if re.search(r"HTTP 40[13]|Bad credentials|auth login|not logged|Resource not accessible|must have admin|requires.*scope", msg, re.I) else GhError)(msg)
         return r.stdout
     def ok(self): self._gh("api", "user", "--jq", ".login"); return True
     def scopes(self):
-        r = subprocess.run(["gh", "auth", "status"], capture_output=True, text=True, encoding="utf-8", errors="replace")
-        m = re.search(r"Token scopes:\s*(.+)", r.stdout + r.stderr); return set(re.findall(r"[\w:]+", m.group(1))) if m else set()
-    def remote_sha(self, rama):
-        r = subprocess.run(["git", "ls-remote", "origin", f"refs/heads/{rama}"], cwd=self.q.ROOT, capture_output=True, text=True, timeout=120)
-        if r.returncode: raise GhError(r.stderr.strip()[:300])
-        return r.stdout.split()[0] if r.stdout.strip() else None
+        if getattr(self, "_scopes", None) is None:  # los permisos del token no cambian durante un lote
+            r = cob.run(["gh", "auth", "status"], capture_output=True, text=True, encoding="utf-8", errors="replace")
+            m = re.search(r"Token scopes:\s*(.+)", r.stdout + r.stderr); self._scopes = set(re.findall(r"[\w:]+", m.group(1))) if m else set()
+        return self._scopes
+    def remotos(self):
+        """Todas las ramas gpt-qa/* del remoto en UNA consulta (antes, una `ls-remote` por rama)."""
+        if getattr(self, "_remotos", None) is None:
+            r = cob.run(["git", "ls-remote", "origin", "refs/heads/gpt-qa/*"], cwd=self.q.ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+            if r.returncode: raise GhError(r.stderr.strip()[:300])
+            self._remotos = {ref.removeprefix("refs/heads/"): sha for sha, ref in (ln.split() for ln in r.stdout.splitlines() if ln.strip())}
+        return self._remotos
+    def remote_sha(self, rama): return self.remotos().get(rama)
     def push(self, sha, rama):
-        r = subprocess.run(["git", "push", "origin", f"{sha}:refs/heads/{rama}"], cwd=self.q.ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=300)
+        r = cob.run(["git", "push", "origin", f"{sha}:refs/heads/{rama}"], cwd=self.q.ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=300)
         if r.returncode: raise GhError((r.stderr or r.stdout).strip()[:400])
+        self.remotos()[rama] = sha
     def runs(self, wf, rama):
         return json.loads(self._gh("run", "list", "-R", self.repo, "--workflow", wf, "--branch", rama, "--limit", "30",
                                    "--json", "databaseId,headSha,status,conclusion,event,createdAt,url") or "[]")
@@ -64,7 +71,7 @@ class GhAuthError(GhError): """Token sin sesion o sin permisos: no es transitori
 def run_cmd(args, cwd, env=None, timeout=300):
     """Ejecuta un comando local; devuelve (rc, salida)."""
     try:
-        r = subprocess.run(args, cwd=cwd, env={**os.environ, **(env or {})}, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout)
+        r = cob.run(args, cwd=cwd, env={**os.environ, **(env or {})}, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout)
         return r.returncode, (r.stdout or "") + (r.stderr or "")
     except subprocess.TimeoutExpired as e:
         return 124, f"TimeoutExpired tras {timeout}s\n{(e.stdout or '')[-1500:] if isinstance(e.stdout, str) else ''}"
@@ -99,9 +106,31 @@ class Lote:
                     "node_modules": r"C:\GIT\web-escritor\node_modules", "actions_siempre": False, **q.CFG.get("lote", {}), **(cfg or {})}
         self.dir = q.STATE / "lote"; self.dir.mkdir(parents=True, exist_ok=True)
         self.c = q.db(); self.c.execute("PRAGMA busy_timeout=180000")
+        self._refs = self._main = None; self._tocados, self._bases, self._podado = {}, {}, False  # lo que git ya contesto en este lote no se vuelve a preguntar
 
     # ---------- persistencia ----------
     def git(self, *a, check=True): return self.q.git(*a, cwd=self.q.ROOT, check=check)  # ROOT en tiempo de llamada (las pruebas lo redirigen)
+
+    def refs(self):
+        """Cabeza de cada rama gpt-qa/* local, en una sola consulta."""
+        if self._refs is None:
+            self._refs = {}
+            for ln in self.git("for-each-ref", "--format=%(refname:short) %(objectname)", "refs/heads/gpt-qa/", check=False).splitlines():
+                n, _, h = ln.rpartition(" "); self._refs[n] = h
+        return self._refs
+
+    def main_sha(self):
+        """origin/main una sola vez por lote (un fetch, no uno por rama): todas las ramas se validan contra la misma base."""
+        if self._main is None:
+            try: self.git("fetch", "-q", "origin", "main")
+            except RuntimeError: pass
+            self._main = self.git("rev-parse", "origin/main", check=False) or "?"
+        return self._main
+
+    def tocados(self, sha):
+        if sha not in self._tocados:  # `origin/main...sha` = diff desde el merge-base, en un solo proceso
+            self._tocados[sha] = set(self.git("diff", "--name-only", f"origin/main...{sha}", check=False).split()) or set(self.git("diff", "--name-only", sha + "~1", sha).split())
+        return self._tocados[sha]
 
     @staticmethod
     def slug(clave): return re.sub(r"\W", "_", clave)
@@ -137,6 +166,8 @@ class Lote:
 
     def capturar(self, lid):
         c, q = self.c, self.q; nuevos = dup = 0
+        try: q.reparar_perdidas(c)  # una `preparada` sin sus ficheros en la rama no es ejecutable: vuelve a `aceptada` en vez de entrar al lote y fallar
+        except Exception as e: self.log(f"Reparacion de preparadas omitida ({str(e)[:100]})")
         for r in c.execute("SELECT * FROM ramas WHERE estado IN ('preparada','aprobada')").fetchall():
             clave = f"{r['rama']}@{r['sha'][:12]}"
             props = c.execute("SELECT id,datos FROM propuestas WHERE rama=? AND estado IN ('preparada','aprobada')", (r["rama"],)).fetchall()
@@ -156,20 +187,22 @@ class Lote:
         """Rama y commit validos, y el commit solo toca los ficheros declarados (nada de produccion)."""
         q = self.q
         try:
-            self.git("cat-file", "-e", it["sha"] + "^{commit}")
-            self.git("merge-base", "--is-ancestor", it["sha"], f"refs/heads/{it['rama']}")
+            if self.refs().get(it["rama"]) != it["sha"]:  # la rama avanzo o cambio: hay que probar que el commit sigue siendo suyo
+                self.git("cat-file", "-e", it["sha"] + "^{commit}")
+                self.git("merge-base", "--is-ancestor", it["sha"], f"refs/heads/{it['rama']}")
         except RuntimeError as e: return f"rama/commit invalido: {str(e)[-160:]}"
         declarados = set()
         for p in self.c.execute("SELECT datos FROM propuestas WHERE rama=?", (it["rama"],)).fetchall():  # toda la historia de la rama, no solo lo que va en este lote
             d = json.loads(p["datos"]); declarados |= {f["ruta"] for f in d.get("ficheros_nuevos", [])} | {m["ruta"] for m in d.get("ficheros_modificados") or []}
-        tocados = set(self.git("diff", "--name-only", self.base_de(it["sha"]), it["sha"]).split())
+        tocados = self.tocados(it["sha"])
         if tocados - declarados: return f"el commit toca ficheros no declarados: {sorted(tocados - declarados)[:4]}"
         if not tocados: return "el commit no cambia nada"
         return None
 
     def base_de(self, sha):
         """Punto de partida de la rama: merge-base con origin/main (todos sus commits cuentan, no solo el ultimo)."""
-        return self.git("merge-base", "origin/main", sha, check=False) or sha + "~1"
+        if sha not in self._bases: self._bases[sha] = self.git("merge-base", "origin/main", sha, check=False) or sha + "~1"
+        return self._bases[sha]
 
     def comandos(self, it):
         """(propuesta, ruta, argv, env). Usa los `pasos` validados al ingerir; solo `python|node <fichero declarado>`, nunca un shell."""
@@ -187,19 +220,18 @@ class Lote:
     def validar_local(self, it):
         clave, q = it["clave"], self.q
         self.set(clave, "validacion_local", intentos=it["intentos"] + 1)
+        main = self.main_sha()
         if (msg := self.verificar_rama(it)): return self.set(clave, "revision_humana", msg)
-        try: self.git("fetch", "-q", "origin", "main"); main = self.git("rev-parse", "origin/main")
-        except RuntimeError: main = self.git("rev-parse", "origin/main", check=False) or "?"
         tmp = q.STATE / "lote_wt" / self.slug(clave); self.limpiar_wt(tmp)
         tmp.parent.mkdir(parents=True, exist_ok=True)
         try:
             self.git("worktree", "add", "--detach", str(tmp), it["sha"])
-            r = subprocess.run(["git", "-c", "user.name=qa-gpt", "-c", "user.email=qa-gpt@local", "merge", "--no-edit", main], cwd=tmp, capture_output=True, text=True)
+            r = cob.run(["git", "-c", "user.name=qa-gpt", "-c", "user.email=qa-gpt@local", "merge", "--no-edit", main], cwd=tmp, capture_output=True, text=True)
             if r.returncode:
-                subprocess.run(["git", "merge", "--abort"], cwd=tmp, capture_output=True)
+                cob.run(["git", "merge", "--abort"], cwd=tmp, capture_output=True)
                 return self.set(clave, "revision_humana", f"conflicto al fusionar el test con main {main[:8]}", main_sha=main)
             nm = Path(self.cfg["node_modules"])
-            if nm.exists() and not (tmp / "node_modules").exists(): subprocess.run(["cmd", "/c", "mklink", "/J", str(tmp / "node_modules"), str(nm)], capture_output=True)
+            if nm.exists() and not (tmp / "node_modules").exists(): self.junction(tmp / "node_modules", nm)
             wfs = self.cableado(tmp, it)
             partes, clases = [], []
             for pid, ruta, cmd, env in self.comandos(it):
@@ -222,7 +254,7 @@ class Lote:
             puerto = self.puerto_libre()
             if puerto is None: return 0, "SIN_ENTORNO: ningun puerto libre; se valida en Actions"
             env = {**env, **self.entorno_url(tmp / ruta, puerto)}  # el test apunta a NUESTRO servidor, nunca a uno ajeno que ya escuche en 4173
-            srv = subprocess.Popen([sys.executable, "-m", "http.server", str(puerto), "--bind", "127.0.0.1", "--directory", str(tmp)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            srv = cob.popen([sys.executable, "-m", "http.server", str(puerto), "--bind", "127.0.0.1", "--directory", str(tmp)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             time.sleep(1.5)
         try: return self.runner(cmd, tmp, env, self.cfg["timeout_test_s"])
         finally:
@@ -249,14 +281,21 @@ class Lote:
         if INFRA.search(out): return "infra"
         return "fallo_test"
 
+    @staticmethod
+    def junction(destino, origen):
+        """Junction sin lanzar `cmd /c mklink` (un proceso y una ventana por rama)."""
+        try:
+            import _winapi; _winapi.CreateJunction(str(origen), str(destino))
+        except Exception: cob.run(["cmd", "/c", "mklink", "/J", str(destino), str(origen)], capture_output=True)
+
     def limpiar_wt(self, tmp):
         if tmp.exists():
             j = tmp / "node_modules"
             if j.exists():
                 try: os.rmdir(j)  # quita solo el junction, nunca el contenido de C:\GIT\web-escritor\node_modules
-                except OSError: subprocess.run(["cmd", "/c", "rmdir", str(j)], capture_output=True)
+                except OSError: cob.run(["cmd", "/c", "rmdir", str(j)], capture_output=True)
             self.git("worktree", "remove", "--force", str(tmp), check=False)
-        self.git("worktree", "prune", check=False)
+        if not self._podado: self.git("worktree", "prune", check=False); self._podado = True  # registros huerfanos: una vez por lote, no tres por rama
 
     # ---------- cableado: que workflow ejecuta realmente el test ----------
     def cableado(self, tmp, it):
@@ -269,7 +308,7 @@ class Lote:
         clave, rama, sha = it["clave"], it["rama"], it["sha"]
         wfs = json.loads(it["workflows"] or "[]")
         if not wfs: return self.set(clave, "revision_humana", "ningun workflow con workflow_dispatch ejecuta este test (no esta cableado): Actions no lo validaria")
-        tocado_wf = any(".github/workflows/" in f for f in self.git("diff", "--name-only", self.base_de(sha), sha).split())
+        tocado_wf = any(".github/workflows/" in f for f in self.tocados(sha))
         if tocado_wf and "workflow" not in self.gh.scopes():
             return self.set(clave, "revision_humana", "la rama modifica .github/workflows y el token de gh no tiene el scope 'workflow': ejecuta `gh auth refresh -s workflow` y pulsa de nuevo")
         try:
@@ -404,7 +443,7 @@ def bloque_estado(q, c):
     lines = ["", "Tests (foto actual, cada test cuenta una vez):",
              f"  - Escritos, sin ejecutar: {escritos}  (preparada/aprobada; los capturara el proximo lote)",
              f"  - En un lote, comprobacion local pendiente: {li('preparada', 'validacion_local')}",
-             f"  - Validados en local (aptos para Actions): {li('local_ok')}",
+             f"  - Validados en local (aptos para Actions): {li('local_ok')}  (se validan al pulsar EJECUTAR; hasta entonces estan en 'Escritos, sin ejecutar')",
              f"  - Defectos de producto demostrados: {li('defecto_demostrado')}  (el test falla por el defecto descrito: es un hallazgo, no un fallo)",
              f"  - Posible defecto, a triar (exploratorias que fallan): {li('a_triar')}",
              f"  - Fallo del propio test: {li('fallo_test')}",
