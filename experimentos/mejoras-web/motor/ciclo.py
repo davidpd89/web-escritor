@@ -123,14 +123,22 @@ def validar_investigacion(data,fuente):
         raise ValueError("Fuente distinta de la consultada")
     if data.get("decision")=="DESCARTAR": return data
     if fuente["url"].startswith("https://github.com/"):
-        for campo in ("fuente_sha","licencia","codigo_original"):
+        for campo in ("fuente_sha","licencia","codigo_original","ruta_upstream","commit_upstream"):
             if not isinstance(data.get(campo),str) or not data[campo].strip():
                 raise ValueError("Falta evidencia upstream: "+campo)
     elif fuente["url"].startswith("local://"):
         if not data.get("documento_o_commit"):
             raise ValueError("Auditoría local sin documento_o_commit")
-    elif not data.get("fecha_fuente"):
-        raise ValueError("Documento sin fecha_fuente")
+    else:
+        try:
+            fecha=dt.date.fromisoformat(data.get("fecha_fuente",""))
+        except (ValueError,TypeError) as exc:
+            raise ValueError("Documento sin fecha_fuente ISO comprobable") from exc
+        if fecha>dt.date.today():
+            raise ValueError("No se admite fecha documental futura")
+        publicada=fuente.get("publicado")
+        if publicada and fecha!=dt.date.fromisoformat(publicada):
+            raise ValueError("Fecha documentada no coincide con el feed original")
     return data
 
 
@@ -188,8 +196,8 @@ def revisar_parche(s,d):
 def prompt_investigar(s):
     base=(HERE/"contratos/GPT-INVESTIGAR.md").read_text(encoding="utf-8")
     es_repo=s["fuente"]["url"].startswith("https://github.com/")
-    extra=("Para GitHub: fuente_sha es el SHA BLOB completo de 40 hex, "
-           "codigo_original aparece literalmente allí y licencia es SPDX exacta. "
+    extra=("Para GitHub: entrega fuente_sha (SHA BLOB de 40 hex), commit_upstream (SHA commit de 40 hex), "
+           "ruta_upstream (fichero exacto), codigo_original literal y licencia SPDX. "
            if es_repo else
            "Para documentación: incluye fecha_fuente YYYY-MM-DD, o documento_o_commit para auditoría local. "
            "No inventes bloques de código externo.")
