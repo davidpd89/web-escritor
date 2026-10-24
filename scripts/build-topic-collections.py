@@ -16,6 +16,7 @@ import html
 import json
 import re
 import sys
+from html.parser import HTMLParser
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -36,6 +37,23 @@ SHARE_IMAGE_HEIGHT = 909
 
 class ValidationError(Exception):
     pass
+
+
+class CanonicalParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.canonicals: list[str | None] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag.lower() != 'link':
+            return
+        attributes = dict(attrs)
+        relations = (attributes.get('rel') or '').lower().split()
+        if 'canonical' in relations:
+            self.canonicals.append(attributes.get('href'))
+
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        self.handle_starttag(tag, attrs)
 
 
 def esc(value: object) -> str:
@@ -115,7 +133,10 @@ def check_repo(root: Path, ready_collections: list[dict]) -> None:
             if re.search(r'<meta[^>]+name=["\']robots["\'][^>]+content=["\'][^"\']*noindex', text, re.I):
                 problems.append(f"{coll['slug']}: {item['url']} está en noindex")
             expected = SITE + item["url"]
-            if expected not in text:
+            parser = CanonicalParser()
+            parser.feed(text)
+            parser.close()
+            if len(parser.canonicals) != 1 or parser.canonicals[0] != expected:
                 problems.append(f"{coll['slug']}: canonical no confirmado en {item['url']}")
     if problems:
         raise ValidationError("; ".join(problems))
