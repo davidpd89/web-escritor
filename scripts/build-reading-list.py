@@ -77,15 +77,16 @@ def card(item):
 def render(items, disclosure, updated):
     groups=[('reading','Leyendo ahora'),('finished','Lecturas recientes'),('paused','En pausa')]
     sections=[]
+    ordered_items=[]
     for key,label in groups:
         subset=[x for x in items if x['status']==key]
         if not subset: continue
         if key=='finished': subset.sort(key=lambda x:x.get('finished_on') or '', reverse=True)
+        ordered_items.extend(subset)
         sections.append(f'<section class="reading-group"><h2>{label}</h2><div class="reading-grid">'+''.join(card(x) for x in subset)+'</div></section>')
     has_aff=any(x['link_kind']=='affiliate' for x in items)
     disclosure_html=f'<p class="reading-disclosure">{html.escape(disclosure)}</p>' if has_aff else ''
-    itemlist=','.join(json.dumps({'@type':'ListItem','position':i+1,'name':x['title']}, ensure_ascii=False) for i,x in enumerate(items))
-    schema=json.dumps({'@context':'https://schema.org','@type':'CollectionPage','name':'Qué estoy leyendo | David Porto Díaz','url':'https://davidportodiaz.com/lecturas/','inLanguage':'es','mainEntity':{'@type':'ItemList','itemListElement':[{'@type':'ListItem','position':i+1,'name':x['title']} for i,x in enumerate(items)]}}, ensure_ascii=False).replace('</','<\/')
+    schema=json.dumps({'@context':'https://schema.org','@type':'CollectionPage','name':'Qué estoy leyendo | David Porto Díaz','url':'https://davidportodiaz.com/lecturas/','inLanguage':'es','mainEntity':{'@type':'ItemList','itemListElement':[{'@type':'ListItem','position':i+1,'name':x['title']} for i,x in enumerate(ordered_items)]}}, ensure_ascii=False).replace('</','<\/')
     return f'''<!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow,max-image-preview:large"><title>Qué estoy leyendo | David Porto Díaz</title><meta name="description" content="Lecturas actuales y recientes de David Porto Díaz, con notas personales breves sobre lo que le está llamando la atención de cada libro."><link rel="canonical" href="https://davidportodiaz.com/lecturas/"><link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/reading-list.css?v=1"><script type="application/ld+json">{schema}</script></head>
 <body><main id="main-content" class="reading-page"><header class="reading-hero"><p class="eyebrow">Cuaderno de lector</p><h1>Qué estoy leyendo.</h1><p>No es un ranking ni una lista de compras. Son lecturas actuales y recientes con una nota sobre lo que me está llamando la atención.</p><p class="reading-updated">Actualizado: <time datetime="{updated}">{updated}</time></p></header>{''.join(sections)}{disclosure_html}</main></body></html>'''
