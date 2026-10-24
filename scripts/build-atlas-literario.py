@@ -35,7 +35,7 @@ def card(item,cats):
     title=html.escape(item['title']); summ=html.escape(item['summary'])
     cat=html.escape(cats[item['category']]); country=html.escape(item.get('country',''))
     search=html.escape(' '.join([item['title'],item.get('summary',''),item.get('country',''),' '.join(item.get('query_intent',[]))]))
-    return f'''<article class="atlas-card" data-atlas-card data-category="{item['category']}" data-search="{search}"><img src="{src}" alt="{alt}" width="720" height="450" loading="lazy" decoding="async"><div class="atlas-card__body"><p class="atlas-card__meta"><span>{cat}</span><span>{country}</span></p><h2><a href="/atlas-literario/{item['slug']}/">{title}</a></h2><p>{summ}</p><a href="/atlas-literario/{item['slug']}/">Explorar →</a></div></article>'''
+    return f'''<article class="atlas-card" data-atlas-card data-category="{html.escape(item['category'], quote=True)}" data-search="{search}"><img src="{src}" alt="{alt}" width="720" height="450" loading="lazy" decoding="async"><div class="atlas-card__body"><p class="atlas-card__meta"><span>{cat}</span><span>{country}</span></p><h2><a href="/atlas-literario/{item['slug']}/">{title}</a></h2><p>{summ}</p><a href="/atlas-literario/{item['slug']}/">Explorar →</a></div></article>'''
 
 
 def build(data,cats,out:Path):
