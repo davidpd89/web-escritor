@@ -20,7 +20,8 @@ try {
       href: a.href,
       target: a.target,
       rel: a.rel.toLowerCase().split(/\s+/).filter(Boolean),
-      label: a.getAttribute('aria-label') || a.textContent.trim()
+      label: a.getAttribute('aria-label') || a.textContent.trim(),
+      authorFollow: a.classList.contains('amazon-author-follow-link')
     })).filter(a => /^https?:/.test(a.href)));
     assert.ok(links.length >= 1, `${route}: inventario de enlaces sospechosamente vacío`);
     for (const link of links) {
@@ -30,7 +31,10 @@ try {
         assert.ok(link.rel.includes('noopener'), `${route}: falta noopener en ${link.href}`);
         assert.ok(link.label.length >= 2, `${route}: enlace sin nombre accesible ${link.href}`);
       }
-      if (/^(amzn\.to|www\.amazon\.[a-z.]+|amazon\.[a-z.]+)$/.test(url.hostname)) {
+      // Afiliado = evidencia en el propio enlace (amzn.to o parametro tag=).
+      // "Seguir al autor" apunta al perfil de autor y no es afiliado.
+      const isAmazon = /^(amzn\.to|www\.amazon\.[a-z.]+|amazon\.[a-z.]+)$/.test(url.hostname);
+      if (isAmazon && !link.authorFollow && (url.hostname === 'amzn.to' || url.searchParams.has('tag'))) {
         assert.ok(link.rel.includes('sponsored'), `${route}: falta sponsored en ${link.href}`);
         assert.ok(link.rel.includes('nofollow'), `${route}: falta nofollow en ${link.href}`);
       }
