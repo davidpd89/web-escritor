@@ -189,7 +189,7 @@ if (initialScrollHash && initialScrollHash !== "#") {
     { href: "/las-manecillas-del-recuerdo/", label: "Novedad", icon: "◷" },
     { href: "/libros/", label: "Libros", icon: "◇" },
     { href: "/cuaderno/", label: "Cuaderno", icon: "✎" },
-    { href: "/#contacto", label: "Contacto", icon: "@" }
+    { href: "/prensa.html#contacto", label: "Contacto", icon: "@" }
   ];
 
   const currentPath = window.location.pathname.replace(/\/index\.html$/, "/");
