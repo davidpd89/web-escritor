@@ -22,6 +22,17 @@
       "actualizado_en": "2026-10-23T12:15:18Z",
       "caduca_en": "2026-10-24T12:15:18Z",
       "precio_referencia_centimos": 2390
+    },
+    {
+      "libro_id": "isbn-9780241847633",
+      "formato": "tapa-dura",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 1225,
+      "url": "https://www.amazon.es/dp/024184763X?tag=davidporto-21",
+      "actualizado_en": "2026-10-24T11:29:56Z",
+      "caduca_en": "2026-10-25T11:29:56Z",
+      "precio_referencia_centimos": 1290
     }
   ],
   "ratings": [
@@ -190,11 +201,11 @@
     {
       "libro_id": "lib-0001",
       "puntuacion": 4.03,
-      "numero_valoraciones": 1508,
+      "numero_valoraciones": 1510,
       "fuente": "hardcover",
       "url": "https://hardcover.app/books/coraline",
-      "actualizado_en": "2026-10-21T17:39:51Z",
-      "caduca_en": "2026-10-28T17:39:51Z"
+      "actualizado_en": "2026-10-24T11:28:58Z",
+      "caduca_en": "2026-10-31T11:28:58Z"
     }
   ]
 }
