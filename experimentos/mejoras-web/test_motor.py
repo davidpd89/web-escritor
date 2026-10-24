@@ -264,5 +264,25 @@ class Flujo(unittest.TestCase):
                     with ciclo.exclusivo(d):
                         self.fail("No se puede duplicar el proceso activo")
 
+    def test_previsualizar_ultima_propuesta_aunque_haya_otra_actual(self):
+        from motor import preview
+        with tempfile.TemporaryDirectory() as temp:
+            d=Path(temp)
+            wt=d/"worktrees"/"abc"
+            wt.mkdir(parents=True)
+            (wt/"index.html").write_text("<html></html>",encoding="utf-8")
+            ciclo.guardar(d/"actual.json",{"id":"B-02","fase":"seleccionado"})
+            ficha={"id":"SEO-01","validacion":{"worktree":str(wt)}}
+            ciclo.guardar(d/"ultima_propuesta.json",ficha)
+            self.assertEqual(preview.destino(d),wt.resolve())
+
+    def test_previsualizacion_rechaza_ruta_externa(self):
+        from motor import preview
+        with tempfile.TemporaryDirectory() as temp:
+            d=Path(temp)
+            ciclo.guardar(d/"ultima_propuesta.json",
+                          {"validacion":{"worktree":str(d.parent)}})
+            with self.assertRaises(ValueError): preview.destino(d)
+
 
 if __name__=="__main__": unittest.main()

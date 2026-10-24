@@ -131,7 +131,15 @@ def empezar(d):
 
 
 def cerrar(s,d):
-    """Cierra reserva e historial de modo idempotente tras cortes entre escrituras."""
+    """Cerrar sin perder ninguna propuesta cuando el director inicia otro ciclo."""
+    if (s.get("validacion") or {}).get("worktree"):
+        ficha={"id":s["id"],"titulo":s["tarea"]["titulo"],"fecha":utc(),
+               "validacion":s["validacion"],"fuente":s.get("fuente"),
+               "estado":s["fase"]}
+        clave=hashlib.sha256(s["id"].encode("utf-8")).hexdigest()[:16]
+        fichero=d/"propuestas"/(clave+".json")
+        if not fichero.exists(): guardar(fichero,ficha)
+        guardar(d/"ultima_propuesta.json",ficha)
     hist=leer(d/"historial.json",[])
     if s["tipo"]=="catalogo":
         info=comando_rotacion(d,"--ver-estado")

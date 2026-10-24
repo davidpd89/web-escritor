@@ -73,3 +73,5 @@ El ID se obtiene de la URL del Project real; no reutilizar el Project de QA porq
 Tras validar localmente una mejora, el estado contiene `validacion.worktree`. Ejecuta `PREVISUALIZAR-MEJORAS.cmd` en el laboratorio para servir **esa versión candidata** en `http://127.0.0.1:8766/` (la web base puede permanecer en 8765). No abre ni fusiona PR ni sirve públicamente. Solo acepta worktrees dentro del estado propio; rechaza cualquier ruta exterior. Sin propuesta validada, indica el motivo. Para abrirla sin navegador, pasar `--sin-abrir`.
 
 El director usa un bloqueo con PID e identidad: si la ventana murió y el proceso ya no existe, recupera el bloqueo tras comprobarlo; si el proceso aún está vivo, impide un duplicado. La cola QA original sigue sin verse afectada.
+
+Cada PR hija validada se archiva en `ciclo/propuestas/<hash>.json` y la última se referencia en `ultima_propuesta.json`; la previsualización ya no depende de que siga siendo el expediente actual. `PREVISUALIZAR-MEJORAS.cmd --id SEO-01` abre una mejora anterior, si conserva su worktree. No extrae secretos ni accede a rutas externas.
