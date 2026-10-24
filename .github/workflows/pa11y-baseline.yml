@@ -31,7 +31,7 @@ jobs:
           node-version: '22'
 
       - name: Install Pa11y CI
-        run: npm install --global pa11y-ci@4.1.1
+        run: npm install --global pa11y-ci@5.0.0
 
       - name: Start local static server
         run: |
