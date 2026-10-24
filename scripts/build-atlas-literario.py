@@ -48,6 +48,33 @@ def build(data,cats,out:Path):
     cards=''.join(card(x,cats) for x in published) or '<p>Aún no hay artículos publicados en este dataset de ejemplo.</p>'
     doc=f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Atlas literario | David Porto Díaz</title><meta name="description" content="Lugares de libros, bibliotecas extraordinarias, rutas literarias y huellas de escritores, investigados con fuentes y sin mezclar hechos con mitos."><link rel="canonical" href="https://davidportodiaz.com/atlas-literario/"><link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/atlas-literario.css"></head><body><main class="atlas-page" data-atlas-index><header class="atlas-hero"><p class="eyebrow">Atlas literario</p><h1>El mundo de los libros también existe fuera de las páginas.</h1><p class="lead">Lugares reales, bibliotecas, librerías y rutas investigadas con una regla: diferenciar texto, rodaje, inspiración, tradición y mito.</p></header><aside class="atlas-trust"><strong>Cómo verificamos:</strong> priorizamos fuentes oficiales y documentación primaria. Una asociación turística no se presenta como hecho literario si no está documentada.</aside><section class="atlas-filters" aria-label="Filtrar Atlas"><label>Buscar<input type="search" data-atlas-search placeholder="Libro, autor, ciudad o lugar"></label><label>Tipo<select data-atlas-category><option value="">Todo</option>{options}</select></label><p class="atlas-count" data-atlas-count role="status" aria-live="polite"></p></section><section class="atlas-grid">{cards}</section></main><script src="/assets/atlas-literario.js" defer></script></body></html>'''
     (out/'index.html').write_text(doc,encoding='utf-8')
+    for item in published:
+        detail_dir = out / item['slug']
+        detail_dir.mkdir(parents=True, exist_ok=True)
+        title = html.escape(item['title'], quote=True)
+        summary = html.escape(item['summary'], quote=True)
+        category = html.escape(cats[item['category']], quote=True)
+        country = html.escape(item.get('country', ''), quote=True)
+        image = item.get('image') or {}
+        image_src = html.escape(image['src'], quote=True)
+        image_alt = html.escape(image['alt'], quote=True)
+        sources = ''.join(
+            '<li><a href="' + html.escape(url, quote=True) + '">' + html.escape(url) + '</a></li>'
+            for url in item['source_urls']
+        )
+        detail = (
+            '<!doctype html><html lang="es"><head><meta charset="utf-8">'
+            '<meta name="viewport" content="width=device-width,initial-scale=1">'
+            '<title>' + title + ' | Atlas literario</title>'
+            '<link rel="stylesheet" href="/styles.css?v=202609-launch-1">'
+            '<link rel="canonical" href="https://davidportodiaz.com/atlas-literario/' + item['slug'] + '/">'
+            '</head><body><main><nav><a href="/atlas-literario/">Volver al Atlas literario</a></nav>'
+            '<article><h1>' + title + '</h1><p>' + category + ' · ' + country + '</p>'
+            '<img src="' + image_src + '" alt="' + image_alt + '" width="720" height="450">'
+            '<p>' + summary + '</p><h2>Fuentes</h2><ul>' + sources + '</ul>'
+            '</article></main></body></html>'
+        )
+        (detail_dir / 'index.html').write_text(detail, encoding='utf-8')
     (out/'atlas-literario-public.json').write_text(json.dumps({'updated':data['updated'],'items':published},ensure_ascii=False,indent=2),encoding='utf-8')
     for item in published:
         slug = item['slug']
