@@ -225,7 +225,11 @@ class Lote:
         """Reanuda un lote abierto (BAT cerrado a medias) o congela uno nuevo con lo preparado AHORA. Lo generado despues queda para el siguiente."""
         c, q = self.c, self.q
         abierto = c.execute("SELECT id FROM lotes WHERE estado='en_curso' ORDER BY id DESC LIMIT 1").fetchone()
-        if abierto: lid = abierto[0]; self.log(f"Reanudando lote #{lid} (interrumpido antes)")
+        if abierto:
+            lid = abierto[0]
+            if lid != getattr(self, "_lote_reanudado", None): self.log(f"Reanudando lote #{lid} (interrumpido antes)")
+            self._lote_reanudado = lid
+            self.capturar(lid)  # lo preparado despues entra en el lote abierto (si no, hay_nuevo seguia verdadero y el bucle giraba sin parar)
         else:
             lid = c.execute("INSERT INTO lotes(inicio,estado) VALUES(?,?)", (q.now(), "en_curso")).lastrowid; c.commit(); self.log(f"Lote #{lid} nuevo")
             self.capturar(lid)
@@ -643,7 +647,7 @@ class Lote:
             if not pendientes or not gh_ok:
                 if not gh_ok or self.parando or time.time() > t_fin: break
                 if lid != cerrado: self.cerrar_lote(lid); cerrado = lid  # lote agotado: se cierra una vez y se abre el siguiente con lo preparado desde entonces
-                if self.hay_nuevo(): lid = self.abrir_lote(); continue
+                if self.hay_nuevo(): lid = self.abrir_lote(); cerrado = None; self.esperar(2); continue
                 if not self.cfg.get("continuo"): break
                 if time.time() - ult_idle > 600: self.log("Sin trabajo pendiente: esperando propuestas nuevas del worker (Q para salir)"); ult_idle = time.time()
                 self.esperar(self.cfg["espera_ociosa_s"]); continue
