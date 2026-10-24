@@ -11,7 +11,9 @@ ids = set()
 for item in data["ideas"]:
     for key in ("id", "area", "titulo", "hipotesis", "superficie",
                 "criterio_medicion", "antiduplicacion", "prioridad", "estado"):
-        assert isinstance(item.get(key), str) and len(item[key].strip()) >= 4, (item.get("id"), key)
+        assert isinstance(item.get(key), str) and item[key].strip(), (item.get("id"), key)
+    assert item["prioridad"] in ("P1", "P2", "P3"), item["id"]
+    assert len(item["hipotesis"]) >= 25 and len(item["criterio_medicion"]) >= 20, item["id"]
     assert item["id"] not in ids, f"duplicado: {item['id']}"
     assert item["estado"] in data["estados_posibles"], item["id"]
     ids.add(item["id"])
