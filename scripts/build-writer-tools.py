@@ -80,6 +80,9 @@ def render_tool(t):
     tested=t["verification"].get("hands_on") is True
     tested_label="Probado directamente" if tested else "Verificado documentalmente"
     sources="".join(f'<li><a href="{escape(u)}" target="_blank" rel="noopener noreferrer">Fuente {n}</a></li>' for n,u in enumerate(t["verification"]["sources"],1))
+    affiliate = t.get("affiliate") is True
+    link_rel = "noopener noreferrer sponsored" if affiliate else "noopener noreferrer"
+    disclosure = (f'<p class="tool-note">{escape(t["affiliate_disclosure"])}</p>' if affiliate else "")
     return f'''
 <article class="id-card wt-card" data-name="{escape(t["name"].lower())}" data-stages="{escape(stages)}" data-price="{escape(t["price"]["model"])}" data-local="{"1" if localish else "0"}" data-spanish="{"1" if es else "0"}" data-account="{"0" if t["account_required"] is False else "1" if t["account_required"] is True else "unknown"}">
 <div class="editorial-card__head"><div><p class="tool-meta">{escape(tested_label)}</p><h2>{escape(t["name"])}</h2></div><span class="editorial-verified">Verificado {escape(t["verification"]["checked_at"])}</span></div>
@@ -94,7 +97,7 @@ def render_tool(t):
 <div class="tool-findings-block"><h3>Para qué no</h3><p>{escape(t["not_for"])}</p></div>
 <p>{escape(t["editorial_note"])}</p>
 <details><summary>Fuentes y verificación</summary><ul class="tool-source-list">{sources}</ul></details>
-<div class="id-card__actions"><a class="text-action" href="{escape(t["website"])}" target="_blank" rel="noopener noreferrer">Web oficial</a></div>
+<div class="id-card__actions"><a class="text-action" href="{escape(t["website"])}" target="_blank" rel="{link_rel}">Web oficial</a>{disclosure}</div>
 </article>'''
 
 def render(data):
