@@ -8,6 +8,11 @@ from pathlib import Path
 
 MAX_FICHEROS = 5
 RC_INFRA = 125
+RC_ABORTADO = 130
+
+
+class Interrumpido(Exception):
+    """Parada solicitada (Q/Ctrl+C) durante una validacion: no es un fallo del parche ni consume intento."""
 INFRA = re.compile(r"ERR_MODULE_NOT_FOUND|ECONNREFUSED|Executable doesn't exist|browserType.launch")
 MAX_REEMPLAZOS = 8
 PROHIBIDAS = re.compile(r"(^|/)(\.github|\.git|node_modules|scripts/qa-gpt|\.ci)(/|$)|(^|/)(package(-lock)?\.json|wrangler[\w.-]*|\.env[\w.]*|\.dev\.vars)$"
@@ -124,7 +129,12 @@ def verificadores(wt, tocados):
 
 class Pr:
     def __init__(self, q, gh, runner, out=print):
-        self.q, self.gh, self.run, self.out = q, gh, runner, out
+        self.q, self.gh, self.out = q, gh, out
+        def run(*a, **k):
+            rc, o = runner(*a, **k)
+            if rc == RC_ABORTADO: raise Interrumpido()
+            return rc, o
+        self.run = run
         self.root = q.ROOT
 
     def git(self, *a, cwd=None, timeout=300):
@@ -242,16 +252,28 @@ class Pr:
             if self.git("rev-parse", "origin/main")[1].strip() != base and self.git("rebase", "origin/main", cwd=wt)[0]:
                 self.git("rebase", "--abort", cwd=wt); self._marca(c, row, "conflicto_main", "main cambio y el parche ya no se aplica limpio"); return "conflicto_main"
             sha = self.git("rev-parse", "HEAD", cwd=wt)[1].strip()
-            try: self.gh.push(sha, rama)
-            except RuntimeError as e:
-                if "rejected" in str(e) or "non-fast" in str(e): self._marca(c, row, "rama_existente", f"{rama} ya existe en origin con otro historial: revisar la PR existente"); return "rama_existente"
-                raise
+            # reanudacion tras un corte: si ya hay PR abierta para esta rama se vincula (nunca se crea otra); si la rama remota tiene el mismo arbol, no se reescribe
+            previa = self.gh.pr_de_rama(rama) if not demo and hasattr(self.gh, "pr_de_rama") else None
+            if previa:
+                url = previa["url"]; self._marca(c, row, "pr_abierta", verif, url)
+                c.execute("UPDATE triaje SET pr_numero=?,pr_nueva=1,pr_head=?,dev_estado='pr_abierta' WHERE id=?", (previa["number"], previa.get("headRefOid") or sha, row["id"])); c.commit()
+                self.out(f"  PR ya existente #{previa['number']}: vinculada sin duplicar"); return "pr_abierta"
+            self.git("fetch", "origin", rama, timeout=120)
+            remoto = self.git("rev-parse", f"origin/{rama}^{{tree}}")
+            if remoto[0] == 0 and remoto[1].strip() == self.git("rev-parse", "HEAD^{tree}", cwd=wt)[1].strip(): sha = self.git("rev-parse", f"origin/{rama}")[1].strip()
+            else:
+                try: self.gh.push(sha, rama)
+                except RuntimeError as e:
+                    if "rejected" in str(e) or "non-fast" in str(e): self._marca(c, row, "rama_existente", f"{rama} ya existe en origin con otro historial: revisar la PR existente"); return "rama_existente"
+                    raise
             url = self.gh.pr_crear(rama, tit, cuerpo_pr(row, tests, verif, demo), borrador=demo)
             estado = "pr_borrador" if demo else "pr_abierta"
             self._marca(c, row, estado, verif, url)
             m = re.search(r"/pull/(\d+)", url or "")
             if not demo: c.execute("UPDATE triaje SET pr_numero=?,pr_nueva=1,pr_head=?,dev_estado='pr_abierta' WHERE id=?", (int(m.group(1)) if m else 0, sha, row["id"])); c.commit()
             return estado
+        except Interrumpido:
+            self.out("  validacion interrumpida por parada: sin cambios de estado, se repite al reanudar"); return "interrumpida"
         finally:
             self.limpiar(wt, None)
 
@@ -280,10 +302,13 @@ class Pr:
             if nmj.exists():
                 try: os.rmdir(nmj)  # junction: quita solo el enlace, nunca el contenido
                 except OSError: pass
-            self.git("worktree", "remove", "--force", str(wt))
+            try: self.git("worktree", "remove", "--force", str(wt))
+            except Interrumpido: pass  # con la parada activa no se ejecuta nada; el borrado de carpeta basta y `prune` lo reconcilia al reanudar
             shutil.rmtree(wt, ignore_errors=True)
-        self.git("worktree", "prune")
-        if rama: self.git("branch", "-D", rama)
+        try:
+            self.git("worktree", "prune")
+            if rama: self.git("branch", "-D", rama)
+        except Interrumpido: pass
 
 
 def correr(q, c, push=True, demo=False, limite=2, out=print):

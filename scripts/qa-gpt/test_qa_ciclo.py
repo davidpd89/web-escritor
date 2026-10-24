@@ -175,6 +175,16 @@ class PrFlujo(T.Base):
         row = self.montar(); gh = self.GhPr(); p = self.pr(gh); p._test = lambda wt, t: (1, "page.waitForFunction: TimeoutError: 30000ms")
         self.assertEqual(p.preparar(self.c, row), "test_no_fiable"); self.assertEqual(gh.prs, [])
 
+    def test_reanudacion_con_pr_ya_existente_la_vincula_sin_duplicar(self):
+        row = self.montar(); gh = self.GhPr(); gh.pr_de_rama = lambda rama: {"number": 77, "url": "https://github.com/x/y/pull/77", "headRefOid": "abc"}
+        self.assertEqual(self.pr(gh).preparar(self.c, row), "pr_abierta"); self.assertEqual(gh.prs, []); self.assertEqual(gh.pushes, [])
+        r = self.c.execute("SELECT pr_numero,pr_nueva,pr_estado FROM triaje").fetchone(); self.assertEqual(tuple(r), (77, 1, "pr_abierta"))
+
+    def test_parada_durante_la_validacion_no_marca_fallo_ni_abre_pr(self):
+        row = self.montar(); gh = self.GhPr(); p = self.pr(gh); p.run = lambda *a, **k: (_ for _ in ()).throw(qa_pr.Interrumpido())
+        self.assertEqual(p.preparar(self.c, row), "interrumpida"); self.assertEqual(gh.prs, [])
+        self.assertIsNone(self.c.execute("SELECT pr_estado FROM triaje").fetchone()[0])
+
     def test_pr_nueva_guarda_numero_y_marca_de_flujo(self):
         row = self.montar(); self.pr(self.GhPr()).preparar(self.c, row)
         r = self.c.execute("SELECT pr_numero,pr_nueva,pr_head FROM triaje").fetchone(); self.assertEqual((r[0], r[1]), (1, 1)); self.assertTrue(r[2])

@@ -68,6 +68,9 @@ class Gh:
         """PR hacia main SIN merge ni auto-merge; borrador por defecto."""
         a = ["pr", "create", "-R", self.repo, "--base", "main", "--head", rama, "--title", titulo, "--body", cuerpo]
         return self._gh(*(a + (["--draft"] if borrador else []))).strip().splitlines()[-1]
+    def pr_de_rama(self, rama):
+        r = json.loads(self._gh("pr", "list", "-R", self.repo, "--state", "open", "--head", rama, "--json", "number,url,headRefOid") or "[]")
+        return r[0] if r else None
     def prs_abiertas(self):
         return json.loads(self._gh("pr", "list", "-R", self.repo, "--state", "open", "--limit", "200", "--json", "number,headRefName,isDraft,url,title,createdAt,files") or "[]")
     def pr_ver(self, n):
@@ -707,7 +710,7 @@ def bloque_flujo(q, c):
     cl = qa_claude.resumen_consumo(c)
     try: ci = json.loads((q.STATE / "lote" / "ciclo.json").read_text(encoding="utf-8"))
     except (OSError, ValueError): ci = {}
-    fallos = dict(c.execute("SELECT pr_estado,COUNT(*) FROM triaje WHERE pr_estado IN ('no_reproduce','validacion_fallida','sin_test','parche_no_encaja','conflicto_main','descartada') GROUP BY 1").fetchall())
+    fallos = dict(c.execute("SELECT pr_estado,COUNT(*) FROM triaje WHERE pr_estado IN ('test_no_fiable','no_reproduce','validacion_fallida','sin_test','parche_no_encaja','conflicto_main','descartada') GROUP BY 1").fetchall())
     return ["Flujo Claude -> GPT -> PR (Claude decide, GPT desarrolla, Claude revisa):",
             f"  - Decisiones de Claude: " + (", ".join(f"{k} {v}" for k, v in sorted(dec.items(), key=lambda x: -x[1])) or "(ninguna)"),
             f"  - Desarrollo GPT: en cola {n('SELECT COUNT(*) FROM jobs WHERE tipo=? AND clave LIKE ? AND estado IN (?,?)', 'T', 'D:%', 'pendiente', 'en_curso')} | intentos usados {n('SELECT COALESCE(SUM(intentos_dev),0) FROM triaje')} | sin PR por validacion: " + (", ".join(f"{k} {v}" for k, v in fallos.items()) or "ninguno"),
