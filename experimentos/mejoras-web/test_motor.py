@@ -89,6 +89,7 @@ class Flujo(unittest.TestCase):
                 calls.append(args)
                 if args[0]=="--siguiente":
                     return {"disponible":True,"tarea":self.tarea()}
+                if args[0]=="--ver-estado": return {"pendiente":self.tarea()}
                 if args[0]=="--resultado": return {"cerrada":"A-01"}
                 raise AssertionError(args)
             with mock.patch.object(ciclo,"comando_rotacion",side_effect=rotador):
@@ -203,6 +204,25 @@ class Flujo(unittest.TestCase):
             self.assertEqual(result["estado"],"pr_borrador")
             self.assertIn("--base",next(x for x in calls if x[:3]==["gh","pr","create"]))
             self.assertEqual(result["rama"],rama)
+
+    def test_reconciliar_cierre_ya_guardado(self):
+        with tempfile.TemporaryDirectory() as temp:
+            d=Path(temp)
+            s={"id":"A-01","fase":"rechazada","tipo":"catalogo","tarea":self.tarea()}
+            historial=[{"id":"A-01","fase":"rechazada"}]
+            ciclo.guardar(d/"historial.json",historial)
+            with mock.patch.object(ciclo,"comando_rotacion",return_value={"pendiente":None}) as ejecutar:
+                ciclo.cerrar(s,d)
+            self.assertEqual(ciclo.leer(d/"historial.json",[]),historial)
+            ejecutar.assert_called_once_with(d,"--ver-estado")
+
+    def test_descartar_no_fuerza_codigo_ajeno(self):
+        fuente={"url":"https://github.com/org/repo"}
+        data={"decision":"DESCARTAR","problema":"Sin necesidad adicional demostrada",
+              "baseline":"El sitio ya satisface la necesidad",
+              "fuente_url":fuente["url"],
+              "justificacion":"No hay una ventaja técnica nueva verificable"}
+        self.assertEqual(ciclo.validar_investigacion(data,fuente),data)
 
 
 if __name__=="__main__": unittest.main()
