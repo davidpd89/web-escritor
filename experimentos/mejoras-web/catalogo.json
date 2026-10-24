@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "fecha_corte": "2026-10-24",
+  "base_commit": "5b64fc173e9b1f24a6e7c9ba9c6e7801f0820fac",
+  "estados_posibles": [
+    "candidata",
+    "auditada",
+    "revisada_claude",
+    "implementacion",
+    "ci_ok",
+    "demo",
+    "aprobada_persona",
+    "descartada"
+  ],
+  "reglas": [
+    "Comprobar codigo y tests actuales antes de implementar",
+    "Una hipotesis por PR hija",
+    "Sin cambios en main ni despliegue automatico",
+    "Ninguna mejora visual amplia sin revision humana"
+  ],
+  "ideas": [
+    {
+      "id": "UX-01",
+      "area": "Experiencia de usuario",
+      "titulo": "Búsqueda y filtros del catálogo",
+      "hipotesis": "La recuperación tras una búsqueda sin resultados podría reducir abandonos.",
+      "superficie": "recomendaciones/",
+      "criterio_medicion": "Regresar a una lista útil sin perder selección ni URL",
+      "antiduplicacion": "docs/web-improvement-ideas/D11-EMPTY-STATES-2026-08-29.md y filtros activos: medir antes; no rehacer Pagefind",
+      "prioridad": "P1",
+      "estado": "candidata"
+    },
+    {
+      "id": "UX-02",
+      "area": "Experiencia de usuario",
+      "titulo": "Navegación de lectores",
+      "hipotesis": "Una ruta directa Libro → autor → fragmento → compra podría reducir vueltas y clics.",
+      "superficie": "libros/, recomendaciones/, fragmento/",
+      "criterio_medicion": "Número de pasos para completar tres tareas con teclado y móvil",
+      "antiduplicacion": "qa/core-user-journeys-browser.mjs; comprobar recorridos existentes",
+      "prioridad": "P1",
+      "estado": "candidata"
+    },
+    {
+      "id": "DES-01",
+      "area": "Diseño editorial",
+      "titulo": "Detalles de jerarquía y móvil",
+      "hipotesis": "Ajustes locales de densidad y señales de foco podrían mejorar lectura sin cambiar identidad.",
+      "superficie": "cuaderno/, recomendaciones/",
+      "criterio_medicion": "Comparativa A/B de capturas a 375, 768 y 1440 px, con selección humana",
+      "antiduplicacion": "docs/design-ux-tooling/15-ANTI-SLOP-DESIGN-REVIEW.md y docs/design-system/",
+      "prioridad": "P1",
+      "estado": "candidata"
+    },
+    {
+      "id": "PERF-01",
+      "area": "Rendimiento",
+      "titulo": "Diagnóstico INP/LCP/CLS",
+      "hipotesis": "Medir la interacción real puede señalar mejoras que el presupuesto estático no captura.",
+      "superficie": "recomendaciones/ y portada",
+      "criterio_medicion": "INP, LCP y CLS: antes/después medidos en mismo entorno y, si procede, RUM con consentimiento",
+      "antiduplicacion": "scripts/check-performance-budgets.py y .github/workflows/lighthouse-ci.yml; piloto web-vitals",
+      "prioridad": "P1",
+      "estado": "candidata"
+    },
+    {
+      "id": "A11Y-01",
+      "area": "Accesibilidad",
+      "titulo": "Focus y navegación con teclado",
+      "hipotesis": "Es posible localizar fallos de foco o controles en nuevos flujos que no aparecen en el smoke.",
+      "superficie": "fichas de libros y asistente",
+      "criterio_medicion": "Recorrido teclado completo, WCAG 2.2 2.4.11 y 2.5.8, QA automático+manual",
+      "antiduplicacion": "qa/focus-not-obscured-audit.mjs y pa11y: comprobar cobertura primero",
+      "prioridad": "P2",
+      "estado": "candidata"
+    },
+    {
+      "id": "DAT-01",
+      "area": "APIs bibliográficas",
+      "titulo": "Ediciones Open Library",
+      "hipotesis": "El ISBN consultado puntualmente podría enriquecer fichas sin sustituir el catálogo maestro.",
+      "superficie": "scripts/reading_*",
+      "criterio_medicion": "Porcentaje de coincidencia exacta de ISBN/edición en muestra manual de 20 libros",
+      "antiduplicacion": "Fuentes editoriales existentes, Planeta de Libros, Goodreads; uso API restringido por cuotas",
+      "prioridad": "P2",
+      "estado": "candidata"
+    },
+    {
+      "id": "DAT-02",
+      "area": "APIs culturales",
+      "titulo": "Wikidata para rutas literarias",
+      "hipotesis": "Identificadores geográficos enlazados a obra y autor podrían alimentar rutas verificables.",
+      "superficie": "atlas literario y viajes",
+      "criterio_medicion": "10 lugares con origen, coordenada contrastada y enlace a obra/autor",
+      "antiduplicacion": "scripts/build-atlas-literario.py; evitar reimplementar atlas",
+      "prioridad": "P2",
+      "estado": "candidata"
+    },
+    {
+      "id": "REV-01",
+      "area": "Ingresos",
+      "titulo": "Embudo afiliado Amazon",
+      "hipotesis": "Reducir clics muertos y aclarar edición/soporte puede elevar clics válidos sin afectar confianza.",
+      "superficie": "recomendaciones/",
+      "criterio_medicion": "CTR hacia URLs ISBN correctas y eventos diferenciados; no atribuir ventas sin datos",
+      "antiduplicacion": "scripts/audit-amazon-links.py y tracking existente",
+      "prioridad": "P2",
+      "estado": "candidata"
+    },
+    {
+      "id": "REV-02",
+      "area": "Ingresos",
+      "titulo": "Conversión boletín a lectura",
+      "hipotesis": "Las rutas editoriales a boletín podrían mejorar retorno sin nuevos popups.",
+      "superficie": "cuaderno/ y suscripción",
+      "criterio_medicion": "Alta confirmada / sesiones aptas y tasa de abandono; consentimiento existente",
+      "antiduplicacion": "docs/web-improvement-ideas/H01...H06; Brevo ya instalado",
+      "prioridad": "P3",
+      "estado": "candidata"
+    },
+    {
+      "id": "CNT-01",
+      "area": "Contenido y SEO",
+      "titulo": "Guías literarias útiles",
+      "hipotesis": "Una guía con fuentes comprobadas puede captar búsqueda específica sin páginas vacías.",
+      "superficie": "cuaderno/ y viajes literarios",
+      "criterio_medicion": "Cobertura útil real, enlaces internos, indexación y clics observados",
+      "antiduplicacion": "verificar radar, atlas y recomendaciones ya existentes",
+      "prioridad": "P3",
+      "estado": "candidata"
+    },
+    {
+      "id": "TEC-01",
+      "area": "Bibliotecas públicas",
+      "titulo": "Reutilización controlada",
+      "hipotesis": "Una biblioteca pública mantenida puede resolver un problema medido sin inventar código.",
+      "superficie": "experimentos/mejoras-web/investigaciones/",
+      "criterio_medicion": "Código upstream localizado por commit/ruta/licencia + comparación de alternativa nativa",
+      "antiduplicacion": "Playwright 1.62.1 ya instalado; web-vitals Apache-2.0 candidato piloto",
+      "prioridad": "P3",
+      "estado": "candidata"
+    },
+    {
+      "id": "MKT-01",
+      "area": "Distribución",
+      "titulo": "Pinterest → fichas → compra",
+      "hipotesis": "Mejorar continuidad editorial desde un pin puede favorecer tráfico cualificado.",
+      "superficie": "reading-pinterest-rss y recomendaciones/",
+      "criterio_medicion": "Tráfico referido y continuidad hasta ficha y clic externo",
+      "antiduplicacion": "scripts/build-reading-pinterest-rss.py ya existe; no duplicar generación",
+      "prioridad": "P3",
+      "estado": "candidata"
+    }
+  ]
+}
