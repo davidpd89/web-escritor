@@ -46,9 +46,9 @@ html.v1 .assistant-shell .tool-hero .eyebrow::before{
 html.v1 .assistant-shell .tool-hero h1{
   color:var(--assistant-blue);
 }
-.assistant-shell:not(.assistant-shell--ready) .tool-hero__lead{visibility:hidden}
-.assistant-shell .assistant-panel{visibility:hidden}
-.assistant-shell>.v1-section[aria-labelledby="limites-title"]{display:none}
+.assistant-shell .tool-hero__lead{visibility:visible}
+.assistant-shell .assistant-panel{visibility:visible}
+.assistant-shell>.v1-section[aria-labelledby="limites-title"]{display:block}
 
 .assistant-panel,.assistant-chat{border:0;border-radius:var(--radius-none,0);background:var(--surface-page,#fff);box-shadow:none}
 .assistant-panel{padding:0;overflow:hidden}
