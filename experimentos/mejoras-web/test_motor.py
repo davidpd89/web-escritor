@@ -224,5 +224,26 @@ class Flujo(unittest.TestCase):
               "justificacion":"No hay una ventaja técnica nueva verificable"}
         self.assertEqual(ciclo.validar_investigacion(data,fuente),data)
 
+    def test_lab_obsoleta_archivo_conflictivo_se_detiene(self):
+        with tempfile.TemporaryDirectory() as temp:
+            patch={"ficheros":[{"ruta":"styles.css"}]}
+            def git(args,cwd,timeout=240,extra_env=None):
+                if args[:3]==["git","merge-base","origin/"+pr_laboratorio.BASE]: return "base-sha"
+                if args[:3]==["git","diff","--name-only"]: return "styles.css\nindex.html"
+                return ""
+            with mock.patch.object(pr_laboratorio,"run",side_effect=git):
+                with self.assertRaises(pr_laboratorio.PreparacionError):
+                    pr_laboratorio.verificar_divergencia(Path(temp),patch)
+
+    def test_lab_obsoleta_sin_colision_de_archivos_permita_probar(self):
+        with tempfile.TemporaryDirectory() as temp:
+            patch={"ficheros":[{"ruta":"styles.css"}]}
+            def git(args,cwd,timeout=240,extra_env=None):
+                if args[:3]==["git","merge-base","origin/"+pr_laboratorio.BASE]: return "base-sha"
+                if args[:3]==["git","diff","--name-only"]: return "cuaderno/index.html"
+                return ""
+            with mock.patch.object(pr_laboratorio,"run",side_effect=git):
+                self.assertEqual(pr_laboratorio.verificar_divergencia(Path(temp),patch),1)
+
 
 if __name__=="__main__": unittest.main()
