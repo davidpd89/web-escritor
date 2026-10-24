@@ -16,6 +16,8 @@ SECRETS = re.compile(r"(^\.env|token|secret|credential|password|\.pem$|\.key$)",
 TOKEN_RE = re.compile(r"(EAA[A-Za-z0-9]{25,}|Bearer\s+[A-Za-z0-9_\-]{25,}|sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{30,})")
 LIMIT_RE = re.compile(r"(too many requests|has alcanzado el l[ií]mite|you.ve reached|l[ií]mite de uso|rate limit|vuelve a intentarlo m[aá]s tarde)", re.I)
 CID_RE = re.compile(r"/c/([0-9a-f-]{20,})")
+ERROR_CARGA_RE = re.compile(r"(no se ha podido cargar esta conversaci[oó]n|unable to load conversation|couldn.t load (this|the) conversation|conversation not found|no se encontr[oó] la conversaci[oó]n)", re.I)
+RECARGAS = 2  # recargas tras el error visible, antes de decidir si la conversacion existe
 PARADA = None  # callable -> True cuando hay que abandonar la espera (parada pedida y gracia vencida); la conversacion queda reanudable
 
 
@@ -25,6 +27,14 @@ class LoginRequired(RuntimeError):
 
 class RateLimited(RuntimeError):
     pass
+
+
+class ChatInaccesible(RuntimeError):
+    """La conversacion no carga tras las recargas. `perdida`=True solo si el backend confirma que NO existe (404/410);
+    con red caida o 5xx es incierta: no se abre otro chat (podria haber respondido)."""
+    def __init__(self, msg, cid=None, perdida=False):
+        super().__init__(msg)
+        self.cid, self.perdida = cid, perdida
 
 
 class Incompleta(RuntimeError):
@@ -94,6 +104,45 @@ def leer_chat(pg, cid):
         raise Incompleta(f"backend sin conversacion (http {d.get('http') if isinstance(d, dict) else '?'})", cid, "backend")
     est, texto, herr, nodos = evaluar(d)
     return Resultado(est, texto, cid, herr, nodos)
+
+
+def error_carga_visible(pg):
+    """Pagina de error de ChatGPT ('No se ha podido cargar esta conversacion. Intentarlo de nuevo')."""
+    try: return bool(ERROR_CARGA_RE.search(pg.evaluate("document.body ? document.body.innerText : ''") or ""))
+    except Exception: return False
+
+
+def conversacion_en_dom(pg):
+    try: return pg.locator("[data-message-author-role]").count() > 0
+    except Exception: return False
+
+
+def abrir_chat(pg, cid, recargas=None):
+    """Abre un chat existente y COMPRUEBA por DOM/backend que cargo. Recarga de forma acotada si hay error visible o la
+    navegacion falla. Lanza LoginRequired (sin eludir nada) o ChatInaccesible. Devuelve el Resultado actual del backend si lo hubo."""
+    recargas = RECARGAS if recargas is None else recargas
+    url, motivo, http = f"https://chatgpt.com/g/{PROJECT_ID}/c/{cid}", "", None
+    for i in range(recargas + 1):
+        try:
+            if i == 0: pg.goto(url, wait_until="domcontentloaded", timeout=40000)
+            else: pg.reload(wait_until="domcontentloaded", timeout=40000)
+            pg.wait_for_timeout(2500)
+        except Exception as e:
+            motivo = f"navegacion fallida: {str(e)[:80]}"; continue
+        comprobar_sesion(pg, necesita_editor=False)
+        if error_carga_visible(pg): motivo = "error de carga visible"
+        elif not conversacion_en_dom(pg): motivo = "pagina sin conversacion"
+        else: motivo = ""
+        try:
+            r = leer_chat(pg, cid)  # el backend manda: si responde, el visor es irrelevante
+            return r
+        except Incompleta as e:
+            m = re.search(r"http (\d+)", str(e)); http = int(m.group(1)) if m else None
+            motivo = motivo or str(e)
+        except LoginRequired: raise
+        except Exception as e:
+            http, motivo = None, f"backend no alcanzable: {str(e)[:80]}"
+    raise ChatInaccesible(f"conversacion {cid[:8]} inaccesible tras {recargas} recargas: {motivo}", cid, perdida=http in (404, 410))
 
 
 def estado_chat_seguro(pg, cid):
@@ -167,7 +216,7 @@ def _esperar(pg, cid, wait_min, stall_min, progreso=None):
     raise Incompleta(f"plazo de {wait_min} min agotado con la generacion en curso", cid, "generando")
 
 
-def ask(question, wait_min=25, stall_min=12, on_chat=None, on_result=None, resume_cid=None):
+def ask(question, wait_min=25, stall_min=12, on_chat=None, on_result=None, resume_cid=None, registro=None):
     """Envia `question` en chat nuevo (o reanuda `resume_cid` sin reenviar) y devuelve Resultado.
 
     on_chat(cid): se llama en cuanto existe el chat (persistir para poder reanudar).
@@ -182,10 +231,13 @@ def ask(question, wait_min=25, stall_min=12, on_chat=None, on_result=None, resum
         limpiar_pestanas(ctx)
         pg = ctx.new_page()
         if resume_cid:
-            pg.goto(f"https://chatgpt.com/g/{PROJECT_ID}/c/{resume_cid}", wait_until="domcontentloaded", timeout=40000)
-            pg.wait_for_timeout(2500)
-            comprobar_sesion(pg, necesita_editor=False); cid = resume_cid
-        else:
+            try:
+                abrir_chat(pg, resume_cid); cid = resume_cid
+            except ChatInaccesible as e:
+                if not e.perdida: raise Incompleta(str(e), resume_cid, "backend")  # incierto: se reintenta sin abrir otro chat
+                if registro: registro(f"conversacion {resume_cid} perdida ({e}): se abre una nueva con el prompt original")
+                resume_cid = None
+        if not resume_cid:
             pg.goto(PROJECT_URL, wait_until="domcontentloaded", timeout=40000)
             pg.wait_for_selector('[contenteditable="true"]', timeout=20000) if "auth" not in pg.url and "login" not in pg.url else None
             comprobar_sesion(pg)

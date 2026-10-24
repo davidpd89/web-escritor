@@ -396,7 +396,7 @@ def process(job, c, manual=False):
         load_json_block(res.texto)  # nada se da por bueno si no es JSON
 
     try:
-        res = g.ask(text, CFG["espera_respuesta_min"], CFG["stall_min"], on_chat, on_result, resume_cid=reanudar)
+        res = g.ask(text, CFG["espera_respuesta_min"], CFG["stall_min"], on_chat, on_result, resume_cid=reanudar, registro=lambda m: print("  " + m))
     except g.LoginRequired:
         c.execute("UPDATE jobs SET estado='pendiente',error='login',actualizado=? WHERE id=?", (now(), jid)); c.commit()
         raise SystemExit("ChatGPT sin sesion en el Edge 9230: inicia sesion y relanza (la cola se conserva).")
@@ -407,6 +407,11 @@ def process(job, c, manual=False):
     except g.Incompleta as e:
         cid = e.cid or estado_peticion.get("cid")
         c.execute("UPDATE peticiones SET estado=? WHERE chat_id=?", (e.estado, cid)); c.commit()
+        if e.estado == "backend" and cid:  # chat inaccesible/incierto: reintentos acotados; agotados, se abandona ese chat (el prompt vive en la BD)
+            c.execute("UPDATE jobs SET intentos=intentos+1 WHERE id=?", (jid,)); c.commit()
+            if c.execute("SELECT intentos FROM jobs WHERE id=?", (jid,)).fetchone()[0] > CFG["reintentos"]:
+                print(f"  chat {cid[:8]} inaccesible tras reintentos: se abandona y el trabajo vuelve a la cola con chat nuevo")
+                return fallo(c, job, f"chat inaccesible: {e}", nuevo_chat=True)
         if e.estado in ("generando", "estancada", "backend") and cid:  # recuperable: se conserva el chat, se reanuda sin reenviar
             edad = (_ahora() - dt.datetime.fromisoformat(job["creado"])).total_seconds() / 3600
             if edad > CFG["reanudar_max_horas"]:
@@ -432,7 +437,12 @@ def process(job, c, manual=False):
 def fallo(c, job, err, nuevo_chat=True):
     n = c.execute("SELECT intentos FROM jobs WHERE id=?", (job["id"],)).fetchone()[0]
     reset = ",chat_id=NULL,fase=NULL,respuesta=NULL" if nuevo_chat else ""
-    if n > CFG["reintentos"]:
+    previo = c.execute("SELECT error FROM jobs WHERE id=?", (job["id"],)).fetchone()[0] or ""
+    if "[reencolado]" in previo and "[reencolado]" not in err: err = "[reencolado] " + err  # la marca sobrevive: el reencolado lento ocurre una sola vez
+    if n > CFG["reintentos"] and "inaccesible" in err and "[reencolado]" not in previo:  # una segunda oportunidad lenta: el trabajo no se pierde
+        nb = (_ahora() + dt.timedelta(hours=CFG.get("reencolar_inaccesible_h", 6))).isoformat(timespec="seconds")
+        c.execute(f"UPDATE jobs SET estado='pendiente',intentos=0,error=?,no_antes=?,actualizado=?{reset} WHERE id=?", (("[reencolado] " + err)[:300], nb, now(), job["id"]))
+    elif n > CFG["reintentos"]:
         c.execute(f"UPDATE jobs SET estado='error',error=?,actualizado=?{reset} WHERE id=?", (err[:300], now(), job["id"]))
     else:
         nb = (_ahora() + dt.timedelta(minutes=CFG["backoff_min"][min(n - 1, len(CFG["backoff_min"]) - 1)])).isoformat(timespec="seconds")
