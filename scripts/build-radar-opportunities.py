@@ -6,6 +6,7 @@ import argparse
 import html
 import json
 import re
+from decimal import Decimal, InvalidOperation
 from datetime import date, timedelta
 import sys
 from pathlib import Path
@@ -96,8 +97,16 @@ def validate(item):
     if not isinstance(item["published"], bool):
         raise ValueError(f"{item['id']}: published debe ser boolean")
     fee = item["fee_eur"]
-    if fee is not None and (isinstance(fee, bool) or not isinstance(fee, (int, float)) or fee < 0):
-        raise ValueError(f"{item['id']}: fee_eur debe ser número >= 0 o null cuando la fuente no indica tasa")
+    if fee is not None:
+        if isinstance(fee, bool) or not isinstance(fee, (int, float)):
+            raise ValueError(f"{item['id']}: fee_eur debe ser un número o null")
+        try:
+            amount = Decimal(str(fee))
+            cents = amount * 100
+            if not amount.is_finite() or amount < 0 or not cents.is_finite() or cents != cents.to_integral_value():
+                raise ValueError(f"{item['id']}: fee_eur debe ser finito, no negativo y expresable en céntimos")
+        except InvalidOperation as exc:
+            raise ValueError(f"{item['id']}: fee_eur inválido: {fee!r}") from exc
     iso_date(item["deadline"], "deadline")
     iso_date(item["verified_at"], "verified_at")
 
