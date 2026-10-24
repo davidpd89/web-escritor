@@ -1,5 +1,5 @@
 #requires -Version 5.1
-param([int]$SitePort = 8765, [int]$DebugPort = 9331, [string]$IdeaId = '', [string]$Familia = '', [string]$Canal = '')
+param([int]$SitePort = 8765, [int]$DebugPort = 9331, [string]$IdeaId = '', [string]$Familia = '', [string]$Canal = '', [switch]$Simular, [switch]$SoloVista)
 $ErrorActionPreference = 'Stop'
 $repo = (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
 $branch = (& git -C $repo branch --show-current).Trim()
@@ -50,6 +50,19 @@ Write-Host ("Canal: {0} | Familia: {1}" -f $job.tarea.canal, $job.tarea.familia)
 Write-Host "GPT: experimentos/mejoras-web/contratos/GPT-INVESTIGAR.md"
 Write-Host "Claude: experimentos/mejoras-web/contratos/CLAUDE-REVISAR.md"
 Write-Host "No se ha enviado nada a GPT/Claude: orquestador local aun pendiente."
+if ($Simular) {
+    Write-Host 'SIMULACION sin navegador, consultas ni PR.'
+    & $python.Source (Join-Path $PSScriptRoot 'motor/ciclo.py') --simular
+    exit $LASTEXITCODE
+}
+if (-not $SoloVista) {
+    if (-not $env:LAB_MEJORAS_PROJECT_ID) { throw 'Configura LAB_MEJORAS_PROJECT_ID con el ID de tu Project ChatGPT de mejoras antes de iniciar la automatizacion real.' }
+    if (-not (Get-Command gh -ErrorAction SilentlyContinue)) { throw 'Falta GitHub CLI (gh).' }
+    if (-not (Get-Command claude -ErrorAction SilentlyContinue)) { throw 'Falta Claude Code CLI.' }
+    & $python.Source -c 'import playwright.sync_api'
+    if ($LASTEXITCODE -ne 0) { throw 'Falta playwright en este Python.' }
+}
+$env:LAB_MEJORAS_CDP_PORT = "$DebugPort"
 $profile = Join-Path $env:LOCALAPPDATA 'web-escritor-lab/edge-9331'
 New-Item -ItemType Directory -Force -Path $profile | Out-Null
 $server = Start-Process -FilePath $python.Source -ArgumentList @('-m','http.server',"$SitePort",'--bind','127.0.0.1') -WorkingDirectory $repo -PassThru -NoNewWindow
@@ -60,9 +73,15 @@ try {
     $args = @("--remote-debugging-port=$DebugPort", '--remote-debugging-address=127.0.0.1', "--user-data-dir=`"$profile`"", '--no-first-run', $url)
     Start-Process -FilePath $edge -ArgumentList $args | Out-Null
     Write-Host "Laboratorio: $url | Edge CDP 127.0.0.1:$DebugPort | rama $branch"
-    Write-Host 'Ctrl+C en esta consola termina el servidor local. No se ejecuta GPT/Claude automaticamente.'
-    while (!$server.HasExited) { Start-Sleep -Seconds 1 }
-    throw 'El servidor local se ha detenido.'
+    if ($SoloVista) {
+        Write-Host 'SoloVista: no se consulta GPT/Claude, pulsa Ctrl+C para cerrar.'
+        while (!$server.HasExited) { Start-Sleep -Seconds 1 }
+    } else {
+        Write-Host 'Iniciando descubrimiento -> GPT -> Claude -> validacion -> PR draft (solo base lab).'
+        Write-Host 'Ctrl+C interrumpe el ciclo; reabrir recupera el expediente y el chat persistidos.'
+        & $python.Source (Join-Path $PSScriptRoot 'motor/ciclo.py') --continuo --publicar-pr
+        if ($LASTEXITCODE -ne 0) { throw 'El director de mejoras se detuvo; consulta su estado, no se marca exito.' }
+    }
 } finally {
     if (!$server.HasExited) { Stop-Process -Id $server.Id -Force -ErrorAction SilentlyContinue }
 }
