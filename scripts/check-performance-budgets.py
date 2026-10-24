@@ -190,7 +190,7 @@ def validate_manifest(manifest: dict) -> list[str]:
             for key, value in values.items():
                 if key not in METRIC_KEYS:
                     errors.append(f"manifest: {budget_id or index}.{field}.{key} no es metrica soportada")
-                if not isinstance(value, int) or value < 0:
+                if type(value) is not int or value < 0:
                     errors.append(f"manifest: {budget_id or index}.{field}.{key} debe ser entero >= 0")
     return errors
 
