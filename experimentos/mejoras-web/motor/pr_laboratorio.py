@@ -175,7 +175,20 @@ def abrir_pr(root,estado_dir,expediente,parche,publicar=False):
     tag=identificador(expediente)
     rama=f"feature/mejoras-web/{tag}"
     wt=Path(estado_dir).resolve()/"worktrees"/tag
-    if wt.exists(): raise PreparacionError(f"Worktree ya existe; recuperar antes de repetir: {wt}")
+    if wt.exists():
+        # Recuperación idempotente del último tramo. Nunca reescribir una rama existente.
+        if publicar:
+            try:
+                listado=run(["gh","pr","list","-R",REPO,"--state","open","--head",rama,
+                             "--json","url,baseRefName,headRefOid"],root)
+                prs=json.loads(listado)
+                correctas=[x for x in prs if x.get("baseRefName")==BASE]
+                if correctas:
+                    return {"rama":rama,"worktree":str(wt),"estado":"pr_existente",
+                            "tests":[],"pr":correctas[0]["url"],"nota":"PR recuperada sin duplicado"}
+            except (PreparacionError,ValueError):
+                pass
+        raise PreparacionError(f"Worktree {wt} ya existe, sin PR recuperable. Inspeccionar manualmente antes de continuar.")
     wt.parent.mkdir(parents=True,exist_ok=True)
     # Comprobación previa de tests sin ejecutar los cambios.
     comandos_test(parche)

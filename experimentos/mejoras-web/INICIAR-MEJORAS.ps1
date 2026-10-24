@@ -37,7 +37,10 @@ if ($Simular) {
     exit $LASTEXITCODE
 }
 # Seleccion offline recuperable. No inicia llamadas a GPT ni Claude.
-$selector = @((Join-Path $PSScriptRoot 'rotacion.py'))
+$stateCmd = "import sys;sys.path.insert(0, r'$PSScriptRoot');import rotacion;print(rotacion.ubicacion_estado().parent / 'ciclo' / 'rotacion.json')"
+$stateRotacion = (& $python.Source -c $stateCmd | Out-String).Trim()
+if (-not $stateRotacion) { throw 'No se puede determinar el estado local del laboratorio.' }
+$selector = @((Join-Path $PSScriptRoot 'rotacion.py'), '--estado-archivo', $stateRotacion)
 if ($SoloVista) {
     $selector += "--vista"
 } elseif ($IdeaId) {

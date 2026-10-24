@@ -55,7 +55,7 @@ def reservar(carpeta):
     n=len(historico)
     fam=sorted({x["familia"] for x in rotacion.catalogo()["ideas"]})
     canal=rotacion.ORDEN_CANALES[n%len(rotacion.ORDEN_CANALES)]
-    familia=fam[n%len(fam)]
+    familia=fam[(n//len(rotacion.ORDEN_CANALES))%len(fam)]
     return {"id":f"SONDEO-{n+1:07d}","titulo":f"Descubrir novedades de {familia}",
             "familia":familia,"canal":canal,
             "hipotesis":"Encontrar una mejora reciente y demostrablemente aplicable al sitio",

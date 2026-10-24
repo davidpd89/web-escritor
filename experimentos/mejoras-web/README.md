@@ -106,3 +106,7 @@ Para el servicio real se necesita: Edge instalado y autenticado en ChatGPT, `pla
 ### Inspección visual de cambios
 
 Cada resultado validado guarda la ruta del worktree hijo en `ciclo/actual.json` bajo `validacion.worktree`; ese directorio contiene los cambios reales y puede servirse con `python -m http.server 8766 --bind 127.0.0.1 -d <directorio>`. Verificar desktop y móvil allí. La rama agregada lab se compara solo tras aceptar y fusionar allí PR hijas; **ningún cambio salta a main automáticamente**.
+
+## Aislamiento del selector en Windows
+
+El lanzador y el director utilizan **el mismo** fichero de rotación (ciclo/rotacion.json) derivado del worktree local. La simulación usa un subdirectorio separado. No hay intercambio de pendientes con el QA original. En sondeos continuos, el canal cambia en cada ciclo y la familia cada cinco, sin presentar una variación del mismo tema como hallazgo nuevo. En caso de PR ya publicada, el módulo de creación consulta GitHub y devuelve la existente antes de intentar una segunda.

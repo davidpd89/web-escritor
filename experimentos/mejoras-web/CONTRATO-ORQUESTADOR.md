@@ -45,3 +45,5 @@ No se ha localizado en el repo el script local completo de `EJECUTAR-ACTIONS-QA-
 ## Actualización: origen recuperado
 
 El director original sí se ha localizado en la rama Git `automation/qa-gpt`. Se han adaptado sus clientes de GPT/Claude y el patrón de PR en `motor/`; la integración del circuito ya existe en código. Siguen sin validar el arranque real en Windows, los permisos de cuentas y la ejecución completa con PR hija. El laboratorio no comparte puerto, Project ChatGPT (debe configurarse), estado ni rama base de QA.
+
+**Corrección de estado:** se ha unificado la ruta de la cola de ideas entre INICIAR-MEJORAS.ps1 y motor/ciclo.py; cualquier simulación conserva su propio estado aparte. El módulo de PR vuelve a vincular una PR existente por rama y base, sin duplicarla. No se recicla el lock del QA original.
