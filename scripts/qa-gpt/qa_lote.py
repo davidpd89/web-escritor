@@ -646,9 +646,11 @@ class Lote:
             pendientes = [i for i in its if i["estado"] in self.VIVOS + ENVIABLES + ("preparada", "validacion_local")]
             if not pendientes or not gh_ok:
                 if not gh_ok or self.parando or time.time() > t_fin: break
+                self.c.commit()  # sin transaccion abierta mientras espera: si no, bloquea la escritura del servicio ('database is locked')
                 if lid != cerrado: self.cerrar_lote(lid); cerrado = lid  # lote agotado: se cierra una vez y se abre el siguiente con lo preparado desde entonces
                 if self.hay_nuevo(): lid = self.abrir_lote(); cerrado = None; self.esperar(2); continue
                 if not self.cfg.get("continuo"): break
+                self.c.commit()
                 if time.time() - ult_idle > 600: self.log("Sin trabajo pendiente: esperando propuestas nuevas del worker (Q para salir)"); ult_idle = time.time()
                 self.esperar(self.cfg["espera_ociosa_s"]); continue
             if time.time() > t_fin: break
