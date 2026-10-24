@@ -33,3 +33,5 @@ Adicionalmente, verificar sintaxis PowerShell con `[System.Management.Automation
 Un informe corto con: **defectos reproducidos (ruta/línea) → corrección mínima → resultado real de prueba**. Diferenciar OK, fallo y no ejecutado. No crear nuevas PR ni saturar Actions. Mantener #819 cerrada mientras se mejora.
 
 **GO para primera prueba real:** tests locales verdes, CLAUDE CLI/Edge preflight realmente verificados en Windows, y aprobación explícita del orden de integración: primero #819 a lab tras validar, después una PR hija piloto con sus propias pruebas. No declarar 100 % hasta completar un ciclo GPT→Claude→PR→preview sin duplicados.
+
+**Nota de GitHub sobre PR cerrada:** algunos detalles de #819 siguen mostrando el último SHA anterior al cierre. Usa el SHA real de `origin/research/mejoras-web-orquestador-20261024` y revisa el diff mediante `git log`/`git diff`, no des por actualizada la ficha de una PR cerrada. Continuar editando la rama cerrada no requiere reabrirla ni lanzar CI.
