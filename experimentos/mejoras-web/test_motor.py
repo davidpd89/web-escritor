@@ -284,5 +284,25 @@ class Flujo(unittest.TestCase):
                           {"validacion":{"worktree":str(d.parent)}})
             with self.assertRaises(ValueError): preview.destino(d)
 
+    def test_reintento_explicito_no_duplica_sin_solicitud(self):
+        with tempfile.TemporaryDirectory() as temp:
+            d=Path(temp)
+            ciclo.guardar(d/"actual.json",{"id":"A-01","fase":"fuente",
+              "chats":{"investigacion":"chat-antiguo"},"errores":3})
+            r=ciclo.reintentar_chat(d)
+            self.assertEqual(r["chat_anterior"],"chat-antiguo")
+            st=ciclo.leer(d/"actual.json",{})
+            self.assertNotIn("investigacion",st["chats"])
+            self.assertEqual(st["chats_rechazados"][0]["chat_id"],"chat-antiguo")
+            self.assertEqual(st["errores"],0)
+            with self.assertRaises(ValueError): ciclo.reintentar_chat(d)
+
+    def test_no_reenvia_chat_de_una_pr_pendiente(self):
+        with tempfile.TemporaryDirectory() as temp:
+            d=Path(temp)
+            ciclo.guardar(d/"actual.json",{"id":"A-01","fase":"parche_listo",
+              "chats":{"parche":"cid"},"errores":1})
+            with self.assertRaises(ValueError): ciclo.reintentar_chat(d)
+
 
 if __name__=="__main__": unittest.main()

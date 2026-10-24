@@ -75,3 +75,7 @@ Tras validar localmente una mejora, el estado contiene `validacion.worktree`. Ej
 El director usa un bloqueo con PID e identidad: si la ventana murió y el proceso ya no existe, recupera el bloqueo tras comprobarlo; si el proceso aún está vivo, impide un duplicado. La cola QA original sigue sin verse afectada.
 
 Cada PR hija validada se archiva en `ciclo/propuestas/<hash>.json` y la última se referencia en `ultima_propuesta.json`; la previsualización ya no depende de que siga siendo el expediente actual. `PREVISUALIZAR-MEJORAS.cmd --id SEO-01` abre una mejora anterior, si conserva su worktree. No extrae secretos ni accede a rutas externas.
+
+## Recuperación de respuesta GPT inválida
+
+Una respuesta vacía, incompleta o que no cumple los campos no se acepta. El director reintenta recuperar el mismo chat; si falla tres veces, se detiene y conserva `actual.json`. **Solo por decisión humana**, el comando `python experimentos/mejoras-web/motor/ciclo.py --reintentar-chat` archiva el chat anterior, libera esa fase y permite reconsultar GPT sin borrar el expediente ni crear PR duplicadas. No funciona en fases de Git/PR, que exigen recuperar el worktree por el procedimiento documentado.

@@ -390,6 +390,30 @@ def prs_laboratorio_abiertas():
         raise RuntimeError("No se puede comprobar el tope de PR hijas: "+str(exc)[:130]) from exc
 
 
+def reintentar_chat(d):
+    """Solo por orden explícita: un chat inválido ya terminado puede abrirse de nuevo."""
+    path=d/"actual.json"
+    s=leer(path,None)
+    if not s: raise ValueError("No hay expediente")
+    fase=s["fase"]
+    tipos={"fuente":"investigacion","aprobado":"parche"}
+    clave=tipos.get(fase)
+    if fase=="ampliacion":
+        clave="ampliacion_"+str(s.get("ampliaciones",0)+1)
+    if not clave:
+        raise ValueError("No se puede reenviar ChatGPT desde la fase "+str(fase))
+    antiguo=s.get("chats",{}).pop(clave,None)
+    if not antiguo:
+        raise ValueError("No existe chat previo para reiniciar en "+clave)
+    s.setdefault("chats_rechazados",[]).append({"fase":fase,"chat_id":antiguo,"fecha":utc()})
+    s["errores"]=0
+    s.pop("error",None)
+    anotar(s,"Reenvío solicitado explícitamente tras investigar respuesta inválida")
+    guardar(path,s)
+    return {"id":s["id"],"fase":fase,"chat_anterior":antiguo,
+            "nota":"Reenvío autorizado para el siguiente --paso o --continuo"}
+
+
 def esperar_interrumpible(seg):
     for _ in range(seg):
         if tecla_q(): return
@@ -432,6 +456,7 @@ def main():
     g.add_argument("--continuo",action="store_true")
     g.add_argument("--simular",action="store_true")
     g.add_argument("--estado",action="store_true")
+    g.add_argument("--reintentar-chat",action="store_true")
     p.add_argument("--publicar-pr",action="store_true",help="PR borrador solo a lab, nunca merge")
     p.add_argument("--estado-dir",type=Path,default=carpeta_estado())
     args=p.parse_args()
@@ -439,6 +464,15 @@ def main():
         print(json.dumps(leer(args.estado_dir/"actual.json",{"fase":"sin_iniciar"}),
                          ensure_ascii=False,indent=2))
         return 0
+    if args.reintentar_chat:
+        try:
+            with exclusivo(args.estado_dir):
+                resultado=reintentar_chat(args.estado_dir)
+            print(json.dumps(resultado,ensure_ascii=False))
+            return 0
+        except (ValueError,RuntimeError,OSError) as err:
+            print(f"ERROR: {err}",file=sys.stderr)
+            return 2
     try:
         if args.simular:
             import tempfile

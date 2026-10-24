@@ -28,3 +28,5 @@ Para ejecución real: configurar `LAB_MEJORAS_PROJECT_ID`, Edge/Playwright, Clau
 ## Estado de validación
 
 Implementación del circuito real presente en la rama, con pruebas offline creadas. Falta confirmar CI verde y ejecutar una ronda real Windows/Edge/Claude/GitHub que llegue a PR hija revisable. No presumir éxitos antes de observarlos.
+
+Si una respuesta GPT completa es inválida y falla tres veces, `--reintentar-chat` registra explícitamente el CID antiguo en `chats_rechazados`, restaura el contador y permitirá una nueva conversación solo al reanudar. Nunca se reenvía silenciosamente la misma petición ni se cancela un Actions ajeno.
