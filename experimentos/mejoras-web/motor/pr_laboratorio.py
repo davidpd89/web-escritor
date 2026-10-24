@@ -96,10 +96,10 @@ def comandos_test(parche):
     return out
 
 
-def run(args,cwd,timeout=240):
+def run(args,cwd,timeout=240,extra_env=None):
     try:
         r=subprocess.run(args,cwd=cwd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,
-                         encoding="utf-8",errors="replace",timeout=timeout,env={**os.environ,
+                         encoding="utf-8",errors="replace",timeout=timeout,env={**os.environ,**(extra_env or {}),
                          "GIT_TERMINAL_PROMPT":"0","GH_PROMPT_DISABLED":"1"})
     except (OSError,subprocess.TimeoutExpired) as exc:
         raise PreparacionError(f"Proceso no ejecutable/timeout: {args[0]}: {exc}") from exc
@@ -108,14 +108,42 @@ def run(args,cwd,timeout=240):
     return r.stdout.strip()
 
 
+def _node_test(wt,cmd):
+    """Reuso del contrato QA Pr._test: servidor del worktree + dependencia fijada."""
+    import socket, time
+    dest=wt/"node_modules"
+    src=Path(__file__).resolve().parents[3]/"node_modules"
+    if not dest.exists():
+        if src.exists():
+            if os.name=="nt":
+                run(["cmd","/c","mklink","/J",str(dest),str(src)],wt,timeout=30)
+            else:
+                dest.symlink_to(src,target_is_directory=True)
+        else:
+            run(["npm","ci"],wt,timeout=240)
+    with socket.socket() as sock:
+        sock.bind(("127.0.0.1",0)); port=sock.getsockname()[1]
+    srv=subprocess.Popen([sys.executable,"-m","http.server",str(port),
+         "--bind","127.0.0.1","-d",str(wt)],cwd=wt,
+         stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+    try:
+        time.sleep(1)
+        if srv.poll() is not None: raise PreparacionError("Servidor Playwright no arranco")
+        return run(cmd,wt,timeout=300,extra_env={"QA_ORIGIN":f"http://127.0.0.1:{port}"})
+    finally:
+        srv.terminate()
+        try: srv.wait(timeout=10)
+        except subprocess.TimeoutExpired: srv.kill()
+
+
 def ejecutar_tests(worktree,patch):
     logs=[]
     for test in comandos_test(patch):
         if not (worktree/test[1]).is_file(): raise PreparacionError(f"Test no existe: {test[1]}")
-        logs.append((test[1],run(test,worktree,timeout=300)[-800:]))
-    # Contratos ligeros del repositorio; la suite pesada se validará después por CI.
-    touched=[f["ruta"] for f in patch["ficheros"]]
-    if any(f.endswith(".html") for f in touched):
+        output=run(test,worktree,timeout=300) if test[0]=="python" else _node_test(worktree,test)
+        logs.append((test[1],output[-800:]))
+    tocados=[f["ruta"] for f in patch["ficheros"]]
+    if any(f.endswith(".html") for f in tocados):
         for check in ("scripts/check-hrefs.py","scripts/check-heading-structure.py"):
             if (worktree/check).exists():
                 logs.append((check,run(["python",check],worktree,timeout=300)[-800:]))

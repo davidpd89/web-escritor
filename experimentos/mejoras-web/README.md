@@ -76,3 +76,33 @@ Requisitos: Windows, Python 3 y Microsoft Edge instalados; PowerShell 5.1+. Si e
 Pedir al entorno **local** sus scripts reales de `EJECUTAR-ACTIONS-QA-GPT` y de GPT ↔ Claude ↔ PR, incluyendo estado persistido, bloqueo de Edge, detección de puerto y política de parada. Crear un adaptador nuevo que use esos componentes sin compartir carpetas de cola, sesiones, llaves de estado, puertos ni contadores con QA. Probar Q, Ctrl+C, reinicio e idempotencia. El selector ya entrega una tarea al lanzador, pero todavía no hay enlace a la conversación GPT/Claude ni ejecución de PR; estas fases siguen siendo una especificación pendiente de validación.
 
 **Sin merge a lab ni a main desde esta PR; queda en borrador para investigación e implementación incremental.**
+
+
+## Circuito real añadido desde la rama QA (primera integración)
+
+La rama `automation/qa-gpt` **sí contiene** el orquestador original completo. Código contrastado:
+- `scripts/qa-gpt/gpt_browser.py`, SHA blob `4fda7332ee6597c8efcd1fcc37cdc63008d08d3d` -> `motor/gpt_browser.py` (CDP 9331, Project configurable).
+- `scripts/qa-gpt/qa_claude.py`, SHA `7fe42e7bae24eeb78da271020ce1cf1f541f0a7b` -> `motor/claude_cli.py` (CLI headless, JSON schema, coste/timeout y cache).
+- `scripts/qa-gpt/qa_pr.py` -> `motor/pr_laboratorio.py`: validación de rutas, reemplazos exactos, tests y worktrees adaptados; **destino siempre lab, nunca main**.
+- `scripts/qa-gpt/qa_cobertura.py` -> rotación/deduplicación persistida separada.
+
+`motor/descubrimiento.py` consulta **ahora**, al ejecutar: GitHub Search REST (repositorios con fecha de última actividad y licencia declarada), el feed RSS oficial de Search Central y el inventario Git local. Las 68 hipótesis ya no son un límite: al acabarse se generan sondeos nuevos. Sin fuentes frescas, resultado vacío en vez de inventar novedad. SHA, licencia y el código literal se contrastan además por `motor/verificar_upstream.py`, comprobando GitHub REST git/blobs y /license.
+
+`motor/ciclo.py` implementa transiciones persistentes: seleccionar -> fuente -> GPT -> revisión Claude -> petición parche GPT -> worktree + tests -> PR borrador a lab. Guarda chats y estado en `LOCALAPPDATA`, separados de `qa-gpt-state`. No fusiona PR ni activa pagos/despliegues.
+
+### Arranque en Windows
+
+Primero ejecutar pruebas, en el worktree de investigación:
+```powershell
+.\experimentos\mejoras-web\INICIAR-MEJORAS.cmd -Simular
+python -m unittest discover -s experimentos/mejoras-web -p 'test_*.py' -v
+```
+Para el servicio real se necesita: Edge instalado y autenticado en ChatGPT, `playwright` en ese Python, `claude` CLI, GitHub CLI `gh` autorizado y la variable `LAB_MEJORAS_PROJECT_ID` con el ID del Project ChatGPT para mejoras. Ejecutar `INICIAR-MEJORAS.cmd` sin `-SoloVista` inicia el director continuo. Por defecto crea PR **borrador** en lab tras pasar pruebas locales, pero no aprueba ni fusiona. Si faltan herramientas, el iniciador aborta claramente.
+
+`INICIAR-MEJORAS.cmd -SoloVista` abre solo el sitio sin reservar nuevas tareas. Estado: `python experimentos/mejoras-web/motor/ciclo.py --estado`. Un error conserva el chat, no se declara éxito; el circuito puede requerir intervención para corregir una respuesta inválida.
+
+**La automatización aún NO se ha verificado en Edge/Windows/Claude reales.** La PR incluye tests offline de la lógica; la aceptación final del conjunto requiere una ejecución de extremo a extremo, una PR hija y CI verificados. El CI mínimo nuevo `.github/workflows/lab-mejoras-offline.yml` no sustituye los gates del sitio ni prueba las APIs reales.
+
+### Inspección visual de cambios
+
+Cada resultado validado guarda la ruta del worktree hijo en `ciclo/actual.json` bajo `validacion.worktree`; ese directorio contiene los cambios reales y puede servirse con `python -m http.server 8766 --bind 127.0.0.1 -d <directorio>`. Verificar desktop y móvil allí. La rama agregada lab se compara solo tras aceptar y fusionar allí PR hijas; **ningún cambio salta a main automáticamente**.

@@ -41,3 +41,7 @@ No se ha localizado en el repo el script local completo de `EJECUTAR-ACTIONS-QA-
 - No lanzar `deploy-pages.yml`, ni usar `main` como base de PR hijas.
 - No colocar tokens, correos ni valores de configuración personal en los expedientes.
 - QA del selector: `python -m unittest discover -s experimentos/mejoras-web -p 'test_*.py' -v`.
+
+## Actualización: origen recuperado
+
+El director original sí se ha localizado en la rama Git `automation/qa-gpt`. Se han adaptado sus clientes de GPT/Claude y el patrón de PR en `motor/`; la integración del circuito ya existe en código. Siguen sin validar el arranque real en Windows, los permisos de cuentas y la ejecución completa con PR hija. El laboratorio no comparte puerto, Project ChatGPT (debe configurarse), estado ni rama base de QA.

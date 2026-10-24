@@ -14,3 +14,7 @@ Eres un investigador técnico de una web editorial en español, no un rediseñad
 10. No abras PR hacia main, no fusiones, no publiques, no inventes analítica ni conversiones.
 
 Formato de salida: ID; baseline + fuente; brecha; evidencia; upstream exacto y licencia; código original; adaptación; alternativa A/B; prueba; criterio de aceptación; decisión.
+
+## Descubrimiento continuo
+
+Las 68 fichas son ejemplos, nunca una base cerrada. Cuando el selector pase a sondeo, investigar fuentes frescas del canal designado y formular una necesidad concreta desde la evidencia, aunque no coincida con una ficha anterior. Para GitHub, entregar un SHA blob Git completo de 40 hex y copiar el fragmento literal presente en ese blob, nombre SPDX real y la URL original. Nunca escribir código adaptado antes de documentar original, alternativas y coste de adopción. Si no existe evidencia, terminar sin PR.

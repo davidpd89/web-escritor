@@ -130,7 +130,7 @@ def revisar(s,d,simular):
         claude_cli.migrar(c)
         sistema=(HERE/"contratos/CLAUDE-REVISAR.md").read_text(encoding="utf-8")
         entrada=json.dumps({"investigacion":s["investigacion"],"fuente":s["fuente"],
-                            "tarea":s["tarea"]},ensure_ascii=False)
+                            "tarea":s["tarea"],"verificacion_upstream":s.get("verificacion_upstream")},ensure_ascii=False)
         return claude_cli.llamar(ConfigClaude(d),c,s["id"],"revision",sistema,entrada,
                                   CLAUDE_SCHEMA,herramientas="Read,Grep,Glob",cwd=ROOT)[0]
     finally: c.close()

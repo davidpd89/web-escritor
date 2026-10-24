@@ -38,7 +38,9 @@ if ($Simular) {
 }
 # Seleccion offline recuperable. No inicia llamadas a GPT ni Claude.
 $selector = @((Join-Path $PSScriptRoot 'rotacion.py'))
-if ($IdeaId) {
+if ($SoloVista) {
+    $selector += "--vista"
+} elseif ($IdeaId) {
     $selector += @('--elegir', $IdeaId)
 } else {
     $selector += '--siguiente'
