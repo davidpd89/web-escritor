@@ -126,7 +126,7 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-gr
 }
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) [data-radar-source]{
   max-width:100%;min-height:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--radar-blue);box-shadow:none;
-  font:700 .72rem/1.35 var(--font-ui);letter-spacing:.055em;text-transform:uppercase;text-decoration:underline;text-decoration-color:var(--radar-gold);text-underline-offset:.2em;white-space:normal;overflow-wrap:anywhere
+  font:700 .875rem/1.35 var(--font-ui);letter-spacing:.055em;text-transform:uppercase;text-decoration:underline;text-decoration-color:var(--radar-gold);text-underline-offset:.2em;white-space:normal;overflow-wrap:anywhere
 }
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) [data-radar-source]:hover,
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) [data-radar-source]:focus-visible{color:var(--radar-blue-deep);background:transparent}
