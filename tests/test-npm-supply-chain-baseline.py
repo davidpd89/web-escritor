@@ -148,7 +148,10 @@ def check_supply_chain(npm_cmd: str, baseline_data: dict) -> list[str]:
     lockfile = json.loads((ROOT / "package-lock.json").read_text(encoding="utf-8"))
     lock_packages = lockfile.get("packages", {})
 
-    def installed_metadata(package: str) -> tuple[str | None, str | None]:
+    def installed_metadata(package: str, audited_nodes: list[str] | None = None) -> tuple[str | None, str | None]:
+        for node in audited_nodes or []:
+            if node in lock_packages:
+                return node, lock_packages[node].get("version")
         matches = [
             (path, value.get("version"))
             for path, value in lock_packages.items()
@@ -169,8 +172,8 @@ def check_supply_chain(npm_cmd: str, baseline_data: dict) -> list[str]:
                     "severity": via_item.get("severity", info.get("severity")),
                     "title": via_item.get("title", ""),
                     "fixAvailable": bool(info.get("fixAvailable")),
-                    "installedVersion": installed_metadata(pkg)[1],
-                    "lockfileNode": installed_metadata(pkg)[0],
+                    "installedVersion": installed_metadata(pkg, info.get("nodes"))[1],
+                    "lockfileNode": installed_metadata(pkg, info.get("nodes"))[0],
                 }
 
     # Detect uncataloged new advisories
