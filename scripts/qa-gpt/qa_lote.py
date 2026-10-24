@@ -657,6 +657,16 @@ def bloque_estado(q, c):
              f"  - Enviados a Actions: {li('enviado', 'actions_pendiente', 'actions_ejecutando', 'actions_ok', 'actions_fallida')}  "
              f"(en cola {li('enviado', 'actions_pendiente')}, ejecutandose {li('actions_ejecutando')}, aprobados {li('actions_ok')}, fallidos {li('actions_fallida')})",
              f"  - Errores de infraestructura: {li('infra')}  | requieren revision humana: {li('revision_humana')}"]
+    try:
+        n = lambda sql, *a: c.execute(sql, a).fetchone()[0]
+        gen = n("SELECT COUNT(*) FROM propuestas"); an_pend = n("SELECT COUNT(*) FROM jobs WHERE tipo='T' AND estado IN ('pendiente','en_curso')")
+        prs = dict(c.execute("SELECT COALESCE(pr_estado,''),COUNT(*) FROM triaje GROUP BY 1").fetchall())
+        lines += [f"  - Propuestas generadas (todas): {gen}  (no son archivos ni aserciones: una propuesta = un test escrito por GPT)",
+                  f"  - Tests invalidos (no ejecutables): {n('SELECT COUNT(*) FROM propuestas WHERE estado=?', 'invalida')} propuestas | descartadas por duplicado/ruido: {n('SELECT COUNT(*) FROM propuestas WHERE estado=?', 'rechazada')}",
+                  "Analisis GPT y PR:",
+                  f"  - Analisis GPT pendientes: {an_pend} | terminados: {n('SELECT COUNT(*) FROM jobs WHERE tipo=? AND estado=?', 'T', 'hecho')} | causas triadas: {n('SELECT COUNT(*) FROM triaje')} (con parche propuesto {n('SELECT COUNT(*) FROM triaje WHERE parche IS NOT NULL')})",
+                  f"  - PR creadas por QA GPT: {prs.get('pr_abierta', 0) + prs.get('pr_borrador', 0)} (listas para revisar {prs.get('pr_abierta', 0)} | borrador con comprobaciones pendientes {prs.get('pr_borrador', 0)}) | parche no encaja: {prs.get('parche_no_encaja', 0)} | sin PR todavia: {prs.get('', 0)}"]
+    except Exception: pass
     try: import qa_viaa; lines += qa_viaa.bloque_estado(q, c)
     except Exception: pass
     ul = c.execute("SELECT id,inicio,fin,estado,resumen FROM lotes ORDER BY id DESC LIMIT 1").fetchone()
