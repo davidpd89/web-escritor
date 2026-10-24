@@ -530,6 +530,15 @@
       "orden": 208,
       "slug": "tema-novela-literaria",
       "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Cómic juvenil.",
+      "id": "tema-comic-juvenil",
+      "nombre": "Cómic juvenil",
+      "orden": 209,
+      "slug": "tema-comic-juvenil",
+      "tipo": "tematica"
     }
   ],
   "libro_categorias": [
@@ -1320,6 +1329,82 @@
     {
       "categoria_id": "romance",
       "libro_id": "isbn-9788467083378"
+    },
+    {
+      "categoria_id": "tema-novela-contemporanea",
+      "libro_id": "isbn-9788467083316"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788467083316"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-7-anos",
+      "libro_id": "isbn-9788448873479"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788448873479"
+    },
+    {
+      "categoria_id": "ciencia-ficcion",
+      "libro_id": "isbn-9788448873479"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9788448873479"
+    },
+    {
+      "categoria_id": "humor",
+      "libro_id": "isbn-9788448873479"
+    },
+    {
+      "categoria_id": "comic-y-novela-grafica",
+      "libro_id": "isbn-9788448873479"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9788448873479"
+    },
+    {
+      "categoria_id": "romance",
+      "libro_id": "isbn-9788466380096"
+    },
+    {
+      "categoria_id": "verano",
+      "libro_id": "isbn-9788466380096"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788466380096"
+    },
+    {
+      "categoria_id": "tema-comic-juvenil",
+      "libro_id": "isbn-9791387962036"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9791387962036"
+    },
+    {
+      "categoria_id": "romance",
+      "libro_id": "isbn-9791387962036"
+    },
+    {
+      "categoria_id": "tema-venganza",
+      "libro_id": "isbn-9791387962036"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9788410442771"
+    },
+    {
+      "categoria_id": "humor",
+      "libro_id": "isbn-9788410442771"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788410442771"
     }
   ],
   "libros": [
@@ -4247,6 +4332,232 @@
       "sinopsis_tipo": "extracto_editorial",
       "slug": "todo-bajo-control-menos-tu-9788467083378",
       "titulo": "Todo bajo control, menos tú"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788467083316&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Carmen Posadas"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Las Mitford, de Carmen Posadas. Edición de Editorial Espasa en castellano, en tapa dura con sobrecubierta. Consta de 536 páginas. La editorial la incluye en novela contemporánea. Publicación editorial: 2026-10-21.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa dura con sobrecubierta · Editorial Espasa",
+      "editorial": "Editorial Espasa",
+      "editorial_slug": "editorial-espasa",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-23",
+      "fecha_publicacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-23",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-las-mitford/455995",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-las-mitford/455995",
+      "id": "isbn-9788467083316",
+      "idioma": "es",
+      "isbn13": "9788467083316",
+      "numero_paginas": 536,
+      "portada_alto": 547,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-23",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/bfbe3699-c501-4887-95f1-96dd68e31231/d_360_620/portada_las-mitford_carmen-posadas_202609151338.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788467083316.webp",
+      "pvp_centimos": 2390,
+      "pvp_fecha_verificacion": "2026-10-23",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-23",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788467083316"
+        }
+      ],
+      "sinopsis_breve": "Cuando Pamela Mitford decide escribir sus recuerdos, sabe que está a punto de contar una historia que nadie ha contado hasta ahora. No la…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-las-mitford/455995",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "las-mitford-9788467083316",
+      "titulo": "Las Mitford"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788448873479&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Neill Cameron"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Superdónuts 3 - El destino de los dónuts, de Neill Cameron. Edición de Beascoa en castellano, en tapa dura. Consta de 208 páginas. La editorial la incluye en a partir de 7 años. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 7 años",
+      "edicion": "Tapa dura · Beascoa",
+      "editorial": "Beascoa",
+      "editorial_catalogo_slug": "beascoa",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-23",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-23",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634649-libro-superdonuts-3-el-destino-de-los-donuts-9788448873479",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634649-libro-superdonuts-3-el-destino-de-los-donuts-9788448873479",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634649-libro-superdonuts-3-el-destino-de-los-donuts-9788448873479",
+      "id": "isbn-9788448873479",
+      "idioma": "es",
+      "isbn13": "9788448873479",
+      "numero_paginas": 208,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-23",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8278649-thickbox_default/superdonuts-3-el-destino-de-los-donuts.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788448873479.webp",
+      "pvp_centimos": 1395,
+      "pvp_fecha_verificacion": "2026-10-23",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-23",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788448873479"
+        }
+      ],
+      "sinopsis_breve": "Los Superdónuts han descubierto una terrible realidad: en el futuro, unos robots obsesionados con la vida saludable han tomado el control del mundo y…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634649-libro-superdonuts-3-el-destino-de-los-donuts-9788448873479",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "superdonuts-3-el-destino-de-los-donuts-9788448873479",
+      "titulo": "Superdónuts 3 - El destino de los dónuts"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788466380096&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Violeta Reed"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Quizá sí quiero (edición limitada · Verano) (Quererte 2), de Violeta Reed. Edición de Penguin Bolsillo en castellano, en bolsillo flexibook. Consta de 464 páginas. La editorial la incluye en novela romántica. Publicación editorial: 2026-06-04.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Bolsillo flexibook · Penguin Bolsillo",
+      "editorial": "Penguin Bolsillo",
+      "editorial_catalogo_slug": "penguin-bolsillo",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-23",
+      "fecha_publicacion": "2026-06-04",
+      "fecha_verificacion": "2026-10-23",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-romantica/627069-libro-quiza-si-quiero-edicion-limitada-verano-quererte-2-9788466380096",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-romantica/627069-libro-quiza-si-quiero-edicion-limitada-verano-quererte-2-9788466380096",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-romantica/627069-libro-quiza-si-quiero-edicion-limitada-verano-quererte-2-9788466380096",
+      "id": "isbn-9788466380096",
+      "idioma": "es",
+      "isbn13": "9788466380096",
+      "numero_paginas": 464,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-23",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7660614-thickbox_default/quiza-si-quiero-edicion-limitada-verano-quererte-2.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788466380096.webp",
+      "pvp_centimos": 895,
+      "pvp_fecha_verificacion": "2026-10-23",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-23",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788466380096"
+        }
+      ],
+      "sinopsis_breve": "Grace Harris acaba de ascender a editora jefa y desde el primer día las catástrofes se suceden en el trabajo de sus sueños. Cuando…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-romantica/627069-libro-quiza-si-quiero-edicion-limitada-verano-quererte-2-9788466380096",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "quiza-si-quiero-edicion-limitada-verano-quererte-2-9788466380096",
+      "titulo": "Quizá sí quiero (edición limitada · Verano) (Quererte 2)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387962036&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Rei Tôma"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La bestia del rey 13 (Shôjo), de Rei Tôma. Edición de Distrito Manga en castellano, en tapa blanda con sobrecubierta. Consta de 168 páginas. La editorial la incluye en cómic juvenil. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda con sobrecubierta · Distrito Manga",
+      "editorial": "Distrito Manga",
+      "editorial_catalogo_slug": "distrito-manga",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-23",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-23",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/comic-juvenil/634711-libro-la-bestia-del-rey-13-shojo-9791387962036",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/comic-juvenil/634711-libro-la-bestia-del-rey-13-shojo-9791387962036",
+      "id": "isbn-9791387962036",
+      "idioma": "es",
+      "isbn13": "9791387962036",
+      "numero_paginas": 168,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-23",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8139190-thickbox_default/la-bestia-del-rey-13-shojo.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387962036.webp",
+      "pvp_centimos": 995,
+      "pvp_fecha_verificacion": "2026-10-23",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-23",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387962036"
+        }
+      ],
+      "sinopsis_breve": "Rangetsu vuelve al palacio como el primer oficial semihumano del ejército. Tras su reencuentro con Tenyô, ambos prometen casarse. Ninguno sabe si ese deseo…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/comic-juvenil/634711-libro-la-bestia-del-rey-13-shojo-9791387962036",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-bestia-del-rey-13-shojo-9791387962036",
+      "titulo": "La bestia del rey 13 (Shôjo)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410442771&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Bosco Castro"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Cocina para cara almendras, de Bosco Castro. Edición de Roca Editorial en castellano, en tapa blanda con solapas. Consta de 208 páginas. La editorial la incluye en cocina. Publicación editorial: 2026-04-09.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Roca Editorial",
+      "editorial": "Roca Editorial",
+      "editorial_slug": "roca-editorial",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-23",
+      "fecha_publicacion": "2026-04-09",
+      "fecha_verificacion": "2026-10-23",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/545311-libro-cocina-para-cara-almendras-9788410442771",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/545311-libro-cocina-para-cara-almendras-9788410442771",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/545311-libro-cocina-para-cara-almendras-9788410442771",
+      "id": "isbn-9788410442771",
+      "idioma": "es",
+      "isbn13": "9788410442771",
+      "numero_paginas": 208,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-23",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7422281-thickbox_default/cocina-para-cara-almendras.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788410442771.webp",
+      "pvp_centimos": 2590,
+      "pvp_fecha_verificacion": "2026-10-23",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-23",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788410442771"
+        }
+      ],
+      "sinopsis_breve": "Bosco Castro, estrella de las redes sociales con más de un MILLÓN de seguidores en TikTok e Instagram, lanza su primer recetario . Este…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/545311-libro-cocina-para-cara-almendras-9788410442771",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "cocina-para-cara-almendras-9788410442771",
+      "titulo": "Cocina para cara almendras"
     }
   ],
   "schema_version": 1

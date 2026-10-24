@@ -71,3 +71,6 @@ artifacts/
 qa-artifacts/
 .lighthouseci/
 .ci/
+
+# Preview local de /apoyar/ (generada; nunca se versiona)
+/lab/donaciones-preview/

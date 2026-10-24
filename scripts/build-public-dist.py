@@ -42,6 +42,7 @@ PUBLIC_DIR_PREFIXES = (
     "al-otro-lado/",
     "accesibilidad/",
     "ai/",
+    "apoyar/",
     "asistente/",
     "assets/",
     "clubes-de-lectura/",
@@ -61,6 +62,7 @@ PUBLIC_DIR_PREFIXES = (
     "press-kit/",
     "recomendaciones/",
     "recursos/",
+    "redes-sociales/",
     "universo/",
 )
 
@@ -192,6 +194,27 @@ def registry_status(entry: dict, data: dict) -> str:
     return entry.get("status", defaults.get("status", "public"))
 
 
+def support_page_authorized(root: Path) -> bool:
+    """Abrir /apoyar/ solo con un registro público explícito y correcto.
+
+    Preparar la allowlist NO basta para servir una página de cobro. Mantener
+    esta comprobación separada de las rutas gated generales, para no cambiar
+    sus contratos ni el comportamiento de otras secciones.
+    """
+    data = registry_data(root)
+    entries = data.get("entries", []) if isinstance(data, dict) else []
+    if not isinstance(entries, list):
+        return False
+    support = [entry for entry in entries
+               if isinstance(entry, dict) and entry.get("id") == "support-project"]
+    return (
+        len(support) == 1
+        and support[0].get("url") == "/apoyar/"
+        and support[0].get("sourceFile") == "apoyar/index.html"
+        and support[0].get("status") == "public"
+    )
+
+
 def gated_prefixes_from_registry(root: Path) -> tuple[str, ...]:
     """Directories whose registry status says they must not be published."""
     data = registry_data(root)
@@ -247,6 +270,11 @@ def is_publishable(rel_path: str, root: Path = ROOT) -> bool:
     rel_path = rel_path.replace("\\", "/").lstrip("./")
     if forbidden_reason(rel_path):
         return False
+    # V1 de apoyo contiene una sola página: no publicar HTML/JSON incidentales
+    # al activar el registro, aunque estén bajo un namespace permitido.
+    if rel_path.startswith("apoyar/"):
+        if rel_path != "apoyar/index.html" or not support_page_authorized(root):
+            return False
     if rel_path in PUBLIC_EXCLUDED_FILES:
         return False
     if any(rel_path.startswith(prefix) for prefix in PUBLIC_EXCLUDED_DIR_PREFIXES):
@@ -396,6 +424,13 @@ def assetsignore_lines(root: Path = ROOT) -> list[str]:
         *[f"/{name}" for name in sorted(PUBLIC_EXCLUDED_FILES)],
         *ASSETSIGNORE_FORBIDDEN_PATTERNS,
     ]
+    if support_page_authorized(root):
+        lines += [
+            "",
+            "# /apoyar/ V1: solo la página registrada, nunca otros archivos.",
+            "/apoyar/*",
+            "!/apoyar/index.html",
+        ]
     gated = gated_prefixes_from_registry(root)
     if gated:
         lines += [
@@ -403,6 +438,8 @@ def assetsignore_lines(root: Path = ROOT) -> list[str]:
             "# Rutas gated derivadas de data/content-registry.json.",
             *[f"/{prefix}" for prefix in gated],
         ]
+    if not support_page_authorized(root):
+        lines += ["", "# Página de apoyo sin autorización pública.", "/apoyar/"]
     return lines
 
 

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-10-22",
+  "main_commit": "72ab6be7b8fee47dc82f29a7daf1373178e61ad1",
+  "mode": "source_verified_by_manual_web_review_plus_synthetic_html_rule_test",
+  "not_live_html_crawl": true,
+  "source_count": 5,
+  "production_records_added": 0,
+  "manually_identified_new_directory_candidates": 1,
+  "notes": [
+    "Source facts were checked on official websites. HTML in unit tests is a manually crafted short fragment, not a downloaded reproduction.",
+    "The experimental extractor must be fed actual official HTML and manually reviewed before adoption.",
+    "No emails or postal contacts are copied to research output; contacts remain at source URLs.",
+    "Exact matching patterns are only for these five reviewed pages, not a general model."
+  ],
+  "cases": [
+    {
+      "slug": "alienta-editorial",
+      "name": "Alienta Editorial",
+      "in_main_directory": false,
+      "current_status": null,
+      "official_url": "https://www.planetadelibros.com/editorial/alienta-editorial/15",
+      "source_finding": "Explicit statement of original manuscript submissions; essay only, no fiction; digital format and one manuscript per author.",
+      "expected_pilot_candidate": "open",
+      "scope": "publisher_specific",
+      "action": "NEW_PROFILE_CANDIDATE_ONLY",
+      "requires_real_html_check": true
+    },
+    {
+      "slug": "editorial-anagrama",
+      "name": "Editorial Anagrama",
+      "in_main_directory": true,
+      "current_status": "closed",
+      "official_url": "https://www.anagrama-ed.es/manuscritos",
+      "source_finding": "Temporarily paused unsolicited manuscript reception.",
+      "expected_pilot_candidate": "paused",
+      "scope": "publisher_specific",
+      "action": "NO_STATUS_CHANGE",
+      "requires_real_html_check": true
+    },
+    {
+      "slug": "nocturna-ediciones",
+      "name": "Nocturna Ediciones",
+      "in_main_directory": true,
+      "current_status": "open",
+      "official_url": "https://www.nocturnaediciones.com/contacto",
+      "source_finding": "Explicit submission channel for novels, with a different press channel.",
+      "expected_pilot_candidate": "open",
+      "scope": "publisher_specific",
+      "action": "NO_STATUS_CHANGE",
+      "requires_real_html_check": true
+    },
+    {
+      "slug": "minotauro",
+      "name": "Minotauro",
+      "in_main_directory": true,
+      "current_status": "open",
+      "official_url": "https://www.planetadelibros.com/editorial/minotauro/21",
+      "source_finding": "Explicit submission instructions for fantasy, science fiction and horror projects.",
+      "expected_pilot_candidate": "open",
+      "scope": "publisher_specific",
+      "action": "NO_STATUS_CHANGE",
+      "requires_real_html_check": true
+    },
+    {
+      "slug": "alfaguara",
+      "name": "Alfaguara",
+      "in_main_directory": true,
+      "current_status": "unknown",
+      "official_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+      "source_finding": "Group offers a by-imprint submission process but group source is not evidence Alfaguara is currently accepting.",
+      "expected_pilot_candidate": "group_only",
+      "scope": "group_general",
+      "action": "KEEP_UNKNOWN",
+      "requires_real_html_check": true
+    }
+  ]
+}

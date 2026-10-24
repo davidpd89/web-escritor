@@ -32,6 +32,7 @@ EXCLUDE_DIRS = {
     "videos",
     "android",
     "tests",
+    "lab",  # Preview/prototipos: excluir siempre, aunque falte meta noindex
     "_tools",
     "_reddit",
     "_david",

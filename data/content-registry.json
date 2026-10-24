@@ -75,6 +75,26 @@
       "sourceFile": "accesibilidad/index.html"
     },
     {
+      "id": "site-social-stats",
+      "url": "/redes-sociales/",
+      "label": "Redes sociales: seguidores verificados",
+      "shortLabel": "Redes sociales",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "home",
+      "hubId": "home",
+      "discoverability": "secondary",
+      "footerEligible": false,
+      "audience": [
+        "reader",
+        "press"
+      ],
+      "jobs": [
+        "redes-sociales"
+      ],
+      "sourceFile": "redes-sociales/index.html"
+    },
+    {
       "id": "site-privacy",
       "url": "/privacidad.html",
       "label": "Privacidad",
@@ -5208,6 +5228,96 @@
       "sourceFile": "recomendaciones/libros/todo-bajo-control-menos-tu-9788467083378/index.html"
     },
     {
+      "id": "reading-book-isbn-9788467083316",
+      "url": "/recomendaciones/libros/las-mitford-9788467083316/",
+      "label": "Las Mitford",
+      "shortLabel": "Las Mitford",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/las-mitford-9788467083316/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788448873479",
+      "url": "/recomendaciones/libros/superdonuts-3-el-destino-de-los-donuts-9788448873479/",
+      "label": "Superdónuts 3 - El destino de los dónuts",
+      "shortLabel": "Superdónuts 3 - El destino de los dónuts",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/superdonuts-3-el-destino-de-los-donuts-9788448873479/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788466380096",
+      "url": "/recomendaciones/libros/quiza-si-quiero-edicion-limitada-verano-quererte-2-9788466380096/",
+      "label": "Quizá sí quiero (edición limitada · Verano) (Quererte 2)",
+      "shortLabel": "Quizá sí quiero (edición limitada · Verano) (Quererte 2)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/quiza-si-quiero-edicion-limitada-verano-quererte-2-9788466380096/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387962036",
+      "url": "/recomendaciones/libros/la-bestia-del-rey-13-shojo-9791387962036/",
+      "label": "La bestia del rey 13 (Shôjo)",
+      "shortLabel": "La bestia del rey 13 (Shôjo)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-bestia-del-rey-13-shojo-9791387962036/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788410442771",
+      "url": "/recomendaciones/libros/cocina-para-cara-almendras-9788410442771/",
+      "label": "Cocina para cara almendras",
+      "shortLabel": "Cocina para cara almendras",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/cocina-para-cara-almendras-9788410442771/index.html"
+    },
+    {
       "id": "reading-author-neil-gaiman",
       "url": "/recomendaciones/autores/neil-gaiman/",
       "label": "Neil Gaiman",
@@ -6378,6 +6488,96 @@
       "sourceFile": "recomendaciones/autores/megan-maxwell/index.html"
     },
     {
+      "id": "reading-author-carmen-posadas",
+      "url": "/recomendaciones/autores/carmen-posadas/",
+      "label": "Carmen Posadas",
+      "shortLabel": "Carmen Posadas",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/carmen-posadas/index.html"
+    },
+    {
+      "id": "reading-author-neill-cameron",
+      "url": "/recomendaciones/autores/neill-cameron/",
+      "label": "Neill Cameron",
+      "shortLabel": "Neill Cameron",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/neill-cameron/index.html"
+    },
+    {
+      "id": "reading-author-violeta-reed",
+      "url": "/recomendaciones/autores/violeta-reed/",
+      "label": "Violeta Reed",
+      "shortLabel": "Violeta Reed",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/violeta-reed/index.html"
+    },
+    {
+      "id": "reading-author-rei-toma",
+      "url": "/recomendaciones/autores/rei-toma/",
+      "label": "Rei Tôma",
+      "shortLabel": "Rei Tôma",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/rei-toma/index.html"
+    },
+    {
+      "id": "reading-author-bosco-castro",
+      "url": "/recomendaciones/autores/bosco-castro/",
+      "label": "Bosco Castro",
+      "shortLabel": "Bosco Castro",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/bosco-castro/index.html"
+    },
+    {
       "id": "reading-publisher-aguilar",
       "url": "/recomendaciones/editoriales/aguilar/",
       "label": "Aguilar",
@@ -6394,6 +6594,24 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/editoriales/aguilar/index.html"
+    },
+    {
+      "id": "reading-publisher-beascoa",
+      "url": "/recomendaciones/editoriales/beascoa/",
+      "label": "Beascoa",
+      "shortLabel": "Beascoa",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/beascoa/index.html"
     },
     {
       "id": "reading-publisher-bruguera",

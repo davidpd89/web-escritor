@@ -37,6 +37,7 @@
 !/al-otro-lado/
 !/accesibilidad/
 !/ai/
+!/apoyar/
 !/asistente/
 !/assets/
 !/clubes-de-lectura/
@@ -56,6 +57,7 @@
 !/press-kit/
 !/recomendaciones/
 !/recursos/
+!/redes-sociales/
 !/universo/
 
 # Exclusiones dentro de namespaces públicos.
@@ -81,3 +83,6 @@
 # Rutas gated derivadas de data/content-registry.json.
 /donde-empieza-la-jaula/
 /recursos/herramientas-para-escritores/
+
+# Página de apoyo sin autorización pública.
+/apoyar/

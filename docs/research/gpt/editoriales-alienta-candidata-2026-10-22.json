@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "kind": "offline_proposed_directory_record",
+  "source_checked_on": "2026-10-22",
+  "based_on_main_commit": "72ab6be7b8fee47dc82f29a7daf1373178e61ad1",
+  "publication_authorized": false,
+  "review_required": true,
+  "notes": [
+    "Alienta Editorial is absent from the 150-entry main directory as of source commit.",
+    "The email is a professional publisher inbox explicitly identified for digital manuscript submissions on the official website; not inferred.",
+    "The proposed record should be rechecked against the latest main commit and built with scripts/build-editoriales.py before any integration.",
+    "This candidate does not imply approval or a production change."
+  ],
+  "proposed_publisher": {
+    "publish": false,
+    "slug": "alienta-editorial",
+    "name": "Alienta Editorial",
+    "group": "Grupo Planeta",
+    "publisher_type": "tradicional",
+    "country": "España",
+    "genres": [
+      "ensayo",
+      "no ficción",
+      "empresa",
+      "desarrollo personal"
+    ],
+    "status": "open",
+    "direct_submission": true,
+    "submission_channel": "Correo electrónico corporativo para manuscritos de ensayo",
+    "submission_email": "alienta@planeta.es",
+    "submission_url": "https://www.planetadelibros.com/editorial/alienta-editorial/15",
+    "website_url": "https://www.planetadelibros.com/editorial/alienta-editorial/15",
+    "requirements": [
+      "Obra inédita y de ensayo; no se admiten manuscritos de ficción.",
+      "Enviar un único manuscrito por autor o autora.",
+      "Adjuntar carta con datos de contacto, trayectoria o currículo y explicación de los recursos de difusión disponibles.",
+      "Enviar manuscrito digital en formato Word o PDF; no se admiten originales impresos."
+    ],
+    "response_time": "La editorial indica que solo contactará si existe interés editorial; no anuncia un plazo fijo.",
+    "summary": "Sello de Grupo Planeta orientado a la no ficción divulgativa y el desarrollo personal. Su página institucional describe un procedimiento específico para proponer ensayos inéditos por vía digital y advierte que no recibe ficción.",
+    "public_note": "El correo publicado para originales no equivale a una autorización general para enviar novelas. Es necesario comprobar los requisitos en la página oficial antes de presentar el proyecto.",
+    "verified_at": "2026-10-22",
+    "page_updated_at": "2026-10-22",
+    "sources": [
+      {
+        "label": "Alienta Editorial — ficha oficial y recepción de originales",
+        "url": "https://www.planetadelibros.com/editorial/alienta-editorial/15",
+        "primary": true
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-10-22",
+        "event": "Detectada una editorial ausente del directorio y contrastadas sus condiciones públicas para recibir manuscritos de ensayo.",
+        "source_url": "https://www.planetadelibros.com/editorial/alienta-editorial/15"
+      }
+    ]
+  }
+}

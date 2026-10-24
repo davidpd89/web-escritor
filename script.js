@@ -717,25 +717,99 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
 // Esa pagina ahora carga assets/samuel-buy-modal.js directamente.
 
 
-// Matches both amazon.es (Samuel's direct link) and amzn.to (Manecillas'
-// Kindle affiliate short link, since 2026-09-04) -- a selector scoped only
-// to "amazon.es" stopped tracking every Comprar click sitewide the moment
-// the header button's href became an amzn.to short link, confirmed live
-// before this fix.
-//
-// Delegated (not a one-time querySelectorAll().forEach() at parse time,
-// 2026-09-05): Home's Comprar CTAs are built by assets/v1-home-editorial-
-// v3.js, a module fetched and executed asynchronously well after this
-// script runs, so a parse-time query never saw them and their clicks were
-// silently untracked -- confirmed live (0 comprar-amazon events on a real
-// click) before this fix. Delegation matches the same pattern already used
-// for leer-fragmento-* just below.
+// Salidas hacia opiniones: solo libros/plataformas verificadas.
+// El enlace abre una ficha de opiniones, NO confirma una reseña publicada.
+// Se valida el destino, no basta con que un enlace declare data-reader-review.
+function _readerReviewOutboundCategory(href, platform, book) {
+  const destinations = {
+    samuel: {
+      amazon: ["amazon.es", "/dp/B0GB6LGQFH", "visita-resenas-amazon-samuel"],
+      goodreads: ["www.goodreads.com", "/book/show/245605636-samuel-entre-mundos", "visita-resenas-goodreads-samuel"],
+      casa: ["www.casadellibro.com", "/libro-samuel-entre-mundos/9791387659776/17856720", "visita-resenas-casa-samuel"]
+    },
+    manecillas: {
+      goodreads: ["www.goodreads.com", "/book/show/258289637-las-manecillas-del-recuerdo", "visita-resenas-goodreads-manecillas"],
+      casa: ["www.casadellibro.com", "/libro-las-manecillas-del-recuerdo/9798905149351/18668032", "visita-resenas-casa-manecillas"]
+    }
+  };
+  const expected = destinations[book]?.[platform];
+  if (!expected) return null;
+  let destination;
+  try {
+    destination = new URL(href);
+  } catch {
+    return null;
+  }
+  const host = destination.hostname.toLowerCase();
+  if (destination.protocol !== "https:") return null;
+  if (host !== expected[0] && !(expected[0] === "amazon.es" && host === "www.amazon.es")) return null;
+  if (destination.pathname !== expected[1]) return null;
+  if (platform === "amazon" && destination.hash.toLowerCase() !== "#customerreviews") return null;
+  return expected[2];
+}
+
+// Enlaces de compra, no navegación general por Amazon (p. ej. Author Follow).
+// Función pura para poder verificar destinos/categorías sin tráfico a Amazon.
+// Conserva amzn.to del CTA global; no sigue redirecciones ni identifica compras.
+function _amazonOutboundCategory(href, pathname, inHeader, inCatalogue) {
+  let destination;
+  try {
+    destination = new URL(href, "https://davidportodiaz.com/");
+  } catch {
+    return null;
+  }
+  if (destination.protocol !== "https:") return null;
+  const host = destination.hostname.toLowerCase();
+  if (host === "amzn.to") {
+    if (!/^\/[A-Za-z0-9]+\/?$/.test(destination.pathname)) return null;
+  } else if (host === "amazon.es" || host === "www.amazon.es") {
+    // #customerReviews conduce a opiniones, no es un clic comercial.
+    // Incluso sin data-reader-review, no debe contaminar comprar-amazon.
+    if (destination.hash.toLowerCase() === "#customerreviews") return null;
+    const product = /^\/(?:[^/]+\/)?(?:dp|gp\/product)\/[A-Z0-9]{10}(?:\/|$)/i.test(destination.pathname);
+    const isbnSearch = destination.pathname === "/s";
+    if (!product && !isbnSearch) return null;
+  } else {
+    return null;
+  }
+  if (inHeader) return "comprar-amazon-header";
+  if (inCatalogue) return "comprar-amazon-recomendaciones";
+  if (pathname.startsWith("/las-manecillas-del-recuerdo/")) return "comprar-amazon-manecillas";
+  if (pathname.startsWith("/libros/samuel-entre-mundos/")) return "comprar-amazon-samuel";
+  if (pathname === "/") return "comprar-amazon-home";
+  return "comprar-amazon";
+}
+
+// Delegación imprescindible: varias tarjetas Home se crean asincrónicamente.
+// El modal de Samuel emite su propio evento y NO debe contabilizarse dos veces.
+// Cada clic genera exactamente un evento, sin petición adicional a Amazon.
 document.addEventListener("click", (event) => {
   const link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
   if (!link || link.closest("#buy-dialog")) return;
-  const href = link.getAttribute("href") || "";
-  if (href.includes("amazon.es") || href.includes("amzn.to")) {
-    _gcEvent("comprar-amazon", "Clic: Comprar Amazon");
+  // Precedencia explícita: un enlace de opiniones nunca cae en compra.
+  // Si declara un destino de reseñas pero no supera la validación, no cuenta.
+  const reviewPlatform = link.dataset.readerReview;
+  const category = reviewPlatform
+    ? _readerReviewOutboundCategory(link.href, reviewPlatform, link.dataset.book)
+    : _amazonOutboundCategory(
+        link.href,
+        window.location.pathname,
+        Boolean(link.closest(".header-buy")),
+        Boolean(link.closest("[data-reading-catalogue]"))
+      );
+  if (category) _gcEvent(category, "Clic saliente de lector (no implica compra ni reseña)");
+  // Author Follow: el clic no equivale a un seguidor verificado.
+  if (link.matches("a.amazon-author-follow-link[href]")) {
+    try {
+      const author = new URL(link.href);
+      if (author.protocol === "https:" &&
+          ["amazon.es", "www.amazon.es"].includes(author.hostname.toLowerCase()) &&
+          /^\/stores\/author\/B0GZFP1JV3\/?$/.test(author.pathname)) {
+        _gcEvent("seguir-autor-amazon", "Clic saliente: Seguir autor en Amazon");
+      }
+    } catch {
+      // No bloquear navegación por error de analytics.
+    }
   }
 });
 

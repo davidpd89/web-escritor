@@ -1,6 +1,29 @@
 {
   "schema_version": 1,
-  "offers": [],
+  "offers": [
+    {
+      "libro_id": "isbn-9788408326380",
+      "formato": "tapa-dura",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2270,
+      "url": "https://www.amazon.es/dp/8408326384?tag=davidporto-21",
+      "actualizado_en": "2026-10-23T12:15:18Z",
+      "caduca_en": "2026-10-24T12:15:18Z",
+      "precio_referencia_centimos": 2390
+    },
+    {
+      "libro_id": "isbn-9788467083354",
+      "formato": "tapa-dura",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2270,
+      "url": "https://www.amazon.es/dp/8467083352?tag=davidporto-21",
+      "actualizado_en": "2026-10-23T12:15:18Z",
+      "caduca_en": "2026-10-24T12:15:18Z",
+      "precio_referencia_centimos": 2390
+    }
+  ],
   "ratings": [
     {
       "libro_id": "isbn-9788401036897",
@@ -109,6 +132,33 @@
       "url": "https://www.goodreads.com/book/show/254432909-la-merma",
       "actualizado_en": "2026-10-21T10:24:19Z",
       "caduca_en": "2026-10-28T10:24:19Z"
+    },
+    {
+      "libro_id": "isbn-9788466380096",
+      "puntuacion": 4.3,
+      "numero_valoraciones": 6322,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/249407399-quiz-s-quiero",
+      "actualizado_en": "2026-10-23T12:14:04Z",
+      "caduca_en": "2026-10-30T12:14:04Z"
+    },
+    {
+      "libro_id": "isbn-9788467083316",
+      "puntuacion": 3.0,
+      "numero_valoraciones": 1,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/254982435-las-mitford",
+      "actualizado_en": "2026-10-23T12:14:04Z",
+      "caduca_en": "2026-10-30T12:14:04Z"
+    },
+    {
+      "libro_id": "isbn-9788467083354",
+      "puntuacion": 4.27,
+      "numero_valoraciones": 37,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/254912960-la-vida-nueva-de-pedrito-de-and-a",
+      "actualizado_en": "2026-10-23T12:14:04Z",
+      "caduca_en": "2026-10-30T12:14:04Z"
     },
     {
       "libro_id": "isbn-9791387846794",
