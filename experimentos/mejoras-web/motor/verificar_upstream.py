@@ -25,6 +25,15 @@ def verificar(investigacion,fuente,fetch=None):
         raise FuenteNoVerificada("Se exige SHA completo de blob GitHub de 40 hex")
     if not isinstance(literal,str) or len(literal.strip())<12:
         raise FuenteNoVerificada("Falta fragmento de código upstream literal")
+    # El blob aislado prueba texto, pero no su ruta ni la versión efectiva de un repo.
+    # Exigir también commit y ruta para evitar referencias inubicables o ambiguas.
+    commit=str(investigacion.get("commit_upstream","")).lower().strip()
+    ruta=str(investigacion.get("ruta_upstream","")).strip()
+    if not re.fullmatch(r"[0-9a-f]{40}",commit):
+        raise FuenteNoVerificada("Falta SHA commit_upstream de 40 hex")
+    if (not ruta or ruta.startswith(("/", ".")) or "\\" in ruta or
+        ".." in ruta.split("/") or not re.fullmatch(r"[A-Za-z0-9_./-]+",ruta)):
+        raise FuenteNoVerificada("ruta_upstream inválida: debe señalar el fichero exacto")
     base=f"https://api.github.com/repos/{owner}/{repo}"
     def obtener(ruta):
         headers={"Accept":"application/vnd.github+json","User-Agent":"web-escritor-lab/1.0"}
@@ -35,6 +44,10 @@ def verificar(investigacion,fuente,fetch=None):
                 return json.load(r)
         except (ValueError,OSError) as exc:
             raise FuenteNoVerificada(f"GitHub API no verificable: {type(exc).__name__}: {str(exc)[:130]}") from exc
+    location="/contents/"+urllib.parse.quote(ruta,safe="/")+"?ref="+commit
+    artifact=obtener(location)
+    if artifact.get("type")!="file" or artifact.get("sha","").lower()!=sha:
+        raise FuenteNoVerificada("El blob no coincide con ruta_upstream en commit_upstream")
     blob=obtener("/git/blobs/"+sha)
     if blob.get("sha","").lower()!=sha or blob.get("encoding")!="base64":
         raise FuenteNoVerificada("Blob SHA distinto o sin datos")
@@ -50,5 +63,6 @@ def verificar(investigacion,fuente,fetch=None):
     if indicada not in (spdx.upper(), spdx.upper().replace("-"," ")):
         raise FuenteNoVerificada(f"Licencia declarada {indicada} distinta a GitHub {spdx}")
     return {"tipo":"repositorio","upstream_verificado":True,"blob_sha":sha,
-            "licencia":spdx,"repositorio":owner+"/"+repo,"bytes_fuente":len(texto.encode("utf-8")),
-            "metodo":"GitHub REST git/blobs + /license, contenido literal presente"}
+            "licencia":spdx,"repositorio":owner+"/"+repo,"ruta":ruta,"commit":commit,
+            "bytes_fuente":len(texto.encode("utf-8")),
+            "metodo":"GitHub REST contents@commit + git/blobs + /license, contenido literal en ruta versionada"}
