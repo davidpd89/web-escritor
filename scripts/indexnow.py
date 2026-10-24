@@ -26,7 +26,6 @@ ORIGIN = "https://davidportodiaz.com"
 HOST = "davidportodiaz.com"
 ENDPOINT = "https://api.indexnow.org/indexnow"
 MAX_URLS = 10_000
-GATED_STATUS = {"noindex", "internal", "gated", "deprecated"}
 KEY_RE = re.compile(r"^[A-Za-z0-9-]{8,128}$")
 
 
@@ -43,7 +42,7 @@ def registry_routes(path: Path) -> dict[str, str]:
         search_index = entry.get("searchIndex", defaults.get("searchIndex", True))
         url = entry.get("url")
         source = entry.get("sourceFile")
-        if status in GATED_STATUS or not search_index or not url or not source:
+        if status != "public" or not search_index or not url or not source:
             continue
         if not isinstance(url, str) or not isinstance(source, str):
             continue
