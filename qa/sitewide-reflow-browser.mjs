@@ -421,7 +421,15 @@ async function recordTargetAudit(page, route, vp, state) {
 // F.1 + legacy reflow: one context per route/viewport covers target-size
 // (default + expanded <details>) and the historical WCAG text-spacing +
 // zoom=2 reflow contract, byte-for-byte in meaning with the pre-F.1 gate.
+const progressStart = Date.now();
+const progress = (phase, i) => {
+  if (i % 25 === 0 || i === routes.length) {
+    console.log(`[progress] ${phase} ${i}/${routes.length} rutas, ${Math.round((Date.now() - progressStart) / 1000)}s`);
+  }
+};
+let routeIndex = 0;
 for (const route of routes) {
+  progress('reflow+target', ++routeIndex);
   for (const vp of VIEWPORTS) {
     const context = await browser.newContext({
       viewport: { width: vp.width, height: vp.height },
@@ -498,7 +506,9 @@ for (const route of routes) {
 // artifact names the failing contract instead of conflating it with the
 // legacy zoom-based reflow check above.
 if (TEXT_RESILIENCE_MODE !== 'off') {
+  let textIndex = 0;
   for (const route of routes) {
+    progress('text-resilience', ++textIndex);
     for (const vp of TEXT_RESILIENCE_VIEWPORTS) {
       for (const scenario of TEXT_RESILIENCE_SCENARIOS) {
         const result = await runScenario(browser, route, vp, scenario);
