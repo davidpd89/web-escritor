@@ -77,7 +77,7 @@ jobs:
         env:
           QA_MODO: ${{ inputs.modo }}
           QA_TESTS: ${{ inputs.tests }}
-        run: python3 .qa-gpt-driver/scripts/qa-gpt/ci_grupo.py "$RUNNER_TEMP/resultados.json" "$QA_MODO" $QA_TESTS
+        run: python3 .qa-gpt-driver/scripts/qa-gpt/ci_grupo.py "$RUNNER_TEMP/resultados.json" "$QA_MODO" "$QA_TESTS"
 
       - name: Publicar resultados en el resumen
         if: always()
