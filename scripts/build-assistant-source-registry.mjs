@@ -17,7 +17,9 @@ for (const source of registry.sources) {
   if (!source || typeof source.id !== "string" || !/^[a-z0-9][a-z0-9-]{0,80}$/i.test(source.id) || ids.has(source.id)) {
     throw new Error(`assistant source registry: invalid or duplicate id ${source?.id ?? "<missing>"}`);
   }
-  if (source.visibility !== "public" || typeof source.url !== "string" || !/^\/(?!\/)[A-Za-z0-9_./-]*$/.test(source.url) || source.url.split("/").includes("..")) {
+  const internalDirectories = new Set(["data", "scripts", "tests", ".github", "migrations"]);
+  const firstSegment = typeof source.url === "string" ? source.url.split("/")[1]?.toLowerCase() : undefined;
+  if (source.visibility !== "public" || typeof source.url !== "string" || !/^\/(?!\/)[A-Za-z0-9_./-]*$/.test(source.url) || source.url.split("/").includes("..") || internalDirectories.has(firstSegment)) {
     throw new Error(`assistant source registry: unsafe source ${source.id}`);
   }
   if (typeof source.title !== "string" || !source.title.trim() || source.title.length > 180) {
