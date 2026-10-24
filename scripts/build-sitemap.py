@@ -20,6 +20,7 @@ import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlsplit
 
 DOMAIN = "https://davidportodiaz.com"
 NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -127,16 +128,26 @@ def normalize_lastmod(value: str | None) -> str | None:
 
 def normalize_canonical(canonical: str | None, root: Path, path: Path) -> str | None:
     if canonical:
-        if canonical.startswith("//"):
-            canonical = "https:" + canonical
-        if canonical.startswith("http://"):
-            canonical = "https://" + canonical[len("http://") :]
-        if canonical.startswith("https://"):
-            if not canonical.startswith(DOMAIN):
+        if canonical != canonical.strip() or any(ord(ch) < 32 or ord(ch) == 127 for ch in canonical):
+            return None
+        if "\\" in canonical:
+            return None
+        try:
+            parsed = urlsplit(canonical)
+            if parsed.fragment:
                 return None
-            return canonical.rstrip("/") + ("/" if canonical.endswith("/") and canonical != DOMAIN + "/" else "")
-        if canonical.startswith("/"):
-            return (DOMAIN + canonical).rstrip("/") + ("/" if canonical.endswith("/") and canonical != "/" else "")
+            if parsed.scheme or parsed.netloc or canonical.startswith("//"):
+                if (parsed.scheme != "https" or parsed.hostname != "davidportodiaz.com"
+                        or parsed.username is not None or parsed.password is not None
+                        or parsed.port is not None or not parsed.netloc
+                        or parsed.netloc.lower() != "davidportodiaz.com"):
+                    return None
+                return canonical.rstrip("/") + ("/" if canonical.endswith("/") and canonical != DOMAIN + "/" else "")
+            if canonical.startswith("/"):
+                return (DOMAIN + canonical).rstrip("/") + ("/" if canonical.endswith("/") and canonical != "/" else "")
+        except ValueError:
+            return None
+        return None
 
     rel = "/" + str(path.relative_to(root)).replace("\\", "/")
     if rel.endswith("/index.html"):
