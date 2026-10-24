@@ -83,7 +83,12 @@ def load_registry_by_source(root: Path) -> dict[str, dict]:
     for entry in raw.get("entries", []):
         source = entry.get("sourceFile")
         if source:
-            by_source[source] = {**defaults, **entry}
+            candidate = {**defaults, **entry}
+            previous = by_source.get(source)
+            candidate_is_fragment = '#' in str(candidate.get('url') or '')
+            previous_is_fragment = previous is not None and '#' in str(previous.get('url') or '')
+            if previous is None or (previous_is_fragment and not candidate_is_fragment) or (previous_is_fragment == candidate_is_fragment):
+                by_source[source] = candidate
     return by_source
 
 
