@@ -128,6 +128,7 @@ class Flujo(unittest.TestCase):
     def test_documentacion_sin_codigo_externo_pero_con_fecha(self):
         fuente={"url":"https://developers.google.com/search/docs/foo"}
         datos={k:"Información verificable y justificada" for k in ciclo.GPT_KEYS}
+        datos["decision"]="ENVIAR_A_CLAUDE"
         datos["fuente_url"]=fuente["url"]
         datos["fecha_fuente"]="2026-10-24"
         self.assertIs(ciclo.validar_investigacion(datos,fuente),datos)
@@ -137,6 +138,7 @@ class Flujo(unittest.TestCase):
     def test_repositorio_exige_bloque_original(self):
         fuente={"url":"https://github.com/org/repo"}
         datos={k:"Información verificable y justificada" for k in ciclo.GPT_KEYS}
+        datos["decision"]="ENVIAR_A_CLAUDE"
         datos["fuente_url"]=fuente["url"]
         with self.assertRaises(ValueError): ciclo.validar_investigacion(datos,fuente)
 
@@ -303,6 +305,37 @@ class Flujo(unittest.TestCase):
             ciclo.guardar(d/"actual.json",{"id":"A-01","fase":"parche_listo",
               "chats":{"parche":"cid"},"errores":1})
             with self.assertRaises(ValueError): ciclo.reintentar_chat(d)
+
+    def test_descartar_confirmado_por_claude_cierra_sin_parche(self):
+        with tempfile.TemporaryDirectory() as temp:
+            d=Path(temp)
+            item={"id":"A-01","fase":"gpt_completo","tipo":"sondeo",
+                  "tarea":self.tarea(),"chats":{},
+                  "investigacion":{"decision":"DESCARTAR","problema":"No hay brecha"}}
+            ciclo.guardar(d/"actual.json",item)
+            verdict={"decision":"aprobar","riesgo":"bajo","duplicado":False,
+                     "motivo":"Se acredita que no hay oportunidad nueva"}
+            with mock.patch.object(ciclo,"revisar",return_value=verdict):
+                s=ciclo.paso(d)
+            self.assertEqual(s["fase"],"rechazada")
+
+    def test_un_error_superado_no_suma_en_nueva_fase(self):
+        with tempfile.TemporaryDirectory() as temp:
+            d=Path(temp)
+            item={"id":"A-01","fase":"seleccionado","tipo":"sondeo",
+                  "tarea":self.tarea(),"chats":{},"errores":2,"error":"Fallo anterior"}
+            ciclo.guardar(d/"actual.json",item)
+            s=ciclo.paso(d,simular=True)
+            self.assertEqual(s["fase"],"fuente")
+            self.assertEqual(s["errores"],0)
+            self.assertNotIn("error",s)
+
+    def test_sin_decision_gpt_no_avanza(self):
+        f={"url":"https://developers.google.com/search/docs/foo"}
+        d={k:"Contenido suficientemente justificado" for k in ciclo.GPT_KEYS}
+        d["fuente_url"]=f["url"]
+        d["fecha_fuente"]="2026-10-24"
+        with self.assertRaises(ValueError): ciclo.validar_investigacion(d,f)
 
 
 if __name__=="__main__": unittest.main()
