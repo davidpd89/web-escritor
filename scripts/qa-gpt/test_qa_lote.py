@@ -299,5 +299,21 @@ class Clasificacion(unittest.TestCase):
         self.assertEqual(c(None, 1, "SyntaxError", "regresion"), "fallo_test")
 
 
+class RunCmdInterrumpible(unittest.TestCase):
+    def tearDown(self): L.ABORTAR = None
+
+    def test_parada_suelta_el_test_en_curso_en_segundos(self):
+        import time
+        L.ABORTAR = lambda: True; t = time.monotonic()
+        rc, out = L.run_cmd([sys.executable, "-c", "import time; time.sleep(60)"], tempfile.gettempdir(), timeout=120)
+        self.assertEqual(rc, L.RC_ABORTADO); self.assertLess(time.monotonic() - t, 15); self.assertIn("ABORTADO", out)
+
+    def test_sin_parada_devuelve_salida_y_timeout_sigue_funcionando(self):
+        L.ABORTAR = lambda: False
+        self.assertEqual(L.run_cmd([sys.executable, "-c", "print('ok')"], tempfile.gettempdir()), (0, "ok\n"))
+        rc, out = L.run_cmd([sys.executable, "-c", "import time; time.sleep(30)"], tempfile.gettempdir(), timeout=2)
+        self.assertEqual(rc, 124); self.assertIn("Timeout", out)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

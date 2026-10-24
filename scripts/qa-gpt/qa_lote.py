@@ -105,13 +105,29 @@ class GhError(RuntimeError): pass
 class GhAuthError(GhError): """Token sin sesion o sin permisos: no es transitorio, reintentar no sirve."""
 
 
+ABORTAR = None  # callable -> True cuando hay que soltar el test en curso (Q / Ctrl+C / cierre de ventana)
+RC_ABORTADO = 130
+
+
+def matar_arbol(p):
+    """El test y todo lo que lanzo (node, servidores, navegadores): ninguno queda huerfano."""
+    try: cob.run(["taskkill", "/PID", str(p.pid), "/T", "/F"], capture_output=True, timeout=30)
+    except Exception: p.kill()
+
+
 def run_cmd(args, cwd, env=None, timeout=300):
-    """Ejecuta un comando local; devuelve (rc, salida)."""
-    try:
-        r = cob.run(args, cwd=cwd, env={**os.environ, **(env or {})}, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout)
-        return r.returncode, (r.stdout or "") + (r.stderr or "")
-    except subprocess.TimeoutExpired as e:
-        return 124, f"TimeoutExpired tras {timeout}s\n{(e.stdout or '')[-1500:] if isinstance(e.stdout, str) else ''}"
+    """Ejecuta un comando local; devuelve (rc, salida). Se interrumpe en ~1 s si ABORTAR() pide parar (rc 130)."""
+    p = cob.popen(args, cwd=cwd, env={**os.environ, **(env or {})}, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace")
+    fin = time.monotonic() + timeout
+    while True:
+        try:
+            out, _ = p.communicate(timeout=1); return p.returncode, out or ""
+        except subprocess.TimeoutExpired:
+            if ABORTAR and ABORTAR():
+                matar_arbol(p); p.communicate(); return RC_ABORTADO, "ABORTADO: parada solicitada durante la ejecucion"
+            if time.monotonic() > fin:
+                matar_arbol(p); out, _ = p.communicate()
+                return 124, f"TimeoutExpired tras {timeout}s\n{(out or '')[-1500:]}"
 
 
 def glob_concreto(patron, ruta):
@@ -143,6 +159,8 @@ class Lote:
                     "node_modules": r"C:\GIT\web-escritor\node_modules", "actions_siempre": False, "concurrencia_local": 1, "espera_ociosa_s": 60, "tam_lote": 40, "continuo": False, **q.CFG.get("lote", {}), **(cfg or {})}
         self.dir = q.STATE / "lote"; self.dir.mkdir(parents=True, exist_ok=True)
         self.c = q.db(); self.c.execute("PRAGMA busy_timeout=180000")
+        global ABORTAR
+        ABORTAR = lambda: bool(self.parando)
         self.parando = None; self.interactivo = False; self._ultimo_sondeo = 0; self._refs = self._main = None; self._tocados, self._bases, self._podado = {}, {}, False  # lo que git ya contesto en este lote no se vuelve a preguntar
 
     # ---------- persistencia ----------
@@ -287,6 +305,8 @@ class Lote:
                 cat = json.loads(next(p["datos"] for p in self.propuestas_de(it) if p["id"] == pid)).get("categoria")
                 rc, salida = self.precheck(tmp, ruta, cmd)  # un test que ni parsea no es un hallazgo: se rechaza sin gastar ejecucion ni Actions
                 if rc == 0: rc, salida = self.ejecutar_test(tmp, ruta, cmd, env)
+                if rc == RC_ABORTADO and self.parando:  # no es un fallo del test: se suelta y se revalida en la proxima apertura
+                    return self.set(clave, "preparada", f"validacion interrumpida ({self.parando}); se reanuda al reabrir", intentos=max(0, it["intentos"]))
                 cl = clasificar_salida(rc, salida); clases.append((cl, cat)); self.registrar_test(clave, "local", ruta, cat, cl, rc)
                 partes.append(f"### propuesta #{pid} {' '.join(map(str, cmd[-2:]))} -> exit {rc} [{cl}]\n{salida[-6000:]}")
             logp = self.dir / f"{self.slug(clave)}.log"
