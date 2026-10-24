@@ -1,112 +1,69 @@
-# Laboratorio de mejoras web (24-10-2026)
+# Laboratorio de mejoras web — PR #819
 
-## Qué se crea realmente
+**Estado:** implementación versionada en borrador, pendiente de validar extremo a extremo en Windows y CI. No se ha fusionado `lab` ni `main` ni se ha desplegado una web de pruebas pública.
 
-Un **entorno de revisión aislado**, no una nueva versión desplegada de la web. Esta PR nace en `research/mejoras-web-orquestador-20261024` y apunta **solo** a `lab/mejoras-web-20261024`, NO a `main`. Ambas ramas parten del commit `5b64fc173e9b1f24a6e7c9ba9c6e7801f0820fac`.
+## Qué hace
 
-El launcher de Windows reserva primero una investigación local y abre un Edge **con perfil propio** en el puerto CDP `9331` y sirve la copia local del sitio en `127.0.0.1:8765`. No instala librerías ni llama a servicios de IA. La conexión del orquestador GPT/Claude **todavía no está implementada**: los scripts completos del circuito de conversación/creación automática de PR parecen residir en el ordenador del autor y no están en este repositorio. Aquí sí se ha inspeccionado `scripts/qa-gpt/{ci_grupo.py,qa_clases.py}`, que corresponde al ejecutor CI, no al orquestador local.
+1. Selecciona un **área de exploración**, no una mejora predeterminada: auditoría interna, repositorio GitHub, novedades web, APIs, o producto/editorial.
+2. Obtiene fuentes **actuales** del repositorio local, GitHub REST o RSS primario de Search Central, filtradas por fecha y deduplicadas por URL más actualización. Las 68 propuestas de `catalogo.json` son ejemplos iniciales en 25 familias, no un techo: una vez agotadas, `motor/ciclo.py` sigue haciendo sondeos sucesivos. Si no aparece nada nuevo, registra ese resultado sin fabricar una tarea.
+3. GPT investiga **una sola fuente y una sola necesidad hasta el final**: documentación primaria, pruebas existentes, compatibilidad, coste, alternativas A/B, código original de un repositorio y su adaptación posible.
+4. `verificar_upstream.py` exige, para repositorios, un blob SHA Git de 40 hex que contenga literalmente el código aportado y licencia SPDX comprobada en GitHub. No ejecuta código de terceros.
+5. Claude recibe el expediente y la verificación, devuelve decisión JSON (`aprobar`, `rechazar`, `investigar_mas`). No puede fusionar.
+6. Si aprueba, GPT propone un parche acotado y tests. `pr_laboratorio.py` comprueba rutas, coincidencias exactas, secretos, aplica en worktree hijo de `origin/lab/mejoras-web-20261024`, ejecuta pruebas y abre PR **en borrador hacia lab**. No se auto-fusiona ni publica.
+7. La persona evalúa diferencias, capturas y usabilidad. Solo un merge manual a lab acumula una mejora aceptada; promoción a main requiere proceso posterior separado.
 
-## Arquitectura objetivo (sin fingir que ya funciona)
+La ejecución continua permite **máximo 2 PR hijas abiertas** en lab antes de detener la búsqueda para revisión humana.
 
-```text
-INICIAR MEJORAS (carpeta/worktree y Edge 9331)
-  -> GPT investigador (una hipótesis, baseline real + web + upstream)
-  -> Claude revisor (acepta/corrige/rechaza; autónomo respecto a GPT)
-  -> propuesta medida con código upstream exacto, licencia y adaptación
-  -> PR hija pequeña: feature/mejoras-web/*  -> base: lab/mejoras-web-20261024
-  -> ejecutar CI, Playwright, presupuesto y regresión visual solo en laboratorio
-  -> demo local: comparar antes/después con URLs y capturas
-  -> aprobación humana: aceptar/rechazar/ajustar la propuesta
-  -> merge manual a rama lab; más adelante PR independiente lab -> main,
-     SOLO por petición expresa, tras rebase/validación contra main actual
-```
+## Código reutilizado de la rama de QA original
 
-No usar `main` como destino de PR hijas ni lanzar `deploy-pages.yml` desde este entorno. El review humano se produce **antes** de aceptar algo en el sitio público. Los cambios de la rama lab no heredan automáticamente los CI obligatorios configurados para PR hacia `main`; deberán lanzarse verificaciones manuales específicas, y al promocionar a `main` pasar todo el gate real.
+El código original sí está en GitHub, rama `automation/qa-gpt` (separada de `main`):
 
-## Arranque para Windows (se hace sobre esta rama, NO en main)
+- `scripts/qa-gpt/gpt_browser.py`: usado como base de `motor/gpt_browser.py` (Edge **9331**, sesión y Project distintos). Blob original `4fda7332ee6597c8efcd1fcc37cdc63008d08d3d`.
+- `scripts/qa-gpt/qa_claude.py`: base de `motor/claude_cli.py`; CLI Claude headless, JSON Schema, caché, límite de coste e historial SQLite. Blob original `7fe42e7bae24eeb78da271020ce1cf1f541f0a7b`.
+- `scripts/qa-gpt/qa_pr.py` y `qa_cobertura.py`: patrones de validación, worktree, pruebas y deduplicación adaptados en `pr_laboratorio.py` y `rotacion.py`.
+
+Es una adaptación aislada, no una segunda copia en marcha del servicio QA ni sus estados. No toca Edge 9230, 9224/9225 ni `C:\GIT\qa-gpt-state`.
+
+## Arranque local (Windows)
+
+Crear **una carpeta/worktree independiente** desde la rama de esta PR:
 
 ```powershell
 git fetch origin research/mejoras-web-orquestador-20261024
 git worktree add -b lab/mejoras-local ../web-escritor-mejoras origin/research/mejoras-web-orquestador-20261024
 cd ../web-escritor-mejoras
 python experimentos/mejoras-web/verificar.py
+python -m unittest discover -s experimentos/mejoras-web -p 'test_*.py' -v
+.\experimentos\mejoras-web\INICIAR-MEJORAS.cmd -Simular
+```
+
+`-Simular` no abre Edge ni llama a modelos ni a GitHub para escribir PR. `-SoloVista` solo muestra la web de esa carpeta en `127.0.0.1:8765` y Edge con CDP `9331`; **no reserva tarea**.
+
+Para la ejecución **real** hacen falta: Python con `playwright`, Microsoft Edge autenticado en ChatGPT, un Project específico para mejoras en ChatGPT, Claude Code CLI y GitHub CLI con acceso al repositorio. Configurar, en la consola del laboratorio:
+
+```powershell
+$env:LAB_MEJORAS_PROJECT_ID = 'ID_REAL_DEL_PROJECT'
 .\experimentos\mejoras-web\INICIAR-MEJORAS.cmd
 ```
 
-Edge se abre en `http://127.0.0.1:8765/`; puerto de depuración `9331` enlazado solo a loopback. `Ctrl+C` en la consola termina el servidor local. Cerrar Edge no modifica Git. Si el puerto 8765 o 9331 está ocupado, **no** toma control de procesos ajenos: pide liberar el puerto. El script se niega a arrancar si el worktree está en `main`.
+El ID se obtiene de la URL del Project real; no reutilizar el Project de QA porque sus instrucciones son diferentes. El lanzamiento real activa el ciclo continuo, GPT/Claude y PR borrador a lab tras tests locales. Para escoger manualmente: `INICIAR-MEJORAS.cmd -IdeaId SEO-01`; para rotación de GitHub: `-Canal github`.
 
-Usa `INICIAR-MEJORAS.cmd -IdeaId SEO-01` para elegir una idea, o `INICIAR-MEJORAS.cmd -Canal github` para rotar dentro de repositorios. Sin argumentos rota por los cinco canales. Para ver el candidato sin reservar: `python experimentos/mejoras-web/rotacion.py --vista`. Una reserva queda pendiente tras cerrar Edge y se recupera al reiniciar, salvo que se cierre o libere mediante el selector. Más ejemplos en `CONTRATO-ORQUESTADOR.md`.
+`Q` en consola detiene el director conservando su estado y el chat; `Ctrl+C` interrumpe el proceso. Cerrar la consola detiene nuevas consultas, aunque una operación externa ya enviada puede continuar. No se cancelan Jobs de Actions automáticamente.
 
-Pruebas del selector: `python -m unittest discover -s experimentos/mejoras-web -p 'test_*.py' -v`.
+## Estado, pruebas y previsualización
 
-Requisitos: Windows, Python 3 y Microsoft Edge instalados; PowerShell 5.1+. Si el sitio necesita un Worker remoto, API o claves, la previsualización estática por sí sola **no** demuestra ese flujo: levantar un emulador local o fixture en una PR específica.
+- `python experimentos/mejoras-web/motor/ciclo.py --estado` muestra el último expediente; incluye fuente, decisión, validación y ruta de su worktree, sin acceder a servicios.
+- El estado persistente vive bajo `LOCALAPPDATA/web-escritor-mejoras/`, en una carpeta por worktree, nunca en Git ni la cola QA original.
+- Para ver una propuesta antes de fusionarla, servir su `validacion.worktree` con `python -m http.server 8766 --bind 127.0.0.1 -d "RUTA_DEL_WORKTREE"`. No es el mismo fichero que la portada en 8765.
+- `.github/workflows/lab-mejoras-offline.yml` ejecuta tests offline en esta rama, sin secretos. **No se deben declarar verdes sin resultado del run**. Los checks de navegador/performance habituales siguen siendo necesarios en cada PR hija.
 
-## Qué se aprovecha del repositorio real
+## Puertas de aceptación aún pendientes
 
-- Estilo y guardrails: `docs/design-ux-tooling/README.md`, `15-ANTI-SLOP-DESIGN-REVIEW.md`, `docs/design-system/`.
-- Investigación previa: `docs/web-improvements/`, el registro histórico de 108 ideas y `docs/web-improvement-ideas/`. No generar un segundo catálogo ignorando esas decisiones.
-- QA existente: `qa/core-user-journeys-browser.mjs`, `qa/visual-regression-browser.mjs`, `qa/sitewide-reflow-browser.mjs`, `scripts/check-performance-budgets.py` y `scripts/qa-gpt/`.
-- Stack real: HTML/CSS/JS estático; Playwright 1.62.1, Pagefind, Lighthouse y pa11y fijados en `package.json`; no imponer frameworks nuevos.
+1. Suite offline realmente superada en Actions/Windows; revisar errores y resolverlos, no solo que exista el YAML.
+2. Inicio de Edge 9331 y login de Project real; respuesta GPT completa desde backend y reanudación con chat_id tras Q.
+3. Revisión Claude real con esquema, coste observado y prueba de rechazo/aceptación; comprobar herramientas de lectura y licencias.
+4. PR hija piloto con modificación verificable, tests locales/Actions y sin rutas fuera de alcance ni cambios en main.
+5. Previsualización y valoración humana móvil/escritorio, después integración voluntaria en lab.
+6. Verificar recuperación tras errores de red, GitHub y una PR existente; no liberar límites sin datos.
 
-## Reglas mínimas por investigación
-
-1. Baseline: ruta, commit, comportamiento y test en la versión actual. Si ya funciona, no repetir.
-2. Problema observado, hipótesis falsable, beneficio para lector o para negocio y coste de cambio.
-3. Máximo dos referencias upstream por entrega; ruta y SHA o versión verificables, licencia y código original *sin alterar* antes de la adaptación, con aviso de sus límites.
-4. Si la documentación del proveedor cambia, verificar en fuente primaria **en ese momento**.
-5. Claude revisa independencia, duplicación, identidad visual, efecto en el sitio, cobertura y si compensa.
-6. PR hija aislada por mejora. Máximo **dos experimentos activos** hasta medir tiempos y valor; no inundar Actions.
-7. Reporte para la persona: problema, antes/después, URL local, pruebas que pasaron, métricas, riesgos, recomendación A/B y posibilidad de deshacer.
-8. No monetización especulativa: separar clic de venta confirmada, y nuevas APIs de fuentes ya incorporadas.
-
-## Primeros entregables
-
-- `catalogo.json`: 68 hipótesis en 25 familias y 5 canales, todas **candidatas**, no fallos demostrados.
-- `rotacion.py`: selector offline de cinco canales, elección manual, reserva pendiente y recuperación tras reinicio.
-- `test_rotacion.py`: doce pruebas unitarias offline para ejecutar en Windows/CI.
-- `investigaciones/02-pagefind.md`: candidato Pagefind de código literal upstream, licencia MIT, rutas y SHA.
-- `FUENTES-2026-10-24.md` y `CONTRATO-ORQUESTADOR.md`: contraste primario y protocolo con el sistema existente.
-- `contratos/GPT-INVESTIGAR.md` y `contratos/CLAUDE-REVISAR.md`: prompts versionables por etapa.
-- `investigaciones/01-web-vitals.md`: primer candidato externo inspeccionado, con código literal upstream y licencia; aún NO integrado.
-- `verificar.py`: validación offline del registro para evitar fichas vacías o duplicados.
-- Launcher: reserva offline una investigación y arranca navegador/servidor; no llama GPT/Claude ni crea PR o despliegue.
-
-## Pendiente para que sea la misma cadena automática
-
-Pedir al entorno **local** sus scripts reales de `EJECUTAR-ACTIONS-QA-GPT` y de GPT ↔ Claude ↔ PR, incluyendo estado persistido, bloqueo de Edge, detección de puerto y política de parada. Crear un adaptador nuevo que use esos componentes sin compartir carpetas de cola, sesiones, llaves de estado, puertos ni contadores con QA. Probar Q, Ctrl+C, reinicio e idempotencia. El selector ya entrega una tarea al lanzador, pero todavía no hay enlace a la conversación GPT/Claude ni ejecución de PR; estas fases siguen siendo una especificación pendiente de validación.
-
-**Sin merge a lab ni a main desde esta PR; queda en borrador para investigación e implementación incremental.**
-
-
-## Circuito real añadido desde la rama QA (primera integración)
-
-La rama `automation/qa-gpt` **sí contiene** el orquestador original completo. Código contrastado:
-- `scripts/qa-gpt/gpt_browser.py`, SHA blob `4fda7332ee6597c8efcd1fcc37cdc63008d08d3d` -> `motor/gpt_browser.py` (CDP 9331, Project configurable).
-- `scripts/qa-gpt/qa_claude.py`, SHA `7fe42e7bae24eeb78da271020ce1cf1f541f0a7b` -> `motor/claude_cli.py` (CLI headless, JSON schema, coste/timeout y cache).
-- `scripts/qa-gpt/qa_pr.py` -> `motor/pr_laboratorio.py`: validación de rutas, reemplazos exactos, tests y worktrees adaptados; **destino siempre lab, nunca main**.
-- `scripts/qa-gpt/qa_cobertura.py` -> rotación/deduplicación persistida separada.
-
-`motor/descubrimiento.py` consulta **ahora**, al ejecutar: GitHub Search REST (repositorios con fecha de última actividad y licencia declarada), el feed RSS oficial de Search Central y el inventario Git local. Las 68 hipótesis ya no son un límite: al acabarse se generan sondeos nuevos. Sin fuentes frescas, resultado vacío en vez de inventar novedad. SHA, licencia y el código literal se contrastan además por `motor/verificar_upstream.py`, comprobando GitHub REST git/blobs y /license.
-
-`motor/ciclo.py` implementa transiciones persistentes: seleccionar -> fuente -> GPT -> revisión Claude -> petición parche GPT -> worktree + tests -> PR borrador a lab. Guarda chats y estado en `LOCALAPPDATA`, separados de `qa-gpt-state`. No fusiona PR ni activa pagos/despliegues.
-
-### Arranque en Windows
-
-Primero ejecutar pruebas, en el worktree de investigación:
-```powershell
-.\experimentos\mejoras-web\INICIAR-MEJORAS.cmd -Simular
-python -m unittest discover -s experimentos/mejoras-web -p 'test_*.py' -v
-```
-Para el servicio real se necesita: Edge instalado y autenticado en ChatGPT, `playwright` en ese Python, `claude` CLI, GitHub CLI `gh` autorizado y la variable `LAB_MEJORAS_PROJECT_ID` con el ID del Project ChatGPT para mejoras. Ejecutar `INICIAR-MEJORAS.cmd` sin `-SoloVista` inicia el director continuo. Por defecto crea PR **borrador** en lab tras pasar pruebas locales, pero no aprueba ni fusiona. Si faltan herramientas, el iniciador aborta claramente.
-
-`INICIAR-MEJORAS.cmd -SoloVista` abre solo el sitio sin reservar nuevas tareas. Estado: `python experimentos/mejoras-web/motor/ciclo.py --estado`. Un error conserva el chat, no se declara éxito; el circuito puede requerir intervención para corregir una respuesta inválida.
-
-**La automatización aún NO se ha verificado en Edge/Windows/Claude reales.** La PR incluye tests offline de la lógica; la aceptación final del conjunto requiere una ejecución de extremo a extremo, una PR hija y CI verificados. El CI mínimo nuevo `.github/workflows/lab-mejoras-offline.yml` no sustituye los gates del sitio ni prueba las APIs reales.
-
-### Inspección visual de cambios
-
-Cada resultado validado guarda la ruta del worktree hijo en `ciclo/actual.json` bajo `validacion.worktree`; ese directorio contiene los cambios reales y puede servirse con `python -m http.server 8766 --bind 127.0.0.1 -d <directorio>`. Verificar desktop y móvil allí. La rama agregada lab se compara solo tras aceptar y fusionar allí PR hijas; **ningún cambio salta a main automáticamente**.
-
-## Aislamiento del selector en Windows
-
-El lanzador y el director utilizan **el mismo** fichero de rotación (ciclo/rotacion.json) derivado del worktree local. La simulación usa un subdirectorio separado. No hay intercambio de pendientes con el QA original. En sondeos continuos, el canal cambia en cada ciclo y la familia cada cinco, sin presentar una variación del mismo tema como hallazgo nuevo. En caso de PR ya publicada, el módulo de creación consulta GitHub y devuelve la existente antes de intentar una segunda.
+**Hasta superar estos pasos, no declarar el sistema al 100 %.** Ver `CONTRATO-ORQUESTADOR.md` para comandos de estado y fuentes, y `FUENTES-2026-10-24.md` para evidencia vigente. Esta PR no debe fusionarse automáticamente.

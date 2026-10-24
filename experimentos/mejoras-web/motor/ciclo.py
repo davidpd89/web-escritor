@@ -209,6 +209,34 @@ def paso(d,simular=False,publicar=False):
         raise
 
 
+_PARAR=False
+
+
+def tecla_q():
+    """Q en la consola de Windows: parar tras preservar la fase activa."""
+    global _PARAR
+    if _PARAR: return True
+    if os.name=="nt":
+        try:
+            import msvcrt
+            if msvcrt.kbhit() and msvcrt.getwch().lower()=="q":
+                _PARAR=True
+        except (OSError,ImportError):
+            pass
+    return _PARAR
+
+
+def prs_laboratorio_abiertas():
+    """Cuenta únicamente PRs hijas abiertas hacia lab. Si GH falla, NO se lanzan nuevas."""
+    try:
+        x=pr_laboratorio.run(["gh","pr","list","-R",pr_laboratorio.REPO,
+             "--base",pr_laboratorio.BASE,"--state","open","--limit","100",
+             "--json","headRefName"],ROOT,timeout=30)
+        return sum(1 for pr in json.loads(x) if pr.get("headRefName","").startswith("feature/mejoras-web/"))
+    except (pr_laboratorio.PreparacionError,ValueError) as exc:
+        raise RuntimeError("No se puede comprobar el tope de PR hijas: "+str(exc)[:130]) from exc
+
+
 def main():
     p=argparse.ArgumentParser()
     g=p.add_mutually_exclusive_group(required=True)
@@ -231,8 +259,25 @@ def main():
             s=paso(a.estado_dir,publicar=a.publicar_pr)
             print(json.dumps({"id":s["id"],"fase":s["fase"],"pr":s.get("validacion",{}).get("pr")},ensure_ascii=False))
         else:
+            gpt_browser.PARADA=tecla_q
             while True:
-                s=paso(a.estado_dir,publicar=a.publicar_pr)
+                if tecla_q():
+                    print("Q: parada controlada, expediente persistido.")
+                    break
+                actual=leer(a.estado_dir/"actual.json",None)
+                if a.publicar_pr and (actual is None or actual["fase"] in FINAL):
+                    n=prs_laboratorio_abiertas()
+                    if n>=2:
+                        print(f"Tope de {n} PRs hijas abiertas en lab. No investigar más hasta revisión humana.",flush=True)
+                        time.sleep(120)
+                        continue
+                try:
+                    s=paso(a.estado_dir,publicar=a.publicar_pr)
+                except gpt_browser.Incompleta:
+                    if tecla_q():
+                        print("Q durante ChatGPT: chat guardado para reanudar.")
+                        break
+                    raise
                 print(f"{utc()} {s['id']} {s['fase']}",flush=True)
                 time.sleep(180 if s["fase"]=="sin_fuente" else 2)
         return 0
