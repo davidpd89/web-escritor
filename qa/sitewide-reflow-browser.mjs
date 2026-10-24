@@ -396,7 +396,14 @@ const browser = await chromium.launch({
 });
 await fs.promises.mkdir(OUT_DIR, { recursive: true });
 
-const routes = collectRoutes();
+// Fragmentacion en CI: la ruta i pertenece al fragmento i % SHARD_TOTAL. Sin variables = todas las rutas.
+const SHARD_TOTAL = Math.max(1, Number(process.env.SHARD_TOTAL || 1));
+const SHARD_INDEX = Number(process.env.SHARD_INDEX || 0);
+if (!Number.isInteger(SHARD_INDEX) || SHARD_INDEX < 0 || SHARD_INDEX >= SHARD_TOTAL) {
+  throw new Error(`SHARD_INDEX ${process.env.SHARD_INDEX} fuera de 0..${SHARD_TOTAL - 1}`);
+}
+const routes = collectRoutes().filter((_, i) => i % SHARD_TOTAL === SHARD_INDEX);
+console.log(`[shard] ${SHARD_INDEX + 1}/${SHARD_TOTAL}: ${routes.length} rutas`);
 const reflowFailures = [];
 const reflowChecks = [];
 const targetFailures = [];
@@ -560,7 +567,7 @@ const FOCUS_JOURNEYS = [
 ];
 const focusChecks = [];
 const focusFailures = [];
-for (const journey of FOCUS_JOURNEYS) {
+for (const journey of SHARD_INDEX === 0 ? FOCUS_JOURNEYS : []) {
   for (const vp of FOCUS_VIEWPORTS) {
     const context = await browser.newContext({
       viewport: { width: vp.width, height: vp.height },
