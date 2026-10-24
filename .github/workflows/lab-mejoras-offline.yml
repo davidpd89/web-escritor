@@ -1,13 +1,7 @@
 name: Laboratorio mejoras - tests offline
 
 on:
-  push:
-    branches:
-      - research/mejoras-web-orquestador-20261024
-      - 'feature/mejoras-web/**'
-    paths:
-      - 'experimentos/mejoras-web/**'
-      - '.github/workflows/lab-mejoras-offline.yml'
+  workflow_dispatch:
   pull_request:
     branches:
       - lab/mejoras-web-20261024
