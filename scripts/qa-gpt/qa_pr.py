@@ -176,7 +176,7 @@ class Pr:
         return c.execute("""SELECT * FROM triaje WHERE parche IS NOT NULL AND decision='corregir' AND clase IN ('defecto_web','test_roto')
           AND COALESCE(pr_estado,'') IN ('','reintentar') ORDER BY COALESCE(prioridad,'3'), id""").fetchall()
 
-    FALLOS_SIN_PR = ("no_reproduce", "validacion_fallida", "sin_test", "parche_no_encaja", "conflicto_main")
+    FALLOS_SIN_PR = ("test_no_fiable", "no_reproduce", "validacion_fallida", "sin_test", "parche_no_encaja", "conflicto_main")
 
     def _marca(self, c, row, estado, detalle="", url=None):
         c.execute("UPDATE triaje SET pr_estado=?,pr_detalle=?,pr_url=COALESCE(?,pr_url),actualizado=? WHERE id=?", (estado, detalle[:900], url, self.q.now(), row["id"])); c.commit()
@@ -212,6 +212,11 @@ class Pr:
                 self._marca(c, row, "reintentar", "entorno de test no disponible (modulo/navegador/servidor): " + antes[0][1][1][-200:]); return "reintentar"
             if all(rc == 0 for _, (rc, _o) in antes):
                 self._marca(c, row, "no_reproduce", "en main los tests ya pasan: defecto no reproducible o ya resuelto"); return "no_reproduce"
+            # un fallo por timeout sin ninguna asercion no demuestra el defecto: el test no llega a comprobarlo (p. ej. espera un estado que nunca se da)
+            fallan = [o for _, (rc, o) in antes if rc]
+            if fallan and all("TimeoutError" in o and "AssertionError" not in o for o in fallan):
+                self._marca(c, row, "test_no_fiable", "en main el test agota el tiempo sin llegar a ninguna aserción: no demuestra el defecto. " + fallan[0][-300:]); return "test_no_fiable"
+            prev = {" ".join(cm): self.run(cm, str(wt), timeout=300)[0] for cm in verificadores(wt, [f["ruta"] for f in norm["ficheros"]])}
             try: tocados = aplicar_parche(wt, norm)
             except ValueError as e: self._marca(c, row, "parche_no_encaja", str(e)); return "parche_no_encaja"
             # 2) tras el parche pasan los tests, los verificadores del repo y no hay cambios fuera de alcance
@@ -298,7 +303,7 @@ def cmd_pr(q, a):
 FLUJO = {"activo": True, "max_pr_activas": 3, "max_desarrollos": 1, "max_revisiones": 1, "max_consultas_gpt": 2, "max_intentos": 2, "claude_lote": 4,
          "ciclo_s": 120, "flujo_desde": None, "integracion": {"modo": "recomendacion", "calibracion_min": 10, "riesgo_max": "bajo"}}
 RIESGOS = ("bajo", "medio", "alto")
-TERMINALES = "'integrada','cerrada','no_reproduce','sin_test','descartada','duplicada'"
+TERMINALES = "'integrada','cerrada','no_reproduce','test_no_fiable','sin_test','descartada','duplicada'"
 SISTEMA_REVISION = ("Eres el revisor tecnico final de una PR generada por automatizacion en un sitio web estatico. Recibes el criterio de aceptacion aprobado, "
                     "la causa, el resultado de CI y el diff. Decide: 'integrar' (corrige la causa con alcance minimo y sin riesgo evidente), 'revisar' (dudas concretas "
                     "que un humano debe mirar), 'rechazar' (no corrige, es incorrecta o excede el alcance) o 'intervencion' (toca algo sensible o no se puede juzgar). "

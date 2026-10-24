@@ -171,6 +171,10 @@ class PrFlujo(T.Base):
         row = self.c.execute("SELECT * FROM triaje").fetchone(); gh = self.GhPr()
         self.assertEqual(self.pr(gh).preparar(self.c, row), "no_reproduce"); self.assertEqual(gh.prs, [])
 
+    def test_baseline_con_timeout_sin_asercion_no_demuestra_el_defecto(self):
+        row = self.montar(); gh = self.GhPr(); p = self.pr(gh); p._test = lambda wt, t: (1, "page.waitForFunction: TimeoutError: 30000ms")
+        self.assertEqual(p.preparar(self.c, row), "test_no_fiable"); self.assertEqual(gh.prs, [])
+
     def test_pr_nueva_guarda_numero_y_marca_de_flujo(self):
         row = self.montar(); self.pr(self.GhPr()).preparar(self.c, row)
         r = self.c.execute("SELECT pr_numero,pr_nueva,pr_head FROM triaje").fetchone(); self.assertEqual((r[0], r[1]), (1, 1)); self.assertTrue(r[2])
