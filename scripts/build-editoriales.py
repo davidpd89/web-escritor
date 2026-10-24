@@ -70,11 +70,40 @@ def parse_iso_date(value: str, field: str) -> date:
 
 
 def require_https(value: str | None, field: str) -> None:
-    if not value:
+    if not isinstance(value, str) or not value:
         raise ValidationError(f"{field}: URL obligatoria")
-    parsed = urlparse(value)
-    if parsed.scheme != "https" or not parsed.netloc:
+
+    if any(ord(char) <= 32 or ord(char) == 127 for char in value):
+        raise ValidationError(f"{field}: URL con espacios o caracteres de control: {value!r}")
+    if "\\" in value:
+        raise ValidationError(f"{field}: URL con barra invertida ambigua: {value!r}")
+
+    try:
+        parsed = urlparse(value)
+        hostname = parsed.hostname
+        port = parsed.port
+    except ValueError as exc:
+        raise ValidationError(f"{field}: autoridad HTTPS inválida: {value!r}") from exc
+
+    if parsed.scheme != "https" or not parsed.netloc or not hostname:
         raise ValidationError(f"{field}: debe ser una URL HTTPS absoluta: {value!r}")
+
+    if parsed.username is not None or parsed.password is not None or "@" in parsed.netloc:
+        raise ValidationError(f"{field}: no se permiten credenciales en la URL: {value!r}")
+    if port is not None or ":" in parsed.netloc:
+        raise ValidationError(f"{field}: no se permiten puertos explícitos: {value!r}")
+
+    if not re.fullmatch(r"[A-Za-z0-9.-]+", hostname):
+        raise ValidationError(f"{field}: nombre de host inválido: {value!r}")
+    if (
+        len(hostname) > 253
+        or not all(
+            label and len(label) <= 63
+            and re.fullmatch(r"[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?", label)
+            for label in hostname.split(".")
+        )
+    ):
+        raise ValidationError(f"{field}: nombre de host inválido: {value!r}")
 
 
 def scan_forbidden_keys(value: object, path: str = "root") -> None:
