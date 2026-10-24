@@ -152,8 +152,8 @@ def ejecutar_tests(worktree,patch):
 
 def validar_contexto(root):
     rama=run(["git","branch","--show-current"],root)
-    if rama in ("main","master","automation/qa-gpt"):
-        raise PreparacionError(f"Prohibido operar en {rama}")
+    if not rama.startswith(("lab/mejoras-","research/mejoras-","feature/mejoras-")):
+        raise PreparacionError(f"No se opera desde esta rama: {rama}")
     run(["git","diff","--quiet"],root)
     run(["git","diff","--cached","--quiet"],root)
     run(["git","fetch","origin",BASE],root,timeout=180)
@@ -176,19 +176,38 @@ def abrir_pr(root,estado_dir,expediente,parche,publicar=False):
     rama=f"feature/mejoras-web/{tag}"
     wt=Path(estado_dir).resolve()/"worktrees"/tag
     if wt.exists():
-        # Recuperación idempotente del último tramo. Nunca reescribir una rama existente.
-        if publicar:
-            try:
-                listado=run(["gh","pr","list","-R",REPO,"--state","open","--head",rama,
-                             "--json","url,baseRefName,headRefOid"],root)
-                prs=json.loads(listado)
-                correctas=[x for x in prs if x.get("baseRefName")==BASE]
-                if correctas:
-                    return {"rama":rama,"worktree":str(wt),"estado":"pr_existente",
-                            "tests":[],"pr":correctas[0]["url"],"nota":"PR recuperada sin duplicado"}
-            except (PreparacionError,ValueError):
-                pass
-        raise PreparacionError(f"Worktree {wt} ya existe, sin PR recuperable. Inspeccionar manualmente antes de continuar.")
+        if not publicar:
+            raise PreparacionError(f"Worktree existente, no se duplica: {wt}")
+        # Si GitHub aceptó la PR antes del corte, vincularla sin reenviar.
+        listado=run(["gh","pr","list","-R",REPO,"--state","open","--head",rama,
+                     "--json","url,baseRefName,headRefOid"],root)
+        correctas=[x for x in json.loads(listado) if x.get("baseRefName")==BASE]
+        if correctas:
+            return {"rama":rama,"worktree":str(wt),"estado":"pr_existente","tests":[],
+                    "pr":correctas[0]["url"],"nota":"PR ya creada"}
+        # Si se cortó entre commit/push y PR, continuar únicamente con un commit
+        # propio y limpio sobre lab. Un parche sin commit exige inspección humana.
+        if run(["git","branch","--show-current"],wt)!=rama:
+            raise PreparacionError("Worktree reutilizado en rama incorrecta")
+        if run(["git","status","--porcelain","--untracked-files=all"],wt):
+            raise PreparacionError("Recuperación insegura: cambios sin commit")
+        if run(["git","rev-list","--count","origin/"+BASE+"..HEAD"],wt)!="1":
+            raise PreparacionError("Recuperación requiere exactamente un commit hijo de lab")
+        esperadas={x["ruta"] for x in parche.get("ficheros",[])}
+        cambiadas=set(run(["git","diff","--name-only","origin/"+BASE+"...HEAD"],wt).splitlines())
+        if cambiadas!=esperadas:
+            raise PreparacionError("Archivos del commit distintos de la propuesta validada")
+        logs=ejecutar_tests(wt,parche)
+        run(["git","push","origin","HEAD:refs/heads/"+rama],wt,timeout=180)
+        titulo=f"feat(lab): {str(expediente.get('titulo') or expediente.get('id'))[:60]}"
+        body=(f"Recuperada tras interrupción. Base {BASE}. Sin merge automático.\n"
+              f"Expediente: {expediente.get('id')}\n"
+              f"Fuente: {expediente.get('fuente',{}).get('url')}\n"
+              f"Tests reejecutados: {json.dumps(logs,ensure_ascii=False)}")
+        url=run(["gh","pr","create","-R",REPO,"--base",BASE,"--head",rama,
+                 "--draft","--title",titulo,"--body",body],wt,timeout=120)
+        return {"rama":rama,"worktree":str(wt),"estado":"pr_borrador",
+                "archivos":sorted(esperadas),"tests":logs,"pr":url}
     wt.parent.mkdir(parents=True,exist_ok=True)
     # Comprobación previa de tests sin ejecutar los cambios.
     comandos_test(parche)
