@@ -67,3 +67,9 @@ El ID se obtiene de la URL del Project real; no reutilizar el Project de QA porq
 6. Verificar recuperación tras errores de red, GitHub y una PR existente; no liberar límites sin datos.
 
 **Hasta superar estos pasos, no declarar el sistema al 100 %.** Ver `CONTRATO-ORQUESTADOR.md` para comandos de estado y fuentes, y `FUENTES-2026-10-24.md` para evidencia vigente. Esta PR no debe fusionarse automáticamente.
+
+## Previsualización de una propuesta concreta
+
+Tras validar localmente una mejora, el estado contiene `validacion.worktree`. Ejecuta `PREVISUALIZAR-MEJORAS.cmd` en el laboratorio para servir **esa versión candidata** en `http://127.0.0.1:8766/` (la web base puede permanecer en 8765). No abre ni fusiona PR ni sirve públicamente. Solo acepta worktrees dentro del estado propio; rechaza cualquier ruta exterior. Sin propuesta validada, indica el motivo. Para abrirla sin navegador, pasar `--sin-abrir`.
+
+El director usa un bloqueo con PID e identidad: si la ventana murió y el proceso ya no existe, recupera el bloqueo tras comprobarlo; si el proceso aún está vivo, impide un duplicado. La cola QA original sigue sin verse afectada.

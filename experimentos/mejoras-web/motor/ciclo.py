@@ -35,19 +35,64 @@ def guardar(path, obj):
     os.replace(temp,path)
 
 
+def _activo(pid):
+    """Solo protege procesos del MISMO director; un PID reutilizado no basta."""
+    if pid==os.getpid(): return True
+    if not isinstance(pid,int) or pid<=0: return False
+    try:
+        if os.name=="nt":
+            p=subprocess.run(["powershell","-NoProfile","-Command",
+              f"(Get-CimInstance Win32_Process -Filter 'ProcessId={pid}').CommandLine"],
+              capture_output=True,text=True,timeout=8)
+            txt=p.stdout if p.returncode==0 else ""
+        else:
+            txt=Path(f"/proc/{pid}/cmdline").read_bytes().decode("utf-8","replace")
+        return "ciclo.py" in txt and "mejoras-web" in txt
+    except (OSError,ValueError,subprocess.TimeoutExpired):
+        return False
+
+
 @contextmanager
 def exclusivo(carpeta):
-    """Evita que dos directores avancen un mismo expediente."""
+    """Lock de propietario y recuperación de PID muerto; jamás comparte estado con QA."""
+    import uuid
     carpeta.mkdir(parents=True,exist_ok=True)
     lock=carpeta/"director.lock"
+    token=uuid.uuid4().hex
+    owner={"pid":os.getpid(),"token":token,"creado":utc()}
+    def crear():
+        fd=os.open(lock,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600)
+        with os.fdopen(fd,"w",encoding="utf-8") as f:
+            json.dump(owner,f)
+            f.flush()
+            os.fsync(f.fileno())
     try:
-        lock.mkdir()
+        crear()
     except FileExistsError as exc:
-        raise RuntimeError(f"Director activo o lock abandonado: {lock}. Verifica el PID antes de retirarlo.") from exc
+        if lock.is_dir():
+            raise RuntimeError(f"Lock de versión anterior: {lock}; comprobar procesos.") from exc
+        try:
+            previo=json.loads(lock.read_text(encoding="utf-8"))
+            stat=lock.stat()
+        except (ValueError,OSError) as err:
+            raise RuntimeError("Lock de director ilegible. Comprobar manualmente.") from err
+        if _activo(previo.get("pid")):
+            raise RuntimeError(f"Ya hay un director de mejoras activo (PID {previo['pid']}).")
+        if lock.stat().st_ino!=stat.st_ino or lock.stat().st_mtime_ns!=stat.st_mtime_ns:
+            raise RuntimeError("Lock cambiado concurrentemente; no reclamar.")
+        lock.unlink()
+        try:
+            crear()
+        except FileExistsError as err:
+            raise RuntimeError("Otro director se adelantó; no se inicia duplicado.") from err
     try:
         yield
     finally:
-        lock.rmdir()
+        try:
+            actual=json.loads(lock.read_text(encoding="utf-8"))
+            if actual.get("token")==token: lock.unlink()
+        except (OSError,ValueError):
+            pass
 
 
 def anotar(s,evento):

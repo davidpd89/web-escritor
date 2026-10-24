@@ -245,5 +245,24 @@ class Flujo(unittest.TestCase):
             with mock.patch.object(pr_laboratorio,"run",side_effect=git):
                 self.assertEqual(pr_laboratorio.verificar_divergencia(Path(temp),patch),1)
 
+    def test_recuperacion_lock_con_pid_muerto(self):
+        with tempfile.TemporaryDirectory() as temp:
+            d=Path(temp)
+            (d/"director.lock").write_text(json.dumps({"pid":99999999,
+                "token":"abandonado","creado":"2026-10-24T00:00:00"}),encoding="utf-8")
+            with mock.patch.object(ciclo,"_activo",return_value=False):
+                with ciclo.exclusivo(d):
+                    self.assertTrue((d/"director.lock").exists())
+            self.assertFalse((d/"director.lock").exists())
+
+    def test_lock_vivo_no_reclamable(self):
+        with tempfile.TemporaryDirectory() as temp:
+            d=Path(temp)
+            (d/"director.lock").write_text(json.dumps({"pid":1234,"token":"activo"}),encoding="utf-8")
+            with mock.patch.object(ciclo,"_activo",return_value=True):
+                with self.assertRaises(RuntimeError):
+                    with ciclo.exclusivo(d):
+                        self.fail("No se puede duplicar el proceso activo")
+
 
 if __name__=="__main__": unittest.main()
