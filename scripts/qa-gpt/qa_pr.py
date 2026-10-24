@@ -252,6 +252,15 @@ class Pr:
             if self.git("rev-parse", "origin/main")[1].strip() != base and self.git("rebase", "origin/main", cwd=wt)[0]:
                 self.git("rebase", "--abort", cwd=wt); self._marca(c, row, "conflicto_main", "main cambio y el parche ya no se aplica limpio"); return "conflicto_main"
             sha = self.git("rev-parse", "HEAD", cwd=wt)[1].strip()
+            if not demo and flujo(self.q)["modo_pr"] == "lote":  # la PR se abre despues, agrupada con otras correcciones ya validadas (un solo CI pesado)
+                self.git("fetch", "origin", rama, timeout=120)
+                if self.git("rev-parse", f"origin/{rama}")[1].strip() != sha:
+                    try: self.gh.push(sha, rama)
+                    except RuntimeError as e:
+                        if "rejected" in str(e) or "non-fast" in str(e): self._marca(c, row, "rama_existente", f"{rama} ya existe en origin con otro historial"); return "rama_existente"
+                        raise
+                self._marca(c, row, "listo_lote", verif)
+                c.execute("UPDATE triaje SET pr_head=?,dev_estado='listo_lote' WHERE id=?", (sha, row["id"])); c.commit(); return "listo_lote"
             # reanudacion tras un corte: si ya hay PR abierta para esta rama se vincula (nunca se crea otra); si la rama remota tiene el mismo arbol, no se reescribe
             previa = self.gh.pr_de_rama(rama) if not demo and hasattr(self.gh, "pr_de_rama") else None
             if previa:
@@ -326,7 +335,7 @@ def cmd_pr(q, a):
 
 # ---------- ciclo continuo: presupuesto -> desarrollo -> PR -> CI -> revision de Claude -> integracion ----------
 FLUJO = {"activo": True, "max_pr_activas": 3, "max_desarrollos": 1, "max_revisiones": 1, "max_consultas_gpt": 2, "max_intentos": 2, "claude_lote": 4,
-         "ciclo_s": 120, "flujo_desde": None, "integracion": {"modo": "recomendacion", "calibracion_min": 10, "riesgo_max": "bajo"}}
+         "ciclo_s": 120, "flujo_desde": None, "modo_pr": "pr", "lote": {"min": 3, "max": 8, "espera_h": 8, "max_activos": 1}, "integracion": {"modo": "recomendacion", "calibracion_min": 10, "riesgo_max": "bajo"}}
 RIESGOS = ("bajo", "medio", "alto")
 TERMINALES = "'integrada','cerrada','no_reproduce','test_no_fiable','sin_test','descartada','duplicada'"
 SISTEMA_REVISION = ("Eres el revisor tecnico final de una PR generada por automatizacion en un sitio web estatico. Recibes el criterio de aceptacion aprobado, "
@@ -341,7 +350,7 @@ ESQUEMA_REVISION = {"type": "object", "required": ["veredicto", "riesgo", "cumpl
 
 def flujo(q):
     cfg = q.CFG.get("flujo") or {}
-    return {**FLUJO, **cfg, "integracion": {**FLUJO["integracion"], **(cfg.get("integracion") or {})}}
+    return {**FLUJO, **cfg, "integracion": {**FLUJO["integracion"], **(cfg.get("integracion") or {})}, "lote": {**FLUJO["lote"], **(cfg.get("lote") or {})}}
 
 
 def ci_estado(roll):
@@ -397,21 +406,25 @@ class Ciclo:
         self._prs = prs
         hechas = 0
         for row in self.pr.candidatas(c):
-            if libres <= 0 or hechas >= cfg["max_desarrollos"]: break
-            if self._archivos_parche(row) & ocupados: r["solapadas"] = r.get("solapadas", 0) + 1; continue
+            lote = cfg["modo_pr"] == "lote"
+            if (libres <= 0 and not lote) or hechas >= cfg["max_desarrollos"]: break
+            if not lote and self._archivos_parche(row) & ocupados: r["solapadas"] = r.get("solapadas", 0) + 1; continue
             est = self.pr.preparar(c, row); self.out(f"  PR {row['firma']}: {est}"); hechas += 1
             if est == "pr_abierta": libres -= 1; ocupados |= self._archivos_parche(row); r["pr_nuevas"] = r.get("pr_nuevas", 0) + 1
-        # 4) CI y revision final de Claude (una vez por commit)
-        revisadas = 0
-        for row in c.execute("SELECT * FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta'").fetchall():
+        if cfg["modo_pr"] == "lote": self._lote(c, cfg, r)
+        # 4) CI y revision final de Claude (una vez por commit y por PR, aunque agrupe varias causas)
+        revisadas = 0; vistas = set()
+        for row in c.execute("SELECT * FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta' ORDER BY id").fetchall():
+            if row["pr_numero"] in vistas: continue
+            vistas.add(row["pr_numero"])
             v = self.gh.pr_ver(row["pr_numero"]); head = v.get("headRefOid"); ci = ci_estado(v.get("statusCheckRollup"))
-            if v.get("mergeable") == "CONFLICTING": c.execute("UPDATE triaje SET integracion='conflicto',pr_head=? WHERE id=?", (head, row["id"])); c.commit(); continue
-            if ci == "rojo": c.execute("UPDATE triaje SET integracion='ci_rojo',pr_head=? WHERE id=?", (head, row["id"])); c.commit(); r["ci_rojo"] = r.get("ci_rojo", 0) + 1; continue
+            if v.get("mergeable") == "CONFLICTING": c.execute("UPDATE triaje SET integracion='conflicto',pr_head=? WHERE pr_numero=? AND pr_nueva=1", (head, row["pr_numero"])); c.commit(); continue
+            if ci == "rojo": c.execute("UPDATE triaje SET integracion='ci_rojo',pr_head=? WHERE pr_numero=? AND pr_nueva=1", (head, row["pr_numero"])); c.commit(); r["ci_rojo"] = r.get("ci_rojo", 0) + 1; continue
             if ci != "verde" or v.get("isDraft") or row["revision_hash"] == head or revisadas >= cfg["max_revisiones"]: continue
             rev = self.revisar(c, row, head); revisadas += 1; r["revisadas"] = revisadas
             if rev and rev["veredicto"] == "integrar" and rev["cumple_criterio"] and RIESGOS.index(rev["riesgo"]) <= RIESGOS.index(cfg["integracion"]["riesgo_max"]):
-                c.execute("UPDATE triaje SET integracion='recomendada' WHERE id=?", (row["id"],)); self._integrar(c, row, head, v, cfg)
-            elif rev: c.execute("UPDATE triaje SET integracion=? WHERE id=?", ("revisar" if rev["veredicto"] == "integrar" else rev["veredicto"], row["id"]))
+                c.execute("UPDATE triaje SET integracion='recomendada' WHERE pr_numero=? AND pr_nueva=1", (row["pr_numero"],)); self._integrar(c, row, head, v, cfg)
+            elif rev: c.execute("UPDATE triaje SET integracion=? WHERE pr_numero=? AND pr_nueva=1", ("revisar" if rev["veredicto"] == "integrar" else rev["veredicto"], row["pr_numero"]))
             c.commit()
         r["pr_activas"] = c.execute("SELECT COUNT(*) FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta'").fetchone()[0]
         r["pr_legado"] = len(abiertas) - r["pr_activas"]; r["fecha"] = q.now()
@@ -419,18 +432,74 @@ class Ciclo:
         except OSError: pass
         return r
 
+    def _lote(self, c, cfg, r):
+        """Agrupa correcciones ya validadas (rama qa-fix/t* publicada) en UNA PR: un solo CI pesado en vez de uno por correccion.
+        Se abre cuando hay `min` listas, la mas antigua lleva `espera_h` horas o no queda nada en el pipeline. Cada commit se aplica con cherry-pick sobre
+        origin/main y se vuelve a verificar de forma acumulada; lo que no encaja queda para el siguiente lote (o vuelve a desarrollo si va solo)."""
+        import datetime
+        lc = cfg["lote"]
+        listos = c.execute("SELECT * FROM triaje WHERE pr_estado='listo_lote' ORDER BY COALESCE(prioridad,'3'), id").fetchall()
+        if not listos: return
+        if c.execute("SELECT COUNT(DISTINCT pr_numero) FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta'").fetchone()[0] >= lc["max_activos"]: return
+        pendientes = c.execute("SELECT COUNT(*) FROM triaje WHERE decision='corregir' AND (pr_estado IN ('esperando_desarrollo','reintentar') OR (parche IS NULL AND COALESCE(pr_estado,'') NOT IN (" + TERMINALES + ")) OR (parche IS NOT NULL AND COALESCE(pr_estado,'')=''))").fetchone()[0]
+        try: edad_h = (datetime.datetime.now() - min(datetime.datetime.fromisoformat(x["actualizado"]) for x in listos if x["actualizado"])).total_seconds() / 3600
+        except (ValueError, TypeError): edad_h = 0
+        if len(listos) < lc["min"] and edad_h < lc["espera_h"] and pendientes: return
+        rama = "qa-fix/lote-" + datetime.datetime.now().strftime("%m%d%H%M")
+        wt = Path(self.q.STATE) / "pr" / rama.replace("/", "_")
+        P = self.pr; incl = []; tocados_all = []
+        try:
+            rc, o = P.git("fetch", "origin", "main", timeout=180)
+            if rc: self.out(f"  lote: fetch fallo {o[-120:]}"); return
+            if wt.exists(): P.limpiar(wt, rama)
+            wt.parent.mkdir(parents=True, exist_ok=True)
+            if P.git("worktree", "add", "-B", rama, str(wt), "origin/main")[0]: return
+            for row in listos[:lc["max"]]:
+                P.git("fetch", "origin", f"qa-fix/{re.sub(r'[^0-9a-zA-Z]', '', row['firma'] or 't' + str(row['id']))[:12]}", timeout=120)
+                if P.git("cherry-pick", row["pr_head"], cwd=wt)[0]:
+                    P.git("cherry-pick", "--abort", cwd=wt)
+                    if not incl and len(listos) == 1: self._marca(c, row, "conflicto_main", "no se aplica limpio sobre main actual")
+                    continue
+                tocados = list(self._archivos_parche(row) | {x for x in P.git("show", "--name-only", "--format=", "HEAD", cwd=wt)[1].split()})
+                for cmd in verificadores(wt, tocados_all + tocados):
+                    rc, o = P.run(cmd, str(wt), timeout=300)
+                    if rc:
+                        P.git("reset", "-q", "--hard", "HEAD~1", cwd=wt)
+                        if not incl: self._marca(c, row, "validacion_fallida", f"en lote: {' '.join(cmd[1:])} fallo (exit {rc}): {o[-250:]}")
+                        break
+                else: incl.append(row); tocados_all += tocados
+            if not incl: return
+            sha = P.git("rev-parse", "HEAD", cwd=wt)[1].strip()
+            self.gh.push(sha, rama)
+            cuerpo = f"## Lote de {len(incl)} correcciones verificadas por GPT QA\n\nCada una fue aprobada por Claude, reproducida en main (el test falla antes), corregida (pasa despues) y verificada con los comprobadores del repo. Se agrupan para ejecutar el CI pesado una sola vez.\n"
+            for i, row in enumerate(incl, 1):
+                cuerpo += f"\n---\n### {i}. {row['causa_raiz'][:100]}\n" + cuerpo_pr(row, P._rutas_tests(c, json.loads(row["propuestas"] or "[]")), row["pr_detalle"] or "").replace("\n## ", "\n#### ")
+            cuerpo += "\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n"
+            url = self.gh.pr_crear(rama, f"fix(qa-gpt): lote de {len(incl)} correcciones verificadas", cuerpo, borrador=False)
+            m = re.search(r"/pull/(\d+)", url or ""); num = int(m.group(1)) if m else 0
+            for row in incl:
+                c.execute("UPDATE triaje SET pr_estado='pr_abierta',pr_url=?,pr_numero=?,pr_nueva=1,pr_head=?,dev_estado='pr_abierta',actualizado=? WHERE id=?", (url, num, sha, self.q.now(), row["id"]))
+            c.commit(); r["lote_pr"] = num; r["lote_correcciones"] = len(incl); self.out(f"  lote: PR #{num} con {len(incl)} correcciones")
+        except Interrumpido:
+            self.out("  lote interrumpido por parada: se repite al reanudar")
+        finally:
+            P.limpiar(wt, None)
+
     def revisar(self, c, row, head):
         import qa_claude, qa_triaje
         d = qa_triaje._j(row["decision_json"], {}) or {}
+        grupo = c.execute("SELECT * FROM triaje WHERE pr_numero=? AND pr_nueva=1 ORDER BY id", (row["pr_numero"],)).fetchall() or [row]
         try: diff = self.gh.pr_diff(row["pr_numero"])[:14000]
         except Exception as e: self.out(f"  revision omitida (diff no disponible: {str(e)[:80]})"); return None
         mios = {m for m in re.findall(r"^diff --git a/(\S+)", diff, re.M)}
         solapes = sorted({p["number"] for p in getattr(self, "_prs", []) if p["number"] != row["pr_numero"] and mios & {f["path"] for f in p.get("files", [])}})[:10]
-        entrada = json.dumps({"causa": row["causa_raiz"], "criterio_aceptacion": d.get("criterio_aceptacion"), "ci": "verde", "prioridad": d.get("prioridad"),
+        crit = d.get("criterio_aceptacion") if len(grupo) == 1 else [f"[{g['id']}] {(qa_triaje._j(g['decision_json'], {}) or {}).get('criterio_aceptacion')}" for g in grupo]
+        causa = row["causa_raiz"] if len(grupo) == 1 else [f"[{g['id']}] {g['causa_raiz']}" for g in grupo]
+        entrada = json.dumps({"causa": causa, "criterio_aceptacion": crit, "ci": "verde", "prioridad": d.get("prioridad"),
                               "solapa_con_prs_abiertas": solapes, "diff": diff}, ensure_ascii=False)
         try: rev, _ = qa_claude.llamar(self.q, c, f"revision:{row['id']}@{head}", "revision", SISTEMA_REVISION, entrada, ESQUEMA_REVISION)
         except qa_claude.ClaudeError as e: self.out(f"  Claude revision: {str(e)[:120]}"); return None
-        c.execute("UPDATE triaje SET revision=?,revision_hash=?,pr_head=?,actualizado=? WHERE id=?", (json.dumps(rev, ensure_ascii=False), head, head, self.q.now(), row["id"])); c.commit()
+        c.execute("UPDATE triaje SET revision=?,revision_hash=?,pr_head=?,actualizado=? WHERE pr_numero=? AND pr_nueva=1", (json.dumps(rev, ensure_ascii=False), head, head, self.q.now(), row["pr_numero"])); c.commit()
         self.out(f"  Claude revisa PR #{row['pr_numero']}: {rev['veredicto']} (riesgo {rev['riesgo']})")
         return rev
 
@@ -441,5 +510,5 @@ class Ciclo:
         aciertos = c.execute("SELECT COUNT(*) FROM triaje WHERE integracion='integrada_acierto'").fetchone()[0]
         if aciertos < ig["calibracion_min"] or v.get("mergeStateStatus") != "CLEAN": return
         self.gh.pr_merge(row["pr_numero"], head)
-        c.execute("UPDATE triaje SET pr_estado='integrada',integracion='integrada_auto' WHERE id=?", (row["id"],)); c.commit()
+        c.execute("UPDATE triaje SET pr_estado='integrada',integracion='integrada_auto' WHERE pr_numero=? AND pr_nueva=1", (row["pr_numero"],)); c.commit()
         self.out(f"  PR #{row['pr_numero']} integrada por el sistema")
