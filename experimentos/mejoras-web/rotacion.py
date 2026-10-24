@@ -77,7 +77,7 @@ def bloqueo(path: Path):
 def guardar(path: Path, st: dict):
     path.parent.mkdir(parents=True, exist_ok=True)
     temporal = path.with_suffix(".tmp")
-    with temporal.open("x", encoding="utf-8") as archivo:
+    with temporal.open("w", encoding="utf-8") as archivo:
         json.dump(st, archivo, ensure_ascii=False, indent=2)
         archivo.write("\n")
         archivo.flush()
