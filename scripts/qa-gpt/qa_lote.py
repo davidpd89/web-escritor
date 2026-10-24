@@ -175,10 +175,15 @@ class Lote:
         c, q = self.c, self.q; nuevos = dup = 0
         try: q.reparar_perdidas(c)  # una `preparada` sin sus ficheros en la rama no es ejecutable: vuelve a `aceptada` en vez de entrar al lote y fallar
         except Exception as e: self.log(f"Reparacion de preparadas omitida ({str(e)[:100]})")
-        for r in c.execute("SELECT * FROM ramas WHERE estado IN ('preparada','aprobada')").fetchall():
+        ramas = c.execute("SELECT * FROM ramas WHERE estado IN ('preparada','aprobada')").fetchall()
+        if self.cfg.get("limite"):  # prueba acotada: primero las ramas de regresion (las que Actions puede dar por buenas)
+            reg = lambda r: not c.execute("SELECT 1 FROM propuestas WHERE rama=? AND json_extract(datos,'$.categoria')<>'regresion' LIMIT 1", (r["rama"],)).fetchone()
+            ramas = sorted(ramas, key=lambda r: not reg(r))
+        for r in ramas:
             clave = f"{r['rama']}@{r['sha'][:12]}"
             props = c.execute("SELECT id,datos FROM propuestas WHERE rama=? AND estado IN ('preparada','aprobada')", (r["rama"],)).fetchall()
             if self.item(clave) or not props: dup += 1; continue
+            if self.cfg.get("limite") and nuevos >= int(self.cfg["limite"]): continue  # prueba acotada: el resto queda preparado para el siguiente clic
             c.execute("INSERT INTO lote_items(clave,lote_id,rama,sha,area,propuestas,estado,runs,creado,actualizado) VALUES(?,?,?,?,?,?,?,?,?,?)",
                       (clave, lid, r["rama"], r["sha"], r["area"], json.dumps([p["id"] for p in props]), "preparada", "{}", q.now(), q.now()))
             for p in props:  # el clic ES la autorizacion: preparada -> aprobada (mismo efecto que `aprobar`)
@@ -519,7 +524,7 @@ def instalar_parada(lo):
 
 def main(q, a=None):
     with LoteLock(q):
-        lo = Lote(q, cfg={"panel": sys.stdout.isatty()}); lo.interactivo = sys.stdin.isatty()
+        lo = Lote(q, cfg={"panel": sys.stdout.isatty(), "limite": getattr(a, "limite", None)}); lo.interactivo = sys.stdin.isatty()
         instalar_parada(lo); return lo.ejecutar()
 
 

@@ -1230,7 +1230,7 @@ def main():
     add(["autorizar-noche"], cmd_autorizar)
     add(["nightly-run", "lote-nocturno"], cmd_nightly, (["--confirmar"], dict(action="store_true")))
     add(["morning-report", "informe-matinal"], cmd_morning)
-    add(["ejecutar-actions"], lambda a: __import__("qa_lote").main(sys.modules[__name__], a))
+    add(["ejecutar-actions"], lambda a: __import__("qa_lote").main(sys.modules[__name__], a), (["--limite"], dict(type=int, default=None)))
     add(["pr"], lambda a: __import__("qa_pr").cmd_pr(sys.modules[__name__], a), (["--demo"], dict(action="store_true")), (["--local"], dict(action="store_true")))
     add(["triaje"], lambda a: __import__("qa_triaje").cmd_triaje(sys.modules[__name__], a))
     add(["contratos"], cmd_contratos, (["--completo"], dict(action="store_true")))
