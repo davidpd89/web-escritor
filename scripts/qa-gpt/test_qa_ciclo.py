@@ -162,6 +162,14 @@ class PrFlujo(T.Base):
         row = self.montar(); self.pr(self.GhPr()).preparar(self.c, row)
         self.assertEqual(self.pr(self.GhPr()).candidatas(self.c), [])
 
+    def test_misma_causa_con_pr_se_vincula_sin_tocar_su_rama(self):
+        row = self.montar(); gh = self.GhPr(); self.assertEqual(self.pr(gh).preparar(self.c, row), "pr_abierta")
+        self.c.execute("INSERT INTO triaje (grupo,causa_raiz,clase,propuestas,items,evidencia,reproduccion,arreglo,estado,fuente,creado,actualizado,firma,parche) "
+                       "SELECT grupo||'-bis',causa_raiz,clase,propuestas,items,evidencia,reproduccion,arreglo,estado,fuente,creado,actualizado,firma,parche FROM triaje"); self.c.commit()
+        dup = self.c.execute("SELECT * FROM triaje WHERE pr_estado IS NULL").fetchone(); gh2 = self.GhPr()
+        self.assertEqual(self.pr(gh2).preparar(self.c, dup), "duplicada"); self.assertEqual(gh2.prs, [])
+        self.assertEqual(self.c.execute("SELECT pr_url FROM triaje WHERE id=?", (dup["id"],)).fetchone()[0], self.c.execute("SELECT pr_url FROM triaje WHERE id=?", (row["id"],)).fetchone()[0])
+
     def test_verificadores_segun_ficheros_tocados(self):
         import tempfile, qa_pr
         with tempfile.TemporaryDirectory() as d:

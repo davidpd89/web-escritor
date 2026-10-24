@@ -135,6 +135,9 @@ class Pr:
         firma = row["firma"] or f"t{row['id']}"
         rama = f"qa-fix/{re.sub(r'[^0-9a-zA-Z]', '', firma)[:12]}" + ("-demo" if demo else "")
         if not rama.startswith("qa-fix/") or rama in ("main", "master"): return "bloqueada"
+        otra = c.execute("SELECT pr_url FROM triaje WHERE firma=? AND id<>? AND pr_url IS NOT NULL AND pr_estado IN ('pr_abierta','pr_borrador') ORDER BY id LIMIT 1", (row["firma"], row["id"])).fetchone()
+        if otra and not demo:  # misma causa que otra fila con PR viva: se vincula, no se duplica ni se reescribe su rama
+            self._marca(c, row, "duplicada", f"cubierta por {otra[0]}", otra[0]); return "duplicada"
         norm = json.loads(row["parche"])
         wt = Path(self.q.STATE) / "pr" / rama.replace("/", "_")
         try:
@@ -158,7 +161,10 @@ class Pr:
             if rc: self._marca(c, row, "reintentar", f"commit fallo: {o[-200:]}"); return "reintentar"
             if not push: self._marca(c, row, "listo_local", verif); return "listo_local"
             sha = self.git("rev-parse", "HEAD", cwd=wt)[1].strip()
-            self.gh.push(sha, rama)
+            try: self.gh.push(sha, rama)
+            except RuntimeError as e:
+                if "rejected" in str(e) or "non-fast" in str(e): self._marca(c, row, "rama_existente", f"{rama} ya existe en origin con otro historial: revisar la PR existente"); return "rama_existente"
+                raise
             url = self.gh.pr_crear(rama, tit, cuerpo_pr(row, tests, verif, demo), borrador=(not verde) or demo)
             self._marca(c, row, "pr_borrador" if (not verde or demo) else "pr_abierta", verif, url)
             return "pr_borrador" if (not verde or demo) else "pr_abierta"
