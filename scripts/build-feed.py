@@ -15,7 +15,8 @@ import os
 import sys
 import re
 import json
-from datetime import datetime
+from datetime import datetime, timezone
+from email.utils import format_datetime
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom import minidom
 import xml.etree.ElementTree as ET
@@ -131,8 +132,10 @@ def extract_metadata(path):
 def iso_to_rfc2822(d):
     try:
         dt = datetime.fromisoformat(d.replace('Z','+00:00'))
-        return dt.strftime('%a, %d %b %Y %H:%M:%S +0000')
-    except Exception:
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return format_datetime(dt.astimezone(timezone.utc))
+    except (TypeError, ValueError, OverflowError):
         return None
 
 def build_feed_bytes(items):
