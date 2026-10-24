@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import { createWorker } from '../qa/errores-progresivo-sw-fixture.mjs';
+const sw = createWorker(async () => new Response('NEW_COVER'));
+const req = sw.request('/assets/portada.webp', { destination: 'image' });
+await sw.cacheFor(sw.staticCache).put(req, new Response('OLD_COVER'));
+const initial = await sw.fetch(req);
+assert.equal(await initial.response.text(), 'OLD_COVER', 'SWR must respond from cache immediately');
+const refreshed = await sw.cacheFor(sw.staticCache).match(req);
+assert.equal(await refreshed.text(), 'NEW_COVER', 'waitUntil must commit the new image');
+sw.setNetwork(async () => { throw Error('offline'); });
+const offline = await sw.fetch(req);
+assert.equal(await offline.response.text(), 'NEW_COVER', 'Next offline read is stale');
+console.log('PASS image stale-while-revalidate lifecycle');

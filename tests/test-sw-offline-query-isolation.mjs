@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import { createWorker } from '../qa/errores-progresivo-sw-fixture.mjs';
+const sw = createWorker(async () => new Response('COUNTRY_ES'));
+const first = sw.request('/editoriales/?pais=ES', { mode: 'navigate' });
+const second = sw.request('/editoriales/?pais=FR', { mode: 'navigate' });
+await sw.fetch(first);
+await sw.cacheFor(sw.staticCache).put('/offline.html', new Response('OFFLINE_SHELL'));
+sw.setNetwork(async () => { throw Error('network down'); });
+const cached = await sw.fetch(first);
+const missing = await sw.fetch(second);
+assert.equal(await cached.response.text(), 'COUNTRY_ES');
+assert.equal(await missing.response.text(), 'OFFLINE_SHELL');
+assert.equal(sw.entries(sw.pageCache).length, 1);
+console.log('PASS offline query isolation and recovery shell');
