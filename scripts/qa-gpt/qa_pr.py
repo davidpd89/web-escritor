@@ -361,7 +361,10 @@ class Ciclo:
             if qa_triaje.encolar_desarrollo(q, c, row, row["pr_detalle"] or row["validacion"] or ""):
                 c.execute("UPDATE triaje SET pr_estado='esperando_desarrollo' WHERE id=?", (row["id"],)); c.commit(); en_cola += 1; r["desarrollos"] = r.get("desarrollos", 0) + 1
         # 3) admision de PR nuevas: presupuesto y sin solape de archivos con PR abiertas ni entre si
-        ocupados = {f["path"] for p in prs for f in p.get("files", [])}
+        # solo bloquea el solape con PR del flujo nuevo (se serializan); el backlog heredado no frena correcciones buenas: se anota y Claude lo valora en la revision
+        nuevas = {r_["pr_numero"] for r_ in c.execute("SELECT pr_numero FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta'")}
+        ocupados = {f["path"] for p in prs if p["number"] in nuevas for f in p.get("files", [])}
+        self._prs = prs
         hechas = 0
         for row in self.pr.candidatas(c):
             if libres <= 0 or hechas >= cfg["max_desarrollos"]: break
@@ -391,7 +394,10 @@ class Ciclo:
         d = qa_triaje._j(row["decision_json"], {}) or {}
         try: diff = self.gh.pr_diff(row["pr_numero"])[:14000]
         except Exception as e: self.out(f"  revision omitida (diff no disponible: {str(e)[:80]})"); return None
-        entrada = json.dumps({"causa": row["causa_raiz"], "criterio_aceptacion": d.get("criterio_aceptacion"), "ci": "verde", "diff": diff}, ensure_ascii=False)
+        mios = {m for m in re.findall(r"^diff --git a/(\S+)", diff, re.M)}
+        solapes = sorted({p["number"] for p in getattr(self, "_prs", []) if p["number"] != row["pr_numero"] and mios & {f["path"] for f in p.get("files", [])}})[:10]
+        entrada = json.dumps({"causa": row["causa_raiz"], "criterio_aceptacion": d.get("criterio_aceptacion"), "ci": "verde", "prioridad": d.get("prioridad"),
+                              "solapa_con_prs_abiertas": solapes, "diff": diff}, ensure_ascii=False)
         try: rev, _ = qa_claude.llamar(self.q, c, f"revision:{row['id']}@{head}", "revision", SISTEMA_REVISION, entrada, ESQUEMA_REVISION)
         except qa_claude.ClaudeError as e: self.out(f"  Claude revision: {str(e)[:120]}"); return None
         c.execute("UPDATE triaje SET revision=?,revision_hash=?,pr_head=?,actualizado=? WHERE id=?", (json.dumps(rev, ensure_ascii=False), head, head, self.q.now(), row["id"])); c.commit()

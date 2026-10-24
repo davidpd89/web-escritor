@@ -194,9 +194,14 @@ class PrFlujo(T.Base):
     def test_ciclo_respeta_presupuesto_cero(self):
         self.montar(); gh = self.GhCiclo(); self.ciclo(gh, max_pr_activas=0).paso(self.c); self.assertEqual(gh.prs, [])
 
-    def test_ciclo_no_solapa_con_pr_abierta_sobre_los_mismos_archivos(self):
+    def test_ciclo_no_solapa_con_pr_nueva_del_flujo_sobre_los_mismos_archivos(self):
         self.montar(); gh = self.GhCiclo([{"number": 9, "headRefName": "otra", "files": [{"path": "web/a.py"}]}])
-        r = self.ciclo(gh).paso(self.c); self.assertEqual(gh.prs, []); self.assertEqual(r["solapadas"], 1)
+        self.c.execute("INSERT INTO triaje (id,causa_raiz,clase,pr_estado,pr_numero,pr_nueva) VALUES (900,'x','defecto_web','pr_abierta',9,1)"); self.c.commit()
+        r = self.ciclo(gh, max_pr_activas=3).paso(self.c); self.assertEqual(gh.prs, []); self.assertEqual(r["solapadas"], 1)
+
+    def test_ciclo_solape_con_pr_heredada_no_bloquea(self):
+        self.montar(); gh = self.GhCiclo([{"number": 9, "headRefName": "vieja", "files": [{"path": "web/a.py"}]}])
+        r = self.ciclo(gh).paso(self.c); self.assertEqual(len(gh.prs), 1); self.assertNotIn("solapadas", r)
 
     def test_ciclo_abre_pr_revisa_y_solo_recomienda_en_modo_recomendacion(self):
         self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh); ci.paso(self.c); r = ci.paso(self.c)
