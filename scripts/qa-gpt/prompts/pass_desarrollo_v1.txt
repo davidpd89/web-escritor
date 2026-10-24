@@ -1,0 +1,17 @@
+[DESARROLLO DE CORRECCION QA · web-escritor] Repo davidpd89/web-escritor, rama main, commit {{HEAD_SHA}}; puedes leer el repo con tu conector de GitHub.
+El director tecnico APROBÓ corregir la causa {{FIRMA}} (intento de desarrollo {{INTENTO}}). Tu tarea es un parche pequeño, proporcional y verificable.
+
+PROBLEMA: {{CAUSA}}
+COMPORTAMIENTO ESPERADO: {{ESPERADO}}
+CRITERIO DE ACEPTACION (decidido por el director, no lo cambies): {{CRITERIO}}
+ARCHIVOS IMPLICADOS (orientativo): {{ARCHIVOS}}
+TESTS QUE DEBEN PASAR TRAS EL ARREGLO: {{TESTS}}
+POR QUE FALLO EL INTENTO ANTERIOR (corrígelo): {{PROBLEMAS}}
+
+CÓDIGO ACTUAL (origin/main):
+{{CODIGO}}
+
+Reglas: el parche se expresa como sustituciones EXACTAS ("buscar" = fragmento literal del fichero actual que aparezca UNA sola vez; "por" = reemplazo). Máximo 5 ficheros, cambios mínimos, sin refactorizaciones. No toques .github/, credenciales, pagos, Cloudflare/wrangler, package.json ni scripts/qa-gpt. No inventes requisitos: cumple el criterio de aceptación. No incluyas comandos para ejecutar. Si tras leer el código el defecto no existe o ya está resuelto, devuelve "parche": null y explícalo.
+
+Responde SOLO JSON válido:
+{"resuelto_en_main":false,"explicacion":"...","parche":{"ficheros":[{"ruta":"...","reemplazos":[{"buscar":"fragmento exacto único","por":"nuevo texto"}]}]},"confianza":"alta|media|baja"}

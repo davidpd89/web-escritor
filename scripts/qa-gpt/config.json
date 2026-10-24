@@ -723,5 +723,18 @@
  "worker_max_min": 120,
  "parada_gracia_min": 3,
  "modo_generacion": "lote",
- "max_propuestas_lote": 15
+ "max_propuestas_lote": 15,
+ "claude": {"modelo": "claude-sonnet-5-5", "esfuerzo": "low", "max_turnos": 2, "timeout_s": 240, "max_usd_llamada": 0.5},
+ "flujo": {
+  "activo": true,
+  "max_pr_activas": 3,
+  "max_desarrollos": 1,
+  "max_revisiones": 1,
+  "max_consultas_gpt": 2,
+  "max_intentos": 2,
+  "claude_lote": 4,
+  "ciclo_s": 120,
+  "flujo_desde": "2026-10-24",
+  "integracion": {"modo": "recomendacion", "calibracion_min": 10, "riesgo_max": "bajo"}
+ }
 }

@@ -68,6 +68,14 @@ class Gh:
         """PR hacia main SIN merge ni auto-merge; borrador por defecto."""
         a = ["pr", "create", "-R", self.repo, "--base", "main", "--head", rama, "--title", titulo, "--body", cuerpo]
         return self._gh(*(a + (["--draft"] if borrador else []))).strip().splitlines()[-1]
+    def prs_abiertas(self):
+        return json.loads(self._gh("pr", "list", "-R", self.repo, "--state", "open", "--limit", "200", "--json", "number,headRefName,isDraft,url,title,createdAt,files") or "[]")
+    def pr_ver(self, n):
+        return json.loads(self._gh("pr", "view", str(n), "-R", self.repo, "--json", "state,isDraft,mergeable,mergeStateStatus,headRefOid,statusCheckRollup,url,files"))
+    def pr_diff(self, n): return self._gh("pr", "diff", str(n), "-R", self.repo)
+    def pr_merge(self, n, sha):
+        """Merge por el mecanismo de GitHub (squash) atado al commit revisado; sin --admin: las protecciones de la rama se respetan."""
+        self._gh("pr", "merge", str(n), "-R", self.repo, "--squash", "--match-head-commit", sha)
     def pr_cerrar(self, url, comentario=""):
         self._gh("pr", "close", url, "-R", self.repo, "--delete-branch", *(["--comment", comentario] if comentario else []))
     def dispatch(self, wf, rama, ref=None, campos=None):
@@ -568,6 +576,22 @@ class Lote:
         (self.dir / "ultimo.json").write_text(json.dumps({"lote": lid, "fecha": self.q.now(), "cerrado": cerrado, "resumen": resumen}), encoding="utf-8")
         return cerrado
 
+    def arrancar_ciclo(self, gh_ok):
+        """Hilo del flujo Claude -> GPT -> PR -> CI -> revision (qa_pr.Ciclo). Limites propios (config `flujo`), independientes de los 3 grupos de Actions.
+        Un solo hilo y una conexion propia; si EJECUTAR se para, termina tras su paso en curso y todo queda en estado.db."""
+        import threading, qa_pr
+        cfg = qa_pr.flujo(self.q)
+        if not (gh_ok and cfg["activo"] and hasattr(self.gh, "prs_abiertas")) or getattr(self, "_hilo_ciclo", None): return
+        def bucle():
+            c = self.q.db(); c.execute("PRAGMA busy_timeout=180000"); ciclo = qa_pr.Ciclo(self.q, self.gh, self.runner, self.log)
+            while not self.parando:
+                try: ciclo.paso(c)
+                except GhAuthError as e: self.log(f"Flujo PR: GitHub rechaza el token ({str(e)[:80]})"); return
+                except Exception as e: self.log(f"Flujo PR: paso omitido ({type(e).__name__}: {str(e)[:120]}); se reintenta")
+                fin = time.time() + cfg["ciclo_s"]
+                while time.time() < fin and not self.parando: time.sleep(1)
+        self._hilo_ciclo = threading.Thread(target=bucle, name="flujo-pr", daemon=True); self._hilo_ciclo.start()
+
     def ejecutar(self):
         """Bucle continuo: valida en local (concurrencia_local, independiente de la remota), mantiene hasta 3 grupos en Actions, recoge resultados,
         envia el siguiente y abre lotes nuevos mientras haya trabajo. Con `continuo`, sin trabajo espera propuestas nuevas; solo Q/Ctrl+C/cierre lo detiene.
@@ -581,6 +605,7 @@ class Lote:
             import qa_viaa; qa_viaa.ejecutar(self.c, q, q.ROOT, out=self.log)
         except Exception as e: self.log(f"Via A: fallo de infraestructura ({str(e)[:120]}); se continua con los tests")
         lid = self.abrir_lote()
+        self.arrancar_ciclo(gh_ok)
         if gh_ok: self.sondear(lid, forzar=True)  # recuperar lo enviado en ejecuciones anteriores (run ids existentes) antes de lanzar nada
         ult_idle = 0; cerrado = None
         while True:
@@ -621,6 +646,8 @@ class Lote:
             if time.time() > t_fin: break
             self.esperar(self.cfg["poll_s"])
         self.cerrar_lote(lid)
+        h = getattr(self, "_hilo_ciclo", None)
+        if h and self.parando: h.join(timeout=20)  # deja terminar el paso en curso (todo ya esta en estado.db); no cancela nada en GitHub
         return 0
 
 
@@ -671,6 +698,24 @@ def main(q, a=None):
         instalar_parada(lo); return lo.ejecutar()
 
 
+def bloque_flujo(q, c):
+    """Metricas del flujo Claude -> GPT -> PR (consumo medido, decisiones, PR activas/legado, revision e integracion)."""
+    import qa_claude, qa_pr
+    cfg = qa_pr.flujo(q); n = lambda sql, *a: c.execute(sql, a).fetchone()[0]
+    dec = dict(c.execute("SELECT COALESCE(decision,'sin decidir'),COUNT(*) FROM triaje GROUP BY 1").fetchall())
+    ig = dict(c.execute("SELECT integracion,COUNT(*) FROM triaje WHERE pr_nueva=1 AND integracion IS NOT NULL GROUP BY 1").fetchall())
+    cl = qa_claude.resumen_consumo(c)
+    try: ci = json.loads((q.STATE / "lote" / "ciclo.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError): ci = {}
+    fallos = dict(c.execute("SELECT pr_estado,COUNT(*) FROM triaje WHERE pr_estado IN ('no_reproduce','validacion_fallida','sin_test','parche_no_encaja','conflicto_main','descartada') GROUP BY 1").fetchall())
+    return ["Flujo Claude -> GPT -> PR (Claude decide, GPT desarrolla, Claude revisa):",
+            f"  - Decisiones de Claude: " + (", ".join(f"{k} {v}" for k, v in sorted(dec.items(), key=lambda x: -x[1])) or "(ninguna)"),
+            f"  - Desarrollo GPT: en cola {n('SELECT COUNT(*) FROM jobs WHERE tipo=? AND clave LIKE ? AND estado IN (?,?)', 'T', 'D:%', 'pendiente', 'en_curso')} | intentos usados {n('SELECT COALESCE(SUM(intentos_dev),0) FROM triaje')} | sin PR por validacion: " + (", ".join(f"{k} {v}" for k, v in fallos.items()) or "ninguno"),
+            f"  - PR nuevas activas: {n('SELECT COUNT(*) FROM triaje WHERE pr_nueva=1 AND pr_estado=?', 'pr_abierta')}/{cfg['max_pr_activas']} | PR antiguas (legado) abiertas: {ci.get('pr_legado', '?')} | integradas {n('SELECT COUNT(*) FROM triaje WHERE pr_estado=?', 'integrada')}",
+            f"  - Revision de Claude / integracion ({cfg['integracion']['modo']}): " + (", ".join(f"{k} {v}" for k, v in ig.items()) or "(sin PR revisadas)") + f" | calibracion {ig.get('integrada_acierto', 0)}/{cfg['integracion']['calibracion_min']}",
+            f"  - Claude: {cl['llamadas']} consultas ({cl['ok']} ok), {cl['usd']} USD, {cl['tok_entrada']} tok entrada / {cl['tok_salida']} salida, {cl['seg_medio']} s medios | {qa_claude.config(q)['modelo']}"]
+
+
 def bloque_estado(q, c):
     """Lineas para ESTADO. Todo sale de la FOTO ACTUAL de lote_items/propuestas (un test cuenta una sola vez, en su estado de hoy)."""
     cnt = lambda tabla, *es: c.execute(f"SELECT COUNT(*) FROM {tabla} WHERE estado IN ({','.join('?' * len(es))})", es).fetchone()[0]
@@ -697,6 +742,7 @@ def bloque_estado(q, c):
                   "Analisis GPT y PR:",
                   f"  - Analisis GPT pendientes: {an_pend} | terminados: {n('SELECT COUNT(*) FROM jobs WHERE tipo=? AND estado=?', 'T', 'hecho')} | causas triadas: {n('SELECT COUNT(*) FROM triaje')} (con parche propuesto {n('SELECT COUNT(*) FROM triaje WHERE parche IS NOT NULL')})",
                   f"  - PR creadas por QA GPT: {prs.get('pr_abierta', 0) + prs.get('pr_borrador', 0)} (listas para revisar {prs.get('pr_abierta', 0)} | borrador con comprobaciones pendientes {prs.get('pr_borrador', 0)}) | parche no encaja: {prs.get('parche_no_encaja', 0)} | sin PR todavia: {prs.get('', 0)}"]
+        lines += bloque_flujo(q, c)
     except Exception: pass
     try: import qa_viaa; lines += qa_viaa.bloque_estado(q, c)
     except Exception: pass

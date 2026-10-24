@@ -124,7 +124,7 @@ class PrFlujo(T.Base):
             s.pushes.append(rama)
         def pr_crear(s, rama, tit, cuerpo, borrador=True): s.prs.append((rama, tit, cuerpo, borrador)); return "https://github.com/x/y/pull/1"
 
-    def montar(self, parche_buscar="VALOR = 1"):
+    def montar(self, parche_buscar="VALOR = 1", aprobada=True):
         (self.src / "web").mkdir(exist_ok=True); (self.src / "web/a.py").write_text("VALOR = 1" + NL); g("add", "-A", cwd=self.src); g("commit", "-qm", "a", cwd=self.src); g("push", "-q", "origin", "main", cwd=self.src)
         test = NL.join(["import pathlib,sys", "sys.exit(0 if 'VALOR = 2' in pathlib.Path('web/a.py').read_text() else 1)", ""])
         rama, sha, pid = self.preparar("fx", test, categoria="regresion")
@@ -132,6 +132,7 @@ class PrFlujo(T.Base):
         qa_triaje.migrar(self.c)
         qa_triaje.guardar(self.c, q.now(), "g1", "VALOR mal", "defecto_web", [pid], [f"{rama}@{sha[:12]}"], "AssertionError", "python tests/test-fx.py", "cambiar VALOR", "gpt",
                           firma="abc123", parche=json.dumps(norm), analisis=json.dumps({"confianza": "alta"}), validacion="{}")
+        if aprobada: self.c.execute("UPDATE triaje SET decision='corregir'"); self.c.commit()
         return self.c.execute("SELECT * FROM triaje").fetchone()
 
     def pr(self, gh): return qa_pr.Pr(q, gh, L.run_cmd, lambda *a: None)
@@ -153,10 +154,91 @@ class PrFlujo(T.Base):
         row = self.montar("VALOR = 7"); gh = self.GhPr()
         self.assertEqual(self.pr(gh).preparar(self.c, row), "parche_no_encaja"); self.assertEqual(gh.prs, [])
 
-    def test_si_el_test_sigue_fallando_va_en_borrador(self):
+    def test_si_el_test_sigue_fallando_no_se_abre_pr_ni_borrador(self):
         row = self.montar(); self.c.execute("UPDATE triaje SET parche=?", (json.dumps({"ficheros": [{"ruta": "web/a.py", "reemplazos": [{"buscar": "VALOR = 1", "por": "VALOR = 3"}]}]}),)); self.c.commit()
         row = self.c.execute("SELECT * FROM triaje").fetchone(); gh = self.GhPr()
-        self.assertEqual(self.pr(gh).preparar(self.c, row), "pr_borrador"); self.assertTrue(gh.prs[0][3])
+        self.assertEqual(self.pr(gh).preparar(self.c, row), "validacion_fallida"); self.assertEqual((gh.prs, gh.pushes), ([], []))
+        self.assertEqual(self.c.execute("SELECT pr_estado FROM triaje").fetchone()[0], "validacion_fallida")
+
+    def test_sin_aprobacion_de_claude_no_hay_pr_ni_candidata(self):
+        row = self.montar(aprobada=False); gh = self.GhPr()
+        self.assertEqual(self.pr(gh).candidatas(self.c), [])
+        self.assertEqual(self.pr(gh).preparar(self.c, row), "sin_aprobacion"); self.assertEqual(gh.prs, [])
+
+    def test_si_el_test_ya_pasa_en_main_no_reproduce_y_no_hay_pr(self):
+        row = self.montar(); self.c.execute("UPDATE triaje SET parche=?", (json.dumps({"ficheros": [{"ruta": "web/a.py", "reemplazos": [{"buscar": "VALOR = 1", "por": "VALOR = 2"}]}]}),))
+        (self.src / "web/a.py").write_text("VALOR = 2" + NL); g("add", "-A", cwd=self.src); g("commit", "-qm", "ya arreglado", cwd=self.src); g("push", "-q", "origin", "main", cwd=self.src)
+        row = self.c.execute("SELECT * FROM triaje").fetchone(); gh = self.GhPr()
+        self.assertEqual(self.pr(gh).preparar(self.c, row), "no_reproduce"); self.assertEqual(gh.prs, [])
+
+    def test_pr_nueva_guarda_numero_y_marca_de_flujo(self):
+        row = self.montar(); self.pr(self.GhPr()).preparar(self.c, row)
+        r = self.c.execute("SELECT pr_numero,pr_nueva,pr_head FROM triaje").fetchone(); self.assertEqual((r[0], r[1]), (1, 1)); self.assertTrue(r[2])
+
+    class GhCiclo(GhPr):
+        def __init__(s, abiertas=(), ci="verde"): super().__init__(); s.abiertas, s.ci, s.merges = list(abiertas), ci, []
+        def prs_abiertas(s): return s.abiertas + [{"number": 1, "headRefName": r, "files": [{"path": "web/a.py"}]} for r, *_ in s.prs]
+        def pr_ver(s, n): return {"state": "OPEN", "isDraft": False, "mergeable": "MERGEABLE", "mergeStateStatus": "CLEAN", "headRefOid": "abc",
+                                  "statusCheckRollup": [{"status": "COMPLETED", "conclusion": "SUCCESS" if s.ci == "verde" else "FAILURE"}]}
+        def pr_diff(s, n): return "diff --git a/web/a.py b/web/a.py\n-VALOR = 1\n+VALOR = 2\n"
+        def pr_merge(s, n, sha): s.merges.append((n, sha))
+
+    def ciclo(self, gh, **flujo):
+        import qa_claude
+        q.CFG["flujo"] = {"max_pr_activas": 1, **flujo}; self.addCleanup(q.CFG.pop, "flujo", None)
+        for mod, nom in ((qa_triaje, "decidir_pendientes"), (qa_claude, "llamar")): self.addCleanup(setattr, mod, nom, getattr(mod, nom))
+        qa_triaje.decidir_pendientes = lambda *a, **k: 0  # sin llamar a Claude real
+        qa_claude.llamar =lambda *a, **k: ({"veredicto": "integrar", "riesgo": "bajo", "cumple_criterio": True, "motivos": ["ok"]}, {})
+        return qa_pr.Ciclo(q, gh, L.run_cmd, lambda *a: None)
+
+    def test_ciclo_respeta_presupuesto_cero(self):
+        self.montar(); gh = self.GhCiclo(); self.ciclo(gh, max_pr_activas=0).paso(self.c); self.assertEqual(gh.prs, [])
+
+    def test_ciclo_no_solapa_con_pr_abierta_sobre_los_mismos_archivos(self):
+        self.montar(); gh = self.GhCiclo([{"number": 9, "headRefName": "otra", "files": [{"path": "web/a.py"}]}])
+        r = self.ciclo(gh).paso(self.c); self.assertEqual(gh.prs, []); self.assertEqual(r["solapadas"], 1)
+
+    def test_ciclo_abre_pr_revisa_y_solo_recomienda_en_modo_recomendacion(self):
+        self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh); ci.paso(self.c); r = ci.paso(self.c)
+        self.assertEqual(len(gh.prs), 1); row = self.c.execute("SELECT integracion,revision_hash FROM triaje").fetchone()
+        self.assertEqual((row[0], row[1]), ("recomendada", "abc")); self.assertEqual(gh.merges, [])
+        ci.paso(self.c); self.assertEqual(self.c.execute("SELECT COUNT(*) FROM claude_llamadas").fetchone()[0], 0)  # revision cacheada por commit: no se repite
+
+    def test_ci_rojo_no_se_revisa_ni_se_integra(self):
+        self.montar(); gh = self.GhCiclo(ci="rojo"); ci = self.ciclo(gh); ci.paso(self.c); ci.paso(self.c)
+        self.assertEqual(self.c.execute("SELECT integracion FROM triaje").fetchone()[0], "ci_rojo"); self.assertEqual(gh.merges, [])
+
+    def test_modo_auto_no_integra_sin_calibracion(self):
+        self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 10}); ci.paso(self.c); ci.paso(self.c)
+        self.assertEqual(gh.merges, [])
+
+    def test_desarrollo_se_encola_una_vez_por_intento_y_con_tope(self):
+        row = self.montar(); qa_triaje.migrar(self.c)
+        self.c.execute("UPDATE triaje SET decision_json=? ", (json.dumps({"criterio_aceptacion": "VALOR es 2", "archivos": ["web/a.py"]}),)); self.c.commit()
+        row = self.c.execute("SELECT * FROM triaje").fetchone()
+        self.assertTrue(qa_triaje.encolar_desarrollo(q, self.c, row, "fallo X"))
+        row = self.c.execute("SELECT * FROM triaje").fetchone(); self.assertEqual(row["intentos_dev"], 1)
+        self.assertTrue(qa_triaje.encolar_desarrollo(q, self.c, row, "fallo Y"))
+        row = self.c.execute("SELECT * FROM triaje").fetchone(); self.assertFalse(qa_triaje.encolar_desarrollo(q, self.c, row, "fallo Z"))  # tope max_intentos=2
+        no_aprobada = dict(row); no_aprobada["decision"] = "rechazar"; self.assertFalse(qa_triaje.encolar_desarrollo(q, self.c, no_aprobada))
+
+    def test_decision_incoherente_no_aprueba(self):
+        d = {"id": 1, "decision": "corregir", "prioridad": 2, "causa_probable": "x", "justificacion": "y", "confianza": "alta", "archivos": ["a"]}
+        self.assertIsNotNone(qa_triaje.decision_valida(d))  # sin criterio de aceptacion
+        self.assertIsNone(qa_triaje.decision_valida({**d, "criterio_aceptacion": "c"}))
+        self.assertIsNotNone(qa_triaje.decision_valida({**d, "criterio_aceptacion": "c", "confianza": "baja"}))
+        self.assertIsNotNone(qa_triaje.decision_valida({**d, "decision": "duplicado"}))
+
+    def test_esquema_rechaza_respuesta_invalida(self):
+        import qa_claude
+        self.assertTrue(qa_claude.validar({"decisiones": [{"id": 1, "decision": "inventada"}]}, qa_triaje.ESQUEMA_DECISION))
+        self.assertTrue(qa_claude.validar({}, qa_triaje.ESQUEMA_DECISION))
+
+    def test_ci_estado(self):
+        self.assertEqual(qa_pr.ci_estado([{"status": "COMPLETED", "conclusion": "SUCCESS"}]), "verde")
+        self.assertEqual(qa_pr.ci_estado([{"status": "COMPLETED", "conclusion": "SUCCESS"}, {"status": "IN_PROGRESS"}]), "pendiente")
+        self.assertEqual(qa_pr.ci_estado([{"status": "COMPLETED", "conclusion": "FAILURE"}, {"status": "IN_PROGRESS"}]), "rojo")
+        self.assertEqual(qa_pr.ci_estado([]), "pendiente")
 
     def test_una_causa_con_pr_no_se_repite(self):
         row = self.montar(); self.pr(self.GhPr()).preparar(self.c, row)

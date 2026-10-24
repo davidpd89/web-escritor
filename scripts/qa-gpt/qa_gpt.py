@@ -457,8 +457,7 @@ def ingest_answer(c, job, answer, herramientas):
     if job["tipo"] == "T":
         import qa_triaje; qa_triaje.ingest(sys.modules[__name__], c, job, data)
         c.execute("UPDATE jobs SET estado='hecho',error=NULL,actualizado=? WHERE id=?", (now(), job["id"])); c.commit()
-        try: __import__("qa_pr").correr(sys.modules[__name__], c)  # defecto real con parche validado -> PR (sin merge); un fallo aqui no afecta al analisis
-        except Exception as e: print(f"  PR automatica omitida: {str(e)[:160]}")
+        # Sin PR aqui: el analisis GPT solo ingiere. La decision de Claude (qa_triaje.decidir_pendientes) y el ciclo de EJECUTAR (qa_pr.paso_ciclo) admiten el desarrollo.
         return
     n_leidos = validar_lectura(data, herramientas)
     area = job["area"]
