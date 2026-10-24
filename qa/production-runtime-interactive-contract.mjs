@@ -30,6 +30,9 @@ try{
         const badHref=[...document.querySelectorAll('a[href]')].filter(a=>/^(?:null|undefined|\[object object\])$/i.test((a.getAttribute('href')||'').trim())).map(a=>a.outerHTML.slice(0,220));
         const unsafeBlank=[...document.querySelectorAll('a[target="_blank"]')].filter(a=>!new Set((a.getAttribute('rel')||'').toLowerCase().split(/\s+/)).has('noopener')).map(a=>a.outerHTML.slice(0,220));
         const affiliate=[...document.querySelectorAll('a[href*="amzn.to"],a[href*="amazon."]')].filter(a=>{
+          // El CTA "Seguir al autor" apunta a la tienda de autor, no es afiliado
+          // y por contrato (tests/test-amazon-author-follow.mjs) no lleva sponsored.
+          if(a.classList.contains('amazon-author-follow-link')) return false;
           const rel=new Set((a.getAttribute('rel')||'').toLowerCase().split(/\s+/));
           return !rel.has('sponsored')&&!rel.has('nofollow');
         }).map(a=>a.outerHTML.slice(0,220));
