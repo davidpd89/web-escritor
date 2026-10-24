@@ -5,36 +5,6 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Convocatorias para escritores
 BEGIN:VEVENT
-UID:alberto-magno-ciencia-ficcion-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261023
-DTEND;VALUE=DATE:20261024
-SUMMARY:XXXVIII Certamen Literario Alberto Magno de Ciencia Ficción 2026
-DESCRIPTION:Facultad de Ciencia y Tecnología · EHU
-URL:https://www.ehu.eus/es/web/zientzia-teknologia-fakultatea/certamen-lite
- rario-alberto-magno
-END:VEVENT
-BEGIN:VEVENT
-UID:entre-plumas-y-letras-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261023
-DTEND;VALUE=DATE:20261024
-SUMMARY:V Concurso de relatos «Entre plumas y letras» 2026
-DESCRIPTION:Diversidad Literaria
-URL:https://www.diversidadliteraria.com/info-concursos/concurso-relatos-ent
- re-plumas-y-letras
-END:VEVENT
-BEGIN:VEVENT
-UID:afro-referentes-erreferenteak-2026@davidportodiaz.com
-DTSTAMP:20261019T000000Z
-DTSTART;VALUE=DATE:20261023
-DTEND;VALUE=DATE:20261024
-SUMMARY:XXIII Concurso de Relatos «Referentes / Erreferenteak» — AFRO
-DESCRIPTION:AFRO\, Asociación de Residentes Afroamericanos
-URL:https://www.escritores.org/concursos/BASES%20CAST%202026%20XXIII%20CONC
- URSO%20DE%20RELATOS%20(003)%20(002).pdf
-END:VEVENT
-BEGIN:VEVENT
 UID:manera-montblanc-relatos-2026@davidportodiaz.com
 DTSTAMP:20261003T000000Z
 DTSTART;VALUE=DATE:20261025
