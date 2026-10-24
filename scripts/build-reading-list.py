@@ -37,6 +37,7 @@ def validate(data, today):
         started=valid_date(raw.get('started_on'), f'{ident}.started_on', today)
         finished=valid_date(raw.get('finished_on'), f'{ident}.finished_on', today)
         if status=='finished' and not finished: fail(f'{ident}: finished requiere finished_on')
+        if status!='finished' and finished: fail(f'{ident}: finished_on incompatible con status {status}')
         if finished and started and finished < started: fail(f'{ident}: finished_on anterior a started_on')
         kind=raw.get('link_kind','none'); url=raw.get('url')
         if kind not in ALLOWED_LINK: fail(f'{ident}: link_kind inválido')
