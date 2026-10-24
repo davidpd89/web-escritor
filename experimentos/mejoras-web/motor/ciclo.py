@@ -225,7 +225,7 @@ def main():
     try:
         if a.simular:
             d=a.estado_dir/"simulacion"
-            for _ in range(3): s=paso(d,True)
+            for _ in range(4): s=paso(d,True)
             print(json.dumps({"id":s["id"],"fase":s["fase"],"simulada":True},ensure_ascii=False))
         elif a.paso:
             s=paso(a.estado_dir,publicar=a.publicar_pr)
