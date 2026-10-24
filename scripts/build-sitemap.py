@@ -20,6 +20,7 @@ import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlsplit
 
 DOMAIN = "https://davidportodiaz.com"
 NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -127,15 +128,29 @@ def normalize_lastmod(value: str | None) -> str | None:
 
 def normalize_canonical(canonical: str | None, root: Path, path: Path) -> str | None:
     if canonical:
+        if any(ord(char) < 32 or ord(char) == 127 for char in canonical) or "\\" in canonical:
+            return None
         if canonical.startswith("//"):
             canonical = "https:" + canonical
-        if canonical.startswith("http://"):
-            canonical = "https://" + canonical[len("http://") :]
-        if canonical.startswith("https://"):
-            if not canonical.startswith(DOMAIN):
+        parsed = urlsplit(canonical)
+        if parsed.scheme or parsed.netloc:
+            if parsed.scheme.lower() not in ("http", "https"):
                 return None
+            try:
+                if (parsed.hostname != "davidportodiaz.com"
+                        or parsed.username is not None
+                        or parsed.password is not None
+                        or parsed.port not in (None, 443)):
+                    return None
+            except ValueError:
+                return None
+            if parsed.query or parsed.fragment:
+                return None
+            canonical = DOMAIN + (parsed.path or "/")
             return canonical.rstrip("/") + ("/" if canonical.endswith("/") and canonical != DOMAIN + "/" else "")
         if canonical.startswith("/"):
+            if canonical.startswith("//"):
+                return None
             return (DOMAIN + canonical).rstrip("/") + ("/" if canonical.endswith("/") and canonical != "/" else "")
 
     rel = "/" + str(path.relative_to(root)).replace("\\", "/")
