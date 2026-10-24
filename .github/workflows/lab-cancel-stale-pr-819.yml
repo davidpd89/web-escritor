@@ -1,0 +1,65 @@
+name: "Lab: cancel stale PR 819 runs"
+on:
+  push:
+    branches:
+      - lab/mejoras-web-20261024
+    paths:
+      - .github/lab-maintenance/cancel-pr-819.trigger
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: lab-cancel-819-once
+  cancel-in-progress: false
+
+jobs:
+  cancel-only-pr-819:
+    if: github.repository == 'davidpd89/web-escritor'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Cancel only unfinished runs from PR 819
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const owner = 'davidpd89';
+            const repo = 'web-escritor';
+            const branch = 'research/mejoras-web-orquestador-20261024';
+            const prNumber = 819;
+            const runs = await github.paginate(
+              github.rest.actions.listWorkflowRunsForRepo,
+              { owner, repo, branch, event: 'pull_request', per_page: 100 }
+            );
+            const targeted = runs.filter(run =>
+              run.status !== 'completed' &&
+              run.event === 'pull_request' &&
+              run.head_branch === branch &&
+              (run.pull_requests || []).some(pr => pr.number === prNumber)
+            );
+            core.info('Total PR 819 active runs: ' + targeted.length);
+            let submitted = 0;
+            let failures = 0;
+            for (const run of targeted) {
+              try {
+                await github.rest.actions.cancelWorkflowRun({
+                  owner, repo, run_id: run.id
+                });
+                submitted += 1;
+                core.info('Cancellation requested: ' + run.id + ' ' + run.name);
+              } catch (error) {
+                // 409 and 422: already finished, completing or not cancellable.
+                if ([409, 422].includes(error.status)) {
+                  core.info('Already complete/not cancellable: ' + run.id);
+                } else {
+                  failures += 1;
+                  core.warning('Could not cancel ' + run.id + ': ' +
+                    error.status + ' ' + error.message);
+                }
+              }
+            }
+            core.notice('PR 819 cancellation requests: ' + submitted +
+              '; unexpected failures: ' + failures);
+            if (failures) core.setFailed('Some cancellations failed; inspect logs');
