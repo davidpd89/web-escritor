@@ -275,5 +275,26 @@ class Perdidas(T.Base):
         self.assertEqual(q.reparar_perdidas(self.c), 0)  # idempotente
 
 
+class CuerpoPr(unittest.TestCase):
+    def test_cuerpo_usa_expediente_aprobado_sin_campos_vacios(self):
+        import sqlite3, tempfile
+        c = sqlite3.connect(":memory:"); c.row_factory = sqlite3.Row
+        c.execute("CREATE TABLE triaje (id, causa_raiz, clase, analisis, validacion, evidencia, arreglo, decision_json)")
+        dj = json.dumps({"decision": "corregir", "prioridad": 2, "confianza": "alta", "causa_probable": "CAUSA-X", "justificacion": "JUST-X",
+                         "criterio_aceptacion": "CRIT-X", "archivos": ["a.py"]})
+        c.execute("INSERT INTO triaje VALUES (6,'resumen','defecto_web',NULL,?, 'ev','',?)", (json.dumps({"explicacion": "EXPL-X"}), dj))
+        cuerpo = qa_pr.cuerpo_pr(c.execute("SELECT * FROM triaje").fetchone(), ["t.py"], "VERIF")
+        for x in ("CAUSA-X", "JUST-X", "CRIT-X", "EXPL-X", "VERIF", "`a.py`"): self.assertIn(x, cuerpo)
+        for malo in ("(no indicado)", "None", "firma"): self.assertNotIn(malo, cuerpo)
+
+    def test_relacionados_incluye_citados_y_hermanos(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            wt = Path(d); (wt / "tests").mkdir()
+            for n in ("test_modulo_x.py", "test_otro.py", "test_ya.py"): (wt / "tests" / n).write_text("")
+            r = qa_pr.Pr.relacionados(wt, ["scripts/modulo_x.py"], "tests/test_otro.py sigue pasando; tests/test_ya.py", {"tests/test_ya.py"})
+            self.assertEqual(r, ["tests/test_modulo_x.py", "tests/test_otro.py"])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

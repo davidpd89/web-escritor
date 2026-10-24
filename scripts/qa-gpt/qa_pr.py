@@ -69,19 +69,34 @@ def aplicar_parche(root, norm):
 
 
 def cuerpo_pr(row, tests, verif, demo=False):
+    d = json.loads(row["decision_json"] or "{}") if "decision_json" in row.keys() else {}
     a = json.loads(row["analisis"] or "{}")
+    v = json.loads(row["validacion"] or "{}") if (row["validacion"] or "").startswith("{") else {}
     lista = lambda xs: "\n".join(f"- `{x}`" for x in xs) or "- (ninguno)"
-    partes = [("Resumen", f"{row['causa_raiz']}\n\nClase: **{row['clase']}** · firma `{row['firma']}` · confianza GPT: {a.get('confianza', '?')}"),
-              ("Comportamiento esperado", a.get("comportamiento_esperado") or "(no indicado)"),
-              ("Comportamiento observado", a.get("comportamiento_observado") or "(no indicado)"),
-              ("Causa raiz", a.get("hipotesis") or row["causa_raiz"]),
-              ("Tests afectados", lista(tests)),
-              ("Evidencia", "```\n" + (row["evidencia"] or "")[:1500] + "\n```"),
-              ("Solucion", row["arreglo"] or ""),
-              ("Verificacion", verif),
-              ("Riesgos", "Propuesta de GPT validada solo por sustitucion exacta y por los tests citados. Revisar a mano; no fusionar sin leer el diff."),
-              ("Componentes afectados", lista(a.get("componentes_afectados") or [])),
-              ("Origen", "Generada por la automatizacion GPT QA (analizador -> parche validado -> worktree aislado). Sin auto-merge.")]
+    if d.get("decision") == "corregir":
+        partes = [("Resumen", f"{row['causa_raiz']}\n\nClase: **{row['clase']}** · prioridad {d.get('prioridad', '?')} · confianza de Claude: {d.get('confianza', '?')} · expediente #{row['id']}"),
+                  ("Causa probable (aprobada por Claude)", d.get("causa_probable") or row["causa_raiz"]),
+                  ("Justificacion de la decision", d.get("justificacion") or "(no indicada)"),
+                  ("Criterio de aceptacion", d.get("criterio_aceptacion") or "(no indicado)"),
+                  ("Cambio realizado (GPT)", v.get("explicacion") or "(GPT no aporto explicacion)"),
+                  ("Archivos tocados", lista(d.get("archivos") or [])),
+                  ("Tests afectados", lista(tests)),
+                  ("Evidencia original", "```\n" + (row["evidencia"] or "")[:1500] + "\n```"),
+                  ("Verificacion local", verif),
+                  ("Riesgos", "El criterio lo fijo Claude antes del desarrollo; tras el CI, Claude revisa el diff contra ese criterio. No hay auto-merge salvo calibracion completada."),
+                  ("Origen", "GPT QA: Actions -> agrupacion -> decision de Claude -> desarrollo GPT -> baseline en main -> parche -> verificadores.")]
+    else:
+        partes = [("Resumen", f"{row['causa_raiz']}\n\nClase: **{row['clase']}** · firma `{row['firma']}` · confianza GPT: {a.get('confianza', '?')}"),
+                  ("Comportamiento esperado", a.get("comportamiento_esperado") or "(no indicado)"),
+                  ("Comportamiento observado", a.get("comportamiento_observado") or "(no indicado)"),
+                  ("Causa raiz", a.get("hipotesis") or row["causa_raiz"]),
+                  ("Tests afectados", lista(tests)),
+                  ("Evidencia", "```\n" + (row["evidencia"] or "")[:1500] + "\n```"),
+                  ("Solucion", row["arreglo"] or ""),
+                  ("Verificacion", verif),
+                  ("Riesgos", "Propuesta de GPT validada solo por sustitucion exacta y por los tests citados. Revisar a mano; no fusionar sin leer el diff."),
+                  ("Componentes afectados", lista(a.get("componentes_afectados") or [])),
+                  ("Origen", "Generada por la automatizacion GPT QA (analizador -> parche validado -> worktree aislado). Sin auto-merge.")]
     head = "> **DEMOSTRACION DE LA AUTOMATIZACION. NO FUSIONAR.** Se cierra sin merge.\n\n" if demo else ""
     return head + "\n\n".join(f"## {t}\n{c}" for t, c in partes) + "\n"
 
@@ -147,6 +162,15 @@ class Pr:
         if rc and INFRA.search(o): rc = RC_INFRA
         return rc, o
 
+    @staticmethod
+    def relacionados(wt, tocados, criterio, ya):
+        """Tests ya existentes que el criterio de aceptacion cita o que son hermanos de un modulo .py tocado (tests/test_<modulo>*.py)."""
+        cand = set(re.findall(r"tests?/[\w./-]+\.(?:py|mjs|js)", criterio or ""))
+        for t in tocados:
+            st = Path(t).stem
+            if t.endswith(".py"): cand |= {str(x.relative_to(wt)).replace("\\", "/") for x in (Path(wt) / "tests").glob(f"test_{st.replace('-', '_')}*.py")}
+        return sorted(x for x in cand if x not in ya and (Path(wt) / x).exists() and Pr.comando_test(x))
+
     def candidatas(self, c):
         """Solo causas APROBADAS por Claude (decision='corregir'): sin aprobacion no hay desarrollo ni PR."""
         return c.execute("""SELECT * FROM triaje WHERE parche IS NOT NULL AND decision='corregir' AND clase IN ('defecto_web','test_roto')
@@ -191,7 +215,9 @@ class Pr:
             try: tocados = aplicar_parche(wt, norm)
             except ValueError as e: self._marca(c, row, "parche_no_encaja", str(e)); return "parche_no_encaja"
             # 2) tras el parche pasan los tests, los verificadores del repo y no hay cambios fuera de alcance
-            verif, verde = self._verificar(wt, tests, tocados)
+            crit = (json.loads(row["decision_json"] or "{}") or {}).get("criterio_aceptacion", "")
+            rel = self.relacionados(wt, tocados, crit, set(tests))
+            verif, verde = self._verificar(wt, tests + rel, tocados)
             if not verde: self._marca(c, row, "validacion_fallida", verif); return "validacion_fallida"
             for cmd in verificadores(wt, tocados):
                 rc, o = self.run(cmd, str(wt), timeout=300)

@@ -374,6 +374,6 @@ def ingest_desarrollo(q, c, dev, data):
     import qa_pr
     ok, problemas, norm = qa_pr.validar_parche(data["parche"], lambda r: _leer_repo(q, r, _j(row["items"], [])))
     c.execute("UPDATE triaje SET parche=?,validacion=?,pr_estado=NULL,dev_estado=?,actualizado=? WHERE id=?",
-              (json.dumps(norm, ensure_ascii=False) if ok else row["parche"], json.dumps({"ok": ok, "problemas": problemas}), "parche_listo" if ok else "parche_invalido", q.now(), row["id"]))
+              (json.dumps(norm, ensure_ascii=False) if ok else row["parche"], json.dumps({"ok": ok, "problemas": problemas, "explicacion": (data.get("explicacion") or "")[:900], "confianza": data.get("confianza")}, ensure_ascii=False), "parche_listo" if ok else "parche_invalido", q.now(), row["id"]))
     c.commit(); print(f"  DESARROLLO #{row['id']}: {'parche validado' if ok else 'parche invalido: ' + '; '.join(problemas)[:120]}")
     return 1
