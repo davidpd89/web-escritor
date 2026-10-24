@@ -27,6 +27,14 @@ CSS_IMPORT_RE = re.compile(
     r"@import\s+(?:url\(\s*)?[\"']([^\"']+)[\"']\s*\)?",
     re.IGNORECASE,
 )
+CSS_FONT_FACE_RE = re.compile(
+    r"@font-face\s*\{([^{}]*)\}",
+    re.IGNORECASE | re.DOTALL,
+)
+CSS_FONT_URL_RE = re.compile(
+    r"url\(\s*(?:\"([^\"]+)\"|'([^']+)'|([^\s)'\"]+))\s*\)",
+    re.IGNORECASE,
+)
 JS_IMPORT_RE = re.compile(
     r"^\s*import\s+(?!\()(?:(?:[^;]*?)\sfrom\s+)?[\"']([^\"']+)[\"']\s*;",
     re.MULTILINE | re.DOTALL,
@@ -61,6 +69,11 @@ def local_dependencies(root: Path, path: Path, text: str) -> Iterable[Path]:
     suffix = path.suffix.lower()
     if suffix == ".css":
         matches = CSS_IMPORT_RE.findall(text)
+        for declaration in CSS_FONT_FACE_RE.findall(text):
+            for quoted_double, quoted_single, unquoted in CSS_FONT_URL_RE.findall(declaration):
+                specifier = quoted_double or quoted_single or unquoted
+                if specifier:
+                    matches.append(specifier)
     elif suffix in {".js", ".mjs"}:
         matches = [*JS_IMPORT_RE.findall(text), *JS_EXPORT_RE.findall(text)]
     else:
