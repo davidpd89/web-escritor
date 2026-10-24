@@ -225,8 +225,8 @@ def _event_times(event: dict) -> list[str]:
         if not isinstance(end, str) or _is_date_only(end):
             raise ValueError("endDate debe ser DATE-TIME cuando startDate es DATE-TIME")
         end_dt = _parse_datetime(end, "endDate")
-        if end_dt < start_dt:
-            raise ValueError("endDate anterior a startDate")
+        if end_dt <= start_dt:
+            raise ValueError("endDate debe ser posterior a startDate")
         lines.append(f"DTEND:{end_dt.strftime('%Y%m%dT%H%M%SZ')}")
     return lines
 
