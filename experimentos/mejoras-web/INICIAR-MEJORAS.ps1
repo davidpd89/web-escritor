@@ -1,5 +1,5 @@
 #requires -Version 5.1
-param([int]$SitePort = 8765, [int]$DebugPort = 9331)
+param([int]$SitePort = 8765, [int]$DebugPort = 9331, [string]$IdeaId = '', [string]$Familia = '', [string]$Canal = '')
 $ErrorActionPreference = 'Stop'
 $repo = (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
 $branch = (& git -C $repo branch --show-current).Trim()
@@ -31,6 +31,25 @@ $python = Get-Command python.exe -ErrorAction SilentlyContinue
 if (!$python) { throw 'Python 3 no encontrado en PATH.' }
 & $python.Source (Join-Path $PSScriptRoot 'verificar.py')
 if ($LASTEXITCODE -ne 0) { throw 'Catalogo de investigaciones invalido.' }
+# Seleccion offline recuperable. No inicia llamadas a GPT ni Claude.
+$selector = @((Join-Path $PSScriptRoot 'rotacion.py'))
+if ($IdeaId) {
+    $selector += @('--elegir', $IdeaId)
+} else {
+    $selector += '--siguiente'
+    if ($Familia) { $selector += @('--familia', $Familia) }
+    if ($Canal) { $selector += @('--canal', $Canal) }
+}
+$rawTask = & $python.Source @selector
+if ($LASTEXITCODE -ne 0) { throw 'No se pudo reservar una investigacion. Usa --ver-estado o --liberar en rotacion.py.' }
+$job = ($rawTask | Out-String | ConvertFrom-Json)
+if (-not $job.disponible) { throw 'No quedan ideas elegibles. Revisa catalogo.json.' }
+Write-Host ""
+Write-Host ("Investigacion reservada: {0} | {1}" -f $job.tarea.id, $job.tarea.titulo)
+Write-Host ("Canal: {0} | Familia: {1}" -f $job.tarea.canal, $job.tarea.familia)
+Write-Host "GPT: experimentos/mejoras-web/contratos/GPT-INVESTIGAR.md"
+Write-Host "Claude: experimentos/mejoras-web/contratos/CLAUDE-REVISAR.md"
+Write-Host "No se ha enviado nada a GPT/Claude: orquestador local aun pendiente."
 $profile = Join-Path $env:LOCALAPPDATA 'web-escritor-lab/edge-9331'
 New-Item -ItemType Directory -Force -Path $profile | Out-Null
 $server = Start-Process -FilePath $python.Source -ArgumentList @('-m','http.server',"$SitePort",'--bind','127.0.0.1') -WorkingDirectory $repo -PassThru -NoNewWindow
