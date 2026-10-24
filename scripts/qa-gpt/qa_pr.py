@@ -88,7 +88,7 @@ def cuerpo_pr(row, tests, verif, demo=False):
                   ("Tests afectados", lista(tests)),
                   ("Evidencia original", "```\n" + (row["evidencia"] or "")[:1500] + "\n```"),
                   ("Verificacion local", verif),
-                  ("Riesgos", "El criterio lo fijo Claude antes del desarrollo; tras el CI, Claude revisa el diff contra ese criterio. No hay auto-merge salvo calibracion completada."),
+                  ("Riesgos", "El criterio lo fijo Claude antes del desarrollo; tras el CI, Claude revisa el diff contra ese criterio. Si Claude recomienda integrar (riesgo bajo, cumple criterio), el CI es verde y GitHub la da por CLEAN, el sistema la fusiona atada al commit revisado."),
                   ("Origen", "GPT QA: Actions -> agrupacion -> decision de Claude -> desarrollo GPT -> baseline en main -> parche -> verificadores.")]
     else:
         partes = [("Resumen", f"{row['causa_raiz']}\n\nClase: **{row['clase']}** · firma `{row['firma']}` · confianza GPT: {a.get('confianza', '?')}"),
@@ -335,7 +335,7 @@ def cmd_pr(q, a):
 
 # ---------- ciclo continuo: presupuesto -> desarrollo -> PR -> CI -> revision de Claude -> integracion ----------
 FLUJO = {"activo": True, "max_pr_activas": 3, "max_desarrollos": 1, "max_revisiones": 1, "max_consultas_gpt": 2, "max_intentos": 2, "claude_lote": 4,
-         "ciclo_s": 120, "flujo_desde": None, "modo_pr": "pr", "lote": {"min": 3, "max": 8, "espera_h": 8, "max_activos": 1}, "integracion": {"modo": "recomendacion", "calibracion_min": 10, "riesgo_max": "bajo"}}
+         "ciclo_s": 120, "flujo_desde": None, "modo_pr": "pr", "lote": {"min": 3, "max": 8, "espera_h": 8, "max_activos": 3}, "integracion": {"modo": "auto", "calibracion_min": 0, "riesgo_max": "bajo"}}
 RIESGOS = ("bajo", "medio", "alto")
 TERMINALES = "'integrada','cerrada','no_reproduce','test_no_fiable','sin_test','descartada','duplicada'"
 SISTEMA_REVISION = ("Eres el revisor tecnico final de una PR generada por automatizacion en un sitio web estatico. Recibes el criterio de aceptacion aprobado, "
@@ -504,11 +504,16 @@ class Ciclo:
         return rev
 
     def _integrar(self, c, row, head, v, cfg):
-        """Solo en modo 'auto', tras la calibracion (suficientes recomendaciones que un humano confirmo) y con GitHub en CLEAN: merge atado al commit revisado."""
+        """Solo en modo 'auto' (calibracion_min opcional) y con GitHub en CLEAN: merge atado al commit revisado. Si la rama va por detras de main se actualiza y el siguiente ciclo la revalida."""
         ig = cfg["integracion"]
         if ig["modo"] != "auto": return
         aciertos = c.execute("SELECT COUNT(*) FROM triaje WHERE integracion='integrada_acierto'").fetchone()[0]
-        if aciertos < ig["calibracion_min"] or v.get("mergeStateStatus") != "CLEAN": return
+        if aciertos < ig["calibracion_min"]: return
+        if v.get("mergeStateStatus") == "BEHIND":
+            try: self.gh.pr_actualizar(row["pr_numero"]); self.out(f"  PR #{row['pr_numero']} actualizada con main; se revalida")
+            except Exception as e: self.out(f"  PR #{row['pr_numero']}: no se pudo actualizar ({str(e)[-100:]})")
+            return
+        if v.get("mergeStateStatus") != "CLEAN": return
         self.gh.pr_merge(row["pr_numero"], head)
         c.execute("UPDATE triaje SET pr_estado='integrada',integracion='integrada_auto' WHERE pr_numero=? AND pr_nueva=1", (row["pr_numero"],)); c.commit()
         self.out(f"  PR #{row['pr_numero']} integrada por el sistema")

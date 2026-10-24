@@ -79,6 +79,7 @@ class Gh:
     def pr_merge(self, n, sha):
         """Merge por el mecanismo de GitHub (squash) atado al commit revisado; sin --admin: las protecciones de la rama se respetan."""
         self._gh("pr", "merge", str(n), "-R", self.repo, "--squash", "--match-head-commit", sha)
+    def pr_actualizar(self, n): self._gh("pr", "update-branch", str(n), "-R", self.repo)
     def pr_cerrar(self, url, comentario=""):
         self._gh("pr", "close", url, "-R", self.repo, "--delete-branch", *(["--comment", comentario] if comentario else []))
     def dispatch(self, wf, rama, ref=None, campos=None):

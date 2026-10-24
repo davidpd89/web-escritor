@@ -218,13 +218,13 @@ class PrFlujo(T.Base):
         r = self.ciclo(gh).paso(self.c); self.assertEqual(len(gh.prs), 1); self.assertNotIn("solapadas", r)
 
     def test_ciclo_abre_pr_revisa_y_solo_recomienda_en_modo_recomendacion(self):
-        self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh); ci.paso(self.c); r = ci.paso(self.c)
+        self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh, integracion={"modo": "recomendacion", "calibracion_min": 10}); ci.paso(self.c); r = ci.paso(self.c)
         self.assertEqual(len(gh.prs), 1); row = self.c.execute("SELECT integracion,revision_hash FROM triaje").fetchone()
         self.assertEqual((row[0], row[1]), ("recomendada", "abc")); self.assertEqual(gh.merges, [])
         ci.paso(self.c); self.assertEqual(self.c.execute("SELECT COUNT(*) FROM claude_llamadas").fetchone()[0], 0)  # revision cacheada por commit: no se repite
 
     def test_modo_lote_valida_sin_abrir_pr_y_agrupa_cuando_no_hay_mas_trabajo(self):
-        self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh, modo_pr="lote")
+        self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh, modo_pr="lote", integracion={"modo": "recomendacion", "calibracion_min": 10})
         r = ci.paso(self.c)
         self.assertEqual(len(gh.prs), 1); rama, tit, cuerpo, borrador = gh.prs[0]
         self.assertTrue(rama.startswith("qa-fix/lote-")); self.assertIn("Lote de 1", cuerpo); self.assertFalse(borrador)
@@ -244,6 +244,16 @@ class PrFlujo(T.Base):
     def test_modo_auto_no_integra_sin_calibracion(self):
         self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 10}); ci.paso(self.c); ci.paso(self.c)
         self.assertEqual(gh.merges, [])
+
+    def test_modo_auto_sin_calibracion_integra_atado_al_sha_revisado(self):
+        self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0}); ci.paso(self.c); ci.paso(self.c)
+        self.assertEqual(gh.merges, [(1, "abc")])
+
+    def test_modo_auto_actualiza_rama_si_va_por_detras(self):
+        self.montar(); gh = self.GhCiclo(); gh.actualizadas = []; gh.pr_actualizar = lambda n: gh.actualizadas.append(n)
+        pv = gh.pr_ver; gh.pr_ver = lambda n: {**pv(n), "mergeStateStatus": "BEHIND"}
+        ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0}); ci.paso(self.c); ci.paso(self.c)
+        self.assertEqual(gh.merges, []); self.assertEqual(gh.actualizadas, [1])
 
     def test_desarrollo_se_encola_una_vez_por_intento_y_con_tope(self):
         row = self.montar(); qa_triaje.migrar(self.c)

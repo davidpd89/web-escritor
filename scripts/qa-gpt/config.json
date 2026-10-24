@@ -736,7 +736,7 @@
   "ciclo_s": 120,
   "flujo_desde": "2026-10-24",
   "modo_pr": "lote",
-  "lote": {"min": 3, "max": 8, "espera_h": 8, "max_activos": 1},
-  "integracion": {"modo": "recomendacion", "calibracion_min": 10, "riesgo_max": "bajo"}
+  "lote": {"min": 3, "max": 8, "espera_h": 8, "max_activos": 3},
+  "integracion": {"modo": "auto", "calibracion_min": 0, "riesgo_max": "bajo"}
  }
 }
