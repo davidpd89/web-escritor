@@ -9,7 +9,11 @@ Nunca toca main, nunca abre/fusiona PRs: empuja SOLO la rama gpt-qa/* (sha exact
 import sqlite3, datetime as dt, fnmatch, json, os, re, socket, subprocess, sys, time
 from pathlib import Path
 import qa_cobertura as cob
+import qa_clases
+from qa_clases import clasificar_salida
 
+GRUPO_WF = "qa-gpt-grupo.yml"  # workflow dedicado: ejecuta tests exploratorios/regresion y conserva resultados.json; no es un check obligatorio
+ENVIABLES = ("local_ok", "local_hallazgo")  # listos para Actions (local_hallazgo = test valido cuya asercion falla: se envia igualmente para conservar la evidencia remota)
 ESTADOS_FINALES = {"a_triar", "fallo_test", "defecto_demostrado", "actions_ok", "actions_fallida", "revision_humana", "local_ok_sin_actions"}
 REINTENTABLES = {"infra"}
 INFRA = re.compile(r"ECONNRESET|ETIMEDOUT|ENOTFOUND|EADDRINUSE|rate limit|\b50[234]\b|\b429\b|Could not resolve host|runner.*lost|npm ERR! network|socket hang up|Timeout .*exceeded.*launch|TimeoutExpired", re.I)
@@ -23,6 +27,7 @@ def migrar(c):
     CREATE TABLE IF NOT EXISTS lote_items(clave TEXT PRIMARY KEY, lote_id INTEGER, rama TEXT, sha TEXT, area TEXT, propuestas TEXT, estado TEXT,
       detalle TEXT, local_exit INTEGER, local_clase TEXT, local_log TEXT, main_sha TEXT, workflows TEXT, runs TEXT, intentos INTEGER DEFAULT 0, creado TEXT, actualizado TEXT);
     CREATE TABLE IF NOT EXISTS lote_hist(clave TEXT, fecha TEXT, estado TEXT, detalle TEXT);
+    CREATE TABLE IF NOT EXISTS lote_tests(clave TEXT, fuente TEXT, ruta TEXT, categoria TEXT, clase TEXT, rc INTEGER, run_id INTEGER, fecha TEXT, PRIMARY KEY(clave, fuente, ruta));
     """)
 
 
@@ -65,7 +70,32 @@ class Gh:
         return self._gh(*(a + (["--draft"] if borrador else []))).strip().splitlines()[-1]
     def pr_cerrar(self, url, comentario=""):
         self._gh("pr", "close", url, "-R", self.repo, "--delete-branch", *(["--comment", comentario] if comentario else []))
-    def dispatch(self, wf, rama): self._gh("workflow", "run", wf, "-R", self.repo, "--ref", rama)
+    def dispatch(self, wf, rama, ref=None, campos=None):
+        """Sin `ref`, el workflow corre sobre la propia rama (workflows ya existentes). Con `ref`, el workflow vive en `ref` y recibe `campos` como inputs."""
+        self._gh("workflow", "run", wf, "-R", self.repo, "--ref", ref or rama, *[a for k, v in (campos or {}).items() for a in ("-f", f"{k}={v}")])
+    def workflow_ref(self):
+        """Rama donde vive qa-gpt-grupo.yml: main si ya esta fusionado; si no, la rama de trabajo (cfg lote.workflow_ref)."""
+        if getattr(self, "_wfref", None) is None:
+            try: self._gh("api", f"repos/{self.repo}/contents/.github/workflows/{GRUPO_WF}?ref=main", "--silent"); self._wfref = "main"
+            except GhError: self._wfref = self.q.CFG.get("lote", {}).get("workflow_ref", "automation/qa-gpt")
+        return self._wfref
+    def runs_grupo(self, sha):
+        """Runs del workflow dedicado para ESTE commit (el run-name lleva el sha; headSha es el del workflow, no el del test)."""
+        rs = json.loads(self._gh("run", "list", "-R", self.repo, "--workflow", GRUPO_WF, "--limit", "100", "--json", "databaseId,headSha,status,conclusion,event,createdAt,url,displayTitle") or "[]")
+        return [r for r in rs if sha in (r.get("displayTitle") or "")]
+    def resultados(self, rid):
+        """resultados.json del artefacto qa-gpt-resultados; None si el run no lo subio (fallo previo al driver). Un error de red se propaga."""
+        import shutil, tempfile
+        d = Path(tempfile.mkdtemp(prefix="qa-res-", dir=self.q.STATE))
+        try:
+            try: self._gh("run", "download", str(rid), "-R", self.repo, "-n", "qa-gpt-resultados", "-D", str(d))
+            except GhAuthError: raise
+            except GhError as e:
+                if re.search(r"no valid artifacts|not found|no artifact", str(e), re.I): return None
+                raise
+            f = next(d.rglob("resultados.json"), None)
+            return json.loads(f.read_text(encoding="utf-8")) if f else None
+        finally: shutil.rmtree(d, ignore_errors=True)
     def log_failed(self, rid):
         try: return self._gh("run", "view", str(rid), "-R", self.repo, "--log-failed")
         except GhError as e: return str(e)
@@ -110,10 +140,10 @@ class Lote:
     def __init__(self, q, gh=None, runner=run_cmd, sleep=time.sleep, out=print, cfg=None):
         self.q, self.gh, self.runner, self.sleep, self.out = q, gh or Gh(q), runner, sleep, out
         self.cfg = {"concurrencia": 3, "max_horas": 8, "poll_s": 30, "timeout_test_s": 300, "reintentos_infra": 3, "puerto_estatico": 4173,
-                    "node_modules": r"C:\GIT\web-escritor\node_modules", "actions_siempre": False, **q.CFG.get("lote", {}), **(cfg or {})}
+                    "node_modules": r"C:\GIT\web-escritor\node_modules", "actions_siempre": False, "concurrencia_local": 1, "espera_ociosa_s": 60, "tam_lote": 40, "continuo": False, **q.CFG.get("lote", {}), **(cfg or {})}
         self.dir = q.STATE / "lote"; self.dir.mkdir(parents=True, exist_ok=True)
         self.c = q.db(); self.c.execute("PRAGMA busy_timeout=180000")
-        self.parando = None; self.interactivo = False; self._refs = self._main = None; self._tocados, self._bases, self._podado = {}, {}, False  # lo que git ya contesto en este lote no se vuelve a preguntar
+        self.parando = None; self.interactivo = False; self._ultimo_sondeo = 0; self._refs = self._main = None; self._tocados, self._bases, self._podado = {}, {}, False  # lo que git ya contesto en este lote no se vuelve a preguntar
 
     # ---------- persistencia ----------
     def git(self, *a, check=True): return self.q.git(*a, cwd=self.q.ROOT, check=check)  # ROOT en tiempo de llamada (las pruebas lo redirigen)
@@ -176,6 +206,7 @@ class Lote:
         try: q.reparar_perdidas(c)  # una `preparada` sin sus ficheros en la rama no es ejecutable: vuelve a `aceptada` en vez de entrar al lote y fallar
         except Exception as e: self.log(f"Reparacion de preparadas omitida ({str(e)[:100]})")
         ramas = c.execute("SELECT * FROM ramas WHERE estado IN ('preparada','aprobada')").fetchall()
+        tope = int(self.cfg.get("limite") or self.cfg["tam_lote"])  # un lote acotado: el resto queda preparado para el siguiente
         if self.cfg.get("limite"):  # prueba acotada: primero las ramas de regresion (las que Actions puede dar por buenas)
             reg = lambda r: not c.execute("SELECT 1 FROM propuestas WHERE rama=? AND json_extract(datos,'$.categoria')<>'regresion' LIMIT 1", (r["rama"],)).fetchone()
             ramas = sorted(ramas, key=lambda r: not reg(r))
@@ -183,13 +214,19 @@ class Lote:
             clave = f"{r['rama']}@{r['sha'][:12]}"
             props = c.execute("SELECT id,datos FROM propuestas WHERE rama=? AND estado IN ('preparada','aprobada')", (r["rama"],)).fetchall()
             if self.item(clave) or not props: dup += 1; continue
-            if self.cfg.get("limite") and nuevos >= int(self.cfg["limite"]): continue  # prueba acotada: el resto queda preparado para el siguiente clic
+            if nuevos >= tope: continue
             c.execute("INSERT INTO lote_items(clave,lote_id,rama,sha,area,propuestas,estado,runs,creado,actualizado) VALUES(?,?,?,?,?,?,?,?,?,?)",
                       (clave, lid, r["rama"], r["sha"], r["area"], json.dumps([p["id"] for p in props]), "preparada", "{}", q.now(), q.now()))
             for p in props:  # el clic ES la autorizacion: preparada -> aprobada (mismo efecto que `aprobar`)
                 if c.execute("SELECT estado FROM propuestas WHERE id=?", (p["id"],)).fetchone()[0] == "preparada": q.estado_prop(c, p["id"], "aprobada", f"aprobada por el clic de EJECUTAR-ACTIONS (lote {lid})")
             c.execute("UPDATE ramas SET estado='aprobada' WHERE rama=? AND estado='preparada'", (r["rama"],)); c.commit(); nuevos += 1
         self.log(f"Capturados {nuevos} tests nuevos ({dup} ya conocidos/omitidos)")
+
+    def hay_nuevo(self):
+        """Hay ramas preparadas que todavia no son item de ningun lote (el worker sigue generando)."""
+        for r in self.c.execute("SELECT rama,sha FROM ramas WHERE estado IN ('preparada','aprobada')").fetchall():
+            if not self.item(f"{r['rama']}@{r['sha'][:12]}") and self.c.execute("SELECT 1 FROM propuestas WHERE rama=? AND estado IN ('preparada','aprobada') LIMIT 1", (r["rama"],)).fetchone(): return True
+        return False
 
     # ---------- comprobaciones previas ----------
     def propuestas_de(self, it):
@@ -247,18 +284,34 @@ class Lote:
             wfs = self.cableado(tmp, it)
             partes, clases = [], []
             for pid, ruta, cmd, env in self.comandos(it):
-                rc, salida = self.ejecutar_test(tmp, ruta, cmd, env)
                 cat = json.loads(next(p["datos"] for p in self.propuestas_de(it) if p["id"] == pid)).get("categoria")
-                cl = self.clasificar(rc, salida, cat); clases.append(cl)
+                rc, salida = self.precheck(tmp, ruta, cmd)  # un test que ni parsea no es un hallazgo: se rechaza sin gastar ejecucion ni Actions
+                if rc == 0: rc, salida = self.ejecutar_test(tmp, ruta, cmd, env)
+                cl = clasificar_salida(rc, salida); clases.append((cl, cat)); self.registrar_test(clave, "local", ruta, cat, cl, rc)
                 partes.append(f"### propuesta #{pid} {' '.join(map(str, cmd[-2:]))} -> exit {rc} [{cl}]\n{salida[-6000:]}")
             logp = self.dir / f"{self.slug(clave)}.log"
             logp.write_text(f"rama {it['rama']}\nsha {it['sha']}\nmain {main}\nfecha {q.now()}\n\n" + "\n".join(partes), encoding="utf-8")
-            peor = next((x for x in ("defecto_demostrado", "a_triar", "fallo_test", "infra", "revision_humana") if x in clases), "local_ok")
-            upd = dict(local_exit=0 if peor == "local_ok" else 1, local_clase=peor, local_log=str(logp), main_sha=main, workflows=json.dumps(wfs))
-            self.set(clave, "local_ok" if peor == "local_ok" else peor, {"local_ok": "tests locales correctos" + (" (parte sin navegador)" if "sin_entorno" in clases else ""),
-                     "defecto_demostrado": "el test falla por el defecto descrito: evidencia en el log", "a_triar": "prueba exploratoria que falla: posible defecto o falso positivo, a triar", "fallo_test": "el test falla y no es el defecto esperado: revisar el test",
-                     "infra": "fallo de entorno al ejecutar localmente"}.get(peor, ""), **upd)
+            est = [qa_clases.estado_por_categoria(cl, cat) for cl, cat in clases]
+            peor = next((x for x in ("fallo_test", "infra") if x in est), None)
+            if not peor and ("defecto_demostrado" in est or "a_triar" in est): peor = "local_hallazgo"
+            peor = peor or "local_ok"
+            clase_local = "defecto_demostrado" if "defecto_demostrado" in est else "a_triar" if "a_triar" in est else peor
+            upd = dict(local_exit=0 if peor == "local_ok" else 1, local_clase=clase_local if peor == "local_hallazgo" else peor, local_log=str(logp), main_sha=main, workflows=json.dumps(wfs))
+            sin_nav = " (parte sin navegador)" if any(c == "sin_entorno" for c, _ in clases) else ""
+            self.set(clave, peor, {"local_ok": "tests locales correctos" + sin_nav, "local_hallazgo": f"asercion fallida en local ({clase_local}): se envia a Actions para conservar la evidencia remota",
+                     "fallo_test": "test invalido o regresion rota: no se envia (revisar el test)", "infra": "fallo de entorno al ejecutar localmente"}[peor], **upd)
         finally: self.limpiar_wt(tmp)
+
+    def precheck(self, tmp, ruta, cmd):
+        """Sintaxis sin ejecutar el test: `compile` para Python, `node --check` para JS. (0, '') si parsea."""
+        try:
+            if ruta.endswith(".py"): compile((tmp / ruta).read_text(encoding="utf-8"), ruta, "exec"); return 0, ""
+            if ruta.endswith((".mjs", ".js", ".cjs")): return (lambda r: (0, "") if r[0] == 0 else r)(self.runner(["node", "--check", ruta], tmp, {}, 60))
+        except SyntaxError as e: return 1, f"SyntaxError: {e}"
+        return 0, ""
+
+    def registrar_test(self, clave, fuente, ruta, categoria, clase, rc, run_id=None):
+        self.c.execute("INSERT OR REPLACE INTO lote_tests VALUES(?,?,?,?,?,?,?,?)", (clave, fuente, ruta, categoria, clase, rc, run_id, self.q.now())); self.c.commit()
 
     def ejecutar_test(self, tmp, ruta, cmd, env=None):
         env, srv = dict(env or {}), None
@@ -287,11 +340,8 @@ class Lote:
         return {n: f"http://127.0.0.1:{puerto}" for n in nombres}
 
     def clasificar(self, rc, out, categoria):
-        if rc == 0: return "sin_entorno" if out.startswith("SIN_ENTORNO") else "local_ok"
-        if SIN_ENTORNO.search(out): return "sin_entorno"
-        if ASERCION.search(out): return "defecto_demostrado" if categoria == "descubre_defecto" else "a_triar" if categoria == "exploratoria" else "fallo_test"
-        if INFRA.search(out): return "infra"
-        return "fallo_test"
+        """Estado de un test suelto segun su intencion (compat: devuelve local_ok/sin_entorno/a_triar/defecto_demostrado/fallo_test/infra)."""
+        return qa_clases.estado_por_categoria(clasificar_salida(rc, out), categoria)
 
     @staticmethod
     def junction(destino, origen):
@@ -311,15 +361,25 @@ class Lote:
 
     # ---------- cableado: que workflow ejecuta realmente el test ----------
     def cableado(self, tmp, it):
+        """Workflow que ejecutara el grupo. Exploratorias y descubre_defecto van SIEMPRE al dedicado (resultados separados de los checks
+        obligatorios); un grupo solo de regresion usa el workflow existente que de verdad ejecuta el test y, si no hay, el dedicado."""
+        cats = {json.loads(p["datos"]).get("categoria") for p in self.propuestas_de(it)}
+        if cats - {"regresion"}: return [GRUPO_WF]
         rutas = [r for _, r, _, _ in self.comandos(it)]
         textos = {f.name: f.read_text(encoding="utf-8", errors="replace") for f in sorted((tmp / ".github" / "workflows").glob("*.yml"))}
-        return workflows_que_ejecutan(rutas, textos, {Path(json.loads(p["datos"]).get("workflow") or "").name for p in self.propuestas_de(it)})
+        return workflows_que_ejecutan(rutas, textos, {Path(json.loads(p["datos"]).get("workflow") or "").name for p in self.propuestas_de(it)}) or [GRUPO_WF]
+
+    def modo_de(self, it):
+        return "regresion" if all(json.loads(p["datos"]).get("categoria") == "regresion" for p in self.propuestas_de(it)) else "exploratorio"
+
+    def hallar_run(self, wf, rama, sha):
+        return [r for r in (self.gh.runs_grupo(sha) if wf == GRUPO_WF else self.gh.runs(wf, rama)) if wf == GRUPO_WF or r["headSha"] == sha]
 
     # ---------- GitHub ----------
     def enviar(self, it):
         clave, rama, sha = it["clave"], it["rama"], it["sha"]
         wfs = json.loads(it["workflows"] or "[]")
-        if not wfs: return self.set(clave, "revision_humana", "ningun workflow con workflow_dispatch ejecuta este test (no esta cableado): Actions no lo validaria")
+        if not wfs: return self.set(clave, "revision_humana", "ningun workflow ejecuta este test: Actions no lo validaria")
         tocado_wf = any(".github/workflows/" in f for f in self.tocados(sha))
         if tocado_wf and "workflow" not in self.gh.scopes():
             return self.set(clave, "revision_humana", "la rama modifica .github/workflows y el token de gh no tiene el scope 'workflow': ejecuta `gh auth refresh -s workflow` y pulsa de nuevo")
@@ -328,12 +388,15 @@ class Lote:
             runs = json.loads(it["runs"] or "{}")
             for wf in wfs:
                 if wf in runs: continue
-                prev = [r for r in self.gh.runs(wf, rama) if r["headSha"] == sha]  # no relanzar lo ya lanzado para el mismo SHA
+                prev = self.hallar_run(wf, rama, sha)  # no relanzar lo ya lanzado para el mismo SHA
                 if not prev:
-                    t0 = self.q.now(); self.gh.dispatch(wf, rama)
+                    if wf == GRUPO_WF:
+                        tests = " ".join(f"{cmd[0] if cmd[0] == 'node' else 'python'}:{ruta}" for _, ruta, cmd, _ in self.comandos(it))
+                        self.gh.dispatch(wf, rama, ref=self.gh.workflow_ref(), campos={"sha": sha, "modo": self.modo_de(it), "tests": tests})
+                    else: self.gh.dispatch(wf, rama)
                     for _ in range(12):
                         self.sleep(5)
-                        prev = [r for r in self.gh.runs(wf, rama) if r["headSha"] == sha]
+                        prev = self.hallar_run(wf, rama, sha)
                         if prev: break
                 if prev: runs[wf] = {"id": prev[0]["databaseId"], "url": prev[0]["url"]}
                 self.set(clave, "enviado" if wf not in runs else "actions_pendiente", f"{wf}: run {runs[wf]['id']}" if wf in runs else f"{wf} lanzado, run por localizar", runs=json.dumps(runs))
@@ -350,7 +413,7 @@ class Lote:
         try:
             for wf in wfs:
                 if wf not in runs:
-                    hit = [r for r in self.gh.runs(wf, rama) if r["headSha"] == sha]
+                    hit = self.hallar_run(wf, rama, sha)
                     if hit: runs[wf] = {"id": hit[0]["databaseId"], "url": hit[0]["url"]}
             if len(runs) < len(wfs): return "falta"
             estados = {wf: self.gh.run(r["id"]) for wf, r in runs.items()}
@@ -359,6 +422,13 @@ class Lote:
         pend = [r for r in estados.values() if r["status"] != "completed"]
         if pend:
             self.set(clave, "actions_ejecutando" if any(r["status"] == "in_progress" for r in pend) else "actions_pendiente", runs=json.dumps(runs)); return "viva"
+        if GRUPO_WF in estados:  # el artefacto manda: un job verde o rojo solo dice si el driver termino, no que encontro
+            try: res = self.gh.resultados(estados[GRUPO_WF]["databaseId"])
+            except GhError as e: return f"gh:{e}"
+            if res is not None:
+                est, det = self.veredicto_remoto(it, res, estados[GRUPO_WF]["databaseId"])
+                (self.dir / f"{self.slug(clave)}.actions.json").write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
+                self.set(clave, est, f"{GRUPO_WF}: run {estados[GRUPO_WF]['databaseId']}: {det}", runs=json.dumps(runs)); return "fin"
         malos = {wf: r for wf, r in estados.items() if r["conclusion"] != "success"}
         if not malos: self.set(clave, "actions_ok", f"{len(estados)} workflow(s) correctos para {sha[:8]}", runs=json.dumps(runs)); return "fin"
         wf, r = next(iter(malos.items())); log = self.gh.log_failed(r["databaseId"])
@@ -368,6 +438,22 @@ class Lote:
         elif ASERCION.search(log): est = "defecto_demostrado" if cat == "descubre_defecto" else "a_triar" if cat == "exploratoria" else "actions_fallida"
         else: est = "actions_fallida"
         self.set(clave, est, f"{wf}: {r['conclusion']} run {r['databaseId']} (log {logp.name})", runs=json.dumps(runs)); return "fin"
+
+    def veredicto_remoto(self, it, res, run_id):
+        """Estado final de un grupo a partir de resultados.json del runner: invalido > infra > regresion rota > defecto > hallazgo > ok."""
+        cats = {}
+        for p in self.propuestas_de(it):
+            d = json.loads(p["datos"])
+            for s_ in d.get("pasos") or cob.normalizar_comandos(dict(d)): cats[s_["argv"][1]] = d.get("categoria")
+        est = []
+        for t in res["tests"]:
+            cat = cats.get(t["ruta"]); self.registrar_test(it["clave"], "actions", t["ruta"], cat, t["clase"], t["rc"], run_id)
+            est.append(qa_clases.estado_por_categoria(t["clase"], cat))
+        resumen = ", ".join(f"{n} {k}" for k, n in sorted(res.get("resumen", {}).items()))
+        if "fallo_test" in est: return ("actions_fallida" if any(t["clase"] == "hallazgo" for t in res["tests"]) and not any(t["clase"] == "invalido" for t in res["tests"]) else "fallo_test"), resumen
+        for e in ("infra", "defecto_demostrado", "a_triar"):
+            if e in est: return e, resumen
+        return "actions_ok", resumen
 
     # ---------- orquestacion ----------
     def cerrar_propuestas(self, it):
@@ -406,7 +492,7 @@ class Lote:
     def conteo(self, lid):
         its = [self.item(i["clave"]) for i in self.items(lid)]
         n = lambda *es: sum(1 for i in its if i["estado"] in es)
-        return {"lote": lid, "total": len(its), "esperando": n("preparada"), "validando": n("validacion_local"), "local_ok": n("local_ok"),
+        return {"lote": lid, "total": len(its), "esperando": n("preparada"), "validando": n("validacion_local"), "local_ok": n("local_ok", "local_hallazgo"),
                 "enviados": n("enviado", "actions_pendiente"), "ejecutando": n("actions_ejecutando"),
                 "terminados": n("actions_ok", "actions_fallida", "defecto_demostrado", "a_triar", "fallo_test", "revision_humana", "infra"),
                 "aprobados": n("actions_ok"), "fallos_producto": n("defecto_demostrado", "a_triar"), "fallos_test": n("fallo_test", "actions_fallida"),
@@ -429,8 +515,41 @@ class Lote:
             print("\x1b[H\x1b[J" + "\n".join(tx), flush=True)
         return k
 
+    def reintentar_infra(self, its):
+        for it in its:
+            if it["estado"] == "infra" and it["intentos"] < self.cfg["reintentos_infra"] and not self.parando:
+                if it["local_clase"] == "infra": self.set(it["clave"], "preparada", "reintento local tras fallo de infraestructura")
+                else: self.set(it["clave"], "local_hallazgo" if it["local_clase"] in ("a_triar", "defecto_demostrado") else "local_ok", "reintento de envio tras fallo de infraestructura", intentos=it["intentos"] + 1)
+
+    def sondear(self, lid, forzar=False):
+        """Consulta GitHub por los grupos vivos (como mucho cada poll_s). False si GitHub no responde."""
+        if not forzar and time.time() - self._ultimo_sondeo < self.cfg["poll_s"]: return True
+        self._ultimo_sondeo = time.time()
+        for it in [self.item(i["clave"]) for i in self.items(lid) if self.item(i["clave"])["estado"] in self.VIVOS]:
+            r = self.reconciliar(it)
+            if r and str(r).startswith("gh:"): self.log(f"GitHub no responde ({r[3:60]}); se reintenta"); return False
+        return True
+
+    def cerrar_lote(self, lid):
+        for it in self.items(lid): self.cerrar_propuestas(self.item(it["clave"]))
+        its = self.items(lid)
+        cerrado = all(i["estado"] in ESTADOS_FINALES for i in its)
+        resumen = {}; [resumen.__setitem__(i["estado"], resumen.get(i["estado"], 0) + 1) for i in its]
+        self.c.execute("UPDATE lotes SET estado=?,fin=?,resumen=? WHERE id=?", ("cerrado" if cerrado else "en_curso", self.q.now() if cerrado else None, json.dumps(resumen), lid)); self.c.commit()
+        try:
+            import qa_triaje; n, _ = qa_triaje.encolar(self.q, self.c)  # el analisis GPT va a la cola del worker: EJECUTAR no lo espera
+            if n: self.log(f"{n} causa(s) de fallo encoladas para analisis GPT (no bloquea)")
+        except Exception as e: self.log(f"Encolado de analisis omitido ({str(e)[:100]})")
+        self.panel(lid)
+        self.log(f"Lote #{lid}: {resumen}" + ("" if cerrado else "  (quedan trabajos abiertos: vuelve a pulsar el BAT para reanudar)") + (f"  [{self.parando}]" if self.parando else ""))
+        (self.dir / "ultimo.json").write_text(json.dumps({"lote": lid, "fecha": self.q.now(), "cerrado": cerrado, "resumen": resumen}), encoding="utf-8")
+        return cerrado
+
     def ejecutar(self):
-        q = self.q; t_fin = time.time() + self.cfg["max_horas"] * 3600; cap = max(1, min(self.MAX_GRUPOS, int(self.cfg["concurrencia"])))
+        """Bucle continuo: valida en local (concurrencia_local, independiente de la remota), mantiene hasta 3 grupos en Actions, recoge resultados,
+        envia el siguiente y abre lotes nuevos mientras haya trabajo. Con `continuo`, sin trabajo espera propuestas nuevas; solo Q/Ctrl+C/cierre lo detiene.
+        Parar = dejar de lanzar grupos: los runs vivos se registran y se recogen en la siguiente apertura."""
+        q = self.q; t_fin = time.time() + self.cfg["max_horas"] * 3600 if self.cfg["max_horas"] else float("inf"); cap = max(1, min(self.MAX_GRUPOS, int(self.cfg["concurrencia"])))
         try: self.gh.ok(); gh_ok = True
         except GhAuthError as e: gh_ok = False; self.log(f"GitHub RECHAZA el token ({str(e)[:80]}): ejecuta `gh auth login` (o `gh auth refresh -s repo`). Se valida en local; los envios quedan para el siguiente clic")
         except (GhError, OSError) as e: gh_ok = False; self.log(f"GitHub no disponible ({str(e)[:80]}): se valida en local y se reintenta el envio en el siguiente clic")
@@ -439,53 +558,46 @@ class Lote:
             import qa_viaa; qa_viaa.ejecutar(self.c, q, q.ROOT, out=self.log)
         except Exception as e: self.log(f"Via A: fallo de infraestructura ({str(e)[:120]}); se continua con los tests")
         lid = self.abrir_lote()
-        if gh_ok:
-            for it in self.items(lid):  # recuperar lo enviado en ejecuciones anteriores (run ids existentes) antes de lanzar nada
-                if it["estado"] in self.VIVOS: self.reconciliar(self.item(it["clave"]))
+        if gh_ok: self.sondear(lid, forzar=True)  # recuperar lo enviado en ejecuciones anteriores (run ids existentes) antes de lanzar nada
+        ult_idle = 0; cerrado = None
         while True:
             self.tecla()
+            if self.parando:  # una pasada final para recoger lo ya terminado; los runs vivos NO se cancelan ni se esperan
+                if gh_ok: self.sondear(lid, forzar=True)
+                break
             its = [self.item(i["clave"]) for i in self.items(lid)]
             if gh_ok:
-                for it in its:
-                    if it["estado"] == "infra" and it["intentos"] < self.cfg["reintentos_infra"] and not self.parando:
-                        if it["local_clase"] == "infra": self.set(it["clave"], "preparada", "reintento local tras fallo de infraestructura")
-                        else: self.set(it["clave"], "local_ok", "reintento de envio tras fallo de infraestructura", intentos=it["intentos"] + 1)
-                its = [self.item(i["clave"]) for i in self.items(lid)]
-                vivos = [i for i in its if i["estado"] in self.VIVOS]
-                for it in [self.item(i["clave"]) for i in vivos]:  # primero liberar capacidad
-                    r = self.reconciliar(it)
-                    if r and str(r).startswith("gh:"): self.log(f"GitHub no responde ({r[3:60]}); se reintenta"); gh_ok = False; break
+                self.reintentar_infra(its)
+                if not self.sondear(lid): gh_ok = False
                 its = [self.item(i["clave"]) for i in self.items(lid)]
                 libres = cap - sum(1 for i in its if i["estado"] in self.VIVOS)
-                if not self.parando:
-                    for it in [i for i in its if i["estado"] == "local_ok"][:max(0, libres)]: self.enviar(it)
-            por_validar = [self.item(i["clave"]) for i in self.items(lid)]
-            por_validar = [i for i in por_validar if i["estado"] in ("preparada", "validacion_local") or (i["estado"] in REINTENTABLES and not i["local_log"])]
-            if por_validar and not self.parando:
-                # con GitHub caido se valida todo (el envio espera al siguiente clic); con GitHub activo, de uno en uno para no frenar los envios
-                for it in (por_validar if not gh_ok else por_validar[:1]):
+                for it in [i for i in its if i["estado"] in ENVIABLES][:max(0, libres)]:
                     if self.parando: break
-                    self.validar_local(it)
+                    self.enviar(it)
+                its = [self.item(i["clave"]) for i in self.items(lid)]
+            listos = sum(1 for i in its if i["estado"] in ENVIABLES)
+            por_validar = [i for i in its if i["estado"] in ("preparada", "validacion_local") or (i["estado"] in REINTENTABLES and not i["local_log"])]
+            # con GitHub activo se valida de uno en uno y solo mientras no haya ya grupos de sobra esperando hueco (no se agota el PC validando de mas)
+            hueco = 10**6 if not gh_ok else max(0, self.cfg["concurrencia_local"] * cap - listos) if listos >= cap else self.cfg["concurrencia_local"]
+            for it in por_validar[:hueco]:
+                if self.parando: break
+                self.validar_local(it)
+            if por_validar[:hueco] and not self.parando:
                 self.panel(lid)
                 if gh_ok: continue
             its = [self.item(i["clave"]) for i in self.items(lid)]
             self.panel(lid)
-            pendientes = [i for i in its if i["estado"] in self.VIVOS + ("local_ok",)]
-            if self.parando and not [i for i in its if i["estado"] in self.VIVOS]: break
-            if not pendientes or not gh_ok or time.time() > t_fin: break
+            pendientes = [i for i in its if i["estado"] in self.VIVOS + ENVIABLES + ("preparada", "validacion_local")]
+            if not pendientes or not gh_ok:
+                if not gh_ok or self.parando or time.time() > t_fin: break
+                if lid != cerrado: self.cerrar_lote(lid); cerrado = lid  # lote agotado: se cierra una vez y se abre el siguiente con lo preparado desde entonces
+                if self.hay_nuevo(): lid = self.abrir_lote(); continue
+                if not self.cfg.get("continuo"): break
+                if time.time() - ult_idle > 600: self.log("Sin trabajo pendiente: esperando propuestas nuevas del worker (Q para salir)"); ult_idle = time.time()
+                self.esperar(self.cfg["espera_ociosa_s"]); continue
+            if time.time() > t_fin: break
             self.esperar(self.cfg["poll_s"])
-        for it in self.items(lid): self.cerrar_propuestas(self.item(it["clave"]))
-        its = self.items(lid)
-        cerrado = all(i["estado"] in ESTADOS_FINALES for i in its)
-        resumen = {}; [resumen.__setitem__(i["estado"], resumen.get(i["estado"], 0) + 1) for i in its]
-        self.c.execute("UPDATE lotes SET estado=?,fin=?,resumen=? WHERE id=?", ("cerrado" if cerrado else "en_curso", q.now() if cerrado else None, json.dumps(resumen), lid)); self.c.commit()
-        try:
-            import qa_triaje; n, _ = qa_triaje.encolar(q, self.c)  # el analisis GPT va a la cola del worker: EJECUTAR no lo espera
-            if n: self.log(f"{n} causa(s) de fallo encoladas para analisis GPT (no bloquea)")
-        except Exception as e: self.log(f"Encolado de analisis omitido ({str(e)[:100]})")
-        self.panel(lid)
-        self.log(f"Lote #{lid}: {resumen}" + ("" if cerrado else "  (quedan trabajos abiertos: vuelve a pulsar el BAT para reanudar)") + (f"  [{self.parando}]" if self.parando else ""))
-        (self.dir / "ultimo.json").write_text(json.dumps({"lote": lid, "fecha": q.now(), "cerrado": cerrado, "resumen": resumen}), encoding="utf-8")
+        self.cerrar_lote(lid)
         return 0
 
 
@@ -524,7 +636,7 @@ def instalar_parada(lo):
 
 def main(q, a=None):
     with LoteLock(q):
-        lo = Lote(q, cfg={"panel": sys.stdout.isatty(), "limite": getattr(a, "limite", None)}); lo.interactivo = sys.stdin.isatty()
+        lo = Lote(q, cfg={"panel": sys.stdout.isatty(), "limite": getattr(a, "limite", None), "continuo": bool(getattr(a, "continuo", False)), "max_horas": 0 if getattr(a, "continuo", False) else 8}); lo.interactivo = sys.stdin.isatty()
         instalar_parada(lo); return lo.ejecutar()
 
 

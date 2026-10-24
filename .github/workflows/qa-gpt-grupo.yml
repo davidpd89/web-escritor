@@ -1,0 +1,101 @@
+name: QA GPT grupo
+
+run-name: QA GPT ${{ inputs.modo }} ${{ inputs.sha }}
+
+# Ejecuta un grupo de tests de la rama gpt-qa/* y conserva sus resultados como artefacto.
+# Solo workflow_dispatch: no es un check obligatorio ni se dispara en pull_request, asi que los
+# hallazgos de los tests exploratorios nunca bloquean Required merge gate.
+# modo=exploratorio: un test que falla por una asercion es un HALLAZGO (el job sigue verde; el resultado queda en resultados.json).
+# modo=regresion: cualquier fallo pone el job en rojo. En ambos modos un test invalido (sintaxis/import) o un fallo de infraestructura ponen el job en rojo.
+
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: 'Commit exacto de la rama gpt-qa/* con los tests'
+        required: true
+      modo:
+        description: 'regresion | exploratorio'
+        required: true
+        default: 'exploratorio'
+      tests:
+        description: 'Tests separados por espacios: node:qa/x.mjs python:tests/y.py'
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  grupo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout del commit de tests
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.sha }}
+          fetch-depth: 0
+
+      - name: Fusionar con origin/main (misma base que la validacion local)
+        run: |
+          git config user.name qa-gpt
+          git config user.email qa-gpt@users.noreply.github.com
+          git fetch origin main --quiet
+          git merge --no-edit origin/main
+
+      - name: Driver de resultados (del commit que lanza el workflow)
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+          path: .qa-gpt-driver
+          sparse-checkout: scripts/qa-gpt
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browser
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Ejecutar el grupo
+        env:
+          QA_MODO: ${{ inputs.modo }}
+          QA_TESTS: ${{ inputs.tests }}
+        run: python3 .qa-gpt-driver/scripts/qa-gpt/ci_grupo.py "$RUNNER_TEMP/resultados.json" "$QA_MODO" $QA_TESTS
+
+      - name: Publicar resultados en el resumen
+        if: always()
+        run: |
+          python3 -c "
+          import json, os
+          p = os.environ['RUNNER_TEMP'] + '/resultados.json'
+          if os.path.exists(p):
+              d = json.load(open(p))
+              print('### QA GPT (%s): %s' % (d['modo'], d['resumen']))
+              for t in d['tests']: print('- %s rc=%s %s' % (t['clase'], t['rc'], t['ruta']))
+          " >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Conservar resultados
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: qa-gpt-resultados
+          path: ${{ runner.temp }}/resultados.json
+          retention-days: 30
+          if-no-files-found: warn

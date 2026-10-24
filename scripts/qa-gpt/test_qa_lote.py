@@ -30,9 +30,18 @@ class FakeGh:
     def push(self, sha, rama): self._chk(); self.remote[rama] = sha; self.pushes.append((rama, sha))
     def runs(self, wf, rama): self._chk(); return [dict(r) for r in self.runs_ if r["wf"] == wf and r["rama"] == rama]
     def run(self, rid): self._chk(); return next(dict(r) for r in self.runs_ if r["databaseId"] == rid)
-    def dispatch(self, wf, rama):
+    def workflow_ref(self): return "main"
+    def dispatch(self, wf, rama, ref=None, campos=None):
         self._chk(); self.n += 1; self.dispatches.append((wf, rama))
-        self.runs_.append({"wf": wf, "rama": rama, "databaseId": self.n, "headSha": self.remote[rama], "status": "queued", "conclusion": None, "url": f"https://x/runs/{self.n}", "event": "workflow_dispatch"})
+        titulo = f"QA GPT {campos['modo']} {campos['sha']}" if campos else wf
+        self.runs_.append({"wf": wf, "rama": rama, "databaseId": self.n, "headSha": self.remote[rama], "status": "queued", "conclusion": None, "url": f"https://x/runs/{self.n}", "event": "workflow_dispatch", "displayTitle": titulo, "campos": campos})
+    def runs_grupo(self, sha): self._chk(); return [dict(r) for r in self.runs_ if sha in (r.get("displayTitle") or "") and r["wf"] == L.GRUPO_WF]
+    def resultados(self, rid):
+        """resultados.json simulado: self.res_clase decide la clase de todos los tests del grupo (por defecto 'ok')."""
+        self._chk(); r = next(r for r in self.runs_ if r["databaseId"] == rid)
+        tests = [t.split(":", 1)[1] for t in (r["campos"] or {}).get("tests", "").split()]
+        clase = getattr(self, "res_clase", "ok")
+        return {"modo": r["campos"]["modo"], "resumen": {clase: len(tests)}, "tests": [{"ruta": t, "exe": "python", "rc": 0 if clase == "ok" else 1, "clase": clase, "salida": "AssertionError: boom" if clase == "hallazgo" else ""} for t in tests]}
     def log_failed(self, rid): return self.log_text
     def tick(self, concl="success"):
         for r in self.runs_:
@@ -93,12 +102,11 @@ class Lotes(Base):
         self.assertEqual(self.gh.dispatches, d1); self.assertEqual(self.gh.pushes, p1)
         self.assertEqual(self.c.execute("SELECT COUNT(*) FROM lote_items").fetchone()[0], 3)
 
-    def test_defecto_real_se_registra_con_evidencia_y_no_gasta_actions(self):
-        rama, sha, pid = self.preparar("def", FAIL_PY, categoria="descubre_defecto")
+    def test_defecto_real_se_registra_con_evidencia_y_se_confirma_en_actions(self):
+        rama, sha, pid = self.preparar("def", FAIL_PY, categoria="descubre_defecto"); self.gh.res_clase = "hallazgo"
         self.lote().ejecutar()
         it = self.c.execute("SELECT * FROM lote_items").fetchone()
-        self.assertEqual(it["estado"], "defecto_demostrado"); self.assertEqual(self.gh.dispatches, [])
-        log = Path(it["local_log"]).read_text(encoding="utf-8"); self.assertIn(sha, log); self.assertIn("DEFECTO", log)
+        self.assertEqual(it["estado"], "defecto_demostrado"); self.assertEqual(len(self.gh.dispatches), 1); self.assertEqual(self.gh.dispatches[0][0], L.GRUPO_WF)
         self.assertEqual(self.prop(pid), "ejecutada")
 
     def test_regresion_que_falla_es_fallo_de_test_no_defecto(self):
@@ -129,9 +137,9 @@ class Lotes(Base):
         self.assertEqual(self.gh.dispatches, []); self.assertEqual(self.estado(rama), "actions_ok")
         self.assertEqual(json.loads(self.c.execute("SELECT runs FROM lote_items").fetchone()[0])["tool-tests.yml"]["id"], 777)
 
-    def test_no_cableado_va_a_revision_humana(self):
+    def test_no_cableado_va_al_workflow_dedicado(self):
         rama, _, _ = self.preparar("nc", OK_PY, ruta="qa/otro-browser.py"); self.lote().ejecutar()
-        it = self.c.execute("SELECT * FROM lote_items").fetchone(); self.assertEqual(it["estado"], "revision_humana"); self.assertIn("cableado", it["detalle"]); self.assertEqual(self.gh.dispatches, [])
+        self.assertEqual(self.estado(rama), "actions_ok"); self.assertEqual([d[0] for d in self.gh.dispatches], [L.GRUPO_WF])
 
     def test_rama_que_toca_workflows_sin_scope(self):
         rama, sha, _ = self.preparar("wf", OK_PY)
@@ -178,8 +186,9 @@ class Lotes(Base):
             if not nuevo: nuevo["r"] = self.preparar("v2", OK_PY)  # el servicio genera una propuesta nueva en pleno lote
             return orig(it)
         lo.validar_local = mientras; lo.ejecutar()
-        self.assertEqual(self.estado(rama1), "actions_ok"); self.assertEqual(self.prop(nuevo["r"][2]), "preparada"); self.assertEqual(len(self.gh.dispatches), 1)
-        self.lote().ejecutar(); self.assertEqual(self.estado(nuevo["r"][0]), "actions_ok"); self.assertEqual(len(self.gh.dispatches), 2)
+        self.assertEqual(self.estado(rama1), "actions_ok"); self.assertEqual(self.c.execute("SELECT COUNT(*) FROM lotes").fetchone()[0], 2)  # lo nuevo va a un lote posterior, no al abierto
+        self.assertEqual(self.estado(nuevo["r"][0]), "actions_ok"); self.assertEqual(len(self.gh.dispatches), 2)
+        self.lote().ejecutar(); self.assertEqual(len(self.gh.dispatches), 2)
 
     def test_misma_rama_con_sha_nuevo_es_item_nuevo_y_conserva_el_viejo(self):
         rama, sha, _ = self.preparar("re", OK_PY); self.lote().ejecutar()
@@ -199,6 +208,7 @@ class Lotes(Base):
                 with self.assertRaises(SystemExit): L.LoteLock(q).__enter__()
 
     def test_panel_resume_el_lote(self):
+        self.gh.res_clase = "hallazgo"
         for n in ("p", "d"): self.preparar(n, OK_PY if n == "p" else FAIL_PY, categoria="regresion" if n == "p" else "descubre_defecto")
         self.lote().ejecutar(); txt = "\n".join(L.bloque_estado(q, self.c))
         for k in ("aprobados 1", "Defectos de producto demostrados: 1", "Escritos, sin ejecutar: 0", "Ultimo lote", "Ultima ejecucion"): self.assertIn(k, txt)
