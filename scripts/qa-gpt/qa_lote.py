@@ -634,7 +634,15 @@ def instalar_parada(lo):
         except Exception: pass
 
 
+def salida_inmediata():
+    """Redirigido a fichero, print va con buffer de bloque: el log queda vacio minutos aunque el lote trabaje. Linea a linea siempre."""
+    for f in (sys.stdout, sys.stderr):
+        try: f.reconfigure(line_buffering=True, errors="replace")
+        except Exception: pass
+
+
 def main(q, a=None):
+    salida_inmediata()
     with LoteLock(q):
         lo = Lote(q, cfg={"panel": sys.stdout.isatty(), "limite": getattr(a, "limite", None), "continuo": bool(getattr(a, "continuo", False)), "max_horas": 0 if getattr(a, "continuo", False) else 8}); lo.interactivo = sys.stdin.isatty()
         instalar_parada(lo); return lo.ejecutar()

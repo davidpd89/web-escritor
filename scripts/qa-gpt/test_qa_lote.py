@@ -274,6 +274,20 @@ class Autorizacion(Base):
         self.assertEqual(self.c.execute("SELECT COUNT(*) FROM lote_items WHERE estado='actions_ok'").fetchone()[0], 3)
 
 
+class SalidaInmediata(unittest.TestCase):
+    def test_log_redirigido_a_fichero_se_ve_al_instante(self):
+        """Un proceso con stdout a fichero debe dejar cada linea escrita sin esperar al cierre (piloto con log vacio)."""
+        d = tempfile.mkdtemp(); log = Path(d) / "o.log"
+        code = f"import sys; sys.path.insert(0, {str(Path(__file__).parent)!r}); import qa_lote as L; L.salida_inmediata(); print('hola'); import time; time.sleep(8)"
+        with open(log, "w") as f: p = subprocess.Popen([sys.executable, "-c", code], stdout=f, stderr=subprocess.STDOUT)
+        try:
+            for _ in range(40):
+                if "hola" in log.read_text(): break
+                import time; time.sleep(0.25)
+            self.assertIn("hola", log.read_text())
+        finally: p.kill()
+
+
 class Clasificacion(unittest.TestCase):
     def test_clasificar(self):
         c = L.Lote.clasificar
