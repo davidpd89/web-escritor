@@ -80,6 +80,7 @@ jobs:
           TARGET_SIZE_MODE: enforce
           TEXT_RESILIENCE_MODE: report
           FOCUS_OBSCURED_MODE: enforce
+          QA_CONCURRENCY: 4
         run: node qa/sitewide-reflow-browser.mjs
 
       - name: Enforce F.2 text-resilience findings

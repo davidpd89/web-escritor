@@ -328,12 +328,23 @@ async function measureClippedText(page) {
   });
 }
 
+// Home's intro overlay makes the page inert and dismisses itself after a
+// timer, so what a context measures on "/" depended on load speed (the real
+// page vs. only the overlay's controls). Marking it as seen makes every run
+// audit the real page; the intro itself is exercised by the F.4 journeys.
+async function skipHomeIntro(context) {
+  await context.addInitScript(() => {
+    try { sessionStorage.setItem('dp-intro-seen', '1'); } catch {}
+  });
+}
+
 async function runScenario(browser, route, vp, { id, css, wcag, zoom = null }) {
   const context = await browser.newContext({
     viewport: { width: vp.width, height: vp.height },
     javaScriptEnabled: true,
     reducedMotion: 'reduce',
   });
+  await skipHomeIntro(context);
   const page = await context.newPage();
   const key = `${route}@${vp.width}x${vp.height}/${id}`;
   try {
@@ -396,7 +407,21 @@ const browser = await chromium.launch({
 });
 await fs.promises.mkdir(OUT_DIR, { recursive: true });
 
-const routes = collectRoutes();
+const routeLimit = Number.parseInt(process.env.QA_ROUTE_LIMIT || '', 10);
+const routes = Number.isFinite(routeLimit) && routeLimit > 0 ? collectRoutes().slice(0, routeLimit) : collectRoutes();
+
+// Every route/viewport/scenario runs in its own fresh browser context and only
+// appends to the result arrays, so the work is independent. QA_CONCURRENCY
+// (default 1 = the historical serial run) sets how many contexts are open at
+// once; the result arrays are re-sorted into the serial order afterwards so the
+// artifacts stay stable whatever the concurrency.
+const CONCURRENCY = Math.max(1, Number.parseInt(process.env.QA_CONCURRENCY || '1', 10) || 1);
+async function runPool(tasks, worker) {
+  let next = 0;
+  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, tasks.length) }, async () => {
+    while (next < tasks.length) await worker(tasks[next++]);
+  }));
+}
 const reflowFailures = [];
 const reflowChecks = [];
 const targetFailures = [];
@@ -421,13 +446,13 @@ async function recordTargetAudit(page, route, vp, state) {
 // F.1 + legacy reflow: one context per route/viewport covers target-size
 // (default + expanded <details>) and the historical WCAG text-spacing +
 // zoom=2 reflow contract, byte-for-byte in meaning with the pre-F.1 gate.
-for (const route of routes) {
-  for (const vp of VIEWPORTS) {
+await runPool(routes.flatMap((route) => VIEWPORTS.map((vp) => ({ route, vp }))), async ({ route, vp }) => {
     const context = await browser.newContext({
       viewport: { width: vp.width, height: vp.height },
       javaScriptEnabled: true,
       reducedMotion: 'reduce',
     });
+    await skipHomeIntro(context);
     const page = await context.newPage();
     const key = `${route}@${vp.width}x${vp.height}`;
     let stage = 'page-load';
@@ -456,7 +481,7 @@ for (const route of routes) {
         await settle(page);
       }
 
-      if (!vp.reflow) continue;
+      if (!vp.reflow) return;
 
       stage = 'reflow';
       await applyInspectorStyles(
@@ -490,23 +515,35 @@ for (const route of routes) {
     } finally {
       await context.close();
     }
-  }
-}
+});
 
 // F.2: do not use zoom as a substitute for text-only 200%. Run Resize Text
 // and Text Spacing independently, in their own fresh contexts, so the
 // artifact names the failing contract instead of conflating it with the
 // legacy zoom-based reflow check above.
 if (TEXT_RESILIENCE_MODE !== 'off') {
-  for (const route of routes) {
-    for (const vp of TEXT_RESILIENCE_VIEWPORTS) {
-      for (const scenario of TEXT_RESILIENCE_SCENARIOS) {
-        const result = await runScenario(browser, route, vp, scenario);
-        textResilienceChecks.push(result);
-        if (result.failure) textResilienceFailures.push(result);
-      }
+  await runPool(
+    routes.flatMap((route) => TEXT_RESILIENCE_VIEWPORTS.flatMap((vp) => TEXT_RESILIENCE_SCENARIOS.map((scenario) => ({ route, vp, scenario })))),
+    async ({ route, vp, scenario }) => {
+      const result = await runScenario(browser, route, vp, scenario);
+      textResilienceChecks.push(result);
+      if (result.failure) textResilienceFailures.push(result);
     }
-  }
+  );
+}
+
+// Restore the serial order (route, viewport width, state/scenario) that the
+// concurrent runs scrambled. Array#sort is stable, so entries of one task keep
+// the order in which they were recorded.
+{
+  const routeOrder = new Map(routes.map((route, index) => [route, index]));
+  const stateOrder = new Map([...TEXT_RESILIENCE_SCENARIOS.map(({ id }) => id), 'default', 'expanded-details'].map((id, index) => [id, index]));
+  const key = (item) => [routeOrder.get(item.route) ?? 0, Number.parseInt(item.viewport, 10) || 0, stateOrder.get(item.scenario ?? item.state ?? item.stage) ?? 0];
+  const compare = (a, b) => {
+    const [x, y] = [key(a), key(b)];
+    return x[0] - y[0] || x[1] - y[1] || x[2] - y[2];
+  };
+  for (const list of [reflowChecks, reflowFailures, targetChecks, targetFailures, textResilienceChecks, textResilienceFailures]) list.sort(compare);
 }
 
 // F.4: curated Focus Not Obscured journeys. Each covers a distinct
