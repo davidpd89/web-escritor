@@ -18,10 +18,10 @@ function Test-Port([int]$port) {
 }
 if (Test-Port $SitePort) { throw "Puerto HTTP $SitePort en uso. No se mata ni reutiliza el proceso." }
 if (Test-Port $DebugPort) { throw "Puerto CDP $DebugPort en uso. No se reutiliza sesión Edge." }
-$edge = @(
-    (Join-Path ${env:ProgramFiles(x86)} 'Microsoft/Edge/Application/msedge.exe'),
-    (Join-Path $env:ProgramFiles 'Microsoft/Edge/Application/msedge.exe')
-) | Where-Object { Test-Path $_ } | Select-Object -First 1
+$edgePaths = @()
+if (${env:ProgramFiles(x86)}) { $edgePaths += (Join-Path ${env:ProgramFiles(x86)} 'Microsoft/Edge/Application/msedge.exe') }
+if ($env:ProgramFiles) { $edgePaths += (Join-Path $env:ProgramFiles 'Microsoft/Edge/Application/msedge.exe') }
+$edge = $edgePaths | Where-Object { Test-Path $_ } | Select-Object -First 1
 if (!$edge) {
     $edgeCommand = Get-Command msedge.exe -ErrorAction SilentlyContinue
     if ($edgeCommand) { $edge = $edgeCommand.Source }
@@ -36,30 +36,28 @@ if ($Simular) {
     & $python.Source (Join-Path $PSScriptRoot 'motor/ciclo.py') --simular
     exit $LASTEXITCODE
 }
-# Seleccion offline recuperable. No inicia llamadas a GPT ni Claude.
-$stateCmd = "import sys;sys.path.insert(0, r'$PSScriptRoot');import rotacion;print(rotacion.ubicacion_estado().parent / 'ciclo' / 'rotacion.json')"
-$stateRotacion = (& $python.Source -c $stateCmd | Out-String).Trim()
-if (-not $stateRotacion) { throw 'No se puede determinar el estado local del laboratorio.' }
-$selector = @((Join-Path $PSScriptRoot 'rotacion.py'), '--estado-archivo', $stateRotacion)
-if ($SoloVista) {
-    $selector += "--vista"
-} elseif ($IdeaId) {
-    $selector += @('--elegir', $IdeaId)
-} else {
-    $selector += '--siguiente'
-    if ($Familia) { $selector += @('--familia', $Familia) }
-    if ($Canal) { $selector += @('--canal', $Canal) }
+# SoloVista nunca depende del catalogo ni reserva tareas.
+if (-not $SoloVista) {
+    $stateCmd = "import sys;sys.path.insert(0, r'$PSScriptRoot');import rotacion;print(rotacion.ubicacion_estado().parent / 'ciclo' / 'rotacion.json')"
+    $stateRotacion = (& $python.Source -c $stateCmd | Out-String).Trim()
+    if (-not $stateRotacion) { throw 'Estado de laboratorio no disponible.' }
+    $selector = @((Join-Path $PSScriptRoot 'rotacion.py'), '--estado-archivo', $stateRotacion)
+    if ($IdeaId) {
+        $selector += @('--elegir', $IdeaId)
+    } else {
+        $selector += '--siguiente'
+        if ($Familia) { $selector += @('--familia', $Familia) }
+        if ($Canal) { $selector += @('--canal', $Canal) }
+    }
+    $rawTask = & $python.Source @selector
+    if ($LASTEXITCODE -ne 0) { throw 'No se pudo reservar la investigación.' }
+    $job = ($rawTask | Out-String | ConvertFrom-Json)
+    if (-not $job.disponible) {
+        Write-Host 'Semillas agotadas: el director continuará con sondeos actuales.'
+    } else {
+        Write-Host ("Investigación: {0} | {1} | {2}" -f $job.tarea.id, $job.tarea.familia, $job.tarea.canal)
+    }
 }
-$rawTask = & $python.Source @selector
-if ($LASTEXITCODE -ne 0) { throw 'No se pudo reservar una investigacion. Usa --ver-estado o --liberar en rotacion.py.' }
-$job = ($rawTask | Out-String | ConvertFrom-Json)
-if (-not $job.disponible) { throw 'No quedan ideas elegibles. Revisa catalogo.json.' }
-Write-Host ""
-Write-Host ("Investigacion reservada: {0} | {1}" -f $job.tarea.id, $job.tarea.titulo)
-Write-Host ("Canal: {0} | Familia: {1}" -f $job.tarea.canal, $job.tarea.familia)
-Write-Host "GPT: experimentos/mejoras-web/contratos/GPT-INVESTIGAR.md"
-Write-Host "Claude: experimentos/mejoras-web/contratos/CLAUDE-REVISAR.md"
-Write-Host "No se ha enviado nada a GPT/Claude: orquestador local aun pendiente."
 if (-not $SoloVista) {
     if (-not $env:LAB_MEJORAS_PROJECT_ID) { throw 'Configura LAB_MEJORAS_PROJECT_ID con el ID de tu Project ChatGPT de mejoras antes de iniciar la automatizacion real.' }
     if (-not (Get-Command gh -ErrorAction SilentlyContinue)) { throw 'Falta GitHub CLI (gh).' }
@@ -82,7 +80,7 @@ try {
         Write-Host 'SoloVista: no se consulta GPT/Claude, pulsa Ctrl+C para cerrar.'
         while (!$server.HasExited) { Start-Sleep -Seconds 1 }
     } else {
-        Write-Host 'Iniciando descubrimiento -> GPT -> Claude -> validacion -> PR draft (solo base lab).'
+        Write-Host 'Iniciando investigación GPT -> Claude -> tests -> PR draft hacia lab. Q = detener.'
         Write-Host 'Ctrl+C interrumpe el ciclo; reabrir recupera el expediente y el chat persistidos.'
         & $python.Source (Join-Path $PSScriptRoot 'motor/ciclo.py') --continuo --publicar-pr
         if ($LASTEXITCODE -ne 0) { throw 'El director de mejoras se detuvo; consulta su estado, no se marca exito.' }
