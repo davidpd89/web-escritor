@@ -4,7 +4,7 @@
 
 Un **entorno de revisión aislado**, no una nueva versión desplegada de la web. Esta PR nace en `research/mejoras-web-orquestador-20261024` y apunta **solo** a `lab/mejoras-web-20261024`, NO a `main`. Ambas ramas parten del commit `5b64fc173e9b1f24a6e7c9ba9c6e7801f0820fac`.
 
-El launcher de Windows abre un Edge **con perfil propio** en el puerto CDP `9331` y sirve la copia local del sitio en `127.0.0.1:8765`. No instala librerías ni llama a servicios de IA. La conexión del orquestador GPT/Claude **todavía no está implementada**: los scripts completos del circuito de conversación/creación automática de PR parecen residir en el ordenador del autor y no están en este repositorio. Aquí sí se ha inspeccionado `scripts/qa-gpt/{ci_grupo.py,qa_clases.py}`, que corresponde al ejecutor CI, no al orquestador local.
+El launcher de Windows reserva primero una investigación local y abre un Edge **con perfil propio** en el puerto CDP `9331` y sirve la copia local del sitio en `127.0.0.1:8765`. No instala librerías ni llama a servicios de IA. La conexión del orquestador GPT/Claude **todavía no está implementada**: los scripts completos del circuito de conversación/creación automática de PR parecen residir en el ordenador del autor y no están en este repositorio. Aquí sí se ha inspeccionado `scripts/qa-gpt/{ci_grupo.py,qa_clases.py}`, que corresponde al ejecutor CI, no al orquestador local.
 
 ## Arquitectura objetivo (sin fingir que ya funciona)
 
@@ -35,6 +35,10 @@ python experimentos/mejoras-web/verificar.py
 
 Edge se abre en `http://127.0.0.1:8765/`; puerto de depuración `9331` enlazado solo a loopback. `Ctrl+C` en la consola termina el servidor local. Cerrar Edge no modifica Git. Si el puerto 8765 o 9331 está ocupado, **no** toma control de procesos ajenos: pide liberar el puerto. El script se niega a arrancar si el worktree está en `main`.
 
+Usa `INICIAR-MEJORAS.cmd -IdeaId SEO-01` para elegir una idea, o `INICIAR-MEJORAS.cmd -Canal github` para rotar dentro de repositorios. Sin argumentos rota por los cinco canales. Para ver el candidato sin reservar: `python experimentos/mejoras-web/rotacion.py --vista`. Una reserva queda pendiente tras cerrar Edge y se recupera al reiniciar, salvo que se cierre o libere mediante el selector. Más ejemplos en `CONTRATO-ORQUESTADOR.md`.
+
+Pruebas del selector: `python -m unittest discover -s experimentos/mejoras-web -p 'test_*.py' -v`.
+
 Requisitos: Windows, Python 3 y Microsoft Edge instalados; PowerShell 5.1+. Si el sitio necesita un Worker remoto, API o claves, la previsualización estática por sí sola **no** demuestra ese flujo: levantar un emulador local o fixture en una PR específica.
 
 ## Qué se aprovecha del repositorio real
@@ -57,14 +61,18 @@ Requisitos: Windows, Python 3 y Microsoft Edge instalados; PowerShell 5.1+. Si e
 
 ## Primeros entregables
 
-- `catalogo.json`: 12 hipótesis concretas, todas **candidatas**, ninguna presentada como fallo demostrado.
+- `catalogo.json`: 68 hipótesis en 25 familias y 5 canales, todas **candidatas**, no fallos demostrados.
+- `rotacion.py`: selector offline de cinco canales, elección manual, reserva pendiente y recuperación tras reinicio.
+- `test_rotacion.py`: doce pruebas unitarias offline para ejecutar en Windows/CI.
+- `investigaciones/02-pagefind.md`: candidato Pagefind de código literal upstream, licencia MIT, rutas y SHA.
+- `FUENTES-2026-10-24.md` y `CONTRATO-ORQUESTADOR.md`: contraste primario y protocolo con el sistema existente.
 - `contratos/GPT-INVESTIGAR.md` y `contratos/CLAUDE-REVISAR.md`: prompts versionables por etapa.
 - `investigaciones/01-web-vitals.md`: primer candidato externo inspeccionado, con código literal upstream y licencia; aún NO integrado.
 - `verificar.py`: validación offline del registro para evitar fichas vacías o duplicados.
-- Launcher: solo navegador/servidor; no autopregunta, no autopull, no despliegue.
+- Launcher: reserva offline una investigación y arranca navegador/servidor; no llama GPT/Claude ni crea PR o despliegue.
 
 ## Pendiente para que sea la misma cadena automática
 
-Pedir al entorno **local** sus scripts reales de `EJECUTAR-ACTIONS-QA-GPT` y de GPT ↔ Claude ↔ PR, incluyendo estado persistido, bloqueo de Edge, detección de puerto y política de parada. Crear un adaptador nuevo que use esos componentes sin compartir carpetas de cola, sesiones, llaves de estado, puertos ni contadores con QA. Probar Q, Ctrl+C, reinicio e idempotencia. Solo entonces conectar `INICIAR-MEJORAS` al orquestador; la arquitectura de arriba es una especificación, no una ejecución ya verificada.
+Pedir al entorno **local** sus scripts reales de `EJECUTAR-ACTIONS-QA-GPT` y de GPT ↔ Claude ↔ PR, incluyendo estado persistido, bloqueo de Edge, detección de puerto y política de parada. Crear un adaptador nuevo que use esos componentes sin compartir carpetas de cola, sesiones, llaves de estado, puertos ni contadores con QA. Probar Q, Ctrl+C, reinicio e idempotencia. El selector ya entrega una tarea al lanzador, pero todavía no hay enlace a la conversación GPT/Claude ni ejecución de PR; estas fases siguen siendo una especificación pendiente de validación.
 
 **Sin merge a lab ni a main desde esta PR; queda en borrador para investigación e implementación incremental.**
