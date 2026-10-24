@@ -11,9 +11,6 @@ on:
   pull_request:
     branches:
       - lab/mejoras-web-20261024
-    paths:
-      - 'experimentos/mejoras-web/**'
-      - '.github/workflows/lab-mejoras-offline.yml'
 
 permissions:
   contents: read
