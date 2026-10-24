@@ -9,9 +9,12 @@ class Upstream(unittest.TestCase):
     def test_codigo_original_real_y_licencia(self):
         sha="a"*40
         item={"url":"https://github.com/org/project"}
-        data={"fuente_sha":sha,"codigo_original":"def apply_patch():\n    return True","licencia":"MIT"}
+        data={"fuente_sha":sha,"codigo_original":"def apply_patch():\n    return True","licencia":"MIT",
+              "commit_upstream":"c"*40,"ruta_upstream":"src/app.py"}
         fuente=data["codigo_original"]+"\n"
         def fetch(url):
+            if "/contents/src/app.py?" in url:
+                return {"type":"file","sha":sha}
             if "/git/blobs/" in url:
                 return {"sha":sha,"encoding":"base64","content":base64.b64encode(fuente.encode()).decode()}
             if url.endswith("/license"): return {"license":{"spdx_id":"MIT"}}
@@ -29,6 +32,14 @@ class Upstream(unittest.TestCase):
         with self.assertRaises(verificar_upstream.FuenteNoVerificada):
             verificar_upstream.verificar({"fuente_sha":"abc","codigo_original":"texto realmente copiado"},
                                         {"url":"https://github.com/org/repo"},lambda _: {})
+    def test_ruta_incorrecta_no_acepta_el_blob(self):
+        sha="d"*40
+        data={"fuente_sha":sha,"codigo_original":"def original(): pass",
+              "licencia":"MIT","commit_upstream":"c"*40,"ruta_upstream":"src/other.py"}
+        with self.assertRaises(verificar_upstream.FuenteNoVerificada):
+            verificar_upstream.verificar(data,{"url":"https://github.com/org/repo"},
+                lambda url: {"type":"file","sha":"f"*40})
+
     def test_documentacion_no_simula_codigo(self):
         r=verificar_upstream.verificar({},{"url":"https://developers.google.com/search/updates"})
         self.assertFalse(r["upstream_verificado"])
