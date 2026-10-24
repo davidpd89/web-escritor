@@ -315,5 +315,21 @@ class RunCmdInterrumpible(unittest.TestCase):
         self.assertEqual(rc, 124); self.assertIn("Timeout", out)
 
 
+class SenalDeParadaReal(unittest.TestCase):
+    def test_ctrl_break_a_un_proceso_con_test_largo_lo_detiene_y_lo_registra(self):
+        """Senal real de consola (CTRL_BREAK en grupo propio): instalar_parada -> pedir_parada -> run_cmd suelta el test."""
+        import signal, time
+        if os.name != "nt": self.skipTest("senales de consola de Windows")
+        aqui = Path(__file__).parent
+        p = subprocess.Popen([sys.executable, "-u", str(aqui / "_parada_hijo.py")], cwd=aqui, env={**os.environ, "PYTHONPATH": str(aqui)},
+                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, creationflags=subprocess.CREATE_NEW_PROCESS_GROUP)
+        try:
+            self.assertIn("LISTO", p.stdout.readline()); time.sleep(2); t = time.monotonic()
+            p.send_signal(signal.CTRL_BREAK_EVENT); out = p.communicate(timeout=30)[0]
+            self.assertLess(time.monotonic() - t, 20); self.assertIn("PARADA solicitada", out); self.assertIn("RC 130 cierre de ventana", out)
+        finally:
+            if p.poll() is None: p.kill()
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

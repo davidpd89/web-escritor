@@ -494,7 +494,10 @@ class Lote:
 
     def pedir_parada(self, motivo="parada solicitada"):
         """Q, Ctrl+C o cerrar la consola: deja de LANZAR grupos nuevos. Los runs ya enviados a GitHub NO se cancelan."""
-        if not self.parando: self.parando = motivo
+        if not self.parando:
+            self.parando = motivo
+            try: print(f"[{dt.datetime.now():%H:%M:%S}] PARADA solicitada: {motivo}", flush=True)
+            except Exception: pass
 
     def tecla(self):
         if not self.interactivo: return
