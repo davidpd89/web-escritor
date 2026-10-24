@@ -169,7 +169,9 @@ def json_respuesta(raw):
 
 def validar_investigacion(data,fuente):
     if not isinstance(data,dict): raise ValueError("Investigación no es un objeto JSON")
-    campos=GPT_KEYS if data.get("decision")!="DESCARTAR" else ("problema","baseline","fuente_url","justificacion")
+    if data.get("decision") not in ("DESCARTAR","INVESTIGAR_MAS","ENVIAR_A_CLAUDE"):
+        raise ValueError("El expediente GPT necesita una decisión explícita válida")
+    campos=GPT_KEYS if data["decision"]!="DESCARTAR" else ("problema","baseline","fuente_url","justificacion")
     for campo in campos:
         if not isinstance(data.get(campo),str) or len(data[campo].strip())<10:
             raise ValueError("Investigación sin evidencia: "+campo)
@@ -310,8 +312,9 @@ def paso(d,simular=False,publicar=False):
             s["revision"]=revisar(s,d,simular)
             dec=s["revision"]["decision"]
             if dec=="aprobar" and s["revision"].get("duplicado"): dec="rechazar"
-            if dec=="aprobar" and s["investigacion"].get("decision")=="DESCARTAR":
-                dec="investigar_mas"
+            if s["investigacion"].get("decision")=="DESCARTAR" and dec in ("aprobar","rechazar"):
+                # Aceptar un descarte significa cerrar SIN desarrollo ni PR.
+                dec="rechazar"
             if dec=="aprobar" and s["revision"].get("riesgo")=="alto":
                 s["fase"]="pendiente_revision"
             elif dec=="investigar_mas" and s.get("ampliaciones",0)<MAX_AMPLIACIONES:
@@ -351,6 +354,8 @@ def paso(d,simular=False,publicar=False):
             s["validacion"]=pr_laboratorio.abrir_pr(ROOT,d,exped,s["parche"],publicar)
             s["fase"]="pr_borrador" if s["validacion"]["pr"] else "validado_local"
         else: raise RuntimeError("Fase no reconocida: "+etapa)
+        s["errores"]=0
+        s.pop("error",None)
         anotar(s,"Completada etapa "+etapa)
         guardar(path,s)
         if s["fase"] in FINAL: cerrar(s,d)
