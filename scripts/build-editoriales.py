@@ -141,6 +141,11 @@ def validate_record(record: dict, seen: set[str], today: date) -> list[str]:
 
     verified = parse_iso_date(record["verified_at"], f"{slug}.verified_at")
     page_updated = parse_iso_date(record["page_updated_at"], f"{slug}.page_updated_at")
+    if verified > page_updated:
+        raise ValidationError(
+            f"{slug}: verified_at ({verified}) no puede ser posterior "
+            f"a page_updated_at ({page_updated})"
+        )
     if page_updated > today:
         raise ValidationError(f"{slug}: page_updated_at está en el futuro")
     age = (today - verified).days
