@@ -3,10 +3,12 @@ aislado creado desde origin/main. Nunca ejecuta comandos que haya escrito GPT.
 Solo se desarrollan causas que Claude aprobo (decision='corregir'). Una PR solo se abre si el defecto se reproduce en main (baseline), el parche
 lo corrige, pasan los verificadores del repo y no hay cambios fuera de alcance; si algo falla NO hay PR (ni en borrador): queda el motivo en
 `pr_estado` y el ciclo reintenta de forma acotada. Despues, `Ciclo` gestiona presupuesto, CI, revision final de Claude e integracion."""
-import json, os, re, shutil
+import json, os, re, shutil, socket, subprocess, sys
 from pathlib import Path
 
 MAX_FICHEROS = 5
+RC_INFRA = 125
+INFRA = re.compile(r"ERR_MODULE_NOT_FOUND|ECONNREFUSED|Executable doesn't exist|browserType.launch")
 MAX_REEMPLAZOS = 8
 PROHIBIDAS = re.compile(r"(^|/)(\.github|\.git|node_modules|scripts/qa-gpt|\.ci)(/|$)|(^|/)(package(-lock)?\.json|wrangler[\w.-]*|\.env[\w.]*|\.dev\.vars)$"
                         r"|stripe|paypal|payment|(^|[/_.-])pagos?([/_.-]|$)|secret|credential|cloudflare", re.I)
@@ -125,6 +127,26 @@ class Pr:
         e = Path(ruta).suffix
         return ["node", ruta] if e in (".mjs", ".js") else ["python", ruta] if e == ".py" else None
 
+    def _test(self, wt, t):
+        """Ejecuta un test conocido. Los .mjs/.js (Playwright) necesitan node_modules y un servidor estatico del worktree: se levanta uno propio en un puerto libre y se cierra al terminar."""
+        cmd = self.comando_test(t)
+        if cmd[0] != "node": return self.run(cmd, str(wt), timeout=240)
+        nm = Path(flujo(self.q).get("node_modules") or r"C:\GIT\web-escritor\node_modules")
+        dst = Path(wt) / "node_modules"
+        if nm.exists() and not dst.exists():
+            self.run(["cmd", "/c", "mklink", "/J", str(dst), str(nm)], str(wt), timeout=30)
+        with socket.socket() as s: s.bind(("127.0.0.1", 0)); port = s.getsockname()[1]
+        srv = subprocess.Popen([sys.executable, "-m", "http.server", str(port), "--bind", "127.0.0.1", "-d", str(wt)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        try:
+            import time; time.sleep(1)
+            rc, o = self.run(cmd, str(wt), env={"QA_ORIGIN": f"http://127.0.0.1:{port}"}, timeout=240)
+        finally:
+            srv.terminate()
+            try: srv.wait(10)
+            except subprocess.TimeoutExpired: srv.kill()
+        if rc and INFRA.search(o): rc = RC_INFRA
+        return rc, o
+
     def candidatas(self, c):
         """Solo causas APROBADAS por Claude (decision='corregir'): sin aprobacion no hay desarrollo ni PR."""
         return c.execute("""SELECT * FROM triaje WHERE parche IS NOT NULL AND decision='corregir' AND clase IN ('defecto_web','test_roto')
@@ -161,7 +183,9 @@ class Pr:
             if not tests or not all((wt / t).exists() and self.comando_test(t) for t in tests):
                 self._marca(c, row, "sin_test", "sin test automatico ejecutable que reproduzca el defecto: no se abre PR"); return "sin_test"
             # 1) el defecto se reproduce en main (baseline): si todos los tests ya pasan, no hay nada que corregir
-            antes = [(t, self.run(self.comando_test(t), str(wt), timeout=240)) for t in tests]
+            antes = [(t, self._test(wt, t)) for t in tests]
+            if any(rc == RC_INFRA for _, (rc, _o) in antes):
+                self._marca(c, row, "reintentar", "entorno de test no disponible (modulo/navegador/servidor): " + antes[0][1][1][-200:]); return "reintentar"
             if all(rc == 0 for _, (rc, _o) in antes):
                 self._marca(c, row, "no_reproduce", "en main los tests ya pasan: defecto no reproducible o ya resuelto"); return "no_reproduce"
             try: tocados = aplicar_parche(wt, norm)
@@ -215,12 +239,16 @@ class Pr:
         for t in tests:
             cmd = self.comando_test(t)
             if not cmd or not (wt / t).exists(): res.append(f"- `{t}`: no ejecutable aqui"); verde = False; continue
-            rc, o = self.run(cmd, str(wt), timeout=240)
+            rc, o = self._test(wt, t)
             res.append(f"- `{t}`: {'PASA' if rc == 0 else 'FALLA'} (exit {rc})" + ("" if rc == 0 else f"\n  {o[-300:].strip()}")); verde = verde and rc == 0
         return "Tests tras el parche:\n" + "\n".join(res), verde
 
     def limpiar(self, wt, rama):
         if Path(wt).exists():
+            nmj = Path(wt) / "node_modules"
+            if nmj.exists():
+                try: os.rmdir(nmj)  # junction: quita solo el enlace, nunca el contenido
+                except OSError: pass
             self.git("worktree", "remove", "--force", str(wt))
             shutil.rmtree(wt, ignore_errors=True)
         self.git("worktree", "prune")
