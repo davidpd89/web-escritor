@@ -16,6 +16,7 @@
     },
     "assert": {
       "assertions": {
+        "http-status-code": ["error", {"minScore":1,"aggregationMethod":"pessimistic"}],
         "categories:performance": [
           "warn",
           {
