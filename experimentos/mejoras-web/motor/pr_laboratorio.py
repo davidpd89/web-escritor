@@ -160,6 +160,20 @@ def validar_contexto(root):
     return rama
 
 
+
+def verificar_divergencia(root,parche):
+    """No aplicar sobre lab un fichero modificado también en main desde la base común."""
+    run(["git","fetch","origin","main"],root,timeout=180)
+    origen=run(["git","merge-base","origin/"+BASE,"origin/main"],root)
+    cambiados=set(run(["git","diff","--name-only",origen,"origin/main"],root).splitlines())
+    propuestos={item["ruta"] for item in parche["ficheros"]}
+    colisiones=sorted(cambiados & propuestos)
+    if colisiones:
+        raise PreparacionError("Lab está desactualizada respecto de main para: "+
+                               ", ".join(colisiones[:8])+". Actualizar lab y revalidar.")
+    return len(cambiados)
+
+
 def identificador(expediente):
     raw=(str(expediente.get("id"))+"|"+str(expediente.get("fuente",{}).get("url",""))).encode("utf-8")
     return hashlib.sha256(raw).hexdigest()[:12]
@@ -208,6 +222,8 @@ def abrir_pr(root,estado_dir,expediente,parche,publicar=False):
                  "--draft","--title",titulo,"--body",body],wt,timeout=120)
         return {"rama":rama,"worktree":str(wt),"estado":"pr_borrador",
                 "archivos":sorted(esperadas),"tests":logs,"pr":url}
+    # Las ramas divergen. No mezclar silenciosamente cambios obsoletos.
+    verificar_divergencia(root,parche)
     wt.parent.mkdir(parents=True,exist_ok=True)
     # Comprobación previa de tests sin ejecutar los cambios.
     comandos_test(parche)
