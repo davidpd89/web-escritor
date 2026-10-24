@@ -20,7 +20,7 @@ import time
 import urllib.error
 import urllib.request
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
 
 ORIGIN = "https://davidportodiaz.com"
 HOST = "davidportodiaz.com"
@@ -32,6 +32,49 @@ KEY_RE = re.compile(r"^[A-Za-z0-9-]{8,128}$")
 
 def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def safe_registry_url(url: str) -> bool:
+    if not url.startswith('/') or url.startswith('//'):
+        return False
+    if '\\' in url or '#' in url or '?' in url:
+        return False
+    if any(ord(char) < 32 or ord(char) == 127 for char in url):
+        return False
+    decoded = url
+    for _ in range(8):
+        expanded = unquote(decoded)
+        if expanded == decoded:
+            break
+        decoded = expanded
+    else:
+        return False
+    if not decoded.startswith('/') or decoded.startswith('//'):
+        return False
+    if '\\' in decoded or '#' in decoded or '?' in decoded:
+        return False
+    if any(ord(char) < 32 or ord(char) == 127 for char in decoded):
+        return False
+    if '%' in decoded:
+        return False
+    if any(segment in {'.', '..'} for segment in decoded.split('/')):
+        return False
+    return True
+
+
+def safe_registry_source(source: str) -> str | None:
+    if not source or source != source.strip():
+        return None
+    normalized = source.replace('\\', '/')
+    if normalized.startswith('/') or ':' in normalized:
+        return None
+    if any(ord(char) < 32 or ord(char) == 127 for char in normalized):
+        return None
+    if '%' in normalized:
+        return None
+    if any(segment in {'', '.', '..'} for segment in normalized.split('/')):
+        return None
+    return normalized
 
 
 def registry_routes(path: Path) -> dict[str, str]:
@@ -47,9 +90,12 @@ def registry_routes(path: Path) -> dict[str, str]:
             continue
         if not isinstance(url, str) or not isinstance(source, str):
             continue
-        if "#" in url or not url.startswith("/"):
+        if not safe_registry_url(url):
             continue
-        routes[url] = source.replace("\\", "/")
+        normalized_source = safe_registry_source(source)
+        if normalized_source is None:
+            continue
+        routes[url] = normalized_source
     return routes
 
 
@@ -62,7 +108,15 @@ def digest(path: Path) -> str:
 
 
 def artifact_digest(dist: Path, source: str) -> str:
-    path = dist / source
+    normalized_source = safe_registry_source(source)
+    if normalized_source is None:
+        raise ValueError(f"unsafe public registry source: {source!r}")
+    root = dist.resolve()
+    path = (root / normalized_source).resolve()
+    try:
+        path.relative_to(root)
+    except ValueError as exc:
+        raise ValueError(f"public registry source escapes artifact: {source!r}") from exc
     if not path.is_file():
         raise FileNotFoundError(f"public registry source missing from artifact: {path}")
     return digest(path)
