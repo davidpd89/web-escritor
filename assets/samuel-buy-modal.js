@@ -86,6 +86,11 @@
     d.addEventListener("close", () => {
       document.documentElement.classList.remove("modal-open");
       restoreFocus();
+      // Solo los cierres iniciados desde la entrada del modal deben
+      // retroceder. Si popstate ya navegó, no se retrocede otra vez.
+      if (history.state?.buyModal === true && window.location.hash === "#comprar") {
+        history.back();
+      }
     });
 
     d.querySelectorAll("[data-gc]").forEach((element) => {
