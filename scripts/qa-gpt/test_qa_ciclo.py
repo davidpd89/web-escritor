@@ -162,6 +162,17 @@ class PrFlujo(T.Base):
         row = self.montar(); self.pr(self.GhPr()).preparar(self.c, row)
         self.assertEqual(self.pr(self.GhPr()).candidatas(self.c), [])
 
+    def test_verificadores_segun_ficheros_tocados(self):
+        import tempfile, qa_pr
+        with tempfile.TemporaryDirectory() as d:
+            for n in ("check-asset-versions.py", "build-pagefind-index.py", "build-site-shell.py"):
+                (Path(d) / "scripts").mkdir(exist_ok=True); (Path(d) / "scripts" / n).write_text("")
+            nombres = lambda t: [c[1].split("/")[-1] for c in qa_pr.verificadores(d, t)]
+            self.assertEqual(nombres(["qa/x.mjs"]), [])
+            self.assertIn("check-asset-versions.py", nombres(["script.js"]))
+            self.assertIn("build-pagefind-index.py", nombres(["libros/a.html"]))
+            self.assertNotIn("check-asset-versions.py", nombres(["libros/a.html"]))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=1)

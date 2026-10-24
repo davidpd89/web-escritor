@@ -82,6 +82,27 @@ def cuerpo_pr(row, tests, verif, demo=False):
     return head + "\n\n".join(f"## {t}\n{c}" for t, c in partes) + "\n"
 
 
+# Verificadores del repo segun lo que toca el parche: errores ya vistos en las PR qa-fix (version de recurso sin subir, pagefind/shell/indices obsoletos).
+HTML = (".html", ".htm")
+VERIF_ACTIVOS = ("script.js", "styles.css")
+
+
+def verificadores(wt, tocados):
+    """Comandos `python scripts/<check>` (existentes en el repo) que corresponden a los ficheros tocados. Solo se ejecutan los que existen."""
+    t = [str(x).replace("\\", "/") for x in tocados]
+    html = any(x.endswith(HTML) for x in t)
+    activo = any(x in VERIF_ACTIVOS or x.startswith("assets/") for x in t)
+    gen = any(x.startswith("scripts/build-") or x.startswith("data/") for x in t)
+    cmds = []
+    if activo: cmds += [["python", "scripts/check-asset-versions.py"]]
+    if html or activo or gen:
+        cmds += [["python", "scripts/build-site-shell.py", "--check"], ["python", "scripts/build-pagefind-index.py", "--check"],
+                 ["python", "scripts/check-local-assets.py"], ["python", "scripts/check-public-html-safety.py"], ["python", "scripts/check-heading-structure.py"],
+                 ["python", "scripts/check-internal-graph.py"]]
+    if gen: cmds += [["python", "scripts/build-feed.py", "--check"], ["python", "scripts/build-sitemap.py", "--check"]]
+    return [c for c in cmds if (Path(wt) / c[1]).exists()]
+
+
 class Pr:
     def __init__(self, q, gh, runner, out=print):
         self.q, self.gh, self.run, self.out = q, gh, runner, out
