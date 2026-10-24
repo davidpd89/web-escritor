@@ -96,7 +96,11 @@ class Flujo(unittest.TestCase):
                 for _ in range(4):
                     s=ciclo.paso(d,simular=True)
                     estados.append(s["fase"])
-                self.assertEqual(estados,["seleccionado","fuente","gpt_completo","pendiente_revision"])
+                self.assertEqual(estados,["seleccionado","fuente","gpt_completo","ampliacion"])
+                self.assertFalse((d/"historial.json").exists(), "Claude pide ampliar: NO cerrar ni saltar tema")
+                for _ in range(4):
+                    s=ciclo.paso(d,simular=True)
+                self.assertEqual(s["fase"],"pendiente_revision", "Dos ampliaciones y después revisión humana")
                 self.assertTrue((d/"historial.json").exists())
                 self.assertEqual(ciclo.leer(d/"actual.json",{})["id"],"A-01")
                 self.assertIn(("--resultado","pendiente_revision"),calls)
@@ -119,6 +123,86 @@ class Flujo(unittest.TestCase):
     def test_no_pasar_automáticamente_a_merge(self):
         self.assertEqual(pr_laboratorio.BASE,"lab/mejoras-web-20261024")
         self.assertFalse(hasattr(pr_laboratorio,"fusionar_main"))
+
+    def test_documentacion_sin_codigo_externo_pero_con_fecha(self):
+        fuente={"url":"https://developers.google.com/search/docs/foo"}
+        datos={k:"Información verificable y justificada" for k in ciclo.GPT_KEYS}
+        datos["fuente_url"]=fuente["url"]
+        datos["fecha_fuente"]="2026-10-24"
+        self.assertIs(ciclo.validar_investigacion(datos,fuente),datos)
+        datos.pop("fecha_fuente")
+        with self.assertRaises(ValueError): ciclo.validar_investigacion(datos,fuente)
+
+    def test_repositorio_exige_bloque_original(self):
+        fuente={"url":"https://github.com/org/repo"}
+        datos={k:"Información verificable y justificada" for k in ciclo.GPT_KEYS}
+        datos["fuente_url"]=fuente["url"]
+        with self.assertRaises(ValueError): ciclo.validar_investigacion(datos,fuente)
+
+    def test_un_director_y_no_dos(self):
+        with tempfile.TemporaryDirectory() as temp:
+            d=Path(temp)
+            with ciclo.exclusivo(d):
+                with self.assertRaises(RuntimeError):
+                    with ciclo.exclusivo(d):
+                        self.fail("No debe coexistir un segundo director")
+            self.assertFalse((d/"director.lock").exists())
+
+    def test_riesgo_alto_de_claude_no_desarrolla(self):
+        with tempfile.TemporaryDirectory() as temp:
+            d=Path(temp)
+            s={"id":"A-01","fase":"gpt_completo","tipo":"sondeo",
+               "tarea":self.tarea(),"chats":{},
+               "investigacion":{"problema":"Caso"}} 
+            ciclo.guardar(d/"actual.json",s)
+            dictamen={"decision":"aprobar","riesgo":"alto","duplicado":False,
+                     "motivo":"No debe ejecutarse sin revisión humana"}
+            with mock.patch.object(ciclo,"revisar",return_value=dictamen):
+                result=ciclo.paso(d)
+            self.assertEqual(result["fase"],"pendiente_revision")
+
+    def test_segunda_revision_de_parche_obligatoria(self):
+        with tempfile.TemporaryDirectory() as temp:
+            d=Path(temp)
+            s={"id":"A-01","fase":"parche_propuesto","tipo":"sondeo",
+               "tarea":self.tarea(),"parche":{"ficheros":[],"tests":[]},
+               "investigacion":{},"revision":{"decision":"aprobar"}}
+            ciclo.guardar(d/"actual.json",s)
+            r={"decision":"rechazar","riesgo":"medio","duplicado":False,
+               "motivo":"El parche aún no tiene justificación suficiente"}
+            with mock.patch.object(ciclo,"revisar_parche",return_value=r):
+                result=ciclo.paso(d)
+            self.assertEqual(result["fase"],"pendiente_revision")
+
+    def test_recuperar_pr_tras_push_sin_duplicar_otra_rama(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            state=root/"estado"
+            expediente={"id":"A-01","titulo":"Una mejora","fuente":{"url":"https://github.com/org/p"},
+                        "veredicto":"aprobar"}
+            patch={"ficheros":[{"ruta":"styles.css","reemplazos":[{"buscar":"red","por":"blue"}]}],
+                   "tests":["tests/test_styles.py"]}
+            tag=pr_laboratorio.identificador(expediente)
+            rama="feature/mejoras-web/"+tag
+            wt=state/"worktrees"/tag
+            wt.mkdir(parents=True)
+            calls=[]
+            def fake_run(args,cwd,timeout=240,extra_env=None):
+                calls.append(args)
+                if args[:3]==["gh","pr","list"]: return "[]"
+                if args[:3]==["git","branch","--show-current"]: return rama
+                if args[:2]==["git","status"]: return ""
+                if args[:3]==["git","rev-list","--count"]: return "1"
+                if args[:3]==["git","diff","--name-only"]: return "styles.css"
+                if args[:3]==["gh","pr","create"]: return "https://github.com/davidpd89/web-escritor/pull/9900"
+                return ""
+            with mock.patch.object(pr_laboratorio,"validar_contexto",return_value="lab/mejoras-local"), \
+                 mock.patch.object(pr_laboratorio,"run",side_effect=fake_run), \
+                 mock.patch.object(pr_laboratorio,"ejecutar_tests",return_value=[("tests/test_styles.py","PASS")]):
+                result=pr_laboratorio.abrir_pr(root,state,expediente,patch,publicar=True)
+            self.assertEqual(result["estado"],"pr_borrador")
+            self.assertIn("--base",next(x for x in calls if x[:3]==["gh","pr","create"]))
+            self.assertEqual(result["rama"],rama)
 
 
 if __name__=="__main__": unittest.main()
