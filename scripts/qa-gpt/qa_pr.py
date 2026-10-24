@@ -138,7 +138,7 @@ class Pr:
         self.root = q.ROOT
 
     def git(self, *a, cwd=None, timeout=300):
-        return self.run(["git", *a], str(cwd or self.root), timeout=timeout)
+        return self.run(["git", "-c", "core.autocrlf=false", *a], str(cwd or self.root), timeout=timeout)  # LF como en CI: con autocrlf=true los artefactos generados (feed.xml...) difieren byte a byte y los --check fallan
 
     def _rutas_tests(self, c, ids):
         res = []
