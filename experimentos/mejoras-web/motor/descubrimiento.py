@@ -116,7 +116,9 @@ def descubrir(canal, familia, epoca=0, fetch_json=get_json, fetch_rss=get_rss, r
 
 
 def huella(item):
-    return hashlib.sha256(item["url"].lower().rstrip("/").encode("utf-8")).hexdigest()[:24]
+    base=item["url"].lower().rstrip("/")+"|"+item.get("publicado","")
+    if item["url"].startswith("local://"): base+="|"+item.get("origen","")
+    return hashlib.sha256(base.encode("utf-8")).hexdigest()[:24]
 
 
 def nuevas(fuentes, vistas=(), max_dias=365):
