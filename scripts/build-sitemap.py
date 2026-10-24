@@ -70,11 +70,11 @@ def extract_meta(text: str):
             canonical = h.group(1).strip()
 
     noindex = False
-    r = re.search(r'<meta[^>]+name=["\']robots["\'][^>]*>', text, flags=re.I)
-    if r:
+    for r in re.finditer(r'<meta[^>]+name=["\']robots["\'][^>]*>', text, flags=re.I):
         c = re.search(r'content=["\']([^"\']+)["\']', r.group(0), flags=re.I)
-        if c and "noindex" in c.group(1).lower():
+        if c and "noindex" in {directive.strip().lower() for directive in c.group(1).split(",")}:
             noindex = True
+            break
 
     date_modified = extract_date_modified(text)
     return canonical, noindex, date_modified
