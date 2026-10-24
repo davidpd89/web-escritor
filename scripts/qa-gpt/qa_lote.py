@@ -50,6 +50,7 @@ class Gh:
         return self._remotos
     def remote_sha(self, rama): return self.remotos().get(rama)
     def push(self, sha, rama):
+        if not rama.startswith(("gpt-qa/", "qa-fix/")): raise GhAuthError(f"push bloqueado: solo ramas gpt-qa/* o qa-fix/* (no {rama})")
         r = cob.run(["git", "push", "origin", f"{sha}:refs/heads/{rama}"], cwd=self.q.ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=300)
         if r.returncode: raise GhError((r.stderr or r.stdout).strip()[:400])
         self.remotos()[rama] = sha
@@ -58,6 +59,12 @@ class Gh:
                                    "--json", "databaseId,headSha,status,conclusion,event,createdAt,url") or "[]")
     def run(self, rid):
         return json.loads(self._gh("run", "view", str(rid), "-R", self.repo, "--json", "databaseId,status,conclusion,headSha,url"))
+    def pr_crear(self, rama, titulo, cuerpo, borrador=True):
+        """PR hacia main SIN merge ni auto-merge; borrador por defecto."""
+        a = ["pr", "create", "-R", self.repo, "--base", "main", "--head", rama, "--title", titulo, "--body", cuerpo]
+        return self._gh(*(a + (["--draft"] if borrador else []))).strip().splitlines()[-1]
+    def pr_cerrar(self, url, comentario=""):
+        self._gh("pr", "close", url, "-R", self.repo, "--delete-branch", *(["--comment", comentario] if comentario else []))
     def dispatch(self, wf, rama): self._gh("workflow", "run", wf, "-R", self.repo, "--ref", rama)
     def log_failed(self, rid):
         try: return self._gh("run", "view", str(rid), "-R", self.repo, "--log-failed")

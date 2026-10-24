@@ -1,0 +1,29 @@
+[ANALIZADOR DE FALLOS QA · web-escritor] Repo davidpd89/web-escritor, rama main, commit {{HEAD_SHA}}; puedes leer el repo con tu conector de GitHub.
+Han fallado {{N}} tests de QA que comparten una causa probable (firma {{FIRMA}}). Analiza la CAUSA, no cada test por separado: si varios tests fallan por el mismo componente, descríbelo una sola vez.
+
+COMPORTAMIENTO ESPERADO (según la propuesta que originó cada test): {{ESPERADO}}
+TESTS AFECTADOS (item = rama@sha, propuesta, ruta): {{AFECTADOS}}
+ENTORNO: {{ENTORNO}}
+RESULTADO REAL (muestra representativa: comando, salida y aserción fallida): {{FALLOS}}
+
+CÓDIGO RELEVANTE:
+{{CODIGO}}
+
+Responde a estas preguntas para cada causa raíz distinta:
+1. ¿Es un defecto real del producto? 2. ¿Es un error del test? 3. ¿Es un fallo de infraestructura? 4. ¿Puede ser intermitente?
+5. ¿Cuál es la causa probable? 6. ¿Qué archivos habría que modificar? 7. ¿Qué solución concreta propones? 8. ¿Qué pruebas demuestran la corrección?
+9. ¿Qué otros componentes podrían verse afectados?
+
+Tu respuesta es una PROPUESTA que se validará contra el código real: no se ejecutará nada de lo que escribas. Por eso:
+- NO incluyas comandos de terminal para ejecutar; indica solo el comando de verificación en "reproduccion" (se interpreta, no se ejecuta tal cual).
+- El parche se expresa como sustituciones EXACTAS: "buscar" debe ser un fragmento literal del fichero actual que aparezca UNA sola vez, y "por" su reemplazo. Máximo 5 ficheros.
+- No propongas cambios en .github/, credenciales, pagos, Cloudflare/wrangler, package.json ni scripts/qa-gpt. Si el arreglo exige eso, deja "parche" en null y explícalo en "arreglo_propuesto".
+- Si el test es el que está mal, el parche modifica el TEST (ruta del test) y debe seguir comprobando el comportamiento esperado.
+- Si no estás seguro, di "confianza":"baja" y deja "parche" en null. Una respuesta honesta vale más que un parche inventado.
+
+Responde SOLO JSON válido:
+{"grupos":[{"causa_raiz":"...","clase":"defecto_web|test_roto|flaky|infraestructura","es_defecto_producto":true,"es_error_test":false,"es_infra":false,"intermitente":false,
+"propuestas":[ids afectados],"comportamiento_esperado":"...","comportamiento_observado":"...","evidencia":"cita del log/código","hipotesis":"causa probable",
+"archivos_a_modificar":["ruta"],"reproduccion":"comando de verificación y resultado esperado","arreglo_propuesto":"solución concreta en prosa",
+"parche":{"ficheros":[{"ruta":"...","reemplazos":[{"buscar":"fragmento exacto único","por":"nuevo texto"}]}]},
+"pruebas_que_lo_demuestran":["tests que deben pasar tras el arreglo"],"componentes_afectados":["..."],"confianza":"alta|media|baja"}]}
