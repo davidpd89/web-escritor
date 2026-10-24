@@ -9,7 +9,7 @@ from pathlib import Path
 HERE=Path(__file__).resolve().parents[1]
 ROOT=HERE.parents[1]
 sys.path[:0]=[str(HERE),str(Path(__file__).parent)]
-import rotacion, descubrimiento, claude_cli, gpt_browser, pr_laboratorio
+import rotacion, descubrimiento, claude_cli, gpt_browser, pr_laboratorio, verificar_upstream
 
 FINAL={"sin_fuente","rechazada","pendiente_revision","pr_borrador","validado_local"}
 CLAUDE_SCHEMA={"type":"object","required":["decision","motivo","criterio_aceptacion","riesgo"],
@@ -179,6 +179,7 @@ def paso(d,simular=False,publicar=False):
                 s["investigacion"]["fuente_url"]=s["fuente"]["url"]
             else:
                 s["investigacion"]=validar_investigacion(llamar_gpt(s,d,"investigacion",prompt_investigar(s)),s["fuente"])
+                s["verificacion_upstream"]=verificar_upstream.verificar(s["investigacion"],s["fuente"])
             s["fase"]="gpt_completo"
         elif etapa=="gpt_completo":
             s["revision"]=revisar(s,d,simular)
