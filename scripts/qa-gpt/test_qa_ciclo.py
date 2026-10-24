@@ -182,5 +182,16 @@ class PrFlujo(T.Base):
             self.assertNotIn("check-asset-versions.py", nombres(["libros/a.html"]))
 
 
+class Perdidas(T.Base):
+    def test_reparar_perdidas_devuelve_a_aceptada_solo_la_que_perdio_su_fichero(self):
+        r1, sha1, p1 = self.preparar("pierde", OK_PY); r2, sha2, p2 = self.preparar("intacta", OK_PY)
+        g("checkout", "-q", r1, cwd=self.src); g("rm", "-q", "tests/test-pierde.py", cwd=self.src); g("commit", "-qm", "rollback", cwd=self.src)
+        nuevo = g("rev-parse", "HEAD", cwd=self.src); g("checkout", "-q", "main", cwd=self.src)
+        self.c.execute("UPDATE ramas SET sha=? WHERE rama=?", (nuevo, r1)); self.c.commit()
+        self.assertEqual(q.reparar_perdidas(self.c), 1)
+        self.assertEqual((self.prop(p1), self.prop(p2)), ("aceptada", "preparada"))
+        self.assertEqual(q.reparar_perdidas(self.c), 0)  # idempotente
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)
