@@ -31,6 +31,11 @@ $python = Get-Command python.exe -ErrorAction SilentlyContinue
 if (!$python) { throw 'Python 3 no encontrado en PATH.' }
 & $python.Source (Join-Path $PSScriptRoot 'verificar.py')
 if ($LASTEXITCODE -ne 0) { throw 'Catalogo de investigaciones invalido.' }
+if ($Simular) {
+    Write-Host 'SIMULACION sin navegador, llamadas a IA ni PR.'
+    & $python.Source (Join-Path $PSScriptRoot 'motor/ciclo.py') --simular
+    exit $LASTEXITCODE
+}
 # Seleccion offline recuperable. No inicia llamadas a GPT ni Claude.
 $selector = @((Join-Path $PSScriptRoot 'rotacion.py'))
 if ($IdeaId) {
@@ -50,11 +55,6 @@ Write-Host ("Canal: {0} | Familia: {1}" -f $job.tarea.canal, $job.tarea.familia)
 Write-Host "GPT: experimentos/mejoras-web/contratos/GPT-INVESTIGAR.md"
 Write-Host "Claude: experimentos/mejoras-web/contratos/CLAUDE-REVISAR.md"
 Write-Host "No se ha enviado nada a GPT/Claude: orquestador local aun pendiente."
-if ($Simular) {
-    Write-Host 'SIMULACION sin navegador, consultas ni PR.'
-    & $python.Source (Join-Path $PSScriptRoot 'motor/ciclo.py') --simular
-    exit $LASTEXITCODE
-}
 if (-not $SoloVista) {
     if (-not $env:LAB_MEJORAS_PROJECT_ID) { throw 'Configura LAB_MEJORAS_PROJECT_ID con el ID de tu Project ChatGPT de mejoras antes de iniciar la automatizacion real.' }
     if (-not (Get-Command gh -ErrorAction SilentlyContinue)) { throw 'Falta GitHub CLI (gh).' }
