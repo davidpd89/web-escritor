@@ -109,11 +109,11 @@ def workflows_que_ejecutan(rutas, textos, preferidos=()):
 class Lote:
     def __init__(self, q, gh=None, runner=run_cmd, sleep=time.sleep, out=print, cfg=None):
         self.q, self.gh, self.runner, self.sleep, self.out = q, gh or Gh(q), runner, sleep, out
-        self.cfg = {"concurrencia": 2, "max_horas": 8, "poll_s": 30, "timeout_test_s": 300, "reintentos_infra": 3, "puerto_estatico": 4173,
+        self.cfg = {"concurrencia": 3, "max_horas": 8, "poll_s": 30, "timeout_test_s": 300, "reintentos_infra": 3, "puerto_estatico": 4173,
                     "node_modules": r"C:\GIT\web-escritor\node_modules", "actions_siempre": False, **q.CFG.get("lote", {}), **(cfg or {})}
         self.dir = q.STATE / "lote"; self.dir.mkdir(parents=True, exist_ok=True)
         self.c = q.db(); self.c.execute("PRAGMA busy_timeout=180000")
-        self._refs = self._main = None; self._tocados, self._bases, self._podado = {}, {}, False  # lo que git ya contesto en este lote no se vuelve a preguntar
+        self.parando = None; self.interactivo = False; self._refs = self._main = None; self._tocados, self._bases, self._podado = {}, {}, False  # lo que git ya contesto en este lote no se vuelve a preguntar
 
     # ---------- persistencia ----------
     def git(self, *a, check=True): return self.q.git(*a, cwd=self.q.ROOT, check=check)  # ROOT en tiempo de llamada (las pruebas lo redirigen)
@@ -377,8 +377,55 @@ class Lote:
             elif est in ("enviado", "actions_pendiente", "actions_ejecutando") and actual == "aprobada": q.estado_prop(self.c, pid, "publicada", nota)
         self.c.commit()
 
+    # ---------- ejecutor progresivo (max 3 grupos remotos) ----------
+    VIVOS = ("enviado", "actions_pendiente", "actions_ejecutando")
+    MAX_GRUPOS = 3
+
+    def pedir_parada(self, motivo="parada solicitada"):
+        """Q, Ctrl+C o cerrar la consola: deja de LANZAR grupos nuevos. Los runs ya enviados a GitHub NO se cancelan."""
+        if not self.parando: self.parando = motivo
+
+    def tecla(self):
+        if not self.interactivo: return
+        try:
+            import msvcrt
+            while msvcrt.kbhit():
+                if msvcrt.getwch().lower() == "q": self.pedir_parada("tecla Q")
+        except ImportError: pass
+
+    def esperar(self, s):
+        if not self.interactivo: return self.sleep(s)
+        fin = time.time() + s
+        while time.time() < fin and not self.parando: self.tecla(); self.sleep(min(1, max(0, fin - time.time())))
+
+    def conteo(self, lid):
+        its = [self.item(i["clave"]) for i in self.items(lid)]
+        n = lambda *es: sum(1 for i in its if i["estado"] in es)
+        return {"lote": lid, "total": len(its), "esperando": n("preparada"), "validando": n("validacion_local"), "local_ok": n("local_ok"),
+                "enviados": n("enviado", "actions_pendiente"), "ejecutando": n("actions_ejecutando"),
+                "terminados": n("actions_ok", "actions_fallida", "defecto_demostrado", "a_triar", "fallo_test", "revision_humana", "infra"),
+                "aprobados": n("actions_ok"), "fallos_producto": n("defecto_demostrado", "a_triar"), "fallos_test": n("fallo_test", "actions_fallida"),
+                "infra": n("infra"), "revision": n("revision_humana"), "grupos_remotos": n(*self.VIVOS), "limite": self.MAX_GRUPOS,
+                "parando": self.parando, "fecha": self.q.now()}
+
+    def panel(self, lid):
+        k = self.conteo(lid)
+        try:
+            import qa_triaje; k["analisis_pendiente"] = len(qa_triaje.pendientes(self.c, self.dir))
+        except Exception: k["analisis_pendiente"] = 0
+        try: (self.dir / "ejecutor.json").write_text(json.dumps(k), encoding="utf-8")
+        except OSError: pass
+        if self.cfg.get("panel"):
+            tx = [f"EJECUTAR-ACTIONS-QA-GPT  lote #{lid}  {dt.datetime.now():%H:%M:%S}   [Q] parar tras guardar  [Ctrl+C] parada controlada",
+                  f"  Grupos en GitHub ahora: {k['grupos_remotos']}/{k['limite']}   (cerrar esta ventana NO cancela los runs ya enviados)",
+                  f"  Esperando {k['esperando']} | validando en local {k['validando']} | listos para enviar {k['local_ok']} | enviados {k['enviados']} | ejecutando {k['ejecutando']}",
+                  f"  Terminados {k['terminados']}/{k['total']}: aprobados {k['aprobados']} | fallos de producto {k['fallos_producto']} | fallos del test {k['fallos_test']} | infraestructura {k['infra']} | revision humana {k['revision']}",
+                  f"  Pendientes de analisis GPT: {k['analisis_pendiente']}" + (f"   >>> {k['parando']}: no se lanzan grupos nuevos" if k["parando"] else "")]
+            print("\x1b[H\x1b[J" + "\n".join(tx), flush=True)
+        return k
+
     def ejecutar(self):
-        q = self.q; t_fin = time.time() + self.cfg["max_horas"] * 3600
+        q = self.q; t_fin = time.time() + self.cfg["max_horas"] * 3600; cap = max(1, min(self.MAX_GRUPOS, int(self.cfg["concurrencia"])))
         try: self.gh.ok(); gh_ok = True
         except GhAuthError as e: gh_ok = False; self.log(f"GitHub RECHAZA el token ({str(e)[:80]}): ejecuta `gh auth login` (o `gh auth refresh -s repo`). Se valida en local; los envios quedan para el siguiente clic")
         except (GhError, OSError) as e: gh_ok = False; self.log(f"GitHub no disponible ({str(e)[:80]}): se valida en local y se reintenta el envio en el siguiente clic")
@@ -387,38 +434,52 @@ class Lote:
             import qa_viaa; qa_viaa.ejecutar(self.c, q, q.ROOT, out=self.log)
         except Exception as e: self.log(f"Via A: fallo de infraestructura ({str(e)[:120]}); se continua con los tests")
         lid = self.abrir_lote()
-        for it in self.items(lid):  # reconciliar lo ya enviado en ejecuciones anteriores
-            if it["estado"] in ("enviado", "actions_pendiente", "actions_ejecutando") and gh_ok: self.reconciliar(self.item(it["clave"]))
-        for it in self.items(lid):
-            it = self.item(it["clave"])
-            if it["estado"] in ("preparada", "validacion_local") or (it["estado"] in REINTENTABLES and not it["local_log"]): self.validar_local(it)
-        activos = {}
+        if gh_ok:
+            for it in self.items(lid):  # recuperar lo enviado en ejecuciones anteriores (run ids existentes) antes de lanzar nada
+                if it["estado"] in self.VIVOS: self.reconciliar(self.item(it["clave"]))
         while True:
+            self.tecla()
             its = [self.item(i["clave"]) for i in self.items(lid)]
             if gh_ok:
                 for it in its:
-                    if it["estado"] == "infra" and it["intentos"] < self.cfg["reintentos_infra"]:
-                        if it["local_clase"] == "infra": self.set(it["clave"], "preparada", "reintento local tras fallo de infraestructura"); self.validar_local(self.item(it["clave"]))
+                    if it["estado"] == "infra" and it["intentos"] < self.cfg["reintentos_infra"] and not self.parando:
+                        if it["local_clase"] == "infra": self.set(it["clave"], "preparada", "reintento local tras fallo de infraestructura")
                         else: self.set(it["clave"], "local_ok", "reintento de envio tras fallo de infraestructura", intentos=it["intentos"] + 1)
                 its = [self.item(i["clave"]) for i in self.items(lid)]
-                vivos = [i for i in its if i["estado"] in ("enviado", "actions_pendiente", "actions_ejecutando")]
-                for it in [i for i in its if i["estado"] == "local_ok"]:
-                    if len(vivos) >= self.cfg["concurrencia"]: break
-                    self.enviar(it); vivos.append(it)
-                for it in [self.item(i["clave"]) for i in vivos]:
-                    r = self.reconciliar(it) if it["estado"] in ("enviado", "actions_pendiente", "actions_ejecutando") else None
-                    if r and str(r).startswith("gh:"): self.log(f"GitHub no responde ({r[3:60]}); se reintenta"); gh_ok = False
+                vivos = [i for i in its if i["estado"] in self.VIVOS]
+                for it in [self.item(i["clave"]) for i in vivos]:  # primero liberar capacidad
+                    r = self.reconciliar(it)
+                    if r and str(r).startswith("gh:"): self.log(f"GitHub no responde ({r[3:60]}); se reintenta"); gh_ok = False; break
                 its = [self.item(i["clave"]) for i in self.items(lid)]
-            pendientes = [i for i in its if i["estado"] in ("enviado", "actions_pendiente", "actions_ejecutando", "local_ok")]
+                libres = cap - sum(1 for i in its if i["estado"] in self.VIVOS)
+                if not self.parando:
+                    for it in [i for i in its if i["estado"] == "local_ok"][:max(0, libres)]: self.enviar(it)
+            por_validar = [self.item(i["clave"]) for i in self.items(lid)]
+            por_validar = [i for i in por_validar if i["estado"] in ("preparada", "validacion_local") or (i["estado"] in REINTENTABLES and not i["local_log"])]
+            if por_validar and not self.parando:
+                # con GitHub caido se valida todo (el envio espera al siguiente clic); con GitHub activo, de uno en uno para no frenar los envios
+                for it in (por_validar if not gh_ok else por_validar[:1]):
+                    if self.parando: break
+                    self.validar_local(it)
+                self.panel(lid)
+                if gh_ok: continue
+            its = [self.item(i["clave"]) for i in self.items(lid)]
+            self.panel(lid)
+            pendientes = [i for i in its if i["estado"] in self.VIVOS + ("local_ok",)]
+            if self.parando and not [i for i in its if i["estado"] in self.VIVOS]: break
             if not pendientes or not gh_ok or time.time() > t_fin: break
-            self.sleep(self.cfg["poll_s"])
+            self.esperar(self.cfg["poll_s"])
         for it in self.items(lid): self.cerrar_propuestas(self.item(it["clave"]))
         its = self.items(lid)
-        # local_ok que no llegaron a GitHub (sin conexion) siguen abiertos; el lote se cierra solo cuando todo es final
         cerrado = all(i["estado"] in ESTADOS_FINALES for i in its)
         resumen = {}; [resumen.__setitem__(i["estado"], resumen.get(i["estado"], 0) + 1) for i in its]
         self.c.execute("UPDATE lotes SET estado=?,fin=?,resumen=? WHERE id=?", ("cerrado" if cerrado else "en_curso", q.now() if cerrado else None, json.dumps(resumen), lid)); self.c.commit()
-        self.log(f"Lote #{lid}: {resumen}" + ("" if cerrado else "  (quedan trabajos abiertos: vuelve a pulsar el BAT para reanudar)"))
+        try:
+            import qa_triaje; n, _ = qa_triaje.encolar(q, self.c)  # el analisis GPT va a la cola del worker: EJECUTAR no lo espera
+            if n: self.log(f"{n} causa(s) de fallo encoladas para analisis GPT (no bloquea)")
+        except Exception as e: self.log(f"Encolado de analisis omitido ({str(e)[:100]})")
+        self.panel(lid)
+        self.log(f"Lote #{lid}: {resumen}" + ("" if cerrado else "  (quedan trabajos abiertos: vuelve a pulsar el BAT para reanudar)") + (f"  [{self.parando}]" if self.parando else ""))
         (self.dir / "ultimo.json").write_text(json.dumps({"lote": lid, "fecha": q.now(), "cerrado": cerrado, "resumen": resumen}), encoding="utf-8")
         return 0
 
@@ -436,8 +497,30 @@ class LoteLock:
     def __exit__(self, *a): self.p.unlink(missing_ok=True)
 
 
+def instalar_parada(lo):
+    """Ctrl+C, cierre de consola y Q solo DEJAN de lanzar grupos nuevos; nunca cancelan runs de GitHub."""
+    import signal
+    signal.signal(signal.SIGINT, lambda *a: lo.pedir_parada("Ctrl+C"))
+    try: signal.signal(signal.SIGBREAK, lambda *a: lo.pedir_parada("cierre de ventana"))
+    except (AttributeError, ValueError): pass
+    if os.name == "nt":
+        try:
+            import ctypes
+            H = ctypes.WINFUNCTYPE(ctypes.c_int, ctypes.c_uint)
+            def al_cerrar(t):
+                if t not in (0, 1, 2, 5, 6): return 0
+                lo.pedir_parada("cierre de ventana" if t != 0 else "Ctrl+C")
+                if t in (2, 5, 6): time.sleep(8)  # margen para guardar estado antes de que Windows mate el proceso
+                return 1
+            lo._h = H(al_cerrar)
+            ctypes.windll.kernel32.SetConsoleCtrlHandler(lo._h, True)
+        except Exception: pass
+
+
 def main(q, a=None):
-    with LoteLock(q): return Lote(q).ejecutar()
+    with LoteLock(q):
+        lo = Lote(q, cfg={"panel": sys.stdout.isatty()}); lo.interactivo = sys.stdin.isatty()
+        instalar_parada(lo); return lo.ejecutar()
 
 
 def bloque_estado(q, c):

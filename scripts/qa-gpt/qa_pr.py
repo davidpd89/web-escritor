@@ -169,3 +169,16 @@ class Pr:
             shutil.rmtree(wt, ignore_errors=True)
         self.git("worktree", "prune")
         if rama: self.git("branch", "-D", rama)
+
+
+def correr(q, c, push=True, demo=False, limite=2, out=print):
+    """Prepara PR para las causas con parche validado aun sin PR. Como mucho `limite` por pasada; nunca fusiona."""
+    import qa_lote as L
+    pr = Pr(q, L.Gh(q), L.run_cmd, out)
+    for row in pr.candidatas(c)[:limite]:
+        est = pr.preparar(c, row, demo=demo, push=push); out(f"  PR {row['firma']}: {est}")
+
+
+def cmd_pr(q, a):
+    c = q.db(); correr(q, c, push=not getattr(a, "local", False), demo=getattr(a, "demo", False))
+    for r in c.execute("SELECT firma,clase,pr_estado,pr_url FROM triaje WHERE pr_estado IS NOT NULL"): print(" ", r["firma"], r["clase"], r["pr_estado"], r["pr_url"] or "")

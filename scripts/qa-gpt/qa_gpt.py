@@ -446,7 +446,10 @@ def ingest_answer(c, job, answer, herramientas):
     if not isinstance(data, dict): raise ValueError("la respuesta no es un objeto JSON")
     if job["tipo"] == "T":
         import qa_triaje; qa_triaje.ingest(sys.modules[__name__], c, job, data)
-        c.execute("UPDATE jobs SET estado='hecho',error=NULL,actualizado=? WHERE id=?", (now(), job["id"])); c.commit(); return
+        c.execute("UPDATE jobs SET estado='hecho',error=NULL,actualizado=? WHERE id=?", (now(), job["id"])); c.commit()
+        try: __import__("qa_pr").correr(sys.modules[__name__], c)  # defecto real con parche validado -> PR (sin merge); un fallo aqui no afecta al analisis
+        except Exception as e: print(f"  PR automatica omitida: {str(e)[:160]}")
+        return
     n_leidos = validar_lectura(data, herramientas)
     area = job["area"]
     if job["tipo"] == "R":
@@ -886,8 +889,7 @@ def paso_servicio(c):
     job = next_job(c)
     if job is None:  # fallos sin triar: un job T por tanda (el servicio nunca ejecuta tests; solo analiza los ya fallados)
         import qa_triaje
-        for it in qa_triaje.pendientes(c):
-            enqueue(c, "T", "triaje:" + it["item"].split("@")[0].split("/")[-1], it, "T:" + it["item"])
+        qa_triaje.encolar(sys.modules[__name__], c)  # un job por causa (firma), no por test
         job = next_job(c)
     if job is None:
         elegido = elegir_modo(c)
@@ -1229,6 +1231,7 @@ def main():
     add(["nightly-run", "lote-nocturno"], cmd_nightly, (["--confirmar"], dict(action="store_true")))
     add(["morning-report", "informe-matinal"], cmd_morning)
     add(["ejecutar-actions"], lambda a: __import__("qa_lote").main(sys.modules[__name__], a))
+    add(["pr"], lambda a: __import__("qa_pr").cmd_pr(sys.modules[__name__], a), (["--demo"], dict(action="store_true")), (["--local"], dict(action="store_true")))
     add(["triaje"], lambda a: __import__("qa_triaje").cmd_triaje(sys.modules[__name__], a))
     add(["contratos"], cmd_contratos, (["--completo"], dict(action="store_true")))
     add(["coste-actions"], lambda a: __import__("qa_coste").main(sys.modules[__name__], a))
