@@ -539,6 +539,42 @@
       "orden": 209,
       "slug": "tema-comic-juvenil",
       "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Novela romántica juvenil.",
+      "id": "tema-novela-romantica-juvenil",
+      "nombre": "Novela romántica juvenil",
+      "orden": 210,
+      "slug": "tema-novela-romantica-juvenil",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Deporte.",
+      "id": "tema-deporte",
+      "nombre": "Deporte",
+      "orden": 211,
+      "slug": "tema-deporte",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Viajes.",
+      "id": "tema-viajes",
+      "nombre": "Viajes",
+      "orden": 212,
+      "slug": "tema-viajes",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Naturaleza.",
+      "id": "tema-naturaleza",
+      "nombre": "Naturaleza",
+      "orden": 213,
+      "slug": "tema-naturaleza",
+      "tipo": "tematica"
     }
   ],
   "libro_categorias": [
@@ -1405,6 +1441,86 @@
     {
       "categoria_id": "adultos",
       "libro_id": "isbn-9788410442771"
+    },
+    {
+      "categoria_id": "clasicos",
+      "libro_id": "isbn-9788491057031"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788491057031"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788491057031"
+    },
+    {
+      "categoria_id": "tema-novela-romantica-juvenil",
+      "libro_id": "isbn-9791388222801"
+    },
+    {
+      "categoria_id": "romance",
+      "libro_id": "isbn-9791388222801"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9791388222801"
+    },
+    {
+      "categoria_id": "tema-deporte",
+      "libro_id": "isbn-9791388222801"
+    },
+    {
+      "categoria_id": "juvenil",
+      "libro_id": "isbn-9791388222801"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9791387740382"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387740382"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-9-anos",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "tema-familia",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "tema-viajes",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "tema-naturaleza",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-4-anos",
+      "libro_id": "isbn-9791387809829"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791387809829"
     }
   ],
   "libros": [
@@ -4558,6 +4674,236 @@
       "sinopsis_tipo": "extracto_editorial",
       "slug": "cocina-para-cara-almendras-9788410442771",
       "titulo": "Cocina para cara almendras"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788491057031&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Virginia Woolf"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La señora Dalloway  (edición especial limitada con cantos tintados), de Virginia Woolf. Edición de Penguin Clásicos en castellano, en tapa dura. Consta de 264 páginas. La editorial la incluye en grandes clásicos. Publicación editorial: 2026-10-22.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · Penguin Clásicos",
+      "editorial": "Penguin Clásicos",
+      "editorial_catalogo_slug": "penguin-clasicos",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-24",
+      "fecha_publicacion": "2026-10-22",
+      "fecha_verificacion": "2026-10-24",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-clasicos/621386-libro-la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-clasicos/621386-libro-la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-clasicos/621386-libro-la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031",
+      "id": "isbn-9788491057031",
+      "idioma": "es",
+      "isbn13": "9788491057031",
+      "numero_paginas": 264,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-24",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8059943-thickbox_default/la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788491057031.webp",
+      "pvp_centimos": 1695,
+      "pvp_fecha_verificacion": "2026-10-24",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-24",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788491057031"
+        }
+      ],
+      "sinopsis_breve": "La historia comienza una soleada mañana de 1923 y termina esa misma noche, cuando empiezan a retirarse los invitados de una fiesta que se…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-clasicos/621386-libro-la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031",
+      "titulo": "La señora Dalloway  (edición especial limitada con cantos tintados)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388222801&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Susanna Herrero"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Solo un juego más (CAR HOCKEY 1), de Susanna Herrero. Edición de Montena en castellano, en tapa blanda con sobrecubierta. Consta de 480 páginas. La editorial la incluye en novela romántica juvenil. Publicación editorial: 2026-10-22.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Juvenil",
+      "edicion": "Tapa blanda con sobrecubierta · Montena",
+      "editorial": "Montena",
+      "editorial_catalogo_slug": "montena",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-24",
+      "fecha_publicacion": "2026-10-22",
+      "fecha_verificacion": "2026-10-24",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/635010-libro-solo-un-juego-mas-car-hockey-1-9791388222801",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/635010-libro-solo-un-juego-mas-car-hockey-1-9791388222801",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/635010-libro-solo-un-juego-mas-car-hockey-1-9791388222801",
+      "id": "isbn-9791388222801",
+      "idioma": "es",
+      "isbn13": "9791388222801",
+      "numero_paginas": 480,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-24",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8155881-thickbox_default/solo-un-juego-mas-car-hockey-1.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388222801.webp",
+      "pvp_centimos": 2095,
+      "pvp_fecha_verificacion": "2026-10-24",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-24",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388222801"
+        }
+      ],
+      "sinopsis_breve": "Cannon Donnelly acabó la carrera de Matemáticas summa cum laude y no sabe qué hacer con su vida, hasta que el entrenador del equipo…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/635010-libro-solo-un-juego-mas-car-hockey-1-9791388222801",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "solo-un-juego-mas-car-hockey-1-9791388222801",
+      "titulo": "Solo un juego más (CAR HOCKEY 1)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387740382&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jo Nesbo"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Sin piedad (Harry Hole 14), de Jo Nesbo. Edición de Reservoir Books en castellano, en tapa blanda con solapas. Consta de 488 páginas. La editorial la incluye en novela negra, misterio y thriller. Publicación editorial: 2026-11-05.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Reservoir Books",
+      "editorial": "Reservoir Books",
+      "editorial_slug": "reservoir-books",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-24",
+      "fecha_publicacion": "2026-11-05",
+      "fecha_verificacion": "2026-10-24",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637804-libro-sin-piedad-harry-hole-14-9791387740382",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637804-libro-sin-piedad-harry-hole-14-9791387740382",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637804-libro-sin-piedad-harry-hole-14-9791387740382",
+      "id": "isbn-9791387740382",
+      "idioma": "es",
+      "isbn13": "9791387740382",
+      "numero_paginas": 488,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-24",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8182091-thickbox_default/sin-piedad-harry-hole-14.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387740382.webp",
+      "pvp_centimos": 2390,
+      "pvp_fecha_verificacion": "2026-10-24",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-24",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387740382"
+        }
+      ],
+      "sinopsis_breve": "Harry Hole ha encontrado trabajo en una compañía de seguros, investigando posibles fraudes de sus clientes. Podría ser pan comido si Harry no se…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637804-libro-sin-piedad-harry-hole-14-9791387740382",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "sin-piedad-harry-hole-14-9791387740382",
+      "titulo": "Sin piedad (Harry Hole 14)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388277085&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jose Such"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Pipoka y la Fábrica del Desastre, de Jose Such. Edición de Alfaguara en castellano, en tapa dura. Consta de 288 páginas. La editorial la incluye en a partir de 9 años. Publicación editorial: 2026-10-22.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 9 años",
+      "edicion": "Tapa dura · Alfaguara",
+      "editorial": "Alfaguara",
+      "editorial_slug": "alfaguara",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-24",
+      "fecha_publicacion": "2026-10-22",
+      "fecha_verificacion": "2026-10-24",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634630-libro-pipoka-y-la-fabrica-del-desastre-9791388277085",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634630-libro-pipoka-y-la-fabrica-del-desastre-9791388277085",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634630-libro-pipoka-y-la-fabrica-del-desastre-9791388277085",
+      "id": "isbn-9791388277085",
+      "idioma": "es",
+      "isbn13": "9791388277085",
+      "numero_paginas": 288,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-24",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8278616-thickbox_default/pipoka-y-la-fabrica-del-desastre.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388277085.webp",
+      "pvp_centimos": 1995,
+      "pvp_fecha_verificacion": "2026-10-24",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-24",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388277085"
+        }
+      ],
+      "sinopsis_breve": "Un cuentacuentos errante y una marioneta llena de magia recorren la Península descubriendo paisajes y criaturas legendarias. Son Pipoka y Leo, van de pueblo…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634630-libro-pipoka-y-la-fabrica-del-desastre-9791388277085",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "pipoka-y-la-fabrica-del-desastre-9791388277085",
+      "titulo": "Pipoka y la Fábrica del Desastre"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387809829&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Sally Rippin"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico, de Sally Rippin. Edición de Montena en castellano, en tapa blanda. Consta de 48 páginas. La editorial la incluye en a partir de 4 años. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 4 años",
+      "edicion": "Tapa blanda · Montena",
+      "editorial": "Montena",
+      "editorial_catalogo_slug": "montena",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-24",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-24",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/635007-libro-aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/635007-libro-aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/635007-libro-aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829",
+      "id": "isbn-9791387809829",
+      "idioma": "es",
+      "isbn13": "9791387809829",
+      "numero_paginas": 48,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-24",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8132643-thickbox_default/aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387809829.webp",
+      "pvp_centimos": 795,
+      "pvp_fecha_verificacion": "2026-10-24",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-24",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387809829"
+        }
+      ],
+      "sinopsis_breve": "- ¡Y una historia de lo más divertida protagonizada por un grupo de monstruos!",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/635007-libro-aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829",
+      "titulo": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico"
     }
   ],
   "schema_version": 1
