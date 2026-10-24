@@ -1,9 +1,23 @@
 #!/usr/bin/env python3
 import argparse, html, json, re
 from pathlib import Path
+from urllib.parse import urlparse
 
 SLUG_RE=re.compile(r'^[a-z0-9-]+$')
 ALLOWED_REL={'book-setting','filming-location','inspiration','writer-route','library','bookshop','book-town','fact-check','mixed','library-list'}
+
+
+def valid_https_url(url):
+    try:
+        if not isinstance(url, str) or any(c.isspace() or ord(c) < 32 or ord(c) == 127 for c in url):
+            return False
+        parsed=urlparse(url)
+        return (parsed.scheme == 'https' and bool(parsed.netloc)
+                and bool(parsed.hostname) and parsed.username is None
+                and parsed.password is None and '@' not in parsed.netloc
+                and not parsed.fragment)
+    except ValueError:
+        return False
 
 
 def load(path:Path):
@@ -19,7 +33,7 @@ def load(path:Path):
         if item.get('category') not in cats: raise ValueError(f'categoría inválida en {slug}')
         if item.get('relationship') not in ALLOWED_REL: raise ValueError(f'relationship inválida en {slug}')
         urls=item.get('source_urls') or []
-        if not urls or any(not u.startswith('https://') for u in urls): raise ValueError(f'{slug}: requiere fuente HTTPS')
+        if not isinstance(urls, list) or not urls or any(not valid_https_url(u) for u in urls): raise ValueError(f'{slug}: requiere fuente HTTPS válida y sin credenciales')
         if item.get('status')=='published':
             image=item.get('image') or {}
             for key in ('src','alt','credit','license','source_url'):
