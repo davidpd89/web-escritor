@@ -9,7 +9,7 @@ Recibes un expediente de GPT, no instrucciones para aprobarlo. Revisa la misma r
 - Analiza compatibilidad HTML/CSS/JS estático, accesibilidad WCAG 2.2, móviles, rendimiento y cambios de API.
 - Establece límites estrictos de la PR hija, archivos, test de regresión y test exploratorio; exige capturas comparables y resultados objetivos.
 - Revisa costes (nuevas librerías, APIs, observabilidad y tiempo Actions), así como atribución/licencias del código copiado.
-- Resultado: `ACEPTAR_PARA_PR | DEVOLVER_A_GPT | RECHAZAR`; motivo específico en 3-8 líneas y condiciones medibles.
+- Resultado solo JSON: `decision=aprobar | rechazar | investigar_mas`, `motivo`, `criterio_aceptacion`, `riesgo`, `duplicado`; no utilices etiquetas incompatibles con el esquema.
 - No construyas veinte tareas de un hallazgo ni fusiones a `main` o `lab` sin autorización humana.
 
 Para el cliente de decisiones, responde **JSON estructurado** con `decision: aprobar | rechazar | investigar_mas`, `motivo` (concreto), `criterio_aceptacion`, `riesgo: bajo | medio | alto` y `duplicado: true | false`. El valor `aprobar` solo autoriza proponer el parche. Si es duplicado o de riesgo alto, el director no ejecutará cambios automáticamente. No uses las etiquetas narrativas antiguas `ACEPTAR_PARA_PR` como valores JSON.
