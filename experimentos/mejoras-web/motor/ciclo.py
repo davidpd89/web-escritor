@@ -39,15 +39,15 @@ def anotar(s,evento):
     s["actualizado"]=utc()
 
 
-def comando_rotacion(*args):
-    p=subprocess.run([sys.executable,str(HERE/"rotacion.py"),*args],
+def comando_rotacion(carpeta,*args):
+    p=subprocess.run([sys.executable,str(HERE/"rotacion.py"),"--estado-archivo",str(carpeta/"rotacion.json"),*args],
                      capture_output=True,text=True,encoding="utf-8",timeout=20)
     if p.returncode: raise RuntimeError("Rotacion: "+p.stderr[-500:])
     return json.loads(p.stdout)
 
 
 def reservar(carpeta):
-    res=comando_rotacion("--siguiente")
+    res=comando_rotacion(carpeta,"--siguiente")
     if res.get("disponible"): return res["tarea"],"catalogo"
     # El catalogo es solo una semilla. Tras agotarse, se repite la exploracion
     # sobre familias y canales; la novedad se decide por las fuentes reales.
@@ -72,6 +72,10 @@ def empezar(d):
 def cerrar(s,d):
     hist=leer(d/"historial.json",[])
     if any(x["id"]==s["id"] for x in hist): return
+    if s["tipo"]=="catalogo":
+        estado={"sin_fuente":"sin_evidencia","rechazada":"descartada",
+                "pendiente_revision":"pendiente_revision"}.get(s["fase"],"investigada")
+        comando_rotacion(d,"--resultado",estado)
     hist.append({"id":s["id"],"fase":s["fase"],"fecha":utc(),
                  "familia":s["tarea"]["familia"],"canal":s["tarea"]["canal"]})
     guardar(d/"historial.json",hist)
@@ -79,10 +83,6 @@ def cerrar(s,d):
         vistos=leer(d/"vistos.json",[])
         huella=descubrimiento.huella(s["fuente"])
         if huella not in vistos: guardar(d/"vistos.json",vistos+[huella])
-    if s["tipo"]=="catalogo":
-        estado={"sin_fuente":"sin_evidencia","rechazada":"descartada",
-                "pendiente_revision":"pendiente_revision"}.get(s["fase"],"investigada")
-        comando_rotacion("--resultado",estado)
 
 
 def json_respuesta(raw):
