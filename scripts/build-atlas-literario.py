@@ -46,6 +46,49 @@ def build(data,cats,out:Path):
     doc=f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Atlas literario | David Porto Díaz</title><meta name="description" content="Lugares de libros, bibliotecas extraordinarias, rutas literarias y huellas de escritores, investigados con fuentes y sin mezclar hechos con mitos."><link rel="canonical" href="https://davidportodiaz.com/atlas-literario/"><link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/atlas-literario.css"></head><body><main class="atlas-page" data-atlas-index><header class="atlas-hero"><p class="eyebrow">Atlas literario</p><h1>El mundo de los libros también existe fuera de las páginas.</h1><p class="lead">Lugares reales, bibliotecas, librerías y rutas investigadas con una regla: diferenciar texto, rodaje, inspiración, tradición y mito.</p></header><aside class="atlas-trust"><strong>Cómo verificamos:</strong> priorizamos fuentes oficiales y documentación primaria. Una asociación turística no se presenta como hecho literario si no está documentada.</aside><section class="atlas-filters" aria-label="Filtrar Atlas"><label>Buscar<input type="search" data-atlas-search placeholder="Libro, autor, ciudad o lugar"></label><label>Tipo<select data-atlas-category><option value="">Todo</option>{options}</select></label><p class="atlas-count" data-atlas-count></p></section><section class="atlas-grid">{cards}</section></main><script src="/assets/atlas-literario.js" defer></script></body></html>'''
     (out/'index.html').write_text(doc,encoding='utf-8')
     (out/'atlas-literario-public.json').write_text(json.dumps({'updated':data['updated'],'items':published},ensure_ascii=False,indent=2),encoding='utf-8')
+    for item in published:
+        slug=item['slug']
+        if not SLUG_RE.fullmatch(slug):
+            raise ValueError(f'slug inválido: {slug!r}')
+        target=out/slug
+        target.mkdir(parents=True,exist_ok=True)
+        esc=lambda value: html.escape(str(value),quote=True)
+        title=esc(item['title'])
+        summary=esc(item.get('summary',''))
+        category=esc(cats[item['category']])
+        country=esc(item.get('country',''))
+        relationship=esc(item.get('relationship',''))
+        image=item.get('image') or {}
+        image_html=''
+        if image.get('src'):
+            image_html=(
+                f'<figure><img src="{esc(image["src"])}" alt="{esc(image.get("alt",""))}" loading="lazy" decoding="async">'
+                f'<figcaption>{esc(image.get("credit",""))} — {esc(image.get("license",""))}</figcaption></figure>'
+            )
+        sources=''.join(
+            f'<li><a href="{esc(url)}" rel="noopener noreferrer">{esc(url)}</a></li>'
+            for url in item.get('source_urls',[])
+            if isinstance(url,str) and url.startswith('https://')
+        )
+        canonical=f'https://davidportodiaz.com/atlas-literario/{slug}/'
+        detail=(
+            '<!doctype html><html lang="es"><head><meta charset="utf-8">'
+            '<meta name="viewport" content="width=device-width,initial-scale=1">'
+            f'<title>{title} | Atlas literario</title>'
+            f'<meta name="description" content="{summary}">'
+            f'<link rel="canonical" href="{esc(canonical)}">'
+            '<link rel="stylesheet" href="/styles.css?v=202609-launch-1">'
+            '<link rel="stylesheet" href="/assets/atlas-literario.css">'
+            '</head><body><main class="atlas-page">'
+            '<nav aria-label="Navegación"><a href="/atlas-literario/">Atlas literario</a></nav>'
+            f'<article><header><p>{category} · {country}</p><h1>{title}</h1></header>'
+            f'<p class="lead">{summary}</p>{image_html}'
+            f'<p>Relación literaria: {relationship}</p>'
+            f'<p>Última verificación: {esc(item.get("verified_date",""))}</p>'
+            f'<section aria-label="Fuentes"><h2>Fuentes</h2><ul>{sources}</ul></section>'
+            '</article></main></body></html>'
+        )
+        (target/'index.html').write_text(detail,encoding='utf-8')
     return len(published)
 
 
