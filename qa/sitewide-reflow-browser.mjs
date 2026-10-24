@@ -396,7 +396,14 @@ const browser = await chromium.launch({
 });
 await fs.promises.mkdir(OUT_DIR, { recursive: true });
 
-const routes = collectRoutes();
+// Fragmentacion en CI: la ruta i pertenece al fragmento i % SHARD_TOTAL. Sin variables = todas las rutas.
+const SHARD_TOTAL = Math.max(1, Number(process.env.SHARD_TOTAL || 1));
+const SHARD_INDEX = Number(process.env.SHARD_INDEX || 0);
+if (!Number.isInteger(SHARD_INDEX) || SHARD_INDEX < 0 || SHARD_INDEX >= SHARD_TOTAL) {
+  throw new Error(`SHARD_INDEX ${process.env.SHARD_INDEX} fuera de 0..${SHARD_TOTAL - 1}`);
+}
+const routes = collectRoutes().filter((_, i) => i % SHARD_TOTAL === SHARD_INDEX);
+console.log(`[shard] ${SHARD_INDEX + 1}/${SHARD_TOTAL}: ${routes.length} rutas`);
 const reflowFailures = [];
 const reflowChecks = [];
 const targetFailures = [];
@@ -421,7 +428,15 @@ async function recordTargetAudit(page, route, vp, state) {
 // F.1 + legacy reflow: one context per route/viewport covers target-size
 // (default + expanded <details>) and the historical WCAG text-spacing +
 // zoom=2 reflow contract, byte-for-byte in meaning with the pre-F.1 gate.
+const progressStart = Date.now();
+const progress = (phase, i) => {
+  if (i % 25 === 0 || i === routes.length) {
+    console.log(`[progress] ${phase} ${i}/${routes.length} rutas, ${Math.round((Date.now() - progressStart) / 1000)}s`);
+  }
+};
+let routeIndex = 0;
 for (const route of routes) {
+  progress('reflow+target', ++routeIndex);
   for (const vp of VIEWPORTS) {
     const context = await browser.newContext({
       viewport: { width: vp.width, height: vp.height },
@@ -498,7 +513,9 @@ for (const route of routes) {
 // artifact names the failing contract instead of conflating it with the
 // legacy zoom-based reflow check above.
 if (TEXT_RESILIENCE_MODE !== 'off') {
+  let textIndex = 0;
   for (const route of routes) {
+    progress('text-resilience', ++textIndex);
     for (const vp of TEXT_RESILIENCE_VIEWPORTS) {
       for (const scenario of TEXT_RESILIENCE_SCENARIOS) {
         const result = await runScenario(browser, route, vp, scenario);
@@ -550,7 +567,7 @@ const FOCUS_JOURNEYS = [
 ];
 const focusChecks = [];
 const focusFailures = [];
-for (const journey of FOCUS_JOURNEYS) {
+for (const journey of SHARD_INDEX === 0 ? FOCUS_JOURNEYS : []) {
   for (const vp of FOCUS_VIEWPORTS) {
     const context = await browser.newContext({
       viewport: { width: vp.width, height: vp.height },
