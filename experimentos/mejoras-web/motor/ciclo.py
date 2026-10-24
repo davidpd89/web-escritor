@@ -149,10 +149,11 @@ def cerrar(s,d):
             estado={"sin_fuente":"sin_evidencia","rechazada":"descartada",
                     "pendiente_revision":"pendiente_revision"}.get(s["fase"],"investigada")
             comando_rotacion(d,"--resultado",estado)
-    if any(x["id"]==s["id"] for x in hist): return
-    hist.append({"id":s["id"],"fase":s["fase"],"fecha":utc(),
-                 "familia":s["tarea"]["familia"],"canal":s["tarea"]["canal"]})
-    guardar(d/"historial.json",hist)
+    if not any(x["id"]==s["id"] for x in hist):
+        hist.append({"id":s["id"],"fase":s["fase"],"fecha":utc(),
+                     "familia":s["tarea"]["familia"],"canal":s["tarea"]["canal"]})
+        guardar(d/"historial.json",hist)
+    # Reconciliar también fuentes si el proceso cayó DESPUÉS de guardar historial.
     if s.get("fuente") and s["fase"]!="sin_fuente":
         vistos=leer(d/"vistos.json",[])
         huella=descubrimiento.huella(s["fuente"])

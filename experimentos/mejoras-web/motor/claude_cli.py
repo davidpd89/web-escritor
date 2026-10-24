@@ -11,7 +11,7 @@ Una respuesta que no cumple el esquema NUNCA se convierte en decision: lanza Cla
 import hashlib, json, os, subprocess, threading, time
 from pathlib import Path
 
-DEFECTOS = {"modelo": "claude-sonnet-5-5", "esfuerzo": "low", "max_turnos": 2, "timeout_s": 240, "max_usd_llamada": 0.5}
+DEFECTOS = {"modelo": os.environ.get("LAB_CLAUDE_MODEL", "sonnet"), "esfuerzo": "low", "max_turnos": 2, "timeout_s": 240, "max_usd_llamada": 0.5}
 _LOCK = threading.Lock()   # un Claude CLI a la vez dentro del proceso
 _CLAUDE_EXE = None
 
@@ -33,16 +33,36 @@ def config(q):
 
 
 def exe():
-    """Ejecutable real de claude (no el .cmd de npm: evita el re-entrecomillado de cmd.exe con el esquema JSON)."""
+    """Resuelve ejecutable nativo de Claude Code; evita alias Claude Desktop y shims .cmd."""
     global _CLAUDE_EXE
-    if _CLAUDE_EXE: return _CLAUDE_EXE
+    if _CLAUDE_EXE:
+        return _CLAUDE_EXE
     import shutil
-    cand = [os.environ.get("LAB_CLAUDE_EXE", os.environ.get("QA_CLAUDE_EXE", ""))]
-    w = shutil.which("claude")
-    if w: cand.append(str(Path(w).with_name("node_modules") / "@anthropic-ai" / "claude-code" / "bin" / "claude.exe")); cand.append(w)
-    for x in cand:
-        if x and Path(x).exists(): _CLAUDE_EXE = x; return x
-    raise ClaudeError("claude CLI no encontrado (npm i -g @anthropic-ai/claude-code)")
+    override=os.environ.get("LAB_CLAUDE_EXE","").strip()
+    home=Path.home()
+    candidates=[override, str(home/".local"/"bin"/("claude.exe" if os.name=="nt" else "claude")),
+                shutil.which("claude.exe") if os.name=="nt" else None, shutil.which("claude")]
+    rechazados=[]
+    for candidate in candidates:
+        if not candidate:
+            continue
+        ruta=Path(candidate).expanduser()
+        if not ruta.is_file():
+            continue
+        loc=str(ruta).lower().replace("\\","/")
+        if ruta.suffix.lower() in (".cmd",".bat") or "/microsoft/windowsapps/" in loc:
+            rechazados.append(str(ruta))
+            continue
+        # Never assume the npm-global bin/claude.exe exists or is a runnable binary.
+        if ruta.suffix.lower()==".exe" and ruta.stat().st_size<1024:
+            rechazados.append(str(ruta))
+            continue
+        _CLAUDE_EXE=str(ruta)
+        return _CLAUDE_EXE
+    raise ClaudeError("Claude Code nativo no encontrado. Ejecuta 'claude --version'; "
+                      "instala CLI nativa en %USERPROFILE%\\.local\\bin o configura "
+                      "LAB_CLAUDE_EXE con la ruta ejecutable real. Rechazados: "+
+                      ", ".join(rechazados[:3]))
 
 
 def validar(dato, esquema, ruta="$"):

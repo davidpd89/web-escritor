@@ -36,6 +36,11 @@ if (!$edge) {
     if ($edgeCommand) { $edge = $edgeCommand.Source }
 }
 if (!$edge) { throw 'Microsoft Edge no encontrado. Instala Edge o configura su ruta.' }
+# Fallar antes de reservar una tarea: preflight no realiza llamadas a servicios.
+if (-not $SoloVista) {
+    & $python.Source (Join-Path $PSScriptRoot 'motor/preflight.py') --real
+    if ($LASTEXITCODE -ne 0) { throw 'Preflight fallido. Corrige requisitos antes de reservar.' }
+}
 # SoloVista nunca depende del catalogo ni reserva tareas.
 if (-not $SoloVista) {
     $stateCmd = "import sys;sys.path.insert(0, r'$PSScriptRoot');import rotacion;print(rotacion.ubicacion_estado().parent / 'ciclo' / 'rotacion.json')"
@@ -58,13 +63,6 @@ if (-not $SoloVista) {
         Write-Host ("Investigación: {0} | {1} | {2}" -f $job.tarea.id, $job.tarea.familia, $job.tarea.canal)
     }
 }
-if (-not $SoloVista) {
-    if (-not $env:LAB_MEJORAS_PROJECT_ID) { throw 'Configura LAB_MEJORAS_PROJECT_ID con el ID de tu Project ChatGPT de mejoras antes de iniciar la automatizacion real.' }
-    if (-not (Get-Command gh -ErrorAction SilentlyContinue)) { throw 'Falta GitHub CLI (gh).' }
-    if (-not (Get-Command claude -ErrorAction SilentlyContinue)) { throw 'Falta Claude Code CLI.' }
-    & $python.Source -c 'import playwright.sync_api'
-    if ($LASTEXITCODE -ne 0) { throw 'Falta playwright en este Python.' }
-}
 $env:LAB_MEJORAS_CDP_PORT = "$DebugPort"
 $profile = Join-Path $env:LOCALAPPDATA 'web-escritor-lab/edge-9331'
 New-Item -ItemType Directory -Force -Path $profile | Out-Null
@@ -74,7 +72,7 @@ try {
     if ($server.HasExited) { throw 'Servidor local no pudo arrancar.' }
     $url = "http://127.0.0.1:$SitePort/"
     $args = @("--remote-debugging-port=$DebugPort", '--remote-debugging-address=127.0.0.1', "--user-data-dir=`"$profile`"", '--no-first-run', $url)
-    Start-Process -FilePath $edge -ArgumentList $args | Out-Null
+    $edgeProcess = Start-Process -FilePath $edge -ArgumentList $args -PassThru
     Write-Host "Laboratorio: $url | Edge CDP 127.0.0.1:$DebugPort | rama $branch"
     if ($SoloVista) {
         Write-Host 'SoloVista: no se consulta GPT/Claude, pulsa Ctrl+C para cerrar.'
@@ -87,4 +85,7 @@ try {
     }
 } finally {
     if (!$server.HasExited) { Stop-Process -Id $server.Id -Force -ErrorAction SilentlyContinue }
+    if ($edgeProcess -and -not $edgeProcess.HasExited) {
+        Stop-Process -Id $edgeProcess.Id -Force -ErrorAction SilentlyContinue
+    }
 }

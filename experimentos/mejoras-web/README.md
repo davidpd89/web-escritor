@@ -79,3 +79,7 @@ Cada PR hija validada se archiva en `ciclo/propuestas/<hash>.json` y la última 
 ## Recuperación de respuesta GPT inválida
 
 Una respuesta vacía, incompleta o que no cumple los campos no se acepta. El director reintenta recuperar el mismo chat; si falla tres veces, se detiene y conserva `actual.json`. **Solo por decisión humana**, el comando `python experimentos/mejoras-web/motor/ciclo.py --reintentar-chat` archiva el chat anterior, libera esa fase y permite reconsultar GPT sin borrar el expediente ni crear PR duplicadas. No funciona en fases de Git/PR, que exigen recuperar el worktree por el procedimiento documentado.
+
+### Correcciones de preflight (código sin acciones CI)
+
+`motor/preflight.py --offline` verifica sintaxis de Python, versión, Git y la rama sin red. `--real` añade detección de Project ChatGPT, Playwright, Claude Code **nativo** y GitHub CLI, sin llamar a ninguno de esos servicios. `INICIAR-MEJORAS.ps1` lo ejecuta **antes de reservar**; así una instalación incompleta no bloquea la cola. `LAB_CLAUDE_MODEL` es configurable; por defecto usa el alias estable `sonnet` de Claude Code, evitando fijar nombres de modelo que podrían caducar. Si Claude Desktop suplanta el comando `claude`, configurar `LAB_CLAUDE_EXE` al ejecutable nativo. El lanzador cierra solamente el proceso de Edge que él inició; si quedaron procesos hijos, cerrar manualmente el perfil antes de reabrir.
