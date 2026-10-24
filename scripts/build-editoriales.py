@@ -230,6 +230,7 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
         # una cuarta copia del shell y se quedaron atras en cuanto el shell paso a
         # generarse. Ver scripts/site_shell.py.
         script = '<script src="/assets/editoriales.js?v=3" defer></script>' if js else ""
+        jsonld_text = json.dumps(jsonld, ensure_ascii=False, separators=(',', ':')).replace('<', r'\u003c')
         return f'''<!DOCTYPE html>
 <html lang="es" class="v1">
 <head>
@@ -280,7 +281,7 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
     <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
     <link rel="stylesheet" href="/assets/v1-tools.css?v=4" />
     <link rel="stylesheet" href="/assets/editoriales.css?v=3" />{"" if not extra_css else chr(10) + "    " + extra_css}
-    <script type="application/ld+json">{html.escape(json.dumps(jsonld, ensure_ascii=False, separators=(',', ':')), quote=False)}</script>
+    <script type="application/ld+json">{jsonld_text}</script>
 </head>
 
 <body>
