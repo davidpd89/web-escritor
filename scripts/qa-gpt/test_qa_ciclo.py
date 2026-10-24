@@ -253,7 +253,13 @@ class PrFlujo(T.Base):
         self.montar(); gh = self.GhCiclo(); gh.actualizadas = []; gh.pr_actualizar = lambda n: gh.actualizadas.append(n)
         pv = gh.pr_ver; gh.pr_ver = lambda n: {**pv(n), "mergeStateStatus": "BEHIND"}
         ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0}); ci.paso(self.c); ci.paso(self.c)
-        self.assertEqual(gh.merges, []); self.assertEqual(gh.actualizadas, [1])
+        self.assertEqual(gh.merges, []); self.assertEqual(set(gh.actualizadas), {1})  # reintenta en cada ciclo mientras siga BEHIND
+
+    def test_recomendada_ya_revisada_se_integra_al_cambiar_a_auto(self):
+        self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh, integracion={"modo": "recomendacion"}); ci.paso(self.c); ci.paso(self.c)
+        self.assertEqual(gh.merges, [])
+        q.CFG["flujo"]["integracion"] = {"modo": "auto", "calibracion_min": 0}; ci.paso(self.c)
+        self.assertEqual(gh.merges, [(1, "abc")])
 
     def test_desarrollo_se_encola_una_vez_por_intento_y_con_tope(self):
         row = self.montar(); qa_triaje.migrar(self.c)

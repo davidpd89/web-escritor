@@ -420,6 +420,7 @@ class Ciclo:
             v = self.gh.pr_ver(row["pr_numero"]); head = v.get("headRefOid"); ci = ci_estado(v.get("statusCheckRollup"))
             if v.get("mergeable") == "CONFLICTING": c.execute("UPDATE triaje SET integracion='conflicto',pr_head=? WHERE pr_numero=? AND pr_nueva=1", (head, row["pr_numero"])); c.commit(); continue
             if ci == "rojo": c.execute("UPDATE triaje SET integracion='ci_rojo',pr_head=? WHERE pr_numero=? AND pr_nueva=1", (head, row["pr_numero"])); c.commit(); r["ci_rojo"] = r.get("ci_rojo", 0) + 1; continue
+            if ci == "verde" and not v.get("isDraft") and row["revision_hash"] == head and row["integracion"] == "recomendada": self._integrar(c, row, head, v, cfg); continue  # ya revisada en este commit: solo falta fusionar (o actualizar la rama)
             if ci != "verde" or v.get("isDraft") or row["revision_hash"] == head or revisadas >= cfg["max_revisiones"]: continue
             rev = self.revisar(c, row, head); revisadas += 1; r["revisadas"] = revisadas
             if rev and rev["veredicto"] == "integrar" and rev["cumple_criterio"] and RIESGOS.index(rev["riesgo"]) <= RIESGOS.index(cfg["integracion"]["riesgo_max"]):
