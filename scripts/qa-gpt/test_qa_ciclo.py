@@ -223,6 +223,20 @@ class PrFlujo(T.Base):
         self.assertEqual((row[0], row[1]), ("recomendada", "abc")); self.assertEqual(gh.merges, [])
         ci.paso(self.c); self.assertEqual(self.c.execute("SELECT COUNT(*) FROM claude_llamadas").fetchone()[0], 0)  # revision cacheada por commit: no se repite
 
+    def test_modo_lote_valida_sin_abrir_pr_y_agrupa_cuando_no_hay_mas_trabajo(self):
+        self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh, modo_pr="lote")
+        r = ci.paso(self.c)
+        self.assertEqual(len(gh.prs), 1); rama, tit, cuerpo, borrador = gh.prs[0]
+        self.assertTrue(rama.startswith("qa-fix/lote-")); self.assertIn("Lote de 1", cuerpo); self.assertFalse(borrador)
+        self.assertEqual(r.get("lote_correcciones"), 1)
+        row = self.c.execute("SELECT pr_estado,pr_numero,pr_nueva FROM triaje").fetchone(); self.assertEqual(tuple(row), ("pr_abierta", 1, 1))
+
+    def test_modo_lote_espera_si_hay_menos_del_minimo_y_queda_trabajo(self):
+        self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh, modo_pr="lote", lote={"min": 3})
+        self.c.execute("INSERT INTO triaje (id,causa_raiz,clase,decision,pr_estado) VALUES (901,'otra','defecto_web','corregir','esperando_desarrollo')"); self.c.commit()
+        ci.paso(self.c)
+        self.assertEqual(gh.prs, []); self.assertEqual(self.c.execute("SELECT pr_estado FROM triaje WHERE id!=901").fetchone()[0], "listo_lote")
+
     def test_ci_rojo_no_se_revisa_ni_se_integra(self):
         self.montar(); gh = self.GhCiclo(ci="rojo"); ci = self.ciclo(gh); ci.paso(self.c); ci.paso(self.c)
         self.assertEqual(self.c.execute("SELECT integracion FROM triaje").fetchone()[0], "ci_rojo"); self.assertEqual(gh.merges, [])
