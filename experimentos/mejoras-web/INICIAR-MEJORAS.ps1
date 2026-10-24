@@ -7,6 +7,15 @@ if ($LASTEXITCODE -ne 0 -or !$branch) { throw 'No se pudo determinar la rama Git
 if (!(($branch -like 'lab/mejoras-*') -or ($branch -like 'research/mejoras-*') -or ($branch -like 'feature/mejoras-*'))) {
     throw "No se inicia desde '$branch'. Usa un worktree independiente lab/mejoras-* (nunca main)."
 }
+$python = Get-Command python.exe -ErrorAction SilentlyContinue
+if (!$python) { throw 'Python 3 no encontrado en PATH.' }
+& $python.Source (Join-Path $PSScriptRoot 'verificar.py')
+if ($LASTEXITCODE -ne 0) { throw 'Catalogo de investigaciones invalido.' }
+if ($Simular) {
+    Write-Host 'SIMULACION sin navegador, puertos, llamadas IA ni PR.'
+    & $python.Source (Join-Path $PSScriptRoot 'motor/ciclo.py') --simular
+    exit $LASTEXITCODE
+}
 function Test-Port([int]$port) {
     $client = New-Object System.Net.Sockets.TcpClient
     try {
@@ -27,15 +36,6 @@ if (!$edge) {
     if ($edgeCommand) { $edge = $edgeCommand.Source }
 }
 if (!$edge) { throw 'Microsoft Edge no encontrado. Instala Edge o configura su ruta.' }
-$python = Get-Command python.exe -ErrorAction SilentlyContinue
-if (!$python) { throw 'Python 3 no encontrado en PATH.' }
-& $python.Source (Join-Path $PSScriptRoot 'verificar.py')
-if ($LASTEXITCODE -ne 0) { throw 'Catalogo de investigaciones invalido.' }
-if ($Simular) {
-    Write-Host 'SIMULACION sin navegador, llamadas a IA ni PR.'
-    & $python.Source (Join-Path $PSScriptRoot 'motor/ciclo.py') --simular
-    exit $LASTEXITCODE
-}
 # SoloVista nunca depende del catalogo ni reserva tareas.
 if (-not $SoloVista) {
     $stateCmd = "import sys;sys.path.insert(0, r'$PSScriptRoot');import rotacion;print(rotacion.ubicacion_estado().parent / 'ciclo' / 'rotacion.json')"
