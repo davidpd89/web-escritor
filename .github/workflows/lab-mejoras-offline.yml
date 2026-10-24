@@ -1,0 +1,37 @@
+name: Laboratorio mejoras - tests offline
+
+on:
+  push:
+    branches:
+      - research/mejoras-web-orquestador-20261024
+      - 'feature/mejoras-web/**'
+    paths:
+      - 'experimentos/mejoras-web/**'
+      - '.github/workflows/lab-mejoras-offline.yml'
+  pull_request:
+    branches:
+      - lab/mejoras-web-20261024
+    paths:
+      - 'experimentos/mejoras-web/**'
+      - '.github/workflows/lab-mejoras-offline.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lab-mejoras-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  contrato-offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Validar catálogo
+        run: python experimentos/mejoras-web/verificar.py
+      - name: Ejercitar rotación, fuentes y flujo simulado
+        run: python -m unittest discover -s experimentos/mejoras-web -p 'test_*.py' -v
