@@ -192,11 +192,17 @@ def validate(data, root):
             require(isinstance(review["titulo"], str) and review["titulo"].strip() and https(review["url"]) and review["url"] not in seen_reviews, f"{name}: reseña sin título/URL o duplicada")
             day(review["fecha_verificacion"], name + ".reseña")
             seen_reviews.add(review["url"])
+    excluded_by_book = {}
+    for b in books:
+        excluded = b.get('categorias_excluidas', [])
+        require(isinstance(excluded, list) and all(isinstance(c, str) and c in ids for c in excluded), f"{b['id']}: exclusiones de categorías inválidas")
+        excluded_by_book[b['id']] = set(excluded)
     seen = set()
     for rel in relations:
         require(isinstance(rel, dict) and set(rel) == {"libro_id", "categoria_id"}, "Relación mal formada")
         pair = (rel["libro_id"], rel["categoria_id"])
         require(pair[0] in book_ids and pair[1] in ids and pair not in seen, "Relación duplicada o referencia inexistente")
+        require(pair[1] not in excluded_by_book[pair[0]], f"{pair[0]}: categoría {pair[1]} asignada y excluida simultáneamente")
         seen.add(pair)
     for b in books:
         if b["estado"] != "borrador":
