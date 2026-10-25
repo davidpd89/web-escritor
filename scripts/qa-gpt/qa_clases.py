@@ -10,7 +10,7 @@ Clases:
 import re
 
 INFRA = re.compile(r"ECONNRESET|ETIMEDOUT|ENOTFOUND|EADDRINUSE|rate limit|\b50[234]\b|\b429\b|Could not resolve host|runner.*lost|npm ERR! network|socket hang up|Timeout .*exceeded.*launch|TimeoutExpired", re.I)
-SIN_ENTORNO = re.compile(r"Cannot find package '(playwright|@playwright)|Executable doesn't exist|browserType\.launch.*(not found|doesn't exist)", re.I)
+SIN_ENTORNO = re.compile(r"Cannot find package '(playwright|@playwright)|Executable doesn't exist|browserType\.launch.*(not found|doesn't exist)|WinError 1314", re.I)  # 1314: sin privilegio de symlink en este Windows; no es culpa del test
 INVALIDO = re.compile(r"SyntaxError|IndentationError|TabError|ModuleNotFoundError|ImportError|Cannot find module|ERR_MODULE_NOT_FOUND|ERR_REQUIRE_ESM|ERR_UNKNOWN_FILE_EXTENSION|"
                       r"can't open file|is not recognized as an internal|spawn .* ENOENT", re.I)
 ASERCION = re.compile(r"AssertionError|ERR_ASSERTION|^FAIL\b|^\s*FAIL[: ]|^FAILED \(failures|\d+ (fallos?|failures?|failed)\b|^not ok\b", re.M | re.I)

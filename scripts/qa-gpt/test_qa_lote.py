@@ -295,6 +295,7 @@ class Clasificacion(unittest.TestCase):
         self.assertEqual(c(None, 1, "AssertionError: x", "descubre_defecto"), "defecto_demostrado")
         self.assertEqual(c(None, 1, "AssertionError [ERR_ASSERTION]", "regresion"), "fallo_test")
         self.assertEqual(c(None, 1, "Error: Cannot find package 'playwright'", "regresion"), "sin_entorno")
+        self.assertEqual(c(None, 1, "OSError: [WinError 1314] El cliente no dispone de un privilegio requerido", "regresion"), "sin_entorno")
         self.assertEqual(c(None, 1, "connect ECONNRESET", "regresion"), "infra")
         self.assertEqual(c(None, 1, "SyntaxError", "regresion"), "fallo_test")
 
