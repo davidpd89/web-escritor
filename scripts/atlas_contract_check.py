@@ -82,6 +82,14 @@ def problems(data: dict) -> list[str]:
             table[eid] = entry
         tables[category] = table
 
+    for category in ("authors", "places"):
+        for entry in tables[category].values():
+            if entry.get("status") == APPROVED and "official_url" in entry:
+                if not valid_https_url(entry["official_url"]):
+                    errors.append(
+                        f"{category}/{entry['id']}: official_url requiere URL HTTPS válida"
+                    )
+
     for category in ("destinations", "places", "routes"):
         seen: dict[str, str] = {}
         for entry in tables[category].values():
