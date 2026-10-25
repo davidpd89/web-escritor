@@ -219,6 +219,8 @@ def problems(data: dict) -> list[str]:
                 errors.append(f"{scope}: parada {stop!r} pertenece a otro destino")
             if route.get("status") == APPROVED:
                 require_approved("places", stop, scope)
+                if stop_place is not None and stop_place.get("geo_precision") == "unlocated":
+                    errors.append(f"{scope}: parada {stop!r} sin localización geográfica utilizable (unlocated)")
         if route.get("status") == APPROVED:
             require_approved("destinations", route.get("destination_id"), scope)
     for section in ("destinations", "places", "works", "authors", "adaptations", "routes"):
