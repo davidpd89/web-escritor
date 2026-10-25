@@ -162,7 +162,8 @@
     const scored = context.links.map(([href, label]) => {
       const linkPath = normalise(href);
       const exact = currentPath === linkPath;
-      const familyMatch = !exact && linkPath.endsWith('/') && linkPath !== '/' && currentPath.startsWith(linkPath);
+      const familyMatch = !exact && linkPath.endsWith('/') && linkPath !== '/' && currentPath.startsWith(linkPath)
+        && !(currentPath === '/lectores-beta/enviar-manuscrito/' && linkPath === '/lectores-beta/');
       return { href, label, linkPath, exact, familyMatch };
     });
     const exactMatch = scored.find((item) => item.exact);
