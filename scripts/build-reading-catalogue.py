@@ -657,7 +657,10 @@ def render_author(a,data,books,template):
     elif a.get('tipo') != 'bibliografico':
         person['sameAs']=[source['url'] for source in a['fuentes']]
     schema={'@context':'https://schema.org','@graph':[person,{'@type':'CollectionPage','@id':canonical,'url':canonical,'name':a['nombre']+' · Información y libros','mainEntity':{'@id':canonical+'#person'},'hasPart':[{'@id':SITE+url(b)+'#book'} for b in selected]},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':label,'item':SITE+href} for i,(label,href) in enumerate([('Inicio','/'),('Libros recomendados','/recomendaciones/'),(a['nombre'],author_url(a))])]}]}
-    return render_detail_page(template,main,canonical,a['nombre']+' · Información y libros | David Porto Díaz',bio,schema,selected[0] if selected else None)
+    meta_description = (a['nombre'] + ': descubre su trayectoria y ' + str(count) + (' libro recomendado' if count == 1 else ' libros recomendados') + ' en el catálogo de David Porto Díaz. Consulta sus obras, ediciones y editoriales.')
+    if len(meta_description) > 200:
+        meta_description = meta_description[:197].rsplit(' ', 1)[0].rstrip(' ,;:.') + '...'
+    return render_detail_page(template,main,canonical,a['nombre']+' · Información y libros | David Porto Díaz',meta_description,schema,selected[0] if selected else None)
 
 
 def _newest_first(books):
