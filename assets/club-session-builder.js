@@ -67,7 +67,10 @@ if (form) {
     const config = readConfig();
     lastSession = buildSession(config, variant);
     render(lastSession);
-    status.textContent = 'Sesión preparada en este dispositivo. Ningún título, tema o nombre se ha enviado a un servidor.';
+    const label = lastSession.title ? `«${lastSession.title}»` : 'tu club de lectura';
+    status.textContent = `Sesión generada para ${label}: resultado disponible a continuación. Ningún título, tema o nombre se ha enviado a un servidor.`;
+    output.setAttribute('tabindex', '-1');
+    output.focus();
     emit('club_session_generate', `${lastSession.duration}-${lastSession.kind}-${lastSession.tone}`);
   };
 
