@@ -48,10 +48,20 @@ for (const route of routes) {
         };
         const rect = (r) => r && [Math.round(r.x), Math.round(r.y), Math.round(r.width), Math.round(r.height)];
         window.__clsTrace = { total: 0, shifts: [] };
+        let sessionStart = 0;
+        let sessionLast = 0;
+        let sessionValue = 0;
         new PerformanceObserver((list) => {
           for (const entry of list.getEntries()) {
             if (entry.hadRecentInput) continue;
-            window.__clsTrace.total += entry.value;
+            if (sessionStart === 0 || entry.startTime - sessionLast >= 1000 || entry.startTime - sessionStart >= 5000) {
+              sessionStart = entry.startTime;
+              sessionValue = entry.value;
+            } else {
+              sessionValue += entry.value;
+            }
+            sessionLast = entry.startTime;
+            window.__clsTrace.total = Math.max(window.__clsTrace.total, sessionValue);
             window.__clsTrace.shifts.push({
               at: Math.round(entry.startTime),
               value: Number(entry.value.toFixed(5)),
