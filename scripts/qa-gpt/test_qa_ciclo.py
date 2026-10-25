@@ -370,6 +370,12 @@ class PrFlujo(T.Base):
         gh.runs = lambda wf, rama: [{"status": "completed", "conclusion": "failure", "headSha": "deadbeef00", "databaseId": 78, "attempt": 2}]
         ci2._freno_t = 0; self.assertIsNone(ci2._freno_main()); self.assertIn(78, encargados)  # relanzado en GitHub y rojo: Claude, sin bloqueo
 
+    def test_paso_vigila_main_aunque_no_haya_nada_que_fusionar(self):
+        gh = self.GhCiclo(); relanzados = []; gh.rerun_fallidos = relanzados.append
+        gh.runs = lambda wf, rama: [{"status": "completed", "conclusion": "failure", "headSha": "dead", "databaseId": 55, "attempt": 1}]
+        self.ciclo(gh).paso(self.c)  # sin triaje ni PR listas
+        self.assertEqual(relanzados, [55])
+
     def test_encargo_de_main_una_vez_aunque_se_reinicie(self):
         import qa_supervisor; self.montar(); gh = self.GhCiclo(); hechas = []; orig = qa_supervisor.Supervisor.reparar_main
         qa_supervisor.Supervisor.reparar_main = lambda self_, rid, log: hechas.append(rid); self.addCleanup(lambda: setattr(qa_supervisor.Supervisor, "reparar_main", orig))

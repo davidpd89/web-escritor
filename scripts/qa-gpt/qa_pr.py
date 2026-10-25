@@ -537,6 +537,9 @@ class Ciclo:
         import qa_triaje
         q, cfg = self.q, flujo(self.q); r = {}
         prs = self.gh.prs_abiertas(); abiertas = {p["number"]: p for p in prs}
+        # vigilancia de main en cada paso (no solo al ir a fusionar): un rojo se relanza o se encarga a Claude aunque no haya nada listo para fusionar
+        try: self._freno_main()
+        except Exception as e: self.out(f"  vigilancia de main omitida ({str(e)[:100]})")
         # PR nuevas que ya no estan abiertas: integradas (a mano o por el sistema) o cerradas
         activas = []
         for row in c.execute("SELECT * FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta'").fetchall():
