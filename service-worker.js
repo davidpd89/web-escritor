@@ -157,14 +157,32 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(staleWhileRevalidate(event, PAGE_CACHE));
 });
 
+function pageCacheKey(request) {
+  const url = new URL(request.url);
+  const trackingParams = new Set([
+    "fbclid", "gclid", "gbraid", "wbraid", "msclkid",
+    "dclid", "ttclid", "twclid"
+  ]);
+
+  for (const key of [...url.searchParams.keys()]) {
+    const normalizedKey = key.toLowerCase();
+    if (normalizedKey.startsWith("utm_") || trackingParams.has(normalizedKey)) {
+      url.searchParams.delete(key);
+    }
+  }
+
+  return new Request(url.toString());
+}
+
 async function networkFirstPage(request) {
   const pageCache = await caches.open(PAGE_CACHE);
+  const cacheKey = pageCacheKey(request);
   try {
     const response = await fetch(request);
-    await putIfCacheable(pageCache, request, response);
+    await putIfCacheable(pageCache, cacheKey, response);
     return response;
   } catch {
-    const cached = await pageCache.match(request);
+    const cached = await pageCache.match(cacheKey);
     if (cached) return cached;
     const staticCache = await caches.open(STATIC_CACHE);
     return (await staticCache.match("/offline.html")) || offlineResponse();
