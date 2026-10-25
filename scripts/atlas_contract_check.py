@@ -188,8 +188,28 @@ def problems(data: dict) -> list[str]:
         require("works", adaptation.get("original_work_id"), f"adaptations/{adaptation['id']}")
         if adaptation.get("status") == APPROVED:
             require_approved("works", adaptation.get("original_work_id"), f"adaptations/{adaptation['id']}")
+    seen_relationships: dict[tuple, str] = {}
     for relation in tables["relationships"].values():
         scope = f"relationships/{relation['id']}"
+        if relation.get("status") == APPROVED:
+            raw_sources = relation.get("source_ids")
+            if isinstance(raw_sources, list) and all(isinstance(source, str) for source in raw_sources):
+                semantic_key = (
+                    relation.get("place_id"),
+                    relation.get("subject_type"),
+                    relation.get("subject_id"),
+                    relation.get("relationship_type"),
+                    frozenset(raw_sources),
+                    relation.get("evidence_note"),
+                )
+                if all(isinstance(value, str) for value in semantic_key[:4]) and isinstance(semantic_key[5], str):
+                    previous_id = seen_relationships.get(semantic_key)
+                    if previous_id is not None:
+                        errors.append(
+                            f"{scope}: relación semántica duplicada de relationships/{previous_id}"
+                        )
+                    else:
+                        seen_relationships[semantic_key] = relation["id"]
         require("places", relation.get("place_id"), scope)
         typ = relation.get("relationship_type")
         required_subject = RELATIONS.get(typ)
