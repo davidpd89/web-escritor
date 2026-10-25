@@ -157,8 +157,8 @@ def validate_url(url: str) -> None:
     parts = urlsplit(url)
     if parts.scheme != "https" or parts.netloc != HOST:
         raise ValueError(f"IndexNow URL must be HTTPS on {HOST} without credentials or explicit ports: {url}")
-    if parts.fragment:
-        raise ValueError(f"IndexNow URL must not contain fragments: {url}")
+    if not parts.path.startswith('/') or '?' in url or '#' in url:
+        raise ValueError(f"IndexNow URL must have an absolute path without queries or fragments: {url}")
 
 
 def load_url_file(path: Path) -> list[str]:
