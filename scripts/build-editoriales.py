@@ -402,14 +402,14 @@ def render_index(site: str, records: list[dict], today: date) -> str:
     </header>
     <section class="tool-finder" aria-label="Filtrar editoriales">
         <div class="tool-options">
-            <div class="tool-field"><label class="tool-field-label" for="editoriales-q">Buscar</label><input class="tool-input" id="editoriales-q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Editorial, sello, género…" data-editoriales-search></div>
-            <div class="tool-field"><label class="tool-field-label" for="editoriales-genero">Género</label><select class="tool-select" id="editoriales-genero" data-editoriales-genre><option value="">Todos</option>{genre_options}</select></div>
-            <div class="tool-field"><label class="tool-field-label" for="editoriales-estado">Estado</label><select class="tool-select" id="editoriales-estado" data-editoriales-status><option value="">Todos</option><option value="open">Acepta manuscritos</option><option value="closed">Recepción cerrada</option><option value="indirect">Vía indirecta</option><option value="award_only">Solo convocatoria/premio</option><option value="unknown">Por verificar</option></select></div>
-            <div class="tool-field"><label class="tool-field-label" for="editoriales-pais">País</label><select class="tool-select" id="editoriales-pais" data-editoriales-country><option value="">Todos</option>{country_options}</select></div>
-            <div class="tool-field"><label class="tool-field-label" for="editoriales-orden">Ordenar</label><select class="tool-select" id="editoriales-orden" data-editoriales-sort><option value="availability">Disponibilidad</option><option value="name">Nombre A–Z</option><option value="recent">Comprobación más reciente</option></select></div>
+            <div class="tool-field"><label class="tool-field-label" for="editoriales-q">Buscar</label><input class="tool-input" id="editoriales-q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Editorial, sello, género…" data-editoriales-search disabled></div>
+            <div class="tool-field"><label class="tool-field-label" for="editoriales-genero">Género</label><select class="tool-select" id="editoriales-genero" data-editoriales-genre disabled><option value="">Todos</option>{genre_options}</select></div>
+            <div class="tool-field"><label class="tool-field-label" for="editoriales-estado">Estado</label><select class="tool-select" id="editoriales-estado" data-editoriales-status disabled><option value="">Todos</option><option value="open">Acepta manuscritos</option><option value="closed">Recepción cerrada</option><option value="indirect">Vía indirecta</option><option value="award_only">Solo convocatoria/premio</option><option value="unknown">Por verificar</option></select></div>
+            <div class="tool-field"><label class="tool-field-label" for="editoriales-pais">País</label><select class="tool-select" id="editoriales-pais" data-editoriales-country disabled><option value="">Todos</option>{country_options}</select></div>
+            <div class="tool-field"><label class="tool-field-label" for="editoriales-orden">Ordenar</label><select class="tool-select" id="editoriales-orden" data-editoriales-sort disabled><option value="availability">Disponibilidad</option><option value="name">Nombre A–Z</option><option value="recent">Comprobación más reciente</option></select></div>
         </div>
-        <label class="tool-check"><input type="checkbox" data-editoriales-direct> <span>Solo envío directo</span></label>
-        <div class="tool-actions"><button class="text-action" type="button" data-editoriales-reset>Limpiar</button></div>
+        <label class="tool-check"><input type="checkbox" data-editoriales-direct disabled> <span>Solo envío directo</span></label>
+        <div class="tool-actions"><button class="text-action" type="button" data-editoriales-reset disabled>Limpiar</button></div>
         <p class="tool-count"><strong data-editoriales-count role="status" aria-live="polite">{len(records)} editoriales</strong> · Los filtros se guardan en el fragmento <code>#</code>; no crean páginas SEO nuevas.</p>
   </section>
     <section class="v1-section" aria-label="Directorio de editoriales"><div class="id-cards">{''.join(cards)}</div>
