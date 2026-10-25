@@ -57,6 +57,7 @@ html.v1 .catalogue-details { margin-top:.8rem; padding-block:.35rem; border-top:
 html.v1 .catalogue-details summary { min-height:44px; padding-block:.7rem; color:var(--catalogue-deep); font:600 .9rem/1.5 var(--font-ui); cursor:pointer; overflow-wrap:anywhere; }
 html.v1 .catalogue-details summary::marker { color:var(--catalogue-blue); }
 html.v1 .catalogue-details[open] { border-top-color:var(--catalogue-gold); }
+html.v1 a.catalogue-publisher { display:inline-block; min-height:24px; line-height:24px; }
 html.v1 .catalogue-details a:not(.catalogue-buy-link) { color:var(--catalogue-blue); text-decoration-color:var(--catalogue-gold); }
 html.v1 .catalogue-details dl { display:grid; grid-template-columns:minmax(0,.5fr) minmax(0,1fr); gap:.65rem 1rem; font-size:.9rem; }
 html.v1 .catalogue-details dt { font-weight:600; }
