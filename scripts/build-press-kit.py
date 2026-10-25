@@ -77,7 +77,8 @@ def make_readme(book: dict, author: dict, manifest: dict) -> bytes:
         "CONTENIDO DEL PAQUETE",
     ]
     for asset in manifest.get("assets", []):
-        lines.append(f"- {asset.get('archivePath')}: {asset.get('label', '')}")
+        if asset.get("releaseStatus") in ALLOWED_RELEASE:
+            lines.append(f"- {asset.get('archivePath')}: {asset.get('label', '')}")
     lines += [
         "- datos/: fichas JSON usadas para generar este paquete",
         "- CHECKSUMS_SHA256.txt: hashes de integridad",
@@ -159,6 +160,8 @@ def build_bytes(manifest: dict, book: dict, author: dict) -> tuple[bytes, list[t
         data = (ROOT / safe_rel(item["source"])).read_bytes()
         entries.append((safe_rel(item["archivePath"]), data))
     for item in manifest.get("assets", []):
+        if item.get("releaseStatus") not in ALLOWED_RELEASE:
+            continue
         data = (ROOT / safe_rel(item["source"])).read_bytes()
         entries.append((safe_rel(item["archivePath"]), data))
 
