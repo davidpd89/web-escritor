@@ -5,6 +5,7 @@ import time
 from datetime import datetime, timedelta
 from decimal import Decimal, InvalidOperation
 from urllib.error import HTTPError, URLError
+from urllib.parse import urlsplit
 from urllib.request import Request, urlopen
 
 from reading_ratings_refresh import isbn13, title_matches, author_matches, key
@@ -16,7 +17,21 @@ RESOURCES=['itemInfo.title','itemInfo.byLineInfo','itemInfo.externalIds',
 
 
 def asin_from_url(url):
-    match=re.search(r'/(?:dp|gp/product)/([A-Z0-9]{10})(?:[/?]|$)',url or '')
+    if not isinstance(url, str):
+        return None
+    try:
+        parsed = urlsplit(url)
+        if parsed.scheme != 'https' or not parsed.netloc:
+            return None
+        if parsed.username is not None or parsed.password is not None:
+            return None
+        if parsed.port is not None:
+            return None
+        if parsed.hostname not in {'amazon.es', 'www.amazon.es'}:
+            return None
+    except ValueError:
+        return None
+    match = re.search(r'/(?:dp|gp/product)/([A-Z0-9]{10})(?:[/?]|$)', parsed.path)
     return match.group(1) if match else None
 
 
