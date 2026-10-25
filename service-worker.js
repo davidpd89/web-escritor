@@ -171,13 +171,50 @@ async function networkFirstPage(request) {
   }
 }
 
+const pendingStaticRequests = new Map();
+
+function staticRequestKey(request) {
+  const headers = [...request.headers.entries()]
+    .sort(([a, av], [b, bv]) => a.localeCompare(b) || av.localeCompare(bv));
+  return JSON.stringify([
+    request.method,
+    request.url,
+    request.mode,
+    request.credentials,
+    headers
+  ]);
+}
+
 async function networkFirstStatic(request) {
-  const cache = await caches.open(STATIC_CACHE);
+  const key = staticRequestKey(request);
+  let pending = pendingStaticRequests.get(key);
+
+  if (!pending) {
+    pending = (async () => {
+      const cache = await caches.open(STATIC_CACHE);
+      const response = await fetch(request);
+      await putIfCacheable(cache, request, response);
+      return response;
+    })();
+    pendingStaticRequests.set(key, pending);
+    pending.then(
+      () => {
+        if (pendingStaticRequests.get(key) === pending) {
+          pendingStaticRequests.delete(key);
+        }
+      },
+      () => {
+        if (pendingStaticRequests.get(key) === pending) {
+          pendingStaticRequests.delete(key);
+        }
+      }
+    );
+  }
+
   try {
-    const response = await fetch(request);
-    await putIfCacheable(cache, request, response);
-    return response;
+    return (await pending).clone();
   } catch {
+    const cache = await caches.open(STATIC_CACHE);
     return (await cache.match(request)) || offlineResponse();
   }
 }
