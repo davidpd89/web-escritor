@@ -170,7 +170,7 @@ def metrics_for(files: list[Path]) -> dict[str, int]:
 
 def validate_manifest(manifest: dict) -> list[str]:
     errors: list[str] = []
-    if manifest.get("schema_version") != 1:
+    if type(manifest.get("schema_version")) is not int or manifest.get("schema_version") != 1:
         errors.append("manifest: schema_version debe ser 1")
     if manifest.get("enforcement") not in {"report", "enforce"}:
         errors.append("manifest: enforcement debe ser report o enforce")
