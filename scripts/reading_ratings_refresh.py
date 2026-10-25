@@ -234,7 +234,7 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
     after = {book_id: rating for book_id, rating in old_source.items()
              if book_id in published_ids}
     # Rotate fair slices to cover the entire growing catalogue.
-    offset = (now.date().toordinal() * max(budget, 1)) % len(published) if published else 0
+    offset = (now.astimezone(timezone.utc).date().toordinal() * max(budget, 1)) % len(published) if published else 0
     queued = published[offset:] + published[:offset]
     for book in queued:
         if stats["attempted"] >= budget:
