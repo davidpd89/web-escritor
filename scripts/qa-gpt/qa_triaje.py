@@ -287,6 +287,7 @@ def reglas_previas(row):
     """Decisiones deterministas que no gastan Claude (clase ya concluida por el analisis GPT)."""
     if (row["grupo"] or "").endswith("#sin_grupos"): return "necesita_evidencia", "GPT no devolvio grupos para esta causa"
     if row["clase"] == "infraestructura": return "infraestructura", "clasificada como entorno por el analisis"
+    if row["clase"] == "defecto_web" and row["parche"]: return "corregir", "parche y test propuestos: decide la validacion determinista (el test debe fallar en main y pasar con el parche); Claude revisa el lote antes de abrir la PR"
     if row["clase"] == "test_roto" and (_j(row["analisis"], {}) or {}).get("es_defecto_producto"): return None  # el test falla mal, pero ademas hay un defecto real: que decida Claude
     if row["clase"] == "test_roto": return "test_incorrecto", "el analisis concluye que el test esta mal planteado"
     if row["clase"] == "flaky": return "rechazar", "intermitente, sin defecto reproducible"
