@@ -157,10 +157,18 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(staleWhileRevalidate(event, PAGE_CACHE));
 });
 
+async function resolveNotModified(cache, request, response) {
+  if (response.status !== 304) return response;
+  return (await cache.match(request)) || response;
+}
+
 async function networkFirstPage(request) {
   const pageCache = await caches.open(PAGE_CACHE);
   try {
     const response = await fetch(request);
+    if (response.status === 304) {
+      return resolveNotModified(pageCache, request, response);
+    }
     await putIfCacheable(pageCache, request, response);
     return response;
   } catch {
@@ -175,6 +183,9 @@ async function networkFirstStatic(request) {
   const cache = await caches.open(STATIC_CACHE);
   try {
     const response = await fetch(request);
+    if (response.status === 304) {
+      return resolveNotModified(cache, request, response);
+    }
     await putIfCacheable(cache, request, response);
     return response;
   } catch {
