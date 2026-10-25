@@ -90,6 +90,21 @@
     if (!form || form.dataset.newsletterBound === 'true') return;
     const source = String(form.dataset.newsletterSource || '');
     if (!Object.hasOwn(PENDING_COPY, source)) return;
+    let alreadySubscribed = false;
+    try {
+      alreadySubscribed = window.localStorage.getItem('nl-subscribed') === '1';
+    } catch {
+      // El almacenamiento puede estar bloqueado; conservar el formulario.
+    }
+    if (alreadySubscribed) {
+      const message = document.createElement('p');
+      message.className = 'quiz-subscribe-ok';
+      message.setAttribute('role', 'status');
+      message.setAttribute('aria-live', 'polite');
+      message.textContent = 'Ya estás suscrito. Gracias por formar parte de la lista de novedades.';
+      form.replaceWith(message);
+      return;
+    }
     form.dataset.newsletterBound = 'true';
     installHoneypot(form);
 
