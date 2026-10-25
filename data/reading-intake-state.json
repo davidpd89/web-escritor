@@ -1592,6 +1592,59 @@
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-20"
     },
+    "isbn13:9788419835734": {
+      "datos": {
+        "autores": [
+          "Freida McFadden"
+        ],
+        "coleccion": "SUMA",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "SUMA",
+        "editorial_slug": "suma-de-letras",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2024-05-09",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/341711-libro-el-secreto-de-la-asistenta-la-asistenta-2-9788419835734",
+        "fuentes_autores": {
+          "Freida McFadden": "https://www.penguinlibros.com/es/948769-freida-mcfadden"
+        },
+        "idioma": "es",
+        "isbn13": "9788419835734",
+        "materias": [
+          "Novela negra, misterio y thriller"
+        ],
+        "numero_paginas": 336,
+        "palabras_clave": [
+          "best seller",
+          "booktok",
+          "el recluso",
+          "novela negra",
+          "en español",
+          "freida mcfadden español",
+          "intriga libros",
+          "intriga y suspense",
+          "libros que engancha n",
+          "tras la puerta",
+          "la asistenta 2 libro",
+          "la asistenta libro",
+          "la asistenta te vigila",
+          "la boda de la asistenta",
+          "libros"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/3890483-thickbox_default/el-secreto-de-la-asistenta-la-asistenta-2.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2090,
+        "sinopsis_breve": "Es casi perfecto. Sin embargo, todavía no he conocido a la señora Garrick ni he podido ver lo que hay dentro de la habitación…",
+        "titulo": "El secreto de la asistenta (La asistenta 2)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/341711-libro-el-secreto-de-la-asistenta-la-asistenta-2-9788419835734",
+      "isbn13": "9788419835734",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-10-24",
+      "retry_after": "2026-10-27"
+    },
     "isbn13:9788423441051": {
       "datos": {
         "autores": [
@@ -2356,6 +2409,14 @@
       "primera_deteccion": "2026-10-23",
       "publicado_en": "2026-10-23"
     },
+    "isbn13:9788448874490": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/634654-libro-peppa-pig-libro-con-sonidos-peppa-pig-criaturas-fantasticas-9788448874490",
+      "isbn13": "9788448874490",
+      "motivo": "Encuadernación desconocida",
+      "primera_deteccion": "2026-10-24",
+      "retry_after": "2026-10-27"
+    },
     "isbn13:9788448874698": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/libros-ninos-7-anos/631474-libro-superthings-el-libro-de-la-pelicula-9788448874698",
@@ -3020,6 +3081,53 @@
       "primera_deteccion": "2026-10-21",
       "retry_after": "2026-10-24"
     },
+    "isbn13:9788491057031": {
+      "datos": {
+        "autores": [
+          "Virginia Woolf"
+        ],
+        "coleccion": "Campaña edición con cantos tintados",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "PENGUIN CLÁSICOS",
+        "editorial_slug": "penguin-clasicos",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-10-22",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-clasicos/621386-libro-la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031",
+        "fuentes_autores": {
+          "Virginia Woolf": "https://www.penguinlibros.com/es/647-virginia-woolf"
+        },
+        "idioma": "es",
+        "isbn13": "9788491057031",
+        "materias": [
+          "Grandes clásicos"
+        ],
+        "numero_paginas": 264,
+        "palabras_clave": [
+          "la señora dalloway",
+          "penguin clasicos vintage",
+          "virginia woolf libros en español",
+          "mrs dalloway virginia woolf",
+          "una habitacion propia",
+          "orlando virginia woolf",
+          "al faro virginia woolf",
+          "las olas virginia woolf",
+          "virginia woolf una biografia",
+          "libros cla"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8059943-thickbox_default/la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1695,
+        "sinopsis_breve": "La historia comienza una soleada mañana de 1923 y termina esa misma noche, cuando empiezan a retirarse los invitados de una fiesta que se…",
+        "titulo": "La señora Dalloway (edición especial limitada con cantos tintados)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788491057031",
+      "libro_id": "isbn-9788491057031",
+      "primera_deteccion": "2026-10-24",
+      "publicado_en": "2026-10-24"
+    },
     "isbn13:9788491058205": {
       "datos": {
         "autores": [
@@ -3274,6 +3382,59 @@
       "primera_deteccion": "2026-10-21",
       "retry_after": "2026-10-24"
     },
+    "isbn13:9791387740382": {
+      "datos": {
+        "autores": [
+          "Jo Nesbo"
+        ],
+        "coleccion": "Roja y negra",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "RESERVOIR BOOKS",
+        "editorial_slug": "reservoir-books",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637804-libro-sin-piedad-harry-hole-14-9791387740382",
+        "fuentes_autores": {
+          "Jo Nesbo": "https://www.penguinlibros.com/es/1432-jo-nesbo"
+        },
+        "idioma": "es",
+        "isbn13": "9791387740382",
+        "materias": [
+          "Novela negra, misterio y thriller"
+        ],
+        "numero_paginas": 488,
+        "palabras_clave": [
+          "2026",
+          "en español",
+          "intriga libros",
+          "intriga y suspense",
+          "libros de suspense e intriga",
+          "libros que enganchen",
+          "literatura",
+          "mejores",
+          "misterio libr os",
+          "novela de intriga",
+          "novela de misterio",
+          "novela de suspense",
+          "novela negra best seller",
+          "thriller libros",
+          "novela negra intriga",
+          "n"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8182091-thickbox_default/sin-piedad-harry-hole-14.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2390,
+        "sinopsis_breve": "Harry Hole ha encontrado trabajo en una compañía de seguros, investigando posibles fraudes de sus clientes. Podría ser pan comido si Harry no se…",
+        "titulo": "Sin piedad (Harry Hole 14)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387740382",
+      "libro_id": "isbn-9791387740382",
+      "primera_deteccion": "2026-10-24",
+      "publicado_en": "2026-10-24"
+    },
     "isbn13:9791387740979": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/literatura-contemporanea/635095-libro-han-cantado-bingo-9791387740979",
@@ -3281,6 +3442,52 @@
       "motivo": "'utf-8' codec can't decode byte 0xc2 in position 416238: invalid continuation byte",
       "primera_deteccion": "2026-10-20",
       "retry_after": "2026-10-23"
+    },
+    "isbn13:9791387809829": {
+      "datos": {
+        "autores": [
+          "Sally Rippin"
+        ],
+        "coleccion": "Escuela de Monstruos",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 4 años",
+        "editorial": "MONTENA",
+        "editorial_slug": "montena",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-10-15",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/635007-libro-aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829",
+        "fuentes_autores": {
+          "Sally Rippin": "https://www.penguinlibros.com/es/168797-sally-rippin"
+        },
+        "idioma": "es",
+        "isbn13": "9791387809829",
+        "materias": [
+          "A partir de 4 años"
+        ],
+        "numero_paginas": 48,
+        "palabras_clave": [
+          "aprender a leer",
+          "escuela de monstruos",
+          "aprende a leer escuela de monstruos",
+          "escuela de monstruos sally rippin",
+          "escuela de monstruos halloween",
+          "escuela de monstruos 25 sally rippin",
+          "aprende a leer escuela de monstruos 25",
+          "escuela de monstruos 25 halloween",
+          "aprendr"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8132643-thickbox_default/aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 795,
+        "sinopsis_breve": "- ¡Y una historia de lo más divertida protagonizada por un grupo de monstruos!",
+        "titulo": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387809829",
+      "libro_id": "isbn-9791387809829",
+      "primera_deteccion": "2026-10-24",
+      "publicado_en": "2026-10-24"
     },
     "isbn13:9791387845292": {
       "datos": {
@@ -4331,6 +4538,59 @@
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-20"
     },
+    "isbn13:9791388222801": {
+      "datos": {
+        "autores": [
+          "Susanna Herrero"
+        ],
+        "coleccion": "Montena",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Juvenil",
+        "editorial": "MONTENA",
+        "editorial_slug": "montena",
+        "encuadernacion": "Tapa blanda con sobrecubierta",
+        "fecha_publicacion_edicion": "2026-10-22",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/635010-libro-solo-un-juego-mas-car-hockey-1-9791388222801",
+        "fuentes_autores": {
+          "Susanna Herrero": "https://www.penguinlibros.com/es/10522-susanna-herrero"
+        },
+        "idioma": "es",
+        "isbn13": "9791388222801",
+        "materias": [
+          "Novela romántica juvenil"
+        ],
+        "numero_paginas": 480,
+        "palabras_clave": [
+          "amor libro",
+          "romance",
+          "historia de amor",
+          "literatura romantica",
+          "novela de amor",
+          "novela romantica",
+          "para juvenil",
+          "romantica libros",
+          "susan a herrero",
+          "rompiendo el hielo",
+          "romantica mas vendidos",
+          "ideas regalo",
+          "ice breaker",
+          "sport romance",
+          "amor de deporte",
+          "regalo para mi"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8155881-thickbox_default/solo-un-juego-mas-car-hockey-1.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2095,
+        "sinopsis_breve": "Cannon Donnelly acabó la carrera de Matemáticas summa cum laude y no sabe qué hacer con su vida, hasta que el entrenador del equipo…",
+        "titulo": "Solo un juego más (CAR HOCKEY 1)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388222801",
+      "libro_id": "isbn-9791388222801",
+      "primera_deteccion": "2026-10-24",
+      "publicado_en": "2026-10-24"
+    },
     "isbn13:9791388277030": {
       "datos": {
         "autores": [
@@ -4387,6 +4647,66 @@
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
     },
+    "isbn13:9791388277085": {
+      "datos": {
+        "autores": [
+          "Jose Such"
+        ],
+        "coleccion": "Jóvenes lectores",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 9 años",
+        "editorial": "ALFAGUARA IJC",
+        "editorial_slug": "alfaguara",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-10-22",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634630-libro-pipoka-y-la-fabrica-del-desastre-9791388277085",
+        "fuentes_autores": {
+          "Jose Such": "https://www.penguinlibros.com/es/1019929-jose-such"
+        },
+        "idioma": "es",
+        "isbn13": "9791388277085",
+        "materias": [
+          "A partir de 9 años"
+        ],
+        "numero_paginas": 288,
+        "palabras_clave": [
+          "Cuentos",
+          "a partir de 7 años",
+          "para niñas",
+          "para niños",
+          "ilustración",
+          "viajes",
+          "naturaleza",
+          "familia",
+          "historias",
+          "mitología",
+          "leyendas",
+          "fantasia infanti l",
+          "literatura infantil",
+          "aventuras",
+          "cuentacuentos",
+          "floklore",
+          "peninsula iberica",
+          "españa",
+          "mundo rural",
+          "patrimonio",
+          "magia",
+          "fantasia",
+          "bosq"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8278616-thickbox_default/pipoka-y-la-fabrica-del-desastre.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1995,
+        "sinopsis_breve": "Un cuentacuentos errante y una marioneta llena de magia recorren la Península descubriendo paisajes y criaturas legendarias. Son Pipoka y Leo, van de pueblo…",
+        "titulo": "Pipoka y la Fábrica del Desastre"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388277085",
+      "libro_id": "isbn-9791388277085",
+      "primera_deteccion": "2026-10-24",
+      "publicado_en": "2026-10-24"
+    },
     "isbn13:9791388437168": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/tematicas/641596-libro-starside-edicion-en-espanol-starside-1-9791388437168",
@@ -4427,6 +4747,30 @@
       "primera_deteccion": "2026-10-22",
       "retry_after": "2026-10-25"
     },
+    "url:https://www.planetadelibros.com/libro-agenda-escolar-diaria-2026-2027-la-vecina-rubia/429966": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-agenda-escolar-diaria-2026-2027-la-vecina-rubia/429966",
+      "isbn13": null,
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-10-24",
+      "retry_after": "2026-10-27"
+    },
+    "url:https://www.planetadelibros.com/libro-calendario-cachorritos-2027/455516": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-calendario-cachorritos-2027/455516",
+      "isbn13": null,
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-10-24",
+      "retry_after": "2026-10-27"
+    },
+    "url:https://www.planetadelibros.com/libro-calendario-mesa-de-tarjetas-2027-defreds/443959": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-calendario-mesa-de-tarjetas-2027-defreds/443959",
+      "isbn13": null,
+      "motivo": "Faltan título, autoría, sello o ISBN comprobable",
+      "primera_deteccion": "2026-10-24",
+      "retry_after": "2026-10-27"
+    },
     "url:https://www.planetadelibros.com/libro-calendario-perritos-2027/455510": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-calendario-perritos-2027/455510",
@@ -4443,6 +4787,14 @@
       "primera_deteccion": "2026-10-22",
       "retry_after": "2026-10-25"
     },
+    "url:https://www.planetadelibros.com/libro-el-toque-delirium/457867": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-el-toque-delirium/457867",
+      "isbn13": null,
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-10-24",
+      "retry_after": "2026-10-27"
+    },
     "url:https://www.planetadelibros.com/libro-estuche-todos-los-lugares-nuestro-lugar-en-el-mundo/459625": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-todos-los-lugares-nuestro-lugar-en-el-mundo/459625",
@@ -4450,6 +4802,22 @@
       "motivo": "Faltan título, autoría, sello o ISBN comprobable",
       "primera_deteccion": "2026-10-22",
       "retry_after": "2026-10-25"
+    },
+    "url:https://www.planetadelibros.com/libro-evangelion-anima-novela-n-04/455553": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-evangelion-anima-novela-n-04/455553",
+      "isbn13": null,
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-10-24",
+      "retry_after": "2026-10-27"
+    },
+    "url:https://www.planetadelibros.com/libro-fuera-de-mi/454765": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-fuera-de-mi/454765",
+      "isbn13": null,
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-10-24",
+      "retry_after": "2026-10-27"
     },
     "url:https://www.planetadelibros.com/libro-infografias-del-nazismo/455814": {
       "estado_ingesta": "pendiente_datos",
@@ -4459,6 +4827,22 @@
       "primera_deteccion": "2026-10-22",
       "retry_after": "2026-10-25"
     },
+    "url:https://www.planetadelibros.com/libro-las-golondrinas-no-regresaran/458668": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-las-golondrinas-no-regresaran/458668",
+      "isbn13": null,
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-10-24",
+      "retry_after": "2026-10-27"
+    },
+    "url:https://www.planetadelibros.com/libro-no-metas-la-pata-en-japon/458602": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-no-metas-la-pata-en-japon/458602",
+      "isbn13": null,
+      "motivo": "Faltan título, autoría, sello o ISBN comprobable",
+      "primera_deteccion": "2026-10-24",
+      "retry_after": "2026-10-27"
+    },
     "url:https://www.planetadelibros.com/libro-tomb-raider-king-n-02/455504": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-tomb-raider-king-n-02/455504",
@@ -4466,6 +4850,14 @@
       "motivo": "Faltan título, autoría, sello o ISBN comprobable",
       "primera_deteccion": "2026-10-23",
       "retry_after": "2026-10-26"
+    },
+    "url:https://www.planetadelibros.com/libro-usagi-yojimbo-saga-n-09/458319": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-usagi-yojimbo-saga-n-09/458319",
+      "isbn13": null,
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-10-24",
+      "retry_after": "2026-10-27"
     }
   },
   "schema_version": 1
