@@ -73,7 +73,7 @@ def is_non_article_page(json_ld_root) -> bool:
         return False
     graph = json_ld_root.get('@graph')
     if not isinstance(graph, list):
-        return False
+        graph = [json_ld_root]
     types = set()
     for node in graph:
         if isinstance(node, dict):
