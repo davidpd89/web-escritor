@@ -132,6 +132,9 @@ class Supervisor:
             if res["resultado"] != "corregido": self.anotar(fir, "no_se_puede", res["causa"] + " | " + res["resumen"]); return "no_se_puede"
             cambios = [l[3:] for l in g("status", "--porcelain", cwd=wt)[1].splitlines() if l.strip() and not l[3:].startswith("node_modules")]
             if not cambios: self.anotar(fir, "sin_cambios", res["resumen"]); return "sin_cambios"
+            if any(x.endswith(".html") for x in cambios) and (wt / "scripts" / "build-pagefind-index.py").exists():
+                # el indice de busqueda deriva del HTML: sin regenerarlo, content-indexes queda en rojo en main (#868 -> #869)
+                self._run([sys.executable, "scripts/build-pagefind-index.py"], wt, 600); cambios.append("pagefind")
             g("add", "--", *cambios, cwd=wt)
             msg = f"fix: {res['causa'][:90]}\n\n{res['resumen'][:1500]}\n\nAuditoria post-despliegue de main en rojo (run {run_id}).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
             if g("-c", "user.name=qa-gpt-supervisor", "-c", "user.email=qa-gpt@users.noreply.github.com", "commit", "-q", "-m", msg, cwd=wt)[0]: self.anotar(fir, "error", "commit"); return "error"
@@ -190,7 +193,11 @@ class Supervisor:
 
     @staticmethod
     def _hijo(args):
-        p = subprocess.Popen([sys.executable, str(HERE / "qa_gpt.py"), *args], stderr=subprocess.PIPE, text=True, encoding="utf-8", errors="replace")
+        # sin consola (servicio lanzado por INICIAR con pythonw) el hijo heredaba un stdout vacio: su salida se perdia en vez de ir a servicio.log
+        consola = getattr(sys.stdout, "isatty", lambda: False)()
+        salida = None if consola else getattr(sys.stdout, "buffer", None) and sys.stdout
+        env = {**os.environ, "PYTHONIOENCODING": "utf-8", **({} if consola else {"PYTHONUNBUFFERED": "1"})}  # a fichero: linea a linea, no en bloques de 8 KB
+        p = subprocess.Popen([sys.executable, str(HERE / "qa_gpt.py"), *args], stdout=salida, stderr=subprocess.PIPE, text=True, encoding="utf-8", errors="replace", env=env)
         cola = []
         def leer():
             for linea in p.stderr: sys.stderr.write(linea); sys.stderr.flush(); cola.append(linea); del cola[:-400]
