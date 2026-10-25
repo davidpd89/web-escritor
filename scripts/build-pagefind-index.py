@@ -31,6 +31,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import html
+import importlib.util
 import json
 import re
 import shutil
@@ -103,22 +104,24 @@ def is_noindex(text: str) -> bool:
     return parser.noindex
 
 
-# Internal, non-page HTML: build-time fragments, test fixtures/templates --
-# never real site content, whatever content-registry.json says or doesn't
-# say. Same notion as build-public-dist.py's EXCLUDE_DIR_PREFIXES (this
-# doesn't import that list directly since its scope is "what's on disk in
-# the public dist", not "what's a searchable page" -- e.g. scripts/ has no
-# HTML there either way, but tests/fixtures/*.html does).
-INTERNAL_DIR_PREFIXES = ("data/", "tests/", "scripts/")
+# Reuse the public artifact's allowlist-first publication policy.
+# Git tracking alone never authorizes a page for indexing.
+def public_page_allowed(rel: str, root: Path) -> bool:
+    publisher_path = Path(__file__).resolve().with_name("build-public-dist.py")
+    spec = importlib.util.spec_from_file_location("build_public_dist", publisher_path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError("Cannot load public distribution policy")
+    publisher = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(publisher)
+    return publisher.is_publishable(rel, root)
 
 
 def eligible_pages(root: Path) -> list[str]:
-    """Return git-tracked *.html paths eligible for the local search index,
-    sorted for deterministic manifest output."""
+    """Return published, searchable, git-tracked HTML paths in sorted order."""
     by_source = load_registry_by_source(root)
     eligible: list[str] = []
     for rel in git_tracked_html(root):
-        if rel.startswith(INTERNAL_DIR_PREFIXES):
+        if not public_page_allowed(rel, root):
             continue
         entry = by_source.get(rel)
         if entry is not None:
