@@ -43,12 +43,17 @@ export function visibleSocialMetrics(snapshot, nowMs = Date.now()) {
         !NETWORKS.includes(row.id) || seen.has(row.id)) return absent;
     seen.add(row.id);
     const expires = instant(row.valid_until);
+    const observationValue = row.observed_at;
+    const isDateOnly = typeof observationValue === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(observationValue);
+    const observedMs = isDateOnly
+        ? instant(`${observationValue}T00:00:00Z`)
+        : instant(observationValue);
+    const observed = observedMs !== null ? observationValue : null;
     const usable = row.status === 'ok' && row.source === SOURCES[row.id] &&
         Number.isSafeInteger(row.followers) && row.followers >= 0 &&
+        observedMs !== null && observedMs <= generated && observedMs <= nowMs &&
         expires !== null && expires >= nowMs &&
         expires <= generated + MAX_SNAPSHOT_AGE_MS;
-    const observed = typeof row.observed_at === 'string' && /^\d{4}-\d{2}-\d{2}(T[\d:]{8}Z)?$/.test(row.observed_at)
-        ? row.observed_at : null;
     found.set(row.id, {id: row.id, followers: usable ? row.followers : null,
                        observed_at: usable ? observed : null,
                        status: usable ? 'ok' : 'unavailable'});
