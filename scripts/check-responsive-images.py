@@ -148,6 +148,9 @@ def audit_file(path: Path, root: Path) -> list[str]:
         if not srcset:
             continue
         candidates = parse_srcset(srcset)
+        has_width_descriptor = any(d.endswith("w") for _, d in candidates)
+        if has_width_descriptor and not attrs.get("sizes"):
+            errors.append(f"{rel}:{line}: SRCSET_WITHOUT_SIZES source srcset con descriptor 'w' sin sizes: {candidates[0][0]}")
         for cand_url, _ in candidates:
             target = resolve_local(cand_url, path, root)
             if target is not None and not target.exists():
