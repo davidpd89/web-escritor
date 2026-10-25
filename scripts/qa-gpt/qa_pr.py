@@ -393,8 +393,8 @@ class Ciclo:
             c.commit(); self.out(f"  PR #{row['pr_numero']}: {st}")
         libres = cfg["max_pr_activas"] - len(activas)
         # 1) decisiones de Claude, solo mientras el backlog aprobado no llene el presupuesto (no se gasta en decidir lo que no se podra desarrollar)
-        aprobadas = c.execute(f"SELECT COUNT(*) FROM triaje WHERE decision='corregir' AND COALESCE(pr_estado,'') NOT IN ({TERMINALES})").fetchone()[0]
-        if aprobadas < cfg["max_pr_activas"] * 2: r["decididas"] = qa_triaje.decidir_pendientes(q, c, prs, cfg["claude_lote"], self.out)
+        aprobadas = c.execute(f"SELECT COUNT(*) FROM triaje WHERE decision='corregir' AND COALESCE(pr_estado,'') NOT IN ({TERMINALES},'pr_abierta','pr_borrador')").fetchone()[0]  # las que ya tienen PR no ocupan cola de desarrollo
+        if aprobadas < cfg["max_pr_activas"] * 3: r["decididas"] = qa_triaje.decidir_pendientes(q, c, prs, cfg["claude_lote"], self.out)
         # 2) desarrollo GPT: causas aprobadas sin parche, o con intento fallido (acotado por max_intentos)
         en_cola = c.execute("SELECT COUNT(*) FROM jobs WHERE tipo='T' AND clave LIKE 'D:%' AND estado IN ('pendiente','en_curso')").fetchone()[0]
         for row in c.execute(f"""SELECT * FROM triaje WHERE decision='corregir' AND clase IN ('defecto_web','test_roto') AND COALESCE(dev_estado,'')<>'en_desarrollo' AND
