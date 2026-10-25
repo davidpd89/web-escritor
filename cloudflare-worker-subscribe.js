@@ -176,7 +176,7 @@ export default {
 
     // Honeypot responses intentionally match a legitimate accepted DOI request,
     // while skipping both Brevo and rate limiting.
-    if (typeof website === "string" && website.trim() !== "") {
+    if (website !== undefined && website !== null && String(website).trim() !== "") {
       return pendingConfirmationResponse(origin);
     }
 
@@ -243,13 +243,16 @@ export default {
       return pendingConfirmationResponse(origin);
     }
 
-    let brevoBodyText = "";
+    // Solo se registra el codigo de error de Brevo: su "message" puede repetir
+    // el email del lector, y los logs del Worker no deben guardar datos personales.
+    let brevoCode = "";
     try {
-      brevoBodyText = await brevoRes.text();
+      const data = await brevoRes.json();
+      if (data && typeof data.code === "string") brevoCode = data.code.slice(0, 60);
     } catch {
       // Best effort only. Upstream details are never forwarded to the browser.
     }
-    console.error(`Brevo DOI error ${brevoRes.status}:`, brevoBodyText.slice(0, 500));
+    console.error(`Brevo DOI error ${brevoRes.status}${brevoCode ? ` (${brevoCode})` : ""}`);
     return jsonResponse(origin, 502, {
       ok: false,
       message: "No se ha podido iniciar la confirmación. Inténtalo de nuevo más tarde.",
@@ -286,6 +289,10 @@ function validateBrevoConfig(env, source) {
   }
   if (redirect.protocol !== "https:" || redirect.username || redirect.password) {
     return { ok: false, reason: "BREVO_DOI_REDIRECT_URL must be a credential-free HTTPS URL" };
+  }
+  // El retorno de la doble confirmacion solo puede volver al propio sitio.
+  if (redirect.origin !== ALLOWED_ORIGIN) {
+    return { ok: false, reason: "BREVO_DOI_REDIRECT_URL must point to the site origin" };
   }
 
   return { ok: true, apiKey, listId, templateId, redirectUrl: redirect.href };
