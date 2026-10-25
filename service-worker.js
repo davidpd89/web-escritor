@@ -51,9 +51,10 @@ function offlineResponse() {
 
 async function putIfCacheable(cache, request, response) {
   const cacheControl = response?.headers?.get("Cache-Control") || "";
-  const noStore = cacheControl.split(",").some((directive) =>
-    directive.trim().toLowerCase() === "no-store"
-  );
+  const noStore = cacheControl.split(",").some((directive) => {
+    const name = directive.trim().toLowerCase().split("=")[0];
+    return name === "no-store" || name === "private";
+  });
   if (response && response.ok && response.status !== 206 && !noStore) {
     try {
       await cache.put(request, response.clone());
