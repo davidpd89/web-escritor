@@ -61,7 +61,9 @@ class GoodreadsPublic:
     def fetch(self, url):
         time.sleep(max(0, self.delay - (time.monotonic() - self.last))); self.last = time.monotonic()
         with urlopen(Request(url, headers={'User-Agent': AGENT, 'Accept': 'text/html'}), timeout=18) as response:
-            if urlsplit(response.url).hostname != 'www.goodreads.com': raise ValueError('Unexpected Goodreads redirect')
+            final_url = urlsplit(response.url)
+            if final_url.scheme != 'https' or final_url.netloc != 'www.goodreads.com':
+                raise ValueError('Unexpected Goodreads redirect')
             raw = response.read(3_000_001)
             if len(raw) > 3_000_000: raise ValueError('Goodreads response too large')
             return raw.decode('utf-8'), response.url
