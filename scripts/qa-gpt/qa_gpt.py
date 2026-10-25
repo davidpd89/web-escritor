@@ -739,7 +739,8 @@ def cmd_status(a):
     inf = edge_info(); tabs = tabs_chatgpt()
     print(f"Edge 9230: {'vivo' if inf['n'] else 'no corre'}, {inf['n']} procesos, {inf['mb']} MB (limite {CFG['edge_mem_mb']}) | pestanas ChatGPT: {len(tabs)} (max {CFG['max_tabs_chatgpt']})")
     tec = {r[0]: r[1] for r in c.execute("SELECT origen,COUNT(*) FROM tecnicas GROUP BY origen")}
-    print("Tecnicas:", tec, "| descubiertas:", ", ".join(r[0] for r in c.execute("SELECT id FROM tecnicas WHERE origen='descubierta'")) or "(ninguna aun)")
+    _desc = [r[0] for r in c.execute("SELECT id FROM tecnicas WHERE origen='descubierta' ORDER BY rowid DESC LIMIT 8")]
+    print("Tecnicas:", tec, "| ultimas descubiertas:", ", ".join(_desc) or "(ninguna aun)")
     m = matriz(c); print(f"Cobertura: {len(m)} familias, {sum(len(d['huecos']) for d in m.values())} huecos tecnica x familia (heuristicos); analizadas: {q('SELECT COUNT(DISTINCT area) FROM analisis')} unidades")
     for modo in dict.fromkeys(CFG["ciclo"]):
         sc, clave, pl = candidates(c, modo)[0]; print(f"  siguiente {modo:<9} {clave:<34} {'(en descanso)' if sc < 0 else f'prioridad {sc:.1f}'}")
