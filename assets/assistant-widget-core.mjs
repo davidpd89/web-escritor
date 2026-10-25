@@ -12,28 +12,29 @@ export function shouldMountAssistantWidget(pathname) {
 
 export function assistantContextStarters(pathname) {
   const path = normalizeWidgetPath(pathname);
-  if (path.startsWith("/las-manecillas-del-recuerdo")) {
+  const inSection = (prefix) => path === prefix || path.startsWith(`${prefix}/`) || path.startsWith(`${prefix}.`);
+  if (inSection("/las-manecillas-del-recuerdo")) {
     return [
       "¿De qué trata Las manecillas del recuerdo?",
       "¿Dónde puedo leer un fragmento?",
       "¿Cuándo se publica Las manecillas del recuerdo?",
     ];
   }
-  if (path.startsWith("/libros/samuel-entre-mundos") || path.startsWith("/fragmento") || path.startsWith("/universo/noveris")) {
+  if (inSection("/libros/samuel-entre-mundos") || inSection("/fragmento") || inSection("/universo/noveris")) {
     return [
       "¿De qué trata Samuel entre mundos?",
       "¿Qué es Noveris?",
       "¿Dónde puedo leer el primer capítulo?",
     ];
   }
-  if (path.startsWith("/herramientas") || path.startsWith("/editoriales") || path.startsWith("/convocatorias-escritores") || path.startsWith("/recursos/herramientas-para-escritores")) {
+  if (inSection("/herramientas") || inSection("/editoriales") || inSection("/convocatorias-escritores") || inSection("/recursos/herramientas-para-escritores")) {
     return [
       "¿Qué herramientas gratuitas tienes para escritores?",
       "¿Dónde busco editoriales que acepten manuscritos?",
       "¿Qué convocatorias para escritores hay en la web?",
     ];
   }
-  if (path.startsWith("/prensa") || path.startsWith("/eventos") || path.startsWith("/premios")) {
+  if (inSection("/prensa") || inSection("/eventos") || inSection("/premios")) {
     return [
       "¿Dónde está el kit de prensa?",
       "¿Qué eventos y firmas aparecen en la web?",
