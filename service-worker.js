@@ -182,24 +182,56 @@ async function networkFirstStatic(request) {
   }
 }
 
+const revalidationStates = new Map();
+let revalidationGeneration = 0;
+
 async function staleWhileRevalidate(event, cacheName) {
   const { request } = event;
-  const cache = await caches.open(cacheName);
-  const cached = await cache.match(request);
+  const key = `${cacheName}:${request.url}`;
+  const generation = ++revalidationGeneration;
+  let state = revalidationStates.get(key);
+  if (!state) {
+    state = { latest: generation, active: 0, writes: Promise.resolve() };
+    revalidationStates.set(key, state);
+  }
+  state.latest = generation;
+  state.active++;
+
   const networkPromise = (async () => {
     try {
-      const response = await fetch(request);
-      await putIfCacheable(cache, request, response);
-      return response;
+      const cache = await caches.open(cacheName);
+      const cached = await cache.match(request);
+      const update = (async () => {
+        try {
+          const response = await fetch(request);
+          const previousWrite = state.writes;
+          const write = previousWrite.catch(() => {}).then(async () => {
+            if (state.latest === generation) {
+              await putIfCacheable(cache, request, response);
+            }
+          });
+          state.writes = write;
+          await write;
+          return response;
+        } catch {
+          return null;
+        }
+      })();
+
+      if (cached) {
+        event.waitUntil(update.then(() => undefined));
+        return cached;
+      }
+      return (await update) || offlineResponse();
     } catch {
-      return null;
+      return offlineResponse();
     }
   })();
 
-  if (cached) {
-    event.waitUntil(networkPromise.then(() => undefined));
-    return cached;
-  }
-
-  return (await networkPromise) || offlineResponse();
+  return networkPromise.finally(() => {
+    state.active--;
+    if (state.active === 0 && revalidationStates.get(key) === state) {
+      revalidationStates.delete(key);
+    }
+  });
 }
