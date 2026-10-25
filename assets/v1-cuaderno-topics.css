@@ -41,6 +41,7 @@ html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-tail p{margin:0}
 html.v1 [data-family="cuaderno-topics"] .cuaderno-topic-revision{font:400 var(--text-xs)/1.5 var(--font-ui);color:var(--color-muted)}
 html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-tail__links{display:flex;flex-wrap:wrap;gap:.45rem .75rem;align-items:baseline}
 html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-link{color:var(--color-text);font:600 var(--text-xs)/1.45 var(--font-ui);text-decoration:underline;text-decoration-color:var(--color-border);text-underline-offset:.2em;overflow-wrap:anywhere}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-link{display:inline-block;min-height:24px;line-height:24px}
 html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-link:hover{text-decoration-color:var(--color-accent)}
 html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-link:focus-visible{outline:2px solid var(--focus-color);outline-offset:3px}
 
