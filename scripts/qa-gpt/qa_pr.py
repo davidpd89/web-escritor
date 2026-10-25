@@ -288,7 +288,9 @@ class Pr:
             fallan = [o for _, (rc, o) in antes if rc]
             if fallan and all("TimeoutError" in o and "AssertionError" not in o for o in fallan):
                 self._marca(c, row, "test_no_fiable", "en main el test agota el tiempo sin llegar a ninguna aserción: no demuestra el defecto. " + fallan[0][-300:]); return "test_no_fiable"
-            prev = {" ".join(cm): self.run(cm, str(wt), timeout=300)[0] for cm in verificadores(wt, [f["ruta"] for f in norm["ficheros"]])}
+            from qa_lote_preflight import vecinos
+            # tests vecinos que hoy pasan en main: tras el parche deben seguir pasando (si no, el lote los rompia y se veia tras 20 min de CI)
+            vec_ok = [t for t in vecinos(wt, [f["ruta"] for f in norm["ficheros"]], set(tests)) if self._test(wt, t)[0] == 0]
             try: tocados = aplicar_parche(wt, norm)
             except ValueError as e: self._marca(c, row, "parche_no_encaja", str(e)); return "parche_no_encaja"
             previos = cambiados(self.git, wt)
@@ -298,7 +300,7 @@ class Pr:
             derivados = cambiados(self.git, wt) - previos if regen else set()
             # 2) tras el parche pasan los tests, los verificadores del repo y no hay cambios fuera de alcance
             crit = (json.loads(row["decision_json"] or "{}") or {}).get("criterio_aceptacion", "")
-            rel = self.relacionados(wt, tocados, crit, set(tests))
+            rel = sorted(set(self.relacionados(wt, tocados, crit, set(tests))) | set(vec_ok))
             verif, verde = self._verificar(wt, tests + rel, tocados)
             if not verde: self._marca(c, row, "validacion_fallida", verif); return "validacion_fallida"
             for cmd in verificadores(wt, tocados):
@@ -752,7 +754,11 @@ class Ciclo:
                     return
                 # La regresion puede ser una interaccion entre parches, no un fallo
                 # intrinseco del ultimo: revalidarlo individualmente, no descartarlo.
-                P._marca(c, removed, "reintentar", f"Interaccion en preflight combinado: {detail[:650]}")
+                # Pero si falla SOLA es suya: vuelve a desarrollo con el detalle (antes volvia como 'reintentar' y sospechosa de biseccion,
+                # se revalidaba, era otra vez la unica del lote y salia de nuevo: un bucle por ciclo que bloqueaba los lotes normales)
+                if incl: P._marca(c, removed, "reintentar", f"Interaccion en preflight combinado: {detail[:650]}")
+                else: P._marca(c, removed, "validacion_fallida", f"Preflight del lote (sola sobre main): {detail[:650]}")
+                c.execute("UPDATE triaje SET integracion=NULL WHERE id=?", (removed["id"],)); c.commit()
             if not incl: return
             sha = P.git("rev-parse", "HEAD", cwd=wt)[1].strip()
             # revision agregada de Claude ANTES de abrir la PR: lo dudoso se saca del lote y el CI pesado solo corre sobre contenido ya aprobado
