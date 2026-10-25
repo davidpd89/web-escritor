@@ -23,6 +23,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Iterable
 from urllib.parse import urlsplit
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE = ROOT / "eventos.html"
@@ -114,7 +115,7 @@ def is_upcoming(event: dict, *, as_of: date | datetime) -> bool:
             raise ValueError("endDate debe ser DATE cuando startDate es DATE")
         boundary = as_of.date() if isinstance(as_of, datetime) else as_of
         return date.fromisoformat(end) >= boundary
-    boundary_dt = as_of if isinstance(as_of, datetime) else datetime.combine(as_of, time.min, tzinfo=timezone.utc)
+    boundary_dt = as_of if isinstance(as_of, datetime) else datetime.combine(as_of, time.min, tzinfo=ZoneInfo("Europe/Madrid"))
     return _parse_datetime(end, "endDate") >= boundary_dt.astimezone(timezone.utc)
 
 
