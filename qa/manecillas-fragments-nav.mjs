@@ -29,9 +29,19 @@ const currentHtml = normalizeEol(fs.readFileSync(path.join(ROOT, PAGE_PATH), 'ut
 //
 // Deliberadamente estrecho: solo cubre "no existia". Si la pagina existe en la
 // base y su texto cambia, la comparacion sigue fallando como debe.
+let verifiedBaseSha;
+try {
+  verifiedBaseSha = execFileSync('git', ['rev-parse', '--verify', `${BASE_SHA}^{commit}`], {
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe']
+  }).trim();
+} catch {
+  throw new Error(`Referencia Git base inválida o no disponible: ${BASE_SHA}. No se puede verificar la preservación literaria.`);
+}
+
 const existsInBase = (() => {
   try {
-    execFileSync('git', ['cat-file', '-e', `${BASE_SHA}:${PAGE_PATH}`], { stdio: 'ignore' });
+    execFileSync('git', ['cat-file', '-e', `${verifiedBaseSha}:${PAGE_PATH}`], { stdio: 'ignore' });
     return true;
   } catch {
     return false;
