@@ -120,6 +120,19 @@ class Planificador(unittest.TestCase):
         self.assertTrue(q.budget(self.c, 999)[0])  # ni cupo diario ni por ronda
         for k in ("horario", "intervalo_min", "max_peticiones_dia", "max_peticiones_ronda"): self.assertNotIn(k, q.CFG)
 
+    def test_triaje_y_generacion_se_alternan(self):
+        q.SVC = q.STATE / "servicio.json"; q._ultimo_tipo[0] = None; hechos = []; n = iter(range(100))
+        for i in range(3): q.enqueue(self.c, "T", f"triaje:{i}", {"motivo": "t"}, f"T:{i}")
+        orig = (q.process, q.elegir_modo)
+        def falso_proceso(job, c, manual=False):
+            hechos.append(job["tipo"]); c.execute("UPDATE jobs SET estado='hecho' WHERE id=?", (job["id"],)); c.commit()
+        def elegir(c): k = next(n); return ("zona", f"zona:z{k}", {"motivo": "m", "sha": str(k)})
+        q.process, q.elegir_modo = falso_proceso, elegir
+        try:
+            for _ in range(5): self.assertTrue(q.paso_servicio(self.c))
+        finally: q.process, q.elegir_modo = orig
+        self.assertEqual(hechos, ["T", "A", "T", "A", "T"])  # nunca dos triajes seguidos si se puede generar
+
     def test_servicio_continuo_sin_esperas_y_parada(self):
         q.SVC = q.STATE / "servicio.json"; q.Lock.path = q.STATE / "worker.lock"
         hechos = []

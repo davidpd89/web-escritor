@@ -938,8 +938,9 @@ def respaldar(c):
     b = sqlite3.connect(dest); c.backup(b); b.close()
     for old in sorted(d.glob("estado-*.db"))[:-7]: old.unlink(missing_ok=True)
 
-def next_job(c):
-    return c.execute("SELECT * FROM jobs WHERE estado='pendiente' AND no_antes<=? ORDER BY (fase='generando') DESC, (tipo='B') DESC, (tipo='R') DESC, id LIMIT 1", (now(),)).fetchone()
+def next_job(c, generar=False):
+    orden = "(tipo='A') DESC, " if generar else ""
+    return c.execute(f"SELECT * FROM jobs WHERE estado='pendiente' AND no_antes<=? ORDER BY (fase='generando') DESC, (tipo='B') DESC, (tipo='R') DESC, {orden}id LIMIT 1", (now(),)).fetchone()
 
 def cmd_scan_once(a, manual=False):
     manual = manual or getattr(a, "manual", False)
@@ -1023,6 +1024,8 @@ def trabajador_vivo():
     except Exception: return 0
     return pid if pid_alive(pid) and es_qa_gpt(pid) else 0
 
+_ultimo_tipo = [None]
+
 def paso_servicio(c):
     """Un paso del bucle continuo: ejecuta el siguiente job o elige objetivo nuevo. True=hizo trabajo; 'limite'/('login',msg)=esperar; False=nada ejecutable."""
     job = next_job(c)
@@ -1030,13 +1033,17 @@ def paso_servicio(c):
         import qa_triaje
         qa_triaje.encolar(sys.modules[__name__], c)  # un job por causa (firma), no por test
         job = next_job(c)
-    if job is None:
+    # tras un triaje, si toca otro, se intercala un analisis: una tanda larga de triaje no deja a Actions sin tests nuevos
+    alternar = job is not None and job["tipo"] == "T" and _ultimo_tipo[0] == "T"
+    if alternar: job = next_job(c, generar=True)
+    if job is None or (alternar and job["tipo"] == "T"):
         elegido = elegir_modo(c)
         if elegido:
             modo, clave, pl = elegido
             if enqueue(c, "A", clave, pl, clave_a(c, clave, pl)):
-                print(f"{now()} modo {modo}: {clave}: {pl['motivo']}"); job = next_job(c)
+                print(f"{now()} modo {modo}: {clave}: {pl['motivo']}"); job = next_job(c, generar=True)
     if job is None: return False
+    _ultimo_tipo[0] = job["tipo"]
     marcar(estado="ejecutando", tarea=f"PASS {job['tipo']}", area=job["area"], desde_tarea=now())
     print(f"{now()} -> {job['tipo']} {job['area']}" + (f" (reanudando chat {job['chat_id'][:8]})" if job["fase"] == "generando" and job["chat_id"] else ""))
     try: process(job, c, False)
