@@ -4,8 +4,9 @@
 
 Ya propuestos (no repetir): {{PREVIOS}}
 
-Mision: genera MUCHAS pruebas distintas y ejecutables (hasta {{MAX_PROPUESTAS}}) sobre lo que los tests existentes NO comprueban: UX, diseno, SEO, trazabilidad, rendimiento, accesibilidad, cada boton/enlace/formulario, coherencia entre paginas, datos, tipografia, consistencia entre familias (si un sitio tiene un test y otros no, replicalo). Mira los tests vecinos y copia su estilo y helpers.
-No hace falta que cada prueba encuentre un defecto: algunas pasaran y otras fallaran, ya se triara. Prefiere cantidad y variedad; no repitas la misma idea con otro nombre.
+Mision: encuentra DEFECTOS REALES que un visitante, Google o el negocio notarian HOY en la web publicada, y escribe para cada uno una prueba ejecutable (hasta {{MAX_PROPUESTAS}}) que falle mientras el defecto exista.
+Prioridad (de mas a menos): 1) algo roto o inaccesible para el visitante (enlace/boton que no funciona, contenido cortado o solapado en movil, foco o lector de pantalla bloqueados, error JS visible, imagen rota); 2) SEO e indexacion (canonical, noindex, datos estructurados, sitemap, titulos/descripciones) y enlaces de afiliado Amazon/compra; 3) rendimiento real (peso, peticiones fallidas, CLS/LCP); 4) coherencia de datos entre paginas. NO propongas endurecer validadores internos frente a entradas que nunca llegan (NaN, rutas '/./', codificaciones raras) salvo que hoy rompan una pagina publicada.
+Cada prueba debe apuntar a paginas o artefactos publicados concretos y citar el fichero/linea que causa el fallo. Si no ves un defecto con impacto real, devuelve menos propuestas o ninguna: mejor 3 defectos reales que 15 hipoteticos. Mira los tests vecinos y copia su estilo y helpers; no repitas la misma idea con otro nombre.
 Solo ficheros NUEVOS en tests/ o qa/. Sin red externa. Si no pudiste leer el repo, lista vacia.
 
 Responde SOLO JSON:

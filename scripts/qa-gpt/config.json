@@ -15,7 +15,7 @@
   {
    "id": "navegacion",
    "nombre": "Navegacion, menus y enlaces",
-   "riesgo": 4,
+   "riesgo": 5,
    "fuentes": [
     "index.html",
     "script.js",
@@ -33,7 +33,7 @@
   {
    "id": "responsive-a11y",
    "nombre": "Responsive y accesibilidad",
-   "riesgo": 3,
+   "riesgo": 5,
    "fuentes": [
     "styles.css",
     "accesibilidad/**",
@@ -91,7 +91,7 @@
   {
    "id": "amazon-goodreads",
    "nombre": "Enlaces Amazon y Goodreads",
-   "riesgo": 4,
+   "riesgo": 5,
    "fuentes": [
     "scripts/*amazon*",
     "data/*amazon*",
@@ -107,7 +107,7 @@
   {
    "id": "calendarios-eventos",
    "nombre": "Calendarios, eventos y ferias",
-   "riesgo": 4,
+   "riesgo": 3,
    "fuentes": [
     "eventos.html",
     "ferias.html",
@@ -126,7 +126,7 @@
   {
    "id": "convocatorias-premios",
    "nombre": "Convocatorias y premios literarios",
-   "riesgo": 4,
+   "riesgo": 3,
    "fuentes": [
     "convocatorias-escritores/**",
     "premios.html",
@@ -166,7 +166,7 @@
   {
    "id": "paridad-generados",
    "nombre": "Paridad HTML/JSON/ICS generados",
-   "riesgo": 5,
+   "riesgo": 2,
    "fuentes": [
     "scripts/*build*",
     "scripts/*generate*",
@@ -183,7 +183,7 @@
   {
    "id": "rendimiento-red",
    "nombre": "Rendimiento, carga y peticiones fallidas",
-   "riesgo": 3,
+   "riesgo": 5,
    "fuentes": [
     "service-worker.js",
     "lighthouserc.json",
@@ -202,7 +202,7 @@
   {
    "id": "errores-progresivo",
    "nombre": "Errores y mejora progresiva (sin JS, offline, fallos)",
-   "riesgo": 3,
+   "riesgo": 4,
    "fuentes": [
     "404.html",
     "offline.html",
@@ -221,7 +221,7 @@
   {
    "id": "multinavegador-estado",
    "nombre": "Multinavegador y persistencia de estado",
-   "riesgo": 3,
+   "riesgo": 4,
    "fuentes": [
     "script.js",
     "assets/*.js"
@@ -270,7 +270,7 @@
   {
    "id": "contenido-editorial",
    "nombre": "Cuaderno, fragmentos, universo y paginas editoriales",
-   "riesgo": 2,
+   "riesgo": 3,
    "fuentes": [
     "cuaderno/**",
     "fragmento/**",
@@ -290,7 +290,7 @@
   {
    "id": "ci-fiabilidad",
    "nombre": "Fiabilidad de CI, flaky y builds deterministas",
-   "riesgo": 4,
+   "riesgo": 1,
    "fuentes": [
     ".github/workflows/*.yml",
     "package.json"

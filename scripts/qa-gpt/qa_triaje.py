@@ -221,6 +221,9 @@ SISTEMA_DECISION = ("Eres el director tecnico de un sistema de QA de un sitio we
                     "Usa 'corregir' solo con: comportamiento incorrecto o necesidad real, relacion clara con el codigo actual, reproduccion o contrato verificable, impacto "
                     "razonable y criterio de aceptacion claro. Si 'parche_encaja_en_main' es false, el codigo ya cambio: probablemente 'ya_resuelto'. Si hay duplicados_posibles "
                     "con la misma causa, 'duplicado' y su id en relacionados. Si falta evidencia, 'necesita_evidencia' e indica en 'pide' que ficheros o fragmentos necesitas. "
+                    "Prioridad por IMPACTO REAL hoy: 1 = algo roto o inaccesible para el visitante en una pagina publicada; 2 = SEO/indexacion o enlaces de compra/afiliado; "
+                    "3 = rendimiento real o datos incoherentes visibles entre paginas; 4 = generadores o scripts cuyo fallo SI llega a la web publicada pero hoy no se ve. "
+                    "Endurecer un validador o script interno frente a entradas que hoy no existen (NaN, rutas raras, codificaciones) es 'opcional', no 'corregir'. "
                     "Se breve y concreto. Responde SOLO con el JSON del esquema.")
 ESQUEMA_DECISION = {"type": "object", "required": ["decisiones"], "properties": {"decisiones": {"type": "array", "maxItems": 8, "items": {
     "type": "object", "required": ["id", "decision", "prioridad", "causa_probable", "justificacion", "confianza"],
