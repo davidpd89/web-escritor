@@ -202,6 +202,15 @@ def problems(data: dict) -> list[str]:
         require("places", image.get("place_id"), scope)
         if image.get("status") == APPROVED:
             require_approved("places", image.get("place_id"), scope)
+            place_id = image.get("place_id")
+            owner = tables["places"].get(place_id) if isinstance(place_id, str) else None
+            if owner is not None:
+                image_ids = owner.get("image_ids")
+                if not isinstance(image_ids, list) or image["id"] not in image_ids:
+                    errors.append(
+                        f"{scope}: imagen aprobada sin vínculo inverso en "
+                        f"places/{place_id}.image_ids"
+                    )
             if not all(has_text(image.get(k)) for k in ("license", "license_url", "attribution", "source_url")):
                 errors.append(scope + ": imagen aprobada sin derechos/atribución")
             elif not (valid_https_url(image["source_url"]) and valid_https_url(image["license_url"])):
