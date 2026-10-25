@@ -161,6 +161,11 @@ async function networkFirstPage(request) {
   const pageCache = await caches.open(PAGE_CACHE);
   try {
     const response = await fetch(request);
+    if (response.status >= 500 && response.status <= 599) {
+      const cached = await pageCache.match(request);
+      if (cached && cached.ok) return cached;
+      return response;
+    }
     await putIfCacheable(pageCache, request, response);
     return response;
   } catch {
