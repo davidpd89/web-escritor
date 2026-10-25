@@ -246,7 +246,8 @@ html.v1 [data-page="microstory"] .microstory-actions{
   html.v1 [data-page="microstory"] .microstory-shot,
   html.v1 [data-page="microstory"] .microstory-sources,
   html.v1 [data-page="microstory"] .microstory-actions,
-  html.v1 [data-page="microstory"] .editorial-newsletter{
+  html.v1 [data-page="microstory"] .editorial-newsletter,
+  html.v1 [data-page="microstory"] #seguir{
     display:none;
   }
   html.v1 [data-page="microstory"] .microstory-text{
