@@ -1,5 +1,5 @@
 const CACHE_NAMESPACE = "david-porto-pwa";
-const CACHE_VERSION = `${CACHE_NAMESPACE}-v16`;
+const CACHE_VERSION = `${CACHE_NAMESPACE}-v17`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 const CURRENT_CACHES = new Set([STATIC_CACHE, PAGE_CACHE]);
@@ -133,6 +133,11 @@ self.addEventListener("fetch", (event) => {
   if (isRangeOrMediaRequest(request)) return;
 
   if (request.mode === "navigate") {
+    // Authenticated pages must never enter or read the shared page cache.
+    if (request.headers.has("Authorization")) {
+      event.respondWith(fetch(request).catch(() => offlineResponse()));
+      return;
+    }
     event.respondWith(networkFirstPage(request));
     return;
   }
