@@ -65,8 +65,89 @@ print(f"PASS: {{len(PAGINAS)}} paginas con meta description valida")
                 f"script, se corrige el generador o sus datos. {nombre} pasa.")
     return nombre, py, criterio
 
+_CABECERA = '''import json, pathlib, re, sys
 
-PLANTILLAS = {"ux-objetivos-tactiles": _tactiles, "seo-description": _meta_description}
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+'''
+
+
+def _estatica(h, urls, slug, titulo, cuerpo, criterio):
+    """Plantilla estatica comun: recorre las paginas HTML de la familia y acumula 'mal'; cuerpo (indentado 4) opera sobre rel, t y mal."""
+    nombre = f"tests/test-campana-{slug}-{h['familia']}.py"
+    paginas = [_ruta_html(u) for u in urls]
+    py = (f'"""Campana determinista (Via A): {titulo}. Familia: {h["familia"]}."""\n' + _CABECERA
+          + f"PAGINAS = {json.dumps(paginas)}\nmal = []\n"
+          + 'for rel in PAGINAS:\n    t = (ROOT / rel).read_text(encoding="utf-8")\n' + cuerpo
+          + f'if mal:\n    print("FAIL {titulo}:\\n" + "\\n".join(mal[:50])); sys.exit(1)\n'
+          + 'print(f"PASS: {len(PAGINAS)} paginas correctas")\n')
+    return nombre, py, f"Las {len(paginas)} paginas de '{h['familia']}' cumplen: {titulo}; se corrige el generador o sus datos, no solo la salida. {nombre} pasa. " + criterio
+
+
+_CUERPO_AXE = r'''    if not re.search(r"<html[^>]+lang=", t, re.I): mal.append(f"{rel}: <html> sin lang")
+    for m in re.finditer(r"<img\b(?![^>]*\balt=)[^>]*>", t, re.I): mal.append(f"{rel}: img sin alt {m.group(0)[:80]}")
+    for m in re.finditer(r"<button\b([^>]*)>\s*</button>", t, re.I):
+        if "aria-label" not in m.group(1): mal.append(f"{rel}: button sin nombre accesible")
+    if len(re.findall(r"<h1\b", t, re.I)) != 1: mal.append(f"{rel}: debe haber exactamente un h1")
+'''
+
+_CUERPO_LINKS = r'''    for href in re.findall(r"<a\b[^>]*\bhref=[\"']([^\"'#?]+)", t, re.I):
+        if re.match(r"[a-z][a-z0-9+.-]*:|//", href, re.I): continue
+        dest = (ROOT / href.lstrip("/")) if href.startswith("/") else (ROOT / rel).parent / href
+        if dest.is_dir(): dest = dest / "index.html"
+        if not dest.exists(): mal.append(f"{rel}: enlace roto {href}")
+'''
+
+_CUERPO_RESOURCES = r'''    for src in re.findall(r"<(?:img|script|source)\b[^>]*\bsrc=[\"']([^\"'#?]+)", t, re.I) + re.findall(r"<link\b[^>]*\bhref=[\"']([^\"'#?]+)", t, re.I):
+        if re.match(r"[a-z][a-z0-9+.-]*:|//", src, re.I): continue
+        dest = (ROOT / src.lstrip("/")) if src.startswith("/") else (ROOT / rel).parent / src
+        if not dest.exists(): mal.append(f"{rel}: recurso inexistente {src}")
+'''
+
+_CUERPO_JSONLD = r'''    bloques = re.findall(r"<script[^>]+application/ld\+json[^>]*>(.*?)</script>", t, re.I | re.S)
+    if not bloques: mal.append(f"{rel}: sin JSON-LD")
+    for b in bloques:
+        try: d = json.loads(b)
+        except ValueError as e: mal.append(f"{rel}: JSON-LD invalido ({e})"); continue
+        for o in (d if isinstance(d, list) else [d]):
+            if isinstance(o, dict) and "@graph" not in o and not (o.get("@context") and o.get("@type")): mal.append(f"{rel}: JSON-LD sin @context/@type")
+'''
+
+
+def _axe(h, urls):
+    return _estatica(h, urls, "axe", "reglas axe estaticas (lang, alt, botones con nombre, un h1)", _CUERPO_AXE, "")
+
+
+def _links(h, urls):
+    return _estatica(h, urls, "enlaces", "enlaces internos que resuelven a un fichero existente", _CUERPO_LINKS, "")
+
+
+def _resources(h, urls):
+    return _estatica(h, urls, "recursos", "recursos locales (img, script, css) que existen", _CUERPO_RESOURCES, "")
+
+
+def _jsonld(h, urls):
+    return _estatica(h, urls, "jsonld", "JSON-LD valido con @context y @type", _CUERPO_JSONLD, "")
+
+
+def _sitemap(h, urls):
+    nombre = f"tests/test-campana-sitemap-{h['familia']}.py"
+    rutas = [re.sub(r"^https?://[^/]+", "", u) or "/" for u in urls]
+    py = f'''"""Campana determinista (Via A): las URLs de la familia {h['familia']} figuran en sitemap.xml."""
+import pathlib, sys
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+RUTAS = {json.dumps(rutas)}
+sm = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+mal = [r for r in RUTAS if r not in sm]
+if mal:
+    print("FAIL URLs ausentes de sitemap.xml:\\n" + "\\n".join(mal)); sys.exit(1)
+print(f"PASS: {{len(RUTAS)}} URLs en sitemap")
+'''
+    return nombre, py, f"Las {len(rutas)} URLs de '{h['familia']}' figuran en sitemap.xml (se corrige el generador del sitemap). {nombre} pasa."
+
+
+PLANTILLAS = {"ux-objetivos-tactiles": _tactiles, "seo-description": _meta_description, "a11y-imagenes": _axe, "navegacion-enlaces": _links,
+              "datos-jsonld": _jsonld, "seo-sitemap": _sitemap}
 
 
 def sembrar(q, c, out=print):

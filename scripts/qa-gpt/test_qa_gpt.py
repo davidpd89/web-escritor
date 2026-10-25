@@ -195,5 +195,17 @@ class NormalizarComandos(unittest.TestCase):
         self.assertEqual([x["argv"] for x in p], [["python", "tests/t.py"]])
 
 
+class Rotacion(unittest.TestCase):
+    class Rng:
+        def __init__(self, v): self.v = v
+        def random(self): return self.v
+
+    def test_explorar_sube_la_zona_menos_reciente_solo_con_azar_bajo(self):
+        out = [(5, "a", {"recientes": 3}), (4, "b", {"recientes": 2}), (3, "c", {"recientes": 0}), (-1, "d", {})]
+        self.assertEqual([t[1] for t in q.explorar(out, self.Rng(0.0))], ["c", "a", "b", "d"])
+        self.assertEqual(q.explorar(out, self.Rng(0.9)), out)
+        self.assertEqual(q.explorar(out[:1], self.Rng(0.0)), out[:1])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

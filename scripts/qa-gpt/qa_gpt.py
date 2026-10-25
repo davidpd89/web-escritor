@@ -4,7 +4,7 @@
 Estado en C:\GIT\qa-gpt-state (fuera de los worktrees). El descubrimiento corre solo; NUNCA ejecuta tests ni lanza Actions
 salvo `lote-nocturno --confirmar` tras `autorizar-noche` (ambos manuales). Ver README.md.
 """
-import argparse, datetime as dt, glob, hashlib, json, os, re, sqlite3, subprocess, sys, time
+import argparse, datetime as dt, glob, hashlib, json, os, random, re, sqlite3, subprocess, sys, time
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -183,7 +183,9 @@ def priority(area, c):
     try: recientes = c.execute("SELECT COUNT(*) FROM jobs WHERE area=? AND creado > ?", ("zona:" + area["id"], (_ahora() - dt.timedelta(hours=24)).isoformat(timespec="seconds"))).fetchone()[0]
     except Exception: recientes = 0
     score = score / (1 + recientes)
-    return (-1 if cooldown else score), dict(ntests=ntests, commits=commits, dias=dias, changed=changed, sha=sha, nsrc=len(src))
+    # descanso por repeticiones: tras N consultas en 24 h la zona espera, salvo que sus fuentes hayan cambiado
+    rep = recientes >= CFG.get("cooldown_repeticiones", 3) and not changed
+    return (-1 if (cooldown or rep) else score), dict(ntests=ntests, commits=commits, dias=dias, changed=changed, sha=sha, nsrc=len(src), recientes=recientes)
 
 
 # ---------- contexto y peticiones ----------
@@ -224,7 +226,7 @@ def candidates(c, modo):
     out = []
     if modo == "zona":
         for a in CFG["areas"]:
-            sc, st = priority(a, c); out.append((sc, "zona:" + a["id"], {"motivo": f"prioridad {sc:.1f}; tests {st['ntests']}; commits14d {st['commits']}; " + ("fuentes cambiadas" if st["changed"] else f"{st['dias']} dias sin analizar"), "sha": st["sha"]}))
+            sc, st = priority(a, c); out.append((sc, "zona:" + a["id"], {"recientes": st["recientes"], "motivo": f"prioridad {sc:.1f}; tests {st['ntests']}; commits14d {st['commits']}; " + ("fuentes cambiadas" if st["changed"] else f"{st['dias']} dias sin analizar"), "sha": st["sha"]}))
     elif modo == "tipo":
         for t in CFG["tipos"]:
             cub, hue = tipo_huecos(t); last = last_run(c, "tipo:" + t["id"]); dias = dias_desde(last)
@@ -251,7 +253,15 @@ def candidates(c, modo):
             n = len(tests_for(a)); last = last_run(c, "audit:" + a["id"]); dias = dias_desde(last)
             sc = a["riesgo"] + n * 0.15 + min(dias, 30) / 3
             out.append((-1 if (n < 3 or (last and dias < CFG["cooldown_auditoria_dias"])) else sc, "audit:" + a["id"], {"motivo": f"{n} tests, {dias} dias", "sha": ""}))
-    return sorted(out, key=lambda t: -t[0])
+    out = sorted(out, key=lambda t: -t[0])
+    return explorar(out) if modo == "zona" else out
+
+def explorar(out, rng=random):
+    """Con probabilidad CFG['exploracion'] (10 %) adelanta la zona elegible con menos consultas recientes, para que ninguna quede sin rotar."""
+    elegibles = [t for t in out if t[0] >= 0]
+    if len(elegibles) < 2 or rng.random() >= CFG.get("exploracion", 0.10): return out
+    menos = min(elegibles[1:], key=lambda t: (t[2].get("recientes", 0), rng.random()))
+    return [menos] + [t for t in out if t is not menos]
 
 def elegir_modo(c):
     """Rotacion dinamica: el modo con menos analisis en 7 dias entre los que tienen algo elegible; empate -> mayor prioridad."""

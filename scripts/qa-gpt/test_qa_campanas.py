@@ -26,3 +26,27 @@ class Campanas(unittest.TestCase):
         py = json.loads(self.c.execute("SELECT datos FROM propuestas WHERE id=2").fetchone()[0])["ficheros_nuevos"][0]["contenido"]
         compile(py, "t.py", "exec"); self.assertIn('"autores/dk/index.html"', py)
         self.assertEqual(self.c.execute("SELECT estado FROM hallazgos WHERE clave='h3'").fetchone()[0], "a_triar")  # sin plantilla: no se toca
+
+
+class PlantillasEstaticas(unittest.TestCase):
+    def _correr(self, contrato, paginas, urls, extra=None):
+        import pathlib, subprocess, sys, tempfile
+        h = {"contrato": contrato, "familia": "fam"}
+        ruta, py, _ = qa_campanas.PLANTILLAS[contrato](h, urls)
+        compile(py, ruta, "exec")
+        with tempfile.TemporaryDirectory() as d:
+            raiz = pathlib.Path(d)
+            for rel, txt in {**paginas, **(extra or {})}.items():
+                (raiz / rel).parent.mkdir(parents=True, exist_ok=True); (raiz / rel).write_text(txt, encoding="utf-8")
+            (raiz / "tests").mkdir(exist_ok=True); (raiz / ruta).write_text(py, encoding="utf-8")
+            return subprocess.run([sys.executable, str(raiz / ruta)], capture_output=True, text=True).returncode
+
+    def test_axe_enlaces_jsonld_y_sitemap_distinguen_bien_de_mal(self):
+        ok = '<html lang="es"><h1>t</h1><img src="a.png" alt="x"><a href="/b/">b</a><script type="application/ld+json">{"@context":"https://schema.org","@type":"Thing"}</script></html>'
+        mal = '<html><img src="a.png"><a href="/nada/">n</a><script type="application/ld+json">{</script></html>'
+        extra = {"b/index.html": "<html></html>", "sitemap.xml": "<urlset>/a/</urlset>"}
+        for c in ("a11y-imagenes", "navegacion-enlaces", "datos-jsonld"):
+            self.assertEqual(self._correr(c, {"a/index.html": ok}, ["/a/"], extra), 0, c)
+            self.assertEqual(self._correr(c, {"a/index.html": mal}, ["/a/"], extra), 1, c)
+        self.assertEqual(self._correr("seo-sitemap", {}, ["/a/"], extra), 0)
+        self.assertEqual(self._correr("seo-sitemap", {}, ["/z/"], extra), 1)

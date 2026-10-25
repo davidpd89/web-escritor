@@ -302,6 +302,97 @@
     "flaky",
     "pin"
    ]
+  },
+  {
+   "id": "conversion-comercial",
+   "nombre": "Conversion comercial: enlaces de compra y CTAs",
+   "riesgo": 4,
+   "fuentes": [
+    "libros/**",
+    "index.html",
+    "comprar/**"
+   ],
+   "tests_kw": [
+    "compra",
+    "buy",
+    "cta",
+    "pvp",
+    "precio",
+    "afiliado"
+   ]
+  },
+  {
+   "id": "imagenes-medios",
+   "nombre": "Imagenes y medios: alt, tamanos y formatos",
+   "riesgo": 3,
+   "fuentes": [
+    "assets/**",
+    "img/**",
+    "libros/**"
+   ],
+   "tests_kw": [
+    "image",
+    "img",
+    "alt",
+    "webp",
+    "media",
+    "srcset"
+   ]
+  },
+  {
+   "id": "formularios-flujos",
+   "nombre": "Formularios y flujos de suscripcion/contacto",
+   "riesgo": 4,
+   "fuentes": [
+    "contacto/**",
+    "assets/newsletter-general.js",
+    "suscripcion/**"
+   ],
+   "tests_kw": [
+    "form",
+    "newsletter",
+    "subscribe",
+    "contact",
+    "input",
+    "submit"
+   ]
+  },
+  {
+   "id": "descubrimiento-contenido",
+   "nombre": "Descubrimiento: buscador, indices y relacionados",
+   "riesgo": 3,
+   "fuentes": [
+    "buscar/**",
+    "pagefind/**",
+    "mapa-del-sitio/**"
+   ],
+   "tests_kw": [
+    "search",
+    "pagefind",
+    "index",
+    "related",
+    "discover",
+    "sitemap"
+   ]
+  },
+  {
+   "id": "publicacion-despliegue",
+   "nombre": "Publicacion y despliegue: sitemap, JSON-LD, feeds",
+   "riesgo": 3,
+   "fuentes": [
+    "sitemap.xml",
+    "robots.txt",
+    "feed*.xml",
+    ".github/workflows/*.yml"
+   ],
+   "tests_kw": [
+    "sitemap",
+    "jsonld",
+    "json-ld",
+    "feed",
+    "robots",
+    "deploy"
+   ]
   }
  ],
  "ciclo": [
@@ -724,7 +815,13 @@
  "parada_gracia_min": 3,
  "modo_generacion": "lote",
  "max_propuestas_lote": 15,
- "claude": {"modelo": "claude-sonnet-5-5", "esfuerzo": "low", "max_turnos": 2, "timeout_s": 240, "max_usd_llamada": 0.5},
+ "claude": {
+  "modelo": "claude-sonnet-5-5",
+  "esfuerzo": "low",
+  "max_turnos": 2,
+  "timeout_s": 240,
+  "max_usd_llamada": 0.5
+ },
  "flujo": {
   "activo": true,
   "max_pr_activas": 3,
@@ -736,10 +833,27 @@
   "ciclo_s": 60,
   "flujo_desde": "2026-10-24",
   "modo_pr": "lote",
-  "lote": {"min": 5, "max": 15, "espera_h": 2, "max_activos": 3},
-  "integracion": {"modo": "auto", "calibracion_min": 0, "riesgo_max": "bajo"},
-  "ci_requeridos": ["Required merge gate", "public-artifact-contract", "reflow-sitewide", "pa11y-baseline", "lighthouse", "Compare against committed baselines"],
-  "max_desarrollos": 2, "max_consultas_gpt": 4,
-  "max_validaciones": 16, "validadores": 6, "dev_claude": true
+  "lote": {
+   "min": 5,
+   "max": 15,
+   "espera_h": 2,
+   "max_activos": 3
+  },
+  "integracion": {
+   "modo": "auto",
+   "calibracion_min": 0,
+   "riesgo_max": "bajo"
+  },
+  "ci_requeridos": [
+   "Required merge gate",
+   "public-artifact-contract",
+   "reflow-sitewide",
+   "pa11y-baseline",
+   "lighthouse",
+   "Compare against committed baselines"
+  ],
+  "max_validaciones": 16,
+  "validadores": 6,
+  "dev_claude": true
  }
 }
