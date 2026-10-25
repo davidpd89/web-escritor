@@ -221,10 +221,20 @@ def problems(data: dict) -> list[str]:
                 require_approved("places", stop, scope)
         if route.get("status") == APPROVED:
             require_approved("destinations", route.get("destination_id"), scope)
-    for section in ("destinations", "places", "works", "authors", "adaptations", "routes"):
+    public_labels = {
+        "destinations": "name",
+        "places": "name",
+        "works": "title",
+        "authors": "name",
+        "adaptations": "title",
+        "routes": "title",
+    }
+    for section, field in public_labels.items():
         for item in tables[section].values():
             if item.get("status") != APPROVED:
                 continue
+            if not has_text(item.get(field)):
+                errors.append(f"{section}/{item['id']}: {field} requiere texto visible")
             if not item.get("verified_at"):
                 errors.append(f"{section}/{item['id']}: aprobación sin verified_at")
             elif not valid_date(item["verified_at"]):

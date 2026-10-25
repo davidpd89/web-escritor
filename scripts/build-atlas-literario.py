@@ -49,6 +49,40 @@ def build(data,cats,out:Path):
     doc=f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Atlas literario | David Porto Díaz</title><meta name="description" content="Lugares de libros, bibliotecas extraordinarias, rutas literarias y huellas de escritores, investigados con fuentes y sin mezclar hechos con mitos."><link rel="canonical" href="https://davidportodiaz.com/atlas-literario/"><link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/atlas-literario.css"></head><body><main class="atlas-page" data-atlas-index><header class="atlas-hero"><p class="eyebrow">Atlas literario</p><h1>El mundo de los libros también existe fuera de las páginas.</h1><p class="lead">Lugares reales, bibliotecas, librerías y rutas investigadas con una regla: diferenciar texto, rodaje, inspiración, tradición y mito.</p></header><aside class="atlas-trust"><strong>Cómo verificamos:</strong> priorizamos fuentes oficiales y documentación primaria. Una asociación turística no se presenta como hecho literario si no está documentada.</aside><section class="atlas-filters" aria-label="Filtrar Atlas"><label>Buscar<input type="search" data-atlas-search placeholder="Libro, autor, ciudad o lugar"></label><label>Tipo<select data-atlas-category><option value="">Todo</option>{options}</select></label><p class="atlas-count" data-atlas-count role="status" aria-live="polite"></p></section><section class="atlas-grid">{cards}</section></main><script src="/assets/atlas-literario.js" defer></script></body></html>'''
     (out/'index.html').write_text(doc,encoding='utf-8')
     (out/'atlas-literario-public.json').write_text(json.dumps({'updated':data['updated'],'items':published},ensure_ascii=False,indent=2),encoding='utf-8')
+    for item in published:
+        slug = item['slug']
+        if not isinstance(slug, str) or not SLUG_RE.fullmatch(slug):
+            raise ValueError(f'slug inválido: {slug!r}')
+        detail_dir = out / slug
+        detail_dir.mkdir(parents=True, exist_ok=True)
+        title = html.escape(item['title'])
+        summary = html.escape(item['summary'])
+        category = html.escape(cats[item['category']])
+        country = html.escape(item.get('country') or '')
+        image = item.get('image') or {}
+        image_src = html.escape(image.get('src') or '', quote=True)
+        image_alt = html.escape(image.get('alt') or '', quote=True)
+        sources = []
+        for url in item.get('source_urls') or []:
+            if not isinstance(url, str) or not url.startswith('https://'):
+                raise ValueError(f'{slug}: fuente HTTPS inválida')
+            safe_url = html.escape(url, quote=True)
+            sources.append(f'<li><a href="{safe_url}" rel="noopener noreferrer">{safe_url}</a></li>')
+        sources_html = ''.join(sources)
+        detail = (f'<!doctype html><html lang="es"><head><meta charset="utf-8">'
+                  f'<meta name="viewport" content="width=device-width,initial-scale=1">'
+                  f'<title>{title} | Atlas literario</title>'
+                  f'<link rel="canonical" href="https://davidportodiaz.com/atlas-literario/{slug}/">'
+                  f'<link rel="stylesheet" href="/styles.css?v=202609-launch-1">'
+                  f'<link rel="stylesheet" href="/assets/atlas-literario.css">'
+                  f'</head><body><main class="atlas-page">'
+                  f'<nav aria-label="Navegación"><a href="/atlas-literario/">Atlas literario</a></nav>'
+                  f'<article><header><p>{category} · {country}</p><h1>{title}</h1></header>'
+                  f'<img src="{image_src}" alt="{image_alt}" width="720" height="450">'
+                  f'<p>{summary}</p><section aria-label="Fuentes documentales">'
+                  f'<h2>Fuentes</h2><ul>{sources_html}</ul></section></article>'
+                  f'</main></body></html>')
+        (detail_dir / 'index.html').write_text(detail, encoding='utf-8')
     return len(published)
 
 
