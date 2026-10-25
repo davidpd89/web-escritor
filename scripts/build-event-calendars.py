@@ -321,6 +321,26 @@ def expected_calendars(html_text: str, *, as_of: date | datetime | None = None) 
             href = f"/assets/events/calendar/{filename}"
             if filename in expected:
                 raise ValueError(f"fragmento de evento duplicado: {fragment}")
+            modified = event.get("dateModified")
+            if modified is not None:
+                if not isinstance(modified, str) or not modified:
+                    raise ValueError(f"EventScheduled {fragment!r} tiene dateModified invalido")
+                if _is_date_only(modified):
+                    modified_dt = datetime.combine(
+                        date.fromisoformat(modified), time.min, tzinfo=timezone.utc
+                    )
+                else:
+                    modified_dt = _parse_datetime(modified, "dateModified")
+                reference_dt = (
+                    as_of if isinstance(as_of, datetime)
+                    else datetime.combine(as_of, time.min, tzinfo=timezone.utc)
+                )
+                if reference_dt.tzinfo is None:
+                    reference_dt = reference_dt.replace(tzinfo=timezone.utc)
+                if modified_dt > reference_dt.astimezone(timezone.utc):
+                    raise ValueError(
+                        f"EventScheduled {fragment!r} tiene dateModified posterior a as_of"
+                    )
             expected[filename] = build_ics(event)
             if href not in links:
                 errors.append(
