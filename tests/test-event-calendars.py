@@ -103,6 +103,15 @@ class EventCalendarTests(unittest.TestCase):
             page_for(event), as_of=date.fromisoformat("2026-09-01")
         )
         self.assertEqual(expected, {})
+        self.assertEqual(len(errors), 1)
+        self.assertIn("EventCancelled", errors[0])
+        self.assertIn("data-calendar-download", errors[0])
+
+        expected, errors = cal.expected_calendars(
+            page_for(event, include_link=False),
+            as_of=date.fromisoformat("2026-09-01"),
+        )
+        self.assertEqual(expected, {})
         self.assertEqual(errors, [])
 
     def test_date_only_boundary_is_current_on_end_date(self) -> None:

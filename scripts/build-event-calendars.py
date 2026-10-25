@@ -311,6 +311,17 @@ def expected_calendars(html_text: str, *, as_of: date | datetime | None = None) 
     if as_of is None:
         as_of = datetime.now(timezone.utc)
     for event in extract_events(html_text):
+        if event.get("eventStatus") == "https://schema.org/EventCancelled":
+            try:
+                fragment = _event_fragment(event)
+                href = f"/assets/events/calendar/{fragment}.ics"
+                if href in links:
+                    errors.append(
+                        f"EventCancelled {fragment!r} conserva enlace activo {href!r} con data-calendar-download"
+                    )
+            except ValueError as exc:
+                errors.append(str(exc))
+            continue
         if event.get("eventStatus") != EVENT_SCHEDULED:
             continue
         if not is_upcoming(event, as_of=as_of):
