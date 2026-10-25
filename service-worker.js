@@ -51,9 +51,9 @@ function offlineResponse() {
 
 async function putIfCacheable(cache, request, response) {
   const cacheControl = response?.headers?.get("Cache-Control") || "";
-  const noStore = cacheControl.split(",").some((directive) =>
-    directive.trim().toLowerCase() === "no-store"
-  );
+  const restrictedCache = cacheControl.split(",").some((directive) =>
+    /^(?:no-store|private)(?:\s*(?:=|$))/.test(directive.trim().toLowerCase())
+  ) || response?.headers?.has("Set-Cookie");
   const pathname = new URL(request.url).pathname.toLowerCase();
   const mime = (response?.headers?.get("Content-Type") || "")
     .split(";", 1)[0].trim().toLowerCase();
@@ -61,7 +61,7 @@ async function putIfCacheable(cache, request, response) {
   const isCss = pathname.endsWith(".css");
   const validJavaScriptMime = /^(?:text|application)\/(?:javascript|ecmascript|x-javascript|x-ecmascript)$/.test(mime);
   const compatibleMime = isJavaScript ? validJavaScriptMime : isCss ? mime === "text/css" : true;
-  if (response && response.ok && response.status !== 206 && !noStore && compatibleMime) {
+  if (response && response.ok && response.status !== 206 && !restrictedCache && compatibleMime) {
     try {
       await cache.put(request, response.clone());
     } catch (error) {
