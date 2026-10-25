@@ -177,6 +177,14 @@ def regenerar(run, wt, tocados):
     return hechos
 
 
+DERIV_COMUNES = ("scripts/asset-version-hashes.json", "scripts/check-asset-versions.py")
+
+
+def regenera_derivados(row):
+    """La validacion de la correccion tuvo que regenerar pagefind o subir un ?v= (queda anotado en su detalle de verificacion)."""
+    return bool(re.search(r"Derivados regenerados[^\n]*(pagefind|\?v=)", row["pr_detalle"] or ""))
+
+
 def cambiados(git, wt):
     """Rutas modificadas o nuevas en el worktree (sin node_modules ni caches)."""
     rc, o = git("status", "--porcelain", "--untracked-files=all", cwd=wt)
@@ -695,7 +703,10 @@ class Ciclo:
             # sin solape con lotes abiertos: dos lotes que tocan el mismo script se estorban (el que se fusiona segundo queda en conflicto y se rehace)
             nuevas = {r_["pr_numero"] for r_ in c.execute("SELECT pr_numero FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta'")}
             ocupados = {f["path"] for p_ in (getattr(self, "_prs", None) or []) if p_["number"] in nuevas for f in p_.get("files", [])}
-            libres = [x for x in listos if not (self._archivos_parche(x) & ocupados)]
+            # derivados compartidos (indice pagefind, hashes de ?v=): dos lotes abiertos que los regeneran chocan siempre al fusionarse el
+            # segundo (#850). Mientras un lote abierto los lleve, las correcciones que tambien los regeneran esperan; el resto sigue en paralelo.
+            deriv_abierto = any(p.startswith("pagefind/") or p in DERIV_COMUNES for p in ocupados)
+            libres = [x for x in listos if not (self._archivos_parche(x) & ocupados) and not (deriv_abierto and regenera_derivados(x))]
             if len(libres) < len(listos): self.out(f"  lote: {len(listos) - len(libres)} listas esperan (tocan archivos de un lote abierto)")
             listos = libres
             if not listos: return
@@ -816,8 +827,10 @@ class Ciclo:
         """Sin la regla 'strict' del ruleset, una PR que va por detras de main se fusiona tal cual SOLO si lo nuevo de main no toca sus ficheros
         ni la infraestructura compartida y no es demasiado. Si lo toca, se actualiza y se repite el CI (lo que antes ocurria siempre: cada fusion
         reiniciaba el CI de todos los lotes abiertos). -> motivo para actualizar, o None si se puede fusionar ya. Ante la duda, actualizar."""
+        self._detras = 0
         try: n, rutas = self.gh.main_desde(head)
         except Exception as e: return f"comparacion con main no disponible: {str(e)[-60:]}"
+        self._detras = n
         if not n: return None
         mias = {f["path"] for f in v.get("files") or []}
         if not mias: return "ficheros de la PR desconocidos"
@@ -826,13 +839,55 @@ class Ciclo:
         if (comp := [r for r in rutas if self.COMPARTIDO.search(r)]): return "main cambio infraestructura compartida: " + ", ".join(comp[:3])
         return None
 
+    _detras = 0
+    VIGILANCIA_MAIN = ("Post-deploy deep audit", "Live production PWA QA")
+
+    def _freno_main(self):
+        """Circuito de seguridad: si la ultima auditoria post-despliegue COMPLETADA de main esta en rojo, nada mas se fusiona hasta que vuelva a
+        verde (una fusion pudo romper la web publicada; seguir fusionando apilaria regresiones). -> motivo o None. Se consulta como mucho cada 5 min."""
+        import time
+        if time.time() - getattr(self, "_freno_t", 0) < 300: return getattr(self, "_freno", None)
+        self._freno_t = time.time(); self._freno = None
+        for wf in self.VIGILANCIA_MAIN:
+            try: runs = [x for x in self.gh.runs(wf, "main") if x.get("status") == "completed"]
+            except Exception: continue
+            if runs and runs[0].get("conclusion") not in ("success", "skipped", "neutral"):
+                self._freno = f"freno: '{wf}' en rojo en main ({runs[0].get('headSha', '')[:8]}); se espera a que vuelva a verde"; break
+        return self._freno
+
+    def _preflight_fusion(self, c, row, head):
+        """Prueba local del resultado REAL de fusionar (origin/main actual + la PR): tests de sus correcciones, tests vecinos y verificadores del
+        repo. Sustituye a 'strict' (que repetia el CI completo de 20 min) por unos minutos en local. -> motivo para actualizar, o None."""
+        from qa_lote_preflight import validate_combined
+        P = self.pr; wt = Path(self.q.STATE) / "pr" / f"fusion_{row['pr_numero']}"
+        grupo = c.execute("SELECT * FROM triaje WHERE pr_numero=? AND pr_nueva=1", (row["pr_numero"],)).fetchall() or [row]
+        try:
+            if P.git("fetch", "origin", "main", f"+pull/{row['pr_numero']}/head:refs/remotes/origin/pr-{row['pr_numero']}", timeout=180)[0]: return "fusion de prueba: fetch fallo"
+            if wt.exists(): P.limpiar(wt, None)
+            wt.parent.mkdir(parents=True, exist_ok=True)
+            if P.git("worktree", "add", "--detach", str(wt), "origin/main")[0]: return "fusion de prueba: worktree fallo"
+            if P.git("-c", "user.name=qa-gpt", "-c", "user.email=qa-gpt@users.noreply.github.com", "merge", "--no-edit", "-q", head, cwd=wt)[0]:
+                return "fusion de prueba: conflicto con main"
+            ok, det = validate_combined(P, c, wt, grupo)
+            if not ok: return f"fusion de prueba roja: {det[:160]}"
+            tocados = P.git("diff", "--name-only", "origin/main...HEAD", cwd=wt)[1].split()
+            for cmd in verificadores(wt, tocados):
+                if (r := P.run(cmd, str(wt), timeout=300))[0]: return f"fusion de prueba: {' '.join(cmd[1:])} fallo: {r[1][-120:]}"
+            self.out(f"  PR #{row['pr_numero']}: fusion de prueba con main (+{self._detras} commits) en verde: {det[:80]}")
+            return None
+        except Interrumpido: return "fusion de prueba interrumpida"
+        finally: P.limpiar(wt, None)
+
     def _integrar(self, c, row, head, v, cfg):
         """Solo en modo 'auto' (calibracion_min opcional) y con GitHub en CLEAN: merge atado al commit revisado. Si la rama va por detras de main se actualiza y el siguiente ciclo la revalida."""
         ig = cfg["integracion"]
         if ig["modo"] != "auto": return
         aciertos = c.execute("SELECT COUNT(*) FROM triaje WHERE integracion='integrada_acierto'").fetchone()[0]
         if aciertos < ig["calibracion_min"]: return
+        if (freno := self._freno_main()): self.out(f"  PR #{row['pr_numero']}: no se fusiona, {freno}"); return
         motivo = "BEHIND" if v.get("mergeStateStatus") == "BEHIND" else self._main_arriesgado(v, head)
+        if not motivo and self._detras:  # ficheros disjuntos con main: aun asi se PRUEBA el resultado real de la fusion antes de fusionar
+            motivo = self._preflight_fusion(c, row, head)
         if motivo:
             try: self.gh.pr_actualizar(row["pr_numero"]); self.out(f"  PR #{row['pr_numero']} actualizada con main ({motivo}); se revalida")
             except Exception as e: self.out(f"  PR #{row['pr_numero']}: no se pudo actualizar ({str(e)[-100:]})")

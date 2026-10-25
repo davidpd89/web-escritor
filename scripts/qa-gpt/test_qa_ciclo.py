@@ -117,6 +117,10 @@ class Triaje(T.Base):
 
 
 class PrFlujo(T.Base):
+    def setUp(self):
+        super().setUp()
+        q.CFG.pop("flujo", None)  # flujo por defecto: la config de produccion (modo lote) no debe decidir el resultado (conftest la restaura)
+
     class GhPr:
         def __init__(s): s.pushes, s.prs = [], []
         def push(s, sha, rama):
@@ -265,6 +269,17 @@ class PrFlujo(T.Base):
         self.assertEqual(est, {501: "listo_lote", 502: "validacion_fallida"}); self.assertEqual(gh.cerradas, ["u7"]); self.assertEqual(gh.merges, [])
         self.assertIn("normalizar la ruta", self.c.execute("SELECT pr_detalle FROM triaje WHERE id=502").fetchone()[0])
 
+    def test_lote_no_mezcla_derivados_con_un_lote_abierto_que_los_lleva(self):
+        row = self.montar(); q.CFG["flujo"] = {"modo_pr": "lote"}
+        self.assertEqual(self.pr(self.GhPr()).preparar(self.c, row), "listo_lote")
+        self.c.execute("UPDATE triaje SET pr_detalle=pr_detalle||? WHERE id=?", ("\n- Derivados regenerados con los scripts del repo: build-pagefind-index.py (40 ficheros)", row["id"]))
+        self.c.execute("INSERT INTO triaje (id,causa_raiz,clase,pr_estado,pr_numero,pr_nueva) VALUES (900,'x','defecto_web','pr_abierta',9,1)"); self.c.commit()
+        for ficheros, espera in ((["pagefind/eligible-manifest.json", "otro/b.py"], True), (["otro/b.py"], False)):
+            gh = self.GhCiclo([{"number": 9, "headRefName": "qa-fix/lote-x", "files": [{"path": p} for p in ficheros]}])
+            ci = self.ciclo(gh, modo_pr="lote", lote={"min": 1, "max_activos": 5}, integracion={"modo": "recomendacion"}); ci.paso(self.c)
+            self.assertEqual(gh.prs == [], espera, ficheros)  # con pagefind en un lote abierto espera; sin el, sale el lote
+        self.assertFalse(qa_pr.regenera_derivados({"pr_detalle": "Tests OK"}))
+
     def test_lote_de_una_correccion_en_rojo_libera_el_carril(self):
         self.montar(); gh = self.GhCiclo(); gh.cerradas = []; gh.pr_cerrar = lambda url, com="": gh.cerradas.append(url)
         gh.log_failed = lambda rid: "x\tFAIL test-a.py: AssertionError VALOR\n"
@@ -291,8 +306,26 @@ class PrFlujo(T.Base):
     def test_sin_strict_por_detras_se_fusiona_si_main_no_toca_lo_suyo(self):
         self.montar(); gh = self.GhCiclo(); gh.actualizadas = []; gh.pr_actualizar = lambda n: gh.actualizadas.append(n)
         gh.detras = (3, ["libros/otro.html", "pagefind/x.pf_fragment"])
+        ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0}); probadas = []
+        ci._preflight_fusion = lambda c, row, head: probadas.append(head)  # la fusion de prueba en local da verde (None)
+        ci.paso(self.c); ci.paso(self.c)
+        self.assertEqual(gh.merges, [(1, "abc")]); self.assertEqual(gh.actualizadas, []); self.assertEqual(probadas, ["abc"])
+
+    def test_sin_strict_fusion_de_prueba_roja_actualiza_y_no_fusiona(self):
+        self.montar(); gh = self.GhCiclo(); gh.actualizadas = []; gh.pr_actualizar = lambda n: gh.actualizadas.append(n)
+        gh.detras = (2, ["libros/otro.html"])
+        ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0})
+        ci._preflight_fusion = lambda c, row, head: "fusion de prueba roja: tests/test-x.py fallo"
+        ci.paso(self.c); ci.paso(self.c)
+        self.assertEqual(gh.merges, []); self.assertTrue(gh.actualizadas)
+
+    def test_freno_si_la_auditoria_post_despliegue_de_main_esta_roja(self):
+        self.montar(); gh = self.GhCiclo()
+        gh.runs = lambda wf, rama: [{"status": "in_progress", "conclusion": ""}, {"status": "completed", "conclusion": "failure", "headSha": "deadbeef00"}]
         ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0}); ci.paso(self.c); ci.paso(self.c)
-        self.assertEqual(gh.merges, [(1, "abc")]); self.assertEqual(gh.actualizadas, [])
+        self.assertEqual(gh.merges, [])
+        gh.runs = lambda wf, rama: [{"status": "completed", "conclusion": "success", "headSha": "beef"}]; ci._freno_t = 0
+        ci.paso(self.c); self.assertEqual(gh.merges, [(1, "abc")])  # main vuelve a verde: se reanuda
 
     def test_sin_strict_main_toca_sus_ficheros_o_infra_compartida_actualiza(self):
         gh = self.GhCiclo(); ci = self.ciclo(gh); v = gh.pr_ver(1)
