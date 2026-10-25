@@ -110,6 +110,10 @@ def normalize_lastmod(value: str | None) -> str | None:
         return None
     value = value.strip()
     if re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
+        try:
+            datetime.fromisoformat(value)
+        except ValueError:
+            return None
         return value
     try:
         if value.endswith("Z"):
