@@ -193,6 +193,13 @@ def validate_record(record: dict, seen: set[str], today: date) -> list[str]:
             raise ValidationError(f"{slug}.sources[{idx}]: label obligatorio")
         require_https(source.get("url"), f"{slug}.sources[{idx}].url")
 
+    unavailable = record.get("unavailable_urls", [])
+    if not isinstance(unavailable, list) or not all(isinstance(url, str) for url in unavailable):
+        raise ValidationError(f"{slug}: unavailable_urls debe ser una lista de URLs")
+    declared_urls = {record["website_url"], record["submission_url"]}
+    declared_urls.update(source["url"] for source in sources)
+    known_urls = declared_urls | set(unavailable)
+
     history = record["history"]
     if not isinstance(history, list) or not history:
         raise ValidationError(f"{slug}: history debe contener al menos una comprobación/cambio")
@@ -208,14 +215,12 @@ def validate_record(record: dict, seen: set[str], today: date) -> list[str]:
                 f"a page_updated_at ({page_updated})"
             )
         require_https(event.get("source_url"), f"{slug}.history[{idx}].source_url")
+        if event["source_url"] not in known_urls:
+            raise ValidationError(
+                f"{slug}.history[{idx}].source_url: URL ajena a las fuentes declaradas"
+            )
 
-    unavailable = record.get("unavailable_urls", [])
-    if not isinstance(unavailable, list) or not all(isinstance(url, str) for url in unavailable):
-        raise ValidationError(f"{slug}: unavailable_urls debe ser una lista de URLs")
-    known_urls = {record["website_url"], record["submission_url"]}
-    known_urls.update(source["url"] for source in sources)
-    known_urls.update(event["source_url"] for event in history)
-    if len(set(unavailable)) != len(unavailable) or not set(unavailable).issubset(known_urls):
+    if len(set(unavailable)) != len(unavailable) or not set(unavailable).issubset(declared_urls):
         raise ValidationError(f"{slug}: URL no disponible duplicada o ajena a las fuentes")
     if record["submission_url"] in unavailable and (
         record["status"] != "unknown" or record["direct_submission"] or record.get("submission_email")
