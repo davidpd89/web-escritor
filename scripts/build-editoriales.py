@@ -117,9 +117,11 @@ def validate_record(record: dict, seen: set[str], today: date) -> list[str]:
         raise ValidationError(f"{slug}: status debe ser uno de {sorted(ALLOWED_STATUS)}")
     if not isinstance(record["direct_submission"], bool):
         raise ValidationError(f"{slug}: direct_submission debe ser booleano")
-    if record["status"] == "closed" and record.get("submission_email"):
+    if record["status"] != "open" and record["direct_submission"]:
+        raise ValidationError(f"{slug}: direct_submission solo es válido con status 'open'")
+    if record["status"] != "open" and record.get("submission_email"):
         raise ValidationError(
-            f"{slug}: no publiques submission_email mientras la recepción esté cerrada; "
+            f"{slug}: no publiques submission_email si la recepción no está abierta; "
             "evita reutilizar correos históricos."
         )
     if record.get("submission_email") and not EMAIL_RE.fullmatch(record["submission_email"]):
