@@ -227,10 +227,12 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
     old_source = {r.get("libro_id"): r for r in existing.get("ratings", [])
                   if r.get("fuente", "goodreads") == source}
     stats = {"attempted": 0, "updated": 0, "unrated": 0, "failures": []}
-    after = dict(old_source)
     published = [b for b in catalogue.get("libros", [])
                  if b.get("estado") in {"listo", "publicado"}
                  and isbn13(b.get("isbn13", ""))]
+    published_ids = {b["id"] for b in published}
+    after = {book_id: rating for book_id, rating in old_source.items()
+             if book_id in published_ids}
     # Rotate fair slices to cover the entire growing catalogue.
     offset = (now.date().toordinal() * max(budget, 1)) % len(published) if published else 0
     queued = published[offset:] + published[:offset]
