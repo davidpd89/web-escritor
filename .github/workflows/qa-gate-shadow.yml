@@ -1,0 +1,28 @@
+name: QA gate shadow (advisory only)
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qa-gate-shadow-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  qa-gate-shadow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Unit test shadow classifier
+        run: node --test qa/qa-gate-shadow.test.mjs
+      - name: Report selected scope without changing real checks
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/qa-gate-shadow.mjs
