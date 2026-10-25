@@ -8,7 +8,12 @@ ALLOWED_REL={'book-setting','filming-location','inspiration','writer-route','lib
 
 def load(path:Path):
     data=json.loads(path.read_text(encoding='utf-8'))
-    cats={c['slug']:c['name'] for c in data.get('categories',[])}
+    cats={}
+    for category in data.get('categories',[]):
+        slug=category['slug']
+        if slug in cats:
+            raise ValueError(f'slug de categoría duplicado: {slug!r}')
+        cats[slug]=category['name']
     if not cats: raise ValueError('Sin categorías')
     for category_slug in cats:
         if not isinstance(category_slug, str) or not SLUG_RE.fullmatch(category_slug):
