@@ -29,10 +29,31 @@ def load_json(path: Path):
 
 
 def safe_rel(raw: str) -> str:
-    p = PurePosixPath(raw)
-    if p.is_absolute() or ".." in p.parts or raw.startswith("/"):
-        raise ValueError(f"ruta no permitida en ZIP/manifiesto: {raw}")
-    return p.as_posix()
+    if not isinstance(raw, str) or not raw:
+        raise ValueError(f"ruta no permitida en ZIP/manifiesto: {raw!r}")
+
+    forbidden = set('\\:<>"|?*')
+    reserved = {
+        'CON', 'PRN', 'AUX', 'NUL',
+        *(f'COM{i}' for i in range(1, 10)),
+        *(f'LPT{i}' for i in range(1, 10)),
+    }
+    parts = raw.split('/')
+
+    if (
+        raw.startswith('/')
+        or any(ch in forbidden or ord(ch) < 32 or ord(ch) == 127 for ch in raw)
+        or any(
+            not part
+            or part in ('.', '..')
+            or part.endswith(('.', ' '))
+            or part.split('.')[0].upper() in reserved
+            for part in parts
+        )
+    ):
+        raise ValueError(f"ruta no permitida en ZIP/manifiesto: {raw!r}")
+
+    return PurePosixPath(raw).as_posix()
 
 
 def zip_info(name: str, stamp: tuple[int, int, int, int, int, int]) -> ZipInfo:
@@ -43,8 +64,12 @@ def zip_info(name: str, stamp: tuple[int, int, int, int, int, int]) -> ZipInfo:
 
 
 def canonical_stamp(book: dict, author: dict):
-    raw = book.get("lastUpdated") or author.get("lastUpdated") or "2026-01-01"
-    dt = datetime.fromisoformat(raw)
+    dates = [
+        datetime.fromisoformat(raw)
+        for raw in (book.get("lastUpdated"), author.get("lastUpdated"))
+        if raw
+    ]
+    dt = max(dates) if dates else datetime.fromisoformat("2026-01-01")
     return (dt.year, dt.month, dt.day, 0, 0, 0)
 
 
@@ -53,6 +78,12 @@ def normalized_json_bytes(obj) -> bytes:
 
 
 def make_readme(book: dict, author: dict, manifest: dict) -> bytes:
+    contact = author.get("contact") or {}
+    contact_page = str(contact.get("contactPage") or "").strip()
+    email = str(contact.get("email") or "").strip()
+    press_page = str(contact.get("pressKit") or "").strip()
+    contact_value = f"[{contact_page}]({contact_page})" if contact_page else email
+    press_value = f"[{press_page}]({press_page})" if press_page else ""
     genres = ", ".join(book.get("genres", []))
     lines = [
         "KIT DE PRENSA — DAVID PORTO D\u00cdAZ / LAS MANECILLAS DEL RECUERDO",
@@ -60,7 +91,7 @@ def make_readme(book: dict, author: dict, manifest: dict) -> bytes:
         "",
         f"Autor: {author.get('name', '')}",
         f"Web: {author.get('website', '')}",
-        f"Contacto de prensa: {author.get('contact', {}).get('email', '')}",
+        f"Contacto de prensa: {contact_value}",
         "",
         f"Título: {book.get('title', '')}",
         f"Editorial: {book.get('publisher', '')}",
@@ -90,7 +121,7 @@ def make_readme(book: dict, author: dict, manifest: dict) -> bytes:
         "No alterar la portada ni atribuir al autor/editorial datos que no aparezcan en las fichas incluidas.",
         "Para una versión actualizada, usar siempre la página oficial de prensa.",
         "",
-        f"Página de prensa: {author.get('contact', {}).get('pressKit', '')}",
+        f"Página de prensa: {press_value}",
         "",
     ]
     return "\n".join(lines).encode("utf-8")
@@ -152,7 +183,10 @@ def validate(manifest: dict, book: dict, author: dict, editorial: dict):
 
     if not book.get("title") or not book.get("isbn") or not book.get("publicationDate"):
         errors.append("faltan hechos mínimos del libro")
-    if not author.get("name") or not author.get("contact", {}).get("email"):
+    contact = author.get("contact") or {}
+    email = str(contact.get("email") or "").strip()
+    contact_page = str(contact.get("contactPage") or "").strip()
+    if not author.get("name") or not (email or contact_page.startswith("https://") and len(contact_page) > len("https://")):
         errors.append("faltan hechos mínimos del autor/contacto")
 
     canon = editorial.get("books", {}).get("lasManecillasDelRecuerdo", {})
