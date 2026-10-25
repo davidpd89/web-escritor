@@ -48,6 +48,8 @@ def select_offers(book,payload,tag,now):
         return []
     known=verified_formats(book)
     for item in container.get('items',[]):
+        if not isinstance(item,dict):
+            continue
         asin=item.get('asin','')
         if not re.fullmatch(r'[A-Z0-9]{10}',asin):
             continue
@@ -66,6 +68,8 @@ def select_offers(book,payload,tag,now):
         if not fmt or (asin not in known and not isbn_match):
             continue
         for listing in (item.get('offersV2') or {}).get('listings',[]):
+            if not isinstance(listing,dict):
+                continue
             if (listing.get('condition') or {}).get('value')!='New' or listing.get('type'):
                 continue  # Exclude subscriptions, lightning/limited and conditional deals.
             access=(listing.get('dealDetails') or {}).get('accessType')

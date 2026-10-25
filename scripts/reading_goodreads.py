@@ -23,7 +23,10 @@ class StructuredBook(HTMLParser):
             try:
                 item = json.loads(''.join(self.parts))
                 for obj in item if isinstance(item, list) else item.get('@graph', [item]):
-                    if isinstance(obj, dict) and obj.get('@type') == 'Book': self.books.append(obj)
+                    if isinstance(obj, dict):
+                        types = obj.get('@type')
+                        if types == 'Book' or (isinstance(types, list) and 'Book' in types):
+                            self.books.append(obj)
             except (ValueError, TypeError, AttributeError): pass
 
 def select_goodreads_rating(book, response):
@@ -37,7 +40,9 @@ def select_goodreads_rating(book, response):
         if not title_matches(str(obj.get('name', '')), book['titulo']): continue
         authors = obj.get('author', []); authors = authors if isinstance(authors, list) else [authors]
         if not any(author_matches(str(a.get('name', '')), name) for a in authors if isinstance(a, dict) for name in book['autores']): continue
-        rating = obj.get('aggregateRating') or {}; value = rating.get('ratingValue'); count = rating.get('ratingCount')
+        rating = obj.get('aggregateRating')
+        if not isinstance(rating, dict): continue
+        value = rating.get('ratingValue'); count = rating.get('ratingCount')
         if isinstance(value, bool) or isinstance(count, bool): continue
         try:
             value, parsed_count = float(value), float(count)
