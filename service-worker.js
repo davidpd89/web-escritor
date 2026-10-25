@@ -54,7 +54,14 @@ async function putIfCacheable(cache, request, response) {
   const noStore = cacheControl.split(",").some((directive) =>
     directive.trim().toLowerCase() === "no-store"
   );
-  if (response && response.ok && response.status !== 206 && !noStore) {
+  const pathname = new URL(request.url).pathname.toLowerCase();
+  const mime = (response?.headers?.get("Content-Type") || "")
+    .split(";", 1)[0].trim().toLowerCase();
+  const isJavaScript = /\.(?:js|mjs)$/.test(pathname);
+  const isCss = pathname.endsWith(".css");
+  const validJavaScriptMime = /^(?:text|application)\/(?:javascript|ecmascript|x-javascript|x-ecmascript)$/.test(mime);
+  const compatibleMime = isJavaScript ? validJavaScriptMime : isCss ? mime === "text/css" : true;
+  if (response && response.ok && response.status !== 206 && !noStore && compatibleMime) {
     try {
       await cache.put(request, response.clone());
     } catch (error) {
