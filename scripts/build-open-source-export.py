@@ -174,9 +174,16 @@ def main():
         manifest_file=a.output/'EXPORT-MANIFEST.json'
         if not manifest_file.exists(): print('FAIL: staging no existe',file=sys.stderr);return 1
         current=json.loads(manifest_file.read_text(encoding='utf-8'))
+        staging_root=a.output.resolve()
         for item in current.get('files',[]):
-            p=a.output/item['path']
-            if not p.exists() or sha256(p)!=item['sha256']: print(f'FAIL: deriva {item["path"]}',file=sys.stderr);return 1
+            rel=item['path']
+            if not isinstance(rel,str) or not rel or Path(rel).is_absolute() or '..' in rel.replace('\\','/').split('/'):
+                print(f'FAIL: ruta inválida en staging: {rel}',file=sys.stderr);return 1
+            p=(staging_root/rel).resolve()
+            if not p.is_relative_to(staging_root) or p==staging_root:
+                print(f'FAIL: ruta fuera del staging: {rel}',file=sys.stderr);return 1
+            if not p.is_file() or sha256(p)!=item['sha256']:
+                print(f'FAIL: deriva {rel}',file=sys.stderr);return 1
         # P.2, requisito 7: --check tambien debe detectar que el manifest
         # fuente actual (que herramientas tienen export:true ahora mismo) ya
         # no corresponde con lo que el staging tiene generado, no solo que

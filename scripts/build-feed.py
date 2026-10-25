@@ -89,43 +89,51 @@ def extract_metadata(path):
     s = open(path, encoding='utf8', errors='ignore').read()
     if is_noindex(s):
         return {'path': path, 'title': None, 'url': None, 'date': None, 'description': None, 'skip': True}
-    # Try JSON-LD
-    m = re.search(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>([\s\S]*?)</script>', s, flags=re.I)
-    title=None; url=None; date=None; desc=None
-    if m:
+    # Inspect every JSON-LD block; non-article schemas must not shadow an Article.
+    title = None
+    url = None
+    date = None
+    desc = None
+    non_article_page = False
+    article_found = False
+    scripts = re.finditer(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>([\s\S]*?)</script>', s, flags=re.I)
+    for script in scripts:
         try:
-            j=json.loads(m.group(1))
-            if is_non_article_page(j):
-                return {'path': path, 'title': None, 'url': None, 'date': None, 'description': None, 'skip': True}
-            # Every article on the site emits its JSON-LD as a top-level
-            # @graph (Article + BreadcrumbList, etc), never a flat Article
-            # object -- so node = j always picked the @graph WRAPPER, whose
-            # .get('name')/.get('datePublished') are always None even though
-            # the real values sit one level down. That silently dropped
-            # every item's pubDate (confirmed empty in production feed.xml)
-            # and degraded the intended date sort to the alphabetical
-            # fallback below.
-            node = None
-            if isinstance(j, dict) and isinstance(j.get('@graph'), list):
-                for candidate in j['@graph']:
-                    if not isinstance(candidate, dict):
-                        continue
-                    t = candidate.get('@type')
-                    types = {t} if isinstance(t, str) else set(t or [])
-                    if types & ARTICLE_TYPES:
-                        node = candidate
-                        break
-            elif isinstance(j, dict):
-                node = j
-            elif isinstance(j, list) and j:
-                node = j[0]
-            if node:
+            payload = json.loads(script.group(1))
+        except (ValueError, TypeError):
+            continue
+        documents = payload if isinstance(payload, list) else [payload]
+        for document in documents:
+            if not isinstance(document, dict):
+                continue
+            if is_non_article_page(document):
+                non_article_page = True
+            graph = document.get('@graph')
+            nodes = graph if isinstance(graph, list) else [document]
+            for node in nodes:
+                if not isinstance(node, dict):
+                    continue
+                raw_type = node.get('@type')
+                if isinstance(raw_type, str):
+                    types = {raw_type}
+                elif isinstance(raw_type, list):
+                    types = {item for item in raw_type if isinstance(item, str)}
+                else:
+                    types = set()
+                if not types & ARTICLE_TYPES:
+                    continue
                 title = node.get('name') or node.get('headline')
                 url = node.get('url')
                 date = node.get('datePublished') or node.get('dateModified')
                 desc = node.get('description')
-        except Exception:
-            pass
+                article_found = True
+                break
+            if article_found:
+                break
+        if article_found:
+            break
+    if non_article_page and not article_found:
+        return {'path': path, 'title': None, 'url': None, 'date': None, 'description': None, 'skip': True}
     # Fallback to meta title
     if not title:
         m = re.search(r'<title>([^<]+)</title>', s, flags=re.I)
