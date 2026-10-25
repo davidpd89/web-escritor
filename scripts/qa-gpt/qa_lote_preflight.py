@@ -21,6 +21,8 @@ def validate_combined(pr, db, worktree, rows):
         if not pr.comando_test(path) or not (root / path).is_file():
             return False, f"test acumulado ausente/no ejecutable: {path}"
         code, output = pr._test(worktree, path)
+        if code == 125:
+            return None, f"entorno no disponible en {path}: {output[-350:]}"
         if code != 0:
             return False, f"test acumulado {path} fallo ({code}): {output[-500:]}"
     return True, f"{len(tests)} tests acumulados pasan sobre el lote integrado"
