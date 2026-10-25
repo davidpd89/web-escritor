@@ -104,6 +104,10 @@ self.addEventListener("fetch", (event) => {
   const { request } = event;
   if (!isSameOriginGet(request)) return;
 
+  // Authenticated requests must never enter shared PWA caches.
+  // Leave them to the browser's normal network handling.
+  if (request.headers.has("Authorization") || request.headers.has("Cookie")) return;
+
   const url = new URL(request.url);
 
   // API responses are never owned by the PWA cache. This includes assistant
