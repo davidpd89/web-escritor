@@ -52,7 +52,7 @@ function offlineResponse() {
 async function putIfCacheable(cache, request, response) {
   const cacheControl = response?.headers?.get("Cache-Control") || "";
   const noStore = cacheControl.split(",").some((directive) =>
-    directive.trim().toLowerCase() === "no-store"
+    ["no-store", "private"].includes(directive.trim().toLowerCase())
   );
   const pathname = new URL(request.url).pathname.toLowerCase();
   const mime = (response?.headers?.get("Content-Type") || "")
