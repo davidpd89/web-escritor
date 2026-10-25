@@ -19,9 +19,9 @@ ESQUEMA = {"type": "object", "properties": {"resultado": {"type": "string", "enu
 
 
 def diff_a_parche(antes, despues):
-    """{ruta: (texto_antes, texto_despues)} -> parche buscar/por; cada hunk se amplia con lineas de contexto hasta que 'buscar' es unico. None si no se puede."""
+    """dos dicts {ruta: texto} -> parche buscar/por; cada hunk se amplia con lineas de contexto hasta que 'buscar' es unico. None si no se puede."""
     ficheros = []
-    for ruta, (a, b) in antes.items():
+    for ruta, a in antes.items():
         la, lb = a.split("\n"), despues[ruta].split("\n")
         reps = []
         for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, la, lb, autojunk=False).get_opcodes():
