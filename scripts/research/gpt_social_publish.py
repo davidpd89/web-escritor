@@ -47,7 +47,8 @@ def validate(text: str, now: datetime) -> dict:
     if sorted(ids) != sorted(NETWORKS):
         raise PublishError("snapshot does not list exactly the six official networks")
     for n in nets:
-        if n.get("status") == "ok" and not (isinstance(n.get("followers"), int) and n["followers"] >= 0
+        if n.get("status") == "ok" and not (type(n.get("followers")) is int
+                                            and 0 <= n["followers"] <= 2**53 - 1
                                             and str(n.get("profile_url", "")).startswith("https://")):
             raise PublishError(f"bad data for {n.get('id')}")
     if not any(n.get("status") == "ok" for n in nets):
