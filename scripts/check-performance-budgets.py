@@ -157,7 +157,7 @@ def metrics_for(files: list[Path]) -> dict[str, int]:
 
 def validate_manifest(manifest: dict) -> list[str]:
     errors: list[str] = []
-    if manifest.get("schema_version") != 1:
+    if type(manifest.get("schema_version")) is not int or manifest.get("schema_version") != 1:
         errors.append("manifest: schema_version debe ser 1")
     if manifest.get("enforcement") not in {"report", "enforce"}:
         errors.append("manifest: enforcement debe ser report o enforce")
@@ -190,7 +190,7 @@ def validate_manifest(manifest: dict) -> list[str]:
             for key, value in values.items():
                 if key not in METRIC_KEYS:
                     errors.append(f"manifest: {budget_id or index}.{field}.{key} no es metrica soportada")
-                if not isinstance(value, int) or value < 0:
+                if type(value) is not int or value < 0:
                     errors.append(f"manifest: {budget_id or index}.{field}.{key} debe ser entero >= 0")
     return errors
 
