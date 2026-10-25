@@ -272,7 +272,7 @@ class Pr:
             base = self.git("rev-parse", "HEAD", cwd=wt)[1].strip()
             tests = self._rutas_tests(c, json.loads(row["propuestas"] or "[]"))
             existian = {t for t in tests if (wt / t).exists()}
-            if tests and len(existian) < len(tests): self._traer_tests(c, row, wt, tests)  # el test vive en la rama gpt-qa, no en main: entra como regresion
+            aux = self._traer_tests(c, row, wt, tests) if tests and len(existian) < len(tests) else []  # el test (y sus auxiliares) vive en la rama gpt-qa, no en main: entra como regresion
             if not tests or not all((wt / t).exists() and self.comando_test(t) for t in tests):
                 self._marca(c, row, "sin_test", "sin test automatico ejecutable que reproduzca el defecto: no se abre PR"); return "sin_test"
             # 1) el defecto se reproduce en main (baseline): si todos los tests ya pasan, no hay nada que corregir
@@ -292,7 +292,7 @@ class Pr:
             try: tocados = aplicar_parche(wt, norm)
             except ValueError as e: self._marca(c, row, "parche_no_encaja", str(e)); return "parche_no_encaja"
             previos = cambiados(self.git, wt)
-            self.git("add", "--", *sorted(set(tocados) | set(tests)), cwd=wt)
+            self.git("add", "--", *sorted(set(tocados) | set(tests) | set(aux)), cwd=wt)
             rc, fuente = self.git("write-tree", cwd=wt); fuente = fuente.strip() if rc == 0 else None  # arbol solo con la fuente, antes de regenerar
             regen = regenerar(self.run, wt, tocados)
             derivados = cambiados(self.git, wt) - previos if regen else set()
@@ -308,7 +308,7 @@ class Pr:
             verif = "Baseline en main: " + ", ".join(f"`{t}` falla (exit {rc})" if rc else f"`{t}` pasa" for t, (rc, _o) in antes) + "\n" + verif
             if regen: verif += f"\n- Derivados regenerados con los scripts del repo: {', '.join(regen)} ({len(derivados)} ficheros)"
             self.git("add", "-A", cwd=wt)
-            extra = [x for x in self.git("diff", "--cached", "--name-only", cwd=wt)[1].split() if x not in set(tocados) | set(tests) | derivados and "__pycache__" not in x and not x.endswith(".pyc")]
+            extra = [x for x in self.git("diff", "--cached", "--name-only", cwd=wt)[1].split() if x not in set(tocados) | set(tests) | set(aux) | derivados and "__pycache__" not in x and not x.endswith(".pyc")]
             if extra: self._marca(c, row, "validacion_fallida", f"cambios fuera de alcance: {', '.join(extra)[:300]}"); return "validacion_fallida"
             if derivados and flujo(self.q)["modo_pr"] == "lote" and not demo and fuente:
                 # la rama de la correccion lleva solo la fuente: el lote rehace los derivados tras cada cherry-pick (dos correcciones que suben el mismo
@@ -359,13 +359,28 @@ class Pr:
         finally:
             self.limpiar(wt, None)
 
+    IMPORT_REL = re.compile(r"""(?:\bfrom\s+|\bimport\s*\(\s*|\brequire\s*\(\s*|^\s*import\s+)['"](\.{1,2}/[^'"]+)['"]""", re.M)
+
     def _traer_tests(self, c, row, wt, tests):
+        """Copia al worktree los tests de la rama de GPT y, recursivamente, los modulos auxiliares que importan por ruta relativa y que main no
+        tiene (fixtures/harness): sin ellos el test moria con ERR_MODULE_NOT_FOUND (14 causas 'test_no_fiable'). -> auxiliares traidos."""
+        import posixpath
+        aux = []
         for it in json.loads(row["items"] or "[]"):
             rama, _, sha = it.partition("@")
-            for t in tests:
+            pend = [(t, 0) for t in tests]
+            while pend:
+                t, nivel = pend.pop()
+                if (wt / t).exists() and t not in tests: continue
                 rc, o = self.git("show", f"{rama}:{t}")
-                if rc == 0:
-                    p = wt / t; p.parent.mkdir(parents=True, exist_ok=True); p.write_text(o, encoding="utf-8", newline="")
+                if rc: continue
+                p = wt / t; p.parent.mkdir(parents=True, exist_ok=True); p.write_text(o, encoding="utf-8", newline="")
+                if t not in tests: aux.append(t)
+                if nivel < 3 and t.endswith((".mjs", ".js", ".cjs")):
+                    for m in self.IMPORT_REL.findall(o):
+                        dep = posixpath.normpath(posixpath.join(posixpath.dirname(t), m))
+                        if not ruta_segura(dep) and not (wt / dep).exists() and dep not in tests: pend.append((dep, nivel + 1))
+        return sorted(set(aux))
 
     def reproduce(self, c, row):
         """Filtro barato ANTES del desarrollo GPT (11-19 min): ¿los tests de la causa fallan hoy en main? -> True, False (todos pasan: no hay
