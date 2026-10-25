@@ -17,17 +17,17 @@ def git(root, *args):
 def public_html(paths):
     result=[]
     for path in paths:
-        if not path.endswith('.html') or path.startswith(('scripts/', 'tests/')):
+        if not path.lower().endswith('.html') or path.startswith(('scripts/', 'tests/')):
             continue
         # These values become CLI arguments, never arbitrary shell text.
-        if not re.fullmatch(r'[A-Za-z0-9_./-]+\.html', path) or '..' in path.split('/'):
+        if not re.fullmatch(r'[A-Za-z0-9_./-]+\.html', path, flags=re.IGNORECASE) or '..' in path.split('/'):
             raise ValueError('Unsafe HTML input path: '+repr(path))
         result.append(path)
     return sorted(set(result))
 
 
 def select(root, event_name, event, ref, full_scan=False):
-    all_files=public_html(git(root,'ls-files','-z','--','*.html').split('\0'))
+    all_files=public_html(git(root,'ls-files','-z').split('\0'))
     if not all_files:
         raise ValueError('No HTML inputs; refusing an empty link check')
     base=None
@@ -44,8 +44,8 @@ def select(root, event_name, event, ref, full_scan=False):
     reason='full audit requested or no reliable comparison'
     if isinstance(base,str) and re.fullmatch(r'[a-f0-9]{40}',base) and base!='0'*40:
         try:
-            removed=git(root,'diff','--find-renames','--name-only','-z','--diff-filter=DR',base,'HEAD','--','*.html')
-            changed=public_html(git(root,'diff','--name-only','-z','--diff-filter=ACMT',base,'HEAD','--','*.html').split('\0'))
+            removed=public_html(git(root,'diff','--find-renames','--name-only','-z','--diff-filter=DR',base,'HEAD').split('\0'))
+            changed=public_html(git(root,'diff','--name-only','-z','--diff-filter=ACMT',base,'HEAD').split('\0'))
             if not removed and changed:
                 return {'scope':'changed-html','base':base,'files':changed,
                         'reason':'every added or modified HTML page; no deletions or renames'}
