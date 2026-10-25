@@ -83,9 +83,10 @@ def registry_routes(path: Path) -> dict[str, str]:
     for entry in data.get("entries", []):
         status = entry.get("status", defaults.get("status", "public"))
         search_index = entry.get("searchIndex", defaults.get("searchIndex", True))
+        sitemap = entry.get("sitemap", defaults.get("sitemap", True))
         url = entry.get("url")
         source = entry.get("sourceFile")
-        if status != "public" or not search_index or not url or not source:
+        if status != "public" or not search_index or not sitemap or not url or not source:
             continue
         if not isinstance(url, str) or not isinstance(source, str):
             continue
