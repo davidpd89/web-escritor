@@ -123,6 +123,14 @@ jobs:
         if: always()
         run: lhci assert --config=/tmp/identity-lighthouserc.json
 
+      - name: CLS trace (diagnostico, no bloquea)
+        if: always()
+        continue-on-error: true
+        env:
+          IDENTITY_BASE_URL: http://127.0.0.1:4173
+          CLS_TRACE_DIR: artifacts/identity-public/cls-trace
+        run: node qa/cls-trace.mjs
+
       - name: Save server log
         if: always()
         run: |

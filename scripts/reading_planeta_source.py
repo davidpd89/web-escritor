@@ -116,7 +116,8 @@ def planeta_edition(document: str, source: str) -> dict:
     block = document[h1.end():h1.end() + 4000] if h1 else ''
     authors = list(dict.fromkeys(
         _text(m.group(2)) for m in re.finditer(r'<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>', block[:block.find('</ul>') if '</ul>' in block else len(block)], re.S)
-        if AUTHOR_PATH.fullmatch(urlsplit(urljoin(source, html.unescape(m.group(1)))).path)))
+        if (urlsplit(urljoin(source, html.unescape(m.group(1)))).hostname == HOST
+            and AUTHOR_PATH.fullmatch(urlsplit(urljoin(source, html.unescape(m.group(1)))).path))))
     fields = _ficha(document)
     expected = isbn13(fields.get('isbn', ''))
     publisher = fields.get('editorial', '')
@@ -154,6 +155,8 @@ def planeta_edition(document: str, source: str) -> dict:
         url = urljoin(source, html.unescape(m.group(1)))
         if urlsplit(url).hostname == HOST and AUTHOR_PATH.fullmatch(urlsplit(url).path) and _text(m.group(2)) in authors:
             author_sources.setdefault(_text(m.group(2)), url)
+    if any(author not in author_sources for author in authors):
+        raise SourceError('Falta perfil oficial de Planeta para la autoría')
     return {'isbn13': expected, 'titulo': title, 'autores': authors, 'editorial': publisher,
             'fecha_publicacion_edicion': published, 'precision_fecha': 'dia',
             'idioma': 'es', 'formato_edicion': format_id, 'encuadernacion': binding,
@@ -161,7 +164,7 @@ def planeta_edition(document: str, source: str) -> dict:
             'materias': topic_names[:1],
             'edad_recomendada': '',
             'portada_fuente_url': image, 'fuente_bibliografica_url': source,
-            'fuentes_autores': {a: author_sources.get(a, source) for a in authors},
+            'fuentes_autores': {a: author_sources[a] for a in authors},
             'coleccion': fields.get('coleccion', ''),
             'sinopsis_breve': editorial_excerpt(synopsis_html),
             'palabras_clave': keyword_list(', '.join(topic_names)),

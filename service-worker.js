@@ -50,8 +50,14 @@ function offlineResponse() {
 }
 
 async function putIfCacheable(cache, request, response) {
-  if (response && response.ok) {
-    await cache.put(request, response.clone());
+  if (response && response.ok && response.status !== 206) {
+    try {
+      await cache.put(request, response.clone());
+    } catch (error) {
+      // CacheStorage is optional: a failed write must not hide a valid
+      // network response or trigger an offline/stale fallback.
+      console.warn("PWA cache write failed:", error);
+    }
   }
   return response;
 }

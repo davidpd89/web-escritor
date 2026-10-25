@@ -134,9 +134,9 @@ def normalize_canonical(canonical: str | None, root: Path, path: Path) -> str | 
         if canonical.startswith("https://"):
             if not canonical.startswith(DOMAIN):
                 return None
-            return canonical.rstrip("/") + ("/" if canonical.endswith("/") and canonical != DOMAIN + "/" else "")
+            return canonical.rstrip("/") + ("/" if canonical.endswith("/") else "")
         if canonical.startswith("/"):
-            return (DOMAIN + canonical).rstrip("/") + ("/" if canonical.endswith("/") and canonical != "/" else "")
+            return (DOMAIN + canonical).rstrip("/") + ("/" if canonical.endswith("/") else "")
 
     rel = "/" + str(path.relative_to(root)).replace("\\", "/")
     if rel.endswith("/index.html"):
