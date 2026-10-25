@@ -568,14 +568,14 @@ class Ciclo:
                 orig = P.git("rev-parse", f"origin/{rama_item}")  # commit original de la correccion (pr_head se sobrescribe al abrir un lote)
                 if P.git("cherry-pick", orig[1].strip() if orig[0] == 0 else row["pr_head"], cwd=wt)[0]:
                     P.git("cherry-pick", "--abort", cwd=wt)
-                    if not incl and len(listos) == 1: self._marca(c, row, "conflicto_main", "no se aplica limpio sobre main actual")
+                    if not incl and len(listos) == 1: P._marca(c, row, "conflicto_main", "no se aplica limpio sobre main actual")
                     continue
                 tocados = list(self._archivos_parche(row) | {x for x in P.git("show", "--name-only", "--format=", "HEAD", cwd=wt)[1].split()})
                 for cmd in verificadores(wt, tocados_all + tocados):
                     rc, o = P.run(cmd, str(wt), timeout=300)
                     if rc:
                         P.git("reset", "-q", "--hard", "HEAD~1", cwd=wt)
-                        if not incl: self._marca(c, row, "validacion_fallida", f"en lote: {' '.join(cmd[1:])} fallo (exit {rc}): {o[-250:]}")
+                        if not incl: P._marca(c, row, "validacion_fallida", f"en lote: {' '.join(cmd[1:])} fallo (exit {rc}): {o[-250:]}")
                         break
                 else: incl.append(row); tocados_all += tocados
             if not incl: return
@@ -597,7 +597,7 @@ class Ciclo:
                     return
                 # La regresion puede ser una interaccion entre parches, no un fallo
                 # intrinseco del ultimo: revalidarlo individualmente, no descartarlo.
-                self._marca(c, removed, "reintentar", f"Interaccion en preflight combinado: {detail[:650]}")
+                P._marca(c, removed, "reintentar", f"Interaccion en preflight combinado: {detail[:650]}")
             if not incl: return
             sha = P.git("rev-parse", "HEAD", cwd=wt)[1].strip()
             # revision agregada de Claude ANTES de abrir la PR: lo dudoso se saca del lote y el CI pesado solo corre sobre contenido ya aprobado
@@ -606,7 +606,7 @@ class Ciclo:
             if rev is None: self.out("  lote: revision de Claude no disponible, se reintenta"); return
             malos = set(rev.get("excluir_ids") or []) & {x["id"] for x in incl}
             for row in incl:
-                if row["id"] in malos: self._marca(c, row, "rechazada_revision", "excluida del lote por la revision de Claude: " + "; ".join(rev.get("motivos") or [])[:600])
+                if row["id"] in malos: P._marca(c, row, "rechazada_revision", "excluida del lote por la revision de Claude: " + "; ".join(rev.get("motivos") or [])[:600])
             if malos: self.out(f"  lote: Claude excluye {sorted(malos)}; se reagrupa en el siguiente ciclo"); return
             self.gh.push(sha, rama)
             cuerpo = f"## Lote de {len(incl)} correcciones verificadas por GPT QA\n\nCada una fue reproducida en main (el test falla antes), corregida (pasa despues), verificada con los comprobadores del repo y revisada de forma agregada por Claude antes de abrir esta PR. Se agrupan para ejecutar el CI pesado una sola vez.\n"
