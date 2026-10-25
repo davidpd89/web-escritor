@@ -18,6 +18,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import gpt_metricool_mcp as mcp  # noqa: E402
+import gpt_social_compose as compose  # noqa: E402
 
 REL = "redes-sociales/social-metrics.json"
 BRANCH = "main"
@@ -47,8 +48,9 @@ def validate(text: str, now: datetime) -> dict:
     if sorted(ids) != sorted(NETWORKS):
         raise PublishError("snapshot does not list exactly the six official networks")
     for n in nets:
-        if n.get("status") == "ok" and not (isinstance(n.get("followers"), int) and n["followers"] >= 0
-                                            and str(n.get("profile_url", "")).startswith("https://")):
+        if n.get("profile_url") != compose.PROFILES[n["id"]]:
+            raise PublishError(f"non-canonical profile URL for {n['id']}")
+        if n.get("status") == "ok" and not (isinstance(n.get("followers"), int) and n["followers"] >= 0):
             raise PublishError(f"bad data for {n.get('id')}")
     valid = [n for n in nets if n.get("status") == "ok"]
     if not valid:
