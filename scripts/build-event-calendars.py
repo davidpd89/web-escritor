@@ -351,6 +351,9 @@ def expected_calendars(html_text: str, *, as_of: date | datetime | None = None) 
                 errors.append(f"identificador de evento duplicado: {event_id}")
                 continue
             seen_event_ids.add(event_id)
+            start = event.get("startDate")
+            if not isinstance(start, str) or not start.strip():
+                raise ValueError(f"EventScheduled {fragment!r} sin startDate valido")
             if not is_upcoming(event, as_of=as_of):
                 continue
             filename = f"{fragment}.ics"
