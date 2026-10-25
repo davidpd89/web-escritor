@@ -41,8 +41,17 @@ def diff_a_parche(antes, despues):
 
 
 def elegible(c, maxi=1):
-    return c.execute(f"""SELECT * FROM triaje WHERE decision='corregir' AND clase IN ('defecto_web','test_roto') AND COALESCE(pr_estado,'') IN ({','.join('?' * len(ESTADOS))})
-        AND NOT EXISTS (SELECT 1 FROM claude_llamadas WHERE clave='dev_claude:'||triaje.id) ORDER BY COALESCE(prioridad,'3'), id LIMIT ?""", (*ESTADOS, maxi)).fetchall()
+    """Filas aprobadas con fallo de parche, sin intento previo de Claude y cuyos archivos probables no son rutas prohibidas (esas no se pueden corregir automaticamente)."""
+    out = []
+    for r in c.execute(f"""SELECT * FROM triaje WHERE decision='corregir' AND clase IN ('defecto_web','test_roto') AND COALESCE(pr_estado,'') IN ({','.join('?' * len(ESTADOS))})
+            AND NOT EXISTS (SELECT 1 FROM claude_llamadas WHERE clave='dev_claude:'||triaje.id) ORDER BY COALESCE(prioridad,'3'), id""", ESTADOS).fetchall():
+        arch = (json.loads(r["decision_json"] or "{}") or {}).get("archivos") or []
+        if any(qa_pr.ruta_segura(a) for a in arch):
+            c.execute("UPDATE triaje SET dev_estado='ruta_prohibida',pr_estado='descartada',pr_detalle=?,actualizado=? WHERE id=?",
+                      ("la correccion requiere tocar una ruta prohibida: " + ", ".join(a for a in arch if qa_pr.ruta_segura(a))[:200], __import__("datetime").datetime.now().isoformat(timespec="seconds"), r["id"])); continue
+        out.append(r)
+        if len(out) >= maxi: break
+    c.commit(); return out
 
 
 def desarrollar(q, c, pr, row):

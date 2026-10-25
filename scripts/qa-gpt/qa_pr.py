@@ -537,6 +537,13 @@ class Ciclo:
         sosp = [x for x in listos if x["integracion"] == "ci_rojo_lote"]  # biseccion: un lote en rojo se reparte en mitades, las sospechosas primero
         if sosp: listos = sosp[:max(1, len(sosp) // 2)]
         else:
+            # sin solape con lotes abiertos: dos lotes que tocan el mismo script se estorban (el que se fusiona segundo queda en conflicto y se rehace)
+            nuevas = {r_["pr_numero"] for r_ in c.execute("SELECT pr_numero FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta'")}
+            ocupados = {f["path"] for p_ in (getattr(self, "_prs", None) or []) if p_["number"] in nuevas for f in p_.get("files", [])}
+            libres = [x for x in listos if not (self._archivos_parche(x) & ocupados)]
+            if len(libres) < len(listos): self.out(f"  lote: {len(listos) - len(libres)} listas esperan (tocan archivos de un lote abierto)")
+            listos = libres
+            if not listos: return
             zonas = {}
             for x in listos: zonas.setdefault(self._zona(x), []).append(x)
             z, listos = max(zonas.items(), key=lambda kv: len(kv[1]))  # la zona con mas correcciones listas: lote coherente y revision localizada
