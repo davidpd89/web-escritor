@@ -447,6 +447,13 @@ class Ciclo:
             if row["pr_numero"] in vistas: continue
             vistas.add(row["pr_numero"])
             v = self.gh.pr_ver(row["pr_numero"]); head = v.get("headRefOid"); ci = ci_estado(v.get("statusCheckRollup"), cfg.get("ci_requeridos") or None)
+            if v.get("mergeable") == "CONFLICTING" and cfg["modo_pr"] == "lote":
+                # otro lote entro en main y este ya no aplica: se cierra y sus correcciones vuelven a la cola para rehacerse sobre el main actual
+                try: self.gh.pr_cerrar(row["pr_url"], "Conflicto con main tras fusionarse otro lote: las correcciones vuelven a la cola y se reagrupan sobre el main actual")
+                except Exception as e: self.out(f"  lote #{row['pr_numero']}: no se pudo cerrar ({str(e)[-80:]})")
+                else:
+                    c.execute("UPDATE triaje SET pr_estado='listo_lote',integracion=NULL,pr_nueva=0,pr_numero=0,dev_estado='listo_lote',revision=NULL,revision_hash=NULL,actualizado=? WHERE pr_numero=? AND pr_nueva=1", (q.now(), row["pr_numero"])); c.commit()
+                    r["lotes_reencolados"] = r.get("lotes_reencolados", 0) + 1; self.out(f"  lote #{row['pr_numero']} en conflicto: reencolado"); continue
             if v.get("mergeable") == "CONFLICTING": c.execute("UPDATE triaje SET integracion='conflicto',pr_head=? WHERE pr_numero=? AND pr_nueva=1", (head, row["pr_numero"])); c.commit(); continue
             if ci == "rojo" and cfg["modo_pr"] == "lote" and c.execute("SELECT COUNT(*) FROM triaje WHERE pr_numero=? AND pr_nueva=1", (row["pr_numero"],)).fetchone()[0] > 1:
                 try: self.gh.pr_cerrar(row["pr_url"], "CI rojo en el lote: se divide en mitades para localizar la correccion culpable (biseccion)")
