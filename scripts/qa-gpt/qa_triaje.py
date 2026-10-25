@@ -229,7 +229,7 @@ ESQUEMA_DECISION = {"type": "object", "required": ["decisiones"], "properties": 
                    "evidencia_usada": {"type": "array", "items": {"type": "string"}}, "relacionados": {"type": "array", "items": {"type": "integer"}},
                    "archivos": {"type": "array", "items": {"type": "string"}}, "criterio_aceptacion": {"type": "string"},
                    "confianza": {"type": "string", "enum": ["alta", "media", "baja"]}, "pide": {"type": "array", "items": {"type": "string"}}}}}}}
-LOTE_DECISION = 4          # expedientes por consulta (se agrupan decisiones independientes)
+LOTE_DECISION = 6          # expedientes por consulta (se agrupan decisiones independientes)
 INTENTOS_DECISION = 2      # consultas maximas por expediente
 
 
@@ -287,6 +287,7 @@ def reglas_previas(row):
     """Decisiones deterministas que no gastan Claude (clase ya concluida por el analisis GPT)."""
     if (row["grupo"] or "").endswith("#sin_grupos"): return "necesita_evidencia", "GPT no devolvio grupos para esta causa"
     if row["clase"] == "infraestructura": return "infraestructura", "clasificada como entorno por el analisis"
+    if row["clase"] == "test_roto" and (_j(row["analisis"], {}) or {}).get("es_defecto_producto"): return None  # el test falla mal, pero ademas hay un defecto real: que decida Claude
     if row["clase"] == "test_roto": return "test_incorrecto", "el analisis concluye que el test esta mal planteado"
     if row["clase"] == "flaky": return "rechazar", "intermitente, sin defecto reproducible"
     return None
