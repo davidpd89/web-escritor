@@ -467,7 +467,8 @@
   (function () {
     var cta = document.getElementById('sticky-cta');
     var closeBtn = document.getElementById('sticky-cta-close');
-    var dismissed = sessionStorage.getItem('sticky-cta-dismissed') === '1';
+    var dismissed = false;
+    try { dismissed = sessionStorage.getItem('sticky-cta-dismissed') === '1'; } catch (e) {}
     var shown = false;
 
     function thresholds() {
@@ -491,7 +492,7 @@
     closeBtn.addEventListener('click', function () {
       cta.classList.remove('visible');
       dismissed = true;
-      sessionStorage.setItem('sticky-cta-dismissed', '1');
+      try { sessionStorage.setItem('sticky-cta-dismissed', '1'); } catch (e) {}
     });
   })();
   </script>
