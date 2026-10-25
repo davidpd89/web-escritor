@@ -265,16 +265,36 @@ def build_ics(event: dict) -> bytes:
 
 
 class CalendarLinkParser(HTMLParser):
+    VOID_TAGS = {
+        "area", "base", "br", "col", "embed", "hr", "img", "input",
+        "link", "meta", "param", "source", "track", "wbr",
+    }
+
     def __init__(self) -> None:
         super().__init__()
         self.links: set[str] = set()
+        self._stack: list[tuple[str, bool]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        if tag.lower() != "a":
-            return
+        tag = tag.lower()
         values = {key.lower(): value for key, value in attrs}
-        if "data-calendar-download" in values and values.get("href"):
+        hidden = "hidden" in values or (self._stack[-1][1] if self._stack else False)
+        if tag == "a" and not hidden and "data-calendar-download" in values and values.get("href"):
             self.links.add(str(values["href"]))
+        if tag not in self.VOID_TAGS:
+            self._stack.append((tag, hidden))
+
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        self.handle_starttag(tag, attrs)
+        if tag.lower() not in self.VOID_TAGS:
+            self.handle_endtag(tag)
+
+    def handle_endtag(self, tag: str) -> None:
+        tag = tag.lower()
+        for index in range(len(self._stack) - 1, -1, -1):
+            if self._stack[index][0] == tag:
+                del self._stack[index:]
+                break
 
 
 def _calendar_links(html_text: str) -> set[str]:
