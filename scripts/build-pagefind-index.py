@@ -112,13 +112,32 @@ def is_noindex(text: str) -> bool:
 INTERNAL_DIR_PREFIXES = ("data/", "tests/", "scripts/")
 
 
+def _load_publisher():
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "build_public_dist_boundary", Path(__file__).resolve().parent / "build-public-dist.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 def eligible_pages(root: Path) -> list[str]:
     """Return git-tracked *.html paths eligible for the local search index,
     sorted for deterministic manifest output."""
     by_source = load_registry_by_source(root)
+    publisher = _load_publisher()
     eligible: list[str] = []
     for rel in git_tracked_html(root):
         if rel.startswith(INTERNAL_DIR_PREFIXES):
+            continue
+        # Same boundary as the publisher: nested pages must live in a public
+        # namespace; root-level pages only need to avoid forbidden classes.
+        if "/" in rel:
+            if not publisher.is_publishable(rel, root):
+                continue
+        elif publisher.forbidden_reason(rel):
             continue
         entry = by_source.get(rel)
         if entry is not None:
