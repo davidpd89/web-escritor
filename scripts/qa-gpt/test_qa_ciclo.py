@@ -243,6 +243,15 @@ class PrFlujo(T.Base):
         self.montar(); gh = self.GhCiclo(ci="rojo"); ci = self.ciclo(gh); ci.paso(self.c); ci.paso(self.c)
         self.assertEqual(self.c.execute("SELECT integracion FROM triaje").fetchone()[0], "ci_rojo"); self.assertEqual(gh.merges, [])
 
+    def test_lote_de_una_correccion_en_rojo_libera_el_carril(self):
+        self.montar(); gh = self.GhCiclo(); gh.cerradas = []; gh.pr_cerrar = lambda url, com="": gh.cerradas.append(url)
+        gh.log_failed = lambda rid: "x\tFAIL test-a.py: AssertionError VALOR\n"
+        pv = gh.pr_ver
+        gh.pr_ver = lambda n: {**pv(n), "statusCheckRollup": [{"name": "python-tests", "status": "COMPLETED", "conclusion": "FAILURE", "detailsUrl": "https://github.com/o/r/actions/runs/77/job/1"}]}
+        self.ciclo(gh, modo_pr="lote").paso(self.c)  # abre el lote de 1 y, con el CI ya rojo, lo cierra en el mismo paso
+        r = self.c.execute("SELECT pr_estado,pr_nueva,pr_detalle FROM triaje").fetchone()
+        self.assertEqual((r[0], r[1]), ("validacion_fallida", 0)); self.assertIn("python-tests", r[2]); self.assertIn("AssertionError VALOR", r[2]); self.assertEqual(len(gh.cerradas), 1)
+
     def test_modo_auto_no_integra_sin_calibracion(self):
         self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 10}); ci.paso(self.c); ci.paso(self.c)
         self.assertEqual(gh.merges, [])

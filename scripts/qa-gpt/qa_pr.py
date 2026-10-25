@@ -487,6 +487,17 @@ class Ciclo:
         try: return {f["ruta"] for f in json.loads(row["parche"])["ficheros"]}
         except (TypeError, ValueError, KeyError): return set()
 
+    def _log_ci_rojo(self, v):
+        rojos = [x for x in v.get("statusCheckRollup") or [] if x.get("conclusion") in ("FAILURE", "TIMED_OUT")]
+        txt = "CI rojo en: " + ", ".join(sorted({x.get("name") or x.get("context") or "?" for x in rojos}))[:300]
+        rids = list(dict.fromkeys(m.group(1) for x in rojos if (m := re.search(r"/actions/runs/(\d+)", x.get("detailsUrl") or ""))))
+        for rid in rids[:2]:
+            try: log = self.gh.log_failed(rid)
+            except Exception: continue
+            lineas = [l.split("\t")[-1] for l in (log or "").splitlines() if re.search(r"FAIL|Error|assert|Traceback|exit code", l, re.I)]
+            txt += "\n" + "\n".join(lineas[-12:])[-700:]
+        return txt[:900]
+
     CLAUDE_VENTAJA_MIN = 20
 
     def _claude_primero(self, c, row):
@@ -592,6 +603,15 @@ class Ciclo:
                 else:
                     c.execute("UPDATE triaje SET pr_estado='listo_lote',integracion='ci_rojo_lote',pr_nueva=0,pr_numero=0,dev_estado='listo_lote',actualizado=? WHERE pr_numero=? AND pr_nueva=1", (q.now(), row["pr_numero"])); c.commit()
                     r["lotes_divididos"] = r.get("lotes_divididos", 0) + 1; self.out(f"  lote #{row['pr_numero']} en rojo: dividido"); continue
+            if ci == "rojo" and cfg["modo_pr"] == "lote":
+                # lote de UNA correccion en rojo: antes quedaba abierto para siempre ocupando uno de los max_activos carriles. Se cierra y la
+                # correccion vuelve a desarrollo con el log del CI (Claude/GPT lo ven como 'fallo del intento anterior')
+                detalle = self._log_ci_rojo(v)
+                try: self.gh.pr_cerrar(row["pr_url"], "CI rojo en un lote de una sola correccion: vuelve a desarrollo con el log del fallo")
+                except Exception as e: self.out(f"  lote #{row['pr_numero']}: no se pudo cerrar ({str(e)[-80:]})"); continue
+                c.execute("UPDATE triaje SET pr_estado='validacion_fallida',integracion='ci_rojo',pr_nueva=0,pr_numero=0,dev_estado=NULL,pr_detalle=?,actualizado=? WHERE pr_numero=? AND pr_nueva=1",
+                          (detalle, q.now(), row["pr_numero"])); c.commit()
+                r["ci_rojo"] = r.get("ci_rojo", 0) + 1; self.out(f"  lote #{row['pr_numero']} (1 correccion) en rojo: cerrado, vuelve a desarrollo"); continue
             if ci == "rojo": c.execute("UPDATE triaje SET integracion='ci_rojo',pr_head=? WHERE pr_numero=? AND pr_nueva=1", (head, row["pr_numero"])); c.commit(); r["ci_rojo"] = r.get("ci_rojo", 0) + 1; continue
             if ci == "verde" and not v.get("isDraft") and row["revision_hash"] == head and row["integracion"] == "recomendada": self._integrar(c, row, head, v, cfg); continue  # ya revisada en este commit: solo falta fusionar (o actualizar la rama)
             if ci != "verde" or v.get("isDraft") or row["revision_hash"] == head or revisadas >= cfg["max_revisiones"]: continue
