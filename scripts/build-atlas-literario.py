@@ -1,14 +1,54 @@
 #!/usr/bin/env python3
-import argparse, html, json, re
+import argparse, html, ipaddress, json, re
 from pathlib import Path
+from urllib.parse import urlsplit
 
 SLUG_RE=re.compile(r'^[a-z0-9-]+$')
 ALLOWED_REL={'book-setting','filming-location','inspiration','writer-route','library','bookshop','book-town','fact-check','mixed','library-list'}
 
 
+def valid_https_source(url):
+    if not isinstance(url, str) or not url.startswith('https://'):
+        return False
+    if any(ord(ch) <= 32 or ord(ch) == 127 or ch in '<>\\' for ch in url):
+        return False
+    try:
+        parsed = urlsplit(url)
+        if parsed.scheme != 'https' or not parsed.netloc:
+            return False
+        if parsed.username is not None or parsed.password is not None:
+            return False
+        host = parsed.hostname
+        if not host:
+            return False
+        port = parsed.port
+        if port is not None and not 1 <= port <= 65535:
+            return False
+        if parsed.netloc.endswith(':'):
+            return False
+        try:
+            ipaddress.ip_address(host)
+        except ValueError:
+            if ':' in host:
+                return False
+            labels = host.split('.')
+            if not all(0 < len(label) <= 63 and re.fullmatch(r'[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?', label) for label in labels):
+                return False
+            if len(host) > 253:
+                return False
+        return True
+    except (ValueError, TypeError):
+        return False
+
+
 def load(path:Path):
     data=json.loads(path.read_text(encoding='utf-8'))
-    cats={c['slug']:c['name'] for c in data.get('categories',[])}
+    cats={}
+    for category in data.get('categories',[]):
+        slug=category['slug']
+        if slug in cats:
+            raise ValueError(f'slug de categoría duplicado: {slug!r}')
+        cats[slug]=category['name']
     if not cats: raise ValueError('Sin categorías')
     for category_slug in cats:
         if not isinstance(category_slug, str) or not SLUG_RE.fullmatch(category_slug):
@@ -22,7 +62,8 @@ def load(path:Path):
         if item.get('category') not in cats: raise ValueError(f'categoría inválida en {slug}')
         if item.get('relationship') not in ALLOWED_REL: raise ValueError(f'relationship inválida en {slug}')
         urls=item.get('source_urls') or []
-        if not urls or any(not u.startswith('https://') for u in urls): raise ValueError(f'{slug}: requiere fuente HTTPS')
+        if not isinstance(urls, list) or not urls or any(not valid_https_source(u) for u in urls):
+            raise ValueError(f'{slug}: requiere fuentes HTTPS válidas')
         if item.get('status')=='published':
             image=item.get('image') or {}
             for key in ('src','alt','credit','license','source_url'):

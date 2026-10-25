@@ -44,6 +44,8 @@ def esc(value: object) -> str:
 
 
 def validate_item(item: dict, coll_slug: str, index: int, seen_urls: set[str]) -> None:
+    if not isinstance(item, dict):
+        raise ValidationError(f"{coll_slug}.items[{index}]: debe ser un objeto")
     for key in ("url", "title", "description", "type"):
         if not isinstance(item.get(key), str) or not item[key].strip():
             raise ValidationError(f"{coll_slug}.items[{index}]: falta {key}")
@@ -63,6 +65,8 @@ def validate_item(item: dict, coll_slug: str, index: int, seen_urls: set[str]) -
 
 
 def validate(data: dict) -> list[dict]:
+    if not isinstance(data, dict):
+        raise ValidationError("el documento raíz debe ser un objeto")
     if data.get("schema_version") != 1:
         raise ValidationError("schema_version debe ser 1")
     collections = data.get("collections")
@@ -70,7 +74,9 @@ def validate(data: dict) -> list[dict]:
         raise ValidationError("collections debe ser una lista no vacía")
 
     seen_slugs: set[str] = set()
-    for coll in collections:
+    for coll_index, coll in enumerate(collections):
+        if not isinstance(coll, dict):
+            raise ValidationError(f"collections[{coll_index}]: debe ser un objeto")
         for key in ("slug", "status", "mode", "title", "description", "intro", "updated"):
             if not isinstance(coll.get(key), str) or not coll[key].strip():
                 raise ValidationError(f"colección {coll.get('slug', '?')}: falta {key}")

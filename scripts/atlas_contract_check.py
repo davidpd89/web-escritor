@@ -154,6 +154,27 @@ def problems(data: dict) -> list[str]:
                 errors.append(f"destinations/{dest['id']}: parent_id no puede ser el propio destino")
 
     seen_osm: dict[tuple[str, int], str] = {}
+    # Cada cadena de destinos debe terminar en una raíz, nunca en un ciclo.
+    destinations = tables["destinations"]
+    resolved: set[str] = set()
+    for destination_id in destinations:
+        if destination_id in resolved:
+            continue
+        seen: set[str] = set()
+        current = destination_id
+        while current in destinations and current not in resolved:
+            if current in seen:
+                errors.append(
+                    f"destinations/{current}: ciclo detectado en parent_id"
+                )
+                break
+            seen.add(current)
+            parent = destinations[current].get("parent_id")
+            if not isinstance(parent, str):
+                break
+            current = parent
+        resolved.update(seen)
+
     for place in tables["places"].values():
         scope = f"places/{place['id']}"
         osm_type, osm_id = place.get("osm_type"), place.get("osm_id")
