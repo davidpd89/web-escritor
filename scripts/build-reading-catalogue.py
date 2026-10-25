@@ -141,7 +141,7 @@ def validate(data, root):
             require(not b.get(key) or type(b[key]) is int and b[key] > 0, f'{name}: {key} debe ser entero positivo')
         if b.get('pvp_centimos') is not None:
             require(type(b['pvp_centimos']) is int and 100 <= b['pvp_centimos'] <= 20000, f'{name}: pvp_centimos fuera de rango')
-            require(bool(re.fullmatch(r'\d{4}-\d{2}-\d{2}', str(b.get('pvp_fecha_verificacion', '')))), f'{name}: PVP sin fecha de verificación')
+            day(b.get('pvp_fecha_verificacion'), name + '.pvp_fecha_verificacion')
         if b.get('audio_descripcion'):
             require(bool(re.fullmatch(r'/assets/reading-audio/[a-z0-9-]+\.mp3', b['audio_descripcion'])) and (root / b['audio_descripcion'].lstrip('/')).is_file(), f'{name}: audio local inválido o ausente')
         cover = b["portada_local"]
