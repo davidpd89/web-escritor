@@ -146,6 +146,13 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  // The sitemap must reflect the current server representation online.
+  // An older cached copy is only an offline fallback.
+  if (url.pathname === "/sitemap.xml") {
+    event.respondWith(networkFirstStatic(request));
+    return;
+  }
+
   // Other same-origin GET requests remain stale-while-revalidate.
   event.respondWith(staleWhileRevalidate(event, PAGE_CACHE));
 });
