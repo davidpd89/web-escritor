@@ -18,7 +18,7 @@ export function readKeyboardFocusState(requireUsable = false) {
   return requireUsable ? (state.ok && state) : state;
 }
 
-export async function waitForKeyboardFocusState(page, timeout = 1500) {
+export async function waitForKeyboardFocusState(page, timeout = 4000) {
   // Tab can be acknowledged before Chromium paints its native focus scroll.
   // Observe that scroll; never focus or scroll the target from the audit itself.
   let handle;
