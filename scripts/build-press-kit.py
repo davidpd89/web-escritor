@@ -27,10 +27,31 @@ def load_json(path: Path):
 
 
 def safe_rel(raw: str) -> str:
-    p = PurePosixPath(raw)
-    if p.is_absolute() or ".." in p.parts or raw.startswith("/"):
-        raise ValueError(f"ruta no permitida en ZIP/manifiesto: {raw}")
-    return p.as_posix()
+    if not isinstance(raw, str) or not raw:
+        raise ValueError(f"ruta no permitida en ZIP/manifiesto: {raw!r}")
+
+    forbidden = set('\\:<>"|?*')
+    reserved = {
+        'CON', 'PRN', 'AUX', 'NUL',
+        *(f'COM{i}' for i in range(1, 10)),
+        *(f'LPT{i}' for i in range(1, 10)),
+    }
+    parts = raw.split('/')
+
+    if (
+        raw.startswith('/')
+        or any(ch in forbidden or ord(ch) < 32 or ord(ch) == 127 for ch in raw)
+        or any(
+            not part
+            or part in ('.', '..')
+            or part.endswith(('.', ' '))
+            or part.split('.')[0].upper() in reserved
+            for part in parts
+        )
+    ):
+        raise ValueError(f"ruta no permitida en ZIP/manifiesto: {raw!r}")
+
+    return PurePosixPath(raw).as_posix()
 
 
 def zip_info(name: str, stamp: tuple[int, int, int, int, int, int]) -> ZipInfo:
