@@ -70,7 +70,10 @@ class AuditAmazonLinksTest(unittest.TestCase):
             self.assertEqual(result["counts"]["published_books"], 2)
             self.assertEqual(result["counts"]["book_only_search"], 1)
             self.assertEqual(result["product_verification_queue"][0]["slug"], "dos")
-            self.assertEqual(len(result["errors"]), 0)
+            self.assertEqual(len(result["errors"]), 1)
+            self.assertEqual(result["errors"][0]["type"], "fuente_ASIN_diferente")
+            self.assertEqual(result["errors"][0]["product_asin"], "B08CYCPBZN")
+            self.assertEqual(result["errors"][0]["source_asin"], "B0GB6LGQFH")
             self.assertEqual(len([
                 entry for entry in result["manual_review"]
                 if entry["type"] == "fuente_ASIN_diferente"

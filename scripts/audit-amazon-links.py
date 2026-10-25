@@ -141,12 +141,14 @@ def audit(root: Path, expected: str) -> dict:
                     check(source + ".formatos_compra:" + option.get("formato", "?"), url)
                     verification = option.get("fuente_url", "")
                     if asin_of(url) and asin_of(verification) and asin_of(url) != asin_of(verification):
-                        reviews.append({
+                        discrepancy = {
                             "source": source, "type": "fuente_ASIN_diferente",
                             "formato": option.get("formato", "?"),
                             "product_asin": asin_of(url) or "",
                             "source_asin": asin_of(verification) or "",
-                        })
+                        }
+                        errors.append(discrepancy)
+                        reviews.append(discrepancy.copy())
     else:
         errors.append({"source": "data/reading-catalogue.json", "type": "catalogue_missing"})
 
