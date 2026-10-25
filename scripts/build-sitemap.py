@@ -20,6 +20,7 @@ import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlsplit, urlunsplit
 
 DOMAIN = "https://davidportodiaz.com"
 NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -131,24 +132,35 @@ def normalize_lastmod(value: str | None) -> str | None:
 
 def normalize_canonical(canonical: str | None, root: Path, path: Path) -> str | None:
     if canonical:
+        canonical = canonical.strip()
         if canonical.startswith("//"):
             canonical = "https:" + canonical
-        if canonical.startswith("http://"):
-            canonical = "https://" + canonical[len("http://") :]
-        if canonical.startswith("https://"):
-            if not canonical.startswith(DOMAIN):
-                return None
-            return canonical.rstrip("/") + ("/" if canonical.endswith("/") else "")
-        if canonical.startswith("/"):
-            return (DOMAIN + canonical).rstrip("/") + ("/" if canonical.endswith("/") else "")
+
+        try:
+            parsed = urlsplit(canonical)
+            if parsed.scheme or parsed.netloc:
+                scheme = parsed.scheme.lower()
+                if scheme not in ("http", "https"):
+                    return None
+                if parsed.hostname != "davidportodiaz.com":
+                    return None
+                if parsed.username is not None or parsed.password is not None:
+                    return None
+                port = parsed.port
+                if port is not None and port != (443 if scheme == "https" else 80):
+                    return None
+                return urlunsplit(("https", "davidportodiaz.com", parsed.path or "/", "", ""))
+
+            if canonical.startswith("/"):
+                return urlunsplit(("https", "davidportodiaz.com", parsed.path or "/", "", ""))
+        except ValueError:
+            return None
 
     rel = "/" + str(path.relative_to(root)).replace("\\", "/")
     if rel.endswith("/index.html"):
         rel = rel[: -len("index.html")] or "/"
     elif rel.endswith(".html"):
         rel = rel[:-5]
-    if not rel.endswith("/") and rel != "/":
-        pass
     return DOMAIN + rel if rel != "/" else DOMAIN + "/"
 
 
