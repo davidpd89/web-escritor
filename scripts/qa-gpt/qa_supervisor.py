@@ -7,7 +7,7 @@
    suite completa y, solo si queda verde, integra el arreglo (fast-forward en automation/qa-gpt) y relanza el proceso. El mismo fallo no vuelve.
 2) MAIN EN ROJO confirmado (ya relanzado una vez): Claude corrige la web o el test en una rama qa-fix/main-*, que se publica como PR con
    auto-merge; las fusiones del pipeline no se bloquean mientras tanto (qa_pr._freno_main).
-3) ATASCO: horas sin actividad con trabajo pendiente -> Claude diagnostica con el estado y los logs y corrige por la via 1.
+3) ATASCO: 20 min sin actividad con trabajo pendiente -> Claude diagnostica con el estado y los logs y corrige por la via 1.
 Limites: una reparacion por firma de fallo y dia, `max_reparaciones_dia` en total, y Q/Ctrl+C del usuario nunca se tratan como fallo.
 """
 import datetime as dt, hashlib, json, os, re, shutil, subprocess, sys, threading, time
@@ -49,7 +49,7 @@ class Supervisor:
     def __init__(self, q, out=print, claude=None, run=None):
         self.q, self.out = q, out
         self.dir = Path(q.STATE) / "supervisor"; self.dir.mkdir(parents=True, exist_ok=True)
-        self.cfg = {"max_reparaciones_dia": 6, "atasco_h": 3, "vigilar_s": 900, **(q.CFG.get("supervisor") or {})}
+        self.cfg = {"max_reparaciones_dia": 6, "atasco_min": 20, "vigilar_s": 300, **(q.CFG.get("supervisor") or {})}
         self._claude = claude; self._run = run or self._run_real
 
     # ---------- utilidades ----------
@@ -149,17 +149,22 @@ class Supervisor:
             g("worktree", "remove", "--force", str(wt)); shutil.rmtree(wt, ignore_errors=True)
 
     # ---------- 3): atasco ----------
+    ESPERAS_LEGITIMAS = ("pausado_limite", "login", "pausado")  # limite de uso de ChatGPT, sin sesion o pausa manual: no son fallos de codigo
+
     def atasco(self):
-        """-> descripcion del atasco o None. Trabajo pendiente y ninguna actividad registrada en `atasco_h` horas."""
-        c = self.q.db()
+        """-> descripcion del atasco o None. Trabajo pendiente YA ejecutable y ninguna actividad (eventos ni jobs) en `atasco_min` minutos."""
+        try: est = json.loads((Path(self.q.STATE) / "servicio.json").read_text(encoding="utf-8")).get("estado")
+        except (OSError, ValueError): est = None
+        if est in self.ESPERAS_LEGITIMAS: return None
+        c = self.q.db(); ahora = self.q.now()
         try:
-            ult = c.execute("SELECT MAX(fecha) FROM eventos").fetchone()[0]
-            pend = c.execute("SELECT COUNT(*) FROM jobs WHERE estado IN ('pendiente','en_curso')").fetchone()[0]
+            ult = max(filter(None, [c.execute("SELECT MAX(fecha) FROM eventos").fetchone()[0], c.execute("SELECT MAX(actualizado) FROM jobs").fetchone()[0]]), default=None)
+            pend = c.execute("SELECT COUNT(*) FROM jobs WHERE estado='en_curso' OR (estado='pendiente' AND COALESCE(no_antes,'')<=?)", (ahora,)).fetchone()[0]
             listas = c.execute("SELECT COUNT(*) FROM triaje WHERE pr_estado='listo_lote'").fetchone()[0] if c.execute("SELECT 1 FROM sqlite_master WHERE name='triaje'").fetchone() else 0
         finally: c.close()
         if not ult or not (pend or listas): return None
-        horas = (dt.datetime.fromisoformat(self.q.now()) - dt.datetime.fromisoformat(ult[:19])).total_seconds() / 3600
-        return f"sin actividad desde {ult} ({horas:.1f} h) con {pend} jobs pendientes y {listas} correcciones listas" if horas >= self.cfg["atasco_h"] else None
+        minutos = (dt.datetime.fromisoformat(ahora) - dt.datetime.fromisoformat(ult[:19])).total_seconds() / 60
+        return f"sin actividad desde {ult} ({minutos:.0f} min) con {pend} jobs ejecutables y {listas} correcciones listas" if minutos >= self.cfg["atasco_min"] else None
 
     def vigilar(self, parar):
         while not parar.wait(self.cfg["vigilar_s"]):
@@ -169,7 +174,7 @@ class Supervisor:
                 estado = self._run([sys.executable, str(HERE / "qa_gpt.py"), "estado"], HERE, 300)[1][-4000:]
                 try: log = (Path(self.q.STATE) / "servicio.log").read_text(encoding="utf-8", errors="replace")[-3000:]
                 except OSError: log = ""
-                self.reparar_codigo(f"ATASCO: {desc}\n\nESTADO:\n{estado}\n\nULTIMO LOG DEL WORKER:\n{log}", f"atasco:{self.q.today()}")
+                self.reparar_codigo(f"ATASCO: {desc}\n\nESTADO:\n{estado}\n\nULTIMO LOG DEL WORKER:\n{log}", f"atasco:{self.q.now()[:13]}")
             except Exception as e: self.out(f"[supervisor] vigilancia omitida: {str(e)[:120]}")
 
     # ---------- envoltorio de INICIAR / EJECUTAR ----------

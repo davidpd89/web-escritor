@@ -101,13 +101,21 @@ class ErrorRepetidoDelWorker(Base):
 
 
 class Atasco(Base):
-    def test_atasco_con_trabajo_pendiente_y_sin_actividad(self):
-        c = q.db()
-        c.execute("INSERT INTO jobs(clave,tipo,area,estado,payload,creado,actualizado) VALUES('k','A','zona:x','pendiente','{}',?,?)", (q.now(), q.now()))
-        c.execute("INSERT INTO eventos(fecha,entidad,ident,estado,nota) VALUES('2000-01-01T00:00:00','job',1,'x','')"); c.commit()
-        s = self.sup(); self.assertIn("sin actividad", s.atasco())
-        c.execute("INSERT INTO eventos(fecha,entidad,ident,estado,nota) VALUES(?,'job',1,'x','')", (q.now(),)); c.commit(); c.close()
-        self.assertIsNone(s.atasco())
+    def test_atasco_a_los_20_min_con_trabajo_ejecutable(self):
+        c = q.db(); viejo = "2000-01-01T00:00:00"
+        c.execute("INSERT INTO jobs(clave,tipo,area,estado,payload,creado,actualizado) VALUES('k','A','zona:x','pendiente','{}',?,?)", (viejo, viejo))
+        c.execute("INSERT INTO eventos(fecha,entidad,ident,estado,nota) VALUES(?,'job',1,'x','')", (viejo,)); c.commit()
+        s = self.sup(); self.assertEqual(s.cfg["atasco_min"], 20); self.assertIn("sin actividad", s.atasco())
+        c.execute("UPDATE jobs SET no_antes='2999-01-01T00:00:00'"); c.commit()
+        self.assertIsNone(s.atasco())  # en espera programada (backoff): no es atasco
+        c.execute("UPDATE jobs SET no_antes=NULL"); c.execute("INSERT INTO eventos(fecha,entidad,ident,estado,nota) VALUES(?,'job',1,'x','')", (q.now(),)); c.commit(); c.close()
+        self.assertIsNone(s.atasco())  # hubo actividad reciente
+
+    def test_limite_de_chatgpt_no_es_atasco(self):
+        c = q.db(); viejo = "2000-01-01T00:00:00"
+        c.execute("INSERT INTO jobs(clave,tipo,area,estado,payload,creado,actualizado) VALUES('k','A','zona:x','pendiente','{}',?,?)", (viejo, viejo)); c.commit(); c.close()
+        (Path(q.STATE) / "servicio.json").write_text(json.dumps({"estado": "pausado_limite"}))
+        self.assertIsNone(self.sup().atasco())
 
 
 if __name__ == "__main__":

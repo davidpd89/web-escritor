@@ -10,6 +10,7 @@ ENFOQUE OBLIGATORIO DE ESTA CONSULTA
 Mira esta zona SOLO con esa combinacion (otras consultas cubren las demas). El AMBITO manda: si el tipo de prueba no encaja de forma natural con el ambito, usa para ese ambito el tipo de prueba que mejor lo cubra y dilo en "tipo_prueba". Siempre hay algo que probar: si te pidieran "busca fallos de tipografia, margenes o resoluciones en esta zona" darias pruebas; haz lo mismo aqui.
 
 Mision: entrega entre {{MIN_PROPUESTAS}} y {{MAX_PROPUESTAS}} pruebas ejecutables NUEVAS para esta zona con ese enfoque, cada una sobre paginas, datos, scripts o artefactos REALES del repo.
+Si de verdad crees que esta zona ya no da mas con ese enfoque, NO devuelvas menos: elige TU otras zonas o familias del repo donde ese enfoque si aporte pruebas utiles (o donde veas mas riesgo), y decláralas en "zona" y "familias" de cada propuesta. Lo que importa es que cada consulta deje pruebas que mejoren la web.
 Tres tipos validos, declarados en "categoria":
  - "defecto": falla HOY; cita el fichero/linea que lo causa y lo que notaria el visitante, Google o el negocio.
  - "mejora": falla HOY porque algo funciona pero esta por debajo de lo esperable (accesibilidad, SEO, rendimiento, UX movil, homogeneidad visual, coherencia de textos/datos); di que cambiar.
