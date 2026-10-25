@@ -12,6 +12,8 @@ import html
 import re
 from html.parser import HTMLParser
 from decimal import Decimal, InvalidOperation
+
+from reading_intake_core import clean_title
 from urllib.parse import urljoin, urlsplit
 
 from reading_editorial_sources import SourceError, editorial_excerpt
@@ -157,7 +159,7 @@ def planeta_edition(document: str, source: str) -> dict:
             author_sources.setdefault(_text(m.group(2)), url)
     if any(author not in author_sources for author in authors):
         raise SourceError('Falta perfil oficial de Planeta para la autoría')
-    return {'isbn13': expected, 'titulo': title, 'autores': authors, 'editorial': publisher,
+    return {'isbn13': expected, 'titulo': clean_title(title), 'autores': authors, 'editorial': publisher,
             'fecha_publicacion_edicion': published, 'precision_fecha': 'dia',
             'idioma': 'es', 'formato_edicion': format_id, 'encuadernacion': binding,
             'numero_paginas': int(count) if count.isdigit() else None,
