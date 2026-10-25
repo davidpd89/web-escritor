@@ -218,6 +218,7 @@ def render_page_body(items, today, watchlist=None):
     watch_cards = "\n".join(watch_card(item) for item in watch)
     expired_cards = "\n".join(card(item, expired=True) for item in expired)
     visible_pool = active + watch + expired
+    disabled_controls = " disabled" if not visible_pool else ""
     types = sorted({item["type"] for item in visible_pool})
     genres = sorted({genre for item in visible_pool for genre in item["genres"]})
     options = lambda values: "\n".join(f'<option value="{esc(value)}">{esc(value.capitalize())}</option>' for value in values)
@@ -341,14 +342,14 @@ def render_page_body(items, today, watchlist=None):
 
     <section class="tool-finder" aria-label="Filtrar convocatorias">
       <div class="tool-options">
-        <div class="tool-field"><label class="tool-field-label" for="radar-search">Buscar</label><input class="tool-input" id="radar-search" type="search" autocomplete="off" enterkeyhint="search" data-radar-search placeholder="Entidad, premio, género…"></div>
-        <div class="tool-field"><label class="tool-field-label" for="radar-type">Tipo</label><select class="tool-select" id="radar-type" data-radar-type><option value="">Todos</option>{options(types)}</select></div>
-        <div class="tool-field"><label class="tool-field-label" for="radar-genre">Género</label><select class="tool-select" id="radar-genre" data-radar-genre><option value="">Todos</option>{options(genres)}</select></div>
-        <div class="tool-field"><label class="tool-field-label" for="radar-kind">Situación</label><select class="tool-select" id="radar-kind" data-radar-kind><option value="">Todas</option><option value="active">En plazo</option><option value="watch">Próximas / a vigilar</option></select></div>
+        <div class="tool-field"><label class="tool-field-label" for="radar-search">Buscar</label><input class="tool-input" id="radar-search" type="search" autocomplete="off" enterkeyhint="search" data-radar-search{disabled_controls} placeholder="Entidad, premio, género…"></div>
+        <div class="tool-field"><label class="tool-field-label" for="radar-type">Tipo</label><select class="tool-select" id="radar-type" data-radar-type{disabled_controls}><option value="">Todos</option>{options(types)}</select></div>
+        <div class="tool-field"><label class="tool-field-label" for="radar-genre">Género</label><select class="tool-select" id="radar-genre" data-radar-genre{disabled_controls}><option value="">Todos</option>{options(genres)}</select></div>
+        <div class="tool-field"><label class="tool-field-label" for="radar-kind">Situación</label><select class="tool-select" id="radar-kind" data-radar-kind{disabled_controls}><option value="">Todas</option><option value="active">En plazo</option><option value="watch">Próximas / a vigilar</option></select></div>
       </div>
-      <label class="tool-check"><input type="checkbox" data-radar-soon> <span>Cierra en 7 días</span></label>
-      <label class="tool-check"><input type="checkbox" id="radar-expired" data-radar-expired> <span>Mostrar vencidas</span></label>
-      <div class="tool-actions"><button type="button" class="text-action" data-radar-clear>Limpiar</button></div>
+      <label class="tool-check"><input type="checkbox" data-radar-soon{disabled_controls}> <span>Cierra en 7 días</span></label>
+      <label class="tool-check"><input type="checkbox" id="radar-expired" data-radar-expired{disabled_controls}> <span>Mostrar vencidas</span></label>
+      <div class="tool-actions"><button type="button" class="text-action" data-radar-clear{disabled_controls}>Limpiar</button></div>
       <p class="tool-count" role="status" aria-live="polite" data-radar-count>{len(active) + len(watch)} convocatorias verificadas</p>
     </section>
 
