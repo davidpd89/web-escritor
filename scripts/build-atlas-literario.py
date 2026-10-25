@@ -1,9 +1,30 @@
 #!/usr/bin/env python3
 import argparse, html, json, re
 from pathlib import Path
+from urllib.parse import urlparse
 
 SLUG_RE=re.compile(r'^[a-z0-9-]+$')
 ALLOWED_REL={'book-setting','filming-location','inspiration','writer-route','library','bookshop','book-town','fact-check','mixed','library-list'}
+
+
+def is_https(url):
+    if not isinstance(url, str) or not url.startswith('https://'):
+        return False
+    if any(ord(ch) < 32 or ord(ch) == 127 for ch in url):
+        return False
+    try:
+        parsed = urlparse(url)
+        return (parsed.scheme == 'https' and bool(parsed.hostname)
+                and bool(parsed.netloc) and '@' not in parsed.netloc
+                and not any(ch.isspace() for ch in parsed.netloc)
+                and '\\' not in parsed.netloc
+                and parsed.port is not None or
+                parsed.scheme == 'https' and bool(parsed.hostname)
+                and bool(parsed.netloc) and '@' not in parsed.netloc
+                and not any(ch.isspace() for ch in parsed.netloc)
+                and '\\' not in parsed.netloc and parsed.port is None)
+    except (ValueError, TypeError):
+        return False
 
 
 def load(path:Path):
@@ -22,11 +43,12 @@ def load(path:Path):
         if item.get('category') not in cats: raise ValueError(f'categoría inválida en {slug}')
         if item.get('relationship') not in ALLOWED_REL: raise ValueError(f'relationship inválida en {slug}')
         urls=item.get('source_urls') or []
-        if not urls or any(not u.startswith('https://') for u in urls): raise ValueError(f'{slug}: requiere fuente HTTPS')
+        if not urls or any(not is_https(u) for u in urls): raise ValueError(f'{slug}: requiere fuente HTTPS')
         if item.get('status')=='published':
             image=item.get('image') or {}
             for key in ('src','alt','credit','license','source_url'):
                 if not image.get(key): raise ValueError(f'{slug}: imagen publicada sin {key}')
+            if not is_https(image['source_url']): raise ValueError(f'{slug}: fuente de imagen HTTPS inválida')
             if not item.get('verified_date'): raise ValueError(f'{slug}: falta verified_date')
     return data,cats
 
@@ -64,7 +86,7 @@ def build(data,cats,out:Path):
         image_alt = html.escape(image.get('alt') or '', quote=True)
         sources = []
         for url in item.get('source_urls') or []:
-            if not isinstance(url, str) or not url.startswith('https://'):
+            if not is_https(url):
                 raise ValueError(f'{slug}: fuente HTTPS inválida')
             safe_url = html.escape(url, quote=True)
             sources.append(f'<li><a href="{safe_url}" rel="noopener noreferrer">{safe_url}</a></li>')
