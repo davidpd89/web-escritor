@@ -84,10 +84,10 @@ for (const route of routes) {
           fcp: Math.round(performance.getEntriesByName('first-contentful-paint')[0]?.startTime || 0),
         }));
       } catch (error) {
-        result = { error: String(error?.message || error), total: 0, shifts: [] };
+        result = { error: String(error?.message || error), shifts: [] };
       }
       const entry = { route, profile: profile.name, run, ...result };
-      if (result.total >= MIN) {
+      if (!result.error && result.total >= MIN) {
         entry.trace = `${route.replace(/\W+/g, '_')}-${profile.name}-${run}.zip`;
         await context.tracing.stop({ path: path.join(OUT, entry.trace) });
       } else {
@@ -101,12 +101,13 @@ for (const route of routes) {
 await browser.close();
 
 await fs.writeFile(path.join(OUT, 'cls-trace.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
-const lines = ['| ruta | perfil | cargas | con shift | CLS max |', '|---|---|---|---|---|'];
+const lines = ['| ruta | perfil | cargas | errores | con shift | CLS max |', '|---|---|---|---|---|---|'];
 for (const route of routes) {
   for (const profile of profiles) {
     const rows = report.filter((r) => r.route === route && r.profile === profile.name);
-    const bad = rows.filter((r) => r.total >= MIN);
-    lines.push(`| ${route} | ${profile.name} | ${rows.length} | ${bad.length} | ${Math.max(0, ...rows.map((r) => r.total))} |`);
+    const ok = rows.filter((r) => !r.error);
+    const bad = ok.filter((r) => r.total >= MIN);
+    lines.push(`| ${route} | ${profile.name} | ${ok.length} | ${rows.length - ok.length} | ${bad.length} | ${Math.max(0, ...ok.map((r) => r.total))} |`);
   }
 }
 const summary = lines.join('\n');
