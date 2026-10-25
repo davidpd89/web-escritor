@@ -177,6 +177,24 @@ async function assertTargetBelowHeader(page, id, label) {
 }
 
 const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
+
+// Reject unsuccessful HTTP navigations before any DOM assertion.
+const originalNewContext = browser.newContext.bind(browser);
+browser.newContext = async (...args) => {
+  const context = await originalNewContext(...args);
+  const originalNewPage = context.newPage.bind(context);
+  context.newPage = async (...pageArgs) => {
+    const page = await originalNewPage(...pageArgs);
+    const originalGoto = page.goto.bind(page);
+    page.goto = async (...gotoArgs) => {
+      const response = await originalGoto(...gotoArgs);
+      assert.ok(response && response.ok(), `HTTP navigation failed: ${gotoArgs[0]} (status ${response?.status() ?? 'no response'})`);
+      return response;
+    };
+    return page;
+  };
+  return context;
+};
 try {
   for (const viewport of [
     { width: 320, height: 900 },

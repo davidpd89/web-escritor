@@ -40,9 +40,14 @@ function brokenInBaseline(href){
   const [rawPath,hash]=href.split('#');
   let target=(rawPath||'/').replace(/^\//,'');
   if(target===''||target.endsWith('/'))target+='index.html';
-  if(!fs.existsSync(target))return `fichero inexistente: ${target}`;
+  let html;
+  try {
+    html=baseText(target);
+  } catch (error) {
+    if(error.status===128)return `fichero inexistente en BASE_SHA: ${target}`;
+    throw error;
+  }
   if(!hash)return null;
-  const html=fs.readFileSync(target,'utf8');
   const hasId=new RegExp(`\\bid\\s*=\\s*["']${hash.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}["']`,'i').test(html);
   return hasId?null:`anchor inexistente: #${hash} en ${target}`;
 }
