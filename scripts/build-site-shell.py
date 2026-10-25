@@ -434,7 +434,7 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
         '      <a class="header-sitemap" href="/mapa-del-sitio/" aria-label="Mapa del sitio" title="Mapa del sitio">\n'
         '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M3 6.5 9 4l6 2.5 6-2.5v13.5l-6 2.5-6-2.5-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/></svg>\n'
         '      </a>\n'
-        '      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" aria-label="Abrir menú" data-explore-open>\n'
+        '      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" aria-label="Abrir menú" data-explore-open hidden>\n'
         '        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M4 7h16M4 12h16M4 17h16"/></svg>\n'
         '      </button>\n'
         '    </div>\n'

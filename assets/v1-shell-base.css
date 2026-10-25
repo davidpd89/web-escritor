@@ -21,6 +21,7 @@ html.v1 .header-buy:hover,html.v1 .header-buy:focus-visible{background:var(--dp-
    the shared header (page-specific buy sections, feature cards...). */
 html.v1 .affiliate-disclosure{margin:.6rem 0 0;font-size:.78rem;line-height:1.4;color:color-mix(in srgb,var(--dp-ink) 62%,transparent)}
 html.v1 .explore-trigger{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 auto;border:1px solid var(--color-border);border-radius:var(--radius-control);background:transparent;color:inherit;cursor:pointer;transition:background var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard)}
+html.v1 .explore-trigger[hidden]{display:none!important}
 html.v1 .explore-trigger svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
 html.v1 .explore-trigger:hover{background:color-mix(in srgb,var(--color-text) 5%,transparent);border-color:color-mix(in srgb,var(--color-text) 36%,var(--surface-page))}
 /* Only ever rendered inside the header's <noscript> (see build-site-shell.py):

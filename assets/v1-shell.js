@@ -76,6 +76,7 @@
     const close = q('[data-explore-close]');
     if (!dialog || !opens.length || !close || typeof dialog.showModal !== 'function') return;
 
+    opens.forEach((o) => { o.hidden = false; });
     ensureAssistantExploreLink(dialog);
     initExploreToggles(dialog);
     let opener = null;
