@@ -64,8 +64,12 @@ def zip_info(name: str, stamp: tuple[int, int, int, int, int, int]) -> ZipInfo:
 
 
 def canonical_stamp(book: dict, author: dict):
-    raw = book.get("lastUpdated") or author.get("lastUpdated") or "2026-01-01"
-    dt = datetime.fromisoformat(raw)
+    dates = [
+        datetime.fromisoformat(raw)
+        for raw in (book.get("lastUpdated"), author.get("lastUpdated"))
+        if raw
+    ]
+    dt = max(dates) if dates else datetime.fromisoformat("2026-01-01")
     return (dt.year, dt.month, dt.day, 0, 0, 0)
 
 
