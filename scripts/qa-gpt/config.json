@@ -126,7 +126,7 @@
   {
    "id": "convocatorias-premios",
    "nombre": "Convocatorias y premios literarios",
-   "riesgo": 3,
+   "riesgo": 4,
    "fuentes": [
     "convocatorias-escritores/**",
     "premios.html",
@@ -166,7 +166,7 @@
   {
    "id": "paridad-generados",
    "nombre": "Paridad HTML/JSON/ICS generados",
-   "riesgo": 2,
+   "riesgo": 1,
    "fuentes": [
     "scripts/*build*",
     "scripts/*generate*",
@@ -183,7 +183,7 @@
   {
    "id": "rendimiento-red",
    "nombre": "Rendimiento, carga y peticiones fallidas",
-   "riesgo": 5,
+   "riesgo": 4,
    "fuentes": [
     "service-worker.js",
     "lighthouserc.json",
@@ -270,7 +270,7 @@
   {
    "id": "contenido-editorial",
    "nombre": "Cuaderno, fragmentos, universo y paginas editoriales",
-   "riesgo": 3,
+   "riesgo": 4,
    "fuentes": [
     "cuaderno/**",
     "fragmento/**",

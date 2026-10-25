@@ -394,6 +394,12 @@ class Pr:
                     for m in self.IMPORT_REL.findall(o):
                         dep = posixpath.normpath(posixpath.join(posixpath.dirname(t), m))
                         if not ruta_segura(dep) and not (wt / dep).exists() and dep not in tests: pend.append((dep, nivel + 1))
+        # tests sin rama (campanas deterministas): el contenido viaja en la propia propuesta
+        for pid in json.loads(row["propuestas"] or "[]"):
+            r = c.execute("SELECT datos FROM propuestas WHERE id=?", (pid,)).fetchone()
+            for f in (json.loads(r[0]).get("ficheros_nuevos", []) if r else []):
+                if f.get("ruta") in tests and not (wt / f["ruta"]).exists() and not ruta_segura(f["ruta"]) and isinstance(f.get("contenido"), str):
+                    p = wt / f["ruta"]; p.parent.mkdir(parents=True, exist_ok=True); p.write_text(f["contenido"], encoding="utf-8", newline="")
         return sorted(set(aux))
 
     def reproduce(self, c, row):
@@ -546,6 +552,11 @@ class Ciclo:
             else: c.execute("UPDATE triaje SET pr_estado='cerrada',integracion=CASE WHEN integracion='recomendada' THEN 'cerrada_desacuerdo' ELSE COALESCE(integracion,'cerrada') END,actualizado=? WHERE id=?", (q.now(), row["id"]))
             c.commit(); self.out(f"  PR #{row['pr_numero']}: {st}")
         libres = cfg["max_pr_activas"] - len(activas)
+        # 0) campanas: los hallazgos deterministas de la Via A entran como causas aprobadas con su test (antes quedaban sin corregir)
+        try:
+            import qa_campanas
+            r["campanas"] = qa_campanas.sembrar(q, c, self.out)
+        except Exception as e: self.out(f"  campanas: {str(e)[:120]}")
         # 1) decisiones de Claude, solo mientras el backlog aprobado no llene el presupuesto (no se gasta en decidir lo que no se podra desarrollar)
         aprobadas = c.execute(f"SELECT COUNT(*) FROM triaje WHERE decision='corregir' AND COALESCE(pr_estado,'') NOT IN ({TERMINALES},'pr_abierta','pr_borrador','listo_lote')").fetchone()[0]  # con PR o ya validadas esperando lote no ocupan cola de desarrollo (contarlas congelaba 64 decisiones)
         if aprobadas < cfg["max_pr_activas"] * 3: r["decididas"] = qa_triaje.decidir_pendientes(q, c, prs, cfg["claude_lote"], self.out)

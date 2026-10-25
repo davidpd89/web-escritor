@@ -179,6 +179,10 @@ def priority(area, c):
     changed = bool(last and last["fuente_sha"] != sha)
     cooldown = bool(last) and dias < CFG["cooldown_dias"] and not changed
     score = area["riesgo"] * 2 + min(commits, 10) * 0.5 + min(dias, 30) / 3 + 9 / (1 + ntests) + (4 if changed else 0) + (0 if last else 3)
+    # rotacion: cada consulta reciente a la zona divide su puntuacion (paridad-generados recibia 12 consultas/24 h y responsive-a11y 2)
+    try: recientes = c.execute("SELECT COUNT(*) FROM jobs WHERE area=? AND creado > ?", ("zona:" + area["id"], (_ahora() - dt.timedelta(hours=24)).isoformat(timespec="seconds"))).fetchone()[0]
+    except Exception: recientes = 0
+    score = score / (1 + recientes)
     return (-1 if cooldown else score), dict(ntests=ntests, commits=commits, dias=dias, changed=changed, sha=sha, nsrc=len(src))
 
 
