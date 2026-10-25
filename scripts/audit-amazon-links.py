@@ -61,7 +61,25 @@ def audit(root: Path, expected: str) -> dict:
     def check(source: str, url: str, expected_isbn: str | None = None) -> None:
         p = urlparse(url)
         host = (p.hostname or "").lower()
-        if p.scheme != "https" or host not in {"www.amazon.es", "amazon.es", "amzn.to"}:
+        scheme = p.scheme.lower()
+        allowed_host = host in {"www.amazon.es", "amazon.es", "amzn.to"}
+        try:
+            port = p.port
+        except ValueError:
+            port = -1
+        if scheme in {"javascript", "data", "vbscript", "file"}:
+            errors.append({"source": source, "type": "unsafe_scheme", "url": url})
+            return
+        if allowed_host and (scheme != "https" or "@" in p.netloc or port is not None):
+            errors.append({"source": source, "type": "unsafe_destination", "url": url})
+            return
+        if not allowed_host and scheme in {"http", "https"} and ("amazon." in host or "amzn." in host):
+            foreign = any(host == m or host.endswith("." + m) for m in (
+                "amazon.com", "amazon.co.uk", "amazon.de", "amazon.fr", "amazon.it"))
+            if not foreign or scheme != "https":
+                errors.append({"source": source, "type": "unsafe_destination", "url": url})
+                return
+        if not allowed_host:
             foreign_marketplaces = (
                 "amazon.com",
                 "amazon.co.uk",
