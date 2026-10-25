@@ -131,9 +131,24 @@
     button[hidden] { display: none; }
     .primary { background: var(--ink); color: var(--paper-2); }
     .secondary { background: transparent; color: var(--ink); border-color: var(--rule); }
-    button:focus-visible {
+    button:focus-visible,
+    .offline-recovery-link:focus-visible {
       outline: 3px solid var(--accent);
       outline-offset: 3px;
+    }
+    .offline-recovery-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      margin-top: 16px;
+      padding: 12px 19px;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      color: var(--ink);
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
     }
     .note {
       margin: 28px 0 0;
@@ -181,6 +196,8 @@
         <button type="button" class="primary" data-retry>Reintentar</button>
         <button type="button" class="secondary" data-back>Volver atrás</button>
       </div>
+
+      <a class="offline-recovery-link" href="/">Ir al inicio</a>
 
       <p class="status" data-status role="status" aria-live="polite">Sin conexión. Reintenta cuando recuperes la red.</p>
       <p class="note">Las páginas que ya habías visitado pueden seguir disponibles desde el historial del navegador.</p>
