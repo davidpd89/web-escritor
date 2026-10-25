@@ -177,17 +177,36 @@ self.addEventListener("fetch", (event) => {
 });
 
 async function networkFirstPage(request) {
-  const pageCache = await caches.open(PAGE_CACHE);
+  let response;
   try {
-    const response = await fetch(request);
-    await putIfCacheable(pageCache, request, response);
-    return response;
+    response = await fetch(request);
   } catch {
-    const cached = await pageCache.match(request);
-    if (cached) return cached;
-    const staticCache = await caches.open(STATIC_CACHE);
-    return (await staticCache.match("/offline.html")) || offlineResponse();
+    // The network failed: try cached content without assuming CacheStorage works.
+    try {
+      const pageCache = await caches.open(PAGE_CACHE);
+      const cached = await pageCache.match(request);
+      if (cached) return cached;
+    } catch (error) {
+      console.warn("PWA page cache unavailable:", error);
+    }
+    try {
+      const staticCache = await caches.open(STATIC_CACHE);
+      const offline = await staticCache.match("/offline.html");
+      if (offline) return offline;
+    } catch (error) {
+      console.warn("PWA offline cache unavailable:", error);
+    }
+    return offlineResponse();
   }
+
+  // A successful network request must survive CacheStorage failures.
+  try {
+    const pageCache = await caches.open(PAGE_CACHE);
+    await putIfCacheable(pageCache, request, response);
+  } catch (error) {
+    console.warn("PWA page cache unavailable:", error);
+  }
+  return response;
 }
 
 async function networkFirstStatic(request) {
