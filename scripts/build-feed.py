@@ -90,9 +90,9 @@ def extract_metadata(path):
     if is_noindex(s):
         return {'path': path, 'title': None, 'url': None, 'date': None, 'description': None, 'skip': True}
     # Try JSON-LD
-    m = re.search(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>([\s\S]*?)</script>', s, flags=re.I)
+    matches = re.finditer(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>([\s\S]*?)</script>', s, flags=re.I)
     title=None; url=None; date=None; desc=None
-    if m:
+    for m in matches:
         try:
             j=json.loads(m.group(1))
             if is_non_article_page(j):
@@ -116,7 +116,10 @@ def extract_metadata(path):
                         node = candidate
                         break
             elif isinstance(j, dict):
-                node = j
+                t = j.get('@type')
+                types = {t} if isinstance(t, str) else set(t or []) if isinstance(t, list) else set()
+                if types & ARTICLE_TYPES:
+                    node = j
             elif isinstance(j, list) and j:
                 node = j[0]
             if node:
@@ -124,6 +127,7 @@ def extract_metadata(path):
                 url = node.get('url')
                 date = node.get('datePublished') or node.get('dateModified')
                 desc = node.get('description')
+                break
         except Exception:
             pass
     # Fallback to meta title
