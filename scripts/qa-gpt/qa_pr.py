@@ -387,6 +387,16 @@ class Ciclo:
         try: return {f["ruta"] for f in json.loads(row["parche"])["ficheros"]}
         except (TypeError, ValueError, KeyError): return set()
 
+    def _dev_claude(self):
+        import qa_dev_claude
+        c = self.q.db()
+        try:
+            for row in qa_dev_claude.elegible(c, 1):
+                self.out(f"  dev Claude #{row['id']}: {qa_dev_claude.desarrollar(self.q, c, self.pr, row)}")
+        except Interrumpido: pass
+        except Exception as e: self.out(f"  dev Claude fallo: {str(e)[:200]}")
+        finally: c.close()
+
     def paso(self, c):
         import qa_triaje
         q, cfg = self.q, flujo(self.q); r = {}
@@ -413,6 +423,10 @@ class Ciclo:
                 c.execute("UPDATE triaje SET dev_estado='agotado',pr_estado='descartada',actualizado=? WHERE id=?", (q.now(), row["id"])); c.commit(); r["agotadas"] = r.get("agotadas", 0) + 1; continue
             if qa_triaje.encolar_desarrollo(q, c, row, row["pr_detalle"] or row["validacion"] or ""):
                 c.execute("UPDATE triaje SET pr_estado='esperando_desarrollo' WHERE id=?", (row["id"],)); c.commit(); en_cola += 1; r["desarrollos"] = r.get("desarrollos", 0) + 1
+        # 2b) desarrollador Claude en segundo plano (una correccion cada vez, un intento por causa) para lo que el parche GPT no consiguio
+        h = getattr(self, "_dev_hilo", None)
+        if cfg.get("dev_claude", False) and (h is None or not h.is_alive()):
+            self._dev_hilo = __import__("threading").Thread(target=self._dev_claude, daemon=True, name="DevClaude"); self._dev_hilo.start()
         # 3) admision de PR nuevas: presupuesto y sin solape de archivos con PR abiertas ni entre si
         # solo bloquea el solape con PR del flujo nuevo (se serializan); el backlog heredado no frena correcciones buenas: se anota y Claude lo valora en la revision
         nuevas = {r_["pr_numero"] for r_ in c.execute("SELECT pr_numero FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta'")}

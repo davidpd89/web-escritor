@@ -740,6 +740,6 @@
   "integracion": {"modo": "auto", "calibracion_min": 0, "riesgo_max": "bajo"},
   "ci_requeridos": ["Required merge gate", "public-artifact-contract", "reflow-sitewide", "pa11y-baseline", "lighthouse", "Compare against committed baselines"],
   "max_desarrollos": 2, "max_consultas_gpt": 4,
-  "max_validaciones": 16, "validadores": 6
+  "max_validaciones": 16, "validadores": 6, "dev_claude": true
  }
 }
