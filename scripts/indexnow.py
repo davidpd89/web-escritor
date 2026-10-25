@@ -102,10 +102,15 @@ def derive_changed_urls(
 
 def validate_url(url: str) -> None:
     parts = urlsplit(url)
-    if parts.scheme != "https" or parts.hostname != HOST:
-        raise ValueError(f"IndexNow URL must be HTTPS on {HOST}: {url}")
-    if parts.fragment:
-        raise ValueError(f"IndexNow URL must not contain fragments: {url}")
+    if (
+        not url.startswith(ORIGIN + "/")
+        or parts.scheme != "https"
+        or parts.hostname != HOST
+        or parts.netloc != HOST
+    ):
+        raise ValueError(f"IndexNow URL must use the canonical HTTPS origin {ORIGIN}: {url}")
+    if "?" in url or "#" in url:
+        raise ValueError(f"IndexNow URL must not contain queries or fragments: {url}")
 
 
 def load_url_file(path: Path) -> list[str]:
