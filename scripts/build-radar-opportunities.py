@@ -190,7 +190,7 @@ def watch_items(items, today):
 
 def active_items(items, today):
     active = [item for item in items if item.get("published") and state(item, today) in {"open", "closing_soon"}]
-    return sorted(active, key=lambda item: item["deadline"])
+    return sorted(active, key=lambda item: (item["deadline"], item["id"]))
 
 
 def expired_items(items, today):
