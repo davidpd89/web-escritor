@@ -16,7 +16,7 @@ export function foldQuery(value) {
 }
 
 export function isSafeInternalPath(value) {
-  if (typeof value !== "string" || !value.startsWith("/") || value.startsWith("//") || value.includes("\\")) return false;
+  if (typeof value !== "string" || !value.startsWith("/") || value.startsWith("//") || value.includes("\\") || value.includes("%")) return false;
   if (/[\u0000-\u001F\u007F]/u.test(value)) return false;
   try {
     const parsed = new URL(value, "https://davidportodiaz.com");
