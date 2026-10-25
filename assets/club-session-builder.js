@@ -67,9 +67,23 @@ if (form) {
     const config = readConfig();
     lastSession = buildSession(config, variant);
     render(lastSession);
+    copyBtn.disabled = false;
+    printBtn.disabled = false;
     status.textContent = 'Sesión preparada en este dispositivo. Ningún título, tema o nombre se ha enviado a un servidor.';
     emit('club_session_generate', `${lastSession.duration}-${lastSession.kind}-${lastSession.tone}`);
   };
+
+  const invalidate = () => {
+    if (!lastSession) return;
+    lastSession = null;
+    output.replaceChildren();
+    output.hidden = true;
+    copyBtn.disabled = true;
+    printBtn.disabled = true;
+    status.textContent = 'Has modificado los parámetros: prepara de nuevo la sesión.';
+  };
+  form.addEventListener('change', invalidate);
+  form.addEventListener('input', invalidate);
 
   form.addEventListener('submit', event => { event.preventDefault(); variant = 0; generate(false); });
   generateAlt.addEventListener('click', () => generate(true));
