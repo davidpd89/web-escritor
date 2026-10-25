@@ -289,6 +289,16 @@ class PrFlujo(T.Base):
         self.assertEqual(qa_pr.ci_estado([{"status": "COMPLETED", "conclusion": "FAILURE"}, {"status": "IN_PROGRESS"}]), "rojo")
         self.assertEqual(qa_pr.ci_estado([]), "pendiente")
 
+    def test_ci_estado_ignora_no_requeridos_pendientes(self):
+        req = ("A", "B")
+        ok = lambda n: {"name": n, "status": "COMPLETED", "conclusion": "SUCCESS"}
+        lento = {"name": "lento", "status": "IN_PROGRESS"}
+        self.assertEqual(qa_pr.ci_estado([ok("A"), ok("B"), lento], req), "verde")
+        self.assertEqual(qa_pr.ci_estado([ok("A"), lento], req), "pendiente")  # falta un requerido
+        self.assertEqual(qa_pr.ci_estado([ok("A"), {"name": "B", "status": "IN_PROGRESS"}], req), "pendiente")
+        self.assertEqual(qa_pr.ci_estado([ok("A"), ok("B"), {"name": "lento", "status": "COMPLETED", "conclusion": "FAILURE"}], req), "rojo")
+        self.assertEqual(qa_pr.ci_estado([ok("A"), ok("B"), lento]), "pendiente")
+
     def test_una_causa_con_pr_no_se_repite(self):
         row = self.montar(); self.pr(self.GhPr()).preparar(self.c, row)
         self.assertEqual(self.pr(self.GhPr()).candidatas(self.c), [])

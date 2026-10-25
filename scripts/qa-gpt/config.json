@@ -728,15 +728,17 @@
  "flujo": {
   "activo": true,
   "max_pr_activas": 3,
-  "max_desarrollos": 1,
+  "max_desarrollos": 2,
   "max_revisiones": 1,
-  "max_consultas_gpt": 2,
+  "max_consultas_gpt": 4,
   "max_intentos": 2,
   "claude_lote": 4,
   "ciclo_s": 120,
   "flujo_desde": "2026-10-24",
   "modo_pr": "lote",
   "lote": {"min": 3, "max": 8, "espera_h": 8, "max_activos": 3},
-  "integracion": {"modo": "auto", "calibracion_min": 0, "riesgo_max": "bajo"}
+  "integracion": {"modo": "auto", "calibracion_min": 0, "riesgo_max": "bajo"},
+  "ci_requeridos": ["Required merge gate", "public-artifact-contract", "reflow-sitewide", "pa11y-baseline", "lighthouse", "Compare against committed baselines"],
+  "max_desarrollos": 2, "max_consultas_gpt": 4
  }
 }

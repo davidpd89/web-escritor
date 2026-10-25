@@ -334,8 +334,10 @@ def cmd_pr(q, a):
 
 
 # ---------- ciclo continuo: presupuesto -> desarrollo -> PR -> CI -> revision de Claude -> integracion ----------
+CI_REQUERIDOS_RULESET = ("Required merge gate", "public-artifact-contract", "reflow-sitewide", "pa11y-baseline", "lighthouse", "Compare against committed baselines")
+
 FLUJO = {"activo": True, "max_pr_activas": 3, "max_desarrollos": 1, "max_revisiones": 1, "max_consultas_gpt": 2, "max_intentos": 2, "claude_lote": 4,
-         "ciclo_s": 120, "flujo_desde": None, "modo_pr": "pr", "lote": {"min": 3, "max": 8, "espera_h": 8, "max_activos": 3}, "integracion": {"modo": "auto", "calibracion_min": 0, "riesgo_max": "bajo"}}
+         "ciclo_s": 120, "flujo_desde": None, "modo_pr": "pr", "lote": {"min": 3, "max": 8, "espera_h": 8, "max_activos": 3}, "integracion": {"modo": "auto", "calibracion_min": 0, "riesgo_max": "bajo"}, "ci_requeridos": []}
 RIESGOS = ("bajo", "medio", "alto")
 TERMINALES = "'integrada','cerrada','no_reproduce','test_no_fiable','sin_test','descartada','duplicada'"
 SISTEMA_REVISION = ("Eres el revisor tecnico final de una PR generada por automatizacion en un sitio web estatico. Recibes el criterio de aceptacion aprobado, "
@@ -353,12 +355,13 @@ def flujo(q):
     return {**FLUJO, **cfg, "integracion": {**FLUJO["integracion"], **(cfg.get("integracion") or {})}, "lote": {**FLUJO["lote"], **(cfg.get("lote") or {})}}
 
 
-def ci_estado(roll):
-    """verde / rojo / pendiente a partir de statusCheckRollup de GitHub."""
+def ci_estado(roll, requeridos=None):
+    """verde / rojo / pendiente a partir de statusCheckRollup de GitHub. Con `requeridos` (nombres del ruleset) un check lento NO requerido pendiente no bloquea; uno rojo si."""
     if not roll: return "pendiente"
     mal = any(x.get("conclusion") in ("FAILURE", "TIMED_OUT", "CANCELLED", "ACTION_REQUIRED", "STARTUP_FAILURE") or x.get("state") in ("FAILURE", "ERROR") for x in roll)
     if mal: return "rojo"
-    pend = any((x.get("status") not in (None, "COMPLETED")) or x.get("state") in ("PENDING", "EXPECTED") for x in roll)
+    pend = any(((x.get("status") not in (None, "COMPLETED")) or x.get("state") in ("PENDING", "EXPECTED")) and (not requeridos or (x.get("name") or x.get("context")) in requeridos) for x in roll)
+    if requeridos and not pend and not {x.get("name") or x.get("context") for x in roll} >= set(requeridos): return "pendiente"
     return "pendiente" if pend else "verde"
 
 
@@ -417,7 +420,7 @@ class Ciclo:
         for row in c.execute("SELECT * FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta' ORDER BY id").fetchall():
             if row["pr_numero"] in vistas: continue
             vistas.add(row["pr_numero"])
-            v = self.gh.pr_ver(row["pr_numero"]); head = v.get("headRefOid"); ci = ci_estado(v.get("statusCheckRollup"))
+            v = self.gh.pr_ver(row["pr_numero"]); head = v.get("headRefOid"); ci = ci_estado(v.get("statusCheckRollup"), cfg.get("ci_requeridos") or None)
             if v.get("mergeable") == "CONFLICTING": c.execute("UPDATE triaje SET integracion='conflicto',pr_head=? WHERE pr_numero=? AND pr_nueva=1", (head, row["pr_numero"])); c.commit(); continue
             if ci == "rojo": c.execute("UPDATE triaje SET integracion='ci_rojo',pr_head=? WHERE pr_numero=? AND pr_nueva=1", (head, row["pr_numero"])); c.commit(); r["ci_rojo"] = r.get("ci_rojo", 0) + 1; continue
             if ci == "verde" and not v.get("isDraft") and row["revision_hash"] == head and row["integracion"] == "recomendada": self._integrar(c, row, head, v, cfg); continue  # ya revisada en este commit: solo falta fusionar (o actualizar la rama)
@@ -514,7 +517,7 @@ class Ciclo:
             try: self.gh.pr_actualizar(row["pr_numero"]); self.out(f"  PR #{row['pr_numero']} actualizada con main; se revalida")
             except Exception as e: self.out(f"  PR #{row['pr_numero']}: no se pudo actualizar ({str(e)[-100:]})")
             return
-        if v.get("mergeStateStatus") != "CLEAN": return
+        if v.get("mergeStateStatus") not in ("CLEAN", "UNSTABLE"): return  # UNSTABLE = solo fallan/pendientes checks no requeridos (el ci ya filtro rojos)
         self.gh.pr_merge(row["pr_numero"], head)
         c.execute("UPDATE triaje SET pr_estado='integrada',integracion='integrada_auto' WHERE pr_numero=? AND pr_nueva=1", (row["pr_numero"],)); c.commit()
         self.out(f"  PR #{row['pr_numero']} integrada por el sistema")
