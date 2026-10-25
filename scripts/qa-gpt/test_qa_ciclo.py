@@ -243,6 +243,16 @@ class PrFlujo(T.Base):
         self.montar(); gh = self.GhCiclo(ci="rojo"); ci = self.ciclo(gh); ci.paso(self.c); ci.paso(self.c)
         self.assertEqual(self.c.execute("SELECT integracion FROM triaje").fetchone()[0], "ci_rojo"); self.assertEqual(gh.merges, [])
 
+    def test_rama_heredada_ocupada_publica_aparte_y_el_lote_la_usa(self):
+        row = self.montar(); gh = self.GhPr(); orig = gh.push
+        def push(sha, rama):
+            if rama == "qa-fix/abc123": raise RuntimeError("! [rejected] non-fast-forward")  # rama de una PR heredada
+            orig(sha, rama); g("push", "-q", "origin", f"{sha}:refs/heads/{rama}", cwd=q.ROOT)
+        gh.push = push; q.CFG["flujo"] = {"modo_pr": "lote"}; self.addCleanup(q.CFG.pop, "flujo", None)
+        self.assertEqual(self.pr(gh).preparar(self.c, row), "listo_lote")
+        head = self.c.execute("SELECT pr_head FROM triaje").fetchone()[0]
+        self.assertTrue(head.startswith("qa-fix/abc123-")); self.assertEqual(gh.pushes, [head])
+
     def test_lote_de_una_correccion_en_rojo_libera_el_carril(self):
         self.montar(); gh = self.GhCiclo(); gh.cerradas = []; gh.pr_cerrar = lambda url, com="": gh.cerradas.append(url)
         gh.log_failed = lambda rid: "x\tFAIL test-a.py: AssertionError VALOR\n"

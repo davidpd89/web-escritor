@@ -327,13 +327,17 @@ class Pr:
             sha = self.git("rev-parse", "HEAD", cwd=wt)[1].strip()
             if not demo and flujo(self.q)["modo_pr"] == "lote":  # la PR se abre despues, agrupada con otras correcciones ya validadas (un solo CI pesado)
                 self.git("fetch", "origin", rama, timeout=120)
+                cabeza = sha
                 if self.git("rev-parse", f"origin/{rama}")[1].strip() != sha:
                     try: self.gh.push(sha, rama)
                     except RuntimeError as e:
-                        if "rejected" in str(e) or "non-fast" in str(e): self._marca(c, row, "rama_existente", f"{rama} ya existe en origin con otro historial"); return "rama_existente"
-                        raise
+                        if "rejected" not in str(e) and "non-fast" not in str(e): raise
+                        # la rama es de una PR heredada (otro historial): no se reescribe; la correccion se publica aparte y el lote la toma de ahi
+                        cabeza = f"{rama}-{sha[:7]}"
+                        try: self.gh.push(sha, cabeza)
+                        except RuntimeError: self._marca(c, row, "rama_existente", f"{rama} ya existe en origin con otro historial"); return "rama_existente"
                 self._marca(c, row, "listo_lote", verif)
-                c.execute("UPDATE triaje SET pr_head=?,dev_estado='listo_lote' WHERE id=?", (sha, row["id"])); c.commit(); return "listo_lote"
+                c.execute("UPDATE triaje SET pr_head=?,dev_estado='listo_lote' WHERE id=?", (cabeza, row["id"])); c.commit(); return "listo_lote"
             # reanudacion tras un corte: si ya hay PR abierta para esta rama se vincula (nunca se crea otra); si la rama remota tiene el mismo arbol, no se reescribe
             previa = self.gh.pr_de_rama(rama) if not demo and hasattr(self.gh, "pr_de_rama") else None
             if previa:
