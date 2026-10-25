@@ -118,6 +118,28 @@ def problems(data: dict) -> list[str]:
         elif not valid_https_url(src["url"]):
             errors.append(f"{scope}: fuente {source_id!r} requiere URL HTTPS")
 
+    # Los controles bidi no son válidos en nombres ni títulos públicos.
+    bidi_controls = set(range(0x202A, 0x202F)) | set(range(0x2066, 0x206A))
+    public_labels = {
+        "destinations": "name",
+        "places": "name",
+        "works": "title",
+        "authors": "name",
+        "routes": "title",
+    }
+    for category, field in public_labels.items():
+        for entry in tables[category].values():
+            value = entry.get(field)
+            if not isinstance(value, str):
+                continue
+            for char in value:
+                if ord(char) in bidi_controls:
+                    errors.append(
+                        f"{category}/{entry['id']}: {field} contiene "
+                        f"control bidireccional U+{ord(char):04X}"
+                    )
+                    break
+
     for dest in tables["destinations"].values():
         parent = dest.get("parent_id")
         if parent is not None:
