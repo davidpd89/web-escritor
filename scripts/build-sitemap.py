@@ -83,7 +83,7 @@ def extract_meta(text: str):
 def extract_date_modified(text: str):
     best = None
     for js in re.finditer(
-        r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        r'<script[^>]+type\s*=\s*["\']application/ld\+json["\'][^>]*>(.*?)</script>',
         text,
         flags=re.I | re.S,
     ):
