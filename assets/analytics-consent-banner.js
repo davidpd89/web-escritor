@@ -48,6 +48,8 @@ function getStoredAnalyticsConsent() {
     if (!parsed || (parsed.value !== "granted" && parsed.value !== "denied") || typeof parsed.ts !== "number") {
       return null;
     }
+    if (parsed.v !== ANALYTICS_CONSENT_VERSION) return null;
+    if (!Number.isFinite(parsed.ts) || parsed.ts < 0 || parsed.ts > Date.now()) return null;
     if (Date.now() - parsed.ts > ANALYTICS_CONSENT_MAX_AGE_MS) return null;
     return parsed;
   } catch {
@@ -319,7 +321,7 @@ function openAnalyticsPreferences() {
   if (existing) existing.remove();
   showAnalyticsConsentBanner();
 }
-document.addEventListener("click", (e) => {
+if (typeof document.addEventListener === "function") document.addEventListener("click", (e) => {
   const trigger = e.target.closest("[data-analytics-preferences]");
   if (trigger) {
     e.preventDefault();
