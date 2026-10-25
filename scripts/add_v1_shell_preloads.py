@@ -60,9 +60,9 @@ TAG_RE = re.compile(r'<link rel="stylesheet" href="(/?)assets/v1-shell\.css(?:\?
 MARKER_RE = re.compile(r"[ \t]*" + re.escape(START) + r"[\s\S]*?" + re.escape(END) + r"\n?")
 
 
-def preload_block(indent: str, leading_slash: str) -> str:
+def preload_block(indent: str, leading_slash: str, imported: tuple[str, ...] = IMPORTED) -> str:
     lines = [f'{indent}{START}']
-    for name in IMPORTED:
+    for name in imported:
         version = TRACKED_ASSETS[name]
         lines.append(f'{indent}<link rel="preload" as="style" href="{leading_slash}assets/{name}?v={version}" />')
     lines.append(f'{indent}{END}')
@@ -103,6 +103,8 @@ def process(path: Path, check: bool) -> str | None:
         return None
 
     leading_slash = match.group(1)
+    rel = path.relative_to(ROOT).as_posix()
+    imported = IMPORTED[:6] if rel == "recomendaciones/index.html" else IMPORTED
     found = line_indent_before(text, match.start())
     if found is None:
         # Minified page (tag shares its line with others, or the previous
@@ -113,7 +115,7 @@ def process(path: Path, check: bool) -> str | None:
         # block is stripped, the preceding text DOES already end in "\n".
         prefix = text[: match.start()]
         needs_leading_newline = not prefix.endswith("\n")
-        block = preload_block("  ", leading_slash)
+        block = preload_block("  ", leading_slash, imported)
         text = prefix + ("\n" if needs_leading_newline else "") + block + text[match.start():]
     else:
         # The tag has its own line with a real (non-empty) indent, e.g. "  ".
@@ -123,7 +125,7 @@ def process(path: Path, check: bool) -> str | None:
         # it), or the original indent and the block's first line would
         # double up.
         line_start, indent = found
-        block = preload_block(indent, leading_slash)
+        block = preload_block(indent, leading_slash, imported)
         text = text[:line_start] + block + indent + text[match.start():]
 
     if text == original:
