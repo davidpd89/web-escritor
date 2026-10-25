@@ -321,6 +321,10 @@ def expected_calendars(html_text: str, *, as_of: date | datetime | None = None) 
     for event in extract_events(html_text):
         if event.get("eventStatus") != EVENT_SCHEDULED:
             continue
+        start = event.get("startDate")
+        if not isinstance(start, str) or not start.strip():
+            errors.append("EventScheduled sin startDate")
+            continue
         if not is_upcoming(event, as_of=as_of):
             continue
         try:
