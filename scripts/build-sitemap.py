@@ -13,6 +13,7 @@ Rules (see 27_REPOSITORIOS_Y_MEJORAS_IMPLEMENTABLES_2026-08-16.md §13):
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
 import os
 import re
@@ -20,6 +21,20 @@ import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
+
+_PUBLISHER = None
+
+
+def _publisher():
+    global _PUBLISHER
+    if _PUBLISHER is None:
+        spec = importlib.util.spec_from_file_location(
+            "sitemap_publisher_allowlist", Path(__file__).resolve().with_name("build-public-dist.py")
+        )
+        _PUBLISHER = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(_PUBLISHER)
+    return _PUBLISHER
+
 
 DOMAIN = "https://davidportodiaz.com"
 NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -165,6 +180,11 @@ def should_skip_file(path: Path, root: Path) -> bool:
     if any(lower.endswith(sfx) for sfx in SKIP_SUFFIXES):
         return True
     if path.suffix.lower() != ".html":
+        return True
+    # Reuse the publisher allowlist for nested documents: never announce
+    # HTML that the public artifact would not contain. Only applies to a real
+    # site root (has index.html); bare fixtures are filtered by noindex only.
+    if (root / "index.html").is_file() and not _publisher().is_publishable(rel.as_posix(), root):
         return True
     return False
 
