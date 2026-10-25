@@ -105,6 +105,7 @@ jobs:
           TARGET_SIZE_MODE: enforce
           TEXT_RESILIENCE_MODE: report
           FOCUS_OBSCURED_MODE: enforce
+          QA_ONLY_ROUTES: ${{ steps.sel.outputs.routes }}
           SHARD_TOTAL: '8'
           SHARD_INDEX: ${{ matrix.shard }}
         timeout-minutes: 70

@@ -31,6 +31,27 @@ for files, esperado in CASOS:
     if run != esperado:
         fallos += 1
         print(f"FALLA {files}: run={run} esperado={esperado} ({why})")
+ALCANCE = [
+    (["libros/x/index.html"], ["/", "/libros/x/"]),
+    (["privacidad.html", "libros/x/index.html"], ["/", "/libros/x/", "/privacidad.html"]),
+    (["libros/x/index.html", "assets/styles.css"], []),   # css compartido => todo
+    (["libros/x/index.html", "data/navigation.json"], []),  # datos => todo
+    (["libros/x/index.html", "scripts/build-sitemap.py"], []),  # generador => todo
+    (["libros/x/index.html", "README.md", "tests/a.py"], ["/", "/libros/x/"]),  # ignorables no amplian ni reducen
+    (["README.md"], []),
+    (["scripts/templates/a.html"], []),
+    ([], []),
+    (["archivo-desconocido.bin", "libros/x/index.html"], []),
+    (["libros/borrada/index.html"], None),  # no existe => todo
+]
+for files, esperado in ALCANCE:
+    got = sel.scope_routes(files, exists=lambda f: "borrada" not in f)
+    if esperado is None: esperado = []
+    if got != esperado:
+        fallos += 1
+        print(f"FALLA alcance {files}: {got} esperado={esperado}")
+if len(sel.scope_routes([f"a{i}/index.html" for i in range(41)], exists=lambda f: True)) != 0:
+    fallos += 1; print("FALLA: >40 paginas debe recorrer todo")
 if fallos:
     raise SystemExit(1)
-print(f"ok: {len(CASOS)} casos")
+print(f"ok: {len(CASOS)} casos + {len(ALCANCE)} de alcance")
