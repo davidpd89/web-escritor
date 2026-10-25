@@ -279,7 +279,11 @@ class CalendarLinkParser(HTMLParser):
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
         values = {key.lower(): value for key, value in attrs}
-        hidden = "hidden" in values or (self._stack[-1][1] if self._stack else False)
+        hidden = (
+            "hidden" in values
+            or (values.get("aria-hidden") or "").strip().lower() == "true"
+            or (self._stack[-1][1] if self._stack else False)
+        )
         if tag == "a" and not hidden and "data-calendar-download" in values and values.get("href"):
             self.links.add(str(values["href"]))
         if tag not in self.VOID_TAGS:
