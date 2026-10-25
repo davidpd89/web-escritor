@@ -201,12 +201,32 @@ def source_hashes(root: Path, pages: list[str]) -> dict[str, str]:
     return hashes
 
 
+TEXT_ARTIFACT_SUFFIXES = (".js", ".css", ".json")
+
+
+def artifact_hashes(out_dir: Path) -> dict[str, str]:
+    """sha256 of the generated Pagefind artifacts (all but the manifest).
+
+    Text artifacts are newline-normalised so CRLF/LF checkouts agree.
+    """
+    hashes: dict[str, str] = {}
+    for path in sorted(out_dir.rglob("*")):
+        if not path.is_file() or path.name == MANIFEST_NAME:
+            continue
+        data = path.read_bytes()
+        if path.suffix in TEXT_ARTIFACT_SUFFIXES:
+            data = data.replace(b"\r\n", b"\n")
+        hashes[path.relative_to(out_dir).as_posix()] = hashlib.sha256(data).hexdigest()
+    return hashes
+
+
 def write_manifest(out_dir: Path, pages: list[str], root: Path) -> None:
     manifest = {
-        "schema_version": 3,
+        "schema_version": 4,
         "page_count": len(pages),
         "pages": pages,
         "source_sha256": source_hashes(root, pages),
+        "artifact_sha256": artifact_hashes(out_dir),
     }
     (out_dir / MANIFEST_NAME).write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
@@ -265,6 +285,22 @@ def check(root: Path, out_dir: Path) -> int:
         )
         if changed:
             print(f"  changed eligible page(s): {changed}", file=sys.stderr)
+        print("Regenerate with: python scripts/build-pagefind-index.py", file=sys.stderr)
+        return 1
+
+    committed_artifacts = manifest.get("artifact_sha256")
+    if not isinstance(committed_artifacts, dict) or "pagefind.js" not in committed_artifacts:
+        print("FAIL: manifest has no artifact_sha256 for pagefind.js -- regenerate.", file=sys.stderr)
+        return 1
+    current_artifacts = artifact_hashes(out_dir)
+    bad = sorted(
+        name for name, digest in committed_artifacts.items()
+        if name in current_artifacts and current_artifacts[name] != digest
+    )
+    if "pagefind.js" not in current_artifacts:
+        bad.append("pagefind.js")
+    if bad:
+        print(f"FAIL: pagefind/ artifact(s) corrupted or modified: {bad}", file=sys.stderr)
         print("Regenerate with: python scripts/build-pagefind-index.py", file=sys.stderr)
         return 1
 
