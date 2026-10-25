@@ -143,8 +143,13 @@ class Supervisor:
             # el repo de la automatizacion no tiene node_modules: sin el enlace al de la web, pagefind vaciaba su indice (#870 borraba 412 ficheros)
             qa_pr.enlazar_node_modules(run, wt)
             from qa_dev_claude import CMD_PROBAR
-            try: res = self.claude(f"main:{run_id}", SIS_MAIN, f"LOG DEL FALLO (run {run_id}):\n{log[-8000:]}\n\nPara ejecutar un test con servidor local: `{CMD_PROBAR} <ruta>`",
-                                   f"Read,Edit,Write,Grep,Glob,Bash({CMD_PROBAR}:*),Bash(node:*)", wt, max_turnos=80)  # 40 no bastaba (run 40227985780)
+            # un reintento identico daria el mismo resultado: Claude ve que fallo antes y tiene mas turnos en cada intento
+            try: previos = [l.split(" -> ", 1)[1].strip() for l in (self.dir / "historial.log").read_text(encoding="utf-8").splitlines() if f" {fir} -> " in l]
+            except OSError: previos = []
+            antes = ("\n\nINTENTOS ANTERIORES QUE NO DEJARON PR (no repitas el mismo enfoque; si agotaste turnos, ve directo al fichero y al arreglo minimo):\n"
+                     + "\n".join(f"- {p[:400]}" for p in previos[-3:])) if previos else ""
+            try: res = self.claude(f"main:{run_id}", SIS_MAIN, f"LOG DEL FALLO (run {run_id}):\n{log[-8000:]}{antes}\n\nPara ejecutar un test con servidor local: `{CMD_PROBAR} <ruta>`",
+                                   f"Read,Edit,Write,Grep,Glob,Bash({CMD_PROBAR}:*),Bash(node:*)", wt, max_turnos=80 + 40 * len(previos))  # 40 no bastaba (run 40227985780)
             except Exception as e: self.anotar(fir, "claude_fallo", str(e)); return "claude_fallo"
             if res["resultado"] != "corregido": self.anotar(fir, "no_se_puede", res["causa"] + " | " + res["resumen"]); return "no_se_puede"
             cambios = [l[3:] for l in g("status", "--porcelain", cwd=wt)[1].splitlines() if l.strip() and not l[3:].startswith("node_modules")]

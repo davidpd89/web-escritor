@@ -673,7 +673,10 @@ class Ciclo:
         if any(str(p.get("headRefName", "")).startswith("qa-fix/verdes-") for p in prs): return 0
         items = c.execute("SELECT clave, propuestas FROM lote_items WHERE estado='actions_ok' AND clave NOT IN (SELECT clave FROM verdes) ORDER BY actualizado LIMIT ?",
                           (cfg.get("max", 15),)).fetchall()
-        if not items: return 0
+        # tests mal planteados con el arreglo del propio test ya escrito por GPT: antes se descartaban (130 el 2026-10-25); reparados y en verde protegen lo mismo
+        rotos = c.execute("SELECT id, propuestas, parche FROM triaje WHERE decision='test_incorrecto' AND parche IS NOT NULL AND 'triaje:'||id NOT IN (SELECT clave FROM verdes) "
+                          "ORDER BY id LIMIT ?", (cfg.get("max_reparados", 10),)).fetchall()
+        if not items and not rotos: return 0
         P = self.pr; rama = "qa-fix/verdes-" + datetime.datetime.now().strftime("%m%d%H%M"); wt = Path(self.q.STATE) / "pr" / rama.replace("/", "_")
         if P.git("fetch", "origin", "main", timeout=180)[0]: return 0
         if wt.exists(): P.limpiar(wt, rama)
@@ -695,12 +698,31 @@ class Ciclo:
                     for f in nuevos: (wt / f["ruta"]).unlink(missing_ok=True)
                     anotar(it["clave"], "rojo_en_main"); continue
                 ok.append((it["clave"], [f["ruta"] for f in nuevos]))
+            for r in rotos:
+                clave = f"triaje:{r['id']}"
+                fich = {}
+                for pid in json.loads(r["propuestas"] or "[]"):
+                    d = c.execute("SELECT datos FROM propuestas WHERE id=?", (pid,)).fetchone()
+                    if d: fich.update({f["ruta"]: f["contenido"] for f in json.loads(d[0]).get("ficheros_nuevos") or [] if isinstance(f, dict) and f.get("ruta")})
+                par = json.loads(r["parche"]); rutas_p = [f["ruta"] for f in par.get("ficheros", [])]
+                # solo el test nuevo de la propuesta: nunca se reescribe un test que ya esta en main ni se toca producto
+                if not rutas_p or any(x not in fich or not re.match(r"(tests|qa)/[\w./-]+$", x) or ".." in x for x in rutas_p): anotar(clave, "parche_fuera_del_test"); continue
+                if any((wt / x).exists() for x in rutas_p): anotar(clave, "ya_en_main"); continue
+                for x in rutas_p: (wt / x).parent.mkdir(parents=True, exist_ok=True); (wt / x).write_text(fich[x], encoding="utf-8", newline="\n")
+                try: aplicar_parche(wt, par); rojo = next((x for x in rutas_p if not P.comando_test(x) or P._test(wt, x)[0]), None)
+                except ValueError: rojo = "no_encaja"
+                if rojo:  # sigue rojo tras arreglar el test: no entra roto en main
+                    for x in rutas_p: (wt / x).unlink(missing_ok=True)
+                    anotar(clave, "rojo_tras_reparar" if rojo != "no_encaja" else "parche_no_encaja"); continue
+                ok.append((clave, rutas_p))
             c.commit()
             if not ok: return 0
             rutas = sorted({x for _, rs in ok for x in rs})
+            n_rep = sum(1 for k, _ in ok if k.startswith("triaje:"))
             P.git("add", "--", *rutas, cwd=wt)
             if P.git("-c", "user.name=qa-gpt", "-c", "user.email=qa-gpt@users.noreply.github.com", "commit", "-q", "-m",
-                     f"test(qa-gpt): {len(rutas)} tests de proteccion verificados\n\nPasan en GitHub Actions y sobre el main actual; quedan como red de regresion.", cwd=wt)[0]: return 0
+                     f"test(qa-gpt): {len(rutas)} tests de proteccion verificados\n\nPasan en GitHub Actions y sobre el main actual; quedan como red de regresion."
+                     + (f"\n{n_rep} eran tests mal planteados que se han reparado y pasan sobre main." if n_rep else ""), cwd=wt)[0]: return 0
             sha = P.git("rev-parse", "HEAD", cwd=wt)[1].strip()
             self.gh.push(sha, rama)
             cuerpo = "Tests generados por qa-gpt que pasan en GitHub Actions y se han revalidado sobre el main actual. Protegen comportamiento que hoy funciona.\n\n" + \

@@ -195,7 +195,7 @@ def ingest(q, c, job, data):
                 firma=firma_, parche=parche, analisis=json.dumps(analisis, ensure_ascii=False), validacion=json.dumps(validacion, ensure_ascii=False))
         for pid in ids:
             if g.get("clase") == "test_roto":
-                q.estado_prop(c, pid, "invalida", "triaje GPT: test roto, a reparar y reencolar")
+                q.estado_prop(c, pid, "invalida", "triaje GPT: test roto; si trae el arreglo del test, se repara y entra con los tests verdes")
         n += 1
     if n == 0 and firma_:  # GPT contesto sin grupos: queda registrado para no repetir la consulta
         guardar(c, q.now(), f"{firma_}#sin_grupos", "GPT no devolvio grupos", "sin_clasificar", [], items, "", "", "", "gpt", estado="a_triar", firma=firma_)

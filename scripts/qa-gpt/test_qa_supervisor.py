@@ -117,7 +117,9 @@ class MainRojo(Base):
             if cmd[0] == "cmd": return 0, ""
             return S.Supervisor._run_real(cmd, cwd, timeout, env)
         s = self.sup(lambda wt: (wt / "a.html").write_text("<p>a2</p>\n")); s._run = run
+        s.dir.mkdir(parents=True, exist_ok=True); (s.dir / "historial.log").write_text("2026-10-25T21:18:58 main-rojo:98 -> claude_fallo: max_turns agotados\n", encoding="utf-8")
         self.assertEqual(s.reparar_main("98", "log"), "pr_abierta")
+        self.assertIn("claude_fallo: max_turns agotados", self.llamadas[0][1])  # el reintento sabe que fallo antes: no repite lo mismo
         self.assertEqual(g("show", "--name-only", "--format=", "qa-fix/main-98", cwd=origen).split(), ["a.html"])
 
 

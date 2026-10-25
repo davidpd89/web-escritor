@@ -225,6 +225,22 @@ class PrFlujo(T.Base):
         self.assertEqual(ci._integrar_verdes(self.c, [{"headRefName": rama}]), 0)  # una PR de tests a la vez
         self.assertEqual(ci._integrar_verdes(self.c, []), 0)  # nada pendiente: no se repite
 
+    def test_test_mal_planteado_con_arreglo_se_repara_y_entra_con_los_verdes(self):
+        L.migrar(self.c); gh = self.GhCiclo(); ci = self.ciclo(gh)
+        arreglo = {"buscar": "assertEqual(0, 1", "por": "assertEqual(1, 1"}
+        for nombre, parche in (("reparable", {"ficheros": [{"ruta": "tests/test-reparable.py", "reemplazos": [arreglo]}]}),
+                               ("sigue-rojo", {"ficheros": [{"ruta": "tests/test-sigue-rojo.py", "reemplazos": [{"buscar": "'DEFECTO'", "por": "'OTRO'"}]}]}),
+                               ("toca-web", {"ficheros": [{"ruta": "web/a.py", "reemplazos": [arreglo]}]})):
+            _, _, pid = self.preparar(nombre, T.FAIL_PY)
+            qa_triaje.guardar(self.c, q.now(), nombre, "test mal planteado", "test_roto", [pid], [], "", "", "", "gpt")
+            self.c.execute("UPDATE triaje SET decision='test_incorrecto', parche=? WHERE grupo=?", (json.dumps(parche), nombre))
+        self.c.commit()
+        self.assertEqual(ci._integrar_verdes(self.c, []), 1)
+        rama, tit, cuerpo, _ = gh.prs[0]; self.assertIn("tests/test-reparable.py", cuerpo); self.assertNotIn("sigue-rojo", cuerpo)
+        est = sorted(r[0] for r in self.c.execute("SELECT estado FROM verdes"))
+        self.assertEqual(est, ["parche_fuera_del_test", "pr", "rojo_tras_reparar"])
+        self.assertEqual(ci._integrar_verdes(self.c, []), 0)  # no se reintentan
+
     def test_ciclo_respeta_presupuesto_cero(self):
         self.montar(); gh = self.GhCiclo(); self.ciclo(gh, max_pr_activas=0).paso(self.c); self.assertEqual(gh.prs, [])
 
