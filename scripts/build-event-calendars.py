@@ -327,6 +327,15 @@ def expected_calendars(html_text: str, *, as_of: date | datetime | None = None) 
                 )
         except ValueError as exc:
             errors.append(str(exc))
+    expected_hrefs = {
+        f"/assets/events/calendar/{filename}"
+        for filename in expected
+    }
+    for href in sorted(links - expected_hrefs):
+        errors.append(
+            f"Enlace data-calendar-download huerfano: {href!r}; "
+            "no corresponde a un EventScheduled elegible"
+        )
     return expected, errors
 
 
