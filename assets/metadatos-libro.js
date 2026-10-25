@@ -14,6 +14,7 @@ export function httpsUrl(value) {
     const u = new URL(trimmed);
     if (u.protocol !== 'https:') return '';
     if (/%[0-9a-f]{2}/i.test(u.hostname)) return '';
+    if (u.username || u.password) return '';
     return u.href;
   } catch {
     return '';
