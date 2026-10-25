@@ -10,21 +10,32 @@ from pathlib import Path
 
 def validate_combined(pr, db, worktree, rows):
     """-> (passed: bool, detail: str); falla cerrado si falta un test."""
+    ok, detail, _ = validar(pr, db, worktree, rows)
+    return ok, detail
+
+
+def duenos(pr, db, rows, ruta):
+    """Indices de las filas del lote cuyo test asociado es `ruta` (el culpable de un test acumulado rojo es su dueno, no la ultima fila)."""
+    return [i for i, row in enumerate(rows) if ruta in pr._rutas_tests(db, json.loads(row["propuestas"] or "[]"))]
+
+
+def validar(pr, db, worktree, rows):
+    """-> (passed, detail, ruta_fallida): ruta_fallida es el test acumulado rojo (None si el fallo no es de un test acumulado)."""
     tests = set()
     for row in rows:
         ids = json.loads(row["propuestas"] or "[]")
         tests.update(pr._rutas_tests(db, ids))
     if not tests:
-        return False, "sin tests asociados al lote"
+        return False, "sin tests asociados al lote", None
     root = Path(worktree)
     for path in sorted(tests):
         if not pr.comando_test(path) or not (root / path).is_file():
-            return False, f"test acumulado ausente/no ejecutable: {path}"
+            return False, f"test acumulado ausente/no ejecutable: {path}", path
         code, output = pr._test(worktree, path)
         if code == 125:
-            return None, f"entorno no disponible en {path}: {output[-350:]}"
+            return None, f"entorno no disponible en {path}: {output[-350:]}", None
         if code != 0:
-            return False, f"test acumulado {path} fallo ({code}): {output[-500:]}"
+            return False, f"test acumulado {path} fallo ({code}): {output[-500:]}", path
     # Tests vecinos: los tests Python ya existentes que nombran un fichero de produccion tocado. El CI los ejecuta y un lote que los rompia
     # se descubria tras 20 min de CI (#844: tests/test-build-pagefind-index.py). Solo cuenta como regresion lo que en main pasa.
     vec = vecinos(root, cambiados(pr, worktree), tests)
@@ -36,8 +47,8 @@ def validate_combined(pr, db, worktree, rows):
         nuevos = [x for x in rotos if pasa_en_main(pr, x[0])]
         if nuevos:
             path, code, output = nuevos[0]
-            return False, f"test vecino {path} pasa en main y falla con el lote ({code}): {output[-500:]}"
-    return True, f"{len(tests)} tests acumulados y {len(vec)} vecinos pasan sobre el lote integrado" + (f" ({len(rotos)} vecinos ya fallaban en main)" if rotos else "")
+            return False, f"test vecino {path} pasa en main y falla con el lote ({code}): {output[-500:]}", None
+    return True, f"{len(tests)} tests acumulados y {len(vec)} vecinos pasan sobre el lote integrado" + (f" ({len(rotos)} vecinos ya fallaban en main)" if rotos else ""), None
 
 
 def cambiados(pr, worktree):

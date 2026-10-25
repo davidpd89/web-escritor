@@ -765,20 +765,32 @@ class Ciclo:
             if not incl: self.out("  lote: ninguna correccion se pudo aplicar en este ciclo"); return
             # Preflight del arbol combinado: todos los tests deben seguir pasando despues
             # de aplicar los demas parches. Falla localmente sin lanzar CI remota.
-            from qa_lote_preflight import validate_combined
+            from qa_lote_preflight import validar, duenos
             while incl:
-                ok, detail = validate_combined(P, c, wt, incl)
+                ok, detail, ruta = validar(P, c, wt, incl)
                 if ok:
                     self.out(f"  lote preflight: {detail}")
                     break
                 if ok is None:
                     self.out(f"  lote preflight: entorno no disponible; no se envia PR: {detail[:180]}")
                     return
-                removed = incl.pop()
-                self.out(f"  lote preflight rojo: fuera #{removed['id']} ({detail[:140]})")
-                if P.git("reset", "--hard", "HEAD~1", cwd=wt)[0]:
-                    self.out("  lote preflight: rollback fallo; no se publica PR")
-                    return
+                # El culpable de un test acumulado rojo es su dueno, no la ultima fila (antes se expulsaba siempre la ultima y un test malo
+                # ajeno vaciaba el lote de correcciones inocentes ciclo tras ciclo). Si no se puede sacar su commit, se cae al comportamiento antiguo.
+                duenos_idx = duenos(P, c, incl, ruta) if ruta else []
+                idx = duenos_idx[-1] if duenos_idx else len(incl) - 1
+                k = len(incl) - 1 - idx
+                if k == 0:
+                    if P.git("reset", "--hard", "HEAD~1", cwd=wt)[0]:
+                        self.out("  lote preflight: rollback fallo; no se publica PR")
+                        return
+                elif P.git("rebase", "--onto", f"HEAD~{k + 1}", f"HEAD~{k}", cwd=wt)[0]:
+                    P.git("rebase", "--abort", cwd=wt)
+                    idx, k = len(incl) - 1, 0
+                    if P.git("reset", "--hard", "HEAD~1", cwd=wt)[0]:
+                        self.out("  lote preflight: rollback fallo; no se publica PR")
+                        return
+                removed = incl.pop(idx)
+                self.out(f"  lote preflight rojo: fuera #{removed['id']}{' (dueno del test ' + ruta + ')' if duenos_idx else ''} ({detail[:140]})")
                 # La regresion puede ser una interaccion entre parches, no un fallo
                 # intrinseco del ultimo: revalidarlo individualmente, no descartarlo.
                 # Pero si falla SOLA es suya: vuelve a desarrollo con el detalle (antes volvia como 'reintentar' y sospechosa de biseccion,

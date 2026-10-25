@@ -84,5 +84,23 @@ class CombinedPreflightTests(unittest.TestCase):
             self.assertFalse(validate_combined(FakePr({}),None,d,[{"propuestas":"[]"}])[0])
 
 
+class DuenoTests(unittest.TestCase):
+    def test_ruta_roja_se_atribuye_al_dueno_no_a_la_ultima_fila(self):
+        import qa_lote_preflight as P
+        with tempfile.TemporaryDirectory() as d:
+            for name in ("tests/test_a.py", "tests/test_b.py"):
+                p = Path(d, name); p.parent.mkdir(parents=True, exist_ok=True); p.write_text("pass")
+            fake = FakePr({1: ["tests/test_a.py"], 2: ["tests/test_b.py"]}, {"tests/test_a.py": (1, "FAIL a")})
+            rows = [{"propuestas": "[1]"}, {"propuestas": "[2]"}]
+            ok, det, ruta = P.validar(fake, None, d, rows)
+            self.assertFalse(ok); self.assertEqual(ruta, "tests/test_a.py")
+            self.assertEqual(P.duenos(fake, None, rows, ruta), [0])
+
+    def test_sin_tests_no_hay_ruta(self):
+        with tempfile.TemporaryDirectory() as d:
+            ok, _, ruta = __import__("qa_lote_preflight").validar(FakePr({}), None, d, [{"propuestas": "[]"}])
+            self.assertFalse(ok); self.assertIsNone(ruta)
+
+
 if __name__ == "__main__":
     unittest.main()
