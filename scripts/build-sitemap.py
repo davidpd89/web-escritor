@@ -111,8 +111,10 @@ def normalize_lastmod(value: str | None) -> str | None:
     value = value.strip()
     if re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
         try:
-            datetime.strptime(value, "%Y-%m-%d")
+            parsed_date = datetime.strptime(value, "%Y-%m-%d").date()
         except ValueError:
+            return None
+        if parsed_date > datetime.now(timezone.utc).date():
             return None
         return value
     try:
@@ -124,6 +126,8 @@ def normalize_lastmod(value: str | None) -> str | None:
             dt = dt.replace(tzinfo=timezone.utc)
         else:
             dt = dt.astimezone(timezone.utc)
+        if dt > datetime.now(timezone.utc):
+            return None
         return dt.strftime("%Y-%m-%dT%H:%M:%SZ")
     except Exception:
         return None
