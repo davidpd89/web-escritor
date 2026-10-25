@@ -349,6 +349,19 @@ class PrFlujo(T.Base):
         self.assertEqual(self.c.execute("SELECT pr_estado FROM triaje").fetchone()[0], "no_reproduce"); self.assertEqual(r.get("no_reproducen"), 1)
         self.assertFalse(list((Path(q.STATE) / "pr").glob("repro_*")))  # sin worktrees huerfanos
 
+    def test_claude_desarrolla_primero_y_gpt_espera_su_turno(self):
+        import qa_claude, qa_dev_claude
+        qa_claude.migrar(self.c); self.montar(); self.c.execute("UPDATE triaje SET parche=NULL,actualizado=?", (q.now(),)); self.c.commit()
+        row = self.c.execute("SELECT * FROM triaje").fetchone(); ci = self.ciclo(self.GhCiclo())
+        self.assertEqual([r["id"] for r in qa_dev_claude.elegible(self.c)], [row["id"]])  # recien aprobada sin parche: para Claude
+        self.assertTrue(ci._claude_primero(self.c, row))  # GPT espera
+        self.c.execute("UPDATE triaje SET actualizado='2026-01-01T00:00:00'"); self.c.commit()
+        self.assertFalse(ci._claude_primero(self.c, self.c.execute("SELECT * FROM triaje").fetchone()))  # demasiada espera: GPT entra
+        self.c.execute("UPDATE triaje SET actualizado=?", (q.now(),))
+        self.c.execute("INSERT INTO claude_llamadas(clave,ok) VALUES (?,1)", (f"dev_claude2:{row['id']}",)); self.c.commit()
+        self.assertFalse(ci._claude_primero(self.c, self.c.execute("SELECT * FROM triaje").fetchone()))  # Claude ya lo intento: respaldo GPT
+        self.assertEqual(qa_dev_claude.elegible(self.c), [])
+
     def test_regenerar_sube_solo_el_asset_tocado_y_rehace_lo_obsoleto(self):
         import tempfile, qa_pr
         with tempfile.TemporaryDirectory() as d:

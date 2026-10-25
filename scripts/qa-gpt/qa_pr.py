@@ -472,6 +472,17 @@ class Ciclo:
         try: return {f["ruta"] for f in json.loads(row["parche"])["ficheros"]}
         except (TypeError, ValueError, KeyError): return set()
 
+    CLAUDE_VENTAJA_MIN = 20
+
+    def _claude_primero(self, c, row):
+        """True si GPT debe esperar: Claude (2-5 min, ejecuta el test) desarrolla primero lo recien aprobado. GPT entra si Claude ya lo intento,
+        o si lleva mas de CLAUDE_VENTAJA_MIN esperando (Claude va de una en una) o mas del doble en curso (proceso caido a medias)."""
+        import datetime
+        if c.execute("SELECT 1 FROM claude_llamadas WHERE clave=?", (f"dev_claude2:{row['id']}",)).fetchone(): return False
+        try: edad = (datetime.datetime.now() - datetime.datetime.fromisoformat(row["actualizado"])).total_seconds() / 60
+        except (TypeError, ValueError): return False
+        return edad < self.CLAUDE_VENTAJA_MIN * (2 if row["dev_estado"] == "claude_en_curso" else 1)
+
     def _dev_claude(self):
         import qa_dev_claude
         c = self.q.db()
@@ -496,7 +507,7 @@ class Ciclo:
             c.commit(); self.out(f"  PR #{row['pr_numero']}: {st}")
         libres = cfg["max_pr_activas"] - len(activas)
         # 1) decisiones de Claude, solo mientras el backlog aprobado no llene el presupuesto (no se gasta en decidir lo que no se podra desarrollar)
-        aprobadas = c.execute(f"SELECT COUNT(*) FROM triaje WHERE decision='corregir' AND COALESCE(pr_estado,'') NOT IN ({TERMINALES},'pr_abierta','pr_borrador')").fetchone()[0]  # las que ya tienen PR no ocupan cola de desarrollo
+        aprobadas = c.execute(f"SELECT COUNT(*) FROM triaje WHERE decision='corregir' AND COALESCE(pr_estado,'') NOT IN ({TERMINALES},'pr_abierta','pr_borrador','listo_lote')").fetchone()[0]  # con PR o ya validadas esperando lote no ocupan cola de desarrollo (contarlas congelaba 64 decisiones)
         if aprobadas < cfg["max_pr_activas"] * 3: r["decididas"] = qa_triaje.decidir_pendientes(q, c, prs, cfg["claude_lote"], self.out)
         # 2) desarrollo GPT: causas aprobadas sin parche, o con intento fallido (acotado por max_intentos)
         en_cola = c.execute("SELECT COUNT(*) FROM jobs WHERE tipo='T' AND clave LIKE 'D:%' AND estado IN ('pendiente','en_curso')").fetchone()[0]
@@ -506,6 +517,7 @@ class Ciclo:
             if en_cola >= cfg["max_consultas_gpt"]: break
             if (row["intentos_dev"] or 0) >= cfg["max_intentos"]:
                 c.execute("UPDATE triaje SET dev_estado='agotado',pr_estado='descartada',actualizado=? WHERE id=?", (q.now(), row["id"])); c.commit(); r["agotadas"] = r.get("agotadas", 0) + 1; continue
+            if row["parche"] is None and cfg.get("dev_claude", False) and self._claude_primero(c, row): continue
             if row["parche"] is None and r.get("reproducidas", 0) < cfg.get("max_reproducciones", 3):
                 r["reproducidas"] = r.get("reproducidas", 0) + 1
                 if self.pr.reproduce(c, row) is False:  # el test ya pasa en main: ni desarrollo GPT ni Claude

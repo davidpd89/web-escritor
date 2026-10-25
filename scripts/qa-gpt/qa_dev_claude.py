@@ -47,10 +47,12 @@ def diff_a_parche(antes, despues):
 
 
 def elegible(c, maxi=1):
-    """Filas aprobadas con fallo de parche, sin intento previo de Claude y cuyos archivos probables no son rutas prohibidas (esas no se pueden corregir automaticamente)."""
+    """Filas aprobadas sin intento previo de Claude cuyos archivos probables no son rutas prohibidas: primero las recien aprobadas sin parche
+    (Claude es el desarrollador por defecto; GPT, 11-19 min por consulta, queda de respaldo) y despues las que el parche de GPT no consiguio."""
     out = []
-    for r in c.execute(f"""SELECT * FROM triaje WHERE decision='corregir' AND clase IN ('defecto_web','test_roto') AND COALESCE(pr_estado,'') IN ({','.join('?' * len(ESTADOS))})
-            AND NOT EXISTS (SELECT 1 FROM claude_llamadas WHERE clave='dev_claude2:'||triaje.id) ORDER BY COALESCE(prioridad,'3'), id""", ESTADOS).fetchall():
+    for r in c.execute(f"""SELECT * FROM triaje WHERE decision='corregir' AND clase IN ('defecto_web','test_roto')
+            AND (COALESCE(pr_estado,'') IN ({','.join('?' * len(ESTADOS))}) OR (parche IS NULL AND COALESCE(pr_estado,'')='' AND COALESCE(dev_estado,'')<>'en_desarrollo'))
+            AND NOT EXISTS (SELECT 1 FROM claude_llamadas WHERE clave='dev_claude2:'||triaje.id) ORDER BY (parche IS NOT NULL), COALESCE(prioridad,'3'), id""", ESTADOS).fetchall():
         arch = (json.loads(r["decision_json"] or "{}") or {}).get("archivos") or []
         if any(qa_pr.ruta_segura(a) for a in arch):
             c.execute("UPDATE triaje SET dev_estado='ruta_prohibida',pr_estado='descartada',pr_detalle=?,actualizado=? WHERE id=?",
@@ -65,6 +67,10 @@ def desarrollar(q, c, pr, row):
     clave = f"dev_claude2:{row['id']}"  # v2: con probador; los intentos v1 (sin poder ejecutar tests) no cuentan
     rama = f"qa-dev/{row['id']}"
     wt = Path(q.STATE) / "pr" / f"qa-dev_{row['id']}"
+    c.execute("UPDATE triaje SET dev_estado='claude_en_curso',actualizado=? WHERE id=?", (q.now(), row["id"])); c.commit()  # GPT no la toma mientras tanto
+    if row["parche"] is None and pr.reproduce(c, row) is False:
+        pr._marca(c, row, "no_reproduce", "filtro previo: en main actual los tests ya pasan (defecto no reproducible o ya resuelto); no se desarrolla")
+        c.execute("UPDATE triaje SET dev_estado=NULL WHERE id=?", (row["id"],)); c.commit(); return "no_reproduce"
     try:
         rc, o = pr.git("fetch", "origin", "main", timeout=180)
         if rc: return "fetch_fallo"
@@ -97,6 +103,7 @@ def desarrollar(q, c, pr, row):
                   (json.dumps(norm, ensure_ascii=False), "parche de Claude: " + res["resumen"][:300], q.now(), row["id"])); c.commit()
         return "reencolada"
     finally:
+        c.execute("UPDATE triaje SET dev_estado=NULL WHERE id=? AND dev_estado='claude_en_curso'", (row["id"],)); c.commit()  # salida temprana: libre otra vez
         try: pr.limpiar(wt, rama)
         except qa_pr.Interrumpido: shutil.rmtree(wt, ignore_errors=True)
 
