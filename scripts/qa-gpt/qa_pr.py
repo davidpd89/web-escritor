@@ -595,7 +595,9 @@ class Ciclo:
                 if P.git("reset", "--hard", "HEAD~1", cwd=wt)[0]:
                     self.out("  lote preflight: rollback fallo; no se publica PR")
                     return
-                self._marca(c, removed, "validacion_fallida", f"Fallo de regresion sobre arbol acumulado: {detail[:650]}")
+                # La regresion puede ser una interaccion entre parches, no un fallo
+                # intrinseco del ultimo: revalidarlo individualmente, no descartarlo.
+                self._marca(c, removed, "reintentar", f"Interaccion en preflight combinado: {detail[:650]}")
             if not incl: return
             sha = P.git("rev-parse", "HEAD", cwd=wt)[1].strip()
             # revision agregada de Claude ANTES de abrir la PR: lo dudoso se saca del lote y el CI pesado solo corre sobre contenido ya aprobado
