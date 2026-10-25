@@ -137,7 +137,15 @@
         if (!emailEl || !statusEl || !submitBtn) return;
         if (submitBtn.dataset.submitting === "true") return;
         if (IS_STAGING) { statusEl.textContent = STAGING_DISABLED_MESSAGE; return; }
-        if (!isValidNewsletterEmail(emailEl.value)) { statusEl.textContent = "Introduce un email válido."; return; }
+        if (!isValidNewsletterEmail(emailEl.value)) {
+          statusEl.textContent = "Introduce un email válido.";
+          emailEl.setAttribute("aria-describedby", statusEl.id);
+          emailEl.setAttribute("aria-invalid", "true");
+          emailEl.focus({ preventScroll: true });
+          return;
+        }
+        emailEl.removeAttribute("aria-describedby");
+        emailEl.removeAttribute("aria-invalid");
         statusEl.textContent = "";
         submitBtn.dataset.submitting = "true";
         submitBtn.disabled = true;
