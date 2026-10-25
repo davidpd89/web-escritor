@@ -62,7 +62,7 @@ def day(raw, name):
 
 
 def valid_isbn(value):
-    return isinstance(value, str) and bool(re.fullmatch(r"97[89]\d{10}", value)) and sum(int(n) * (1 if i % 2 == 0 else 3) for i, n in enumerate(value)) % 10 == 0
+    return isinstance(value, str) and bool(re.fullmatch(r"97[89][0-9]{10}", value)) and sum(int(n) * (1 if i % 2 == 0 else 3) for i, n in enumerate(value)) % 10 == 0
 
 
 def validate(data, root):
