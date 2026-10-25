@@ -136,7 +136,7 @@ def normalize_canonical(canonical: str | None, root: Path, path: Path) -> str | 
         if canonical.startswith("http://"):
             canonical = "https://" + canonical[len("http://") :]
         if canonical.startswith("https://"):
-            if not canonical.startswith(DOMAIN):
+            if not (canonical == DOMAIN or canonical.startswith((DOMAIN + "/", DOMAIN + "?", DOMAIN + "#"))):
                 return None
             return canonical.rstrip("/") + ("/" if canonical.endswith("/") else "")
         if canonical.startswith("/"):
