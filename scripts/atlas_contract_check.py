@@ -147,8 +147,19 @@ def problems(data: dict) -> list[str]:
             if parent == dest["id"]:
                 errors.append(f"destinations/{dest['id']}: parent_id no puede ser el propio destino")
 
+    seen_osm: dict[tuple[str, int], str] = {}
     for place in tables["places"].values():
         scope = f"places/{place['id']}"
+        osm_type, osm_id = place.get("osm_type"), place.get("osm_id")
+        if isinstance(osm_type, str) and isinstance(osm_id, int) and not isinstance(osm_id, bool):
+            osm_key = (osm_type, osm_id)
+            if osm_key in seen_osm:
+                errors.append(
+                    f"{scope}: objeto OSM duplicado {osm_type}/{osm_id} "
+                    f"en {seen_osm[osm_key]} y {place['id']}"
+                )
+            else:
+                seen_osm[osm_key] = place["id"]
         require("destinations", place.get("destination_id"), scope)
         lat, lon = place.get("latitude"), place.get("longitude")
         if (lat is None) != (lon is None):
