@@ -1,5 +1,5 @@
 const CACHE_NAMESPACE = "david-porto-pwa";
-const CACHE_VERSION = `${CACHE_NAMESPACE}-v16`;
+const CACHE_VERSION = `${CACHE_NAMESPACE}-v17`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 const CURRENT_CACHES = new Set([STATIC_CACHE, PAGE_CACHE]);
@@ -51,9 +51,9 @@ function offlineResponse() {
 
 async function putIfCacheable(cache, request, response) {
   const cacheControl = response?.headers?.get("Cache-Control") || "";
-  const noStore = cacheControl.split(",").some((directive) =>
-    directive.trim().toLowerCase() === "no-store"
-  );
+  const privateResponse = cacheControl.split(",").some((directive) =>
+    /^(?:private|no-store)(?:\s*(?:=|$))/.test(directive.trim().toLowerCase())
+  ) || response?.headers?.has("Set-Cookie") === true;
   const pathname = new URL(request.url).pathname.toLowerCase();
   const mime = (response?.headers?.get("Content-Type") || "")
     .split(";", 1)[0].trim().toLowerCase();
@@ -61,7 +61,7 @@ async function putIfCacheable(cache, request, response) {
   const isCss = pathname.endsWith(".css");
   const validJavaScriptMime = /^(?:text|application)\/(?:javascript|ecmascript|x-javascript|x-ecmascript)$/.test(mime);
   const compatibleMime = isJavaScript ? validJavaScriptMime : isCss ? mime === "text/css" : true;
-  if (response && response.ok && response.status !== 206 && !noStore && compatibleMime) {
+  if (response && response.ok && response.status !== 206 && !privateResponse && compatibleMime) {
     try {
       await cache.put(request, response.clone());
     } catch (error) {
