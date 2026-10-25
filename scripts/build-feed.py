@@ -16,7 +16,7 @@ import sys
 import re
 import json
 from html.parser import HTMLParser
-from datetime import datetime
+from datetime import datetime, timezone
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom import minidom
 import xml.etree.ElementTree as ET
@@ -147,6 +147,10 @@ def extract_metadata(path):
 def iso_to_rfc2822(d):
     try:
         dt = datetime.fromisoformat(d.replace('Z','+00:00'))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        else:
+            dt = dt.astimezone(timezone.utc)
         return dt.strftime('%a, %d %b %Y %H:%M:%S +0000')
     except Exception:
         return None
