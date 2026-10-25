@@ -367,6 +367,24 @@ class Pr:
                 if rc == 0:
                     p = wt / t; p.parent.mkdir(parents=True, exist_ok=True); p.write_text(o, encoding="utf-8", newline="")
 
+    def reproduce(self, c, row):
+        """Filtro barato ANTES del desarrollo GPT (11-19 min): ¿los tests de la causa fallan hoy en main? -> True, False (todos pasan: no hay
+        nada que corregir o ya lo arreglo otro lote) o None (sin tests ejecutables o entorno no disponible: se deja seguir como antes)."""
+        tests = self._rutas_tests(c, json.loads(row["propuestas"] or "[]"))
+        if not tests: return None
+        wt = Path(self.q.STATE) / "pr" / f"repro_{row['id']}"
+        try:
+            if self.git("fetch", "origin", "main", timeout=180)[0]: return None
+            if wt.exists(): self.limpiar(wt, None)
+            wt.parent.mkdir(parents=True, exist_ok=True)
+            if self.git("worktree", "add", "--detach", str(wt), "origin/main")[0]: return None
+            if not all((wt / t).exists() for t in tests): self._traer_tests(c, row, wt, tests)
+            if not all((wt / t).exists() and self.comando_test(t) for t in tests): return None
+            res = [self._test(wt, t)[0] for t in tests]
+            if any(rc == RC_INFRA for rc in res): return None
+            return any(res)
+        finally: self.limpiar(wt, None)
+
     def _verificar(self, wt, tests, tocados):
         """Ejecuta SOLO los tests conocidos (rutas de propuestas) con interprete fijo; nunca algo que haya escrito GPT."""
         if not tests: return "Sin test automatico asociado.", False
@@ -488,6 +506,11 @@ class Ciclo:
             if en_cola >= cfg["max_consultas_gpt"]: break
             if (row["intentos_dev"] or 0) >= cfg["max_intentos"]:
                 c.execute("UPDATE triaje SET dev_estado='agotado',pr_estado='descartada',actualizado=? WHERE id=?", (q.now(), row["id"])); c.commit(); r["agotadas"] = r.get("agotadas", 0) + 1; continue
+            if row["parche"] is None and r.get("reproducidas", 0) < cfg.get("max_reproducciones", 3):
+                r["reproducidas"] = r.get("reproducidas", 0) + 1
+                if self.pr.reproduce(c, row) is False:  # el test ya pasa en main: ni desarrollo GPT ni Claude
+                    self.pr._marca(c, row, "no_reproduce", "filtro previo: en main actual los tests ya pasan (defecto no reproducible o ya resuelto); no se consulta a GPT")
+                    r["no_reproducen"] = r.get("no_reproducen", 0) + 1; self.out(f"  #{row['id']}: no se reproduce en main, sin desarrollo"); continue
             if qa_triaje.encolar_desarrollo(q, c, row, row["pr_detalle"] or row["validacion"] or ""):
                 c.execute("UPDATE triaje SET pr_estado='esperando_desarrollo' WHERE id=?", (row["id"],)); c.commit(); en_cola += 1; r["desarrollos"] = r.get("desarrollos", 0) + 1
         # 2b) desarrollador Claude en segundo plano (una correccion cada vez, un intento por causa) para lo que el parche GPT no consiguio

@@ -339,6 +339,16 @@ class PrFlujo(T.Base):
             self.assertIn("build-pagefind-index.py", nombres(["libros/a.html"]))
             self.assertNotIn("check-asset-versions.py", nombres(["libros/a.html"]))
 
+    def test_reproduce_en_main_antes_de_gastar_desarrollo(self):
+        row = self.montar(); p = self.pr(self.GhPr())
+        self.assertIs(p.reproduce(self.c, row), True)  # VALOR = 1 en main: el test falla, el defecto existe
+        (self.src / "web/a.py").write_text("VALOR = 2" + NL); g("commit", "-qam", "otro lote lo arregla", cwd=self.src); g("push", "-q", "origin", "main", cwd=self.src)
+        self.assertIs(p.reproduce(self.c, row), False)
+        self.c.execute("UPDATE triaje SET parche=NULL"); self.c.commit()
+        gh = self.GhCiclo(); r = self.ciclo(gh).paso(self.c)
+        self.assertEqual(self.c.execute("SELECT pr_estado FROM triaje").fetchone()[0], "no_reproduce"); self.assertEqual(r.get("no_reproducen"), 1)
+        self.assertFalse(list((Path(q.STATE) / "pr").glob("repro_*")))  # sin worktrees huerfanos
+
     def test_regenerar_sube_solo_el_asset_tocado_y_rehace_lo_obsoleto(self):
         import tempfile, qa_pr
         with tempfile.TemporaryDirectory() as d:
