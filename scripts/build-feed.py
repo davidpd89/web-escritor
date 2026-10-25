@@ -206,7 +206,15 @@ def collect_items():
     # en ext4. El feed se generaba distinto en local y en CI, y --check fallaba
     # en CI sin que hubiera cambiado ningun contenido. Se desempata por URL.
     items.sort(key=lambda x: x.get('url') or x.get('link') or '')
-    items.sort(key=lambda x: x.get('date') or '', reverse=True)
+    def instant(x):
+        try:
+            dt = datetime.fromisoformat((x.get('date') or '').replace('Z', '+00:00'))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            return dt.timestamp()
+        except Exception:
+            return float('-inf')
+    items.sort(key=instant, reverse=True)
     return items[:50], skipped
 
 def validate_xsl_asset(errors):
