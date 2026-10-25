@@ -354,6 +354,7 @@ function fallbackCopy(text, done) {
           return;
         }
         if (statusEl) statusEl.textContent = "";
+        const originalSubmitLabel = submitBtn.textContent;
         submitBtn.dataset.submitting = "true";
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
@@ -373,7 +374,7 @@ function fallbackCopy(text, done) {
           if (statusEl) statusEl.textContent = newsletterErrorMessage(err.message);
           delete submitBtn.dataset.submitting;
           submitBtn.disabled = false;
-          submitBtn.textContent = "Suscribirme";
+          submitBtn.textContent = originalSubmitLabel;
         }
       }, "user-blocking");
     });
