@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+
+const source = fs.readFileSync('script.js', 'utf8');
+const start = source.indexOf('function scheduleTask(');
+const end = source.indexOf('function scheduleBackgroundIdle(', start);
+assert.ok(start >= 0 && end > start, 'No se encontraron los helpers de planificación');
+const context = vm.createContext({ Promise });
+vm.runInContext(source.slice(start, end), context);
+const scheduleTask = vm.runInContext('scheduleTask', context);
+const events = [];
+const first = scheduleTask(() => events.push('first'));
+const second = scheduleTask(() => events.push('second'));
+assert.equal(typeof first.then, 'function');
+await Promise.all([first, second]);
+assert.deepEqual(events, ['first', 'second']);
+const failure = new Error('expected failure');
+await assert.rejects(scheduleTask(() => { throw failure; }), /expected failure/);
+console.log('PASS scheduler fallback: FIFO, Promise and rejection');
