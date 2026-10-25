@@ -104,6 +104,22 @@ class MainRojo(Base):
         self.assertEqual(sorted(ficheros), ["a.html", "b.html", "pagefind/i.json"])  # b.html: reescrita por el shell
         self.assertIn("<p class=s>a2", g("show", "qa-fix/main-99:a.html", cwd=origen))
 
+    def test_pagefind_que_falla_a_medias_no_borra_el_indice_en_la_pr(self):
+        # #870: sin node_modules el generador vaciaba pagefind/ y la PR borraba 412 ficheros (content-indexes: falta pagefind-ui.js)
+        t = Path(self.tmp.name); web = t / "web"; (web / "scripts").mkdir(parents=True); (web / "pagefind").mkdir(); origen = t / "origen.git"
+        (web / "a.html").write_text("<p>a</p>\n"); (web / "pagefind" / "pagefind-ui.js").write_text("ui\n"); (web / "pagefind" / "i.json").write_text("{}\n")
+        (web / "scripts" / "build-pagefind-index.py").write_text("import shutil, sys\nshutil.rmtree('pagefind'); sys.exit(1)\n")
+        g("init", "-q", "-b", "main", cwd=web); g("add", "-A", cwd=web); g("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "base", cwd=web)
+        g("clone", "-q", "--bare", str(web), str(origen), cwd=t); g("remote", "add", "origin", str(origen), cwd=web)
+        orig_root = q.ROOT; q.ROOT = str(web); self.addCleanup(lambda: setattr(q, "ROOT", orig_root))
+        def run(cmd, cwd, timeout=600, env=None):
+            if cmd[0] == "gh": return 0, "https://x/pull/1"
+            if cmd[0] == "cmd": return 0, ""
+            return S.Supervisor._run_real(cmd, cwd, timeout, env)
+        s = self.sup(lambda wt: (wt / "a.html").write_text("<p>a2</p>\n")); s._run = run
+        self.assertEqual(s.reparar_main("98", "log"), "pr_abierta")
+        self.assertEqual(g("show", "--name-only", "--format=", "qa-fix/main-98", cwd=origen).split(), ["a.html"])
+
 
     def test_main_rojo_sin_pr_se_reintenta_a_la_hora_hasta_tres_veces(self):
         s = self.sup(); fir = "main-rojo:7"; s.dir.mkdir(parents=True, exist_ok=True); orig = q.now; self.addCleanup(lambda: setattr(q, "now", orig))

@@ -138,8 +138,10 @@ class Supervisor:
             self.anotar(fir, "pr_abierta", f"la rama {rama} ya existe"); return "omitido"
         if g("worktree", "add", "-B", rama, str(wt), "origin/main")[0]: self.anotar(fir, "error", "worktree"); return "error"
         try:
-            nm = root / "node_modules"
-            if nm.exists(): self._run(["cmd", "/c", "mklink", "/J", str(wt / "node_modules"), str(nm)], wt, 30)
+            import qa_pr
+            run = lambda cmd, cwd, timeout=300: self._run(cmd, Path(cwd), timeout)
+            # el repo de la automatizacion no tiene node_modules: sin el enlace al de la web, pagefind vaciaba su indice (#870 borraba 412 ficheros)
+            qa_pr.enlazar_node_modules(run, wt)
             from qa_dev_claude import CMD_PROBAR
             try: res = self.claude(f"main:{run_id}", SIS_MAIN, f"LOG DEL FALLO (run {run_id}):\n{log[-8000:]}\n\nPara ejecutar un test con servidor local: `{CMD_PROBAR} <ruta>`",
                                    f"Read,Edit,Write,Grep,Glob,Bash({CMD_PROBAR}:*),Bash(node:*)", wt, max_turnos=80)  # 40 no bastaba (run 40227985780)
@@ -149,10 +151,10 @@ class Supervisor:
             if not cambios: self.anotar(fir, "sin_cambios", res["resumen"]); return "sin_cambios"
             if any(x.endswith(".html") for x in cambios):
                 # shell e indice de busqueda derivan del HTML: sin regenerarlos, content-indexes queda en rojo (#868 -> #869; #870: shell desactualizado)
-                for gen in ("build-site-shell.py", "build-pagefind-index.py"):
-                    if (wt / "scripts" / gen).exists(): self._run([sys.executable, f"scripts/{gen}"], wt, 600)
-                g("add", "-u", cwd=wt)  # paginas que el shell reescribio (ya versionadas)
-                cambios.append("pagefind")
+                qa_pr.regenerar(run, wt, cambios)  # mismo regenerador que los lotes: solo lo que su --check da por obsoleto
+                if not (wt / "pagefind" / "pagefind-ui.js").exists() and g("cat-file", "-e", "origin/main:pagefind/pagefind-ui.js", cwd=wt)[0] == 0:
+                    g("checkout", "origin/main", "--", "pagefind", cwd=wt)  # indice destruido a medias: mejor el de main que una PR que lo borra
+                g("add", "-A", "--", ".", ":!node_modules", cwd=wt)  # paginas que el shell reescribio e indice nuevo
             g("add", "--", *cambios, cwd=wt)
             msg = f"fix: {res['causa'][:90]}\n\n{res['resumen'][:1500]}\n\nAuditoria post-despliegue de main en rojo (run {run_id}).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
             if g("-c", "user.name=qa-gpt-supervisor", "-c", "user.email=qa-gpt@users.noreply.github.com", "commit", "-q", "-m", msg, cwd=wt)[0]: self.anotar(fir, "error", "commit"); return "error"
