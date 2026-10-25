@@ -75,8 +75,14 @@
     d.addEventListener("keydown", (event) => {
       if (event.key !== "Tab") return;
       const focusable = Array.from(
-        d.querySelectorAll('a[href], button:not([disabled]), input:not([disabled])')
-      ).filter((el) => el.offsetParent !== null);
+        d.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')
+      ).filter((el) => {
+        if (!(el instanceof HTMLElement) || el.tabIndex < 0) return false;
+        if (el.matches(':disabled') || el.closest('[hidden],[inert],[aria-hidden="true"]')) return false;
+        const style = getComputedStyle(el);
+        if (style.display === 'none' || style.visibility === 'hidden' || style.visibility === 'collapse') return false;
+        return el.getClientRects().length > 0;
+      });
       if (!focusable.length) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
