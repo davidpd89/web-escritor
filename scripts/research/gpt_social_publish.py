@@ -50,8 +50,25 @@ def validate(text: str, now: datetime) -> dict:
         if n.get("status") == "ok" and not (isinstance(n.get("followers"), int) and n["followers"] >= 0
                                             and str(n.get("profile_url", "")).startswith("https://")):
             raise PublishError(f"bad data for {n.get('id')}")
-    if not any(n.get("status") == "ok" for n in nets):
+    valid = [n for n in nets if n.get("status") == "ok"]
+    if not valid:
         raise PublishError("no network with fresh data")
+    try:
+        deadlines = [_t(n["valid_until"]) for n in valid]
+        expected = {
+            "follower_relationships": sum(n["followers"] for n in valid),
+            "coverage": len(valid),
+            "eligible": len(NETWORKS),
+        }
+        totals = data["totals"]
+        for field, value in expected.items():
+            if field in totals or field == "follower_relationships":
+                if type(totals.get(field)) is not int or totals[field] != value:
+                    raise PublishError(f"inconsistent aggregate: {field}")
+        if expiry != min(deadlines):
+            raise PublishError("inconsistent aggregate: valid_until")
+    except (ValueError, KeyError, TypeError, AttributeError) as exc:
+        raise PublishError(f"invalid aggregate: {exc}") from exc
     if expiry <= now:
         raise PublishError("snapshot already expired")
     if any(word in text for word in FORBIDDEN):
