@@ -118,12 +118,40 @@ def problems(data: dict) -> list[str]:
         elif not valid_https_url(src["url"]):
             errors.append(f"{scope}: fuente {source_id!r} requiere URL HTTPS")
 
-    for dest in tables["destinations"].values():
+    destinations = tables["destinations"]
+    for dest in destinations.values():
         parent = dest.get("parent_id")
         if parent is not None:
             require("destinations", parent, f"destinations/{dest['id']}")
             if parent == dest["id"]:
                 errors.append(f"destinations/{dest['id']}: parent_id no puede ser el propio destino")
+
+    # Cada destino tiene como máximo un padre: detectar ciclos en O(V).
+    # Estados: 1 = recorrido activo, 2 = recorrido terminado.
+    states: dict[str, int] = {}
+    for start in destinations:
+        if states.get(start) == 2:
+            continue
+        path: list[str] = []
+        current = start
+        while current in destinations and states.get(current) != 2:
+            if states.get(current) == 1:
+                cycle_start = path.index(current)
+                cycle = path[cycle_start:] + [current]
+                if len(cycle) > 2:
+                    errors.append(
+                        "destinations: ciclo indirecto en parent_id: "
+                        + " -> ".join(cycle)
+                    )
+                break
+            states[current] = 1
+            path.append(current)
+            parent = destinations[current].get("parent_id")
+            if not isinstance(parent, str):
+                break
+            current = parent
+        for node in path:
+            states[node] = 2
 
     for place in tables["places"].values():
         scope = f"places/{place['id']}"
