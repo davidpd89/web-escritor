@@ -76,13 +76,25 @@ class Supervisor:
         except (OSError, ValueError): return {}
 
     def permitido(self, fir):
-        """Una reparacion por firma y dia, y un tope diario total: Claude no entra en bucle con el mismo fallo."""
+        """Una reparacion por firma y dia, y un tope diario total: Claude no entra en bucle con el mismo fallo.
+        Main en rojo es distinto: si el intento no dejo PR (Claude agoto turnos, error...) se reintenta a la hora, hasta 3 veces por run,
+        fuera del tope diario: esperar a manana dejaba la web publicada rota toda la noche (run 40227985780)."""
         reg, hoy = self._registro(), self.q.today()
+        if fir.startswith("main-rojo:"):
+            ts, _, resto = reg.get(fir, "").partition(" "); resultado, _, n = resto.partition(" ")
+            if not ts: return True
+            if resultado == "pr_abierta" or int(n or 1) >= 3: return False
+            return (dt.datetime.fromisoformat(self.q.now()) - dt.datetime.fromisoformat(ts[:19])).total_seconds() >= 3600
         if reg.get(fir, "")[:10] == hoy: return False
-        return sum(1 for f in reg.values() if f[:10] == hoy) < self.cfg["max_reparaciones_dia"]
+        return sum(1 for f, v in reg.items() if v[:10] == hoy and not f.startswith("main-rojo:")) < self.cfg["max_reparaciones_dia"]
 
     def anotar(self, fir, resultado, detalle):
-        reg = self._registro(); reg[fir] = self.q.now(); (self.dir / "reparaciones.json").write_text(json.dumps(reg, indent=1), encoding="utf-8")
+        reg = self._registro()
+        if fir.startswith("main-rojo:"):  # "fecha resultado intentos": permitido() decide el reintento
+            n = int((reg.get(fir, "").split(" ") + ["", "", "0"])[2] or 0) + 1
+            reg[fir] = f"{self.q.now()} {resultado} {n}"
+        else: reg[fir] = self.q.now()
+        (self.dir / "reparaciones.json").write_text(json.dumps(reg, indent=1), encoding="utf-8")
         with open(self.dir / "historial.log", "a", encoding="utf-8") as f: f.write(f"{self.q.now()} {fir} -> {resultado}: {detalle[:300]}\n")
         try:
             c = self.q.db(); __import__("qa_cobertura").evento(c, "supervisor", 0, resultado, f"{fir}: {detalle[:200]}", self.q.now()); c.commit(); c.close()
@@ -122,6 +134,8 @@ class Supervisor:
         q = self.q; root = Path(q.ROOT); rama = f"qa-fix/main-{run_id}"; wt = self.dir / f"main-{run_id}"
         g = lambda *a, cwd=root, t=300: self._run(["git", *a], cwd, t)
         g("fetch", "-q", "origin", "main", t=180)
+        if g("ls-remote", "--exit-code", "--heads", "origin", rama, t=60)[0] == 0:  # ya hay rama/PR de este run: un reintento no la machaca con push -f
+            self.anotar(fir, "pr_abierta", f"la rama {rama} ya existe"); return "omitido"
         if g("worktree", "add", "-B", rama, str(wt), "origin/main")[0]: self.anotar(fir, "error", "worktree"); return "error"
         try:
             nm = root / "node_modules"

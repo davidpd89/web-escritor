@@ -294,6 +294,25 @@ class PrFlujo(T.Base):
             self.assertEqual(gh.prs == [], espera, ficheros)  # con pagefind en un lote abierto espera; sin el, sale el lote
         self.assertFalse(qa_pr.regenera_derivados({"pr_detalle": "Tests OK"}))
 
+    def test_exclusion_de_claude_saca_solo_la_excluida_y_el_lote_sale(self):
+        import qa_claude
+        q.CFG["flujo"] = {"modo_pr": "lote"}; a = self.montar()
+        self.assertEqual(self.pr(self.GhPr()).preparar(self.c, a), "listo_lote")
+        (self.src / "web/b.py").write_text("OTRO = 1" + NL); g("add", "-A", cwd=self.src); g("commit", "-qm", "b", cwd=self.src); g("push", "-q", "origin", "main", cwd=self.src)
+        test = NL.join(["import pathlib,sys", "sys.exit(0 if 'OTRO = 2' in pathlib.Path('web/b.py').read_text() else 1)", ""])
+        rama, sha, pid = self.preparar("fy", test, categoria="regresion")
+        qa_triaje.guardar(self.c, q.now(), "g2", "OTRO mal", "defecto_web", [pid], [f"{rama}@{sha[:12]}"], "AssertionError", "python tests/test-fy.py", "cambiar OTRO", "gpt", firma="def456",
+                          parche=json.dumps({"ficheros": [{"ruta": "web/b.py", "reemplazos": [{"buscar": "OTRO = 1", "por": "OTRO = 2"}]}]}), analisis=json.dumps({"confianza": "alta"}), validacion="{}")
+        self.c.execute("UPDATE triaje SET decision='corregir'"); self.c.commit()
+        b = self.c.execute("SELECT * FROM triaje WHERE firma='def456'").fetchone()
+        self.assertEqual(self.pr(self.GhPr()).preparar(self.c, b), "listo_lote")
+        gh = self.GhCiclo(); ci = self.ciclo(gh, modo_pr="lote", lote={"min": 1})
+        qa_claude.llamar = lambda *a_, **k: ({"veredicto": "integrar", "riesgo": "bajo", "cumple_criterio": True, "motivos": ["[a] dudosa"], "excluir_ids": [a["id"]]}, {})
+        ci._lote(self.c, qa_pr.flujo(q), {})
+        self.assertEqual(len(gh.prs), 1); self.assertIn("Lote de 1", gh.prs[0][2])
+        est = dict(self.c.execute("SELECT id,pr_estado FROM triaje").fetchall())
+        self.assertEqual(est, {a["id"]: "rechazada_revision", b["id"]: "pr_abierta"})
+
     def test_correccion_caducada_frente_a_main_vuelve_a_validarse(self):
         row = self.montar(); q.CFG["flujo"] = {"modo_pr": "lote"}
         self.assertEqual(self.pr(self.GhPr()).preparar(self.c, row), "listo_lote")
@@ -383,7 +402,11 @@ class PrFlujo(T.Base):
             ci = self.ciclo(gh); ci._encargar_main("wf", {"databaseId": 90})
             import threading, time
             for h in [t for t in threading.enumerate() if t.name == "main-90"]: h.join(5)
-        self.assertEqual(hechas, [90])  # marca en disco: un reinicio no abre una PR duplicada
+        self.assertEqual(hechas, [90])  # marca en disco: un reinicio no lo relanza al instante
+        marca = Path(q.STATE) / "lote" / "main_encargados.json"; marca.write_text(json.dumps({"90": 0}))  # una hora despues
+        ci = self.ciclo(gh); ci._encargar_main("wf", {"databaseId": 90})
+        for h in [t for t in threading.enumerate() if t.name == "main-90"]: h.join(5)
+        self.assertEqual(hechas, [90, 90])  # se vuelve a encargar: el Supervisor decide si reintenta (run 40227985780 se quedo sin PR)
 
     def test_sin_strict_main_toca_sus_ficheros_o_infra_compartida_actualiza(self):
         gh = self.GhCiclo(); ci = self.ciclo(gh); v = gh.pr_ver(1)

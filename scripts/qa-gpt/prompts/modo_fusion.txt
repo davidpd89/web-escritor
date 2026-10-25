@@ -1,0 +1,4 @@
+MODO REVISION POST-FUSION: el commit {{SHA}} se acaba de fusionar en main y desplegar en la web publicada, en parte de forma automatica.
+{{COMMIT}}
+Comprueba que el cambio es CORRECTO y no empeora la web: que arregla de verdad lo que dice, que no rompe comportamiento vecino (navegacion, layout movil, foco/teclado, CSP, datos generados, enlaces) y que no debilita ningun test existente para ponerlo en verde.
+Si ves un defecto introducido por el cambio, propone un test que lo demuestre (fallara hoy en main). Si el cambio es correcto, propone tests que fallarian si se revierte o si el defecto que arregla vuelve a aparecer. No repitas los tests que el propio commit ya anade.

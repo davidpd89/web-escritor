@@ -857,7 +857,20 @@ class Ciclo:
             malos = set(rev.get("excluir_ids") or []) & {x["id"] for x in incl}
             for row in incl:
                 if row["id"] in malos: P._marca(c, row, "rechazada_revision", "excluida del lote por la revision de Claude: " + "; ".join(rev.get("motivos") or [])[:600])
-            if malos: self.out(f"  lote: Claude excluye {sorted(malos)}; se reagrupa en el siguiente ciclo"); return
+            if malos:
+                # antes se abandonaba el lote ENTERO y las aprobadas esperaban otro ciclo y otra revision (de 15:17 a 21:05 del 2026-10-25 no salio
+                # ningun lote): se rehace la rama solo con las aprobadas, se regeneran derivados y se repite el preflight; si algo no encaja, se reagrupa
+                shas = P.git("rev-list", "--reverse", "origin/main..HEAD", cwd=wt)[1].split()
+                quedan = [x for x in incl if x["id"] not in malos]
+                ok = bool(quedan) and len(shas) == len(incl) and P.git("reset", "-q", "--hard", "origin/main", cwd=wt)[0] == 0
+                for s_, x in zip(shas, incl):
+                    if ok and x["id"] not in malos and P.git("cherry-pick", s_, cwd=wt)[0]: P.git("cherry-pick", "--abort", cwd=wt); ok = False
+                if ok and regenerar(P.run, wt, tocados_all):
+                    P.git("add", "-A", cwd=wt); P.git("-c", "user.name=qa-gpt", "-c", "user.email=qa-gpt@users.noreply.github.com", "commit", "-q", "--amend", "--no-edit", cwd=wt)
+                if ok: ok = validar(P, c, wt, quedan)[0] is True
+                if not ok: self.out(f"  lote: Claude excluye {sorted(malos)}; el resto no se pudo separar limpio y se reagrupa en el siguiente ciclo"); return
+                self.out(f"  lote: Claude excluye {sorted(malos)}; sigue con {len(quedan)}"); incl = quedan
+                sha = P.git("rev-parse", "HEAD", cwd=wt)[1].strip()
             self.gh.push(sha, rama)
             cuerpo = f"## Lote de {len(incl)} correcciones verificadas por GPT QA\n\nCada una fue reproducida en main (el test falla antes), corregida (pasa despues), verificada con los comprobadores del repo y revisada de forma agregada por Claude antes de abrir esta PR. Se agrupan para ejecutar el CI pesado una sola vez.\n"
             for i, row in enumerate(incl, 1):
@@ -966,14 +979,18 @@ class Ciclo:
         return True
 
     def _encargar_main(self, wf, run):
-        """Una vez por run: Claude corrige el rojo de main en segundo plano (no retiene el ciclo)."""
+        """Claude corrige el rojo de main en segundo plano (no retiene el ciclo). Se vuelve a encargar cada hora mientras ese run siga siendo el
+        ultimo rojo: el Supervisor decide si toca reintentar (sin PR tras el intento anterior, maximo 3) y no duplica una PR ya abierta."""
+        import time
         rid = run.get("databaseId")
-        marca = Path(self.q.STATE) / "lote" / "main_encargados.json"  # en disco: reiniciar EJECUTAR no debe abrir una PR duplicada
-        try: hechos = set(json.loads(marca.read_text(encoding="utf-8")))
-        except (OSError, ValueError): hechos = set()
-        if not rid or rid in hechos: return
-        hechos.add(rid)
-        try: marca.parent.mkdir(parents=True, exist_ok=True); marca.write_text(json.dumps(sorted(hechos)[-200:]), encoding="utf-8")
+        marca = Path(self.q.STATE) / "lote" / "main_encargados.json"  # en disco: reiniciar EJECUTAR no relanza al instante
+        try: hechos = json.loads(marca.read_text(encoding="utf-8"))
+        except (OSError, ValueError): hechos = {}
+        if isinstance(hechos, list): hechos = {str(r): 0 for r in hechos}  # formato antiguo: el Supervisor ya sabe si dejaron PR
+        if not rid or time.time() - hechos.get(str(rid), 0) < 3600: return
+        if any(t.name == f"main-{rid}" and t.is_alive() for t in __import__("threading").enumerate()): return
+        hechos[str(rid)] = time.time(); hechos = dict(sorted(hechos.items(), key=lambda kv: kv[1])[-200:])
+        try: marca.parent.mkdir(parents=True, exist_ok=True); marca.write_text(json.dumps(hechos), encoding="utf-8")
         except OSError: pass
         self.out(f"  '{wf}' sigue en rojo en main tras relanzar (run {rid}): Claude lo corrige en una PR aparte; las fusiones continuan")
         def tarea():

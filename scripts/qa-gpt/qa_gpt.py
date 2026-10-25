@@ -307,6 +307,16 @@ def explorar(out, rng=random):
     menos = min(elegibles[1:], key=lambda t: (t[2].get("recientes", 0), rng.random()))
     return [menos] + [t for t in out if t is not menos]
 
+def fusion_sin_revisar(c):
+    """La fusion mas antigua de las ultimas 24 h en main (squash '(#N)') que GPT aun no ha revisado -> (modo, clave, payload) o None.
+    Va antes de la rotacion: un cambio recien desplegado se revisa enseguida por si la automatizacion fusiono algo que empeora la web."""
+    for linea in reversed(git("log", "--first-parent", "--since=24 hours ago", "-40", "--format=%h %s", "origin/main", check=False).splitlines()):
+        sha, _, asunto = linea.partition(" ")
+        if not re.search(r"\(#\d+\)$", asunto): continue
+        if last_run(c, "cambio:fusion-" + sha) or c.execute("SELECT 1 FROM jobs WHERE area=?", ("cambio:fusion-" + sha,)).fetchone(): continue
+        return "cambio", "cambio:fusion-" + sha, {"motivo": "revision post-fusion: " + asunto[:120], "sha": sha}
+    return None
+
 def elegir_modo(c):
     """Rotacion dinamica: el modo con menos analisis en 7 dias entre los que tienen algo elegible; empate -> mayor prioridad."""
     corte = (_ahora().date() - dt.timedelta(days=7)).isoformat(); elig = []
@@ -373,6 +383,10 @@ def prompt_for(job, c):
             blk_txt = fill(tpl, ID=ident, FICHEROS=d["ficheros"], RASGOS=",".join(d["rasgos"]), TESTS=", ".join(d["ejemplos_tests"]) or "(ninguno propio; puede haber tests globales)",
                            CUBIERTAS=", ".join(d["tecnicas_cubiertas"]) or "(ninguna)", HUECOS=", ".join(d["huecos"][:12]) or "(ninguno por heuristica)",
                            CRUCES=", ".join(cr) or "(ninguno)")
+        elif modo == "cambio" and ident.startswith("fusion-"):
+            sha = ident[len("fusion-"):]
+            commit = git("show", "--stat=120", "--format=%h %s%n%n%b", sha, check=False)[:3500]
+            blk_txt = fill((HERE / "prompts" / "modo_fusion.txt").read_text(encoding="utf-8"), SHA=sha, COMMIT=commit or sha)
         elif modo == "cambio":
             dias = CFG["ventana_cambio_dias"]
             commits = git("log", f"--since={dias} days ago", "-14", "--format=%h %s", "origin/main", check=False)
@@ -1029,6 +1043,8 @@ _ultimo_tipo = [None]
 
 def paso_servicio(c):
     """Un paso del bucle continuo: ejecuta el siguiente job o elige objetivo nuevo. True=hizo trabajo; 'limite'/('login',msg)=esperar; False=nada ejecutable."""
+    fus = fusion_sin_revisar(c)  # revision post-fusion: se encola en cuanto se ve la fusion, por delante de la rotacion
+    if fus and enqueue(c, "A", fus[1], fus[2], clave_a(c, fus[1], fus[2])): print(f"{now()} modo cambio: {fus[1]}: {fus[2]['motivo']}")
     job = next_job(c)
     if job is None:  # fallos sin triar: un job T por tanda (el servicio nunca ejecuta tests; solo analiza los ya fallados)
         import qa_triaje

@@ -105,6 +105,17 @@ class MainRojo(Base):
         self.assertIn("<p class=s>a2", g("show", "qa-fix/main-99:a.html", cwd=origen))
 
 
+    def test_main_rojo_sin_pr_se_reintenta_a_la_hora_hasta_tres_veces(self):
+        s = self.sup(); fir = "main-rojo:7"; s.dir.mkdir(parents=True, exist_ok=True); orig = q.now; self.addCleanup(lambda: setattr(q, "now", orig))
+        for _ in range(6): s.anotar("F@x", "corregido", "")  # el tope diario del codigo no frena a main
+        q.now = lambda: "2026-10-25T10:00:00"; self.assertTrue(s.permitido(fir)); s.anotar(fir, "claude_fallo", "max_turns")
+        q.now = lambda: "2026-10-25T10:30:00"; self.assertFalse(s.permitido(fir))  # antes de la hora no
+        q.now = lambda: "2026-10-25T11:00:00"; self.assertTrue(s.permitido(fir)); s.anotar(fir, "no_se_puede", "")
+        q.now = lambda: "2026-10-25T12:00:00"; self.assertTrue(s.permitido(fir)); s.anotar(fir, "error", "")
+        q.now = lambda: "2026-10-25T23:00:00"; self.assertFalse(s.permitido(fir))  # tres intentos: basta
+        s.anotar("main-rojo:8", "pr_abierta", ""); q.now = lambda: "2026-10-26T23:00:00"; self.assertFalse(s.permitido("main-rojo:8"))  # con PR no se repite
+
+
 class ErrorRepetidoDelWorker(Base):
     def test_tercer_error_igual_se_encarga_y_reinicia(self):
         llamadas = []; orig = S.Supervisor.reparar_codigo

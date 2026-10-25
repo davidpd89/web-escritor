@@ -125,14 +125,14 @@ class Planificador(unittest.TestCase):
     def test_triaje_y_generacion_se_alternan(self):
         q.SVC = q.STATE / "servicio.json"; q._ultimo_tipo[0] = None; hechos = []; n = iter(range(100))
         for i in range(3): q.enqueue(self.c, "T", f"triaje:{i}", {"motivo": "t"}, f"T:{i}")
-        orig = (q.process, q.elegir_modo)
+        orig = (q.process, q.elegir_modo, q.fusion_sin_revisar)
         def falso_proceso(job, c, manual=False):
             hechos.append(job["tipo"]); c.execute("UPDATE jobs SET estado='hecho' WHERE id=?", (job["id"],)); c.commit()
         def elegir(c): k = next(n); return ("zona", f"zona:z{k}", {"motivo": "m", "sha": str(k)})
-        q.process, q.elegir_modo = falso_proceso, elegir
+        q.process, q.elegir_modo, q.fusion_sin_revisar = falso_proceso, elegir, lambda c: None
         try:
             for _ in range(5): self.assertTrue(q.paso_servicio(self.c))
-        finally: q.process, q.elegir_modo = orig
+        finally: q.process, q.elegir_modo, q.fusion_sin_revisar = orig
         self.assertEqual(hechos, ["T", "A", "T", "A", "T"])  # nunca dos triajes seguidos si se puede generar
 
     def test_servicio_continuo_sin_esperas_y_parada(self):
@@ -288,6 +288,17 @@ class Rotacion(unittest.TestCase):
         self.assertEqual([t[1] for t in q.explorar(out, self.Rng(0.0))], ["c", "a", "b", "d"])
         self.assertEqual(q.explorar(out, self.Rng(0.9)), out)
         self.assertEqual(q.explorar(out[:1], self.Rng(0.0)), out[:1])
+
+    def test_fusion_reciente_se_revisa_una_vez_la_mas_antigua_primero(self):
+        tmp = tempfile.TemporaryDirectory(); self.addCleanup(tmp.cleanup)
+        orig = (q.STATE, q.DB_PATH, q.git); self.addCleanup(lambda: (setattr(q, "STATE", orig[0]), setattr(q, "DB_PATH", orig[1]), setattr(q, "git", orig[2])))
+        q.STATE = Path(tmp.name); q.DB_PATH = q.STATE / "e.db"; c = q.db(); self.addCleanup(c.close)
+        q.git = lambda *a, **k: "bbb fix: lote (#873)\nccc chore: sin PR\naaa fix: foco (#870)"  # git log: mas reciente primero
+        modo, clave, pl = q.fusion_sin_revisar(c)
+        self.assertEqual((modo, clave, pl["sha"]), ("cambio", "cambio:fusion-aaa", "aaa"))
+        q.enqueue(c, "A", clave, pl, q.clave_a(c, clave, pl))
+        self.assertEqual(q.fusion_sin_revisar(c)[1], "cambio:fusion-bbb")  # ya encolada: no se repite
+        q.enqueue(c, "A", "cambio:fusion-bbb", pl, "k2"); self.assertIsNone(q.fusion_sin_revisar(c))
 
 
 if __name__ == "__main__":
