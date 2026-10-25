@@ -50,46 +50,65 @@ def verified_formats(book):
     return {asin:fmt for asin,fmt in known.items() if asin}
 
 
+def amazon_dict(value):
+    return value if isinstance(value,dict) else {}
+
+
+def amazon_list(value):
+    return value if isinstance(value,list) else []
+
+
 def select_offers(book,payload,tag,now):
     if not re.fullmatch(r'[A-Za-z0-9-]+',tag):
         raise ValueError('Invalid partner tag')
     now=now.astimezone(timezone.utc)
-    container=payload.get('searchResult') or payload.get('itemsResult') or payload.get('itemResults') or {}
+    payload=amazon_dict(payload)
+    container=next((value for field in ('searchResult','itemsResult','itemResults')
+                    if isinstance((value:=payload.get(field)),dict)),{})
     offers={}
     wanted=isbn13(book.get('isbn13'))
     if not wanted:
         return []
     known=verified_formats(book)
-    for item in container.get('items',[]):
+    for item in amazon_list(container.get('items')):
         if not isinstance(item,dict):
             continue
         asin=item.get('asin','')
-        if not re.fullmatch(r'[A-Z0-9]{10}',asin):
+        if not isinstance(asin,str) or not re.fullmatch(r'[A-Z0-9]{10}',asin):
             continue
-        info=item.get('itemInfo') or {}
-        if not title_matches((info.get('title') or {}).get('displayValue',''),book['titulo']):
+        info=amazon_dict(item.get('itemInfo'))
+        title=amazon_dict(info.get('title')).get('displayValue','')
+        if not isinstance(title,str) or not title_matches(title,book['titulo']):
             continue
-        authors=[c.get('name','') for c in (info.get('byLineInfo') or {}).get('contributors',[]) if key(c.get('role','')) in {'author','autor'}]
+        contributors=amazon_list(amazon_dict(info.get('byLineInfo')).get('contributors'))
+        authors=[c.get('name','') for c in contributors
+                 if isinstance(c,dict) and isinstance(c.get('name'),str)
+                 and isinstance(c.get('role'),str)
+                 and key(c['role']) in {'author','autor'}]
         if not any(author_matches(author,name) for author in authors for name in book['autores']):
             continue
-        identifiers=(info.get('externalIds') or {}).get('eans') or {}
-        isbn_match=wanted in {isbn13(value) for value in identifiers.get('displayValues',[])}
-        binding=key(((info.get('classifications') or {}).get('binding') or {}).get('displayValue',''))
+        identifiers=amazon_dict(amazon_dict(info.get('externalIds')).get('eans'))
+        isbn_match=wanted in {isbn13(value) for value in amazon_list(identifiers.get('displayValues'))
+                              if isinstance(value,str)}
+        binding_value=amazon_dict(amazon_dict(info.get('classifications')).get('binding')).get('displayValue','')
+        binding=key(binding_value) if isinstance(binding_value,str) else ''
         fmt=known.get(asin) or {'paperback':'tapa-blanda','tapa blanda':'tapa-blanda',
             'hardcover':'tapa-dura','tapa dura':'tapa-dura','kindle':'ebook','formato kindle':'ebook',
             'audio cd':'audiolibro','audible audiobook':'audiolibro'}.get(binding)
         if not fmt or (asin not in known and not isbn_match):
             continue
-        for listing in (item.get('offersV2') or {}).get('listings',[]):
+        for listing in amazon_list(amazon_dict(item.get('offersV2')).get('listings')):
             if not isinstance(listing,dict):
                 continue
-            if (listing.get('condition') or {}).get('value')!='New' or listing.get('type'):
+            if amazon_dict(listing.get('condition')).get('value')!='New' or listing.get('type'):
                 continue  # Exclude subscriptions, lightning/limited and conditional deals.
-            access=(listing.get('dealDetails') or {}).get('accessType')
+            if listing.get('dealDetails') is not None and not isinstance(listing['dealDetails'],dict):
+                continue
+            deal=amazon_dict(listing.get('dealDetails'))
+            access=deal.get('accessType')
             if access and access!='ALL':
                 continue
             expires=now+timedelta(hours=24)
-            deal=listing.get('dealDetails') or {}
             try:
                 if deal.get('startTime') and datetime.fromisoformat(deal['startTime'].replace('Z','+00:00'))>now:
                     continue
@@ -99,10 +118,10 @@ def select_offers(book,payload,tag,now):
                     continue
             except (ValueError,TypeError):
                 continue
-            availability=(listing.get('availability') or {}).get('type')
-            if availability not in {'IN_STOCK','INSTOCK','INSTOCKSCARCE','LEADTIME','PREORDER'}:
+            availability=amazon_dict(listing.get('availability')).get('type')
+            if not isinstance(availability,str) or availability not in {'IN_STOCK','INSTOCK','INSTOCKSCARCE','LEADTIME','PREORDER'}:
                 continue
-            price=listing.get('price') or {}
+            price=amazon_dict(listing.get('price'))
             cents=money_cents(price.get('money'))
             if cents is None:
                 continue
@@ -110,7 +129,7 @@ def select_offers(book,payload,tag,now):
                    'precio_centimos':cents,'url':f'https://www.amazon.es/dp/{asin}?tag={tag}',
                    'actualizado_en':now.isoformat(timespec='seconds').replace('+00:00','Z'),
                    'caduca_en':expires.isoformat(timespec='seconds').replace('+00:00','Z')}
-            reference=money_cents((price.get('savingBasis') or {}).get('money'))
+            reference=money_cents(amazon_dict(price.get('savingBasis')).get('money'))
             if reference and reference>cents:
                 offer['precio_referencia_centimos']=reference
             if fmt not in offers or offers[fmt]['precio_centimos']>cents:
