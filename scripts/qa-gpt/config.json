@@ -739,6 +739,7 @@
   "lote": {"min": 5, "max": 15, "espera_h": 2, "max_activos": 3},
   "integracion": {"modo": "auto", "calibracion_min": 0, "riesgo_max": "bajo"},
   "ci_requeridos": ["Required merge gate", "public-artifact-contract", "reflow-sitewide", "pa11y-baseline", "lighthouse", "Compare against committed baselines"],
-  "max_desarrollos": 2, "max_consultas_gpt": 4
+  "max_desarrollos": 2, "max_consultas_gpt": 4,
+  "max_validaciones": 16, "validadores": 6
  }
 }

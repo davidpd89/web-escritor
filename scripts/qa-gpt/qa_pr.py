@@ -187,7 +187,7 @@ class Pr:
     def candidatas(self, c):
         """Solo causas APROBADAS por Claude (decision='corregir'): sin aprobacion no hay desarrollo ni PR."""
         return c.execute("""SELECT * FROM triaje WHERE parche IS NOT NULL AND decision='corregir' AND clase IN ('defecto_web','test_roto')
-          AND COALESCE(pr_estado,'') IN ('','reintentar') ORDER BY COALESCE(prioridad,'3'), id""").fetchall()
+          AND COALESCE(pr_estado,'') IN ('','reintentar') ORDER BY (pr_estado='reintentar'), COALESCE(prioridad,'3'), id""").fetchall()
 
     FALLOS_SIN_PR = ("test_no_fiable", "no_reproduce", "validacion_fallida", "sin_test", "parche_no_encaja", "conflicto_main")
 
@@ -221,6 +221,9 @@ class Pr:
                 self._marca(c, row, "sin_test", "sin test automatico ejecutable que reproduzca el defecto: no se abre PR"); return "sin_test"
             # 1) el defecto se reproduce en main (baseline): si todos los tests ya pasan, no hay nada que corregir
             antes = [(t, self._test(wt, t)) for t in tests]
+            if any(rc == RC_INFRA and "ERR_MODULE_NOT_FOUND" in _o and "/pr/qa-fix_" in _o.replace("\\", "/") for _, (rc, _o) in antes):
+                # el test importa un fichero auxiliar del repo que no esta en main ni viajo con el test: reintentar no lo arregla
+                self._marca(c, row, "test_no_fiable", "el test importa un modulo auxiliar inexistente en main (" + antes[0][1][1][-160:].strip() + ")"); return "test_no_fiable"
             if any(rc == RC_INFRA for _, (rc, _o) in antes):
                 self._marca(c, row, "reintentar", "entorno de test no disponible (modulo/navegador/servidor): " + antes[0][1][1][-200:]); return "reintentar"
             if all(rc == 0 for _, (rc, _o) in antes):
