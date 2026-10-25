@@ -879,7 +879,11 @@ class Ciclo:
             except Exception: continue
             hechos = [x for x in runs if x.get("status") == "completed" and x.get("conclusion") != "skipped"]
             if hechos and hechos[0].get("conclusion") not in ("success", "neutral"):
-                self._freno = f"freno: '{wf}' en rojo en main ({hechos[0].get('headSha', '')[:8]}); se espera a que vuelva a verde"
+                if (hechos[0].get("attempt") or 1) > 1:
+                    # rojo confirmado tras relanzar: NO se bloquea (el usuario no quiere bloqueos). Claude corrige main en una PR con auto-merge
+                    # (qa_supervisor.reparar_main) y el flujo sigue fusionando; cada lote tiene su propia CI completa.
+                    self._encargar_main(wf, hechos[0]); continue
+                self._freno = f"freno: '{wf}' en rojo en main ({hechos[0].get('headSha', '')[:8]}); se relanza una vez antes de seguir"
                 self._relanzar_rojo(wf, hechos[0]); return self._freno
             # la ultima fusion del sistema aun no tiene su auditoria post-despliegue terminada: no se apila otra encima sin verificar
             if ultima and not any(x.get("createdAt", "") >= ultima["utc"] for x in hechos): espera = True
@@ -903,6 +907,21 @@ class Ciclo:
         try: marca.parent.mkdir(parents=True, exist_ok=True); marca.write_text(json.dumps(sorted(hechos)[-200:]), encoding="utf-8")
         except OSError: pass
         self.out(f"  freno: '{wf}' en rojo en main; se relanzan una vez sus jobs fallidos (run {rid}) para descartar un fallo intermitente")
+
+    def _encargar_main(self, wf, run):
+        """Una vez por run: Claude corrige el rojo de main en segundo plano (no retiene el ciclo)."""
+        rid = run.get("databaseId")
+        hechos = getattr(Ciclo, "_main_encargados", set())
+        if not rid or rid in hechos: return
+        hechos.add(rid); Ciclo._main_encargados = hechos
+        self.out(f"  '{wf}' sigue en rojo en main tras relanzar (run {rid}): Claude lo corrige en una PR aparte; las fusiones continuan")
+        def tarea():
+            try:
+                import qa_supervisor
+                log = self.gh.log_failed(rid) if hasattr(self.gh, "log_failed") else ""
+                qa_supervisor.Supervisor(self.q, out=self.out).reparar_main(rid, log)
+            except Exception as e: self.out(f"  reparacion de main omitida ({str(e)[:120]})")
+        __import__("threading").Thread(target=tarea, daemon=True, name=f"main-{rid}").start()
 
     def _anotar_fusion(self, n):
         import datetime

@@ -56,19 +56,26 @@ class RespuestaVacia(unittest.TestCase):
     def test_vacia_con_pocos_huecos_es_valida(self):
         q.ingest_answer(self.c, self.job(q.HUECOS_MIN_VACIA - 1, 0), '{"propuestas": []}', None)
         self.assertEqual(self.c.execute("SELECT COUNT(*) FROM analisis").fetchone()[0], 1)
-    def test_improductiva_descansa_el_triple_hasta_que_cambien_sus_fuentes(self):
-        import datetime as dt
-        orig = q.matriz; d = {"sha": "s", "huecos": ["x"] * 9, "riesgo": 3, "commits14d": 0, "tests_propios": 2}
-        q.matriz = lambda *a, **k: {"f": d}
+    def test_vacia_en_zona_tambien_reintenta(self):
+        job = {**self.job(0, 0), "area": "zona:f", "payload": json.dumps({"motivo": "prioridad 5", "sha": "s"})}
+        with self.assertRaises(ValueError): q.ingest_answer(self.c, job, '{"propuestas": []}', None)
+    def test_enfoque_rota_con_cada_analisis_y_reintento(self):
+        job = {"area": "familia:f", "intentos": 0}; a = q.enfoque(self.c, job)
+        self.assertNotEqual(a, q.enfoque(self.c, {**job, "intentos": 1}))  # el reintento mira con otra lente
+        self.c.execute("INSERT INTO analisis VALUES('familia:f','2026-01-01','h','s')"); self.c.commit()
+        self.assertNotEqual(a, q.enfoque(self.c, job))  # y el siguiente analisis tambien
+        self.assertNotEqual(q.clave_a(self.c, "familia:f", {"sha": "s"}), "A:familia:f:s:" + q.today() + ":0")  # reanalizable el mismo dia
+    def test_todo_en_descanso_reanaliza_el_mas_antiguo(self):
+        orig = q.candidates
+        q.candidates = lambda c, modo: [(-1, "zona:vieja", {"motivo": "m", "sha": "z"}), (-1, "zona:nueva", {"motivo": "m", "sha": "z"})] if modo == "zona" else [(-1, modo + ":x", {"motivo": "", "sha": ""})]
         try:
-            fecha = (q._ahora().date() - dt.timedelta(days=q.CFG["cooldown_familia_dias"] + 1)).isoformat()
-            self.c.execute("INSERT INTO analisis VALUES('familia:f',?,'h','s')", (fecha,)); self.c.commit()
-            self.assertGreaterEqual(q.candidates(self.c, "familia")[0][0], 0)  # enfriamiento normal vencido: elegible
-            q.cob.evento(self.c, "familia", 0, "familia_improductiva", "familia:f: GPT devolvio 0 propuestas con 9 huecos tras reintentos", fecha + "T10:00:00"); self.c.commit()
-            self.assertEqual(q.candidates(self.c, "familia")[0][0], -1)  # improductiva: sigue descansando
-            d["sha"] = "nuevo"
-            self.assertGreaterEqual(q.candidates(self.c, "familia")[0][0], 0)  # sus fuentes cambiaron: vuelve a ser elegible
-        finally: q.matriz = orig
+            self.c.execute("INSERT INTO analisis VALUES('zona:vieja','2026-01-01','h','z')"); self.c.execute("INSERT INTO analisis VALUES('zona:nueva','2026-02-01','h','z')"); self.c.commit()
+            modo, clave, pl = q.elegir_modo(self.c)
+            self.assertEqual((modo, clave, pl["sha"]), ("zona", "zona:vieja", "z"))  # sin esperas y con su sha real
+        finally: q.candidates = orig
+    def test_prompt_exige_minimo_y_lleva_enfoque(self):
+        txt = (q.HERE / "prompts" / "pass_lote_v1.txt").read_text(encoding="utf-8")
+        self.assertIn("{{ENFOQUE}}", txt); self.assertIn("{{MIN_PROPUESTAS}}", txt); self.assertNotIn("o ninguna", txt)
 
 class EscaladaClaude(unittest.TestCase):
     def setUp(self):

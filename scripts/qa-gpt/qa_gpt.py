@@ -18,12 +18,30 @@ WT = STATE / "wt"
 CFG = json.loads((HERE / "config.json").read_text(encoding="utf-8"))
 TASK = "web-escritor-qa-gpt"
 HUECOS_MIN_VACIA = CFG.get("huecos_min_vacia", 5)  # familia con >= N tecnicas sin cubrir: 0 propuestas no es un analisis valido
+CATEGORIAS_PROMPT = {"defecto": "exploratoria", "mejora": "exploratoria", "proteccion": "regresion"}  # falla hoy -> triaje; pasa hoy -> test que se conserva
+# Una lente distinta en cada consulta de la misma zona: el prompt anterior permitia "ninguna propuesta" y las familias se quedaban en [] (2026-10-25)
+ENFOQUES = CFG.get("enfoques") or [
+    "movil 320-390 px: contenido cortado, solapado, desbordes horizontales, objetivos tactiles pequenos, menus",
+    "teclado y lector de pantalla: orden de foco, foco visible, nombres accesibles, landmarks, encabezados, contraste",
+    "SEO e indexacion: canonical, robots/noindex, title/description unicos, hreflang, sitemap, JSON-LD valido y coherente",
+    "enlaces: internos rotos o a anclas inexistentes, enlaces de compra/afiliado Amazon con tag y destino correctos, rel/target",
+    "rendimiento: peso de imagenes y scripts, lazy loading, dimensiones de imagen (CLS), recursos bloqueantes, peticiones fallidas",
+    "sin JavaScript y degradacion: contenido y navegacion utiles sin JS, errores de consola, scripts que fallan en silencio",
+    "formularios y conversion: newsletter, contacto, compra, mensajes de error y exito, validacion, privacidad/consentimiento",
+    "coherencia de datos: mismos precios, fechas, ISBN, titulos y cifras en todas las paginas y en los JSON publicados",
+    "contenido: erratas visibles, textos de relleno, fechas caducadas, eventos pasados mostrados como futuros, enlaces a 404",
+    "seguridad y cabeceras: CSP, recursos mixtos, enlaces externos sin noopener, datos expuestos en HTML o JSON publicos",
+    "PWA y cache: manifest, service worker, version de assets (?v=), paginas offline, iconos",
+    "imagenes y medios: alt utiles, formatos modernos, ratio y recorte, imagenes de redes sociales (og:image) existentes",
+]
 sys.path.insert(0, str(HERE))
 import qa_cobertura as cob
 
 if sys.stdout is None or sys.stderr is None:  # pythonw (tarea programada): sin consola, a fichero
     STATE.mkdir(parents=True, exist_ok=True)
-    sys.stdout = sys.stderr = open(STATE / "servicio.log", "a", encoding="utf-8", buffering=1)
+    _log = open(STATE / "servicio.log", "a", encoding="utf-8", buffering=1)
+    sys.stdout = sys.stdout or _log
+    sys.stderr = sys.stderr or _log  # bajo qa_supervisor stderr es una tuberia: el traceback debe llegarle para repararlo
 
 
 # ---------- utilidades ----------
@@ -242,15 +260,11 @@ def candidates(c, modo):
         bugs = {}
         for r in c.execute("SELECT familias FROM propuestas WHERE estado IN ('aceptada','preparada','aprobada','ejecutada') AND datos LIKE '%\"descubre_defecto\"%'"):
             for f in json.loads(r[0] or "[]"): bugs[f] = bugs.get(f, 0) + 1
-        # GPT confirmo (con reintento) que no hay nada solido: los huecos heuristicos siguen ahi, pero repetir la consulta al vencer el
-        # enfriamiento normal gasta ChatGPT en vano (familias ai/press-kit/lab/research, 2026-10-25). Hasta que cambien sus fuentes, descanso triple.
-        improd = {r[0].split(":", 2)[1]: r[1] for r in c.execute("SELECT substr(nota,1,instr(nota,' ')-2), MAX(fecha) FROM eventos WHERE estado='familia_improductiva' GROUP BY 1")}
         for fam, d in matriz(c).items():
             last = last_run(c, "familia:" + fam); dias = dias_desde(last); changed = bool(last and last["fuente_sha"] != d["sha"])
             hay = d["huecos"] or cruces.get(fam) or changed
             sc = d["riesgo"] * 2 + min(d["commits14d"], 10) * 0.5 + min(len(d["huecos"]), 8) * 0.8 + 9 / (1 + d["tests_propios"]) + (4 if changed else 0) + (3 if not last else 0) + 2 * cruces.get(fam, 0) + 1.5 * bugs.get(fam, 0)
-            descanso = CFG["cooldown_familia_dias"] * (3 if fam in improd and last and improd[fam][:10] >= last["fecha"] else 1)
-            frio = bool(last) and dias < descanso and not changed
+            frio = bool(last) and dias < CFG["cooldown_familia_dias"] and not changed
             out.append((-1 if (frio or not hay) else sc, "familia:" + fam, {"motivo": f"{len(d['huecos'])} tecnicas sin cubrir, {d['tests_propios']} tests propios, commits14d {d['commits14d']}" + ("; fuentes cambiadas" if changed else ""), "sha": d["sha"]}))
     elif modo == "cambio":
         base = git("rev-parse", "--short", "origin/main", check=False); dias = CFG["ventana_cambio_dias"]
@@ -281,10 +295,27 @@ def elegir_modo(c):
         pref = {"audit": "audit:"}.get(modo, modo + ":") if modo != "auditoria" else "audit:"
         n7 = c.execute("SELECT COUNT(*) FROM analisis WHERE area LIKE ? AND fecha>=?", (pref + "%", corte)).fetchone()[0]
         elig.append((n7, -sc, modo, clave, pl))
-    return min(elig)[2:] if elig else None
+    if elig: return min(elig)[2:]
+    # todo en descanso: no se espera. Con la lente rotatoria, la zona o familia analizada hace mas tiempo tiene un angulo nuevo que mirar
+    if not CFG.get("sin_descanso", True): return None
+    viejo = c.execute("SELECT area, MAX(fecha) f FROM analisis WHERE area LIKE 'zona:%' OR area LIKE 'familia:%' GROUP BY area ORDER BY f, area LIMIT 1").fetchone()
+    if not viejo: return None
+    modo, ident = viejo["area"].split(":", 1)
+    pl = next((p for _, k, p in candidates(c, modo) if k == viejo["area"]), None)  # su payload real (sha de fuentes): no falsear "fuentes cambiadas"
+    return (modo, viejo["area"], {**pl, "motivo": pl.get("motivo", "") + "; todo en descanso: se reanaliza con un enfoque nuevo"}) if pl else None
 
 
 # ---------- prompts ----------
+def clave_a(c, area, pl):
+    """Clave unica del job A: incluye cuantos analisis lleva la zona, para que pueda reanalizarse el mismo dia con otra lente sin duplicar."""
+    n = c.execute("SELECT COUNT(*) FROM analisis WHERE area=?", (area,)).fetchone()[0]
+    return f"A:{area}:{pl['sha']}:{today()}:{n}"
+
+def enfoque(c, job):
+    """Lente de esta consulta: rota con cada analisis de la zona y con cada reintento, para no repetir el mismo angulo."""
+    n = c.execute("SELECT COUNT(*) FROM analisis WHERE area=?", (job["area"],)).fetchone()[0]
+    return ENFOQUES[(n + (job["intentos"] or 0) + sum(map(ord, job["area"]))) % len(ENFOQUES)]
+
 def lote_activo(): return CFG.get("modo_generacion") == "lote"
 def tope_propuestas(): return CFG.get("max_propuestas_lote", 15) if lote_activo() else CFG["max_propuestas"]
 
@@ -319,7 +350,8 @@ def prompt_for(job, c):
         prev = " | ".join(r["titulo"][:70] for r in c.execute("SELECT titulo FROM propuestas ORDER BY id DESC LIMIT 15")) or "(ninguno)"
         tecs = ", ".join(t["id"] for t in cob.tecnicas(c))
         plantilla = "pass_lote_v1.txt" if CFG.get("modo_generacion") == "lote" else "pass_a_v2.txt"
-        return fill((HERE / "prompts" / plantilla).read_text(encoding="utf-8"), MODO=modo, HEAD_SHA=head, MODO_INSTRUCCIONES=blk_txt, PREVIOS=prev, TECNICAS=tecs, MAX_PROPUESTAS=tope_propuestas())
+        return fill((HERE / "prompts" / plantilla).read_text(encoding="utf-8"), MODO=modo, HEAD_SHA=head, MODO_INSTRUCCIONES=blk_txt, PREVIOS=prev, TECNICAS=tecs,
+                    MAX_PROPUESTAS=tope_propuestas(), MIN_PROPUESTAS=CFG.get("min_propuestas", 4), ENFOQUE=enfoque(c, job))
     if job["tipo"] == "R":
         r = c.execute("SELECT datos, veredicto FROM propuestas WHERE id=?", (p["id"],)).fetchone(); v = json.loads(r["veredicto"])
         return fill((HERE / "prompts" / "pass_revision_v1.txt").read_text(encoding="utf-8"), HEAD_SHA=head, PROPUESTA=r["datos"],
@@ -528,6 +560,8 @@ def ingest_answer(c, job, answer, herramientas):
     elif job["tipo"] == "A":
         ids, desc, dups = [], 0, 0
         for pr in data.get("propuestas", [])[: tope_propuestas()]:
+            if isinstance(pr, dict) and pr.get("categoria") in CATEGORIAS_PROMPT:  # vocabulario del prompt -> el del resto del pipeline
+                pr["tipo_hallazgo"] = pr["categoria"]; pr["categoria"] = CATEGORIAS_PROMPT[pr["categoria"]]
             cob.normalizar_comandos(pr)
             d = cob.datos_prop(pr)
             malas = [f for f in d["fuentes"] if not existe_en_main(f)]
@@ -553,12 +587,14 @@ def ingest_answer(c, job, answer, herramientas):
             if cob.registrar_tecnica(c, {**t, "id": d["tecnica"]}, now(), pid): print(f"  TECNICA NUEVA registrada: {d['tecnica']}")
             for e in pr.get("equivalentes_a_revisar") or []:
                 if isinstance(e, dict) and e.get("familia"): c.execute("INSERT OR IGNORE INTO cruces(propuesta,familia,tecnica) VALUES(?,?,?)", (pid, e["familia"], d["tecnica"]))
-        if area.startswith("familia:") and not ids and not data.get("propuestas"):
+        if not ids and not data.get("propuestas"):
+            # el prompt exige un minimo de propuestas: una lista vacia con el repo leido es una respuesta defectuosa, no "zona sin huecos".
+            # Se reintenta con el siguiente enfoque (enfoque() rota con los intentos); una familia con pocos huecos heuristicos si puede quedar vacia.
             hu = re.search(r"(\d+) tecnicas sin cubrir", json.loads(job["payload"]).get("motivo", ""))
-            if hu and int(hu.group(1)) >= HUECOS_MIN_VACIA:
+            if not hu or int(hu.group(1)) >= HUECOS_MIN_VACIA:
                 if (job["intentos"] or 0) < CFG.get("reintentos_vacia", 2):
-                    raise ValueError(f"respuesta vacia con {hu.group(1)} tecnicas sin cubrir: reintento (no se enfria la familia)")
-                cob.evento(c, "familia", 0, "familia_improductiva", f"{area}: GPT devolvio 0 propuestas con {hu.group(1)} huecos tras reintentos", now())
+                    raise ValueError("respuesta vacia: reintento con otro enfoque (no se enfria la zona)")
+                cob.evento(c, "familia", 0, "familia_improductiva", f"{area}: GPT devolvio 0 propuestas tras reintentos con varios enfoques", now())
         ident = area.split(":", 1)[1]
         fsha = area_stats(AREAS[ident], c)[1] if area.startswith(("zona:", "audit:")) else (json.loads(job["payload"]).get("sha", "") if area.startswith(("familia:", "cambio:")) else "")
         c.execute("INSERT INTO analisis VALUES(?,?,?,?)", (area, today(), git("rev-parse", "--short", "origin/main"), fsha))
@@ -893,7 +929,7 @@ def cmd_scan_once(a, manual=False):
                 if not elegido: print("Todo en descanso."); break
                 modo, clave, pl = elegido
                 print(f"   modo {modo}: {clave}: {pl['motivo']}")
-                if not enqueue(c, "A", clave, pl, f"A:{clave}:{pl['sha']}:{today()}"): print("Ya encolado hoy."); break
+                if not enqueue(c, "A", clave, pl, clave_a(c, clave, pl)): print("Ya encolado hoy."); break
                 job = next_job(c)
                 if job is None: break
             else:
@@ -964,7 +1000,7 @@ def paso_servicio(c):
         elegido = elegir_modo(c)
         if elegido:
             modo, clave, pl = elegido
-            if enqueue(c, "A", clave, pl, f"A:{clave}:{pl['sha']}:{today()}"):
+            if enqueue(c, "A", clave, pl, clave_a(c, clave, pl)):
                 print(f"{now()} modo {modo}: {clave}: {pl['motivo']}"); job = next_job(c)
     if job is None: return False
     marcar(estado="ejecutando", tarea=f"PASS {job['tipo']}", area=job["area"], desde_tarea=now())
@@ -998,7 +1034,9 @@ def cmd_servicio(a):
                     ultimo_fetch = time.monotonic()
                 try: r = paso_servicio(c)
                 except Exception as e:
-                    marcar(ultimo_error=f"{now()} {str(e)[:200]}"); print(f"{now()} ERROR en el paso: {e}"); dormir(60); continue
+                    marcar(ultimo_error=f"{now()} {str(e)[:200]}"); print(f"{now()} ERROR en el paso: {e}")
+                    if escalar_error_repetido(): return REINICIO  # Claude corrigio el codigo: qa_supervisor relanza el servicio con el arreglo
+                    dormir(60); continue
                 if r is True:
                     vacias = 0
                     try: stage(c)
@@ -1026,6 +1064,19 @@ def cmd_servicio(a):
             print(f"{now()} SERVICIO detenido")
     return 0
 
+REINICIO = 75  # codigo de salida: "codigo reparado, relanzame" (qa_supervisor)
+_errores_seguidos = []
+
+def escalar_error_repetido():
+    """El bucle del servicio atrapa los errores de cada paso y sigue: un fallo de codigo (p. ej. WinError 206) se repetia cada minuto para siempre.
+    Al 3er error seguido con la misma firma se encarga a Claude (qa_supervisor). True si el codigo quedo corregido y hay que reiniciar."""
+    import traceback, qa_supervisor
+    tb = traceback.format_exc(); fir = qa_supervisor.firma(tb)
+    _errores_seguidos[:] = [f for f in _errores_seguidos if f == fir] + [fir]
+    if len(_errores_seguidos) < CFG.get("errores_para_escalar", 3): return False
+    _errores_seguidos.clear(); print(f"{now()} El mismo error 3 veces ({fir}): se encarga la reparacion a Claude")
+    return qa_supervisor.Supervisor(sys.modules[__name__]).reparar_codigo(tb, fir) == "corregido"
+
 def cmd_iniciar(a):
     """INICIAR-QA-GPT.bat: arranca el servicio continuo desvinculado de esta consola. No ejecuta tests ni Actions."""
     STATE.mkdir(parents=True, exist_ok=True)
@@ -1037,7 +1088,7 @@ def cmd_iniciar(a):
     cmd_flag("pause", False); (STATE / "stop").unlink(missing_ok=True)
     sh(["schtasks", "/Change", "/TN", TASK, "/DISABLE"], check=False)
     py = Path(sys.executable).with_name("pythonw.exe"); py = py if py.exists() else Path(sys.executable)
-    subprocess.Popen([str(py), str(HERE / "qa_gpt.py"), "servicio"], cwd=str(STATE), close_fds=True,
+    subprocess.Popen([str(py), str(HERE / "qa_supervisor.py"), "servicio"], cwd=str(STATE), close_fds=True,  # supervisado: caidas -> Claude repara y relanza
                      creationflags=0x00000008 | 0x00000200 | 0x08000000)  # DETACHED_PROCESS | NEW_PROCESS_GROUP | NO_WINDOW
     for _ in range(40):
         time.sleep(0.5)

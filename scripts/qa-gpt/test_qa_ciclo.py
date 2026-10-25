@@ -353,8 +353,9 @@ class PrFlujo(T.Base):
         ci2 = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0}); ci2._freno_main()
         self.assertEqual(len(relanzados), 1)  # ni tras reiniciar EJECUTAR (marca en disco)
         gh.runs = lambda wf, rama: [{"status": "completed", "conclusion": "failure", "headSha": "deadbeef00", "databaseId": 78, "attempt": 2}]
-        ci2._freno_t = 0; self.assertIn("en rojo", ci2._freno_main())
-        self.assertEqual(len(relanzados), 1)  # ya relanzado en GitHub (attempt 2) y sigue rojo: rojo real, el freno se mantiene
+        encargados = []; ci2._encargar_main = lambda wf, run: encargados.append(run["databaseId"])
+        ci2._freno_t = 0; self.assertIsNone(ci2._freno_main())  # rojo confirmado tras relanzar: sin bloqueo...
+        self.assertEqual(len(relanzados), 1); self.assertIn(78, encargados)  # ...y la correccion de main se encarga a Claude
 
     def test_sin_strict_main_toca_sus_ficheros_o_infra_compartida_actualiza(self):
         gh = self.GhCiclo(); ci = self.ciclo(gh); v = gh.pr_ver(1)

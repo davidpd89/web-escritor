@@ -8,10 +8,11 @@ echo.
 echo  EJECUTAR-ACTIONS-QA-GPT: proceso CONTINUO. Valida en local y mantiene hasta 3 grupos a la vez en GitHub Actions;
 echo  al terminar uno recoge sus resultados y envia el siguiente. Sin trabajo, espera propuestas nuevas.
 echo  Q = parar tras guardar estado ^| Ctrl+C = parada controlada ^| cerrar la ventana = dejar de lanzar grupos nuevos.
+echo  Supervisado: si el proceso cae, Claude corrige la causa, anade un test y lo relanza solo.
 echo  Los runs ya enviados a GitHub NO se cancelan: al abrirlo de nuevo se recogen sus resultados sin duplicar nada.
 echo.
 
-"%PY%" "%QA%scripts\qa-gpt\qa_gpt.py" ejecutar-actions --continuo
+"%PY%" "%QA%scripts\qa-gpt\qa_supervisor.py" ejecutar-actions --continuo
 echo.
 "%PY%" "%QA%scripts\qa-gpt\qa_gpt.py" estado | findstr /B /C:"Tests preparados" /C:"Lote Actions" /C:"  - " /C:"Ultimo lote" /C:"Ultima ejecucion" /C:"    " /C:"Proximo pendiente"
 echo.

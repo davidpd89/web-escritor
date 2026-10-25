@@ -4,14 +4,21 @@
 
 Ya propuestos (no repetir): {{PREVIOS}}
 
-Mision: encuentra DEFECTOS REALES que un visitante, Google o el negocio notarian HOY en la web publicada, y escribe para cada uno una prueba ejecutable (hasta {{MAX_PROPUESTAS}}) que falle mientras el defecto exista.
-Prioridad (de mas a menos): 1) algo roto o inaccesible para el visitante (enlace/boton que no funciona, contenido cortado o solapado en movil, foco o lector de pantalla bloqueados, error JS visible, imagen rota); 2) SEO e indexacion (canonical, noindex, datos estructurados, sitemap, titulos/descripciones) y enlaces de afiliado Amazon/compra; 3) rendimiento real (peso, peticiones fallidas, CLS/LCP); 4) coherencia de datos entre paginas. NO propongas endurecer validadores internos frente a entradas que nunca llegan (NaN, rutas '/./', codificaciones raras) salvo que hoy rompan una pagina publicada.
-Cada prueba debe apuntar a paginas o artefactos publicados concretos y citar el fichero/linea que causa el fallo. Si no ves un defecto con impacto real, devuelve menos propuestas o ninguna: mejor 3 defectos reales que 15 hipoteticos. Mira los tests vecinos y copia su estilo y helpers; no repitas la misma idea con otro nombre.
-Solo ficheros NUEVOS en tests/ o qa/. Sin red externa. Si no pudiste leer el repo, lista vacia.
+ENFOQUE OBLIGATORIO DE ESTA CONSULTA: {{ENFOQUE}}
+Mira esta zona SOLO con ese enfoque (otras consultas cubren los demas): asi siempre hay algo nuevo que probar.
+
+Mision: entrega entre {{MIN_PROPUESTAS}} y {{MAX_PROPUESTAS}} pruebas ejecutables NUEVAS para esta zona con ese enfoque. Una web real siempre tiene huecos: si no ves un defecto evidente, escribe pruebas que lo buscarian (smoke, contratos, casos limite con paginas y datos reales del repo).
+Tres tipos validos, declarados en "categoria":
+ - "defecto": falla HOY; cita el fichero/linea que lo causa y lo que notaria el visitante, Google o el negocio.
+ - "mejora": falla HOY porque algo funciona pero esta por debajo de lo esperable (accesibilidad, SEO, rendimiento, UX movil, coherencia de textos/datos); di que cambiar.
+ - "proteccion": pasa HOY y protege un comportamiento critico que ningun test cubre todavia (cita los tests vecinos que revisaste); di que cambio de codigo lo romperia.
+Prioridad: roto o inaccesible para el visitante > SEO/indexacion y enlaces de compra/afiliado > rendimiento real > coherencia de datos > proteccion de lo critico.
+Reglas: cada prueba apunta a paginas o artefactos publicados concretos; nada de endurecer validadores internos frente a entradas que nunca llegan; no repitas ideas ya propuestas aunque cambie el nombre; copia el estilo y helpers de los tests vecinos.
+Solo ficheros NUEVOS en tests/ o qa/. Sin red externa. Una lista vacia SOLO es valida si no pudiste leer el repo (ficheros_leidos vacio).
 
 Responde SOLO JSON:
 {"modo":"{{MODO}}","lectura_repo":{"commit":"<sha>","ficheros_leidos":["ruta"]},"propuestas":[{
  "titulo":"...","zona":"...","familias":["dir-raiz"],"tecnica":{"id":"kebab-case","nombre":"..."},
- "funcionalidad":"1 frase","invariante":"lo que debe cumplirse","categoria":"exploratoria",
+ "funcionalidad":"1 frase","invariante":"lo que debe cumplirse","categoria":"defecto|mejora|proteccion",
  "ficheros_fuente":[{"ruta":"..."}],"ficheros_nuevos":[{"ruta":"tests/....","contenido":"codigo completo"}],
  "como_ejecutar":"comando","workflow":"workflow-existente.yml|null"}]}
