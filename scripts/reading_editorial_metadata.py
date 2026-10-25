@@ -12,7 +12,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlsplit
 from typing import Iterator
 
-from reading_intake_core import isbn13, edition_date
+from reading_intake_core import clean_title, isbn13, edition_date
 
 
 class _JSONLDScripts(HTMLParser):
@@ -115,7 +115,7 @@ def extract_books(html: str, source_url: str, *, expected_isbn: str | None = Non
                 if url.scheme != "https" or not url.hostname:
                     cover = None
             results.append({
-                "isbn13": ident, "titulo": title, "autores": authors,
+                "isbn13": ident, "titulo": clean_title(title), "autores": authors,
                 "editorial": publisher, "fecha_publicacion": published,
                 "precision_fecha": precision,
                 "portada_fuente_url": cover,
