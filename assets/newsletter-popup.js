@@ -150,7 +150,9 @@
           });
           const panel = d.querySelector("#nl-popup-panel");
           if (result.ok && result.state === "pending_confirmation") {
+            const closeBtn = d.querySelector("#nl-popup-close");
             panel.innerHTML = '<p class="nl-popup-result-title">' + copy.okTitle + '</p><p class="nl-popup-result-body">' + copy.okBody + '</p>';
+            panel.prepend(closeBtn);
             panel.tabIndex = -1;
             panel.focus({ preventScroll: true });
             _gcEvent("newsletter-pending-popup", "Newsletter DOI pendiente: popup");
