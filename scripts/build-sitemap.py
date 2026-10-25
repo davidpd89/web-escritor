@@ -18,7 +18,7 @@ import os
 import re
 import sys
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 DOMAIN = "https://davidportodiaz.com"
@@ -110,6 +110,10 @@ def normalize_lastmod(value: str | None) -> str | None:
         return None
     value = value.strip()
     if re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
+        try:
+            date.fromisoformat(value)
+        except ValueError:
+            return None
         return value
     try:
         if value.endswith("Z"):
