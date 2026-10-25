@@ -111,6 +111,8 @@ def problems(data: dict) -> list[str]:
         src = tables["sources"].get(source_id)
         if src is None:
             return  # require() ya informa de referencia inexistente
+        if not has_text(src.get("publisher")):
+            errors.append(f"{scope}: fuente {source_id!r} requiere publicador válido")
         if not all(has_text(src.get(k)) for k in ("url", "title", "retrieved_at", "evidence_summary")):
             errors.append(f"{scope}: fuente {source_id!r} requiere URL, título, fecha y evidencia")
         elif not valid_date(src["retrieved_at"]):
