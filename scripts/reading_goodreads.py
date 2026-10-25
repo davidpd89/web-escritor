@@ -35,7 +35,10 @@ def select_goodreads_rating(book, response):
     wanted = isbn13(book.get('isbn13', ''))
     if not wanted:
         return None
-    for obj in response.get('books', []):
+    books = response.get('books', [])
+    if not isinstance(books, list):
+        return None
+    for obj in books:
         if not isinstance(obj, dict): continue
         if isbn13(str(obj.get('isbn', ''))) != wanted: continue
         if not title_matches(str(obj.get('name', '')), book['titulo']): continue
