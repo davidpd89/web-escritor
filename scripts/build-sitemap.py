@@ -20,6 +20,7 @@ import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlsplit
 
 DOMAIN = "https://davidportodiaz.com"
 NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -129,14 +130,23 @@ def normalize_canonical(canonical: str | None, root: Path, path: Path) -> str | 
     if canonical:
         if canonical.startswith("//"):
             canonical = "https:" + canonical
-        if canonical.startswith("http://"):
-            canonical = "https://" + canonical[len("http://") :]
-        if canonical.startswith("https://"):
-            if not canonical.startswith(DOMAIN):
+        elif canonical.startswith("/"):
+            canonical = DOMAIN + canonical
+
+        try:
+            parsed = urlsplit(canonical)
+            if (
+                parsed.scheme != "https"
+                or parsed.hostname != "davidportodiaz.com"
+                or parsed.username is not None
+                or parsed.password is not None
+                or parsed.port is not None
+                or not parsed.netloc.endswith("davidportodiaz.com")
+            ):
                 return None
-            return canonical.rstrip("/") + ("/" if canonical.endswith("/") else "")
-        if canonical.startswith("/"):
-            return (DOMAIN + canonical).rstrip("/") + ("/" if canonical.endswith("/") else "")
+        except ValueError:
+            return None
+        return canonical
 
     rel = "/" + str(path.relative_to(root)).replace("\\", "/")
     if rel.endswith("/index.html"):
