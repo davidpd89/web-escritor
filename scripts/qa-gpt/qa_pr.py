@@ -415,7 +415,9 @@ class Ciclo:
         nuevas = {r_["pr_numero"] for r_ in c.execute("SELECT pr_numero FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta'")}
         ocupados = {f["path"] for p in prs if p["number"] in nuevas for f in p.get("files", [])}
         self._prs = prs
-        if cfg["modo_pr"] == "lote": r["adoptadas"] = self._adoptar_legado(c, abiertas)
+        if cfg["modo_pr"] == "lote":
+            r["adoptadas"] = self._adoptar_legado(c, abiertas)
+            r["cerradas"] = self._cerrar_superadas(c, prs)
         hechas = 0
         if cfg["modo_pr"] == "lote":  # validacion determinista en paralelo (worktrees aislados); el lote se forma despues
             cands = self.pr.candidatas(c)[:cfg["max_validaciones"]]
@@ -473,6 +475,19 @@ class Ciclo:
             if not pr or pr.get("isDraft") or not str(pr.get("headRefName", "")).startswith("qa-fix/") or "lote" in pr["headRefName"]: continue
             c.execute("UPDATE triaje SET pr_estado='listo_lote',dev_estado='listo_lote',pr_head=?,integracion=NULL,actualizado=? WHERE id=?", (pr["headRefName"], self.q.now(), row["id"])); n += 1
         if n: c.commit(); self.out(f"  legado: {n} PR heredadas pasan a candidatas de lote")
+        return n
+
+    def _cerrar_superadas(self, c, prs):
+        """Cierra, una a una y con comentario, la PR individual heredada cuya correccion ya esta fusionada dentro de un lote (su rama ya no aporta nada)."""
+        por_rama = {p["headRefName"]: p for p in prs if str(p.get("headRefName", "")).startswith("qa-fix/") and "lote" not in p["headRefName"]}
+        n = 0
+        for row in c.execute("SELECT * FROM triaje WHERE pr_estado='integrada' AND pr_nueva=1 ORDER BY id DESC LIMIT 60").fetchall():
+            rama = f"qa-fix/{re.sub(r'[^0-9a-zA-Z]', '', row['firma'] or 't' + str(row['id']))[:12]}"
+            pr = por_rama.pop(rama, None)
+            if not pr or n >= 10: continue
+            try: self.gh.pr_cerrar(pr["url"], f"Superada: esta correccion ya esta integrada en main mediante {row['pr_url']}. GPT QA cierra la PR individual para no duplicar el CI.")
+            except Exception as e: self.out(f"  no se pudo cerrar #{pr['number']}: {str(e)[:80]}"); continue
+            n += 1; self.out(f"  PR heredada #{pr['number']} cerrada (integrada en {row['pr_url']})")
         return n
 
     @staticmethod
