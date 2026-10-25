@@ -1,5 +1,5 @@
 const CACHE_NAMESPACE = "david-porto-pwa";
-const CACHE_VERSION = `${CACHE_NAMESPACE}-v16`;
+const CACHE_VERSION = `${CACHE_NAMESPACE}-v17`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 const CURRENT_CACHES = new Set([STATIC_CACHE, PAGE_CACHE]);
@@ -51,10 +51,11 @@ function offlineResponse() {
 
 async function putIfCacheable(cache, request, response) {
   const cacheControl = response?.headers?.get("Cache-Control") || "";
-  const noStore = cacheControl.split(",").some((directive) =>
-    directive.trim().toLowerCase() === "no-store"
+  const isPrivateOrNoStore = cacheControl.split(",").some((directive) =>
+    /^(private|no-store)(?:\s|$|=)/i.test(directive.trim())
   );
-  if (response && response.ok && response.status !== 206 && !noStore) {
+  const hasSetCookie = response?.headers?.has("Set-Cookie") === true;
+  if (response && response.ok && response.status !== 206 && !isPrivateOrNoStore && !hasSetCookie) {
     try {
       await cache.put(request, response.clone());
     } catch (error) {
