@@ -44,6 +44,24 @@ def validate(text: str, now: datetime) -> dict:
         expiry = _t(data["totals"]["valid_until"])
     except (ValueError, KeyError, TypeError) as exc:
         raise PublishError(f"invalid snapshot: {exc}") from exc
+    try:
+        generated_raw = data["generated_at"]
+        if not isinstance(generated_raw, str):
+            raise ValueError("generated_at must be an ISO 8601 string")
+        generated = _t(generated_raw)
+        if generated.tzinfo is None or generated.utcoffset() is None:
+            raise ValueError("generated_at must include a timezone")
+        generated = generated.astimezone(timezone.utc)
+        checked_at = now.astimezone(timezone.utc)
+    except (ValueError, KeyError, TypeError, AttributeError, OverflowError) as exc:
+        raise PublishError(f"invalid generated_at: {exc}") from exc
+    max_age = timedelta(hours=48)
+    if generated > checked_at:
+        raise PublishError("snapshot generated_at is in the future")
+    if checked_at - generated > max_age:
+        raise PublishError("snapshot generated_at is too old")
+    if expiry > generated + max_age:
+        raise PublishError("snapshot expiry exceeds maximum generation lifetime")
     if sorted(ids) != sorted(NETWORKS):
         raise PublishError("snapshot does not list exactly the six official networks")
     for n in nets:
