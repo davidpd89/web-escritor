@@ -200,7 +200,7 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editorial
 }
 html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-hero h1{
   grid-column:1;max-width:18ch;margin:.35rem 0 1.25rem;color:var(--directory-blue);
-  font-size:clamp(3.25rem,5.2vw,5.7rem);line-height:.94;letter-spacing:-.04em;overflow-wrap:normal;text-wrap:balance;
+  font-size:clamp(3.25rem,5.2vw,5.7rem);line-height:.94;letter-spacing:-.04em;overflow-wrap:anywhere;text-wrap:balance;
   -webkit-text-stroke:.1px rgba(184,134,11,.24)
 }
 html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-hero__lead{
@@ -344,16 +344,16 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editorial
     padding:1.15rem 1.2rem;font-size:.9rem
   }
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-finder{
-    grid-template-columns:1fr;margin-top:1.5rem;padding:1.25rem 1.15rem
+    grid-template-columns:minmax(0,1fr);margin-top:1.5rem;padding:1.25rem 1.15rem
   }
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-options,
-  html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-options .tool-field:first-child{grid-column:1;grid-template-columns:1fr}
+  html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-options .tool-field:first-child{grid-column:1;grid-template-columns:minmax(0,1fr)}
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-finder>.tool-check,
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-finder>.tool-actions,
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-count{grid-column:1}
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-finder>.tool-actions{justify-self:start}
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) [data-editoriales-directory] .editorial-card{
-    grid-template-columns:1fr;row-gap:.75rem;padding:2.55rem 0
+    grid-template-columns:minmax(0,1fr);row-gap:.75rem;padding:2.55rem 0
   }
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) [data-editoriales-directory] .editorial-card:first-child{padding-top:0}
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) [data-editoriales-directory] .editorial-card::before{
@@ -380,3 +380,5 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editorial
     font-size:clamp(2.5rem,10.5vw,2.6rem)
   }
 }
+/* Long unbroken content must wrap instead of overflowing */
+html.v1 .tool-finder,html.v1 .tool-options,html.v1 .tool-field,html.v1 .tool-field :is(input,select,textarea),html.v1 .editorial-card,html.v1 .editorial-card__head,html.v1 .editorial-card__head>div,html.v1 .tool-hero h1,html.v1 .tool-hero__lead,html.v1 .editorial-card h2,html.v1 .editorial-card h2 a,html.v1 .editorial-card .tool-meta,html.v1 .spec-ledger dt,html.v1 .spec-ledger dd{min-width:0;max-width:100%;overflow-wrap:anywhere}
