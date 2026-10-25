@@ -1,5 +1,6 @@
 """Public ISBN pages only; no search crawling, login, reviews or bot bypass."""
 import json
+import math
 import re
 import time
 from html.parser import HTMLParser
@@ -46,6 +47,8 @@ def select_goodreads_rating(book, response):
         if isinstance(value, bool) or isinstance(count, bool): continue
         try:
             value, parsed_count = float(value), float(count)
+            if not math.isfinite(value) or not math.isfinite(parsed_count):
+                continue
             count = int(parsed_count)
         except (ValueError, TypeError): continue
         if count != parsed_count: continue
