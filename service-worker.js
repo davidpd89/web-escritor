@@ -158,38 +158,70 @@ self.addEventListener("fetch", (event) => {
 });
 
 async function networkFirstPage(request) {
-  const pageCache = await caches.open(PAGE_CACHE);
   try {
     const response = await fetch(request);
-    await putIfCacheable(pageCache, request, response);
+    try {
+      const pageCache = await caches.open(PAGE_CACHE);
+      await putIfCacheable(pageCache, request, response);
+    } catch (error) {
+      console.warn("PWA page cache unavailable:", error);
+    }
     return response;
   } catch {
-    const cached = await pageCache.match(request);
-    if (cached) return cached;
-    const staticCache = await caches.open(STATIC_CACHE);
-    return (await staticCache.match("/offline.html")) || offlineResponse();
+    try {
+      const pageCache = await caches.open(PAGE_CACHE);
+      const cached = await pageCache.match(request);
+      if (cached) return cached;
+    } catch (error) {
+      console.warn("PWA page cache read failed:", error);
+    }
+    try {
+      const staticCache = await caches.open(STATIC_CACHE);
+      return (await staticCache.match("/offline.html")) || offlineResponse();
+    } catch (error) {
+      console.warn("PWA offline shell unavailable:", error);
+      return offlineResponse();
+    }
   }
 }
 
 async function networkFirstStatic(request) {
-  const cache = await caches.open(STATIC_CACHE);
   try {
     const response = await fetch(request);
-    await putIfCacheable(cache, request, response);
+    try {
+      const cache = await caches.open(STATIC_CACHE);
+      await putIfCacheable(cache, request, response);
+    } catch (error) {
+      console.warn("PWA static cache unavailable:", error);
+    }
     return response;
   } catch {
-    return (await cache.match(request)) || offlineResponse();
+    try {
+      const cache = await caches.open(STATIC_CACHE);
+      return (await cache.match(request)) || offlineResponse();
+    } catch (error) {
+      console.warn("PWA static cache read failed:", error);
+      return offlineResponse();
+    }
   }
 }
 
 async function staleWhileRevalidate(event, cacheName) {
   const { request } = event;
-  const cache = await caches.open(cacheName);
-  const cached = await cache.match(request);
+  let cache = null;
+  let cached = null;
+  try {
+    cache = await caches.open(cacheName);
+    cached = await cache.match(request);
+  } catch (error) {
+    console.warn("PWA cache read failed:", error);
+    cache = null;
+  }
+
   const networkPromise = (async () => {
     try {
       const response = await fetch(request);
-      await putIfCacheable(cache, request, response);
+      if (cache) await putIfCacheable(cache, request, response);
       return response;
     } catch {
       return null;
