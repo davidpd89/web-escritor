@@ -240,6 +240,26 @@ def _event_times(event: dict) -> list[str]:
     return lines
 
 
+def _validate_calendar_url(value: object) -> str:
+    if not isinstance(value, str) or not value:
+        raise ValueError('URL de calendario vacia o invalida')
+    if any(ord(char) <= 32 or ord(char) == 127 for char in value):
+        raise ValueError('URL de calendario con espacios o caracteres de control')
+    try:
+        parsed = urlsplit(value)
+        if (parsed.scheme != 'https' or not parsed.netloc or
+                not parsed.hostname or parsed.username is not None or
+                parsed.password is not None or parsed.port is not None):
+            raise ValueError('URL de calendario debe ser HTTPS sin credenciales ni puerto')
+        if parsed.hostname.startswith('.') or parsed.hostname.endswith('.') or '..' in parsed.hostname:
+            raise ValueError('Hostname de calendario invalido')
+        if not re.fullmatch(r'[A-Za-z0-9.-]+', parsed.hostname):
+            raise ValueError('Hostname de calendario invalido')
+    except ValueError as exc:
+        raise ValueError(f'URL de calendario invalida: {value!r}') from exc
+    return value
+
+
 def build_ics(event: dict) -> bytes:
     event_id = str(event.get("@id") or "")
     fragment = _event_fragment(event)
@@ -266,9 +286,8 @@ def build_ics(event: dict) -> bytes:
     location = _location_text(event)
     if location:
         lines.append(f"LOCATION:{_escape_text(location)}")
-    url = event.get("url") or event_id
-    if isinstance(url, str) and url.strip():
-        lines.append(f"URL:{url.strip()}")
+    url = event.get("url") if "url" in event else event_id
+    lines.append(f"URL:{_validate_calendar_url(url)}")
     lines.extend(["STATUS:CONFIRMED", "END:VEVENT", "END:VCALENDAR"])
     return _render_ical(lines)
 
