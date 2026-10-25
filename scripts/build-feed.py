@@ -15,6 +15,7 @@ import os
 import sys
 import re
 import json
+from html.parser import HTMLParser
 from datetime import datetime
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom import minidom
@@ -34,10 +35,25 @@ def find_html_files():
                 yield os.path.join(dirpath, f)
 
 def is_noindex(html_text):
-    m = re.search(r'<meta[^>]+name=["\']robots["\'][^>]*content=["\']([^"\']+)["\']', html_text, flags=re.I)
-    if not m:
-        return False
-    return 'noindex' in m.group(1).lower()
+    class RobotsParser(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=True)
+            self.noindex = False
+
+        def handle_starttag(self, tag, attrs):
+            if tag != 'meta':
+                return
+            attributes = dict(attrs)
+            if (attributes.get('name') or '').strip().lower() != 'robots':
+                return
+            directives = (attributes.get('content') or '').lower().split(',')
+            if 'noindex' in (directive.strip() for directive in directives):
+                self.noindex = True
+
+    parser = RobotsParser()
+    parser.feed(html_text)
+    parser.close()
+    return parser.noindex
 
 # /cuaderno/ ya no es solo articulos: los hubs tematicos del doc 55
 # (/cuaderno/temas/, /cuaderno/temas/{slug}/) tambien viven bajo este
