@@ -16,7 +16,7 @@ import sys
 import re
 import json
 from html.parser import HTMLParser
-from datetime import datetime
+from datetime import datetime, timezone
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom import minidom
 import xml.etree.ElementTree as ET
@@ -144,12 +144,24 @@ def extract_metadata(path):
         if m: desc = m.group(1)
     return {'path': path, 'title': title, 'url': url, 'date': date, 'description': desc, 'skip': False}
 
-def iso_to_rfc2822(d):
-    try:
-        dt = datetime.fromisoformat(d.replace('Z','+00:00'))
-        return dt.strftime('%a, %d %b %Y %H:%M:%S +0000')
-    except Exception:
+def parse_utc_datetime(value):
+    """Normaliza fechas ISO 8601 al instante absoluto UTC."""
+    if not isinstance(value, str) or not value.strip():
         return None
+    try:
+        dt = datetime.fromisoformat(value.strip().replace('Z', '+00:00'))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc)
+    except (ValueError, TypeError, OverflowError):
+        return None
+
+
+def iso_to_rfc2822(d):
+    dt = parse_utc_datetime(d)
+    if dt is None:
+        return None
+    return dt.strftime('%a, %d %b %Y %H:%M:%S +0000')
 
 def build_feed_bytes(items):
     root = Element('rss', version='2.0')
@@ -195,7 +207,14 @@ def collect_items():
     # en ext4. El feed se generaba distinto en local y en CI, y --check fallaba
     # en CI sin que hubiera cambiado ningun contenido. Se desempata por URL.
     items.sort(key=lambda x: x.get('url') or x.get('link') or '')
-    items.sort(key=lambda x: x.get('date') or '', reverse=True)
+    items.sort(
+        key=lambda x: (
+            parse_utc_datetime(x.get('date')).timestamp()
+            if parse_utc_datetime(x.get('date')) is not None
+            else float('-inf')
+        ),
+        reverse=True,
+    )
     return items[:50], skipped
 
 def validate_xsl_asset(errors):
