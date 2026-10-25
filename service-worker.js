@@ -50,7 +50,11 @@ function offlineResponse() {
 }
 
 async function putIfCacheable(cache, request, response) {
-  if (response && response.ok && response.status !== 206) {
+  const cacheControl = response?.headers?.get("Cache-Control") || "";
+  const noStore = cacheControl.split(",").some((directive) =>
+    directive.trim().toLowerCase() === "no-store"
+  );
+  if (response && response.ok && response.status !== 206 && !noStore) {
     try {
       await cache.put(request, response.clone());
     } catch (error) {
@@ -139,6 +143,13 @@ self.addEventListener("fetch", (event) => {
   // the cache in the background whenever the resource is requested online.
   if (url.pathname.startsWith("/assets/")) {
     event.respondWith(staleWhileRevalidate(event, STATIC_CACHE));
+    return;
+  }
+
+  // The sitemap must reflect the current server representation online.
+  // An older cached copy is only an offline fallback.
+  if (url.pathname === "/sitemap.xml") {
+    event.respondWith(networkFirstStatic(request));
     return;
   }
 
