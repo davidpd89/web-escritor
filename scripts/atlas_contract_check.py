@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 from datetime import date
 from pathlib import Path
@@ -128,6 +129,13 @@ def problems(data: dict) -> list[str]:
     for place in tables["places"].values():
         scope = f"places/{place['id']}"
         require("destinations", place.get("destination_id"), scope)
+        if "overture_confidence" in place:
+            confidence = place["overture_confidence"]
+            if (not isinstance(confidence, (int, float))
+                    or isinstance(confidence, bool)
+                    or not math.isfinite(confidence)
+                    or not 0 <= confidence <= 1):
+                errors.append(scope + ": overture_confidence debe ser un número finito entre 0 y 1")
         lat, lon = place.get("latitude"), place.get("longitude")
         if (lat is None) != (lon is None):
             errors.append(scope + ": latitude y longitude deben aparecer juntas")
