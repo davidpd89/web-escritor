@@ -224,6 +224,8 @@ def problems(data: dict) -> list[str]:
         require("places", image.get("place_id"), scope)
         if image.get("status") == APPROVED:
             require_approved("places", image.get("place_id"), scope)
+            if "alt_original" in image and not has_text(image["alt_original"]):
+                errors.append(scope + ": alt_original declarado debe contener texto perceptible")
             if not all(has_text(image.get(k)) for k in ("license", "license_url", "attribution", "source_url")):
                 errors.append(scope + ": imagen aprobada sin derechos/atribución")
             elif not (valid_https_url(image["source_url"]) and valid_https_url(image["license_url"])):
