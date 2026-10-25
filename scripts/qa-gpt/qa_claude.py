@@ -12,7 +12,8 @@ import hashlib, json, os, subprocess, threading, time
 from pathlib import Path
 
 DEFECTOS = {"modelo": "claude-sonnet-5-5", "esfuerzo": "low", "max_turnos": 2, "timeout_s": 240, "max_usd_llamada": 0.5}
-_LOCK = threading.Lock()   # un Claude CLI a la vez dentro del proceso
+_LOCK = threading.Lock()   # un Claude CLI de decision/revision a la vez dentro del proceso
+_LOCK_DEV = threading.Lock()  # el desarrollo (minutos, ejecuta tests) va aparte: no retiene revisiones ni decisiones
 _CLAUDE_EXE = None
 
 
@@ -68,20 +69,23 @@ def huella(*partes):
     return hashlib.sha1("\x1f".join(partes).encode("utf-8")).hexdigest()[:16]
 
 
-def llamar(q, c, clave, tipo, sistema, entrada, esquema, herramientas="", cwd=None, max_turnos=None, esfuerzo=None, usar_cache=True):
-    """-> (dict validado, meta). Cache por (clave, hash(sistema+entrada+esquema+modelo+esfuerzo)). Lanza ClaudeError si falla o no valida."""
+def llamar(q, c, clave, tipo, sistema, entrada, esquema, herramientas="", cwd=None, max_turnos=None, esfuerzo=None, usar_cache=True, timeout_s=None, max_usd=None):
+    """-> (dict validado, meta). Cache por (clave, hash(sistema+entrada+esquema+modelo+esfuerzo)). Lanza ClaudeError si falla o no valida.
+    `herramientas` admite patrones de permiso (`Bash(cmd:*)`): --tools recibe solo el nombre y --allowedTools el patron."""
     cfg = config(q); esf = esfuerzo or cfg["esfuerzo"]
+    cfg = {**cfg, "timeout_s": timeout_s or cfg["timeout_s"], "max_usd_llamada": max_usd or cfg["max_usd_llamada"]}
+    nombres = ",".join(dict.fromkeys(h.split("(")[0].strip() for h in herramientas.split(",") if h.strip())) if herramientas else ""
     h = huella(sistema, entrada, json.dumps(esquema, sort_keys=True), cfg["modelo"], esf, herramientas)
     if usar_cache:
         r = c.execute("SELECT respuesta FROM claude_veredictos WHERE clave=? AND hash=?", (clave, h)).fetchone()
         if r: return json.loads(r[0]), {"cache": True, "hash": h}
     args = [exe(), "-p", "--model", cfg["modelo"], "--effort", esf, "--output-format", "json",
-            "--max-turns", str(max_turnos or cfg["max_turnos"]), "--tools", herramientas, "--system-prompt", sistema, "--setting-sources", "",
+            "--max-turns", str(max_turnos or cfg["max_turnos"]), "--tools", nombres, "--system-prompt", sistema, "--setting-sources", "",
             "--disable-slash-commands", "--strict-mcp-config", "--no-session-persistence", "--json-schema", json.dumps(esquema, ensure_ascii=False),
             "--max-budget-usd", str(cfg["max_usd_llamada"])]
     if herramientas: args += ["--allowedTools", herramientas]
     t0 = time.time(); err = None; meta = {"hash": h}; salida = None
-    with _LOCK:
+    with (_LOCK_DEV if tipo == "desarrollo" else _LOCK):
         try:
             r = subprocess.run(args, input=entrada, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=cfg["timeout_s"],
                                cwd=str(cwd or q.STATE / "claude"), creationflags=0x08000000 if os.name == "nt" else 0)

@@ -80,6 +80,10 @@ class Gh:
         """Merge por el mecanismo de GitHub (squash) atado al commit revisado; sin --admin: las protecciones de la rama se respetan."""
         self._gh("pr", "merge", str(n), "-R", self.repo, "--squash", "--match-head-commit", sha)
     def pr_actualizar(self, n): self._gh("pr", "update-branch", str(n), "-R", self.repo)
+    def main_desde(self, sha):
+        """-> (commits de main que `sha` no tiene, rutas que cambiaron en main desde la base comun). La API corta en 300 ficheros."""
+        d = json.loads(self._gh("api", f"repos/{self.repo}/compare/{sha}...main", "--jq", "{n: .ahead_by, f: [.files[]?.filename]}"))
+        return d["n"], d["f"]
     def pr_cerrar(self, url, comentario=""):
         self._gh("pr", "close", url, "-R", self.repo, "--delete-branch", *(["--comment", comentario] if comentario else []))
     def dispatch(self, wf, rama, ref=None, campos=None):
@@ -129,7 +133,8 @@ def matar_arbol(p):
 
 def run_cmd(args, cwd, env=None, timeout=300):
     """Ejecuta un comando local; devuelve (rc, salida). Se interrumpe en ~1 s si ABORTAR() pide parar (rc 130)."""
-    p = cob.popen(args, cwd=cwd, env={**os.environ, **(env or {})}, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace")
+    # UTF-8 como en CI (Linux): en Windows open() sin encoding usa cp1252 y los tests fallaban con 'charmap' sin que el parche tuviera culpa
+    p = cob.popen(args, cwd=cwd, env={**os.environ, "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8", **(env or {})}, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace")
     fin = time.monotonic() + timeout
     while True:
         try:

@@ -192,8 +192,10 @@ class PrFlujo(T.Base):
     class GhCiclo(GhPr):
         def __init__(s, abiertas=(), ci="verde"): super().__init__(); s.abiertas, s.ci, s.merges = list(abiertas), ci, []
         def prs_abiertas(s): return s.abiertas + [{"number": 1, "headRefName": r, "files": [{"path": "web/a.py"}]} for r, *_ in s.prs]
-        def pr_ver(s, n): return {"state": "OPEN", "isDraft": False, "mergeable": "MERGEABLE", "mergeStateStatus": "CLEAN", "headRefOid": "abc",
+        detras = (0, [])
+        def pr_ver(s, n): return {"state": "OPEN", "isDraft": False, "mergeable": "MERGEABLE", "mergeStateStatus": "CLEAN", "headRefOid": "abc", "files": [{"path": "web/a.py"}],
                                   "statusCheckRollup": [{"status": "COMPLETED", "conclusion": "SUCCESS" if s.ci == "verde" else "FAILURE"}]}
+        def main_desde(s, sha): return s.detras
         def pr_diff(s, n): return "diff --git a/web/a.py b/web/a.py\n-VALOR = 1\n+VALOR = 2\n"
         def pr_merge(s, n, sha): s.merges.append((n, sha))
 
@@ -254,6 +256,21 @@ class PrFlujo(T.Base):
         pv = gh.pr_ver; gh.pr_ver = lambda n: {**pv(n), "mergeStateStatus": "BEHIND"}
         ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0}); ci.paso(self.c); ci.paso(self.c)
         self.assertEqual(gh.merges, []); self.assertEqual(set(gh.actualizadas), {1})  # reintenta en cada ciclo mientras siga BEHIND
+
+    def test_sin_strict_por_detras_se_fusiona_si_main_no_toca_lo_suyo(self):
+        self.montar(); gh = self.GhCiclo(); gh.actualizadas = []; gh.pr_actualizar = lambda n: gh.actualizadas.append(n)
+        gh.detras = (3, ["libros/otro.html", "pagefind/x.pf_fragment"])
+        ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0}); ci.paso(self.c); ci.paso(self.c)
+        self.assertEqual(gh.merges, [(1, "abc")]); self.assertEqual(gh.actualizadas, [])
+
+    def test_sin_strict_main_toca_sus_ficheros_o_infra_compartida_actualiza(self):
+        gh = self.GhCiclo(); ci = self.ciclo(gh); v = gh.pr_ver(1)
+        for detras in ((2, ["web/a.py"]), (1, ["package.json"]), (1, ["tests/_helpers.py"]), (1, [".github/workflows/x.yml"]), (60, ["x.html"]), (1, ["f"] * 300)):
+            with self.subTest(detras=detras[1][:1]):
+                gh.detras = detras; self.assertTrue(ci._main_arriesgado(v, "abc"))
+        gh.main_desde = lambda sha: (_ for _ in ()).throw(RuntimeError("api"))
+        self.assertTrue(ci._main_arriesgado(v, "abc"))  # sin comparacion: ante la duda, actualizar
+        self.assertTrue(ci._main_arriesgado({**v, "files": []}, "abc"))
 
     def test_recomendada_ya_revisada_se_integra_al_cambiar_a_auto(self):
         self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh, integracion={"modo": "recomendacion"}); ci.paso(self.c); ci.paso(self.c)
@@ -321,6 +338,27 @@ class PrFlujo(T.Base):
             self.assertIn("check-asset-versions.py", nombres(["script.js"]))
             self.assertIn("build-pagefind-index.py", nombres(["libros/a.html"]))
             self.assertNotIn("check-asset-versions.py", nombres(["libros/a.html"]))
+
+    def test_regenerar_sube_solo_el_asset_tocado_y_rehace_lo_obsoleto(self):
+        import tempfile, qa_pr
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "scripts").mkdir()
+            for n in ("bump-asset-version.py", "build-pagefind-index.py", "build-site-shell.py", "build-books.py"): (Path(d) / "scripts" / n).write_text("")
+            (Path(d) / "scripts" / "check-asset-versions.py").write_text('TRACKED_ASSETS = {\n    "a.js": "7",\n    "shell.js": "24",\n    "b.css": "3",\n    "ajeno.css": "2",\n}\n', encoding="utf-8")
+            hechos = []
+            def run(cmd, cwd, timeout=0, env=None):
+                hechos.append(" ".join(cmd[1:]))
+                if cmd[:3] == ["git", "diff", "--name-only"]: return 0, "assets/a.js\nassets/shell.js\nassets/b.css\nassets/libre.js\nlibros/x.html\n"  # shell.js: lo reescribio el generador
+                if cmd[:2] == ["git", "diff"]: return 0, '-    "b.css": "3",\n+    "b.css": "4",\n'  # el parche ya subio b.css
+                if cmd[-1] == "--check": return (1, "stale") if "pagefind" in cmd[1] or "books" in cmd[1] else (0, "")
+                return 0, ""
+            self.assertEqual(qa_pr.regenerar(run, d, ["qa/x.mjs"]), [])
+            self.assertEqual(qa_pr.regenerar(run, d, ["assets/a.js", "scripts/build-books.py"]), ["build-books.py", "?v= a.js", "?v= shell.js", "build-pagefind-index.py"])
+            self.assertLess(hechos.index("scripts/build-books.py"), hechos.index("scripts/bump-asset-version.py a.js 8"))  # generador antes del bump
+            self.assertIn("scripts/bump-asset-version.py shell.js 25", hechos)
+            self.assertFalse(any("ajeno" in h or "b.css" in h or "libre" in h for h in hechos if "bump" in h))  # deuda ajena, ya subido o no rastreado: no se toca
+            self.assertNotIn("scripts/build-site-shell.py", hechos)  # al dia: no se reescribe
+        self.assertEqual([qa_pr.siguiente_version(v) for v in ("7", "202610-launch-31", "x")], ["8", "202610-launch-32", "x-1"])
 
 
 class Perdidas(T.Base):

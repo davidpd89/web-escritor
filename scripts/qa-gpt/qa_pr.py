@@ -127,6 +127,62 @@ def verificadores(wt, tocados):
     return [c for c in cmds if (Path(wt) / c[1]).exists()]
 
 
+# Derivados que el repo sabe regenerar de forma determinista. Un parche correcto que cambia HTML/assets/generadores dejaba pagefind, el shell o el
+# ?v= obsoletos y el verificador lo descartaba (14 descartes el 2026-10-25): ahora se regeneran con los scripts del repo, nunca a mano por un modelo.
+REGEN = (["scripts/build-site-shell.py"], ["scripts/build-pagefind-index.py"], ["scripts/build-feed.py"], ["scripts/build-sitemap.py"])
+
+
+def siguiente_version(v):
+    m = re.fullmatch(r"(.*?)(\d+)", v)
+    return f"{m.group(1)}{int(m.group(2)) + 1}" if m else v + "-1"
+
+
+def enlazar_node_modules(run, wt, nm=r"C:\GIT\web-escritor\node_modules"):
+    dst = Path(wt) / "node_modules"
+    if Path(nm).exists() and not dst.exists(): run(["cmd", "/c", "mklink", "/J", str(dst), nm], str(wt), timeout=30)
+
+
+def regenerar(run, wt, tocados):
+    """Sube el ?v= de los assets cambiados y rehace los artefactos derivados que su --check da por obsoletos (generadores tocados, shell, pagefind,
+    feed, sitemap). Solo ejecuta scripts del repo. -> lista de pasos aplicados (vacia si no hacia falta nada)."""
+    wt = Path(wt); t = [str(x).replace("\\", "/") for x in tocados]; hechos = []
+    if not any(x.endswith(HTML) or x in VERIF_ACTIVOS or x.startswith(("assets/", "scripts/build-", "data/")) for x in t): return hechos
+    def paso(cmd):
+        if not (wt / cmd[0]).exists(): return
+        if "pagefind" in cmd[0]: enlazar_node_modules(run, wt)
+        rc, o = run(["python", cmd[0], "--check"], str(wt), timeout=300)
+        if rc == 0 or "unrecognized arguments" in o: return  # al dia, o generador sin modo --check (no se ejecuta a ciegas)
+        if run(["python", cmd[0]], str(wt), timeout=600)[0] == 0: hechos.append(cmd[0].split("/")[-1])
+    for x in t:  # primero los generadores tocados: su salida puede cambiar HTML y assets (p. ej. v1-shell.js)
+        if re.fullmatch(r"scripts/build-[\w-]+\.py", x) and [x] not in REGEN: paso([x])
+    if (wt / "scripts/check-asset-versions.py").exists() and (wt / "scripts/bump-asset-version.py").exists():
+        # cada asset rastreado cuyo contenido cambio el parche o su regeneracion (nunca deuda ajena). No vale fiarse del checker: informa de uno
+        # cada vez y el --update-hashes del primer bump registraria el hash de los demas sin subir su ?v= (cache vieja para quien vuelve)
+        # En cascada hasta punto fijo: subir a.js?v= reescribe la referencia dentro de otro asset (v1-shell.js carga v1-editorial-interior-v4.js),
+        # que entonces tambien cambia y necesita su propio ?v=.
+        ya = run(["git", "diff", "HEAD", "--", "scripts/check-asset-versions.py"], str(wt), timeout=60)[1]
+        subidos = set()
+        for _ in range(6):
+            nuestros = [x for x in run(["git", "diff", "--name-only", "HEAD"], str(wt), timeout=60)[1].split() if x.startswith("assets/") or x in VERIF_ACTIVOS]
+            decl = (wt / "scripts/check-asset-versions.py").read_text(encoding="utf-8")
+            nuevo = False
+            for nombre in dict.fromkeys(r.split("/")[-1] for r in nuestros):
+                m = re.search(rf'^\s*"{re.escape(nombre)}":\s*"([^"]+)",', decl, re.M)
+                if nombre in subidos or not m or re.search(rf'^\+\s*"{re.escape(nombre)}":', ya, re.M): continue  # ya subido, no rastreado, o lo subio el parche
+                run(["python", "scripts/bump-asset-version.py", nombre, siguiente_version(m.group(1))], str(wt), timeout=300); hechos.append(f"?v= {nombre}")
+                subidos.add(nombre); nuevo = True
+                decl = (wt / "scripts/check-asset-versions.py").read_text(encoding="utf-8")
+            if not nuevo: break
+    for cmd in REGEN: paso(cmd)
+    return hechos
+
+
+def cambiados(git, wt):
+    """Rutas modificadas o nuevas en el worktree (sin node_modules ni caches)."""
+    rc, o = git("status", "--porcelain", "--untracked-files=all", cwd=wt)
+    return {l[3:].strip().strip('"') for l in o.splitlines() if l.strip() and "__pycache__" not in l and not l[3:].startswith("node_modules")} if rc == 0 else set()
+
+
 GIT_LOCK = __import__("threading").RLock()  # git del repo compartido (fetch/worktree/push) en serie; los tests de cada worktree corren en paralelo
 
 
@@ -235,6 +291,11 @@ class Pr:
             prev = {" ".join(cm): self.run(cm, str(wt), timeout=300)[0] for cm in verificadores(wt, [f["ruta"] for f in norm["ficheros"]])}
             try: tocados = aplicar_parche(wt, norm)
             except ValueError as e: self._marca(c, row, "parche_no_encaja", str(e)); return "parche_no_encaja"
+            previos = cambiados(self.git, wt)
+            self.git("add", "--", *sorted(set(tocados) | set(tests)), cwd=wt)
+            rc, fuente = self.git("write-tree", cwd=wt); fuente = fuente.strip() if rc == 0 else None  # arbol solo con la fuente, antes de regenerar
+            regen = regenerar(self.run, wt, tocados)
+            derivados = cambiados(self.git, wt) - previos if regen else set()
             # 2) tras el parche pasan los tests, los verificadores del repo y no hay cambios fuera de alcance
             crit = (json.loads(row["decision_json"] or "{}") or {}).get("criterio_aceptacion", "")
             rel = self.relacionados(wt, tocados, crit, set(tests))
@@ -245,13 +306,19 @@ class Pr:
                 if rc: self._marca(c, row, "validacion_fallida", f"{' '.join(cmd[1:])} fallo (exit {rc}): {o[-300:]}"); return "validacion_fallida"
                 verif += f"\n- `{' '.join(cmd[1:])}`: OK"
             verif = "Baseline en main: " + ", ".join(f"`{t}` falla (exit {rc})" if rc else f"`{t}` pasa" for t, (rc, _o) in antes) + "\n" + verif
+            if regen: verif += f"\n- Derivados regenerados con los scripts del repo: {', '.join(regen)} ({len(derivados)} ficheros)"
             self.git("add", "-A", cwd=wt)
-            extra = [x for x in self.git("diff", "--cached", "--name-only", cwd=wt)[1].split() if x not in set(tocados) | set(tests) and "__pycache__" not in x and not x.endswith(".pyc")]
+            extra = [x for x in self.git("diff", "--cached", "--name-only", cwd=wt)[1].split() if x not in set(tocados) | set(tests) | derivados and "__pycache__" not in x and not x.endswith(".pyc")]
             if extra: self._marca(c, row, "validacion_fallida", f"cambios fuera de alcance: {', '.join(extra)[:300]}"); return "validacion_fallida"
+            if derivados and flujo(self.q)["modo_pr"] == "lote" and not demo and fuente:
+                # la rama de la correccion lleva solo la fuente: el lote rehace los derivados tras cada cherry-pick (dos correcciones que suben el mismo
+                # ?v= o reindexan pagefind chocarian en el cherry-pick)
+                self.git("read-tree", fuente, cwd=wt)
             if self.git("diff", "--cached", "--quiet", cwd=wt)[0] == 0: self._marca(c, row, "sin_cambios", "el parche no cambia nada"); return "sin_cambios"
             tit = ("[DEMO] " if demo else "") + f"fix(qa-gpt): {row['causa_raiz'][:70]}"
             rc, o = self.git("-c", "user.name=qa-gpt", "-c", "user.email=qa-gpt@users.noreply.github.com", "commit", "-q", "-m", tit + f"\n\nfirma {firma}", cwd=wt)
             if rc: self._marca(c, row, "reintentar", f"commit fallo: {o[-200:]}"); return "reintentar"
+            if derivados: self.git("checkout", "-q", "--", ".", cwd=wt); self.git("clean", "-fdq", "-e", "node_modules", cwd=wt)  # derivados fuera del commit: arbol limpio para el rebase
             if not push: self._marca(c, row, "listo_local", verif); return "listo_local"
             # 3) main no se movio con conflicto mientras validabamos
             self.git("fetch", "origin", "main", timeout=180)
@@ -571,6 +638,8 @@ class Ciclo:
                     if not incl and len(listos) == 1: P._marca(c, row, "conflicto_main", "no se aplica limpio sobre main actual")
                     continue
                 tocados = list(self._archivos_parche(row) | {x for x in P.git("show", "--name-only", "--format=", "HEAD", cwd=wt)[1].split()})
+                if regenerar(P.run, wt, tocados):  # derivados sobre el arbol acumulado; van en el commit de esta correccion (reset HEAD~1 la saca entera)
+                    P.git("add", "-A", cwd=wt); P.git("-c", "user.name=qa-gpt", "-c", "user.email=qa-gpt@users.noreply.github.com", "commit", "-q", "--amend", "--no-edit", cwd=wt)
                 for cmd in verificadores(wt, tocados_all + tocados):
                     rc, o = P.run(cmd, str(wt), timeout=300)
                     if rc:
@@ -647,14 +716,33 @@ class Ciclo:
         except qa_claude.ClaudeError as e: self.out(f"  Claude revision: {str(e)[:120]}"); return None
         return rev
 
+    MAX_DETRAS = 25
+    COMPARTIDO = re.compile(r"^(\.github/|package(-lock)?\.json$|requirements[\w.-]*\.txt$|playwright\.config|scripts/(site_shell|build-site-shell)\.py$|"
+                            r"(qa|tests)/(_|lib/|helpers?[/_.]|conftest)|styles\.css$|script\.js$)")
+
+    def _main_arriesgado(self, v, head):
+        """Sin la regla 'strict' del ruleset, una PR que va por detras de main se fusiona tal cual SOLO si lo nuevo de main no toca sus ficheros
+        ni la infraestructura compartida y no es demasiado. Si lo toca, se actualiza y se repite el CI (lo que antes ocurria siempre: cada fusion
+        reiniciaba el CI de todos los lotes abiertos). -> motivo para actualizar, o None si se puede fusionar ya. Ante la duda, actualizar."""
+        try: n, rutas = self.gh.main_desde(head)
+        except Exception as e: return f"comparacion con main no disponible: {str(e)[-60:]}"
+        if not n: return None
+        mias = {f["path"] for f in v.get("files") or []}
+        if not mias: return "ficheros de la PR desconocidos"
+        if n > self.MAX_DETRAS or len(rutas) >= 300: return f"main lleva {n} commits nuevos"
+        if (choque := sorted(mias & set(rutas))): return "main cambio " + ", ".join(choque[:3])
+        if (comp := [r for r in rutas if self.COMPARTIDO.search(r)]): return "main cambio infraestructura compartida: " + ", ".join(comp[:3])
+        return None
+
     def _integrar(self, c, row, head, v, cfg):
         """Solo en modo 'auto' (calibracion_min opcional) y con GitHub en CLEAN: merge atado al commit revisado. Si la rama va por detras de main se actualiza y el siguiente ciclo la revalida."""
         ig = cfg["integracion"]
         if ig["modo"] != "auto": return
         aciertos = c.execute("SELECT COUNT(*) FROM triaje WHERE integracion='integrada_acierto'").fetchone()[0]
         if aciertos < ig["calibracion_min"]: return
-        if v.get("mergeStateStatus") == "BEHIND":
-            try: self.gh.pr_actualizar(row["pr_numero"]); self.out(f"  PR #{row['pr_numero']} actualizada con main; se revalida")
+        motivo = "BEHIND" if v.get("mergeStateStatus") == "BEHIND" else self._main_arriesgado(v, head)
+        if motivo:
+            try: self.gh.pr_actualizar(row["pr_numero"]); self.out(f"  PR #{row['pr_numero']} actualizada con main ({motivo}); se revalida")
             except Exception as e: self.out(f"  PR #{row['pr_numero']}: no se pudo actualizar ({str(e)[-100:]})")
             return
         if v.get("mergeStateStatus") not in ("CLEAN", "UNSTABLE"): return  # UNSTABLE = solo fallan/pendientes checks no requeridos (el ci ya filtro rojos)

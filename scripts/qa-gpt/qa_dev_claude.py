@@ -11,9 +11,15 @@ import qa_claude
 import qa_pr
 
 ESTADOS = ("validacion_fallida", "parche_no_encaja", "descartada")
+PROBAR = re.sub(r"^([A-Za-z]):", lambda m: "/" + m.group(1).lower(), (Path(__file__).resolve().parent / "qa_probar.py").as_posix())  # /c/...: sin ':' que confunda el patron Bash(...:*)
+CMD_PROBAR = f"python {PROBAR}"
 SISTEMA = ("Eres un desarrollador que corrige un defecto en un sitio web estatico. Trabajas en un checkout de la rama main. Edita SOLO los ficheros "
            "necesarios con la herramienta Edit (cambio minimo, sin refactors, sin tocar tests, workflows, package.json ni scripts/qa-gpt). "
-           "El test que reproduce el defecto ya esta en el repo: leelo para saber que debe cumplirse. No ejecutes nada. Cuando termines responde con el JSON del esquema.")
+           "El test que reproduce el defecto ya esta en el repo: leelo para saber que debe cumplirse. "
+           f"Puedes ejecutar los tests con UN solo comando: `{CMD_PROBAR} <ruta_test> [...]` (rutas relativas). Regenera por ti el indice pagefind, "
+           "el ?v= de los assets y el HTML que producen los generadores scripts/build-*.py, y despues deshace esa regeneracion: no edites a mano "
+           "pagefind/, scripts/asset-version-hashes.json ni los ?v=; si cambias un generador basta con el generador. Ejecuta el test antes de "
+           "responder 'corregido' y no lo des por corregido si sigue fallando. Cuando termines responde con el JSON del esquema.")
 ESQUEMA = {"type": "object", "properties": {"resultado": {"type": "string", "enum": ["corregido", "no_se_puede"]}, "resumen": {"type": "string"}},
            "required": ["resultado", "resumen"], "additionalProperties": False}
 
@@ -44,7 +50,7 @@ def elegible(c, maxi=1):
     """Filas aprobadas con fallo de parche, sin intento previo de Claude y cuyos archivos probables no son rutas prohibidas (esas no se pueden corregir automaticamente)."""
     out = []
     for r in c.execute(f"""SELECT * FROM triaje WHERE decision='corregir' AND clase IN ('defecto_web','test_roto') AND COALESCE(pr_estado,'') IN ({','.join('?' * len(ESTADOS))})
-            AND NOT EXISTS (SELECT 1 FROM claude_llamadas WHERE clave='dev_claude:'||triaje.id) ORDER BY COALESCE(prioridad,'3'), id""", ESTADOS).fetchall():
+            AND NOT EXISTS (SELECT 1 FROM claude_llamadas WHERE clave='dev_claude2:'||triaje.id) ORDER BY COALESCE(prioridad,'3'), id""", ESTADOS).fetchall():
         arch = (json.loads(r["decision_json"] or "{}") or {}).get("archivos") or []
         if any(qa_pr.ruta_segura(a) for a in arch):
             c.execute("UPDATE triaje SET dev_estado='ruta_prohibida',pr_estado='descartada',pr_detalle=?,actualizado=? WHERE id=?",
@@ -56,7 +62,7 @@ def elegible(c, maxi=1):
 
 def desarrollar(q, c, pr, row):
     """-> estado. Reencola la fila a validacion con el parche de Claude, o la deja descartada."""
-    clave = f"dev_claude:{row['id']}"
+    clave = f"dev_claude2:{row['id']}"  # v2: con probador; los intentos v1 (sin poder ejecutar tests) no cuentan
     rama = f"qa-dev/{row['id']}"
     wt = Path(q.STATE) / "pr" / f"qa-dev_{row['id']}"
     try:
@@ -70,7 +76,8 @@ def desarrollar(q, c, pr, row):
         d = json.loads(row["decision_json"] or "{}") or {}
         entrada = (f"CAUSA RAIZ: {row['causa_raiz']}\nCRITERIO DE ACEPTACION: {d.get('criterio_aceptacion', '')}\nTEST QUE REPRODUCE EL DEFECTO: {', '.join(tests)}\n"
                    f"ARCHIVOS PROBABLES: {', '.join(d.get('archivos') or [])}\nFALLO DEL INTENTO ANTERIOR: {(row['pr_detalle'] or '')[:500]}")
-        try: res, _ = qa_claude.llamar(q, c, clave, "desarrollo", SISTEMA, entrada, ESQUEMA, herramientas="Read,Edit,Grep,Glob", cwd=wt, max_turnos=16, esfuerzo="medium", usar_cache=False)
+        try: res, _ = qa_claude.llamar(q, c, clave, "desarrollo", SISTEMA, entrada, ESQUEMA, herramientas=f"Read,Edit,Grep,Glob,Bash({CMD_PROBAR}:*)", cwd=wt,
+                                       max_turnos=30, esfuerzo="medium", usar_cache=False, timeout_s=1200, max_usd=2.0)
         except qa_claude.ClaudeError as e:
             c.execute("UPDATE triaje SET dev_estado='claude_fallo',pr_detalle=?,actualizado=? WHERE id=?", (str(e)[:300], q.now(), row["id"])); c.commit(); return "claude_fallo"
         if res["resultado"] != "corregido":
