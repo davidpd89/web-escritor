@@ -107,8 +107,8 @@ def validate(manifest: dict, book: dict, author: dict, editorial: dict):
         if archive in seen_archives:
             errors.append(f"archivePath duplicado: {archive}")
         seen_archives.add(archive)
-        if item.get("required") and item.get("releaseStatus") not in ALLOWED_RELEASE:
-            errors.append(f"asset obligatorio no autorizado: {item['source']} ({item.get('releaseStatus')})")
+        if item.get("releaseStatus") not in ALLOWED_RELEASE:
+            errors.append(f"asset no autorizado: {item['source']} ({item.get('releaseStatus')})")
         if not source.exists():
             errors.append(f"falta asset: {item['source']}")
 
@@ -131,7 +131,7 @@ def validate(manifest: dict, book: dict, author: dict, editorial: dict):
         ("title", book.get("title"), canon.get("title")),
         ("publisher", book.get("publisher"), canon.get("publisher")),
         ("publicationDate", book.get("publicationDate"), canon.get("publicationDate")),
-        ("numberOfPages", book.get("pages"), canon.get("numberOfPages")),
+        ("numberOfPages", book.get("pages", book.get("manuscriptPages")), canon.get("numberOfPages")),
     ]
     for label, packaged, canonical in comparisons:
         if packaged != canonical:
@@ -140,6 +140,8 @@ def validate(manifest: dict, book: dict, author: dict, editorial: dict):
     if digits(book.get("isbn")) != digits(canon.get("isbn")):
         errors.append("deriva entre press-kit y editorial-facts en ISBN")
     press_price = book.get("priceEUR")
+    if press_price is None:
+        press_price = (book.get("printedRetailPriceCommunicated") or {}).get("value")
     if press_price != canon.get("priceEUR"):
         errors.append(f"deriva entre press-kit y editorial-facts en PVP: {press_price!r} != {canon.get('priceEUR')!r}")
     return errors
