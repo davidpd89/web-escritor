@@ -100,6 +100,11 @@ def publish(source: Path, clone: Path, remote: str, now: datetime | None = None,
     for attempt in (1, 2):
         sync(clone)
         target = clone / REL
+        # Reject symlinks before any read, cadence decision or write.
+        # Inspect each component, including dangling symlinks.
+        for candidate in (clone / Path(REL).parts[0], target):
+            if candidate.is_symlink():
+                raise PublishError(f"refusing symbolic link in publication path: {candidate}")
         old_text = target.read_text(encoding="utf-8") if target.exists() else ""
         if old_text == text:
             return "noop"
