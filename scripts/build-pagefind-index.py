@@ -44,6 +44,16 @@ REGISTRY_PATH = ROOT / "data" / "content-registry.json"
 SRC_DIR = ROOT / ".pagefind-src"
 OUT_DIR = ROOT / "pagefind"
 MANIFEST_NAME = "eligible-manifest.json"
+ARTIFACT_NAMES = ("pagefind.js",)
+
+
+def artifact_hashes(out_dir: Path) -> dict[str, str]:
+    """Hash compiled Pagefind assets without newline normalization."""
+    return {
+        name: hashlib.sha256((out_dir / name).read_bytes()).hexdigest()
+        for name in ARTIFACT_NAMES
+    }
+
 
 # Repeated shell chrome present identically on every page (header, the
 # sitewide Explorar dialog, footer). <nav>/<footer>/<script>/<form> are
@@ -207,6 +217,7 @@ def write_manifest(out_dir: Path, pages: list[str], root: Path) -> None:
         "page_count": len(pages),
         "pages": pages,
         "source_sha256": source_hashes(root, pages),
+        "artifact_sha256": artifact_hashes(out_dir),
     }
     (out_dir / MANIFEST_NAME).write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
@@ -232,12 +243,32 @@ def check(root: Path, out_dir: Path) -> int:
     if not out_dir.exists():
         print(f"FAIL: {out_dir} does not exist -- run `python scripts/build-pagefind-index.py` first.", file=sys.stderr)
         return 1
-    required = ["pagefind.js", MANIFEST_NAME]
+    required = [*ARTIFACT_NAMES, MANIFEST_NAME]
     missing = [name for name in required if not (out_dir / name).exists()]
     if missing:
         print(f"FAIL: {out_dir} is missing required file(s): {', '.join(missing)}", file=sys.stderr)
         return 1
     manifest = json.loads((out_dir / MANIFEST_NAME).read_text(encoding="utf-8"))
+    committed_artifacts = manifest.get("artifact_sha256")
+    if committed_artifacts is None:
+        # Compatibility with existing schema_version=3 manifests. The
+        # committed binary is the immutable baseline until the next build.
+        committed_artifacts = {}
+        for name in ARTIFACT_NAMES:
+            try:
+                original = subprocess.run(
+                    ["git", "show", f"HEAD:pagefind/{name}"],
+                    cwd=root, capture_output=True, check=True,
+                ).stdout
+            except (OSError, subprocess.CalledProcessError):
+                print(f"FAIL: no integrity baseline for {name}.", file=sys.stderr)
+                return 1
+            committed_artifacts[name] = hashlib.sha256(original).hexdigest()
+
+    if not isinstance(committed_artifacts, dict) or committed_artifacts != artifact_hashes(out_dir):
+        print("FAIL: Pagefind compiled artifact integrity mismatch.", file=sys.stderr)
+        return 1
+
     committed_pages = manifest.get("pages", [])
     current_pages = eligible_pages(root)
     if committed_pages != current_pages:
