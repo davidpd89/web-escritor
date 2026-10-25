@@ -38,9 +38,18 @@ SLUG_RE=re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 def fail(msg): raise ValueError(msg)
 def is_https(url):
+    if not isinstance(url, str) or not url.startswith('https://'):
+        return False
+    if any(ch.isspace() or ord(ch) == 127 or ch in '<>\\' for ch in url):
+        return False
     try:
-        p=urlparse(url); return p.scheme=="https" and bool(p.netloc)
-    except Exception: return False
+        p = urlparse(url)
+        return (p.scheme == 'https' and bool(p.netloc) and bool(p.hostname)
+                and p.username is None and p.password is None
+                and '@' not in p.netloc and not p.netloc.endswith(':')
+                and (p.port is None or 1 <= p.port <= 65535))
+    except (ValueError, TypeError):
+        return False
 
 def validate(data):
     if data.get("schema_version")!=1: fail("schema_version debe ser 1")

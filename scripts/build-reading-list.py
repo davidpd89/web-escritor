@@ -46,8 +46,8 @@ def validate(data, today):
             if not url: fail(f'{ident}: falta URL')
             if not isinstance(url, str) or not url.startswith('https://'):
                 fail(f'{ident}: URL debe ser HTTPS')
-            if any(ord(ch) < 32 or ord(ch) == 127 for ch in url):
-                fail(f'{ident}: URL contiene caracteres de control')
+            if any(ch.isspace() or ord(ch) == 127 or ch in '<>\\' for ch in url):
+                fail(f'{ident}: URL contiene caracteres no permitidos')
             try:
                 p=urlparse(url)
                 hostname=p.hostname
@@ -60,7 +60,7 @@ def validate(data, today):
                 fail(f'{ident}: URL debe ser HTTPS válida')
             if username is not None or password is not None or '@' in p.netloc:
                 fail(f'{ident}: URL con credenciales o autoridad ambigua')
-            if any(ch.isspace() for ch in p.netloc) or '\\' in p.netloc:
+            if p.netloc.endswith(':') or (port is not None and not 1 <= port <= 65535):
                 fail(f'{ident}: autoridad URL inválida')
         if kind=='affiliate' and len(disclosure) < 30: fail('Hay afiliación pero falta disclosure suficiente')
         verified=valid_date(raw.get('verified_on'), f'{ident}.verified_on', today)
