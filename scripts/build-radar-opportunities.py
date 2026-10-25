@@ -345,7 +345,7 @@ def render_page_body(items, today, watchlist=None):
       <p class="tool-hero__actions"><a class="button secondary" data-radar-calendar href="/convocatorias-escritores/deadlines.ics" download="convocatorias-escritores.ics">Añadir fechas a mi calendario</a></p>
     </header>
 
-    <noscript><p class="tool-note" role="status">JavaScript está desactivado. La lista completa y sus fuentes siguen visibles, pero los filtros y la búsqueda necesitan JavaScript.</p></noscript>
+    <p class="tool-note" role="status" data-radar-fallback>Los filtros y la búsqueda no están disponibles: necesitan JavaScript y no se ha cargado. La lista completa y sus fuentes siguen visibles.</p>
 
     <section class="tool-finder" aria-label="Filtrar convocatorias">
       <div class="tool-options">
@@ -376,7 +376,7 @@ def render_page_body(items, today, watchlist=None):
   <footer class="site-footer"></footer>
 
   <script defer src="/assets/v1-shell.js?v=24"></script>
-  <script src="/assets/radar-convocatorias.js?v=8" defer></script>
+  <script src="/assets/radar-convocatorias.js?v=8" defer onload="var n=document.querySelector('[data-radar-fallback]');if(n)n.style.display='none'"></script>
 </body>
 </html>'''
 
