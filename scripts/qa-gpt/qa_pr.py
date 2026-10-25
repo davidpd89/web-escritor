@@ -579,6 +579,24 @@ class Ciclo:
                         break
                 else: incl.append(row); tocados_all += tocados
             if not incl: return
+            # Preflight del arbol combinado: todos los tests deben seguir pasando despues
+            # de aplicar los demas parches. Falla localmente sin lanzar CI remota.
+            from qa_lote_preflight import validate_combined
+            while incl:
+                ok, detail = validate_combined(P, c, wt, incl)
+                if ok:
+                    self.out(f"  lote preflight: {detail}")
+                    break
+                if ok is None:
+                    self.out(f"  lote preflight: entorno no disponible; no se envia PR: {detail[:180]}")
+                    return
+                removed = incl.pop()
+                self.out(f"  lote preflight rojo: fuera #{removed['id']} ({detail[:140]})")
+                if P.git("reset", "--hard", "HEAD~1", cwd=wt)[0]:
+                    self.out("  lote preflight: rollback fallo; no se publica PR")
+                    return
+                self._marca(c, removed, "validacion_fallida", f"Fallo de regresion sobre arbol acumulado: {detail[:650]}")
+            if not incl: return
             sha = P.git("rev-parse", "HEAD", cwd=wt)[1].strip()
             # revision agregada de Claude ANTES de abrir la PR: lo dudoso se saca del lote y el CI pesado solo corre sobre contenido ya aprobado
             diff = P.git("diff", "origin/main..HEAD", cwd=wt)[1][:30000]
