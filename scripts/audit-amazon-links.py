@@ -58,7 +58,7 @@ def audit(root: Path, expected: str) -> dict:
     unique_destinations: set[str] = set()
     product_verification_queue: list[dict[str, str]] = []
 
-    def check(source: str, url: str) -> None:
+    def check(source: str, url: str, expected_isbn: str | None = None) -> None:
         p = urlparse(url)
         host = (p.hostname or "").lower()
         if p.scheme != "https" or host not in {"www.amazon.es", "amazon.es", "amzn.to"}:
@@ -83,6 +83,16 @@ def audit(root: Path, expected: str) -> dict:
             counts["author_or_informational"] += 1
             return
         counts[kind] += 1
+        if kind == "isbn_search" and expected_isbn:
+            actual_isbns = params.get("k", [])
+            if actual_isbns != [str(expected_isbn)]:
+                errors.append({
+                    "source": source,
+                    "type": "isbn_search_mismatch",
+                    "url": url,
+                    "expected_isbn": str(expected_isbn),
+                    "actual_isbn": ",".join(actual_isbns) if actual_isbns else "(sin ISBN)",
+                })
         tags = params.get("tag", [])
         if tags != [expected]:
             errors.append({
@@ -119,7 +129,11 @@ def audit(root: Path, expected: str) -> dict:
                 })
             for field in ("amazon_busqueda_isbn", "url_amazon_afiliada"):
                 if b.get(field):
-                    check(source + "." + field, b[field])
+                    check(
+                        source + "." + field,
+                        b[field],
+                        expected_isbn=b.get("isbn13") if field == "amazon_busqueda_isbn" else None,
+                    )
             for option in b.get("formatos_compra", []):
                 url = option.get("url", "")
                 if url:
