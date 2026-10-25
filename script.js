@@ -356,6 +356,7 @@ function fallbackCopy(text, done) {
         if (statusEl) statusEl.textContent = "";
         submitBtn.dataset.submitting = "true";
         submitBtn.disabled = true;
+        const originalLabel = submitBtn.textContent;
         submitBtn.textContent = "Enviando…";
         try {
           const result = await postNewsletter({
@@ -373,7 +374,7 @@ function fallbackCopy(text, done) {
           if (statusEl) statusEl.textContent = newsletterErrorMessage(err.message);
           delete submitBtn.dataset.submitting;
           submitBtn.disabled = false;
-          submitBtn.textContent = "Suscribirme";
+          submitBtn.textContent = originalLabel;
         }
       }, "user-blocking");
     });
