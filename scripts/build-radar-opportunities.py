@@ -7,6 +7,7 @@ import html
 import json
 import math
 import re
+from decimal import Decimal
 from datetime import date, timedelta
 import sys
 from pathlib import Path
@@ -97,8 +98,14 @@ def validate(item):
     if not isinstance(item["published"], bool):
         raise ValueError(f"{item['id']}: published debe ser boolean")
     fee = item["fee_eur"]
-    if fee is not None and (isinstance(fee, bool) or not isinstance(fee, (int, float)) or (isinstance(fee, float) and not math.isfinite(fee)) or fee < 0):
-        raise ValueError(f"{item['id']}: fee_eur debe ser número >= 0 o null cuando la fuente no indica tasa")
+    if fee is not None and (
+        isinstance(fee, bool)
+        or not isinstance(fee, (int, float))
+        or (isinstance(fee, float) and not math.isfinite(fee))
+        or fee < 0
+        or (Decimal(str(fee)) * 100) % 1 != 0
+    ):
+        raise ValueError(f"{item['id']}: fee_eur debe ser número finito >= 0, con precisión de céntimos, o null")
     iso_date(item["deadline"], "deadline")
     iso_date(item["verified_at"], "verified_at")
 
