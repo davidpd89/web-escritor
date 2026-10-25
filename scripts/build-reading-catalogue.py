@@ -558,7 +558,7 @@ def render_hub(data, books, template):
 def render_book(data,b,template):
     canonical=SITE+url(b)
     title=book_title(b)
-    description=synopsis(b)
+    description=b['descripcion_breve']
     cats=categories(data,b)
     upcoming=b in upcoming_books([book for book in data['libros'] if book['estado'] == 'publicado'])
     rows=[('Edición',b['edicion'].split(' · ')[0]),('ISBN-13',b.get('isbn13')),('Idioma',LANGUAGES.get(b.get('idioma'),b.get('idioma')))]
