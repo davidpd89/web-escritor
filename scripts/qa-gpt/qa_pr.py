@@ -506,7 +506,7 @@ class Ciclo:
             sha = P.git("rev-parse", "HEAD", cwd=wt)[1].strip()
             # revision agregada de Claude ANTES de abrir la PR: lo dudoso se saca del lote y el CI pesado solo corre sobre contenido ya aprobado
             diff = P.git("diff", "origin/main..HEAD", cwd=wt)[1][:30000]
-            rev = self._revisar_grupo(c, incl, diff, [], "lote:" + ",".join(str(x["id"]) for x in incl) + "@" + sha[:10])
+            rev = self._revisar_grupo(c, incl, diff, [], "lote:" + ",".join(str(x["id"]) for x in incl) + "@" + sha[:10], ci="aun no ejecutado: aprobacion PRELIMINAR del contenido; el CI y la revision final llegan despues")
             if rev is None: self.out("  lote: revision de Claude no disponible, se reintenta"); return
             malos = set(rev.get("excluir_ids") or []) & {x["id"] for x in incl}
             for row in incl:
@@ -520,8 +520,8 @@ class Ciclo:
             url = self.gh.pr_crear(rama, f"fix(qa-gpt): lote de {len(incl)} correcciones verificadas", cuerpo, borrador=False)
             m = re.search(r"/pull/(\d+)", url or ""); num = int(m.group(1)) if m else 0
             for row in incl:
-                integ = "recomendada" if rev["veredicto"] == "integrar" and rev["cumple_criterio"] and RIESGOS.index(rev["riesgo"]) <= RIESGOS.index(cfg["integracion"]["riesgo_max"]) else ("revisar" if rev["veredicto"] == "integrar" else rev["veredicto"])
-                c.execute("UPDATE triaje SET pr_estado='pr_abierta',pr_url=?,pr_numero=?,pr_nueva=1,pr_head=?,dev_estado='pr_abierta',integracion=?,revision=?,revision_hash=?,actualizado=? WHERE id=?", (url, num, sha, integ, json.dumps(rev, ensure_ascii=False), sha, self.q.now(), row["id"]))
+                integ = "preliminar"  # nunca fusionable: tras el CI verde `revisar` emite la revision final sobre el SHA
+                c.execute("UPDATE triaje SET pr_estado='pr_abierta',pr_url=?,pr_numero=?,pr_nueva=1,pr_head=?,dev_estado='pr_abierta',integracion=?,revision=?,revision_hash=NULL,actualizado=? WHERE id=?", (url, num, sha, integ, json.dumps(rev, ensure_ascii=False), self.q.now(), row["id"]))
             c.commit(); r["lote_pr"] = num; r["lote_correcciones"] = len(incl); self.out(f"  lote: PR #{num} con {len(incl)} correcciones")
         except Interrumpido:
             self.out("  lote interrumpido por parada: se repite al reanudar")
@@ -540,12 +540,12 @@ class Ciclo:
         self.out(f"  Claude revisa PR #{row['pr_numero']}: {rev['veredicto']} (riesgo {rev['riesgo']})")
         return rev
 
-    def _revisar_grupo(self, c, grupo, diff, solapes, clave):
+    def _revisar_grupo(self, c, grupo, diff, solapes, clave, ci="verde"):
         import qa_claude, qa_triaje
         row = grupo[0]; d = qa_triaje._j(row["decision_json"], {}) or {}
         crit = d.get("criterio_aceptacion") if len(grupo) == 1 else [f"[{g['id']}] {(qa_triaje._j(g['decision_json'], {}) or {}).get('criterio_aceptacion')}" for g in grupo]
         causa = row["causa_raiz"] if len(grupo) == 1 else [f"[{g['id']}] {g['causa_raiz']}" for g in grupo]
-        entrada = json.dumps({"causa": causa, "criterio_aceptacion": crit, "ci": "verde", "prioridad": d.get("prioridad"),
+        entrada = json.dumps({"causa": causa, "criterio_aceptacion": crit, "ci": ci, "prioridad": d.get("prioridad"),
                               "solapa_con_prs_abiertas": solapes, "diff": diff}, ensure_ascii=False)
         try: rev, _ = qa_claude.llamar(self.q, c, clave, "revision", SISTEMA_REVISION, entrada, ESQUEMA_REVISION)
         except qa_claude.ClaudeError as e: self.out(f"  Claude revision: {str(e)[:120]}"); return None
