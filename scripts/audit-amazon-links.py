@@ -61,10 +61,17 @@ def audit(root: Path, expected: str) -> dict:
     def check(source: str, url: str, expected_isbn: str | None = None) -> None:
         p = urlparse(url)
         host = (p.hostname or "").lower()
-        if p.scheme != "https" or host not in {"www.amazon.es", "amazon.es", "amzn.to"}:
-            if host.endswith(".amazon.com") or host == "amazon.com":
-                counts["other_market_link"] += 1
-                reviews.append({"source": source, "type": "otro_mercado", "url": url})
+        allowed_hosts = {"www.amazon.es", "amazon.es", "amzn.to"}
+        other_market = host == "amazon.com" or host.endswith(".amazon.com")
+        amazon_like = bool(re.search(r"(?:^|[.])amazon[.]|(?:^|[.])amzn[.]", host))
+        if other_market:
+            counts["other_market_link"] += 1
+            reviews.append({"source": source, "type": "otro_mercado", "url": url})
+            return
+        if not amazon_like:
+            return
+        if p.scheme != "https" or host not in allowed_hosts or p.username is not None or p.password is not None or p.port not in (None, 443):
+            errors.append({"source": source, "type": "unsafe_amazon_destination", "url": url})
             return
         unique_destinations.add(url)
         if host == "amzn.to":
@@ -107,7 +114,10 @@ def audit(root: Path, expected: str) -> dict:
         parser = Anchors()
         parser.feed(path.read_text(encoding="utf-8", errors="replace"))
         for url in parser.links:
-            check(relative, url)
+            if urlparse(url).scheme.lower() in {"javascript", "data", "vbscript"}:
+                errors.append({"source": relative, "type": "unsafe_executable_destination", "url": url})
+            else:
+                check(relative, url)
 
     catalogue_path = root / "data/reading-catalogue.json"
     if catalogue_path.is_file():
