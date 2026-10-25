@@ -111,6 +111,13 @@ self.addEventListener("fetch", (event) => {
   const { request } = event;
   if (!isSameOriginGet(request)) return;
 
+  // Explicit no-store requests must bypass CacheStorage entirely.
+  // Preserve the network response and rejection without stale fallback.
+  if (request.cache === "no-store") {
+    event.respondWith(fetch(request));
+    return;
+  }
+
   const url = new URL(request.url);
 
   // API responses are never owned by the PWA cache. This includes assistant
