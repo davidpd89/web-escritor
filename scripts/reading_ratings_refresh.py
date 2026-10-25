@@ -222,6 +222,17 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
         raise ValueError("El presupuesto debe estar entre 0 y 100 llamadas")
     if source not in {"google_books", "hardcover", "goodreads"}:
         raise ValueError("Origen de valoración desconocido")
+    # Validate catalogue identity before querying providers or merging ratings.
+    seen_book_ids = {}
+    for book in catalogue.get("libros", []):
+        book_id = book.get("id")
+        raw_isbn = str(book.get("isbn13") or "").replace("-", "").replace(" ", "").strip()
+        book_isbn = isbn13(raw_isbn) or raw_isbn
+        if book_id in seen_book_ids and seen_book_ids[book_id] != book_isbn:
+            raise ValueError(
+                f"Identificador editorial duplicado con ISBN diferentes: {book_id!r}"
+            )
+        seen_book_ids[book_id] = book_isbn
     others = [r for r in existing.get("ratings", [])
               if r.get("fuente", "goodreads") != source]
     old_source = {r.get("libro_id"): r for r in existing.get("ratings", [])
