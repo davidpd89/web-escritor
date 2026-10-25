@@ -14,7 +14,7 @@ from html.parser import HTMLParser
 from decimal import Decimal, InvalidOperation
 from urllib.parse import urljoin, urlsplit
 
-from reading_editorial_sources import SourceError, editorial_excerpt
+from reading_editorial_sources import SourceError, allowed_url, editorial_excerpt
 from reading_intake_core import isbn13, normalize_text
 from reading_taxonomy import keyword_list
 
@@ -154,6 +154,7 @@ def planeta_edition(document: str, source: str) -> dict:
     for m in re.finditer(r'<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>', block, re.S):
         url = urljoin(source, html.unescape(m.group(1)))
         if urlsplit(url).hostname == HOST and AUTHOR_PATH.fullmatch(urlsplit(url).path) and _text(m.group(2)) in authors:
+            allowed_url(url, (HOST,))
             author_sources.setdefault(_text(m.group(2)), url)
     if any(author not in author_sources for author in authors):
         raise SourceError('Falta perfil oficial de Planeta para la autoría')
