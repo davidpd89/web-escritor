@@ -20,6 +20,7 @@ import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlsplit
 
 DOMAIN = "https://davidportodiaz.com"
 NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -126,25 +127,39 @@ def normalize_lastmod(value: str | None) -> str | None:
 
 
 def normalize_canonical(canonical: str | None, root: Path, path: Path) -> str | None:
-    if canonical:
+    if canonical is not None:
+        if not canonical or any(ord(char) <= 32 or ord(char) == 127 for char in canonical):
+            return None
+        if "\\" in canonical or "<" in canonical or ">" in canonical:
+            return None
         if canonical.startswith("//"):
             canonical = "https:" + canonical
-        if canonical.startswith("http://"):
-            canonical = "https://" + canonical[len("http://") :]
-        if canonical.startswith("https://"):
-            if not canonical.startswith(DOMAIN):
+        elif canonical.startswith("/"):
+            canonical = DOMAIN + canonical
+        try:
+            parsed = urlsplit(canonical)
+            if parsed.scheme.lower() not in ("http", "https"):
                 return None
-            return canonical.rstrip("/") + ("/" if canonical.endswith("/") else "")
-        if canonical.startswith("/"):
-            return (DOMAIN + canonical).rstrip("/") + ("/" if canonical.endswith("/") else "")
+            if parsed.hostname != "davidportodiaz.com":
+                return None
+            if parsed.username is not None or parsed.password is not None:
+                return None
+            if parsed.port is not None or parsed.query or parsed.fragment:
+                return None
+            if parsed.netloc.lower() != "davidportodiaz.com":
+                return None
+            normalized_path = parsed.path or "/"
+            if not normalized_path.startswith("/") or normalized_path.startswith("//"):
+                return None
+            return DOMAIN + normalized_path
+        except ValueError:
+            return None
 
     rel = "/" + str(path.relative_to(root)).replace("\\", "/")
     if rel.endswith("/index.html"):
         rel = rel[: -len("index.html")] or "/"
     elif rel.endswith(".html"):
         rel = rel[:-5]
-    if not rel.endswith("/") and rel != "/":
-        pass
     return DOMAIN + rel if rel != "/" else DOMAIN + "/"
 
 
