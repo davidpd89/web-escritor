@@ -230,7 +230,7 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editorial
 }
 html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-input,
 html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-select{
-  border-color:var(--directory-rule);background:#fff;color:var(--directory-ink);border-radius:0
+  border-color:var(--directory-rule);background:#fff;color:var(--directory-ink);border-radius:0;font-size:1rem
 }
 html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-input:focus,
 html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-select:focus{
