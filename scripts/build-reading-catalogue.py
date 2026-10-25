@@ -560,7 +560,7 @@ def render_book(data,b,template):
     title=book_title(b)
     description=synopsis(b)
     cats=categories(data,b)
-    upcoming=b in upcoming_books(data['libros'])
+    upcoming=b in upcoming_books([book for book in data['libros'] if book['estado'] == 'publicado'])
     rows=[('Edición',b['edicion'].split(' · ')[0]),('ISBN-13',b.get('isbn13')),('Idioma',LANGUAGES.get(b.get('idioma'),b.get('idioma')))]
     details='<details class="catalogue-details"><summary>Más datos de la edición</summary><dl>'+''.join(f'<dt>{esc(k)}</dt><dd>{esc(v)}</dd>' for k,v in rows if v)+'</dl></details>'
     fragment=''  # Audio and samples are not rendered until all editions can support them.
