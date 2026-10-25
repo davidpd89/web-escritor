@@ -1,4 +1,17 @@
 /* Professional resources V1 — publisher directory as an editorial ledger. */
+/* Minimum touch targets for publisher details on narrow screens. */
+@media (max-width:600px){
+  html.v1 main#contenido > .book-breadcrumb a,
+  html.v1 main#contenido .spec-ledger a[href^="mailto:"]{
+    display:inline-flex;
+    align-items:center;
+    min-height:24px;
+    min-width:24px;
+    max-width:100%;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+}
 html.v1 .editorial-card[hidden]{display:none}
 html.v1 [data-editoriales-directory] .id-cards{display:block;border-top:1px solid var(--color-border)}
 html.v1 [data-editoriales-directory] .editorial-card{margin:0;padding:1.35rem 0;border:0;border-bottom:1px solid var(--color-border);border-radius:0;box-shadow:none;background:transparent}
