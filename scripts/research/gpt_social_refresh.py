@@ -62,7 +62,7 @@ def acquire_lock() -> Path | None:
         except FileExistsError:
             try:
                 pid = int(path.read_text() or 0)
-                stale = not _pid_alive(pid) or time.time() - path.stat().st_mtime > STALE_LOCK_SECONDS
+                stale = not _pid_alive(pid)
             except (OSError, ValueError):
                 stale = True
             if not stale:
