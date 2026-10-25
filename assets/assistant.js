@@ -241,7 +241,11 @@ function sourcesById(sourceIds, registry) {
 }
 
 function createSourceLinks(sources) {
-  const safe = (sources || []).filter((source) => isSafeInternalPath(source.url)).slice(0, 4);
+  const seenUrls = new Set();
+  const safe = (sources || [])
+    .filter((source) => isSafeInternalPath(source.url))
+    .filter((source) => (seenUrls.has(source.url) ? false : (seenUrls.add(source.url), true)))
+    .slice(0, 4);
   if (!safe.length) return null;
   const nav = document.createElement("nav");
   nav.className = "assistant-message__sources";

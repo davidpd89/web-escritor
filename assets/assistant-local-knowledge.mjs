@@ -313,7 +313,7 @@ export function resolveLocalAnswer(query, context = {}) {
     return result(
       "fragment-choice",
       "Sí. ¿Quieres leer «Las manecillas del recuerdo» o el primer capítulo de «Samuel entre mundos»?",
-      ["work-manecillas-fragments", "samuel-fragment"],
+      [],
       {
         pending: "fragment-choice",
         suggestions: [
