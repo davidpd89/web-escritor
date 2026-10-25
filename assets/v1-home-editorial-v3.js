@@ -302,6 +302,14 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     document.body.append(button);
   }
 
+  function setAltCoverSrc(img, src) {
+    let seen = false;
+    try { seen = sessionStorage.getItem('dp-intro-seen') === '1'; } catch (e) {}
+    if (seen || src.indexOf('manecillas-del-recuerdo-3d-transparent') < 0) { img.src = src; return; }
+    const go = () => setTimeout(() => { img.src = src; }, 3000);
+    if (document.readyState === 'complete') go(); else addEventListener('load', go, { once: true });
+  }
+
   function createYaleHero() {
     const section = make('section', 'yale-home-issue');
     section.setAttribute('aria-labelledby', 'yale-home-title');
@@ -318,7 +326,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     media.href = '/las-manecillas-del-recuerdo/';
     media.setAttribute('aria-label', 'Las manecillas del recuerdo');
     const image = new Image();
-    image.src = '/assets/manecillas-del-recuerdo-3d-transparent.webp';
+    setAltCoverSrc(image, '/assets/manecillas-del-recuerdo-3d-transparent.webp');
     image.alt = 'Portada de Las manecillas del recuerdo';
     image.width = 700;
     image.height = 982;
@@ -398,7 +406,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
       media.href = href;
       media.setAttribute('aria-label', cardTitle);
       const img = new Image();
-      img.src = src;
+      setAltCoverSrc(img, src);
       img.alt = cardTitle;
       img.width = srcWidth;
       img.height = srcHeight;
