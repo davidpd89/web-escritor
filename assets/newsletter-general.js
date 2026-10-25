@@ -124,7 +124,15 @@
           if (!result.ok || result.state !== 'pending_confirmation') {
             throw new Error(result.code || 'request_failed');
           }
-          form.innerHTML = '<p class="quiz-subscribe-ok">✓ ' + PENDING_COPY[source] + '</p>';
+          if (status) {
+            Array.from(form.children).forEach((child) => {
+              if (child !== status && !child.contains(status)) child.remove();
+            });
+            status.classList.add('quiz-subscribe-ok');
+            status.textContent = '✓ ' + PENDING_COPY[source];
+          } else {
+            form.innerHTML = '<p class="quiz-subscribe-ok">✓ ' + PENDING_COPY[source] + '</p>';
+          }
           if (typeof window._gcEvent === 'function') {
             window._gcEvent('newsletter-pending-' + source, 'Newsletter DOI pendiente: ' + source);
           }
