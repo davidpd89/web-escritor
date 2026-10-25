@@ -337,16 +337,22 @@ def _calendar_links(html_text: str) -> set[str]:
 def expected_calendars(html_text: str, *, as_of: date | datetime | None = None) -> tuple[dict[str, bytes], list[str]]:
     expected: dict[str, bytes] = {}
     errors: list[str] = []
+    seen_event_ids: set[str] = set()
     links = _calendar_links(html_text)
     if as_of is None:
         as_of = datetime.now(timezone.utc)
     for event in extract_events(html_text):
         if event.get("eventStatus") != EVENT_SCHEDULED:
             continue
-        if not is_upcoming(event, as_of=as_of):
-            continue
         try:
             fragment = _event_fragment(event)
+            event_id = event["@id"]
+            if event_id in seen_event_ids:
+                errors.append(f"identificador de evento duplicado: {event_id}")
+                continue
+            seen_event_ids.add(event_id)
+            if not is_upcoming(event, as_of=as_of):
+                continue
             filename = f"{fragment}.ics"
             href = f"/assets/events/calendar/{filename}"
             if filename in expected:
