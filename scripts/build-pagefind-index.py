@@ -83,7 +83,15 @@ def load_registry_by_source(root: Path) -> dict[str, dict]:
     for entry in raw.get("entries", []):
         source = entry.get("sourceFile")
         if source:
-            by_source[source] = {**defaults, **entry}
+            current = {**defaults, **entry}
+            previous = by_source.get(source)
+            if previous is not None:
+                current = {**previous, **current}
+                if previous.get("status", "public") != "public" or current.get("status", "public") != "public":
+                    current["status"] = "private"
+                if previous.get("searchIndex", True) is False or current.get("searchIndex", True) is False:
+                    current["searchIndex"] = False
+            by_source[source] = current
     return by_source
 
 
