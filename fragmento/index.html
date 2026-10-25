@@ -468,7 +468,7 @@
     var cta = document.getElementById('sticky-cta');
     var closeBtn = document.getElementById('sticky-cta-close');
     var dismissed = sessionStorage.getItem('sticky-cta-dismissed') === '1';
-    var shown = false;
+
 
     function thresholds() {
       var total = document.body.scrollHeight - window.innerHeight;
@@ -481,7 +481,7 @@
         var y = window.scrollY;
         var t = thresholds();
         if (y >= t.show && y < t.hide) {
-          if (!shown) { cta.classList.add('visible'); shown = true; }
+          cta.classList.add('visible');
         } else {
           cta.classList.remove('visible');
         }
