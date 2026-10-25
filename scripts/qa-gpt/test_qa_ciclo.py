@@ -344,18 +344,26 @@ class PrFlujo(T.Base):
         gh.runs = lambda wf, rama: []; ci._freno_t = 0
         self.assertIsNone(ci._freno_main())  # la auditoria nunca llego: a los 45 min se reanuda solo
 
-    def test_freno_rojo_relanza_una_vez_el_run_fallido(self):
-        self.montar(); gh = self.GhCiclo(); relanzados = []; gh.rerun_fallidos = relanzados.append
+    def test_freno_rojo_relanza_una_vez_y_despues_no_bloquea(self):
+        self.montar(); gh = self.GhCiclo(); relanzados = []; gh.rerun_fallidos = relanzados.append; encargados = []
         gh.runs = lambda wf, rama: [{"status": "completed", "conclusion": "failure", "headSha": "deadbeef00", "databaseId": 77, "attempt": 1}]
-        ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0})
-        self.assertIn("en rojo", ci._freno_main()); ci._freno_t = 0; ci._freno_main()
-        self.assertEqual(sorted(set(relanzados)), [77]); self.assertEqual(len(relanzados), 1)  # una sola vez aunque se consulte de nuevo
-        ci2 = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0}); ci2._freno_main()
-        self.assertEqual(len(relanzados), 1)  # ni tras reiniciar EJECUTAR (marca en disco)
+        ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0}); ci._encargar_main = lambda wf, run: encargados.append(run["databaseId"])
+        self.assertIn("en rojo", ci._freno_main())  # 1a vez: se relanza y se espera ese relanzamiento
+        ci._freno_t = 0; self.assertIsNone(ci._freno_main())  # ya relanzado: rojo confirmado, sin bloqueo
+        self.assertEqual(relanzados, [77]); self.assertIn(77, encargados)
+        ci2 = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0}); ci2._encargar_main = lambda wf, run: encargados.append(run["databaseId"])
+        self.assertIsNone(ci2._freno_main()); self.assertEqual(relanzados, [77])  # tras reiniciar EJECUTAR: ni relanza otra vez ni bloquea
         gh.runs = lambda wf, rama: [{"status": "completed", "conclusion": "failure", "headSha": "deadbeef00", "databaseId": 78, "attempt": 2}]
-        encargados = []; ci2._encargar_main = lambda wf, run: encargados.append(run["databaseId"])
-        ci2._freno_t = 0; self.assertIsNone(ci2._freno_main())  # rojo confirmado tras relanzar: sin bloqueo...
-        self.assertEqual(len(relanzados), 1); self.assertIn(78, encargados)  # ...y la correccion de main se encarga a Claude
+        ci2._freno_t = 0; self.assertIsNone(ci2._freno_main()); self.assertIn(78, encargados)  # relanzado en GitHub y rojo: Claude, sin bloqueo
+
+    def test_encargo_de_main_una_vez_aunque_se_reinicie(self):
+        import qa_supervisor; self.montar(); gh = self.GhCiclo(); hechas = []; orig = qa_supervisor.Supervisor.reparar_main
+        qa_supervisor.Supervisor.reparar_main = lambda self_, rid, log: hechas.append(rid); self.addCleanup(lambda: setattr(qa_supervisor.Supervisor, "reparar_main", orig))
+        for _ in range(2):
+            ci = self.ciclo(gh); ci._encargar_main("wf", {"databaseId": 90})
+            import threading, time
+            for h in [t for t in threading.enumerate() if t.name == "main-90"]: h.join(5)
+        self.assertEqual(hechas, [90])  # marca en disco: un reinicio no abre una PR duplicada
 
     def test_sin_strict_main_toca_sus_ficheros_o_infra_compartida_actualiza(self):
         gh = self.GhCiclo(); ci = self.ciclo(gh); v = gh.pr_ver(1)

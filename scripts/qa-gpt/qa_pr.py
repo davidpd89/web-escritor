@@ -879,12 +879,11 @@ class Ciclo:
             except Exception: continue
             hechos = [x for x in runs if x.get("status") == "completed" and x.get("conclusion") != "skipped"]
             if hechos and hechos[0].get("conclusion") not in ("success", "neutral"):
-                if (hechos[0].get("attempt") or 1) > 1:
+                if (hechos[0].get("attempt") or 1) > 1 or self._relanzar_rojo(wf, hechos[0]) is False:
                     # rojo confirmado tras relanzar: NO se bloquea (el usuario no quiere bloqueos). Claude corrige main en una PR con auto-merge
                     # (qa_supervisor.reparar_main) y el flujo sigue fusionando; cada lote tiene su propia CI completa.
                     self._encargar_main(wf, hechos[0]); continue
-                self._freno = f"freno: '{wf}' en rojo en main ({hechos[0].get('headSha', '')[:8]}); se relanza una vez antes de seguir"
-                self._relanzar_rojo(wf, hechos[0]); return self._freno
+                self._freno = f"freno: '{wf}' en rojo en main ({hechos[0].get('headSha', '')[:8]}); relanzado una vez antes de seguir"; return self._freno
             # la ultima fusion del sistema aun no tiene su auditoria post-despliegue terminada: no se apila otra encima sin verificar
             if ultima and not any(x.get("createdAt", "") >= ultima["utc"] for x in hechos): espera = True
         if espera:
@@ -896,24 +895,30 @@ class Ciclo:
         """Sin fusiones no hay despliegue ni auditoria nueva: un rojo intermitente en main congelaba el flujo para siempre (#859 y #865 parados
         el 2026-10-25). Se relanzan UNA vez los jobs fallidos de ese run; un rojo real vuelve a salir rojo y el freno sigue."""
         rid = run.get("databaseId")
-        if not rid or (run.get("attempt") or 1) > 1: return
+        if not rid: return None  # sin id no se puede relanzar ni seguir: freno conservador
+        if (run.get("attempt") or 1) > 1: return False
         marca = Path(self.q.STATE) / "lote" / "relanzados.json"
         try: hechos = set(json.loads(marca.read_text(encoding="utf-8")))
         except (OSError, ValueError): hechos = set()
-        if rid in hechos or not hasattr(self.gh, "rerun_fallidos"): return
+        if rid in hechos or not hasattr(self.gh, "rerun_fallidos"): return False  # ya relanzado (o imposible): no se espera mas, rojo confirmado
         try: self.gh.rerun_fallidos(rid)
-        except Exception as e: self.out(f"  freno: no se pudo relanzar '{wf}' run {rid} ({str(e)[:80]})"); return
+        except Exception as e: self.out(f"  freno: no se pudo relanzar '{wf}' run {rid} ({str(e)[:80]})"); return False
         hechos.add(rid)
         try: marca.parent.mkdir(parents=True, exist_ok=True); marca.write_text(json.dumps(sorted(hechos)[-200:]), encoding="utf-8")
         except OSError: pass
         self.out(f"  freno: '{wf}' en rojo en main; se relanzan una vez sus jobs fallidos (run {rid}) para descartar un fallo intermitente")
+        return True
 
     def _encargar_main(self, wf, run):
         """Una vez por run: Claude corrige el rojo de main en segundo plano (no retiene el ciclo)."""
         rid = run.get("databaseId")
-        hechos = getattr(Ciclo, "_main_encargados", set())
+        marca = Path(self.q.STATE) / "lote" / "main_encargados.json"  # en disco: reiniciar EJECUTAR no debe abrir una PR duplicada
+        try: hechos = set(json.loads(marca.read_text(encoding="utf-8")))
+        except (OSError, ValueError): hechos = set()
         if not rid or rid in hechos: return
-        hechos.add(rid); Ciclo._main_encargados = hechos
+        hechos.add(rid)
+        try: marca.parent.mkdir(parents=True, exist_ok=True); marca.write_text(json.dumps(sorted(hechos)[-200:]), encoding="utf-8")
+        except OSError: pass
         self.out(f"  '{wf}' sigue en rojo en main tras relanzar (run {rid}): Claude lo corrige en una PR aparte; las fusiones continuan")
         def tarea():
             try:
