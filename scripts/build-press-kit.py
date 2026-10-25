@@ -7,6 +7,8 @@ from hashlib import sha256
 from pathlib import Path, PurePosixPath
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 import json
+import math
+import re
 import sys
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -53,7 +55,7 @@ def normalized_json_bytes(obj) -> bytes:
 def make_readme(book: dict, author: dict, manifest: dict) -> bytes:
     genres = ", ".join(book.get("genres", []))
     lines = [
-        "KIT DE PRENSA — DAVID PORTO DÍAZ / LAS MANECILLAS DEL RECUERDO",
+        "KIT DE PRENSA — DAVID PORTO D\u00cdAZ / LAS MANECILLAS DEL RECUERDO",
         "=" * 67,
         "",
         f"Autor: {author.get('name', '')}",
@@ -94,6 +96,33 @@ def make_readme(book: dict, author: dict, manifest: dict) -> bytes:
     return "\n".join(lines).encode("utf-8")
 
 
+def valid_isbn(value):
+    if not isinstance(value, str):
+        return False
+    if not re.fullmatch(r'[0-9Xx -]+', value, flags=re.ASCII):
+        return False
+    if not re.fullmatch(r'[0-9Xx]+(?:[- ][0-9Xx]+)*', value, flags=re.ASCII):
+        return False
+    code = value.replace('-', '').replace(' ', '').upper()
+    if len(code) == 10:
+        if not re.fullmatch(r'[0-9]{9}[0-9X]', code, flags=re.ASCII):
+            return False
+        return sum((10 - i) * (10 if ch == 'X' else int(ch)) for i, ch in enumerate(code)) % 11 == 0
+    if len(code) == 13 and code.isascii() and code.isdecimal():
+        return sum(int(ch) * (1 if i % 2 == 0 else 3) for i, ch in enumerate(code)) % 10 == 0
+    return False
+
+
+def valid_price(value):
+    return (type(value) in (int, float)
+            and math.isfinite(value)
+            and value >= 0)
+
+
+def valid_pages(value):
+    return type(value) is int and value > 0
+
+
 def validate(manifest: dict, book: dict, author: dict, editorial: dict):
     errors = []
     incident = editorial.get("knownEditorialIncident", {})
@@ -127,6 +156,17 @@ def validate(manifest: dict, book: dict, author: dict, editorial: dict):
         errors.append("faltan hechos mínimos del autor/contacto")
 
     canon = editorial.get("books", {}).get("lasManecillasDelRecuerdo", {})
+    for source, facts, pages_key in (
+        ('press-kit', book, 'pages'),
+        ('editorial-facts', canon, 'numberOfPages'),
+    ):
+        if not valid_pages(facts.get(pages_key)):
+            errors.append(f'{source}: paginas invalidas: {facts.get(pages_key)!r}')
+        if not valid_price(facts.get('priceEUR')):
+            errors.append(f'{source}: PVP invalido: {facts.get("priceEUR")!r}')
+        if not valid_isbn(facts.get('isbn')):
+            errors.append(f'{source}: ISBN invalido: {facts.get("isbn")!r}')
+
     comparisons = [
         ("title", book.get("title"), canon.get("title")),
         ("publisher", book.get("publisher"), canon.get("publisher")),
