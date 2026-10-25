@@ -42,6 +42,7 @@ export function isValidAssistantResponse(payload) {
   const markers = [...payload.answer.matchAll(/\[([a-z0-9][a-z0-9-]{0,80})\]/gi)].map((match) => match[1]);
   if (!payload.abstained && markers.length === 0) return false;
   if (markers.some((id) => !ids.has(id))) return false;
+  if (!payload.abstained && new Set(markers).size !== ids.size) return false;
   return true;
 }
 
