@@ -102,8 +102,8 @@ def derive_changed_urls(
 
 def validate_url(url: str) -> None:
     parts = urlsplit(url)
-    if parts.scheme != "https" or parts.hostname != HOST:
-        raise ValueError(f"IndexNow URL must be HTTPS on {HOST}: {url}")
+    if parts.scheme != "https" or parts.netloc != HOST:
+        raise ValueError(f"IndexNow URL must be HTTPS on {HOST} without credentials or explicit ports: {url}")
     if parts.fragment:
         raise ValueError(f"IndexNow URL must not contain fragments: {url}")
 
