@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+const source=await fs.readFile(new URL('../assets/newsletter-general.js',import.meta.url),'utf8');
+assert.match(source,/querySelector\('\[role="status"\]'\)/);
+assert.match(source,/submit\.disabled\s*=\s*true/);
+assert.match(source,/submit\.disabled\s*=\s*false/);
+assert.match(source,/submit\.textContent\s*=\s*originalText/);
+assert.match(source,/delete submit\.dataset\.submitting/);
+assert.match(source,/email\?\.focus\(\{ preventScroll: true \}\)/);
+assert.match(source,/status\.textContent\s*=\s*errorMessage/);
+assert.doesNotMatch(source,/window\.alert\s*\(/);
+console.log('newsletter general accessibility: OK');

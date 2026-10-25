@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+const popup=await fs.readFile(new URL('../assets/newsletter-popup.js',import.meta.url),'utf8');
+const privacy=await fs.readFile(new URL('../privacidad.html',import.meta.url),'utf8');
+assert.match(popup,/href=\\?"\/privacidad\.html\\?"/);
+assert.match(popup,/política de privacidad/i);
+assert.doesNotMatch(popup,/nl-popup-gdpr/);
+assert.doesNotMatch(popup,/target=\\?"_blank\\?"[^\n]*privacidad/);
+assert.match(privacy,/<main\b/i,'La página legal debe disponer de contenido principal');
+assert.match(privacy,/<title>Política de privacidad/);
+console.log('newsletter popup privacy navigation: OK');

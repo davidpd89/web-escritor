@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+const general=await fs.readFile(new URL('../assets/newsletter-general.js',import.meta.url),'utf8');
+const thanks=await fs.readFile(new URL('../gracias-suscripcion/index.html',import.meta.url),'utf8');
+assert.doesNotMatch(general,/localStorage\s*\.\s*setItem\s*\(/,'El cliente general no debe persistir una confirmación');
+assert.doesNotMatch(general,/sessionStorage\s*\.\s*setItem\s*\(/);
+assert.match(general,/pending_confirmation/);
+assert.match(thanks,/localStorage\.setItem\("nl-subscribed",\s*"1"\)/);
+assert.match(thanks,/<meta\s+name="robots"\s+content="noindex, follow"/);
+console.log('newsletter general storage boundary: OK');
