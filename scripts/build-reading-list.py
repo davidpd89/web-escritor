@@ -43,8 +43,24 @@ def validate(data, today):
         if kind=='none' and url: fail(f'{ident}: link_kind none no admite URL')
         if kind!='none':
             if not url: fail(f'{ident}: falta URL')
-            p=urlparse(url)
-            if p.scheme!='https' or not p.netloc: fail(f'{ident}: URL debe ser HTTPS')
+            if not isinstance(url, str) or not url.startswith('https://'):
+                fail(f'{ident}: URL debe ser HTTPS')
+            if any(ord(ch) < 32 or ord(ch) == 127 for ch in url):
+                fail(f'{ident}: URL contiene caracteres de control')
+            try:
+                p=urlparse(url)
+                hostname=p.hostname
+                port=p.port
+                username=p.username
+                password=p.password
+            except ValueError:
+                fail(f'{ident}: URL mal formada')
+            if p.scheme != 'https' or not p.netloc or not hostname:
+                fail(f'{ident}: URL debe ser HTTPS válida')
+            if username is not None or password is not None or '@' in p.netloc:
+                fail(f'{ident}: URL con credenciales o autoridad ambigua')
+            if any(ch.isspace() for ch in p.netloc) or '\\' in p.netloc:
+                fail(f'{ident}: autoridad URL inválida')
         if kind=='affiliate' and len(disclosure) < 30: fail('Hay afiliación pero falta disclosure suficiente')
         verified=valid_date(raw.get('verified_on'), f'{ident}.verified_on', today)
         if kind!='none' and not verified: fail(f'{ident}: enlace sin verified_on')

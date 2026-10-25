@@ -73,6 +73,19 @@ def parse_items(section_text: str) -> list[dict[str, str]]:
     return items
 
 
+def unparsed_item_errors(section_text: str, heading: str) -> list[str]:
+    """Detecta viñetas editoriales que el parser descartaría silenciosamente."""
+    errors = []
+    for line_number, line in enumerate(section_text.splitlines(), start=1):
+        stripped = line.strip()
+        if re.match(r"^-\s+", stripped) and not ITEM_RE.fullmatch(stripped):
+            errors.append(
+                f"{heading}: viñeta con formato inválido "
+                f"(línea relativa {line_number}): {stripped}"
+            )
+    return errors
+
+
 def validate(path: Path) -> list[str]:
     errors: list[str] = []
     text = Path(path).read_text(encoding="utf-8")
@@ -98,7 +111,9 @@ def validate(path: Path) -> list[str]:
         if "[[pendiente" in text.lower():
             errors.append("Publicado con marcadores [[pendiente]]")
 
-        milestones = parse_items(section(body, "Hitos verificados del año"))
+        milestone_section = section(body, "Hitos verificados del año")
+        errors.extend(unparsed_item_errors(milestone_section, "Hitos verificados del año"))
+        milestones = parse_items(milestone_section)
         for item in milestones:
             if item["tag"] not in MILESTONE_TAGS:
                 errors.append(f"Hito con etiqueta desconocida: {item['tag']!r}")
@@ -108,7 +123,9 @@ def validate(path: Path) -> list[str]:
             elif item["tag"] == "verified" and (not item["source"] or is_pending(item["source"])):
                 errors.append(f"Hito verificado sin fuente: {item['text']}")
 
-        forecasts = parse_items(section(body, "Previsiones"))
+        forecast_section = section(body, "Previsiones")
+        errors.extend(unparsed_item_errors(forecast_section, "Previsiones"))
+        forecasts = parse_items(forecast_section)
         for item in forecasts:
             if item["tag"] not in FORECAST_CERTAINTY:
                 errors.append(f"Previsión sin clasificar como confirmed/target/aspiration: {item['text']}")

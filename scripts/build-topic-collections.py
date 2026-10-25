@@ -16,6 +16,7 @@ import html
 import json
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -85,6 +86,12 @@ def validate(data: dict) -> list[dict]:
             raise ValidationError(f"{slug}: mode desconocido {coll['mode']!r}")
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", coll["updated"]):
             raise ValidationError(f"{slug}: updated debe ser AAAA-MM-DD")
+        try:
+            date.fromisoformat(coll["updated"])
+        except ValueError as exc:
+            raise ValidationError(
+                f"{slug}: updated contiene una fecha inexistente: {coll['updated']!r}"
+            ) from exc
 
         items = coll.get("items")
         if not isinstance(items, list) or not items:
