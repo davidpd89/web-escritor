@@ -124,7 +124,16 @@
           if (!result.ok || result.state !== 'pending_confirmation') {
             throw new Error(result.code || 'request_failed');
           }
-          form.innerHTML = '<p class="quiz-subscribe-ok">✓ ' + PENDING_COPY[source] + '</p>';
+          if (status) {
+            Array.from(form.children).forEach((child) => {
+              if (child !== status) child.hidden = true;
+            });
+            status.classList.add('quiz-subscribe-ok');
+            status.setAttribute('aria-atomic', 'true');
+            status.tabIndex = -1;
+            status.textContent = '✓ ' + PENDING_COPY[source];
+            status.focus({ preventScroll: true });
+          }
           if (typeof window._gcEvent === 'function') {
             window._gcEvent('newsletter-pending-' + source, 'Newsletter DOI pendiente: ' + source);
           }
