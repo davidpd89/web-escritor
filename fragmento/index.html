@@ -488,6 +488,14 @@
       }, { passive: true });
     }
 
+    // Keyboard focus must not end up hidden behind the fixed bar (WCAG 2.4.11).
+    document.addEventListener('focusin', function (e) {
+      if (!cta.classList.contains('visible') || cta.contains(e.target)) return;
+      var top = cta.getBoundingClientRect().top;
+      var bottom = e.target.getBoundingClientRect().bottom;
+      if (bottom > top) window.scrollBy(0, bottom - top + 16);
+    });
+
     closeBtn.addEventListener('click', function () {
       cta.classList.remove('visible');
       dismissed = true;
