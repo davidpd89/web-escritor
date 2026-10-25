@@ -73,7 +73,7 @@ class RobotsMetaParser(HTMLParser):
         if tag.lower() != "meta":
             return
         values = {key.lower(): value or "" for key, value in attrs}
-        if values.get("name", "").strip().casefold() != "robots":
+        if values.get("name", "").strip().casefold() not in {"robots", "googlebot", "bingbot"}:
             return
         directives = re.split(r"[,\s]+", values.get("content", "").casefold().strip())
         if "noindex" in directives:
