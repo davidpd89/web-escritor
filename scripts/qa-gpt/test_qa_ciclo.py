@@ -280,6 +280,16 @@ class PrFlujo(T.Base):
             self.assertEqual(gh.prs == [], espera, ficheros)  # con pagefind en un lote abierto espera; sin el, sale el lote
         self.assertFalse(qa_pr.regenera_derivados({"pr_detalle": "Tests OK"}))
 
+    def test_correccion_caducada_frente_a_main_vuelve_a_validarse(self):
+        row = self.montar(); q.CFG["flujo"] = {"modo_pr": "lote"}
+        self.assertEqual(self.pr(self.GhPr()).preparar(self.c, row), "listo_lote")
+        # main cambia la misma linea despues de validar: el cherry-pick ya no aplica
+        (self.src / "web/a.py").write_text("VALOR = 3" + NL); g("commit", "-qam", "otro cambio", cwd=self.src); g("push", "-q", "origin", "main", cwd=self.src)
+        gh = self.GhCiclo(); ci = self.ciclo(gh, modo_pr="lote", lote={"min": 1}); salida = []; ci.out = salida.append
+        ci._lote(self.c, qa_pr.flujo(q), {})
+        self.assertEqual(gh.prs, []); self.assertEqual(self.c.execute("SELECT pr_estado FROM triaje").fetchone()[0], "reintentar")
+        self.assertTrue(any("vuelven a validarse" in s for s in salida))
+
     def test_lote_de_una_correccion_en_rojo_libera_el_carril(self):
         self.montar(); gh = self.GhCiclo(); gh.cerradas = []; gh.pr_cerrar = lambda url, com="": gh.cerradas.append(url)
         gh.log_failed = lambda rid: "x\tFAIL test-a.py: AssertionError VALOR\n"
@@ -324,8 +334,15 @@ class PrFlujo(T.Base):
         gh.runs = lambda wf, rama: [{"status": "in_progress", "conclusion": ""}, {"status": "completed", "conclusion": "failure", "headSha": "deadbeef00"}]
         ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0}); ci.paso(self.c); ci.paso(self.c)
         self.assertEqual(gh.merges, [])
-        gh.runs = lambda wf, rama: [{"status": "completed", "conclusion": "success", "headSha": "beef"}]; ci._freno_t = 0
+        gh.runs = lambda wf, rama: [{"status": "completed", "conclusion": "success", "headSha": "beef", "createdAt": "2026-01-01T00:00:00Z"}]; ci._freno_t = 0
         ci.paso(self.c); self.assertEqual(gh.merges, [(1, "abc")])  # main vuelve a verde: se reanuda
+        # tras esa fusion, su auditoria post-despliegue aun no existe: el freno espera a verificarla
+        self.assertIn("aun no esta verificado", ci._freno_main())
+        gh.runs = lambda wf, rama: [{"status": "completed", "conclusion": "success", "headSha": "nuevo", "createdAt": "2999-01-01T00:00:00Z"}]; ci._freno_t = 0
+        self.assertIsNone(ci._freno_main())  # auditoria posterior en verde: libre
+        import json as _j; (Path(q.STATE) / "lote" / "ultima_fusion.json").write_text(_j.dumps({"pr": 1, "utc": "2000-01-01T00:00:00Z"}))
+        gh.runs = lambda wf, rama: []; ci._freno_t = 0
+        self.assertIsNone(ci._freno_main())  # la auditoria nunca llego: a los 45 min se reanuda solo
 
     def test_sin_strict_main_toca_sus_ficheros_o_infra_compartida_actualiza(self):
         gh = self.GhCiclo(); ci = self.ciclo(gh); v = gh.pr_ver(1)

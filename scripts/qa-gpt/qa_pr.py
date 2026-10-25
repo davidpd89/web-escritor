@@ -728,13 +728,17 @@ class Ciclo:
             if wt.exists(): P.limpiar(wt, rama)
             wt.parent.mkdir(parents=True, exist_ok=True)
             if P.git("worktree", "add", "-B", rama, str(wt), "origin/main")[0]: return
+            caducadas = 0
             for row in listos[:lc["max"]]:
                 rama_item = row["pr_head"] if str(row["pr_head"] or "").startswith("qa-fix/") and "lote" not in row["pr_head"] else f"qa-fix/{re.sub(r'[^0-9a-zA-Z]', '', row['firma'] or 't' + str(row['id']))[:12]}"
                 P.git("fetch", "origin", rama_item, timeout=120)
                 orig = P.git("rev-parse", f"origin/{rama_item}")  # commit original de la correccion (pr_head se sobrescribe al abrir un lote)
                 if P.git("cherry-pick", orig[1].strip() if orig[0] == 0 else row["pr_head"], cwd=wt)[0]:
                     P.git("cherry-pick", "--abort", cwd=wt)
-                    if not incl and len(listos) == 1: P._marca(c, row, "conflicto_main", "no se aplica limpio sobre main actual")
+                    # su rama se valido sobre un main antiguo: se revalida sobre el actual (antes se saltaba en silencio y el lote quedaba vacio
+                    # ciclo tras ciclo con 151 listas). Si ya choca con el main de hoy el problema es la rama, no el parche: preparar la rehace.
+                    P._marca(c, row, "reintentar", "la rama validada ya no se aplica sobre main actual: se revalida sobre el main de hoy")
+                    caducadas += 1
                     continue
                 tocados = list(self._archivos_parche(row) | {x for x in P.git("show", "--name-only", "--format=", "HEAD", cwd=wt)[1].split()})
                 if regenerar(P.run, wt, tocados):  # derivados sobre el arbol acumulado; van en el commit de esta correccion (reset HEAD~1 la saca entera)
@@ -746,7 +750,8 @@ class Ciclo:
                         if not incl: P._marca(c, row, "validacion_fallida", f"en lote: {' '.join(cmd[1:])} fallo (exit {rc}): {o[-250:]}")
                         break
                 else: incl.append(row); tocados_all += tocados
-            if not incl: return
+            if caducadas: self.out(f"  lote: {caducadas} correcciones ya no se aplican sobre main: vuelven a validarse sobre el main actual")
+            if not incl: self.out("  lote: ninguna correccion se pudo aplicar en este ciclo"); return
             # Preflight del arbol combinado: todos los tests deben seguir pasando despues
             # de aplicar los demas parches. Falla localmente sin lanzar CI remota.
             from qa_lote_preflight import validate_combined
@@ -845,15 +850,34 @@ class Ciclo:
     def _freno_main(self):
         """Circuito de seguridad: si la ultima auditoria post-despliegue COMPLETADA de main esta en rojo, nada mas se fusiona hasta que vuelva a
         verde (una fusion pudo romper la web publicada; seguir fusionando apilaria regresiones). -> motivo o None. Se consulta como mucho cada 5 min."""
-        import time
-        if time.time() - getattr(self, "_freno_t", 0) < 300: return getattr(self, "_freno", None)
+        import time, datetime
+        if time.time() - getattr(self, "_freno_t", 0) < 60: return getattr(self, "_freno", None)
         self._freno_t = time.time(); self._freno = None
+        marca = Path(self.q.STATE) / "lote" / "ultima_fusion.json"
+        try: ultima = json.loads(marca.read_text(encoding="utf-8"))
+        except (OSError, ValueError): ultima = None
+        espera = False
         for wf in self.VIGILANCIA_MAIN:
-            try: runs = [x for x in self.gh.runs(wf, "main") if x.get("status") == "completed"]
+            try: runs = self.gh.runs(wf, "main")
             except Exception: continue
-            if runs and runs[0].get("conclusion") not in ("success", "skipped", "neutral"):
-                self._freno = f"freno: '{wf}' en rojo en main ({runs[0].get('headSha', '')[:8]}); se espera a que vuelva a verde"; break
+            hechos = [x for x in runs if x.get("status") == "completed" and x.get("conclusion") != "skipped"]
+            if hechos and hechos[0].get("conclusion") not in ("success", "neutral"):
+                self._freno = f"freno: '{wf}' en rojo en main ({hechos[0].get('headSha', '')[:8]}); se espera a que vuelva a verde"; return self._freno
+            # la ultima fusion del sistema aun no tiene su auditoria post-despliegue terminada: no se apila otra encima sin verificar
+            if ultima and not any(x.get("createdAt", "") >= ultima["utc"] for x in hechos): espera = True
+        if espera:
+            edad = (datetime.datetime.now(datetime.timezone.utc) - datetime.datetime.fromisoformat(ultima["utc"].replace("Z", "+00:00"))).total_seconds() / 60
+            if edad < 45: self._freno = f"freno: el despliegue de #{ultima['pr']} aun no esta verificado ({edad:.0f} min)"
         return self._freno
+
+    def _anotar_fusion(self, n):
+        import datetime
+        marca = Path(self.q.STATE) / "lote" / "ultima_fusion.json"
+        try:
+            marca.parent.mkdir(parents=True, exist_ok=True)
+            marca.write_text(json.dumps({"pr": n, "utc": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}), encoding="utf-8")
+        except OSError: pass
+        self._freno_t = 0
 
     def _preflight_fusion(self, c, row, head):
         """Prueba local del resultado REAL de fusionar (origin/main actual + la PR): tests de sus correcciones, tests vecinos y verificadores del
@@ -893,6 +917,6 @@ class Ciclo:
             except Exception as e: self.out(f"  PR #{row['pr_numero']}: no se pudo actualizar ({str(e)[-100:]})")
             return
         if v.get("mergeStateStatus") not in ("CLEAN", "UNSTABLE"): return  # UNSTABLE = solo fallan/pendientes checks no requeridos (el ci ya filtro rojos)
-        self.gh.pr_merge(row["pr_numero"], head)
+        self.gh.pr_merge(row["pr_numero"], head); self._anotar_fusion(row["pr_numero"])
         c.execute("UPDATE triaje SET pr_estado='integrada',integracion='integrada_auto' WHERE pr_numero=? AND pr_nueva=1", (row["pr_numero"],)); c.commit()
         self.out(f"  PR #{row['pr_numero']} integrada por el sistema")
