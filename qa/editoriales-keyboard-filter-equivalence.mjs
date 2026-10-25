@@ -1,0 +1,33 @@
+import assert from 'node:assert/strict';
+import { chromium } from 'playwright';
+const browser=await chromium.launch({headless:true});
+const page=await browser.newPage();
+const base=process.env.QA_ORIGIN||'http://127.0.0.1:4173';
+const visible=()=>page.locator('[data-editorial-card]:visible').evaluateAll(nodes=>nodes.map(n=>n.dataset.name));
+try {
+  await page.goto(base+'/editoriales/');
+  const search=page.locator('[data-editoriales-search]');
+  await search.focus();
+  await page.keyboard.type('Minotauro');
+  const keyboardResults=await visible();
+  assert.ok(keyboardResults.length>0,'La búsqueda debe devolver resultados');
+  await search.fill('');
+  await search.fill('Minotauro');
+  assert.deepEqual(await visible(),keyboardResults);
+  await page.locator('[data-editoriales-reset]').focus();
+  await page.keyboard.press('Enter');
+  assert.equal(await search.inputValue(),'');
+  assert.equal(await search.evaluate(e=>e===document.activeElement),true,'El foco debe regresar al buscador');
+  const status=page.locator('[data-editoriales-status]');
+  await status.focus();
+  await page.keyboard.press('Home');
+  await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('Tab');
+  const selected=await status.inputValue();
+  assert.equal(selected,'open');
+  const keyboardOpen=await visible();
+  await status.selectOption('');
+  await status.selectOption('open');
+  assert.deepEqual(await visible(),keyboardOpen);
+  console.log('PASS keyboard modality equivalence');
+} finally {await browser.close();}
