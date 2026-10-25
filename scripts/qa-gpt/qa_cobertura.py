@@ -3,7 +3,7 @@
 Todo se recalcula desde el repo (git ls-files) y se persiste en SQLite; nada esta fijado a una lista cerrada:
 las tecnicas semilla viven en config.json y GPT puede anadir nuevas (tabla `tecnicas`, origen 'descubierta').
 """
-import datetime as dt, hashlib, json, os, re, subprocess, unicodedata
+import datetime as dt, hashlib, json, os, re, subprocess, sys, unicodedata
 from pathlib import Path
 
 NO_FAMILIA = {"tests", "qa", ".github", "node_modules", "pagefind", "docs", "migrations", "video-ios-test", "artifacts", "_reddit", "_tools", "WEB DAVID PORTO nuevas ideas"}
@@ -49,7 +49,10 @@ class ServidorEstatico:
         import functools, threading, http.server
         class Silencioso(http.server.SimpleHTTPRequestHandler):
             def log_message(self, *a): pass
-        self.srv = http.server.ThreadingHTTPServer(("127.0.0.1", self.puerto), functools.partial(Silencioso, directory=self.dir))
+        class Servidor(http.server.ThreadingHTTPServer):
+            def handle_error(self, request, client_address):  # el navegador corta descargas al cerrar la pagina (WinError 10053): no es un fallo
+                if not isinstance(sys.exc_info()[1], (ConnectionAbortedError, ConnectionResetError, BrokenPipeError)): super().handle_error(request, client_address)
+        self.srv = Servidor(("127.0.0.1", self.puerto), functools.partial(Silencioso, directory=self.dir))
         self.srv.daemon_threads = True
         threading.Thread(target=self.srv.serve_forever, name="servidor-estatico", daemon=True).start()
         return self.srv.server_address[1]
