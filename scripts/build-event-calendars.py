@@ -94,7 +94,15 @@ def _event_fragment(event: dict) -> str:
     event_id = event.get("@id")
     if not isinstance(event_id, str) or not event_id.strip():
         raise ValueError("EventScheduled sin @id")
-    fragment = urlsplit(event_id).fragment
+    parsed = urlsplit(event_id)
+    if (
+        parsed.scheme != "https"
+        or parsed.netloc != "davidportodiaz.com"
+        or parsed.path != "/eventos.html"
+        or parsed.query
+    ):
+        raise ValueError(f"@id de EventScheduled fuera de eventos.html oficial: {event_id!r}")
+    fragment = parsed.fragment
     if not fragment or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._~-]*", fragment):
         raise ValueError(f"@id de EventScheduled sin fragmento utilizable: {event_id!r}")
     return fragment
@@ -328,6 +336,12 @@ def expected_calendars(html_text: str, *, as_of: date | datetime | None = None) 
                 )
         except ValueError as exc:
             errors.append(str(exc))
+    valid_links = {f"/assets/events/calendar/{filename}" for filename in expected}
+    for href in sorted(links - valid_links):
+        errors.append(
+            f"Enlace data-calendar-download huerfano: {href!r}; "
+            "no corresponde a un EventScheduled elegible"
+        )
     return expected, errors
 
 
