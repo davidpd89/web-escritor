@@ -415,6 +415,7 @@ class Ciclo:
         nuevas = {r_["pr_numero"] for r_ in c.execute("SELECT pr_numero FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta'")}
         ocupados = {f["path"] for p in prs if p["number"] in nuevas for f in p.get("files", [])}
         self._prs = prs
+        if cfg["modo_pr"] == "lote": r["adoptadas"] = self._adoptar_legado(c, abiertas)
         hechas = 0
         if cfg["modo_pr"] == "lote":  # validacion determinista en paralelo (worktrees aislados); el lote se forma despues
             cands = self.pr.candidatas(c)[:cfg["max_validaciones"]]
@@ -462,6 +463,30 @@ class Ciclo:
         except OSError: pass
         return r
 
+    def _adoptar_legado(self, c, abiertas):
+        """PR individuales heredadas (pre-lote) con correccion aprobada: cada una exigiria su propio CI y quedaria BEHIND tras cada fusion.
+        Se reutiliza su rama ya validada como candidata de lote (sin cerrar ni tocar la PR); el lote las rehace con cherry-pick y un solo CI."""
+        n = 0
+        for row in c.execute("SELECT * FROM triaje WHERE pr_nueva=0 AND pr_estado='pr_abierta' AND decision='corregir'").fetchall():
+            m = re.search(r"/pull/(\d+)", row["pr_url"] or "")
+            pr = abiertas.get(int(m.group(1))) if m else None
+            if not pr or pr.get("isDraft") or not str(pr.get("headRefName", "")).startswith("qa-fix/") or "lote" in pr["headRefName"]: continue
+            c.execute("UPDATE triaje SET pr_estado='listo_lote',dev_estado='listo_lote',pr_head=?,integracion=NULL,actualizado=? WHERE id=?", (pr["headRefName"], self.q.now(), row["id"])); n += 1
+        if n: c.commit(); self.out(f"  legado: {n} PR heredadas pasan a candidatas de lote")
+        return n
+
+    @staticmethod
+    def _zona(row):
+        """Tipo de cambio que domina la correccion: un lote de una sola zona se revisa y se prueba como una unidad y casi no solapa con otros."""
+        rutas = Ciclo._archivos_parche(row)
+        prod = [x for x in rutas if not re.match(r"(tests?|qa)/", x)] or list(rutas)
+        for x in sorted(prod):
+            if x.endswith(".css"): return "css"
+            if x.startswith("scripts/build-") or x.startswith("scripts/"): return "generadores"
+            if x.endswith(".js") or x.endswith(".mjs"): return "js"
+            if x.endswith((".html", ".json", ".xml", ".txt")): return "contenido"
+        return "tests" if rutas else "otros"
+
     def _lote(self, c, cfg, r):
         """Agrupa correcciones ya validadas (rama qa-fix/t* publicada) en UNA PR: un solo CI pesado en vez de uno por correccion.
         Se abre cuando hay `min` listas, la mas antigua lleva `espera_h` horas o no queda nada en el pipeline. Cada commit se aplica con cherry-pick sobre
@@ -472,6 +497,11 @@ class Ciclo:
         if not listos: return
         sosp = [x for x in listos if x["integracion"] == "ci_rojo_lote"]  # biseccion: un lote en rojo se reparte en mitades, las sospechosas primero
         if sosp: listos = sosp[:max(1, len(sosp) // 2)]
+        else:
+            zonas = {}
+            for x in listos: zonas.setdefault(self._zona(x), []).append(x)
+            z, listos = max(zonas.items(), key=lambda kv: len(kv[1]))  # la zona con mas correcciones listas: lote coherente y revision localizada
+            self.out(f"  lote: zona {z} ({len(listos)} de {sum(len(v) for v in zonas.values())} listas; " + ", ".join(f"{k}={len(v)}" for k, v in sorted(zonas.items())) + ")")
         if c.execute("SELECT COUNT(DISTINCT pr_numero) FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta'").fetchone()[0] >= lc["max_activos"]: return
         pendientes = c.execute("SELECT COUNT(*) FROM triaje WHERE decision='corregir' AND (pr_estado IN ('esperando_desarrollo','reintentar') OR (parche IS NULL AND COALESCE(pr_estado,'') NOT IN (" + TERMINALES + ")) OR (parche IS NOT NULL AND COALESCE(pr_estado,'')=''))").fetchone()[0]
         try: edad_h = (datetime.datetime.now() - min(datetime.datetime.fromisoformat(x["actualizado"]) for x in listos if x["actualizado"])).total_seconds() / 3600
@@ -487,7 +517,7 @@ class Ciclo:
             wt.parent.mkdir(parents=True, exist_ok=True)
             if P.git("worktree", "add", "-B", rama, str(wt), "origin/main")[0]: return
             for row in listos[:lc["max"]]:
-                rama_item = f"qa-fix/{re.sub(r'[^0-9a-zA-Z]', '', row['firma'] or 't' + str(row['id']))[:12]}"
+                rama_item = row["pr_head"] if str(row["pr_head"] or "").startswith("qa-fix/") and "lote" not in row["pr_head"] else f"qa-fix/{re.sub(r'[^0-9a-zA-Z]', '', row['firma'] or 't' + str(row['id']))[:12]}"
                 P.git("fetch", "origin", rama_item, timeout=120)
                 orig = P.git("rev-parse", f"origin/{rama_item}")  # commit original de la correccion (pr_head se sobrescribe al abrir un lote)
                 if P.git("cherry-pick", orig[1].strip() if orig[0] == 0 else row["pr_head"], cwd=wt)[0]:
