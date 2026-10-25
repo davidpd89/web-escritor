@@ -93,7 +93,15 @@ def _event_fragment(event: dict) -> str:
     event_id = event.get("@id")
     if not isinstance(event_id, str) or not event_id.strip():
         raise ValueError("EventScheduled sin @id")
-    fragment = urlsplit(event_id).fragment
+    parsed = urlsplit(event_id)
+    if (
+        parsed.scheme != "https"
+        or parsed.netloc != "davidportodiaz.com"
+        or parsed.path != "/eventos.html"
+        or parsed.query
+    ):
+        raise ValueError(f"@id de EventScheduled fuera del origen canonico: {event_id!r}")
+    fragment = parsed.fragment
     if not fragment or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._~-]*", fragment):
         raise ValueError(f"@id de EventScheduled sin fragmento utilizable: {event_id!r}")
     return fragment
