@@ -80,11 +80,14 @@ def extract_events(html_text: str) -> list[dict]:
     parser = JsonLdParser()
     parser.feed(html_text)
     events: list[dict] = []
-    for block in parser.blocks:
+    for index, block in enumerate(parser.blocks, start=1):
         try:
             payload = json.loads(block)
-        except json.JSONDecodeError:
-            continue
+        except json.JSONDecodeError as exc:
+            raise ValueError(
+                f"JSON-LD invalido en bloque {index}: {exc.msg} "
+                f"(linea {exc.lineno}, columna {exc.colno})"
+            ) from exc
         events.extend(_walk_json(payload))
     return events
 
@@ -367,7 +370,11 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     html_text = args.source.read_text(encoding="utf-8")
-    expected, errors = expected_calendars(html_text)
+    try:
+        expected, errors = expected_calendars(html_text)
+    except ValueError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 1
     if args.check:
         errors.extend(check_outputs(expected, args.output_dir))
     elif not errors:
