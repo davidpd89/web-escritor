@@ -602,6 +602,9 @@ class Ciclo:
                 est = self.pr.preparar(c, row); self.out(f"  PR {row['firma']}: {est}"); hechas += 1
                 if est == "pr_abierta": libres -= 1; ocupados |= self._archivos_parche(row); r["pr_nuevas"] = r.get("pr_nuevas", 0) + 1
         if cfg["modo_pr"] == "lote": self._lote(c, cfg, r)
+        try: r["verdes"] = self._integrar_verdes(c, prs)
+        except Interrumpido: raise
+        except Exception as e: self.out(f"  tests verdes: omitido ({type(e).__name__}: {str(e)[:120]})")
         # 4) CI y revision final de Claude (una vez por commit y por PR, aunque agrupe varias causas)
         revisadas = 0; vistas = set()
         for row in c.execute("SELECT * FROM triaje WHERE pr_nueva=1 AND pr_estado='pr_abierta' ORDER BY id").fetchall():
@@ -656,6 +659,56 @@ class Ciclo:
         try: (q.STATE / "lote" / "ciclo.json").write_text(json.dumps(r), encoding="utf-8")
         except OSError: pass
         return r
+
+    def _integrar_verdes(self, c, prs):
+        """Los tests que pasan en Actions (proteccion/regresion) se incorporan al repo como red de regresion; antes se marcaban 'ejecutada'
+        y se perdian. Se revalidan sobre el main actual y van en UNA PR con auto-merge (una a la vez). -> numero de tests publicados."""
+        import datetime
+        cfg = flujo(self.q).get("verdes") or {}
+        if cfg.get("activo") is False: return 0
+        c.execute("CREATE TABLE IF NOT EXISTS verdes(clave TEXT PRIMARY KEY, estado TEXT, pr TEXT, fecha TEXT)"); c.commit()
+        if any(str(p.get("headRefName", "")).startswith("qa-fix/verdes-") for p in prs): return 0
+        items = c.execute("SELECT clave, propuestas FROM lote_items WHERE estado='actions_ok' AND clave NOT IN (SELECT clave FROM verdes) ORDER BY actualizado LIMIT ?",
+                          (cfg.get("max", 15),)).fetchall()
+        if not items: return 0
+        P = self.pr; rama = "qa-fix/verdes-" + datetime.datetime.now().strftime("%m%d%H%M"); wt = Path(self.q.STATE) / "pr" / rama.replace("/", "_")
+        if P.git("fetch", "origin", "main", timeout=180)[0]: return 0
+        if wt.exists(): P.limpiar(wt, rama)
+        wt.parent.mkdir(parents=True, exist_ok=True)
+        if P.git("worktree", "add", "-B", rama, str(wt), "origin/main")[0]: return 0
+        anotar = lambda clave, est, url=None: c.execute("INSERT OR REPLACE INTO verdes VALUES(?,?,?,?)", (clave, est, url, self.q.now()))
+        try:
+            ok = []
+            for it in items:
+                fich = []
+                for pid in json.loads(it["propuestas"] or "[]"):
+                    d = c.execute("SELECT datos FROM propuestas WHERE id=?", (pid,)).fetchone()
+                    if d: fich += [f for f in json.loads(d[0]).get("ficheros_nuevos") or [] if re.match(r"(tests|qa)/[\w./-]+$", f.get("ruta", "")) and ".." not in f["ruta"]]
+                nuevos = [f for f in fich if not (wt / f["ruta"]).exists()]
+                if not nuevos: anotar(it["clave"], "ya_en_main"); continue
+                for f in nuevos: (wt / f["ruta"]).parent.mkdir(parents=True, exist_ok=True); (wt / f["ruta"]).write_text(f["contenido"], encoding="utf-8", newline="\n")
+                rojo = next((f["ruta"] for f in nuevos if P.comando_test(f["ruta"]) and P._test(wt, f["ruta"])[0]), None)
+                if rojo:  # main cambio desde Actions: el test ya no pasa (lo tratara el triaje si es un defecto); no entra roto en main
+                    for f in nuevos: (wt / f["ruta"]).unlink(missing_ok=True)
+                    anotar(it["clave"], "rojo_en_main"); continue
+                ok.append((it["clave"], [f["ruta"] for f in nuevos]))
+            c.commit()
+            if not ok: return 0
+            rutas = sorted({x for _, rs in ok for x in rs})
+            P.git("add", "--", *rutas, cwd=wt)
+            if P.git("-c", "user.name=qa-gpt", "-c", "user.email=qa-gpt@users.noreply.github.com", "commit", "-q", "-m",
+                     f"test(qa-gpt): {len(rutas)} tests de proteccion verificados\n\nPasan en GitHub Actions y sobre el main actual; quedan como red de regresion.", cwd=wt)[0]: return 0
+            sha = P.git("rev-parse", "HEAD", cwd=wt)[1].strip()
+            self.gh.push(sha, rama)
+            cuerpo = "Tests generados por qa-gpt que pasan en GitHub Actions y se han revalidado sobre el main actual. Protegen comportamiento que hoy funciona.\n\n" + \
+                     "\n".join(f"- `{x}`" for x in rutas) + "\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+            url = self.gh.pr_crear(rama, f"test(qa-gpt): {len(rutas)} tests de proteccion", cuerpo, borrador=False)
+            try: self.gh.pr_auto(url)
+            except Exception as e: self.out(f"  tests verdes: auto-merge no activado ({str(e)[:80]})")
+            for clave, _ in ok: anotar(clave, "pr", url)
+            c.commit(); self.out(f"  tests verdes: {len(rutas)} tests de proteccion en {url}")
+            return len(rutas)
+        finally: P.limpiar(wt, rama)
 
     def _adoptar_legado(self, c, abiertas):
         """PR individuales heredadas (pre-lote) con correccion aprobada: cada una exigiria su propio CI y quedaria BEHIND tras cada fusion.

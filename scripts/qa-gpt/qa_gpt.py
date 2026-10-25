@@ -19,21 +19,42 @@ CFG = json.loads((HERE / "config.json").read_text(encoding="utf-8"))
 TASK = "web-escritor-qa-gpt"
 HUECOS_MIN_VACIA = CFG.get("huecos_min_vacia", 5)  # familia con >= N tecnicas sin cubrir: 0 propuestas no es un analisis valido
 CATEGORIAS_PROMPT = {"defecto": "exploratoria", "mejora": "exploratoria", "proteccion": "regresion"}  # falla hoy -> triaje; pasa hoy -> test que se conserva
-# Una lente distinta en cada consulta de la misma zona: el prompt anterior permitia "ninguna propuesta" y las familias se quedaban en [] (2026-10-25)
+# Una lente distinta en cada consulta de la misma zona: el prompt anterior permitia "ninguna propuesta" y las zonas se quedaban en [] (2026-10-25).
+# Cada consulta combina un TIPO de prueba y un AMBITO; las combinaciones rotan (pares barajados con semilla fija) y cubren la matriz entera.
+TIPOS_PRUEBA = CFG.get("tipos_prueba") or [
+    ("humo", "humo (smoke): las rutas y funciones principales de la zona cargan y responden sin errores"),
+    ("unitaria", "unitaria: funciones concretas de scripts/JS/generadores con casos reales del repo"),
+    ("integracion", "integracion: generador -> HTML publicado, datos JSON <-> paginas, componentes que se usan entre si"),
+    ("regresion", "regresion: fija un comportamiento importante que hoy funciona para que un cambio no lo rompa"),
+    ("rendimiento", "rendimiento: peso de paginas/imagenes/scripts, peticiones, recursos bloqueantes, CLS por dimensiones"),
+    ("carga", "carga ligera: muchas paginas o peticiones a la vez contra el servidor estatico local sin errores ni respuestas vacias"),
+    ("api-datos", "API y contratos de datos: JSON publicados, sitemap, RSS/feeds, ICS, manifest, JSON-LD validos y coherentes"),
+    ("seguridad", "seguridad: CSP, recursos mixtos, enlaces externos sin noopener, XSS en herramientas cliente, datos expuestos"),
+    ("code-review", "revision de codigo estatica: patrones peligrosos o fragiles (innerHTML con datos, listeners duplicados, errores silenciados, codigo muerto, duplicacion)"),
+    ("visual", "visual y de estilo con navegador: estilos computados, tamanos, contrastes y cajas reales en varias resoluciones"),
+]
 ENFOQUES = CFG.get("enfoques") or [
     "movil 320-390 px: contenido cortado, solapado, desbordes horizontales, objetivos tactiles pequenos, menus",
-    "teclado y lector de pantalla: orden de foco, foco visible, nombres accesibles, landmarks, encabezados, contraste",
-    "SEO e indexacion: canonical, robots/noindex, title/description unicos, hreflang, sitemap, JSON-LD valido y coherente",
-    "enlaces: internos rotos o a anclas inexistentes, enlaces de compra/afiliado Amazon con tag y destino correctos, rel/target",
-    "rendimiento: peso de imagenes y scripts, lazy loading, dimensiones de imagen (CLS), recursos bloqueantes, peticiones fallidas",
+    "resoluciones y margenes: 320, 768, 1024, 1440 px; espaciados, margenes y anchos de lectura coherentes con los tokens CSS",
+    "tipografia: familias, tamanos, interlineado, pesos, cursivas, guiones y comillas tipograficas, textos que se cortan",
+    "colores y contraste: tokens de color, modo oscuro, contraste WCAG de textos y estados (hover, foco, deshabilitado)",
+    "homogeneizacion: el mismo componente (cabecera, pie, tarjetas, botones, migas, formularios) igual en todas las paginas que lo usan",
+    "teclado y lector de pantalla: orden de foco, foco visible, nombres accesibles, landmarks, encabezados",
+    "SEO e indexacion: canonical, robots/noindex, title/description unicos, hreflang, sitemap, JSON-LD",
+    "enlaces: internos rotos o a anclas inexistentes, compra/afiliado Amazon con tag y destino correctos, rel/target",
+    "rendimiento: imagenes (peso, formato, lazy, dimensiones), scripts y CSS (peso, bloqueo, no usados), peticiones fallidas",
     "sin JavaScript y degradacion: contenido y navegacion utiles sin JS, errores de consola, scripts que fallan en silencio",
-    "formularios y conversion: newsletter, contacto, compra, mensajes de error y exito, validacion, privacidad/consentimiento",
-    "coherencia de datos: mismos precios, fechas, ISBN, titulos y cifras en todas las paginas y en los JSON publicados",
-    "contenido: erratas visibles, textos de relleno, fechas caducadas, eventos pasados mostrados como futuros, enlaces a 404",
-    "seguridad y cabeceras: CSP, recursos mixtos, enlaces externos sin noopener, datos expuestos en HTML o JSON publicos",
-    "PWA y cache: manifest, service worker, version de assets (?v=), paginas offline, iconos",
-    "imagenes y medios: alt utiles, formatos modernos, ratio y recorte, imagenes de redes sociales (og:image) existentes",
+    "filtros, buscadores y herramientas interactivas: resultados correctos, estados vacios, reinicio, URL compartible",
+    "formularios y conversion: newsletter, contacto, compra, mensajes de error y exito, validacion, consentimiento",
+    "coherencia de datos: precios, fechas, ISBN, titulos y cifras iguales en todas las paginas y JSON publicados",
+    "textos y contenido: erratas, textos de relleno, fechas caducadas, eventos pasados como futuros, idioma mezclado",
+    "seguridad y privacidad: CSP, cabeceras, terceros, datos personales en HTML/JSON publicos, consentimiento de analitica",
+    "PWA y cache: manifest, service worker, version de assets (?v=), offline, iconos",
+    "imagenes y medios: alt utiles, ratio y recorte, og:image existentes, video/audio con controles",
+    "calidad del codigo JS/CSS/Python: errores de logica, casos limite reales, duplicacion entre paginas, reglas CSS que se pisan",
 ]
+_PARES = [(t, a) for t in range(len(TIPOS_PRUEBA)) for a in range(len(ENFOQUES))]
+random.Random(20261025).shuffle(_PARES)
 sys.path.insert(0, str(HERE))
 import qa_cobertura as cob
 
@@ -311,10 +332,23 @@ def clave_a(c, area, pl):
     n = c.execute("SELECT COUNT(*) FROM analisis WHERE area=?", (area,)).fetchone()[0]
     return f"A:{area}:{pl['sha']}:{today()}:{n}"
 
-def enfoque(c, job):
-    """Lente de esta consulta: rota con cada analisis de la zona y con cada reintento, para no repetir el mismo angulo."""
+def enfoque_par(c, job):
+    """(tipo de prueba, ambito) de esta consulta: rota con cada analisis de la zona y con cada reintento; zonas distintas empiezan en puntos distintos."""
     n = c.execute("SELECT COUNT(*) FROM analisis WHERE area=?", (job["area"],)).fetchone()[0]
-    return ENFOQUES[(n + (job["intentos"] or 0) + sum(map(ord, job["area"]))) % len(ENFOQUES)]
+    t, a = _PARES[(n + (job["intentos"] or 0) + sum(map(ord, job["area"]))) % len(_PARES)]
+    return TIPOS_PRUEBA[t], ENFOQUES[a]
+
+def enfoque(c, job): return enfoque_par(c, job)[1]
+
+def campos_enfoque(c, job):
+    (tid, tipo), ambito = enfoque_par(c, job)
+    return {"ENFOQUE": ambito, "TIPO_PRUEBA": tipo, "TIPO_PRUEBA_ID": tid, "LECCIONES": lecciones(c)}
+
+def lecciones(c, n=8):
+    """Por que se descartaron los ultimos tests (analisis del triaje): el prompt los cita para que GPT no repita el error."""
+    try: rs = [r[0] for r in c.execute("SELECT causa_raiz FROM triaje WHERE decision='test_incorrecto' AND causa_raiz IS NOT NULL ORDER BY id DESC LIMIT ?", (n,))]
+    except sqlite3.OperationalError: rs = []
+    return "\n".join("- " + " ".join(x.split())[:220] for x in rs) or "- (sin historial)"
 
 def lote_activo(): return CFG.get("modo_generacion") == "lote"
 def tope_propuestas(): return CFG.get("max_propuestas_lote", 15) if lote_activo() else CFG["max_propuestas"]
@@ -351,7 +385,7 @@ def prompt_for(job, c):
         tecs = ", ".join(t["id"] for t in cob.tecnicas(c))
         plantilla = "pass_lote_v1.txt" if CFG.get("modo_generacion") == "lote" else "pass_a_v2.txt"
         return fill((HERE / "prompts" / plantilla).read_text(encoding="utf-8"), MODO=modo, HEAD_SHA=head, MODO_INSTRUCCIONES=blk_txt, PREVIOS=prev, TECNICAS=tecs,
-                    MAX_PROPUESTAS=tope_propuestas(), MIN_PROPUESTAS=CFG.get("min_propuestas", 4), ENFOQUE=enfoque(c, job))
+                    MAX_PROPUESTAS=tope_propuestas(), MIN_PROPUESTAS=CFG.get("min_propuestas", 4), **campos_enfoque(c, job))
     if job["tipo"] == "R":
         r = c.execute("SELECT datos, veredicto FROM propuestas WHERE id=?", (p["id"],)).fetchone(); v = json.loads(r["veredicto"])
         return fill((HERE / "prompts" / "pass_revision_v1.txt").read_text(encoding="utf-8"), HEAD_SHA=head, PROPUESTA=r["datos"],

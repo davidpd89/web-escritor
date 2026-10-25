@@ -69,6 +69,7 @@ class Gh:
         """PR hacia main SIN merge ni auto-merge; borrador por defecto."""
         a = ["pr", "create", "-R", self.repo, "--base", "main", "--head", rama, "--title", titulo, "--body", cuerpo]
         return self._gh(*(a + (["--draft"] if borrador else []))).strip().splitlines()[-1]
+    def pr_auto(self, url): self._gh("pr", "merge", url, "-R", self.repo, "--auto", "--squash")  # fusion automatica cuando la CI requerida pase
     def pr_de_rama(self, rama):
         r = json.loads(self._gh("pr", "list", "-R", self.repo, "--state", "open", "--head", rama, "--json", "number,url,headRefOid") or "[]")
         return r[0] if r else None

@@ -211,6 +211,20 @@ class PrFlujo(T.Base):
         qa_claude.llamar =lambda *a, **k: ({"veredicto": "integrar", "riesgo": "bajo", "cumple_criterio": True, "motivos": ["ok"]}, {})
         return qa_pr.Ciclo(q, gh, L.run_cmd, lambda *a: None)
 
+    def test_tests_verdes_entran_al_repo_en_una_pr_y_los_rojos_no(self):
+        L.migrar(self.c); gh = self.GhCiclo(); ci = self.ciclo(gh)
+        for nombre, codigo in (("verde", T.OK_PY), ("rojo", T.FAIL_PY)):
+            rama, sha, pid = self.preparar(nombre, codigo)
+            self.c.execute("INSERT INTO lote_items(clave,lote_id,rama,sha,area,propuestas,estado) VALUES(?,?,?,?,?,?,?)", (f"{rama}@{sha[:12]}", 1, rama, sha, "zona:x", json.dumps([pid]), "actions_ok"))
+        self.c.commit()
+        self.assertEqual(ci._integrar_verdes(self.c, []), 1)
+        self.assertEqual(len(gh.prs), 1); rama, tit, cuerpo, borrador = gh.prs[0]
+        self.assertTrue(rama.startswith("qa-fix/verdes-")); self.assertFalse(borrador); self.assertIn("tests/test-verde.py", cuerpo); self.assertNotIn("test-rojo", cuerpo)
+        est = dict(self.c.execute("SELECT clave, estado FROM verdes").fetchall())
+        self.assertEqual(sorted(est.values()), ["pr", "rojo_en_main"])  # el rojo no entra roto en main y no se reintenta
+        self.assertEqual(ci._integrar_verdes(self.c, [{"headRefName": rama}]), 0)  # una PR de tests a la vez
+        self.assertEqual(ci._integrar_verdes(self.c, []), 0)  # nada pendiente: no se repite
+
     def test_ciclo_respeta_presupuesto_cero(self):
         self.montar(); gh = self.GhCiclo(); self.ciclo(gh, max_pr_activas=0).paso(self.c); self.assertEqual(gh.prs, [])
 

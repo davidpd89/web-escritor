@@ -4,21 +4,35 @@
 
 Ya propuestos (no repetir): {{PREVIOS}}
 
-ENFOQUE OBLIGATORIO DE ESTA CONSULTA: {{ENFOQUE}}
-Mira esta zona SOLO con ese enfoque (otras consultas cubren los demas): asi siempre hay algo nuevo que probar.
+ENFOQUE OBLIGATORIO DE ESTA CONSULTA
+- Tipo de prueba: {{TIPO_PRUEBA}}
+- Ambito: {{ENFOQUE}}
+Mira esta zona SOLO con esa combinacion (otras consultas cubren las demas). El AMBITO manda: si el tipo de prueba no encaja de forma natural con el ambito, usa para ese ambito el tipo de prueba que mejor lo cubra y dilo en "tipo_prueba". Siempre hay algo que probar: si te pidieran "busca fallos de tipografia, margenes o resoluciones en esta zona" darias pruebas; haz lo mismo aqui.
 
-Mision: entrega entre {{MIN_PROPUESTAS}} y {{MAX_PROPUESTAS}} pruebas ejecutables NUEVAS para esta zona con ese enfoque. Una web real siempre tiene huecos: si no ves un defecto evidente, escribe pruebas que lo buscarian (smoke, contratos, casos limite con paginas y datos reales del repo).
+Mision: entrega entre {{MIN_PROPUESTAS}} y {{MAX_PROPUESTAS}} pruebas ejecutables NUEVAS para esta zona con ese enfoque, cada una sobre paginas, datos, scripts o artefactos REALES del repo.
 Tres tipos validos, declarados en "categoria":
  - "defecto": falla HOY; cita el fichero/linea que lo causa y lo que notaria el visitante, Google o el negocio.
- - "mejora": falla HOY porque algo funciona pero esta por debajo de lo esperable (accesibilidad, SEO, rendimiento, UX movil, coherencia de textos/datos); di que cambiar.
- - "proteccion": pasa HOY y protege un comportamiento critico que ningun test cubre todavia (cita los tests vecinos que revisaste); di que cambio de codigo lo romperia.
-Prioridad: roto o inaccesible para el visitante > SEO/indexacion y enlaces de compra/afiliado > rendimiento real > coherencia de datos > proteccion de lo critico.
-Reglas: cada prueba apunta a paginas o artefactos publicados concretos; nada de endurecer validadores internos frente a entradas que nunca llegan; no repitas ideas ya propuestas aunque cambie el nombre; copia el estilo y helpers de los tests vecinos.
+ - "mejora": falla HOY porque algo funciona pero esta por debajo de lo esperable (accesibilidad, SEO, rendimiento, UX movil, homogeneidad visual, coherencia de textos/datos); di que cambiar.
+ - "proteccion": pasa HOY y protege un comportamiento importante que ningun test cubre (cita los tests vecinos revisados); di que cambio de codigo lo romperia. Estas pruebas se incorporan al repo como red de regresion.
+Prioridad: roto o inaccesible para el visitante > SEO/indexacion y enlaces de compra/afiliado > rendimiento real > homogeneidad y coherencia > proteccion de lo importante.
+
+REALISMO (obligatorio; un test que lo incumpla se descarta):
+- Solo condiciones que se dan con las paginas, datos y navegadores reales de la web publicada hoy. Prohibido inventar entradas, estados o datos que la web nunca produce (NaN, rutas '/./', codificaciones raras, ficheros que el generador no crea).
+- Comprueba COMPORTAMIENTO visible o verificable, no detalles de implementacion: si hay varias formas validas de cumplirlo (enlace o boton accesible, alias de ancla, details cerrado que el usuario abre), el test debe aceptarlas todas.
+- Un estado legitimo del producto no es un defecto (p. ej. no hay calendarios si no hay eventos futuros).
+- Pruebas de navegador: navega a la URL servida (process.env con la URL base, como los tests vecinos), nunca page.setContent con el HTML de una pagina; espera a estados observables, no a tiempos fijos.
+- Pruebas de JS en Node: carga y ejecuta la funcion en el MISMO contexto vm; mejor reutiliza los helpers de carga de los tests vecinos.
+- Texto peligroso escapado (&lt;) no es una inyeccion: comprueba el DOM o el HTML interpretado, no la presencia textual.
+
+ERRORES REALES DE PRUEBAS ANTERIORES (no los repitas):
+{{LECCIONES}}
+
+Reglas: no repitas ideas ya propuestas aunque cambie el nombre; copia estilo y helpers de los tests vecinos; mensajes de asercion que digan que pagina y que valor fallan.
 Solo ficheros NUEVOS en tests/ o qa/. Sin red externa. Una lista vacia SOLO es valida si no pudiste leer el repo (ficheros_leidos vacio).
 
 Responde SOLO JSON:
 {"modo":"{{MODO}}","lectura_repo":{"commit":"<sha>","ficheros_leidos":["ruta"]},"propuestas":[{
  "titulo":"...","zona":"...","familias":["dir-raiz"],"tecnica":{"id":"kebab-case","nombre":"..."},
- "funcionalidad":"1 frase","invariante":"lo que debe cumplirse","categoria":"defecto|mejora|proteccion",
+ "funcionalidad":"1 frase","invariante":"lo que debe cumplirse","categoria":"defecto|mejora|proteccion","tipo_prueba":"{{TIPO_PRUEBA_ID}}|otro-id",
  "ficheros_fuente":[{"ruta":"..."}],"ficheros_nuevos":[{"ruta":"tests/....","contenido":"codigo completo"}],
  "como_ejecutar":"comando","workflow":"workflow-existente.yml|null"}]}
