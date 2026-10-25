@@ -22,6 +22,16 @@ function instant(value) {
   return Number.isFinite(parsed) && new Date(parsed).toISOString().slice(0, 19) + 'Z' === value ? parsed : null;
 }
 
+function observation(value) {
+  if (typeof value !== 'string') return null;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    const parsed = instant(value + 'T00:00:00Z');
+    return parsed === null ? null : {time: parsed, dateOnly: true};
+  }
+  const parsed = instant(value);
+  return parsed === null ? null : {time: parsed, dateOnly: false};
+}
+
 /** Return only fresh numbers; never surface profile URLs supplied in JSON. */
 export function visibleSocialMetrics(snapshot, nowMs = Date.now()) {
   const absent = {
@@ -43,14 +53,17 @@ export function visibleSocialMetrics(snapshot, nowMs = Date.now()) {
         !NETWORKS.includes(row.id) || seen.has(row.id)) return absent;
     seen.add(row.id);
     const expires = instant(row.valid_until);
+    const observed = observation(row.observed_at);
+    const plausible = observed !== null &&
+        observed.time <= generated &&
+        generated - observed.time <= MAX_SNAPSHOT_AGE_MS + (observed.dateOnly ? 86400000 : 0) &&
+        expires !== null && observed.time <= expires;
     const usable = row.status === 'ok' && row.source === SOURCES[row.id] &&
         Number.isSafeInteger(row.followers) && row.followers >= 0 &&
-        expires !== null && expires >= nowMs &&
+        plausible && expires >= nowMs &&
         expires <= generated + MAX_SNAPSHOT_AGE_MS;
-    const observed = typeof row.observed_at === 'string' && /^\d{4}-\d{2}-\d{2}(T[\d:]{8}Z)?$/.test(row.observed_at)
-        ? row.observed_at : null;
     found.set(row.id, {id: row.id, followers: usable ? row.followers : null,
-                       observed_at: usable ? observed : null,
+                       observed_at: usable ? row.observed_at : null,
                        status: usable ? 'ok' : 'unavailable'});
   }
   const networks = NETWORKS.map(id => found.get(id) ?? {id, followers: null, observed_at: null, status: 'pending'});
