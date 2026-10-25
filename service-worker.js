@@ -51,10 +51,11 @@ function offlineResponse() {
 
 async function putIfCacheable(cache, request, response) {
   const cacheControl = response?.headers?.get("Cache-Control") || "";
-  const noStore = cacheControl.split(",").some((directive) =>
-    directive.trim().toLowerCase() === "no-store"
+  const isPrivate = cacheControl.split(",").some((directive) =>
+    /^(?:private|no-store)(?:\s*(?:=|$))/.test(directive.trim().toLowerCase())
   );
-  if (response && response.ok && response.status !== 206 && !noStore) {
+  const hasSetCookie = response?.headers?.has("Set-Cookie") || false;
+  if (response && response.ok && response.status !== 206 && !isPrivate && !hasSetCookie) {
     try {
       await cache.put(request, response.clone());
     } catch (error) {
