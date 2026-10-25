@@ -129,8 +129,9 @@ def validate(data, root):
         for key in ("fecha_verificacion", "portada_fecha_revision", "fecha_actualizacion"):
             day(b[key], name + "." + key)
         if b.get("fecha_publicacion"):
-            day(b["fecha_publicacion"], name + ".fecha_publicacion")
+            publication_date = day(b["fecha_publicacion"], name + ".fecha_publicacion")
             require(https(b.get("fuente_publicacion_url")), f"{name}: publicación sin fuente")
+            require(b["estado"] != "publicado" or publication_date <= date.today(), f"{name}: libro futuro marcado como publicado")
         if b.get("edad_recomendada"):
             require(isinstance(b["edad_recomendada"], str) and https(b.get("fuente_edad_url")), f"{name}: edad sin fuente")
         if b.get("lectura_personal_confirmada"):
