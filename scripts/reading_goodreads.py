@@ -31,14 +31,14 @@ class StructuredBook(HTMLParser):
             except (ValueError, TypeError, AttributeError): pass
 
 def select_goodreads_rating(book, response):
-    from reading_ratings_refresh import isbn13, title_matches, author_matches
+    from reading_ratings_refresh import isbn13, key, author_matches
     wanted = isbn13(book.get('isbn13', ''))
     if not wanted:
         return None
     for obj in response.get('books', []):
         if not isinstance(obj, dict): continue
         if isbn13(str(obj.get('isbn', ''))) != wanted: continue
-        if not title_matches(str(obj.get('name', '')), book['titulo']): continue
+        if not key(str(obj.get('name', ''))) or key(str(obj.get('name', ''))) != key(book['titulo']): continue
         authors = obj.get('author', []); authors = authors if isinstance(authors, list) else [authors]
         if not any(author_matches(str(a.get('name', '')), name) for a in authors if isinstance(a, dict) for name in book['autores']): continue
         rating = obj.get('aggregateRating')
