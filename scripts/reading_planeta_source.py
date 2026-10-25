@@ -154,7 +154,7 @@ def planeta_edition(document: str, source: str) -> dict:
     for m in re.finditer(r'<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>', block, re.S):
         url = urljoin(source, html.unescape(m.group(1)))
         if urlsplit(url).hostname == HOST and AUTHOR_PATH.fullmatch(urlsplit(url).path) and _text(m.group(2)) in authors:
-            author_sources.setdefault(_text(m.group(2)), url)
+            author_sources.setdefault(_text(m.group(2)), 'https://' + HOST + urlsplit(url).path)
     if any(author not in author_sources for author in authors):
         raise SourceError('Falta perfil oficial de Planeta para la autoría')
     return {'isbn13': expected, 'titulo': title, 'autores': authors, 'editorial': publisher,
