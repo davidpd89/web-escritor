@@ -72,6 +72,8 @@ class RespuestaVacia(unittest.TestCase):
             self.c.execute("INSERT INTO analisis VALUES('zona:vieja','2026-01-01','h','z')"); self.c.execute("INSERT INTO analisis VALUES('zona:nueva','2026-02-01','h','z')"); self.c.commit()
             modo, clave, pl = q.elegir_modo(self.c)
             self.assertEqual((modo, clave, pl["sha"]), ("zona", "zona:vieja", "z"))  # sin esperas y con su sha real
+            self.c.execute("INSERT INTO analisis VALUES('zona:vieja','2026-02-01','h','z')"); self.c.commit()  # mismo dia que la otra
+            self.assertEqual(q.elegir_modo(self.c)[1], "zona:nueva")  # rota: no repite la recien analizada por empate de fecha
         finally: q.candidates = orig
     def test_prompt_exige_minimo_y_lleva_enfoque(self):
         txt = (q.HERE / "prompts" / "pass_lote_v1.txt").read_text(encoding="utf-8")

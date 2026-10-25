@@ -83,6 +83,28 @@ class Reparacion(Base):
         s.cfg["vigilar_s"] = 3600; self.assertEqual(s.ejecutar(["iniciar"]), 1)
 
 
+class MainRojo(Base):
+    def test_cambio_html_regenera_shell_y_pagefind_en_la_pr(self):
+        # #870: la PR solo regeneraba pagefind y content-indexes caia con "shell desactualizado"
+        t = Path(self.tmp.name); web = t / "web"; (web / "scripts").mkdir(parents=True); origen = t / "origen.git"
+        (web / "a.html").write_text("<p>a</p>\n"); (web / "b.html").write_text("<p>b</p>\n")
+        (web / "scripts" / "build-site-shell.py").write_text("from pathlib import Path\nfor p in Path('.').glob('*.html'): p.write_text(p.read_text().replace('<p>', '<p class=s>'))\n")
+        (web / "scripts" / "build-pagefind-index.py").write_text("from pathlib import Path\nPath('pagefind').mkdir(exist_ok=True); Path('pagefind/i.json').write_text('{}')\n")
+        g("init", "-q", "-b", "main", cwd=web); g("add", "-A", cwd=web); g("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "base", cwd=web)
+        g("clone", "-q", "--bare", str(web), str(origen), cwd=t); g("remote", "add", "origin", str(origen), cwd=web)
+        orig_root = q.ROOT; q.ROOT = str(web); self.addCleanup(lambda: setattr(q, "ROOT", orig_root))
+        gh = []
+        def run(cmd, cwd, timeout=600, env=None):
+            if cmd[0] == "gh": gh.append(cmd); return 0, "https://x/pull/1"
+            if cmd[0] == "cmd": return 0, ""
+            return S.Supervisor._run_real(cmd, cwd, timeout, env)
+        s = self.sup(lambda wt: (wt / "a.html").write_text("<p>a2</p>\n")); s._run = run
+        self.assertEqual(s.reparar_main("99", "log"), "pr_abierta")
+        ficheros = g("show", "--name-only", "--format=", "qa-fix/main-99", cwd=origen).split()
+        self.assertEqual(sorted(ficheros), ["a.html", "b.html", "pagefind/i.json"])  # b.html: reescrita por el shell
+        self.assertIn("<p class=s>a2", g("show", "qa-fix/main-99:a.html", cwd=origen))
+
+
 class ErrorRepetidoDelWorker(Base):
     def test_tercer_error_igual_se_encarga_y_reinicia(self):
         llamadas = []; orig = S.Supervisor.reparar_codigo

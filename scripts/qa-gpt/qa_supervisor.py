@@ -29,7 +29,8 @@ SIS_MAIN = ("Eres el desarrollador de un sitio web estatico (repo web-escritor, 
             "main fallo dos veces seguidas con el log adjunto. Decide si el defecto esta en la web publicada o en el test/auditoria (falso positivo) "
             "y corrige la causa raiz con el cambio minimo: en la web si la web esta mal; en el test si el test esta mal (sin debilitarlo: debe seguir "
             "detectando el defecto real que vigila). Si tocas un test, amplia su autotest con el caso. Comprueba con node/python los tests afectados. "
-            "No hagas commits. No toques .github/workflows ni scripts/qa-gpt.")
+            "No hagas commits. No toques .github/workflows ni scripts/qa-gpt. No busques .env, URLs ni credenciales: el comando de prueba "
+            "levanta el servidor local por ti. Ve directo al test que falla y a la pagina que vigila; tienes pocos turnos.")
 
 
 def firma(texto):
@@ -62,11 +63,11 @@ class Supervisor:
         except subprocess.TimeoutExpired: return 124, f"timeout {timeout}s"
         except OSError as e: return 127, str(e)
 
-    def claude(self, clave, sistema, entrada, herramientas, cwd):
+    def claude(self, clave, sistema, entrada, herramientas, cwd, max_turnos=40):
         if self._claude: return self._claude(clave, sistema, entrada, herramientas, cwd)
         import qa_claude
         c = self.q.db(); qa_claude.migrar(c)
-        try: return qa_claude.llamar(self.q, c, clave, "desarrollo", sistema, entrada, ESQUEMA, herramientas=herramientas, cwd=cwd, max_turnos=40,
+        try: return qa_claude.llamar(self.q, c, clave, "desarrollo", sistema, entrada, ESQUEMA, herramientas=herramientas, cwd=cwd, max_turnos=max_turnos,
                                      esfuerzo="medium", usar_cache=False, timeout_s=1800, max_usd=3.0)[0]
         finally: c.close()
 
@@ -127,14 +128,17 @@ class Supervisor:
             if nm.exists(): self._run(["cmd", "/c", "mklink", "/J", str(wt / "node_modules"), str(nm)], wt, 30)
             from qa_dev_claude import CMD_PROBAR
             try: res = self.claude(f"main:{run_id}", SIS_MAIN, f"LOG DEL FALLO (run {run_id}):\n{log[-8000:]}\n\nPara ejecutar un test con servidor local: `{CMD_PROBAR} <ruta>`",
-                                   f"Read,Edit,Write,Grep,Glob,Bash({CMD_PROBAR}:*),Bash(node:*)", wt)
+                                   f"Read,Edit,Write,Grep,Glob,Bash({CMD_PROBAR}:*),Bash(node:*)", wt, max_turnos=80)  # 40 no bastaba (run 40227985780)
             except Exception as e: self.anotar(fir, "claude_fallo", str(e)); return "claude_fallo"
             if res["resultado"] != "corregido": self.anotar(fir, "no_se_puede", res["causa"] + " | " + res["resumen"]); return "no_se_puede"
             cambios = [l[3:] for l in g("status", "--porcelain", cwd=wt)[1].splitlines() if l.strip() and not l[3:].startswith("node_modules")]
             if not cambios: self.anotar(fir, "sin_cambios", res["resumen"]); return "sin_cambios"
-            if any(x.endswith(".html") for x in cambios) and (wt / "scripts" / "build-pagefind-index.py").exists():
-                # el indice de busqueda deriva del HTML: sin regenerarlo, content-indexes queda en rojo en main (#868 -> #869)
-                self._run([sys.executable, "scripts/build-pagefind-index.py"], wt, 600); cambios.append("pagefind")
+            if any(x.endswith(".html") for x in cambios):
+                # shell e indice de busqueda derivan del HTML: sin regenerarlos, content-indexes queda en rojo (#868 -> #869; #870: shell desactualizado)
+                for gen in ("build-site-shell.py", "build-pagefind-index.py"):
+                    if (wt / "scripts" / gen).exists(): self._run([sys.executable, f"scripts/{gen}"], wt, 600)
+                g("add", "-u", cwd=wt)  # paginas que el shell reescribio (ya versionadas)
+                cambios.append("pagefind")
             g("add", "--", *cambios, cwd=wt)
             msg = f"fix: {res['causa'][:90]}\n\n{res['resumen'][:1500]}\n\nAuditoria post-despliegue de main en rojo (run {run_id}).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
             if g("-c", "user.name=qa-gpt-supervisor", "-c", "user.email=qa-gpt@users.noreply.github.com", "commit", "-q", "-m", msg, cwd=wt)[0]: self.anotar(fir, "error", "commit"); return "error"

@@ -319,7 +319,8 @@ def elegir_modo(c):
     if elig: return min(elig)[2:]
     # todo en descanso: no se espera. Con la lente rotatoria, la zona o familia analizada hace mas tiempo tiene un angulo nuevo que mirar
     if not CFG.get("sin_descanso", True): return None
-    viejo = c.execute("SELECT area, MAX(fecha) f FROM analisis WHERE area LIKE 'zona:%' OR area LIKE 'familia:%' GROUP BY area ORDER BY f, area LIMIT 1").fetchone()
+    # por rowid, no por fecha: fecha es solo el dia y el empate alfabetico repetia siempre la misma familia
+    viejo = c.execute("SELECT area, MAX(rowid) f FROM analisis WHERE area LIKE 'zona:%' OR area LIKE 'familia:%' GROUP BY area ORDER BY f LIMIT 1").fetchone()
     if not viejo: return None
     modo, ident = viejo["area"].split(":", 1)
     pl = next((p for _, k, p in candidates(c, modo) if k == viejo["area"]), None)  # su payload real (sha de fuentes): no falsear "fuentes cambiadas"
