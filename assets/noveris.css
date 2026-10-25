@@ -31,6 +31,7 @@ html.v1 .lore-table-img{width:4.5rem;height:auto;display:block}
 html.v1 .lore-prose{max-width:var(--reading-max);font-family:var(--font-reading);font-size:1.05rem;line-height:1.7;min-width:0;overflow-wrap:anywhere}
 html.v1 .lore-prose p{margin:0 0 1.3em}
 
+html.v1 #glosario{scroll-margin-top:9rem}
 html.v1 #glosario .id-cards{display:block;margin-top:2rem;border-top:1px solid var(--color-text)}
 html.v1 #glosario .id-card{display:grid;grid-template-columns:minmax(8rem,1fr) minmax(0,3fr);gap:clamp(1rem,3vw,3rem);padding:1.15rem 0;border:0;border-bottom:1px solid var(--color-border);background:transparent;min-width:0}
 html.v1 #glosario .id-card h3{margin:0;font:400 clamp(1.15rem,2vw,1.45rem)/1.2 var(--font-display);overflow-wrap:anywhere}
