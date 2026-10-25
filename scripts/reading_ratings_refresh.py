@@ -252,7 +252,18 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
             rated = selector(book, response)
             if rated is None:
                 stats["unrated"] += 1
-                # Do not resurrect stale data by refreshing timestamps blindly.
+                # A successful unrated response invalidates an expired aggregate.
+                previous = after.get(book["id"])
+                if previous is not None:
+                    expires = previous.get("caduca_en")
+                    if isinstance(expires, str):
+                        try:
+                            expiry = datetime.fromisoformat(expires.replace("Z", "+00:00"))
+                            if expiry.tzinfo is not None and expiry <= now:
+                                after.pop(book["id"], None)
+                        except ValueError:
+                            pass
+                # Never refresh timestamps without a valid aggregate.
                 continue
             timestamp = now.astimezone(timezone.utc)
             rated["actualizado_en"] = timestamp.isoformat(timespec="seconds").replace("+00:00", "Z")
