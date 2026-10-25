@@ -19,6 +19,7 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
+from html.parser import HTMLParser
 from pathlib import Path
 
 DOMAIN = "https://davidportodiaz.com"
@@ -69,12 +70,26 @@ def extract_meta(text: str):
         if h:
             canonical = h.group(1).strip()
 
-    noindex = False
-    r = re.search(r'<meta[^>]+name=["\']robots["\'][^>]*>', text, flags=re.I)
-    if r:
-        c = re.search(r'content=["\']([^"\']+)["\']', r.group(0), flags=re.I)
-        if c and "noindex" in c.group(1).lower():
-            noindex = True
+    class RobotsParser(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=True)
+            self.noindex = False
+
+        def handle_starttag(self, tag, attrs):
+            if tag != "meta":
+                return
+            attributes = dict(attrs)
+            if (attributes.get("name") or "").strip().lower() != "robots":
+                return
+            content = attributes.get("content") or ""
+            directives = (part.strip().lower().split("=", 1)[0].strip()
+                          for part in content.split(","))
+            if "noindex" in directives:
+                self.noindex = True
+
+    parser = RobotsParser()
+    parser.feed(text)
+    noindex = parser.noindex
 
     date_modified = extract_date_modified(text)
     return canonical, noindex, date_modified
