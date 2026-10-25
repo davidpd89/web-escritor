@@ -187,7 +187,7 @@
             <div class="tool-field"><label class="tool-field-label" for="club-tone">Tono del grupo</label><select class="tool-select" id="club-tone" name="tone"><option value="social">Más social</option><option value="balanced" selected>Equilibrado</option><option value="deep">Más analítico</option></select></div>
           </div>
           <div class="tool-field"><label class="tool-field-label" for="club-scope">Hasta dónde habéis leído</label><select class="tool-select" id="club-scope" name="scope"><option value="complete">Libro completo</option><option value="partial">Lectura parcial · evitar preguntas de final</option></select></div>
-          <div class="tool-field"><label class="tool-field-label" for="club-tokens">Temas, personajes o elementos <span aria-hidden="true">· opcional</span></label><input class="tool-input" id="club-tokens" name="tokens" autocomplete="off" placeholder="memoria, familia, Elena"><span class="tool-field-hint">Hasta cuatro, separados por comas. Solo se usan en este dispositivo.</span></div>
+          <div class="tool-field"><label class="tool-field-label" for="club-tokens">Temas, personajes o elementos <span aria-hidden="true">· opcional</span></label><input class="tool-input" id="club-tokens" name="tokens" autocomplete="off" placeholder="memoria, familia, Elena" aria-describedby="club-tokens-hint"><span class="tool-field-hint" id="club-tokens-hint">Hasta cuatro, separados por comas. Solo se usan en este dispositivo.</span></div>
           <div class="tool-actions"><button type="submit" class="primary-action">Preparar sesión</button></div>
           <p class="tool-status" data-club-session-status role="status" aria-live="polite">No se guarda ni se envía ningún título, tema o nombre.</p>
         </form>
