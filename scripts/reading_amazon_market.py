@@ -2,7 +2,7 @@
 import json
 import re
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from decimal import Decimal, InvalidOperation
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -41,6 +41,7 @@ def verified_formats(book):
 def select_offers(book,payload,tag,now):
     if not re.fullmatch(r'[A-Za-z0-9-]+',tag):
         raise ValueError('Invalid partner tag')
+    now=now.astimezone(timezone.utc)
     container=payload.get('searchResult') or payload.get('itemsResult') or payload.get('itemResults') or {}
     offers={}
     wanted=isbn13(book.get('isbn13'))
