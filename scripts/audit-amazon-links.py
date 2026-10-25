@@ -62,7 +62,14 @@ def audit(root: Path, expected: str) -> dict:
         p = urlparse(url)
         host = (p.hostname or "").lower()
         if p.scheme != "https" or host not in {"www.amazon.es", "amazon.es", "amzn.to"}:
-            if host.endswith(".amazon.com") or host == "amazon.com":
+            foreign_marketplaces = (
+                "amazon.com",
+                "amazon.co.uk",
+                "amazon.de",
+                "amazon.fr",
+                "amazon.it",
+            )
+            if any(host == market or host.endswith("." + market) for market in foreign_marketplaces):
                 counts["other_market_link"] += 1
                 reviews.append({"source": source, "type": "otro_mercado", "url": url})
             return
