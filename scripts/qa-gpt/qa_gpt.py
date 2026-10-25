@@ -17,6 +17,7 @@ DB_PATH = STATE / "estado.db"
 WT = STATE / "wt"
 CFG = json.loads((HERE / "config.json").read_text(encoding="utf-8"))
 TASK = "web-escritor-qa-gpt"
+HUECOS_MIN_VACIA = CFG.get("huecos_min_vacia", 5)  # familia con >= N tecnicas sin cubrir: 0 propuestas no es un analisis valido
 sys.path.insert(0, str(HERE))
 import qa_cobertura as cob
 
@@ -167,10 +168,14 @@ def last_run(c, clave):
 def dias_desde(last):
     return 30 if not last else (_ahora().date() - dt.date.fromisoformat(last["fecha"])).days
 
+def pathspecs(area):
+    """Los globs del area como pathspecs de git: expandidos, `imagenes-medios` (783 ficheros) supera los 32767 caracteres de Windows (WinError 206)."""
+    return [":(glob)" + g for g in area["fuentes"]]
+
 def area_stats(area, c):
     src = expand(area["fuentes"])
-    sha = git("log", "-1", "--format=%h", "--", *src, check=False) if src else ""
-    commits = int(git("rev-list", "--count", "--since=14 days ago", "HEAD", "--", *src, check=False) or 0) if src else 0
+    sha = git("log", "-1", "--format=%h", "--", *pathspecs(area), check=False) if src else ""
+    commits = int(git("rev-list", "--count", "--since=14 days ago", "HEAD", "--", *pathspecs(area), check=False) or 0) if src else 0
     return src, sha, commits, last_run(c, "zona:" + area["id"])
 
 def priority(area, c):
@@ -237,11 +242,15 @@ def candidates(c, modo):
         bugs = {}
         for r in c.execute("SELECT familias FROM propuestas WHERE estado IN ('aceptada','preparada','aprobada','ejecutada') AND datos LIKE '%\"descubre_defecto\"%'"):
             for f in json.loads(r[0] or "[]"): bugs[f] = bugs.get(f, 0) + 1
+        # GPT confirmo (con reintento) que no hay nada solido: los huecos heuristicos siguen ahi, pero repetir la consulta al vencer el
+        # enfriamiento normal gasta ChatGPT en vano (familias ai/press-kit/lab/research, 2026-10-25). Hasta que cambien sus fuentes, descanso triple.
+        improd = {r[0].split(":", 2)[1]: r[1] for r in c.execute("SELECT substr(nota,1,instr(nota,' ')-2), MAX(fecha) FROM eventos WHERE estado='familia_improductiva' GROUP BY 1")}
         for fam, d in matriz(c).items():
             last = last_run(c, "familia:" + fam); dias = dias_desde(last); changed = bool(last and last["fuente_sha"] != d["sha"])
             hay = d["huecos"] or cruces.get(fam) or changed
             sc = d["riesgo"] * 2 + min(d["commits14d"], 10) * 0.5 + min(len(d["huecos"]), 8) * 0.8 + 9 / (1 + d["tests_propios"]) + (4 if changed else 0) + (3 if not last else 0) + 2 * cruces.get(fam, 0) + 1.5 * bugs.get(fam, 0)
-            frio = bool(last) and dias < CFG["cooldown_familia_dias"] and not changed
+            descanso = CFG["cooldown_familia_dias"] * (3 if fam in improd and last and improd[fam][:10] >= last["fecha"] else 1)
+            frio = bool(last) and dias < descanso and not changed
             out.append((-1 if (frio or not hay) else sc, "familia:" + fam, {"motivo": f"{len(d['huecos'])} tecnicas sin cubrir, {d['tests_propios']} tests propios, commits14d {d['commits14d']}" + ("; fuentes cambiadas" if changed else ""), "sha": d["sha"]}))
     elif modo == "cambio":
         base = git("rev-parse", "--short", "origin/main", check=False); dias = CFG["ventana_cambio_dias"]
@@ -305,7 +314,7 @@ def prompt_for(job, c):
             blk_txt = fill(tpl, DIAS=dias, COMMITS=commits or "(ninguno)", FAMILIAS=", ".join(fams[:25]))
         else:
             a = AREAS[ident]
-            commits = git("log", "--since=14 days ago", "-6", "--format=%h %s", "--", *expand(a["fuentes"]), check=False) or "(ninguno)"
+            commits = git("log", "--since=14 days ago", "-6", "--format=%h %s", "--", *pathspecs(a), check=False) or "(ninguno)"
             blk_txt = fill(tpl, NOMBRE=a["nombre"], ID=ident, FUENTES=", ".join(a["fuentes"]), TESTS=", ".join(Path(x).name for x in tests_for(a)[:30]) or "(ninguno)", COMMITS=commits)
         prev = " | ".join(r["titulo"][:70] for r in c.execute("SELECT titulo FROM propuestas ORDER BY id DESC LIMIT 15")) or "(ninguno)"
         tecs = ", ".join(t["id"] for t in cob.tecnicas(c))
@@ -453,6 +462,7 @@ def fallo(c, job, err, nuevo_chat=True):
     reset = ",chat_id=NULL,fase=NULL,respuesta=NULL" if nuevo_chat else ""
     previo = c.execute("SELECT error FROM jobs WHERE id=?", (job["id"],)).fetchone()[0] or ""
     if "[reencolado]" in previo and "[reencolado]" not in err: err = "[reencolado] " + err  # la marca sobrevive: el reencolado lento ocurre una sola vez
+    if "[escalado]" in previo and "[escalado]" not in err: err = "[escalado] " + err  # la escalada a Claude ocurre una sola vez por job
     if n > CFG["reintentos"] and "inaccesible" in err and "[reencolado]" not in previo:  # una segunda oportunidad lenta: el trabajo no se pierde
         nb = (_ahora() + dt.timedelta(hours=CFG.get("reencolar_inaccesible_h", 6))).isoformat(timespec="seconds")
         c.execute(f"UPDATE jobs SET estado='pendiente',intentos=0,error=?,no_antes=?,actualizado=?{reset} WHERE id=?", (("[reencolado] " + err)[:300], nb, now(), job["id"]))
@@ -462,6 +472,35 @@ def fallo(c, job, err, nuevo_chat=True):
         nb = (_ahora() + dt.timedelta(minutes=CFG["backoff_min"][min(n - 1, len(CFG["backoff_min"]) - 1)])).isoformat(timespec="seconds")
         c.execute(f"UPDATE jobs SET estado='pendiente',error=?,no_antes=?,actualizado=?{reset} WHERE id=?", (err[:300], nb, now(), job["id"]))
     c.commit(); print(f"  fallo (intento {n}/{CFG['reintentos'] + 1}): {err[:160]}")
+    if n > CFG["reintentos"] and c.execute("SELECT estado FROM jobs WHERE id=?", (job["id"],)).fetchone()[0] == "error": escalar_a_claude(c, job, err)
+
+
+ESQUEMA_ESCALADA = {"type": "object", "required": ["accion", "motivo"], "properties": {
+    "accion": {"type": "string", "enum": ["reintentar", "descartar", "revisar_manual"]}, "motivo": {"type": "string", "minLength": 1}}}
+SISTEMA_ESCALADA = ("Eres el supervisor de un pipeline de QA web. Un trabajo ha agotado sus reintentos. Decide: 'reintentar' solo si el error parece transitorio "
+                    "(red, timeout, navegador inaccesible) y no se repite en el historial; 'descartar' si el trabajo ya no tiene sentido; 'revisar_manual' si hay "
+                    "un fallo persistente de logica o datos que requiere a una persona. Responde solo con el JSON del esquema.")
+
+
+def escalar_a_claude(c, job, err):
+    """Fallo persistente (reintentos agotados): Claude decide. Una sola vez por trabajo ([escalado]); si Claude no responde, el job queda en error como antes."""
+    if not CFG.get("escalar_a_claude", True): return None
+    try:
+        import qa_claude
+        fila = c.execute("SELECT tipo,area,error FROM jobs WHERE id=?", (job["id"],)).fetchone()
+        if "[escalado]" in (fila["error"] or ""): return None
+        hist = [r[0] for r in c.execute("SELECT nota FROM eventos WHERE entidad='job' AND ident=? ORDER BY rowid DESC LIMIT 5", (job["id"],)).fetchall()]
+        entrada = json.dumps({"tipo": fila["tipo"], "area": fila["area"], "error": err[:300], "historial": hist}, ensure_ascii=False)
+        res, _ = qa_claude.llamar(sys.modules[__name__], c, f"escalada:{job['id']}", "escalada", SISTEMA_ESCALADA, entrada, ESQUEMA_ESCALADA)
+    except Exception as e:
+        print(f"  escalada a Claude no disponible: {str(e)[:120]}"); return None
+    marca = f"[escalado] {res['accion']}: {res['motivo']}"[:300]
+    if res["accion"] == "reintentar":
+        c.execute("UPDATE jobs SET estado='pendiente',intentos=0,error=?,no_antes=NULL,actualizado=? WHERE id=?", (marca, now(), job["id"]))
+    else:
+        c.execute("UPDATE jobs SET error=?,actualizado=? WHERE id=?", (marca, now(), job["id"]))
+    cob.evento(c, "job", job["id"], "escalada_" + res["accion"], res["motivo"][:200], now()); c.commit()
+    print(f"  Claude: {res['accion']} ({res['motivo'][:100]})"); return res["accion"]
 
 
 # ---------- ingesta ----------
@@ -514,6 +553,12 @@ def ingest_answer(c, job, answer, herramientas):
             if cob.registrar_tecnica(c, {**t, "id": d["tecnica"]}, now(), pid): print(f"  TECNICA NUEVA registrada: {d['tecnica']}")
             for e in pr.get("equivalentes_a_revisar") or []:
                 if isinstance(e, dict) and e.get("familia"): c.execute("INSERT OR IGNORE INTO cruces(propuesta,familia,tecnica) VALUES(?,?,?)", (pid, e["familia"], d["tecnica"]))
+        if area.startswith("familia:") and not ids and not data.get("propuestas"):
+            hu = re.search(r"(\d+) tecnicas sin cubrir", json.loads(job["payload"]).get("motivo", ""))
+            if hu and int(hu.group(1)) >= HUECOS_MIN_VACIA:
+                if (job["intentos"] or 0) < CFG.get("reintentos_vacia", 2):
+                    raise ValueError(f"respuesta vacia con {hu.group(1)} tecnicas sin cubrir: reintento (no se enfria la familia)")
+                cob.evento(c, "familia", 0, "familia_improductiva", f"{area}: GPT devolvio 0 propuestas con {hu.group(1)} huecos tras reintentos", now())
         ident = area.split(":", 1)[1]
         fsha = area_stats(AREAS[ident], c)[1] if area.startswith(("zona:", "audit:")) else (json.loads(job["payload"]).get("sha", "") if area.startswith(("familia:", "cambio:")) else "")
         c.execute("INSERT INTO analisis VALUES(?,?,?,?)", (area, today(), git("rev-parse", "--short", "origin/main"), fsha))

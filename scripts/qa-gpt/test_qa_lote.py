@@ -51,6 +51,8 @@ class FakeGh:
 
 class Base(unittest.TestCase):
     def setUp(self):
+        orig = (q.STATE, q.DB_PATH, q.Lock.path, q.ROOT, q.WT)  # globales del modulo: sin restaurar, los tests de otros modulos corrian contra este repo ya borrado (WinError 267)
+        self.addCleanup(lambda: (setattr(q, "STATE", orig[0]), setattr(q, "DB_PATH", orig[1]), setattr(q.Lock, "path", orig[2]), setattr(q, "ROOT", orig[3]), setattr(q, "WT", orig[4])))
         self.tmp = tempfile.TemporaryDirectory(ignore_cleanup_errors=True); t = Path(self.tmp.name)
         self.bare, self.src, q.STATE = t / "bare.git", t / "src", t / "state"
         q.DB_PATH = q.STATE / "e.db"; q.Lock.path = q.STATE / "worker.lock"; q.ROOT = self.src; q.WT = q.STATE / "wt"
@@ -117,10 +119,13 @@ class Lotes(Base):
         self.preparar("rot", BROKEN_PY); self.lote().ejecutar()
         self.assertEqual(self.c.execute("SELECT estado FROM lote_items").fetchone()[0], "fallo_test")
 
-    def test_infra_local_se_reintenta_y_queda_infra(self):
+    def test_infra_local_se_reintenta_y_agotada_cierra_el_lote(self):
         self.preparar("inf", INFRA_PY); self.lote().ejecutar()
-        it = self.c.execute("SELECT * FROM lote_items").fetchone(); self.assertEqual(it["estado"], "infra"); self.assertEqual(it["local_clase"], "infra")
-        self.assertGreaterEqual(it["intentos"], 2)  # reintentos acotados
+        it = self.c.execute("SELECT * FROM lote_items").fetchone(); self.assertEqual(it["local_clase"], "infra")
+        self.assertGreaterEqual(it["intentos"], 3)  # reintentos acotados
+        self.assertEqual(it["estado"], "fallo_test")  # agotada: estado final, no 'infra' eterno que deja el lote abierto
+        self.assertIn("infraestructura persistente", it["detalle"])
+        self.assertEqual(self.c.execute("SELECT estado FROM lotes").fetchone()[0], "cerrado")
 
     def test_actions_falla_con_aserciones_en_regresion_es_actions_fallida(self):
         rama, _, _ = self.preparar("af", OK_PY); lo = self.lote(); lo.sleep = lambda s: self.gh.tick("failure"); lo.ejecutar()

@@ -34,6 +34,67 @@ class Navegador(unittest.TestCase):
         self.assertEqual(r[0], "generando")
 
 
+
+class RespuestaVacia(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory(); q.STATE = Path(self.tmp.name); q.DB_PATH = q.STATE / "e.db"; q.Lock.path = q.STATE / "worker.lock"
+        self.c = q.db()
+        self.orig = (q.validar_lectura, q.git, q.area_stats)
+        q.validar_lectura = lambda *a, **k: 0; q.git = lambda *a, **k: "abc1234"
+        q.AREAS.setdefault("f", {}); q.area_stats = lambda *a, **k: (0, "sha")
+    def tearDown(self):
+        q.validar_lectura, q.git, q.area_stats = self.orig; self.c.close(); self.tmp.cleanup()
+    def job(self, huecos, intentos):
+        return {"id": 1, "tipo": "A", "area": "familia:f", "intentos": intentos, "payload": json.dumps({"motivo": f"{huecos} tecnicas sin cubrir, 0 tests propios", "sha": "s"})}
+    def test_vacia_con_huecos_reintenta_sin_enfriar(self):
+        with self.assertRaises(ValueError): q.ingest_answer(self.c, self.job(q.HUECOS_MIN_VACIA, 0), '{"propuestas": []}', None)
+        self.assertEqual(self.c.execute("SELECT COUNT(*) FROM analisis").fetchone()[0], 0)
+    def test_vacia_agotados_reintentos_registra_improductiva(self):
+        q.ingest_answer(self.c, self.job(q.HUECOS_MIN_VACIA, 2), '{"propuestas": []}', None)
+        self.assertEqual(self.c.execute("SELECT COUNT(*) FROM analisis").fetchone()[0], 1)
+        self.assertTrue(any("familia_improductiva" in str(tuple(r)) for r in self.c.execute("SELECT * FROM eventos")))
+    def test_vacia_con_pocos_huecos_es_valida(self):
+        q.ingest_answer(self.c, self.job(q.HUECOS_MIN_VACIA - 1, 0), '{"propuestas": []}', None)
+        self.assertEqual(self.c.execute("SELECT COUNT(*) FROM analisis").fetchone()[0], 1)
+    def test_improductiva_descansa_el_triple_hasta_que_cambien_sus_fuentes(self):
+        import datetime as dt
+        orig = q.matriz; d = {"sha": "s", "huecos": ["x"] * 9, "riesgo": 3, "commits14d": 0, "tests_propios": 2}
+        q.matriz = lambda *a, **k: {"f": d}
+        try:
+            fecha = (q._ahora().date() - dt.timedelta(days=q.CFG["cooldown_familia_dias"] + 1)).isoformat()
+            self.c.execute("INSERT INTO analisis VALUES('familia:f',?,'h','s')", (fecha,)); self.c.commit()
+            self.assertGreaterEqual(q.candidates(self.c, "familia")[0][0], 0)  # enfriamiento normal vencido: elegible
+            q.cob.evento(self.c, "familia", 0, "familia_improductiva", "familia:f: GPT devolvio 0 propuestas con 9 huecos tras reintentos", fecha + "T10:00:00"); self.c.commit()
+            self.assertEqual(q.candidates(self.c, "familia")[0][0], -1)  # improductiva: sigue descansando
+            d["sha"] = "nuevo"
+            self.assertGreaterEqual(q.candidates(self.c, "familia")[0][0], 0)  # sus fuentes cambiaron: vuelve a ser elegible
+        finally: q.matriz = orig
+
+class EscaladaClaude(unittest.TestCase):
+    def setUp(self):
+        import qa_claude
+        self.qc = qa_claude; self.tmp = tempfile.TemporaryDirectory(); q.STATE = Path(self.tmp.name); q.DB_PATH = q.STATE / "e.db"; q.Lock.path = q.STATE / "worker.lock"
+        self.c = q.db(); self.orig = qa_claude.llamar
+        self.c.execute("INSERT INTO jobs(id,tipo,area,estado,intentos,payload,clave,creado,actualizado) VALUES(1,'A','familia:f','en_curso',3,'{}','k',?,?)", (q.now(), q.now())); self.c.commit()
+    def tearDown(self):
+        self.qc.llamar = self.orig; self.c.close(); self.tmp.cleanup()
+    def estado(self): return self.c.execute("SELECT estado,intentos,error FROM jobs WHERE id=1").fetchone()
+    def test_reintentar_reactiva_el_job_una_vez(self):
+        self.qc.llamar = lambda *a, **k: ({"accion": "reintentar", "motivo": "timeout"}, {})
+        q.fallo(self.c, {"id": 1}, "timeout navegador")
+        e = self.estado(); self.assertEqual((e[0], e[1]), ("pendiente", 0)); self.assertIn("[escalado]", e[2])
+        self.c.execute("UPDATE jobs SET estado='en_curso',intentos=3 WHERE id=1"); self.c.commit()
+        q.fallo(self.c, {"id": 1}, "timeout navegador")   # segunda vez: ya escalado, no se vuelve a llamar
+        self.assertEqual(self.estado()[0], "error")
+    def test_revisar_manual_deja_error_con_motivo(self):
+        self.qc.llamar = lambda *a, **k: ({"accion": "revisar_manual", "motivo": "datos invalidos"}, {})
+        q.fallo(self.c, {"id": 1}, "x")
+        e = self.estado(); self.assertEqual(e[0], "error"); self.assertIn("revisar_manual", e[2])
+    def test_claude_caido_no_rompe_el_fallo(self):
+        def boom(*a, **k): raise self.qc.ClaudeError("sin red")
+        self.qc.llamar = boom; q.fallo(self.c, {"id": 1}, "x")
+        self.assertEqual(self.estado()[0], "error")
+
 class Planificador(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(); q.STATE = Path(self.tmp.name); q.DB_PATH = q.STATE / "e.db"; q.Lock.path = q.STATE / "worker.lock"

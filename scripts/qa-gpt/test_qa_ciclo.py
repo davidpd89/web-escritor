@@ -344,6 +344,18 @@ class PrFlujo(T.Base):
         gh.runs = lambda wf, rama: []; ci._freno_t = 0
         self.assertIsNone(ci._freno_main())  # la auditoria nunca llego: a los 45 min se reanuda solo
 
+    def test_freno_rojo_relanza_una_vez_el_run_fallido(self):
+        self.montar(); gh = self.GhCiclo(); relanzados = []; gh.rerun_fallidos = relanzados.append
+        gh.runs = lambda wf, rama: [{"status": "completed", "conclusion": "failure", "headSha": "deadbeef00", "databaseId": 77, "attempt": 1}]
+        ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0})
+        self.assertIn("en rojo", ci._freno_main()); ci._freno_t = 0; ci._freno_main()
+        self.assertEqual(sorted(set(relanzados)), [77]); self.assertEqual(len(relanzados), 1)  # una sola vez aunque se consulte de nuevo
+        ci2 = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 0}); ci2._freno_main()
+        self.assertEqual(len(relanzados), 1)  # ni tras reiniciar EJECUTAR (marca en disco)
+        gh.runs = lambda wf, rama: [{"status": "completed", "conclusion": "failure", "headSha": "deadbeef00", "databaseId": 78, "attempt": 2}]
+        ci2._freno_t = 0; self.assertIn("en rojo", ci2._freno_main())
+        self.assertEqual(len(relanzados), 1)  # ya relanzado en GitHub (attempt 2) y sigue rojo: rojo real, el freno se mantiene
+
     def test_sin_strict_main_toca_sus_ficheros_o_infra_compartida_actualiza(self):
         gh = self.GhCiclo(); ci = self.ciclo(gh); v = gh.pr_ver(1)
         for detras in ((2, ["web/a.py"]), (1, ["package.json"]), (1, ["tests/_helpers.py"]), (1, [".github/workflows/x.yml"]), (60, ["x.html"]), (1, ["f"] * 300)):

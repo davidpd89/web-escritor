@@ -61,7 +61,8 @@ class Gh:
         self.remotos()[rama] = sha
     def runs(self, wf, rama):
         return json.loads(self._gh("run", "list", "-R", self.repo, "--workflow", wf, "--branch", rama, "--limit", "30",
-                                   "--json", "databaseId,headSha,status,conclusion,event,createdAt,url") or "[]")
+                                   "--json", "databaseId,headSha,status,conclusion,event,createdAt,url,attempt") or "[]")
+    def rerun_fallidos(self, rid): self._gh("run", "rerun", str(rid), "-R", self.repo, "--failed")
     def run(self, rid):
         return json.loads(self._gh("run", "view", str(rid), "-R", self.repo, "--json", "databaseId,status,conclusion,headSha,url"))
     def pr_crear(self, rama, titulo, cuerpo, borrador=True):
@@ -355,16 +356,16 @@ class Lote:
         self.c.execute("INSERT OR REPLACE INTO lote_tests VALUES(?,?,?,?,?,?,?,?)", (clave, fuente, ruta, categoria, clase, rc, run_id, self.q.now())); self.c.commit()
 
     def ejecutar_test(self, tmp, ruta, cmd, env=None):
-        env, srv = dict(env or {}), None
-        if "playwright" in (tmp / ruta).read_text(encoding="utf-8", errors="replace"):
-            puerto = self.puerto_libre()
-            if puerto is None: return 0, "SIN_ENTORNO: ningun puerto libre; se valida en Actions"
-            env = {**env, **self.entorno_url(tmp / ruta, puerto)}  # el test apunta a NUESTRO servidor, nunca a uno ajeno que ya escuche en 4173
-            srv = cob.popen([sys.executable, "-m", "http.server", str(puerto), "--bind", "127.0.0.1", "--directory", str(tmp)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            time.sleep(1.5)
+        env = dict(env or {})
+        if "playwright" not in (tmp / ruta).read_text(encoding="utf-8", errors="replace"): return self.runner(cmd, tmp, env, self.cfg["timeout_test_s"])
+        puerto = self.puerto_libre()
+        if puerto is None: return 0, "SIN_ENTORNO: ningun puerto libre; se valida en Actions"
+        env = {**env, **self.entorno_url(tmp / ruta, puerto)}  # el test apunta a NUESTRO servidor, nunca a uno ajeno que ya escuche en 4173
+        srv = cob.ServidorEstatico(tmp, puerto)  # hilo propio: no queda huerfano si EJECUTAR muere
+        try: srv.__enter__()
+        except OSError: return 0, "SIN_ENTORNO: el puerto se ocupo antes de servir; se valida en Actions"
         try: return self.runner(cmd, tmp, env, self.cfg["timeout_test_s"])
-        finally:
-            if srv: srv.terminate(); srv.wait(10)
+        finally: srv.__exit__()
 
     def puerto_libre(self):
         base = self.cfg["puerto_estatico"]
@@ -564,6 +565,9 @@ class Lote:
             if it["estado"] == "infra" and it["intentos"] < self.cfg["reintentos_infra"] and not self.parando:
                 if it["local_clase"] == "infra": self.set(it["clave"], "preparada", "reintento local tras fallo de infraestructura")
                 else: self.set(it["clave"], "local_hallazgo" if it["local_clase"] in ("a_triar", "defecto_demostrado") else "local_ok", "reintento de envio tras fallo de infraestructura", intentos=it["intentos"] + 1)
+            elif it["estado"] == "infra" and it["intentos"] >= self.cfg["reintentos_infra"]:
+                # infra que no se recupera tras N intentos no es transitoria: se trata como test roto (va al flujo de reparacion) y el lote puede cerrarse
+                self.set(it["clave"], "fallo_test", f"infraestructura persistente tras {it['intentos']} intentos: {(it['detalle'] or '')[:200]}")
 
     def sondear(self, lid, forzar=False):
         """Consulta GitHub por los grupos vivos (como mucho cada poll_s). False si GitHub no responde."""

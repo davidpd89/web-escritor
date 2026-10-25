@@ -39,6 +39,24 @@ def popen(args, **kw):
     args, kw = _preparar(args, kw); return subprocess.Popen(args, **kw)
 
 
+class ServidorEstatico:
+    """Servidor estatico en un hilo del propio proceso (sustituye a `python -m http.server` hijo). En Windows un hijo sobrevive a su padre:
+    si EJECUTAR moria o se cerraba la ventana, el `finally` no corria y quedaban http.server huerfanos para siempre (4 el 2026-10-25).
+    Uso: `with ServidorEstatico(dir, puerto=0) as port:`; puerto 0 = uno libre."""
+    def __init__(self, directorio, puerto=0): self.dir, self.puerto = str(directorio), puerto
+
+    def __enter__(self):
+        import functools, threading, http.server
+        class Silencioso(http.server.SimpleHTTPRequestHandler):
+            def log_message(self, *a): pass
+        self.srv = http.server.ThreadingHTTPServer(("127.0.0.1", self.puerto), functools.partial(Silencioso, directory=self.dir))
+        self.srv.daemon_threads = True
+        threading.Thread(target=self.srv.serve_forever, name="servidor-estatico", daemon=True).start()
+        return self.srv.server_address[1]
+
+    def __exit__(self, *a): self.srv.shutdown(); self.srv.server_close()
+
+
 # Lecturas de historial: se recuerdan por (HEAD, origin/main, dia). `git log/rev-list/ls-files` sobre la misma historia dan lo mismo,
 # asi ESTADO y el servicio no relanzan decenas de procesos git por cada familia y modo.
 _CACHE_DIR = Path(os.environ.get("QA_GPT_STATE", r"C:\GIT\qa-gpt-state"))

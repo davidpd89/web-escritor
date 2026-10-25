@@ -5,6 +5,7 @@ lo corrige, pasan los verificadores del repo y no hay cambios fuera de alcance; 
 `pr_estado` y el ciclo reintenta de forma acotada. Despues, `Ciclo` gestiona presupuesto, CI, revision final de Claude e integracion."""
 import json, os, re, shutil, socket, subprocess, sys
 from pathlib import Path
+import qa_cobertura as cob
 
 MAX_FICHEROS = 5
 RC_INFRA = 125
@@ -227,15 +228,8 @@ class Pr:
         dst = Path(wt) / "node_modules"
         if nm.exists() and not dst.exists():
             self.run(["cmd", "/c", "mklink", "/J", str(dst), str(nm)], str(wt), timeout=30)
-        with socket.socket() as s: s.bind(("127.0.0.1", 0)); port = s.getsockname()[1]
-        srv = subprocess.Popen([sys.executable, "-m", "http.server", str(port), "--bind", "127.0.0.1", "-d", str(wt)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        try:
-            import time; time.sleep(1)
+        with cob.ServidorEstatico(wt) as port:  # hilo propio: no queda huerfano si EJECUTAR muere
             rc, o = self.run(cmd, str(wt), env={"QA_ORIGIN": f"http://127.0.0.1:{port}"}, timeout=240)
-        finally:
-            srv.terminate()
-            try: srv.wait(10)
-            except subprocess.TimeoutExpired: srv.kill()
         if rc and INFRA.search(o): rc = RC_INFRA
         return rc, o
 
@@ -885,13 +879,30 @@ class Ciclo:
             except Exception: continue
             hechos = [x for x in runs if x.get("status") == "completed" and x.get("conclusion") != "skipped"]
             if hechos and hechos[0].get("conclusion") not in ("success", "neutral"):
-                self._freno = f"freno: '{wf}' en rojo en main ({hechos[0].get('headSha', '')[:8]}); se espera a que vuelva a verde"; return self._freno
+                self._freno = f"freno: '{wf}' en rojo en main ({hechos[0].get('headSha', '')[:8]}); se espera a que vuelva a verde"
+                self._relanzar_rojo(wf, hechos[0]); return self._freno
             # la ultima fusion del sistema aun no tiene su auditoria post-despliegue terminada: no se apila otra encima sin verificar
             if ultima and not any(x.get("createdAt", "") >= ultima["utc"] for x in hechos): espera = True
         if espera:
             edad = (datetime.datetime.now(datetime.timezone.utc) - datetime.datetime.fromisoformat(ultima["utc"].replace("Z", "+00:00"))).total_seconds() / 60
             if edad < 45: self._freno = f"freno: el despliegue de #{ultima['pr']} aun no esta verificado ({edad:.0f} min)"
         return self._freno
+
+    def _relanzar_rojo(self, wf, run):
+        """Sin fusiones no hay despliegue ni auditoria nueva: un rojo intermitente en main congelaba el flujo para siempre (#859 y #865 parados
+        el 2026-10-25). Se relanzan UNA vez los jobs fallidos de ese run; un rojo real vuelve a salir rojo y el freno sigue."""
+        rid = run.get("databaseId")
+        if not rid or (run.get("attempt") or 1) > 1: return
+        marca = Path(self.q.STATE) / "lote" / "relanzados.json"
+        try: hechos = set(json.loads(marca.read_text(encoding="utf-8")))
+        except (OSError, ValueError): hechos = set()
+        if rid in hechos or not hasattr(self.gh, "rerun_fallidos"): return
+        try: self.gh.rerun_fallidos(rid)
+        except Exception as e: self.out(f"  freno: no se pudo relanzar '{wf}' run {rid} ({str(e)[:80]})"); return
+        hechos.add(rid)
+        try: marca.parent.mkdir(parents=True, exist_ok=True); marca.write_text(json.dumps(sorted(hechos)[-200:]), encoding="utf-8")
+        except OSError: pass
+        self.out(f"  freno: '{wf}' en rojo en main; se relanzan una vez sus jobs fallidos (run {rid}) para descartar un fallo intermitente")
 
     def _anotar_fusion(self, n):
         import datetime
