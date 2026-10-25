@@ -27,6 +27,18 @@ try {
   await page.setContent('<button id="visible">Visible</button>');
   await page.focus('#visible');
   assert.equal((await waitForKeyboardFocusState(page)).ok, true);
+
+  // A link that wraps: its bounding box spans the paragraph, its line boxes do not.
+  await page.setContent('<p style="width:300px;font:16px/24px monospace">' + 'x'.repeat(25) + ' <a id="wrap" href="#w">ab cdefgh</a> ' + 'y'.repeat(30) + '</p>');
+  await page.focus('#wrap');
+  assert.ok(await page.evaluate(() => document.querySelector('#wrap').getClientRects().length > 1), 'fixture must wrap');
+  assert.equal((await waitForKeyboardFocusState(page)).ok, true, 'a wrapped inline link is not obstructed');
+
+  await page.setContent('<button id="under">Under</button><div style="position:fixed;inset:0;background:#000"></div>');
+  await page.focus('#under');
+  const covered = await waitForKeyboardFocusState(page, 100);
+  assert.equal(covered.ok, false, 'a target under an overlay must still fail');
+  assert.match(covered.reason, /obstructed/);
   await page.close();
 } finally {
   await browser.close();
