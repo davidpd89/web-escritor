@@ -64,20 +64,27 @@ for (const route of routes) {
       });
       let result;
       try {
-        await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
+        const response = await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
+        const expectedUrl = new URL(route, BASE);
+        const actualUrl = new URL(page.url());
+        const validIdentity = actualUrl.origin === expectedUrl.origin && actualUrl.pathname === expectedUrl.pathname && actualUrl.search === expectedUrl.search;
+        if (!response || !response.ok() || !validIdentity) {
+          throw new Error(`Navegacion invalida: ruta=${route}, HTTP=${response ? response.status() : 'sin respuesta'}, esperada=${expectedUrl.href}, final=${actualUrl.href}`);
+        }
         await page.evaluate(() => document.fonts && document.fonts.ready);
         await page.waitForTimeout(2500);
         result = await page.evaluate(() => ({
           ...window.__clsTrace,
+          valid: true,
           total: Number(window.__clsTrace.total.toFixed(5)),
           fontsFinal: document.fonts ? document.fonts.status : 'n/a',
           fcp: Math.round(performance.getEntriesByName('first-contentful-paint')[0]?.startTime || 0),
         }));
       } catch (error) {
-        result = { error: String(error?.message || error), total: 0, shifts: [] };
+        result = { valid: false, error: String(error?.message || error), total: 0, shifts: [] };
       }
       const entry = { route, profile: profile.name, run, ...result };
-      if (result.total >= MIN) {
+      if (result.valid && result.total >= MIN) {
         entry.trace = `${route.replace(/\W+/g, '_')}-${profile.name}-${run}.zip`;
         await context.tracing.stop({ path: path.join(OUT, entry.trace) });
       } else {
@@ -91,12 +98,15 @@ for (const route of routes) {
 await browser.close();
 
 await fs.writeFile(path.join(OUT, 'cls-trace.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
-const lines = ['| ruta | perfil | cargas | con shift | CLS max |', '|---|---|---|---|---|'];
+const lines = ['| ruta | perfil | cargas validas | errores | con shift | CLS max |', '|---|---|---|---|---|---|'];
 for (const route of routes) {
   for (const profile of profiles) {
     const rows = report.filter((r) => r.route === route && r.profile === profile.name);
-    const bad = rows.filter((r) => r.total >= MIN);
-    lines.push(`| ${route} | ${profile.name} | ${rows.length} | ${bad.length} | ${Math.max(0, ...rows.map((r) => r.total))} |`);
+    const validRows = rows.filter((r) => r.valid === true);
+    const bad = validRows.filter((r) => r.total >= MIN);
+    const errors = rows.length - validRows.length;
+    const clsMax = validRows.length ? Math.max(...validRows.map((r) => r.total)) : 'n/a';
+    lines.push(`| ${route} | ${profile.name} | ${validRows.length} | ${errors} | ${bad.length} | ${clsMax} |`);
   }
 }
 const summary = lines.join('\n');
