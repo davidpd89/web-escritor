@@ -93,6 +93,17 @@
     form.dataset.newsletterBound = 'true';
     installHoneypot(form);
 
+    const emailField = form.querySelector('input[type="email"]');
+    emailField?.addEventListener('input', () => {
+      if (isValidEmail(emailField.value)) {
+        emailField.removeAttribute('aria-invalid');
+        const status = form.querySelector('[role="status"]');
+        if (status?.textContent?.trim() === 'Introduce un email válido.') {
+          status.textContent = '';
+        }
+      }
+    });
+
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       schedule(async () => {
@@ -106,10 +117,12 @@
         }
         if (!email || !isValidEmail(email.value)) {
           if (status) status.textContent = 'Introduce un email válido.';
+          email?.setAttribute('aria-invalid', 'true');
           email?.focus({ preventScroll: true });
           return;
         }
 
+        email.removeAttribute('aria-invalid');
         if (status) status.textContent = '';
         const originalText = submit.textContent;
         submit.dataset.submitting = 'true';
