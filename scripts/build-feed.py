@@ -169,7 +169,12 @@ def build_feed_bytes(items):
     SubElement(ch, 'link').text = 'https://davidportodiaz.com/cuaderno/'
     SubElement(ch, 'description').text = 'Entradas recientes del cuaderno'
     for it in items:
-        if not it.get('url') or not it.get('title'): continue
+        title = it.get('title')
+        url = it.get('url')
+        if not isinstance(title, str) or not title.strip():
+            continue
+        if not isinstance(url, str) or not url.strip():
+            continue
         item = SubElement(ch, 'item')
         SubElement(item,'title').text = it['title']
         SubElement(item,'link').text = it['url']
