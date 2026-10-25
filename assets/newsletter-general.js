@@ -91,6 +91,16 @@
     const source = String(form.dataset.newsletterSource || '');
     if (!Object.hasOwn(PENDING_COPY, source)) return;
     form.dataset.newsletterBound = 'true';
+    let subscribed = false;
+    try { subscribed = window.localStorage.getItem('nl-subscribed') === '1'; } catch (error) { subscribed = false; }
+    if (subscribed) {
+      const note = document.createElement('p');
+      note.className = 'quiz-subscribe-ok';
+      note.setAttribute('role', 'status');
+      note.textContent = '✓ Ya estás suscrito a las novedades.';
+      form.replaceWith(note);
+      return;
+    }
     installHoneypot(form);
 
     form.addEventListener('submit', (event) => {
