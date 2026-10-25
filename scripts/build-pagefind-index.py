@@ -31,6 +31,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import html
+import importlib.util
 import json
 import re
 import shutil
@@ -112,13 +113,27 @@ def is_noindex(text: str) -> bool:
 INTERNAL_DIR_PREFIXES = ("data/", "tests/", "scripts/")
 
 
+def load_publication_policy():
+    """Load the canonical public deployment policy without duplicating its allowlist."""
+    path = Path(__file__).resolve().with_name("build-public-dist.py")
+    spec = importlib.util.spec_from_file_location("pagefind_publication_policy", path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Cannot load publication policy: {path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.is_publishable
+
+
+is_publishable = load_publication_policy()
+
+
 def eligible_pages(root: Path) -> list[str]:
     """Return git-tracked *.html paths eligible for the local search index,
     sorted for deterministic manifest output."""
     by_source = load_registry_by_source(root)
     eligible: list[str] = []
     for rel in git_tracked_html(root):
-        if rel.startswith(INTERNAL_DIR_PREFIXES):
+        if not is_publishable(rel, root):
             continue
         entry = by_source.get(rel)
         if entry is not None:
