@@ -228,7 +228,7 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
                   if r.get("fuente", "goodreads") == source}
     stats = {"attempted": 0, "updated": 0, "unrated": 0, "failures": []}
     published = [b for b in catalogue.get("libros", [])
-                 if b.get("estado") in {"listo", "publicado"}
+                 if b.get("estado") == "publicado"
                  and isbn13(b.get("isbn13", ""))]
     published_ids = {b["id"] for b in published}
     after = {book_id: rating for book_id, rating in old_source.items()
@@ -239,7 +239,7 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
     for book in queued:
         if stats["attempted"] >= budget:
             break
-        if book.get("estado") not in {"listo", "publicado"} or not isbn13(book.get("isbn13", "")):
+        if book.get("estado") != "publicado" or not isbn13(book.get("isbn13", "")):
             continue
         stats["attempted"] += 1
         try:
