@@ -15,18 +15,23 @@ export function readKeyboardFocusState(requireUsable = false) {
         break;
       }
     }
-    const left = Math.max(0, r.left);
-    const right = Math.min(innerWidth, r.right);
-    const top = Math.max(0, r.top);
-    const bottom = Math.min(innerHeight, r.bottom);
-    const visibleArea = right > left && bottom > top;
-    const points = visibleArea ? [
-      [(left + right) / 2, (top + bottom) / 2],
-      [left + (right - left) * 0.25, top + (bottom - top) * 0.25],
-      [left + (right - left) * 0.75, top + (bottom - top) * 0.25],
-      [left + (right - left) * 0.25, top + (bottom - top) * 0.75],
-      [left + (right - left) * 0.75, top + (bottom - top) * 0.75],
-    ] : [];
+    // Sample each line box, not the bounding box: an inline link that wraps has a
+    // bounding rect spanning most of the paragraph, so its center and quarter
+    // points land on plain text and read as "obstructed" depending on where the
+    // runner's fonts break the line (Post-deploy deep audit, /cuaderno/ 2026-10-25).
+    const points = [];
+    for (const box of [...el.getClientRects()]) {
+      const left = Math.max(0, box.left);
+      const right = Math.min(innerWidth, box.right);
+      const top = Math.max(0, box.top);
+      const bottom = Math.min(innerHeight, box.bottom);
+      if (right <= left || bottom <= top) continue;
+      points.push(
+        [(left + right) / 2, (top + bottom) / 2],
+        [left + (right - left) * 0.25, top + (bottom - top) * 0.5],
+        [left + (right - left) * 0.75, top + (bottom - top) * 0.5],
+      );
+    }
     const hitBelongsToFocus = (hit) => {
       for (let node = hit; node; node = node.parentElement || node.getRootNode()?.host) {
         if (node === el) return true;
@@ -38,7 +43,7 @@ export function readKeyboardFocusState(requireUsable = false) {
     state = {
       key: String(key),
       ok: !hidden && !transparent && unobstructed && s.display !== 'none' && s.visibility !== 'hidden' && r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth,
-      reason: hidden ? 'inside aria-hidden/inert' : `rect ${Math.round(r.left)},${Math.round(r.top)} ${Math.round(r.width)}x${Math.round(r.height)}`,
+      reason: hidden ? 'inside aria-hidden/inert' : `rect ${Math.round(r.left)},${Math.round(r.top)} ${Math.round(r.width)}x${Math.round(r.height)} in ${innerWidth}x${innerHeight}${transparent ? '; opacity 0' : ''}${unobstructed ? '' : '; obstructed'}; visibility ${s.visibility}`,
     };
   }
   return requireUsable ? (state.ok && state) : state;
