@@ -196,7 +196,10 @@
       let reloading = false;
 
       if (!retry || !back || !status) return;
-      if (window.history.length <= 1) back.hidden = true;
+      const canGoBack = window.navigation && typeof window.navigation.canGoBack === 'boolean'
+        ? window.navigation.canGoBack
+        : window.history.length > 1;
+      back.hidden = !canGoBack;
       if (navigator.onLine) status.textContent = 'Hay conexión. Puedes reintentar ahora.';
 
       const reload = () => {
