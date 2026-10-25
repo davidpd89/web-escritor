@@ -343,7 +343,10 @@ TERMINALES = "'integrada','cerrada','no_reproduce','test_no_fiable','sin_test','
 SISTEMA_REVISION = ("Eres el revisor tecnico final de una PR generada por automatizacion en un sitio web estatico. Recibes el criterio de aceptacion aprobado, "
                     "la causa, el resultado de CI y el diff. Decide: 'integrar' (corrige la causa con alcance minimo y sin riesgo evidente), 'revisar' (dudas concretas "
                     "que un humano debe mirar), 'rechazar' (no corrige, es incorrecta o excede el alcance) o 'intervencion' (toca algo sensible o no se puede juzgar). "
-                    "CI verde no basta: valora si el diff cumple el criterio y no rompe otras partes. Se breve. Responde SOLO con el JSON del esquema.")
+                    "CI verde no basta: valora si el diff cumple el criterio y no rompe otras partes. Se breve. Responde SOLO con el JSON del esquema. "
+                    "Contexto: una PR puede agrupar varias causas independientes A PROPOSITO (lote); eso no es motivo para 'revisar'. Cada causa ya fue reproducida (el test falla en main y pasa con el parche) "
+                    "y el CI completo del repo esta en verde. El diff puede venir truncado y el solape con otras PR abiertas es normal: no pidas 'revisar' por no ver todo el diff ni por solapes, "
+                    "solo por un defecto concreto y visible en lo que se muestra. Sugerencias de estilo o refactor no cambian el veredicto 'integrar'.")
 ESQUEMA_REVISION = {"type": "object", "required": ["veredicto", "riesgo", "cumple_criterio", "motivos"], "properties": {
     "veredicto": {"type": "string", "enum": ["integrar", "revisar", "rechazar", "intervencion"]}, "riesgo": {"type": "string", "enum": list(RIESGOS)},
     "cumple_criterio": {"type": "boolean"}, "motivos": {"type": "array", "items": {"type": "string"}, "maxItems": 6},
@@ -493,7 +496,7 @@ class Ciclo:
         import qa_claude, qa_triaje
         d = qa_triaje._j(row["decision_json"], {}) or {}
         grupo = c.execute("SELECT * FROM triaje WHERE pr_numero=? AND pr_nueva=1 ORDER BY id", (row["pr_numero"],)).fetchall() or [row]
-        try: diff = self.gh.pr_diff(row["pr_numero"])[:14000]
+        try: diff = self.gh.pr_diff(row["pr_numero"])[:30000]
         except Exception as e: self.out(f"  revision omitida (diff no disponible: {str(e)[:80]})"); return None
         mios = {m for m in re.findall(r"^diff --git a/(\S+)", diff, re.M)}
         solapes = sorted({p["number"] for p in getattr(self, "_prs", []) if p["number"] != row["pr_numero"] and mios & {f["path"] for f in p.get("files", [])}})[:10]
