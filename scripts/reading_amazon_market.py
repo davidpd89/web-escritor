@@ -2,7 +2,7 @@
 import json
 import re
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from decimal import Decimal, InvalidOperation
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -157,7 +157,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=100):
     books=[b for b in catalogue['libros'] if b.get('estado')=='publicado' and isbn13(b.get('isbn13'))]
     after=list(market.get('offers',[]))
     stats={'attempted':0,'updated':0,'offers':0,'failures':[]}
-    offset=(now.date().toordinal()*max(1,budget))%len(books) if books else 0
+    offset=(now.astimezone(timezone.utc).date().toordinal()*max(1,budget))%len(books) if books else 0
     for book in (books[offset:]+books[:offset])[:budget]:
         stats['attempted']+=1
         try:
