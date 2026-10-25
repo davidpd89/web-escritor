@@ -91,17 +91,28 @@ def extract_date_modified(text: str):
             data = json.loads(js.group(1).strip())
         except Exception:
             continue
-        nodes = data if isinstance(data, list) else [data]
-        if isinstance(data, dict) and "@graph" in data and isinstance(data["@graph"], list):
-            nodes = data["@graph"]
-        for node in nodes:
+        pending = [data]
+        while pending:
+            node = pending.pop()
+            if isinstance(node, list):
+                pending.extend(reversed(node))
+                continue
             if not isinstance(node, dict):
                 continue
             dm = node.get("dateModified")
             if isinstance(dm, str) and dm.strip():
                 best = dm.strip()
-                if node.get("@type") in ("WebPage", "Article", "BlogPosting"):
+                node_type = node.get("@type")
+                if isinstance(node_type, str):
+                    node_type = [node_type]
+                if isinstance(node_type, list) and any(
+                    kind in ("WebPage", "Article", "BlogPosting")
+                    for kind in node_type
+                ):
                     return best
+            graph = node.get("@graph")
+            if isinstance(graph, (list, dict)):
+                pending.append(graph)
     return best
 
 
