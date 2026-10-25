@@ -107,7 +107,7 @@ def problems(data: dict) -> list[str]:
             return []
         return value
 
-    def check_source_evidence(source_id: str, scope: str) -> None:
+    def check_source_evidence(source_id: str, scope: str, verified_at: object = None) -> None:
         src = tables["sources"].get(source_id)
         if src is None:
             return  # require() ya informa de referencia inexistente
@@ -117,6 +117,11 @@ def problems(data: dict) -> list[str]:
             errors.append(f"{scope}: fuente {source_id!r} tiene retrieved_at que no es una fecha real")
         elif not valid_https_url(src["url"]):
             errors.append(f"{scope}: fuente {source_id!r} requiere URL HTTPS")
+        if valid_date(verified_at) and valid_date(src.get("retrieved_at")):
+            if date.fromisoformat(verified_at) < date.fromisoformat(src["retrieved_at"]):
+                errors.append(
+                    f"{scope}: verified_at anterior a retrieved_at de la fuente {source_id!r}"
+                )
 
     # Los controles bidi no son válidos en nombres ni títulos públicos.
     bidi_controls = set(range(0x202A, 0x202F)) | set(range(0x2066, 0x206A))
@@ -175,7 +180,7 @@ def problems(data: dict) -> list[str]:
         for source_id in id_list(place.get("source_ids", []), scope, "source_ids"):
             require("sources", source_id, scope)
             if place.get("status") == APPROVED:
-                check_source_evidence(source_id, scope)
+                check_source_evidence(source_id, scope, place.get("verified_at"))
         if bool(place.get("osm_id")) != bool(place.get("osm_type")):
             errors.append(scope + ": osm_id y osm_type deben aparecer juntos")
 
@@ -234,7 +239,7 @@ def problems(data: dict) -> list[str]:
                 if table:
                     require_approved(table, relation.get("subject_id"), scope)
             for source_id in source_ids:
-                check_source_evidence(source_id, scope)
+                check_source_evidence(source_id, scope, relation.get("verified_at"))
             if not valid_date(relation.get("verified_at")) or not has_text(relation.get("evidence_note")):
                 errors.append(scope + ": aprobado exige fecha y evidencia")
             if typ == "popular_claim_unverified":
