@@ -253,6 +253,18 @@ class PrFlujo(T.Base):
         head = self.c.execute("SELECT pr_head FROM triaje").fetchone()[0]
         self.assertTrue(head.startswith("qa-fix/abc123-")); self.assertEqual(gh.pushes, [head])
 
+    def test_revision_final_que_excluye_una_causa_depura_el_lote_sin_humano(self):
+        import qa_claude
+        gh = self.GhCiclo([{"number": 7, "headRefName": "qa-fix/lote-x", "files": [{"path": "web/a.py"}]}]); gh.cerradas = []; gh.pr_cerrar = lambda url, com="": gh.cerradas.append(url)
+        qa_triaje.migrar(self.c)
+        for i in (501, 502): self.c.execute("INSERT INTO triaje (id,causa_raiz,clase,decision,pr_estado,pr_numero,pr_nueva,pr_url,decision_json) VALUES (?,'c','defecto_web','corregir','pr_abierta',7,1,'u7','{}')", (i,))
+        self.c.commit(); ci = self.ciclo(gh, modo_pr="lote")
+        qa_claude.llamar = lambda *a, **k: ({"veredicto": "integrar", "riesgo": "medio", "cumple_criterio": False, "motivos": ["[502] defecto"], "excluir_ids": [502], "cambios_pedidos": ["[502] normalizar la ruta"]}, {})
+        ci.paso(self.c)
+        est = dict(self.c.execute("SELECT id,pr_estado FROM triaje WHERE id IN (501,502)").fetchall())
+        self.assertEqual(est, {501: "listo_lote", 502: "validacion_fallida"}); self.assertEqual(gh.cerradas, ["u7"]); self.assertEqual(gh.merges, [])
+        self.assertIn("normalizar la ruta", self.c.execute("SELECT pr_detalle FROM triaje WHERE id=502").fetchone()[0])
+
     def test_lote_de_una_correccion_en_rojo_libera_el_carril(self):
         self.montar(); gh = self.GhCiclo(); gh.cerradas = []; gh.pr_cerrar = lambda url, com="": gh.cerradas.append(url)
         gh.log_failed = lambda rid: "x\tFAIL test-a.py: AssertionError VALOR\n"

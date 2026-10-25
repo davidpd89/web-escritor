@@ -620,6 +620,18 @@ class Ciclo:
             if ci == "verde" and not v.get("isDraft") and row["revision_hash"] == head and row["integracion"] == "recomendada": self._integrar(c, row, head, v, cfg); continue  # ya revisada en este commit: solo falta fusionar (o actualizar la rama)
             if ci != "verde" or v.get("isDraft") or row["revision_hash"] == head or revisadas >= cfg["max_revisiones"]: continue
             rev = self.revisar(c, row, head); revisadas += 1; r["revisadas"] = revisadas
+            grupo = {g["id"] for g in c.execute("SELECT id FROM triaje WHERE pr_numero=? AND pr_nueva=1", (row["pr_numero"],))}
+            malos = set((rev or {}).get("excluir_ids") or []) & grupo
+            if cfg["modo_pr"] == "lote" and malos and malos != grupo:
+                # la revision final senala defectos concretos en ALGUNAS causas: antes el lote entero quedaba esperando a un humano. Se cierra,
+                # esas vuelven a desarrollo con los cambios pedidos y el resto se reagrupa en el siguiente ciclo
+                try: self.gh.pr_cerrar(row["pr_url"], f"Revision final: {sorted(malos)} vuelven a desarrollo; el resto se reagrupa en un lote nuevo")
+                except Exception as e: self.out(f"  lote #{row['pr_numero']}: no se pudo cerrar ({str(e)[-80:]})"); continue
+                pedido = "Revision final de Claude: " + "; ".join((rev.get("cambios_pedidos") or []) + (rev.get("motivos") or []))[:850]
+                for i in malos: c.execute("UPDATE triaje SET pr_estado='validacion_fallida',integracion=NULL,pr_nueva=0,pr_numero=0,dev_estado=NULL,pr_detalle=?,actualizado=? WHERE id=?", (pedido, q.now(), i))
+                c.execute("UPDATE triaje SET pr_estado='listo_lote',integracion=NULL,pr_nueva=0,pr_numero=0,dev_estado='listo_lote',revision=NULL,revision_hash=NULL,actualizado=? WHERE pr_numero=? AND pr_nueva=1", (q.now(), row["pr_numero"]))
+                c.commit(); r["lotes_depurados"] = r.get("lotes_depurados", 0) + 1
+                self.out(f"  lote #{row['pr_numero']}: revision excluye {sorted(malos)} (vuelven a desarrollo); {len(grupo) - len(malos)} se reagrupan"); continue
             if rev and rev["veredicto"] == "integrar" and rev["cumple_criterio"] and RIESGOS.index(rev["riesgo"]) <= RIESGOS.index(cfg["integracion"]["riesgo_max"]):
                 c.execute("UPDATE triaje SET integracion='recomendada' WHERE pr_numero=? AND pr_nueva=1", (row["pr_numero"],)); self._integrar(c, row, head, v, cfg)
             elif rev: c.execute("UPDATE triaje SET integracion=? WHERE pr_numero=? AND pr_nueva=1", ("revisar" if rev["veredicto"] == "integrar" else rev["veredicto"], row["pr_numero"]))
