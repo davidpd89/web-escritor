@@ -12,7 +12,7 @@ import hashlib, json, os, re, subprocess, threading, time
 from pathlib import Path
 
 DEFECTOS = {"modelo": "claude-sonnet-5-5", "esfuerzo": "low", "max_turnos": 2, "timeout_s": 240, "max_usd_llamada": 0.5,
-            "cuentas_extra": [], "pausa_limite_s": 3600}
+            "cuentas_extra": [], "extra_primero": False, "pausa_limite_s": 3600}
 # limite de uso de la suscripcion (no el --max-budget-usd de una llamada): se salta a la siguiente cuenta
 LIMITE = re.compile(r"usage limit|hit your limit|limit reached|rate.?limit|out of (extra )?usage|credit balance|\b429\b", re.I)
 _AGOTADA = {}  # dir de cuenta ("" = la del sistema) -> time.time() hasta el que no se usa
@@ -71,9 +71,10 @@ def validar(dato, esquema, ruta="$"):
 
 
 def cuentas(cfg):
-    """Cuentas por orden de preferencia: la del sistema y despues cada CLAUDE_CONFIG_DIR de cuentas_extra que exista (login hecho).
-    Las que dieron limite hace menos de pausa_limite_s van al final, por si todas lo estan."""
-    todas = [""] + [str(x) for x in cfg.get("cuentas_extra") or [] if x and Path(x).is_dir()]
+    """Cuentas por orden de preferencia: la del sistema y despues cada CLAUDE_CONFIG_DIR de cuentas_extra que exista (login hecho);
+    con extra_primero, las extra antes (reservar la cuota de la del sistema). Las que dieron limite hace menos de pausa_limite_s van al final."""
+    extra = [str(x) for x in cfg.get("cuentas_extra") or [] if x and Path(x).is_dir()]
+    todas = extra + [""] if cfg.get("extra_primero") else [""] + extra
     ahora = time.time()
     return [x for x in todas if _AGOTADA.get(x, 0) <= ahora] + sorted((x for x in todas if _AGOTADA.get(x, 0) > ahora), key=lambda x: _AGOTADA[x])
 
