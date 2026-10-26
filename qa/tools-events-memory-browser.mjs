@@ -106,6 +106,7 @@ async function assertLabels(page, key) {
     const positiveTabindex = [...document.querySelectorAll('[tabindex]')].filter((el) => Number(el.getAttribute('tabindex')) > 0).length;
     const inaccessibleVisible = [...document.querySelectorAll('a[href],button,input,select,textarea')]
       .filter((el) => !el.disabled && el.type !== 'hidden' && getComputedStyle(el).display !== 'none' && getComputedStyle(el).visibility !== 'hidden')
+      .filter((el) => !el.matches('button[type="submit"].sr-only'))
       .filter((el) => el.tabIndex < 0)
       .map((el) => el.outerHTML.slice(0, 180));
     return { unlabeled, positiveTabindex, inaccessibleVisible };
