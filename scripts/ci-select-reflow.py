@@ -7,8 +7,9 @@ sirve el sitio ni el propio QA. Cualquier archivo desconocido => se ejecuta.
 Los eventos que no son pull_request (push a main, schedule, dispatch) siempre
 ejecutan la auditoria completa.
 
-Salida: `run=true|false` y `reason=...` en $GITHUB_OUTPUT, y un resumen
-legible en $GITHUB_STEP_SUMMARY. El job requerido sigue existiendo y termina
+Salida: `run=true|false` y `routes=...` en $GITHUB_OUTPUT, y un resumen
+legible en $GITHUB_STEP_SUMMARY. `routes` contiene rutas separadas por comas;
+una cadena vacia indica que no existe un alcance parcial seguro. El job requerido sigue existiendo y termina
 en verde con la razon visible; no queda ningun check pendiente.
 """
 from __future__ import annotations
@@ -125,6 +126,7 @@ def main() -> int:
     if os.environ.get("GITHUB_OUTPUT"):
         with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
             fh.write(line + "\n")
+            fh.write("routes=" + ",".join(routes) + "\n")
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as fh:
             fh.write(f"### Sitewide Reflow: {'EJECUTADO' if run else 'OMITIDO (no aplicable)'}\n{reason}\n")
