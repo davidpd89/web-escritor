@@ -175,9 +175,11 @@ def normalize_canonical(canonical: str | None, root: Path, path: Path) -> str | 
                     return None
             except ValueError:
                 return None
-            return canonical.rstrip("/") + ("/" if canonical.endswith("/") else "")
+            cpath = parsed.path
+            return (DOMAIN + cpath).rstrip("/") + ("/" if cpath.endswith("/") else "")
         if canonical.startswith("/"):
-            return (DOMAIN + canonical).rstrip("/") + ("/" if canonical.endswith("/") else "")
+            cpath = urlsplit(canonical).path
+            return (DOMAIN + cpath).rstrip("/") + ("/" if cpath.endswith("/") else "")
         if "://" in canonical or canonical.startswith(("javascript:", "data:", "mailto:")):
             return None
 
