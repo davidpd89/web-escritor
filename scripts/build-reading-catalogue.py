@@ -281,14 +281,7 @@ def novelty(b, fallback):
 
 
 def book_title(b):
-    base = b['titulo'] + ' · ' + ', '.join(b['autores'])
-    full = base + ' | Libros recomendados'
-    if len(full) <= 75:
-        return full
-    if len(base) <= 75:
-        return base
-    suffix = ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8])
-    return b['titulo'][:74-len(suffix)].rsplit(' ', 1)[0] + '…' + suffix
+    return b['titulo'] + ' | Libros recomendados'
 
 
 def author_records(root=ROOT):
@@ -612,7 +605,7 @@ def related_books(data, book):
 
 
 def render_detail_page(template,main,canonical,title,description,schema,b=None):
-    if len(title) > 75:
+    if b is None and len(title) > 75:
         title = title[:63].rsplit(' ', 1)[0] + ' · ' + hashlib.sha256(canonical.encode()).hexdigest()[:8]
     page=template.replace('{{catalogue}}','')
     main=newtab(main)
