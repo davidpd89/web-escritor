@@ -268,7 +268,7 @@ function fallbackCopy(text, done) {
   ta.style.cssText = "position:fixed;top:0;left:0;opacity:0";
   document.body.appendChild(ta);
   ta.select();
-  try { document.execCommand("copy"); done(); } catch (_) {}
+  try { if (document.execCommand("copy")) done(); } catch (_) {}
   document.body.removeChild(ta);
 }
 
