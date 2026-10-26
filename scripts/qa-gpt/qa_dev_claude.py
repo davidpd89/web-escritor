@@ -53,7 +53,9 @@ def elegible(c, maxi=1):
     for r in c.execute(f"""SELECT * FROM triaje WHERE decision='corregir' AND clase IN ('defecto_web','test_roto')
             AND (COALESCE(pr_estado,'') IN ({','.join('?' * len(ESTADOS))}) OR (parche IS NULL AND COALESCE(pr_estado,'')='' AND COALESCE(dev_estado,'')<>'en_desarrollo'))
             AND NOT EXISTS (SELECT 1 FROM claude_llamadas WHERE clave='dev_claude2:'||triaje.id) ORDER BY (parche IS NOT NULL), COALESCE(prioridad,'3'), id""", ESTADOS).fetchall():
-        arch = (json.loads(r["decision_json"] or "{}") or {}).get("archivos") or []
+        try: arch = (json.loads(r["decision_json"] or "{}") or {}).get("archivos") or []
+        except (ValueError, TypeError, AttributeError):  # una decision corrupta no puede tumbar la eleccion de las demas
+            c.execute("UPDATE triaje SET dev_estado='decision_invalida',pr_estado='descartada',pr_detalle='decision_json invalido',actualizado=? WHERE id=?", (__import__("datetime").datetime.now().isoformat(timespec="seconds"), r["id"])); continue
         if any(qa_pr.ruta_segura(a) for a in arch):
             c.execute("UPDATE triaje SET dev_estado='ruta_prohibida',pr_estado='descartada',pr_detalle=?,actualizado=? WHERE id=?",
                       ("la correccion requiere tocar una ruta prohibida: " + ", ".join(a for a in arch if qa_pr.ruta_segura(a))[:200], __import__("datetime").datetime.now().isoformat(timespec="seconds"), r["id"])); continue

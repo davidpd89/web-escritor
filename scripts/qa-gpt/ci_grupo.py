@@ -6,7 +6,7 @@ Exit: 0 si todo dio un resultado fiable (en exploratorio, los hallazgos NO falla
       1 si algun test es invalido/infra/sin_entorno (un test que no pudo ejecutarse NUNCA cuenta como aprobado), o (modo regresion) algun test falla;
       2 si los argumentos no son validos (no se ejecuta nada). Los resultados se escriben SIEMPRE.
 """
-import json, os, re, signal, socket, subprocess, sys, time
+import json, os, re, signal, socket, subprocess, sys, tempfile, time
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from qa_clases import clasificar_salida
@@ -20,7 +20,9 @@ POSIX = os.name == "posix"
 def validar(t):
     """'exe:ruta' -> (exe, ruta) o None. Solo ejecutores admitidos y rutas relativas del repo (sin .., sin absolutas, sin simbolos del shell)."""
     exe, _, ruta = t.partition(":")
-    if exe not in EXES or not RUTA_OK.match(ruta) or ".." in Path(ruta).parts: return None
+    if exe not in EXES or not RUTA_OK.fullmatch(ruta) or ".." in Path(ruta).parts: return None
+    if exe == "python" and not ruta.endswith(".py"): return None
+    if exe == "node" and not ruta.endswith((".js", ".mjs")): return None
     return exe, ruta
 
 
@@ -29,7 +31,7 @@ def matar(proc):
     if proc.poll() is None:
         try:
             if POSIX: os.killpg(proc.pid, signal.SIGKILL)
-            else: subprocess.run(["taskkill", "/F", "/T", "/PID", str(proc.pid)], capture_output=True)
+            elif subprocess.run(["taskkill", "/F", "/T", "/PID", str(proc.pid)], capture_output=True).returncode != 0: proc.kill()
         except (ProcessLookupError, PermissionError, OSError): proc.kill()
     try: proc.wait(timeout=10)
     except subprocess.TimeoutExpired: pass
@@ -60,15 +62,16 @@ def correr(exe, ruta):
     env, srv, urls = dict(os.environ), None, entorno_url(texto, 0)
     # Servidor local si el test usa playwright o lee una URL base del entorno; las variables URL/ORIGIN/BASE se apuntan a ese servidor
     # (un test con URL fija la sirve el mismo servidor en la raiz del repo si coincide el puerto; si no, su propio resultado lo delata).
-    if exe == "node" and ("playwright" in texto or urls):
-        puerto = puerto_libre()
-        if puerto is None: return 1, "EADDRINUSE: sin puerto libre para el servidor local"
-        env.update(entorno_url(texto, puerto))
-        srv = subprocess.Popen([sys.executable, "-m", "http.server", str(puerto), "--bind", "127.0.0.1"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=POSIX)
-        if not esperar_puerto(puerto):
-            matar(srv); return 1, "ETIMEDOUT: el servidor local no arranco; el test no se ejecuto"
     proc = None
     try:
+        if exe == "node" and ("playwright" in texto or urls):
+            puerto = puerto_libre()
+            if puerto is None: return 1, "EADDRINUSE: sin puerto libre para el servidor local"
+            env.update(entorno_url(texto, puerto))
+            srv = subprocess.Popen([sys.executable, "-m", "http.server", str(puerto), "--bind", "127.0.0.1"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=POSIX)
+            if not esperar_puerto(puerto):
+                matar(srv); srv = None
+                return 1, "ETIMEDOUT: el servidor local no arranco; el test no se ejecuto"
         proc = subprocess.Popen(["node" if exe == "node" else sys.executable, ruta], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", env=env, start_new_session=POSIX)
         try: out, _ = proc.communicate(timeout=TIMEOUT)
         except subprocess.TimeoutExpired:
@@ -79,21 +82,36 @@ def correr(exe, ruta):
         if srv: matar(srv)
 
 
+def escribir_resultados(salida, datos):
+    temporal = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=salida.parent, prefix=salida.name + ".", suffix=".tmp", delete=False) as f:
+            temporal = Path(f.name)
+            json.dump(datos, f, ensure_ascii=False, indent=1)
+        os.replace(temporal, salida)
+    finally:
+        if temporal and temporal.exists(): temporal.unlink()
+
+
 def main(argv):
     salida, modo = Path(argv[1]), argv[2]
     tests = [x for a in argv[3:] for x in a.split()]
     pares = [validar(t) for t in tests]
     if modo not in ("regresion", "exploratorio") or not tests or None in pares:
         print("ARGUMENTOS_INVALIDOS", modo, [t for t, p in zip(tests, pares) if p is None], file=sys.stderr)
-        salida.write_text(json.dumps({"modo": modo, "resumen": {"argumentos_invalidos": 1}, "tests": []}, ensure_ascii=False), encoding="utf-8")
+        escribir_resultados(salida, {"modo": modo, "resumen": {"argumentos_invalidos": 1}, "tests": []})
         return 2
     res = []
     for exe, ruta in pares:
-        t0 = time.time(); rc, out = correr(exe, ruta)
-        res.append({"ruta": ruta, "exe": exe, "rc": rc, "clase": clasificar_salida(rc, out), "segundos": round(time.time() - t0, 1), "salida": out[-4000:]})
+        t0 = time.time()
+        try: rc, out = correr(exe, ruta)
+        except OSError as e: rc, out = 1, f"OSError: infraestructura: {e}"
+        clase = "infra" if out.startswith("OSError: infraestructura:") else clasificar_salida(rc, out)
+        res.append({"ruta": ruta, "exe": exe, "rc": rc, "clase": clase, "segundos": round(time.time() - t0, 1), "salida": out[-4000:]})
         print(f"{res[-1]['clase']:<10} rc={rc} {ruta} ({res[-1]['segundos']}s)", flush=True)
-    resumen = {c: sum(1 for r in res if r["clase"] == c) for c in {r["clase"] for r in res}}
-    salida.write_text(json.dumps({"modo": modo, "resumen": resumen, "tests": res}, ensure_ascii=False, indent=1), encoding="utf-8")
+    resumen = {}
+    for r in res: resumen[r["clase"]] = resumen.get(r["clase"], 0) + 1
+    escribir_resultados(salida, {"modo": modo, "resumen": resumen, "tests": res})
     print("RESUMEN", json.dumps(resumen), flush=True)
     malo = resumen.get("invalido", 0) + resumen.get("infra", 0) + resumen.get("sin_entorno", 0) + (resumen.get("hallazgo", 0) if modo == "regresion" else 0)
     return 1 if malo else 0
