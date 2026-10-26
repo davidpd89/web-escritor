@@ -394,6 +394,7 @@ def render_index(site: str, records: list[dict], today: date) -> str:
     main = f'''
 <main id="contenido" tabindex="-1" class="v1-main" data-family="tool" data-editoriales-directory>
   {breadcrumbs([('Inicio', '/'), ('Editoriales', None)])}
+  <noscript><p class="tool-note" role="status"><strong>Búsqueda y filtros:</strong> necesitas activar JavaScript para buscar editoriales o filtrar los resultados por género y otros criterios. Sin JavaScript puedes seguir consultando las fichas publicadas en esta página.</p></noscript>
     <header class="tool-hero">
         <p class="eyebrow">Recurso para escritores</p>
         <h1>Editoriales y recepción de manuscritos, verificadas.</h1>
