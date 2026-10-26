@@ -27,7 +27,9 @@ html.v1 .tool-textarea--small{min-height:84px;resize:vertical;font-family:var(--
    limpiador-manuscritos's plain-prose "Texto limpio" output. */
 html.v1 .tool-textarea[readonly]{background:var(--surface-quiet)}
 html.v1 .tool-select{min-height:var(--control-min-height);font-family:var(--font-ui);font-size:.95rem;appearance:auto}
-html.v1 .tool-file{width:100%;font:400 .95rem/1.5 var(--font-ui);color:var(--color-text)}
+html.v1 .tool-file{width:100%;min-height:32px;font:400 .95rem/1.5 var(--font-ui);color:var(--color-text)}
+html.v1 main input[type=checkbox],html.v1 main input[type=radio]{width:24px;height:24px;min-width:24px;min-height:24px}
+html.v1 main details>summary{min-height:24px;padding-block:.25rem;box-sizing:border-box}
 html.v1 .tool-textarea:focus-visible,html.v1 .tool-select:focus-visible,html.v1 .tool-file:focus-visible{outline:2px solid var(--focus-color);outline-offset:2px;box-shadow:0 0 0 1px var(--surface-page),0 0 0 3px var(--focus-color)}
 /* minmax(14rem,...) es un minimo duro: bajo zoom 200% el contenedor mide la mitad
    en px CSS pero las media queries siguen viendo el viewport sin zoom, asi que la
