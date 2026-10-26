@@ -200,6 +200,7 @@ class Supervisor:
             if d.stat().st_mtime > lim: continue
             rc, o = self._run(["git", "status", "--porcelain", "--untracked-files=no"], d, 120)
             if rc == 0 and o.strip(): continue  # trabajo sin commitear: se conserva
+            if rc and (d / ".git").exists(): continue  # git no puede confirmar que esta limpio: no se arriesga trabajo (los restos sin .git si se borran)
             self._run(["git", "worktree", "remove", "--force", str(d)], Path(self.q.ROOT), 300); shutil.rmtree(d, ignore_errors=True); n += 1
         self._run(["git", "worktree", "prune"], Path(self.q.ROOT), 120)
         self.anotar(f"disco:{self.q.now()[:13]}", "liberado", f"{libre:.1f} GB libres < {self.cfg['disco_min_gb']}: {n} worktrees borrados, ahora {shutil.disk_usage(st).free / 1e9:.1f} GB")

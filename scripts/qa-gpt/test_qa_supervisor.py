@@ -92,13 +92,16 @@ class Reparacion(Base):
         st = Path(q.STATE); viejo, nuevo, sucio = st / "wt" / "viejo", st / "pr" / "nuevo", st / "lote_wt" / "sucio"
         g("worktree", "add", "-q", "--detach", str(viejo), "HEAD", cwd=self.repo); g("worktree", "add", "-q", "--detach", str(sucio), "HEAD", cwd=self.repo)
         nuevo.mkdir(parents=True); (sucio / "scripts/qa-gpt/m.py").write_text("cambio sin commitear\n")
+        roto, resto = st / "wt" / "roto", st / "wt" / "resto"  # git status falla (rc 128) / resto de un add fallido sin .git
+        roto.mkdir(); (roto / ".git").write_text("gitdir: " + str(st / "no-existe") + "\n"); (roto / "trabajo.txt").write_text("x"); resto.mkdir()
         import os; hace7h = __import__("time").time() - 7 * 3600
-        for d in (viejo, sucio): os.utime(d, (hace7h, hace7h))
+        for d in (viejo, sucio, roto, resto): os.utime(d, (hace7h, hace7h))
         s = self.sup(); s.cfg["disco_min_gb"] = 0
         self.assertEqual(s.liberar_disco(), 0)  # con espacio suficiente no toca nada
         s.cfg["disco_min_gb"] = 10 ** 9
-        self.assertEqual(s.liberar_disco(), 1)
+        self.assertEqual(s.liberar_disco(), 2)
         self.assertFalse(viejo.exists()); self.assertTrue(nuevo.exists()); self.assertTrue(sucio.exists())
+        self.assertTrue(roto.exists()); self.assertFalse(resto.exists())
         self.assertNotIn("viejo", g("worktree", "list", cwd=self.repo))
 
     def test_ctrl_c_no_es_un_fallo(self):
