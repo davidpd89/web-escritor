@@ -16,14 +16,8 @@
 // window.clarity was never loaded, which is exactly the legal pages' case.
 const ANALYTICS_CONSENT_KEY = "dp-analytics-consent";
 const ANALYTICS_CONSENT_VERSION = 1;
-// Implicit accept by continued use (2026-09-29): continued navigation/browsing
-// or scrolling accepts analytics unless explicitly rejected. The default grace
-// window is 0 for immediate interaction handling, overridable via
-// window.__ANALYTICS_CONSENT_GRACE_MS__ for QA testing.
-const ANALYTICS_CONSENT_GRACE_MS =
-  typeof window.__ANALYTICS_CONSENT_GRACE_MS__ === "number"
-    ? window.__ANALYTICS_CONSENT_GRACE_MS__
-    : 0;
+// Analytics consent requires an explicit choice. Navigation, scrolling,
+// unrelated clicks and page exit must never imply acceptance.
 // AEPD guidance treats a cookie consent as stale after long enough that the
 // visitor may no longer remember giving it, and recommends re-asking rather
 // than relying on it indefinitely -- 24 months, same ceiling the guidance
@@ -179,36 +173,12 @@ function showAnalyticsConsentBanner() {
     setStoredAnalyticsConsent(value);
     applyAnalyticsConsent(value);
     bar.remove();
-    document.removeEventListener("click", implicitAccept, true);
-    document.removeEventListener("scroll", implicitAccept, true);
-    window.removeEventListener("beforeunload", implicitAcceptOnUnload);
   }
   rejectBtn.addEventListener("click", () => decide("denied"));
   acceptBtn.addEventListener("click", () => decide("granted"));
 
-  // Implicit-accept-by-continued-use: a deliberate product decision
-  // (2026-09-08, explicit instruction from the site owner, made after the
-  // AEPD-compliance tradeoff was explained) -- browsing the site without
-  // clicking either button is treated as acceptance; clicking "Rechazo
-  // ayudarte" is the only path to denied. Only clicks/scrolls OUTSIDE the
-  // banner count (bar.contains guard), so choosing either button still
-  // always goes through decide() directly above, never through this path.
-  // graceUntil (2026-09-09): none of that fires during the first
-  // ANALYTICS_CONSENT_GRACE_MS -- the visitor gets that long to actually see
-  // the banner before an ordinary scroll or tap silently decides for them.
-  const graceUntil = Date.now() + ANALYTICS_CONSENT_GRACE_MS;
-  function implicitAccept(e) {
-    if (bar.contains(e.target)) return;
-    if (Date.now() < graceUntil) return;
-    decide("granted");
-  }
-  function implicitAcceptOnUnload() {
-    if (Date.now() < graceUntil) return;
-    if (!getStoredAnalyticsConsent()) decide("granted");
-  }
-  document.addEventListener("click", implicitAccept, true);
-  document.addEventListener("scroll", implicitAccept, true);
-  window.addEventListener("beforeunload", implicitAcceptOnUnload);
+  // Keep the banner available until either consent button is selected.
+  // Ordinary page interactions never change the stored preference.
 
   actions.append(rejectBtn, acceptBtn);
   bar.append(text, actions, link);
