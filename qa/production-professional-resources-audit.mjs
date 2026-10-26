@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { siteCivilDate } from './site-civil-clock.mjs';
+import { assertProductionRelease } from './production-release-marker.mjs';
 
 const ROOT=process.cwd();
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
@@ -25,7 +26,7 @@ async function retry(route){let last,e;for(let i=0;i<4;i++){try{last=await get(r
 async function exact(route,file,isJson=false){const r=await retry(route);assert.equal(r.status,200,route);if(isJson)assert.deepEqual(JSON.parse(r.body),json(file),route);else assert.equal(norm(r.body),norm(read(file)),route);return r}
 async function pool(xs,n,fn){let i=0;await Promise.all(Array.from({length:n},async()=>{while(i<xs.length){const x=xs[i++];await fn(x)}}))}
 
-if(SHA){const r=await retry(`/_release/${SHA}.json`);assert.equal(r.status,200);assert.deepEqual(JSON.parse(r.body),{schemaVersion:1,sha:SHA})}
+if(SHA)await assertProductionRelease({origin:ORIGIN,sha:SHA,label:'professional-resources',attempts:8,delayMs:3000});
 
 // Press-media contract: production must serve the exact prensa source from the
 // audited release, and every high-resolution media request must use the single
