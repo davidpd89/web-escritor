@@ -223,7 +223,7 @@ def score_links(context: Context, current_path: str) -> tuple[list[dict], dict |
     for href, label in context.links:
         link_path = normalise(urlparse(href).path or href)
         exact = current_path == link_path
-        family = (not exact) and link_path.endswith("/") and link_path != "/" and current_path.startswith(link_path)
+        family = (not exact) and link_path.endswith("/") and link_path not in ("/", "/lectores-beta/") and current_path.startswith(link_path)
         scored.append({"href": href, "label": label, "link_path": link_path, "exact": exact, "family": family})
     exact_match = next((s for s in scored if s["exact"]), None)
     best_family = None
