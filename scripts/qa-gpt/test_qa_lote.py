@@ -84,6 +84,27 @@ class Base(unittest.TestCase):
     def prop(self, pid): return self.c.execute("SELECT estado FROM propuestas WHERE id=?", (pid,)).fetchone()[0]
 
 
+class Observabilidad(Base):
+    """2026-10-26: el hilo del flujo PR quedo 3 h sin completar un paso y la consola de EJECUTAR no se guardaba: nada que diagnosticar."""
+    def test_log_queda_en_disco(self):
+        lo = self.lote(); lo.log("hola disco")
+        self.assertIn("hola disco", (q.STATE / "lote" / "ejecutar.log").read_text(encoding="utf-8"))
+
+    def test_paso_colgado_deja_la_pila_una_sola_vez(self):
+        import threading, time
+        lo = self.lote(); ev = threading.Event()
+        def colgado_en_gh(): ev.wait(10)
+        h = threading.Thread(target=colgado_en_gh, daemon=True); h.start()
+        try:
+            inicio = time.time() - 3600
+            self.assertFalse(lo.vigia_paso(h, time.time(), 1800))  # paso reciente: nada
+            self.assertTrue(lo.vigia_paso(h, inicio, 1800))
+            self.assertFalse(lo.vigia_paso(h, inicio, 1800))  # mismo paso: no se repite
+            txt = (q.STATE / "lote" / "ejecutar.log").read_text(encoding="utf-8")
+            self.assertIn("paso en curso desde hace 60 min", txt); self.assertIn("colgado_en_gh", txt)
+        finally: ev.set()
+
+
 class Stage(Base):
     """2026-10-26: los worktrees de stage nunca se borraban (167, 76 GB) y el disco lleno tumbo INICIAR y EJECUTAR; un `add -b` fallido a
     medias dejaba la rama creada y cada reintento moria con 'already exists'."""

@@ -209,7 +209,23 @@ class Lote:
     @staticmethod
     def slug(clave): return re.sub(r"\W", "_", clave)
 
-    def log(self, msg): self.out(f"[{dt.datetime.now():%H:%M:%S}] {msg}")
+    def log(self, msg):
+        linea = f"[{dt.datetime.now():%H:%M:%S}] {msg}"; self.out(linea)
+        # la consola de EJECUTAR no se guardaba: la noche del 2026-10-26 el flujo PR quedo mudo 3 h sin rastro. Copia en disco, rotada a 20 MB
+        try:
+            f = self.dir / "ejecutar.log"
+            if f.exists() and f.stat().st_size > 20e6: f.replace(f.with_suffix(".log.1"))
+            with f.open("a", encoding="utf-8") as fh: fh.write(f"{dt.date.today()} {linea}\n")
+        except OSError: pass
+
+    def vigia_paso(self, hilo, inicio, limite_s):
+        """Si un paso del flujo PR supera `limite_s`, deja en el log la pila del hilo (una vez por paso) para ver donde se ha colgado."""
+        if inicio is None or time.time() - inicio < limite_s or getattr(self, "_paso_avisado", None) == inicio: return False
+        import sys, traceback
+        self._paso_avisado = inicio; marco = sys._current_frames().get(hilo.ident)
+        pila = "".join(traceback.format_stack(marco)[-12:]) if marco else "(sin pila)"
+        self.log(f"Flujo PR: paso en curso desde hace {int((time.time() - inicio) / 60)} min; pila:\n{pila}")
+        return True
 
     def set(self, clave, estado, detalle=None, **extra):
         cols = {"estado": estado, "actualizado": self.q.now(), **extra}
@@ -603,12 +619,20 @@ class Lote:
         def bucle():
             c = self.q.db(); c.execute("PRAGMA busy_timeout=180000"); ciclo = qa_pr.Ciclo(self.q, self.gh, self.runner, self.log)
             while not self.parando:
+                self._paso_inicio = time.time()
                 try: ciclo.paso(c)
                 except GhAuthError as e: self.log(f"Flujo PR: GitHub rechaza el token ({str(e)[:80]})"); return
                 except Exception as e: self.log(f"Flujo PR: paso omitido ({type(e).__name__}: {str(e)[:120]}); se reintenta")
+                finally: self._paso_inicio = None
                 fin = time.time() + cfg["ciclo_s"]
                 while time.time() < fin and not self.parando: time.sleep(1)
+        def vigia():
+            while not self.parando and self._hilo_ciclo.is_alive():
+                try: self.vigia_paso(self._hilo_ciclo, getattr(self, "_paso_inicio", None), cfg.get("paso_max_s", 1800))
+                except Exception: pass
+                time.sleep(60)
         self._hilo_ciclo = threading.Thread(target=bucle, name="flujo-pr", daemon=True); self._hilo_ciclo.start()
+        threading.Thread(target=vigia, name="flujo-pr-vigia", daemon=True).start()
 
     def ejecutar(self):
         """Bucle continuo: valida en local (concurrencia_local, independiente de la remota), mantiene hasta 3 grupos en Actions, recoge resultados,
