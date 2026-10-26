@@ -124,7 +124,7 @@
           if (!result.ok || result.state !== 'pending_confirmation') {
             throw new Error(result.code || 'request_failed');
           }
-          form.innerHTML = '<p class="quiz-subscribe-ok">✓ ' + PENDING_COPY[source] + '</p>';
+          form.innerHTML = '<p class="quiz-subscribe-ok" role="status" aria-live="polite">✓ ' + PENDING_COPY[source] + '</p>';
           if (typeof window._gcEvent === 'function') {
             window._gcEvent('newsletter-pending-' + source, 'Newsletter DOI pendiente: ' + source);
           }
