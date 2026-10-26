@@ -75,8 +75,9 @@ def evaluar(d, after_user=True):
     """Clasifica una conversacion (JSON del backend) -> Resultado parcial (estado, texto, herramientas, nodos). Puro: testeable sin navegador."""
     mp = d.get("mapping") or {}
     chain, node = [], d.get("current_node")
-    while node and node in mp:
-        chain.append(mp[node]); node = mp[node].get("parent")
+    visto = set()  # un mapping ciclico no debe colgar el pipeline
+    while node and node in mp and node not in visto:
+        visto.add(node); chain.append(mp[node]); node = mp[node].get("parent")
     chain.reverse()
     msgs = [n["message"] for n in chain if n.get("message")]
     herr = sum(1 for m in msgs if m["author"]["role"] == "tool")

@@ -123,7 +123,12 @@ class Lock:
     path = STATE / "worker.lock"
     def __enter__(self):
         STATE.mkdir(parents=True, exist_ok=True)
-        if self.path.exists():
+        for _ in range(5):  # creacion exclusiva: dos procesos no pueden ver "ausente" y tomarlo ambos
+            try: fd = os.open(self.path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+            except FileExistsError: pass
+            else:
+                with os.fdopen(fd, "w") as f: f.write(f"{os.getpid()} {now()}")
+                return self
             try: pid = int(self.path.read_text().split()[0])
             except Exception: pid = 0
             if pid and pid != os.getpid() and pid_alive(pid):
@@ -133,9 +138,13 @@ class Lock:
                     raise SystemExit(f"Ya hay un trabajador en marcha (pid {pid}, {int(edad)} min).")
                 print(f"Trabajador colgado (pid {pid}, {int(edad)} min > {CFG.get('worker_max_min', 120)}): se termina y se toma el relevo")
                 sh(["taskkill", "/PID", str(pid), "/T", "/F"], check=False); time.sleep(2)
-        self.path.write_text(f"{os.getpid()} {now()}")
-        return self
-    def __exit__(self, *a): self.path.unlink(missing_ok=True)
+            self.path.unlink(missing_ok=True)  # muerto, propio o colgado ya terminado: se libera y se reintenta la creacion exclusiva
+        raise SystemExit("No se pudo tomar el lock del trabajador (disputa continua).")
+    def __exit__(self, *a):
+        try:  # solo el dueño lo borra: un relevo pudo tomarlo mientras tanto
+            if self.path.read_text().split()[0] != str(os.getpid()): return
+        except (OSError, IndexError): return
+        self.path.unlink(missing_ok=True)
     @classmethod
     def latido(cls):
         """El servicio continuo renueva la marca: un lock viejo = trabajador colgado (relevo), no un servicio largo."""

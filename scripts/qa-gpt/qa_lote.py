@@ -164,7 +164,7 @@ def workflows_que_ejecutan(rutas, textos, preferidos=()):
     que un cambio dispare el workflow no significa que el workflow ejecute el test (GitHub devolveria verde sin probarlo)."""
     res = {}
     for nombre, txt in textos.items():
-        cuerpo = chr(10).join(l for l in txt.splitlines() if not re.match(r"\s*-\s*['\"]", l) and not l.strip().startswith("#"))
+        cuerpo = chr(10).join(l for l in txt.splitlines() if not re.match(r"\s*-\s+(?![\w-]+\s*:)", l) and not l.strip().startswith("#"))  # fuera items escalares (paths:, branches:), con o sin comillas
         toks = re.findall(r"[\w./*\-\[\]?]+", cuerpo)
         ejecuta = lambda r: r in cuerpo or any(glob_concreto(t, r) for t in toks if "*" in t)
         if rutas and all(ejecuta(r) for r in rutas) and re.search(r"^\s*workflow_dispatch", txt, re.M): res[nombre] = True
@@ -272,8 +272,9 @@ class Lote:
             props = c.execute("SELECT id,datos FROM propuestas WHERE rama=? AND estado IN ('preparada','aprobada')", (r["rama"],)).fetchall()
             if self.item(clave) or not props: dup += 1; continue
             if nuevos >= tope: continue
-            c.execute("INSERT INTO lote_items(clave,lote_id,rama,sha,area,propuestas,estado,runs,creado,actualizado) VALUES(?,?,?,?,?,?,?,?,?,?)",
-                      (clave, lid, r["rama"], r["sha"], r["area"], json.dumps([p["id"] for p in props]), "preparada", "{}", q.now(), q.now()))
+            if not c.execute("INSERT OR IGNORE INTO lote_items(clave,lote_id,rama,sha,area,propuestas,estado,runs,creado,actualizado) VALUES(?,?,?,?,?,?,?,?,?,?)",
+                             (clave, lid, r["rama"], r["sha"], r["area"], json.dumps([p["id"] for p in props]), "preparada", "{}", q.now(), q.now())).rowcount:
+                dup += 1; continue  # otro EJECUTAR lo capturo entre la comprobacion y el INSERT: no se aborta
             for p in props:  # el clic ES la autorizacion: preparada -> aprobada (mismo efecto que `aprobar`)
                 if c.execute("SELECT estado FROM propuestas WHERE id=?", (p["id"],)).fetchone()[0] == "preparada": q.estado_prop(c, p["id"], "aprobada", f"aprobada por el clic de EJECUTAR-ACTIONS (lote {lid})")
             c.execute("UPDATE ramas SET estado='aprobada' WHERE rama=? AND estado='preparada'", (r["rama"],)); c.commit(); nuevos += 1

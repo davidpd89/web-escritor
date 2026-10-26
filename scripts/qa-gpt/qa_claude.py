@@ -60,8 +60,9 @@ def validar(dato, esquema, ruta="$"):
             if k in dato: p += validar(dato[k], sub, f"{ruta}.{k}")
     if t == "array":
         if len(dato) > esquema.get("maxItems", 10**6): p.append(f"{ruta}: demasiados elementos")
-        for i, x in enumerate(dato[:50]):
-            if "items" in esquema: p += validar(x, esquema["items"], f"{ruta}[{i}]")
+        if "items" in esquema:
+            for i, x in enumerate(dato):
+                p += validar(x, esquema["items"], f"{ruta}[{i}]")
     return p
 
 
@@ -76,9 +77,21 @@ def llamar(q, c, clave, tipo, sistema, entrada, esquema, herramientas="", cwd=No
     cfg = {**cfg, "timeout_s": timeout_s or cfg["timeout_s"], "max_usd_llamada": max_usd or cfg["max_usd_llamada"]}
     nombres = ",".join(dict.fromkeys(h.split("(")[0].strip() for h in herramientas.split(",") if h.strip())) if herramientas else ""
     h = huella(sistema, entrada, json.dumps(esquema, sort_keys=True), cfg["modelo"], esf, herramientas)
+
     if usar_cache:
         r = c.execute("SELECT respuesta FROM claude_veredictos WHERE clave=? AND hash=?", (clave, h)).fetchone()
-        if r: return json.loads(r[0]), {"cache": True, "hash": h}
+        if r:
+            try:
+                dato_cache = json.loads(r[0])
+                if not validar(dato_cache, esquema):
+                    return dato_cache, {"cache": True, "hash": h}
+            except (ValueError, TypeError, KeyError):
+                pass
+            # Una fila corrupta o incompatible no puede convertirse en decision.
+            # Se invalida y se vuelve a consultar Claude.
+            c.execute("DELETE FROM claude_veredictos WHERE clave=? AND hash=?", (clave, h))
+            c.commit()
+
     args = [exe(), "-p", "--model", cfg["modelo"], "--effort", esf, "--output-format", "json",
             "--max-turns", str(max_turnos or cfg["max_turnos"]), "--tools", nombres, "--system-prompt", sistema, "--setting-sources", "",
             "--disable-slash-commands", "--strict-mcp-config", "--no-session-persistence", "--json-schema", json.dumps(esquema, ensure_ascii=False),
@@ -119,6 +132,7 @@ def llamar(q, c, clave, tipo, sistema, entrada, esquema, herramientas="", cwd=No
 
 def resumen_consumo(c):
     """Para ESTADO: llamadas, coste y tokens medidos."""
-    r = c.execute("SELECT COUNT(*),COALESCE(SUM(ok),0),COALESCE(SUM(coste_usd),0),COALESCE(SUM(tok_in+tok_cache_crea+tok_cache_lee),0),COALESCE(SUM(tok_out),0),"
-                  "COALESCE(AVG(segundos),0) FROM claude_llamadas").fetchone()
+    r = c.execute("SELECT COUNT(*),COALESCE(SUM(ok),0),COALESCE(SUM(coste_usd),0),"
+                  "COALESCE(SUM(COALESCE(tok_in,0)+COALESCE(tok_cache_crea,0)+COALESCE(tok_cache_lee,0)),0),"
+                  "COALESCE(SUM(tok_out),0),COALESCE(AVG(segundos),0) FROM claude_llamadas").fetchone()
     return {"llamadas": r[0], "ok": r[1], "usd": round(r[2], 3), "tok_entrada": r[3], "tok_salida": r[4], "seg_medio": round(r[5], 1)}

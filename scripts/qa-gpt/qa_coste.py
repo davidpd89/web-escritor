@@ -85,9 +85,18 @@ def tabla(filas, scopes=()):
         h = f.get("hist") or {}
         if not f["workflow"]: est = "SOLO LOCAL (ningun workflow lo ejecuta: revision humana)"; tiempos = "-"
         else:
-            if "error" in h: tiempos = f"sin dato ({h['error']})"
-            elif not h: tiempos = "sin historial de ejecuciones correctas: no se estima"
-            else: tiempos = f"reloj ~{int(h['reloj_s'] // 60)}m{int(h['reloj_s'] % 60):02d}s / facturable ~{h['facturable_min']:.0f} min / cola ~{(h['cola_s'] or 0):.0f} s (n={h['n']})"
+            if "error" in h:
+                tiempos = f"sin dato ({h['error']})"
+            elif not h:
+                tiempos = "sin historial de ejecuciones correctas: no se estima"
+            else:
+                reloj = h.get("reloj_s")
+                facturable = h.get("facturable_min")
+                cola = h.get("cola_s")
+                reloj_txt = f"{int(reloj // 60)}m{int(reloj % 60):02d}s" if isinstance(reloj, (int, float)) else "sin dato"
+                facturable_txt = f"{facturable:.0f} min" if isinstance(facturable, (int, float)) else "sin dato"
+                cola_txt = f"{cola:.0f} s" if isinstance(cola, (int, float)) else "sin dato"
+                tiempos = f"reloj ~{reloj_txt} / facturable ~{facturable_txt} / cola ~{cola_txt} (n={h['n']})"
             est = "BLOQUEADO hasta `gh auth refresh -s workflow`" if f["toca_workflow"] and "workflow" not in scopes else "listo para Actions"
         out.append(f"  {f['test']} -> {f['workflow'] or '-'} -> {f.get('jobs', '-')} job(s) -> {tiempos} -> {est}")
     wfs = {f["workflow"] for f in filas if f["workflow"]}
