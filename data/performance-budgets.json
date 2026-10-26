@@ -88,6 +88,24 @@
       }
     },
     {
+      "id": "catalogue-runtime",
+      "label": "Catalogo de recomendaciones",
+      "entrypoints": [
+        "assets/reading-catalogue.css",
+        "assets/reading-catalogue.js"
+      ],
+      "baseline": {
+        "total_bytes": 63497,
+        "css_bytes": 20988,
+        "js_bytes": 24201,
+        "request_count": 3
+      },
+      "limits": {
+        "total_bytes": 69632,
+        "request_count": 3
+      }
+    },
+    {
       "id": "assistant-widget-runtime",
       "label": "Widget diferido del asistente",
       "entrypoints": [
