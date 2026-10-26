@@ -5,34 +5,6 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Convocatorias para escritores
 BEGIN:VEVENT
-UID:manera-montblanc-relatos-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261025
-DTEND;VALUE=DATE:20261026
-SUMMARY:Concurso de Relatos MANERA x Montblanc 2026
-DESCRIPTION:MANERA Magazine · Montblanc
-URL:https://maneramagazine.es/interiorismo/concurso-relatos-manera-montblan
- c-2026/
-END:VEVENT
-BEGIN:VEVENT
-UID:kannonical-terror-sobrenatural-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261025
-DTEND;VALUE=DATE:20261026
-SUMMARY:Convocatoria «Terror Sobrenatural» 2026
-DESCRIPTION:Kannonical Editores
-URL:https://kannonical-editores.github.io/convoc.html
-END:VEVENT
-BEGIN:VEVENT
-UID:zenda-mentesana-relatos-2026@davidportodiaz.com
-DTSTAMP:20261019T000000Z
-DTSTART;VALUE=DATE:20261025
-DTEND;VALUE=DATE:20261026
-SUMMARY:Concurso de relatos #MenteSana — Zenda + Iberdrola
-DESCRIPTION:Zenda\, con el patrocinio de Iberdrola
-URL:https://www.zendalibros.com/concurso-de-relatos-mentesana/
-END:VEVENT
-BEGIN:VEVENT
 UID:si-los-pasillos-hablaran-2026@davidportodiaz.com
 DTSTAMP:20261003T000000Z
 DTSTART;VALUE=DATE:20261026
