@@ -13,6 +13,7 @@ Rules (see 27_REPOSITORIOS_Y_MEJORAS_IMPLEMENTABLES_2026-08-16.md §13):
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
 import os
 import re
@@ -21,6 +22,20 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
+
+_PUBLISHER = None
+
+
+def _publisher():
+    global _PUBLISHER
+    if _PUBLISHER is None:
+        spec = importlib.util.spec_from_file_location(
+            "sitemap_publisher_allowlist", Path(__file__).resolve().with_name("build-public-dist.py")
+        )
+        _PUBLISHER = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(_PUBLISHER)
+    return _PUBLISHER
+
 
 DOMAIN = "https://davidportodiaz.com"
 NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -92,17 +107,28 @@ def extract_date_modified(text: str):
             data = json.loads(js.group(1).strip())
         except Exception:
             continue
-        nodes = data if isinstance(data, list) else [data]
-        if isinstance(data, dict) and "@graph" in data and isinstance(data["@graph"], list):
-            nodes = data["@graph"]
-        for node in nodes:
+        pending = [data]
+        while pending:
+            node = pending.pop()
+            if isinstance(node, list):
+                pending.extend(reversed(node))
+                continue
             if not isinstance(node, dict):
                 continue
             dm = node.get("dateModified")
             if isinstance(dm, str) and dm.strip():
                 best = dm.strip()
-                if node.get("@type") in ("WebPage", "Article", "BlogPosting"):
+                node_type = node.get("@type")
+                if isinstance(node_type, str):
+                    node_type = [node_type]
+                if isinstance(node_type, list) and any(
+                    kind in ("WebPage", "Article", "BlogPosting")
+                    for kind in node_type
+                ):
                     return best
+            graph = node.get("@graph")
+            if isinstance(graph, (list, dict)):
+                pending.append(graph)
     return best
 
 
@@ -178,6 +204,11 @@ def should_skip_file(path: Path, root: Path) -> bool:
     if any(lower.endswith(sfx) for sfx in SKIP_SUFFIXES):
         return True
     if path.suffix.lower() != ".html":
+        return True
+    # Reuse the publisher allowlist for nested documents: never announce
+    # HTML that the public artifact would not contain. Only applies to a real
+    # site root (has index.html); bare fixtures are filtered by noindex only.
+    if (root / "index.html").is_file() and not _publisher().is_publishable(rel.as_posix(), root):
         return True
     return False
 

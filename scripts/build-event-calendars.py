@@ -309,7 +309,11 @@ class CalendarLinkParser(HTMLParser):
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
         values = {key.lower(): value for key, value in attrs}
-        hidden = "hidden" in values or (self._stack[-1][1] if self._stack else False)
+        hidden = (
+            "hidden" in values
+            or (values.get("aria-hidden") or "").strip().lower() == "true"
+            or (self._stack[-1][1] if self._stack else False)
+        )
         if tag == "a" and not hidden and "data-calendar-download" in values and values.get("href"):
             self.links.add(str(values["href"]))
         if tag not in self.VOID_TAGS:
@@ -351,6 +355,9 @@ def expected_calendars(html_text: str, *, as_of: date | datetime | None = None) 
                 errors.append(f"identificador de evento duplicado: {event_id}")
                 continue
             seen_event_ids.add(event_id)
+            start = event.get("startDate")
+            if not isinstance(start, str) or not start.strip():
+                raise ValueError(f"EventScheduled {fragment!r} sin startDate valido")
             if not is_upcoming(event, as_of=as_of):
                 continue
             filename = f"{fragment}.ics"

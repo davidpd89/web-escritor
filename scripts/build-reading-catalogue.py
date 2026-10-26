@@ -141,7 +141,7 @@ def validate(data, root):
             require(not b.get(key) or type(b[key]) is int and b[key] > 0, f'{name}: {key} debe ser entero positivo')
         if b.get('pvp_centimos') is not None:
             require(type(b['pvp_centimos']) is int and 100 <= b['pvp_centimos'] <= 20000, f'{name}: pvp_centimos fuera de rango')
-            require(bool(re.fullmatch(r'\d{4}-\d{2}-\d{2}', str(b.get('pvp_fecha_verificacion', '')))), f'{name}: PVP sin fecha de verificación')
+            day(b.get('pvp_fecha_verificacion'), name + '.pvp_fecha_verificacion')
         if b.get('audio_descripcion'):
             require(bool(re.fullmatch(r'/assets/reading-audio/[a-z0-9-]+\.mp3', b['audio_descripcion'])) and (root / b['audio_descripcion'].lstrip('/')).is_file(), f'{name}: audio local inválido o ausente')
         cover = b["portada_local"]
@@ -192,11 +192,17 @@ def validate(data, root):
             require(isinstance(review["titulo"], str) and review["titulo"].strip() and https(review["url"]) and review["url"] not in seen_reviews, f"{name}: reseña sin título/URL o duplicada")
             day(review["fecha_verificacion"], name + ".reseña")
             seen_reviews.add(review["url"])
+    excluded_by_book = {}
+    for b in books:
+        excluded = b.get('categorias_excluidas', [])
+        require(isinstance(excluded, list) and all(isinstance(c, str) and c in ids for c in excluded), f"{b['id']}: exclusiones de categorías inválidas")
+        excluded_by_book[b['id']] = set(excluded)
     seen = set()
     for rel in relations:
         require(isinstance(rel, dict) and set(rel) == {"libro_id", "categoria_id"}, "Relación mal formada")
         pair = (rel["libro_id"], rel["categoria_id"])
         require(pair[0] in book_ids and pair[1] in ids and pair not in seen, "Relación duplicada o referencia inexistente")
+        require(pair[1] not in excluded_by_book[pair[0]], f"{pair[0]}: categoría {pair[1]} asignada y excluida simultáneamente")
         seen.add(pair)
     for b in books:
         if b["estado"] != "borrador":
