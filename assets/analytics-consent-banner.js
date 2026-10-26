@@ -179,9 +179,7 @@ function showAnalyticsConsentBanner() {
     setStoredAnalyticsConsent(value);
     applyAnalyticsConsent(value);
     bar.remove();
-    document.removeEventListener("click", implicitAccept, true);
-    document.removeEventListener("scroll", implicitAccept, true);
-    window.removeEventListener("beforeunload", implicitAcceptOnUnload);
+
   }
   rejectBtn.addEventListener("click", () => decide("denied"));
   acceptBtn.addEventListener("click", () => decide("granted"));
@@ -196,19 +194,8 @@ function showAnalyticsConsentBanner() {
   // graceUntil (2026-09-09): none of that fires during the first
   // ANALYTICS_CONSENT_GRACE_MS -- the visitor gets that long to actually see
   // the banner before an ordinary scroll or tap silently decides for them.
-  const graceUntil = Date.now() + ANALYTICS_CONSENT_GRACE_MS;
-  function implicitAccept(e) {
-    if (bar.contains(e.target)) return;
-    if (Date.now() < graceUntil) return;
-    decide("granted");
-  }
-  function implicitAcceptOnUnload() {
-    if (Date.now() < graceUntil) return;
-    if (!getStoredAnalyticsConsent()) decide("granted");
-  }
-  document.addEventListener("click", implicitAccept, true);
-  document.addEventListener("scroll", implicitAccept, true);
-  window.addEventListener("beforeunload", implicitAcceptOnUnload);
+  // SUPERSEDED: consent is only granted by the explicit "Acepto ayudarte"
+  // button; browsing, scrolling or leaving never counts as acceptance.
 
   actions.append(rejectBtn, acceptBtn);
   bar.append(text, actions, link);
