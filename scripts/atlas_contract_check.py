@@ -289,6 +289,8 @@ def problems(data: dict) -> list[str]:
         require("places", image.get("place_id"), scope)
         if image.get("status") == APPROVED:
             require_approved("places", image.get("place_id"), scope)
+            if "alt_original" in image and not has_text(image["alt_original"]):
+                errors.append(scope + ": alt_original declarado debe contener texto perceptible")
             place_id = image.get("place_id")
             owner = tables["places"].get(place_id) if isinstance(place_id, str) else None
             if owner is not None:
