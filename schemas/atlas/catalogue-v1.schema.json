@@ -898,7 +898,8 @@
           ]
         },
         "alt_original": {
-          "type": "string"
+          "type": "string",
+          "pattern": "\\S"
         }
       }
     },
