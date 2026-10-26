@@ -49,7 +49,7 @@ html.v1 .header-sitemap:hover,html.v1 .header-sitemap:focus-visible,
 html.v1 .header-contact:hover,html.v1 .header-contact:focus-visible{color:#254f60;background:#d7e9ef;border-color:rgba(37,79,96,.18)}
 html.v1 .explore-trigger{border-radius:0;border-color:transparent}
 html.v1 .explore-trigger:hover,html.v1 .explore-trigger:focus-visible{background:#d7e9ef;border-color:rgba(37,79,96,.18);color:#254f60}
-html.v1 .header-buy{min-height:36px;padding:.25rem .85rem;border-radius:0;font-size:.76rem;letter-spacing:.015em;background:#0a4d9f;border-color:#0a4d9f}
+html.v1 .header-buy{min-height:44px;padding:.25rem .85rem;border-radius:0;font-size:.76rem;letter-spacing:.015em;background:#0a4d9f;border-color:#0a4d9f}
 html.v1 .header-buy:hover,html.v1 .header-buy:focus-visible{background:#083c7d;border-color:#083c7d}
 html.v1 .site-header__left .explore-trigger{order:3}
 /* Estado A only hides the hamburger on desktop Home, before any scroll
@@ -132,8 +132,8 @@ html.v1[data-lrb-home="true"] .masthead-nav__item:nth-last-child(-n+2)>.masthead
      overflowed the viewport by a few px (qa/pro-resources-browser.mjs).
      42px keeps them well above the 24px WCAG 2.5.8 minimum tap size while
      closing that gap. */
-  html.v1 .header-search{min-width:42px}
-  html.v1 .header-home,html.v1 .header-sitemap,html.v1 .header-contact,html.v1 .explore-trigger{width:42px;height:42px}
+  html.v1 .header-search{min-width:44px}
+  html.v1 .header-home,html.v1 .header-sitemap,html.v1 .header-contact,html.v1 .explore-trigger{width:44px;height:44px}
   html.v1[data-lrb-home="true"] .site-header__left .explore-trigger{display:inline-flex}
   html.v1[data-lrb-home="true"] .masthead-sticky{top:var(--dp-lrb-utility-h)}
   html.v1[data-lrb-home="true"] .masthead__name{min-height:142px}
