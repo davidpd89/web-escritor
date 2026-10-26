@@ -593,6 +593,24 @@
       "orden": 215,
       "slug": "tema-ciencia-ficcion-juvenil",
       "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Salud.",
+      "id": "tema-salud",
+      "nombre": "Salud",
+      "orden": 216,
+      "slug": "tema-salud",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Secretos.",
+      "id": "tema-secretos",
+      "nombre": "Secretos",
+      "orden": 217,
+      "slug": "tema-secretos",
+      "tipo": "tematica"
     }
   ],
   "libro_categorias": [
@@ -1591,6 +1609,46 @@
     {
       "categoria_id": "ciencia-ficcion",
       "libro_id": "isbn-9788427257627"
+    },
+    {
+      "categoria_id": "tema-salud",
+      "libro_id": "isbn-9788408325222"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788408325222"
+    },
+    {
+      "categoria_id": "nutricion-y-bienestar",
+      "libro_id": "isbn-9788408325222"
+    },
+    {
+      "categoria_id": "tema-infantil",
+      "libro_id": "isbn-9791387526863"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9791387526863"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9791387512446"
+    },
+    {
+      "categoria_id": "tema-secretos",
+      "libro_id": "isbn-9791387512446"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387512446"
+    },
+    {
+      "categoria_id": "tema-manga",
+      "libro_id": "isbn-9791388100550"
+    },
+    {
+      "categoria_id": "tema-manga",
+      "libro_id": "isbn-9791388101311"
     }
   ],
   "libros": [
@@ -5194,6 +5252,228 @@
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-sexta-faccion-1-la-sexta-faccion-edicion-especial-limitada-con-cantos-ti-9788427257627",
       "titulo": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408325222&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Javier Dols Juste"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Tu mejor medicina eres tú, de Javier Dols Juste. Edición de Zenith en castellano, en rústica con solapas. Consta de 416 páginas. La editorial la incluye en salud. Publicación editorial: 2026-10-07.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Zenith",
+      "editorial": "Zenith",
+      "editorial_catalogo_slug": "zenith",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-26",
+      "fecha_publicacion": "2026-10-07",
+      "fecha_verificacion": "2026-10-26",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-tu-mejor-medicina-eres-tu/456744",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-tu-mejor-medicina-eres-tu/456744",
+      "id": "isbn-9788408325222",
+      "idioma": "es",
+      "isbn13": "9788408325222",
+      "numero_paginas": 416,
+      "portada_alto": 482,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-26",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/249db147-07c5-40da-b2ff-02147f22113c/d_360_620/portada_tu-mejor-medicina-eres-tu_javier-dols-juste_202609070918.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788408325222.webp",
+      "pvp_centimos": 2395,
+      "pvp_fecha_verificacion": "2026-10-26",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-26",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788408325222"
+        }
+      ],
+      "sinopsis_breve": "En un mundo saturado de información contradictoria sobre salud, este libro ofrece explicaciones claras, consejos y herramientas prácticas para transformar tu bienestar desde dentro.",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-tu-mejor-medicina-eres-tu/456744",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "tu-mejor-medicina-eres-tu-9788408325222",
+      "titulo": "Tu mejor medicina eres tú"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387526863&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Disney"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Stitch. Calendario de Adviento, de Disney. Edición de Libros Disney en castellano, en tapa dura sin s/cub. (cartoné). Consta de 576 páginas. La editorial la incluye en infantil. Publicación editorial: 2026-10-14.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa dura sin s/cub. (cartoné) · Libros Disney",
+      "editorial": "Libros Disney",
+      "editorial_catalogo_slug": "libros-disney",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-26",
+      "fecha_publicacion": "2026-10-14",
+      "fecha_verificacion": "2026-10-26",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-stitch-calendario-de-adviento/427175",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-stitch-calendario-de-adviento/427175",
+      "id": "isbn-9791387526863",
+      "idioma": "es",
+      "isbn13": "9791387526863",
+      "numero_paginas": 576,
+      "portada_alto": 544,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-26",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/374bcba8-dab3-48a2-a567-fa3d287db02d/d_360_620/portada_stitch-calendario-de-adviento__202606120851.webp",
+      "portada_local": "/assets/reading-covers/isbn-9791387526863.webp",
+      "pvp_centimos": 2495,
+      "pvp_fecha_verificacion": "2026-10-26",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-26",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387526863"
+        }
+      ],
+      "sinopsis_breve": "Vive la cuenta atrás para la Navidad con Stitch, Ángel y sus amigos . Descubre un nuevo cuento sorpresa cada día y empieza las…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-stitch-calendario-de-adviento/427175",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "stitch-calendario-de-adviento-9791387526863",
+      "titulo": "Stitch. Calendario de Adviento"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387512446&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Freida McFadden"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La inquilina, de Freida McFadden. Edición de Suma de Letras en castellano, en tapa blanda con solapas. Consta de 344 páginas. La editorial la incluye en novela negra, misterio y thriller. Publicación editorial: 2026-09-03.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Suma de Letras",
+      "editorial": "Suma de Letras",
+      "editorial_slug": "suma-de-letras",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-26",
+      "fecha_publicacion": "2026-09-03",
+      "fecha_verificacion": "2026-10-26",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+      "id": "isbn-9791387512446",
+      "idioma": "es",
+      "isbn13": "9791387512446",
+      "numero_paginas": 344,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-26",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7766628-thickbox_default/la-inquilina.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387512446.webp",
+      "pvp_centimos": 2090,
+      "pvp_fecha_verificacion": "2026-10-26",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-26",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387512446"
+        }
+      ],
+      "sinopsis_breve": "Blake Porter está en la cima del éxito... hasta que deja de estarlo. Despedido de un día para otro de su trabajo como directivo…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-inquilina-9791387512446",
+      "titulo": "La inquilina"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388100550&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Yukito Kishiro"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Gunnm Alita Mars Chronicle nº 10/11, de Yukito Kishiro. Edición de Planeta Cómic en castellano, en rústica sin solapas con s/cub.. Consta de 170 páginas. La editorial la incluye en manga. Publicación editorial: 2026-10-21.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica sin solapas con s/cub. · Planeta Cómic",
+      "editorial": "Planeta Cómic",
+      "editorial_catalogo_slug": "planeta-comic",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-26",
+      "fecha_publicacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-26",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-gunnm-alita-mars-chronicle-n-1011/450525",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-gunnm-alita-mars-chronicle-n-1011/450525",
+      "id": "isbn-9791388100550",
+      "idioma": "es",
+      "isbn13": "9791388100550",
+      "numero_paginas": 170,
+      "portada_alto": 509,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-26",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/eb68d7b7-b876-4f9e-98ab-08715da27aea/d_360_620/portada_gunnm-alita-mars-chronicle-n-1011_yukito-kishiro_202606051410.webp",
+      "portada_local": "/assets/reading-covers/isbn-9791388100550.webp",
+      "pvp_centimos": 950,
+      "pvp_fecha_verificacion": "2026-10-26",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-26",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388100550"
+        }
+      ],
+      "sinopsis_breve": "Una batalla espeluznante del Panzer Kunst contra Mecanismo. ¡Se dirime el duelo entre Keun y Gyapollo!",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-gunnm-alita-mars-chronicle-n-1011/450525",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "gunnm-alita-mars-chronicle-no-10-11-9791388100550",
+      "titulo": "Gunnm Alita Mars Chronicle nº 10/11"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388101311&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Kazuki Takahashi"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Yu-Gi-Oh! nº 04/22, de Kazuki Takahashi. Edición de Planeta Cómic en castellano, en rústica sin solapas con s/cub.. Consta de 408 páginas. La editorial la incluye en manga. Publicación editorial: 2026-10-21.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica sin solapas con s/cub. · Planeta Cómic",
+      "editorial": "Planeta Cómic",
+      "editorial_catalogo_slug": "planeta-comic",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-26",
+      "fecha_publicacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-26",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-yu-gi-oh-n-0422/454144",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-yu-gi-oh-n-0422/454144",
+      "id": "isbn-9791388101311",
+      "idioma": "es",
+      "isbn13": "9791388101311",
+      "numero_paginas": 408,
+      "portada_alto": 523,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-26",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/2377fe2c-c71a-447b-9da3-64b920dfc6f0/d_360_620/portada_yu-gi-oh-kanzenban-n-0422_kazuki-takahashi_202606101351.webp",
+      "portada_local": "/assets/reading-covers/isbn-9791388101311.webp",
+      "pvp_centimos": 1795,
+      "pvp_fecha_verificacion": "2026-10-26",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-26",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388101311"
+        }
+      ],
+      "sinopsis_breve": "Un enigmático muchacho llamado Bakura ha llegado al instituto de Yugi . Por lo visto, todos sus compañeros de juego han perdido el conocimiento…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-yu-gi-oh-n-0422/454144",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "yu-gi-oh-no-04-22-9791388101311",
+      "titulo": "Yu-Gi-Oh! nº 04/22"
     }
   ],
   "schema_version": 1

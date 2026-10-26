@@ -1204,6 +1204,85 @@
       "motivo": "Sello no presente en el registro editorial de la web",
       "primera_deteccion": "2026-10-20"
     },
+    "isbn13:9788408324461": {
+      "datos": {
+        "autores": [
+          "Natalia Torvisco"
+        ],
+        "coleccion": "Ficción",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Crossbooks",
+        "editorial_slug": "crossbooks",
+        "encuadernacion": "Tapa dura sin s/cub. (cartoné)",
+        "fecha_publicacion_edicion": "2026-10-14",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-en-el-corazon-del-monstruo/455199",
+        "fuentes_autores": {
+          "Natalia Torvisco": "https://www.planetadelibros.com/autor/natalia-torvisco/000058659"
+        },
+        "idioma": "es",
+        "isbn13": "9788408324461",
+        "materias": [
+          "Juvenil"
+        ],
+        "numero_paginas": 440,
+        "palabras_clave": [
+          "Juvenil",
+          "A partir de 16 años"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/2b158cc7-f6db-41b3-80ac-35eff6e690b6/d_360_620/portada_en-el-corazon-del-monstruo_natalia-torvisco_202607011446.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2395,
+        "sinopsis_breve": "Marshel Allen solo desea una cosa : ser alumna del afamado doctor Viktor Frank , de quien conoce todos sus polémicos experimentos de alquimia…",
+        "titulo": "En el corazón del monstruo"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-en-el-corazon-del-monstruo/455199",
+      "isbn13": "9788408324461",
+      "motivo": "Materia editorial no clasificada; queda pendiente",
+      "primera_deteccion": "2026-10-26",
+      "retry_after": "2026-10-29"
+    },
+    "isbn13:9788408325222": {
+      "datos": {
+        "autores": [
+          "Javier Dols Juste"
+        ],
+        "coleccion": "Salud y Bienestar",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Zenith",
+        "editorial_slug": "zenith",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-07",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-tu-mejor-medicina-eres-tu/456744",
+        "fuentes_autores": {
+          "Javier Dols Juste": "https://www.planetadelibros.com/autor/javier-dols-juste/000049583"
+        },
+        "idioma": "es",
+        "isbn13": "9788408325222",
+        "materias": [
+          "Salud"
+        ],
+        "numero_paginas": 416,
+        "palabras_clave": [
+          "Salud",
+          "Autoayuda"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/249db147-07c5-40da-b2ff-02147f22113c/d_360_620/portada_tu-mejor-medicina-eres-tu_javier-dols-juste_202609070918.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2395,
+        "sinopsis_breve": "En un mundo saturado de información contradictoria sobre salud, este libro ofrece explicaciones claras, consejos y herramientas prácticas para transformar tu bienestar desde dentro.",
+        "titulo": "Tu mejor medicina eres tú"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788408325222",
+      "libro_id": "isbn-9788408325222",
+      "primera_deteccion": "2026-10-26",
+      "publicado_en": "2026-10-26"
+    },
     "isbn13:9788408326380": {
       "datos": {
         "autores": [
@@ -1529,7 +1608,7 @@
       "isbn13": "9788413445625",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-10-22",
-      "retry_after": "2026-10-25"
+      "retry_after": "2026-10-29"
     },
     "isbn13:9788418967566": {
       "datos": {
@@ -3357,6 +3436,156 @@
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
     },
+    "isbn13:9788498381498": {
+      "datos": {
+        "autores": [
+          "Antoine de Saint-Exupéry"
+        ],
+        "coleccion": "Biblioteca Saint-Exupéry",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 7 años",
+        "editorial": "SALAMANDRA INFANTIL Y JUVENIL",
+        "editorial_slug": "salamandra",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2008-01-15",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/37664-libro-el-principito-edicion-original-con-las-acuarelas-del-autor-9788498381498",
+        "fuentes_autores": {
+          "Antoine de Saint-Exupéry": "https://www.penguinlibros.com/es/8443-antoine-de-saint-exupery"
+        },
+        "idioma": "es",
+        "isbn13": "9788498381498",
+        "materias": [
+          "A partir de 7 años"
+        ],
+        "numero_paginas": 96,
+        "palabras_clave": [
+          "edicion oficial",
+          "7 años",
+          "8 años",
+          "9 años",
+          "10 años",
+          "libros niños mas vendidos",
+          "cuentos clasicos",
+          "el principito para niños",
+          "libro adultos",
+          "mejores libros",
+          "top 10 libros",
+          "libros mas vendidos",
+          "libros clasicos",
+          "el principito original",
+          "principito regalos",
+          "libros recomendados",
+          "l"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/7766509-thickbox_default/el-principito-edicion-original-con-las-acuarelas-del-autor.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 695,
+        "sinopsis_breve": "Viví así, solo, sin nadie con quien hablar verdaderamente, hasta que tuve una avería en el desierto del Sahara, hace seis años. Algo se…",
+        "titulo": "El Principito (edición original con las acuarelas del autor)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-ninos-7-anos/37664-libro-el-principito-edicion-original-con-las-acuarelas-del-autor-9788498381498",
+      "isbn13": "9788498381498",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-10-26",
+      "retry_after": "2026-10-29"
+    },
+    "isbn13:9791387512446": {
+      "datos": {
+        "autores": [
+          "Freida McFadden"
+        ],
+        "coleccion": "SUMA",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "SUMA",
+        "editorial_slug": "suma-de-letras",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-09-03",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+        "fuentes_autores": {
+          "Freida McFadden": "https://www.penguinlibros.com/es/948769-freida-mcfadden"
+        },
+        "idioma": "es",
+        "isbn13": "9791387512446",
+        "materias": [
+          "Novela negra, misterio y thriller"
+        ],
+        "numero_paginas": 344,
+        "palabras_clave": [
+          "mejores libros 2026",
+          "libros recomendados",
+          "la asistenta",
+          "booktok",
+          "el recluso",
+          "el secreto de la asistenta",
+          "freida mcfadden en español",
+          "intrig a libros",
+          "intriga y suspense",
+          "la asistenta te vigila",
+          "la boda de la asistenta",
+          "la mujer de arriba",
+          "la profesora",
+          "el novio",
+          "nunca"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/7766628-thickbox_default/la-inquilina.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2090,
+        "sinopsis_breve": "Blake Porter está en la cima del éxito... hasta que deja de estarlo. Despedido de un día para otro de su trabajo como directivo…",
+        "titulo": "La inquilina"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387512446",
+      "libro_id": "isbn-9791387512446",
+      "primera_deteccion": "2026-10-26",
+      "publicado_en": "2026-10-26"
+    },
+    "isbn13:9791387526863": {
+      "datos": {
+        "autores": [
+          "Disney"
+        ],
+        "coleccion": "Calendario de Adviento",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Libros Disney",
+        "editorial_slug": "libros-disney",
+        "encuadernacion": "Tapa dura sin s/cub. (cartoné)",
+        "fecha_publicacion_edicion": "2026-10-14",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-stitch-calendario-de-adviento/427175",
+        "fuentes_autores": {
+          "Disney": "https://www.planetadelibros.com/autor/disney/000028911"
+        },
+        "idioma": "es",
+        "isbn13": "9791387526863",
+        "materias": [
+          "Infantil"
+        ],
+        "numero_paginas": 576,
+        "palabras_clave": [
+          "Infantil",
+          "Cuentos",
+          "Acción y aventuras",
+          "Películas y series",
+          "De 6 a 8 años",
+          "De 3 a 5 años"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/374bcba8-dab3-48a2-a567-fa3d287db02d/d_360_620/portada_stitch-calendario-de-adviento__202606120851.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2495,
+        "sinopsis_breve": "Vive la cuenta atrás para la Navidad con Stitch, Ángel y sus amigos . Descubre un nuevo cuento sorpresa cada día y empieza las…",
+        "titulo": "Stitch. Calendario de Adviento"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387526863",
+      "libro_id": "isbn-9791387526863",
+      "primera_deteccion": "2026-10-26",
+      "publicado_en": "2026-10-26"
+    },
     "isbn13:9791387629694": {
       "datos": {
         "autores": [
@@ -4632,6 +4861,84 @@
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
     },
+    "isbn13:9791388100550": {
+      "datos": {
+        "autores": [
+          "Yukito Kishiro"
+        ],
+        "coleccion": "Manga Seinen",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Planeta Cómic",
+        "editorial_slug": "planeta-comic",
+        "encuadernacion": "Rústica sin solapas con s/cub.",
+        "fecha_publicacion_edicion": "2026-10-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-gunnm-alita-mars-chronicle-n-1011/450525",
+        "fuentes_autores": {
+          "Yukito Kishiro": "https://www.planetadelibros.com/autor/yukito-kishiro/000027551"
+        },
+        "idioma": "es",
+        "isbn13": "9791388100550",
+        "materias": [
+          "Manga"
+        ],
+        "numero_paginas": 170,
+        "palabras_clave": [
+          "Manga",
+          "Manga Seinen"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/eb68d7b7-b876-4f9e-98ab-08715da27aea/d_360_620/portada_gunnm-alita-mars-chronicle-n-1011_yukito-kishiro_202606051410.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 950,
+        "sinopsis_breve": "Una batalla espeluznante del Panzer Kunst contra Mecanismo. ¡Se dirime el duelo entre Keun y Gyapollo!",
+        "titulo": "Gunnm Alita Mars Chronicle nº 10/11"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388100550",
+      "libro_id": "isbn-9791388100550",
+      "primera_deteccion": "2026-10-26",
+      "publicado_en": "2026-10-26"
+    },
+    "isbn13:9791388101311": {
+      "datos": {
+        "autores": [
+          "Kazuki Takahashi"
+        ],
+        "coleccion": "Manga Shonen",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Planeta Cómic",
+        "editorial_slug": "planeta-comic",
+        "encuadernacion": "Rústica sin solapas con s/cub.",
+        "fecha_publicacion_edicion": "2026-10-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-yu-gi-oh-n-0422/454144",
+        "fuentes_autores": {
+          "Kazuki Takahashi": "https://www.planetadelibros.com/autor/kazuki-takahashi/000027131"
+        },
+        "idioma": "es",
+        "isbn13": "9791388101311",
+        "materias": [
+          "Manga"
+        ],
+        "numero_paginas": 408,
+        "palabras_clave": [
+          "Manga",
+          "Manga Shonen"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/2377fe2c-c71a-447b-9da3-64b920dfc6f0/d_360_620/portada_yu-gi-oh-kanzenban-n-0422_kazuki-takahashi_202606101351.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1795,
+        "sinopsis_breve": "Un enigmático muchacho llamado Bakura ha llegado al instituto de Yugi . Por lo visto, todos sus compañeros de juego han perdido el conocimiento…",
+        "titulo": "Yu-Gi-Oh! nº 04/22"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388101311",
+      "libro_id": "isbn-9791388101311",
+      "primera_deteccion": "2026-10-26",
+      "publicado_en": "2026-10-26"
+    },
     "isbn13:9791388101700": {
       "datos": {
         "autores": [
@@ -4978,6 +5285,22 @@
       "primera_deteccion": "2026-10-24",
       "retry_after": "2026-10-27"
     },
+    "url:https://www.planetadelibros.com/libro-calendario-de-mesa-2027-maria-hesse/454823": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-calendario-de-mesa-2027-maria-hesse/454823",
+      "isbn13": null,
+      "motivo": "Encuadernación desconocida o no física",
+      "primera_deteccion": "2026-10-26",
+      "retry_after": "2026-10-29"
+    },
+    "url:https://www.planetadelibros.com/libro-calendario-el-espacio-2027/455519": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-calendario-el-espacio-2027/455519",
+      "isbn13": null,
+      "motivo": "Faltan título, autoría, sello o ISBN comprobable",
+      "primera_deteccion": "2026-10-26",
+      "retry_after": "2026-10-29"
+    },
     "url:https://www.planetadelibros.com/libro-calendario-mesa-de-tarjetas-2027-defreds/443959": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-calendario-mesa-de-tarjetas-2027-defreds/443959",
@@ -5017,6 +5340,14 @@
       "motivo": "The read operation timed out",
       "primera_deteccion": "2026-10-24",
       "retry_after": "2026-10-27"
+    },
+    "url:https://www.planetadelibros.com/libro-entrelazadas-n-0106/455555": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-entrelazadas-n-0106/455555",
+      "isbn13": null,
+      "motivo": "Faltan título, autoría, sello o ISBN comprobable",
+      "primera_deteccion": "2026-10-26",
+      "retry_after": "2026-10-29"
     },
     "url:https://www.planetadelibros.com/libro-espana-en-moto/456161": {
       "estado_ingesta": "pendiente_datos",
@@ -5065,6 +5396,14 @@
       "motivo": "The read operation timed out",
       "primera_deteccion": "2026-10-24",
       "retry_after": "2026-10-27"
+    },
+    "url:https://www.planetadelibros.com/libro-magico-agenda-paulo-coelho-2027/447228": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-magico-agenda-paulo-coelho-2027/447228",
+      "isbn13": null,
+      "motivo": "Encuadernación desconocida o no física",
+      "primera_deteccion": "2026-10-26",
+      "retry_after": "2026-10-29"
     },
     "url:https://www.planetadelibros.com/libro-no-metas-la-pata-en-japon/458602": {
       "estado_ingesta": "pendiente_datos",
