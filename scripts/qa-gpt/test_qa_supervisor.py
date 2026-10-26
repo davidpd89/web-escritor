@@ -191,6 +191,34 @@ class Atasco(Base):
         (Path(q.STATE) / "servicio.json").write_text(json.dumps({"estado": "pausado_limite"}))
         self.assertIsNone(self.sup().atasco())
 
+    def test_flujo_pr_parado_solo_con_ejecutar_vivo(self):
+        import os, time
+        lote = Path(q.STATE) / "lote"; lote.mkdir(parents=True); log, ciclo = lote / "ejecutar.log", lote / "ciclo.json"
+        s = self.sup(); self.assertIsNone(s.flujo_pr_parado())  # EJECUTAR nunca arranco
+        log.write_text("x"); ciclo.write_text("{}"); self.assertIsNone(s.flujo_pr_parado())  # paso reciente
+        os.utime(ciclo, (time.time() - 3 * 3600,) * 2); self.assertIn("flujo PR", s.flujo_pr_parado())
+        os.utime(log, (time.time() - 3600,) * 2); self.assertIsNone(s.flujo_pr_parado())  # EJECUTAR parado: no es atasco del flujo
+
+
+class PodarCi(Base):
+    def test_deja_las_5_mas_recientes_y_respeta_versionados_recientes_y_worktrees_con_cambios(self):
+        import os, time
+        ci = self.repo / ".ci"; ci.mkdir(); (ci / "versionado.md").write_text("v")
+        g("add", ".ci/versionado.md", cwd=self.repo); g("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "ci", cwd=self.repo)
+        viejo = time.time() - 10 * 86400
+        for i in range(8):
+            f = ci / f"informe-{i}.md"; f.write_text("x"); os.utime(f, (viejo + i * 60,) * 2)
+        d = ci / "validacion"; d.mkdir(); (d / "a.txt").write_text("a"); os.utime(d, (viejo - 60,) * 2)
+        g("worktree", "add", "-q", "--detach", str(ci / "wt-sucio"), "HEAD", cwd=self.repo); (ci / "wt-sucio" / "scripts" / "qa-gpt" / "m.py").write_text("cambio")
+        g("worktree", "add", "-q", "--detach", str(ci / "wt-limpio"), "HEAD", cwd=self.repo)
+        for w in ("wt-sucio", "wt-limpio"): os.utime(ci / w, (viejo - 120,) * 2)
+        os.utime(ci / "versionado.md", (viejo - 999,) * 2); (ci / "reciente.tmp").write_text("r")
+        s = self.sup(); s.cfg["ci_dirs"] = [ci]
+        s.podar_ci()
+        quedan = sorted(e.name for e in ci.iterdir())
+        self.assertEqual(quedan, sorted(["versionado.md", "reciente.tmp", "wt-sucio", *(f"informe-{i}.md" for i in range(4, 8))]))
+        self.assertNotIn("wt-limpio", g("worktree", "list", cwd=self.repo))
+
 
 if __name__ == "__main__":
     unittest.main()

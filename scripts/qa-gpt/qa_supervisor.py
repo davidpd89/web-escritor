@@ -205,12 +205,44 @@ class Supervisor:
         self.anotar(f"disco:{self.q.now()[:13]}", "liberado", f"{libre:.1f} GB libres < {self.cfg['disco_min_gb']}: {n} worktrees borrados, ahora {shutil.disk_usage(st).free / 1e9:.1f} GB")
         return n
 
+    def flujo_pr_parado(self):
+        """-> descripcion o None. EJECUTAR vivo (ejecutar.log reciente) pero el flujo PR sin terminar un paso (ciclo.json) en `flujo_pr_min`:
+        la noche del 2026-10-26 el hilo flujo-pr no cerro ningun paso en 10 h sin que nada lo detectara."""
+        lote = Path(self.q.STATE) / "lote"; ahora = time.time()
+        try: vivo, ciclo = (lote / "ejecutar.log").stat().st_mtime, (lote / "ciclo.json").stat().st_mtime
+        except OSError: return None
+        minutos = (ahora - ciclo) / 60
+        if ahora - vivo > 900 or minutos < self.cfg.get("flujo_pr_min", 90): return None
+        return f"EJECUTAR vivo pero el flujo PR no completa un paso desde hace {minutos:.0f} min (lote/ciclo.json)"
+
+    def podar_ci(self):
+        """Informes de continuidad: como mucho `ci_max` entradas sin versionar por carpeta .ci (las mas recientes); nunca ficheros
+        versionados ni nada tocado en las ultimas 2 h. Los worktrees se quitan con git y solo si no tienen cambios (2026-10-26: .ci de 8 GB)."""
+        maximo, lim, n = self.cfg.get("ci_max", 5), time.time() - 7200, 0
+        raiz = Path(self.q.ROOT); dirs = self.cfg.get("ci_dirs") or [REPO_QA / ".ci", raiz / ".ci", raiz.parent / "web-escritor" / ".ci"]
+        for ci in map(Path, dict.fromkeys(map(str, dirs))):
+            if not ci.is_dir(): continue
+            rc, o = self._run(["git", "ls-files", "--", "."], ci, 120)
+            versionados = {Path(l).parts[0] for l in o.splitlines() if l.strip()} if rc == 0 else None
+            if versionados is None: continue  # sin git no se sabe que es versionado: no se toca
+            entradas = sorted((e for e in ci.iterdir() if e.name not in versionados), key=lambda e: e.stat().st_mtime, reverse=True)
+            for e in entradas[maximo:]:
+                if e.stat().st_mtime > lim: continue
+                if e.is_dir() and (e / ".git").exists():
+                    rc, o = self._run(["git", "status", "--porcelain", "--untracked-files=no"], e, 120)
+                    if rc or o.strip(): continue
+                    self._run(["git", "worktree", "remove", "--force", str(e)], ci, 300)
+                if e.is_dir(): shutil.rmtree(e, ignore_errors=True)
+                else: e.unlink(missing_ok=True)
+                n += 1
+        return n
+
     def vigilar(self, parar):
         while not parar.wait(self.cfg["vigilar_s"]):
-            try: self.liberar_disco()
+            try: self.liberar_disco(); self.podar_ci()
             except Exception as e: self.out(f"[supervisor] limpieza de disco omitida: {str(e)[:120]}")
             try:
-                desc = self.atasco()
+                desc = self.atasco() or self.flujo_pr_parado()
                 if not desc: continue
                 estado = self._run([sys.executable, str(HERE / "qa_gpt.py"), "estado"], HERE, 300)[1][-4000:]
                 try: log = (Path(self.q.STATE) / "servicio.log").read_text(encoding="utf-8", errors="replace")[-3000:]
