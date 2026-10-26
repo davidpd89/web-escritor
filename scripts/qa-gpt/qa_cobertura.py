@@ -158,7 +158,11 @@ def registrar_tecnica(c, t, now, propuesta=None):
 
 
 def tecnicas(c):
-    return [dict(id=r["id"], nombre=r["nombre"], kw=[k.lower() for k in json.loads(r["kw"])], aplica=json.loads(r["aplica"]), origen=r["origen"]) for r in c.execute("SELECT * FROM tecnicas")]
+    out = []
+    for r in c.execute("SELECT * FROM tecnicas"):
+        try: out.append(dict(id=r["id"], nombre=r["nombre"], kw=[k.lower() for k in json.loads(r["kw"])], aplica=json.loads(r["aplica"]), origen=r["origen"]))
+        except (ValueError, TypeError, AttributeError): continue  # una tecnica corrupta no impide usar las demas
+    return out
 
 
 def evento(c, entidad, ident, estado, nota, now):
@@ -188,8 +192,10 @@ def aplica(t, rs):
 def construir(c, root, cfg, now, forzar=False):
     """Recalcula la matriz si cambio HEAD (o forzar). Devuelve {familia: datos}."""
     head = _git(root, "rev-parse", "--short", "HEAD")
-    if not forzar and c.execute("SELECT COUNT(*) FROM cobertura WHERE head=?", (head,)).fetchone()[0]:
-        return {r["familia"]: json.loads(r["datos"]) for r in c.execute("SELECT * FROM cobertura")}
+    filas = c.execute("SELECT * FROM cobertura").fetchall()
+    if not forzar and filas and all(r["head"] == head for r in filas):  # filas de otro HEAD o corruptas: se reconstruye
+        try: return {r["familia"]: json.loads(r["datos"]) for r in filas}
+        except (ValueError, TypeError): pass
     fams, tecs = familias_de(root), tecnicas(c)
     pool = [p for p in _git(root, "ls-files", "tests", "qa", ".github/workflows").splitlines() if not p.endswith((".png", ".jpg", ".json.snap"))]
     info = {}
@@ -211,6 +217,7 @@ def construir(c, root, cfg, now, forzar=False):
         parcial = [tid for tid in apl if tid not in cubiertas and tid in cub_glob]
         sha = _git(root, "log", "-1", "--format=%h", "--", fam if fam != "(raiz)" else ":(top,glob)*.html") or ""
         com = _git(root, "rev-list", "--count", "--since=14 days ago", "HEAD", "--", fam if fam != "(raiz)" else ":(top,glob)*.html") or "0"
+        com = com.strip() if com.strip().isdigit() else "0"  # solo es una metrica: una salida rara no para el planificador
         riesgo = max((a["riesgo"] for a in areas.values() if any(fam in f.split("/")[0] or f.startswith(fam) for f in a["fuentes"])), default=2)
         out[fam] = dict(familia=fam, ficheros=len(files), rasgos=rs, tests_propios=len(refs), tests_globales=len(glob_t), tecnicas_cubiertas=sorted(cubiertas),
                         tecnicas_parcial=parcial, tecnicas_aplicables=apl, huecos=huecos, sha=sha, commits14d=int(com or 0), riesgo=riesgo, ejemplos_tests=refs[:6])
@@ -240,7 +247,8 @@ def buscar_duplicado(c, root, pr):
     """-> (fila_previa, motivo) o (None, None). Rechazadas/invalidas se reabren SOLO si las fuentes cambiaron desde entonces."""
     d = datos_prop(pr)
     for r in c.execute("SELECT * FROM propuestas WHERE huella_conductual IS NOT NULL ORDER BY id"):
-        prev = json.loads(r["datos"]); pd = datos_prop(prev)
+        try: prev = json.loads(r["datos"]); pd = datos_prop(prev)
+        except (ValueError, TypeError, AttributeError): continue  # propuesta historica corrupta: no bloquea la deduplicacion
         exacta = r["huella_conductual"] == d["huella"]
         sol = set(pd["fuentes"]) & set(d["fuentes"])
         jac = len(pd["toks"] & d["toks"]) / max(1, len(pd["toks"] | d["toks"]))

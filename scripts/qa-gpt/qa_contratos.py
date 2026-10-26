@@ -5,10 +5,11 @@ Un contrato = una comprobacion reutilizable aplicada a TODAS las paginas de una 
 Las aserciones NO se cuentan como tests: se informan por separado (paginas x contratos).
 """
 import hashlib, json, re, time
+import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import unquote, urlparse
+from urllib.parse import unquote, urlparse, urlsplit
 
 SITE = "https://davidportodiaz.com"
 FAMILIAS = {  # familia -> (glob bajo ROOT, cuantas paginas del piloto)
@@ -42,7 +43,7 @@ class Pagina(HTMLParser):
         elif tag == "img": self.imgs.append(a)
         elif tag == "script" and (a.get("type") or "").lower() == "application/ld+json": self._ld = True; self._txt = []
         if tag in ("main", "nav", "header", "footer", "article", "section", "aside"): self.landmarks[tag] += 1; self.sig.append(tag)
-        if a.get("role") in ("main", "navigation", "banner", "contentinfo", "search"): self.landmarks["role:" + a["role"]] += 1
+        if a.get("role") in ("main", "navigation", "banner", "contentinfo", "search") and a["role"] != {"main": "main", "nav": "navigation"}.get(tag): self.landmarks["role:" + a["role"]] += 1
 
     def handle_endtag(self, tag):
         if tag == "title" and self._t is not None: self.title = "".join(self._t).strip(); self._t = None
@@ -68,7 +69,8 @@ def existe(root, href):
     """href interno ('/x/y/', '/x.css', relativo) -> existe fichero o carpeta con index.html."""
     path = unquote(urlparse(href).path)
     if not path.startswith("/"): return None  # relativo: lo resuelve el llamador
-    t = Path(root) / path.lstrip("/")
+    base = Path(root).resolve(); t = (base / path.lstrip("/")).resolve()
+    if not t.is_relative_to(base): return False  # '/../x' no puede validar ficheros fuera del sitio
     return t.is_file() or (t / "index.html").is_file()
 
 
@@ -77,7 +79,9 @@ def tipos_jsonld(p):
     for raw in p.jsonld:
         try: d = json.loads(raw)
         except ValueError: malos += 1; continue
-        for n in (d.get("@graph", [d]) if isinstance(d, dict) else d):
+        nodos = d.get("@graph", [d]) if isinstance(d, dict) else d
+        if not isinstance(nodos, list): malos += 1; continue  # raiz escalar o @graph mal tipado: bloque invalido, no aborta
+        for n in nodos:
             if isinstance(n, dict):
                 t = n.get("@type"); out += t if isinstance(t, list) else [t]
     return out, malos
@@ -144,7 +148,7 @@ def c_enlaces(c):
         if not e: out.append(("enlace interno roto", h[:80]))
     ids = set(c["p"].ids)
     for h in c["p"].links:
-        if h.startswith("#") and len(h) > 1 and h[1:] not in ids: out.append(("ancla interna sin destino", h))
+        if h.startswith("#") and len(h) > 1 and h[1:] not in ids and unquote(h[1:]) not in ids: out.append(("ancla interna sin destino", h))
     return out
 
 def c_landmarks(c):
@@ -185,6 +189,7 @@ def homogeneidad(paginas):
     out = []
     for fam in paginas:
         cnt = Counter(h[1] for r, h in huellas.items() if h[0] == fam)
+        if not cnt: continue
         comun, n = cnt.most_common(1)[0]
         for c in paginas[fam]:
             f = huellas[c["ruta"]]
@@ -200,8 +205,10 @@ def muestra(root, glob_pat, n):
 
 def sitemap_urls(root):
     urls = set()
-    for f in Path(root).glob("*sitemap*.xml"): urls |= set(re.findall(r"<loc>([^<]+)</loc>", f.read_text(encoding="utf-8", errors="replace")))
-    return {u.rstrip("/") for u in urls}
+    for f in Path(root).glob("*sitemap*.xml"):
+        try: urls |= {(e.text or "").strip() for e in ET.parse(f).iter() if isinstance(e.tag, str) and e.tag.rsplit("}", 1)[-1] == "loc"}  # namespaces/prefijos y entidades
+        except (ET.ParseError, OSError): urls |= set(re.findall(r"<(?:\w+:)?loc>([^<]+)</(?:\w+:)?loc>", f.read_text(encoding="utf-8", errors="replace")))
+    return {u.rstrip("/") for u in urls if u}
 
 
 def familia_de(url):
@@ -217,7 +224,10 @@ def familia_de(url):
 def paginas_del_sitio(root):
     """Todas las paginas HTML listadas en los sitemaps que existen en disco -> {familia: [rutas]} (determinista)."""
     root = Path(root); fams = defaultdict(list)
+    propio = urlsplit(SITE)
     for u in sorted(sitemap_urls(root)):
+        s = urlsplit(u)
+        if (s.scheme, s.netloc.lower()) != (propio.scheme, propio.netloc): continue  # URLs de otros dominios no son paginas del sitio
         path = unquote(urlparse(u).path).lstrip("/")
         f = root / path / "index.html" if (not path or path.endswith("/") or "." not in path.rsplit("/", 1)[-1]) else root / path
         if f.is_file() and f.suffix == ".html": fams[familia_de(u)].append(f)

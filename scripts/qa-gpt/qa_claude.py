@@ -8,10 +8,14 @@ Garantias: sin herramientas de escritura (solo --tools vacio o Read/Grep/Glob), 
 entrada (misma evidencia = mismo veredicto, sin nueva consulta), cada llamada queda en `claude_llamadas` con coste, tokens y duracion.
 Una respuesta que no cumple el esquema NUNCA se convierte en decision: lanza ClaudeError.
 """
-import hashlib, json, os, subprocess, threading, time
+import hashlib, json, os, re, subprocess, threading, time
 from pathlib import Path
 
-DEFECTOS = {"modelo": "claude-sonnet-5-5", "esfuerzo": "low", "max_turnos": 2, "timeout_s": 240, "max_usd_llamada": 0.5}
+DEFECTOS = {"modelo": "claude-sonnet-5-5", "esfuerzo": "low", "max_turnos": 2, "timeout_s": 240, "max_usd_llamada": 0.5,
+            "cuentas_extra": [], "pausa_limite_s": 3600}
+# limite de uso de la suscripcion (no el --max-budget-usd de una llamada): se salta a la siguiente cuenta
+LIMITE = re.compile(r"usage limit|hit your limit|limit reached|rate.?limit|out of (extra )?usage|credit balance|\b429\b", re.I)
+_AGOTADA = {}  # dir de cuenta ("" = la del sistema) -> time.time() hasta el que no se usa
 _LOCK = threading.Lock()   # un Claude CLI de decision/revision a la vez dentro del proceso
 _LOCK_DEV = threading.Lock()  # el desarrollo (minutos, ejecuta tests) va aparte: no retiene revisiones ni decisiones
 _CLAUDE_EXE = None
@@ -66,6 +70,14 @@ def validar(dato, esquema, ruta="$"):
     return p
 
 
+def cuentas(cfg):
+    """Cuentas por orden de preferencia: la del sistema y despues cada CLAUDE_CONFIG_DIR de cuentas_extra que exista (login hecho).
+    Las que dieron limite hace menos de pausa_limite_s van al final, por si todas lo estan."""
+    todas = [""] + [str(x) for x in cfg.get("cuentas_extra") or [] if x and Path(x).is_dir()]
+    ahora = time.time()
+    return [x for x in todas if _AGOTADA.get(x, 0) <= ahora] + sorted((x for x in todas if _AGOTADA.get(x, 0) > ahora), key=lambda x: _AGOTADA[x])
+
+
 def huella(*partes):
     return hashlib.sha1("\x1f".join(partes).encode("utf-8")).hexdigest()[:16]
 
@@ -99,23 +111,29 @@ def llamar(q, c, clave, tipo, sistema, entrada, esquema, herramientas="", cwd=No
     if herramientas: args += ["--allowedTools", herramientas]
     t0 = time.time(); err = None; meta = {"hash": h}; salida = None
     with (_LOCK_DEV if tipo == "desarrollo" else _LOCK):
-        try:
-            r = subprocess.run(args, input=entrada, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=cfg["timeout_s"],
-                               cwd=str(cwd or q.STATE / "claude"), creationflags=0x08000000 if os.name == "nt" else 0)
-            if r.returncode: err = f"claude exit {r.returncode}: {(r.stderr or r.stdout)[-300:]}"
-            else:
-                d = json.loads(r.stdout)
-                u = d.get("usage") or {}
-                meta.update(coste=d.get("total_cost_usd"), turnos=d.get("num_turns"), tok_in=u.get("input_tokens"), tok_out=u.get("output_tokens"),
-                            cache_lee=u.get("cache_read_input_tokens"), cache_crea=u.get("cache_creation_input_tokens"))
-                if d.get("is_error"): err = f"claude error: {str(d.get('result'))[:300]}"
+        for cuenta in cuentas(cfg):
+            err = None
+            env = {**os.environ, "CLAUDE_CONFIG_DIR": cuenta} if cuenta else None
+            try:
+                r = subprocess.run(args, input=entrada, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=cfg["timeout_s"],
+                                   cwd=str(cwd or q.STATE / "claude"), env=env, creationflags=0x08000000 if os.name == "nt" else 0)
+                if r.returncode: err = f"claude exit {r.returncode}: {(r.stderr or r.stdout)[-300:]}"
                 else:
-                    salida = d.get("structured_output")
-                    if salida is None:
-                        try: salida = json.loads(d.get("result") or "")
-                        except ValueError: err = "sin salida estructurada"
-        except subprocess.TimeoutExpired: err = f"claude timeout {cfg['timeout_s']}s"
-        except (OSError, ValueError) as e: err = f"claude no ejecutable: {str(e)[:200]}"
+                    d = json.loads(r.stdout)
+                    u = d.get("usage") or {}
+                    meta.update(coste=d.get("total_cost_usd"), turnos=d.get("num_turns"), tok_in=u.get("input_tokens"), tok_out=u.get("output_tokens"),
+                                cache_lee=u.get("cache_read_input_tokens"), cache_crea=u.get("cache_creation_input_tokens"))
+                    if d.get("is_error"): err = f"claude error: {str(d.get('result'))[:300]}"
+                    else:
+                        salida = d.get("structured_output")
+                        if salida is None:
+                            try: salida = json.loads(d.get("result") or "")
+                            except ValueError: err = "sin salida estructurada"
+            except subprocess.TimeoutExpired: err = f"claude timeout {cfg['timeout_s']}s"
+            except (OSError, ValueError) as e: err = f"claude no ejecutable: {str(e)[:200]}"
+            if not (err and LIMITE.search(err) and "budget" not in err.lower()): break
+            _AGOTADA[cuenta] = time.time() + cfg["pausa_limite_s"]
+            err = f"[cuenta {cuenta or 'sistema'} en limite] {err}"
     if salida is not None and not err:
         probl = validar(salida, esquema)
         if probl: err = "esquema no cumplido: " + "; ".join(probl[:4])

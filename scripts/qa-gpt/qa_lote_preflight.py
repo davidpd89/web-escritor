@@ -16,14 +16,22 @@ def validate_combined(pr, db, worktree, rows):
 
 def duenos(pr, db, rows, ruta):
     """Indices de las filas del lote cuyo test asociado es `ruta` (el culpable de un test acumulado rojo es su dueno, no la ultima fila)."""
-    return [i for i, row in enumerate(rows) if ruta in pr._rutas_tests(db, json.loads(row["propuestas"] or "[]"))]
+    return [i for i, row in enumerate(rows) if ruta in pr._rutas_tests(db, ids_de(row) or [])]
+
+
+def ids_de(row):
+    """Lista de ids de propuestas de la fila, o None si el JSON esta corrupto o no es una lista."""
+    try: ids = json.loads(row["propuestas"] or "[]")
+    except (ValueError, TypeError): return None
+    return ids if isinstance(ids, list) else None
 
 
 def validar(pr, db, worktree, rows):
     """-> (passed, detail, ruta_fallida): ruta_fallida es el test acumulado rojo (None si el fallo no es de un test acumulado)."""
     tests = set()
     for row in rows:
-        ids = json.loads(row["propuestas"] or "[]")
+        ids = ids_de(row)
+        if ids is None: return False, "propuestas invalidas en una fila del lote (JSON corrupto o no es lista)", None
         tests.update(pr._rutas_tests(db, ids))
     if not tests:
         return False, "sin tests asociados al lote", None
@@ -38,13 +46,17 @@ def validar(pr, db, worktree, rows):
             return False, f"test acumulado {path} fallo ({code}): {output[-500:]}", path
     # Tests vecinos: los tests Python ya existentes que nombran un fichero de produccion tocado. El CI los ejecuta y un lote que los rompia
     # se descubria tras 20 min de CI (#844: tests/test-build-pagefind-index.py). Solo cuenta como regresion lo que en main pasa.
-    vec = vecinos(root, cambiados(pr, worktree), tests)
+    camb = cambiados(pr, worktree)
+    if camb is None: return None, "git diff contra origin/main fallo: no se pueden buscar tests vecinos", None
+    vec = vecinos(root, camb, tests)
     rotos = []
     for path in vec:
         code, output = pr._test(worktree, path)
         if code not in (0, 125): rotos.append((path, code, output))
     if rotos:
-        nuevos = [x for x in rotos if pasa_en_main(pr, x[0])]
+        base = [(x, pasa_en_main(pr, x[0])) for x in rotos]
+        if any(b is None for _, b in base): return None, "no se pudo comprobar en main un test vecino rojo (entorno no disponible)", None
+        nuevos = [x for x, b in base if b]
         if nuevos:
             path, code, output = nuevos[0]
             return False, f"test vecino {path} pasa en main y falla con el lote ({code}): {output[-500:]}", None
@@ -54,17 +66,17 @@ def validar(pr, db, worktree, rows):
 def cambiados(pr, worktree):
     if not hasattr(pr, "git"): return []
     rc, out = pr.git("diff", "--name-only", "origin/main...HEAD", cwd=worktree)
-    return out.split() if rc == 0 else []
+    return out.split() if rc == 0 else None  # None: no se sabe que cambio (distinto de "nada cambio")
 
 
 def vecinos(root, ficheros, ya, maxi=25):
-    """tests/test*.py que citan el nombre (sin extension) de un fichero de produccion tocado. Nombres cortos o genericos (script.js) se ignoran:
-    casarian con medio repo."""
+    """tests/test*.py y qa/*.mjs que citan el nombre (sin extension) de un fichero de produccion tocado. Nombres cortos o genericos (script.js)
+    se ignoran: casarian con medio repo."""
     nombres = {Path(f).stem for f in ficheros if not f.startswith(("tests/", "qa/", "pagefind/")) and f.endswith((".py", ".mjs", ".js")) and len(Path(f).stem) >= 8}
     if not nombres: return []
     out = []
-    for t in sorted((Path(root) / "tests").glob("test*.py")):
-        rel = "tests/" + t.name
+    for t in sorted([*(Path(root) / "tests").glob("test*.py"), *(Path(root) / "qa").glob("*.mjs")]):
+        rel = t.relative_to(root).as_posix()
         if rel in ya: continue
         try: s = t.read_text(encoding="utf-8", errors="replace")
         except OSError: continue
@@ -73,13 +85,14 @@ def vecinos(root, ficheros, ya, maxi=25):
 
 
 def pasa_en_main(pr, path):
-    """Ejecuta el test en un worktree limpio de origin/main: si alli tambien falla, el fallo no es del lote. Ante la duda (sin git/entorno), si."""
+    """Ejecuta el test en un worktree limpio de origin/main: si alli tambien falla, el fallo no es del lote. Ante la duda (sin git), si;
+    None si el entorno no estuvo disponible en main (125): ni aprueba ni culpa al lote."""
     if not hasattr(pr, "git") or not hasattr(pr, "q"): return True
     wt = Path(pr.q.STATE) / "pr" / "preflight-main"
     try:
         if wt.exists(): pr.limpiar(wt, None)
         if pr.git("worktree", "add", "--detach", str(wt), "origin/main")[0]: return True
         code, _ = pr._test(wt, path)
-        return code == 0
+        return None if code == 125 else code == 0
     finally:
         pr.limpiar(wt, None)
