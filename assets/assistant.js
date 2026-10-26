@@ -241,7 +241,15 @@ function sourcesById(sourceIds, registry) {
 }
 
 function createSourceLinks(sources) {
-  const safe = (sources || []).filter((source) => isSafeInternalPath(source.url)).slice(0, 4);
+  const seenUrls = new Set();
+  const safe = (sources || [])
+    .filter((source) => isSafeInternalPath(source.url))
+    .filter((source) => {
+      if (seenUrls.has(source.url)) return false;
+      seenUrls.add(source.url);
+      return true;
+    })
+    .slice(0, 4);
   if (!safe.length) return null;
   const nav = document.createElement("nav");
   nav.className = "assistant-message__sources";
@@ -301,7 +309,18 @@ function appendMessage(role, text, { sources = [], suggestions = [], pending = f
   bubble.append(body);
 
   const sourceLinks = createSourceLinks(sources);
-  if (sourceLinks) bubble.append(sourceLinks);
+  if (sourceLinks) {
+    // Keep each documentary URL once in the transcript: drop older duplicates.
+    sourceLinks.querySelectorAll("a[href]").forEach((fresh) => {
+      log.querySelectorAll(".assistant-message__sources a[href]").forEach((old) => {
+        if (old.getAttribute("href") !== fresh.getAttribute("href")) return;
+        const nav = old.closest(".assistant-message__sources");
+        old.remove();
+        if (nav && !nav.querySelector("a")) nav.remove();
+      });
+    });
+    bubble.append(sourceLinks);
+  }
   const suggestionButtons = createSuggestions(suggestions);
   if (suggestionButtons) bubble.append(suggestionButtons);
 
