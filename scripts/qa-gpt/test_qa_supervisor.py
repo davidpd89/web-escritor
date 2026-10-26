@@ -78,6 +78,29 @@ class Reparacion(Base):
         finally: S.time.sleep = orig
         self.assertEqual(reparadas, ["FileNotFoundError@qa_gpt.py:area_stats"])
 
+    def test_bucle_de_caidas_espera_y_sigue_en_vez_de_detenerse(self):
+        # 2026-10-26: tras 5 caidas en una hora el supervisor salia y EJECUTAR quedaba muerto toda la noche
+        s = self.sup(); salidas = iter([(1, TB)] * 7 + [(0, "")]); s._hijo = lambda args: next(salidas)
+        s.reparar_codigo = lambda *a: "omitido"; s.liberar_disco = lambda: 0; s.cfg["vigilar_s"] = 3600; esperas = []
+        S.time.sleep, orig = esperas.append, S.time.sleep
+        try: self.assertEqual(s.ejecutar(["ejecutar-actions"]), 0)
+        finally: S.time.sleep = orig
+        self.assertEqual(esperas, [30] * 5 + [900] * 2)
+
+    def test_disco_lleno_borra_worktrees_viejos_limpios_y_conserva_el_resto(self):
+        orig = q.ROOT; q.ROOT = self.repo; self.addCleanup(lambda: setattr(q, "ROOT", orig))
+        st = Path(q.STATE); viejo, nuevo, sucio = st / "wt" / "viejo", st / "pr" / "nuevo", st / "lote_wt" / "sucio"
+        g("worktree", "add", "-q", "--detach", str(viejo), "HEAD", cwd=self.repo); g("worktree", "add", "-q", "--detach", str(sucio), "HEAD", cwd=self.repo)
+        nuevo.mkdir(parents=True); (sucio / "scripts/qa-gpt/m.py").write_text("cambio sin commitear\n")
+        import os; hace7h = __import__("time").time() - 7 * 3600
+        for d in (viejo, sucio): os.utime(d, (hace7h, hace7h))
+        s = self.sup(); s.cfg["disco_min_gb"] = 0
+        self.assertEqual(s.liberar_disco(), 0)  # con espacio suficiente no toca nada
+        s.cfg["disco_min_gb"] = 10 ** 9
+        self.assertEqual(s.liberar_disco(), 1)
+        self.assertFalse(viejo.exists()); self.assertTrue(nuevo.exists()); self.assertTrue(sucio.exists())
+        self.assertNotIn("viejo", g("worktree", "list", cwd=self.repo))
+
     def test_ctrl_c_no_es_un_fallo(self):
         s = self.sup(); s._hijo = lambda args: (1, "Traceback (most recent call last):\nKeyboardInterrupt\n"); s.reparar_codigo = lambda *a: self.fail("no debe reparar")
         s.cfg["vigilar_s"] = 3600; self.assertEqual(s.ejecutar(["iniciar"]), 1)

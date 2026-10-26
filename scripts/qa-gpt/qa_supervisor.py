@@ -50,7 +50,7 @@ class Supervisor:
     def __init__(self, q, out=print, claude=None, run=None):
         self.q, self.out = q, out
         self.dir = Path(q.STATE) / "supervisor"; self.dir.mkdir(parents=True, exist_ok=True)
-        self.cfg = {"max_reparaciones_dia": 6, "atasco_min": 20, "vigilar_s": 300, **(q.CFG.get("supervisor") or {})}
+        self.cfg = {"max_reparaciones_dia": 6, "atasco_min": 20, "vigilar_s": 300, "disco_min_gb": 10, "wt_viejo_h": 6, "espera_bucle_s": 900, **(q.CFG.get("supervisor") or {})}
         self._claude = claude; self._run = run or self._run_real
 
     # ---------- utilidades ----------
@@ -191,8 +191,24 @@ class Supervisor:
         minutos = (dt.datetime.fromisoformat(ahora) - dt.datetime.fromisoformat(ult[:19])).total_seconds() / 60
         return f"sin actividad desde {ult} ({minutos:.0f} min) con {pend} jobs ejecutables y {listas} correcciones listas" if minutos >= self.cfg["atasco_min"] else None
 
+    def liberar_disco(self):
+        """Disco por debajo de `disco_min_gb`: borra worktrees sin cambios y sin tocar en `wt_viejo_h` (2026-10-26: C: lleno con 167 worktrees tumbo EJECUTAR toda la noche)."""
+        st = Path(self.q.STATE); libre = shutil.disk_usage(st).free / 1e9
+        if libre >= self.cfg["disco_min_gb"]: return 0
+        lim = time.time() - self.cfg["wt_viejo_h"] * 3600; n = 0
+        for d in [d for b in ("wt", "pr", "lote_wt") if (st / b).is_dir() for d in (st / b).iterdir() if d.is_dir()]:
+            if d.stat().st_mtime > lim: continue
+            rc, o = self._run(["git", "status", "--porcelain", "--untracked-files=no"], d, 120)
+            if rc == 0 and o.strip(): continue  # trabajo sin commitear: se conserva
+            self._run(["git", "worktree", "remove", "--force", str(d)], Path(self.q.ROOT), 300); shutil.rmtree(d, ignore_errors=True); n += 1
+        self._run(["git", "worktree", "prune"], Path(self.q.ROOT), 120)
+        self.anotar(f"disco:{self.q.now()[:13]}", "liberado", f"{libre:.1f} GB libres < {self.cfg['disco_min_gb']}: {n} worktrees borrados, ahora {shutil.disk_usage(st).free / 1e9:.1f} GB")
+        return n
+
     def vigilar(self, parar):
         while not parar.wait(self.cfg["vigilar_s"]):
+            try: self.liberar_disco()
+            except Exception as e: self.out(f"[supervisor] limpieza de disco omitida: {str(e)[:120]}")
             try:
                 desc = self.atasco()
                 if not desc: continue
@@ -217,8 +233,11 @@ class Supervisor:
                 fir = firma(tb); self.out(f"\n[supervisor] el proceso cayo ({fir}); se encarga la reparacion a Claude")
                 res = self.reparar_codigo(tb, fir)
                 caidas = [t for t in caidas if time.time() - t < 3600] + [time.time()]
-                if len(caidas) > 5: self.out("[supervisor] 5 caidas en una hora: se detiene para no entrar en bucle (ver supervisor/historial.log)"); return rc
-                self.out(f"[supervisor] reparacion: {res}; se relanza en 30 s"); time.sleep(30)
+                try: self.liberar_disco()
+                except Exception as e: self.out(f"[supervisor] limpieza de disco omitida: {str(e)[:120]}")
+                # detenerse dejaba el pipeline muerto hasta que alguien lo viera (2026-10-26): se espera y se sigue
+                espera = self.cfg["espera_bucle_s"] if len(caidas) > 5 else 30
+                self.out(f"[supervisor] reparacion: {res}; se relanza en {espera} s" + (" (5 caidas en una hora: pausa larga anti-bucle)" if espera > 30 else "")); time.sleep(espera)
         finally: parar.set()
 
     @staticmethod

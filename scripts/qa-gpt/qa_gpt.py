@@ -4,7 +4,7 @@
 Estado en C:\GIT\qa-gpt-state (fuera de los worktrees). El descubrimiento corre solo; NUNCA ejecuta tests ni lanza Actions
 salvo `lote-nocturno --confirmar` tras `autorizar-noche` (ambos manuales). Ver README.md.
 """
-import argparse, datetime as dt, glob, hashlib, json, os, random, re, sqlite3, subprocess, sys, time
+import argparse, datetime as dt, glob, hashlib, json, os, random, re, shutil, sqlite3, subprocess, sys, time
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -76,13 +76,14 @@ def _ahora(): return dt.datetime.now(TZ).replace(tzinfo=None)
 def now(): return _ahora().isoformat(timespec="seconds")
 def today(): return _ahora().date().isoformat()
 
-def sh(args, cwd=ROOT, check=True):
-    r = cob.run(args, cwd=cwd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+def sh(args, cwd=None, check=True):  # ROOT al llamar, no al definir: los tests que lo redirigen operaban sobre el repo real
+    r = cob.run(args, cwd=ROOT if cwd is None else cwd, capture_output=True, text=True, encoding="utf-8", errors="replace")
     if check and r.returncode:
         raise RuntimeError(f"{' '.join(map(str, args))[:120]}: {(r.stderr or r.stdout).strip()[:400]}")
     return r.stdout.strip()
 
-def git(*a, cwd=ROOT, check=True):
+def git(*a, cwd=None, check=True):
+    cwd = ROOT if cwd is None else cwd
     if a and a[0] in ("fetch", "checkout", "reset", "commit", "merge", "rebase", "pull"): cob.olvidar_git()  # la historia pudo cambiar: la cache de lecturas ya no vale
     if not check and cwd == ROOT and a and a[0] in ("log", "rev-list", "ls-files"): return cob._git(cwd, *a)  # lectura repetida: cache por (HEAD, origin/main, dia)
     return sh(["git", *a], cwd=cwd, check=check)
@@ -715,6 +716,19 @@ def reparar_perdidas(c):
     if perdidas: c.commit(); print(f"  reparadas {len(perdidas)} propuestas sin fichero en su rama: {perdidas[:10]}")
     return len(perdidas)
 
+def wt_rama(branch, wt, base):
+    """Worktree de `branch` en `wt`. Si la rama ya existe se reutiliza: un `add -b` que fallo a medias (disco lleno) dejaba la rama creada y
+    todos los reintentos morian con 'already exists' (2026-10-26, 129 veces)."""
+    WT.mkdir(parents=True, exist_ok=True); git("worktree", "prune", check=False)
+    existe = not cob.run(["git", "show-ref", "--verify", "--quiet", f"refs/heads/{branch}"], cwd=ROOT).returncode
+    try: git("worktree", "add", *([str(wt), branch] if existe else ["-b", branch, str(wt), base]))
+    except RuntimeError: shutil.rmtree(wt, ignore_errors=True); git("worktree", "prune", check=False); raise
+
+def quitar_wt(wt):
+    """Cada worktree es un checkout completo de la web (~450 MB): sin borrarlos, 167 llenaron el disco (76 GB) y tumbaron INICIAR y EJECUTAR.
+    El lote trabaja con el sha de la rama, no con este directorio."""
+    git("worktree", "remove", "--force", str(wt), check=False); shutil.rmtree(wt, ignore_errors=True)
+
 def stage(c):
     reparar_perdidas(c)
     rows = c.execute("SELECT * FROM propuestas WHERE estado='aceptada' ORDER BY area, id").fetchall()
@@ -723,48 +737,50 @@ def stage(c):
     for area in sorted({r["area"] for r in rows}):
         branch = f"gpt-qa/{area.replace(':', '-')}-{today().replace('-', '')}"
         wt = WT / branch.replace("/", "_")
-        if not wt.exists():
-            WT.mkdir(parents=True, exist_ok=True)
-            git("worktree", "add", "-b", branch, str(wt), base)
-        done = []
-        for r in [x for x in rows if x["area"] == area]:
-            d = json.loads(r["datos"]); created = []; nuevos = []
-            try:
-                if d.get("tipo_propuesta") == "informe" or not d.get("ficheros_nuevos"):
-                    estado_prop(c, r["id"], "informe", "informe sin fichero de test"); continue
-                if d.get("via") != "lote" and not (d.get("mutacion_que_lo_rompe") and d.get("por_que_pasa_hoy")): raise ValueError("falta mutacion/por_que_pasa_hoy")
-                validate_files(d["ficheros_nuevos"])
-                mods = d.get("ficheros_modificados") or []
-                for m in mods:
-                    ap = parche_aplica(m)
-                    if ap != "OK": raise ValueError(f"parche de {m.get('ruta')}: {ap}")
-                for f in d["ficheros_nuevos"]:
-                    p = wt / f["ruta"]; p.parent.mkdir(parents=True, exist_ok=True)
-                    p.write_text(f["contenido"], encoding="utf-8", newline="\n"); created.append(p); nuevos.append(p); syntax_check(p)
-                for m in mods:
-                    pf = wt.parent / f"{wt.name}-p{r['id']}.diff"; pf.write_text(m["parche"], encoding="utf-8", newline=chr(10))
-                    try: git("apply", str(pf), cwd=wt)
-                    finally: pf.unlink(missing_ok=True)
-                    created.append(wt / m["ruta"])  # no se borra en rollback: se restaura con checkout
-                git("add", "--", *[f["ruta"] for f in d["ficheros_nuevos"]], *[m["ruta"] for m in mods], cwd=wt)
-                ver = hashlib.sha1("".join(f["contenido"] for f in d["ficheros_nuevos"]).encode()).hexdigest()[:10]
-                estado_prop(c, r["id"], "preparada", f"rama {branch} base {base[:8]} v{ver}", rama=branch, base_sha=base[:10], version_test=ver, siguiente="esperando `aprobar` + noche autorizada; NO ejecutado")
-                done.append(r["titulo"])
-            except Exception as e:
-                # solo se deshace ESTA propuesta: un `reset --hard` borraba tambien las anteriores del area, ya marcadas preparadas pero aun sin commit
-                git("reset", "-q", "--", *[f["ruta"] for f in d.get("ficheros_nuevos") or []], cwd=wt, check=False)
-                for p in nuevos: p.unlink(missing_ok=True)
-                estado_prop(c, r["id"], "invalida", str(e)[:200], veredicto=str(e)[:300], siguiente="descartada: el diseño aceptado no se pudo preparar; `reabrir <id>` para nueva revision")
-                print(f"  invalida #{r['id']}: {e}")
-        if done:
-            git("commit", "-q", "-m", f"test(qa-gpt/{area}): {len(done)} tests preparados por revision GPT\n\n" + "\n".join("- " + t for t in done) +
-                "\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>", cwd=wt)
-            cmds = sorted({json.loads(x["datos"]).get("como_ejecutar") or "" for x in rows if x["area"] == area})
-            c.execute("INSERT INTO ramas(rama,area,ruta,sha,estado,pr,url,base_sha,comandos) VALUES(?,?,?,?,?,NULL,NULL,?,?) "
-                      "ON CONFLICT(rama) DO UPDATE SET sha=excluded.sha,comandos=excluded.comandos,estado=CASE WHEN ramas.estado IN ('publicada','ejecutada') THEN ramas.estado ELSE 'preparada' END",
-                      (branch, area, str(wt), git("rev-parse", "HEAD", cwd=wt), "preparada", base[:10], json.dumps([x for x in cmds if x])))
-            print(f"  rama local {branch}: {len(done)} propuestas (sin push, sin tests)")
-        c.commit()
+        if not wt.exists(): wt_rama(branch, wt, base)
+        try: _stage_area(c, rows, area, branch, wt, base)
+        finally: quitar_wt(wt)
+
+def _stage_area(c, rows, area, branch, wt, base):
+    done = []
+    for r in [x for x in rows if x["area"] == area]:
+        d = json.loads(r["datos"]); created = []; nuevos = []
+        try:
+            if d.get("tipo_propuesta") == "informe" or not d.get("ficheros_nuevos"):
+                estado_prop(c, r["id"], "informe", "informe sin fichero de test"); continue
+            if d.get("via") != "lote" and not (d.get("mutacion_que_lo_rompe") and d.get("por_que_pasa_hoy")): raise ValueError("falta mutacion/por_que_pasa_hoy")
+            validate_files(d["ficheros_nuevos"])
+            mods = d.get("ficheros_modificados") or []
+            for m in mods:
+                ap = parche_aplica(m)
+                if ap != "OK": raise ValueError(f"parche de {m.get('ruta')}: {ap}")
+            for f in d["ficheros_nuevos"]:
+                p = wt / f["ruta"]; p.parent.mkdir(parents=True, exist_ok=True)
+                p.write_text(f["contenido"], encoding="utf-8", newline="\n"); created.append(p); nuevos.append(p); syntax_check(p)
+            for m in mods:
+                pf = wt.parent / f"{wt.name}-p{r['id']}.diff"; pf.write_text(m["parche"], encoding="utf-8", newline=chr(10))
+                try: git("apply", str(pf), cwd=wt)
+                finally: pf.unlink(missing_ok=True)
+                created.append(wt / m["ruta"])  # no se borra en rollback: se restaura con checkout
+            git("add", "--", *[f["ruta"] for f in d["ficheros_nuevos"]], *[m["ruta"] for m in mods], cwd=wt)
+            ver = hashlib.sha1("".join(f["contenido"] for f in d["ficheros_nuevos"]).encode()).hexdigest()[:10]
+            estado_prop(c, r["id"], "preparada", f"rama {branch} base {base[:8]} v{ver}", rama=branch, base_sha=base[:10], version_test=ver, siguiente="esperando `aprobar` + noche autorizada; NO ejecutado")
+            done.append(r["titulo"])
+        except Exception as e:
+            # solo se deshace ESTA propuesta: un `reset --hard` borraba tambien las anteriores del area, ya marcadas preparadas pero aun sin commit
+            git("reset", "-q", "--", *[f["ruta"] for f in d.get("ficheros_nuevos") or []], cwd=wt, check=False)
+            for p in nuevos: p.unlink(missing_ok=True)
+            estado_prop(c, r["id"], "invalida", str(e)[:200], veredicto=str(e)[:300], siguiente="descartada: el diseño aceptado no se pudo preparar; `reabrir <id>` para nueva revision")
+            print(f"  invalida #{r['id']}: {e}")
+    if done:
+        git("commit", "-q", "-m", f"test(qa-gpt/{area}): {len(done)} tests preparados por revision GPT\n\n" + "\n".join("- " + t for t in done) +
+            "\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>", cwd=wt)
+        cmds = sorted({json.loads(x["datos"]).get("como_ejecutar") or "" for x in rows if x["area"] == area})
+        c.execute("INSERT INTO ramas(rama,area,ruta,sha,estado,pr,url,base_sha,comandos) VALUES(?,?,?,?,?,NULL,NULL,?,?) "
+                  "ON CONFLICT(rama) DO UPDATE SET sha=excluded.sha,comandos=excluded.comandos,estado=CASE WHEN ramas.estado IN ('publicada','ejecutada') THEN ramas.estado ELSE 'preparada' END",
+                  (branch, area, str(wt), git("rev-parse", "HEAD", cwd=wt), "preparada", base[:10], json.dumps([x for x in cmds if x])))
+        print(f"  rama local {branch}: {len(done)} propuestas (sin push, sin tests)")
+    c.commit()
 
 
 # ---------- Edge dedicado: salud, memoria y pestanas ----------
@@ -1297,6 +1313,7 @@ def cmd_nightly(a):
     git("fetch", "origin", "main"); repo = CFG["repo"]; out = []
     for r in ramas:
         wt = r["ruta"]
+        if not Path(wt).exists(): wt_rama(r["rama"], Path(wt), "origin/main")  # stage ya no conserva el worktree
         if cob.run(["git", "merge-base", "--is-ancestor", "origin/main", r["rama"]], cwd=ROOT).returncode:
             if cob.run(["git", "rebase", "origin/main"], cwd=wt, capture_output=True, text=True).returncode:
                 git("rebase", "--abort", cwd=wt, check=False); print(f"  CONFLICTO {r['rama']}: no se publica")

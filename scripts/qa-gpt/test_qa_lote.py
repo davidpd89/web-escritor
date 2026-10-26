@@ -84,6 +84,31 @@ class Base(unittest.TestCase):
     def prop(self, pid): return self.c.execute("SELECT estado FROM propuestas WHERE id=?", (pid,)).fetchone()[0]
 
 
+class Stage(Base):
+    """2026-10-26: los worktrees de stage nunca se borraban (167, 76 GB) y el disco lleno tumbo INICIAR y EJECUTAR; un `add -b` fallido a
+    medias dejaba la rama creada y cada reintento moria con 'already exists'."""
+    def aceptada(self, nombre):
+        self.n += 1; d = {"via": "lote", "ficheros_nuevos": [{"ruta": f"tests/test-{nombre}.py", "contenido": OK_PY}]}
+        self.c.execute("INSERT INTO propuestas(id,huella,area,titulo,datos,estado,creado,actualizado) VALUES(?,?,?,?,?,?,?,?)", (self.n, nombre, "cambio:x", nombre, json.dumps(d), "aceptada", q.now(), q.now())); self.c.commit()
+        return f"gpt-qa/cambio-x-{q.today().replace('-', '')}"
+
+    def test_stage_borra_su_worktree_y_deja_el_commit_en_la_rama(self):
+        rama = self.aceptada("uno"); q.stage(self.c)
+        self.assertEqual(self.prop(self.n), "preparada")
+        self.assertEqual(list(q.WT.iterdir()) if q.WT.exists() else [], [])
+        self.assertIn("tests/test-uno.py", g("ls-tree", "-r", "--name-only", rama, cwd=self.src))
+        self.aceptada("dos"); q.stage(self.c)  # misma area y dia: reutiliza la rama sin worktree
+        self.assertEqual(self.prop(self.n), "preparada")
+        self.assertIn("tests/test-uno.py", g("ls-tree", "-r", "--name-only", rama, cwd=self.src))
+        self.assertIn("tests/test-dos.py", g("ls-tree", "-r", "--name-only", rama, cwd=self.src))
+
+    def test_rama_huerfana_de_un_add_fallido_se_reutiliza(self):
+        rama = self.aceptada("tres"); g("branch", rama, "origin/main", cwd=self.src)  # lo que dejaba `worktree add -b` sin espacio en disco
+        q.stage(self.c)
+        self.assertEqual(self.prop(self.n), "preparada")
+        self.assertIn("tests/test-tres.py", g("ls-tree", "-r", "--name-only", rama, cwd=self.src))
+
+
 class Lotes(Base):
     def test_cero_pendientes(self):
         self.assertEqual(self.lote().ejecutar(), 0)
