@@ -13,7 +13,7 @@ import qa_cobertura as cob
 
 HERE = Path(__file__).parent
 ESTADOS = ("a_triar", "defecto_demostrado", "falso_positivo", "duplicado", "infra", "resuelto")
-NODE_MODULES = os.environ.get("QA_NODE_MODULES", r"C:/GIT/web-escritor/node_modules")
+NODE_MODULES = cob.NODE_MODULES
 
 
 def migrar(c):

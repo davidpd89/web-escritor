@@ -18,6 +18,10 @@ STOP = set("para como este esta esos esas desde entre sobre cuando donde debe de
 # ---------- procesos externos: sin ventana de consola y sin esperas ocultas ----------
 SIN_VENTANA = 0x08000000 if os.name == "nt" else 0  # CREATE_NO_WINDOW: el servicio corre sin consola (pythonw) y cada git abria su propia ventana negra
 _SIN_PROMPT = {"GIT_TERMINAL_PROMPT": "0", "GH_PROMPT_DISABLED": "1"}  # sin consola nadie vera un prompt de texto: que falle con error en vez de colgarse (el GCM grafico sigue saliendo)
+# node_modules del pipeline, fuera de todo repo: con el junction de los worktrees a C:\GIT\web-escritor\node_modules, Claude siguio el enlace y
+# edito el repo de trabajo de David (reparacion de main 2026-10-26: el arreglo quedo alli y en el worktree 'sin_cambios'). El de la web, solo de respaldo.
+NODE_MODULES = next((p for p in (os.environ.get("QA_NODE_MODULES"), r"C:\GIT\qa-gpt-state\node_modules") if p and Path(p, "playwright").is_dir()),
+                    r"C:\GIT\web-escritor\node_modules")
 _GIT_QUIETO = ["-c", "gc.auto=0", "-c", "maintenance.auto=false"]  # fetch/merge no lanzan gc/maintenance en segundo plano (otra fuente de ventanas y de carga)
 
 

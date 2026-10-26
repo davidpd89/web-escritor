@@ -138,7 +138,7 @@ def siguiente_version(v):
     return f"{m.group(1)}{int(m.group(2)) + 1}" if m else v + "-1"
 
 
-def enlazar_node_modules(run, wt, nm=r"C:\GIT\web-escritor\node_modules"):
+def enlazar_node_modules(run, wt, nm=cob.NODE_MODULES):
     dst = Path(wt) / "node_modules"
     if Path(nm).exists() and not dst.exists(): run(["cmd", "/c", "mklink", "/J", str(dst), nm], str(wt), timeout=30)
 
@@ -224,7 +224,7 @@ class Pr:
         """Ejecuta un test conocido. Los .mjs/.js (Playwright) necesitan node_modules y un servidor estatico del worktree: se levanta uno propio en un puerto libre y se cierra al terminar."""
         cmd = self.comando_test(t)
         if cmd[0] != "node": return self.run(cmd, str(wt), timeout=240)
-        nm = Path(flujo(self.q).get("node_modules") or r"C:\GIT\web-escritor\node_modules")
+        nm = Path(flujo(self.q).get("node_modules") or cob.NODE_MODULES)
         dst = Path(wt) / "node_modules"
         if nm.exists() and not dst.exists():
             self.run(["cmd", "/c", "mklink", "/J", str(dst), str(nm)], str(wt), timeout=30)

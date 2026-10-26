@@ -175,7 +175,7 @@ class Lote:
     def __init__(self, q, gh=None, runner=run_cmd, sleep=time.sleep, out=print, cfg=None):
         self.q, self.gh, self.runner, self.sleep, self.out = q, gh or Gh(q), runner, sleep, out
         self.cfg = {"concurrencia": 3, "max_horas": 8, "poll_s": 30, "timeout_test_s": 300, "reintentos_infra": 3, "puerto_estatico": 4173,
-                    "node_modules": r"C:\GIT\web-escritor\node_modules", "actions_siempre": False, "concurrencia_local": 1, "espera_ociosa_s": 60, "tam_lote": 40, "continuo": False, **q.CFG.get("lote", {}), **(cfg or {})}
+                    "node_modules": cob.NODE_MODULES, "actions_siempre": False, "concurrencia_local": 1, "espera_ociosa_s": 60, "tam_lote": 40, "continuo": False, **q.CFG.get("lote", {}), **(cfg or {})}
         self.dir = q.STATE / "lote"; self.dir.mkdir(parents=True, exist_ok=True)
         self.c = q.db(); self.c.execute("PRAGMA busy_timeout=180000")
         global ABORTAR
@@ -414,7 +414,7 @@ class Lote:
         if tmp.exists():
             j = tmp / "node_modules"
             if j.exists():
-                try: os.rmdir(j)  # quita solo el junction, nunca el contenido de C:\GIT\web-escritor\node_modules
+                try: os.rmdir(j)  # quita solo el junction, nunca el contenido de node_modules
                 except OSError: cob.run(["cmd", "/c", "rmdir", str(j)], capture_output=True)
             self.git("worktree", "remove", "--force", str(tmp), check=False)
         if not self._podado: self.git("worktree", "prune", check=False); self._podado = True  # registros huerfanos: una vez por lote, no tres por rama

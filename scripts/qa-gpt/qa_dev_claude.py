@@ -13,7 +13,7 @@ import qa_pr
 ESTADOS = ("validacion_fallida", "parche_no_encaja", "descartada")
 PROBAR = re.sub(r"^([A-Za-z]):", lambda m: "/" + m.group(1).lower(), (Path(__file__).resolve().parent / "qa_probar.py").as_posix())  # /c/...: sin ':' que confunda el patron Bash(...:*)
 CMD_PROBAR = f"python {PROBAR}"
-SISTEMA = ("Eres un desarrollador que corrige un defecto en un sitio web estatico. Trabajas en un checkout de la rama main. Edita SOLO los ficheros "
+SISTEMA = ("Eres un desarrollador que corrige un defecto en un sitio web estatico. Trabajas en un checkout de la rama main (el directorio actual; nunca edites rutas absolutas de otros repos). Edita SOLO los ficheros "
            "necesarios con la herramienta Edit (cambio minimo, sin refactors, sin tocar tests, workflows, package.json ni scripts/qa-gpt). "
            "El test que reproduce el defecto ya esta en el repo: leelo para saber que debe cumplirse. "
            f"Puedes ejecutar los tests con UN solo comando: `{CMD_PROBAR} <ruta_test> [...]` (rutas relativas). Regenera por ti el indice pagefind, "

@@ -30,7 +30,7 @@ SIS_MAIN = ("Eres el desarrollador de un sitio web estatico (repo web-escritor, 
             "y corrige la causa raiz con el cambio minimo: en la web si la web esta mal; en el test si el test esta mal (sin debilitarlo: debe seguir "
             "detectando el defecto real que vigila). Si tocas un test, amplia su autotest con el caso. Comprueba con node/python los tests afectados. "
             "No hagas commits. No toques .github/workflows ni scripts/qa-gpt. No busques .env, URLs ni credenciales: el comando de prueba "
-            "levanta el servidor local por ti. Ve directo al test que falla y a la pagina que vigila; tienes pocos turnos.")
+            "levanta el servidor local por ti. Edita solo dentro del directorio actual (nunca rutas absolutas de otros repos). Ve directo al test que falla y a la pagina que vigila; tienes pocos turnos.")
 
 
 def firma(texto):
