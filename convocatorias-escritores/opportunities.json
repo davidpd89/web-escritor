@@ -1,61 +1,6 @@
 {
-  "generated_for": "2026-10-24",
+  "generated_for": "2026-10-26",
   "items": [
-    {
-      "published": true,
-      "fee_eur": 0,
-      "verified_at": "2026-10-03",
-      "id": "manera-montblanc-relatos-2026",
-      "title": "Concurso de Relatos MANERA x Montblanc 2026",
-      "type": "concurso",
-      "organizer": "MANERA Magazine · Montblanc",
-      "deadline": "2026-10-25",
-      "genres": [
-        "relato",
-        "ficción"
-      ],
-      "prize": "Ocho relatos publicados en MANERA; 200 € de honorarios y dos ejemplares para cada autor seleccionado",
-      "eligibility": "Mayores de 18 años, cualquier residencia, sin libro individual de ficción publicado previamente por una editorial comercial/profesional; un relato original e inédito de 1.100–1.300 palabras.",
-      "submission_mode": "Inscripción online y relato en PDF identificado únicamente por su título.",
-      "source_url": "https://maneramagazine.es/interiorismo/concurso-relatos-manera-montblanc-2026/",
-      "editorial_note": "El relato debe relacionarse con arquitectura, interiores, diseño, arte, artesanía, objetos, espacios o formas de habitar; la organización prohíbe autoría sustancial mediante IA generativa."
-    },
-    {
-      "published": true,
-      "fee_eur": 0,
-      "verified_at": "2026-10-03",
-      "id": "kannonical-terror-sobrenatural-2026",
-      "title": "Convocatoria «Terror Sobrenatural» 2026",
-      "type": "manuscritos",
-      "organizer": "Kannonical Editores",
-      "deadline": "2026-10-25",
-      "genres": [
-        "terror",
-        "cuento"
-      ],
-      "eligibility": "Cuento original e inédito de terror sobrenatural, entre 1.000 y 8.000 palabras, siguiendo las condiciones de la convocatoria.",
-      "submission_mode": "Presentación conforme a las bases publicadas por Kannonical Editores en su web oficial.",
-      "source_url": "https://kannonical-editores.github.io/convoc.html",
-      "editorial_note": "La editorial declara expresamente que no cobra por publicar los relatos elegidos; revisar los derechos de la antología antes de aceptar publicación."
-    },
-    {
-      "id": "zenda-mentesana-relatos-2026",
-      "title": "Concurso de relatos #MenteSana — Zenda + Iberdrola",
-      "type": "concurso",
-      "organizer": "Zenda, con el patrocinio de Iberdrola",
-      "deadline": "2026-10-25",
-      "genres": [
-        "relato breve"
-      ],
-      "source_url": "https://www.zendalibros.com/concurso-de-relatos-mentesana/",
-      "verified_at": "2026-10-19",
-      "published": true,
-      "fee_eur": null,
-      "eligibility": "Relatos sobre salud mental; de 100 caracteres a 1.000 palabras, conforme a las bases.",
-      "prize": "1.000 € al ganador y 500 € para cada uno de los dos finalistas.",
-      "submission_mode": "Formulario de participación en Zenda.",
-      "editorial_note": "Cierre el 25 de octubre de 2026. Consultar las bases completas y sus condiciones de participación en la propia convocatoria."
-    },
     {
       "id": "si-los-pasillos-hablaran-2026",
       "title": "I Concurso de Microrrelatos «Si los pasillos hablaran»",
@@ -1594,6 +1539,61 @@
     }
   ],
   "expired": [
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "manera-montblanc-relatos-2026",
+      "title": "Concurso de Relatos MANERA x Montblanc 2026",
+      "type": "concurso",
+      "organizer": "MANERA Magazine · Montblanc",
+      "deadline": "2026-10-25",
+      "genres": [
+        "relato",
+        "ficción"
+      ],
+      "prize": "Ocho relatos publicados en MANERA; 200 € de honorarios y dos ejemplares para cada autor seleccionado",
+      "eligibility": "Mayores de 18 años, cualquier residencia, sin libro individual de ficción publicado previamente por una editorial comercial/profesional; un relato original e inédito de 1.100–1.300 palabras.",
+      "submission_mode": "Inscripción online y relato en PDF identificado únicamente por su título.",
+      "source_url": "https://maneramagazine.es/interiorismo/concurso-relatos-manera-montblanc-2026/",
+      "editorial_note": "El relato debe relacionarse con arquitectura, interiores, diseño, arte, artesanía, objetos, espacios o formas de habitar; la organización prohíbe autoría sustancial mediante IA generativa."
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "kannonical-terror-sobrenatural-2026",
+      "title": "Convocatoria «Terror Sobrenatural» 2026",
+      "type": "manuscritos",
+      "organizer": "Kannonical Editores",
+      "deadline": "2026-10-25",
+      "genres": [
+        "terror",
+        "cuento"
+      ],
+      "eligibility": "Cuento original e inédito de terror sobrenatural, entre 1.000 y 8.000 palabras, siguiendo las condiciones de la convocatoria.",
+      "submission_mode": "Presentación conforme a las bases publicadas por Kannonical Editores en su web oficial.",
+      "source_url": "https://kannonical-editores.github.io/convoc.html",
+      "editorial_note": "La editorial declara expresamente que no cobra por publicar los relatos elegidos; revisar los derechos de la antología antes de aceptar publicación."
+    },
+    {
+      "id": "zenda-mentesana-relatos-2026",
+      "title": "Concurso de relatos #MenteSana — Zenda + Iberdrola",
+      "type": "concurso",
+      "organizer": "Zenda, con el patrocinio de Iberdrola",
+      "deadline": "2026-10-25",
+      "genres": [
+        "relato breve"
+      ],
+      "source_url": "https://www.zendalibros.com/concurso-de-relatos-mentesana/",
+      "verified_at": "2026-10-19",
+      "published": true,
+      "fee_eur": null,
+      "eligibility": "Relatos sobre salud mental; de 100 caracteres a 1.000 palabras, conforme a las bases.",
+      "prize": "1.000 € al ganador y 500 € para cada uno de los dos finalistas.",
+      "submission_mode": "Formulario de participación en Zenda.",
+      "editorial_note": "Cierre el 25 de octubre de 2026. Consultar las bases completas y sus condiciones de participación en la propia convocatoria."
+    },
     {
       "id": "alberto-magno-ciencia-ficcion-2026",
       "title": "XXXVIII Certamen Literario Alberto Magno de Ciencia Ficción 2026",
