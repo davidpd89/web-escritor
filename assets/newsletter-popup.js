@@ -128,6 +128,12 @@
     }, { once: true });
 
     installNewsletterHoneypot(d.querySelector("#nl-popup-form"));
+    d.querySelector("#nl-popup-email").addEventListener("input", function () {
+      if (!isValidNewsletterEmail(this.value)) return;
+      this.removeAttribute("aria-invalid");
+      this.removeAttribute("aria-errormessage");
+      d.querySelector("#nl-popup-status").textContent = "";
+    });
     d.querySelector("#nl-popup-form").addEventListener("submit", function (event) {
       event.preventDefault();
       scheduleTask(async function () {
@@ -137,7 +143,15 @@
         if (!emailEl || !statusEl || !submitBtn) return;
         if (submitBtn.dataset.submitting === "true") return;
         if (IS_STAGING) { statusEl.textContent = STAGING_DISABLED_MESSAGE; return; }
-        if (!isValidNewsletterEmail(emailEl.value)) { statusEl.textContent = "Introduce un email válido."; return; }
+        if (!isValidNewsletterEmail(emailEl.value)) {
+          statusEl.textContent = "Introduce un email válido.";
+          emailEl.setAttribute("aria-invalid", "true");
+          emailEl.setAttribute("aria-errormessage", "nl-popup-status");
+          emailEl.focus({ preventScroll: true });
+          return;
+        }
+        emailEl.removeAttribute("aria-invalid");
+        emailEl.removeAttribute("aria-errormessage");
         statusEl.textContent = "";
         submitBtn.dataset.submitting = "true";
         submitBtn.disabled = true;
