@@ -144,17 +144,6 @@
       "precio_referencia_centimos": 2390
     },
     {
-      "libro_id": "isbn-9791388277085",
-      "formato": "tapa-dura",
-      "tipo": "compra",
-      "moneda": "EUR",
-      "precio_centimos": 1895,
-      "url": "https://www.amazon.es/dp/B0H5WT49KM?tag=davidporto-21",
-      "actualizado_en": "2026-10-25T11:56:22Z",
-      "caduca_en": "2026-10-26T11:56:22Z",
-      "precio_referencia_centimos": 1995
-    },
-    {
       "libro_id": "isbn-9791387809829",
       "formato": "tapa-blanda",
       "tipo": "compra",
@@ -626,35 +615,91 @@
       "actualizado_en": "2026-10-25T11:56:22Z",
       "caduca_en": "2026-10-26T11:56:22Z",
       "precio_referencia_centimos": 1995
+    },
+    {
+      "libro_id": "isbn-9791388277085",
+      "formato": "tapa-dura",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 1895,
+      "url": "https://www.amazon.es/dp/B0H5WT49KM?tag=davidporto-21",
+      "actualizado_en": "2026-10-26T13:28:36Z",
+      "caduca_en": "2026-10-27T13:28:36Z",
+      "precio_referencia_centimos": 1995
     }
   ],
   "ratings": [
     {
+      "libro_id": "isbn-9788401031380",
+      "puntuacion": 3.81,
+      "numero_valoraciones": 99,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/254133267-bajamar",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
       "libro_id": "isbn-9788401036897",
-      "puntuacion": 4.59,
-      "numero_valoraciones": 1624,
+      "puntuacion": 4.58,
+      "numero_valoraciones": 2109,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/241821776-los-escalones",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9788401037917",
+      "puntuacion": 3.88,
+      "numero_valoraciones": 729,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/252047523-las-pruebas-del-tarot",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788401039560",
-      "puntuacion": 4.3,
-      "numero_valoraciones": 1368,
+      "puntuacion": 4.29,
+      "numero_valoraciones": 2061,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254126097-otros-mundos",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788401042119",
       "puntuacion": 4.13,
-      "numero_valoraciones": 135,
+      "numero_valoraciones": 136,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/260422158-canci-n-de-amor-definitiva",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9788402431486",
+      "puntuacion": 5.0,
+      "numero_valoraciones": 1,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/254563755-uketamo-abrazar-la-vida-tal-cual-viene-uketamo",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9788402431936",
+      "puntuacion": 3.25,
+      "numero_valoraciones": 1,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/254453556-ib-ez-m-tico-2---el-preboste-de-seguridad",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9788402431967",
+      "puntuacion": 4.33,
+      "numero_valoraciones": 2000,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/252170254-ansiedad-c-mo-se-sale-de-aqu-anxietyland",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788408326380",
@@ -662,26 +707,53 @@
       "numero_valoraciones": 1,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254959835-la-guerra-fr-a-contada-para-esc-pticos",
-      "actualizado_en": "2026-10-25T11:55:44Z",
-      "caduca_en": "2026-11-01T11:55:44Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9788410442771",
+      "puntuacion": 5.0,
+      "numero_valoraciones": 1,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/246712902-cocina-para-cara-almendras-cooking-for-cara-almendras",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9788410466470",
+      "puntuacion": 4.63,
+      "numero_valoraciones": 228631,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/254125747-el-ojo-de-la-novia-frenop-tica",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9788418967566",
+      "puntuacion": 4.33,
+      "numero_valoraciones": 3,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/247013504-esmorzaret-mesa-y-mantel",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788419456007",
-      "puntuacion": 4.47,
-      "numero_valoraciones": 9,
+      "puntuacion": 4.5,
+      "numero_valoraciones": 13,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254373097-la-casa-de-la-ci-naga",
-      "actualizado_en": "2026-10-21T17:39:51Z",
-      "caduca_en": "2026-10-28T17:39:51Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788425373121",
-      "puntuacion": 3.72,
-      "numero_valoraciones": 33,
+      "puntuacion": 3.7,
+      "numero_valoraciones": 34,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254253945-s-cate-a-esa-persona-de-la-cabeza-delete-that-person-from-your-brain",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788425374012",
@@ -689,8 +761,8 @@
       "numero_valoraciones": 15,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/246991306-barbacoa-cocina-f-cil-y-sabrosa-a-la-parrilla-grill-easy-grilling-b",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788425374074",
@@ -698,8 +770,8 @@
       "numero_valoraciones": 6,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/252222055-20-minutos-y-listo-20-minute-meals-real-fast-food",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788425375040",
@@ -707,53 +779,71 @@
       "numero_valoraciones": 1,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254253806-el-vuelo-de-los-gansos",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788425375118",
       "puntuacion": 4.37,
-      "numero_valoraciones": 156409,
+      "numero_valoraciones": 160572,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/252166020-la-hija-del-veneno-edici-n-cantos-pintados-the-poison-daughter-spra",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788426432575",
-      "puntuacion": 3.74,
-      "numero_valoraciones": 703,
+      "puntuacion": 3.73,
+      "numero_valoraciones": 709,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254316242-el-linaje-de-pierre-finist-re",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788426434272",
-      "puntuacion": 4.25,
-      "numero_valoraciones": 2,
+      "puntuacion": 4.0,
+      "numero_valoraciones": 3,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254316263-esas-muchachas-que-escriben-poemas",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9788427054479",
+      "puntuacion": 3.67,
+      "numero_valoraciones": 75997,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/237809196-un-amor-de-diciembre",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788439746621",
-      "puntuacion": 3.94,
-      "numero_valoraciones": 94,
+      "puntuacion": 3.96,
+      "numero_valoraciones": 97,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254432909-la-merma",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788466380096",
       "puntuacion": 4.3,
-      "numero_valoraciones": 6322,
+      "numero_valoraciones": 6328,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/249407399-quiz-s-quiero",
-      "actualizado_en": "2026-10-23T12:14:04Z",
-      "caduca_en": "2026-10-30T12:14:04Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9788466396806",
+      "puntuacion": 3.99,
+      "numero_valoraciones": 896293,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/259546295-carrie",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788467083316",
@@ -761,8 +851,8 @@
       "numero_valoraciones": 1,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254982435-las-mitford",
-      "actualizado_en": "2026-10-25T11:55:44Z",
-      "caduca_en": "2026-11-01T11:55:44Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788467083330",
@@ -770,8 +860,8 @@
       "numero_valoraciones": 2,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254982422-coraz-n-de-s-lex",
-      "actualizado_en": "2026-10-25T11:55:44Z",
-      "caduca_en": "2026-11-01T11:55:44Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9788467083354",
@@ -779,44 +869,125 @@
       "numero_valoraciones": 37,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254912960-la-vida-nueva-de-pedrito-de-and-a",
-      "actualizado_en": "2026-10-25T11:55:44Z",
-      "caduca_en": "2026-11-01T11:55:44Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9788491058298",
+      "puntuacion": 4.21,
+      "numero_valoraciones": 5809116,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/252167940-1984",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9791387512446",
+      "puntuacion": 3.83,
+      "numero_valoraciones": 770233,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/252138076-la-inquilina",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9791387846008",
+      "puntuacion": 4.5,
+      "numero_valoraciones": 12,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/255314439-la-hip-tesis-m-s-peligrosa",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9791387846794",
       "puntuacion": 4.4,
-      "numero_valoraciones": 2632,
+      "numero_valoraciones": 2649,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254372887-mi-amor-no-muere-my-love-never-dies",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9791387949938",
+      "puntuacion": 4.67,
+      "numero_valoraciones": 3,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/254372871-alas-de-escarcha-y-oro",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9791387962050",
+      "puntuacion": 4.6,
+      "numero_valoraciones": 5,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/254404184-para-dafne-2",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9791387962142",
+      "puntuacion": 5.0,
+      "numero_valoraciones": 1,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/254481788-el-guardaespaldas-de-honeko-akabane-7",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9791387975340",
+      "puntuacion": 3.8,
+      "numero_valoraciones": 677,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/252181664-un-d-a-en-la-vida-de-clarita",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9791387994303",
+      "puntuacion": 5.0,
+      "numero_valoraciones": 2,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/252168395-me-llamo-goa-12---eres-nica-goa",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "isbn-9791388137006",
-      "puntuacion": 3.87,
-      "numero_valoraciones": 1029,
+      "puntuacion": 3.88,
+      "numero_valoraciones": 1031,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254125703-tor",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "lib-0001",
       "puntuacion": 4.13,
-      "numero_valoraciones": 809446,
+      "numero_valoraciones": 810286,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/6785288-coraline",
-      "actualizado_en": "2026-10-21T10:24:19Z",
-      "caduca_en": "2026-10-28T10:24:19Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
+    },
+    {
+      "libro_id": "isbn-9788427054479",
+      "puntuacion": 3.55,
+      "numero_valoraciones": 55,
+      "fuente": "hardcover",
+      "url": "https://hardcover.app/books/un-amor-de-diciembre-2024",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     },
     {
       "libro_id": "lib-0001",
       "puntuacion": 4.03,
-      "numero_valoraciones": 1510,
+      "numero_valoraciones": 1519,
       "fuente": "hardcover",
       "url": "https://hardcover.app/books/coraline",
-      "actualizado_en": "2026-10-24T11:28:58Z",
-      "caduca_en": "2026-10-31T11:28:58Z"
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     }
   ]
 }
