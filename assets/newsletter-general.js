@@ -105,11 +105,21 @@
           return;
         }
         if (!email || !isValidEmail(email.value)) {
-          if (status) status.textContent = 'Introduce un email válido.';
+          if (status) {
+            if (!status.id) status.id = 'newsletter-status-' + Math.random().toString(36).slice(2, 8);
+            status.textContent = 'Introduce un email válido.';
+            if (email) {
+              const ids = (email.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
+              if (!ids.includes(status.id)) ids.push(status.id);
+              email.setAttribute('aria-describedby', ids.join(' '));
+            }
+          }
+          if (email) email.setAttribute('aria-invalid', 'true');
           email?.focus({ preventScroll: true });
           return;
         }
 
+        email.removeAttribute('aria-invalid');
         if (status) status.textContent = '';
         const originalText = submit.textContent;
         submit.dataset.submitting = 'true';
