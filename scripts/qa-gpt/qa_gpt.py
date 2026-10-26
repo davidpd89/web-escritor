@@ -88,10 +88,28 @@ def git(*a, cwd=None, check=True):
     if not check and cwd == ROOT and a and a[0] in ("log", "rev-list", "ls-files"): return cob._git(cwd, *a)  # lectura repetida: cache por (HEAD, origin/main, dia)
     return sh(["git", *a], cwd=cwd, check=check)
 
+class Conn(sqlite3.Connection):
+    """Un 'database is locked' a mitad de transaccion dejaba la conexion con su lock (SHARED/RESERVED) hasta cerrarla: worker, EJECUTAR y
+    flujo PR se esperaban entre si para siempre (2026-10-26, 20 min parado). Ante cualquier OperationalError se deshace al instante."""
+    def _soltar(self):
+        try: self.rollback()
+        except sqlite3.Error: pass
+    def execute(self, *a):
+        try: return super().execute(*a)
+        except sqlite3.OperationalError: self._soltar(); raise
+    def executemany(self, *a):
+        try: return super().executemany(*a)
+        except sqlite3.OperationalError: self._soltar(); raise
+    def commit(self):
+        try: return super().commit()
+        except sqlite3.OperationalError: self._soltar(); raise
+
 def db():
     STATE.mkdir(parents=True, exist_ok=True)
-    c = sqlite3.connect(DB_PATH, timeout=30)
+    c = sqlite3.connect(DB_PATH, timeout=30, factory=Conn)
     c.row_factory = sqlite3.Row
+    try: c.execute("PRAGMA journal_mode=WAL")  # lectores y escritor no se bloquean; persistente (basta con que una conexion lo logre)
+    except sqlite3.OperationalError: pass
     c.executescript("""
     CREATE TABLE IF NOT EXISTS jobs(id INTEGER PRIMARY KEY, clave TEXT UNIQUE, tipo TEXT, area TEXT, estado TEXT,
       payload TEXT, intentos INTEGER DEFAULT 0, no_antes TEXT, error TEXT, creado TEXT, actualizado TEXT);
@@ -698,7 +716,7 @@ def validate_files(files):
 
 def c_dup(rel):
     """Ruta ya reservada por otra propuesta preparada/aprobada (evita dos implementaciones del mismo fichero)."""
-    c = sqlite3.connect(DB_PATH, timeout=30)
+    c = sqlite3.connect(DB_PATH, timeout=30, factory=Conn)
     try:
         for (d,) in c.execute("SELECT datos FROM propuestas WHERE estado IN ('preparada','aprobada','publicada')"):
             if rel in [f.get("ruta") for f in json.loads(d).get("ficheros_nuevos", [])]: return True
