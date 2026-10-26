@@ -74,7 +74,14 @@ for (const route of routes) {
       });
       let result;
       try {
-        await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
+        const response = await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
+        if (!response || !response.ok()) {
+          throw new Error(`HTTP ${response ? response.status() : 'sin respuesta'} en ${route}`);
+        }
+        const finalPath = new URL(page.url()).pathname;
+        if (finalPath !== route) {
+          throw new Error(`documento inesperado: ${finalPath} (esperado ${route})`);
+        }
         await page.evaluate(() => document.fonts && document.fonts.ready);
         await page.waitForTimeout(2500);
         result = await page.evaluate(() => ({
