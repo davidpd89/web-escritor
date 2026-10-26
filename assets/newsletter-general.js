@@ -93,6 +93,25 @@
     form.dataset.newsletterBound = 'true';
     installHoneypot(form);
 
+    const emailField = form.querySelector('input[type="email"]');
+    const statusField = form.querySelector('[role="status"]');
+    let previousDescription = null;
+    let errorDescriptionId = null;
+
+    function clearEmailError() {
+      if (!emailField) return;
+      emailField.removeAttribute('aria-invalid');
+      if (errorDescriptionId) {
+        if (previousDescription === null) emailField.removeAttribute('aria-describedby');
+        else emailField.setAttribute('aria-describedby', previousDescription);
+        errorDescriptionId = null;
+        previousDescription = null;
+        if (statusField) statusField.textContent = '';
+      }
+    }
+
+    emailField?.addEventListener('input', clearEmailError);
+
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       schedule(async () => {
@@ -106,10 +125,24 @@
         }
         if (!email || !isValidEmail(email.value)) {
           if (status) status.textContent = 'Introduce un email válido.';
-          email?.focus({ preventScroll: true });
+          if (email) {
+            email.setAttribute('aria-invalid', 'true');
+            if (status) {
+              if (!status.id) status.id = 'newsletter-error-' + source;
+              if (!errorDescriptionId) {
+                previousDescription = email.getAttribute('aria-describedby');
+                errorDescriptionId = status.id;
+              }
+              const ids = (previousDescription || '').split(/\s+/).filter(Boolean);
+              if (!ids.includes(status.id)) ids.push(status.id);
+              email.setAttribute('aria-describedby', ids.join(' '));
+            }
+            email.focus({ preventScroll: true });
+          }
           return;
         }
 
+        clearEmailError();
         if (status) status.textContent = '';
         const originalText = submit.textContent;
         submit.dataset.submitting = 'true';
