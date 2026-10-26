@@ -116,7 +116,7 @@ TRACKED_ASSETS = {
     "v1-cuaderno-topics.css": "1",
     "dialogo-espanol.js": "3",
     "v1-beta-readers.css": "1",
-    "v1-accessibility-statement.css": "1",
+    "v1-accessibility-statement.css": "2",
     "v1-ai-authority.css": "1",
     "assistant-embed.css": "2",
     "assistant-embed.js": "2",
