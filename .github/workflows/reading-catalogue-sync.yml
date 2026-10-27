@@ -67,7 +67,18 @@ jobs:
           if [ "$DRY_RUN" = 'true' ]; then
             python scripts/refresh-reading-catalogue.py
           else
-            python scripts/refresh-reading-catalogue.py --publish
+            # Exit 75: main moved while the bot PR was in CI. Regenerate once
+            # from the new main instead of losing the day's books.
+            for attempt in 1 2; do
+              rc=0
+              python scripts/refresh-reading-catalogue.py --publish || rc=$?
+              if [ "$rc" -eq 0 ]; then break; fi
+              if [ "$rc" -ne 75 ] || [ "$attempt" -eq 2 ]; then exit "$rc"; fi
+              git fetch --quiet origin main
+              git switch --quiet --detach origin/main
+              git reset --quiet --hard origin/main
+              git clean --quiet -fd
+            done
           fi
       - name: Read-only live provider pilot
         if: inputs.dry_run && inputs.live_provider_pilot
