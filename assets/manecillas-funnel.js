@@ -41,6 +41,8 @@
   // esta en la pagina de la muestra.
   _gcEvent("sample-start-manecillas", "Muestra: inicio (Las manecillas del recuerdo)");
 
+  if (typeof window.IntersectionObserver !== 'function') return;
+
   const completeObserver = new IntersectionObserver((entries) => {
     for (const entry of entries) {
       if (entry.isIntersecting && !completeFired) {

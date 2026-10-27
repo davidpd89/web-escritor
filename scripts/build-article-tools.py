@@ -156,6 +156,7 @@ def process(text: str) -> tuple[str, list[str]]:
     notes: list[str] = []
     main_inner = main.group(1)
     used_ids = {m.group(2) for m in ID_ATTR_RE.finditer(text)}
+    assigned_heading_ids: set[str] = set()
     headings: list[tuple[str, str]] = []
     replacements: list[tuple[int, int, str]] = []
 
@@ -165,18 +166,23 @@ def process(text: str) -> tuple[str, list[str]]:
         if not label:
             continue
         id_m = ID_ATTR_RE.search(attrs)
-        if id_m:
+        if id_m and id_m.group(2) not in assigned_heading_ids:
             hid = id_m.group(2)
         else:
-            base = slugify(label)
+            base = id_m.group(2) if id_m else slugify(label)
             hid = base
             n = 2
-            while hid in used_ids:
+            while hid in used_ids or hid in assigned_heading_ids:
                 hid = "{0}-{1}".format(base, n)
                 n += 1
-            used_ids.add(hid)
-            replacements.append((m.start(2), m.end(2), ' id="{0}"'.format(hid) + attrs))
+            if id_m:
+                new_attrs = attrs[:id_m.start()] + 'id="{0}"'.format(esc(hid)) + attrs[id_m.end():]
+            else:
+                new_attrs = ' id="{0}"'.format(esc(hid)) + attrs
+            replacements.append((m.start(2), m.end(2), new_attrs))
             notes.append('id generado para "{0}": #{1}'.format(label, hid))
+        used_ids.add(hid)
+        assigned_heading_ids.add(hid)
         headings.append((hid, label))
 
     for start, end, new in reversed(replacements):

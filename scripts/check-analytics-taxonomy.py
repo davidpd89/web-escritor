@@ -37,7 +37,7 @@ ROOT = Path(__file__).resolve().parent.parent
 REGISTRY_PATH = ROOT / "data" / "analytics-events.json"
 
 GC_EVENT_RE = re.compile(r'_gcEvent\(\s*[`"\']([^`"\'${]*)[`"\']')
-DATA_GC_RE = re.compile(r'data-gc="([^"]+)"')
+DATA_GC_RE = re.compile(r'''\bdata-gc\s*=\s*(["'])(.*?)\1''')
 EMIT_CALL_RE = re.compile(r'\b(?:emit|analytics|dispatchShareEvent)\(\s*[\'"`]([a-zA-Z0-9_-]+)[\'"`]')
 INLINE_EVENT_RE = re.compile(r'event:\s*[\'"]([a-zA-Z0-9_-]+)[\'"]')
 
@@ -74,7 +74,7 @@ def check_gc_events(files: list[Path], root: Path, registered: set[str]) -> list
                 line = text.count("\n", 0, m.start()) + 1
                 errors.append(f"{rel}:{line}: evento GoatCounter no registrado: '{name}' -- anadelo a data/analytics-events.json")
         for m in DATA_GC_RE.finditer(text):
-            name = m.group(1)
+            name = m.group(2)
             if name not in registered:
                 line = text.count("\n", 0, m.start()) + 1
                 errors.append(f"{rel}:{line}: data-gc no registrado: '{name}' -- anadelo a data/analytics-events.json")

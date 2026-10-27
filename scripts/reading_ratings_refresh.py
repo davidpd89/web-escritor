@@ -227,12 +227,14 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
     old_source = {r.get("libro_id"): r for r in existing.get("ratings", [])
                   if r.get("fuente", "goodreads") == source}
     stats = {"attempted": 0, "updated": 0, "unrated": 0, "failures": []}
-    after = dict(old_source)
     published = [b for b in catalogue.get("libros", [])
                  if b.get("estado") in {"listo", "publicado"}
                  and isbn13(b.get("isbn13", ""))]
+    published_ids = {b["id"] for b in published}
+    after = {book_id: rating for book_id, rating in old_source.items()
+             if book_id in published_ids}
     # Rotate fair slices to cover the entire growing catalogue.
-    offset = (now.date().toordinal() * max(budget, 1)) % len(published) if published else 0
+    offset = (now.astimezone(timezone.utc).date().toordinal() * max(budget, 1)) % len(published) if published else 0
     queued = published[offset:] + published[:offset]
     for book in queued:
         if stats["attempted"] >= budget:
@@ -250,7 +252,18 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
             rated = selector(book, response)
             if rated is None:
                 stats["unrated"] += 1
-                # Do not resurrect stale data by refreshing timestamps blindly.
+                # A successful unrated response invalidates an expired aggregate.
+                previous = after.get(book["id"])
+                if previous is not None:
+                    expires = previous.get("caduca_en")
+                    if isinstance(expires, str):
+                        try:
+                            expiry = datetime.fromisoformat(expires.replace("Z", "+00:00"))
+                            if expiry.tzinfo is not None and expiry <= now:
+                                after.pop(book["id"], None)
+                        except ValueError:
+                            pass
+                # Never refresh timestamps without a valid aggregate.
                 continue
             timestamp = now.astimezone(timezone.utc)
             rated["actualizado_en"] = timestamp.isoformat(timespec="seconds").replace("+00:00", "Z")

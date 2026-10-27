@@ -58,11 +58,36 @@ def audit(root: Path, expected: str) -> dict:
     unique_destinations: set[str] = set()
     product_verification_queue: list[dict[str, str]] = []
 
-    def check(source: str, url: str) -> None:
+    def check(source: str, url: str, expected_isbn: str | None = None) -> None:
         p = urlparse(url)
         host = (p.hostname or "").lower()
-        if p.scheme != "https" or host not in {"www.amazon.es", "amazon.es", "amzn.to"}:
-            if host.endswith(".amazon.com") or host == "amazon.com":
+        scheme = p.scheme.lower()
+        allowed_host = host in {"www.amazon.es", "amazon.es", "amzn.to"}
+        try:
+            port = p.port
+        except ValueError:
+            port = -1
+        if scheme in {"javascript", "data", "vbscript", "file"}:
+            errors.append({"source": source, "type": "unsafe_scheme", "url": url})
+            return
+        if allowed_host and (scheme != "https" or "@" in p.netloc or port is not None):
+            errors.append({"source": source, "type": "unsafe_destination", "url": url})
+            return
+        if not allowed_host and scheme in {"http", "https"} and ("amazon." in host or "amzn." in host):
+            foreign = any(host == m or host.endswith("." + m) for m in (
+                "amazon.com", "amazon.co.uk", "amazon.de", "amazon.fr", "amazon.it"))
+            if not foreign or scheme != "https":
+                errors.append({"source": source, "type": "unsafe_destination", "url": url})
+                return
+        if not allowed_host:
+            foreign_marketplaces = (
+                "amazon.com",
+                "amazon.co.uk",
+                "amazon.de",
+                "amazon.fr",
+                "amazon.it",
+            )
+            if any(host == market or host.endswith("." + market) for market in foreign_marketplaces):
                 counts["other_market_link"] += 1
                 reviews.append({"source": source, "type": "otro_mercado", "url": url})
             return
@@ -83,6 +108,16 @@ def audit(root: Path, expected: str) -> dict:
             counts["author_or_informational"] += 1
             return
         counts[kind] += 1
+        if kind == "isbn_search" and expected_isbn:
+            actual_isbns = params.get("k", [])
+            if actual_isbns != [str(expected_isbn)]:
+                errors.append({
+                    "source": source,
+                    "type": "isbn_search_mismatch",
+                    "url": url,
+                    "expected_isbn": str(expected_isbn),
+                    "actual_isbn": ",".join(actual_isbns) if actual_isbns else "(sin ISBN)",
+                })
         tags = params.get("tag", [])
         if tags != [expected]:
             errors.append({
@@ -119,7 +154,11 @@ def audit(root: Path, expected: str) -> dict:
                 })
             for field in ("amazon_busqueda_isbn", "url_amazon_afiliada"):
                 if b.get(field):
-                    check(source + "." + field, b[field])
+                    check(
+                        source + "." + field,
+                        b[field],
+                        expected_isbn=b.get("isbn13") if field == "amazon_busqueda_isbn" else None,
+                    )
             for option in b.get("formatos_compra", []):
                 url = option.get("url", "")
                 if url:

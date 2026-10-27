@@ -100,10 +100,46 @@ class EventCalendarTests(unittest.TestCase):
         event = self.timed_event()
         event["eventStatus"] = "https://schema.org/EventCancelled"
         expected, errors = cal.expected_calendars(
-            page_for(event), as_of=date.fromisoformat("2026-09-01")
+            page_for(event, include_link=False), as_of=date.fromisoformat("2026-09-01")
         )
         self.assertEqual(expected, {})
         self.assertEqual(errors, [])
+
+    def test_cancelled_event_with_calendar_link_is_rejected(self) -> None:
+        event = self.timed_event()
+        event["eventStatus"] = "https://schema.org/EventCancelled"
+        expected, errors = cal.expected_calendars(
+            page_for(event), as_of=date.fromisoformat("2026-09-01")
+        )
+        self.assertEqual(expected, {})
+        self.assertEqual(len(errors), 1)
+        self.assertIn("huerfano", errors[0])
+        self.assertIn("presentacion-manecillas.ics", errors[0])
+
+    def test_orphan_calendar_link_is_rejected_alongside_valid_link(self) -> None:
+        event = self.timed_event()
+        html = page_for(event).replace(
+            "</body>",
+            '<a href="/assets/events/calendar/huerfano.ics" '
+            'data-calendar-download>Añadir al calendario</a></body>',
+        )
+        expected, errors = cal.expected_calendars(
+            html, as_of=date.fromisoformat("2026-09-01")
+        )
+        self.assertIn("presentacion-manecillas.ics", expected)
+        self.assertNotIn("huerfano.ics", expected)
+        self.assertEqual(len(errors), 1)
+        self.assertIn("huerfano.ics", errors[0])
+        self.assertIn("no corresponde a un EventScheduled elegible", errors[0])
+
+    def test_past_event_with_calendar_link_is_rejected(self) -> None:
+        event = self.timed_event()
+        expected, errors = cal.expected_calendars(
+            page_for(event), as_of=date.fromisoformat("2026-09-11")
+        )
+        self.assertEqual(expected, {})
+        self.assertEqual(len(errors), 1)
+        self.assertIn("huerfano", errors[0])
 
     def test_date_only_boundary_is_current_on_end_date(self) -> None:
         event = self.timed_event()

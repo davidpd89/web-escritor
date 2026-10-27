@@ -206,9 +206,17 @@ for path in sorted(public_html()):
                     )
 
             if "startDate" in parsed and "endDate" in parsed:
+                start_kind, start_value = parsed["startDate"]
+                end_kind, end_value = parsed["endDate"]
                 start = bounds(parsed["startDate"])
                 end = bounds(parsed["endDate"])
-                if start and end and end[1] < start[0]:
+                reversed_dates = bool(start and end and end[1] < start[0])
+                if start_kind == end_kind == "datetime":
+                    start_aware = start_value.utcoffset() is not None
+                    end_aware = end_value.utcoffset() is not None
+                    if start_aware == end_aware:
+                        reversed_dates = end_value < start_value
+                if reversed_dates:
                     errors.append(f"{rel}:{line}: endDate precedes startDate")
 
 if errors:
