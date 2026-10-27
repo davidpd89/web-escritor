@@ -15,6 +15,8 @@ const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROM
 try {
   for (const width of [320, 390, 768, 1024, 1440]) {
     const context = await browser.newContext({ viewport: { width, height: 1000 }, reducedMotion: 'reduce' });
+    // El popup de newsletter se abre por temporizador en /cuaderno/ y tapa el clic en runners lentos.
+    await context.addInitScript(() => { try { localStorage.setItem('nl-popup-ts', String(Date.now())); } catch {} });
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
