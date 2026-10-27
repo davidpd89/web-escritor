@@ -27,6 +27,21 @@ PRIVACY = {
     "network-required": "Necesita consultar una URL pública",
 }
 
+def validate_internal_href(href):
+    if (
+        not isinstance(href, str)
+        or not href.startswith('/')
+        or href.startswith('//')
+        or not href.endswith('/')
+        or '//' in href
+        or any(char in href for char in ('?', '#', '\\', '%', ':', '<', '>', '"', "'"))
+        or any(ord(char) < 33 or ord(char) == 127 for char in href)
+        or any(segment in ('.', '..') for segment in href.split('/'))
+    ):
+        raise ValueError(f"ruta interna inválida: {href!r}")
+    return href
+
+
 def validate(data):
     if data.get("schema_version") != 1:
         raise ValueError("schema_version debe ser 1")
@@ -46,8 +61,7 @@ def validate(data):
             raise ValueError(f"categoría desconocida: {tool['category']}")
         if tool["privacy"] not in PRIVACY:
             raise ValueError(f"privacy desconocida: {tool['privacy']}")
-        if not tool["href"].startswith("/") or not tool["href"].endswith("/"):
-            raise ValueError(f"ruta inválida: {tool['href']}")
+        validate_internal_href(tool["href"])
         # The hub must not list itself as one of the tools it indexes.
         if tool["href"] == "/herramientas/":
             raise ValueError("el hub no puede listarse a sí mismo como herramienta")
@@ -60,6 +74,7 @@ def validate(data):
         for key in ("name", "href", "summary"):
             if not isinstance(entry.get(key), str) or not entry[key].strip():
                 raise ValueError(f"directorio {i}: falta {key}")
+        validate_internal_href(entry["href"])
         if entry["href"] in seen_href:
             raise ValueError(f"href duplicado entre herramientas y directorios: {entry['href']}")
 

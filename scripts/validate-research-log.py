@@ -53,6 +53,8 @@ def validate(path):
         if strict and st=='verified' and emptyish(source): errors.append(f'{cid}: verified sin source')
         if strict and st=='inference' and emptyish(source) and emptyish(basis): errors.append(f'{cid}: inference sin fuentes base')
         if strict and st=='unconfirmed' and emptyish(attempts): errors.append(f'{cid}: unconfirmed sin attempts')
+        if status=='published' and f.get('public', '').strip().lower() == 'true' and st != 'verified':
+            errors.append(f'{cid}: afirmación pública sin verificar ({st})')
         if status=='published' and emptyish(checked): errors.append(f'{cid}: publicado sin checked')
     if status=='published':
         for key in ('research_id','topic','last_verified'):

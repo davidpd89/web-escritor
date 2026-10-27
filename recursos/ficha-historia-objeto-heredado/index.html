@@ -181,11 +181,11 @@
         <button class="text-action" type="button" data-record-open>Abrir JSON</button>
         <button class="text-action" type="button" data-record-print>Imprimir / PDF</button>
         <button class="text-action" type="button" data-record-clear>Vaciar</button>
-        <input class="sr-only" type="file" accept="application/json,.json" data-record-import aria-label="Abrir registro JSON">
+        <input type="file" accept="application/json,.json" data-record-import aria-label="Abrir registro JSON" hidden tabindex="-1">
       </div>
       <p class="tool-status" role="status" aria-live="polite" data-record-status></p>
 
-      <form autocomplete="off"><button type="submit" class="sr-only">Guardar ficha</button>
+      <form autocomplete="off"><button type="submit" class="sr-only" tabindex="-1">Guardar ficha</button>
 
         <div class="tool-findings-block">
           <h3>1. Identificación física</h3>

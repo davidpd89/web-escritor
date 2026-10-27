@@ -62,7 +62,7 @@ class RobotsMetaParser(HTMLParser):
         if tag.lower() != "meta":
             return
         values = {key.lower(): value or "" for key, value in attrs}
-        if values.get("name", "").strip().casefold() != "robots":
+        if values.get("name", "").strip().casefold() not in {"robots", "googlebot", "bingbot"}:
             return
         directives = re.split(r"[,\s]+", values.get("content", "").casefold().strip())
         if "noindex" in directives:
@@ -80,10 +80,26 @@ def load_registry_by_source(root: Path) -> dict[str, dict]:
     raw = json.loads((root / "data" / "content-registry.json").read_text(encoding="utf-8"))
     defaults = raw.get("defaults", {})
     by_source: dict[str, dict] = {}
-    for entry in raw.get("entries", []):
+    entries = [e for e in raw.get("entries", []) if e.get("sourceFile")]
+    # Las entradas de ancla (`/pagina/#seccion`) no son la pagina: un `searchIndex: false` o un
+    # estado no publico de un ancla no debe sacar la pagina entera del indice (libros/index.html
+    # quedaba fuera del buscador por sus dos anclas de obra). Si la pagina tiene entrada propia,
+    # solo cuentan las entradas de pagina.
+    has_page_entry = {e["sourceFile"] for e in entries if "#" not in str(e.get("url") or "")}
+    for entry in entries:
         source = entry.get("sourceFile")
         if source:
-            by_source[source] = {**defaults, **entry}
+            if source in has_page_entry and "#" in str(entry.get("url") or ""):
+                continue
+            current = {**defaults, **entry}
+            previous = by_source.get(source)
+            if previous is not None:
+                current = {**previous, **current}
+                if previous.get("status", "public") != "public" or current.get("status", "public") != "public":
+                    current["status"] = "private"
+                if previous.get("searchIndex", True) is False or current.get("searchIndex", True) is False:
+                    current["searchIndex"] = False
+            by_source[source] = current
     return by_source
 
 

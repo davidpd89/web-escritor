@@ -70,7 +70,7 @@ async function observe(target, negotiation) {
     const encoding = (headers['content-encoding'] || 'identity').toLowerCase();
 
     return {
-      ok: true,
+      ok: response.ok,
       target: target.label,
       requestedUrl: url.toString(),
       finalUrl: response.url,

@@ -1,5 +1,5 @@
 const CACHE_NAMESPACE = "david-porto-pwa";
-const CACHE_VERSION = `${CACHE_NAMESPACE}-v16`;
+const CACHE_VERSION = `${CACHE_NAMESPACE}-v17`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 const CURRENT_CACHES = new Set([STATIC_CACHE, PAGE_CACHE]);
@@ -50,8 +50,25 @@ function offlineResponse() {
 }
 
 async function putIfCacheable(cache, request, response) {
-  if (response && response.ok) {
-    await cache.put(request, response.clone());
+  const cacheControl = response?.headers?.get("Cache-Control") || "";
+  const restrictedCache = cacheControl.split(",").some((directive) =>
+    /^(?:no-store|private)(?:\s*(?:=|$))/.test(directive.trim().toLowerCase())
+  ) || response?.headers?.has("Set-Cookie");
+  const pathname = new URL(request.url).pathname.toLowerCase();
+  const mime = (response?.headers?.get("Content-Type") || "")
+    .split(";", 1)[0].trim().toLowerCase();
+  const isJavaScript = /\.(?:js|mjs)$/.test(pathname);
+  const isCss = pathname.endsWith(".css");
+  const validJavaScriptMime = /^(?:text|application)\/(?:javascript|ecmascript|x-javascript|x-ecmascript)$/.test(mime);
+  const compatibleMime = isJavaScript ? validJavaScriptMime : isCss ? mime === "text/css" : true;
+  if (response && response.ok && response.status !== 206 && !restrictedCache && compatibleMime) {
+    try {
+      await cache.put(request, response.clone());
+    } catch (error) {
+      // CacheStorage is optional: a failed write must not hide a valid
+      // network response or trigger an offline/stale fallback.
+      console.warn("PWA cache write failed:", error);
+    }
   }
   return response;
 }
@@ -94,6 +111,13 @@ self.addEventListener("fetch", (event) => {
   const { request } = event;
   if (!isSameOriginGet(request)) return;
 
+  // Explicit no-store requests must bypass CacheStorage entirely.
+  // Preserve the network response and rejection without stale fallback.
+  if (request.cache === "no-store") {
+    event.respondWith(fetch(request));
+    return;
+  }
+
   const url = new URL(request.url);
 
   // API responses are never owned by the PWA cache. This includes assistant
@@ -109,6 +133,11 @@ self.addEventListener("fetch", (event) => {
   if (isRangeOrMediaRequest(request)) return;
 
   if (request.mode === "navigate") {
+    // Authenticated pages must never enter or read the shared page cache.
+    if (request.headers.has("Authorization")) {
+      event.respondWith(fetch(request).catch(() => offlineResponse()));
+      return;
+    }
     event.respondWith(networkFirstPage(request));
     return;
   }
@@ -136,22 +165,48 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  // The sitemap must reflect the current server representation online.
+  // An older cached copy is only an offline fallback.
+  if (url.pathname === "/sitemap.xml") {
+    event.respondWith(networkFirstStatic(request));
+    return;
+  }
+
   // Other same-origin GET requests remain stale-while-revalidate.
   event.respondWith(staleWhileRevalidate(event, PAGE_CACHE));
 });
 
 async function networkFirstPage(request) {
-  const pageCache = await caches.open(PAGE_CACHE);
+  let response;
   try {
-    const response = await fetch(request);
-    await putIfCacheable(pageCache, request, response);
-    return response;
+    response = await fetch(request);
   } catch {
-    const cached = await pageCache.match(request);
-    if (cached) return cached;
-    const staticCache = await caches.open(STATIC_CACHE);
-    return (await staticCache.match("/offline.html")) || offlineResponse();
+    // The network failed: try cached content without assuming CacheStorage works.
+    try {
+      const pageCache = await caches.open(PAGE_CACHE);
+      const cached = await pageCache.match(request);
+      if (cached) return cached;
+    } catch (error) {
+      console.warn("PWA page cache unavailable:", error);
+    }
+    try {
+      const staticCache = await caches.open(STATIC_CACHE);
+      const offline = await staticCache.match("/offline.html");
+      if (offline) return offline;
+    } catch (error) {
+      console.warn("PWA offline cache unavailable:", error);
+    }
+    return offlineResponse();
   }
+
+  // A successful network request must survive CacheStorage failures.
+  try {
+    const pageCache = await caches.open(PAGE_CACHE);
+    await putIfCacheable(pageCache, request, response);
+  } catch (error) {
+    console.warn("PWA page cache unavailable:", error);
+  }
+  return response;
 }
 
 async function networkFirstStatic(request) {

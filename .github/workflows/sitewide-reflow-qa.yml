@@ -19,34 +19,57 @@ on:
       - 'qa/target-size-audit.mjs'
       - '.github/workflows/sitewide-reflow-qa.yml'
   workflow_dispatch:
+  schedule:
+    # Auditoria completa de main fuera del camino de cada PR.
+    - cron: '17 3 * * *'
 
 permissions:
   contents: read
 
 jobs:
-  reflow-sitewide:
+  reflow-shard:
+    name: reflow shard ${{ matrix.shard }}/8
     runs-on: ubuntu-24.04
-    timeout-minutes: 75
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Select reflow scope (deterministic, no AI)
+        id: sel
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.sha }}
+        run: python3 scripts/ci-select-reflow.py
 
       - name: Set up Node
+        if: steps.sel.outputs.run == 'true'
         uses: actions/setup-node@v5
         with:
           node-version: '22'
 
       - name: Install CI/QA dependencies (Node)
+        if: steps.sel.outputs.run == 'true'
         run: npm ci
 
       - name: F.2 report classifier unit tests
+        if: steps.sel.outputs.run == 'true'
         run: node qa/text-resilience-report-gate.test.mjs
 
       - name: Target-size geometry unit tests (F.1)
+        if: steps.sel.outputs.run == 'true'
         run: node --test qa/target-size-audit.test.mjs
 
       - name: Cache Playwright browsers
+        if: steps.sel.outputs.run == 'true'
         id: playwright-cache
         uses: actions/cache@v5
         with:
@@ -54,14 +77,15 @@ jobs:
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
 
       - name: Install Playwright Chromium (with OS deps)
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        if: steps.sel.outputs.run == 'true' && steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium
 
       - name: Install Playwright OS deps only (browser cached)
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        if: steps.sel.outputs.run == 'true' && steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
       - name: Start static server
+        if: steps.sel.outputs.run == 'true'
         shell: bash
         run: |
           python -m http.server 4173 --bind 127.0.0.1 > /tmp/reflow-server.log 2>&1 &
@@ -74,85 +98,114 @@ jobs:
           exit 1
 
       - name: Run sitewide reflow gate + target-size gate + F.2 collector + F.4 focus-not-obscured gate
+        if: steps.sel.outputs.run == 'true'
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
           TARGET_SIZE_MODE: enforce
           TEXT_RESILIENCE_MODE: report
           FOCUS_OBSCURED_MODE: enforce
+          QA_ONLY_ROUTES: ${{ steps.sel.outputs.routes }}
+          SHARD_TOTAL: '8'
+          SHARD_INDEX: ${{ matrix.shard }}
+        timeout-minutes: 70
         run: node qa/sitewide-reflow-browser.mjs
 
       - name: Enforce F.2 text-resilience findings
+        if: steps.sel.outputs.run == 'true'
         env:
           TEXT_RESILIENCE_GATE_MODE: enforce
         run: node qa/text-resilience-report-gate.mjs
 
       - name: Books index visual-system QA
+        if: matrix.shard == 0 && steps.sel.outputs.run == 'true'
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
         run: node qa/books-index-design-browser.mjs
 
       - name: Manecillas visual-system QA
+        if: matrix.shard == 0 && steps.sel.outputs.run == 'true'
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
         run: node qa/manecillas-design-browser.mjs
 
       - name: Manecillas Fragmentos visual-system QA
+        if: matrix.shard == 0 && steps.sel.outputs.run == 'true'
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
         run: node qa/manecillas-fragmentos-design-browser.mjs
 
       - name: Manecillas scope isolation (main vs Fragmentos)
+        if: matrix.shard == 0 && steps.sel.outputs.run == 'true'
         env:
           QA_ORIGIN: http://127.0.0.1:4173
         run: node qa/manecillas-scope-isolation.mjs
 
       - name: Samuel visual-system QA
+        if: matrix.shard == 0 && steps.sel.outputs.run == 'true'
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
         run: node qa/samuel-design-browser.mjs
 
       - name: Samuel fragmento visual-system QA
+        if: matrix.shard == 0 && steps.sel.outputs.run == 'true'
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
         run: node qa/samuel-fragmento-design-browser.mjs
 
       - name: Noveris world-archive visual-system QA
+        if: matrix.shard == 0 && steps.sel.outputs.run == 'true'
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
         run: node qa/noveris-design-browser.mjs
 
       - name: Samuel reading-club visual-system QA
+        if: matrix.shard == 0 && steps.sel.outputs.run == 'true'
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
         run: node qa/club-samuel-design-browser.mjs
 
       - name: POV distribution format QA (O.2)
-        if: always()
+        if: always() && matrix.shard == 0 && steps.sel.outputs.run == 'true'
         run: node qa/pov-distribucion-format-browser.mjs
 
       - name: New base tools QA (O.1)
-        if: always()
+        if: always() && matrix.shard == 0 && steps.sel.outputs.run == 'true'
         run: node qa/o1-new-tools-browser.mjs
 
       - name: Save server log
-        if: always()
+        if: always() && steps.sel.outputs.run == 'true'
         run: |
           mkdir -p artifacts/sitewide-reflow
-          cp /tmp/reflow-server.log artifacts/sitewide-reflow/server.log || true
+          cp /tmp/reflow-server.log artifacts/sitewide-reflow/server-${{ matrix.shard }}.log || true
 
       - name: Upload artifacts
-        if: always()
+        if: always() && steps.sel.outputs.run == 'true'
         uses: actions/upload-artifact@v6
         with:
-          name: sitewide-reflow-qa
+          name: sitewide-reflow-qa-${{ matrix.shard }}
           path: artifacts/sitewide-reflow/
           if-no-files-found: warn
           retention-days: 14
+
+  # Contexto requerido por el ruleset de main: siempre existe y solo es verde
+  # si TODOS los fragmentos terminaron en verde (omitidos por el selector = verde).
+  reflow-sitewide:
+    needs: reflow-shard
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Aggregate shard results
+        env:
+          RESULT: ${{ needs.reflow-shard.result }}
+        run: |
+          echo "reflow-shard: $RESULT"
+          [ "$RESULT" = "success" ]

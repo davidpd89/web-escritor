@@ -89,6 +89,8 @@ async function run() {
     ['BREVO_DOI_REDIRECT_URL', undefined],
     ['BREVO_DOI_REDIRECT_URL', 'http://davidportodiaz.com/gracias-suscripcion/'],
     ['BREVO_DOI_REDIRECT_URL', 'not-a-url'],
+    ['BREVO_DOI_REDIRECT_URL', 'https://evil.example/gracias-suscripcion/'],
+    ['BREVO_DOI_REDIRECT_URL', 'https://davidportodiaz.com.evil.example/'],
   ]) {
     res = await withMockedBrevoFetch(201, {}, calls => worker.fetch(
       makeRequest({ email: 'config@example.com', source: 'home' }), makeEnv({ [name]: value })
@@ -159,6 +161,31 @@ async function run() {
   const safeError = JSON.stringify(await res.json());
   assert.ok(!safeError.includes('SECRETVALUE'));
   assert.ok(!safeError.includes('unauthorized'));
+
+  // Los logs del Worker no guardan el email del lector que Brevo repite en "message".
+  {
+    const logged = [];
+    const originalError = console.error;
+    console.error = (...args) => logged.push(args.map(String).join(' '));
+    try {
+      res = await withMockedBrevoFetch(400, { code: 'duplicate_parameter', message: 'Contact privado@example.com already exists' }, () =>
+        worker.fetch(makeRequest({ email: 'privado@example.com', source: 'home' }), makeEnv())
+      );
+    } finally {
+      console.error = originalError;
+    }
+    assert.equal(res.status, 502);
+    assert.ok(logged.some(l => l.includes('duplicate_parameter')), 'el codigo de Brevo sigue en el log');
+    assert.ok(!logged.some(l => l.includes('privado@example.com')), 'el email no debe acabar en el log');
+  }
+
+  // Un bot que rellena el honeypot con un valor no textual tambien se descarta.
+  for (const website of [1, true, ['x'], { a: 1 }]) {
+    res = await withMockedBrevoFetch(201, {}, calls => worker.fetch(
+      makeRequest({ email: 'bot2@example.com', source: 'home', website }), makeEnv()
+    ).then(r => { assert.equal(calls.length, 0, `website=${JSON.stringify(website)}`); return r; }));
+    assert.equal(res.status, 201);
+  }
 
   res = await withMockedBrevoFetch(201, {}, () => worker.fetch(
     makeRequest({ email: 'reader@example.com', source: 'home' }), makeEnv()

@@ -11,7 +11,7 @@
   const spanish = form.querySelector("[data-wt-spanish]");
   const count = form.querySelector("[data-wt-count]");
   const empty = document.querySelector("[data-wt-empty]");
-  const norm = (v) => (v || "").toLocaleLowerCase("es").normalize("NFD").replace(/\p{Diacritic}/gu, "");
+  const norm = (v) => (v || "").toLocaleLowerCase("es").replace(/n\u0303/gu, "\uE000").replace(/ñ/gu, "\uE000").normalize("NFD").replace(/\p{Diacritic}/gu, "").replace(/\uE000/gu, "ñ");
   function apply() {
     const q = norm(search.value); let visible = 0;
     cards.forEach((card) => {

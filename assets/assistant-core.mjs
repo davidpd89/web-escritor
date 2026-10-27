@@ -16,7 +16,7 @@ export function foldQuery(value) {
 }
 
 export function isSafeInternalPath(value) {
-  if (typeof value !== "string" || !value.startsWith("/") || value.startsWith("//") || value.includes("\\")) return false;
+  if (typeof value !== "string" || !value.startsWith("/") || value.startsWith("//") || value.includes("\\") || value.includes("%")) return false;
   if (/[\u0000-\u001F\u007F]/u.test(value)) return false;
   try {
     const parsed = new URL(value, "https://davidportodiaz.com");
@@ -42,6 +42,7 @@ export function isValidAssistantResponse(payload) {
   const markers = [...payload.answer.matchAll(/\[([a-z0-9][a-z0-9-]{0,80})\]/gi)].map((match) => match[1]);
   if (!payload.abstained && markers.length === 0) return false;
   if (markers.some((id) => !ids.has(id))) return false;
+  if (!payload.abstained && new Set(markers).size !== ids.size) return false;
   return true;
 }
 
