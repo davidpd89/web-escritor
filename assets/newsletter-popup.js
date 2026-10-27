@@ -75,18 +75,26 @@
     d.addEventListener("keydown", (event) => {
       if (event.key !== "Tab") return;
       const focusable = Array.from(
-        d.querySelectorAll('a[href], button:not([disabled]), input:not([disabled])')
-      ).filter((el) => el.offsetParent !== null);
-      if (!focusable.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
+        d.querySelectorAll('a[href], button, input, select, textarea, [tabindex]')
+      ).filter((el) => {
+        if (!(el instanceof HTMLElement) || el.tabIndex < 0) return false;
+        if (el.matches(':disabled') || el.closest('[hidden],[inert],[aria-hidden="true"]')) return false;
+        const style = getComputedStyle(el);
+        if (style.display === 'none' || style.visibility === 'hidden' || style.visibility === 'collapse') return false;
+        return el.getClientRects().length > 0;
+      });
+      if (!focusable.length) {
         event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
+        d.focus({ preventScroll: true });
+        return;
       }
+      const activeIndex = focusable.indexOf(document.activeElement);
+      const delta = event.shiftKey ? -1 : 1;
+      const targetIndex = activeIndex === -1
+        ? (event.shiftKey ? focusable.length - 1 : 0)
+        : (activeIndex + delta + focusable.length) % focusable.length;
+      event.preventDefault();
+      focusable[targetIndex].focus({ preventScroll: true });
     });
   }
 
