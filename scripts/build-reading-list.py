@@ -79,10 +79,16 @@ def link_html(item):
     label={'official':'Ficha oficial','author':'Web del autor','publisher':'Editorial','affiliate':'Ver libro'}[item['link_kind']]
     return f'<p class="reading-link"><a href="{html.escape(item["url"], quote=True)}" rel="{rel}" target="_blank">{label}</a>{suffix}</p>'
 
+SPANISH_MONTHS = ('enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre')
+
+def format_spanish_date(value):
+    parsed = date.fromisoformat(value)
+    return f'{parsed.day} de {SPANISH_MONTHS[parsed.month - 1]} de {parsed.year}'
+
 def card(item):
     when=''
-    if item.get('finished_on'): when=f'<time datetime="{item["finished_on"]}">{item["finished_on"]}</time>'
-    elif item.get('started_on'): when=f'Desde <time datetime="{item["started_on"]}">{item["started_on"]}</time>'
+    if item.get('finished_on'): when=f'<time datetime="{item["finished_on"]}">{format_spanish_date(item["finished_on"])}</time>'
+    elif item.get('started_on'): when=f'Desde <time datetime="{item["started_on"]}">{format_spanish_date(item["started_on"])}</time>'
     return f'''<article class="reading-card">
   <p class="reading-meta">{when}</p>
   <h3>{html.escape(item['title'])}</h3>
@@ -106,7 +112,7 @@ def render(items, disclosure, updated):
     schema=json.dumps({'@context':'https://schema.org','@type':'CollectionPage','name':'Qué estoy leyendo | David Porto Díaz','url':'https://davidportodiaz.com/lecturas/','inLanguage':'es','mainEntity':{'@type':'ItemList','itemListElement':[{'@type':'ListItem','position':i+1,'name':x['title']} for i,x in enumerate(ordered_items)]}}, ensure_ascii=False).replace('</','<\/')
     return f'''<!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow,max-image-preview:large"><title>Qué estoy leyendo | David Porto Díaz</title><meta name="description" content="Lecturas actuales y recientes de David Porto Díaz, con notas personales breves sobre lo que le está llamando la atención de cada libro."><link rel="canonical" href="https://davidportodiaz.com/lecturas/"><link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/reading-list.css?v=1"><script type="application/ld+json">{schema}</script></head>
-<body><main id="main-content" class="reading-page"><header class="reading-hero"><p class="eyebrow">Cuaderno de lector</p><h1>Qué estoy leyendo.</h1><p>No es un ranking ni una lista de compras. Son lecturas actuales y recientes con una nota sobre lo que me está llamando la atención.</p><p class="reading-updated">Actualizado: <time datetime="{updated}">{updated}</time></p></header>{''.join(sections)}{disclosure_html}</main></body></html>'''
+<body><main id="main-content" class="reading-page"><header class="reading-hero"><p class="eyebrow">Cuaderno de lector</p><h1>Qué estoy leyendo.</h1><p>No es un ranking ni una lista de compras. Son lecturas actuales y recientes con una nota sobre lo que me está llamando la atención.</p><p class="reading-updated">Actualizado: <time datetime="{updated}">{format_spanish_date(updated)}</time></p></header>{''.join(sections)}{disclosure_html}</main></body></html>'''
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('json_file',type=Path); ap.add_argument('--output',required=True,type=Path); ap.add_argument('--check',action='store_true'); ap.add_argument('--today',default=date.today().isoformat())
