@@ -121,7 +121,12 @@
       event.preventDefault();
       dismiss();
     });
+    let generation = 0;
+    let submitting = false;
+    const isActive = (token) => generation === token && d.open && d.isConnected;
     d.addEventListener("close", () => {
+      generation++;
+      submitting = false;
       restoreFocus();
       d.remove();
       if (dialog === d) dialog = null;
@@ -130,39 +135,47 @@
     installNewsletterHoneypot(d.querySelector("#nl-popup-form"));
     d.querySelector("#nl-popup-form").addEventListener("submit", function (event) {
       event.preventDefault();
+      if (!d.open || !d.isConnected || submitting) return;
+      const emailEl = d.querySelector("#nl-popup-email");
+      const statusEl = d.querySelector("#nl-popup-status");
+      const submitBtn = d.querySelector("#nl-popup-submit");
+      if (!emailEl || !statusEl || !submitBtn) return;
+      if (IS_STAGING) { statusEl.textContent = STAGING_DISABLED_MESSAGE; return; }
+      if (!isValidNewsletterEmail(emailEl.value)) { statusEl.textContent = "Introduce un email válido."; return; }
+      const token = generation;
+      submitting = true;
+      statusEl.textContent = "";
+      submitBtn.dataset.submitting = "true";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando…";
       scheduleTask(async function () {
-        const emailEl = d.querySelector("#nl-popup-email");
-        const statusEl = d.querySelector("#nl-popup-status");
-        const submitBtn = d.querySelector("#nl-popup-submit");
-        if (!emailEl || !statusEl || !submitBtn) return;
-        if (submitBtn.dataset.submitting === "true") return;
-        if (IS_STAGING) { statusEl.textContent = STAGING_DISABLED_MESSAGE; return; }
-        if (!isValidNewsletterEmail(emailEl.value)) { statusEl.textContent = "Introduce un email válido."; return; }
-        statusEl.textContent = "";
-        submitBtn.dataset.submitting = "true";
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Enviando…";
+        if (!isActive(token)) return;
         try {
           const result = await postNewsletter({
             email: emailEl.value.trim(),
             source: "popup",
             website: honeypotValue(d.querySelector("#nl-popup-form"))
           });
+          if (!isActive(token)) return;
           const panel = d.querySelector("#nl-popup-panel");
           if (result.ok && result.state === "pending_confirmation") {
             panel.innerHTML = '<p class="nl-popup-result-title">' + copy.okTitle + '</p><p class="nl-popup-result-body">' + copy.okBody + '</p>';
             panel.tabIndex = -1;
             panel.focus({ preventScroll: true });
             _gcEvent("newsletter-pending-popup", "Newsletter DOI pendiente: popup");
-            setTimeout(dismiss, 5000);
+            setTimeout(() => {
+              if (isActive(token)) dismiss();
+            }, 5000);
           } else {
             throw new Error(result.code || "request_failed");
           }
         } catch (err) {
+          if (!isActive(token)) return;
           statusEl.textContent = newsletterErrorMessage(err.message);
           delete submitBtn.dataset.submitting;
           submitBtn.disabled = false;
           submitBtn.textContent = copy.cta;
+          submitting = false;
         }
       }, "user-blocking");
     });
