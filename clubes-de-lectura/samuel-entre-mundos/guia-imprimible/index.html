@@ -124,7 +124,10 @@
     <p class="lead">Recurso para preparar una sesión de club de lectura, instituto o biblioteca. Incluye ficha rápida, propuesta de dinámica, preguntas de debate y una actividad final sobre canalizadores y magia con coste.</p>
 
     <div class="actions" aria-label="Acciones de la guía">
-      <button class="button" type="button" onclick="window.print()">Imprimir guía</button>
+      <button class="button" type="button" id="print-guide">Imprimir guía</button>
+      <script>
+        document.getElementById('print-guide').addEventListener('click', () => window.print());
+      </script>
       <a class="button secondary" href="/fragmento/">Leer capítulo 1 gratis</a>
       <a class="button secondary" href="/libros/samuel-entre-mundos/">Ver ficha del libro</a>
     </div>
