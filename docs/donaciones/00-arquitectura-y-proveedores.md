@@ -6,7 +6,7 @@
 
 Crear una página propia `/apoyar/`, legible desde móvil, que explique las aportaciones voluntarias y muestre **solo los canales que estén correctamente configurados y comprobados**. Una contribución no compra ninguna herramienta, contenido, prioridad, recompensa ni acceso. El pago se realiza en la página segura del proveedor: **nunca recoger tarjeta, CVC, credenciales de PayPal ni IBAN en nuestra web**.
 
-Orden propuesto: (1) PayPal Business con enlace/botón alojado; (2) Stripe Payment Links con importe libre; (3) Ko-fi Free opcional como alternativa con PayPal/Stripe; (4) Buy Me a Coffee solo si aporta alcance diferencial. Klarna es «compra ahora/paga después», no una pasarela independiente para recibir dinero, y no encaja en micropagos voluntarios.
+**Orden corregido tras comprobar PayPal el 22/10:** (1) probar **un solo PayPal Business Payment Link con «Customer-set price»**, que permite importe libre y puede ofrecer PayPal + tarjetas en un mismo checkout; (2) **solo si falla cobertura de tarjeta, privacidad o conversión**, recurrir a Stripe Payment Links, ya investigado como propina por contenido; (3) Ko-fi y BMC quedan en reserva, no en el selector inicial; Klarna, descartado. Documentación oficial PayPal: https://developer.paypal.com/payment-links-buttons/create-payment-link/ y https://developer.paypal.com/payment-links-buttons/overview/ . Código y test en PR #700: `scripts/support_paypal_link.py`, `tests/test-support-paypal-link.py`. **No se ha comprobado todavía un enlace real ni su recepción de fondos.**
 
 No basta con abrir «PayPal.Me» personal: podría revelar nombre o email. Usar nombre público/comercial en cuenta Business cuando PayPal lo permita y comprobar **en el checkout real y el justificante al donante** qué identidad aparece. Los proveedores pedirán datos verificables y cuenta de cobro **privadamente** para verificación y pagos; «no publicarlos en la web» no significa que se pueda cobrar sin identificarse ante el proveedor.
 
@@ -43,14 +43,16 @@ Enlace contextual B: «Si esta guía te ha ayudado, puedes apoyar el proyecto».
 Nota junto a los métodos: «El pago se completa en la plataforma elegida. Nunca te pediremos datos de tarjeta en esta web».
 Pie: «Apoyar el proyecto».
 
+**Diferencia contractual verificada (Stripe):** las «propinas» remuneran contenido ya proporcionado; las «donaciones» Stripe requieren una finalidad benéfica concreta. Este sitio debe presentarse como apoyo voluntario a contenido gratuito previamente ofrecido, no como recaudación benéfica. Stripe explica además que un creador que difunde directamente sus propios contenidos no necesita aprobación previa como plataforma, aunque su cuenta y actividad están sujetas a comprobación. Fuentes oficiales: https://support.stripe.com/questions/requirements-for-accepting-tips-or-donations?locale=es-ES y https://support.stripe.com/questions/prohibited-and-restricted-businesses-list-faqs?locale=es-ES .
+
 No llamar a estas contribuciones «donaciones benéficas» ni prometer desgravación fiscal. No presentar importe sugerido como obligación; si se ofrecen 2 €, 5 €, 10 € deben ser orientativos y el proveedor debe permitir una cifra libre en al menos un método.
 
 ## Comparativa de proveedores — fuentes primarias revisadas 22-10-2026
 
 | Ruta | Desde web estática | Elección importe | Dinero llega a | Coste indicativo y condición |
 | --- | --- | --- | --- | --- |
-| PayPal Donate/Payment link | URL oficial de botón alojado | Según configuración en PayPal | PayPal Business | PayPal ES: «donativo» nacional 2,90 % + 0,35 € (en EUR); comprobar clasificación real de la operación |
-| Stripe Payment Links | URL `buy.stripe.com/...` generada en dashboard | **Sí**, «Customers choose what to pay» para pago único | Saldo Stripe -> banco verificado | Stripe España: tarjetas estándar EEE 1,5 % + 0,25 €; más si internacional, divisa o método |
+| **PayPal Payment Links (primera prueba)** | Enlace `www.paypal.com/ncp/payment/...` | **Sí**, `Customer-set price`, aportación única | PayPal Business | Tabla general de transacción comercial nacional 2,90 % + fijo EUR; revisar tarifa aplicada al pago real, no asumir tarifa de organización benéfica |
+| Stripe Payment Links (propina por contenido proporcionado) | URL `buy.stripe.com/...` generada en dashboard | **Sí**, «Customers choose what to pay» para pago único | Saldo Stripe -> banco verificado | Stripe España: tarjetas estándar EEE 1,5 % + 0,25 €; más si internacional, divisa o método; actividad/identidad por verificar |
 | Ko-fi Free | URL de página Ko-fi o botón oficial | Según configuración Ko-fi | PayPal o Stripe vinculados | Ko-fi Free: 0 % del servicio en aportaciones puntuales; sigue habiendo tasas del procesador; modo Standard 5 % |
 | Buy Me a Coffee | URL de creador | Aportación única | Stripe -> banco | 5 % plataforma + tasa de procesamiento; desembolsos disponibles para España |
 | Klarna | No es receptor/cartera | No apropiado | A través de adquirente compatible | Financiación BNPL, desaconsejada para aportaciones voluntarias |
@@ -83,7 +85,7 @@ Configuración pública mínima (cuando exista implementación): 2–3 URLs de c
 - **Privacidad:** no publicaremos IBAN, teléfono ni email personales en código o página de donaciones; un proveedor de pagos puede mostrar nombre/comercio y datos fiscales o de contacto obligatorios. Hacer pago de prueba y mirar captura/recibo antes de publicar. No fingir anonimato absoluto.
 - **Operación:** configurar nombre público, logo, descriptor bancario y correo comercial dentro de cada panel; verificación KYC/IBAN solo en las cuentas oficiales. Nunca guardar claves ni credenciales en el repositorio.
 - **Fiscalidad:** «aportación», «apoyo» y «donativo» comercial no significan automáticamente donativo a entidad beneficiaria de mecenazgo. Las cantidades podrían tributar como ingreso de actividad o de otra naturaleza según circunstancias; verificar con asesor fiscal español antes de cobrar. No emitir certificado de deducción ni anunciarla. AEAT recuerda diferencia entre entrega voluntaria y contraprestación: https://sede.agenciatributaria.gob.es/Sede/declaraciones-informativas-otros-impuestos-tasas/campana-declaraciones-informativas-2025/notas-informativas/modelo-182-recordatorio-donativos.html
-- **Documentos:** antes de lanzar, revisar `aviso-legal.html` (aportaciones no reembolsables salvo derecho aplicable, contacto para incidencias, identidad exigible) y `privacidad.html` (proveedores externos y finalidades), sin copiar declaraciones genéricas. La página debe aclarar que pagar es optativo y no hay bienes/servicios a cambio.
+- **Documentos:** antes de lanzar, revisar `aviso-legal.html` (aportaciones no reembolsables salvo derecho aplicable, contacto para incidencias, identidad exigible) y `privacidad.html` (proveedores externos y finalidades), sin copiar declaraciones genéricas. La página debe aclarar que pagar es optativo, que recompensa de forma voluntaria recursos ya ofrecidos gratuitamente y que **no desbloquea prestaciones adicionales**.
 - **No recoger datos propios:** evitar formulario interno de nombre/correo, métricas individuales, cookies o píxeles del proveedor sin opt-in. No registrar importe, correo, IP o token de checkout en analytics.
 
 ## Reutilización de código: NO confundir «público» con «dominio público»
@@ -95,8 +97,8 @@ GitHub público **no** autoriza por sí solo copiar cualquier archivo sin condic
 
 ## PR hijas, independientes sobre esta rama
 
-1. PayPal: configuración, privacidad y ejemplo `<a>` hospedado; alternativa Donate SDK y CSP si realmente se exige.
-2. Stripe: «elige importe», enlace y precios con pruebas de aceptación.
+1. [PR #700](https://github.com/davidpd89/web-escritor/pull/700): enlace PayPal Payment Links de importe libre, código Python + test offline comprobados; Donate SDK descartado para V1; prueba real en cuenta pendiente.
+2. [PR #701](https://github.com/davidpd89/web-escritor/pull/701): Stripe como propina por contenido; importe libre y pago único, validador real de URL `buy.stripe.com`, render de enlace sin URL ficticia y test offline. **Stripe aún sin cuenta aprobada ni checkout probado.**
 3. Ko-fi y alternativos: modalidad gratis, visibilidad, evaluación BMC/Klarna y referencias.
 4. UX/implementación: matriz de ubicaciones, contratos HTML/CSS y tests para Claude, diferenciando fuentes y generados.
 
