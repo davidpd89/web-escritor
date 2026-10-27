@@ -72,6 +72,16 @@
   const items = [...document.querySelectorAll('[data-radar-item]')];
   if (!items.length) return;
 
+  // Identify each official source independently of its surrounding card.
+  items.forEach((item) => {
+    const title = (item.dataset.title || '').trim();
+    if (!title) return;
+    item.querySelectorAll('a[data-radar-source]').forEach((link) => {
+      const action = (link.textContent || '').trim() || 'Consultar fuente oficial';
+      link.setAttribute('aria-label', `${action}: ${title}`);
+    });
+  });
+
   const query = document.querySelector('[data-radar-search]');
   const type = document.querySelector('[data-radar-type]');
   const genre = document.querySelector('[data-radar-genre]');
