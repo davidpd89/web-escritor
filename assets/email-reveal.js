@@ -112,6 +112,13 @@
   // replacement carries no data-email-reveal attribute), so a trigger a
   // visitor already revealed by clicking before printing is untouched here
   // and correctly stays revealed after the print dialog closes.
+  // Impresión de la guía: listener externo compatible con una CSP sin unsafe-inline.
+  document.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-print-guide]');
+    if (!button) return;
+    window.print();
+  });
+
   let printRevealState = null;
   window.addEventListener('beforeprint', () => {
     printRevealState = [...document.querySelectorAll('[data-email-reveal]')].map((trigger) => {

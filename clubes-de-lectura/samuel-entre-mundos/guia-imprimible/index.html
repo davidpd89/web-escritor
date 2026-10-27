@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
 
@@ -78,6 +79,7 @@
   </script>
 
   <link rel="stylesheet" href="/assets/v1-fonts.css?v=2" />
+  <script defer src="/assets/email-reveal.js?v=3"></script>
   <style>
     :root{color-scheme:light;--ink:#171412;--muted:#5b5147;--line:#ddd3c4;--soft:#E7DED2;--accent:#1d4f96;--paper:#F4EFE7;font-family:"Manrope","Avenir Next",Avenir,"Segoe UI",sans-serif}
     *{box-sizing:border-box}
@@ -124,7 +126,7 @@
     <p class="lead">Recurso para preparar una sesión de club de lectura, instituto o biblioteca. Incluye ficha rápida, propuesta de dinámica, preguntas de debate y una actividad final sobre canalizadores y magia con coste.</p>
 
     <div class="actions" aria-label="Acciones de la guía">
-      <button class="button" type="button" onclick="window.print()">Imprimir guía</button>
+      <button class="button" type="button" data-print-guide>Imprimir guía</button>
       <a class="button secondary" href="/fragmento/">Leer capítulo 1 gratis</a>
       <a class="button secondary" href="/libros/samuel-entre-mundos/">Ver ficha del libro</a>
     </div>
