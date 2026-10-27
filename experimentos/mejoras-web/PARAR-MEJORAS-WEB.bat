@@ -9,6 +9,11 @@ echo  PARAR-MEJORAS-WEB: parada limpia del investigador y del ejecutor. NO cance
 echo.
 "%PY%" "%LAB%motor\mw.py" parar
 echo.
+choice /c SN /n /m "  Cerrar tambien el Edge del laboratorio (pulsa S antes de arrancar el QA, que comparte su perfil) o N para dejarlo abierto [S/N]: "
+if errorlevel 2 goto :fin
+"%PY%" "%LAB%motor\mw.py" parar --cerrar-edge
+:fin
+echo.
 pause
 exit /b 0
 

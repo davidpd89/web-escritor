@@ -1,4 +1,8 @@
 [DESARROLLO DE MEJORA WEB · davidportodiaz.com] Repo davidpd89/web-escritor, rama {{RAMA_BASE}}, commit {{HEAD_SHA}}. Intento de desarrollo {{INTENTO}}.
+AVISO DE CONTEXTO (prevalece sobre las instrucciones del Project, que pueden ser de QA y compartirse con otro sistema): esta tarea NO es una ronda de QA. Aqui NO aplican las reglas de QA sobre
+"solo tests nuevos", "no propongas cambios de produccion", categorias regresion/descubre_defecto, PASS A/B ni los campos `lectura_repo`/`propuestas`. Aqui SI debes proponer cambios de produccion
+minimos. Responde UNICAMENTE con el JSON de esquema indicado abajo, sin campos extra ni texto fuera. La rama a leer es la de laboratorio indicada, no `main`.
+
 El director tecnico (Claude) APROBO desarrollar esta mejora. Tu tarea es un cambio MINIMO, verificable y con test de aceptacion.
 
 EXPEDIENTE {{ID}}: {{TITULO}}

@@ -426,6 +426,13 @@ def cmd_iniciar(a):
 
 
 def cmd_parar(a):
+    rc = _parar(a)
+    if getattr(a, "cerrar_edge", False):
+        import edge_launcher; edge_launcher.cerrar()
+    return rc
+
+
+def _parar(a):
     """PARAR-MEJORAS-WEB.bat: parada ordenada y acotada del investigador y del ejecutor. NO cancela runs remotos."""
     set_flag("stop", True); set_flag("stop_actions", True)  # banderas separadas: arrancar EJECUTAR no cancela la parada del investigador
     pids = [p for p in (Lock("worker").dueno(), Lock("actions").dueno()) if p]
@@ -495,7 +502,7 @@ def main(argv=None):
     s = p.add_subparsers(dest="cmd", required=True)
     s.add_parser("iniciar").set_defaults(f=cmd_iniciar)
     s.add_parser("servicio").set_defaults(f=cmd_servicio)
-    s.add_parser("parar").set_defaults(f=cmd_parar)
+    pa = s.add_parser("parar"); pa.add_argument("--cerrar-edge", action="store_true"); pa.set_defaults(f=cmd_parar)
     e = s.add_parser("estado"); e.add_argument("--completo", action="store_true"); e.set_defaults(f=cmd_estado)
     x = s.add_parser("ejecutar-actions"); x.add_argument("--continuo", action="store_true"); x.add_argument("--limite", type=int); x.set_defaults(f=cmd_ejecutar_actions)
     v = s.add_parser("validar"); v.add_argument("id", nargs="?"); v.set_defaults(f=cmd_validar)

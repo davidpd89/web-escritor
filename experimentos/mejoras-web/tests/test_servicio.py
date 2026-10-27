@@ -89,6 +89,32 @@ class InicioSinEfectosRemotos(util.Caso):
         self.assertEqual(mw.cmd_parar(None), 0); self.assertTrue(mw.flag("stop"))
 
 
+class EdgeCompartido(util.Caso):
+    NETSTAT = """  Proto  Direccion local         Direccion remota       Estado           PID
+  TCP    127.0.0.1:9230         0.0.0.0:0              LISTENING       1111
+  TCP    127.0.0.1:92310        0.0.0.0:0              LISTENING       2222
+  TCP    127.0.0.1:9331         0.0.0.0:0              LISTENING       3333
+  TCP    127.0.0.1:50000        127.0.0.1:9331         ESTABLISHED     4444
+"""
+
+    def test_solo_se_localiza_el_proceso_que_escucha_en_9331(self):
+        self.assertEqual(edge_launcher.pid_escuchando(self.NETSTAT, 9331), 3333)
+        self.assertEqual(edge_launcher.pid_escuchando(self.NETSTAT, 9230), 1111)  # (cerrar() nunca lo pide: PORT es 9331)
+        self.assertIsNone(edge_launcher.pid_escuchando(self.NETSTAT, 9999)); self.assertIsNone(edge_launcher.pid_escuchando("", 9331))
+
+    def test_cerrar_rehusa_el_puerto_del_qa(self):
+        with patch.object(edge_launcher, "PORT", 9230), self.assertRaises(SystemExit): edge_launcher.cerrar()
+
+    def test_parar_con_cerrar_edge_solo_llama_a_cerrar(self):
+        with patch.object(edge_launcher, "cerrar", return_value=0) as c: mw.cmd_parar(NS(cerrar_edge=True))
+        c.assert_called_once()
+        with patch.object(edge_launcher, "cerrar", return_value=0) as c: mw.cmd_parar(NS(cerrar_edge=False))
+        c.assert_not_called()
+
+    def test_parar_bat_ofrece_cerrar_el_edge(self):
+        t = (LAB / "PARAR-MEJORAS-WEB.bat").read_text(); self.assertIn("parar --cerrar-edge", t); self.assertIn("comparte su perfil", t)
+
+
 class Supervisor(util.Caso):
     def hijo(self, codigos, lanzados):
         it = iter(codigos)

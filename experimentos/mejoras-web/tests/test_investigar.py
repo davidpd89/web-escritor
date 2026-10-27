@@ -92,6 +92,27 @@ class Investigacion(util.Caso):
         self.assertIn("Enlace para saltar al contenido principal", txt); self.assertIn("lab/mejoras-web-20261024", txt); self.assertNotIn("{{", txt)
 
 
+class ProjectCompartido(util.Caso):
+    """El Project puede llevar las instrucciones del QA: cada prompt del laboratorio debe prevalecer sobre ellas y no pedir nada que choque."""
+    def test_los_prompts_declaran_que_no_son_qa_y_fijan_el_esquema(self):
+        j = self.job(); t1 = self.inv.prompt_investigar(j, self.c)
+        self.c.execute("INSERT INTO expedientes(id,area,lente,titulo,necesidad,estado,datos,contraste,intentos_parche,creado,actualizado) VALUES('MW-0001','a','1','t',?,'desarrollando',?,'{}',1,?,?)", ("n" * 50, json.dumps(self.investigacion()), mw.now(), mw.now()))
+        self.inv.encolar_desarrollo(self.c, "MW-0001"); t2 = self.inv.prompt_desarrollar(self.c.execute("SELECT * FROM jobs WHERE tipo='D'").fetchone(), self.c)
+        for t in (t1, t2):
+            self.assertIn("AVISO DE CONTEXTO", t); self.assertIn("NO es una ronda de QA", t); self.assertIn("SI debes proponer cambios de produccion", t)
+            self.assertIn("lab/mejoras-web-20261024", t); self.assertIn("UNICAMENTE con el JSON", t)
+        self.assertTrue(t1.startswith("[INVESTIGACION DE MEJORAS WEB")); self.assertTrue(t2.startswith("[DESARROLLO DE MEJORA WEB"))  # la primera linea es la que reconoce el Project
+
+    def test_la_respuesta_con_campos_extra_de_qa_se_acepta_si_cumple_el_esquema(self):
+        d = self.investigacion(); d.update(lectura_repo={"commit": "abc", "ficheros": ["index.html"]}, propuestas=[]); j = self.job()
+        self.inv.ASK = ask_con(respuesta(d)); self.inv.procesar_job(self.c, j)
+        self.assertEqual(self.c.execute("SELECT estado FROM expedientes").fetchone()[0], "investigado")
+
+    def test_instrucciones_del_project_compartido_documentadas(self):
+        t = (mw.LAB / "project_instructions.md").read_text(encoding="utf-8")
+        self.assertIn("Si el Project se COMPARTE con el QA GPT", t); self.assertIn("[INVESTIGACION DE MEJORAS WEB", t)
+
+
 class Reanudacion(util.Caso):
     def test_chat_conservado_tras_corte_y_reanudado_sin_reenviar(self):
         llamadas = []

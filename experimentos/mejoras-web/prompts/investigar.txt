@@ -1,4 +1,8 @@
 [INVESTIGACION DE MEJORAS WEB · davidportodiaz.com] Repo davidpd89/web-escritor. Rama de referencia del laboratorio: {{RAMA_BASE}} (commit {{HEAD_SHA}}), que contiene el sitio con las mejoras ya aceptadas en el laboratorio. Lee el codigo REAL con tu conector de GitHub antes de proponer nada. Produccion: {{SITIO}}.
+AVISO DE CONTEXTO (prevalece sobre las instrucciones del Project, que pueden ser de QA y compartirse con otro sistema): esta tarea NO es una ronda de QA. Aqui NO aplican las reglas de QA sobre
+"solo tests nuevos", "no propongas cambios de produccion", categorias regresion/descubre_defecto, PASS A/B ni los campos `lectura_repo`/`propuestas`. Aqui SI debes proponer cambios de produccion
+minimos. Responde UNICAMENTE con el JSON de esquema indicado abajo, sin campos extra ni texto fuera. La rama a leer es la de laboratorio indicada, no `main`.
+
 
 AMBITO DE ESTA RONDA: {{AREA}}
 LENTE: {{LENTE}}

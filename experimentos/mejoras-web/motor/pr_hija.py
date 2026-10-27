@@ -62,7 +62,13 @@ def cuerpo(q, e, it, cola_tests):
 
 
 def main(q, a, gh=None):
-    c = q.db(); e = c.execute("SELECT * FROM expedientes WHERE id=?", (a.id,)).fetchone()
+    c = q.db()
+    try: return _main(q, a, gh, c)
+    finally: c.close()
+
+
+def _main(q, a, gh, c):
+    e = c.execute("SELECT * FROM expedientes WHERE id=?", (a.id,)).fetchone()
     if not e: print("expediente inexistente"); return 2
     permitidos = ("remoto_ok",) + (("validado",) if a.solo_local else ())
     if e["estado"] not in permitidos:

@@ -17,9 +17,9 @@ def git(repo, *a):
 
 def crear_repo(base):
     repo = Path(base) / "repo"; repo.mkdir(parents=True)
-    git(repo, "init", "-q", "-b", "main")
-    (repo / "index.html").write_text(HTML, encoding="utf-8")
-    (repo / "styles.css").write_text(CSS, encoding="utf-8")
+    git(repo, "init", "-q", "-b", "main"); git(repo, "config", "core.autocrlf", "false")  # igual que mw.git: sin conversion de saltos de linea (en Windows el valor por defecto es true)
+    (repo / "index.html").write_bytes(HTML.encode("utf-8"))
+    (repo / "styles.css").write_bytes(CSS.encode("utf-8"))
     (repo / "tests").mkdir(); (repo / "tests" / "existente.py").write_text("print('ok')\n", encoding="utf-8")
     git(repo, "add", "-A"); git(repo, "commit", "-q", "-m", "base")
     git(repo, "update-ref", "refs/remotes/origin/lab/mejoras-web-20261024", "HEAD")  # la rama base del laboratorio, sin remoto real
@@ -29,7 +29,7 @@ def crear_repo(base):
 class Caso(unittest.TestCase):
     """Cada prueba: tmp con repo + STATE propio; mw apunta ahi; CFG restaurada al terminar."""
     def setUp(self):
-        self.tmp = tempfile.TemporaryDirectory(); self.addCleanup(self.tmp.cleanup)
+        self.tmp = tempfile.TemporaryDirectory(ignore_cleanup_errors=True); self.addCleanup(self.tmp.cleanup)
         self.repo = crear_repo(self.tmp.name)
         self._o = (mw.REPO, mw.STATE, copy.deepcopy(mw.CFG))
         mw.REPO = self.repo; mw.STATE = Path(self.tmp.name) / "estado"

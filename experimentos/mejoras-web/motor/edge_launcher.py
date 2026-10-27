@@ -7,7 +7,7 @@ URL del Project configurable; se REHUSA arrancar con el puerto o el perfil del Q
 No toca los puertos 9230/9224/9225 ni procesos de otros Edge.
 Uso: python edge_launcher.py [--check]
 """
-import json, os, subprocess, sys, time, urllib.request
+import json, os, re, subprocess, sys, time, urllib.request
 from pathlib import Path
 
 PORT = 9331
@@ -38,6 +38,25 @@ def _qa_vivo():
     import urllib.request
     try: urllib.request.urlopen("http://127.0.0.1:9230/json/version", timeout=1); return True
     except Exception: return False
+
+
+def pid_escuchando(salida_netstat, puerto):
+    """PID del proceso que ESCUCHA en 127.0.0.1:<puerto> segun `netstat -ano` (None si nadie). Solo coincide con el puerto exacto."""
+    for ln in salida_netstat.splitlines():
+        c = ln.split()
+        if len(c) >= 5 and c[0].upper() == "TCP" and "LISTEN" in c[3].upper() and re.search(rf"[:.]{int(puerto)}$", c[1]) and c[4].isdigit(): return int(c[4])
+    return None
+
+
+def cerrar():
+    """Cierra SOLO el Edge que escucha en el puerto del laboratorio (9331): necesario antes de arrancar el QA, que comparte el perfil. Nunca toca 9230/9224/9225."""
+    if PORT in PUERTOS_QA: raise SystemExit(f"puerto {PORT} es del QA: no se cierra")
+    if os.name != "nt": print("cerrar el Edge solo esta implementado en Windows"); return 1
+    r = subprocess.run(["netstat", "-ano", "-p", "TCP"], capture_output=True, text=True)
+    pid = pid_escuchando(r.stdout, PORT)
+    if not pid: print(f"Nada escucha en el puerto {PORT}: el Edge del laboratorio ya esta cerrado."); return 0
+    subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], capture_output=True)
+    print(f"Edge del laboratorio cerrado (pid {pid}). El perfil queda libre para el QA."); return 0
 
 
 def flags(port=None, prof=None):

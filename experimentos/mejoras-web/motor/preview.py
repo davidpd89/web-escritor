@@ -15,7 +15,9 @@ import parches
 def raiz(q, exp_id=None):
     if not exp_id: return q.preparar_src(), None
     if not all(ch.isascii() and (ch.isalnum() or ch in "-_") for ch in exp_id): raise ValueError("ID de expediente invalido")
-    c = q.db(); e = c.execute("SELECT * FROM expedientes WHERE id=?", (exp_id,)).fetchone()
+    c = q.db()
+    try: e = c.execute("SELECT * FROM expedientes WHERE id=?", (exp_id,)).fetchone()
+    finally: c.close()
     if not e or not e["sha"]: raise ValueError("ese expediente no tiene una candidata validada (sin SHA)")
     wt = q.STATE / "preview" / exp_id
     parches.limpiar_wt(wt); wt.parent.mkdir(parents=True, exist_ok=True)

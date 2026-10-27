@@ -20,7 +20,13 @@ GRUPOS = [("Investigados (esperan a Claude)", ("investigado",)),
 
 
 def texto(q, completo=False):
-    c = q.db(); L = []
+    c = q.db()
+    try: return _texto(q, c, completo)
+    finally: c.close()  # en Windows una conexion abierta impide borrar/mover la carpeta de estado
+
+
+def _texto(q, c, completo):
+    L = []
     n = lambda sql, *a: c.execute(sql, a).fetchone()[0]
     svc = q.leer_servicio()
     w, ac, sup = q.Lock("worker").dueno(), q.Lock("actions").dueno(), q.Lock("supervisor").dueno()
