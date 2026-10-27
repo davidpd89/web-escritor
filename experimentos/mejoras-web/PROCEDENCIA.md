@@ -17,9 +17,12 @@ Cada modulo adaptado lo declara tambien en su docstring (`PROCEDENCIA:`); `tests
 | `pr_hija.py` | `qa_pr.cuerpo_pr` y `qa_lote.Gh.pr_de_rama` | Estructura del cuerpo de PR y deteccion de PR existente | La base es SIEMPRE la rama de laboratorio; sin merge/auto-merge |
 | `.github/workflows/mejoras-web-grupo.yml` | `qa-gpt-grupo.yml` | `workflow_dispatch`, driver desde el commit del workflow, artefacto de resultados | Entradas `sha/modo/tests/intento`; `run-name` con `sha #intento`; Node/Playwright solo si hay tests `node:`; sin fusion con main |
 
-## Defecto encontrado en el QA original (NO modificado)
-`scripts/qa-gpt/qa_gpt.py:537` (rama de limite de uso de ChatGPT en `process`): `UPDATE jobs ... error=?,no_antes=?,actualizado=? WHERE id=?` recibe 3 valores para 4 marcadores
-(`sqlite3.ProgrammingError`), de modo que un limite de uso de ChatGPT tumba el paso en vez de pausarlo. El laboratorio lo corrige en `investigar.procesar_job` y tiene su test.
+## Defectos encontrados en el QA original (corregidos en `automation/qa-gpt`, commit `a3a7cd89`)
+* `scripts/qa-gpt/qa_gpt.py:537` (rama de limite de uso de ChatGPT en `process`): `UPDATE jobs ... error=?,no_antes=?,actualizado=? WHERE id=?` recibia 3 valores para 4 marcadores
+  (`sqlite3.ProgrammingError`): un limite de uso tumbaba el paso en vez de pausarlo. Test nuevo `test_qa_limite_chatgpt.py` (falla sin el arreglo).
+* `qa_gpt.py` lineas 4 y 175: docstrings no raw con `C:\GIT` y `\``: `SyntaxWarning` hoy, `SyntaxError` en Python futuro. Ahora son `r"""`.
+* Busqueda sistematica (AST) de otros desajustes marcadores/valores en todo `scripts/qa-gpt`: ningun otro. La suite del QA (772 pruebas) da 6 fallos en Linux que ya fallaban antes del arreglo
+  (dependen de `tasklist` y de rutas de Windows); en Windows no aplican.
 
 ## De la PR #819 (lo que se conserva)
 `motor/verificar_upstream.py` (blob/commit/ruta/licencia contra GitHub REST, sin cambios) y `motor/descubrimiento.py` (pistas opcionales GitHub/RSS, solo docstring). Reescritos: `preflight.py`, `preview.py`.

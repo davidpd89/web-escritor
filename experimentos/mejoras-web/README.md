@@ -47,6 +47,7 @@ Estado persistente (fuera de Git): `%LOCALAPPDATA%\web-escritor-mejoras-web\esta
 ## Pruebas offline (no usan Edge, modelos, GitHub ni Actions)
 
 ```powershell
+pip install pyyaml            # opcional: sin el, se omiten las pruebas que leen los workflows
 python motor\preflight.py --offline
 python -m unittest discover -s tests -p "test_*.py" -v
 ```
@@ -70,6 +71,10 @@ python -m unittest discover -s tests -p "test_*.py" -v
 * **Actions**: el unico `workflow_dispatch` del laboratorio esta en `actions.Gh.dispatch` y exige `AUTORIZADO`, que solo concede `actions.main` (EJECUTAR). INICIAR no puede despachar (`test_servicio.InicioSinEfectosRemotos`). Maximo 3 grupos (`MAX_GRUPOS`), 12 envios/dia (`actions.max_envios_dia`), un run por `sha #intento`.
 * **Sin acciones peligrosas**: no hay fusion, auto-merge, cierre/borrado de ramas, `rerun`, `cancel` ni push forzado en ningun modulo (`test_codigo_fuente_sin_ordenes_peligrosas`).
 * **Claude**: sin herramientas de escritura (`Read,Grep,Glob`), tope por llamada (0,5 USD) y diario (`claude.max_usd_dia`, 10 USD), cache por hash y cada llamada registrada con coste y tokens. **ChatGPT**: una peticion a la vez, `flujo.consultas_gpt_por_hora`.
+* **Tests escritos por GPT**: se ejecutan en tu equipo (igual que en el QA). Antes de aceptarlos se rechazan los que usan `subprocess`, `os.system`, sockets, red, `eval/exec`, escritura o borrado de ficheros, `child_process`, etc. (`parches.validar_pruebas`). Es una barrera de higiene, **no un sandbox**: revisa de vez en cuando `tests/mejoras-web/` de las candidatas antes de pulsar EJECUTAR.
+* **Parches**: sustituciones exactas de un fragmento unico; se rechazan ficheros con fin de linea CRLF (convertirian el archivo entero), rutas sensibles y secretos.
+* **Parada**: `PARAR` activa dos banderas (`stop`, `stop_actions`); arrancar EJECUTAR no borra la parada del investigador, y un EJECUTAR largo nunca es terminado por otro que arranca.
+* **Rama base**: se hace `git fetch` de `origin/lab/mejoras-web-20261024` cada 20 min y, si no existe en tu clon, el preflight lo dice con el comando exacto.
 * **Rama de desarrollo**: ningun disparador automatico. Los workflows del laboratorio son solo `workflow_dispatch`; los commits que tocan `experimentos/mejoras-web/**` y los workflows nuevos no coinciden con los filtros `paths` de los workflows existentes con `push` sin rama (cuaderno).
 
 ## Dependencia de rama del workflow (no se activa por commitear)

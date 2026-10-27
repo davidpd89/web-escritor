@@ -395,7 +395,7 @@ def procesar_job(c, job):
         raise SystemExit("ChatGPT sin sesion en el Edge del laboratorio: inicia sesion y relanza (la cola se conserva).")
     except g.RateLimited as e:
         (mw.STATE / "limite").write_text(mw.now())
-        c.execute("UPDATE jobs SET estado='pendiente',error=?,no_antes=?,actualizado=? WHERE id=?", (str(e), (mw._ahora() + dt.timedelta(minutes=5)).isoformat(timespec="seconds"), mw.now(), jid)); c.commit()  # OJO: qa_gpt.py:537 (QA) pasa 3 valores a 4 marcadores en esta misma ruta (test_login_y_limite_conservan_el_job)
+        c.execute("UPDATE jobs SET estado='pendiente',error=?,no_antes=?,actualizado=? WHERE id=?", (str(e), (mw._ahora() + dt.timedelta(minutes=5)).isoformat(timespec="seconds"), mw.now(), jid)); c.commit()  # (el mismo defecto de 3 valores para 4 marcadores estaba en qa_gpt.py:537; corregido tambien alli en a3a7cd89)
         raise SystemExit("Limite de uso de ChatGPT: pausa con espera (no se reintenta en bucle).")
     except g.Incompleta as e:
         cid = e.cid or est.get("cid")

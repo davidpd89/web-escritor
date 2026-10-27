@@ -21,6 +21,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - run: pip install pyyaml
       - name: Preflight offline
         run: python experimentos/mejoras-web/motor/preflight.py --offline
       - name: Tests offline del laboratorio

@@ -60,6 +60,28 @@ class Pruebas(unittest.TestCase):
         self.assertTrue(parches.validar_pruebas([{"ruta": "tests/mejoras-web/a.mjs", "contenido": "import assert from 'node:assert'; assert.ok(true, 'x'); // " + "x" * 30}])[0])
 
 
+class PruebasPeligrosas(unittest.TestCase):
+    OK = "assert 'skip' in open('index.html', encoding='utf-8').read(), 'falta'\n"
+
+    def v(self, ruta, cont): return parches.validar_pruebas([{"ruta": ruta, "contenido": cont}])
+
+    def test_rechaza_operaciones_peligrosas_en_python(self):
+        for malo in ("import subprocess\nsubprocess.run(['rm','-rf','x'])\nassert True\n", "import os\nos.system('calc')\nassert True\n", "import shutil\nshutil.rmtree('x')\nassert True\n",
+                     "import urllib.request\nassert urllib.request.urlopen('http://x')\n", "exec('1')\nassert True\n", "open('f.txt', 'w').write('x')\nassert True\n",
+                     "import socket\nassert socket\n", "__import__('os').remove('x')\nassert True\n"):
+            ok, pr, _ = self.v("tests/mejoras-web/a.py", malo + "# relleno de longitud para pasar el minimo\n"); self.assertFalse(ok, malo); self.assertIn("no permitida", pr[0])
+        self.assertTrue(self.v("tests/mejoras-web/a.py", self.OK + "# relleno de longitud\n")[0])
+        self.assertTrue(self.v("tests/mejoras-web/a.py", "import re, json\nhtml = open('index.html', encoding='utf-8').read()\nassert re.search('x', html), 'm'\n")[0])
+
+    def test_rechaza_operaciones_peligrosas_en_node_y_admite_playwright_y_fetch_local(self):
+        for malo in ("import { execSync } from 'node:child_process';\nassert.ok(1, 'x');", "import fs from 'node:fs';\nfs.writeFileSync('a','b'); assert.ok(1,'x');", "eval('1'); assert.ok(1, 'x');",
+                     "import http from 'node:http';\nassert.ok(http, 'x');", "fs.rmSync('x'); assert.ok(1, 'x');"):
+            self.assertFalse(self.v("tests/mejoras-web/a.mjs", malo + "\n// relleno de longitud para pasar el minimo\n")[0], malo)
+        bueno = ("import assert from 'node:assert/strict';\nimport { chromium } from 'playwright';\nimport fs from 'node:fs';\nconst b = await chromium.launch();\n"
+                 "const html = fs.readFileSync('index.html', 'utf8');\nconst r = await fetch(process.env.SITE_ORIGIN + '/');\nassert.ok(html.includes('x') && r.ok, 'm');\nawait b.close();\n")
+        ok, pr, _ = self.v("tests/mejoras-web/a.mjs", bueno); self.assertTrue(ok, pr)
+
+
 class Procedencia(unittest.TestCase):
     SHA, COMMIT = "a" * 40, "c" * 40
     LIT = "function skipLink() {\n  return document.querySelector('#contenido');\n}"
@@ -114,6 +136,13 @@ class Candidata(util.Caso):
         with self.assertRaises(ValueError): parches.construir_candidata(e)
         self.assertEqual(util.git(self.repo, "branch", "--list", "mejoras-web/*"), "")
         self.assertFalse(parches.wt_path(eid).exists())
+
+    def test_fichero_con_crlf_no_se_convierte_a_lf(self):
+        (self.repo / "index.html").write_bytes(util.HTML.replace("\n", "\r\n").encode()); util.git(self.repo, "commit", "-qam", "crlf")
+        util.git(self.repo, "update-ref", "refs/remotes/origin/lab/mejoras-web-20261024", "HEAD")
+        e = self.c.execute("SELECT * FROM expedientes WHERE id=?", (self.exp_preparado(),)).fetchone()
+        with self.assertRaisesRegex(ValueError, "CRLF"): parches.construir_candidata(e)
+        self.assertEqual(util.git(self.repo, "branch", "--list", "mejoras-web/*"), "")
 
     def test_rama_ajena_rechazada(self):
         eid = self.exp_preparado()

@@ -33,13 +33,14 @@ def supervisar(modo, resto=(), popen=None, sleep=time.sleep, reloj=time.time, ma
     maxi = maxi_caidas or mw.CFG.get("max_caidas_hora", 6)
     caidas, espera = [], 15
     mw.STATE.mkdir(parents=True, exist_ok=True)
-    with mw.Lock("supervisor", max_min=10**6):
-        while not mw.flag("stop"):
+    parada = "stop" if modo == "servicio" else "stop_actions"
+    with mw.Lock("supervisor" if modo == "servicio" else "supervisor_actions", max_min=10**9):
+        while not mw.flag(parada):
             p = popen(hijo(modo, list(resto)))
             while True:
                 try: rc = p.wait(); break
                 except KeyboardInterrupt: continue  # Ctrl+C llega tambien al hijo, que se detiene solo y guarda estado; el supervisor espera a que termine
-            if rc == 0 or mw.flag("stop"): return 0
+            if rc == 0 or mw.flag(parada): return 0
             if rc in (mw.RC_CONFIG, mw.RC_EN_MARCHA): return rc  # configuracion invalida / ya hay otra instancia: reintentar no sirve
             if rc != mw.REINICIO:
                 caidas = [t for t in caidas if reloj() - t < 3600] + [reloj()]

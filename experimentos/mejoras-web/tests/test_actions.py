@@ -248,10 +248,10 @@ class EnvioYRecogida(Base):
         self.assertTrue(all(self.cola(c_)["estado"] == "remoto_ok" for c_ in cl))
 
     def test_flag_stop_detiene_el_bucle(self):
-        self.item_validado(1); mw.set_flag("stop", True)
+        self.item_validado(1); mw.set_flag("stop_actions", True)
         # ejecutar() lo detecta al empezar
         ex = self.nuevo_ejecutor(); ex.ejecutar(); self.assertEqual(self.gh.llamadas, [])
-        mw.set_flag("stop", False)
+        mw.set_flag("stop_actions", False)
 
     def test_reintentar_infra_es_accion_explicita_y_crea_un_run_nuevo(self):
         cl = self.item_validado(1); self.gh.defecto = {"modo": "aceptacion", "resumen": {"infra": 1}, "tests": [{"ruta": "tests/mejoras-web/a.py", "clase": "infra", "rc": 1}]}
@@ -319,6 +319,31 @@ class Clasificacion(Base):
 
 
 class Candado(util.Caso):
+    def test_un_ejecutar_largo_no_es_terminado_por_otro_que_arranca(self):
+        """Antes el bloqueo de EJECUTAR caducaba a las 2 h y el segundo arranque mataba al primero (aunque estuviera trabajando)."""
+        mw.STATE.mkdir(parents=True, exist_ok=True)
+        viejo = (mw._ahora() - __import__("datetime").timedelta(hours=5)).isoformat(timespec="seconds")
+        mw.Lock("actions").path.write_text(f"{__import__('os').getppid()} {viejo}")
+        with mock.patch.object(mw, "es_mw", return_value=True), mock.patch.object(mw, "matar_arbol") as matar:
+            with self.assertRaises(SystemExit) as cm: actions.main(mw, mock.Mock(limite=None, continuo=False))
+        self.assertEqual(cm.exception.code, mw.RC_EN_MARCHA); matar.assert_not_called()
+
+    def test_ejecutar_no_borra_la_parada_pedida_al_investigador(self):
+        mw.set_flag("stop", True)
+        with mock.patch.object(actions, "Ejecutor") as E:
+            E.return_value.ejecutar.return_value = 0; actions.main(mw, mock.Mock(limite=None, continuo=False))
+        self.assertTrue(mw.flag("stop")); self.assertFalse(mw.flag("stop_actions"))
+
+    def test_parar_pide_la_parada_de_los_dos_procesos(self):
+        mw.cmd_parar(None); self.assertTrue(mw.flag("stop") and mw.flag("stop_actions"))
+
+    def test_arranque_duplicado_del_investigador_no_borra_su_parada(self):
+        mw.STATE.mkdir(parents=True, exist_ok=True); mw.set_flag("stop", True)
+        mw.Lock("worker").path.write_text(f"{__import__('os').getppid()} {mw.now()}")
+        mw.CFG["gpt"]["project_id"] = "g-p-" + "ab12" * 8
+        with mock.patch.object(mw, "exigir_aislamiento"), self.assertRaises(SystemExit): mw.cmd_servicio(None)
+        self.assertTrue(mw.flag("stop"))
+
     def test_doble_arranque_de_ejecutar_no_duplica(self):
         actions.AUTORIZADO = False
         mw.STATE.mkdir(parents=True, exist_ok=True)

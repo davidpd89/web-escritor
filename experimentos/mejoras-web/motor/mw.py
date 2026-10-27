@@ -303,9 +303,23 @@ def fuente_ref():
     return f"origin/{CFG['rama_base']}"
 
 
+_ULTIMO_FETCH = {}
+
+
+def refrescar_base(forzar=False, cada_min=20):
+    """`git fetch` de la rama base como mucho cada `cada_min` minutos (o si la referencia no existe todavia en este clon).
+    Un fallo de red no es grave si la referencia ya existe; si no existe, error claro (antes: 'unknown revision' en cada paso)."""
+    ref = fuente_ref()
+    existe = lambda: run(["git", "rev-parse", "--verify", "-q", ref], cwd=REPO, capture_output=True).returncode == 0
+    if forzar or not existe() or time.time() - _ULTIMO_FETCH.get(str(REPO), 0) > cada_min * 60:
+        git("fetch", "-q", "origin", CFG["rama_base"], check=False); _ULTIMO_FETCH[str(REPO)] = time.time()
+    if not existe():
+        raise RuntimeError(f"no existe {ref} en este clon ni en origin: `git fetch origin {CFG['rama_base']}` (la rama base del laboratorio debe estar publicada)")
+
+
 def preparar_src():
     """Worktree desacoplado en origin/<rama_base> para que Claude lea el codigo (solo lectura). Nunca el checkout de David."""
-    git("fetch", "-q", "origin", CFG["rama_base"], check=False)
+    refrescar_base()
     src = STATE / "src"
     if (src / ".git").exists():
         git("checkout", "-q", "--detach", fuente_ref(), cwd=src, check=False)
@@ -317,6 +331,7 @@ def preparar_src():
 
 
 def head_base():
+    refrescar_base()
     return git("rev-parse", fuente_ref())
 
 
@@ -336,9 +351,9 @@ def cmd_servicio(a):
     import gpt_browser, investigar
     exigir_aislamiento()
     gpt_browser.configurar(CFG["gpt"]["puerto_cdp"], CFG["gpt"].get("project_id") or None)
-    set_flag("stop", False)
     lock = Lock("worker")
     with lock:
+        set_flag("stop", False)  # solo con el bloqueo en la mano: un arranque duplicado no puede borrar la parada pedida al primero
         c = db(); inicio = now(); gpt_browser.PARADA = parada_vencida
         print(f"{inicio} SERVICIO iniciado (pid {os.getpid()})")
         marcar(estado="arrancando", inicio=inicio, pid=os.getpid(), ultimo_error=None, tarea=None, parado=None, hasta=None, errores_seguidos=0)
@@ -413,7 +428,7 @@ def cmd_iniciar(a):
 
 def cmd_parar(a):
     """PARAR-MEJORAS-WEB.bat: parada ordenada y acotada del investigador y del ejecutor. NO cancela runs remotos."""
-    set_flag("stop", True)
+    set_flag("stop", True); set_flag("stop_actions", True)  # banderas separadas: arrancar EJECUTAR no cancela la parada del investigador
     pids = [p for p in (Lock("worker").dueno(), Lock("actions").dueno()) if p]
     sup = Lock("supervisor").dueno()
     if sup and sup not in pids: pids.append(sup)
@@ -429,7 +444,7 @@ def cmd_parar(a):
         for p in vivos:
             if es_mw(p): matar_arbol(p)
         time.sleep(1)
-        for nombre in ("worker", "actions", "supervisor"): Lock(nombre).path.unlink(missing_ok=True)
+        for nombre in ("worker", "actions", "supervisor", "supervisor_actions"): Lock(nombre).path.unlink(missing_ok=True)
         marcar(estado="parado", parado=now(), tarea=None); print("PARADO (forzado, estado conservado)."); return 0
     marcar(estado="parado", parado=now(), tarea=None)
     print("PARADO correctamente. Progreso guardado; el siguiente INICIAR continua donde quedo."); return 0

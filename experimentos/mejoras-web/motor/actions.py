@@ -170,7 +170,7 @@ class Ejecutor:
         self.dir = q.STATE / "actions"; self.dir.mkdir(parents=True, exist_ok=True)
         self.c = q.db(); self.c.execute("PRAGMA busy_timeout=180000")
         global ABORTAR
-        ABORTAR = lambda: bool(self.parando) or q.flag("stop")
+        ABORTAR = lambda: bool(self.parando) or q.flag("stop_actions")
         self.parando = None; self.interactivo = False; self._ultimo_sondeo = 0
 
     # ---------- persistencia ----------
@@ -310,7 +310,7 @@ class Ejecutor:
             for ruta, cmd in self.comandos(prop):
                 rc, salida = self.precheck(wt, ruta)
                 if rc == 0: rc, salida = self.ejecutar_test(wt, ruta, cmd)
-                if rc == RC_ABORTADO and (self.parando or q.flag("stop")):  # no es un fallo del test: se suelta y se revalida al reabrir
+                if rc == RC_ABORTADO and (self.parando or q.flag("stop_actions")):  # no es un fallo del test: se suelta y se revalida al reabrir
                     return self.set(clave, "validando", f"validacion interrumpida ({self.parando or 'stop'}); se reanuda al reabrir", intentos=(self.item(clave)["intentos"] or 0))
                 cl = clases.clasificar_salida(rc, salida); cls.append(cl); self.registrar_test(clave, "local", ruta, cl, rc)
                 partes.append(f"### {' '.join(map(str, cmd[-2:]))} -> exit {rc} [{cl}]\n{salida[-6000:]}")
@@ -472,7 +472,7 @@ class Ejecutor:
         ult_idle = 0
         while True:
             self.tecla()
-            if self.parando or q.flag("stop"):
+            if self.parando or q.flag("stop_actions"):
                 self.pedir_parada("stop")
                 if gh_ok: self.sondear(forzar=True)  # una pasada final; los runs vivos NO se cancelan ni se esperan
                 break
@@ -482,7 +482,7 @@ class Ejecutor:
             if gh_ok:
                 libres = cap - sum(1 for i in its if i["estado"] in VIVOS)
                 for it in [i for i in its if i["estado"] in ENVIABLES][:max(0, libres)]:
-                    if self.parando or q.flag("stop"): break
+                    if self.parando or q.flag("stop_actions"): break
                     self.enviar(self.item(it["clave"]))
             self.panel()
             its = self.items()
@@ -526,8 +526,8 @@ def main(q, a=None):
     for f in (sys.stdout, sys.stderr):
         try: f.reconfigure(line_buffering=True, errors="replace")
         except Exception: pass
-    with q.Lock("actions"):
-        q.set_flag("stop", False)
+    with q.Lock("actions", max_min=10**9):  # nunca se da por "colgado": un EJECUTAR largo no puede ser terminado por otro que arranca
+        q.set_flag("stop_actions", False)
         AUTORIZADO = True
         try:
             lo = Ejecutor(q, cfg={"panel": sys.stdout.isatty(), "limite": getattr(a, "limite", None), "continuo": bool(getattr(a, "continuo", False))}); lo.interactivo = sys.stdin.isatty()

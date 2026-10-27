@@ -59,6 +59,13 @@ class Runner(unittest.TestCase):
         rc, r = self.run_grupo({"a.py": "print('x' * 9000)\nassert False, 'y'\n"}); self.assertLessEqual(len(r["tests"][0]["salida"]), 4000)
 
 
+try:
+    import yaml  # noqa: F401
+except ImportError:  # pip install pyyaml (en el runner de Actions de la web no viene con setup-python)
+    yaml = None
+
+
+@unittest.skipIf(yaml is None, "falta pyyaml")
 class Workflow(unittest.TestCase):
     WF = mw.REPO / ".github" / "workflows"
 

@@ -8,7 +8,7 @@ PROCEDENCIA: scripts/qa-gpt/qa_pr.py @ fe131c8ce6a663b54ab067ea5bc123318ececbb0,
 - `validar_parche` acepta ademas `ficheros_nuevos` (el QA solo editaba ficheros existentes) con tope de tamano, extension y escaneo de secretos;
 - NO se copia nada de qa_pr.py que cree PR contra main, fusione, cierre/borre ramas ni relance workflows (Pr.preparar, Ciclo, _integrar*, _freno_main...).
 """
-import json, os, re, shutil
+import ast, json, os, re, shutil
 from pathlib import Path
 
 import mw
@@ -83,6 +83,33 @@ def validar_parche(parche, leer):
     return (not problemas), problemas, (norm if not problemas else None)
 
 
+# Los tests de aceptacion los ESCRIBE GPT y se ejecutan en tu equipo (como en el QA). Esta lista corta es una barrera de higiene, NO un sandbox:
+# un test de una web estatica solo necesita leer ficheros del repo o hablar con SITE_ORIGIN.
+PELIGROSO_PY = re.compile(r"\b(subprocess|os\.system|os\.popen|os\.exec\w*|os\.spawn\w*|shutil\.rmtree|os\.(remove|unlink|rmdir|removedirs|rename)|socket|ctypes|pty|"
+                          r"urllib\.request|http\.client|requests|httpx|aiohttp|ftplib|smtplib|webbrowser|__import__|eval|exec|importlib|pickle)\b")
+ESCRIBE_PY = {"write_text", "write_bytes", "unlink", "rmdir", "rename", "replace", "touch", "mkdir", "symlink_to", "chmod"}
+
+
+def peligro_python(texto):
+    """-> descripcion del primer uso peligroso o None. Regex para nombres y AST para `open()` con modo de escritura y metodos de Path que modifican el disco."""
+    m = PELIGROSO_PY.search(texto)
+    if m: return m.group(0)
+    try: arbol = ast.parse(texto)
+    except SyntaxError: return None  # la sintaxis se informa aparte
+    for n in ast.walk(arbol):
+        if not isinstance(n, ast.Call): continue
+        f = n.func
+        if isinstance(f, ast.Name) and f.id == "open":
+            modo = n.args[1] if len(n.args) > 1 else next((k.value for k in n.keywords if k.arg == "mode"), None)
+            if modo is not None and not (isinstance(modo, ast.Constant) and isinstance(modo.value, str) and not set(modo.value) & set("wax+")): return "open() para escribir"
+        if isinstance(f, ast.Attribute) and f.attr in ESCRIBE_PY: return f".{f.attr}()"
+    return None
+
+
+PELIGROSO_JS = re.compile(r"child_process|\b(execSync|spawnSync|exec|spawn|fork)\(|\bfs\.(write\w*|rm\w*|unlink\w*|append\w*|rename\w*|mkdir\w*|copy\w*)|\b(writeFile\w*|rmSync|unlinkSync)\b|"
+                          r"\beval\(|new Function|process\.(kill|exit\(\s*[^01\s)])|require\(['\"](child_process|net|dgram|http|https|dns|cluster|worker_threads)|from ['\"](node:)?(child_process|net|dgram|http|https|dns|cluster|worker_threads)['\"]")
+
+
 def validar_pruebas(pruebas):
     """Tests de aceptacion NUEVOS bajo tests/mejoras-web/. -> (ok, problemas, normalizado[{ruta, contenido, exe}])."""
     if not isinstance(pruebas, list) or not pruebas: return False, ["la mejora necesita al menos un test de aceptacion"], None
@@ -97,6 +124,8 @@ def validar_pruebas(pruebas):
         if not isinstance(cont, str) or len(cont.strip()) < 40: problemas.append(f"{ruta}: test vacio o trivial"); continue
         if len(cont.encode("utf-8")) > lim("max_bytes_nuevo", 60000): problemas.append(f"{ruta}: test demasiado grande"); continue
         if SECRETO.search(cont): problemas.append(f"{ruta}: parece contener un secreto"); continue
+        peligro = peligro_python(cont) if ruta.endswith(".py") else (lambda m: m.group(0) if m else None)(PELIGROSO_JS.search(cont))
+        if peligro: problemas.append(f"{ruta}: operacion no permitida en un test de aceptacion ({peligro[:30]!r}); solo leer ficheros del repo o usar SITE_ORIGIN"); continue
         if not re.search(r"assert|expect|throw new Error|sys\.exit\(1\)|raise\s+AssertionError|process\.exit\(1\)", cont): problemas.append(f"{ruta}: el test no comprueba nada (sin aserciones)"); continue
         if ruta.endswith(".py"):
             try: compile(cont, ruta, "exec")
@@ -147,6 +176,7 @@ def aplicar(root, prop):
     if not ok: raise ValueError("; ".join(problemas))
     tocados = []
     for f in norm["ficheros"]:
+        if b"\r\n" in (root / f["ruta"]).read_bytes(): raise ValueError(f"{f['ruta']}: usa fin de linea CRLF; el parche lo convertiria entero a LF (no soportado)")
         p = root / f["ruta"]; t = p.read_text(encoding="utf-8")
         for r in f["reemplazos"]: t = t.replace(r["buscar"], r["por"], 1)
         p.write_text(t, encoding="utf-8", newline=""); tocados.append(f["ruta"])
