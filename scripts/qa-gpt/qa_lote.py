@@ -371,7 +371,13 @@ class Lote:
         return 0, ""
 
     def registrar_test(self, clave, fuente, ruta, categoria, clase, rc, run_id=None):
-        self.c.execute("INSERT OR REPLACE INTO lote_tests VALUES(?,?,?,?,?,?,?,?)", (clave, fuente, ruta, categoria, clase, rc, run_id, self.q.now())); self.c.commit()
+        for intento in range(6):  # igual que `set`: un bloqueo transitorio del worker no debe tumbar el lote tras una validacion larga
+            try:
+                self.c.execute("INSERT OR REPLACE INTO lote_tests VALUES(?,?,?,?,?,?,?,?)", (clave, fuente, ruta, categoria, clase, rc, run_id, self.q.now())); self.c.commit(); break
+            except sqlite3.OperationalError:
+                self.c.rollback()
+                if intento == 5: raise
+                self.sleep(5)
 
     def ejecutar_test(self, tmp, ruta, cmd, env=None):
         env = dict(env or {})

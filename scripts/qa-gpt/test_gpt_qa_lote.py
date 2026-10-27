@@ -102,6 +102,20 @@ class TestQaLote(unittest.TestCase):
         )
         self.addCleanup(self.lo.c.close)
 
+    def test_registrar_test_reintenta_si_la_base_esta_bloqueada(self):
+        """Un 'database is locked' al registrar un test no debe tumbar EJECUTAR (2026-10-26): se reintenta como en `set`."""
+        self.lo.c.execute("PRAGMA busy_timeout=1")
+        otro = sqlite3.connect(self.state / "estado.db", isolation_level=None)
+        self.addCleanup(otro.close)
+        otro.execute("BEGIN IMMEDIATE")
+
+        def sleep(_):
+            if otro.in_transaction: otro.execute("COMMIT")
+        self.lo.sleep = sleep
+        self.lo.registrar_test(CLAVE, "local", "t.py", "cat", "ok", 0)
+        n = self.c.execute("SELECT COUNT(*) FROM lote_tests WHERE clave=?", (CLAVE,)).fetchone()[0]
+        self.assertEqual(n, 1)
+
     def _patch(self, obj, name, value):
         p = patch.object(obj, name, value)
         p.start()
