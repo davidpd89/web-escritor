@@ -8,6 +8,7 @@
       "label": "Shell V1 comun",
       "entrypoints": [
         "assets/v1-shell.css",
+        "assets/v1-fonts.css",
         "assets/v1-shell.js"
       ],
       "baseline": {
