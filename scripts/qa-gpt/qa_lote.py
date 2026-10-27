@@ -115,8 +115,24 @@ class Gh:
             return json.loads(f.read_text(encoding="utf-8")) if f else None
         finally: shutil.rmtree(d, ignore_errors=True)
     def log_failed(self, rid):
-        try: return self._gh("run", "view", str(rid), "-R", self.repo, "--log-failed")
-        except GhError as e: return str(e)
+        """Log de los jobs fallidos de un run, o "" si Actions no lo ofrece (nunca el texto de un error: se colaba como "log" y el supervisor
+        respondia no_se_puede, runs 40371787280, 40354533275, 40404206665, 40411038592). `--log-failed` llega vacio con jobs cancelados, logs aun
+        sin cerrar o sin pasos fallidos: entonces se pide el log de cada job fallido por la API y, al menos, el resumen de jobs y pasos."""
+        try: log = self._gh("run", "view", str(rid), "-R", self.repo, "--log-failed")
+        except GhAuthError: raise
+        except GhError: log = ""
+        if log.strip(): return log
+        try: jobs = json.loads(self._gh("run", "view", str(rid), "-R", self.repo, "--json", "jobs") or "{}").get("jobs") or []
+        except GhAuthError: raise
+        except (GhError, ValueError): return ""
+        partes = []
+        for j in [j for j in jobs if j.get("conclusion") in ("failure", "timed_out", "cancelled")][:5]:
+            pasos = ", ".join(s.get("name") or "?" for s in j.get("steps") or [] if s.get("conclusion") in ("failure", "timed_out", "cancelled")) or "?"
+            try: txt = self._gh("api", f"repos/{self.repo}/actions/jobs/{j['databaseId']}/logs")
+            except GhAuthError: raise
+            except (GhError, KeyError): txt = ""
+            partes.append(f"== job {j.get('name')} ({j.get('conclusion')}); pasos fallidos: {pasos}\n{txt[-4000:]}")
+        return "\n".join(partes)
 
 
 class GhError(RuntimeError): pass

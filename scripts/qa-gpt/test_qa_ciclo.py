@@ -348,6 +348,39 @@ class PrFlujo(T.Base):
         r = self.c.execute("SELECT pr_estado,pr_nueva,pr_detalle FROM triaje").fetchone()
         self.assertEqual((r[0], r[1]), ("validacion_fallida", 0)); self.assertIn("python-tests", r[2]); self.assertIn("AssertionError VALOR", r[2]); self.assertEqual(len(gh.cerradas), 1)
 
+    def rojo(self, gh, roll):
+        pv = gh.pr_ver; gh.pr_ver = lambda n: {**pv(n), "statusCheckRollup": roll}; gh.cerradas = []; gh.pr_cerrar = lambda url, com="": gh.cerradas.append(url)
+
+    def test_lote_de_una_correccion_rojo_lleva_la_pista_de_la_causa_conocida(self):
+        # lotes #927/#932/#936: cambiaban el CSS inline de offline.html y el hash CSP quedaba obsoleto; el reintento no sabia por que
+        self.montar(); gh = self.GhCiclo(); gh.log_failed = lambda rid: "pwa\tAssertionError: offline.html: SHA-256 de <style> ausente o desactualizado\n"
+        self.rojo(gh, [{"name": "static-regression", "status": "COMPLETED", "conclusion": "FAILURE", "detailsUrl": "https://github.com/o/r/actions/runs/77/job/1"}])
+        self.ciclo(gh, modo_pr="lote").paso(self.c)
+        det = self.c.execute("SELECT pr_detalle FROM triaje").fetchone()[0]
+        self.assertIn("SHA-256", det); self.assertIn("PISTA:", det); self.assertIn("scripts/build-site-shell.py", det)
+
+    def test_lote_de_una_correccion_rojo_sin_log_lo_dice(self):
+        self.montar(); gh = self.GhCiclo(); gh.log_failed = lambda rid: ""
+        self.rojo(gh, [{"name": "browser-qa", "status": "COMPLETED", "conclusion": "FAILURE", "detailsUrl": "https://github.com/o/r/actions/runs/78/job/1"}])
+        self.ciclo(gh, modo_pr="lote").paso(self.c)
+        self.assertIn("no ofrecio el log", self.c.execute("SELECT pr_detalle FROM triaje").fetchone()[0])
+
+    def test_checks_cancelados_se_relanzan_una_vez_antes_de_cerrar_el_lote(self):
+        self.montar(); gh = self.GhCiclo(); gh.reruns = []; gh.rerun_fallidos = lambda rid: gh.reruns.append(rid)
+        self.rojo(gh, [{"name": "reflow-sitewide (3/8)", "status": "COMPLETED", "conclusion": "CANCELLED", "detailsUrl": "https://github.com/o/r/actions/runs/99/job/3"}])
+        ci = self.ciclo(gh, modo_pr="lote"); ci.paso(self.c)
+        self.assertEqual(gh.reruns, ["99"]); self.assertEqual(gh.cerradas, [])  # el arreglo no se tira por un runner colgado
+        self.assertEqual(self.c.execute("SELECT pr_estado,pr_nueva FROM triaje").fetchone()[:2], ("pr_abierta", 1))
+        ci.paso(self.c)  # sigue cancelado: la segunda vez ya no se relanza y se trata como rojo normal
+        self.assertEqual(gh.reruns, ["99"]); self.assertEqual(len(gh.cerradas), 1)
+
+    def test_cancelado_junto_a_un_fallo_real_no_se_relanza(self):
+        self.montar(); gh = self.GhCiclo(); gh.reruns = []; gh.rerun_fallidos = lambda rid: gh.reruns.append(rid); gh.log_failed = lambda rid: "x\tFAIL a\n"
+        self.rojo(gh, [{"name": "a", "status": "COMPLETED", "conclusion": "CANCELLED", "detailsUrl": "https://github.com/o/r/actions/runs/99/job/3"},
+                       {"name": "b", "status": "COMPLETED", "conclusion": "FAILURE", "detailsUrl": "https://github.com/o/r/actions/runs/98/job/4"}])
+        self.ciclo(gh, modo_pr="lote").paso(self.c)
+        self.assertEqual(gh.reruns, []); self.assertEqual(len(gh.cerradas), 1)
+
     def test_modo_auto_no_integra_sin_calibracion(self):
         self.montar(); gh = self.GhCiclo(); ci = self.ciclo(gh, integracion={"modo": "auto", "calibracion_min": 10}); ci.paso(self.c); ci.paso(self.c)
         self.assertEqual(gh.merges, [])

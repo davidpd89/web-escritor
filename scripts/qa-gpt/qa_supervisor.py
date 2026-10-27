@@ -41,6 +41,15 @@ def firma(texto):
     return f"{exc}@{propios[-1] if propios else '?'}"
 
 
+LOG_MIN = 80  # caracteres de contenido real para que un log permita diagnosticar algo
+
+
+def log_util(log):
+    """True si el log trae contenido de un fallo (no vacio, ni solo el encabezado de jobs de qa_lote.Gh.log_failed, ni un mensaje de error de gh)."""
+    cuerpo = " ".join(l.strip() for l in (log or "").splitlines() if l.strip() and not l.startswith("== job "))
+    return len(cuerpo) >= LOG_MIN and not re.match(r"(?i)(gh: |HTTP \d{3}|run \d+ (is|has)|log not found|failed to )", cuerpo)
+
+
 def traceback_de(texto):
     i = texto.rfind("Traceback (most recent call last):")
     return texto[i:] if i >= 0 else ""
@@ -91,7 +100,7 @@ class Supervisor:
     def anotar(self, fir, resultado, detalle):
         reg = self._registro()
         if fir.startswith("main-rojo:"):  # "fecha resultado intentos": permitido() decide el reintento
-            n = int((reg.get(fir, "").split(" ") + ["", "", "0"])[2] or 0) + 1
+            n = int((reg.get(fir, "").split(" ") + ["", "", "0"])[2] or 0) + (0 if resultado == "sin_log" else 1)  # sin log no se llego a intentar nada
             reg[fir] = f"{self.q.now()} {resultado} {n}"
         else: reg[fir] = self.q.now()
         (self.dir / "reparaciones.json").write_text(json.dumps(reg, indent=1), encoding="utf-8")
@@ -128,9 +137,34 @@ class Supervisor:
             if not g("merge-base", "--is-ancestor", rama, "HEAD")[0]: g("branch", "-D", rama)
 
     # ---------- 2): main en rojo ----------
+    def obtener_log(self, run_id, log=""):
+        """Log del fallo de un run: el que llega si sirve; si no, `gh run view --log-failed`, y despues el log de cada job fallido por la API
+        (`--log-failed` llega vacio con jobs cancelados o runs aun sin cerrar). -> (log, "") o ("", motivo) para que el fallo sea visible."""
+        if log_util(log): return log, ""
+        raiz = Path(self.q.ROOT); intentos = []
+        rc, o = self._run(["gh", "run", "view", str(run_id), "--log-failed"], raiz, 180)
+        if rc == 0 and log_util(o): return o, ""
+        intentos.append(f"--log-failed rc={rc} {len(o.strip())} car.")
+        rc, o = self._run(["gh", "run", "view", str(run_id), "--json", "jobs"], raiz, 120)
+        try: jobs = json.loads(o).get("jobs") or [] if rc == 0 else []
+        except ValueError: jobs = []
+        partes = []
+        for j in [j for j in jobs if j.get("conclusion") in ("failure", "timed_out", "cancelled")][:5]:
+            pasos = ", ".join(x.get("name") or "?" for x in j.get("steps") or [] if x.get("conclusion") in ("failure", "timed_out", "cancelled")) or "?"
+            rc, t = self._run(["gh", "api", f"repos/{{owner}}/{{repo}}/actions/jobs/{j.get('databaseId')}/logs"], raiz, 180)
+            partes.append(f"== job {j.get('name')} ({j.get('conclusion')}); pasos fallidos: {pasos}\n{t[-6000:] if rc == 0 else ''}")
+        txt = "\n".join(partes)
+        if log_util(txt): return txt, ""
+        intentos.append(f"{len(jobs)} jobs, {len(partes)} fallidos sin log")
+        return "", "; ".join(intentos)
+
     def reparar_main(self, run_id, log):
         fir = f"main-rojo:{run_id}"
         if not self.permitido(fir): return "omitido"
+        log, motivo = self.obtener_log(run_id, log)
+        if not log:  # sin log Claude solo puede responder no_se_puede (cuatro veces, runs 40371787280...): se avisa y se reintenta a la hora, sin gastar un intento
+            self.out(f"[supervisor] ATENCION: main en rojo (run {run_id}) y GitHub no ofrece el log del fallo ({motivo}); no se llama a Claude. Se reintenta en 1 h")
+            self.anotar(fir, "sin_log", motivo or "log vacio"); return "sin_log"
         q = self.q; root = Path(q.ROOT); rama = f"qa-fix/main-{run_id}"; wt = self.dir / f"main-{run_id}"
         g = lambda *a, cwd=root, t=300: self._run(["git", *a], cwd, t)
         g("fetch", "-q", "origin", "main", t=180)
@@ -144,7 +178,7 @@ class Supervisor:
             qa_pr.enlazar_node_modules(run, wt)
             from qa_dev_claude import CMD_PROBAR
             # un reintento identico daria el mismo resultado: Claude ve que fallo antes y tiene mas turnos en cada intento
-            try: previos = [l.split(" -> ", 1)[1].strip() for l in (self.dir / "historial.log").read_text(encoding="utf-8").splitlines() if f" {fir} -> " in l]
+            try: previos = [l.split(" -> ", 1)[1].strip() for l in (self.dir / "historial.log").read_text(encoding="utf-8").splitlines() if f" {fir} -> " in l and f" {fir} -> sin_log:" not in l]
             except OSError: previos = []
             antes = ("\n\nINTENTOS ANTERIORES QUE NO DEJARON PR (no repitas el mismo enfoque; si agotaste turnos, ve directo al fichero y al arreglo minimo):\n"
                      + "\n".join(f"- {p[:400]}" for p in previos[-3:])) if previos else ""

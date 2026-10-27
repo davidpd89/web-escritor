@@ -385,3 +385,32 @@ class SenalDeParadaReal(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=1)
+
+
+class LogFailedRobusto(unittest.TestCase):
+    """gh run view --log-failed llega vacio con jobs cancelados o runs sin cerrar: el log salia vacio o como texto de error."""
+    def gh(self, respuestas):
+        g = L.Gh.__new__(L.Gh); g.repo = "o/r"; g.llamadas = []
+        def _gh(*a):
+            g.llamadas.append(a)
+            r = next(v for k, v in respuestas if k in " ".join(a))
+            if isinstance(r, Exception): raise r
+            return r
+        g._gh = _gh; return g
+
+    def test_log_normal(self):
+        self.assertEqual(self.gh([("--log-failed", "job\tFAIL x\n")]).log_failed(7), "job\tFAIL x\n")
+
+    def test_vacio_pide_el_log_de_cada_job_fallido_por_la_api(self):
+        jobs = json.dumps({"jobs": [{"name": "browser-qa", "databaseId": 11, "conclusion": "failure", "steps": [{"name": "Run QA", "conclusion": "failure"}]},
+                                    {"name": "lint", "databaseId": 12, "conclusion": "success", "steps": []}]})
+        g = self.gh([("--log-failed", ""), ("--json", jobs), ("jobs/11/logs", "curl: (7) Failed to connect to 127.0.0.1 port 4173\n")])
+        log = g.log_failed(7)
+        self.assertIn("== job browser-qa (failure); pasos fallidos: Run QA", log); self.assertIn("port 4173", log); self.assertNotIn("lint", log)
+
+    def test_un_error_de_gh_no_se_devuelve_como_log(self):
+        self.assertEqual(self.gh([("--log-failed", L.GhError("run 7 has not completed")), ("--json", L.GhError("HTTP 502"))]).log_failed(7), "")
+
+    def test_sin_permisos_si_se_propaga(self):
+        with self.assertRaises(L.GhAuthError): self.gh([("--log-failed", L.GhAuthError("HTTP 403"))]).log_failed(7)
+
