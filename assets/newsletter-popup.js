@@ -131,6 +131,7 @@
     d.querySelector("#nl-popup-form").addEventListener("submit", function (event) {
       event.preventDefault();
       scheduleTask(async function () {
+        if (!d.isConnected || !d.open) return;
         const emailEl = d.querySelector("#nl-popup-email");
         const statusEl = d.querySelector("#nl-popup-status");
         const submitBtn = d.querySelector("#nl-popup-submit");
@@ -148,6 +149,7 @@
             source: "popup",
             website: honeypotValue(d.querySelector("#nl-popup-form"))
           });
+          if (!d.isConnected || !d.open) return;
           const panel = d.querySelector("#nl-popup-panel");
           if (result.ok && result.state === "pending_confirmation") {
             panel.innerHTML = '<p class="nl-popup-result-title">' + copy.okTitle + '</p><p class="nl-popup-result-body">' + copy.okBody + '</p>';
@@ -159,6 +161,7 @@
             throw new Error(result.code || "request_failed");
           }
         } catch (err) {
+          if (!d.isConnected || !d.open) return;
           statusEl.textContent = newsletterErrorMessage(err.message);
           delete submitBtn.dataset.submitting;
           submitBtn.disabled = false;
