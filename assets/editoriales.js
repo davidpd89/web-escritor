@@ -14,5 +14,6 @@
   search?.addEventListener('input',()=>apply({historyMode:'replace'}));[genre,status,country,sort,direct].filter(Boolean).forEach(c=>c.addEventListener('change',()=>apply({historyMode:'push'})));
   reset?.addEventListener('click',()=>{if(search)search.value='';if(genre)genre.value='';if(status)status.value='';if(country)country.value='';if(sort)sort.value='availability';if(direct)direct.checked=false;apply({historyMode:'push'});search?.focus();});
   const restore=()=>{if(location.href===lastRestoredUrl)return;lastRestoredUrl=location.href;readHash();apply({historyMode:null});};window.addEventListener('hashchange',restore);window.addEventListener('popstate',restore);
+  [search,genre,status,country,sort,direct,reset].filter(Boolean).forEach(control=>{control.disabled=false;});
   readHash();apply({historyMode:null});
 })();
