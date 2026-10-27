@@ -33,6 +33,16 @@ class Rotacion(util.Caso):
         self.assertEqual(self.inv.elegir_par(self.c)[2], 3)  # y sigue: no hay catalogo que se acabe
         self.assertGreaterEqual(n, 100)
 
+    def test_job_en_error_con_la_misma_clave_se_reintenta_y_no_atasca_el_servicio(self):
+        self.assertTrue(self.inv.encolar_investigacion(self.c))
+        j = self.inv.next_job(self.c)
+        self.c.execute("UPDATE jobs SET estado='error', intentos=3, no_antes='2099-01-01T00:00:00' WHERE id=?", (j["id"],)); self.c.commit()
+        self.assertIsNone(self.inv.next_job(self.c))
+        self.assertTrue(self.inv.encolar_investigacion(self.c))
+        r = self.inv.next_job(self.c)
+        self.assertEqual((r["clave"], r["estado"], r["intentos"]), (j["clave"], "pendiente", 0))
+
+
 
 class Investigacion(util.Caso):
     def procesar(self, job, texto):

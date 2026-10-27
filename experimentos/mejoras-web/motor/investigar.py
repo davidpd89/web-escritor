@@ -103,6 +103,8 @@ def encolar_investigacion(c):
     payload = {"area": area, "lente": lente, "epoca": epoca}
     cur = c.execute("INSERT OR IGNORE INTO jobs(clave,tipo,area,estado,payload,creado,actualizado) VALUES(?,?,?,?,?,?,?)",
                     (clave, "I", f"{area}|{lente}", "pendiente", json.dumps(payload), mw.now(), mw.now()))
+    if cur.rowcount == 0:  # misma clave ya en ERROR (el par no se marca hasta que acaba bien): se reintenta en vez de quedar atascado para siempre
+        cur = c.execute("UPDATE jobs SET estado='pendiente', intentos=0, no_antes=NULL, actualizado=? WHERE clave=? AND estado='error'", (mw.now(), clave))
     c.commit()
     return cur.rowcount > 0
 
