@@ -152,3 +152,15 @@ class Candidata(util.Caso):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PeligroEnTextoNoEsPeligro(unittest.TestCase):
+    def test_palabra_en_comentario_o_cadena_no_cuenta_pero_el_import_si(self):
+        self.assertIsNone(parches.peligro_python('"""usa importlib"""
+# eval
+x = "exec("
+assert x
+'))
+        self.assertEqual(parches.peligro_python("import importlib.util
+assert 1
+"), "importlib")

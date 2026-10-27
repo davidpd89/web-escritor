@@ -184,7 +184,13 @@ def prompt_desarrollar(job, c):
 
 
 def prompt_de(job, c):
-    return prompt_investigar(job, c) if job["tipo"] == "I" else prompt_desarrollar(job, c)
+    if job["tipo"] == "I": return prompt_investigar(job, c)
+    texto = prompt_desarrollar(job, c)
+    err = (job["error"] if "error" in job.keys() else None) or ""
+    if err.startswith(("respuesta invalida", "parche invalido")) and "(primer intento)" in texto:
+        # el rechazo del validador viaja al reintento: antes GPT repetia el mismo fallo 3 veces (MW-0008, 27/10)
+        texto = texto.replace("(primer intento)", err[:500], 1)
+    return texto
 
 
 # ---------- ingesta ----------

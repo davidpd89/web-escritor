@@ -90,9 +90,26 @@ PELIGROSO_PY = re.compile(r"\b(subprocess|os\.system|os\.popen|os\.exec\w*|os\.s
 ESCRIBE_PY = {"write_text", "write_bytes", "unlink", "rmdir", "rename", "replace", "touch", "mkdir", "symlink_to", "chmod"}
 
 
+def sin_comentarios_ni_cadenas(texto):
+    """Python con comentarios y literales de texto en blanco (mismas posiciones): `importlib` en un docstring o `exec` en una cadena de HTML no es una
+    llamada peligrosa. Si no tokeniza, se examina el texto entero (conservador)."""
+    import io, tokenize
+    lineas = texto.split(chr(10))
+    try:
+        for t in tokenize.generate_tokens(io.StringIO(texto).readline):
+            if t.type != tokenize.COMMENT and t.type != tokenize.STRING and t.type not in (getattr(tokenize, "FSTRING_MIDDLE", -1),): continue
+            (f0, c0), (f1, c1) = t.start, t.end
+            for n in range(f0, f1 + 1):
+                l = lineas[n - 1]; i = c0 if n == f0 else 0; j = c1 if n == f1 else len(l)
+                lineas[n - 1] = l[:i] + " " * (j - i) + l[j:]
+    except (tokenize.TokenError, IndentationError, SyntaxError):
+        return texto
+    return chr(10).join(lineas)
+
+
 def peligro_python(texto):
     """-> descripcion del primer uso peligroso o None. Regex para nombres y AST para `open()` con modo de escritura y metodos de Path que modifican el disco."""
-    m = PELIGROSO_PY.search(texto)
+    m = PELIGROSO_PY.search(sin_comentarios_ni_cadenas(texto))
     if m: return m.group(0)
     try: arbol = ast.parse(texto)
     except SyntaxError: return None  # la sintaxis se informa aparte
