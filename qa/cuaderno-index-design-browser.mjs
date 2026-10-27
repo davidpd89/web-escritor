@@ -120,9 +120,27 @@ try {
         assert.equal(featureBody.borderLeftWidth, '0px', `${name}: rail destacado no se limpia <=900`);
       }
 
-      assert.equal(await page.locator('.cuaderno-ledger > .cuaderno-entry').count(), 7, `${name}: archivo no conserva cinco entradas`);
-      assert.deepEqual(await page.locator('.cuaderno-entry__index').allInnerTexts(), ['02', '03', '04', '05', '06', '07', '08'], `${name}: índices del archivo alterados`);
-      const ledger = await style(page.locator('.cuaderno-ledger'));
+      const archive = page.locator('ol.cuaderno-ledger');
+      assert.equal(await archive.count(), 1, `${name}: lista ordenada del archivo ausente o duplicada`);
+      assert.equal(await archive.getAttribute('role'), 'list', `${name}: archivo sin rol accesible de lista`);
+      assert.equal(await archive.getAttribute('start'), '2', `${name}: atributo start del archivo incorrecto`);
+      assert.equal(await archive.evaluate(el => el.start), 2, `${name}: numeración DOM del archivo incorrecta`);
+      assert.equal(await archive.locator(':scope > li').count(), 7, `${name}: archivo no conserva siete entradas directas`);
+      assert.deepEqual(await archive.locator(':scope > li > .cuaderno-entry__index').allInnerTexts(), ['02', '03', '04', '05', '06', '07', '08'], `${name}: índices visibles del archivo alterados`);
+      assert.deepEqual(
+        await archive.locator(':scope > li .cuaderno-entry__body h3 a').evaluateAll(links => links.map(link => link.getAttribute('href'))),
+        [
+          '/cuaderno/que-es-el-portal-fantasy/',
+          '/cuaderno/portal-fantasy-vs-fantasia-epica/',
+          '/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/',
+          '/cuaderno/worldbuilding-noveris-ciudad-magica/',
+          '/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/',
+          '/recomendaciones/portal-fantasy-espanol/',
+          '/recomendaciones/magia-con-coste/',
+        ],
+        `${name}: enlaces del archivo alterados`,
+      );
+      const ledger = await style(archive);
       assert.equal(ledger.borderTopColor, BLUE, `${name}: ledger sin apertura azul`);
       assert.equal(ledger.borderBottomColor, GOLD, `${name}: ledger sin cierre dorado`);
       assert.equal((await style(page.locator('.cuaderno-entry__index').first())).color, GOLD, `${name}: índice ledger no dorado`);
