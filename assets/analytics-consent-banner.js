@@ -126,7 +126,7 @@ function showAnalyticsConsentBanner() {
   // holds is keeping the banner as short as the original, at 328px with
   // tight-but-legible button padding/font-size, rather than picking a
   // width and hoping nothing sits underneath it.
-  bar.style.cssText = "position:fixed;left:.75rem;bottom:.75rem;z-index:899;display:flex;flex-direction:column;gap:.5rem;width:328px;max-width:calc(100% - 1.5rem);padding:.85rem;background:var(--surface-page,#fff);color:var(--dp-ink,#171412);font:13px/1.4 var(--font-ui,system-ui,sans-serif);border:1px solid var(--dp-ink,#171412);border-radius:var(--radius-control,4px);box-shadow:0 4px 16px rgba(0,0,0,.18);pointer-events:none;";
+  bar.style.cssText = "position:fixed;left:.75rem;bottom:.75rem;z-index:899;display:flex;flex-direction:column;gap:.5rem;width:328px;max-width:calc(100% - 1.5rem);padding:.85rem;background:var(--surface-page,#fff);color:var(--dp-ink,#171412);font:14px/1.4 var(--font-ui,system-ui,sans-serif);border:1px solid var(--dp-ink,#171412);border-radius:var(--radius-control,4px);box-shadow:0 4px 16px rgba(0,0,0,.18);pointer-events:none;";
 
   const text = document.createElement("p");
   text.style.cssText = "margin:0;";
