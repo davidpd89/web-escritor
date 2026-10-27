@@ -501,16 +501,50 @@ class Ciclo:
         try: return {f["ruta"] for f in json.loads(row["parche"])["ficheros"]}
         except (TypeError, ValueError, KeyError): return set()
 
+    # Trampas conocidas del repo que hacen caer la CI de un arreglo correcto: la causa se dice al desarrollador, no solo el nombre del check
+    # (lotes #927/#932/#936: CSS inline de offline.html sin regenerar el hash CSP; #935: detector de presupuestos sin recapturar; #933: pagina generada editada a mano)
+    PISTAS_CI = (
+        (r"SHA-256 .*(ausente|desactualizado)|shell desactualizado|build-site-shell", "Hashes CSP o shell desactualizados: tras tocar CSS/JS inline de offline.html, video-ios-test/index.html o cualquier pagina con shell, ejecuta `python3 scripts/build-site-shell.py` y sube lo que regenere."),
+        (r"performance budget|total_bytes=\d+ > limit|request_count=\d+ > limit", "Presupuesto de rendimiento: si el cambio es legitimo, recaptura baseline y limits en data/performance-budgets.json con una nota que lo justifique (`python3 scripts/check-performance-budgets.py --check`)."),
+        (r"content-indexes|Regenerate with|Regenera con", "Salida generada desactualizada: no edites a mano paginas generadas; cambia su generador en scripts/build-*.py y regeneralo (ver `--check` del generador)."),
+        (r"check-asset-versions|asset reference|content hash", "Asset con ?v=: sube la version en scripts/check-asset-versions.py y ejecuta `python3 scripts/check-asset-versions.py --update-hashes`."),
+    )
+
     def _log_ci_rojo(self, v):
         rojos = [x for x in v.get("statusCheckRollup") or [] if x.get("conclusion") in ("FAILURE", "TIMED_OUT")]
         txt = "CI rojo en: " + ", ".join(sorted({x.get("name") or x.get("context") or "?" for x in rojos}))[:300]
         rids = list(dict.fromkeys(m.group(1) for x in rojos if (m := re.search(r"/actions/runs/(\d+)", x.get("detailsUrl") or ""))))
+        pistas, vistos = [], 0
         for rid in rids[:2]:
             try: log = self.gh.log_failed(rid)
             except Exception: continue
+            if (log or "").strip(): vistos += 1
             lineas = [l.split("\t")[-1] for l in (log or "").splitlines() if re.search(r"FAIL|Error|assert|Traceback|exit code", l, re.I)]
             txt += "\n" + "\n".join(lineas[-12:])[-700:]
-        return txt[:900]
+            pistas += [h for rx, h in self.PISTAS_CI if re.search(rx, log or "", re.I) and h not in pistas]
+        if rids and not vistos: txt += "\n(Actions no ofrecio el log del fallo: diagnostica por el nombre del check)"
+        return (txt[:900] + ("\nPISTA: " + " ".join(pistas) if pistas else ""))[:1500]
+
+    def _relanzar_cancelados(self, v):
+        """Un check CANCELLED sin ningun FAILURE es el runner, no el arreglo (reflow-sitewide: un shard colgado 45 min y cancelado, #896). Cerrar el lote
+        por eso tiraba un arreglo bueno: se relanzan UNA vez los jobs fallidos de cada run. -> True si se relanzo algo."""
+        roll = v.get("statusCheckRollup") or []
+        if any(x.get("conclusion") in ("FAILURE", "TIMED_OUT", "ACTION_REQUIRED", "STARTUP_FAILURE") or x.get("state") in ("FAILURE", "ERROR") for x in roll): return False
+        cancelados = [x for x in roll if x.get("conclusion") == "CANCELLED"]
+        rids = list(dict.fromkeys(m.group(1) for x in cancelados if (m := re.search(r"/actions/runs/(\d+)", x.get("detailsUrl") or ""))))
+        if not rids or not hasattr(self.gh, "rerun_fallidos"): return False
+        marca = Path(self.q.STATE) / "lote" / "relanzados_lote.json"
+        try: hechos = set(json.loads(marca.read_text(encoding="utf-8")))
+        except (OSError, ValueError): hechos = set()
+        nuevos = [r for r in rids if r not in hechos]
+        if not nuevos: return False
+        relanzado = False
+        for rid in nuevos:
+            try: self.gh.rerun_fallidos(rid); hechos.add(rid); relanzado = True
+            except Exception as e: self.out(f"  CI cancelado: no se pudo relanzar el run {rid} ({str(e)[:80]})")
+        try: marca.parent.mkdir(parents=True, exist_ok=True); marca.write_text(json.dumps(sorted(hechos)[-300:]), encoding="utf-8")
+        except OSError: pass
+        return relanzado
 
     CLAUDE_VENTAJA_MIN = 20
 
@@ -622,6 +656,8 @@ class Ciclo:
                     c.execute("UPDATE triaje SET pr_estado='listo_lote',integracion=NULL,pr_nueva=0,pr_numero=0,dev_estado='listo_lote',revision=NULL,revision_hash=NULL,actualizado=? WHERE pr_numero=? AND pr_nueva=1", (q.now(), row["pr_numero"])); c.commit()
                     r["lotes_reencolados"] = r.get("lotes_reencolados", 0) + 1; self.out(f"  lote #{row['pr_numero']} en conflicto: reencolado"); continue
             if v.get("mergeable") == "CONFLICTING": c.execute("UPDATE triaje SET integracion='conflicto',pr_head=? WHERE pr_numero=? AND pr_nueva=1", (head, row["pr_numero"])); c.commit(); continue
+            if ci == "rojo" and cfg["modo_pr"] == "lote" and self._relanzar_cancelados(v):
+                r["ci_relanzada"] = r.get("ci_relanzada", 0) + 1; self.out(f"  lote #{row['pr_numero']}: checks cancelados (runner), se relanzan una vez antes de dividir o cerrar"); continue
             if ci == "rojo" and cfg["modo_pr"] == "lote" and c.execute("SELECT COUNT(*) FROM triaje WHERE pr_numero=? AND pr_nueva=1", (row["pr_numero"],)).fetchone()[0] > 1:
                 try: self.gh.pr_cerrar(row["pr_url"], "CI rojo en el lote: se divide en mitades para localizar la correccion culpable (biseccion)")
                 except Exception as e: self.out(f"  lote #{row['pr_numero']}: no se pudo cerrar ({str(e)[-80:]})")

@@ -15,6 +15,9 @@ FileNotFoundError: [WinError 206] El nombre del archivo o la extension es demasi
 '''
 
 
+LOG_OK = "build-and-test\tRun tests\tFAIL: tests/test-security-csp-inline-hashes.py: offline.html: SHA-256 de <style> ausente o desactualizado\n" * 2
+
+
 def g(*a, cwd):
     return subprocess.run(["git", *a], cwd=cwd, capture_output=True, text=True, check=True).stdout.strip()
 
@@ -125,7 +128,7 @@ class MainRojo(Base):
             if cmd[0] == "cmd": return 0, ""
             return S.Supervisor._run_real(cmd, cwd, timeout, env)
         s = self.sup(lambda wt: (wt / "a.html").write_text("<p>a2</p>\n")); s._run = run
-        self.assertEqual(s.reparar_main("99", "log"), "pr_abierta")
+        self.assertEqual(s.reparar_main("99", LOG_OK), "pr_abierta")
         ficheros = g("show", "--name-only", "--format=", "qa-fix/main-99", cwd=origen).split()
         self.assertEqual(sorted(ficheros), ["a.html", "b.html", "pagefind/i.json"])  # b.html: reescrita por el shell
         self.assertIn("<p class=s>a2", g("show", "qa-fix/main-99:a.html", cwd=origen))
@@ -144,7 +147,7 @@ class MainRojo(Base):
             return S.Supervisor._run_real(cmd, cwd, timeout, env)
         s = self.sup(lambda wt: (wt / "a.html").write_text("<p>a2</p>\n")); s._run = run
         s.dir.mkdir(parents=True, exist_ok=True); (s.dir / "historial.log").write_text("2026-10-25T21:18:58 main-rojo:98 -> claude_fallo: max_turns agotados\n", encoding="utf-8")
-        self.assertEqual(s.reparar_main("98", "log"), "pr_abierta")
+        self.assertEqual(s.reparar_main("98", LOG_OK), "pr_abierta")
         self.assertIn("claude_fallo: max_turns agotados", self.llamadas[0][1])  # el reintento sabe que fallo antes: no repite lo mismo
         self.assertEqual(g("show", "--name-only", "--format=", "qa-fix/main-98", cwd=origen).split(), ["a.html"])
 
@@ -225,3 +228,45 @@ class PodarCi(Base):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LogDelFallo(Base):
+    """Main en rojo respondio no_se_puede cuatro veces con el log vacio o sin adjuntar (runs 40371787280, 40354533275, 40404206665, 40411038592)."""
+    def test_log_util_rechaza_vacio_cabeceras_y_errores_de_gh(self):
+        self.assertFalse(S.log_util("")); self.assertFalse(S.log_util(None)); self.assertFalse(S.log_util("  \n "))
+        self.assertFalse(S.log_util("== job build (failure); pasos fallidos: Run tests\n"))
+        self.assertFalse(S.log_util("gh: run 40411038592 has not completed; logs will be available when it is complete" + " " * 100))
+        self.assertTrue(S.log_util(LOG_OK))
+
+    def test_sin_log_no_llama_a_claude_avisa_y_no_gasta_intentos(self):
+        s = self.sup(); salida = []; s.out = salida.append; peticiones = []
+        s._run = lambda cmd, cwd, timeout=600, env=None: peticiones.append(cmd) or (0, "")  # gh no ofrece nada
+        self.assertEqual(s.reparar_main("500", ""), "sin_log")
+        self.assertEqual(self.llamadas, [])  # Claude no responde no_se_puede a ciegas
+        self.assertTrue(any("ATENCION" in x and "500" in x for x in salida))
+        self.assertIn("main-rojo:500", (s.dir / "historial.log").read_text(encoding="utf-8"))
+        self.assertTrue(any(c[:3] == ["gh", "run", "view"] and "--log-failed" in c for c in peticiones))
+        self.assertEqual(s._registro()["main-rojo:500"].split(" ")[2], "0")  # sin_log no cuenta como intento
+        for _ in range(5): s.anotar("main-rojo:500", "sin_log", "")
+        orig = q.now; self.addCleanup(lambda: setattr(q, "now", orig))
+        q.now = lambda: "2999-01-01T00:00:00"; self.assertTrue(s.permitido("main-rojo:500"))  # pasada la hora vuelve a intentarlo
+
+    def test_log_vacio_se_recupera_con_log_failed_o_con_el_log_de_cada_job(self):
+        s = self.sup()
+        s._run = lambda cmd, cwd, timeout=600, env=None: (0, LOG_OK) if "--log-failed" in cmd else (1, "")
+        self.assertEqual(s.obtener_log("1", ""), (LOG_OK, ""))
+        trabajos = json.dumps({"jobs": [{"name": "browser-qa", "databaseId": 9, "conclusion": "failure", "steps": [{"name": "Run QA", "conclusion": "failure"}]},
+                                        {"name": "ok", "databaseId": 8, "conclusion": "success", "steps": []}]})
+        def run(cmd, cwd, timeout=600, env=None):
+            if "--log-failed" in cmd: return 0, ""  # el caso real: vacio
+            if "--json" in cmd: return 0, trabajos
+            if cmd[1] == "api": return 0, LOG_OK if "/jobs/9/" in cmd[2] else "no debe pedirse"
+            return 1, ""
+        s._run = run; log, motivo = s.obtener_log("2", "x")
+        self.assertEqual(motivo, ""); self.assertIn("== job browser-qa (failure); pasos fallidos: Run QA", log); self.assertIn("SHA-256", log)
+        self.assertEqual(s.obtener_log("3", LOG_OK), (LOG_OK, ""))  # un log bueno recibido no se vuelve a pedir
+
+    def test_sin_log_explica_que_se_intento(self):
+        s = self.sup(); s._run = lambda cmd, cwd, timeout=600, env=None: (0, json.dumps({"jobs": [{"name": "j", "databaseId": 1, "conclusion": "cancelled", "steps": []}]})) if "--json" in cmd else (0, "")
+        log, motivo = s.obtener_log("4", ""); self.assertEqual(log, ""); self.assertIn("--log-failed", motivo); self.assertIn("1 fallidos sin log", motivo)
+
