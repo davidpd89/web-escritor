@@ -72,6 +72,14 @@
   const items = [...document.querySelectorAll('[data-radar-item]')];
   if (!items.length) return;
 
+  items.forEach((item) => {
+    const title = item.querySelector('h2')?.textContent?.trim();
+    if (!title) return;
+    item.querySelectorAll('[data-radar-source]').forEach((source) => {
+      source.setAttribute('aria-label', `Consultar convocatoria y bases: ${title}`);
+    });
+  });
+
   const query = document.querySelector('[data-radar-search]');
   const type = document.querySelector('[data-radar-type]');
   const genre = document.querySelector('[data-radar-genre]');
