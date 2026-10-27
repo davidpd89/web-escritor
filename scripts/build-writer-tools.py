@@ -39,8 +39,14 @@ SLUG_RE=re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 def fail(msg): raise ValueError(msg)
 def is_https(url):
     try:
-        p=urlparse(url); return p.scheme=="https" and bool(p.netloc)
-    except Exception: return False
+        if not isinstance(url, str) or any(c.isspace() or ord(c) < 32 or ord(c) == 127 for c in url):
+            return False
+        p=urlparse(url)
+        return (p.scheme == 'https' and bool(p.netloc) and bool(p.hostname)
+                and p.username is None and p.password is None
+                and '@' not in p.netloc and not p.fragment)
+    except ValueError:
+        return False
 
 def validate(data):
     if data.get("schema_version")!=1: fail("schema_version debe ser 1")
@@ -231,7 +237,7 @@ def render(data):
   <footer class="site-footer"></footer>
 
   <script defer src="/assets/v1-shell.js?v=24"></script>
-  <script src="/assets/writer-tools.js?v=1" defer></script>
+  <script src="/assets/writer-tools.js?v=2" defer></script>
 </body>
 </html>'''
 
