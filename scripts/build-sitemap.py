@@ -86,9 +86,12 @@ def extract_meta(text: str):
             canonical = h.group(1).strip()
 
     noindex = False
-    for r in re.finditer(r'<meta[^>]+name=["\']robots["\'][^>]*>', text, flags=re.I):
-        c = re.search(r'content=["\']([^"\']+)["\']', r.group(0), flags=re.I)
-        if c and "noindex" in {directive.strip().lower() for directive in c.group(1).split(",")}:
+    for r in re.finditer(r'<meta\b[^>]*>', text, flags=re.I):
+        if not re.search(r'\bname\s*=\s*(?:["\']\s*robots\s*["\']|robots(?=[\s/>]))', r.group(0), flags=re.I):
+            continue
+        c = re.search(r'\bcontent\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^\s"\'>]+))', r.group(0), flags=re.I)
+        val = (c.group(1) or c.group(2) or c.group(3) or "") if c else ""
+        if "noindex" in {directive.strip().lower() for directive in val.split(",")}:
             noindex = True
             break
 
@@ -175,9 +178,11 @@ def normalize_canonical(canonical: str | None, root: Path, path: Path) -> str | 
                     return None
             except ValueError:
                 return None
-            return canonical.rstrip("/") + ("/" if canonical.endswith("/") else "")
+            cpath = parsed.path
+            return (DOMAIN + cpath).rstrip("/") + ("/" if cpath.endswith("/") else "")
         if canonical.startswith("/"):
-            return (DOMAIN + canonical).rstrip("/") + ("/" if canonical.endswith("/") else "")
+            cpath = urlsplit(canonical).path
+            return (DOMAIN + cpath).rstrip("/") + ("/" if cpath.endswith("/") else "")
         if "://" in canonical or canonical.startswith(("javascript:", "data:", "mailto:")):
             return None
 
