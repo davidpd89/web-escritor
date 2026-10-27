@@ -1,3 +1,4 @@
+from unittest.mock import patch
 import json, os, re, subprocess, sys, unittest
 from pathlib import Path
 from types import SimpleNamespace as NS
@@ -17,17 +18,19 @@ class Aislamiento(util.Caso):
     def test_detecta_estado_puerto_y_perfil_del_qa(self):
         self.assertTrue(mw.verificar_aislamiento(state=r"C:\GIT\qa-gpt-state"))
         self.assertTrue(mw.verificar_aislamiento(puerto=9230)); self.assertTrue(mw.verificar_aislamiento(puerto=9224))
-        self.assertTrue(mw.verificar_aislamiento(perfil=r"C:\Temp\web-escritor-qa-gpt-edge"))
+        self.assertEqual(mw.verificar_aislamiento(perfil=r"C:\Temp\web-escritor-qa-gpt-edge"), [])  # perfil compartido a proposito
 
     def test_edge_launcher_rehusa_puerto_y_perfil_del_qa(self):
-        for kw in ({"port": 9230}, {"port": 9225}, {"prof": r"C:\Temp\web-escritor-qa-gpt-edge"}):
+        for kw in ({"port": 9230}, {"port": 9225}):
             with self.assertRaises(SystemExit): edge_launcher.comprobar_aislamiento(**kw)
-        edge_launcher.comprobar_aislamiento()  # el del laboratorio si
+        with patch.object(edge_launcher, "_qa_vivo", return_value=False): edge_launcher.comprobar_aislamiento()  # perfil compartido, QA parado
+        with patch.object(edge_launcher, "_qa_vivo", return_value=True):
+            with self.assertRaises(SystemExit): edge_launcher.comprobar_aislamiento()  # QA abierto con el mismo perfil
         f = edge_launcher.flags(); self.assertIn("--remote-debugging-port=9331", f); self.assertIn("--remote-debugging-address=127.0.0.1", f)
-        self.assertFalse([x for x in f if "9230" in x or "qa-gpt" in x])
+        self.assertFalse([x for x in f if "9230" in x])
 
     def test_gpt_browser_rechaza_el_project_y_puertos_del_qa(self):
-        with self.assertRaises(ValueError): gpt_browser.configurar(project_id=gpt_browser.PROJECT_QA)
+        gpt_browser.configurar(project_id=gpt_browser.PROJECT_QA)  # Project compartido con el QA
         with self.assertRaises(ValueError): gpt_browser.configurar(port=9230)
         with self.assertRaises(ValueError): gpt_browser.configurar(project_id="no-es-un-id")
         gpt_browser.configurar(9331, "g-p-" + "ab12" * 8); self.assertTrue(gpt_browser.PROJECT_URL.endswith("/project"))

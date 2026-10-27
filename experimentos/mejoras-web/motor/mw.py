@@ -78,7 +78,6 @@ def verificar_aislamiento(state=None, puerto=None, perfil=None):
     if puerto in PUERTOS_QA: p.append(f"puerto CDP {puerto} es del QA original")
     s = str(state).lower().replace("\\", "/")
     if any(x in s for x in RUTAS_QA): p.append(f"el estado {state} esta en una ruta del QA original")
-    if perfil and any(x in str(perfil).lower() for x in RUTAS_QA): p.append(f"el perfil de Edge {perfil} es del QA original")
     if not CFG["prefijo_rama"].startswith("mejoras-web/") or CFG["prefijo_rama"].startswith(PREFIJOS_AJENOS): p.append("prefijo de rama no aislado")
     if str(CFG["rama_base"]) in ("main", "master"): p.append("rama_base no puede ser main")
     return p

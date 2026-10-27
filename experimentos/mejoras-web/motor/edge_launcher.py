@@ -18,7 +18,8 @@ EDGE = os.environ.get("MEJORAS_WEB_EDGE", r"C:\Program Files (x86)\Microsoft\Edg
 
 def perfil():
     base = os.environ.get("LOCALAPPDATA") or str(Path.home() / ".local" / "state")
-    return os.environ.get("MEJORAS_WEB_PERFIL", str(Path(base) / "web-escritor-mejoras-web" / "edge-perfil"))
+    # Perfil COMPARTIDO con el QA (ya con sesion de ChatGPT): QA y laboratorio nunca corren a la vez.
+    return os.environ.get("MEJORAS_WEB_PERFIL", PERFIL_QA)
 
 
 def project_url():
@@ -29,8 +30,14 @@ def project_url():
 def comprobar_aislamiento(port=None, prof=None):
     port, prof = port or PORT, prof or perfil()
     if port in PUERTOS_QA: raise SystemExit(f"puerto CDP {port} reservado al QA original")
-    if os.path.normcase(os.path.abspath(prof)) == os.path.normcase(os.path.abspath(PERFIL_QA)) or "qa-gpt" in prof.lower():
-        raise SystemExit(f"el perfil {prof} es (o parece) el del QA original")
+    if os.path.normcase(os.path.abspath(prof)) == os.path.normcase(os.path.abspath(PERFIL_QA)) and _qa_vivo():
+        raise SystemExit("el Edge del QA (9230) sigue abierto con este perfil: cierra el QA antes de iniciar el laboratorio")
+
+
+def _qa_vivo():
+    import urllib.request
+    try: urllib.request.urlopen("http://127.0.0.1:9230/json/version", timeout=1); return True
+    except Exception: return False
 
 
 def flags(port=None, prof=None):

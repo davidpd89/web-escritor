@@ -40,7 +40,7 @@ muestran un mensaje claro si falta algo.
 3. Microsoft Edge, `gh` (con `gh auth login` y scope `workflow`: `gh auth refresh -s repo,workflow`) y, para tests `.mjs`, Node 22 y un `node_modules` con Playwright (opcional; se enlaza si pones su ruta en `config.json` → `actions.node_modules`, por defecto `<estado>\node_modules`; **no se reutiliza el del QA**).
 4. Claude Code CLI **nativo** (`claude`), con sesion iniciada. Se localiza en `MEJORAS_WEB_CLAUDE_EXE`, `~\.local\bin\claude.exe`, el paquete npm o el PATH.
 5. Crea un **Project de ChatGPT nuevo** (instrucciones en `project_instructions.md`, conector de GitHub al repo) y pon su id `g-p-...` en `config.json` → `gpt.project_id` (o `MEJORAS_WEB_PROJECT_ID`). El id del Project del QA se rechaza.
-6. Primera vez: `INICIAR-MEJORAS-WEB.bat` abre un Edge con perfil nuevo en `%LOCALAPPDATA%\web-escritor-mejoras-web\edge-perfil`; inicia sesion en ChatGPT ahi (una vez; no se copia ninguna sesion del QA).
+6. El laboratorio comparte con el QA el Project de ChatGPT (`gpt.project_id`) y el perfil de Edge `C:\Temp\web-escritor-qa-gpt-edge` (sesion ya iniciada), pero en el puerto 9331. QA y laboratorio NO pueden correr a la vez: cierra el QA (y su Edge) antes de `INICIAR-MEJORAS-WEB.bat`. Las instrucciones del Project son las del QA; los prompts del laboratorio llevan su contexto completo en cada chat.
 
 Estado persistente (fuera de Git): `%LOCALAPPDATA%\web-escritor-mejoras-web\estado\` (`mejoras.db`, `servicio.log`, `actions\ejecutar.log`, `respuestas\`, `wt\`). Se puede mover con `MEJORAS_WEB_STATE`.
 

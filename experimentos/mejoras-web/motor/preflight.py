@@ -38,7 +38,7 @@ def verificar(real=False):
         try: mw.refrescar_base(forzar=True); comprobar("rama_base", True, f"{mw.fuente_ref()} @ {mw.head_base()[:10]}")
         except Exception as exc: comprobar("rama_base", False, str(exc)[:240])
         pid = mw.CFG["gpt"].get("project_id", "")
-        comprobar("project_chatgpt", pid.startswith("g-p-") and pid != "g-p-6adb128351e481919fef7901e111d1ac", "configurado" if pid else "FALTA gpt.project_id en config.json (o MEJORAS_WEB_PROJECT_ID)")
+        comprobar("project_chatgpt", pid.startswith("g-p-"), "configurado" if pid else "FALTA gpt.project_id en config.json (o MEJORAS_WEB_PROJECT_ID)")
         try: pw = importlib.util.find_spec("playwright.sync_api") is not None
         except (ImportError, ModuleNotFoundError): pw = False
         comprobar("playwright", pw, "playwright importable" if pw else "pip install playwright")

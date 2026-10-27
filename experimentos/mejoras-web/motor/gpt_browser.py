@@ -13,7 +13,7 @@ import os, re, time
 from dataclasses import dataclass
 
 PORT = 9331  # Edge del laboratorio; el QA original usa 9230 (y 9224/9225): este modulo nunca habla con ellos
-PROJECT_QA = "g-p-6adb128351e481919fef7901e111d1ac"  # Project del QA original: prohibido aqui (instrucciones y conversaciones distintas)
+PROJECT_QA = "g-p-6adb128351e481919fef7901e111d1ac"  # Project del QA: COMPARTIDO con el laboratorio (nunca corren a la vez)
 PROJECT_ID = ""
 PROJECT_URL = ""
 
@@ -26,7 +26,6 @@ def configurar(port=None, project_id=None):
         PORT = int(port)
     if project_id is not None:
         project_id = str(project_id).strip()
-        if project_id == PROJECT_QA: raise ValueError("ese es el Project del QA original; el laboratorio necesita el suyo")
         if project_id and not re.fullmatch(r"g-p-[0-9a-f]{20,}", project_id): raise ValueError("Project id invalido (se espera g-p-<hex>)")
         PROJECT_ID = project_id
         PROJECT_URL = f"https://chatgpt.com/g/{PROJECT_ID}/project" if PROJECT_ID else ""
