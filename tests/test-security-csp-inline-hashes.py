@@ -29,6 +29,9 @@ class Scripts(HTMLParser):
             self.blocks.append(''.join(self.buffer))
             self.active = False
 
+STYLE_RE = re.compile(r'<style(?![^>]*\bsrc=)[^>]*>([\s\S]*?)</style>', re.I)
+styles_checked = 0
+
 files = subprocess.check_output(['git', 'ls-files', '-z', '*.html'], cwd=ROOT).decode().split('\0')
 errors = []
 checked = 0
@@ -38,9 +41,20 @@ for rel in files:
     html = (ROOT / rel).read_text(encoding='utf-8')
     parser = Scripts()
     parser.feed(html)
+    csp = re.search(r'<meta\s+http-equiv="Content-Security-Policy"\s+content="([^"]+)"', html, re.I)
+    if csp:
+        style_src = re.search(r'(?:^|;)\s*style-src\s([^;]*)', csp.group(1))
+        # Sin 'unsafe-inline', cada <style> inline necesita su hash exacto.
+        if style_src and "'unsafe-inline'" not in style_src.group(1):
+            for style in STYLE_RE.findall(html):
+                if not style.strip():
+                    continue
+                styles_checked += 1
+                digest = base64.b64encode(hashlib.sha256(style.encode('utf-8')).digest()).decode('ascii')
+                if "'sha256-" + digest + "'" not in style_src.group(1):
+                    errors.append(f'{rel}: SHA-256 de <style> ausente o desactualizado (ejecuta scripts/build-site-shell.py)')
     if not parser.blocks:
         continue
-    csp = re.search(r'<meta\s+http-equiv="Content-Security-Policy"\s+content="([^"]+)"', html, re.I)
     if not csp:
         errors.append(f'{rel}: scripts inline sin CSP')
         continue
@@ -51,7 +65,7 @@ for rel in files:
         checked += 1
         digest = base64.b64encode(hashlib.sha256(script.encode('utf-8')).digest()).decode('ascii')
         if "'sha256-" + digest + "'" not in policy:
-            errors.append(f'{rel}: SHA-256 ausente o desactualizado')
+            errors.append(f'{rel}: SHA-256 ausente o desactualizado (ejecuta scripts/build-site-shell.py)')
 assert checked, 'No se encontraron scripts inline ejecutables'
 assert not errors, '\n'.join(errors[:100])
-print(f'PASS hashes CSP: {checked} scripts inline')
+print(f'PASS hashes CSP: {checked} scripts inline, {styles_checked} estilos inline')

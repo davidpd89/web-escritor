@@ -166,7 +166,7 @@ def card(item, expired=False):
 <h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
 <dl><div><dt>{deadline_term}</dt> <dd><time datetime="{esc(item['deadline'])}">{deadline_label}</time></dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div>{prize}{eligibility}{submission_mode}</dl>
 {note}
-<p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer">Consultar convocatoria y bases</a></p></article>'''
+<p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer" aria-label="Consultar convocatoria y bases: {esc(item['title'])}">Consultar convocatoria y bases</a></p></article>'''
 
 def watch_card(item):
     genres = ", ".join(item["genres"])
@@ -181,7 +181,7 @@ def watch_card(item):
 <h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
 <dl><div><dt>Estado</dt> <dd>{esc(item['status_note'])}</dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div>{expected}{reference}</dl>
 {note}
-<p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer">Consultar convocatoria y bases</a></p></article>'''
+<p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer" aria-label="Consultar convocatoria y bases: {esc(item['title'])}">Consultar convocatoria y bases</a></p></article>'''
 
 
 def watch_items(items, today):
