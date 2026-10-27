@@ -155,7 +155,7 @@ def audit_file(path: Path, root: Path) -> list[str]:
             continue
         seen.add(key)
         target = resolve_local(url, path, root)
-        if not target.exists():
+        if not target.is_file():
             errors.append(f"{rel}:{line}: missing local {kind} target: {url} -> {target.relative_to(root) if root in target.parents or target == root else target}")
     return errors
 
@@ -195,7 +195,7 @@ def audit_js_imports(root: Path) -> list[str]:
                 if not is_local(ref):
                     continue
                 target = resolve_local(ref, js_path, root)
-                if not target.exists():
+                if not target.is_file():
                     errors.append(f"{rel_js}: missing {label} target: {ref} -> {target}")
     return errors
 
@@ -220,7 +220,7 @@ def audit_css_urls(root: Path) -> list[str]:
             if not is_local(ref):
                 continue
             target = resolve_local(ref, css_path, root)
-            if not target.exists():
+            if not target.is_file():
                 errors.append(f"{rel_css}: missing CSS url() target: {ref} -> {target}")
     return errors
 
