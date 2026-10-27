@@ -31,8 +31,8 @@ assert.ok(!script.includes('dupeTitle:'), 'legacy duplicate-success copy must no
 assert.ok(!popup.includes('dupeTitle:'), 'legacy duplicate-success copy must not survive DOI migration in popup');
 
 assert.match(thanks, /<meta name="robots" content="noindex, follow"/);
-assert.ok(thanks.includes('localStorage.setItem("nl-subscribed", "1")'), 'DOI return marks browser confirmed');
-assert.ok(thanks.indexOf('localStorage.setItem("nl-subscribed", "1")') < thanks.indexOf('/script.js'), 'confirmed state must be set before global runtime');
+assert.ok(!thanks.includes('localStorage.setItem("nl-subscribed", "1")'), 'public DOI return must not mark browser confirmed without verification');
+assert.ok(!thanks.includes('localStorage.setItem("nl-subscribed",'), 'public DOI return must not write subscription state without verification');
 assert.ok(thanks.includes('Suscripción confirmada'));
 
 console.log('test-newsletter-doi-frontend: all assertions passed');
