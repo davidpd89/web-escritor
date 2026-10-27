@@ -30,6 +30,10 @@
   const ts = safeGet(DISMISSED_KEY);
   if (ts && Date.now() - Number(ts) < COOLDOWN) return;
 
+  // Evitar registrar varias instancias si el script se evalúa de nuevo.
+  if (window.__newsletterPopupInitialized) return;
+  window.__newsletterPopupInitialized = true;
+
   function popupCopy() {
     if (path.startsWith("/universo/noveris/") || path.startsWith("/clubes-de-lectura/")) {
       return {
@@ -122,6 +126,7 @@
       dismiss();
     });
     d.addEventListener("close", () => {
+      cleanupTriggers();
       restoreFocus();
       d.remove();
       if (dialog === d) dialog = null;
@@ -194,21 +199,27 @@
     }
 
     shown = true;
+    cleanupTriggers();
     safeSet(DISMISSED_KEY, String(Date.now()));
     dialog.querySelector("#nl-popup-email")?.focus({ preventScroll: true });
     return true;
   }
 
+  function cleanupTriggers() {
+    window.removeEventListener("scroll", onScroll);
+    document.removeEventListener("mouseleave", onLeave);
+  }
+
   function onScroll() {
     const ratio = window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    if (ratio >= 0.7 && showPopup()) window.removeEventListener("scroll", onScroll);
+    if (ratio >= 0.7) showPopup();
   }
   window.addEventListener("scroll", onScroll, { passive: true });
 
+  function onLeave(event) {
+    if (event.clientY <= 0) showPopup();
+  }
   if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    function onLeave(event) {
-      if (event.clientY <= 0 && showPopup()) document.removeEventListener("mouseleave", onLeave);
-    }
     document.addEventListener("mouseleave", onLeave);
   }
 
