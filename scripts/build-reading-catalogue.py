@@ -294,7 +294,7 @@ def book_title(b):
     if len(base) <= 75:
         return base
     suffix = ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8])
-    return b['titulo'][:74-len(suffix)].rsplit(' ', 1)[0] + '…' + suffix
+    return b['titulo'] + suffix
 
 
 def author_records(root=ROOT):
@@ -598,7 +598,7 @@ def render_book(data,b,template):
     if reviews:
         schema['@graph'][0]['review']=[{'@type':'Review','author':{'@type':'Person','name':r['nombre_publico']},'datePublished':r['fecha_envio'],'name':r['titulo_resena'],'reviewBody':r['texto_resena'],'reviewRating':{'@type':'Rating','ratingValue':r['puntuacion'],'bestRating':5,'worstRating':1}} for r in reviews]
         schema['@graph'][0]['aggregateRating']={'@type':'AggregateRating','ratingValue':round(sum(r['puntuacion'] for r in reviews)/len(reviews),2),'ratingCount':len(reviews),'bestRating':5,'worstRating':1}
-    return render_detail_page(template,main,canonical,title,description,schema,b)
+    return render_detail_page(template,main,canonical,title,description,schema,b,True)
 
 
 def related_books(data, book):
@@ -617,8 +617,8 @@ def related_books(data, book):
     return '<section class="catalogue-related" aria-labelledby="related-books"><h2 id="related-books">También te puede interesar</h2><ul>'+''.join('<li><a href="'+url(candidate)+'" target="_blank" rel="noopener noreferrer">'+esc(candidate['titulo'])+'</a><p>'+esc(', '.join(candidate['autores']))+'</p></li>' for _,_,candidate in ranked[:3])+'</ul></section>'
 
 
-def render_detail_page(template,main,canonical,title,description,schema,b=None):
-    if len(title) > 75:
+def render_detail_page(template,main,canonical,title,description,schema,b=None,keep_title=False):
+    if len(title) > 75 and not keep_title:
         title = title[:63].rsplit(' ', 1)[0] + ' · ' + hashlib.sha256(canonical.encode()).hexdigest()[:8]
     page=template.replace('{{catalogue}}','')
     main=newtab(main)
