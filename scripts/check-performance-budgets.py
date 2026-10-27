@@ -57,7 +57,9 @@ def resolve_local(root: Path, importer: Path, specifier: str) -> Path | None:
         return None
     if specifier.startswith("/"):
         candidate = root / specifier.lstrip("/")
-    elif specifier.startswith("."):
+    elif specifier.startswith(".") or (
+        importer.suffix.lower() == ".css" and not re.match(r"^[a-zA-Z][a-zA-Z0-9+.-]*:", specifier)
+    ):
         candidate = importer.parent / specifier
     else:
         # Bare module/package specifiers are external to this static artifact graph.
