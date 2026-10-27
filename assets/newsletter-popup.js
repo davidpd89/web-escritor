@@ -150,7 +150,13 @@
           });
           const panel = d.querySelector("#nl-popup-panel");
           if (result.ok && result.state === "pending_confirmation") {
-            panel.innerHTML = '<p class="nl-popup-result-title">' + copy.okTitle + '</p><p class="nl-popup-result-body">' + copy.okBody + '</p>';
+            const resultTitle = document.createElement("p");
+            resultTitle.className = "nl-popup-result-title";
+            resultTitle.textContent = copy.okTitle;
+            const resultBody = document.createElement("p");
+            resultBody.className = "nl-popup-result-body";
+            resultBody.textContent = copy.okBody;
+            panel.replaceChildren(resultTitle, resultBody);
             panel.tabIndex = -1;
             panel.focus({ preventScroll: true });
             _gcEvent("newsletter-pending-popup", "Newsletter DOI pendiente: popup");
