@@ -48,7 +48,7 @@ html.v1 [data-family="findability"] [id]{scroll-margin-top:7rem}
 /* #283: azul/dorado como jerarquia editorial en orientacion/mapa/recuperacion.
    Anadido tras las reglas estructurales de arriba (misma especificidad, gana
    por orden de cascada) -- ver la leccion de #282 sobre anteponer estas reglas. */
-html.v1 [data-family="findability"] .findability-hero__kicker{color:var(--findability-gold)}
+html.v1 [data-family="findability"] .findability-hero__kicker{color:#806000}
 html.v1 [data-family="findability"] .findability-hero h1,
 html.v1 [data-family="findability"] .findability-recovery h1{color:var(--findability-blue)}
 html.v1 [data-family="findability"] .findability-entry__no{color:var(--findability-blue)}
