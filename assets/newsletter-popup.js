@@ -12,6 +12,8 @@
 // STAGING_DISABLED_MESSAGE/_gcEvent, ya definidos por script.js, que se
 // carga antes que este fichero.
 (function () {
+  if (window.__newsletterPopupInitialized) return;
+  window.__newsletterPopupInitialized = true;
   const DISMISSED_KEY = "nl-popup-ts";
   const SUBSCRIBED_KEY = "nl-subscribed";
   const COOLDOWN = 7 * 24 * 60 * 60 * 1000;
