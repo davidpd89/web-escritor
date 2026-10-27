@@ -149,8 +149,19 @@ CONTEXTS: tuple[Context, ...] = (
         key="herramientas", label="Libros recomendados", home="/recomendaciones/",
         prefixes=(
             "/editoriales/",
-            "/convocatorias-escritores/",
+
         ),
+        exacts=(),
+        links=(
+            ("/recomendaciones/", "Catálogo"),
+            ("/recomendaciones/autores/", "Autores"),
+            ("/editoriales/", "Editoriales"),
+            ("/convocatorias-escritores/", "Concursos"),
+        ),
+    ),
+    Context(
+        key="herramientas", label="Convocatorias y concursos", home="/convocatorias-escritores/",
+        prefixes=("/convocatorias-escritores/",),
         exacts=(),
         links=(
             ("/recomendaciones/", "Catálogo"),

@@ -81,7 +81,17 @@
     },
     {
       key: 'herramientas', label: 'Libros recomendados', home: '/recomendaciones/',
-      matches: (path) => path.startsWith('/editoriales/') || path.startsWith('/convocatorias-escritores/'),
+      matches: (path) => path.startsWith('/editoriales/'),
+      links: [
+        ['/recomendaciones/', 'Catálogo'],
+        ['/recomendaciones/autores/', 'Autores'],
+        ['/editoriales/', 'Editoriales'],
+        ['/convocatorias-escritores/', 'Concursos']
+      ]
+    },
+    {
+      key: 'herramientas', label: 'Convocatorias y concursos', home: '/convocatorias-escritores/',
+      matches: (path) => path.startsWith('/convocatorias-escritores/'),
       links: [
         ['/recomendaciones/', 'Catálogo'],
         ['/recomendaciones/autores/', 'Autores'],
