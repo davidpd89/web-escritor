@@ -1,5 +1,5 @@
 /* FINDABILITY V1 — editorial indexes for orientation, human sitemap and recovery. Scoped to this family only. */
-html.v1 [data-family="findability"]{min-width:0;overflow-wrap:normal;word-break:normal;--findability-blue:#1d4f96;--findability-gold:#b8860b}
+html.v1 [data-family="findability"]{min-width:0;overflow-wrap:normal;word-break:normal;--findability-blue:#1d4f96;--findability-gold:#806000}
 html.v1 [data-family="findability"] .findability-hero{display:grid;grid-template-columns:minmax(0,8fr) minmax(12rem,4fr);gap:var(--grid-gap);align-items:end;padding:clamp(2rem,5vw,5rem) 0 clamp(2.5rem,6vw,6rem);border-bottom:1px solid var(--color-border)}
 html.v1 [data-family="findability"] .findability-hero__kicker{margin:0 0 .8rem;font:600 var(--text-xs)/1.4 var(--font-ui);letter-spacing:.09em;text-transform:uppercase;color:var(--color-muted)}
 html.v1 [data-family="findability"] .findability-hero h1{max-width:13ch;margin:0;font:400 var(--text-5xl)/.95 var(--font-display);letter-spacing:-.025em;text-wrap:balance}
