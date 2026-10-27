@@ -2,6 +2,7 @@
 """Exercise the clock publication coordinator without GitHub mutations."""
 import importlib.util
 import json
+import subprocess
 from pathlib import Path
 from unittest.mock import patch
 
@@ -14,7 +15,7 @@ assert 'actions: write' in workflow
 assert 'python scripts/publish-radar-refresh.py --branch "$branch"' in workflow
 assert 'gh pr merge --auto' not in workflow
 
-def scenario(failure=None, skipped_job=False):
+def scenario(failure=None, skipped_job=False, conflict=False):
     calls = []
     dispatched = set()
     def gh(*args):
@@ -26,6 +27,8 @@ def scenario(failure=None, skipped_job=False):
         if args[:2] == ('pr','view'):
             if args[-1] == 'files':
                 return json.dumps({'files':[{'path':'convocatorias-escritores/index.html'}]})
+            if args[-1] == 'mergeable,mergeStateStatus':
+                return json.dumps({'mergeable':'CONFLICTING','mergeStateStatus':'DIRTY'})
             if args[-1] == 'state,mergeCommit':
                 return json.dumps({'state':'MERGED','mergeCommit':{'oid':'merged-sha'}})
             return json.dumps({'number':1,'headRefOid':'expected-sha','baseRefName':'main','state':'OPEN'})
@@ -39,6 +42,8 @@ def scenario(failure=None, skipped_job=False):
                     'failure' if name == failure else 'success'},
                 {'databaseId':1,'headSha':'expected-sha','status':'completed','conclusion':'success'},
             ])
+        if args[:2] == ('pr','merge') and conflict:
+            raise subprocess.CalledProcessError(1, ['gh', *args], stderr='Pull request is not mergeable')
         if args[:2] == ('workflow','run'):
             dispatched.add(args[2])
         if args[0] == 'api' and args[-1].endswith('/jobs'):
@@ -47,7 +52,13 @@ def scenario(failure=None, skipped_job=False):
                                       for name in module.REQUIRED_JOBS.values()]})
         return ''
     with patch.object(module, 'gh', gh):
-        if failure or skipped_job:
+        if conflict:
+            try:
+                module.run('automation/radar-clock-test')
+                raise AssertionError('a conflicting PR must not be reported as merged')
+            except module.StaleMerge:
+                pass
+        elif failure or skipped_job:
             try:
                 module.run('automation/radar-clock-test')
                 raise AssertionError('failed CI must stop publication')
@@ -58,7 +69,9 @@ def scenario(failure=None, skipped_job=False):
     merges = [call for call in calls if call[:2] == ('pr','merge')]
     deployments = [call for call in calls if call[:3] == ('workflow','run','deploy-pages.yml')]
     successes = [call for call in calls if call[0] == 'api' and 'state=success' in call]
-    if failure or skipped_job:
+    if conflict:
+        assert not deployments
+    elif failure or skipped_job:
         assert not merges and not deployments
     else:
         assert len(merges) == len(deployments) == 1
@@ -71,4 +84,5 @@ scenario()
 for workflow_name in module.WORKFLOWS:
     scenario(workflow_name)
 scenario(skipped_job=True)
+scenario(conflict=True)
 print('PASS radar publication: all real workflows required, exact SHA, failed CI never merges/deploys')

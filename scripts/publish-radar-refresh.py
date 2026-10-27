@@ -9,7 +9,10 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
+import sys
 import time
+
+STALE_EXIT_CODE = 75  # EX_TEMPFAIL: main avanzó durante la CI; regenerar desde main
 
 WORKFLOWS = (
     'required-merge-gate.yml', 'public-artifact-contract.yml',
@@ -35,8 +38,17 @@ def report_job(repo, sha, context, state, url):
        '-f', 'description=Generated update: verified workflow_dispatch job result')
 
 
+class StaleMerge(RuntimeError):
+    """The PR could not merge because main moved while its CI was running."""
+
+
 def gh(*args: str):
-    result = subprocess.run(['gh', *args], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
+    try:
+        result = subprocess.run(['gh', *args], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
+    except subprocess.CalledProcessError as exc:
+        # capture_output hides gh's own explanation; surface it in the job log.
+        print(f'gh {" ".join(args[:3])} failed: {(exc.stderr or "").strip()}', file=sys.stderr, flush=True)
+        raise
     return result.stdout.strip()
 
 
@@ -96,9 +108,15 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
 
     # A concurrent edit or newer main must pass normal branch rules too.
     # No --admin or bypass; every reported success above has real job evidence.
-    gh('pr', 'merge', str(pr['number']), '--squash', '--match-head-commit', sha,
-       '--subject', f'Actualizar artefactos generados (#{pr["number"]})',
-       '--body', 'Actualización automática validada por los workflows y las reglas de main.')
+    try:
+        gh('pr', 'merge', str(pr['number']), '--squash', '--match-head-commit', sha,
+           '--subject', f'Actualizar artefactos generados (#{pr["number"]})',
+           '--body', 'Actualización automática validada por los workflows y las reglas de main.')
+    except subprocess.CalledProcessError:
+        state = json.loads(gh('pr', 'view', str(pr['number']), '--json', 'mergeable,mergeStateStatus'))
+        if state.get('mergeable') == 'CONFLICTING' or state.get('mergeStateStatus') in {'DIRTY', 'BEHIND'}:
+            raise StaleMerge(f'main avanzó durante la CI de #{pr["number"]}; se regenera desde main') from None
+        raise
     merged = json.loads(gh('pr', 'view', str(pr['number']), '--json', 'state,mergeCommit'))
     if merged['state'] != 'MERGED':
         raise RuntimeError('PR was not merged; refusing to deploy')
