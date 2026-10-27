@@ -14,7 +14,11 @@
 (function () {
   const DISMISSED_KEY = "nl-popup-ts";
   const SUBSCRIBED_KEY = "nl-subscribed";
+  // "Ya pidió la suscripción desde este navegador": no afirma que haya confirmado el DOI
+  // (eso lo decide Brevo), solo evita volver a pedirle el email cada semana.
+  const REQUESTED_KEY = "nl-requested";
   const COOLDOWN = 7 * 24 * 60 * 60 * 1000;
+  const REQUESTED_COOLDOWN = 180 * 24 * 60 * 60 * 1000;
   const path = window.location.pathname.replace(/\/index\.html$/, "/");
 
   // localStorage access throws (SecurityError) with storage blocked entirely
@@ -27,6 +31,8 @@
   function safeSet(key, value) { try { localStorage.setItem(key, value); } catch {} }
 
   if (safeGet(SUBSCRIBED_KEY) === "1") return;
+  const requestedTs = safeGet(REQUESTED_KEY);
+  if (requestedTs && Date.now() - Number(requestedTs) < REQUESTED_COOLDOWN) return;
   const ts = safeGet(DISMISSED_KEY);
   if (ts && Date.now() - Number(ts) < COOLDOWN) return;
 
@@ -153,6 +159,7 @@
             panel.innerHTML = '<p class="nl-popup-result-title">' + copy.okTitle + '</p><p class="nl-popup-result-body">' + copy.okBody + '</p>';
             panel.tabIndex = -1;
             panel.focus({ preventScroll: true });
+            safeSet(REQUESTED_KEY, String(Date.now()));
             _gcEvent("newsletter-pending-popup", "Newsletter DOI pendiente: popup");
             setTimeout(dismiss, 5000);
           } else {
