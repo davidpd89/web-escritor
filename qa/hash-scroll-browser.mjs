@@ -4,7 +4,7 @@ import {pathToFileURL} from 'node:url';
 import {waitForKeyboardFocusState} from './keyboard-focus-state.mjs';
 
 export async function assertInitialHashNavigation(browser, origin){
-const fixture='<!doctype html><html class="v1"><head><style>body{margin:0;overflow-anchor:none}a,button{display:block}main{min-height:5000px;display:flow-root}#reading{margin-top:3000px}#destination{margin-top:1000px}</style><script defer src="/assets/analytics-consent-banner.js?v=15"></script><script defer src="/script.js"></script></head><body><a href="#contenido" class="skip-link">Ir al contenido</a><main id="contenido" tabindex="-1"><button id="reading">Seguir leyendo</button><div id="destination" tabindex="-1">Destino inicial</div></main></body></html>';
+const fixture='<!doctype html><html class="v1"><head><style>body{margin:0;overflow-anchor:none}a,button{display:block}main{min-height:5000px;display:flow-root}#reading{margin-top:3000px}#destination{margin-top:1000px}</style><script defer src="/assets/analytics-consent-banner.js?v=16"></script><script defer src="/script.js"></script></head><body><a href="#contenido" class="skip-link">Ir al contenido</a><main id="contenido" tabindex="-1"><button id="reading">Seguir leyendo</button><div id="destination" tabindex="-1">Destino inicial</div></main></body></html>';
  for(const hash of ['', '#contenido']){
   const context=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'});
   await context.route('**/qa-hash-scroll/',r=>r.fulfill({contentType:'text/html',body:fixture}));
