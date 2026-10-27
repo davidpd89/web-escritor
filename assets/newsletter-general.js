@@ -44,7 +44,7 @@
     if (code === 'offline') return 'No hay conexión. Revisa tu red e inténtalo de nuevo.';
     if (code === 'timeout') return 'La solicitud está tardando demasiado. Inténtalo de nuevo en unos segundos.';
     if (code === 'rate_limited') return 'Has hecho demasiados intentos. Espera un minuto e inténtalo de nuevo.';
-    return 'Error al suscribirse. Inténtalo de nuevo más tarde o contacta desde prensa.html.';
+    return 'No hemos podido completar tu suscripción. Inténtalo de nuevo más tarde. Si el problema continúa, puedes escribirnos desde la sección de contacto de esta web.';
   }
 
   async function postNewsletter(payload) {
