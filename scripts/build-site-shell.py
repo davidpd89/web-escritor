@@ -689,6 +689,51 @@ def inline_script_hashes(text: str) -> list[str]:
     return hashes
 
 
+INLINE_STYLE_RE = re.compile(r'<style(?![^>]*\bsrc=)[^>]*>([\s\S]*?)</style>', re.I)
+STANDALONE_CSP_RE = re.compile(
+    r'(<meta\s+http-equiv="Content-Security-Policy"\s+content=")([^"]*)(")', re.I
+)
+# Paginas sueltas (sin shell) con CSP escrito a mano y sin 'unsafe-inline':
+# sus hashes de <script> y <style> inline se recalculan aqui para que tocar
+# el CSS o el JS inline de la pagina no deje el CSP desactualizado (el
+# navegador bloquearia el bloque y la pagina perderia estilos o scripts).
+STANDALONE_CSP_PAGES = ("offline.html", "video-ios-test/index.html")
+
+
+def inline_style_hashes(text: str) -> list[str]:
+    hashes: list[str] = []
+    for match in INLINE_STYLE_RE.finditer(text):
+        digest = hashlib.sha256(match.group(1).encode("utf-8")).digest()
+        value = "sha256-" + base64.b64encode(digest).decode("ascii")
+        if value not in hashes:
+            hashes.append(value)
+    return hashes
+
+
+def _replace_directive_hashes(policy: str, directive: str, hashes: list[str]) -> str:
+    parts = [part.strip() for part in policy.split(";") if part.strip()]
+    for index, part in enumerate(parts):
+        tokens = part.split()
+        if tokens[0] != directive:
+            continue
+        kept = [t for t in tokens[1:] if not t.startswith("'sha256-")]
+        parts[index] = " ".join([directive, *kept, *(f"'{h}'" for h in hashes)])
+        return "; ".join(parts)
+    return policy
+
+
+def sync_standalone_csp(text: str, rel_path: str) -> str:
+    """Renueva los hashes sha256 de script-src y style-src del CSP manual de
+    una pagina suelta a partir de sus bloques inline reales."""
+    match = STANDALONE_CSP_RE.search(text)
+    if not match:
+        raise BuildError(f"{rel_path}: página suelta sin <meta> Content-Security-Policy")
+    policy = match.group(2)
+    policy = _replace_directive_hashes(policy, "script-src", inline_script_hashes(text))
+    policy = _replace_directive_hashes(policy, "style-src", inline_style_hashes(text))
+    return text[: match.start(2)] + policy + text[match.end(2) :]
+
+
 def apply_public_csp(text: str, rel_path: str) -> str:
     """Inserta/renueva el CSP publico del shell -- nunca toca un CSP que ya
     exista fuera de nuestros marcadores.
@@ -864,6 +909,15 @@ def main() -> int:
             changed.append(page.relative_to(ROOT).as_posix())
         if outdated:
             continue
+
+    for rel in STANDALONE_CSP_PAGES:
+        standalone = ROOT / rel
+        original = standalone.read_text(encoding="utf-8")
+        updated = sync_standalone_csp(original, rel)
+        if updated != original:
+            changed.append(rel)
+            if not args.check:
+                standalone.write_text(updated, encoding="utf-8")
 
     if args.check and changed:
         print("FAIL: shell desactualizado en:", file=sys.stderr)
