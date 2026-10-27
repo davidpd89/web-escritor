@@ -23,7 +23,7 @@ try {
     assert.match(await page.locator('h1').innerText(), /Libros recomendados/);
     assert.equal(await page.locator('[data-catalogue-book]').count(), realCount);
     assert(await page.locator('[data-catalogue-empty]').isHidden());
-    assert.deepEqual(await page.locator('.section-context__links a').allInnerTexts(), ['Catálogo', 'Autores', 'Editoriales', 'Concursos', 'Atlas literario']);
+    assert.deepEqual(await page.locator('.section-context__links a').allInnerTexts(), ['Catálogo', 'Autores', 'Editoriales', 'Concursos']);
     await page.locator('details[data-facet-group="genero"]').evaluate(d => { d.open = true; });
     // Sin libros compatibles la opción queda desactivada en lugar de llevar a una página vacía.
     assert(await page.locator('input[data-facet="genero"][value="romantasy"]').isDisabled());
