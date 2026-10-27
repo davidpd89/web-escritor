@@ -13,7 +13,7 @@ html.v1 .legal-toc{border-top:1px solid var(--color-border);padding-top:1rem}
 html.v1 .legal-toc h2{margin:0 0 1rem;font:600 .72rem/1 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
 html.v1 .legal-toc ol{margin:0;padding:0;list-style:none;counter-reset:toc}
 html.v1 .legal-toc li{counter-increment:toc;border-bottom:1px solid var(--color-border)}
-html.v1 .legal-toc a{display:grid;grid-template-columns:2.2rem 1fr;gap:.5rem;padding:.72rem 0;color:var(--color-text);font-size:.82rem;line-height:1.35;text-decoration:none}
+html.v1 .legal-toc a{display:grid;grid-template-columns:2.2rem 1fr;gap:.5rem;padding:.72rem 0;color:var(--color-text);font-size:.875rem;line-height:1.35;text-decoration:none}
 html.v1 .legal-toc a::before{content:counter(toc,decimal-leading-zero);font-size:.66rem;letter-spacing:.08em;color:var(--color-muted)}
 html.v1 .legal-toc a:hover,html.v1 .legal-toc a:focus-visible{text-decoration:underline;text-underline-offset:.22em}
 html.v1 .legal-prose{max-width:48rem;min-width:0;font:400 clamp(1rem,.97rem + .18vw,1.1rem)/1.72 var(--font-reading)}
