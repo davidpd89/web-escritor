@@ -5588,6 +5588,96 @@
       "sourceFile": "recomendaciones/libros/yu-gi-oh-no-04-22-9791388101311/index.html"
     },
     {
+      "id": "reading-book-isbn-9788419981035",
+      "url": "/recomendaciones/libros/cinco-cuentos-9788419981035/",
+      "label": "Cinco cuentos",
+      "shortLabel": "Cinco cuentos",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/cinco-cuentos-9788419981035/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9780241831380",
+      "url": "/recomendaciones/libros/curso-de-cocina-los-basicos-9780241831380/",
+      "label": "Curso de cocina - Los básicos",
+      "shortLabel": "Curso de cocina - Los básicos",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/curso-de-cocina-los-basicos-9780241831380/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788449346033",
+      "url": "/recomendaciones/libros/la-eternidad-y-un-dia-mas-9788449346033/",
+      "label": "La eternidad y un día más",
+      "shortLabel": "La eternidad y un día más",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-eternidad-y-un-dia-mas-9788449346033/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788467084832",
+      "url": "/recomendaciones/libros/la-cabana-9788467084832/",
+      "label": "La cabaña",
+      "shortLabel": "La cabaña",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-cabana-9788467084832/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387962005",
+      "url": "/recomendaciones/libros/as-the-gods-will-la-secuela-10-shonen-9791387962005/",
+      "label": "As the Gods Will: La secuela 10 (Shônen)",
+      "shortLabel": "As the Gods Will: La secuela 10 (Shônen)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/as-the-gods-will-la-secuela-10-shonen-9791387962005/index.html"
+    },
+    {
       "id": "reading-author-neil-gaiman",
       "url": "/recomendaciones/autores/neil-gaiman/",
       "label": "Neil Gaiman",
@@ -7116,6 +7206,114 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/autores/kazuki-takahashi/index.html"
+    },
+    {
+      "id": "reading-author-posy-simmonds",
+      "url": "/recomendaciones/autores/posy-simmonds/",
+      "label": "Posy Simmonds",
+      "shortLabel": "Posy Simmonds",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/posy-simmonds/index.html"
+    },
+    {
+      "id": "reading-author-louis-girod",
+      "url": "/recomendaciones/autores/louis-girod/",
+      "label": "Louis Girod",
+      "shortLabel": "Louis Girod",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/louis-girod/index.html"
+    },
+    {
+      "id": "reading-author-carlos-lopez-otin",
+      "url": "/recomendaciones/autores/carlos-lopez-otin/",
+      "label": "Carlos López-Otín",
+      "shortLabel": "Carlos López-Otín",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/carlos-lopez-otin/index.html"
+    },
+    {
+      "id": "reading-author-wm-paul-young",
+      "url": "/recomendaciones/autores/wm-paul-young/",
+      "label": "Wm. Paul Young",
+      "shortLabel": "Wm. Paul Young",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/wm-paul-young/index.html"
+    },
+    {
+      "id": "reading-author-muneyuki-kaneshiro",
+      "url": "/recomendaciones/autores/muneyuki-kaneshiro/",
+      "label": "Muneyuki Kaneshiro",
+      "shortLabel": "Muneyuki Kaneshiro",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/muneyuki-kaneshiro/index.html"
+    },
+    {
+      "id": "reading-author-akeji-fujimura",
+      "url": "/recomendaciones/autores/akeji-fujimura/",
+      "label": "Akeji Fujimura",
+      "shortLabel": "Akeji Fujimura",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/akeji-fujimura/index.html"
     },
     {
       "id": "reading-publisher-aguilar",

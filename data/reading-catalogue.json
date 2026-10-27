@@ -611,6 +611,15 @@
       "orden": 217,
       "slug": "tema-secretos",
       "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Ciencia.",
+      "id": "tema-ciencia",
+      "nombre": "Ciencia",
+      "orden": 218,
+      "slug": "tema-ciencia",
+      "tipo": "tematica"
     }
   ],
   "libro_categorias": [
@@ -637,22 +646,6 @@
     {
       "categoria_id": "misterio",
       "libro_id": "lib-0001"
-    },
-    {
-      "categoria_id": "aventuras",
-      "libro_id": "isbn-9791387846008"
-    },
-    {
-      "categoria_id": "adultos",
-      "libro_id": "isbn-9791387846008"
-    },
-    {
-      "categoria_id": "fantasia",
-      "libro_id": "isbn-9788401039560"
-    },
-    {
-      "categoria_id": "adultos",
-      "libro_id": "isbn-9788401039560"
     },
     {
       "categoria_id": "fantasia",
@@ -889,14 +882,6 @@
     {
       "categoria_id": "aventuras",
       "libro_id": "lib-0001"
-    },
-    {
-      "categoria_id": "misterio-y-thriller",
-      "libro_id": "isbn-9788401039560"
-    },
-    {
-      "categoria_id": "terror",
-      "libro_id": "isbn-9788401039560"
     },
     {
       "categoria_id": "romance",
@@ -1649,6 +1634,82 @@
     {
       "categoria_id": "tema-manga",
       "libro_id": "isbn-9791388101311"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9791387846008"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387846008"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "terror",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-4-anos",
+      "libro_id": "isbn-9788419981035"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788419981035"
+    },
+    {
+      "categoria_id": "comic-y-novela-grafica",
+      "libro_id": "isbn-9788419981035"
+    },
+    {
+      "categoria_id": "tema-familia",
+      "libro_id": "isbn-9788419981035"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9780241831380"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9780241831380"
+    },
+    {
+      "categoria_id": "tema-ciencia",
+      "libro_id": "isbn-9788449346033"
+    },
+    {
+      "categoria_id": "tema-novela-contemporanea",
+      "libro_id": "isbn-9788467084832"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788467084832"
+    },
+    {
+      "categoria_id": "tema-comic-juvenil",
+      "libro_id": "isbn-9791387962005"
+    },
+    {
+      "categoria_id": "terror",
+      "libro_id": "isbn-9791387962005"
+    },
+    {
+      "categoria_id": "comic-y-novela-grafica",
+      "libro_id": "isbn-9791387962005"
+    },
+    {
+      "categoria_id": "juvenil",
+      "libro_id": "isbn-9791387962005"
     }
   ],
   "libros": [
@@ -1747,9 +1808,9 @@
       "editorial": "Alfaguara",
       "editorial_slug": "alfaguara",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-21",
+      "fecha_actualizacion": "2026-10-27",
       "fecha_publicacion": "2026-10-20",
-      "fecha_verificacion": "2026-10-20",
+      "fecha_verificacion": "2026-10-27",
       "formato_edicion": "tapa-dura",
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-aventura/636581-libro-la-hipotesis-mas-peligrosa-9791387846008",
       "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-aventura/636581-libro-la-hipotesis-mas-peligrosa-9791387846008",
@@ -1761,11 +1822,11 @@
       "portada_alto": 1235,
       "portada_ancho": 800,
       "portada_edicion_verificada": true,
-      "portada_fecha_revision": "2026-10-20",
+      "portada_fecha_revision": "2026-10-27",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8190863-thickbox_default/la-hipotesis-mas-peligrosa.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387846008.webp",
       "pvp_centimos": 2390,
-      "pvp_fecha_verificacion": "2026-10-21",
+      "pvp_fecha_verificacion": "2026-10-27",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1794,9 +1855,9 @@
       "editorial": "Plaza & Janés",
       "editorial_slug": "plaza-y-janes",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-21",
+      "fecha_actualizacion": "2026-10-27",
       "fecha_publicacion": "2026-10-15",
-      "fecha_verificacion": "2026-10-20",
+      "fecha_verificacion": "2026-10-27",
       "formato_edicion": "tapa-dura",
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-fantasia/635029-libro-otros-mundos-el-talisman-3-9788401039560",
       "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-fantasia/635029-libro-otros-mundos-el-talisman-3-9788401039560",
@@ -1808,11 +1869,11 @@
       "portada_alto": 1235,
       "portada_ancho": 800,
       "portada_edicion_verificada": true,
-      "portada_fecha_revision": "2026-10-20",
+      "portada_fecha_revision": "2026-10-27",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8250289-thickbox_default/otros-mundos-el-talisman-3.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401039560.webp",
       "pvp_centimos": 2790,
-      "pvp_fecha_verificacion": "2026-10-21",
+      "pvp_fecha_verificacion": "2026-10-27",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -5474,6 +5535,233 @@
       "sinopsis_tipo": "extracto_editorial",
       "slug": "yu-gi-oh-no-04-22-9791388101311",
       "titulo": "Yu-Gi-Oh! nº 04/22"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788419981035&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Posy Simmonds"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Cinco cuentos, de Posy Simmonds. Edición de Salamandra en castellano, en tapa dura. Consta de 152 páginas. La editorial la incluye en a partir de 4 años. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 4 años",
+      "edicion": "Tapa dura · Salamandra",
+      "editorial": "Salamandra",
+      "editorial_slug": "salamandra",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-27",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-27",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/373151-libro-cinco-cuentos-9788419981035",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/373151-libro-cinco-cuentos-9788419981035",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/373151-libro-cinco-cuentos-9788419981035",
+      "id": "isbn-9788419981035",
+      "idioma": "es",
+      "isbn13": "9788419981035",
+      "numero_paginas": 152,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-27",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8270171-thickbox_default/cinco-cuentos.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788419981035.webp",
+      "pvp_centimos": 2695,
+      "pvp_fecha_verificacion": "2026-10-27",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-27",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788419981035"
+        }
+      ],
+      "sinopsis_breve": "Fred, Matilde, Lavanda, Lulú y el Gato Panadero protagonizan los cinco relatos reunidos en este volumen, creados por Posy Simmonds entre 1987 y 2004.…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/373151-libro-cinco-cuentos-9788419981035",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "cinco-cuentos-9788419981035",
+      "titulo": "Cinco cuentos"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9780241831380&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Louis Girod"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Curso de cocina - Los básicos, de Louis Girod. Edición de DK en castellano, en tapa dura. Consta de 160 páginas. La editorial la incluye en cocina. Publicación editorial: 2026-09-17.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · DK",
+      "editorial": "DK",
+      "editorial_catalogo_slug": "dk",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-27",
+      "fecha_publicacion": "2026-09-17",
+      "fecha_verificacion": "2026-10-27",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380",
+      "id": "isbn-9780241831380",
+      "idioma": "es",
+      "isbn13": "9780241831380",
+      "numero_paginas": 160,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-27",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8022153-thickbox_default/curso-de-cocina-los-basicos.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9780241831380.webp",
+      "pvp_centimos": 1800,
+      "pvp_fecha_verificacion": "2026-10-27",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-27",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9780241831380"
+        }
+      ],
+      "sinopsis_breve": "Este práctico libro reúne más de 60 recetas ilustradas, explicadas paso a paso para que puedas seguir cada preparación sin complicaciones. Desde platos clásicos…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "curso-de-cocina-los-basicos-9780241831380",
+      "titulo": "Curso de cocina - Los básicos"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788449346033&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Carlos López-Otín"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La eternidad y un día más, de Carlos López-Otín. Edición de Ediciones Paidós en castellano, en rústica con solapas. Consta de 224 páginas. La editorial la incluye en ciencia. Publicación editorial: 2026-10-14.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Ediciones Paidós",
+      "editorial": "Ediciones Paidós",
+      "editorial_catalogo_slug": "ediciones-paidos",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-27",
+      "fecha_publicacion": "2026-10-14",
+      "fecha_verificacion": "2026-10-27",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-la-eternidad-y-un-dia-mas/458853",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-la-eternidad-y-un-dia-mas/458853",
+      "id": "isbn-9788449346033",
+      "idioma": "es",
+      "isbn13": "9788449346033",
+      "numero_paginas": 224,
+      "portada_alto": 534,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-27",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/0f5c5fc8-fd43-486c-8700-06989ed59238/d_360_620/portada_la-eternidad-y-un-dia-mas__202606121310.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788449346033.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-27",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-27",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788449346033"
+        }
+      ],
+      "sinopsis_breve": "En la línea del bestseller Martes con mi viejo profesor , de Michael Albom, el prestigioso científico Carlos López-Otín nos presenta su primera obra…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-la-eternidad-y-un-dia-mas/458853",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-eternidad-y-un-dia-mas-9788449346033",
+      "titulo": "La eternidad y un día más"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788467084832&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Wm. Paul Young"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La cabaña, de Wm. Paul Young. Edición de Editorial Espasa en castellano, en rústica con solapas. Consta de 272 páginas. La editorial la incluye en novela contemporánea. Publicación editorial: 2026-10-21.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Editorial Espasa",
+      "editorial": "Editorial Espasa",
+      "editorial_slug": "editorial-espasa",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-27",
+      "fecha_publicacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-27",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-la-cabana/464448",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-la-cabana/464448",
+      "id": "isbn-9788467084832",
+      "idioma": "es",
+      "isbn13": "9788467084832",
+      "numero_paginas": 272,
+      "portada_alto": 544,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-27",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/4965ee93-986b-446a-aa4a-635e330f595c/d_360_620/portada_la-cabana_wm-paul-young_202609211453.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788467084832.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-27",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-27",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788467084832"
+        }
+      ],
+      "sinopsis_breve": "Si Dios te enviase una carta, ¿acudirías a su encuentro? La novela que ha vendido más de 30 millones de ejemplares en todo el…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-la-cabana/464448",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-cabana-9788467084832",
+      "titulo": "La cabaña"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387962005&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Muneyuki Kaneshiro",
+        "Akeji Fujimura"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "As the Gods Will: La secuela 10 (Shônen), de Muneyuki Kaneshiro, Akeji Fujimura. Edición de Distrito Manga en castellano, en tapa blanda con sobrecubierta. Consta de 568 páginas. La editorial la incluye en cómic juvenil. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Juvenil",
+      "edicion": "Tapa blanda con sobrecubierta · Distrito Manga",
+      "editorial": "Distrito Manga",
+      "editorial_catalogo_slug": "distrito-manga",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-27",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-27",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/comic-juvenil/634710-libro-as-the-gods-will-la-secuela-10-shonen-9791387962005",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/comic-juvenil/634710-libro-as-the-gods-will-la-secuela-10-shonen-9791387962005",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/comic-juvenil/634710-libro-as-the-gods-will-la-secuela-10-shonen-9791387962005",
+      "id": "isbn-9791387962005",
+      "idioma": "es",
+      "isbn13": "9791387962005",
+      "numero_paginas": 568,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-27",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8129771-thickbox_default/as-the-gods-will-la-secuela-10-shonen.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387962005.webp",
+      "pvp_centimos": 1895,
+      "pvp_fecha_verificacion": "2026-10-27",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-27",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387962005"
+        }
+      ],
+      "sinopsis_breve": "Tras pelearse con el mejor amigo de su infancia, Yasuto Akashi decide saltarse las clases. Sin embargo, lo que no se imagina es que…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/comic-juvenil/634710-libro-as-the-gods-will-la-secuela-10-shonen-9791387962005",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "as-the-gods-will-la-secuela-10-shonen-9791387962005",
+      "titulo": "As the Gods Will: La secuela 10 (Shônen)"
     }
   ],
   "schema_version": 1
