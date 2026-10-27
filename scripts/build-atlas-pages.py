@@ -264,6 +264,21 @@ def render_entry(data: dict, e: dict, by_slug: dict[str, dict]) -> str:
     return wrap(title, e["description"], canonical, schema, main)
 
 
+MAP_START = "<!-- atlas-map:start -->"
+MAP_END = "<!-- atlas-map:end -->"
+
+
+def render_site_map(document: str, entries: list[dict]) -> str:
+    """Mantiene el Atlas dentro del mapa del sitio HTML, entre marcadores."""
+    start, end = document.find(MAP_START), document.find(MAP_END)
+    if start < 0 or end < start:
+        raise ValidationError("mapa-del-sitio/index.html sin marcadores atlas-map")
+    items = '<li><a href="/atlas-literario/">Atlas literario</a></li>' + "".join(
+        f'<li><a href="/atlas-literario/{e["slug"]}/">{esc(e["title"])}</a></li>' for e in entries
+    )
+    return document[: start + len(MAP_START)] + items + document[end:]
+
+
 def build(data_path: Path, root: Path, check_only: bool) -> tuple[int, bool]:
     data = json.loads(data_path.read_text(encoding="utf-8"))
     entries = validate(data)
@@ -271,6 +286,10 @@ def build(data_path: Path, root: Path, check_only: bool) -> tuple[int, bool]:
     outputs = {"atlas-literario/index.html": inject_shell_auto(render_hub(data, entries))}
     for e in entries:
         outputs[f"atlas-literario/{e['slug']}/index.html"] = inject_shell_auto(render_entry(data, e, by_slug))
+
+    map_path = root / "mapa-del-sitio" / "index.html"
+    if map_path.is_file():
+        outputs["mapa-del-sitio/index.html"] = render_site_map(map_path.read_text(encoding="utf-8"), entries)
 
     manifest = {
         "schema_version": 1,
