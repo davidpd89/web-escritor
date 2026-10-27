@@ -21,14 +21,18 @@ Sin secretos. Todo por PR, sin `--admin` ni saltar la CI.
 | PR | Resultado | Motivo |
 |---|---|---|
 | #928 | fusionada | fecha visible de privacidad coherente con el historial |
-| #923 | pendiente de CI | 8 tests de protección; pasan en main y en el árbol fusionado; su rojo era la frescura del radar, ya resuelta |
-| #907 | pendiente de CI | endurece el sitemap; sus tests fallan en main y pasan con el cambio |
+| #923 | fusionada | 8 tests de protección; pasan en main y en el árbol fusionado; su rojo era la frescura del radar, ya resuelta |
+| #907 | fusionada | endurece el sitemap; sus tests fallan en main y pasan con el cambio |
 | #781, #771 | cerradas | el main actual ya contiene el cambio (mismo árbol) |
 | #790 | cerrada | su test ya pasa en main; el cambio muestra el panel antes de que el JS lo prepare |
 | #812, #792, #787, #783 | cerradas | su propio test sigue fallando con el cambio; ramas conservadas |
-| #765 | cerrada | sustituida por #943 (libros/index.html fuera del índice de Pagefind) |
+| #765 | cerrada | sustituida por #943, fusionada (libros/index.html fuera del índice de Pagefind) |
 | #788, #795 | abiertas, decisión del titular | #788 deja de marcar `nl-subscribed` al visitar la página de gracias (los suscriptores reales volverían a ver el popup); #795 cambia el destino sin JS de «¿Dónde comprar?» a Amazon con afiliado |
 
 ## Fuera de alcance de la nube
 
 Cambios locales en `C:\GIT\web-escritor-qa-gpt` (si siguen sin commitear), `qa/_tmp_probe.mjs`, logs locales y el estado de INICIAR/EJECUTAR.
+
+## Main
+
+`Live production PWA QA` en verde en 9b0368e, 3e973ce y 142217e. `Post-deploy deep audit` en verde en 3e973ce; en 142217e salió `cancelled` (lo sustituye la ejecución del merge siguiente, d3b75b3, #907), por lo que queda por confirmar la ejecución de d3b75b3.
