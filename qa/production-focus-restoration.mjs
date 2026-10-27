@@ -78,7 +78,12 @@ try{
 
         await page.keyboard.press('Escape');
         await dialog.waitFor({state:'hidden',timeout:3000});
-        await page.waitForTimeout(120);
+        await page.waitForFunction(
+          () => document.activeElement?.matches('[data-explore-open]') &&
+            document.activeElement.getAttribute('aria-expanded') === 'false',
+          null,
+          {timeout:2000},
+        );
         assert.equal(await opener.getAttribute('aria-expanded'),'false',`${route}: Explore opener aria-expanded did not reset`);
         assert.equal(await opener.evaluate(el=>document.activeElement===el),true,`${route}: focus was not restored to Explore opener after Escape`);
       }
@@ -89,7 +94,12 @@ try{
         await submenu.click();
         assert.equal(await submenu.getAttribute('aria-expanded'),'true',`${route}: masthead submenu did not open`);
         await page.keyboard.press('Escape');
-        await page.waitForTimeout(50);
+        await page.waitForFunction(
+          () => document.activeElement?.matches('.masthead-nav__submenu-trigger') &&
+            document.activeElement.getAttribute('aria-expanded') === 'false',
+          null,
+          {timeout:2000},
+        );
         assert.equal(await submenu.getAttribute('aria-expanded'),'false',`${route}: masthead submenu aria-expanded did not reset on Escape`);
         assert.equal(await submenu.evaluate(el=>document.activeElement===el),true,`${route}: focus was not restored to masthead submenu trigger`);
       }
