@@ -74,10 +74,13 @@ SKIP_SUFFIXES = (
 
 
 def read_text(path: Path) -> str:
-    return path.read_text(encoding="utf-8", errors="ignore")
+    try:
+        return path.read_text(encoding="utf-8")
+    except UnicodeDecodeError as exc:
+        raise ValueError(f"Invalid UTF-8 in HTML document {path}: {exc}") from exc
 
 
-def extract_meta(text: str):
+def extract_meta(text: str, path: Path | None = None):
     canonical = None
     m = re.search(r'<link[^>]+rel=["\']canonical["\'][^>]*>', text, flags=re.I)
     if m:
@@ -92,11 +95,11 @@ def extract_meta(text: str):
             noindex = True
             break
 
-    date_modified = extract_date_modified(text)
+    date_modified = extract_date_modified(text, path)
     return canonical, noindex, date_modified
 
 
-def extract_date_modified(text: str):
+def extract_date_modified(text: str, path: Path | None = None):
     best = None
     for js in re.finditer(
         r'<script[^>]+type\s*=\s*["\']application/ld\+json["\'][^>]*>(.*?)</script>',
@@ -105,8 +108,13 @@ def extract_date_modified(text: str):
     ):
         try:
             data = json.loads(js.group(1).strip())
-        except Exception:
-            continue
+        except json.JSONDecodeError as exc:
+            source = str(path) if path is not None else "<HTML input>"
+            line = text.count("\n", 0, js.start()) + 1
+            raise ValueError(
+                f"Invalid JSON-LD in {source}, script starting at HTML line {line}: "
+                f"{exc.msg} (JSON line {exc.lineno}, column {exc.colno})"
+            ) from exc
         pending = [data]
         while pending:
             node = pending.pop()
@@ -225,7 +233,7 @@ def collect_urls(root: Path) -> dict[str, str | None]:
         if should_skip_file(path, root):
             continue
         text = read_text(path)
-        canonical, noindex, date_modified = extract_meta(text)
+        canonical, noindex, date_modified = extract_meta(text, path)
         if noindex:
             continue
         loc = normalize_canonical(canonical, root, path)
