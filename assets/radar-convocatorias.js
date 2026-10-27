@@ -84,6 +84,13 @@
   const empty = document.querySelector('[data-radar-filter-empty]');
   let today = todayCivil();
 
+  items.forEach((item) => {
+    const title = item.dataset.title?.trim();
+    item.querySelectorAll('[data-radar-source]').forEach((link) => {
+      if (title) link.setAttribute('aria-label', `Consultar convocatoria y bases: ${title}`);
+    });
+  });
+
   const emit = (event, detail = {}) => document.dispatchEvent(new CustomEvent('dp:analytics', { detail: { event, ...detail } }));
 
   document.addEventListener('click', (event) => {
