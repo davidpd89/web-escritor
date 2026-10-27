@@ -93,7 +93,8 @@ for (const [width, height] of VIEWPORTS) {
   check(!Object.hasOwn(book || {}, 'typicalAgeRange'), 'book schema: age range must remain absent');
 
   const publisher = page.locator('#comprar a[href="https://librosindie.net/product/samuel-entre-mundos/"]');
-  const amazon = page.locator('#comprar a[href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21"]');
+  // Los disparadores del modal (data-buy-modal) llevan el mismo href como alternativa sin JS: no son la fila de la tienda.
+  const amazon = page.locator('#comprar a[href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21"]:not([data-buy-modal])');
   const casa = page.locator('#comprar a[href^="https://www.casadellibro.com/libro-samuel-entre-mundos/9791387659776"]');
   check(await publisher.count() === 1, 'commerce: publisher URL missing');
   check(await amazon.count() === 1, 'commerce: Amazon URL missing');
