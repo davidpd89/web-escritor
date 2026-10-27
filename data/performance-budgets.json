@@ -8,17 +8,16 @@
       "label": "Shell V1 comun",
       "entrypoints": [
         "assets/v1-shell.css",
-        "assets/v1-shell.js"
+        "assets/v1-shell.js",
+        "assets/v1-fonts.css"
       ],
       "baseline": {
-        "total_bytes": 179479,
-        "css_bytes": 157536,
-        "js_bytes": 21943,
-        "request_count": 13
+        "total_bytes": 660479,
+        "request_count": 25
       },
       "limits": {
-        "total_bytes": 197632,
-        "request_count": 13
+        "total_bytes": 727040,
+        "request_count": 25
       }
     },
     {

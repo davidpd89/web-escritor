@@ -51,13 +51,13 @@ def _strip_suffixes(specifier: str) -> str:
     return specifier.split("#", 1)[0].split("?", 1)[0].strip()
 
 
-def resolve_local(root: Path, importer: Path, specifier: str) -> Path | None:
+def resolve_local(root: Path, importer: Path, specifier: str, *, css_relative: bool = False) -> Path | None:
     specifier = _strip_suffixes(specifier)
     if not specifier or specifier.startswith(("http://", "https://", "//", "data:", "blob:")):
         return None
     if specifier.startswith("/"):
         candidate = root / specifier.lstrip("/")
-    elif specifier.startswith("."):
+    elif specifier.startswith(".") or css_relative:
         candidate = importer.parent / specifier
     else:
         # Bare module/package specifiers are external to this static artifact graph.
@@ -79,7 +79,7 @@ def local_dependencies(root: Path, path: Path, text: str) -> Iterable[Path]:
     else:
         matches = []
     for specifier in matches:
-        resolved = resolve_local(root, path, specifier)
+        resolved = resolve_local(root, path, specifier, css_relative=suffix == ".css")
         if resolved is not None:
             yield resolved
 
