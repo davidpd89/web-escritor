@@ -46,6 +46,7 @@
       "reading-index-autores",
       "reading-index-editoriales",
       "editorials-hub",
+      "atlas-hub",
       "opportunities",
       "tools-hub",
       "lectores-beta"
@@ -116,7 +117,8 @@
       "recommendations-hub",
       "reading-index-autores",
       "editorials-hub",
-      "opportunities"
+      "opportunities",
+      "atlas-hub"
     ]
   },
   "menu": {
@@ -180,6 +182,10 @@
       {
         "label": "Concursos",
         "targetId": "opportunities"
+      },
+      {
+        "label": "Atlas literario",
+        "targetId": "atlas-hub"
       }
     ],
     "tools-hub": [
