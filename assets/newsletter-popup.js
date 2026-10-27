@@ -150,11 +150,12 @@
           });
           const panel = d.querySelector("#nl-popup-panel");
           if (result.ok && result.state === "pending_confirmation") {
-            panel.innerHTML = '<p class="nl-popup-result-title">' + copy.okTitle + '</p><p class="nl-popup-result-body">' + copy.okBody + '</p>';
-            panel.tabIndex = -1;
-            panel.focus({ preventScroll: true });
+            d.querySelector("#nl-popup-form").remove();
+            d.querySelector("#nl-popup-skip").remove();
+            d.querySelector("#nl-popup-title").textContent = copy.okTitle;
+            d.querySelector("#nl-popup-body").textContent = copy.okBody;
+            d.querySelector("#nl-popup-close").focus({ preventScroll: true });
             _gcEvent("newsletter-pending-popup", "Newsletter DOI pendiente: popup");
-            setTimeout(dismiss, 5000);
           } else {
             throw new Error(result.code || "request_failed");
           }
