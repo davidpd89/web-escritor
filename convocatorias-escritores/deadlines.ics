@@ -5,25 +5,6 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Convocatorias para escritores
 BEGIN:VEVENT
-UID:si-los-pasillos-hablaran-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261026
-DTEND;VALUE=DATE:20261027
-SUMMARY:I Concurso de Microrrelatos «Si los pasillos hablaran»
-DESCRIPTION:Supermercados Unide · Escuela de Escritores
-URL:https://escueladeescritores.com/concursos/si-los-pasillos-hablaran/
-END:VEVENT
-BEGIN:VEVENT
-UID:europe-direct-caceres-relato-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261026
-DTEND;VALUE=DATE:20261027
-SUMMARY:XIX Concurso de Relato Breve Europe Direct Cáceres 2026
-DESCRIPTION:Europe Direct Cáceres · Ayuntamiento de Cáceres
-URL:https://www.ayto-caceres.es/noticias/europe-direct-caceres-duplica-la-d
- otacion-de-sus-concursos-y-facilita-la-presentacion-digital-de-las-obras/
-END:VEVENT
-BEGIN:VEVENT
 UID:legado-manos-diversidad-literaria-2026@davidportodiaz.com
 DTSTAMP:20261003T000000Z
 DTSTART;VALUE=DATE:20261029
