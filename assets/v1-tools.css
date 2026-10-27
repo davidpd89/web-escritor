@@ -34,8 +34,8 @@ html.v1 .tool-textarea:focus-visible,html.v1 .tool-select:focus-visible,html.v1 
    columna no podia encoger y /convocatorias-escritores/ desbordaba 306px. min() lo
    ata al contenedor, no al viewport, y a ancho normal no cambia nada. */
 html.v1 .tool-options{display:grid;gap:1.5rem 2rem;grid-template-columns:repeat(auto-fit,minmax(min(14rem,100%),1fr));margin:1.8rem 0 0}
-html.v1 .tool-check{display:flex;align-items:flex-start;gap:.6rem;font:400 .92rem/1.5 var(--font-ui);color:var(--color-text);margin-top:1.4rem;min-width:0;max-width:100%}
-html.v1 .tool-check input{width:18px;min-height:18px;height:18px;margin:.15rem 0 0;accent-color:var(--color-text)}
+html.v1 .tool-check{display:flex;align-items:flex-start;gap:.6rem;font:400 .92rem/1.5 var(--font-ui);color:var(--color-text);margin-top:1.4rem;min-width:24px;min-height:24px;max-width:100%}
+html.v1 .tool-check input{width:24px;min-width:24px;min-height:24px;height:24px;margin:.15rem 0 0;accent-color:var(--color-text)}
 html.v1 .tool-input-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1rem;font:400 .78rem/1.4 var(--font-ui);color:var(--color-muted);margin-top:.55rem}
 html.v1 .tool-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-top:1.9rem}
 html.v1 .tool-status{min-height:1.4em;margin:1.1rem 0 0;font:400 .85rem/1.55 var(--font-ui);color:var(--color-muted)}
