@@ -156,11 +156,6 @@ if __name__ == "__main__":
 
 class PeligroEnTextoNoEsPeligro(unittest.TestCase):
     def test_palabra_en_comentario_o_cadena_no_cuenta_pero_el_import_si(self):
-        self.assertIsNone(parches.peligro_python('"""usa importlib"""
-# eval
-x = "exec("
-assert x
-'))
-        self.assertEqual(parches.peligro_python("import importlib.util
-assert 1
-"), "importlib")
+        nl = chr(10)
+        self.assertIsNone(parches.peligro_python(nl.join(['"""usa importlib"""', "# eval", 'x = "exec("', "assert x", ""])))
+        self.assertEqual(parches.peligro_python(nl.join(["import importlib.util", "assert 1", ""])), "importlib")
