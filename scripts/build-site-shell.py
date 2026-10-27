@@ -580,7 +580,7 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str, allow_
     territories_markup = render_explore_territories(nav, by_id)
 
     subscribe_markup = (
-        '    <form class="explore-subscribe" id="newsletter-form-explore" novalidate data-newsletter-source="explore">\n'
+        '    <form class="explore-subscribe" id="newsletter-form-explore" method="post" novalidate data-newsletter-source="explore">\n'
         '      <label class="sr-only" for="nl-email-explore">Email</label>\n'
         '      <div class="form-row">\n'
         '        <input class="form-input" id="nl-email-explore" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Tu email" aria-describedby="nl-status-explore">\n'
