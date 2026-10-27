@@ -5,7 +5,7 @@
   const category = root.querySelector('[data-atlas-category]');
   const cards = [...root.querySelectorAll('[data-atlas-card]')];
   const count = root.querySelector('[data-atlas-count]');
-  const normalize = (s='') => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  const normalize = (s='') => s.toLowerCase().replace(/n\u0303/g, '\uE000').replace(/ñ/g, '\uE000').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\uE000/g, 'ñ');
   const apply = () => {
     const q = normalize(search?.value || '');
     const c = category?.value || '';

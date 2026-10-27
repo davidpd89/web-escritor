@@ -158,10 +158,11 @@
     </form>
   </div>
 </dialog>
-<script defer src="/assets/newsletter-general.js?v=4"></script>
+<script defer src="/assets/newsletter-general.js?v=5"></script>
 <!-- site-shell:dialog:end -->
   <main id="contenido" tabindex="-1" class="v1-main assistant-shell" data-family="assistant">
     <nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li aria-current="page">Asistente</li></ol></nav>
+    <noscript><p class="tool-note" role="status"><strong>Asistente y búsqueda:</strong> necesitas activar JavaScript para enviar preguntas, utilizar la búsqueda local y recibir respuestas del asistente. Sin JavaScript puedes encontrar las páginas y recursos disponibles en el <a href="/mapa-del-sitio/">mapa del sitio</a>.</p></noscript>
     <header class="tool-hero"><p class="eyebrow">Buscar en la web</p><h1>¿Qué buscas?</h1><p class="tool-hero__lead">Pregúntame por los libros, fragmentos, Noveris, herramientas, editoriales, eventos o información sobre David. El buscador local funciona siempre; cuando la respuesta con IA está activada, usa únicamente contenido público permitido y muestra sus fuentes.</p></header>
     <section class="assistant-panel" aria-labelledby="assistant-title">
       <h2 id="assistant-title">Escribe tu pregunta</h2>
@@ -170,10 +171,11 @@
         <button class="assistant-example" type="button" data-assistant-example="¿Dónde puedo leer un fragmento gratis?">¿Dónde leo un fragmento?</button>
         <button class="assistant-example" type="button" data-assistant-example="¿Qué herramientas gratuitas hay para escritores?">¿Qué herramientas hay?</button>
       </div>
+      <noscript><p>El asistente y la búsqueda de preguntas necesitan JavaScript para funcionar. Si lo tienes desactivado, puedes consultar las secciones de la web desde el <a href="/mapa-del-sitio/">mapa del sitio</a>.</p></noscript>
       <form class="assistant-form" data-assistant-form>
         <label for="assistant-query">Escribe tu pregunta</label>
         <textarea id="assistant-query" name="query" maxlength="500" required autocomplete="off" placeholder="Escribe tu pregunta…" data-assistant-query></textarea>
-        <div class="assistant-actions"><button class="primary-action" type="submit" data-assistant-submit aria-label="Enviar pregunta" title="Enviar">Enviar pregunta</button><button class="text-action assistant-stop" type="button" data-assistant-stop hidden aria-label="Detener respuesta">Detener</button><a class="text-action" href="/mapa-del-sitio/">Ver mapa del sitio</a></div>
+        <div class="assistant-actions"><button class="primary-action" type="submit" data-assistant-submit aria-label="Enviar pregunta" title="Enviar" disabled>Enviar pregunta</button><button class="text-action assistant-stop" type="button" data-assistant-stop hidden aria-label="Detener respuesta">Detener</button><a class="text-action" href="/mapa-del-sitio/">Ver mapa del sitio</a></div>
         <div class="assistant-turnstile" data-assistant-turnstile role="group" aria-label="Verificación antiabuso"></div>
         <p class="assistant-status" role="status" aria-live="polite" data-assistant-status>La búsqueda local funciona aunque la respuesta con IA esté desactivada.</p>
       </form>
