@@ -146,7 +146,7 @@ CONTEXTS: tuple[Context, ...] = (
         ),
     ),
     Context(
-        key="herramientas", label="Libros recomendados", home="/recomendaciones/",
+        key="herramientas", label="Concursos y convocatorias", home="/recomendaciones/",
         prefixes=(
             "/editoriales/",
             "/convocatorias-escritores/",

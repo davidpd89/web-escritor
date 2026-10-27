@@ -80,7 +80,7 @@
       ]
     },
     {
-      key: 'herramientas', label: 'Libros recomendados', home: '/recomendaciones/',
+      key: 'herramientas', label: 'Concursos y convocatorias', home: '/recomendaciones/',
       matches: (path) => path.startsWith('/editoriales/') || path.startsWith('/convocatorias-escritores/'),
       links: [
         ['/recomendaciones/', 'Catálogo'],
