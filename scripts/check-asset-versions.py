@@ -106,7 +106,7 @@ TRACKED_ASSETS = {
     "v1-identity.css": "1",
     "v1-tools-publishing.css": "1",
     "v1-recommendations.css": "2",
-    "v1-findability.css": "3",
+    "v1-findability.css": "4",
     "v1-book.css": "4",
     "v1-editoriales-detail.css": "1",
     "assistant.css": "1",
