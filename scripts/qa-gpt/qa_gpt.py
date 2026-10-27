@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""qa-gpt: descubrimiento y preparacion de tests QA asistidos por GPT (web-escritor).
+r"""qa-gpt: descubrimiento y preparacion de tests QA asistidos por GPT (web-escritor).
 
 Estado en C:\GIT\qa-gpt-state (fuera de los worktrees). El descubrimiento corre solo; NUNCA ejecuta tests ni lanza Actions
 salvo `lote-nocturno --confirmar` tras `autorizar-noche` (ambos manuales). Ver README.md.
@@ -172,7 +172,7 @@ class Lock:
 def flag(name): return (STATE / name).exists()
 
 def _desenvolver_codeblock(text):
-    """ChatGPT a veces entrega <CodeBlock ...>{`json`}</CodeBlock>: plantilla JS con \\, \` y \$ escapados."""
+    r"""ChatGPT a veces entrega <CodeBlock ...>{`json`}</CodeBlock>: plantilla JS con \\, \` y \$ escapados."""
     m = re.search(r"<CodeBlock[^>]*>\s*\{`(.*)`\s*\}\s*</CodeBlock>", text, re.S)
     if not m:  # variante sin plantilla: <CodeBlock ...>{json}</CodeBlock>
         return re.sub(r"</?CodeBlock[^>]*>", "", text)
@@ -534,7 +534,7 @@ def process(job, c, manual=False):
         raise SystemExit("ChatGPT sin sesion en el Edge 9230: inicia sesion y relanza (la cola se conserva).")
     except g.RateLimited as e:
         (STATE / "limite").write_text(now())
-        c.execute("UPDATE jobs SET estado='pendiente',error=?,no_antes=?,actualizado=? WHERE id=?", (str(e), (_ahora() + dt.timedelta(minutes=5)).isoformat(timespec="seconds"), jid)); c.commit()
+        c.execute("UPDATE jobs SET estado='pendiente',error=?,no_antes=?,actualizado=? WHERE id=?", (str(e), (_ahora() + dt.timedelta(minutes=5)).isoformat(timespec="seconds"), now(), jid)); c.commit()
         raise SystemExit("Limite de uso de ChatGPT: pausa con espera escalonada (no se reintenta en bucle).")
     except g.Incompleta as e:
         cid = e.cid or estado_peticion.get("cid")
