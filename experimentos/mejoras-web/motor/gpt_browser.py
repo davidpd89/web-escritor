@@ -242,6 +242,29 @@ def _esperar(pg, cid, wait_min, stall_min, progreso=None):
     raise Incompleta(f"plazo de {wait_min} min agotado con la generacion en curso", cid, "generando")
 
 
+LINEAS_MAX_FILL = 60
+NOTA_SALTOS = "(Los saltos de linea de este prompt se han sustituido por ' ⏎ ' porque el editor de ChatGPT se cuelga con muchas lineas.)"
+
+
+def texto_para_editor(question):
+    """Prompts largos: ProseMirror tarda ~N^2 con N lineas (300 lineas = 29 s, 1100 = 167 s; fill() agotaba 30 s y colgaba el CDP el 27/10).
+    Hasta LINEAS_MAX_FILL se respeta el texto; por encima se envia en una sola linea con ' ⏎ ' entre lineas."""
+    if question.count(chr(10)) <= LINEAS_MAX_FILL: return question, False
+    lineas = [l.strip() for l in question.splitlines() if l.strip()]
+    return NOTA_SALTOS + " ⏎ " + " ⏎ ".join(lineas), True
+
+
+def escribir_prompt(pg, question):
+    texto, plano = texto_para_editor(question)
+    ed = pg.locator('[contenteditable="true"]').first
+    if not plano:
+        ed.fill(texto, timeout=60000); return
+    ed.click()
+    pg.evaluate("""(t)=>{const e=document.querySelector('[contenteditable="true"]');e.focus();document.execCommand('selectAll');document.execCommand('insertText',false,t);}""", texto)
+    if len(pg.evaluate("document.querySelector('[contenteditable=\"true\"]').innerText")) < len(texto) * 0.9:
+        raise RuntimeError("el prompt no se escribio completo en el editor")
+
+
 def ask(question, wait_min=25, stall_min=12, on_chat=None, on_result=None, resume_cid=None, registro=None):
     """Envia `question` en chat nuevo (o reanuda `resume_cid` sin reenviar) y devuelve Resultado.
 
@@ -270,7 +293,7 @@ def ask(question, wait_min=25, stall_min=12, on_chat=None, on_result=None, resum
             comprobar_sesion(pg)
             if PROJECT_ID not in pg.url:
                 raise RuntimeError("no estamos en el Project de mejoras web; no se envia")
-            pg.locator('[contenteditable="true"]').first.fill(question)
+            escribir_prompt(pg, question)
             pg.locator(SEND).first.wait_for(state='visible', timeout=15000)
             pg.locator(SEND).first.click()
             try:
