@@ -80,9 +80,17 @@ def load_registry_by_source(root: Path) -> dict[str, dict]:
     raw = json.loads((root / "data" / "content-registry.json").read_text(encoding="utf-8"))
     defaults = raw.get("defaults", {})
     by_source: dict[str, dict] = {}
-    for entry in raw.get("entries", []):
+    entries = [e for e in raw.get("entries", []) if e.get("sourceFile")]
+    # Las entradas de ancla (`/pagina/#seccion`) no son la pagina: un `searchIndex: false` o un
+    # estado no publico de un ancla no debe sacar la pagina entera del indice (libros/index.html
+    # quedaba fuera del buscador por sus dos anclas de obra). Si la pagina tiene entrada propia,
+    # solo cuentan las entradas de pagina.
+    has_page_entry = {e["sourceFile"] for e in entries if "#" not in str(e.get("url") or "")}
+    for entry in entries:
         source = entry.get("sourceFile")
         if source:
+            if source in has_page_entry and "#" in str(entry.get("url") or ""):
+                continue
             current = {**defaults, **entry}
             previous = by_source.get(source)
             if previous is not None:

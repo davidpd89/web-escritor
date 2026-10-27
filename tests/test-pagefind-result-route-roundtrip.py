@@ -8,7 +8,11 @@ assert manifest_path.is_file(), 'Falta el índice construido de Pagefind'
 manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
 raw = json.loads((ROOT / 'data/content-registry.json').read_text(encoding='utf-8'))
 defaults = raw.get('defaults', {})
-by_source = {e['sourceFile']: e for item in raw['entries'] if (e := {**defaults, **item}).get('sourceFile')}
+# Una entrada de ancla (`/pagina/#seccion`) no representa a la pagina: si la pagina tiene entrada propia,
+# esa es la que cuenta (misma regla que scripts/build-pagefind-index.py).
+all_entries = [e for item in raw['entries'] if (e := {**defaults, **item}).get('sourceFile')]
+page_sources = {e['sourceFile'] for e in all_entries if '#' not in e['url']}
+by_source = {e['sourceFile']: e for e in all_entries if e['sourceFile'] not in page_sources or '#' not in e['url']}
 errors = []
 seen = set()
 for rel in manifest['pages']:
