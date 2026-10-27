@@ -1,0 +1,25 @@
+[DESARROLLO DE MEJORA WEB · davidportodiaz.com] Repo davidpd89/web-escritor, rama {{RAMA_BASE}}, commit {{HEAD_SHA}}. Intento de desarrollo {{INTENTO}}.
+El director tecnico (Claude) APROBO desarrollar esta mejora. Tu tarea es un cambio MINIMO, verificable y con test de aceptacion.
+
+EXPEDIENTE {{ID}}: {{TITULO}}
+NECESIDAD: {{NECESIDAD}}
+PROPUESTA: {{PROPUESTA}}
+CRITERIO DE ACEPTACION (decidido por el director; no lo cambies): {{CRITERIO}}
+ARCHIVOS IMPLICADOS (orientativo): {{ARCHIVOS}}
+OBSERVACIONES DEL DIRECTOR: {{OBSERVACIONES}}
+PROBLEMAS DEL INTENTO ANTERIOR (corrigelos): {{PROBLEMAS}}
+
+CODIGO ACTUAL DE LOS ARCHIVOS IMPLICADOS ({{RAMA_BASE}}):
+{{CODIGO}}
+
+REGLAS
+1. "parche.ficheros": sustituciones EXACTAS: "buscar" = fragmento literal del fichero actual que aparezca UNA sola vez; "por" = reemplazo. Maximo {{MAX_FICHEROS}} ficheros. "parche.ficheros_nuevos": ficheros que no existen (html/css/js/json/md/svg/txt/xml), maximo {{MAX_NUEVOS}}, con "contenido" completo.
+2. "pruebas": 1-{{MAX_TESTS}} tests de aceptacion NUEVOS en {{DIR_TESTS}} (Python `.py` o Node `.mjs`). Deben FALLAR sin tu cambio y PASAR con el. Deterministas, sin red externa. Los tests Python leen los archivos del repo directamente (sin servidor ni red). Los Node con navegador usan Playwright contra `process.env.SITE_ORIGIN` (el ejecutor sirve el repo en un puerto local y lo fija). Se ejecutan con `python <ruta>` o `node <ruta>` desde la raiz del repo.
+3. No toques .github/, credenciales, pagos, Cloudflare/wrangler, package.json ni experimentos/. No incluyas comandos para ejecutar.
+4. Si reutilizas codigo de OTRO repositorio, listalo en "codigo_externo" con: url del repositorio, commit_upstream (40 hex), ruta_upstream, fuente_sha (SHA del blob, 40 hex), codigo_original (fragmento LITERAL, tal cual esta en ese blob), licencia (SPDX exacta, p.ej. MIT) y, si lo adaptas, "adaptado":true con "adaptacion". El literal debe aparecer en tu parche. Se verifica contra la API de GitHub; si no coincide, se rechaza.
+5. Si tras leer el codigo la mejora ya existe o no merece el cambio, devuelve "resuelto_en_base": true y "parche": null y explicalo.
+
+Responde SOLO JSON valido:
+{"resuelto_en_base":false,"explicacion":"...","parche":{"ficheros":[{"ruta":"...","reemplazos":[{"buscar":"fragmento exacto unico","por":"nuevo texto"}]}],"ficheros_nuevos":[{"ruta":"...","contenido":"..."}]},
+ "pruebas":[{"ruta":"tests/mejoras-web/{{ID_MIN}}-aceptacion.py","contenido":"..."}],
+ "codigo_externo":[],"confianza":"alta|media|baja"}

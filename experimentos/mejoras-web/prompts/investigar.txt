@@ -1,0 +1,34 @@
+[INVESTIGACION DE MEJORAS WEB · davidportodiaz.com] Repo davidpd89/web-escritor. Rama de referencia del laboratorio: {{RAMA_BASE}} (commit {{HEAD_SHA}}), que contiene el sitio con las mejoras ya aceptadas en el laboratorio. Lee el codigo REAL con tu conector de GitHub antes de proponer nada. Produccion: {{SITIO}}.
+
+AMBITO DE ESTA RONDA: {{AREA}}
+LENTE: {{LENTE}}
+SUPERFICIE CONCRETA A MIRAR (orientativa; puedes salir de ella si hay una oportunidad mejor en el mismo ambito): {{SUPERFICIE}}
+RONDA/EPOCA: {{EPOCA}} (el laboratorio busca sin fin: no repitas nada de la lista de abajo).
+
+YA INVESTIGADO (no lo repitas ni propongas lo mismo con otras palabras; si encuentras algo realmente distinto, adelante):
+{{PREVIOS}}
+
+PISTAS EXTERNAS RECIENTES (opcionales, solo orientan; compruebalas, no las asumas validas):
+{{PISTAS}}
+
+TAREA: encuentra UNA oportunidad concreta de mejora para este sitio que el sitio NO tenga hoy, o descarta. Comprueba el estado real del sitio (que archivos leiste, que hace hoy, que pruebas existen) y apoyala en fuentes comprobables (documentacion primaria, especificaciones, repositorios abiertos con licencia, datos reales). Una prediccion tuya NO es evidencia.
+
+REGLAS
+1. Puedes y debes DESCARTAR sin codigo si no hay una mejora clara, proporcionada y comprobable: devuelve "descartar": true y "motivo_descarte".
+2. Mejora = cambio minimo con efecto observable para lectores, autor o buscadores (diseno/UX, accesibilidad, rendimiento, SEO, buscadores y filtros, funciones editoriales, automatizacion, fuentes de datos, APIs, crecimiento razonable). Nada de reescrituras, nada de dependencias pesadas, nada que exija secretos ni pagos.
+3. Cada fuente: URL https real, titulo, fecha (YYYY-MM-DD si la hay) y que afirma. Si usas codigo de otro repositorio, citalo luego en el desarrollo con ruta + commit + literal + licencia; aqui basta indicar el repositorio.
+4. "archivos_leidos" son rutas reales del repo que has leido de verdad. No inventes rutas ni funciones.
+5. Responde SOLO JSON valido, sin texto fuera.
+
+{"descartar":false,"motivo_descarte":"",
+ "titulo":"max 100 caracteres",
+ "necesidad":"que necesidad concreta de un lector/autor/buscador queda sin cubrir y como se nota (min 40 caracteres)",
+ "estado_sitio":{"archivos_leidos":["ruta/real.html"],"observacion":"que hace hoy el sitio en esto, con evidencia del codigo"},
+ "fuentes":[{"url":"https://...","titulo":"...","fecha":"2026-01-01","afirma":"..."}],
+ "propuesta":"el cambio minimo, en 3-6 frases",
+ "archivos_objetivo":["ruta/que/se/tocaria"],
+ "criterio_aceptacion":"comportamiento observable y verificable por un test automatico",
+ "pruebas_aceptacion":["descripcion de cada test que lo demostraria"],
+ "riesgos":"regresiones posibles y coherencia editorial",
+ "alternativas":["alternativa A","alternativa B"],
+ "tamano":"pequeno|medio"}

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Fuentes vivas para investigar mejoras. Las coincidencias NO equivalen a soluciones verificadas."""
+"""Fuentes vivas OPCIONALES para investigar mejoras (pistas que se muestran a GPT; investigar.pistas_texto). Las coincidencias NO equivalen a soluciones verificadas.
+
+CONSERVADO de la PR #819 (motor/descubrimiento.py @ e216858c18551cc51f25fa29f809f760c46e6004) sin cambios de logica: es lectura de GitHub REST publico y del RSS de
+Search Central, util como pista y sin equivalente en el QA. Un fallo de red nunca bloquea el circuito."""
 import argparse, datetime as dt, hashlib, json, os, subprocess, sys, urllib.error, urllib.parse, urllib.request
 import xml.etree.ElementTree as ET
 from email.utils import parsedate_to_datetime

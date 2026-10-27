@@ -1,4 +1,9 @@
-"""Adaptacion literal del lector GPT QA para laboratorio CDP 9331. Un chat NUEVO por peticion, una peticion a la vez.
+"""Consulta a ChatGPT (Project de MEJORAS WEB) por el Edge dedicado del laboratorio (CDP 9331). Un chat NUEVO por peticion, una peticion a la vez.
+
+PROCEDENCIA: scripts/qa-gpt/gpt_browser.py @ fe131c8ce6a663b54ab067ea5bc123318ececbb0 (rama automation/qa-gpt), blob 01ba6c7b92863948ce39248c4eae1681eac92935.
+CAMBIOS respecto al original (el resto es literal): PORT 9230 -> 9331; PROJECT_ID ya no esta fijado al Project de QA: se configura con configurar()
+(config.json "gpt" o MEJORAS_WEB_PROJECT_ID) y se rechaza el id del Project de QA; mensajes de error del laboratorio. La logica de lectura del backend,
+reanudacion por chat id, recargas y limpieza de pestanas es la del QA sin cambios.
 
 Fin de generacion y texto de la respuesta: se leen del BACKEND de la conversacion (/backend-api/conversation/<id>),
 no del DOM (los selectores del visor cambian y el visor colapsa el texto: causa del fallo "Thought for 4m" sin respuesta).
@@ -7,9 +12,29 @@ No teclea contrasenas: si la sesion esta cerrada lanza LoginRequired.
 import os, re, time
 from dataclasses import dataclass
 
-PORT = int(os.environ.get("LAB_MEJORAS_CDP_PORT", "9331"))
-PROJECT_ID = os.environ.get("LAB_MEJORAS_PROJECT_ID", "")
-PROJECT_URL = f"https://chatgpt.com/g/{PROJECT_ID}/project" if PROJECT_ID else "https://chatgpt.com/"
+PORT = 9331  # Edge del laboratorio; el QA original usa 9230 (y 9224/9225): este modulo nunca habla con ellos
+PROJECT_QA = "g-p-6adb128351e481919fef7901e111d1ac"  # Project del QA original: prohibido aqui (instrucciones y conversaciones distintas)
+PROJECT_ID = ""
+PROJECT_URL = ""
+
+
+def configurar(port=None, project_id=None):
+    """Fija puerto y Project del laboratorio. Lanza ValueError si el Project es el del QA o no tiene la forma g-p-<id>."""
+    global PORT, PROJECT_ID, PROJECT_URL
+    if port is not None:
+        if int(port) in (9230, 9224, 9225): raise ValueError(f"el puerto CDP {port} pertenece al QA original")
+        PORT = int(port)
+    if project_id is not None:
+        project_id = str(project_id).strip()
+        if project_id == PROJECT_QA: raise ValueError("ese es el Project del QA original; el laboratorio necesita el suyo")
+        if project_id and not re.fullmatch(r"g-p-[0-9a-f]{20,}", project_id): raise ValueError("Project id invalido (se espera g-p-<hex>)")
+        PROJECT_ID = project_id
+        PROJECT_URL = f"https://chatgpt.com/g/{PROJECT_ID}/project" if PROJECT_ID else ""
+    return PORT, PROJECT_ID
+
+
+def _exigir_project():
+    if not PROJECT_ID: raise RuntimeError("falta el Project de ChatGPT del laboratorio: pon su id en config.json (gpt.project_id) o en MEJORAS_WEB_PROJECT_ID")
 STOP = 'button[data-testid="stop-button"], button[aria-label*="Detener"], button[aria-label*="Stop"]'
 SEND = 'button[data-testid="send-button"], button[type="submit"][aria-label="Enviar"], button[type="submit"][aria-label*="Send"]'
 SECRETS = re.compile(r"(^\.env|token|secret|credential|password|\.pem$|\.key$)", re.I)
@@ -75,8 +100,9 @@ def evaluar(d, after_user=True):
     """Clasifica una conversacion (JSON del backend) -> Resultado parcial (estado, texto, herramientas, nodos). Puro: testeable sin navegador."""
     mp = d.get("mapping") or {}
     chain, node = [], d.get("current_node")
-    while node and node in mp:
-        chain.append(mp[node]); node = mp[node].get("parent")
+    visto = set()  # un mapping ciclico no debe colgar el pipeline
+    while node and node in mp and node not in visto:
+        visto.add(node); chain.append(mp[node]); node = mp[node].get("parent")
     chain.reverse()
     msgs = [n["message"] for n in chain if n.get("message")]
     herr = sum(1 for m in msgs if m["author"]["role"] == "tool")
@@ -120,8 +146,9 @@ def conversacion_en_dom(pg):
 def abrir_chat(pg, cid, recargas=None):
     """Abre un chat existente y COMPRUEBA por DOM/backend que cargo. Recarga de forma acotada si hay error visible o la
     navegacion falla. Lanza LoginRequired (sin eludir nada) o ChatInaccesible. Devuelve el Resultado actual del backend si lo hubo."""
+    _exigir_project()
     recargas = RECARGAS if recargas is None else recargas
-    url, motivo, http = (f"https://chatgpt.com/g/{PROJECT_ID}/c/{cid}" if PROJECT_ID else f"https://chatgpt.com/c/{cid}"), "", None
+    url, motivo, http = f"https://chatgpt.com/g/{PROJECT_ID}/c/{cid}", "", None
     for i in range(recargas + 1):
         try:
             if i == 0: pg.goto(url, wait_until="domcontentloaded", timeout=40000)
@@ -187,7 +214,7 @@ def _pagina_chatgpt(ctx):
 
 def comprobar_sesion(pg, necesita_editor=True):
     if "auth" in pg.url or "login" in pg.url or (necesita_editor and pg.locator('[contenteditable="true"]').count() == 0):
-        raise LoginRequired(f"ChatGPT sin sesion en el Edge {PORT}")
+        raise LoginRequired(f"ChatGPT sin sesion en el Edge {PORT} del laboratorio")
 
 
 def _esperar(pg, cid, wait_min, stall_min, progreso=None):
@@ -223,6 +250,7 @@ def ask(question, wait_min=25, stall_min=12, on_chat=None, on_result=None, resum
     on_result(res): se llama con la respuesta COMPLETA antes de cerrar la pestana (persistir/validar ahi).
     La pestana solo se cierra si la respuesta quedo terminada y on_result no fallo; si no, se deja abierta y se informa en Incompleta.cid.
     """
+    _exigir_project()
     from playwright.sync_api import sync_playwright
     p = sync_playwright().start()
     pg = None; cerrar = False
@@ -241,8 +269,8 @@ def ask(question, wait_min=25, stall_min=12, on_chat=None, on_result=None, resum
             pg.goto(PROJECT_URL, wait_until="domcontentloaded", timeout=40000)
             pg.wait_for_selector('[contenteditable="true"]', timeout=20000) if "auth" not in pg.url and "login" not in pg.url else None
             comprobar_sesion(pg)
-            if PROJECT_ID and PROJECT_ID not in pg.url:
-                raise RuntimeError("no estamos en el Project de mejoras seleccionado; no se envia")
+            if PROJECT_ID not in pg.url:
+                raise RuntimeError("no estamos en el Project de mejoras web; no se envia")
             pg.locator('[contenteditable="true"]').first.fill(question)
             pg.locator(SEND).first.wait_for(state='visible', timeout=15000)
             pg.locator(SEND).first.click()

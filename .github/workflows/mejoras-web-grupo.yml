@@ -1,0 +1,108 @@
+name: Mejoras web grupo
+
+# Entre comillas: sin ellas YAML toma "#..." como comentario y el run-name pierde el intento (rompia el dedupe por sha+intento).
+run-name: "Mejoras web ${{ inputs.sha }} #${{ inputs.intento }}"
+
+# Ejecuta los tests de aceptacion de UNA mejora del laboratorio (rama mejoras-web/*) y conserva resultados.json como artefacto.
+# Solo workflow_dispatch: ni push ni pull_request, asi que nunca se dispara solo ni bloquea Required merge gate.
+# Lo despacha unicamente EJECUTAR-ACTIONS-MEJORAS-WEB.bat (experimentos/mejoras-web/motor/actions.py), con un maximo de 3 grupos a la vez.
+# El run-name lleva `sha #intento`: asi el ejecutor reconoce un run ya enviado (dedupe por SHA) y recupera su resultado sin reenviar.
+# Dependencia de rama: GitHub solo despacha un workflow que existe en la rama indicada por --ref (config.json: workflow_ref). Mientras el laboratorio
+# se desarrolla vive en research/mejoras-web-motor-qa-20261027; al integrarlo, workflow_ref pasa a lab/mejoras-web-20261024.
+# No ejecuta auditorias generales, Pa11y, Reflow, Lighthouse ni regresion visual.
+# Patron: .github/workflows/qa-gpt-grupo.yml @ fe131c8ce6a663b54ab067ea5bc123318ececbb0 (rama automation/qa-gpt).
+
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: 'Commit exacto (40 hex) de la rama mejoras-web/* con la mejora y sus tests'
+        required: true
+      modo:
+        description: 'aceptacion (unico modo: cualquier fallo es rojo)'
+        required: true
+        default: 'aceptacion'
+      tests:
+        description: 'Tests separados por espacios: node:tests/mejoras-web/x.mjs python:tests/mejoras-web/y.py'
+        required: true
+      intento:
+        description: 'Numero de intento (1; mas solo tras un fallo de infraestructura pedido a mano)'
+        required: true
+        default: '1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mejoras-web-grupo-${{ inputs.sha }}-${{ inputs.intento }}
+  cancel-in-progress: false
+
+jobs:
+  grupo:
+    if: ${{ github.ref != 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Validar entradas
+        env:
+          SHA: ${{ inputs.sha }}
+          INTENTO: ${{ inputs.intento }}
+          MODO: ${{ inputs.modo }}
+        run: |
+          [[ "$SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "sha invalido"; exit 2; }
+          [[ "$INTENTO" =~ ^[0-9]{1,2}$ ]] || { echo "intento invalido"; exit 2; }
+          [[ "$MODO" == "aceptacion" ]] || { echo "modo invalido"; exit 2; }
+
+      - name: Checkout del commit de la mejora
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.sha }}
+          fetch-depth: 1
+
+      - name: Driver de resultados (del commit que lanza el workflow)
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+          path: .mw-driver
+          sparse-checkout: experimentos/mejoras-web/motor
+
+      - name: Set up Node
+        if: ${{ contains(inputs.tests, 'node:') }}
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install CI dependencies (Node)
+        if: ${{ contains(inputs.tests, 'node:') }}
+        run: npm ci
+
+      - name: Install Playwright Chromium (solo si hay tests de navegador)
+        if: ${{ contains(inputs.tests, 'node:') }}
+        run: npx playwright install --with-deps chromium
+
+      - name: Ejecutar el grupo
+        env:
+          MW_MODO: ${{ inputs.modo }}
+          MW_TESTS: ${{ inputs.tests }}
+        run: python3 .mw-driver/experimentos/mejoras-web/motor/ci_grupo.py "$RUNNER_TEMP/resultados.json" "$MW_MODO" "$MW_TESTS"
+
+      - name: Publicar resultados en el resumen
+        if: always()
+        run: |
+          python3 -c "
+          import json, os
+          p = os.environ['RUNNER_TEMP'] + '/resultados.json'
+          if os.path.exists(p):
+              d = json.load(open(p))
+              print('### Mejoras web (%s): %s' % (d['modo'], d['resumen']))
+              for t in d['tests']: print('- %s rc=%s %s' % (t['clase'], t['rc'], t['ruta']))
+          " >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Conservar resultados
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: mejoras-web-resultados
+          path: ${{ runner.temp }}/resultados.json
+          retention-days: 30
+          if-no-files-found: warn

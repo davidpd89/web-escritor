@@ -1,67 +1,44 @@
-#!/usr/bin/env python3
-"""Vista separada de un worktree hijo, exclusivamente en localhost. No hace commits ni merge."""
-import argparse, functools, hashlib, http.server, json, sys, webbrowser
+"""preview: vista previa LOCAL de una mejora (127.0.0.1 solamente). `mw.py vista-previa [ID]`.
+
+Con ID: reconstruye en un worktree efimero el SHA validado de esa mejora (rama mejoras-web/<id>) y lo sirve; sin ID: sirve la rama base del
+laboratorio (la web "como si fuera main pero con las mejoras ya aceptadas"). No hace commits, no publica y no abre ninguna PR.
+El ENLACE PUBLICO verificable de la rama de laboratorio lo da el workflow manual mejoras-web-preview.yml (documentado en el README, nunca automatico).
+
+PROCEDENCIA: servidor de vista de motor/preview.py de la PR #819 @ e216858c18551cc51f25fa29f809f760c46e6004, reescrito para el nuevo estado.
+"""
+import functools, http.server, webbrowser
 from pathlib import Path
 
-ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT))
-import rotacion
+import parches
 
 
-def carpeta_ciclo():
-    return rotacion.ubicacion_estado().parent/"ciclo"
+def raiz(q, exp_id=None):
+    if not exp_id: return q.preparar_src(), None
+    if not all(ch.isascii() and (ch.isalnum() or ch in "-_") for ch in exp_id): raise ValueError("ID de expediente invalido")
+    c = q.db(); e = c.execute("SELECT * FROM expedientes WHERE id=?", (exp_id,)).fetchone()
+    if not e or not e["sha"]: raise ValueError("ese expediente no tiene una candidata validada (sin SHA)")
+    wt = q.STATE / "preview" / exp_id
+    parches.limpiar_wt(wt); wt.parent.mkdir(parents=True, exist_ok=True)
+    q.git("worktree", "add", "--detach", str(wt), e["sha"])
+    if not (wt / "index.html").is_file(): parches.limpiar_wt(wt); raise ValueError("la candidata no contiene index.html")
+    return wt, wt
 
 
-def destino(estado,expediente_id=None):
-    d=Path(estado).resolve()
-    if expediente_id:
-        if not all(ch.isascii() and (ch.isalnum() or ch in "-_") for ch in expediente_id):
-            raise ValueError("ID de expediente inválido")
-        key=hashlib.sha256(expediente_id.encode("utf-8")).hexdigest()[:16]
-        ruta=d/"propuestas"/(key+".json")
-    else:
-        ruta=d/"actual.json"
-        if ruta.is_file():
-            actual=json.loads(ruta.read_text(encoding="utf-8"))
-            if not (actual.get("validacion") or {}).get("worktree"):
-                ruta=d/"ultima_propuesta.json"
-        else:
-            ruta=d/"ultima_propuesta.json"
-    if not ruta.is_file():
-        raise ValueError("No hay propuestas guardadas; el ciclo debe validar primero un parche")
-    registro=json.loads(ruta.read_text(encoding="utf-8"))
-    raw=(registro.get("validacion") or {}).get("worktree")
-    if not raw: raise ValueError("Esta propuesta no tiene worktree validado")
-    wt=Path(raw).resolve()
-    if not wt.is_relative_to((d/"worktrees").resolve()) or not wt.is_dir():
-        raise ValueError("Worktree fuera del estado del laboratorio o ya inexistente")
-    if not (wt/"index.html").is_file():
-        raise ValueError("Worktree sin página principal")
-    return wt
-
-
-def main():
-    p=argparse.ArgumentParser()
-    p.add_argument("--puerto",type=int,default=8766)
-    p.add_argument("--estado-dir",type=Path,default=carpeta_ciclo())
-    p.add_argument("--sin-abrir",action="store_true")
-    p.add_argument("--id",help="ID exacto de una propuesta anterior, como SEO-01")
-    args=p.parse_args()
+def main(q, a):
+    wt = None
     try:
-        root=destino(args.estado_dir,args.id)
-        if not 1024<=args.puerto<=65535: raise ValueError("Puerto local inválido")
-        handler=functools.partial(http.server.SimpleHTTPRequestHandler,directory=str(root))
-        with http.server.ThreadingHTTPServer(("127.0.0.1",args.puerto),handler) as servidor:
-            url=f"http://127.0.0.1:{args.puerto}/"
-            print(f"Worktree de PR: {root}\nPreview: {url}\nCtrl+C para cerrar.",flush=True)
-            if not args.sin_abrir: webbrowser.open(url)
-            servidor.serve_forever()
-    except (ValueError,OSError,json.JSONDecodeError) as err:
-        print(f"ERROR: {err}",file=sys.stderr)
-        return 2
+        if not 1024 <= a.puerto <= 65535: raise ValueError("puerto local invalido")
+        carpeta, wt = raiz(q, a.id)
+        handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(carpeta))
+        with http.server.ThreadingHTTPServer(("127.0.0.1", a.puerto), handler) as srv:
+            url = f"http://127.0.0.1:{a.puerto}/"
+            print(f"Vista previa de {a.id or 'la rama base ' + q.CFG['rama_base']}: {url}\nSolo local. Ctrl+C para cerrar.", flush=True)
+            if not a.sin_abrir: webbrowser.open(url)
+            srv.serve_forever()
+    except (ValueError, OSError, RuntimeError) as err:
+        print(f"ERROR: {err}"); return 2
     except KeyboardInterrupt:
         print("Vista detenida.")
+    finally:
+        if wt: parches.limpiar_wt(wt)
     return 0
-
-
-if __name__=="__main__": raise SystemExit(main())
