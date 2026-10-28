@@ -137,11 +137,12 @@ CONTEXTS: tuple[Context, ...] = (
     # directorio editorial/concursos el de herramientas para no perder estilos.
     Context(
         key="cuaderno", label="Libros recomendados", home="/recomendaciones/",
-        prefixes=("/recomendaciones/",), exacts=(),
+        prefixes=("/recomendaciones/", "/atlas-literario/"), exacts=(),
         links=(
             ("/recomendaciones/", "Catálogo"),
             ("/recomendaciones/autores/", "Autores"),
             ("/editoriales/", "Editoriales"),
+            ("/atlas-literario/", "Atlas literario"),
             ("/convocatorias-escritores/", "Concursos"),
         ),
     ),
@@ -156,6 +157,7 @@ CONTEXTS: tuple[Context, ...] = (
             ("/recomendaciones/", "Catálogo"),
             ("/recomendaciones/autores/", "Autores"),
             ("/editoriales/", "Editoriales"),
+            ("/atlas-literario/", "Atlas literario"),
             ("/convocatorias-escritores/", "Concursos"),
         ),
     ),
