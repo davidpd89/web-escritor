@@ -1,0 +1,174 @@
+{
+ "repo": "davidpd89/web-escritor",
+ "sitio": "https://davidportodiaz.com",
+ "rama_base": "lab/mejoras-web-20261024",
+ "rama_desarrollo": "research/mejoras-web-motor-qa-20261027",
+ "prefijo_rama": "mejoras-web/",
+ "workflow_grupo": "mejoras-web-grupo.yml",
+ "workflow_ref": "research/mejoras-web-motor-qa-20261027",
+ "workflow_preview": "mejoras-web-preview.yml",
+ "gpt": {
+  "puerto_cdp": 9331,
+  "project_id": "g-p-6adb128351e481919fef7901e111d1ac"
+ },
+ "espera_respuesta_min": 25,
+ "stall_min": 12,
+ "reintentos": 2,
+ "backoff_min": [
+  5,
+  20
+ ],
+ "reanudar_max_horas": 6,
+ "worker_max_min": 120,
+ "parada_gracia_min": 3,
+ "max_pendientes": 6,
+ "cooldown_par_dias": 2,
+ "claude": {
+  "modelo": "claude-sonnet-5-5",
+  "esfuerzo": "low",
+  "max_turnos": 6,
+  "timeout_s": 300,
+  "max_usd_llamada": 0.5,
+  "max_usd_dia": 10.0,
+  "cuentas_extra": [],
+  "extra_primero": false,
+  "pausa_limite_s": 3600
+ },
+ "flujo": {
+  "max_intentos_parche": 2,
+  "ciclo_s": 30,
+  "consultas_gpt_por_hora": 8
+ },
+ "parches": {
+  "max_ficheros": 6,
+  "max_reemplazos": 8,
+  "max_ficheros_nuevos": 4,
+  "max_bytes_nuevo": 60000,
+  "max_tests": 3,
+  "dir_tests": "tests/mejoras-web/"
+ },
+ "actions": {
+  "concurrencia": 3,
+  "poll_s": 30,
+  "timeout_test_s": 300,
+  "espera_run_min": 10,
+  "espera_ociosa_s": 60,
+  "max_envios_dia": 12,
+  "puerto_estatico": 4273,
+  "node_modules": ""
+ },
+ "areas": [
+  {
+   "id": "diseno-ux",
+   "nombre": "Diseno y experiencia de usuario",
+   "superficies": [
+    "index.html",
+    "styles.css",
+    "assets/**",
+    "recomendaciones/**",
+    "cuaderno/**"
+   ]
+  },
+  {
+   "id": "accesibilidad",
+   "nombre": "Accesibilidad (teclado, lector de pantalla, contraste, movimiento)",
+   "superficies": [
+    "index.html",
+    "styles.css",
+    "assets/*.js",
+    "accesibilidad/**"
+   ]
+  },
+  {
+   "id": "rendimiento",
+   "nombre": "Rendimiento percibido y real (carga, imagenes, scripts, cache)",
+   "superficies": [
+    "assets/**",
+    "service-worker.js",
+    "index.html",
+    "libros/**"
+   ]
+  },
+  {
+   "id": "seo-buscadores",
+   "nombre": "SEO, datos estructurados y visibilidad en buscadores",
+   "superficies": [
+    "sitemap.xml",
+    "robots.txt",
+    "llms.txt",
+    "scripts/*seo*",
+    "libros/**",
+    "cuaderno/**"
+   ]
+  },
+  {
+   "id": "busqueda-filtros",
+   "nombre": "Buscadores, filtros y descubrimiento dentro del sitio",
+   "superficies": [
+    "buscar/**",
+    "pagefind/**",
+    "recomendaciones/**",
+    "lecturas/**"
+   ]
+  },
+  {
+   "id": "funciones-editoriales",
+   "nombre": "Funciones editoriales para lectores y para el autor",
+   "superficies": [
+    "cuaderno/**",
+    "fragmento/**",
+    "universo/**",
+    "herramientas/**",
+    "guias/**"
+   ]
+  },
+  {
+   "id": "automatizacion",
+   "nombre": "Automatizacion de tareas repetidas de mantenimiento del sitio",
+   "superficies": [
+    "scripts/**",
+    "data/**"
+   ]
+  },
+  {
+   "id": "fuentes-datos",
+   "nombre": "Fuentes de datos abiertas y metadatos bibliograficos",
+   "superficies": [
+    "data/**",
+    "scripts/*reading*",
+    "libros/**"
+   ]
+  },
+  {
+   "id": "apis",
+   "nombre": "APIs y servicios externos utiles (con coste, cuota y licencia comprobables)",
+   "superficies": [
+    "scripts/**",
+    "cloudflare-worker-*.js",
+    "data/**"
+   ]
+  },
+  {
+   "id": "crecimiento",
+   "nombre": "Crecimiento razonable: descubrimiento, retorno de lectores y distribucion",
+   "superficies": [
+    "index.html",
+    "cuaderno/**",
+    "suscripcion/**",
+    "eventos.html"
+   ]
+  }
+ ],
+ "lentes": [
+  "lector en movil con conexion lenta",
+  "lector que navega con teclado o lector de pantalla",
+  "robot de busqueda y datos estructurados",
+  "autor o editor que mantiene el contenido a mano",
+  "dato o API externa nueva con codigo de referencia verificable",
+  "novedades de plataforma web y de buscadores de los ultimos meses",
+  "continuidad de lectura: volver, continuar y descubrir lo siguiente",
+  "fallos observables hoy: enlaces, estados vacios, errores, textos",
+  "practicas comprobadas en sitios comparables de escritores y editoriales",
+  "ahorro de mantenimiento: automatizar algo manual y repetido"
+ ]
+}

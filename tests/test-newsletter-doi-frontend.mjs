@@ -31,8 +31,12 @@ assert.ok(!script.includes('dupeTitle:'), 'legacy duplicate-success copy must no
 assert.ok(!popup.includes('dupeTitle:'), 'legacy duplicate-success copy must not survive DOI migration in popup');
 
 assert.match(thanks, /<meta name="robots" content="noindex, follow"/);
-assert.ok(thanks.includes('localStorage.setItem("nl-subscribed", "1")'), 'DOI return marks browser confirmed');
-assert.ok(thanks.indexOf('localStorage.setItem("nl-subscribed", "1")') < thanks.indexOf('/script.js'), 'confirmed state must be set before global runtime');
+assert.ok(!thanks.includes('localStorage.setItem("nl-subscribed", "1")'), 'public DOI return must not mark browser confirmed without verification');
+assert.ok(!thanks.includes('localStorage.setItem("nl-subscribed",'), 'public DOI return must not write subscription state without verification');
 assert.ok(thanks.includes('Suscripción confirmada'));
+// Quien ya pidió la suscripción no debe volver a ver el popup cada semana: se anota "solicitada", nunca "confirmada".
+assert.ok(thanks.includes('localStorage.setItem("nl-requested"'), 'thanks page must record that the subscription was requested (popup stays off)');
+assert.ok(popup.includes('const REQUESTED_KEY = "nl-requested"') && popup.includes('safeSet(REQUESTED_KEY'), 'popup must record and honour nl-requested');
+assert.ok(popup.indexOf('REQUESTED_KEY) ') >= 0 || popup.includes('safeGet(REQUESTED_KEY)'), 'popup must read nl-requested before opening');
 
 console.log('test-newsletter-doi-frontend: all assertions passed');

@@ -29,6 +29,16 @@ def normalize_text(value: str) -> str:
     return " ".join(re.sub(r"[^a-z0-9]+", " ", ascii_text).split())
 
 
+_SPACE_RUN = re.compile(r"\s{2,}")
+
+
+def clean_title(value: str) -> str:
+    """Texto público de título: colapsa secuencias de 2+ espacios (incluidos los
+    Unicode) en un único espacio y recorta los bordes. Idempotente; un espacio
+    suelto (p. ej. NBSP legítimo), la puntuación, tildes y demás Unicode no se tocan."""
+    return _SPACE_RUN.sub(" ", str(value)).strip()
+
+
 def isbn13(value: str) -> str | None:
     """Validar ISBN-13 o convertir ISBN-10 completo con X final si procede."""
     raw = re.sub(r"[\s-]", "", str(value).upper())
@@ -168,7 +178,7 @@ def google_books_candidate(volume: dict, allowed: list[dict]) -> dict | None:
     return {
         "candidate_key": "isbn13:" + valid,
         "isbn13": valid,
-        "titulo": str(info["title"]).strip(),
+        "titulo": clean_title(info["title"]),
         "autores": list(info["authors"]),
         "editorial_sello_slug": slug,
         "fecha_publicacion_edicion": published,

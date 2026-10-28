@@ -1,0 +1,40 @@
+<!-- Ejemplo de HTML de filtros Atlas, NO enlazado/publicado en la web. -->
+<!-- Debe ir debajo de enlaces SSR reales a destinos; sin JS siguen accesibles. -->
+<section data-atlas-explore aria-labelledby="atlas-explore-title">
+  <h2 id="atlas-explore-title">Explorar lugares literarios</h2>
+  <p>Elige país y destino. Los filtros solo consultan lugares aprobados.</p>
+  <div class="atlas-filter-grid">
+    <label for="atlas-country">País</label>
+    <select id="atlas-country" data-atlas-country>
+      <option value="">País</option>
+    </select>
+    <label for="atlas-destination">Ciudad o destino</label>
+    <select id="atlas-destination" data-atlas-destination>
+      <option value="">Ciudad o destino</option>
+    </select>
+    <label for="atlas-type">Tipo de lugar</label>
+    <select id="atlas-type" data-atlas-type><option value="">Tipo de lugar</option></select>
+    <label for="atlas-work">Libro</label>
+    <select id="atlas-work" data-atlas-work><option value="">Obra</option></select>
+    <label for="atlas-author">Autor</label>
+    <select id="atlas-author" data-atlas-author><option value="">Autor</option></select>
+    <label for="atlas-relation">Vínculo</label>
+    <select id="atlas-relation" data-atlas-relation>
+      <option value="">Tipo de vínculo</option>
+    </select>
+    <label for="atlas-search">Buscar en este destino</label>
+    <input id="atlas-search" data-atlas-query type="search" autocomplete="off"
+           placeholder="Librería, biblioteca, novela o autor">
+  </div>
+  <p data-atlas-status role="status" aria-live="polite"></p>
+  <button type="button" data-atlas-retry hidden>Reintentar carga de filtros</button>
+  <p data-atlas-count role="status" aria-live="polite"></p>
+  <div data-atlas-results aria-label="Lugares filtrados"></div>
+  <nav aria-label="Páginas de resultados">
+    <button type="button" data-atlas-previous disabled>Anterior</button>
+    <span data-atlas-page></span>
+    <button type="button" data-atlas-next disabled>Siguiente</button>
+  </nav>
+</section>
+<!-- Cargar SOLO en la página de exploración, con defer, al integrar. -->
+<!-- <script src="/assets/atlas-filters.js" defer></script> -->

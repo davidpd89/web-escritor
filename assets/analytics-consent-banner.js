@@ -48,7 +48,10 @@ function getStoredAnalyticsConsent() {
     if (!parsed || (parsed.value !== "granted" && parsed.value !== "denied") || typeof parsed.ts !== "number") {
       return null;
     }
-    if (Date.now() - parsed.ts > ANALYTICS_CONSENT_MAX_AGE_MS) return null;
+    if (parsed.v !== ANALYTICS_CONSENT_VERSION) return null;
+    if (!Number.isFinite(parsed.ts) || parsed.ts < 0) return null;
+    const age = Date.now() - parsed.ts;
+    if (age < 0 || age > ANALYTICS_CONSENT_MAX_AGE_MS) return null;
     return parsed;
   } catch {
     return null;

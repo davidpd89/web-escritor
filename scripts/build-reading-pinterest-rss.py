@@ -116,7 +116,7 @@ def suitable_books(root: Path, data: dict, board_config: dict, today: date,
 
 def assign_queue(entries: list[dict], state: dict, today: date, budget: int) -> bool:
     """Stable one-book/one-board schedule, max budget over ALL feeds per day."""
-    if not 1 <= budget <= 20:
+    if type(budget) is not int or not 1 <= budget <= 20:
         raise ValueError("daily_new_pin_budget debe estar entre 1 y 20")
     pins = state.setdefault("pins", {})
     allocated = Counter(entry["scheduled_date"] for entry in pins.values()

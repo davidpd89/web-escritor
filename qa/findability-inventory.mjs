@@ -40,9 +40,14 @@ function brokenInBaseline(href){
   const [rawPath,hash]=href.split('#');
   let target=(rawPath||'/').replace(/^\//,'');
   if(target===''||target.endsWith('/'))target+='index.html';
-  if(!fs.existsSync(target))return `fichero inexistente: ${target}`;
+  let html;
+  try {
+    html=baseText(target);
+  } catch (error) {
+    if(error.status===128)return `fichero inexistente en BASE_SHA: ${target}`;
+    throw error;
+  }
   if(!hash)return null;
-  const html=fs.readFileSync(target,'utf8');
   const hasId=new RegExp(`\\bid\\s*=\\s*["']${hash.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}["']`,'i').test(html);
   return hasId?null:`anchor inexistente: #${hash} en ${target}`;
 }
@@ -89,6 +94,7 @@ function deprecatedDestination(href) {
 // the matching.
 const KNOWN_EDITORIAL_URL_MIGRATIONS = new Map([
   ['https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte', 'AIII-11 2026-08-27: canonical URL moved to /libros/#memoria-tierras-norte'],
+  ['/cuaderno/sistema-de-magia-noveris/', 'MW-0008 2026-10-28: article temporarily withdrawn (noindex, excluded from sitemap and search); the HTML sitemap stops listing it'],
   ['https://www.threads.net/@davidportodiaz', '2026-09-01: Meta moved Threads profile URLs from threads.net to threads.com'],
   ['https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21', '2026-09-04: global header Comprar button retargeted from a hardcoded Samuel Amazon link to Las manecillas del recuerdo\'s real Kindle purchase URL (editorial-facts.json purchaseUrl, now https://amzn.to/3SM4Oxu) -- Samuel\'s own dedicated purchase links elsewhere on the site are unaffected'],
   ['https://amzn.to/3SM4Oxu', '2026-09-07: the Kindle URL used as a temporary stand-in above was itself superseded once the paperback edition got its own real, verified Amazon affiliate link (editorial-facts.json purchaseUrl, now https://amzn.to/4zW6Yeu) -- the Kindle edition keeps its own separate purchase link on its dedicated page (/las-manecillas-del-recuerdo/kindle/) and in ai/index.html, prensa.html, llms.txt'],

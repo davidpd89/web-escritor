@@ -27,6 +27,14 @@ CSS_IMPORT_RE = re.compile(
     r"@import\s+(?:url\(\s*)?[\"']([^\"']+)[\"']\s*\)?",
     re.IGNORECASE,
 )
+CSS_FONT_FACE_RE = re.compile(
+    r"@font-face\s*\{([^{}]*)\}",
+    re.IGNORECASE | re.DOTALL,
+)
+CSS_FONT_URL_RE = re.compile(
+    r"url\(\s*(?:\"([^\"]+)\"|'([^']+)'|([^\s)'\"]+))\s*\)",
+    re.IGNORECASE,
+)
 JS_IMPORT_RE = re.compile(
     r"^\s*import\s+(?!\()(?:(?:[^;]*?)\sfrom\s+)?[\"']([^\"']+)[\"']\s*;",
     re.MULTILINE | re.DOTALL,
@@ -49,7 +57,9 @@ def resolve_local(root: Path, importer: Path, specifier: str) -> Path | None:
         return None
     if specifier.startswith("/"):
         candidate = root / specifier.lstrip("/")
-    elif specifier.startswith("."):
+    elif specifier.startswith(".") or (
+        importer.suffix.lower() == ".css" and not re.match(r"^[a-zA-Z][a-zA-Z0-9+.-]*:", specifier)
+    ):
         candidate = importer.parent / specifier
     else:
         # Bare module/package specifiers are external to this static artifact graph.
@@ -61,6 +71,11 @@ def local_dependencies(root: Path, path: Path, text: str) -> Iterable[Path]:
     suffix = path.suffix.lower()
     if suffix == ".css":
         matches = CSS_IMPORT_RE.findall(text)
+        for declaration in CSS_FONT_FACE_RE.findall(text):
+            for quoted_double, quoted_single, unquoted in CSS_FONT_URL_RE.findall(declaration):
+                specifier = quoted_double or quoted_single or unquoted
+                if specifier:
+                    matches.append(specifier)
     elif suffix in {".js", ".mjs"}:
         matches = [*JS_IMPORT_RE.findall(text), *JS_EXPORT_RE.findall(text)]
     else:
@@ -157,7 +172,7 @@ def metrics_for(files: list[Path]) -> dict[str, int]:
 
 def validate_manifest(manifest: dict) -> list[str]:
     errors: list[str] = []
-    if manifest.get("schema_version") != 1:
+    if type(manifest.get("schema_version")) is not int or manifest.get("schema_version") != 1:
         errors.append("manifest: schema_version debe ser 1")
     if manifest.get("enforcement") not in {"report", "enforce"}:
         errors.append("manifest: enforcement debe ser report o enforce")
@@ -190,7 +205,7 @@ def validate_manifest(manifest: dict) -> list[str]:
             for key, value in values.items():
                 if key not in METRIC_KEYS:
                     errors.append(f"manifest: {budget_id or index}.{field}.{key} no es metrica soportada")
-                if not isinstance(value, int) or value < 0:
+                if type(value) is not int or value < 0:
                     errors.append(f"manifest: {budget_id or index}.{field}.{key} debe ser entero >= 0")
     return errors
 

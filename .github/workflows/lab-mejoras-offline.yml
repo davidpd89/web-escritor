@@ -1,0 +1,28 @@
+name: Laboratorio mejoras - tests offline
+
+# Solo manual (workflow_dispatch). Antes tambien se disparaba en cada PR hacia lab/mejoras-web-20261024; se retiro ese disparador para no sumar CI
+# a cada commit del laboratorio. Los tests offline se ejecutan en local: python -m unittest discover -s experimentos/mejoras-web/tests
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lab-mejoras-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  contrato-offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install pyyaml
+      - name: Preflight offline
+        run: python experimentos/mejoras-web/motor/preflight.py --offline
+      - name: Tests offline del laboratorio
+        run: python -m unittest discover -s experimentos/mejoras-web/tests -p 'test_*.py' -v

@@ -23,6 +23,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Iterable
 from urllib.parse import urlsplit
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE = ROOT / "eventos.html"
@@ -80,11 +81,14 @@ def extract_events(html_text: str) -> list[dict]:
     parser = JsonLdParser()
     parser.feed(html_text)
     events: list[dict] = []
-    for block in parser.blocks:
+    for index, block in enumerate(parser.blocks, start=1):
         try:
             payload = json.loads(block)
-        except json.JSONDecodeError:
-            continue
+        except json.JSONDecodeError as exc:
+            raise ValueError(
+                f"JSON-LD invalido en bloque {index}: {exc.msg} "
+                f"(linea {exc.lineno}, columna {exc.colno})"
+            ) from exc
         events.extend(_walk_json(payload))
     return events
 
@@ -93,7 +97,15 @@ def _event_fragment(event: dict) -> str:
     event_id = event.get("@id")
     if not isinstance(event_id, str) or not event_id.strip():
         raise ValueError("EventScheduled sin @id")
-    fragment = urlsplit(event_id).fragment
+    parsed = urlsplit(event_id)
+    if (
+        parsed.scheme != "https"
+        or parsed.netloc != "davidportodiaz.com"
+        or parsed.path != "/eventos.html"
+        or parsed.query
+    ):
+        raise ValueError(f"@id de EventScheduled fuera de eventos.html oficial: {event_id!r}")
+    fragment = parsed.fragment
     if not fragment or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._~-]*", fragment):
         raise ValueError(f"@id de EventScheduled sin fragmento utilizable: {event_id!r}")
     return fragment
@@ -114,7 +126,7 @@ def is_upcoming(event: dict, *, as_of: date | datetime) -> bool:
             raise ValueError("endDate debe ser DATE cuando startDate es DATE")
         boundary = as_of.date() if isinstance(as_of, datetime) else as_of
         return date.fromisoformat(end) >= boundary
-    boundary_dt = as_of if isinstance(as_of, datetime) else datetime.combine(as_of, time.min, tzinfo=timezone.utc)
+    boundary_dt = as_of if isinstance(as_of, datetime) else datetime.combine(as_of, time.min, tzinfo=ZoneInfo("Europe/Madrid"))
     return _parse_datetime(end, "endDate") >= boundary_dt.astimezone(timezone.utc)
 
 
@@ -225,10 +237,30 @@ def _event_times(event: dict) -> list[str]:
         if not isinstance(end, str) or _is_date_only(end):
             raise ValueError("endDate debe ser DATE-TIME cuando startDate es DATE-TIME")
         end_dt = _parse_datetime(end, "endDate")
-        if end_dt < start_dt:
-            raise ValueError("endDate anterior a startDate")
+        if end_dt <= start_dt:
+            raise ValueError("endDate debe ser posterior a startDate")
         lines.append(f"DTEND:{end_dt.strftime('%Y%m%dT%H%M%SZ')}")
     return lines
+
+
+def _validate_calendar_url(value: object) -> str:
+    if not isinstance(value, str) or not value:
+        raise ValueError('URL de calendario vacia o invalida')
+    if any(ord(char) <= 32 or ord(char) == 127 for char in value):
+        raise ValueError('URL de calendario con espacios o caracteres de control')
+    try:
+        parsed = urlsplit(value)
+        if (parsed.scheme != 'https' or not parsed.netloc or
+                not parsed.hostname or parsed.username is not None or
+                parsed.password is not None or parsed.port is not None):
+            raise ValueError('URL de calendario debe ser HTTPS sin credenciales ni puerto')
+        if parsed.hostname.startswith('.') or parsed.hostname.endswith('.') or '..' in parsed.hostname:
+            raise ValueError('Hostname de calendario invalido')
+        if not re.fullmatch(r'[A-Za-z0-9.-]+', parsed.hostname):
+            raise ValueError('Hostname de calendario invalido')
+    except ValueError as exc:
+        raise ValueError(f'URL de calendario invalida: {value!r}') from exc
+    return value
 
 
 def build_ics(event: dict) -> bytes:
@@ -257,24 +289,47 @@ def build_ics(event: dict) -> bytes:
     location = _location_text(event)
     if location:
         lines.append(f"LOCATION:{_escape_text(location)}")
-    url = event.get("url") or event_id
-    if isinstance(url, str) and url.strip():
-        lines.append(f"URL:{url.strip()}")
+    url = event.get("url") if "url" in event else event_id
+    lines.append(f"URL:{_validate_calendar_url(url)}")
     lines.extend(["STATUS:CONFIRMED", "END:VEVENT", "END:VCALENDAR"])
     return _render_ical(lines)
 
 
 class CalendarLinkParser(HTMLParser):
+    VOID_TAGS = {
+        "area", "base", "br", "col", "embed", "hr", "img", "input",
+        "link", "meta", "param", "source", "track", "wbr",
+    }
+
     def __init__(self) -> None:
         super().__init__()
         self.links: set[str] = set()
+        self._stack: list[tuple[str, bool]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        if tag.lower() != "a":
-            return
+        tag = tag.lower()
         values = {key.lower(): value for key, value in attrs}
-        if "data-calendar-download" in values and values.get("href"):
+        hidden = (
+            "hidden" in values
+            or (values.get("aria-hidden") or "").strip().lower() == "true"
+            or (self._stack[-1][1] if self._stack else False)
+        )
+        if tag == "a" and not hidden and "data-calendar-download" in values and values.get("href"):
             self.links.add(str(values["href"]))
+        if tag not in self.VOID_TAGS:
+            self._stack.append((tag, hidden))
+
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        self.handle_starttag(tag, attrs)
+        if tag.lower() not in self.VOID_TAGS:
+            self.handle_endtag(tag)
+
+    def handle_endtag(self, tag: str) -> None:
+        tag = tag.lower()
+        for index in range(len(self._stack) - 1, -1, -1):
+            if self._stack[index][0] == tag:
+                del self._stack[index:]
+                break
 
 
 def _calendar_links(html_text: str) -> set[str]:
@@ -286,16 +341,25 @@ def _calendar_links(html_text: str) -> set[str]:
 def expected_calendars(html_text: str, *, as_of: date | datetime | None = None) -> tuple[dict[str, bytes], list[str]]:
     expected: dict[str, bytes] = {}
     errors: list[str] = []
+    seen_event_ids: set[str] = set()
     links = _calendar_links(html_text)
     if as_of is None:
         as_of = datetime.now(timezone.utc)
     for event in extract_events(html_text):
         if event.get("eventStatus") != EVENT_SCHEDULED:
             continue
-        if not is_upcoming(event, as_of=as_of):
-            continue
         try:
             fragment = _event_fragment(event)
+            event_id = event["@id"]
+            if event_id in seen_event_ids:
+                errors.append(f"identificador de evento duplicado: {event_id}")
+                continue
+            seen_event_ids.add(event_id)
+            start = event.get("startDate")
+            if not isinstance(start, str) or not start.strip():
+                raise ValueError(f"EventScheduled {fragment!r} sin startDate valido")
+            if not is_upcoming(event, as_of=as_of):
+                continue
             filename = f"{fragment}.ics"
             href = f"/assets/events/calendar/{filename}"
             if filename in expected:
@@ -307,6 +371,12 @@ def expected_calendars(html_text: str, *, as_of: date | datetime | None = None) 
                 )
         except ValueError as exc:
             errors.append(str(exc))
+    valid_links = {f"/assets/events/calendar/{filename}" for filename in expected}
+    for href in sorted(links - valid_links):
+        errors.append(
+            f"Enlace data-calendar-download huerfano: {href!r}; "
+            "no corresponde a un EventScheduled elegible"
+        )
     return expected, errors
 
 
@@ -347,7 +417,11 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     html_text = args.source.read_text(encoding="utf-8")
-    expected, errors = expected_calendars(html_text)
+    try:
+        expected, errors = expected_calendars(html_text)
+    except ValueError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 1
     if args.check:
         errors.extend(check_outputs(expected, args.output_dir))
     elif not errors:

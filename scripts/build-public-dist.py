@@ -45,6 +45,7 @@ PUBLIC_DIR_PREFIXES = (
     "apoyar/",
     "asistente/",
     "assets/",
+    "atlas-literario/",
     "clubes-de-lectura/",
     "convocatorias-escritores/",
     "cuaderno/",

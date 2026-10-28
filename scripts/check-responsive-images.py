@@ -35,6 +35,7 @@ from __future__ import annotations
 import argparse
 import re
 import subprocess
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 
@@ -48,19 +49,45 @@ SKIP_PARTS = {
 
 IMG_TAG_RE = re.compile(r"<img\b([^>]*)>", re.I)
 SOURCE_TAG_RE = re.compile(r"<source\b([^>]*)>", re.I)
-ATTR_RE = re.compile(r'([a-zA-Z_-]+)\s*=\s*"([^"]*)"')
-ROBOTS_NOINDEX_RE = re.compile(r'<meta[^>]+name=["\']robots["\'][^>]*content=["\']([^"\']*)["\']', re.I)
+class AttributeParser(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.attrs: dict[str, str] = {}
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag == 'img':
+            self.attrs = {key.lower(): value or '' for key, value in attrs}
+
+
+class RobotsParser(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.noindex = False
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag != 'meta':
+            return
+        values = {key.lower(): (value or '').strip().lower() for key, value in attrs}
+        if values.get('name') == 'robots':
+            directives = [part.strip().split()[0] for part in values.get('content', '').split(',') if part.strip()]
+            if 'noindex' in directives:
+                self.noindex = True
 
 ICON_CLASS_HINTS = ("icon", "avatar", "logo", "badge", "emoji")
 
 
 def parse_attrs(raw: str) -> dict[str, str]:
-    return {k.lower(): v for k, v in ATTR_RE.findall(raw)}
+    parser = AttributeParser()
+    parser.feed('<img ' + raw + '>')
+    parser.close()
+    return parser.attrs
 
 
 def is_noindex(html: str) -> bool:
-    m = ROBOTS_NOINDEX_RE.search(html)
-    return bool(m and "noindex" in m.group(1).lower())
+    parser = RobotsParser()
+    parser.feed(html)
+    parser.close()
+    return parser.noindex
 
 
 def is_decorative_or_icon(attrs: dict[str, str], src: str) -> bool:
@@ -148,6 +175,9 @@ def audit_file(path: Path, root: Path) -> list[str]:
         if not srcset:
             continue
         candidates = parse_srcset(srcset)
+        has_width_descriptor = any(d.endswith("w") for _, d in candidates)
+        if has_width_descriptor and not attrs.get("sizes"):
+            errors.append(f"{rel}:{line}: SRCSET_WITHOUT_SIZES source srcset con descriptor 'w' sin sizes: {candidates[0][0]}")
         for cand_url, _ in candidates:
             target = resolve_local(cand_url, path, root)
             if target is not None and not target.exists():

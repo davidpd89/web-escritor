@@ -5,8 +5,8 @@ const NOW = Date.parse('2026-10-22T12:00:00Z');
 function fixture() {
   return {schema_version: 1, generated_at: '2026-10-22T11:00:00Z',
     networks: [
-      {id:'bluesky', followers: 9, source:'bluesky-public-appview', status:'ok', valid_until:'2026-10-23T11:00:00Z'},
-      {id:'threads', followers: 0, source:'metricool-mcp-export', status:'ok', valid_until:'2026-10-24T11:00:00Z'}
+      {id:'bluesky', followers: 9, source:'bluesky-public-appview', status:'ok', observed_at:'2026-10-22T10:00:00Z',valid_until:'2026-10-23T11:00:00Z'},
+      {id:'threads', followers: 0, source:'metricool-mcp-export', status:'ok', observed_at:'2026-10-22T10:00:00Z',valid_until:'2026-10-24T11:00:00Z'}
     ], totals: {follower_relationships: 999999, coverage: 99, eligible:99}
   };
 }
@@ -45,7 +45,7 @@ test('duplicated account rejects entire corrupted snapshot',()=>{
   assert.equal(visibleSocialMetrics(x,NOW).totals.coverage,0);
 });
 test('unknown network in snapshot rejected, not published',()=>{
-  const x=fixture();x.networks.push({id:'x',followers:888,valid_until:'2026-10-24T11:00:00Z'});
+  const x=fixture();x.networks.push({id:'x',followers:888,observed_at:'2026-10-22T10:00:00Z',valid_until:'2026-10-24T11:00:00Z'});
   assert.equal(visibleSocialMetrics(x,NOW).totals.coverage,0);
 });
 test('future-generated snapshot yields no counters',()=>{
@@ -71,7 +71,7 @@ test('browser accepts verified Instagram, TikTok and Pinterest from Metricool', 
   const x=fixture();
   for (const [id, followers] of [['instagram',21],['tiktok',22],['pinterest',23]]) {
     x.networks.push({id, followers, source:'metricool-mcp-export',status:'ok',
-                     valid_until:'2026-10-24T11:00:00Z'});
+                     observed_at:'2026-10-22T10:00:00Z',valid_until:'2026-10-24T11:00:00Z'});
   }
   const output=visibleSocialMetrics(x,NOW);
   assert.deepEqual(output.totals,{follower_relationships:75,coverage:5,eligible:6});
@@ -81,7 +81,7 @@ test('browser accepts verified Instagram, TikTok and Pinterest from Metricool', 
 test('browser rejects wrong metricool source for one of the new networks', () => {
   const x=fixture();
   x.networks.push({id:'pinterest',followers:50,source:'bluesky-public-appview',
-                   status:'ok',valid_until:'2026-10-24T11:00:00Z'});
+                   status:'ok',observed_at:'2026-10-22T10:00:00Z',valid_until:'2026-10-24T11:00:00Z'});
   const output=visibleSocialMetrics(x,NOW);
   assert.equal(output.totals.follower_relationships,9);
   assert.equal(output.totals.coverage,2);
@@ -89,7 +89,7 @@ test('browser rejects wrong metricool source for one of the new networks', () =>
 test('a new verified network also expires while the last-good JSON stays cached', () => {
   const x=fixture();
   x.networks.push({id:'instagram',followers:41,source:'metricool-mcp-export',
-                   status:'ok',valid_until:'2026-10-22T12:00:01Z'});
+                   status:'ok',observed_at:'2026-10-22T10:00:00Z',valid_until:'2026-10-22T12:00:01Z'});
   const output=visibleSocialMetrics(x,NOW+2000);
   assert.equal(output.totals.follower_relationships,9);
   assert.equal(output.totals.coverage,2);

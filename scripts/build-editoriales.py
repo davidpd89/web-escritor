@@ -70,11 +70,40 @@ def parse_iso_date(value: str, field: str) -> date:
 
 
 def require_https(value: str | None, field: str) -> None:
-    if not value:
+    if not isinstance(value, str) or not value:
         raise ValidationError(f"{field}: URL obligatoria")
-    parsed = urlparse(value)
-    if parsed.scheme != "https" or not parsed.netloc:
+
+    if any(ord(char) <= 32 or ord(char) == 127 for char in value):
+        raise ValidationError(f"{field}: URL con espacios o caracteres de control: {value!r}")
+    if "\\" in value:
+        raise ValidationError(f"{field}: URL con barra invertida ambigua: {value!r}")
+
+    try:
+        parsed = urlparse(value)
+        hostname = parsed.hostname
+        port = parsed.port
+    except ValueError as exc:
+        raise ValidationError(f"{field}: autoridad HTTPS inválida: {value!r}") from exc
+
+    if parsed.scheme != "https" or not parsed.netloc or not hostname:
         raise ValidationError(f"{field}: debe ser una URL HTTPS absoluta: {value!r}")
+
+    if parsed.username is not None or parsed.password is not None or "@" in parsed.netloc:
+        raise ValidationError(f"{field}: no se permiten credenciales en la URL: {value!r}")
+    if port is not None or ":" in parsed.netloc:
+        raise ValidationError(f"{field}: no se permiten puertos explícitos: {value!r}")
+
+    if not re.fullmatch(r"[A-Za-z0-9.-]+", hostname):
+        raise ValidationError(f"{field}: nombre de host inválido: {value!r}")
+    if (
+        len(hostname) > 253
+        or not all(
+            label and len(label) <= 63
+            and re.fullmatch(r"[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?", label)
+            for label in hostname.split(".")
+        )
+    ):
+        raise ValidationError(f"{field}: nombre de host inválido: {value!r}")
 
 
 def scan_forbidden_keys(value: object, path: str = "root") -> None:
@@ -117,9 +146,11 @@ def validate_record(record: dict, seen: set[str], today: date) -> list[str]:
         raise ValidationError(f"{slug}: status debe ser uno de {sorted(ALLOWED_STATUS)}")
     if not isinstance(record["direct_submission"], bool):
         raise ValidationError(f"{slug}: direct_submission debe ser booleano")
-    if record["status"] == "closed" and record.get("submission_email"):
+    if record["status"] != "open" and record["direct_submission"]:
+        raise ValidationError(f"{slug}: direct_submission solo es válido con status 'open'")
+    if record["status"] != "open" and record.get("submission_email"):
         raise ValidationError(
-            f"{slug}: no publiques submission_email mientras la recepción esté cerrada; "
+            f"{slug}: no publiques submission_email si la recepción no está abierta; "
             "evita reutilizar correos históricos."
         )
     if record.get("submission_email") and not EMAIL_RE.fullmatch(record["submission_email"]):
@@ -141,6 +172,11 @@ def validate_record(record: dict, seen: set[str], today: date) -> list[str]:
 
     verified = parse_iso_date(record["verified_at"], f"{slug}.verified_at")
     page_updated = parse_iso_date(record["page_updated_at"], f"{slug}.page_updated_at")
+    if verified > page_updated:
+        raise ValidationError(
+            f"{slug}: verified_at ({verified}) no puede ser posterior "
+            f"a page_updated_at ({page_updated})"
+        )
     if page_updated > today:
         raise ValidationError(f"{slug}: page_updated_at está en el futuro")
     age = (today - verified).days
@@ -159,6 +195,13 @@ def validate_record(record: dict, seen: set[str], today: date) -> list[str]:
             raise ValidationError(f"{slug}.sources[{idx}]: label obligatorio")
         require_https(source.get("url"), f"{slug}.sources[{idx}].url")
 
+    unavailable = record.get("unavailable_urls", [])
+    if not isinstance(unavailable, list) or not all(isinstance(url, str) for url in unavailable):
+        raise ValidationError(f"{slug}: unavailable_urls debe ser una lista de URLs")
+    declared_urls = {record["website_url"], record["submission_url"]}
+    declared_urls.update(source["url"] for source in sources)
+    known_urls = declared_urls | set(unavailable)
+
     history = record["history"]
     if not isinstance(history, list) or not history:
         raise ValidationError(f"{slug}: history debe contener al menos una comprobación/cambio")
@@ -174,14 +217,12 @@ def validate_record(record: dict, seen: set[str], today: date) -> list[str]:
                 f"a page_updated_at ({page_updated})"
             )
         require_https(event.get("source_url"), f"{slug}.history[{idx}].source_url")
+        if event["source_url"] not in known_urls:
+            raise ValidationError(
+                f"{slug}.history[{idx}].source_url: URL ajena a las fuentes declaradas"
+            )
 
-    unavailable = record.get("unavailable_urls", [])
-    if not isinstance(unavailable, list) or not all(isinstance(url, str) for url in unavailable):
-        raise ValidationError(f"{slug}: unavailable_urls debe ser una lista de URLs")
-    known_urls = {record["website_url"], record["submission_url"]}
-    known_urls.update(source["url"] for source in sources)
-    known_urls.update(event["source_url"] for event in history)
-    if len(set(unavailable)) != len(unavailable) or not set(unavailable).issubset(known_urls):
+    if len(set(unavailable)) != len(unavailable) or not set(unavailable).issubset(declared_urls):
         raise ValidationError(f"{slug}: URL no disponible duplicada o ajena a las fuentes")
     if record["submission_url"] in unavailable and (
         record["status"] != "unknown" or record["direct_submission"] or record.get("submission_email")
@@ -230,6 +271,7 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
         # una cuarta copia del shell y se quedaron atras en cuanto el shell paso a
         # generarse. Ver scripts/site_shell.py.
         script = '<script src="/assets/editoriales.js?v=3" defer></script>' if js else ""
+        jsonld_text = json.dumps(jsonld, ensure_ascii=False, separators=(',', ':')).replace('<', r'\u003c')
         return f'''<!DOCTYPE html>
 <html lang="es" class="v1">
 <head>
@@ -263,7 +305,7 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
 
     <link rel="stylesheet" href="/assets/v1-fonts.css?v=2" />
     <link rel="stylesheet" href="/assets/v1-tokens.css?v=1" />
-    <link rel="stylesheet" href="/assets/v1-base.css?v=1" />
+    <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
     <!-- v1-shell-preload:start (generated by scripts/add_v1_shell_preloads.py -- do not edit by hand) -->
     <link rel="preload" as="style" href="/assets/v1-shell-base.css?v=2" />
     <link rel="preload" as="style" href="/assets/v1-shell-lrb-v2.css?v=1" />
@@ -278,9 +320,9 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
     <link rel="stylesheet" href="/assets/v1-shell.css?v=4" />
     <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
     <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
-    <link rel="stylesheet" href="/assets/v1-tools.css?v=4" />
+    <link rel="stylesheet" href="/assets/v1-tools.css?v=5" />
     <link rel="stylesheet" href="/assets/editoriales.css?v=3" />{"" if not extra_css else chr(10) + "    " + extra_css}
-    <script type="application/ld+json">{html.escape(json.dumps(jsonld, ensure_ascii=False, separators=(',', ':')), quote=False)}</script>
+    <script type="application/ld+json">{jsonld_text}</script>
 </head>
 
 <body>
@@ -352,6 +394,7 @@ def render_index(site: str, records: list[dict], today: date) -> str:
     main = f'''
 <main id="contenido" tabindex="-1" class="v1-main" data-family="tool" data-editoriales-directory>
   {breadcrumbs([('Inicio', '/'), ('Editoriales', None)])}
+  <noscript><p class="tool-note" role="status"><strong>Búsqueda y filtros:</strong> necesitas activar JavaScript para buscar editoriales o filtrar los resultados por género y otros criterios. Sin JavaScript puedes seguir consultando las fichas publicadas en esta página.</p></noscript>
     <header class="tool-hero">
         <p class="eyebrow">Recurso para escritores</p>
         <h1>Editoriales y recepción de manuscritos, verificadas.</h1>

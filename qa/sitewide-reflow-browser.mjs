@@ -402,7 +402,17 @@ const SHARD_INDEX = Number(process.env.SHARD_INDEX || 0);
 if (!Number.isInteger(SHARD_INDEX) || SHARD_INDEX < 0 || SHARD_INDEX >= SHARD_TOTAL) {
   throw new Error(`SHARD_INDEX ${process.env.SHARD_INDEX} fuera de 0..${SHARD_TOTAL - 1}`);
 }
-const routes = collectRoutes().filter((_, i) => i % SHARD_TOTAL === SHARD_INDEX);
+// Alcance por paginas (CI selectiva): QA_ONLY_ROUTES = rutas separadas por coma/salto de linea. Vacio = todas.
+// Una ruta pedida que no existe se ignora; si ninguna existe se recorre todo (fail-closed).
+const ONLY = (process.env.QA_ONLY_ROUTES || '').split(/[\s,]+/).map(normalizeRoute).filter(Boolean);
+let allRoutes = collectRoutes();
+if (ONLY.length) {
+  const wanted = new Set(ONLY);
+  const scoped = allRoutes.filter((r) => wanted.has(r));
+  if (scoped.length) allRoutes = scoped;
+  else console.log('[scope] ninguna ruta pedida existe: se recorren todas');
+}
+const routes = allRoutes.filter((_, i) => i % SHARD_TOTAL === SHARD_INDEX);
 console.log(`[shard] ${SHARD_INDEX + 1}/${SHARD_TOTAL}: ${routes.length} rutas`);
 const reflowFailures = [];
 const reflowChecks = [];
@@ -541,10 +551,11 @@ const FOCUS_VIEWPORTS = [
 // journey needs this or it only ever audits the intro overlay's own
 // controls, never the real shell underneath.
 async function dismissHomeIntro(page) {
+  const intro = page.locator('[data-intro]').first();
   const introEnter = page.locator('[data-intro-enter]').first();
   if ((await introEnter.count()) > 0 && (await introEnter.isVisible())) {
     await introEnter.click();
-    await page.waitForTimeout(900);
+    await intro.waitFor({ state: 'hidden', timeout: 2000 });
   }
 }
 const FOCUS_JOURNEYS = [
