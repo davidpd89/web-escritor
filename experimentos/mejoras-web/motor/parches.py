@@ -119,7 +119,9 @@ def peligro_python(texto):
         if isinstance(f, ast.Name) and f.id == "open":
             modo = n.args[1] if len(n.args) > 1 else next((k.value for k in n.keywords if k.arg == "mode"), None)
             if modo is not None and not (isinstance(modo, ast.Constant) and isinstance(modo.value, str) and not set(modo.value) & set("wax+")): return "open() para escribir"
-        if isinstance(f, ast.Attribute) and f.attr in ESCRIBE_PY: return f".{f.attr}()"
+        if isinstance(f, ast.Attribute) and f.attr in ESCRIBE_PY:
+            if f.attr == "replace" and len(n.args) + len(n.keywords) >= 2: continue  # str.replace(a, b); Path.replace(destino) lleva un argumento
+            return f".{f.attr}()"
     return None
 
 

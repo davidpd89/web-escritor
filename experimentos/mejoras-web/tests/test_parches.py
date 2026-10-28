@@ -71,6 +71,8 @@ class PruebasPeligrosas(unittest.TestCase):
                      "import socket\nassert socket\n", "__import__('os').remove('x')\nassert True\n"):
             ok, pr, _ = self.v("tests/mejoras-web/a.py", malo + "# relleno de longitud para pasar el minimo\n"); self.assertFalse(ok, malo); self.assertIn("no permitida", pr[0])
         self.assertTrue(self.v("tests/mejoras-web/a.py", self.OK + "# relleno de longitud\n")[0])
+        self.assertTrue(self.v("tests/mejoras-web/a.py", "t = open('index.html', encoding='utf-8').read().replace('a', 'b')\nassert t, 'm'\n")[0], "str.replace no escribe en disco")
+        self.assertFalse(self.v("tests/mejoras-web/a.py", "from pathlib import Path\nPath('a').replace('b')\nassert True\n# relleno de longitud\n")[0], "Path.replace si")
         self.assertTrue(self.v("tests/mejoras-web/a.py", "import re, json\nhtml = open('index.html', encoding='utf-8').read()\nassert re.search('x', html), 'm'\n")[0])
 
     def test_rechaza_operaciones_peligrosas_en_node_y_admite_playwright_y_fetch_local(self):
