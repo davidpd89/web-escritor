@@ -20,8 +20,8 @@ Nada se fusiona solo ni toca `main`.
 
 | Archivo | Que hace |
 |---|---|
-| `INICIAR-MEJORAS-WEB.bat` | Preflight (`--real`), abre el Edge 9331 y arranca/reanuda el investigador supervisado en segundo plano. **No envia Actions ni abre PR.** Pulsarlo dos veces no duplica nada; tras un cierre brusco reanuda los chats por su id sin reenviar. |
-| `EJECUTAR-ACTIONS-MEJORAS-WEB.bat` | Proceso continuo y manual: valida en local lo `preparado`, mantiene hasta 3 grupos en Actions, recoge resultados y envia el siguiente. `Q`/`Ctrl+C`/cerrar ventana = dejar de lanzar; **los runs ya enviados no se cancelan** y se recogen al reabrirlo. |
+| `INICIAR-MEJORAS-WEB.bat` | Preflight (`--real`), abre el Edge 9331 y arranca/reanuda el investigador supervisado en segundo plano. Con `autoejecutar: true` (config.json) arranca ademas el **ejecutor automatico** en segundo plano (valida, Actions, integra en lab). El servicio investigador por si mismo nunca envia nada. Pulsarlo dos veces no duplica nada; tras un cierre brusco reanuda los chats por su id sin reenviar. |
+| `EJECUTAR-ACTIONS-MEJORAS-WEB.bat` | Ejecutor en primer plano (con ventana y tecla `Q`); no hace falta si `autoejecutar` esta activo. Proceso continuo: valida en local lo `preparado`, mantiene hasta 3 grupos en Actions, recoge resultados y envia el siguiente. `Q`/`Ctrl+C`/cerrar ventana = dejar de lanzar; **los runs ya enviados no se cancelan** y se recogen al reabrirlo. |
 | `ESTADO-MEJORAS-WEB.bat` | Expedientes por fase (investigados, descartados, preparados, en ejecucion, finalizados), gasto Claude, errores, cola con SHA y URL de runs, que esta listo para PR. `C` copia el informe completo. |
 | `PARAR-MEJORAS-WEB.bat` | Parada limpia del investigador y del ejecutor, con gracia para capturar la respuesta en curso. **No cancela runs remotos.** |
 

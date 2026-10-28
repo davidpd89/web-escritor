@@ -273,9 +273,12 @@ def claude(c, clave, tipo, sistema, entrada, esquema, **kw):
         probl = claude_cli.validar(salida, esquema)
         if probl: raise claude_cli.ClaudeError("esquema no cumplido: " + "; ".join(probl[:4]))
         return salida
-    src = mw.preparar_src()
-    return claude_cli.llamar(mw, c, clave, tipo, sistema, entrada, esquema, herramientas="Read,Grep,Glob", cwd=src,
-                             max_turnos=mw.CFG["claude"].get("max_turnos", 6), **kw)[0]
+    src = mw.preparar_src(); cfg = mw.CFG["claude"]; turnos = cfg.get("max_turnos", 10)
+    try:
+        return claude_cli.llamar(mw, c, clave, tipo, sistema, entrada, esquema, herramientas="Read,Grep,Glob", cwd=src, max_turnos=turnos, **kw)[0]
+    except claude_cli.ClaudeLimiteLlamada:  # agoto turnos/presupuesto leyendo el repo: UNA repeticion con mas margen (tope por llamada x2.5)
+        return claude_cli.llamar(mw, c, clave, tipo, sistema, entrada, esquema, herramientas="Read,Grep,Glob", cwd=src, max_turnos=int(turnos * 2.5),
+                                 max_usd=min(2.5, cfg.get("max_usd_llamada", 1.0) * 2.5), usar_cache=False, **kw)[0]
 
 
 def _fallo_claude(c, e, err):

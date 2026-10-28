@@ -412,19 +412,43 @@ def cmd_iniciar(a):
     import edge_launcher
     if edge_launcher.alive() is None: print(f"Abriendo Edge {edge_launcher.PORT} (perfil propio del laboratorio)..."); edge_launcher.main()
     set_flag("pause", False); set_flag("stop", False)
-    args = [_python_sin_consola(), str(HERE / "supervisor.py"), "servicio"]
-    kw = dict(cwd=str(STATE), close_fds=True)
-    if os.name == "nt": kw["creationflags"] = 0x00000008 | 0x00000200 | 0x08000000  # DETACHED_PROCESS | NEW_PROCESS_GROUP | NO_WINDOW
-    else: kw["start_new_session"] = True
-    popen(args, **kw)
+    _lanzar_supervisor("servicio")
     pid = 0
     for _ in range(40):
         time.sleep(0.5); pid = Lock("worker").dueno()
         if pid: break
     if not pid: print(f"El investigador no arranco. Mira {STATE / 'servicio.log'}"); return 1
-    print(f"INVESTIGADOR DE MEJORAS WEB EN MARCHA (pid {pid}). Trabaja hasta que lo pares con PARAR-MEJORAS-WEB.bat.\n"
-          f"No envia Actions ni abre PR. Estado: ESTADO-MEJORAS-WEB.bat. Registro: {STATE / 'servicio.log'}")
+    print(f"INVESTIGADOR DE MEJORAS WEB EN MARCHA (pid {pid}). Trabaja hasta que lo pares con PARAR-MEJORAS-WEB.bat.\nEstado: ESTADO-MEJORAS-WEB.bat. Registro: {STATE / 'servicio.log'}")
+    if CFG.get("autoejecutar"): return _arrancar_ejecutor()
+    print("El ejecutor (validar, Actions, integrar en lab) NO se arranca solo: config.json -> autoejecutar=false. Lanzalo con EJECUTAR-ACTIONS-MEJORAS-WEB.bat.")
     return 0
+
+
+def _lanzar_supervisor(modo):
+    """Supervisor DESVINCULADO de la consola (sin ventana). Salida del hijo a servicio.log / actions\\ejecutar_bg.log."""
+    args = [_python_sin_consola(), str(HERE / "supervisor.py"), modo] + (["--continuo"] if modo == "ejecutar-actions" else [])
+    kw = dict(cwd=str(STATE), close_fds=True, env={**os.environ, "MEJORAS_WEB_SEGUNDO_PLANO": "1"})
+    if os.name == "nt": kw["creationflags"] = 0x00000008 | 0x00000200 | 0x08000000  # DETACHED_PROCESS | NEW_PROCESS_GROUP | NO_WINDOW
+    else: kw["start_new_session"] = True
+    return popen(args, **kw)
+
+
+def _arrancar_ejecutor():
+    """Ejecutor automatico en segundo plano (validar en local -> Actions (max 3) -> integrar en lab). Solo lo lanza INICIAR con autoejecutar=true o `ejecutar-bg`."""
+    if Lock("actions").dueno(): print(f"El ejecutor YA esta en marcha (pid {Lock('actions').dueno()})."); return 0
+    _lanzar_supervisor("ejecutar-actions")
+    pid = 0
+    for _ in range(40):
+        time.sleep(0.5); pid = Lock("actions").dueno()
+        if pid: break
+    if not pid: print(f"El ejecutor no arranco. Mira {STATE / 'actions' / 'ejecutar_bg.log'}"); return 1
+    print(f"EJECUTOR AUTOMATICO EN MARCHA (pid {pid}): valida en local, envia a Actions (max {CFG['actions']['concurrencia']} a la vez) e integra en {CFG['rama_base']} (nunca main).")
+    return 0
+
+
+def cmd_ejecutar_bg(a):
+    exigir_aislamiento(); STATE.mkdir(parents=True, exist_ok=True); db().close()
+    return _arrancar_ejecutor()
 
 
 def cmd_parar(a):
@@ -438,8 +462,9 @@ def _parar(a):
     """PARAR-MEJORAS-WEB.bat: parada ordenada y acotada del investigador y del ejecutor. NO cancela runs remotos."""
     set_flag("stop", True); set_flag("stop_actions", True)  # banderas separadas: arrancar EJECUTAR no cancela la parada del investigador
     pids = [p for p in (Lock("worker").dueno(), Lock("actions").dueno()) if p]
-    sup = Lock("supervisor").dueno()
-    if sup and sup not in pids: pids.append(sup)
+    for nombre in ("supervisor", "supervisor_actions"):
+        sup = Lock(nombre).dueno()
+        if sup and sup not in pids: pids.append(sup)
     if not pids:
         print("Nada en marcha. Marcado como parado."); Lock("worker").path.unlink(missing_ok=True); return 0
     limite = time.monotonic() + (CFG.get("parada_gracia_min", 3) + 3) * 60
@@ -544,6 +569,7 @@ def main(argv=None):
     pr = s.add_parser("pr"); pr.add_argument("id"); pr.add_argument("--confirmar", action="store_true"); pr.add_argument("--solo-local", action="store_true"); pr.set_defaults(f=cmd_pr)
     vp = s.add_parser("vista-previa"); vp.add_argument("id", nargs="?"); vp.add_argument("--puerto", type=int, default=8766); vp.add_argument("--sin-abrir", action="store_true"); vp.set_defaults(f=cmd_vista_previa)
     ri = s.add_parser("reintentar-infra"); ri.add_argument("id"); ri.set_defaults(f=cmd_reintentar_infra)
+    s.add_parser("ejecutar-bg").set_defaults(f=cmd_ejecutar_bg)
     rr = s.add_parser("reintentar"); rr.add_argument("id", nargs="?"); rr.set_defaults(f=cmd_reintentar)
     d = s.add_parser("descartar"); d.add_argument("id"); d.add_argument("--motivo"); d.set_defaults(f=cmd_descartar)
     a = p.parse_args(argv)

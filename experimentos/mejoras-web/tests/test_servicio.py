@@ -152,6 +152,36 @@ class Reintentar(util.Caso):
         self.assertEqual(self.c.execute("SELECT estado FROM expedientes").fetchone()[0], "parche_listo")  # tenia parche: vuelve a revision
 
 
+class EjecutorAutomatico(util.Caso):
+    def lanzar(self, auto):
+        mw.CFG["autoejecutar"] = auto; mw.CFG["gpt"]["project_id"] = "g-p-" + "ab12" * 8
+        lanzados = []
+        duenos = iter([0, 4242, 0, 4343, 4343, 4343])
+        with mock.patch.object(mw, "popen", lambda args, **k: lanzados.append((args, k))), mock.patch.object(mw, "exigir_aislamiento"), \
+             mock.patch.object(mw.Lock, "dueno", lambda self_: next(duenos, 4343)), mock.patch.object(edge_launcher, "alive", return_value={"Browser": "x"}), mock.patch.object(mw.time, "sleep"):
+            rc = mw.cmd_iniciar(None)
+        return rc, lanzados
+
+    def test_iniciar_con_autoejecutar_arranca_investigador_y_ejecutor_en_segundo_plano(self):
+        rc, l = self.lanzar(True)
+        self.assertEqual(rc, 0); modos = [a[0][-2:] if a[0][-1] == "--continuo" else a[0][-1:] for a in l]
+        self.assertEqual(len(l), 2); self.assertTrue(l[0][0][2:] == [str(mw.HERE / "supervisor.py").replace("\\", "\\"), "servicio"] or l[0][0][-1] == "servicio")
+        self.assertEqual(l[1][0][-2:], ["ejecutar-actions", "--continuo"]); self.assertEqual(l[1][1]["env"]["MEJORAS_WEB_SEGUNDO_PLANO"], "1")
+
+    def test_iniciar_sin_autoejecutar_no_lanza_el_ejecutor(self):
+        rc, l = self.lanzar(False); self.assertEqual(rc, 0); self.assertEqual(len(l), 1); self.assertEqual(l[0][0][-1], "servicio")
+
+    def test_en_segundo_plano_el_supervisor_envia_la_salida_a_fichero(self):
+        import supervisor as S
+        capt = []
+        with mock.patch.dict(os.environ, {"MEJORAS_WEB_SEGUNDO_PLANO": "1"}), mock.patch.object(S.subprocess, "Popen", lambda *a, **k: capt.append(k) or mock.Mock(wait=lambda: 0)):
+            S.supervisar("ejecutar-actions", ["--continuo"])
+        self.assertTrue(str(capt[0]["stdout"].name).endswith("ejecutar_bg.log")); self.assertEqual(capt[0]["stderr"], S.subprocess.STDOUT)
+
+    def test_parar_incluye_el_supervisor_del_ejecutor(self):
+        src = (mw.HERE / "mw.py").read_text(encoding="utf-8"); self.assertIn('"supervisor_actions"', src)
+
+
 class Supervisor(util.Caso):
     def hijo(self, codigos, lanzados):
         it = iter(codigos)
@@ -181,8 +211,11 @@ class Supervisor(util.Caso):
                 if s.n == 1: raise KeyboardInterrupt
                 return 0
         self.assertEqual(supervisor.supervisar("ejecutar-actions", ["--continuo"], popen=lambda a: P(), sleep=lambda s: None), 0)
-        src = (mw.HERE / "supervisor.py").read_text(encoding="utf-8")
-        self.assertIn('mw.SIN_VENTANA if modo == "servicio" else 0', src)  # el ejecutor NO se lanza sin ventana (se perderia el panel y la tecla Q)
+        import supervisor as S
+        capt = []
+        with mock.patch.object(S.subprocess, "Popen", lambda *a, **k: capt.append(k) or mock.Mock(wait=lambda: 0)):
+            S.supervisar("ejecutar-actions", ["--continuo"])
+        self.assertEqual(capt[0]["creationflags"], 0); self.assertNotIn("stdout", capt[0])  # primer plano: hereda la consola (panel y tecla Q)
 
     def test_stop_no_relanza(self):
         mw.set_flag("stop", True); l = []

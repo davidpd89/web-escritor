@@ -6,7 +6,8 @@ call "%LAB%motor\buscar-python.cmd"
 if not defined PY goto :sinpython
 echo.
 echo  INICIAR-MEJORAS-WEB: investigador de mejoras web (GPT investiga, Claude contrasta, GPT desarrolla, Claude revisa).
-echo  Trabaja en segundo plano hasta que pulses PARAR-MEJORAS-WEB.bat. NO envia GitHub Actions y NO abre PR.
+echo  Trabaja en segundo plano hasta que pulses PARAR-MEJORAS-WEB.bat. Con autoejecutar=true (config.json) tambien arranca el ejecutor automatico:
+echo  valida cada mejora en local, la prueba en GitHub Actions (max 3 a la vez) y la integra en la rama de laboratorio. NUNCA toca main.
 echo  Si se cerro de golpe, vuelve a pulsarlo: reanuda las conversaciones y la cola sin duplicar nada.
 echo.
 "%PY%" "%LAB%motor\preflight.py" --real

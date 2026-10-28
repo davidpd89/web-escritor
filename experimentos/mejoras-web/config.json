@@ -25,9 +25,9 @@
  "claude": {
   "modelo": "claude-sonnet-5-5",
   "esfuerzo": "low",
-  "max_turnos": 6,
+  "max_turnos": 10,
   "timeout_s": 300,
-  "max_usd_llamada": 0.5,
+  "max_usd_llamada": 1.0,
   "max_usd_dia": 10.0,
   "cuentas_extra": [],
   "extra_primero": false,
@@ -178,5 +178,6 @@
  "preview": {
   "url": "",
   "workflow_lab": "lab-preview.yml"
- }
+ },
+ "autoejecutar": true
 }

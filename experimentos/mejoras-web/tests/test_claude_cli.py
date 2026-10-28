@@ -21,7 +21,7 @@ class Cli(util.Caso):
         self.falso('echo \'{"structured_output": {"decision": "aprobar"}, "total_cost_usd": 0.0123, "num_turns": 2, "usage": {"input_tokens": 10, "output_tokens": 5}}\'')
         r, meta = self.llamar(herramientas="Read,Grep,Glob", cwd=self.tmp.name)
         self.assertEqual(r, {"decision": "aprobar"})
-        a = self.args.read_text(); self.assertIn("--tools Read,Grep,Glob", a); self.assertIn("--json-schema", a); self.assertIn("--max-budget-usd 0.5", a); self.assertIn("--no-session-persistence", a)
+        a = self.args.read_text(); self.assertIn("--tools Read,Grep,Glob", a); self.assertIn("--json-schema", a); self.assertIn(f"--max-budget-usd {mw.CFG['claude']['max_usd_llamada']}", a); self.assertIn("--no-session-persistence", a)
         self.assertNotRegex(a, r"Edit|Write|Bash")  # Claude solo lee
         row = self.c.execute("SELECT * FROM claude_llamadas").fetchone(); self.assertEqual((row["ok"], row["coste_usd"], row["tok_out"]), (1, 0.0123, 5))
         r2, meta2 = self.llamar(herramientas="Read,Grep,Glob", cwd=self.tmp.name); self.assertTrue(meta2.get("cache"))  # misma evidencia = mismo veredicto, sin nueva llamada
@@ -36,6 +36,25 @@ class Cli(util.Caso):
         self.falso('echo \'{"is_error": true, "result": "Overloaded"}\'')
         with self.assertRaises(claude_cli.ClaudeError): self.llamar(clave="k3")
         self.assertEqual(self.c.execute("SELECT COUNT(*) FROM claude_llamadas WHERE ok=0").fetchone()[0], 3)
+
+    def test_exit_1_con_json_dice_la_causa_real_y_el_limite_de_turnos_se_distingue(self):
+        self.falso('echo \'{"type":"result","subtype":"error_max_turns","is_error":true,"result":"Reached max turns (6)","usage":{"service_tier":"standard"}}\'; exit 1')
+        with self.assertRaises(claude_cli.ClaudeLimiteLlamada) as cm: self.llamar()
+        self.assertIn("error_max_turns", str(cm.exception)); self.assertNotIn("service_tier", str(cm.exception))  # antes solo se veia la cola del JSON
+        self.falso('echo \'{"subtype":"error_during_execution","result":"boom"}\'; exit 1')
+        with self.assertRaises(claude_cli.ClaudeError) as cm: self.llamar(clave="k2")
+        self.assertNotIsInstance(cm.exception, claude_cli.ClaudeLimiteLlamada); self.assertIn("error_during_execution", str(cm.exception))
+
+    def test_investigar_repite_una_vez_con_mas_margen_si_agota_turnos(self):
+        marca = Path(self.tmp.name) / "n"
+        self.falso(f'if [ -f {marca} ]; then echo \'{{"structured_output": {{"decision": "aprobar"}}, "total_cost_usd": 0.2}}\'; else touch {marca}; echo \'{{"subtype":"error_max_turns","is_error":true,"result":"x"}}\'; exit 1; fi')
+        import investigar
+        investigar.CLAUDE_HOOK = None
+        with mock.patch.object(mw, "preparar_src", return_value=Path(self.tmp.name)):
+            r = investigar.claude(self.c, "k9", "contraste", "s", "e", ESQ)
+        self.assertEqual(r, {"decision": "aprobar"})
+        a = self.args.read_text().splitlines(); self.assertEqual(len(a), 2)
+        t1 = int(a[0].split("--max-turns ")[1].split()[0]); t2 = int(a[1].split("--max-turns ")[1].split()[0]); self.assertGreater(t2, t1)
 
     def test_tope_diario_se_aplica_antes_de_llamar(self):
         self.falso('echo ejecutado >> ' + str(Path(self.tmp.name) / "marca") + '; echo \'{"structured_output": {"decision": "aprobar"}}\'')

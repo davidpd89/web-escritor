@@ -27,6 +27,8 @@ _CLAUDE_EXE = None
 
 
 class ClaudeError(RuntimeError): pass
+class ClaudeLimiteLlamada(ClaudeError):
+    """La llamada agoto sus turnos o su presupuesto (error_max_turns / error_max_budget_usd): no es un fallo de Claude, se puede repetir con mas margen."""
 
 
 def migrar(c):
@@ -128,10 +130,17 @@ def llamar(q, c, clave, tipo, sistema, entrada, esquema, herramientas="", cwd=No
         for cuenta in cuentas(cfg):
             err = None
             env = {**os.environ, "CLAUDE_CONFIG_DIR": cuenta} if cuenta else None
+            Path(cwd or q.STATE / "claude").mkdir(parents=True, exist_ok=True)  # un cwd inexistente se confundia con "claude no ejecutable"
             try:
                 r = subprocess.run(args, input=entrada, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=cfg["timeout_s"],
                                    cwd=str(cwd or q.STATE / "claude"), env=env, creationflags=0x08000000 if os.name == "nt" else 0)
-                if r.returncode: err = f"claude exit {r.returncode}: {(r.stderr or r.stdout)[-300:]}"
+                if r.returncode:
+                    err = f"claude exit {r.returncode}: {(r.stderr or r.stdout)[-300:]}"
+                    try:  # claude -p devuelve su JSON de resultado tambien con exit 1: el subtipo dice la causa real (antes solo se veia la cola del JSON)
+                        dj = json.loads(r.stdout); sub = str(dj.get("subtype") or "")
+                        err = f"claude exit {r.returncode}: {sub or 'error'}: {str(dj.get('result') or dj.get('errors') or '')[:200]}"
+                        if sub in ("error_max_turns", "error_max_budget_usd"): err = "LIMITE_LLAMADA " + err
+                    except (ValueError, TypeError, AttributeError): pass
                 else:
                     d = json.loads(r.stdout)
                     u = d.get("usage") or {}
@@ -156,7 +165,7 @@ def llamar(q, c, clave, tipo, sistema, entrada, esquema, herramientas="", cwd=No
               "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
               (q.now(), clave, tipo, cfg["modelo"], esf, meta.get("turnos"), meta.get("coste"), meta.get("tok_in"), meta.get("tok_out"), meta.get("cache_lee"),
                meta.get("cache_crea"), seg, 0 if err else 1, err, h))
-    if err: c.commit(); raise ClaudeError(err)
+    if err: c.commit(); raise (ClaudeLimiteLlamada if err.startswith("LIMITE_LLAMADA") else ClaudeError)(err)
     c.execute("INSERT OR REPLACE INTO claude_veredictos(clave,hash,respuesta,fecha) VALUES(?,?,?,?)", (clave, h, json.dumps(salida, ensure_ascii=False), q.now())); c.commit()
     meta["segundos"] = seg
     return salida, meta

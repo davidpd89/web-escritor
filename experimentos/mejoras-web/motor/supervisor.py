@@ -6,7 +6,7 @@ NO se copia la reparacion automatica por Claude (modificaba el codigo vivo con f
 se registra con su traceback en supervisor.log y se relanza con espera creciente; tras `max_caidas_hora` caidas se detiene y lo dice en ESTADO.
 Uso: python supervisor.py servicio | ejecutar-actions [--continuo]
 """
-import re, subprocess, sys, time
+import os, re, subprocess, sys, time
 from pathlib import Path
 
 import mw
@@ -28,8 +28,13 @@ def hijo(modo, resto):
 def supervisar(modo, resto=(), popen=None, sleep=time.sleep, reloj=time.time, maxi_caidas=None):
     """-> codigo final. `popen`/`sleep`/`reloj` inyectables (pruebas)."""
     # servicio: sin consola, a servicio.log. ejecutar-actions: CON la consola del .bat (se ve el panel y la tecla Q llega al hijo): sin CREATE_NO_WINDOW
-    popen = popen or (lambda args: subprocess.Popen(args, cwd=str(mw.STATE), stdout=open(mw.STATE / "servicio.log", "a", encoding="utf-8", buffering=1) if modo == "servicio" else None,
-                                                   stderr=subprocess.STDOUT if modo == "servicio" else None, creationflags=mw.SIN_VENTANA if modo == "servicio" else 0))
+    segundo_plano = bool(os.environ.get("MEJORAS_WEB_SEGUNDO_PLANO"))
+    def _real(args):
+        if modo == "servicio" or segundo_plano:  # sin consola: la salida a fichero (con un handle invalido el hijo moria al arrancar)
+            log = mw.STATE / ("servicio.log" if modo == "servicio" else "actions/ejecutar_bg.log"); log.parent.mkdir(parents=True, exist_ok=True)
+            return subprocess.Popen(args, cwd=str(mw.STATE), stdin=subprocess.DEVNULL, stdout=open(log, "a", encoding="utf-8", buffering=1), stderr=subprocess.STDOUT, creationflags=mw.SIN_VENTANA)
+        return subprocess.Popen(args, cwd=str(mw.STATE), creationflags=0)
+    popen = popen or _real
     maxi = maxi_caidas or mw.CFG.get("max_caidas_hora", 6)
     caidas, espera = [], 15
     mw.STATE.mkdir(parents=True, exist_ok=True)
