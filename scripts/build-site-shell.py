@@ -439,6 +439,9 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
         '      </button>\n'
         '    </div>\n'
         '    <div class="site-header__actions">\n'
+        '      <a class="header-contact header-social" href="/redes-sociales/" aria-label="Redes sociales" title="Redes sociales">\n'
+        '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><circle cx="6" cy="12" r="2.2"/><circle cx="18" cy="6" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="m8 11 8-4M8 13l8 4"/></svg>\n'
+        '      </a>\n'
         '      <a class="header-contact" href="/prensa.html#contacto" aria-label="Contactar" title="Contactar">\n'
         '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M4 6.5h16v11H4z"/><path d="m4.5 7 7.5 6 7.5-6"/></svg>\n'
         '      </a>\n'
@@ -645,6 +648,7 @@ def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: st
         '        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>\n'
         f'        {SOCIAL_ROW}\n'
         f'        {email_reveal_link("Contactar por email")}\n'
+        '        <a class="text-action footer-all-networks" href="/redes-sociales/">Ver todas las redes</a>\n'
         '      </div>'
     ]
     for group_name, entries in groups.items():

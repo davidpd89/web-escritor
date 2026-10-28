@@ -12,7 +12,7 @@ try {
   const response = await page.goto(ORIGIN + '/lectores-beta/', { waitUntil: 'domcontentloaded' });
   assert.ok(response?.ok(), `/lectores-beta/: HTTP ${response?.status()}`);
 
-  const contact = page.locator('header a.header-contact');
+  const contact = page.locator('header a.header-contact:not(.header-social)');
   assert.equal(await contact.count(), 1, '/lectores-beta/: falta el enlace de contacto de cabecera');
   const href = await contact.getAttribute('href');
   assert.equal(href, '/prensa.html#contacto', `/lectores-beta/: destino de contacto inesperado: ${href}`);
