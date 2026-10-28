@@ -420,7 +420,7 @@ def render_hub(atlas: Atlas, cards: list[dict]) -> str:
         '<label class="catalogue-search">Buscar por lugar, ciudad, obra o autor'
         '<input type="search" name="q" data-filter="q" maxlength="200" autocomplete="off" placeholder="¿Adónde te lleva un libro?"></label>'
         f'<div class="catalogue-facets">{facets}</div>'
-        '<div class="catalogue-filter-actions"><button type="reset" disabled>Restablecer</button></div>'
+        '<div class="catalogue-filter-actions"><button type="submit">Buscar lugares</button><button type="reset" disabled>Restablecer</button></div>'
         '</fieldset></form></aside>'
         '<div class="catalogue-main"><div class="catalogue-results-head"><h2>El atlas</h2>'
         f'<p role="status" aria-live="polite" data-atlas-count>{n} resultados</p></div>'
