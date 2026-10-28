@@ -39,10 +39,10 @@ jobs:
           ref: ${{ inputs.ref }}
           fetch-depth: 1
 
-      - name: Montar el sitio estatico (sin .git, tests ni laboratorio) y marcarlo noindex
+      - name: Montar el artefacto publico (allowlist de produccion, sin tests ni laboratorio) y marcarlo noindex
         run: |
-          mkdir -p _site
-          rsync -a --exclude '.git' --exclude '.github' --exclude 'node_modules' --exclude 'experimentos' --exclude '_site' ./ _site/
+          python3 scripts/build-public-dist.py --out _site
+          python3 scripts/build-public-dist.py --check-contents --out _site
           printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt
           printf '/*\n  X-Robots-Tag: noindex, nofollow\n' > _site/_headers
 

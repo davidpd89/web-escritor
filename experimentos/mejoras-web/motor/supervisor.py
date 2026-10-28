@@ -22,7 +22,7 @@ def firma(texto):
 
 def hijo(modo, resto):
     base = [sys.executable, str(mw.HERE / "mw.py")]
-    return base + ({"servicio": ["servicio"], "ejecutar-actions": ["ejecutar-actions", *resto]}[modo])
+    return base + ({"servicio": ["servicio"], "ejecutar-actions": ["ejecutar-actions", *resto], "vista": ["vista-publica"]}[modo])
 
 
 def supervisar(modo, resto=(), popen=None, sleep=time.sleep, reloj=time.time, maxi_caidas=None):
@@ -30,16 +30,16 @@ def supervisar(modo, resto=(), popen=None, sleep=time.sleep, reloj=time.time, ma
     # servicio: sin consola, a servicio.log. ejecutar-actions: CON la consola del .bat (se ve el panel y la tecla Q llega al hijo): sin CREATE_NO_WINDOW
     segundo_plano = bool(os.environ.get("MEJORAS_WEB_SEGUNDO_PLANO"))
     def _real(args):
-        if modo == "servicio" or segundo_plano:  # sin consola: la salida a fichero (con un handle invalido el hijo moria al arrancar)
-            log = mw.STATE / ("servicio.log" if modo == "servicio" else "actions/ejecutar_bg.log"); log.parent.mkdir(parents=True, exist_ok=True)
+        if modo in ("servicio", "vista") or segundo_plano:  # sin consola: la salida a fichero (con un handle invalido el hijo moria al arrancar)
+            log = mw.STATE / {"servicio": "servicio.log", "vista": "vista.log"}.get(modo, "actions/ejecutar_bg.log"); log.parent.mkdir(parents=True, exist_ok=True)
             return subprocess.Popen(args, cwd=str(mw.STATE), stdin=subprocess.DEVNULL, stdout=open(log, "a", encoding="utf-8", buffering=1), stderr=subprocess.STDOUT, creationflags=mw.SIN_VENTANA)
         return subprocess.Popen(args, cwd=str(mw.STATE), creationflags=0)
     popen = popen or _real
     maxi = maxi_caidas or mw.CFG.get("max_caidas_hora", 6)
     caidas, espera = [], 15
     mw.STATE.mkdir(parents=True, exist_ok=True)
-    parada = "stop" if modo == "servicio" else "stop_actions"
-    with mw.Lock("supervisor" if modo == "servicio" else "supervisor_actions", max_min=10**9):
+    parada = {"servicio": "stop", "vista": "stop_vista"}.get(modo, "stop_actions")
+    with mw.Lock({"servicio": "supervisor", "vista": "supervisor_vista"}.get(modo, "supervisor_actions"), max_min=10**9):
         while not mw.flag(parada):
             p = popen(hijo(modo, list(resto)))
             while True:
@@ -61,7 +61,7 @@ def supervisar(modo, resto=(), popen=None, sleep=time.sleep, reloj=time.time, ma
 
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
-    if not argv or argv[0] not in ("servicio", "ejecutar-actions"): print(__doc__); return 2
+    if not argv or argv[0] not in ("servicio", "ejecutar-actions", "vista"): print(__doc__); return 2
     return supervisar(argv[0], argv[1:])
 
 

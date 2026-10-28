@@ -179,5 +179,10 @@
   "url": "",
   "workflow_lab": "lab-preview.yml"
  },
- "autoejecutar": true
+ "autoejecutar": true,
+ "autovista": true,
+ "vista_publica": {
+  "puerto": 8780,
+  "refresco_s": 180
+ }
 }

@@ -153,8 +153,8 @@ class Reintentar(util.Caso):
 
 
 class EjecutorAutomatico(util.Caso):
-    def lanzar(self, auto):
-        mw.CFG["autoejecutar"] = auto; mw.CFG["gpt"]["project_id"] = "g-p-" + "ab12" * 8
+    def lanzar(self, auto, vista=False):
+        mw.CFG["autoejecutar"] = auto; mw.CFG["autovista"] = vista; mw.CFG["gpt"]["project_id"] = "g-p-" + "ab12" * 8
         lanzados = []
         duenos = iter([0, 4242, 0, 4343, 4343, 4343])
         with mock.patch.object(mw, "popen", lambda args, **k: lanzados.append((args, k))), mock.patch.object(mw, "exigir_aislamiento"), \
@@ -167,6 +167,11 @@ class EjecutorAutomatico(util.Caso):
         self.assertEqual(rc, 0); modos = [a[0][-2:] if a[0][-1] == "--continuo" else a[0][-1:] for a in l]
         self.assertEqual(len(l), 2); self.assertTrue(l[0][0][2:] == [str(mw.HERE / "supervisor.py").replace("\\", "\\"), "servicio"] or l[0][0][-1] == "servicio")
         self.assertEqual(l[1][0][-2:], ["ejecutar-actions", "--continuo"]); self.assertEqual(l[1][1]["env"]["MEJORAS_WEB_SEGUNDO_PLANO"], "1")
+
+    def test_iniciar_con_autovista_lanza_tambien_la_vista_publica(self):
+        mw.CFG["autoejecutar"] = False
+        rc, l = self.lanzar(False, vista=True)
+        self.assertEqual(rc, 0); self.assertEqual([a[0][-1] for a in l], ["servicio", "vista"])
 
     def test_iniciar_sin_autoejecutar_no_lanza_el_ejecutor(self):
         rc, l = self.lanzar(False); self.assertEqual(rc, 0); self.assertEqual(len(l), 1); self.assertEqual(l[0][0][-1], "servicio")

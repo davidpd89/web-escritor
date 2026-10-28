@@ -290,6 +290,14 @@ def dormir(seg, lock=None):
         time.sleep(min(5, max(fin - time.monotonic(), 0)))
 
 
+def dormir_flag(seg, bandera, lock=None):
+    """Como dormir() pero con la bandera que se indique."""
+    fin = time.monotonic() + seg
+    while time.monotonic() < fin and not flag(bandera):
+        if lock: lock.latido()
+        time.sleep(min(5, max(fin - time.monotonic(), 0)))
+
+
 def parada_vencida():
     """Parada pedida y ya pasada la gracia: la generacion en curso se deja reanudable (no se pierde)."""
     f = STATE / "stop"
@@ -419,7 +427,9 @@ def cmd_iniciar(a):
         if pid: break
     if not pid: print(f"El investigador no arranco. Mira {STATE / 'servicio.log'}"); return 1
     print(f"INVESTIGADOR DE MEJORAS WEB EN MARCHA (pid {pid}). Trabaja hasta que lo pares con PARAR-MEJORAS-WEB.bat.\nEstado: ESTADO-MEJORAS-WEB.bat. Registro: {STATE / 'servicio.log'}")
-    if CFG.get("autoejecutar"): return _arrancar_ejecutor()
+    rc = 0
+    if CFG.get("autovista"): rc = _arrancar_vista() or rc
+    if CFG.get("autoejecutar"): return _arrancar_ejecutor() or rc
     print("El ejecutor (validar, Actions, integrar en lab) NO se arranca solo: config.json -> autoejecutar=false. Lanzalo con EJECUTAR-ACTIONS-MEJORAS-WEB.bat.")
     return 0
 
@@ -446,6 +456,24 @@ def _arrancar_ejecutor():
     return 0
 
 
+def _arrancar_vista():
+    """Servidor temporal con la web de la rama de laboratorio + tunel publico sin cuenta (vista_publica.py). Solo LEE; nunca publica en un sitio permanente."""
+    if Lock("vista").dueno(): print(f"La vista publica YA esta en marcha (pid {Lock('vista').dueno()})."); return 0
+    set_flag("stop_vista", False); _lanzar_supervisor("vista")
+    pid = 0
+    for _ in range(40):
+        time.sleep(0.5); pid = Lock("vista").dueno()
+        if pid: break
+    if not pid: print(f"La vista publica no arranco. Mira {STATE / 'vista.log'}"); return 1
+    print(f"VISTA PUBLICA TEMPORAL EN MARCHA (pid {pid}). Su enlace aparece en ESTADO-MEJORAS-WEB.bat en 1-2 minutos (cambia si se reinicia). Registro: {STATE / 'vista.log'}")
+    return 0
+
+
+def cmd_vista_publica(a):
+    import vista_publica
+    exigir_aislamiento(); return vista_publica.bucle(sys.modules[__name__])
+
+
 def cmd_ejecutar_bg(a):
     exigir_aislamiento(); STATE.mkdir(parents=True, exist_ok=True); db().close()
     return _arrancar_ejecutor()
@@ -460,9 +488,9 @@ def cmd_parar(a):
 
 def _parar(a):
     """PARAR-MEJORAS-WEB.bat: parada ordenada y acotada del investigador y del ejecutor. NO cancela runs remotos."""
-    set_flag("stop", True); set_flag("stop_actions", True)  # banderas separadas: arrancar EJECUTAR no cancela la parada del investigador
-    pids = [p for p in (Lock("worker").dueno(), Lock("actions").dueno()) if p]
-    for nombre in ("supervisor", "supervisor_actions"):
+    set_flag("stop", True); set_flag("stop_actions", True); set_flag("stop_vista", True)  # banderas separadas: arrancar EJECUTAR no cancela la parada del investigador
+    pids = [p for p in (Lock("worker").dueno(), Lock("actions").dueno(), Lock("vista").dueno()) if p]
+    for nombre in ("supervisor", "supervisor_actions", "supervisor_vista"):
         sup = Lock(nombre).dueno()
         if sup and sup not in pids: pids.append(sup)
     if not pids:
@@ -477,7 +505,7 @@ def _parar(a):
         for p in vivos:
             if es_mw(p): matar_arbol(p)
         time.sleep(1)
-        for nombre in ("worker", "actions", "supervisor", "supervisor_actions"): Lock(nombre).path.unlink(missing_ok=True)
+        for nombre in ("worker", "actions", "supervisor", "supervisor_actions", "vista", "supervisor_vista"): Lock(nombre).path.unlink(missing_ok=True)
         marcar(estado="parado", parado=now(), tarea=None); print("PARADO (forzado, estado conservado)."); return 0
     marcar(estado="parado", parado=now(), tarea=None)
     print("PARADO correctamente. Progreso guardado; el siguiente INICIAR continua donde quedo."); return 0
@@ -577,6 +605,7 @@ def main(argv=None):
     vp = s.add_parser("vista-previa"); vp.add_argument("id", nargs="?"); vp.add_argument("--puerto", type=int, default=8766); vp.add_argument("--sin-abrir", action="store_true"); vp.set_defaults(f=cmd_vista_previa)
     ri = s.add_parser("reintentar-infra"); ri.add_argument("id"); ri.set_defaults(f=cmd_reintentar_infra)
     s.add_parser("ejecutar-bg").set_defaults(f=cmd_ejecutar_bg)
+    s.add_parser("vista-publica").set_defaults(f=cmd_vista_publica)
     rr = s.add_parser("reintentar"); rr.add_argument("id", nargs="?"); rr.set_defaults(f=cmd_reintentar)
     d = s.add_parser("descartar"); d.add_argument("id"); d.add_argument("--motivo"); d.set_defaults(f=cmd_descartar)
     a = p.parse_args(argv)

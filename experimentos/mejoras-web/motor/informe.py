@@ -38,8 +38,16 @@ def _texto(q, c, completo):
           f"Ejecutor de Actions: {'EN MARCHA pid ' + str(ac) if ac else 'parado'} | supervisor: {'pid ' + str(sup) if sup else 'no'}",
           f"Aislado del QA: CDP {q.CFG['gpt']['puerto_cdp']} | estado {q.STATE} | ramas {q.CFG['prefijo_rama']}* -> {q.CFG['rama_base']} | main intocable"]
     if svc.get("ultimo_error"): L.append(f"ULTIMO ERROR: {svc['ultimo_error'][:200]}")
-    integ = q.CFG.get("integracion", {}); url = (q.CFG.get("preview") or {}).get("url")
-    L.append(f"Integracion automatica en {q.CFG['rama_base']}: {integ.get('modo', 'manual')} ({'tras validar en Actions' if integ.get('exigir_actions', True) else 'tras validar en local'}) | vista previa: {url or 'sin configurar'}")
+    integ = q.CFG.get("integracion", {})
+    try: vj = json.loads((q.STATE / "vista" / "vista.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError): vj = {}
+    wv = q.Lock("vista").dueno()
+    url = vj.get("url") if wv else None
+    if wv and not url: url = f"(arrancando el tunel...{' ' + vj['tunel'] if vj.get('tunel') else ''}) local {vj.get('local', '')}"
+    if wv and vj.get("url"): url += f"   | cambios: {vj['url'].rstrip('/')}/_lab/   | lab @ {str(vj.get('sha', ''))[:8]}"
+    if not wv: url = "PARADA (se arranca con INICIAR, autovista=true)"
+    if vj.get("error"): url += f"   | ULTIMO ERROR DE BUILD: {vj['error'][:120]}"
+    L.append(f"Integracion automatica en {q.CFG['rama_base']}: {integ.get('modo', 'manual')} ({'tras validar en Actions' if integ.get('exigir_actions', True) else 'tras validar en local'}) | VISTA PREVIA (temporal, no es main): {url}")
     L += ["", "Expedientes (fase actual, cada uno cuenta una vez):"]
     por = dict(c.execute("SELECT estado, COUNT(*) FROM expedientes GROUP BY estado").fetchall())
     cubiertos = set()
