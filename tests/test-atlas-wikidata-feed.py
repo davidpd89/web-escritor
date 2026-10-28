@@ -61,6 +61,25 @@ class FeedTest(unittest.TestCase):
         self.assertEqual([e["qid"] for e in found], ["Q100", "Q101"])
         self.assertEqual(found[0]["sitelinks"], 12)
 
+    def test_collect_batches_countries_and_stops_at_deadline(self) -> None:
+        texts = []
+
+        def query(text):
+            texts.append(text)
+            return {"results": {"bindings": [{**row(qid="Q1", links="9"), "iso": {"value": "FR"}},
+                                              {**row(qid="Q2", links="8"), "iso": {"value": "ES"}},
+                                              {**row(qid="Q3", links="7"), "iso": {"value": "XX"}}]}}
+
+        config = {"min_sitelinks": 3, "limit_per_query": 5, "delay_seconds": 0, "countries": ["ES", "FR", "GB"],
+                  "countries_per_query": 2, "kinds": [{"place_type": "bookshop", "qid": "Q200764"}]}
+        found, errors = feed.collect(config, query_fn=query, sleep=lambda _: None)
+        self.assertEqual(len(texts), 2)
+        self.assertIn('VALUES ?iso { "ES" "FR" }', texts[0])
+        self.assertEqual(sorted((e["country_iso2"], e["qid"]) for e in found), [("ES", "Q2"), ("FR", "Q1")])
+        ticks = iter([0, 0, 10_000, 10_000, 10_000])
+        found, errors = feed.collect({**config, "max_runtime_seconds": 60}, query_fn=query, sleep=lambda _: None, clock=lambda: next(ticks))
+        self.assertEqual(errors, ["bookshop/GB: tiempo agotado"])
+
     def test_merge_caps_new_entries_and_expires_old_ones(self) -> None:
         old = {"places": [
             {"qid": "Q1", "name": "Vista", "city": "A", "country_iso2": "ES", "place_type": "library", "sitelinks": 9, "last_seen": "2026-10-20", "first_seen": "2026-10-01"},

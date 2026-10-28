@@ -4,13 +4,61 @@
   "limit_per_query": 12,
   "max_new_per_run": 60,
   "keep_days": 30,
-  "delay_seconds": 2,
+  "delay_seconds": 15,
   "kinds": [
-    {"place_type": "bookshop", "qid": "Q200764", "min_sitelinks": 3},
-    {"place_type": "library", "qid": "Q7075", "min_sitelinks": 10},
-    {"place_type": "museum", "qid": "Q1865249", "min_sitelinks": 3},
-    {"place_type": "writer_house_museum", "qid": "Q24906026", "min_sitelinks": 3},
-    {"place_type": "booktown", "qid": "Q921061", "min_sitelinks": 2}
+    {
+      "place_type": "bookshop",
+      "qid": "Q200764",
+      "min_sitelinks": 3
+    },
+    {
+      "place_type": "library",
+      "qid": "Q7075",
+      "min_sitelinks": 10
+    },
+    {
+      "place_type": "museum",
+      "qid": "Q1865249",
+      "min_sitelinks": 3
+    },
+    {
+      "place_type": "writer_house_museum",
+      "qid": "Q24906026",
+      "min_sitelinks": 3
+    },
+    {
+      "place_type": "booktown",
+      "qid": "Q921061",
+      "min_sitelinks": 2
+    }
   ],
-  "countries": ["ES", "FR", "GB", "IE", "PT", "IT", "DE", "US", "AR", "MX", "CO", "CL", "AT", "NL", "CZ", "PL", "SE", "RU", "JP", "CH", "BE", "DK", "NO", "EG", "PE"]
+  "countries": [
+    "ES",
+    "FR",
+    "GB",
+    "IE",
+    "PT",
+    "IT",
+    "DE",
+    "US",
+    "AR",
+    "MX",
+    "CO",
+    "CL",
+    "AT",
+    "NL",
+    "CZ",
+    "PL",
+    "SE",
+    "RU",
+    "JP",
+    "CH",
+    "BE",
+    "DK",
+    "NO",
+    "EG",
+    "PE"
+  ],
+  "countries_per_query": 1,
+  "max_runtime_seconds": 7200
 }

@@ -45,12 +45,14 @@ def slugify(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", plain).strip("-")
 
 
-def sparql(kind_qid: str, iso2: str, min_sitelinks: int, limit: int) -> str:
+def sparql(kind_qid: str, isos: list[str], min_sitelinks: int, limit: int) -> str:
+    values = " ".join(f'"{iso}"' for iso in isos)
     return f"""
-SELECT ?item ?itemLabel ?itemDescription ?cityLabel ?coord ?website ?sitelinks WHERE {{
+SELECT ?item ?itemLabel ?itemDescription ?cityLabel ?coord ?website ?sitelinks ?iso WHERE {{
+  VALUES ?iso {{ {values} }}
+  ?country wdt:P297 ?iso .
   ?item wdt:P31 wd:{kind_qid} ; wdt:P17 ?country ; wdt:P625 ?coord ; wdt:P856 ?website ;
         wikibase:sitelinks ?sitelinks .
-  ?country wdt:P297 "{iso2}" .
   FILTER(?sitelinks >= {min_sitelinks})
   OPTIONAL {{ ?item wdt:P131 ?city . }}
   SERVICE wikibase:label {{ bd:serviceParam wikibase:language "es,en,mul". }}
@@ -126,22 +128,40 @@ def parse_row(row: dict, place_type: str, iso2: str, min_sitelinks: int) -> dict
     }
 
 
-def collect(config: dict, query_fn=run_query, sleep=time.sleep) -> tuple[list[dict], list[str]]:
+def collect(config: dict, query_fn=run_query, sleep=time.sleep, clock=time.monotonic) -> tuple[list[dict], list[str]]:
+    """Una consulta por tipo y grupo de países (`countries_per_query`, 1 por defecto: las consultas de
+    varios países a la vez agotan el tiempo de WDQS en los tipos más comunes); tope por país al leer."""
     found: dict[str, dict] = {}
     errors: list[str] = []
+    per_country = int(config["limit_per_query"])
+    batch_size = max(1, int(config.get("countries_per_query", 1)))
+    countries = list(config["countries"])
+    batches = [countries[i:i + batch_size] for i in range(0, len(countries), batch_size)]
+    deadline = clock() + float(config.get("max_runtime_seconds", 7200))
     for kind in config["kinds"]:
-        for iso2 in config["countries"]:
-            query = sparql(kind["qid"], iso2, kind.get("min_sitelinks", config["min_sitelinks"]), config["limit_per_query"])
+        min_links = kind.get("min_sitelinks", config["min_sitelinks"])
+        for batch in batches:
+            label = f"{kind['place_type']}/{'+'.join(batch)}"
+            if clock() > deadline:  # el resto queda para la semana siguiente; lo ya visto se conserva en merge()
+                errors.append(f"{label}: tiempo agotado")
+                continue
             try:
-                data = query_fn(query)
+                data = query_fn(sparql(kind["qid"], batch, min_links, per_country * len(batch)))
             except Exception as exc:  # red caída, límite de peticiones o consulta lenta: se sigue con el resto
-                errors.append(f"{kind['place_type']}/{iso2}: {type(exc).__name__}")
+                errors.append(f"{label}: {type(exc).__name__}")
                 sleep(config.get("delay_seconds", 2))
                 continue
+            taken: dict[str, int] = {}
             for row in data.get("results", {}).get("bindings", []):
-                entry = parse_row(row, kind["place_type"], iso2, kind.get("min_sitelinks", config["min_sitelinks"]))
-                if entry and (entry["qid"] not in found or entry["sitelinks"] > found[entry["qid"]]["sitelinks"]):
+                iso = (row.get("iso") or {}).get("value", "") or (batch[0] if len(batch) == 1 else "")
+                if iso not in batch:
+                    continue
+                entry = parse_row(row, kind["place_type"], iso, min_links)
+                if not entry or taken.get(iso, 0) >= per_country:
+                    continue
+                if entry["qid"] not in found or entry["sitelinks"] > found[entry["qid"]]["sitelinks"]:
                     found[entry["qid"]] = entry
+                taken[iso] = taken.get(iso, 0) + 1
             sleep(config.get("delay_seconds", 2))
     return sorted(found.values(), key=lambda e: (e["country_iso2"], e["place_type"], -e["sitelinks"], e["name"])), errors
 
@@ -180,7 +200,8 @@ def main() -> int:
     config = json.loads(CONFIG.read_text(encoding="utf-8"))
     previous = json.loads(OUTPUT.read_text(encoding="utf-8")) if OUTPUT.is_file() else {"places": []}
     fresh, errors = collect(config)
-    queries = len(config["kinds"]) * len(config["countries"])
+    size = max(1, int(config.get("countries_per_query", 1)))
+    queries = len(config["kinds"]) * -(-len(config["countries"]) // size)
     if len(errors) > queries // 2:
         print(f"FAIL: demasiadas consultas fallidas ({len(errors)}/{queries}); no se escribe nada", file=sys.stderr)
         return 1
