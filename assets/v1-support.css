@@ -12,3 +12,11 @@ html.v1 [data-family="support"] .support-method:focus-visible{outline:2px solid 
 html.v1 [data-family="support"] .support-page__note,
 html.v1 [data-family="support"] .support-page__legal{margin:0 0 1rem;font:400 var(--text-sm)/1.6 var(--font-reading);color:var(--color-muted)}
 html.v1 [data-family="support"] .support-page__legal a{color:var(--color-text);text-underline-offset:.2em}
+html.v1 [data-family="support"] .support-channel{display:grid;gap:.5rem}
+html.v1 [data-family="support"] .support-amounts{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:0;font:400 var(--text-sm)/1.5 var(--font-reading);color:var(--color-muted)}
+html.v1 [data-family="support"] .support-amount{display:inline-flex;align-items:center;justify-content:center;min-width:3.5rem;min-height:2.75rem;padding:0 1rem;border:1px solid var(--color-border);border-radius:.5rem;color:var(--color-text);font:600 var(--text-sm)/1 var(--font-ui);text-decoration:none}
+html.v1 [data-family="support"] .support-amount:hover{border-color:var(--color-accent)}
+html.v1 [data-family="support"] .support-amount:focus-visible{outline:2px solid var(--focus-color);outline-offset:3px}
+/* Bloque contextual al final de las fichas y la cabecera */
+html.v1 .support-cta{max-width:var(--layout-wide);margin:clamp(2rem,4vw,3rem) 0 0;padding:1rem 0;border-top:1px solid var(--color-border);font:400 var(--text-sm)/1.6 var(--font-reading);color:var(--color-muted)}
+html.v1 .support-cta a{color:var(--color-text);font-weight:600;text-underline-offset:.2em}
