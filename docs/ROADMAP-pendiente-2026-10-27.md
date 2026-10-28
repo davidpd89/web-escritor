@@ -13,22 +13,22 @@ Orden propuesto: de lo más barato y visible a lo más grande.
 | Libros | El catálogo tiene 83 libros publicados y el bot diario sigue añadiendo (`max_new_books: 5`, Planeta y Penguin como fuentes, valoraciones, biografías de Wikipedia). Los precios editoriales (`scripts/reading_free_prices.py`) están sin conectar a la web a propósito. |
 | Rendimiento | Hay presupuestos (`data/performance-budgets.json`) y un gate; no hay trabajo activo de mejora. |
 
-## Siguientes PRs, por orden
+## Estado a 28/10/2026
 
-1. **Menú y pie: Redes sociales** (pequeña). Añadir la página a `data/navigation.json` (pie, bloque «Información») y regenerar el shell con `build-site-shell.py`.
-2. **Atlas literario MVP** (media).
-   - Pasar a `published` 3–4 artículos con contenido real (una categoría completa).
-   - Publicar la salida en `/atlas-literario/` en la raíz.
-   - Entrada en el menú «Leer y recursos» y en el sitemap.
-   - Pasar `check_atlas_release_contract.py` en CI.
-   - Mapa interactivo después, no antes.
-3. **Donaciones `/apoyar/`** (media). Decisión de ubicación pendiente: propuesta, enlace discreto en el pie y en la página de cada obra. Requiere que el titular compruebe el receptor (PayPal/Stripe) antes de publicar; sin eso no se enlaza.
-4. **Libros que se llenan solos** (media).
-   - Subir el techo de altas por día cuando las últimas semanas salgan sin errores.
-   - Conectar un tercer origen de novedades (hoy: Penguin y Planeta).
-   - Activar los precios editoriales cuando el piloto en vivo confirme el marcado de la tienda.
-5. **Fichas de libro** (media). Mejores bloques de comprar/valoraciones/autor, tras activar el punto 4.
-6. **Rendimiento** (media). Auditoría de peso por plantilla (Lighthouse/CrUX) y reducción de CSS/JS no usado en las páginas más pesadas; el gate existente impide regresiones.
+| Tarea | Estado |
+|---|---|
+| Redes sociales en el pie | Hecho y desplegado. |
+| Atlas literario | Publicado: hub + 10 fichas (4 destinos, 4 lugares, 2 rutas) en menú «Libros recomendados», pie, mapa del sitio, sitemap y buscador. Contrato de publicación en CI. Revisión editorial del titular pendiente. |
+| Donaciones `/apoyar/` | Preparado, **no activado**: `python scripts/build-support-page.py --paypal-url ...` (ver `docs/donaciones/05-activar-apoyar.md`). Falta el enlace de PayPal Business del titular. |
+| Bot diario de libros | Arreglado el fallo más frecuente (el PR del bot quedaba en conflicto si `main` avanzaba durante su CI): regenera desde `main` y reintenta una vez. |
+| Rendimiento | Imágenes de Samuel y Autor a su tamaño real (−320 KiB). La portada (vídeo de intro y CSS en varios archivos) queda sin tocar por riesgo en Safari. |
+
+## Lo que sigue
+
+1. **Atlas**: más fichas (nuevas ciudades, bibliotecas y librerías) y, más adelante, mapa interactivo. Cada ficha con etiqueta de certeza y fuentes.
+2. **Libros**: una tercera fuente de novedades (Anagrama tiene fichas con ISBN, PVP, páginas y fecha) exige decidir uso de portadas y leer encuadernación; precios editoriales cuando el piloto en vivo confirme el marcado de la tienda.
+3. **Rendimiento**: CSS crítico y menos peticiones en portada, con baseline visual regenerado.
+4. **Donaciones**: activar `/apoyar/` con el enlace de PayPal y enlaces contextuales discretos (después de resultados de herramientas).
 
 ## Decisiones ya tomadas
 
