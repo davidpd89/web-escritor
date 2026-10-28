@@ -1,0 +1,1432 @@
+{
+  "schema_version": 1,
+  "destinations": [
+    {
+      "id": "edimburgo",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "edimburgo",
+      "name": "Edimburgo",
+      "country_iso2": "GB",
+      "summary_original": "Primera Ciudad de la Literatura de la UNESCO (2004), con museos de escritores y el monumento a Walter Scott."
+    },
+    {
+      "id": "dublin",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "dublin",
+      "name": "Dublín",
+      "country_iso2": "IE",
+      "summary_original": "Ciudad de la Literatura de la UNESCO desde 2010 y escenario del Ulises de Joyce."
+    },
+    {
+      "id": "madrid-barrio-de-las-letras",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "madrid-barrio-de-las-letras",
+      "name": "Madrid",
+      "country_iso2": "ES",
+      "summary_original": "El Barrio de las Letras reúne la casa de Lope de Vega, el convento donde descansa Cervantes y la Biblioteca Nacional."
+    },
+    {
+      "id": "barcelona",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "barcelona",
+      "name": "Barcelona",
+      "country_iso2": "ES",
+      "summary_original": "Ciudad de la Literatura de la UNESCO desde 2015 y sede de Sant Jordi, el día del libro y la rosa."
+    },
+    {
+      "id": "oxford",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "oxford",
+      "name": "Oxford",
+      "country_iso2": "GB",
+      "summary_original": "Ciudad universitaria de la Bodleian, la Radcliffe Camera y los Inklings de Tolkien y Lewis."
+    },
+    {
+      "id": "praga",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "praga",
+      "name": "Praga",
+      "country_iso2": "CZ",
+      "summary_original": "Ciudad de Franz Kafka y de bibliotecas barrocas como la de Strahov y la del Klementinum."
+    },
+    {
+      "id": "lisboa",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "lisboa",
+      "name": "Lisboa",
+      "country_iso2": "PT",
+      "summary_original": "Ciudad de Fernando Pessoa y de la Livraria Bertrand, la librería en funcionamiento más antigua del mundo."
+    },
+    {
+      "id": "paris",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "paris",
+      "name": "París",
+      "country_iso2": "FR",
+      "summary_original": "Ciudad de la historia de Shakespeare and Company, la librería que publicó el Ulises."
+    },
+    {
+      "id": "coimbra",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "coimbra",
+      "name": "Coímbra",
+      "country_iso2": "PT",
+      "summary_original": "Ciudad universitaria portuguesa con la Biblioteca Joanina barroca."
+    },
+    {
+      "id": "oporto",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "oporto",
+      "name": "Oporto",
+      "country_iso2": "PT",
+      "summary_original": "Ciudad portuguesa de la Livraria Lello, de 1906."
+    },
+    {
+      "id": "buenos-aires",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "buenos-aires",
+      "name": "Buenos Aires",
+      "country_iso2": "AR",
+      "summary_original": "Capital argentina de El Ateneo Grand Splendid, una librería instalada en un teatro de 1919."
+    },
+    {
+      "id": "haworth",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "haworth",
+      "name": "Haworth",
+      "country_iso2": "GB",
+      "summary_original": "Pueblo de Yorkshire donde vivió la familia Brontë."
+    },
+    {
+      "id": "alejandria",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "alejandria",
+      "name": "Alejandría",
+      "country_iso2": "EG",
+      "summary_original": "Ciudad egipcia de la antigua Biblioteca de Alejandría y de la Bibliotheca Alexandrina actual."
+    },
+    {
+      "id": "la-mancha",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "la-mancha",
+      "name": "La Mancha",
+      "country_iso2": "ES",
+      "summary_original": "Comarca de Castilla-La Mancha asociada al Quijote y atravesada por la Ruta de Don Quijote."
+    }
+  ],
+  "places": [
+    {
+      "id": "biblioteca-trinity-college-dublin",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "biblioteca-trinity-college-dublin",
+      "name": "Biblioteca de Trinity College y Long Room",
+      "destination_id": "dublin",
+      "place_type": "library",
+      "geo_precision": "city",
+      "summary_original": "El Long Room de Trinity College, en Dublín, guarda el Libro de Kells. Qué es hecho verificable y qué comparaciones con el cine no están confirmadas.",
+      "official_url": "https://www.tcd.ie/library/",
+      "visit_status": "reservation",
+      "source_ids": [
+        "tcd-ie-library",
+        "bookofkells-ie"
+      ]
+    },
+    {
+      "id": "biblioteca-strahov-praga",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "biblioteca-strahov-praga",
+      "name": "Biblioteca de Strahov",
+      "destination_id": "praga",
+      "place_type": "library",
+      "geo_precision": "city",
+      "summary_original": "La biblioteca del monasterio de Strahov, en Praga, tiene dos salas históricas barrocas y neoclásicas. Qué se puede ver y cómo se visita.",
+      "official_url": "https://www.strahovskyklaster.cz/en",
+      "visit_status": "outside",
+      "source_ids": [
+        "strahovskyklaster-cz-en"
+      ]
+    },
+    {
+      "id": "shakespeare-and-company-paris",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "shakespeare-and-company-paris",
+      "name": "Shakespeare and Company",
+      "destination_id": "paris",
+      "place_type": "bookshop",
+      "geo_precision": "city",
+      "summary_original": "La librería Shakespeare and Company de París no es la original de Sylvia Beach. La historia real de dos librerías con el mismo nombre.",
+      "official_url": "https://shakespeareandcompany.com/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "shakespeareandcompany-com"
+      ]
+    },
+    {
+      "id": "biblioteca-joanina-coimbra",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "biblioteca-joanina-coimbra",
+      "name": "Biblioteca Joanina",
+      "destination_id": "coimbra",
+      "place_type": "library",
+      "geo_precision": "city",
+      "summary_original": "La Biblioteca Joanina de la Universidad de Coímbra es una biblioteca barroca del siglo XVIII. Qué se sabe y cómo se visita.",
+      "official_url": "https://www.uc.pt/",
+      "visit_status": "reservation",
+      "source_ids": [
+        "whc-unesco-org-en-list-1387",
+        "uc-pt"
+      ]
+    },
+    {
+      "id": "livraria-lello-porto",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "livraria-lello-porto",
+      "name": "Livraria Lello",
+      "destination_id": "oporto",
+      "place_type": "bookshop",
+      "geo_precision": "city",
+      "summary_original": "La Livraria Lello de Oporto es una librería neogótica de 1906. Qué se sabe de su historia y por qué su vínculo con Harry Potter no está confirmado.",
+      "official_url": "https://www.livrarialello.pt/",
+      "visit_status": "reservation",
+      "source_ids": [
+        "livrarialello-pt"
+      ]
+    },
+    {
+      "id": "el-ateneo-grand-splendid-buenos-aires",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "el-ateneo-grand-splendid-buenos-aires",
+      "name": "El Ateneo Grand Splendid",
+      "destination_id": "buenos-aires",
+      "place_type": "bookshop",
+      "geo_precision": "city",
+      "summary_original": "El Ateneo Grand Splendid es una librería de Buenos Aires instalada en un antiguo teatro de 1919. Su historia y qué se puede visitar.",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "turismo-buenosaires-gob-ar"
+      ]
+    },
+    {
+      "id": "bronte-parsonage-haworth",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "bronte-parsonage-haworth",
+      "name": "Casa parroquial de las Brontë",
+      "destination_id": "haworth",
+      "place_type": "writer_house_museum",
+      "geo_precision": "city",
+      "summary_original": "La casa parroquial de Haworth, en Yorkshire, fue el hogar de la familia Brontë. Hoy es un museo. Qué se sabe y qué se imagina de sus novelas.",
+      "official_url": "https://www.bronte.org.uk/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "bronte-org-uk"
+      ]
+    },
+    {
+      "id": "biblioteca-de-alejandria",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "biblioteca-de-alejandria",
+      "name": "Biblioteca de Alejandría (antigua y actual)",
+      "destination_id": "alejandria",
+      "place_type": "library",
+      "geo_precision": "city",
+      "summary_original": "La Biblioteca de Alejandría existió y fue enorme, pero no la destruyó un único incendio. Qué es historia documentada y qué es leyenda, y la biblioteca actual.",
+      "official_url": "https://www.bibalex.org/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "bibalex-org"
+      ]
+    },
+    {
+      "id": "museo-de-los-escritores-edimburgo",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "museo-de-los-escritores-edimburgo",
+      "name": "Museo de los Escritores",
+      "destination_id": "edimburgo",
+      "place_type": "museum",
+      "geo_precision": "city",
+      "summary_original": "Museo en Lady Stair's House dedicado a Robert Burns, Walter Scott y Robert Louis Stevenson.",
+      "official_url": "https://www.edinburghmuseums.org.uk/venue/writers-museum",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "edinburghmuseums-org-uk-venue-writers-museum"
+      ]
+    },
+    {
+      "id": "monumento-a-walter-scott-edimburgo",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "monumento-a-walter-scott-edimburgo",
+      "name": "Monumento a Walter Scott",
+      "destination_id": "edimburgo",
+      "place_type": "monument",
+      "geo_precision": "city",
+      "summary_original": "Monumento neogótico en Princes Street Gardens, levantado entre 1840 y 1844 en memoria de Walter Scott.",
+      "official_url": "https://www.visitscotland.com/",
+      "visit_status": "outside",
+      "source_ids": [
+        "visitscotland-com"
+      ]
+    },
+    {
+      "id": "james-joyce-centre-dublin",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "james-joyce-centre-dublin",
+      "name": "James Joyce Centre",
+      "destination_id": "dublin",
+      "place_type": "museum",
+      "geo_precision": "city",
+      "summary_original": "Centro dedicado a Joyce en North Great George's Street; punto de partida para entender el libro y la ciudad.",
+      "official_url": "https://www.jamesjoyce.ie/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "jamesjoyce-ie"
+      ]
+    },
+    {
+      "id": "torre-martello-sandycove",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "torre-martello-sandycove",
+      "name": "Torre Martello de Sandycove",
+      "destination_id": "dublin",
+      "place_type": "museum",
+      "geo_precision": "city",
+      "summary_original": "Escenario de las primeras páginas del Ulises; hoy alberga un museo dedicado a Joyce.",
+      "official_url": "https://www.jamesjoyce.ie/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "jamesjoyce-ie"
+      ]
+    },
+    {
+      "id": "davy-byrnes-dublin",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "davy-byrnes-dublin",
+      "name": "Davy Byrne's",
+      "destination_id": "dublin",
+      "place_type": "cafe",
+      "geo_precision": "city",
+      "summary_original": "Pub de Duke Street donde Bloom come un sándwich de gorgonzola en el episodio de los lestrigones.",
+      "official_url": "https://www.dublincityofliterature.ie/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "dublincityofliterature-ie"
+      ]
+    },
+    {
+      "id": "sweny-pharmacy-dublin",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "sweny-pharmacy-dublin",
+      "name": "Sweny's Pharmacy",
+      "destination_id": "dublin",
+      "place_type": "other",
+      "geo_precision": "city",
+      "summary_original": "Farmacia de Lincoln Place citada en el Ulises, donde Bloom compra una pastilla de jabón de limón.",
+      "official_url": "https://www.dublincityofliterature.ie/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "dublincityofliterature-ie"
+      ]
+    },
+    {
+      "id": "cementerio-glasnevin",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "cementerio-glasnevin",
+      "name": "Cementerio de Glasnevin",
+      "destination_id": "dublin",
+      "place_type": "historic_site",
+      "geo_precision": "city",
+      "summary_original": "Cementerio donde transcurre el funeral de Paddy Dignam en el Ulises; es un cementerio real y se visita.",
+      "official_url": "https://www.dublincityofliterature.ie/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "dublincityofliterature-ie"
+      ]
+    },
+    {
+      "id": "casa-museo-lope-de-vega-madrid",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "casa-museo-lope-de-vega-madrid",
+      "name": "Casa Museo de Lope de Vega",
+      "destination_id": "madrid-barrio-de-las-letras",
+      "place_type": "writer_house_museum",
+      "geo_precision": "city",
+      "summary_original": "Vivienda de Lope de Vega desde 1610 hasta su muerte en 1635, en la calle de Cervantes 11.",
+      "official_url": "https://www.casamuseolopedevega.org/",
+      "visit_status": "reservation",
+      "source_ids": [
+        "casamuseolopedevega-org"
+      ]
+    },
+    {
+      "id": "convento-trinitarias-madrid",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "convento-trinitarias-madrid",
+      "name": "Convento de las Trinitarias Descalzas",
+      "destination_id": "madrid-barrio-de-las-letras",
+      "place_type": "historic_site",
+      "geo_precision": "city",
+      "summary_original": "Convento de clausura de la calle de Lope de Vega 18, donde Cervantes pidió ser enterrado.",
+      "official_url": "https://www.esmadrid.com/",
+      "visit_status": "outside",
+      "source_ids": [
+        "esmadrid-com"
+      ]
+    },
+    {
+      "id": "placa-cervantes-calle-del-leon",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "placa-cervantes-calle-del-leon",
+      "name": "Placa de Cervantes en la calle del León",
+      "destination_id": "madrid-barrio-de-las-letras",
+      "place_type": "literary_plaque",
+      "geo_precision": "city",
+      "summary_original": "Placa que señala el lugar donde murió Cervantes el 22 de abril de 1616; el edificio original no se conserva.",
+      "official_url": "https://www.esmadrid.com/",
+      "visit_status": "outside",
+      "source_ids": [
+        "esmadrid-com"
+      ]
+    },
+    {
+      "id": "biblioteca-nacional-de-espana",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "biblioteca-nacional-de-espana",
+      "name": "Biblioteca Nacional de España",
+      "destination_id": "madrid-barrio-de-las-letras",
+      "place_type": "library",
+      "geo_precision": "city",
+      "summary_original": "Biblioteca heredera de la Real Biblioteca de Felipe V (1712), en un edificio del siglo XIX del Paseo de Recoletos.",
+      "official_url": "https://www.bne.es/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "bne-es"
+      ]
+    },
+    {
+      "id": "dia-de-sant-jordi-barcelona",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "dia-de-sant-jordi-barcelona",
+      "name": "Sant Jordi (23 de abril)",
+      "destination_id": "barcelona",
+      "place_type": "festival",
+      "geo_precision": "city",
+      "summary_original": "Día en que Cataluña regala libros y rosas; la UNESCO eligió esa fecha como Día Mundial del Libro en 1995.",
+      "official_url": "https://www.barcelona.cat/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "barcelona-cat",
+        "unesco-org-en-days-world-book-and-copyright"
+      ]
+    },
+    {
+      "id": "bodleian-library-oxford",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "bodleian-library-oxford",
+      "name": "Biblioteca Bodleian",
+      "destination_id": "oxford",
+      "place_type": "library",
+      "geo_precision": "city",
+      "summary_original": "Biblioteca reabierta en 1602 por Thomas Bodley; biblioteca de depósito legal de la Universidad de Oxford.",
+      "official_url": "https://www.bodleian.ox.ac.uk/",
+      "visit_status": "reservation",
+      "source_ids": [
+        "bodleian-ox-ac-uk"
+      ]
+    },
+    {
+      "id": "radcliffe-camera-oxford",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "radcliffe-camera-oxford",
+      "name": "Radcliffe Camera",
+      "destination_id": "oxford",
+      "place_type": "monument",
+      "geo_precision": "city",
+      "summary_original": "Sala de lectura de la Bodleian de 1737–1749, obra de James Gibbs; se ve desde fuera.",
+      "official_url": "https://www.bodleian.ox.ac.uk/",
+      "visit_status": "outside",
+      "source_ids": [
+        "bodleian-ox-ac-uk"
+      ]
+    },
+    {
+      "id": "magdalen-college-oxford",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "magdalen-college-oxford",
+      "name": "Magdalen College",
+      "destination_id": "oxford",
+      "place_type": "historic_site",
+      "geo_precision": "city",
+      "summary_original": "Colegio de Oxford donde C. S. Lewis fue fellow desde 1925 y donde se reunían los Inklings.",
+      "official_url": "https://www.ox.ac.uk/",
+      "visit_status": "reservation",
+      "source_ids": [
+        "ox-ac-uk"
+      ]
+    },
+    {
+      "id": "pembroke-college-oxford",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "pembroke-college-oxford",
+      "name": "Pembroke College",
+      "destination_id": "oxford",
+      "place_type": "historic_site",
+      "geo_precision": "city",
+      "summary_original": "Colegio de Oxford donde J. R. R. Tolkien fue profesor desde 1925.",
+      "official_url": "https://www.ox.ac.uk/",
+      "visit_status": "reservation",
+      "source_ids": [
+        "ox-ac-uk"
+      ]
+    },
+    {
+      "id": "museo-franz-kafka-praga",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "museo-franz-kafka-praga",
+      "name": "Museo Franz Kafka",
+      "destination_id": "praga",
+      "place_type": "museum",
+      "geo_precision": "city",
+      "summary_original": "Museo de Malá Strana con documentos y manuscritos sobre la vida y la obra de Kafka.",
+      "official_url": "https://www.kafkamuseum.cz/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "kafkamuseum-cz"
+      ]
+    },
+    {
+      "id": "nuevo-cementerio-judio-praga",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "nuevo-cementerio-judio-praga",
+      "name": "Nuevo Cementerio Judío de Praga",
+      "destination_id": "praga",
+      "place_type": "historic_site",
+      "geo_precision": "city",
+      "summary_original": "Cementerio del barrio de Žižkov donde está la tumba de Franz Kafka.",
+      "official_url": "https://www.prague.eu/",
+      "visit_status": "outside",
+      "source_ids": [
+        "prague-eu"
+      ]
+    },
+    {
+      "id": "casa-fernando-pessoa-lisboa",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "casa-fernando-pessoa-lisboa",
+      "name": "Casa Fernando Pessoa",
+      "destination_id": "lisboa",
+      "place_type": "writer_house_museum",
+      "geo_precision": "city",
+      "summary_original": "Última vivienda de Pessoa (1920–1935), en Campo de Ourique; hoy centro cultural con su biblioteca personal.",
+      "official_url": "https://casafernandopessoa.pt/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "casafernandopessoa-pt"
+      ]
+    },
+    {
+      "id": "livraria-bertrand-lisboa",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "livraria-bertrand-lisboa",
+      "name": "Livraria Bertrand (Chiado)",
+      "destination_id": "lisboa",
+      "place_type": "bookshop",
+      "geo_precision": "city",
+      "summary_original": "Librería abierta en 1732 y reconocida por Guinness como la más antigua en funcionamiento del mundo.",
+      "official_url": "https://www.bertrand.pt/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "bertrand-pt"
+      ]
+    },
+    {
+      "id": "molinos-de-campo-de-criptana",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "molinos-de-campo-de-criptana",
+      "name": "Molinos de Campo de Criptana",
+      "destination_id": "la-mancha",
+      "place_type": "landscape",
+      "geo_precision": "city",
+      "summary_original": "Conjunto de molinos de viento de La Mancha; su asociación con el episodio de los gigantes es tradición turística.",
+      "official_url": "https://www.turismocastillalamancha.es/",
+      "visit_status": "outside",
+      "source_ids": [
+        "turismocastillalamancha-es"
+      ]
+    },
+    {
+      "id": "molinos-de-consuegra",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "molinos-de-consuegra",
+      "name": "Molinos y castillo de Consuegra",
+      "destination_id": "la-mancha",
+      "place_type": "landscape",
+      "geo_precision": "city",
+      "summary_original": "Molinos sobre la colina de Consuegra, uno de los conjuntos mejor conservados de La Mancha.",
+      "official_url": "https://www.turismocastillalamancha.es/",
+      "visit_status": "outside",
+      "source_ids": [
+        "turismocastillalamancha-es"
+      ]
+    },
+    {
+      "id": "casa-de-dulcinea-el-toboso",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "casa-de-dulcinea-el-toboso",
+      "name": "Casa de Dulcinea (El Toboso)",
+      "destination_id": "la-mancha",
+      "place_type": "museum",
+      "geo_precision": "city",
+      "summary_original": "Casa-museo de El Toboso, el pueblo de Dulcinea en la novela de Cervantes.",
+      "official_url": "https://www.turismocastillalamancha.es/",
+      "visit_status": "visit_inside",
+      "source_ids": [
+        "turismocastillalamancha-es"
+      ]
+    },
+    {
+      "id": "argamasilla-de-alba",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "argamasilla-de-alba",
+      "name": "Argamasilla de Alba",
+      "destination_id": "la-mancha",
+      "place_type": "other",
+      "geo_precision": "city",
+      "summary_original": "Pueblo de la tradición que lo propone, sin prueba documental, como el «lugar de La Mancha» de Cervantes.",
+      "official_url": "https://www.turismocastillalamancha.es/",
+      "source_ids": [
+        "turismocastillalamancha-es"
+      ]
+    }
+  ],
+  "works": [
+    {
+      "id": "ulises",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "title": "Ulises",
+      "author_ids": [
+        "james-joyce"
+      ],
+      "original_language": "en"
+    },
+    {
+      "id": "don-quijote",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "title": "Don Quijote de la Mancha",
+      "author_ids": [
+        "miguel-de-cervantes"
+      ],
+      "original_language": "es"
+    }
+  ],
+  "authors": [
+    {
+      "id": "james-joyce",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "James Joyce"
+    },
+    {
+      "id": "miguel-de-cervantes",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "Miguel de Cervantes"
+    },
+    {
+      "id": "lope-de-vega",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "Lope de Vega"
+    },
+    {
+      "id": "charlotte-bronte",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "Charlotte Brontë"
+    },
+    {
+      "id": "emily-bronte",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "Emily Brontë"
+    },
+    {
+      "id": "anne-bronte",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "Anne Brontë"
+    },
+    {
+      "id": "franz-kafka",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "Franz Kafka"
+    },
+    {
+      "id": "fernando-pessoa",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "Fernando Pessoa"
+    },
+    {
+      "id": "walter-scott",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "Walter Scott"
+    },
+    {
+      "id": "robert-burns",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "Robert Burns"
+    },
+    {
+      "id": "robert-louis-stevenson",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "Robert Louis Stevenson"
+    },
+    {
+      "id": "c-s-lewis",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "C. S. Lewis"
+    },
+    {
+      "id": "j-r-r-tolkien",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "J. R. R. Tolkien"
+    },
+    {
+      "id": "sylvia-beach",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "name": "Sylvia Beach"
+    }
+  ],
+  "adaptations": [],
+  "sources": [
+    {
+      "id": "barcelona-cat",
+      "url": "https://www.barcelona.cat/",
+      "title": "Ayuntamiento de Barcelona",
+      "publisher": "Ayuntamiento de Barcelona",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "tourism_official",
+      "evidence_summary": "Sitio oficial de Ayuntamiento de Barcelona; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "bertrand-pt",
+      "url": "https://www.bertrand.pt/",
+      "title": "Livraria Bertrand",
+      "publisher": "Livraria Bertrand",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Livraria Bertrand; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "bibalex-org",
+      "url": "https://www.bibalex.org/",
+      "title": "Bibliotheca Alexandrina",
+      "publisher": "Bibliotheca Alexandrina",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Bibliotheca Alexandrina; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "bne-es",
+      "url": "https://www.bne.es/",
+      "title": "Biblioteca Nacional de España",
+      "publisher": "Biblioteca Nacional de España",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Biblioteca Nacional de España; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "bodleian-ox-ac-uk",
+      "url": "https://www.bodleian.ox.ac.uk/",
+      "title": "Bodleian Libraries",
+      "publisher": "Bodleian Libraries",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Bodleian Libraries; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "bookofkells-ie",
+      "url": "https://www.bookofkells.ie/",
+      "title": "El Libro de Kells (web oficial)",
+      "publisher": "El Libro de Kells (web oficial)",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de El Libro de Kells (web oficial); se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "bronte-org-uk",
+      "url": "https://www.bronte.org.uk/",
+      "title": "Brontë Parsonage Museum",
+      "publisher": "Brontë Parsonage Museum",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Brontë Parsonage Museum; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "casafernandopessoa-pt",
+      "url": "https://casafernandopessoa.pt/",
+      "title": "Casa Fernando Pessoa",
+      "publisher": "Casa Fernando Pessoa",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Casa Fernando Pessoa; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "casamuseolopedevega-org",
+      "url": "https://www.casamuseolopedevega.org/",
+      "title": "Casa Museo Lope de Vega",
+      "publisher": "Casa Museo Lope de Vega",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Casa Museo Lope de Vega; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "coe-int-en-web-cultural-routes",
+      "url": "https://www.coe.int/en/web/cultural-routes",
+      "title": "Itinerarios culturales del Consejo de Europa",
+      "publisher": "Itinerarios culturales del Consejo de Europa",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "tourism_official",
+      "evidence_summary": "Sitio oficial de Itinerarios culturales del Consejo de Europa; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "dublincityofliterature-ie",
+      "url": "https://www.dublincityofliterature.ie/",
+      "title": "Dublin UNESCO City of Literature",
+      "publisher": "Dublin UNESCO City of Literature",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Dublin UNESCO City of Literature; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "edinburghmuseums-org-uk-venue-writers-museum",
+      "url": "https://www.edinburghmuseums.org.uk/venue/writers-museum",
+      "title": "Museos de Edimburgo: The Writers' Museum",
+      "publisher": "Museos de Edimburgo: The Writers' Museum",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Museos de Edimburgo: The Writers' Museum; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "esmadrid-com",
+      "url": "https://www.esmadrid.com/",
+      "title": "Turismo de Madrid",
+      "publisher": "Turismo de Madrid",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "tourism_official",
+      "evidence_summary": "Sitio oficial de Turismo de Madrid; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "jamesjoyce-ie",
+      "url": "https://www.jamesjoyce.ie/",
+      "title": "James Joyce Centre",
+      "publisher": "James Joyce Centre",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de James Joyce Centre; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "kafkamuseum-cz",
+      "url": "https://www.kafkamuseum.cz/",
+      "title": "Museo Franz Kafka",
+      "publisher": "Museo Franz Kafka",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Museo Franz Kafka; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "livrarialello-pt",
+      "url": "https://www.livrarialello.pt/",
+      "title": "Livraria Lello",
+      "publisher": "Livraria Lello",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Livraria Lello; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "ox-ac-uk",
+      "url": "https://www.ox.ac.uk/",
+      "title": "Universidad de Oxford",
+      "publisher": "Universidad de Oxford",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Universidad de Oxford; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "prague-eu",
+      "url": "https://www.prague.eu/",
+      "title": "Turismo de Praga",
+      "publisher": "Turismo de Praga",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "tourism_official",
+      "evidence_summary": "Sitio oficial de Turismo de Praga; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "shakespeareandcompany-com",
+      "url": "https://shakespeareandcompany.com/",
+      "title": "Shakespeare and Company (web oficial)",
+      "publisher": "Shakespeare and Company (web oficial)",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Shakespeare and Company (web oficial); se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "strahovskyklaster-cz-en",
+      "url": "https://www.strahovskyklaster.cz/en",
+      "title": "Monasterio de Strahov (web oficial)",
+      "publisher": "Monasterio de Strahov (web oficial)",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Monasterio de Strahov (web oficial); se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "tcd-ie-library",
+      "url": "https://www.tcd.ie/library/",
+      "title": "Biblioteca de Trinity College Dublin",
+      "publisher": "Biblioteca de Trinity College Dublin",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Biblioteca de Trinity College Dublin; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "turismo-buenosaires-gob-ar",
+      "url": "https://turismo.buenosaires.gob.ar/",
+      "title": "Ciudad de Buenos Aires: turismo",
+      "publisher": "Ciudad de Buenos Aires: turismo",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "tourism_official",
+      "evidence_summary": "Sitio oficial de Ciudad de Buenos Aires: turismo; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "turismocastillalamancha-es",
+      "url": "https://www.turismocastillalamancha.es/",
+      "title": "Turismo de Castilla-La Mancha",
+      "publisher": "Turismo de Castilla-La Mancha",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "tourism_official",
+      "evidence_summary": "Sitio oficial de Turismo de Castilla-La Mancha; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "uc-pt",
+      "url": "https://www.uc.pt/",
+      "title": "Universidad de Coímbra",
+      "publisher": "Universidad de Coímbra",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de Universidad de Coímbra; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "unesco-org-en-creative-cities",
+      "url": "https://www.unesco.org/en/creative-cities",
+      "title": "UNESCO: Red de Ciudades Creativas",
+      "publisher": "UNESCO: Red de Ciudades Creativas",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de UNESCO: Red de Ciudades Creativas; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "unesco-org-en-days-world-book-and-copyright",
+      "url": "https://www.unesco.org/en/days/world-book-and-copyright",
+      "title": "UNESCO: Día Mundial del Libro y del Derecho de Autor",
+      "publisher": "UNESCO: Día Mundial del Libro y del Derecho de Autor",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de UNESCO: Día Mundial del Libro y del Derecho de Autor; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "visitlisboa-com",
+      "url": "https://www.visitlisboa.com/",
+      "title": "Turismo de Lisboa",
+      "publisher": "Turismo de Lisboa",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "tourism_official",
+      "evidence_summary": "Sitio oficial de Turismo de Lisboa; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "visitscotland-com",
+      "url": "https://www.visitscotland.com/",
+      "title": "VisitScotland",
+      "publisher": "VisitScotland",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "tourism_official",
+      "evidence_summary": "Sitio oficial de VisitScotland; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    },
+    {
+      "id": "whc-unesco-org-en-list-1387",
+      "url": "https://whc.unesco.org/en/list/1387",
+      "title": "UNESCO: Universidad de Coímbra",
+      "publisher": "UNESCO: Universidad de Coímbra",
+      "retrieved_at": "2026-10-27",
+      "source_kind": "cultural_institution",
+      "evidence_summary": "Sitio oficial de UNESCO: Universidad de Coímbra; se enlaza como referencia, no se copia su contenido.",
+      "license_review": "not_required_for_link"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel-ulises-torre-martello",
+      "place_id": "torre-martello-sandycove",
+      "subject_type": "work",
+      "subject_id": "ulises",
+      "relationship_type": "narrative_explicit",
+      "source_ids": [
+        "jamesjoyce-ie"
+      ],
+      "status": "approved",
+      "evidence_note": "El Ulises empieza en la Torre Martello de Sandycove.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-ulises-davy-byrnes",
+      "place_id": "davy-byrnes-dublin",
+      "subject_type": "work",
+      "subject_id": "ulises",
+      "relationship_type": "narrative_explicit",
+      "source_ids": [
+        "dublincityofliterature-ie"
+      ],
+      "status": "approved",
+      "evidence_note": "Bloom come un sándwich de gorgonzola en Davy Byrne's (episodio de los lestrigones).",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-ulises-sweny",
+      "place_id": "sweny-pharmacy-dublin",
+      "subject_type": "work",
+      "subject_id": "ulises",
+      "relationship_type": "narrative_explicit",
+      "source_ids": [
+        "dublincityofliterature-ie"
+      ],
+      "status": "approved",
+      "evidence_note": "Bloom compra una pastilla de jabón de limón en Sweny's.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-ulises-glasnevin",
+      "place_id": "cementerio-glasnevin",
+      "subject_type": "work",
+      "subject_id": "ulises",
+      "relationship_type": "narrative_explicit",
+      "source_ids": [
+        "dublincityofliterature-ie"
+      ],
+      "status": "approved",
+      "evidence_note": "El funeral de Paddy Dignam transcurre en Glasnevin.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-joyce-centre",
+      "place_id": "james-joyce-centre-dublin",
+      "subject_type": "author",
+      "subject_id": "james-joyce",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "jamesjoyce-ie"
+      ],
+      "status": "approved",
+      "evidence_note": "Centro dedicado a la vida y obra de Joyce.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-joyce-shakespeare-co",
+      "place_id": "shakespeare-and-company-paris",
+      "subject_type": "author",
+      "subject_id": "james-joyce",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "shakespeareandcompany-com"
+      ],
+      "status": "approved",
+      "evidence_note": "Sylvia Beach publicó el Ulises en 1922 desde la librería original.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-beach-shakespeare-co",
+      "place_id": "shakespeare-and-company-paris",
+      "subject_type": "author",
+      "subject_id": "sylvia-beach",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "shakespeareandcompany-com"
+      ],
+      "status": "approved",
+      "evidence_note": "Sylvia Beach abrió la primera Shakespeare and Company en 1919.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-quijote-toboso",
+      "place_id": "casa-de-dulcinea-el-toboso",
+      "subject_type": "work",
+      "subject_id": "don-quijote",
+      "relationship_type": "narrative_explicit",
+      "source_ids": [
+        "turismocastillalamancha-es"
+      ],
+      "status": "approved",
+      "evidence_note": "El Toboso es el pueblo de Dulcinea en la novela.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-quijote-molinos-criptana",
+      "place_id": "molinos-de-campo-de-criptana",
+      "subject_type": "work",
+      "subject_id": "don-quijote",
+      "relationship_type": "popular_claim_unverified",
+      "source_ids": [
+        "turismocastillalamancha-es"
+      ],
+      "status": "candidate",
+      "evidence_note": "Asociación turística con el episodio de los molinos; no consta como lugar identificado."
+    },
+    {
+      "id": "rel-quijote-molinos-consuegra",
+      "place_id": "molinos-de-consuegra",
+      "subject_type": "work",
+      "subject_id": "don-quijote",
+      "relationship_type": "popular_claim_unverified",
+      "source_ids": [
+        "turismocastillalamancha-es"
+      ],
+      "status": "candidate",
+      "evidence_note": "Asociación turística con el episodio de los molinos; no consta como lugar identificado."
+    },
+    {
+      "id": "rel-quijote-argamasilla",
+      "place_id": "argamasilla-de-alba",
+      "subject_type": "work",
+      "subject_id": "don-quijote",
+      "relationship_type": "popular_claim_unverified",
+      "source_ids": [
+        "turismocastillalamancha-es"
+      ],
+      "status": "candidate",
+      "evidence_note": "Tradición local sobre el «lugar de La Mancha»; sin prueba documental."
+    },
+    {
+      "id": "rel-cervantes-trinitarias",
+      "place_id": "convento-trinitarias-madrid",
+      "subject_type": "author",
+      "subject_id": "miguel-de-cervantes",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "esmadrid-com"
+      ],
+      "status": "approved",
+      "evidence_note": "Cervantes pidió ser enterrado en las Trinitarias Descalzas.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-cervantes-placa",
+      "place_id": "placa-cervantes-calle-del-leon",
+      "subject_type": "author",
+      "subject_id": "miguel-de-cervantes",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "esmadrid-com"
+      ],
+      "status": "approved",
+      "evidence_note": "Placa en el lugar donde murió Cervantes en 1616.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-lope-casa",
+      "place_id": "casa-museo-lope-de-vega-madrid",
+      "subject_type": "author",
+      "subject_id": "lope-de-vega",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "casamuseolopedevega-org"
+      ],
+      "status": "approved",
+      "evidence_note": "Lope de Vega vivió en esta casa de 1610 a 1635.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-charlotte-bronte-parsonage",
+      "place_id": "bronte-parsonage-haworth",
+      "subject_type": "author",
+      "subject_id": "charlotte-bronte",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "bronte-org-uk"
+      ],
+      "status": "approved",
+      "evidence_note": "La familia Brontë vivió en la casa parroquial de Haworth.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-emily-bronte-parsonage",
+      "place_id": "bronte-parsonage-haworth",
+      "subject_type": "author",
+      "subject_id": "emily-bronte",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "bronte-org-uk"
+      ],
+      "status": "approved",
+      "evidence_note": "La familia Brontë vivió en la casa parroquial de Haworth.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-anne-bronte-parsonage",
+      "place_id": "bronte-parsonage-haworth",
+      "subject_type": "author",
+      "subject_id": "anne-bronte",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "bronte-org-uk"
+      ],
+      "status": "approved",
+      "evidence_note": "La familia Brontë vivió en la casa parroquial de Haworth.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-kafka-museo",
+      "place_id": "museo-franz-kafka-praga",
+      "subject_type": "author",
+      "subject_id": "franz-kafka",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "kafkamuseum-cz"
+      ],
+      "status": "approved",
+      "evidence_note": "Museo dedicado a la vida y obra de Kafka.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-kafka-cementerio",
+      "place_id": "nuevo-cementerio-judio-praga",
+      "subject_type": "author",
+      "subject_id": "franz-kafka",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "prague-eu"
+      ],
+      "status": "approved",
+      "evidence_note": "Tumba de Kafka en el Nuevo Cementerio Judío de Žižkov.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-pessoa-casa",
+      "place_id": "casa-fernando-pessoa-lisboa",
+      "subject_type": "author",
+      "subject_id": "fernando-pessoa",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "casafernandopessoa-pt"
+      ],
+      "status": "approved",
+      "evidence_note": "Última residencia de Pessoa (1920–1935).",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-robert-burns-museo",
+      "place_id": "museo-de-los-escritores-edimburgo",
+      "subject_type": "author",
+      "subject_id": "robert-burns",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "edinburghmuseums-org-uk-venue-writers-museum"
+      ],
+      "status": "approved",
+      "evidence_note": "El Museo de los Escritores está dedicado a Burns, Scott y Stevenson.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-walter-scott-museo",
+      "place_id": "museo-de-los-escritores-edimburgo",
+      "subject_type": "author",
+      "subject_id": "walter-scott",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "edinburghmuseums-org-uk-venue-writers-museum"
+      ],
+      "status": "approved",
+      "evidence_note": "El Museo de los Escritores está dedicado a Burns, Scott y Stevenson.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-robert-louis-stevenson-museo",
+      "place_id": "museo-de-los-escritores-edimburgo",
+      "subject_type": "author",
+      "subject_id": "robert-louis-stevenson",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "edinburghmuseums-org-uk-venue-writers-museum"
+      ],
+      "status": "approved",
+      "evidence_note": "El Museo de los Escritores está dedicado a Burns, Scott y Stevenson.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-scott-monumento",
+      "place_id": "monumento-a-walter-scott-edimburgo",
+      "subject_type": "author",
+      "subject_id": "walter-scott",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "visitscotland-com"
+      ],
+      "status": "approved",
+      "evidence_note": "Monumento levantado en memoria de Walter Scott.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-lewis-magdalen",
+      "place_id": "magdalen-college-oxford",
+      "subject_type": "author",
+      "subject_id": "c-s-lewis",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "ox-ac-uk"
+      ],
+      "status": "approved",
+      "evidence_note": "Lewis fue fellow del Magdalen College desde 1925.",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "rel-tolkien-pembroke",
+      "place_id": "pembroke-college-oxford",
+      "subject_type": "author",
+      "subject_id": "j-r-r-tolkien",
+      "relationship_type": "author_public_history",
+      "source_ids": [
+        "ox-ac-uk"
+      ],
+      "status": "approved",
+      "evidence_note": "Tolkien fue profesor en el Pembroke College desde 1925.",
+      "verified_at": "2026-10-28"
+    }
+  ],
+  "images": [],
+  "routes": [
+    {
+      "id": "ruta-barrio-de-las-letras",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "ruta-barrio-de-las-letras",
+      "title": "Ruta a pie por el Barrio de las Letras",
+      "destination_id": "madrid-barrio-de-las-letras",
+      "place_ids": [
+        "casa-museo-lope-de-vega-madrid",
+        "convento-trinitarias-madrid",
+        "placa-cervantes-calle-del-leon"
+      ],
+      "summary_original": "Ruta a pie de una hora por el Barrio de las Letras de Madrid: casa de Lope de Vega, convento de las Trinitarias y el lugar donde murió Cervantes."
+    },
+    {
+      "id": "ruta-bloomsday-dublin",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "ruta-bloomsday-dublin",
+      "title": "Ruta del Ulises: los lugares de Bloomsday",
+      "destination_id": "dublin",
+      "place_ids": [
+        "torre-martello-sandycove",
+        "davy-byrnes-dublin",
+        "sweny-pharmacy-dublin",
+        "cementerio-glasnevin"
+      ],
+      "summary_original": "Qué lugares del Ulises de Joyce se pueden visitar en Dublín el día de Bloomsday, y qué diferencia hay entre el libro y la ciudad real.",
+      "spoiler": false
+    },
+    {
+      "id": "ruta-don-quijote",
+      "status": "approved",
+      "verified_at": "2026-10-28",
+      "slug": "ruta-don-quijote",
+      "title": "La Ruta de Don Quijote en La Mancha",
+      "destination_id": "la-mancha",
+      "place_ids": [
+        "molinos-de-campo-de-criptana",
+        "molinos-de-consuegra",
+        "casa-de-dulcinea-el-toboso",
+        "argamasilla-de-alba"
+      ],
+      "summary_original": "La Ruta de Don Quijote recorre pueblos de La Mancha ligados a la novela de Cervantes. Qué está documentado, qué es tradición y por qué el pueblo del Quijote no se nombra."
+    }
+  ]
+}

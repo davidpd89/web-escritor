@@ -1,0 +1,77 @@
+name: Atlas catalogue QA
+
+on:
+  pull_request:
+    paths:
+      - 'atlas-literario/**'
+      - 'data/atlas/**'
+      - 'assets/atlas-catalogue.js'
+      - 'assets/v1-atlas.css'
+      - 'scripts/build-atlas-pages.py'
+      - 'qa/atlas-catalogue-browser.mjs'
+      - '.github/workflows/atlas-catalogue-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Check generated Atlas output and release contract
+        run: |
+          python scripts/build-atlas-pages.py --data data/atlas/catalogue.json --root . --check
+          python scripts/check_atlas_release_contract.py --root . --manifest data/atlas-routes-manifest.json
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Start local site
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/atlas-http.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/atlas-literario/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/atlas-http.log
+          exit 1
+
+      - name: Run Atlas catalogue browser QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: node qa/atlas-catalogue-browser.mjs
+
+      - name: Run Atlas WCAG2AA
+        run: |
+          npx pa11y-ci --config ./.pa11yci \
+            http://127.0.0.1:4173/atlas-literario/ \
+            http://127.0.0.1:4173/atlas-literario/dublin/ \
+            http://127.0.0.1:4173/atlas-literario/ruta-bloomsday-dublin/
