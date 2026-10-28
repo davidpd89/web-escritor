@@ -25,6 +25,23 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 NAV_PATH = ROOT / "data" / "navigation.json"
+
+
+def support_active() -> bool:
+    """El icono de apoyo solo existe cuando hay al menos un canal de cobro configurado."""
+    path = ROOT / "data" / "support-links.json"
+    try:
+        config = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return False
+    return bool(config.get("channels") or config.get("paypal_url"))
+
+
+SUPPORT_ICON = (
+    '      <a class="header-contact header-support" href="/apoyar/" aria-label="Apoyar el proyecto" title="Apoyar el proyecto">\n'
+    '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M12 20.5s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 12 8a4.2 4.2 0 0 1 7.5 2.5c0 5.4-7.5 10-7.5 10z"/></svg>\n'
+    '      </a>\n'
+)
 REGISTRY_PATH = ROOT / "data" / "content-registry.json"
 EXTRAS_PATH = ROOT / "data" / "site-shell-extras.json"
 
@@ -439,6 +456,7 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
         '      </button>\n'
         '    </div>\n'
         '    <div class="site-header__actions">\n'
+        f"{SUPPORT_ICON if support_active() else ''}"
         '      <a class="header-contact header-social" href="/redes-sociales/" aria-label="Redes sociales" title="Redes sociales">\n'
         '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><circle cx="6" cy="12" r="2.2"/><circle cx="18" cy="6" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="m8 11 8-4M8 13l8 4"/></svg>\n'
         '      </a>\n'
