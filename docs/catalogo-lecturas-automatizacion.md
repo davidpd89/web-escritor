@@ -52,6 +52,37 @@ Audio y fragmentos están retirados de la interfaz de todas las fichas para mant
 
 Pinterest conserva el recorrido pin → ficha web → Amazon. El código de #662 y sus siete feeds forman parte del único escritor diario, incluso cuando no hay libros nuevos, pero `rss_enabled=false`: no se han conectado tableros ni publicado pines. Véase [flujo RSS](pinterest-rss-libros-2026-10-20.md). Las reseñas locales solo se publican si son auténticas, consentidas y aprobadas; el formulario y la hoja privada no están conectados.
 
+## Fuentes de novedades y cómo sumar una editorial
+
+Hoy el ciclo lee cuatro fuentes oficiales, por turnos (ninguna sola ocupa todo el cupo diario):
+
+| Fuente | Conector | Cubre |
+|---|---|---|
+| `penguin-es` | `penguin` | Sellos de Penguin Random House (Alfaguara, Salamandra, Debate, Lumen, Reservoir, Grijalbo...) |
+| `planeta-es` | `planeta` | Sellos de Grupo Planeta (Destino, Seix Barral, Booket, Minotauro...) |
+| `anagrama-es` | `generic` | Editorial Anagrama (marcado schema.org `Book`) |
+| `nordica-es` | `generic` | Nórdica Libros (ficha técnica de la página) |
+
+El conector `generic` (`scripts/reading_generic_source.py`) lee cada dato en este orden: JSON-LD (`Book` o `Product`
+con ISBN), ficha técnica de la página (etiqueta/valor) y, si hace falta, una expresión del perfil. Sumar una editorial es
+**configuración**: una entrada en `data/reading-intake-config.json` más sus hosts en `REVIEWED` (el código rechaza hosts no
+revisados). Campos del perfil: `hosts`, `cover_hosts`, `index_urls`, `product_path` (regex de la ruta de ficha),
+`default_publisher`, `author_link` / `author_order`, `cover_order`, `collection_from_path`, `subject_by_collection`,
+`regex` (`fecha`, `formato`, `portada`, `sinopsis`, `paginas`) y `cover_use_basis`.
+
+Reglas que no se saltan: ISBN con dígito de control y del registro español; castellano (una edición catalana se descarta);
+formato físico declarado por la propia ficha (**no se asume una encuadernación** por defecto); fecha con su precisión real;
+sinopsis solo como extracto breve atribuido; portada solo desde los hosts revisados, con la misma base de uso que
+Penguin y Planeta (identificación bibliográfica, atribución y enlace a la editorial). `robots.txt` se respeta y cada
+petición cuenta contra el presupuesto.
+
+Para validar una editorial antes de activarla: `python scripts/reading_intake_pipeline.py --live --max-new 10 --cache /tmp/cache`
+(simulacro: no escribe nada) y revisar `.ci/reading-intake/publisher-report.json`.
+
+Pendientes de perfil (sus fichas no declaran encuadernación o fecha de forma estructurada y requieren su propia
+expresión): Libros del Asteroide, Periférica, Errata naturae, Impedimenta, Candaya, Páginas de Espuma, Akal, Edhasa,
+Siruela, Acantilado, Sexto Piso.
+
 ## Operación y comprobaciones
 
 ```sh

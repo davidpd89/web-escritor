@@ -3,8 +3,8 @@
   "enabled": true,
   "autopublish": true,
   "generate_audio": false,
-  "max_new_books": 5,
-  "max_requests": 80,
+  "max_new_books": 8,
+  "max_requests": 120,
   "request_delay_seconds": 1.5,
   "lookback_days": 365,
   "preorder_days": 30,
@@ -31,6 +31,72 @@
       ],
       "index_urls": [
         "https://www.planetadelibros.com/libros-novedades/p/1"
+      ],
+      "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "enabled": true
+    },
+    {
+      "id": "anagrama-es",
+      "provider": "generic",
+      "hosts": [
+        "www.anagrama-ed.es"
+      ],
+      "cover_hosts": [
+        "cms.anagrama-ed.es"
+      ],
+      "index_urls": [
+        "https://www.anagrama-ed.es/catalogo"
+      ],
+      "product_path": "/libro/[a-z0-9_-]+/[^/]+/97[89][0-9]{10}/[A-Z0-9_]+",
+      "default_publisher": "Editorial Anagrama",
+      "collection_from_path": 1,
+      "collection_names": {
+        "panorama-de-narrativas": "Panorama de narrativas",
+        "narrativas-hispanicas": "Narrativas hispánicas",
+        "cronicas": "Crónicas",
+        "argumentos": "Argumentos",
+        "nuevos-cuadernos-anagrama": "Nuevos cuadernos Anagrama",
+        "compactos": "Compactos",
+        "intervenciones": "Intervenciones",
+        "la-bella-varsovia": "La bella Varsovia",
+        "contraseñas": "Contraseñas"
+      },
+      "subject_by_collection": {
+        "panorama-de-narrativas": "Narrativa",
+        "narrativas-hispanicas": "Narrativa",
+        "cronicas": "Crónica",
+        "argumentos": "Ensayo",
+        "nuevos-cuadernos-anagrama": "Ensayo",
+        "intervenciones": "Ensayo",
+        "la-bella-varsovia": "Poesía"
+      },
+      "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "enabled": true,
+      "cover_order": [
+        "og",
+        "jsonld"
+      ]
+    },
+    {
+      "id": "nordica-es",
+      "provider": "generic",
+      "hosts": [
+        "nordicalibros.com"
+      ],
+      "cover_hosts": [
+        "nordicalibros.com"
+      ],
+      "index_urls": [
+        "https://nordicalibros.com/",
+        "https://nordicalibros.com/novedades/"
+      ],
+      "product_path": "/product/[a-z0-9-]+/",
+      "default_publisher": "Nórdica Libros",
+      "author_link": "/autor/",
+      "author_order": "last_first",
+      "cover_order": [
+        "og",
+        "jsonld"
       ],
       "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
       "enabled": true

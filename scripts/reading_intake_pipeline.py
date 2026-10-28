@@ -28,6 +28,7 @@ from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
 from reading_taxonomy import extra_categories
 from reading_catalogue_publishers import catalogue_publisher, PublisherError
+from reading_generic_source import generic_edition, generic_links, reviewed_hosts
 from reading_planeta_source import COVER_HOSTS as PLANETA_COVER_HOSTS, planeta_edition, planeta_links
 from urllib.parse import urlsplit
 from reading_author_wikipedia import WikipediaSummaries, fill_missing_bios
@@ -282,11 +283,23 @@ def provider_of(url, providers):
     return next((s for s in providers if host in s['hosts']), None)
 
 
+def reviewed_source(source):
+    """Un conector solo se ejecuta con los hosts que están revisados en el código."""
+    if source['provider'] == 'generic':
+        reviewed_hosts(source)
+        return True
+    return REVIEWED_PROVIDERS.get(source['provider']) == source['hosts']
+
+
 def discover_links(source, document, index):
+    if source['provider'] == 'generic':
+        return generic_links(source, document, index)
     return planeta_links(document, index) if source['provider'] == 'planeta' else product_links(document, index)
 
 
 def read_edition(source, document, url):
+    if source['provider'] == 'generic':
+        return generic_edition(source, document, url)
     return planeta_edition(document, url) if source['provider'] == 'planeta' else penguin_edition(document, url)
 
 
@@ -296,9 +309,9 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
     if config.get('schema_version') != 1 or not config.get('enabled'):
         raise SourceError('La ingesta editorial no está habilitada')
     providers = [p for p in config['sources'] if p.get('enabled')]
-    if any(REVIEWED_PROVIDERS.get(p['provider']) != p['hosts'] for p in providers):
+    if not all(reviewed_source(p) for p in providers):
         raise SourceError('Conector editorial no revisado')
-    fetch_hosts = [h for p in providers for h in p['hosts']] + (list(PLANETA_COVER_HOSTS) if any(p['provider'] == 'planeta' for p in providers) else [])
+    fetch_hosts = [h for p in providers for h in p['hosts']] + (list(PLANETA_COVER_HOSTS) if any(p['provider'] == 'planeta' for p in providers) else []) + [h for p in providers if p['provider'] == 'generic' for h in p['cover_hosts']]
     http = CachedHTTP(cache / 'http', fetch_hosts, budget=max_requests or config['max_requests'], delay=config['request_delay_seconds'])
     catalogue = read_json(root / 'data/reading-catalogue.json')
     authors = read_json(root / 'data/reading-authors.json')
@@ -359,8 +372,14 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
             source_dir = root / 'assets' / folder
             if source_dir.exists():
                 shutil.copytree(source_dir, validation_root / 'assets' / folder)
+        # Primero las revisiones; después, por turnos entre fuentes (el índice de una editorial grande
+        # no deja sin sitio a las pequeñas) y, dentro de cada fuente, en un orden fijo por día.
+        by_source = {}
+        for url, source in sorted(queue.items(), key=lambda item: hashlib.sha256((today + item[0]).encode()).hexdigest()):
+            by_source.setdefault(source['id'], []).append((url, source))
+        rank = {url: position for entries in by_source.values() for position, (url, _) in enumerate(entries)}
         ordered = sorted(queue.items(), key=lambda item: (
-            item[0] not in refresh_urls,
+            item[0] not in refresh_urls, rank[item[0]],
             hashlib.sha256((today + item[0]).encode()).hexdigest()))
         for url, source in ordered:
             if len(new_books) >= limit or http.requests >= http.budget:
