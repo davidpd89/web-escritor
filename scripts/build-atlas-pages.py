@@ -81,6 +81,21 @@ class ValidationError(Exception):
     pass
 
 
+SUPPORT_CTA = ""  # se rellena en build() solo si hay algún canal de apoyo configurado
+
+
+def support_cta(root: Path) -> str:
+    path = root / "data" / "support-links.json"
+    try:
+        config = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return ""
+    if not (config.get("channels") or config.get("paypal_url")):
+        return ""
+    return ('<aside class="support-cta" aria-label="Apoyar el proyecto"><p>¿Te ha servido? '
+            '<a href="/apoyar/">Apoya este proyecto</a>: es voluntario y mantiene gratis las herramientas y las guías.</p></aside>')
+
+
 def norm(text: str) -> str:
     return "".join(c for c in unicodedata.normalize("NFD", text.casefold()) if unicodedata.category(c) != "Mn")
 
@@ -445,7 +460,7 @@ def render_hub(atlas: Atlas, cards: list[dict]) -> str:
         + hero("Atlas literario", "El mundo de los libros también existe fuera de las páginas",
                "Lugares reales donde la literatura se puede visitar, con fuentes y sin mezclar el dato con el mito.",
                n, "entradas en el atlas")
-        + rule + section
+        + rule + section + SUPPORT_CTA
         + f'<section class="atlas-tail"><p>Revisión del Atlas: <time datetime="{esc(atlas.ed["verified"])}">{esc(atlas.ed["verified"])}</time></p>'
         + '<p><a href="/recomendaciones/">Libros recomendados</a></p></section></main>'
     )
@@ -533,6 +548,7 @@ def render_entry(atlas: Atlas, slug: str) -> str:
         + hero(f"{KIND_LABEL[kind]} · {page['country_label']}", page["title"], page["lead"], None, "")
         + f'<div class="atlas-article"><div class="atlas-article__main" data-pagefind-filter="atlas_entity:{kind}">{sections}</div>'
         + f'<aside class="atlas-aside" aria-label="Datos de la ficha">{"".join(aside)}</aside></div>'
+        + SUPPORT_CTA
         + f'<section class="atlas-tail"><p>Datos revisados el <time datetime="{esc(atlas.ed["verified"])}">{esc(atlas.ed["verified"])}</time>. '
         + 'Si ves un error, escríbenos desde la <a href="/metodologia-editorial/">metodología editorial</a>.</p>'
         + '<p><a href="/atlas-literario/">← Todo el Atlas</a></p></section></main>'
@@ -591,6 +607,8 @@ def render_site_map(document: str, atlas: Atlas) -> str:
 
 
 def build(data_path: Path, root: Path, check_only: bool) -> tuple[int, bool]:
+    global SUPPORT_CTA
+    SUPPORT_CTA = support_cta(root)
     catalogue = json.loads(data_path.read_text(encoding="utf-8"))
     editorial = json.loads((data_path.parent / "editorial.json").read_text(encoding="utf-8"))
     directory_path = data_path.parent / "directory.json"

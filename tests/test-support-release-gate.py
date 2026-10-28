@@ -61,7 +61,7 @@ class SupportParser(HTMLParser):
             self.robots.append(attrs.get("content") or "")
         if tag == "script":
             src = attrs.get("src") or ""
-            if any(name in src for name in ("paypalobjects.com", "stripe.com", "ko-fi.com")):
+            if any(name in src for name in ("paypalobjects.com", "stripe.com", "ko-fi.com", "buymeacoffee.com", "liberapay.com")):
                 self.external_payment_scripts.append(src)
 
 
@@ -76,6 +76,14 @@ def payment_link_valid(url: str) -> bool:
         return False
     if parts.netloc in {"www.paypal.com", "paypal.com"}:
         return bool(PAYPAL_PATH.fullmatch(parts.path)) and paypal_locale_query_valid(parts.query)
+    if parts.netloc in {"www.paypal.me", "paypal.me"}:
+        return (not parts.query and bool(re.fullmatch(r"/[A-Za-z0-9]{3,20}(?:/\d{1,4}EUR)?", parts.path, re.ASCII)))
+    if parts.netloc == "ko-fi.com":
+        return not parts.query and bool(re.fullmatch(r"/[A-Za-z0-9_.-]{3,40}", parts.path, re.ASCII))
+    if parts.netloc in {"www.buymeacoffee.com", "buymeacoffee.com"}:
+        return not parts.query and bool(re.fullmatch(r"/[A-Za-z0-9_.-]{3,40}", parts.path, re.ASCII))
+    if parts.netloc == "liberapay.com":
+        return not parts.query and bool(re.fullmatch(r"/[A-Za-z0-9_.-]{3,40}", parts.path, re.ASCII))
     if parts.netloc == "buy.stripe.com":
         token = parts.path.removeprefix("/")
         return (not parts.query and bool(STRIPE_PATH.fullmatch(parts.path))
