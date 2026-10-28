@@ -310,6 +310,7 @@ html.v1 .sibling-pager{
   align-items:stretch;
 }
 html.v1 .sibling-pager a{
+  min-width:0;
   display:flex;
   flex-direction:column;
   gap:.15rem;
@@ -325,9 +326,9 @@ html.v1 .sibling-pager a:focus-visible{outline:3px solid var(--dp-v4-blue-ink);o
 html.v1 .sibling-pager small{font-size:.82rem;color:var(--dp-v4-muted);letter-spacing:.02em}
 html.v1 .sibling-pager strong{font-weight:600;line-height:1.3;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 html.v1 .sibling-pager__link--next{text-align:right}
-html.v1 .sibling-pager__hub{align-items:center;justify-content:center;text-align:center}
+html.v1 .sibling-pager__hub{overflow-wrap:anywhere;align-items:center;justify-content:center;text-align:center}
 @media (max-width:640px){
-  html.v1 .sibling-pager{grid-template-columns:1fr 1fr}
+  html.v1 .sibling-pager{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   html.v1 .sibling-pager__hub{order:-1;grid-column:1 / -1}
 }
 
