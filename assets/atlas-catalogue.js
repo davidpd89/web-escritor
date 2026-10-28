@@ -7,6 +7,10 @@
   var cards = Array.prototype.slice.call(root.querySelectorAll('[data-atlas-card]'));
   var count = root.querySelector('[data-atlas-count]');
   var empty = root.querySelector('[data-atlas-empty]');
+  var moreWrap = root.querySelector('[data-atlas-more-wrap]');
+  var more = root.querySelector('[data-atlas-more]');
+  var PAGE = 24;
+  var limit = PAGE;
   if (!form || !cards.length) return;
   var fieldset = form.querySelector('fieldset');
   var search = form.querySelector('[data-filter="q"]');
@@ -39,11 +43,15 @@
     var state = selected();
     var query = norm(search ? search.value.trim() : '');
     var shown = 0;
+    var shownNow = 0;
     cards.forEach(function (card) {
       var ok = matches(card, state, query, null);
-      card.hidden = !ok;
       if (ok) shown += 1;
+      var visible = ok && shown <= limit;
+      card.hidden = !visible;
+      if (visible) shownNow += 1;
     });
+    if (moreWrap) moreWrap.hidden = shownNow >= shown;
     groups.forEach(function (group) {
       var key = group.getAttribute('data-facet-group');
       var chosen = state[key].length;
@@ -87,10 +95,12 @@
     } catch (e) { /* URL ilegible: se ignora */ }
   }
 
-  form.addEventListener('input', apply);
-  form.addEventListener('change', apply);
-  form.addEventListener('submit', function (event) { event.preventDefault(); apply(); });
-  form.addEventListener('reset', function () { window.setTimeout(apply, 0); });
+  function filtered() { limit = PAGE; apply(); }
+  form.addEventListener('input', filtered);
+  form.addEventListener('change', filtered);
+  if (more) more.addEventListener('click', function () { limit += PAGE; apply(); });
+  form.addEventListener('submit', function (event) { event.preventDefault(); filtered(); });
+  form.addEventListener('reset', function () { window.setTimeout(filtered, 0); });
   if (fieldset) fieldset.disabled = false;
   readUrl();
   apply();

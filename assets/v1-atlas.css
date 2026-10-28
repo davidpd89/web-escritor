@@ -100,3 +100,5 @@ html.v1 .atlas-catalogue .visually-hidden,html.v1 [data-family="atlas"] .visuall
 html.v1 [data-family="atlas"] .atlas-stops--plain{counter-reset:none}
 html.v1 [data-family="atlas"] .atlas-stops--plain li{padding-left:0}
 html.v1 [data-family="atlas"] .atlas-stops--plain li::before{content:none}
+html.v1 .atlas-catalogue .atlas-more{margin:1.5rem 0 0}
+html.v1 .atlas-catalogue .atlas-more[hidden]{display:none}

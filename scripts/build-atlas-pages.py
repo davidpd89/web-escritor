@@ -43,12 +43,12 @@ SITE = _topics.SITE
 
 ATLAS_URL = f"{SITE}/atlas-literario/"
 CSS_OLD = '<link rel="stylesheet" href="/assets/v1-cuaderno-topics.css?v=1"><link rel="stylesheet" href="/assets/cuaderno-index.css?v=1">'
-CSS_PAGE = '<link rel="stylesheet" href="/assets/v1-atlas.css?v=2">'
+CSS_PAGE = '<link rel="stylesheet" href="/assets/v1-atlas.css?v=3">'
 CSS_HUB = (
     '<link rel="stylesheet" href="/assets/v1-tools.css?v=5"><link rel="stylesheet" href="/assets/v1-recommendations.css?v=2">'
-    '<link rel="stylesheet" href="/assets/reading-catalogue.css?v=14"><link rel="stylesheet" href="/assets/v1-atlas.css?v=2">'
+    '<link rel="stylesheet" href="/assets/reading-catalogue.css?v=14"><link rel="stylesheet" href="/assets/v1-atlas.css?v=3">'
 )
-HUB_SCRIPT = '<script defer src="/assets/atlas-catalogue.js?v=1"></script>'
+HUB_SCRIPT = '<script defer src="/assets/atlas-catalogue.js?v=2"></script>'
 LABELS = ("hecho", "tradicion", "atribucion", "ficcion")
 
 COUNTRIES = {
@@ -87,6 +87,57 @@ def norm(text: str) -> str:
 
 def slug_id(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", norm(text)).strip("-")
+
+
+def merge_directory(catalogue: dict, directory: dict, config: dict) -> dict:
+    """Añade al catálogo las entradas automáticas de Wikidata como lugares aprobados sin ficha propia."""
+    places = directory.get("places") or []
+    if not places:
+        return catalogue
+    cap = int(config.get("max_directory_cards", 400))
+    merged = json.loads(json.dumps(catalogue))
+    updated = directory["updated"]
+    dests = {(norm(d["name"]), d["country_iso2"]): d for d in merged["destinations"]}
+    taken_ids = {d["id"] for d in merged["destinations"]} | {p["id"] for p in merged["places"]}
+    have_names = {(norm(p["name"]), p["destination_id"]) for p in merged["places"]}
+    have_urls = {p.get("official_url") for p in merged["places"] if p.get("official_url")}
+    for entry in places[:cap]:
+        if entry["official_url"] in have_urls:
+            continue
+        key = (norm(entry["city"]), entry["country_iso2"])
+        dest = dests.get(key)
+        if dest is None:
+            dest_id = slug_id(entry["city"])
+            if dest_id in taken_ids or len(dest_id) < 3 or not dest_id[0].isalpha():
+                dest_id = (slug_id(entry["city"]) or "destino") + "-" + entry["country_iso2"].lower()
+            if len(dest_id) < 3 or not dest_id[0].isalpha():
+                continue
+            taken_ids.add(dest_id)
+            dest = {"id": dest_id, "status": "approved", "verified_at": updated, "slug": dest_id, "name": entry["city"],
+                    "country_iso2": entry["country_iso2"],
+                    "summary_original": f"Lugares literarios en {entry['city']}."}
+            merged["destinations"].append(dest)
+            dests[key] = dest
+        if (norm(entry["name"]), dest["id"]) in have_names:
+            continue
+        pid = "wd-" + entry["qid"].lower()
+        sid = "wikidata-" + entry["qid"].lower()
+        merged["sources"].append({
+            "id": sid, "url": f"https://www.wikidata.org/wiki/{entry['qid']}", "title": f"Wikidata: {entry['name']}",
+            "publisher": "Wikidata", "retrieved_at": updated, "source_kind": "wikidata_statement",
+            "evidence_summary": "Declaraciones de Wikidata sobre tipo de lugar, web oficial y ubicación.",
+            "license_review": "not_required_for_link", "dataset_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "license_name": "CC0 1.0", "attribution_text": "Datos de Wikidata (CC0 1.0)", "provider_record_id": entry["qid"],
+        })
+        summary = entry.get("description") or f"{PLACE_TYPES[entry['place_type']]} en {entry['city']}."
+        merged["places"].append({
+            "id": pid, "status": "approved", "verified_at": updated, "slug": pid, "name": entry["name"],
+            "destination_id": dest["id"], "place_type": entry["place_type"], "geo_precision": "building",
+            "latitude": entry["latitude"], "longitude": entry["longitude"], "wikidata_qid": entry["qid"],
+            "official_url": entry["official_url"], "summary_original": summary[:200], "source_ids": [sid],
+        })
+        have_names.add((norm(entry["name"]), dest["id"]))
+    return merged
 
 
 class Atlas:
@@ -250,6 +301,8 @@ def build_cards(atlas: Atlas) -> list[dict]:
         if not href:
             href = atlas.parent_page(place)
             cta = "Ver en " + ("la ruta" if href and "ruta-" in href else dest["name"])
+        if not href:
+            href, external, cta = place["official_url"], True, "Web oficial"
         cards.append({
             "kind": "place", "title": place["name"], "href": href, "external": external, "cta": cta,
             "official": place.get("official_url", ""),
@@ -309,17 +362,20 @@ def render_card(card: dict, index: int) -> str:
     chips = "".join(f'<li><span class="atlas-chip__k">{esc(k)}</span> {esc(v)}</li>' for k, v in card["chips"])
     chips_html = f'<ul class="atlas-chips">{chips}</ul>' if chips else ""
     official = ""
-    if card.get("official") and card["kind"] == "place" and card["href"] and not card["href"].startswith("/atlas-literario/" + slug_id(card["title"])):
+    external = bool(card.get("external"))
+    if card.get("official") and card["kind"] == "place" and not external and not card["href"].endswith("/" + slug_id(card["title"]) + "/"):
         official = (f'<a class="atlas-card__official" href="{esc(card["official"])}" target="_blank" '
                     f'rel="noopener noreferrer">Web oficial<span class="visually-hidden"> de {esc(card["title"])} (otra pestaña)</span></a>')
     cta = card.get("cta") or ("Explorar" if card["kind"] != "place" else "Ver ficha")
+    tgt = ' target="_blank" rel="noopener noreferrer"' if external else ""
+    hidden_ext = f'<span class="visually-hidden"> (otra pestaña)</span>' if external else ""
     return (
         f'<li class="catalogue-card atlas-card" data-atlas-card {attrs}>'
         f'<p class="atlas-card__meta"><span>{esc(card["type_label"])}</span><span>{esc(card["where"])}</span></p>'
-        f'<h3><a href="{esc(card["href"])}">{esc(card["title"])}</a></h3>'
+        f'<h3><a href="{esc(card["href"])}"{tgt}>{esc(card["title"])}{hidden_ext}</a></h3>'
         f'<p class="atlas-card__summary">{esc(card["summary"])}</p>{chips_html}'
-        f'<p class="atlas-card__actions"><a class="text-action" href="{esc(card["href"])}">{esc(cta)}'
-        f'<span class="visually-hidden">: {esc(card["title"])}</span></a>{official}</p></li>'
+        f'<p class="atlas-card__actions"><a class="text-action" href="{esc(card["href"])}"{tgt}>{esc(cta)}'
+        f'<span class="visually-hidden">: {esc(card["title"])}{" (otra pestaña)" if external else ""}</span></a>{official}</p></li>'
     )
 
 
@@ -370,6 +426,7 @@ def render_hub(atlas: Atlas, cards: list[dict]) -> str:
         f'<p role="status" aria-live="polite" data-atlas-count>{n} resultados</p></div>'
         f'<ul class="catalogue-grid atlas-grid">{grid}</ul>'
         '<p class="atlas-empty" data-atlas-empty hidden>No hay lugares con esa combinación. Quita algún filtro.</p>'
+        '<p class="atlas-more" data-atlas-more-wrap hidden><button type="button" data-atlas-more>Mostrar más</button></p>'
         '</div></div></section>'
     )
     schema = jsonld(
@@ -536,6 +593,11 @@ def render_site_map(document: str, atlas: Atlas) -> str:
 def build(data_path: Path, root: Path, check_only: bool) -> tuple[int, bool]:
     catalogue = json.loads(data_path.read_text(encoding="utf-8"))
     editorial = json.loads((data_path.parent / "editorial.json").read_text(encoding="utf-8"))
+    directory_path = data_path.parent / "directory.json"
+    config_path = data_path.parent / "feed-config.json"
+    if directory_path.is_file():
+        config = json.loads(config_path.read_text(encoding="utf-8")) if config_path.is_file() else {}
+        catalogue = merge_directory(catalogue, json.loads(directory_path.read_text(encoding="utf-8")), config)
     validate(catalogue, editorial)
     atlas = Atlas(catalogue, editorial)
     cards = build_cards(atlas)

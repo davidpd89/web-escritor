@@ -13,10 +13,16 @@ try {
     page.on('pageerror', (e) => errors.push(e.message));
     await page.goto(`${BASE}/atlas-literario/`);
     await page.waitForSelector('[data-atlas-filters] fieldset:not([disabled])');
-    const visible = () => page.locator('[data-atlas-card]:not([hidden])').count();
+    // El recuento del estado es el total de coincidencias; en pantalla se muestran de 24 en 24.
+    const visible = async () => parseInt(await page.locator('[data-atlas-count]').innerText(), 10);
+    const rendered = () => page.locator('[data-atlas-card]:not([hidden])').count();
     const total = await visible();
     assert.ok(total >= 40, `${width}: catálogo con ${total} entradas`);
-    assert.match(await page.locator('[data-atlas-count]').innerText(), new RegExp(`^${total} resultados`));
+    assert.equal(await rendered(), Math.min(total, 24), `${width}: primera página`);
+    if (total > 24) {
+      await page.locator('[data-atlas-more]').click();
+      assert.equal(await rendered(), Math.min(total, 48), `${width}: mostrar más`);
+    }
 
     await page.locator('input[data-facet="pais"][value="IE"]').check();
     const ireland = await visible();
@@ -27,7 +33,7 @@ try {
     assert.ok(page.url().includes('pais=IE') && page.url().includes('tipo=library'), `${width}: estado en la URL`);
 
     await page.getByRole('button', { name: 'Restablecer' }).click();
-    await page.waitForFunction((n) => document.querySelectorAll('[data-atlas-card]:not([hidden])').length === n, total);
+    await page.waitForFunction((n) => parseInt(document.querySelector('[data-atlas-count]').textContent, 10) === n, total);
     assert.equal(await visible(), total, `${width}: restablecer`);
 
     await page.locator('input[data-filter="q"]').fill('pessoa');
@@ -37,7 +43,7 @@ try {
     assert.equal(await visible(), 0);
     assert.equal(await page.locator('[data-atlas-empty]').isVisible(), true, `${width}: estado vacío`);
     await page.getByRole('button', { name: 'Restablecer' }).click();
-    await page.waitForFunction((n) => document.querySelectorAll('[data-atlas-card]:not([hidden])').length === n, total);
+    await page.waitForFunction((n) => parseInt(document.querySelector('[data-atlas-count]').textContent, 10) === n, total);
 
     // Estado compartible: abrir con filtros en la URL.
     await page.goto(`${BASE}/atlas-literario/?autor=james-joyce`);
