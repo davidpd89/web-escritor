@@ -345,7 +345,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     rail.setAttribute('aria-label', 'Otros accesos destacados');
     [
       ['Autor', 'David Porto Díaz', 'Biografía, fotografías y recursos para lectores, librerías y medios.', '/autor.html'],
-      ['Comunidad', 'Lectores beta', 'Sé el primero en leer contenido y opina antes de que llegue a todos.', '/lectores-beta/#quiero-ser-lector'],
+      ['Comunidad', 'Lectores beta', 'Sé el primero en leer contenido y opina antes de que llegue a todos.', '/lectores-beta/'],
       ['Comprar', 'Comprar en Kindle', '', MANECILLAS_KINDLE_URL],
       ['Te leo', 'Escríbeme', '', AUTHOR_EMAIL_SENTINEL]
     ].forEach(([eyebrow, cardTitle, text, href]) => {
@@ -491,7 +491,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     const grid = make('div', 'yale-tile-grid yale-tile-grid--tools');
     [
       ['Hub', 'Recursos gratuitos', 'Utilidades para revisar textos, preparar materiales y trabajar una obra desde el navegador.', '/herramientas/', ''],
-      ['Lectores beta', 'Tengo un manuscrito y me gustarían opiniones de lectores beta', 'Un punto de entrada para autores que buscan primeras lecturas antes de mover el texto.', '/lectores-beta/#enviar-manuscrito', 'yale-tile--blue'],
+      ['Lectores beta', 'Tengo un manuscrito y me gustarían opiniones de lectores beta', 'Un punto de entrada para autores que buscan primeras lecturas antes de mover el texto.', '/lectores-beta/enviar-manuscrito/', 'yale-tile--blue'],
       ['Manuscrito', 'Analizador de manuscrito', 'Una herramienta para ordenar capítulos, detectar señales del texto y revisar estructura.', '/herramientas/manuscrito/', '']
     ].forEach(([eyebrow, cardTitle, text, href, className]) => {
       const card = make('article', `yale-tile ${className}`.trim());
@@ -519,7 +519,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     const grid = make('div', 'yale-tile-grid yale-tile-grid--reading');
     [
       ['Del cuaderno', 'Qué es el portal fantasy', 'Una guía para entender puertas, grietas y mundos conectados.', '/cuaderno/que-es-el-portal-fantasy/'],
-      ['Herramientas', 'Tengo un manuscrito y quiero opiniones', 'Acceso para autores que buscan lectores beta antes de mover su texto.', '/lectores-beta/#enviar-manuscrito'],
+      ['Herramientas', 'Tengo un manuscrito y quiero opiniones', 'Acceso para autores que buscan lectores beta antes de mover su texto.', '/lectores-beta/enviar-manuscrito/'],
       ['Prensa', 'Materiales para medios', 'Bio, fichas, portadas, fotos y datos verificados para entrevistas o librerías.', '/prensa.html'],
       ['Agenda', 'Eventos y encuentros', 'Firmas, ferias, presentaciones y actividades con lectores.', '/eventos.html']
     ].forEach(([eyebrow, cardTitle, text, href], index) => {
