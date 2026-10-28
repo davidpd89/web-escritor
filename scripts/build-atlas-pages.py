@@ -264,6 +264,38 @@ def render_entry(data: dict, e: dict, by_slug: dict[str, dict]) -> str:
     return wrap(title, e["description"], canonical, schema, main)
 
 
+def registry_entries(entries: list[dict]) -> list[dict]:
+    """Entradas de content-registry.json que corresponden al Atlas."""
+    out = [{
+        "id": "atlas-hub", "url": "/atlas-literario/", "label": "Atlas literario", "shortLabel": "Atlas literario",
+        "type": "article", "territory": "recomendaciones", "parentId": "recommendations-hub",
+        "hubId": "recommendations-hub", "discoverability": "secondary", "footerEligible": True,
+        "audience": ["reader"], "jobs": ["explorar-atlas"], "sourceFile": "atlas-literario/index.html",
+    }]
+    for e in entries:
+        out.append({
+            "id": "atlas-" + e["slug"], "url": f"/atlas-literario/{e['slug']}/", "label": e["title"],
+            "shortLabel": e["title"].split(":")[0][:40], "type": "article", "territory": "recomendaciones",
+            "parentId": "atlas-hub", "hubId": "recommendations-hub", "discoverability": "contextual",
+            "audience": ["reader"], "jobs": ["explorar-atlas"], "sourceFile": f"atlas-literario/{e['slug']}/index.html",
+        })
+    return out
+
+
+def sync_registry(root: Path, entries: list[dict], write: bool) -> bool:
+    """Añade al registro las fichas que falten; devuelve True si ya estaba al día."""
+    path = root / "data" / "content-registry.json"
+    if not path.is_file():
+        return True
+    registry = json.loads(path.read_text(encoding="utf-8"))
+    have = {e.get("id") for e in registry["entries"]}
+    missing = [e for e in registry_entries(entries) if e["id"] not in have]
+    if missing and write:
+        registry["entries"].extend(missing)
+        path.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return not missing
+
+
 MAP_START = "<!-- atlas-map:start -->"
 MAP_END = "<!-- atlas-map:end -->"
 
@@ -314,6 +346,8 @@ def build(data_path: Path, root: Path, check_only: bool) -> tuple[int, bool]:
             rel = path.relative_to(root).as_posix()
             if rel not in outputs:
                 drift.append(f"{rel} (sin entrada en el dataset)")
+    if not sync_registry(root, entries, write=not check_only) and check_only:
+        drift.append("data/content-registry.json (faltan entradas del Atlas)")
     if check_only:
         if drift:
             print("FAIL: salida desactualizada: " + ", ".join(drift))

@@ -4293,6 +4293,150 @@
       "sourceFile": "atlas-literario/ruta-bloomsday-dublin/index.html"
     },
     {
+      "id": "atlas-oxford",
+      "url": "/atlas-literario/oxford/",
+      "label": "Oxford: la Bodleian, los Inklings y la Radcliffe Camera",
+      "shortLabel": "Oxford",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/oxford/index.html"
+    },
+    {
+      "id": "atlas-praga",
+      "url": "/atlas-literario/praga/",
+      "label": "Praga: Kafka y las bibliotecas barrocas",
+      "shortLabel": "Praga",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/praga/index.html"
+    },
+    {
+      "id": "atlas-lisboa",
+      "url": "/atlas-literario/lisboa/",
+      "label": "Lisboa: Pessoa y la librería más antigua del mundo",
+      "shortLabel": "Lisboa",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/lisboa/index.html"
+    },
+    {
+      "id": "atlas-livraria-lello-porto",
+      "url": "/atlas-literario/livraria-lello-porto/",
+      "label": "Livraria Lello, en Oporto",
+      "shortLabel": "Livraria Lello, en Oporto",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/livraria-lello-porto/index.html"
+    },
+    {
+      "id": "atlas-el-ateneo-grand-splendid-buenos-aires",
+      "url": "/atlas-literario/el-ateneo-grand-splendid-buenos-aires/",
+      "label": "El Ateneo Grand Splendid, en Buenos Aires",
+      "shortLabel": "El Ateneo Grand Splendid, en Buenos Aire",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/el-ateneo-grand-splendid-buenos-aires/index.html"
+    },
+    {
+      "id": "atlas-bronte-parsonage-haworth",
+      "url": "/atlas-literario/bronte-parsonage-haworth/",
+      "label": "La casa parroquial de las Brontë, en Haworth",
+      "shortLabel": "La casa parroquial de las Brontë, en Haw",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/bronte-parsonage-haworth/index.html"
+    },
+    {
+      "id": "atlas-biblioteca-de-alejandria",
+      "url": "/atlas-literario/biblioteca-de-alejandria/",
+      "label": "La Biblioteca de Alejandría: lo que se sabe y lo que es mito",
+      "shortLabel": "La Biblioteca de Alejandría",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/biblioteca-de-alejandria/index.html"
+    },
+    {
+      "id": "atlas-ruta-don-quijote",
+      "url": "/atlas-literario/ruta-don-quijote/",
+      "label": "La Ruta de Don Quijote en La Mancha",
+      "shortLabel": "La Ruta de Don Quijote en La Mancha",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/ruta-don-quijote/index.html"
+    },
+    {
       "id": "reading-book-lib-0001",
       "url": "/recomendaciones/libros/coraline/",
       "label": "Coraline",
