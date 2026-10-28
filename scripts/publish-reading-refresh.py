@@ -11,7 +11,7 @@ spec = importlib.util.spec_from_file_location('publication', ROOT / 'scripts/pub
 publication = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(publication)
 
-EXACT = {'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-publishers.json', 'data/reading-intake-state.json', 'data/reading-pinterest-state.json',
+EXACT = {'assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-publishers.json', 'data/reading-intake-state.json', 'data/reading-pinterest-state.json',
          'data/content-registry.json', 'recomendaciones/index.html', 'recomendaciones/autores/index.html',
          'recomendaciones/editoriales/index.html', 'recomendaciones/proximos-lanzamientos.ics', 'mapa-del-sitio/index.html',
          'sitemap.xml', 'editoriales-sitemap.xml'}
