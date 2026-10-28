@@ -369,6 +369,11 @@ def stale(record: dict, today: date) -> bool:
     return (today - parse_iso_date(record["verified_at"], "verified_at")).days > 90
 
 
+def directory_date_modified(records: list[dict]) -> str:
+    """Fecha editorial compartida por el índice y su sitemap, nunca la fecha del build."""
+    return max(r["page_updated_at"] for r in records)
+
+
 def render_index(site: str, records: list[dict], today: date) -> str:
     genres = sorted({genre for r in records for genre in r["genres"]}, key=str.casefold)
     countries = sorted({r["country"] for r in records}, key=str.casefold)
@@ -426,6 +431,7 @@ def render_index(site: str, records: list[dict], today: date) -> str:
                 "url": canonical,
                 "name": "Editoriales y recepción de manuscritos, verificadas",
                 "description": description,
+                "dateModified": directory_date_modified(records),
                 "inLanguage": "es",
                 "isPartOf": {"@id": f"{site}/#website"},
                 "author": {"@id": f"{site}/#author"},
@@ -513,7 +519,7 @@ def render_detail(site: str, record: dict, today: date) -> str:
 
 
 def render_sitemap(site: str, records: list[dict]) -> str:
-    rows = [(f"{site}/editoriales/", max(r["page_updated_at"] for r in records))]
+    rows = [(f"{site}/editoriales/", directory_date_modified(records))]
     rows.extend((f"{site}/editoriales/{r['slug']}/", r["page_updated_at"]) for r in records)
     # La metodologia forma parte del directorio y el builder la genera junto al
     # resto, asi que tambien va en este sitemap parcial. El sitemap canonico
