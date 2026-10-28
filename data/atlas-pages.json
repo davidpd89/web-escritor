@@ -1,0 +1,381 @@
+{
+  "version": 1,
+  "updated": "2026-10-27",
+  "verified": "2026-10-27",
+  "labels": {
+    "hecho": "Hecho documentado",
+    "tradicion": "Tradición",
+    "atribucion": "Atribución sin documentar",
+    "ficcion": "Ficción"
+  },
+  "entries": [
+    {
+      "slug": "edimburgo",
+      "kind": "destination",
+      "title": "Edimburgo, la primera Ciudad de la Literatura",
+      "description": "Edimburgo fue la primera Ciudad de la Literatura de la UNESCO. Qué se puede visitar de verdad, qué es tradición y qué es reclamo turístico.",
+      "country": "Reino Unido",
+      "lead": "Edimburgo fue la primera ciudad que la UNESCO designó Ciudad de la Literatura, en 2004. Es un buen punto de partida porque mezcla casas de escritores reales con una capa gruesa de leyenda turística, y conviene separarlas.",
+      "sections": [
+        {
+          "h": "Qué ver",
+          "p": [
+            "El Museo de los Escritores ocupa Lady Stair's House, en el Lawnmarket, y está dedicado a tres autores escoceses: Robert Burns, Walter Scott y Robert Louis Stevenson. Es la visita más directa si quieres objetos y manuscritos en lugar de anécdotas.",
+            "El monumento a Walter Scott, en Princes Street Gardens, se levantó tras su muerte en 1832; su construcción se extendió entre 1840 y 1844. Se puede subir a la torre y sirve de referencia para orientarse por la ciudad vieja y la nueva."
+          ]
+        },
+        {
+          "h": "Cuidado con los reclamos",
+          "p": [
+            "Varias cafeterías de la ciudad se anuncian como el lugar donde nació Harry Potter. J. K. Rowling vivió en Edimburgo y ha contado que escribió en cafés de la ciudad, pero ningún local es oficialmente el origen de la saga. Trátalo como atribución turística, no como dato literario."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "hecho", "text": "En 2004, Edimburgo fue la primera ciudad designada Ciudad de la Literatura por la UNESCO."},
+        {"label": "hecho", "text": "El Museo de los Escritores reúne la memoria de Burns, Scott y Stevenson en Lady Stair's House."},
+        {"label": "atribucion", "text": "Que un café concreto sea «la cuna de Harry Potter» es un reclamo comercial: Rowling escribió en varios sitios y no ha señalado uno como origen."}
+      ],
+      "practical": [
+        "La zona del Lawnmarket y el Royal Mile se recorre a pie en una mañana.",
+        "Los horarios y precios de museos cambian: confírmalos en la web oficial antes de ir."
+      ],
+      "sources": [
+        {"label": "UNESCO: Red de Ciudades Creativas", "url": "https://www.unesco.org/en/creative-cities"},
+        {"label": "Museos de Edimburgo: The Writers' Museum", "url": "https://www.edinburghmuseums.org.uk/venue/writers-museum"},
+        {"label": "VisitScotland", "url": "https://www.visitscotland.com/"}
+      ],
+      "related": ["dublin", "biblioteca-trinity-college-dublin"]
+    },
+    {
+      "slug": "dublin",
+      "kind": "destination",
+      "title": "Dublín: Ciudad de la Literatura y Bloomsday",
+      "description": "Dublín es Ciudad de la Literatura de la UNESCO desde 2010 y escenario del Ulises de Joyce. Qué visitar y cómo separar el libro de la ciudad real.",
+      "country": "Irlanda",
+      "lead": "Dublín es Ciudad de la Literatura de la UNESCO desde 2010 y una ciudad ligada a cuatro premios Nobel de Literatura: Yeats, Shaw, Beckett y Heaney. Su gran fábula es el Ulises, que transcurre en un solo día, y ese día se celebra cada año.",
+      "sections": [
+        {
+          "h": "Qué ver",
+          "p": [
+            "La Biblioteca Antigua de Trinity College guarda el Libro de Kells y el Long Room, una de las salas de libros más fotografiadas del mundo. Tiene página propia en este Atlas.",
+            "El James Joyce Centre, en North Great George's Street, es el sitio para entender cómo se relacionan el libro y la ciudad antes de salir a recorrerla."
+          ]
+        },
+        {
+          "h": "Bloomsday",
+          "p": [
+            "El Ulises sitúa toda su acción el 16 de junio de 1904, y el 16 de junio se celebra Bloomsday, el día de Leopold Bloom. Es una celebración real con lecturas y recorridos; la ciudad del libro, en cambio, es una ciudad ficcionalizada: algunos comercios existían y otros están inventados o cambiados."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "hecho", "text": "Dublín fue designada Ciudad de la Literatura por la UNESCO en 2010."},
+        {"label": "hecho", "text": "Cuatro Nobel de Literatura irlandeses están ligados a la ciudad: W. B. Yeats (1923), George Bernard Shaw (1925), Samuel Beckett (1969) y Seamus Heaney (1995)."},
+        {"label": "hecho", "text": "La acción del Ulises transcurre el 16 de junio de 1904; la novela se publicó en París en 1922."},
+        {"label": "ficcion", "text": "Los personajes y episodios del Ulises son ficción situada en lugares reales: un lugar que aparece en el libro no prueba que el episodio ocurriera allí."}
+      ],
+      "practical": [
+        "Si viajas en junio, comprueba el programa oficial de Bloomsday: cambia cada año.",
+        "El recorrido de Bloom está en su propia ruta de este Atlas."
+      ],
+      "sources": [
+        {"label": "Dublin UNESCO City of Literature", "url": "https://www.dublincityofliterature.ie/"},
+        {"label": "James Joyce Centre", "url": "https://www.jamesjoyce.ie/"},
+        {"label": "UNESCO: Red de Ciudades Creativas", "url": "https://www.unesco.org/en/creative-cities"}
+      ],
+      "related": ["biblioteca-trinity-college-dublin", "ruta-bloomsday-dublin", "shakespeare-and-company-paris"]
+    },
+    {
+      "slug": "madrid-barrio-de-las-letras",
+      "kind": "destination",
+      "title": "Madrid y el Barrio de las Letras",
+      "description": "Dónde vivieron Cervantes y Lope de Vega en Madrid, qué se conserva y qué no se puede afirmar sobre los restos de Cervantes. Con ruta a pie.",
+      "country": "España",
+      "lead": "El Barrio de las Letras reúne en pocas calles las casas y tumbas del Siglo de Oro más visitables de España. Lo que se ve es real; lo que se cuenta sobre ellas a veces va más allá de lo que se sabe.",
+      "sections": [
+        {
+          "h": "Qué ver",
+          "p": [
+            "La Casa Museo de Lope de Vega, en la calle de Cervantes 11, conserva la vivienda donde el dramaturgo residió desde 1610 hasta su muerte en 1635. Se visita con cita o por turnos.",
+            "El Convento de las Trinitarias Descalzas, en la calle de Lope de Vega 18, es el lugar donde Cervantes pidió ser enterrado. Cervantes murió en Madrid el 22 de abril de 1616.",
+            "La Biblioteca Nacional de España, en el Paseo de Recoletos, ocupa un edificio del siglo XIX y su origen es la Real Biblioteca fundada por Felipe V en 1712."
+          ]
+        },
+        {
+          "h": "Lo que no se puede afirmar",
+          "p": [
+            "En 2015 un equipo forense localizó en la cripta del convento restos que se consideran compatibles con Cervantes. Los propios investigadores reconocieron que los huesos aparecieron mezclados con los de otras personas, así que la identificación de cada uno no es concluyente. Se puede decir que los restos están en el convento; no que se haya identificado el esqueleto de Cervantes."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "hecho", "text": "Lope de Vega vivió en la casa de la calle de Cervantes desde 1610 hasta su muerte, en 1635."},
+        {"label": "hecho", "text": "Cervantes murió en Madrid el 22 de abril de 1616 y pidió ser enterrado en las Trinitarias Descalzas."},
+        {"label": "hecho", "text": "La Biblioteca Nacional de España procede de la Real Biblioteca fundada por Felipe V en 1712."},
+        {"label": "tradicion", "text": "La identificación de los restos hallados en 2015 como «los de Cervantes» es una hipótesis razonable, no una certeza científica individual."}
+      ],
+      "practical": [
+        "El barrio se recorre a pie; la ruta de este Atlas ocupa una hora tranquila.",
+        "El convento es de clausura: consulta con antelación qué partes se pueden visitar."
+      ],
+      "sources": [
+        {"label": "Casa Museo Lope de Vega", "url": "https://www.casamuseolopedevega.org/"},
+        {"label": "Biblioteca Nacional de España", "url": "https://www.bne.es/"},
+        {"label": "Turismo de Madrid", "url": "https://www.esmadrid.com/"}
+      ],
+      "related": ["ruta-barrio-de-las-letras"]
+    },
+    {
+      "slug": "barcelona",
+      "kind": "destination",
+      "title": "Barcelona: Ciudad de la Literatura y Sant Jordi",
+      "description": "Barcelona es Ciudad de la Literatura de la UNESCO desde 2015 y celebra Sant Jordi con libro y rosa. Qué es real y qué es ficción de Zafón.",
+      "country": "España",
+      "lead": "Barcelona es Ciudad de la Literatura de la UNESCO desde 2015 y una ciudad que cada 23 de abril regala un libro y una rosa. También es el escenario de una de las ficciones más visitadas por los lectores: un cementerio de libros que no existe.",
+      "sections": [
+        {
+          "h": "Sant Jordi",
+          "p": [
+            "El 23 de abril, Sant Jordi, es el día en que en Cataluña se regalan libros y rosas. La UNESCO eligió esa misma fecha como Día Mundial del Libro y del Derecho de Autor en 1995. Las calles se llenan de paradas de libros: es la mejor fecha para ver la ciudad lectora en acción."
+          ]
+        },
+        {
+          "h": "La ciudad de La sombra del viento",
+          "p": [
+            "Carlos Ruiz Zafón ambientó La sombra del viento (2001) en una Barcelona de posguerra, y inventó el Cementerio de los Libros Olvidados. Ese cementerio es ficción: no existe un edificio real que lo contenga. Hay rutas que enseñan lugares reales que inspiraron escenas, y conviene presentarlas como tales: inspiración y escenario, no una prueba documental."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "hecho", "text": "Barcelona fue designada Ciudad de la Literatura por la UNESCO en 2015."},
+        {"label": "hecho", "text": "En 1995 la UNESCO proclamó el 23 de abril Día Mundial del Libro y del Derecho de Autor."},
+        {"label": "tradicion", "text": "Regalar un libro y una rosa en Sant Jordi es una costumbre catalana consolidada."},
+        {"label": "ficcion", "text": "El Cementerio de los Libros Olvidados es un invento de Carlos Ruiz Zafón; no existe como lugar visitable."}
+      ],
+      "practical": [
+        "El 23 de abril el centro se llena: reserva con antelación si quieres alojarte.",
+        "Si haces una ruta de La sombra del viento, comprueba qué lugares son reales y cuáles son recreaciones."
+      ],
+      "sources": [
+        {"label": "UNESCO: Red de Ciudades Creativas", "url": "https://www.unesco.org/en/creative-cities"},
+        {"label": "UNESCO: Día Mundial del Libro y del Derecho de Autor", "url": "https://www.unesco.org/en/days/world-book-and-copyright"},
+        {"label": "Ayuntamiento de Barcelona", "url": "https://www.barcelona.cat/"}
+      ],
+      "related": ["madrid-barrio-de-las-letras"]
+    },
+    {
+      "slug": "biblioteca-trinity-college-dublin",
+      "kind": "place",
+      "title": "La Biblioteca de Trinity College y el Long Room",
+      "description": "El Long Room de Trinity College, en Dublín, guarda el Libro de Kells. Qué es hecho verificable y qué comparaciones con el cine no están confirmadas.",
+      "country": "Irlanda",
+      "lead": "El Long Room es la sala principal de la Biblioteca Antigua de Trinity College, en Dublín, y una de las bibliotecas más reconocibles del mundo. Es también un buen ejemplo de cómo una imagen potente genera rumores que nadie ha confirmado.",
+      "sections": [
+        {
+          "h": "Lo que es",
+          "p": [
+            "La Biblioteca Antigua se construyó en el siglo XVIII, entre 1712 y 1732, según el diseño del ingeniero Thomas Burgh. En 1860 se elevó el techo para dar cabida a más libros, y de ahí viene la bóveda de cañón que hoy se ve. Alberga el Libro de Kells, un manuscrito iluminado del siglo IX que llegó al colegio en 1661.",
+            "La Biblioteca de Trinity es biblioteca de depósito legal: en Irlanda, los editores deben entregarle un ejemplar de sus publicaciones."
+          ]
+        },
+        {
+          "h": "Lo que se dice",
+          "p": [
+            "El Long Room se compara con frecuencia con el Archivo Jedi de Star Wars. Es una comparación visual de espectadores: el equipo de la película no la ha confirmado, así que no debe presentarse como origen del decorado."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "hecho", "text": "La Biblioteca Antigua se construyó entre 1712 y 1732 con diseño de Thomas Burgh."},
+        {"label": "hecho", "text": "El Libro de Kells, manuscrito iluminado, llegó a Trinity College en 1661."},
+        {"label": "hecho", "text": "La bóveda de cañón del Long Room se añadió en 1860, al elevar el techo."},
+        {"label": "atribucion", "text": "La relación del Long Room con el Archivo Jedi de Star Wars es una comparación popular, no un dato confirmado."}
+      ],
+      "practical": [
+        "Es una de las visitas más concurridas de Dublín: compra la entrada anticipada en la web oficial.",
+        "Está dentro del campus universitario, a pie del centro."
+      ],
+      "sources": [
+        {"label": "Biblioteca de Trinity College Dublin", "url": "https://www.tcd.ie/library/"},
+        {"label": "El Libro de Kells (web oficial)", "url": "https://www.bookofkells.ie/"}
+      ],
+      "related": ["dublin"]
+    },
+    {
+      "slug": "biblioteca-strahov-praga",
+      "kind": "place",
+      "title": "La Biblioteca de Strahov, en Praga",
+      "description": "La biblioteca del monasterio de Strahov, en Praga, tiene dos salas históricas barrocas y neoclásicas. Qué se puede ver y cómo se visita.",
+      "country": "República Checa",
+      "lead": "La biblioteca del Monasterio de Strahov, en una colina sobre Praga, conserva dos salas históricas que se cuentan entre las más fotogénicas de Europa: la Sala Teológica y la Sala Filosófica.",
+      "sections": [
+        {
+          "h": "Qué es",
+          "p": [
+            "Strahov es un monasterio premonstratense fundado en 1143. Su biblioteca reúne más de doscientos mil volúmenes, entre ellos manuscritos e impresos antiguos.",
+            "La Sala Teológica es la más antigua, construida en el siglo XVII, con frescos de Siard Nosecký del siglo XVIII. La Sala Filosófica es de finales del siglo XVIII y su techo está pintado por Franz Anton Maulbertsch, con una escena sobre el progreso del conocimiento humano."
+          ]
+        },
+        {
+          "h": "Cómo se visita",
+          "p": [
+            "Por conservación, las salas históricas se ven normalmente desde la entrada y no se puede pasear entre las estanterías. Es una visita corta; conviene verificar condiciones y horarios en la web oficial."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "hecho", "text": "El Monasterio de Strahov es premonstratense y se fundó en 1143."},
+        {"label": "hecho", "text": "La biblioteca reúne más de doscientos mil volúmenes, según las cifras que difunde el monasterio."},
+        {"label": "hecho", "text": "La Sala Filosófica conserva un techo pintado por Franz Anton Maulbertsch."}
+      ],
+      "practical": [
+        "Las salas se contemplan desde la entrada: es una visita corta.",
+        "Strahov queda a poca distancia a pie del Castillo de Praga."
+      ],
+      "sources": [
+        {"label": "Monasterio de Strahov (web oficial)", "url": "https://www.strahovskyklaster.cz/en"}
+      ],
+      "related": []
+    },
+    {
+      "slug": "shakespeare-and-company-paris",
+      "kind": "place",
+      "title": "Shakespeare and Company, en París",
+      "description": "La librería Shakespeare and Company de París no es la original de Sylvia Beach. La historia real de dos librerías con el mismo nombre.",
+      "country": "Francia",
+      "lead": "Hay dos Shakespeare and Company y se confunden con frecuencia. La primera la abrió Sylvia Beach en 1919; la que visitan hoy los viajeros abrió décadas después con otro nombre y heredó el homenaje.",
+      "sections": [
+        {
+          "h": "La original",
+          "p": [
+            "Sylvia Beach abrió Shakespeare and Company en París en 1919. Fue lugar de encuentro de escritores anglosajones y publicó el Ulises, de James Joyce, en 1922, cuando ninguna editorial se atrevía con él. La librería cerró en 1941, durante la ocupación alemana."
+          ]
+        },
+        {
+          "h": "La de hoy",
+          "p": [
+            "La librería actual está en el número 37 de la rue de la Bûcherie, frente a Notre-Dame. La abrió George Whitman en 1951 con el nombre de Le Mistral, y en 1964 la rebautizó Shakespeare and Company en homenaje a la de Beach. Hay continuidad de nombre y de espíritu, pero no del local ni de la propietaria."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "hecho", "text": "Sylvia Beach abrió la primera Shakespeare and Company en París en 1919 y publicó el Ulises en 1922."},
+        {"label": "hecho", "text": "La librería original cerró en 1941, durante la ocupación alemana de París."},
+        {"label": "hecho", "text": "La librería actual abrió en 1951 como Le Mistral y adoptó su nombre actual en 1964."},
+        {"label": "atribucion", "text": "Presentar la librería de la rue de la Bûcherie como «la de Hemingway y Joyce» es un error habitual: esos escritores frecuentaron la original."}
+      ],
+      "practical": [
+        "Es un comercio en funcionamiento: respeta las normas de la tienda sobre fotografía.",
+        "Consulta horarios y eventos en su web oficial."
+      ],
+      "sources": [
+        {"label": "Shakespeare and Company (web oficial)", "url": "https://shakespeareandcompany.com/"}
+      ],
+      "related": ["dublin"]
+    },
+    {
+      "slug": "biblioteca-joanina-coimbra",
+      "kind": "place",
+      "title": "La Biblioteca Joanina, en Coímbra",
+      "description": "La Biblioteca Joanina de la Universidad de Coímbra es una biblioteca barroca del siglo XVIII. Qué se sabe y cómo se visita.",
+      "country": "Portugal",
+      "lead": "La Biblioteca Joanina es la sala barroca de la Universidad de Coímbra, construida por orden del rey Juan V, con estanterías doradas y techos pintados. Forma parte de un conjunto declarado Patrimonio Mundial por la UNESCO.",
+      "sections": [
+        {
+          "h": "Qué es",
+          "p": [
+            "La biblioteca se construyó entre 1717 y 1728 bajo el reinado de Juan V, de donde viene su nombre. Está dentro del recinto histórico de la Universidad de Coímbra, que la UNESCO inscribió en la lista de Patrimonio Mundial en 2013.",
+            "La universidad cuenta que una colonia de murciélagos ayuda a proteger los libros de los insectos, y que por la noche se cubren las mesas para protegerlas. Es una práctica que la propia institución explica en sus visitas."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "hecho", "text": "La Biblioteca Joanina se construyó entre 1717 y 1728 por orden de Juan V."},
+        {"label": "hecho", "text": "La Universidad de Coímbra fue inscrita como Patrimonio Mundial de la UNESCO en 2013."},
+        {"label": "tradicion", "text": "La colonia de murciélagos que protege los libros la cuenta la propia universidad en sus visitas guiadas."}
+      ],
+      "practical": [
+        "El acceso es con entrada con horario, y se limita el aforo para conservar las salas.",
+        "Consulta condiciones y horarios en la web oficial de la universidad."
+      ],
+      "sources": [
+        {"label": "UNESCO: Universidad de Coímbra", "url": "https://whc.unesco.org/en/list/1387"},
+        {"label": "Universidad de Coímbra", "url": "https://www.uc.pt/"}
+      ],
+      "related": []
+    },
+    {
+      "slug": "ruta-barrio-de-las-letras",
+      "kind": "route",
+      "title": "Ruta a pie por el Barrio de las Letras",
+      "description": "Ruta a pie de una hora por el Barrio de las Letras de Madrid: casa de Lope de Vega, convento de las Trinitarias y el lugar donde murió Cervantes.",
+      "country": "España",
+      "lead": "Tres paradas en un radio de pocos minutos a pie, en el corazón del Barrio de las Letras: la casa de Lope de Vega, el convento donde descansa Cervantes y el lugar donde murió.",
+      "route_stops": [
+        {"name": "Casa Museo de Lope de Vega", "address": "Calle de Cervantes, 11", "note": "Vivienda del dramaturgo desde 1610 hasta su muerte en 1635. Se visita con turnos."},
+        {"name": "Convento de las Trinitarias Descalzas", "address": "Calle de Lope de Vega, 18", "note": "Cervantes pidió ser enterrado aquí. Es un convento de clausura; la iglesia y la cripta tienen visitas limitadas."},
+        {"name": "Calle del León, 2", "address": "Calle del León, esquina con Cervantes", "note": "En este punto murió Cervantes el 22 de abril de 1616; hay una placa que lo recuerda."}
+      ],
+      "sections": [
+        {
+          "h": "Cómo hacerla",
+          "p": [
+            "Empieza por la casa de Lope de Vega y camina hasta el convento en menos de cinco minutos. Después sigue hacia la calle del León, donde lo que se ve es una placa, no una casa conservada. Dedica una hora si no entras a los museos."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "hecho", "text": "Lope de Vega y Cervantes vivieron a pocos metros el uno del otro en el Madrid de comienzos del siglo XVII."},
+        {"label": "hecho", "text": "En el punto de la calle del León donde murió Cervantes solo queda una placa, no el edificio original."}
+      ],
+      "practical": [
+        "La ruta es llana y apta para ir con calma.",
+        "Cierra los lunes y algunos festivos casi todo lo visitable: confírmalo antes de ir."
+      ],
+      "sources": [
+        {"label": "Casa Museo Lope de Vega", "url": "https://www.casamuseolopedevega.org/"},
+        {"label": "Turismo de Madrid", "url": "https://www.esmadrid.com/"}
+      ],
+      "related": ["madrid-barrio-de-las-letras"]
+    },
+    {
+      "slug": "ruta-bloomsday-dublin",
+      "kind": "route",
+      "title": "Ruta del Ulises: los lugares de Bloomsday",
+      "description": "Qué lugares del Ulises de Joyce se pueden visitar en Dublín el día de Bloomsday, y qué diferencia hay entre el libro y la ciudad real.",
+      "country": "Irlanda",
+      "lead": "Bloomsday, el 16 de junio, convierte media ciudad en escenario de una novela. Esta ruta reúne paradas del Ulises que se pueden visitar, con una advertencia: el libro es ficción y la ciudad ha cambiado.",
+      "route_stops": [
+        {"name": "Torre Martello de Sandycove", "address": "Sandycove, al sur de la bahía de Dublín", "note": "Escenario de las primeras páginas del Ulises. Hoy alberga un museo dedicado a Joyce."},
+        {"name": "Davy Byrne's", "address": "Duke Street", "note": "El pub donde Bloom come un sándwich de queso gorgonzola y un vaso de vino de Borgoña en el episodio de los lestrigones."},
+        {"name": "Sweny's Pharmacy", "address": "Lincoln Place", "note": "Farmacia mencionada en el libro, donde Bloom compra una pastilla de jabón de limón. Hoy funciona como espacio cultural."},
+        {"name": "Cementerio de Glasnevin", "address": "Finglas Road", "note": "Cementerio donde transcurre el funeral de Paddy Dignam en el Ulises. Es un cementerio real y se puede visitar."}
+      ],
+      "sections": [
+        {
+          "h": "Cómo leer esta ruta",
+          "p": [
+            "Las paradas no forman un paseo único: la Torre Martello queda al sur de la bahía y el resto está repartido por la ciudad. Es una ruta de un día en transporte público, no de una hora a pie.",
+            "Bloomsday se celebra desde 1954. Conviene tener en cuenta que el libro mezcla lugares reales con detalles inventados: que un lugar aparezca en el Ulises no prueba que el episodio ocurriera allí."
+          ]
+        }
+      ],
+      "facts": [
+        {"label": "hecho", "text": "El Ulises sitúa su acción el 16 de junio de 1904 y Bloomsday se celebra el 16 de junio."},
+        {"label": "hecho", "text": "La primera celebración de Bloomsday tuvo lugar en 1954."},
+        {"label": "hecho", "text": "El episodio del funeral de Paddy Dignam transcurre en el cementerio de Glasnevin, que hoy se puede visitar."},
+        {"label": "ficcion", "text": "Las acciones de Bloom y los demás personajes son ficción ambientada en lugares reales."}
+      ],
+      "practical": [
+        "El 16 de junio hay lecturas y recorridos oficiales: consulta el programa de cada año.",
+        "Comprueba cuáles de estos locales siguen abiertos antes de organizar el día."
+      ],
+      "sources": [
+        {"label": "James Joyce Centre", "url": "https://www.jamesjoyce.ie/"},
+        {"label": "Dublin UNESCO City of Literature", "url": "https://www.dublincityofliterature.ie/"}
+      ],
+      "related": ["dublin"]
+    }
+  ]
+}

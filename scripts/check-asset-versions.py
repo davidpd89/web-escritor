@@ -114,6 +114,7 @@ TRACKED_ASSETS = {
     "v1-legal.css": "2",
     "noveris.css": "1",
     "v1-cuaderno-topics.css": "1",
+    "v1-atlas.css": "1",
     "v1-support.css": "1",
     "dialogo-espanol.js": "3",
     "v1-beta-readers.css": "2",

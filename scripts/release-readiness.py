@@ -24,6 +24,8 @@ CHECKS = [
     ("CI parity: hrefs", "python scripts/check-hrefs.py"),
     ("CI parity: internal graph", "python scripts/check-internal-graph.py"),
     ("CI parity: navigation coverage", "python scripts/check-navigation-coverage.py"),
+    ("CI parity: Atlas pages", "python scripts/build-atlas-pages.py --data data/atlas-pages.json --root . --check"),
+    ("CI parity: Atlas release contract", "python scripts/check_atlas_release_contract.py --root . --manifest data/atlas-routes-manifest.json"),
     ("CI parity: heading structure", "python scripts/check-heading-structure.py"),
     ("CI parity: public document/form contract", "python scripts/check-public-document-form-contract.py"),
     ("CI parity: jsonld absolute URLs", "python scripts/check-jsonld-absolute-urls.py"),
