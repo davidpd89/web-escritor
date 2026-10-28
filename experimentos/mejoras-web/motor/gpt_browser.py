@@ -9,7 +9,7 @@ Fin de generacion y texto de la respuesta: se leen del BACKEND de la conversacio
 no del DOM (los selectores del visor cambian y el visor colapsa el texto: causa del fallo "Thought for 4m" sin respuesta).
 No teclea contrasenas: si la sesion esta cerrada lanza LoginRequired.
 """
-import os, re, time
+import os, re, sys, time
 from dataclasses import dataclass
 
 PORT = 9331  # Edge del laboratorio; el QA original usa 9230 (y 9224/9225): este modulo nunca habla con ellos
@@ -189,7 +189,7 @@ def limpiar_pestanas(ctx, conservar=(), guardados=()):
             if m:
                 cid = m.group(1)
                 if cid in conservar: continue
-                if cid in guardados or estado_chat_seguro(x, cid) in ("terminada", "vacia"):
+                if cid in guardados or estado_chat_seguro(x, cid) in ("terminada", "vacia", "fallida", "desconocido"):
                     x.close(); cerradas += 1
             else:
                 proj += 1
@@ -313,6 +313,11 @@ def ask(question, wait_min=25, stall_min=12, on_chat=None, on_result=None, resum
         return res
     finally:
         try:
-            if pg is not None and cerrar: pg.close()
+            # El chat se reabre por su id, asi que la pestana solo se conserva si sigue generando; en cualquier otro
+            # fallo (chat inaccesible, parche invalido, error de carga) se cerraba y se acumulaban decenas de pestanas.
+            if pg is not None and (cerrar or sys.exc_info()[0] is not None and getattr(sys.exc_info()[1], "estado", "") != "generando"):
+                pg.close()
+        except Exception:
+            pass
         finally:
             p.stop()
