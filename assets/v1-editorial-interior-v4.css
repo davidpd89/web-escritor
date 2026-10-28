@@ -324,7 +324,7 @@ html.v1 .sibling-pager a{
 html.v1 .sibling-pager a:hover{border-color:var(--dp-v4-blue-ink);background:var(--dp-v4-sand)}
 html.v1 .sibling-pager a:focus-visible{outline:3px solid var(--dp-v4-blue-ink);outline-offset:2px}
 html.v1 .sibling-pager small{font-size:.82rem;color:var(--dp-v4-muted);letter-spacing:.02em}
-html.v1 .sibling-pager strong{font-weight:600;line-height:1.3;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+html.v1 .sibling-pager strong{font-weight:600;line-height:1.3;overflow-wrap:anywhere}
 html.v1 .sibling-pager__link--next{text-align:right}
 html.v1 .sibling-pager__hub{overflow-wrap:anywhere;align-items:center;justify-content:center;text-align:center}
 @media (max-width:640px){
