@@ -308,6 +308,42 @@ try {
       await interactionPage.locator('[data-radar-clear]').click();
       assert.equal(await interactionPage.locator('.radar-card--expired:visible').count(), 0, 'interaction: limpiar no vuelve a ocultar las vencidas');
     }
+
+    // MW-0028: enlace compartible y navegación accesible sin perder filtros.
+    await interactionPage.locator('[data-radar-genre]').selectOption('fantasía');
+    await interactionPage.locator('[data-radar-type]').selectOption('concurso');
+    const sharedUrl = interactionPage.url();
+    const sharedParams = new URLSearchParams(new URL(sharedUrl).hash.slice(1));
+    assert.equal(sharedParams.get('genero'), 'fantasía', 'MW-0028: género ausente de URL');
+    assert.equal(sharedParams.get('tipo'), 'concurso', 'MW-0028: tipo ausente de URL');
+    const expectedShared = RADAR_DEFAULT.filter(item => item.type === 'concurso' && (item.genres || []).includes('fantasía')).length;
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), expectedShared, 'MW-0028: tarjetas filtradas incorrectas');
+
+    const sharedPage = await interactionContext.newPage();
+    try {
+      await sharedPage.goto(sharedUrl, { waitUntil: 'networkidle', timeout: 20000 });
+      assert.equal(await sharedPage.locator('[data-radar-genre]').inputValue(), 'fantasía', 'MW-0028: género no restaurado');
+      assert.equal(await sharedPage.locator('[data-radar-type]').inputValue(), 'concurso', 'MW-0028: tipo no restaurado');
+      assert.equal(await sharedPage.locator('[data-radar-item]:visible').count(), expectedShared, 'MW-0028: resultado compartido distinto');
+    } finally {
+      await sharedPage.close();
+    }
+
+    await interactionPage.goBack();
+    assert.equal(await interactionPage.locator('[data-radar-type]').inputValue(), '', 'MW-0028: Atrás no restaura el tipo');
+    assert.equal(await interactionPage.locator('[data-radar-genre]').inputValue(), 'fantasía', 'MW-0028: Atrás pierde el género');
+    await interactionPage.goForward();
+    assert.equal(await interactionPage.locator('[data-radar-type]').inputValue(), 'concurso', 'MW-0028: Adelante no restaura el tipo');
+
+    await interactionPage.locator('.skip-link').focus();
+    await interactionPage.keyboard.press('Enter');
+    await interactionPage.waitForFunction(() => location.hash === '#contenido');
+    assert.equal(await interactionPage.locator('[data-radar-genre]').inputValue(), 'fantasía', 'MW-0028: skip-link borra el género');
+    assert.equal(await interactionPage.locator('[data-radar-type]').inputValue(), 'concurso', 'MW-0028: skip-link borra el tipo');
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), expectedShared, 'MW-0028: skip-link altera el listado');
+    await interactionPage.locator('[data-radar-clear]').click();
+    assert.equal(new URL(interactionPage.url()).hash, '#contenido', 'MW-0028: Limpiar elimina un ancla ajena a los filtros');
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), RADAR_DEFAULT.length, 'MW-0028: Limpiar no recupera las fichas');
   } catch (error) {
     failures.push({ viewport: 'interaction-mobile-390', width: 390, height: 844, error: error instanceof Error ? error.message : String(error) });
   } finally {

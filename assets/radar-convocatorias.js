@@ -158,8 +158,73 @@
     if (empty) empty.hidden = visible !== 0;
   };
 
+  // Solo estos parámetros pertenecen al radar. Otros parámetros se conservan.
+  const FILTER_KEYS = ['q', 'tipo', 'genero', 'situacion', 'pronto', 'vencidas'];
+  const validOption = (select, value) => value && [...(select?.options || [])].some((option) => option.value === value) ? value : '';
+
+  const selectedParams = () => {
+    const params = new URLSearchParams();
+    if (query?.value.trim()) params.set('q', query.value.trim());
+    if (type?.value) params.set('tipo', type.value);
+    if (genre?.value) params.set('genero', genre.value);
+    if (kind?.value) params.set('situacion', kind.value);
+    if (soon?.checked) params.set('pronto', '1');
+    if (showExpired?.checked) params.set('vencidas', '1');
+    return params;
+  };
+
+  // Un fragmento sin '=' es un ancla, no una selección de filtros.
+  const hashParams = () => {
+    const fragment = location.hash.slice(1);
+    return fragment && !fragment.includes('=') ? null : new URLSearchParams(fragment);
+  };
+
+  const restoreControls = (params) => {
+    const savedQuery = params.get('q') || '';
+    if (query) query.value = savedQuery.length <= 512 && !savedQuery.includes('\uFFFD') ? savedQuery : '';
+    if (type) type.value = validOption(type, params.get('tipo'));
+    if (genre) genre.value = validOption(genre, params.get('genero'));
+    if (kind) kind.value = validOption(kind, params.get('situacion'));
+    if (soon) soon.checked = params.get('pronto') === '1';
+    if (showExpired) showExpired.checked = params.get('vencidas') === '1';
+  };
+
+  const nextUrl = () => {
+    const original = hashParams();
+    const params = original || new URLSearchParams();
+    FILTER_KEYS.forEach((key) => params.delete(key));
+    selectedParams().forEach((value, key) => params.set(key, value));
+    const fragment = params.toString();
+    const suffix = fragment ? `#${fragment}` : original === null ? location.hash : '';
+    return `${location.pathname}${location.search}${suffix}`;
+  };
+
+  const snapshotState = () => ({
+    ...(history.state && typeof history.state === 'object' ? history.state : {}),
+    dpRadarFilters: selectedParams().toString(),
+  });
+
+  let lastRestoredUrl = location.href;
+  const writeHash = (mode) => {
+    const target = nextUrl();
+    const current = `${location.pathname}${location.search}${location.hash}`;
+    const saved = selectedParams().toString();
+    if (target === current && history.state?.dpRadarFilters === saved) return;
+    // No acumular entradas cuando la dirección no cambia.
+    const method = target === current ? 'replaceState' : mode === 'push' ? 'pushState' : 'replaceState';
+    history[method](snapshotState(), '', target);
+    lastRestoredUrl = location.href;
+  };
+
+  const update = (mode) => {
+    apply();
+    writeHash(mode);
+  };
+
   [query, type, genre, kind, soon, showExpired].forEach((control) => {
-    control?.addEventListener(control === query ? 'input' : 'change', apply);
+    control?.addEventListener(control === query ? 'input' : 'change', () => {
+      update(control === query ? 'replace' : 'push');
+    });
   });
 
   const clearFilters = () => {
@@ -169,9 +234,27 @@
     if (kind) kind.value = '';
     if (soon) soon.checked = false;
     if (showExpired) showExpired.checked = false;
-    apply();
+    update('push');
     query?.focus();
   };
+
+  // Las anclas conservan los filtros. El estado asociado al ancla permite
+  // recuperar esa misma selección también al volver con Atrás/Adelante.
+  const restore = () => {
+    if (location.href === lastRestoredUrl) return;
+    lastRestoredUrl = location.href;
+    const params = hashParams();
+    if (params) {
+      restoreControls(params);
+    } else if (typeof history.state?.dpRadarFilters === 'string') {
+      restoreControls(new URLSearchParams(history.state.dpRadarFilters));
+    } else {
+      history.replaceState(snapshotState(), '', location.href);
+    }
+    apply();
+  };
+  window.addEventListener('popstate', restore);
+  window.addEventListener('hashchange', restore);
 
   showExpired?.addEventListener('change', () => {
     if (showExpired.checked) emit('radar_expired_shown');
@@ -191,6 +274,12 @@
   setInterval(refreshClock, 60000);
   document.addEventListener('visibilitychange', refreshClock);
   window.addEventListener('pageshow', refreshClock);
+  const initialParams = hashParams();
+  if (initialParams) {
+    restoreControls(initialParams);
+  } else if (typeof history.state?.dpRadarFilters === 'string') {
+    restoreControls(new URLSearchParams(history.state.dpRadarFilters));
+  }
   refreshAvailability();
   apply();
 })();
