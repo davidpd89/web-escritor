@@ -16,7 +16,8 @@ GRUPOS = [("Investigados (esperan a Claude)", ("investigado",)),
           ("Finalizados OK en Actions", ("remoto_ok",)),
           ("Finalizados con fallo (parche/test)", ("remoto_fallo", "fallo_local", "parche_rechazado", "fallo_desarrollo")),
           ("Infraestructura / revision humana / Claude caido", ("remoto_infra", "revision_humana", "claude_fallo")),
-          ("PR hija en borrador", ("pr_borrador",))]
+          ("PR hija en borrador", ("pr_borrador",)),
+          ("INTEGRADAS en la rama de laboratorio (visibles en la vista previa)", ("integrado",))]
 
 
 def texto(q, completo=False):
@@ -37,6 +38,8 @@ def _texto(q, c, completo):
           f"Ejecutor de Actions: {'EN MARCHA pid ' + str(ac) if ac else 'parado'} | supervisor: {'pid ' + str(sup) if sup else 'no'}",
           f"Aislado del QA: CDP {q.CFG['gpt']['puerto_cdp']} | estado {q.STATE} | ramas {q.CFG['prefijo_rama']}* -> {q.CFG['rama_base']} | main intocable"]
     if svc.get("ultimo_error"): L.append(f"ULTIMO ERROR: {svc['ultimo_error'][:200]}")
+    integ = q.CFG.get("integracion", {}); url = (q.CFG.get("preview") or {}).get("url")
+    L.append(f"Integracion automatica en {q.CFG['rama_base']}: {integ.get('modo', 'manual')} ({'tras validar en Actions' if integ.get('exigir_actions', True) else 'tras validar en local'}) | vista previa: {url or 'sin configurar'}")
     L += ["", "Expedientes (fase actual, cada uno cuenta una vez):"]
     por = dict(c.execute("SELECT estado, COUNT(*) FROM expedientes GROUP BY estado").fetchall())
     cubiertos = set()

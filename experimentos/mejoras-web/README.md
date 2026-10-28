@@ -77,6 +77,14 @@ python -m unittest discover -s tests -p "test_*.py" -v
 * **Rama base**: se hace `git fetch` de `origin/lab/mejoras-web-20261024` cada 20 min y, si no existe en tu clon, el preflight lo dice con el comando exacto.
 * **Rama de desarrollo**: ningun disparador automatico. Los workflows del laboratorio son solo `workflow_dispatch`; los commits que tocan `experimentos/mejoras-web/**` y los workflows nuevos no coinciden con los filtros `paths` de los workflows existentes con `push` sin rama (cuaderno).
 
+## Integracion automatica en la rama de laboratorio (para revisar antes de main)
+
+`EJECUTAR` ya no se queda en «listo para PR»: cada mejora que pasa la puerta (validada en local, sus tests en verde en Actions, revisada por Claude) se **fusiona sola en `lab/mejoras-web-20261024`**
+con la API de fusion de GitHub (`Gh.integrar`, en el servidor, sin PR y sin CI de PR). `main` jamas se toca: la base debe ser una rama `lab/*` (probado). Si otra mejora ya toco las mismas lineas
+(conflicto 409) el expediente vuelve a `preparado` y se reconstruye sobre la punta actual de lab (maximo `integracion.max_conflictos` veces, despues `revision_humana`).
+Config: `integracion.modo` (`auto`/`manual`) y `integracion.exigir_actions` (false = integrar tras validar en local, sin gastar runs). Se ve en `ESTADO` («INTEGRADAS en la rama de laboratorio»).
+La web con todo lo integrado se revisa en la vista previa de esa rama (siguiente seccion); pasar `lab` a `main` solo cuando David lo ordene.
+
 ## Dependencia de rama del workflow
 
 GitHub solo despacha un workflow que existe en la rama que se pasa a `--ref`. `config.json` -> `workflow_ref` es `lab/mejoras-web-20261024` (la rama de integracion del laboratorio, que contiene

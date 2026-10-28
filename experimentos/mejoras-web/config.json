@@ -169,5 +169,14 @@
   "fallos observables hoy: enlaces, estados vacios, errores, textos",
   "practicas comprobadas en sitios comparables de escritores y editoriales",
   "ahorro de mantenimiento: automatizar algo manual y repetido"
- ]
+ ],
+ "integracion": {
+  "modo": "auto",
+  "exigir_actions": true,
+  "max_conflictos": 2
+ },
+ "preview": {
+  "url": "",
+  "workflow_lab": "lab-preview.yml"
+ }
 }

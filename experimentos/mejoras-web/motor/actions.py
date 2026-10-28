@@ -21,9 +21,9 @@ import clases, mw, parches
 AUTORIZADO = False  # solo main() lo activa (accion EJECUTAR). Con False, ni push ni dispatch: el servicio de INICIAR no puede enviar nada.
 VIVOS = ("enviado", "actions_pendiente", "actions_ejecutando")
 ENVIABLES = ("validado",)
-FINALES = {"fallo_local", "remoto_ok", "remoto_fallo_parche", "remoto_fallo_test", "remoto_infra", "revision_humana"}
+FINALES = {"integrado", "conflicto_lab", "fallo_local", "remoto_ok", "remoto_fallo_parche", "remoto_fallo_test", "remoto_infra", "revision_humana"}
 EXP_DE_COLA = {"validado": "validado", "fallo_local": "fallo_local", "enviado": "en_actions", "actions_pendiente": "en_actions", "actions_ejecutando": "en_actions",
-               "remoto_ok": "remoto_ok", "remoto_fallo_parche": "remoto_fallo", "remoto_fallo_test": "remoto_fallo", "remoto_infra": "remoto_infra", "revision_humana": "revision_humana"}
+               "remoto_ok": "remoto_ok", "integrado": "integrado", "conflicto_lab": "preparado", "remoto_fallo_parche": "remoto_fallo", "remoto_fallo_test": "remoto_fallo", "remoto_infra": "remoto_infra", "revision_humana": "revision_humana"}
 INFRA = clases.INFRA
 ASERCION = clases.ASERCION
 ABORTAR = None  # callable -> True cuando hay que soltar el test en curso (Q / Ctrl+C / cierre de ventana)
@@ -33,6 +33,7 @@ SIN_ENTORNO_PUERTO = "SIN_ENTORNO: ningun puerto libre; se valida en Actions"
 
 class GhError(RuntimeError): pass
 class GhAuthError(GhError): """Token sin sesion o sin permisos: no es transitorio, reintentar no sirve."""
+class Conflicto(GhError): """La fusion en la rama de laboratorio tiene conflicto (otra mejora toco lo mismo)."""
 class NoAutorizado(RuntimeError): """Se intento publicar/despachar fuera de la accion manual EJECUTAR."""
 
 
@@ -116,6 +117,21 @@ class Gh:
         if not AUTORIZADO: raise NoAutorizado("dispatch solo desde la accion manual EJECUTAR")
         campos = {"sha": sha, "modo": modo, "tests": tests, "intento": str(intento)}
         self._gh("workflow", "run", self.wf, "-R", self.repo, "--ref", self.q.CFG["workflow_ref"], *[a for k, v in campos.items() for a in ("-f", f"{k}={v}")])
+
+    def integrar(self, sha, rama, mensaje):
+        """Fusiona `sha` (publicado en mejoras-web/*) en la rama de LABORATORIO con la API de fusion de GitHub (en el servidor, sin PR). -> 'integrado' | 'ya_integrado'.
+        Lanza Conflicto si GitHub responde 409. NUNCA fusiona en main: la base es siempre `rama_base` y se rechaza main/master."""
+        if not AUTORIZADO: raise NoAutorizado("integrar solo desde la accion manual EJECUTAR")
+        base = self.q.CFG["rama_base"]
+        if base in ("main", "master") or not base.startswith("lab/"): raise GhAuthError(f"integracion bloqueada: la base debe ser una rama lab/*, no {base!r}")
+        if not self.q.rama_permitida(rama): raise GhAuthError(f"integracion bloqueada: rama {rama!r} no permitida")
+        if not re.fullmatch(r"[0-9a-f]{40}", sha): raise GhAuthError("integracion bloqueada: sha invalido")
+        try: out = self._gh("api", "-X", "POST", f"repos/{self.repo}/merges", "-f", f"base={base}", "-f", f"head={sha}", "-f", f"commit_message={mensaje[:200]}")
+        except GhAuthError: raise
+        except GhError as e:
+            if re.search(r"409|conflict", str(e), re.I): raise Conflicto(str(e)[:200])
+            raise
+        return "integrado" if out.strip() else "ya_integrado"
 
     def workflow_disponible(self):
         """El workflow dedicado existe en la rama `workflow_ref` (GitHub solo despacha lo que existe en el --ref). Mismo metodo que qa_lote.Gh.workflow_ref del QA.
@@ -233,15 +249,46 @@ class Ejecutor:
         for e in self.c.execute("SELECT * FROM expedientes WHERE estado='preparado' ORDER BY rowid").fetchall():
             if n >= tope: break
             if self.solo and e["id"] not in self.solo: continue
-            if self.c.execute("SELECT 1 FROM cola WHERE exp=? AND estado NOT IN ('fallo_local')", (e["id"],)).fetchone(): continue
+            if self.c.execute("SELECT 1 FROM cola WHERE exp=? AND estado NOT IN ('fallo_local','conflicto_lab')", (e["id"],)).fetchone(): continue
             n += 1; self.validar_local(e["id"])
         return n
+
+    def enviable_o_ok(self, it):
+        """Item de la cola que aun puede integrarse: su expediente sigue en validado/remoto_ok (no tiene PR ni esta descartado) y respeta --solo."""
+        if self.solo and it["exp"] not in self.solo: return False
+        e = self.c.execute("SELECT estado FROM expedientes WHERE id=?", (it["exp"],)).fetchone()
+        return bool(e) and e["estado"] in ("validado", "remoto_ok")
 
     def enviable(self, it):
         """Solo se envia a Actions lo que sigue siendo `validado`: un expediente que ya tiene PR (fusionada o no), esta descartado o fallo despues de validarse NO gasta Actions."""
         if self.solo and it["exp"] not in self.solo: return False
         e = self.c.execute("SELECT estado FROM expedientes WHERE id=?", (it["exp"],)).fetchone()
         return bool(e) and e["estado"] == "validado"
+
+    def integrar_pendientes(self):
+        """Fusiona en la rama de laboratorio (NUNCA main) lo que ya paso la puerta: `remoto_ok` (o `validado` si integracion.exigir_actions es false).
+        Un conflicto con otra mejora ya integrada devuelve el expediente a `preparado` para reconstruirlo sobre la punta nueva de lab (maximo `max_conflictos` veces)."""
+        cfg = self.q.CFG.get("integracion", {})
+        if cfg.get("modo") != "auto" or not AUTORIZADO: return 0
+        listos = ("remoto_ok",) if cfg.get("exigir_actions", True) else ("remoto_ok", "validado")
+        n = 0
+        for it in [i for i in self.items() if i["estado"] in listos]:
+            e = self.c.execute("SELECT estado, titulo FROM expedientes WHERE id=?", (it["exp"],)).fetchone()
+            if not e or e["estado"] not in ("remoto_ok", "validado"): continue  # p. ej. ya tiene PR/esta descartado
+            if self.solo and it["exp"] not in self.solo: continue
+            if self.parando or self.q.flag("stop_actions"): break
+            try:
+                if self.gh.remote_sha(it["rama"]) != it["sha"]: self.gh.push(it["sha"], it["rama"])
+                r = self.gh.integrar(it["sha"], it["rama"], f"mejoras-web {it['exp']}: {e['titulo'][:90]}")
+                self.set(it["clave"], "integrado", f"fusionado en {self.q.CFG['rama_base']} ({r}); aparecera en la vista previa de la rama de laboratorio"); n += 1
+            except Conflicto as ex:
+                previos = self.c.execute("SELECT COUNT(*) FROM eventos WHERE entidad='conflicto_lab' AND ident=?", (it["exp"],)).fetchone()[0]  # contador propio: un mismo sha reconstruido reutiliza su fila de cola
+                self.q.evento(self.c, "conflicto_lab", it["exp"], "conflicto", str(ex)[:200]); self.c.commit()
+                if previos >= int(cfg.get("max_conflictos", 2)): self.set(it["clave"], "revision_humana", f"conflicto repetido con {self.q.CFG['rama_base']}: {str(ex)[:120]}")
+                else: self.set(it["clave"], "conflicto_lab", f"conflicto con {self.q.CFG['rama_base']} (otra mejora toco lo mismo): se reconstruye sobre la punta actual de lab")
+            except GhAuthError as ex: self.set(it["clave"], "revision_humana", f"GitHub rechaza la integracion ({str(ex)[:120]})")
+            except GhError as ex: self.log(f"{it['exp']}: integracion pospuesta, GitHub no responde ({str(ex)[:100]})")
+        return n
 
     def comandos(self, prop):
         return [(t["ruta"], [sys.executable if t["exe"] == "python" else "node", t["ruta"]]) for t in prop["pruebas"]]
@@ -506,8 +553,10 @@ class Ejecutor:
                 break
             if gh_ok and not self.sondear(): gh_ok = False
             nuevos = self.capturar() if not self.parando else 0
+            integrados = self.integrar_pendientes() if gh_ok and not self.parando else 0
             its = self.items()
-            if gh_ok:
+            usa_actions = self.q.CFG.get("integracion", {}).get("exigir_actions", True)
+            if gh_ok and usa_actions:
                 libres = cap - sum(1 for i in its if i["estado"] in VIVOS)
                 for it in [i for i in its if i["estado"] in ENVIABLES and self.enviable(i)][:max(0, libres)]:
                     if self.parando or q.flag("stop_actions"): break
@@ -515,10 +564,12 @@ class Ejecutor:
             self.panel()
             its = self.items()
             tope_dia = self.enviados_hoy() >= int(self.cfg.get("max_envios_dia", 12))
-            pendientes = [i for i in its if i["estado"] in VIVOS or (i["estado"] in ENVIABLES and not tope_dia and self.enviable(i))]  # con el tope diario agotado, lo enviable espera a manana (no es trabajo)
+            auto = self.q.CFG.get("integracion", {}).get("modo") == "auto"
+            por_integrar = [i for i in its if gh_ok and auto and (i["estado"] == "remoto_ok" or (not usa_actions and i["estado"] == "validado")) and self.enviable_o_ok(i)]
+            pendientes = ([i for i in its if i["estado"] in VIVOS or (i["estado"] in ENVIABLES and not tope_dia and self.enviable(i))] if usa_actions else []) + por_integrar  # con el tope diario agotado, lo enviable espera a manana
             if tope_dia and not self.parando and not pendientes and any(i["estado"] in ENVIABLES and self.enviable(i) for i in its) and time.time() - ult_idle > 600:
                 self.log(f"Tope diario de envios a Actions alcanzado ({self.cfg.get('max_envios_dia', 12)}): lo validado queda en cola para manana"); ult_idle = time.time()
-            if nuevos or (pendientes and gh_ok):
+            if nuevos or integrados or (pendientes and gh_ok):
                 if pendientes and not nuevos: self.esperar(self.cfg["poll_s"])
                 continue
             if not gh_ok or not self.cfg.get("continuo"): break

@@ -11,11 +11,17 @@ class GhFalso:
     """Simula GitHub: runs con displayTitle `Mejoras web <sha> #<intento>`. Registra todas las llamadas y cuantos grupos hay vivos a la vez."""
     def __init__(self, completar_en=2):
         self.runs, self.remotes, self.llamadas, self.vivos_max, self.sig = [], {}, [], 0, 1000
-        self.completar_en, self.fallar_tras_dispatch = completar_en, None
+        self.completar_en, self.fallar_tras_dispatch, self.conflictos = completar_en, None, {}
         self.defecto = {"modo": "aceptacion", "resumen": {"ok": 1}, "tests": [{"ruta": "tests/mejoras-web/a.py", "clase": "ok", "rc": 0}]}
 
     def ok(self): return True
     def remote_sha(self, rama): return self.remotes.get(rama)
+
+    def integrar(self, sha, rama, mensaje):
+        if not actions.AUTORIZADO: raise actions.NoAutorizado("integrar")
+        self.llamadas.append(("integrar", sha, rama, mensaje))
+        if self.conflictos.get(sha, 0) > 0: self.conflictos[sha] -= 1; raise actions.Conflicto("HTTP 409: Merge conflict")
+        return "integrado"
 
     def push(self, sha, rama):
         if not actions.AUTORIZADO: raise actions.NoAutorizado("push")
@@ -47,6 +53,7 @@ class Base(util.Caso):
     def setUp(self):
         super().setUp()
         self.gh = GhFalso(); actions.AUTORIZADO = True
+        mw.CFG["integracion"] = {"modo": "manual", "exigir_actions": True, "max_conflictos": 2}  # estas pruebas miran el envio/recogida; la integracion tiene su clase
         self.cfgx = {"poll_s": 0, "espera_ociosa_s": 0, "timeout_test_s": 60, "concurrencia": 3}
         self.ex = self.nuevo_ejecutor()
 
@@ -272,6 +279,86 @@ class EnvioYRecogida(Base):
         self.ex.ejecutar()  # el item a medias se descarta y el expediente se revalida desde cero (sin duplicar)
         self.assertIsNone(self.cola(cl)); self.assertEqual(self.c.execute("SELECT COUNT(*) FROM cola").fetchone()[0], 1)
         self.assertEqual(self.c.execute("SELECT estado FROM cola").fetchone()[0], "remoto_ok")
+
+
+class Integracion(Base):
+    """Fusion automatica en la rama de LABORATORIO (nunca main) de lo que paso la puerta."""
+    def auto(self, exigir_actions=True):
+        mw.CFG["integracion"] = {"modo": "auto", "exigir_actions": exigir_actions, "max_conflictos": 2}
+
+    def test_validado_actions_ok_e_integrado_en_lab(self):
+        self.auto(); cl = self.item_validado(1); self.ex.ejecutar()
+        self.assertEqual(self.cola(cl)["estado"], "integrado"); self.assertEqual(self.exp("MW-0001"), "integrado")
+        orden = [l[0] for l in self.gh.llamadas]; self.assertEqual(orden, ["push", "dispatch", "integrar"])  # primero Actions, despues la fusion
+        self.assertIn("mejoras-web MW-0001", self.gh.llamadas[-1][3])
+
+    def test_no_integra_si_actions_falla(self):
+        self.auto(); self.gh.defecto = {"modo": "aceptacion", "resumen": {"hallazgo": 1}, "tests": [{"ruta": "tests/mejoras-web/a.py", "clase": "hallazgo", "rc": 1}]}
+        cl = self.item_validado(1); self.ex.ejecutar()
+        self.assertEqual(self.cola(cl)["estado"], "remoto_fallo_parche"); self.assertFalse([l for l in self.gh.llamadas if l[0] == "integrar"])
+
+    def test_sin_exigir_actions_se_publica_y_se_integra_sin_gastar_runs(self):
+        self.auto(exigir_actions=False); cl = self.item_validado(1); self.ex.ejecutar()
+        self.assertEqual([l[0] for l in self.gh.llamadas], ["push", "integrar"]); self.assertEqual(self.cola(cl)["estado"], "integrado")
+
+    def test_modo_manual_no_integra_nunca(self):
+        cl = self.item_validado(1); self.ex.ejecutar()
+        self.assertEqual(self.cola(cl)["estado"], "remoto_ok"); self.assertFalse([l for l in self.gh.llamadas if l[0] == "integrar"])
+
+    def test_no_integra_lo_que_ya_tiene_pr_ni_lo_descartado(self):
+        self.auto(exigir_actions=False); a, b = self.item_validado(1), self.item_validado(2)
+        self.c.execute("UPDATE expedientes SET estado='pr_borrador' WHERE id='MW-0001'"); self.c.commit(); self.ex.ejecutar()
+        self.assertEqual([l[1] for l in self.gh.llamadas if l[0] == "integrar"], [SHA(2)])
+
+    def test_conflicto_devuelve_el_expediente_a_preparado_y_se_reintenta_limitado(self):
+        self.auto(exigir_actions=False); self.exp_preparado("MW-0001", estado="validado")
+        self.c.execute("INSERT INTO cola(clave,exp,rama,sha,estado,tests,runs,creado,actualizado) VALUES(?,?,?,?,?,?,?,?,?)", ("mejoras-web/mw-0001@" + SHA(1)[:12], "MW-0001", "mejoras-web/mw-0001", SHA(1), "validado", "[]", "{}", mw.now(), mw.now())); self.c.commit()
+        self.gh.conflictos[SHA(1)] = 5
+        self.ex.integrar_pendientes()
+        self.assertEqual(self.cola("mejoras-web/mw-0001@" + SHA(1)[:12])["estado"], "conflicto_lab"); self.assertEqual(self.exp("MW-0001"), "preparado")
+        # el expediente se reconstruye sobre la punta actual (nuevo sha) y vuelve a la cola; tras max_conflictos pasa a revision humana
+        self.ex.capturar()
+        nuevo = self.c.execute("SELECT * FROM cola WHERE estado='validado'").fetchone(); self.assertIsNotNone(nuevo); self.assertNotEqual(nuevo["sha"], SHA(1))
+        self.gh.conflictos[nuevo["sha"]] = 5; self.ex.integrar_pendientes()
+        self.assertEqual(self.exp("MW-0001"), "preparado"); self.ex.capturar()
+        n2 = self.c.execute("SELECT * FROM cola WHERE estado='validado'").fetchone()
+        self.gh.conflictos[n2["sha"]] = 5; self.ex.integrar_pendientes()
+        self.assertEqual(self.cola(n2["clave"])["estado"], "revision_humana")  # tercer conflicto: no se insiste
+
+    def test_integracion_exige_la_accion_manual(self):
+        self.auto(exigir_actions=False); self.item_validado(1); actions.AUTORIZADO = False
+        self.assertEqual(self.ex.integrar_pendientes(), 0); self.assertEqual(self.gh.llamadas, [])
+
+
+class IntegrarReal(util.Caso):
+    """Gh.integrar real con `mw.run` falso."""
+    def setUp(self):
+        super().setUp(); self.ordenes = []; self.rc, self.out, self.err = 0, '{"sha": "abc"}', ""
+        def falso(args, **kw): self.ordenes.append(list(args)); return subprocess.CompletedProcess(args, self.rc, stdout=self.out, stderr=self.err)
+        p = mock.patch.object(mw, "run", falso); p.start(); self.addCleanup(p.stop); actions.AUTORIZADO = True; self.gh = actions.Gh(mw)
+
+    def test_comando_y_resultado(self):
+        self.assertEqual(self.gh.integrar(SHA(7), "mejoras-web/mw-0007", "msg"), "integrado")
+        o = self.ordenes[0]; self.assertEqual(o[:5], ["gh", "api", "-X", "POST", "repos/davidpd89/web-escritor/merges"])
+        self.assertIn("base=lab/mejoras-web-20261024", o); self.assertIn(f"head={SHA(7)}", o)
+        self.out = ""; self.assertEqual(self.gh.integrar(SHA(7), "mejoras-web/mw-0007", "msg"), "ya_integrado")  # 204: ya estaba
+
+    def test_conflicto_409(self):
+        self.rc, self.err = 1, "gh: Merge conflict (HTTP 409)"
+        with self.assertRaises(actions.Conflicto): self.gh.integrar(SHA(7), "mejoras-web/mw-0007", "m")
+
+    def test_jamas_a_main_ni_a_ramas_ajenas_ni_sin_autorizacion(self):
+        for base in ("main", "master", "research/x", "release"):
+            mw.CFG["rama_base"] = base
+            with self.assertRaises(actions.GhAuthError, msg=base): self.gh.integrar(SHA(7), "mejoras-web/mw-0007", "m")
+        mw.CFG["rama_base"] = "lab/mejoras-web-20261024"
+        for rama in ("main", "lab/mejoras-web-20261024", "gpt-qa/x"):
+            with self.assertRaises(actions.GhAuthError, msg=rama): self.gh.integrar(SHA(7), rama, "m")
+        with self.assertRaises(actions.GhAuthError): self.gh.integrar("HEAD", "mejoras-web/mw-0007", "m")  # solo shas exactos
+        self.assertEqual(self.ordenes, [])
+        actions.AUTORIZADO = False
+        with self.assertRaises(actions.NoAutorizado): self.gh.integrar(SHA(7), "mejoras-web/mw-0007", "m")
+        self.assertEqual(self.ordenes, [])
 
 
 class SoloLoValidado(Base):
