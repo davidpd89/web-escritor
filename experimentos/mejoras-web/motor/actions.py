@@ -187,6 +187,7 @@ class Ejecutor:
         global ABORTAR
         ABORTAR = lambda: bool(self.parando) or q.flag("stop_actions")
         self.parando = None; self.interactivo = False; self._ultimo_sondeo = 0
+        self.solo = {x.strip().upper() for x in str(self.cfg.get("solo") or "").replace(";", ",").split(",") if x.strip()}  # --solo MW-0007: unicamente esos expedientes (prueba controlada)
 
     # ---------- persistencia ----------
     def log(self, msg):
@@ -231,9 +232,16 @@ class Ejecutor:
         tope = int(self.cfg.get("limite") or 10**6)
         for e in self.c.execute("SELECT * FROM expedientes WHERE estado='preparado' ORDER BY rowid").fetchall():
             if n >= tope: break
+            if self.solo and e["id"] not in self.solo: continue
             if self.c.execute("SELECT 1 FROM cola WHERE exp=? AND estado NOT IN ('fallo_local')", (e["id"],)).fetchone(): continue
             n += 1; self.validar_local(e["id"])
         return n
+
+    def enviable(self, it):
+        """Solo se envia a Actions lo que sigue siendo `validado`: un expediente que ya tiene PR (fusionada o no), esta descartado o fallo despues de validarse NO gasta Actions."""
+        if self.solo and it["exp"] not in self.solo: return False
+        e = self.c.execute("SELECT estado FROM expedientes WHERE id=?", (it["exp"],)).fetchone()
+        return bool(e) and e["estado"] == "validado"
 
     def comandos(self, prop):
         return [(t["ruta"], [sys.executable if t["exe"] == "python" else "node", t["ruta"]]) for t in prop["pruebas"]]
@@ -501,14 +509,14 @@ class Ejecutor:
             its = self.items()
             if gh_ok:
                 libres = cap - sum(1 for i in its if i["estado"] in VIVOS)
-                for it in [i for i in its if i["estado"] in ENVIABLES][:max(0, libres)]:
+                for it in [i for i in its if i["estado"] in ENVIABLES and self.enviable(i)][:max(0, libres)]:
                     if self.parando or q.flag("stop_actions"): break
                     self.enviar(self.item(it["clave"]))
             self.panel()
             its = self.items()
             tope_dia = self.enviados_hoy() >= int(self.cfg.get("max_envios_dia", 12))
-            pendientes = [i for i in its if i["estado"] in VIVOS + (() if tope_dia else ENVIABLES)]  # con el tope diario agotado, lo enviable espera a manana (no es trabajo)
-            if tope_dia and not self.parando and not pendientes and any(i["estado"] in ENVIABLES for i in its) and time.time() - ult_idle > 600:
+            pendientes = [i for i in its if i["estado"] in VIVOS or (i["estado"] in ENVIABLES and not tope_dia and self.enviable(i))]  # con el tope diario agotado, lo enviable espera a manana (no es trabajo)
+            if tope_dia and not self.parando and not pendientes and any(i["estado"] in ENVIABLES and self.enviable(i) for i in its) and time.time() - ult_idle > 600:
                 self.log(f"Tope diario de envios a Actions alcanzado ({self.cfg.get('max_envios_dia', 12)}): lo validado queda en cola para manana"); ult_idle = time.time()
             if nuevos or (pendientes and gh_ok):
                 if pendientes and not nuevos: self.esperar(self.cfg["poll_s"])
@@ -550,7 +558,9 @@ def main(q, a=None):
         q.set_flag("stop_actions", False)
         AUTORIZADO = True
         try:
-            lo = Ejecutor(q, cfg={"panel": sys.stdout.isatty(), "limite": getattr(a, "limite", None), "continuo": bool(getattr(a, "continuo", False))}); lo.interactivo = sys.stdin.isatty()
+            cfg = {"panel": sys.stdout.isatty(), "limite": getattr(a, "limite", None), "continuo": bool(getattr(a, "continuo", False)), "solo": getattr(a, "solo", None)}
+            if getattr(a, "concurrencia", None): cfg["concurrencia"] = a.concurrencia
+            lo = Ejecutor(q, cfg=cfg); lo.interactivo = sys.stdin.isatty()
             instalar_parada(lo); return lo.ejecutar()
         finally: AUTORIZADO = False
 

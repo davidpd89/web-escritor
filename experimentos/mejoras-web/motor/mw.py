@@ -508,6 +508,7 @@ def cmd_reintentar(a):
                 set_estado(c, e["id"], "investigado" if prev == "contraste" else "parche_listo", "reintento manual tras fallo de Claude")
             else:
                 set_estado(c, e["id"], "aprobado", "reintento manual del desarrollo")
+                c.execute("UPDATE jobs SET estado='reintentado' WHERE tipo='D' AND area=? AND estado='error'", (e["id"],))  # historial: ya no cuentan como errores vivos
                 investigar.encolar_desarrollo(c, e["id"], problemas=[f"intento anterior fallido: {(e['motivo'] or '')[:300]}"])
             n_exp += 1
         n_rev = 0
@@ -538,7 +539,7 @@ def main(argv=None):
     s.add_parser("servicio").set_defaults(f=cmd_servicio)
     pa = s.add_parser("parar"); pa.add_argument("--cerrar-edge", action="store_true"); pa.set_defaults(f=cmd_parar)
     e = s.add_parser("estado"); e.add_argument("--completo", action="store_true"); e.set_defaults(f=cmd_estado)
-    x = s.add_parser("ejecutar-actions"); x.add_argument("--continuo", action="store_true"); x.add_argument("--limite", type=int); x.set_defaults(f=cmd_ejecutar_actions)
+    x = s.add_parser("ejecutar-actions"); x.add_argument("--continuo", action="store_true"); x.add_argument("--limite", type=int); x.add_argument("--solo", help="IDs separados por comas: unicamente esos expedientes (prueba controlada)"); x.add_argument("--concurrencia", type=int); x.set_defaults(f=cmd_ejecutar_actions)
     v = s.add_parser("validar"); v.add_argument("id", nargs="?"); v.set_defaults(f=cmd_validar)
     pr = s.add_parser("pr"); pr.add_argument("id"); pr.add_argument("--confirmar", action="store_true"); pr.add_argument("--solo-local", action="store_true"); pr.set_defaults(f=cmd_pr)
     vp = s.add_parser("vista-previa"); vp.add_argument("id", nargs="?"); vp.add_argument("--puerto", type=int, default=8766); vp.add_argument("--sin-abrir", action="store_true"); vp.set_defaults(f=cmd_vista_previa)

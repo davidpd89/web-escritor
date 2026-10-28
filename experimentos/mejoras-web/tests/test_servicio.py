@@ -134,6 +134,13 @@ class Reintentar(util.Caso):
         self.assertEqual(self.c.execute("SELECT estado FROM expedientes WHERE id='MW-0005'").fetchone()[0], "parche_listo")
         self.assertEqual(self.c.execute("SELECT estado FROM expedientes WHERE id='MW-0003'").fetchone()[0], "parche_rechazado")  # los rechazos reales se respetan
 
+    def test_los_errores_viejos_dejan_de_contarse_como_vivos(self):
+        self.exp_preparado("MW-0001", estado="fallo_desarrollo")
+        self.c.execute("INSERT INTO jobs(clave,tipo,area,estado,error,creado,actualizado) VALUES('D:MW-0001:1','D','MW-0001','error','x',?,?)", (mw.now(), mw.now())); self.c.commit()
+        self.assertIn("en ERROR 1", informe.texto(mw)); mw.cmd_reintentar(NS(id=None))
+        self.assertEqual(self.c.execute("SELECT estado FROM jobs WHERE clave='D:MW-0001:1'").fetchone()[0], "reintentado")
+        self.assertIn("en ERROR 0", informe.texto(mw))
+
     def test_con_id_solo_toca_ese_expediente(self):
         self.exp_preparado("MW-0001", estado="fallo_desarrollo"); self.exp_preparado("MW-0002", estado="fallo_desarrollo")
         mw.cmd_reintentar(NS(id="MW-0002"))
@@ -235,6 +242,13 @@ class Informe(util.Caso):
         for esperado in ("Preparados (esperan EJECUTAR): 1", "Descartados por Claude / duplicados / manual: 1", "Finalizados OK en Actions: 1", "mejoras-web/mw-0003 @ abcdef012345",
                          "https://github.com/o/r/actions/runs/55", "0.123 USD", "en ERROR 1", "chat inaccesible", "LISTO PARA PR: MW-0003", "Proximo para EJECUTAR: MW-0001", "Grupos en GitHub ahora: 0/3"):
             self.assertIn(esperado, t)
+
+
+class ActividadReciente(util.Caso):
+    def test_estado_ensena_lo_que_ha_ido_pasando(self):
+        self.exp_preparado("MW-0001", estado="investigado"); mw.set_estado(self.c, "MW-0001", "aprobado", "ok"); mw.set_estado(self.c, "MW-0001", "preparado", "ok")
+        t = informe.texto(mw)
+        self.assertIn("Actividad reciente", t); self.assertIn("MW-0001 -> preparado", t); self.assertIn("MW-0001 -> aprobado", t)
 
 
 class Preflight(util.Caso):

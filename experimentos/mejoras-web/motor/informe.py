@@ -46,13 +46,20 @@ def _texto(q, c, completo):
     otros = {e: k for e, k in por.items() if e not in cubiertos}
     if otros: L.append("  - Otros: " + ", ".join(f"{e} {k}" for e, k in otros.items()))
     L.append(f"  Total expedientes: {sum(por.values())}")
+    # actividad reciente: lo que ha ido pasando (para ver que el sistema trabaja)
+    ev = c.execute("SELECT h.fecha, h.exp, h.estado, h.detalle, e.titulo FROM historial h LEFT JOIN expedientes e ON e.id=h.exp ORDER BY h.rowid DESC LIMIT ?", (30 if completo else 10,)).fetchall()
+    L += ["", f"Actividad reciente (ultimos {len(ev)} movimientos):"]
+    for r in ev: L.append(f"  {r['fecha'][5:16].replace('T', ' ')}  {r['exp']} -> {r['estado']}" + (f"  [{(r['titulo'] or '')[:50]}]" if r["titulo"] else ""))
+    if not ev: L.append("  (ninguna todavia)")
     # rotacion
     pares = n("SELECT COUNT(*) FROM pares"); vueltas = c.execute("SELECT MIN(veces) FROM pares").fetchone()[0] if pares else 0
     L += ["", f"Descubrimiento: {n('SELECT COALESCE(SUM(veces),0) FROM pares')} rondas hechas | pares area x lente tocados {pares} | vuelta completa n.{(vueltas or 0) + 1} (no se agota: cada vuelta reordena)"]
     # jobs / GPT
-    jp = dict(c.execute("SELECT estado, COUNT(*) FROM jobs GROUP BY estado").fetchall())
+    # errores VIVOS: de investigacion, o de desarrollo de un expediente que sigue en fallo_desarrollo (los de expedientes ya recuperados/resueltos son historial)
+    vivos_err = "estado='error' AND (tipo='I' OR area IN (SELECT id FROM expedientes WHERE estado='fallo_desarrollo'))"
+    jp = dict(c.execute("SELECT estado, COUNT(*) FROM jobs GROUP BY estado").fetchall()); jp["error"] = n(f"SELECT COUNT(*) FROM jobs WHERE {vivos_err}")
     L += [f"Cola GPT: pendientes {jp.get('pendiente', 0)} | en curso {jp.get('en_curso', 0)} | hechos {jp.get('hecho', 0)} | en ERROR {jp.get('error', 0)} | consultas hoy {n('SELECT COUNT(*) FROM peticiones WHERE fecha=?', q.today())}"]
-    for r in c.execute("SELECT clave, error FROM jobs WHERE estado='error' ORDER BY id DESC LIMIT 5"): L.append(f"    ERROR job {r['clave']}: {(r['error'] or '')[:130]}")
+    for r in c.execute(f"SELECT clave, error FROM jobs WHERE {vivos_err} ORDER BY id DESC LIMIT 5"): L.append(f"    ERROR job {r['clave']}: {(r['error'] or '')[:130]}")
     for r in c.execute("SELECT clave, chat_id, error FROM jobs WHERE estado='pendiente' AND chat_id IS NOT NULL AND fase='generando'"): L.append(f"    reanudable: {r['clave']} chat {r['chat_id'][:8]}")
     # Claude
     cl = claude_cli.resumen_consumo(c); hoy = claude_cli.gasto_hoy(c, q.today()); tope = q.CFG["claude"].get("max_usd_dia")

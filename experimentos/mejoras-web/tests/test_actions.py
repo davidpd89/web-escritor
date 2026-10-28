@@ -274,6 +274,31 @@ class EnvioYRecogida(Base):
         self.assertEqual(self.c.execute("SELECT estado FROM cola").fetchone()[0], "remoto_ok")
 
 
+class SoloLoValidado(Base):
+    def test_no_se_envia_lo_que_ya_tiene_pr_o_fue_descartado(self):
+        c1, c2, c3 = self.item_validado(1), self.item_validado(2), self.item_validado(3)
+        self.c.execute("UPDATE expedientes SET estado='pr_borrador' WHERE id='MW-0001'"); self.c.execute("UPDATE expedientes SET estado='descartado_manual' WHERE id='MW-0002'"); self.c.commit()
+        self.ex.ejecutar()
+        enviados = {l[1] for l in self.gh.llamadas if l[0] == "dispatch"}
+        self.assertEqual(enviados, {SHA(3)})  # MW-0001 ya tiene PR (p. ej. #972/#973) y MW-0002 se descarto: ni un run de Actions
+
+    def test_solo_limita_a_los_expedientes_indicados_y_la_concurrencia_se_puede_bajar(self):
+        for n in range(1, 5): self.item_validado(n)
+        ex = self.nuevo_ejecutor(solo="mw-0003", concurrencia=1); ex.ejecutar()
+        self.assertEqual([l[1] for l in self.gh.llamadas if l[0] == "dispatch"], [SHA(3)])
+        self.assertEqual(self.gh.vivos_max, 1)
+
+    def test_solo_tambien_limita_la_validacion_local(self):
+        self.exp_preparado("MW-0001"); self.exp_preparado("MW-0002")
+        ex = self.nuevo_ejecutor(solo="MW-0002", gh=actions._SinGh()); ex.capturar()
+        self.assertEqual([r["exp"] for r in self.c.execute("SELECT exp FROM cola")], ["MW-0002"])
+
+    def test_cli_acepta_solo_y_concurrencia(self):
+        with mock.patch.object(actions, "Ejecutor") as E:
+            E.return_value.ejecutar.return_value = 0; actions.main(mw, mock.Mock(limite=None, continuo=False, solo="MW-0007", concurrencia=1))
+        cfg = E.call_args.kwargs["cfg"]; self.assertEqual((cfg["solo"], cfg["concurrencia"]), ("MW-0007", 1))
+
+
 class WorkflowRef(Base):
     def test_config_apunta_a_la_rama_de_integracion_y_no_a_una_de_desarrollo(self):
         self.assertEqual(mw.CFG["workflow_ref"], "lab/mejoras-web-20261024")
