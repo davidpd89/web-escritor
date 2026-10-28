@@ -105,12 +105,24 @@ class Gh:
 
     def remote_sha(self, rama): return self.remotos().get(rama)
 
-    def push(self, sha, rama):
+    def push(self, sha, rama, reemplazar=None):
+        """Publica `sha` en mejoras-web/<id>. `reemplazar`=sha remoto que se espera encontrar: reescribe SOLO esa rama del laboratorio con --force-with-lease (nunca otra)."""
         if not AUTORIZADO: raise NoAutorizado("push solo desde la accion manual EJECUTAR")
         if not self.q.rama_permitida(rama): raise GhAuthError(f"push bloqueado: solo ramas {self.q.CFG['prefijo_rama']}* (no {rama})")
-        r = self.q.run(["git", "push", "origin", f"{sha}:refs/heads/{rama}"], cwd=self.q.REPO, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=300)
+        forzar = [f"--force-with-lease=refs/heads/{rama}:{reemplazar}"] if reemplazar else []
+        if reemplazar and not re.fullmatch(r"[0-9a-f]{40}", reemplazar): raise GhAuthError("push bloqueado: sha esperado invalido")
+        r = self.q.run(["git", "push", *forzar, "origin", f"{sha}:refs/heads/{rama}"], cwd=self.q.REPO, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=300)
         if r.returncode: raise GhError((r.stderr or r.stdout).strip()[:400])
         self.remotos()[rama] = sha
+
+    def publicar(self, sha, rama, conocidos=()):
+        """Deja `sha` en mejoras-web/<id>. Si la rama ya existe con OTRO commit que este laboratorio creo antes (`conocidos`: p. ej. el candidato previo de un expediente reconstruido
+        tras un conflicto), se reemplaza; si el commit remoto es desconocido NO se sobrescribe (podria ser trabajo de otra persona)."""
+        actual = self.remote_sha(rama)
+        if actual == sha: return
+        if actual is None: return self.push(sha, rama)
+        if actual not in set(conocidos): raise GhAuthError(f"la rama {rama} existe en GitHub con un commit ({actual[:8]}) que este laboratorio no creo: no se sobrescribe")
+        self.push(sha, rama, reemplazar=actual)
 
     def dispatch(self, sha, modo, tests, intento):
         """workflow_dispatch del workflow dedicado en la rama `workflow_ref`. UNICO punto del laboratorio que lanza Actions."""
@@ -253,6 +265,9 @@ class Ejecutor:
             n += 1; self.validar_local(e["id"])
         return n
 
+    def _shas_de(self, exp):
+        return [r["sha"] for r in self.c.execute("SELECT sha FROM cola WHERE exp=?", (exp,)).fetchall()]
+
     def enviable_o_ok(self, it):
         """Item de la cola que aun puede integrarse: su expediente sigue en validado/remoto_ok (no tiene PR ni esta descartado) y respeta --solo."""
         if self.solo and it["exp"] not in self.solo: return False
@@ -278,7 +293,7 @@ class Ejecutor:
             if self.solo and it["exp"] not in self.solo: continue
             if self.parando or self.q.flag("stop_actions"): break
             try:
-                if self.gh.remote_sha(it["rama"]) != it["sha"]: self.gh.push(it["sha"], it["rama"])
+                self.gh.publicar(it["sha"], it["rama"], self._shas_de(it["exp"]))
                 r = self.gh.integrar(it["sha"], it["rama"], f"mejoras-web {it['exp']}: {e['titulo'][:90]}")
                 self.set(it["clave"], "integrado", f"fusionado en {self.q.CFG['rama_base']} ({r}); aparecera en la vista previa de la rama de laboratorio"); n += 1
             except Conflicto as ex:
@@ -414,7 +429,7 @@ class Ejecutor:
             if not prev:
                 if self.enviados_hoy() >= int(self.cfg.get("max_envios_dia", 12)):
                     return self.log(f"Tope diario de envios a Actions alcanzado ({self.cfg.get('max_envios_dia', 12)}): {clave.split('@')[0]} espera a manana")
-                if self.gh.remote_sha(rama) != sha: self.gh.push(sha, rama)
+                self.gh.publicar(sha, rama, self._shas_de(it["exp"]))
                 tests = " ".join(f"{'node' if r.endswith(('.mjs', '.js')) else 'python'}:{r}" for r in json.loads(it["tests"]))
                 self.c.execute("UPDATE cola SET enviado=?, actualizado=? WHERE clave=?", (self.q.now(), self.q.now(), clave)); self.c.commit()
                 despachado = True  # desde aqui un fallo NO vuelve a `validado`: el dispatch pudo haber salido; se busca su run, no se reenvia

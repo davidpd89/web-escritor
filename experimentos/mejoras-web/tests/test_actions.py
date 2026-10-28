@@ -17,6 +17,12 @@ class GhFalso:
     def ok(self): return True
     def remote_sha(self, rama): return self.remotes.get(rama)
 
+    def publicar(self, sha, rama, conocidos=()):
+        actual = self.remotes.get(rama)
+        if actual == sha: return
+        if actual is not None and actual not in set(conocidos): raise actions.GhAuthError("rama remota desconocida")
+        self.push(sha, rama)
+
     def integrar(self, sha, rama, mensaje):
         if not actions.AUTORIZADO: raise actions.NoAutorizado("integrar")
         self.llamadas.append(("integrar", sha, rama, mensaje))
@@ -110,10 +116,11 @@ class GuardasDeGitHub(util.Caso):
     def test_codigo_fuente_sin_ordenes_peligrosas(self):
         """Ningun modulo del laboratorio contiene ordenes que fusionen, cancelen, relancen, borren ramas o toquen main."""
         prohibido = [r'"pr",\s*"merge"', r'"run",\s*"cancel"', r'"run",\s*"rerun"', r"--delete-branch", r"--auto\b", r"--admin", r'"merge"\s*,\s*"--', r"gh\s+workflow\s+run", r'refs/heads/main',
-                     r"origin\s+main\b", r"push\s+--force", r"--force-with-lease", r"gpt-qa/[a-z]"]
+                     r"origin\s+main\b", r"push\s+--force", r"gpt-qa/[a-z]"]
         import re
         for f in sorted(mw.HERE.glob("*.py")):
             texto = f.read_text(encoding="utf-8")
+            if f.name != "actions.py": self.assertNotIn('"push"', texto, f.name)  # el unico `git push` (y el unico que reemplaza una rama, con lease y solo mejoras-web/*) vive en actions.Gh.push
             texto = re.sub(r'"""[\s\S]*?"""', "", texto)  # las docstrings explican lo que se EXCLUYE del QA
             texto = "\n".join(l for l in texto.splitlines() if not l.strip().startswith("#"))
             for pat in prohibido:
@@ -413,6 +420,42 @@ class WorkflowRef(Base):
             mw.CFG["workflow_ref"] = "rama-borrada"; msg = actions.Gh(mw).workflow_disponible()
         self.assertIn("contents/.github/workflows/mejoras-web-grupo.yml?ref=lab/mejoras-web-20261024", " ".join(ordenes[0]))
         self.assertIn("rama-borrada", msg); self.assertIn("workflow_ref", msg)
+
+
+class PublicarRama(util.Caso):
+    """Un expediente reconstruido tras un conflicto publica su NUEVO commit en la misma rama mejoras-web/<id>."""
+    def setUp(self):
+        super().setUp(); self.ordenes = []; actions.AUTORIZADO = True
+        def falso(args, **kw):
+            self.ordenes.append(list(args)); return subprocess.CompletedProcess(args, 0, stdout="", stderr="")
+        p = mock.patch.object(mw, "run", falso); p.start(); self.addCleanup(p.stop); self.gh = actions.Gh(mw); self.gh._remotos = {"mejoras-web/mw-0007": SHA(1)}
+
+    def test_reemplaza_solo_un_commit_que_el_laboratorio_creo_con_force_with_lease(self):
+        self.gh.publicar(SHA(2), "mejoras-web/mw-0007", conocidos=[SHA(1), SHA(2)])
+        o = [x for x in self.ordenes if x[:2] == ["git", "push"]][0]
+        self.assertEqual(o, ["git", "push", f"--force-with-lease=refs/heads/mejoras-web/mw-0007:{SHA(1)}", "origin", f"{SHA(2)}:refs/heads/mejoras-web/mw-0007"])
+
+    def test_no_sobrescribe_un_commit_remoto_desconocido(self):
+        with self.assertRaises(actions.GhAuthError): self.gh.publicar(SHA(2), "mejoras-web/mw-0007", conocidos=[SHA(9)])
+        self.assertFalse([x for x in self.ordenes if x[:2] == ["git", "push"]])
+
+    def test_rama_nueva_o_ya_publicada(self):
+        self.gh.publicar(SHA(1), "mejoras-web/mw-0007", conocidos=[]); self.assertFalse([x for x in self.ordenes if x[:2] == ["git", "push"]])  # ya estaba
+        self.gh.publicar(SHA(3), "mejoras-web/mw-0003"); o = [x for x in self.ordenes if x[:2] == ["git", "push"]][0]
+        self.assertNotIn("--force-with-lease", " ".join(o)); self.assertNotIn("--force", " ".join(o))
+
+    def test_nunca_fuerza_fuera_de_mejoras_web(self):
+        for rama in ("main", "lab/mejoras-web-20261024", "gpt-qa/x"):
+            with self.assertRaises(actions.GhAuthError): self.gh.push(SHA(2), rama, reemplazar=SHA(1))
+        with self.assertRaises(actions.GhAuthError): self.gh.push(SHA(2), "mejoras-web/mw-0007", reemplazar="HEAD")
+        self.assertEqual(self.ordenes, [])
+
+    def test_revision_humana_por_push_rechazado_se_recupera_con_reintentar(self):
+        from types import SimpleNamespace as NS
+        self.c.execute("INSERT INTO expedientes(id,area,lente,titulo,necesidad,estado,datos,creado,actualizado) VALUES('MW-0007','a','1','t','n','revision_humana','{}',?,?)", (mw.now(), mw.now()))
+        self.c.execute("INSERT INTO cola(clave,exp,rama,sha,estado,tests,runs,creado,actualizado) VALUES(?,?,?,?,?,?,?,?,?)", ("mejoras-web/mw-0007@x", "MW-0007", "mejoras-web/mw-0007", SHA(2), "revision_humana", "[]", "{}", mw.now(), mw.now())); self.c.commit()
+        mw.cmd_reintentar(NS(id=None))
+        self.assertEqual(self.c.execute("SELECT estado FROM cola").fetchone()[0], "validado"); self.assertEqual(self.c.execute("SELECT estado FROM expedientes").fetchone()[0], "validado")
 
 
 class Clasificacion(Base):

@@ -536,6 +536,13 @@ def cmd_reintentar(a):
                 c.execute("UPDATE jobs SET estado='reintentado' WHERE tipo='D' AND area=? AND estado='error'", (e["id"],))  # historial: ya no cuentan como errores vivos
                 investigar.encolar_desarrollo(c, e["id"], problemas=[f"intento anterior fallido: {(e['motivo'] or '')[:300]}"])
             n_exp += 1
+        # items de la cola parados en revision humana por un push rechazado de una rama reconstruida: vuelven a validado (publicar() ya sabe reemplazarla)
+        n_cola = 0
+        for it in c.execute("SELECT clave, exp FROM cola WHERE estado='revision_humana'").fetchall():
+            if ids and it["exp"] not in ids: continue
+            c.execute("UPDATE cola SET estado='validado', detalle='reintento manual tras revision humana', actualizado=? WHERE clave=?", (now(), it["clave"]))
+            c.execute("UPDATE expedientes SET estado='validado' WHERE id=? AND estado='revision_humana'", (it["exp"],)); n_cola += 1
+        c.commit()
         n_rev = 0
         for e in c.execute("SELECT id FROM expedientes WHERE estado='parche_rechazado' AND (motivo LIKE '%trunca%' OR motivo LIKE '%truncad%')").fetchall():
             if ids and e["id"] not in ids: continue
@@ -544,7 +551,7 @@ def cmd_reintentar(a):
         if not ids:
             n_job = c.execute("UPDATE jobs SET estado='pendiente', intentos=0, no_antes=NULL, error=NULL, chat_id=NULL, fase=NULL, respuesta=NULL, actualizado=? WHERE estado='error' AND tipo='I'", (now(),)).rowcount
             c.commit()
-        print(f"Reencolados: {n_exp} expediente(s) a desarrollo, {n_rev} a revision de Claude (rechazados por test truncado) y {n_job} job(s) de investigacion. El investigador en marcha los recoge solo (no hace falta reiniciar).")
+        print(f"Reencolados: {n_exp} expediente(s) a desarrollo, {n_rev} a revision de Claude (rechazados por test truncado) {n_cola} item(s) de la cola parados en revision humana y {n_job} job(s) de investigacion. El investigador en marcha los recoge solo (no hace falta reiniciar).")
         return 0
     finally: c.close()
 
