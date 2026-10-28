@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""build-support-page.py: sin enlace no hay ruta; con enlace válido cumple el gate de activación."""
+"""build-support-page.py: sin canales no hay ruta; con canales válidos cumple el gate de activación."""
 from __future__ import annotations
 
 import importlib.util
+import json
 import shutil
+import sys
 import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
 
 
 def load(name: str, rel: str):
@@ -18,30 +21,39 @@ def load(name: str, rel: str):
 
 
 builder = load("build_support_page", "scripts/build-support-page.py")
+channels_mod = load("support_channels_test", "scripts/support_channels.py")
 gate = load("support_gate", "tests/test-support-release-gate.py")
 
-assert builder.check(ROOT) == [], "el repositorio sin enlace debe estar en estado no activado"
+assert builder.check(ROOT) == [], "el repositorio debe estar coherente: sin canales no hay ruta; con canales, la página al día"
 assert gate.release_errors(ROOT) == []
+
+for kind, bad in (("paypal_me", "https://www.paypal.me/ab"), ("paypal_me", "https://www.paypal.me.evil.test/davidp"),
+                  ("kofi", "http://ko-fi.com/david"), ("kofi", "https://ko-fi.com/david?x=1"),
+                  ("buymeacoffee", "https://www.buymeacoffee.com/"), ("liberapay", "https://liberapay.com/a"),
+                  ("paypal_link", "https://www.paypal.com/ncp/payment/ABC?x=1"), ("stripe", "https://buy.stripe.com/test_ABC"),
+                  ("desconocido", "https://example.com/x")):
+    try:
+        channels_mod.validate_channel(kind, bad)
+    except ValueError:
+        continue
+    raise AssertionError(f"canal no válido aceptado: {kind} {bad}")
 
 with tempfile.TemporaryDirectory() as td:
     root = Path(td)
     (root / "data").mkdir()
     for name in ("content-registry.json", "navigation.json"):
         shutil.copy(ROOT / "data" / name, root / "data" / name)
-    for bad in ("https://www.paypal.com.evil.test/ncp/payment/ABC", "http://www.paypal.com/ncp/payment/ABC",
-                "https://www.paypal.me/alguien", "https://www.paypal.com/ncp/payment/ABC?x=1"):
-        try:
-            builder.activate(root, bad)
-        except ValueError:
-            continue
-        raise AssertionError("URL no válida aceptada: " + bad)
-    assert not (root / "apoyar").exists()
-    builder.activate(root, "https://www.paypal.com/ncp/payment/ABC123")
-    builder.activate(root, "https://www.paypal.com/ncp/payment/ABC123")  # idempotente
+    channels = [{"type": "paypal_me", "url": "https://www.paypal.me/davidporto"},
+                {"type": "kofi", "url": "https://ko-fi.com/davidporto"}]
+    builder.activate(root, channels)
+    builder.activate(root, channels)  # idempotente
     assert gate.release_errors(root) == [], gate.release_errors(root)
     assert builder.check(root) == []
     html = (root / "apoyar/index.html").read_text(encoding="utf-8")
-    assert html.count("support-method") >= 1 and "noindex" not in html
-    registry = builder.read_json(root / "data/content-registry.json")
+    assert html.count("support-method") >= 2 and "noindex" not in html
+    for amount in (2, 5, 10):  # importes rápidos solo en PayPal.me
+        assert f"https://www.paypal.me/davidporto/{amount}EUR" in html
+    assert html.count("support-amount") >= 3 and "ko-fi.com/davidporto/" not in html
+    registry = json.loads((root / "data/content-registry.json").read_text(encoding="utf-8"))
     assert sum(e["id"] == "support-project" for e in registry["entries"]) == 1
-print("PASS: /apoyar/ solo existe con un enlace de PayPal válido y cumple el gate")
+print("PASS: /apoyar/ multicanal solo existe con canales válidos y cumple el gate")

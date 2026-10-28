@@ -25,6 +25,22 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 NAV_PATH = ROOT / "data" / "navigation.json"
+
+
+def support_active() -> bool:
+    """El icono de apoyo solo existe cuando hay al menos un canal de cobro configurado."""
+    path = ROOT / "data" / "support-links.json"
+    try:
+        config = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return False
+    return bool(config.get("channels") or config.get("paypal_url"))
+
+
+SUPPORT_LINK = (
+    '      <a class="header-donate" href="/apoyar/" aria-label="Donar: apoyar el proyecto" title="Apoyar el proyecto">'
+    'Donar</a>\n'
+)
 REGISTRY_PATH = ROOT / "data" / "content-registry.json"
 EXTRAS_PATH = ROOT / "data" / "site-shell-extras.json"
 
@@ -439,12 +455,11 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
         '      </button>\n'
         '    </div>\n'
         '    <div class="site-header__actions">\n'
-        '      <a class="header-contact header-social" href="/redes-sociales/" aria-label="Redes sociales" title="Redes sociales">\n'
-        '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><circle cx="6" cy="12" r="2.2"/><circle cx="18" cy="6" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="m8 11 8-4M8 13l8 4"/></svg>\n'
-        '      </a>\n'
+        '      <a class="header-social" href="/redes-sociales/" aria-label="Redes sociales" title="Redes sociales">RRSS</a>\n'
         '      <a class="header-contact" href="/prensa.html#contacto" aria-label="Contactar" title="Contactar">\n'
         '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M4 6.5h16v11H4z"/><path d="m4.5 7 7.5 6 7.5-6"/></svg>\n'
         '      </a>\n'
+        f"{SUPPORT_LINK if support_active() else ''}"
         f"{buy_link}"
         '    </div>\n'
         '  </div>\n'
@@ -640,6 +655,30 @@ def footer_groups_with_extras(nav: dict, by_id: dict[str, Entry], extras: dict, 
     return groups
 
 
+# Aviso sutil de apoyo al final de cada página: una frase por sección, nunca un banner.
+SUPPORT_NUDGES = (
+    ("/recomendaciones/", "¿Te han servido estas recomendaciones? Si quieres que siga creando más guías y herramientas,"),
+    ("/editoriales/", "¿Te ha ayudado esta guía de editoriales? Si quieres que pueda seguir ampliándola,"),
+    ("/convocatorias-escritores/", "¿Te ha ayudado esta lista de convocatorias? Si quieres que siga actualizándose,"),
+    ("/premios", "¿Te ha ayudado esta lista de premios? Si quieres que siga actualizándose,"),
+    ("/atlas-literario/", "¿Te ha ayudado el Atlas literario? Si quieres que pueda seguir sumando lugares,"),
+    ("/herramientas/", "¿Te ha ayudado esta herramienta? Si quieres que pueda seguir creando más,"),
+    ("/cuaderno/", "¿Te ha ayudado este artículo? Si quieres que pueda seguir escribiendo más,"),
+)
+SUPPORT_NUDGE_DEFAULT = "¿Te ha ayudado la web? Si quieres colaborar para que pueda seguir creando más opciones,"
+
+
+def render_support_nudge(current_path: str) -> str:
+    """Frase discreta con enlace a /apoyar/ (solo si hay canales de cobro y no en /apoyar/ misma)."""
+    if not support_active() or current_path.startswith("/apoyar"):
+        return ""
+    text = next((t for prefix, t in SUPPORT_NUDGES if current_path.startswith(prefix)), SUPPORT_NUDGE_DEFAULT)
+    return (
+        f'  <p class="footer-support">{text} '
+        '<a href="/apoyar/">puedes apoyar el proyecto</a>.</p>\n'
+    )
+
+
 def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: str, current_path: str) -> str:
     groups = footer_groups_with_extras(nav, by_id, extras, rel_path)
     cols: list[str] = [
@@ -663,7 +702,8 @@ def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: st
         '  <div class="site-footer__grid">\n'
         + "\n".join(cols)
         + '\n  </div>\n'
-        '  <p class="footer-legal">\n'
+        + render_support_nudge(current_path)
+        + '  <p class="footer-legal">\n'
         + "\n".join(legal)
         + '\n  </p>\n'
         '</footer>\n'

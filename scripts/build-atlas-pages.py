@@ -43,10 +43,10 @@ SITE = _topics.SITE
 
 ATLAS_URL = f"{SITE}/atlas-literario/"
 CSS_OLD = '<link rel="stylesheet" href="/assets/v1-cuaderno-topics.css?v=1"><link rel="stylesheet" href="/assets/cuaderno-index.css?v=1">'
-CSS_PAGE = '<link rel="stylesheet" href="/assets/v1-atlas.css?v=3">'
+CSS_PAGE = '<link rel="stylesheet" href="/assets/v1-atlas.css?v=4">'
 CSS_HUB = (
     '<link rel="stylesheet" href="/assets/v1-tools.css?v=5"><link rel="stylesheet" href="/assets/v1-recommendations.css?v=2">'
-    '<link rel="stylesheet" href="/assets/reading-catalogue.css?v=14"><link rel="stylesheet" href="/assets/v1-atlas.css?v=3">'
+    '<link rel="stylesheet" href="/assets/reading-catalogue.css?v=14"><link rel="stylesheet" href="/assets/v1-atlas.css?v=4">'
 )
 HUB_SCRIPT = '<script defer src="/assets/atlas-catalogue.js?v=2"></script>'
 LABELS = ("hecho", "tradicion", "atribucion", "ficcion")
@@ -79,6 +79,8 @@ KIND_LABEL = {"destination": "Destino", "place": "Lugar", "route": "Ruta"}
 
 class ValidationError(Exception):
     pass
+
+
 
 
 def norm(text: str) -> str:
@@ -225,16 +227,11 @@ def breadcrumb_html(items: list[tuple[str, str | None]]) -> str:
     return _topics.render_breadcrumb(items).replace("cuaderno-topics-breadcrumb", "atlas-breadcrumb")
 
 
-def hero(eyebrow: str, title: str, lead: str, count: int | None, count_label: str) -> str:
-    folio = (
-        f'<aside class="atlas-hero__folio" aria-label="{esc(count_label)}"><strong>{count:02d}</strong><span>{esc(count_label)}</span></aside>'
-        if count is not None
-        else ""
-    )
+def hero(eyebrow: str, title: str, lead: str) -> str:
+    """Mismo encabezado que el resto de catálogos (libros, autores, editoriales): .catalogue-hero."""
     return (
-        '<header class="atlas-hero"><div class="atlas-hero__copy">'
-        f'<p class="eyebrow">{esc(eyebrow)}</p><h1>{esc(title)}</h1>'
-        f'<p class="atlas-hero__lead">{esc(lead)}</p></div>{folio}</header>'
+        '<header class="catalogue-hero">'
+        f'<p class="eyebrow">{esc(eyebrow)}</p><h1>{esc(title)}</h1><p>{esc(lead)}</p></header>'
     )
 
 
@@ -407,11 +404,6 @@ def render_hub(atlas: Atlas, cards: list[dict]) -> str:
     )
     grid = "".join(render_card(c, i) for i, c in enumerate(cards))
     n = len(cards)
-    rule = (
-        '<p class="atlas-rule">Cada ficha indica qué es un hecho documentado y qué es tradición, atribución sin '
-        'documentar o ficción. Los lugares sin ficha propia remiten a su destino o a su ruta. '
-        'Cómo trabajamos está en la <a href="/metodologia-editorial/">metodología editorial</a>.</p>'
-    )
     section = (
         '<section class="catalogue-section" id="catalogo" aria-label="Buscar en el Atlas literario">'
         '<div class="catalogue-layout"><aside class="catalogue-sidebar">'
@@ -442,10 +434,9 @@ def render_hub(atlas: Atlas, cards: list[dict]) -> str:
     main = (
         '<main id="contenido" tabindex="-1" class="v1-main reading-catalogue atlas-catalogue" data-family="atlas">'
         + breadcrumb_html([("Inicio", "/"), ("Atlas literario", None)])
-        + hero("Atlas literario", "El mundo de los libros también existe fuera de las páginas",
-               "Lugares reales donde la literatura se puede visitar, con fuentes y sin mezclar el dato con el mito.",
-               n, "entradas en el atlas")
-        + rule + section
+        + hero("Lugares reales", "Atlas literario",
+               "Bibliotecas, librerías, casas de escritores y rutas que se pueden visitar, con fuentes y la certeza de cada dato.")
+        + section
         + f'<section class="atlas-tail"><p>Revisión del Atlas: <time datetime="{esc(atlas.ed["verified"])}">{esc(atlas.ed["verified"])}</time></p>'
         + '<p><a href="/recomendaciones/">Libros recomendados</a></p></section></main>'
     )
@@ -530,7 +521,7 @@ def render_entry(atlas: Atlas, slug: str) -> str:
     main = (
         '<main id="contenido" tabindex="-1" class="v1-main" data-family="atlas">'
         + breadcrumb_html([("Inicio", "/"), ("Atlas literario", "/atlas-literario/"), (page["title"], None)])
-        + hero(f"{KIND_LABEL[kind]} · {page['country_label']}", page["title"], page["lead"], None, "")
+        + hero(f"{KIND_LABEL[kind]} · {page['country_label']}", page["title"], page["lead"])
         + f'<div class="atlas-article"><div class="atlas-article__main" data-pagefind-filter="atlas_entity:{kind}">{sections}</div>'
         + f'<aside class="atlas-aside" aria-label="Datos de la ficha">{"".join(aside)}</aside></div>'
         + f'<section class="atlas-tail"><p>Datos revisados el <time datetime="{esc(atlas.ed["verified"])}">{esc(atlas.ed["verified"])}</time>. '

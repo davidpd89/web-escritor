@@ -51,6 +51,7 @@ for (const viewport of viewports) {
   for (const image of await page.locator('img').all()) {
     await image.scrollIntoViewIfNeeded();
   }
+  await page.waitForFunction(() => [...document.images].every((img) => img.complete), null, { timeout: 15000 }).catch(() => {});
   await page.waitForTimeout(150);
 
   const state = await page.evaluate(() => ({

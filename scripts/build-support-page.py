@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Activa o comprueba la página pública /apoyar/ (aportación voluntaria).
+"""Activa o comprueba la página pública /apoyar/ (aportación voluntaria) con varios canales.
 
-Sin enlace de cobro configurado no existe la ruta ni se enlaza en la web. El
-titular crea un PayPal Payment Link «Customer-set price» en su cuenta Business
-y lo registra aquí; la forma de la URL se valida, la titularidad no.
+Sin ningún canal configurado no existe la ruta ni se enlaza en la web. Con uno o más
+(PayPal.me personal, Ko-fi, Buy Me a Coffee, Liberapay, PayPal Payment Link, Stripe) se
+genera la página, se añade al pie y aparece el icono de apoyo en la cabecera. La forma de
+cada URL se valida; la titularidad y el cobro los comprueba la persona titular.
 
 Uso:
-  python scripts/build-support-page.py --paypal-url https://www.paypal.com/ncp/payment/ID
+  python scripts/build-support-page.py --add paypal_me=https://www.paypal.me/usuario --add kofi=https://ko-fi.com/usuario
   python scripts/build-support-page.py --check
 """
 from __future__ import annotations
@@ -21,7 +22,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
 from site_shell import inject_shell_auto  # noqa: E402
-from support_paypal_link import render_paypal_support_link, validate_paypal_payment_link  # noqa: E402
+from support_channels import render_channels, validate_config, validate_channel  # noqa: E402
 
 LINKS = "data/support-links.json"
 PAGE = "apoyar/index.html"
@@ -38,8 +39,14 @@ DESCRIPTION = (
 )
 
 
-def render(paypal_url: str) -> str:
-    methods = render_paypal_support_link(paypal_url)
+META_DESCRIPTION = (
+    "Si las herramientas, guías y recursos de esta web te han resultado útiles, "
+    "puedes hacer una aportación voluntaria para que siga creciendo."
+)
+
+
+def render(channels: list[dict]) -> str:
+    methods = render_channels(channels)
     source = f"""<!doctype html>
 <html lang="es" class="v1">
 <head>
@@ -49,15 +56,41 @@ def render(paypal_url: str) -> str:
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <link rel="canonical" href="https://davidportodiaz.com/apoyar/" />
   <title>Apoya este proyecto | David Porto Díaz</title>
-  <meta name="description" content="{DESCRIPTION}" />
+  <meta name="description" content="{META_DESCRIPTION}" />
+  <meta property="og:title" content="Apoya este proyecto | David Porto Díaz" />
+  <meta property="og:description" content="{META_DESCRIPTION}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://davidportodiaz.com/apoyar/" />
+  <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.jpg" />
+  <meta property="og:image:width" content="1731" />
+  <meta property="og:image:height" content="909" />
+  <meta property="og:image:alt" content="Apoya este proyecto | David Porto Díaz" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="David Porto Díaz" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Apoya este proyecto | David Porto Díaz" />
+  <meta name="twitter:description" content="{META_DESCRIPTION}" />
+  <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.jpg" />
+  <meta name="twitter:image:alt" content="Apoya este proyecto | David Porto Díaz" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="stylesheet" href="/assets/v1-fonts.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-tokens.css?v=1" />
   <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
-  <link rel="stylesheet" href="/assets/v1-shell.css?v=7" />
+  <link rel="stylesheet" href="/assets/v1-shell.css?v=8" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
-  <link rel="stylesheet" href="/assets/v1-support.css?v=1" />
+  <link rel="stylesheet" href="/assets/v1-support.css?v=2" />
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://davidportodiaz.com/apoyar/#page",
+    "url": "https://davidportodiaz.com/apoyar/",
+    "name": "Apoya este proyecto",
+    "inLanguage": "es",
+    "isPartOf": {{"@id": "https://davidportodiaz.com/#website"}}
+  }}
+  </script>
 </head>
 <body data-back-to-top>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
@@ -69,13 +102,13 @@ def render(paypal_url: str) -> str:
       <h1 id="support-title">Apoya este proyecto</h1>
       <p class="support-page__lead">{DESCRIPTION} Gracias por leer y utilizar este espacio.</p>
       <div class="support-methods">{methods}</div>
-      <p class="support-page__note">El pago se completa en la plataforma elegida. Nosotros no recogemos datos de tarjeta en esta web.</p>
+      <p class="support-page__note">Elige el canal que te resulte más cómodo. El pago se completa en la plataforma elegida; nosotros no recogemos datos de tarjeta ni guardamos ningún dato de tu aportación en esta web.</p>
       <p class="support-page__legal">La aportación es voluntaria y única, no da acceso a ningún contenido extra ni es una donación benéfica. Esta web también incluye enlaces de afiliado de Amazon, como se explica en el aviso legal.</p>
       <p class="support-page__legal"><a href="/privacidad.html">Privacidad</a> · <a href="/aviso-legal.html">Aviso legal</a></p>
     </section>
   </main>
   <footer class="site-footer"></footer>
-  <script src="/assets/v1-shell.js" defer></script>
+  <script src="/assets/v1-shell.js?v=26" defer></script>
 </body>
 </html>
 """
@@ -90,16 +123,25 @@ def write_json(path: Path, data) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def configured_url(root: Path) -> str:
+def configured_channels(root: Path) -> list[dict]:
+    """Canales configurados; admite el formato anterior (`paypal_url`)."""
     path = root / LINKS
-    return (read_json(path).get("paypal_url") or "") if path.is_file() else ""
+    if not path.is_file():
+        return []
+    config = read_json(path)
+    channels = list(config.get("channels") or [])
+    if config.get("paypal_url"):
+        channels.append({"type": "paypal_link", "url": config["paypal_url"]})
+    return channels
 
 
-def activate(root: Path, url: str) -> None:
-    validate_paypal_payment_link(url)
-    write_json(root / LINKS, {"schema_version": 1, "paypal_url": url})
+def activate(root: Path, channels: list[dict]) -> None:
+    validate_config({"channels": channels})
+    if not channels:
+        raise ValueError("Indica al menos un canal")
+    write_json(root / LINKS, {"schema_version": 2, "channels": channels})
     (root / "apoyar").mkdir(exist_ok=True)
-    (root / PAGE).write_text(render(url), encoding="utf-8")
+    (root / PAGE).write_text(render(channels), encoding="utf-8")
     reg_path = root / "data/content-registry.json"
     registry = read_json(reg_path)
     if not any(e.get("id") == ENTRY_ID for e in registry["entries"]):
@@ -114,21 +156,21 @@ def activate(root: Path, url: str) -> None:
 
 
 def check(root: Path) -> list[str]:
-    url = configured_url(root)
+    channels = configured_channels(root)
     registry = read_json(root / "data/content-registry.json")
     nav = read_json(root / "data/navigation.json")
     listed = any(e.get("id") == ENTRY_ID for e in registry["entries"])
     linked = ENTRY_ID in nav["footer"].get("Información", [])
     page = root / PAGE
-    if not url:
-        return [f"{what} sin enlace de cobro" for what, on in
+    if not channels:
+        return [f"{what} sin canal de apoyo" for what, on in
                 (("apoyar/index.html", page.exists()), ("registro", listed), ("pie", linked)) if on]
     try:
-        validate_paypal_payment_link(url)
+        validate_config({"channels": channels})
     except ValueError as exc:
         return [str(exc)]
     errors = []
-    if not page.is_file() or page.read_text(encoding="utf-8") != render(url):
+    if not page.is_file() or page.read_text(encoding="utf-8") != render(channels):
         errors.append("apoyar/index.html desactualizado: ejecuta scripts/build-support-page.py")
     if not (listed and linked):
         errors.append("falta la entrada del registro o del pie")
@@ -137,20 +179,27 @@ def check(root: Path) -> list[str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--paypal-url")
+    parser.add_argument("--add", action="append", default=[], metavar="TIPO=URL",
+                        help="Añade un canal: paypal_me, kofi, buymeacoffee, liberapay, paypal_link o stripe")
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
-    if args.paypal_url:
-        activate(ROOT, args.paypal_url)
+    if args.add:
+        channels = {c["type"]: c for c in configured_channels(ROOT)}
+        for item in args.add:
+            kind, _, url = item.partition("=")
+            validate_channel(kind, url)
+            channels[kind] = {"type": kind, "url": url}
+        activate(ROOT, list(channels.values()))
         for script in ("build-site-shell.py", "build-sitemap.py", "build-pagefind-index.py"):
             subprocess.run([sys.executable, str(HERE / script)], cwd=ROOT, check=True)
         subprocess.run([sys.executable, str(HERE / "check-asset-versions.py"), "--update-hashes"], cwd=ROOT, check=False)
-        print("ACTIVADO: /apoyar/ con el enlace de PayPal indicado")
+        print("ACTIVADO: /apoyar/ con " + ", ".join(sorted(channels)))
         return 0
     errors = check(ROOT)
     for error in errors:
         print("FAIL " + error)
-    print("PASS: " + ("página de apoyo al día" if configured_url(ROOT) else "apoyo no activado (sin enlace de cobro)") if not errors else "")
+    if not errors:
+        print("PASS: " + ("página de apoyo al día" if configured_channels(ROOT) else "apoyo no activado (sin canales)"))
     return 1 if errors else 0
 
 

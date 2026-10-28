@@ -4437,6 +4437,27 @@
       "sourceFile": "atlas-literario/ruta-don-quijote/index.html"
     },
     {
+      "id": "support-project",
+      "url": "/apoyar/",
+      "label": "Apoya este proyecto",
+      "shortLabel": "Apoyar el proyecto",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "home",
+      "hubId": "home",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "writer"
+      ],
+      "jobs": [
+        "apoyar"
+      ],
+      "sourceFile": "apoyar/index.html",
+      "status": "public"
+    },
+    {
       "id": "reading-book-lib-0001",
       "url": "/recomendaciones/libros/coraline/",
       "label": "Coraline",
