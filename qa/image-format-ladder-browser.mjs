@@ -10,7 +10,8 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const MIME = new Map([
   ['.html', 'text/html; charset=utf-8'], ['.css', 'text/css; charset=utf-8'],
-  ['.js', 'text/javascript; charset=utf-8'], ['.webp', 'image/webp'], ['.avif', 'image/avif'],
+  ['.js', 'text/javascript; charset=utf-8'], ['.mjs', 'text/javascript; charset=utf-8'],
+  ['.webp', 'image/webp'], ['.avif', 'image/avif'],
   ['.png', 'image/png'], ['.svg', 'image/svg+xml'], ['.woff2', 'font/woff2'], ['.ico', 'image/x-icon'],
 ]);
 const server = createServer((req, res) => {
@@ -51,6 +52,68 @@ try {
   assert(Math.abs(aspect - 1536 / 1024) < 0.05, `el aspect ratio natural debe conservarse (~1.5), obtenido ${aspect.toFixed(2)}`);
 
   await context.close();
+
+  // MW-0031: verify both editorial instances and the no-JS fallback.
+  for (const javascript of [true, false]) {
+    const samuelContext = await browser.newContext({
+      viewport: { width: 1400, height: 900 },
+      javaScriptEnabled: javascript,
+    });
+    try {
+      const samuelPage = await samuelContext.newPage();
+      const requested = [];
+      samuelPage.on('request', (request) => {
+        if (request.resourceType() === 'image' && /samuel_entre_mundos_3d\.(?:avif|webp)(?:\?|$)/.test(request.url())) {
+          requested.push(request.url());
+        }
+      });
+      await samuelPage.route('**/*', (route) =>
+        route.request().url().startsWith(`${ORIGIN}/`) ? route.continue() : route.abort());
+      await samuelPage.goto(`${ORIGIN}/`, { waitUntil: 'domcontentloaded' });
+      if (javascript) {
+        await samuelPage.locator('html[data-home-editorial-v3="true"]').waitFor();
+      }
+      const selectors = javascript
+        ? [
+            '.yale-tile__media picture > img[src="/assets/samuel_entre_mundos_3d.webp"]',
+            '.yale-feature-book__media picture > img[src="/assets/samuel_entre_mundos_3d.webp"]',
+          ]
+        : ['.promo-band > picture > img[src="/assets/samuel_entre_mundos_3d.webp"]'];
+      for (const selector of selectors) {
+        const image = samuelPage.locator(selector);
+        await image.scrollIntoViewIfNeeded();
+        await samuelPage.waitForFunction((s) => {
+          const img = document.querySelector(s);
+          return Boolean(img && img.complete && img.naturalWidth > 0 &&
+            img.currentSrc.endsWith('/assets/samuel_entre_mundos_3d.avif'));
+        }, selector);
+        const attrs = await image.evaluate((img) => ({
+          source: img.parentElement?.querySelector(':scope > source[type="image/avif"]')?.getAttribute('srcset'),
+          src: img.getAttribute('src'),
+          alt: img.getAttribute('alt'),
+          width: img.getAttribute('width'),
+          height: img.getAttribute('height'),
+          loading: img.getAttribute('loading'),
+          decoding: img.getAttribute('decoding'),
+          currentSrc: img.currentSrc,
+        }));
+        assert.equal(attrs.source, '/assets/samuel_entre_mundos_3d.avif');
+        assert.equal(attrs.src, '/assets/samuel_entre_mundos_3d.webp');
+        assert(attrs.alt, 'Samuel debe conservar un alt descriptivo');
+        assert.equal(attrs.width, '1530');
+        assert.equal(attrs.height, '2400');
+        assert.equal(attrs.loading, javascript && selector.includes('yale-feature-book') ? 'eager' : 'lazy');
+        assert.equal(attrs.decoding, 'async');
+        assert(attrs.currentSrc.endsWith('.avif'));
+      }
+      assert(requested.some((url) => /samuel_entre_mundos_3d\.avif(?:\?|$)/.test(url)),
+        `Samuel debe solicitar AVIF (JS=${javascript}): ${requested.join(', ')}`);
+      assert(!requested.some((url) => /samuel_entre_mundos_3d\.webp(?:\?|$)/.test(url)),
+        `Samuel no debe solicitar WebP (JS=${javascript}): ${requested.join(', ')}`);
+    } finally {
+      await samuelContext.close();
+    }
+  }
   console.log('image-format-ladder-browser: PASS');
 } finally {
   await browser.close();

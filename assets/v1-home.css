@@ -144,6 +144,7 @@ html.v1 .river-cell__arrow svg{fill:none;stroke:currentColor;stroke-width:1.6;st
    there is to sell: Samuel entre mundos. */
 html.v1 .promo-band{background:var(--dp-blush);display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:clamp(1.5rem,4vw,3rem);max-width:var(--layout-wide);margin:0 auto;padding:clamp(2.5rem,5vw,4rem) var(--page-gutter)}
 html.v1 .promo-band__cover{width:clamp(90px,14vw,160px);height:auto;box-shadow:var(--shadow-object)}
+html.v1 .promo-band > picture{display:block;line-height:0}
 html.v1 .promo-band__copy h2{font-family:var(--font-display);font-weight:400;font-size:clamp(1.58rem,1.32rem + 1.2vw,2.25rem);margin:.35rem 0 .6rem}
 html.v1 .promo-band__copy p{max-width:44ch;margin:0 0 1.25rem;color:color-mix(in srgb,var(--dp-ink) 80%,transparent)}
 html.v1 .promo-band__copy p.affiliate-disclosure{margin:.6rem 0 0;color:color-mix(in srgb,var(--dp-ink) 62%,transparent)}
@@ -486,6 +487,8 @@ html.v1[data-lrb-home="true"] .media-frame{
   display:inline-block;
   line-height:0;
 }
+/* Keep picture's box coincident with the existing framed image. */
+html.v1[data-lrb-home="true"] .media-frame > picture{display:block}
 html.v1[data-lrb-home="true"] .media-frame::before,
 html.v1[data-lrb-home="true"] .media-frame::after{
   content:"";

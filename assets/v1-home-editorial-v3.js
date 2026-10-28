@@ -89,6 +89,17 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     return frame;
   }
 
+  // Build the AVIF-first picture before assigning img.src: otherwise a
+  // detached Image may begin fetching the WebP fallback prematurely.
+  function wrapSamuelPicture(image) {
+    const picture = make('picture');
+    const source = make('source');
+    source.type = 'image/avif';
+    source.srcset = '/assets/samuel_entre_mundos_3d.avif';
+    picture.append(source, image);
+    return wrapMediaFrame(picture);
+  }
+
   function addTextLink(parent, href, text, className = '', bookContext = '') {
     const link = make('a', className, text);
     link.href = href;
@@ -398,13 +409,15 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
       media.href = href;
       media.setAttribute('aria-label', cardTitle);
       const img = new Image();
-      img.src = src;
       img.alt = cardTitle;
       img.width = srcWidth;
       img.height = srcHeight;
       img.loading = 'lazy';
       img.decoding = 'async';
-      media.append(wrapMediaFrame(img));
+      media.append(src === '/assets/samuel_entre_mundos_3d.webp'
+        ? wrapSamuelPicture(img)
+        : wrapMediaFrame(img));
+      img.src = src;
       const body = make('div', 'yale-tile__body');
       body.append(make('p', 'editorial-card__eyebrow', eyebrow));
       const h = make('h3');
@@ -454,13 +467,13 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     media.href = '/libros/samuel-entre-mundos/';
     media.setAttribute('aria-label', 'Samuel entre mundos');
     const image = new Image();
-    image.src = '/assets/samuel_entre_mundos_3d.webp';
     image.alt = 'Portada de Samuel entre mundos';
     image.width = 1530;
     image.height = 2400;
     image.loading = 'eager';
     image.decoding = 'async';
-    media.append(wrapMediaFrame(image));
+    media.append(wrapSamuelPicture(image));
+    image.src = '/assets/samuel_entre_mundos_3d.webp';
     const body = make('div', 'yale-feature-book__body');
     body.append(make('p', 'editorial-card__eyebrow', 'Libros Indie'));
     const h = make('h3');
