@@ -365,17 +365,17 @@ def render_card(card: dict, index: int) -> str:
     external = bool(card.get("external"))
     if card.get("official") and card["kind"] == "place" and not external and not card["href"].endswith("/" + slug_id(card["title"]) + "/"):
         official = (f'<a class="atlas-card__official" href="{esc(card["official"])}" target="_blank" '
-                    f'rel="noopener noreferrer">Web oficial<span class="visually-hidden"> de {esc(card["title"])} (otra pestaña)</span></a>')
+                    f'rel="noopener noreferrer">Web oficial<span class="sr-only"> de {esc(card["title"])} (otra pestaña)</span></a>')
     cta = card.get("cta") or ("Explorar" if card["kind"] != "place" else "Ver ficha")
     tgt = ' target="_blank" rel="noopener noreferrer"' if external else ""
-    hidden_ext = f'<span class="visually-hidden"> (otra pestaña)</span>' if external else ""
+    hidden_ext = f'<span class="sr-only"> (otra pestaña)</span>' if external else ""
     return (
         f'<li class="catalogue-card atlas-card" data-atlas-card {attrs}>'
         f'<p class="atlas-card__meta"><span>{esc(card["type_label"])}</span><span>{esc(card["where"])}</span></p>'
         f'<h3><a href="{esc(card["href"])}"{tgt}>{esc(card["title"])}{hidden_ext}</a></h3>'
         f'<p class="atlas-card__summary">{esc(card["summary"])}</p>{chips_html}'
         f'<p class="atlas-card__actions"><a class="text-action" href="{esc(card["href"])}"{tgt}>{esc(cta)}'
-        f'<span class="visually-hidden">: {esc(card["title"])}{" (otra pestaña)" if external else ""}</span></a>{official}</p></li>'
+        f'<span class="sr-only">: {esc(card["title"])}{" (otra pestaña)" if external else ""}</span></a>{official}</p></li>'
     )
 
 
@@ -465,7 +465,7 @@ def place_row(atlas: Atlas, place: dict) -> str:
     kind = PLACE_TYPES[place["place_type"]]
     chips = "; ".join(f"{k}: {v}" for k, v in relation_chips(atlas, place["id"]))
     official = (f' <a href="{esc(place["official_url"])}" target="_blank" rel="noopener noreferrer">Web oficial'
-                f'<span class="visually-hidden"> de {esc(place["name"])} (otra pestaña)</span></a>') if place.get("official_url") and not href else ""
+                f'<span class="sr-only"> de {esc(place["name"])} (otra pestaña)</span></a>') if place.get("official_url") and not href else ""
     return (f'<li>{name}<small>{esc(kind)}{" · " + esc(chips) if chips else ""}</small>'
             f'{esc(place["summary_original"]) if not href else ""}{official}</li>')
 
@@ -490,7 +490,7 @@ def render_entry(atlas: Atlas, slug: str) -> str:
         stops = "".join(
             f'<li>{"<a href=" + chr(34) + (atlas.place_page_url(p) or "") + chr(34) + ">" + esc(p["name"]) + "</a>" if atlas.place_page_url(p) else "<strong>" + esc(p["name"]) + "</strong>"}'
             f'<small>{esc(PLACE_TYPES[p["place_type"]])}</small>{esc(p["summary_original"])}'
-            + (f' <a href="{esc(p["official_url"])}" target="_blank" rel="noopener noreferrer">Web oficial<span class="visually-hidden"> de {esc(p["name"])} (otra pestaña)</span></a>' if p.get("official_url") else "")
+            + (f' <a href="{esc(p["official_url"])}" target="_blank" rel="noopener noreferrer">Web oficial<span class="sr-only"> de {esc(p["name"])} (otra pestaña)</span></a>' if p.get("official_url") else "")
             + "</li>"
             for p in stops_places
         )
