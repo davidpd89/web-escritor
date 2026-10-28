@@ -75,12 +75,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "DK",
+        "editorial_slug": "dk",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-09-17",
         "formato_edicion": "tapa-dura",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380",
         "fuentes_autores": {
-          "Louis Girod": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380"
+          "Louis Girod": "https://www.penguinlibros.com/es/1019944-louis-girod"
         },
         "idioma": "es",
         "isbn13": "9780241831380",
@@ -88,15 +89,38 @@
           "Cocina"
         ],
         "numero_paginas": 160,
+        "palabras_clave": [
+          "cocina",
+          "libros de cocina",
+          "cocinar",
+          "recetas",
+          "cocina sana",
+          "recetas faciles",
+          "paso a paso",
+          "cocina para principiantes",
+          "mejores libros",
+          "libros para regalar",
+          "recetas rapidas",
+          "libros ilustrados",
+          "cocina casera",
+          "platos caseros",
+          "postres",
+          "reposteria",
+          "postres faciles",
+          "cocina facil",
+          "li"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8022153-thickbox_default/curso-de-cocina-los-basicos.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1800,
+        "sinopsis_breve": "Este práctico libro reúne más de 60 recetas ilustradas, explicadas paso a paso para que puedas seguir cada preparación sin complicaciones. Desde platos clásicos…",
         "titulo": "Curso de cocina - Los básicos"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380",
+      "estado_ingesta": "publicado",
       "isbn13": "9780241831380",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-21"
+      "libro_id": "isbn-9780241831380",
+      "primera_deteccion": "2026-10-21",
+      "publicado_en": "2026-10-27"
     },
     "isbn13:9780241831397": {
       "datos": {
@@ -668,8 +692,26 @@
           "Fantasía"
         ],
         "numero_paginas": 920,
+        "palabras_clave": [
+          "libros mas vendidos 2026",
+          "stephen king libros",
+          "el talisman stephen king",
+          "otros mundos",
+          "doctor sueño",
+          "el resplandor",
+          "it",
+          "terror libros",
+          "la sa ngre manda",
+          "la torre oscura",
+          "libros baratos",
+          "libros de suspense",
+          "no tengas miedo stephen king",
+          "libros que enganchan",
+          "peter strau"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8250289-thickbox_default/otros-mundos-el-talisman-3.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2790,
         "sinopsis_breve": "Esta es la historia de Jack Sawyer, a quien los lectores conocieron por primera vez con doce años, cuando se enfrentó al periplo de…",
         "titulo": "Otros mundos (El Talismán 3)"
       },
@@ -1366,6 +1408,45 @@
       "primera_deteccion": "2026-10-22",
       "publicado_en": "2026-10-22"
     },
+    "isbn13:9788408327509": {
+      "datos": {
+        "autores": [
+          "Paloma Sánchez-Garnica"
+        ],
+        "coleccion": "Novela",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Booket",
+        "editorial_slug": "booket",
+        "encuadernacion": "Rústica sin solapas",
+        "fecha_publicacion_edicion": "2026-10-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-estuche-trilogia-berlin/459624",
+        "fuentes_autores": {
+          "Paloma Sánchez-Garnica": "https://www.planetadelibros.com/autor/paloma-sanchez-garnica/000019986"
+        },
+        "idioma": "es",
+        "isbn13": "9788408327509",
+        "materias": [
+          "Novela contemporánea"
+        ],
+        "numero_paginas": 1772,
+        "palabras_clave": [
+          "Novela contemporánea"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/945c515a-18f6-43fc-a66f-a18dd4bc7b5f/d_360_620/portada_estuche-trilogia-berlin_paloma-sanchez-garnica_202609291622.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 4185,
+        "sinopsis_breve": "Un estuche exclusivo que contiene las tres aclamadas novelas de Paloma Sánchez-Garnica en las que Berlín se convierte en un personaje central.",
+        "titulo": "Estuche Trilogía Berlín"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-estuche-trilogia-berlin/459624",
+      "isbn13": "9788408327509",
+      "motivo": "Estuche o pack: requiere relación de obras comprobada",
+      "primera_deteccion": "2026-10-27",
+      "retry_after": "2026-10-30"
+    },
     "isbn13:9788410442771": {
       "datos": {
         "autores": [
@@ -1805,6 +1886,64 @@
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-24",
       "retry_after": "2026-10-27"
+    },
+    "isbn13:9788419981035": {
+      "datos": {
+        "autores": [
+          "Posy Simmonds"
+        ],
+        "coleccion": "Salamandra Graphic Kids",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 4 años",
+        "editorial": "SALAMANDRA GRAPHIC",
+        "editorial_slug": "salamandra",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-10-15",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/373151-libro-cinco-cuentos-9788419981035",
+        "fuentes_autores": {
+          "Posy Simmonds": "https://www.penguinlibros.com/es/4656-posy-simmonds"
+        },
+        "idioma": "es",
+        "isbn13": "9788419981035",
+        "materias": [
+          "A partir de 4 años"
+        ],
+        "numero_paginas": 152,
+        "palabras_clave": [
+          "cuentos infantiles",
+          "angouleme",
+          "backer",
+          "comic",
+          "comic adultos español",
+          "comic infantil",
+          "cuentos ilustrados",
+          "cuentos para todos",
+          "emociones",
+          "ficci on",
+          "gran bretaña",
+          "gran premio angouleme",
+          "grand prix",
+          "leer en familia",
+          "libro",
+          "libros de comics",
+          "literatura",
+          "londres",
+          "lulu",
+          "mejores",
+          "mu"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8270171-thickbox_default/cinco-cuentos.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2695,
+        "sinopsis_breve": "Fred, Matilde, Lavanda, Lulú y el Gato Panadero protagonizan los cinco relatos reunidos en este volumen, creados por Posy Simmonds entre 1987 y 2004.…",
+        "titulo": "Cinco cuentos"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788419981035",
+      "libro_id": "isbn-9788419981035",
+      "primera_deteccion": "2026-10-27",
+      "publicado_en": "2026-10-27"
     },
     "isbn13:9788423441051": {
       "datos": {
@@ -2692,6 +2831,47 @@
       "primera_deteccion": "2026-10-22",
       "publicado_en": "2026-10-22"
     },
+    "isbn13:9788449346033": {
+      "datos": {
+        "autores": [
+          "Carlos López-Otín"
+        ],
+        "coleccion": "Contextos",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Ediciones Paidós",
+        "editorial_slug": "ediciones-paidos",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-14",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-la-eternidad-y-un-dia-mas/458853",
+        "fuentes_autores": {
+          "Carlos López-Otín": "https://www.planetadelibros.com/autor/carlos-lopez-otin/000050963"
+        },
+        "idioma": "es",
+        "isbn13": "9788449346033",
+        "materias": [
+          "Ciencia"
+        ],
+        "numero_paginas": 224,
+        "palabras_clave": [
+          "Ciencia",
+          "Divulgación",
+          "Biología",
+          "Medicina"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/0f5c5fc8-fd43-486c-8700-06989ed59238/d_360_620/portada_la-eternidad-y-un-dia-mas__202606121310.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "En la línea del bestseller Martes con mi viejo profesor , de Michael Albom, el prestigioso científico Carlos López-Otín nos presenta su primera obra…",
+        "titulo": "La eternidad y un día más"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788449346033",
+      "libro_id": "isbn-9788449346033",
+      "primera_deteccion": "2026-10-27",
+      "publicado_en": "2026-10-27"
+    },
     "isbn13:9788466378048": {
       "datos": {
         "autores": [
@@ -3257,6 +3437,44 @@
       "libro_id": "isbn-9788467083378",
       "primera_deteccion": "2026-10-22",
       "publicado_en": "2026-10-22"
+    },
+    "isbn13:9788467084832": {
+      "datos": {
+        "autores": [
+          "Wm. Paul Young"
+        ],
+        "coleccion": "ESPASA NARRATIVA",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Espasa",
+        "editorial_slug": "editorial-espasa",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-la-cabana/464448",
+        "fuentes_autores": {
+          "Wm. Paul Young": "https://www.planetadelibros.com/autor/wm-paul-young/000019997"
+        },
+        "idioma": "es",
+        "isbn13": "9788467084832",
+        "materias": [
+          "Novela contemporánea"
+        ],
+        "numero_paginas": 272,
+        "palabras_clave": [
+          "Novela contemporánea"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/4965ee93-986b-446a-aa4a-635e330f595c/d_360_620/portada_la-cabana_wm-paul-young_202609211453.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "Si Dios te enviase una carta, ¿acudirías a su encuentro? La novela que ha vendido más de 30 millones de ejemplares en todo el…",
+        "titulo": "La cabaña"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788467084832",
+      "libro_id": "isbn-9788467084832",
+      "primera_deteccion": "2026-10-27",
+      "publicado_en": "2026-10-27"
     },
     "isbn13:9788490438664": {
       "datos": {
@@ -3922,8 +4140,25 @@
           "Aventuras"
         ],
         "numero_paginas": 392,
+        "palabras_clave": [
+          "libros mas vendidos 2026",
+          "libros recomendados",
+          "best seller 2026",
+          "perez reverte libros",
+          "arturo perez reverte",
+          "una historia de españa",
+          "envia do especial",
+          "el problema final",
+          "falco",
+          "mision en paris",
+          "la isla de la mujer dormida",
+          "libros para regalar",
+          "regalos originales",
+          "mej"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8190863-thickbox_default/la-hipotesis-mas-peligrosa.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2390,
         "sinopsis_breve": "Cal Gadea, un chico de dieciséis años criado por sus abuelos y fascinado por los videojuegos, encuentra al hombre al que lleva tiempo buscando…",
         "titulo": "La hipótesis más peligrosa"
       },
@@ -4216,6 +4451,59 @@
       "libro_id": "isbn-9791387949938",
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
+    },
+    "isbn13:9791387962005": {
+      "datos": {
+        "autores": [
+          "Muneyuki Kaneshiro",
+          "Akeji Fujimura"
+        ],
+        "coleccion": "Shônen",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Juvenil",
+        "editorial": "DISTRITO MANGA",
+        "editorial_slug": "distrito-manga",
+        "encuadernacion": "Tapa blanda con sobrecubierta",
+        "fecha_publicacion_edicion": "2026-10-08",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/comic-juvenil/634710-libro-as-the-gods-will-la-secuela-10-shonen-9791387962005",
+        "fuentes_autores": {
+          "Akeji Fujimura": "https://www.penguinlibros.com/es/199251-akeji-fujimura",
+          "Muneyuki Kaneshiro": "https://www.penguinlibros.com/es/199250-muneyuki-kaneshiro"
+        },
+        "idioma": "es",
+        "isbn13": "9791387962005",
+        "materias": [
+          "Cómic juvenil"
+        ],
+        "numero_paginas": 568,
+        "palabras_clave": [
+          "as the gods will",
+          "kamisama no iu toori",
+          "libros manga anime en español",
+          "comic manga",
+          "alice in borderland",
+          "battle royale",
+          "blue lock",
+          "el juego del calamar",
+          "distrito manga",
+          "libros que enganchan",
+          "manga terror",
+          "as the gods will en español",
+          "manga shonen",
+          "one"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8129771-thickbox_default/as-the-gods-will-la-secuela-10-shonen.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1895,
+        "sinopsis_breve": "Tras pelearse con el mejor amigo de su infancia, Yasuto Akashi decide saltarse las clases. Sin embargo, lo que no se imagina es que…",
+        "titulo": "As the Gods Will: La secuela 10 (Shônen)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387962005",
+      "libro_id": "isbn-9791387962005",
+      "primera_deteccion": "2026-10-27",
+      "publicado_en": "2026-10-27"
     },
     "isbn13:9791387962036": {
       "datos": {
@@ -5333,6 +5621,14 @@
       "primera_deteccion": "2026-10-25",
       "retry_after": "2026-10-28"
     },
+    "url:https://www.planetadelibros.com/libro-descubro-y-aprendo-la-naturaleza/433872": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-descubro-y-aprendo-la-naturaleza/433872",
+      "isbn13": null,
+      "motivo": "Faltan título, autoría, sello o ISBN comprobable",
+      "primera_deteccion": "2026-10-27",
+      "retry_after": "2026-10-30"
+    },
     "url:https://www.planetadelibros.com/libro-el-toque-delirium/457867": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-el-toque-delirium/457867",
@@ -5388,6 +5684,14 @@
       "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-10-22",
       "retry_after": "2026-10-25"
+    },
+    "url:https://www.planetadelibros.com/libro-la-piedad/458642": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-la-piedad/458642",
+      "isbn13": null,
+      "motivo": "Faltan título, autoría, sello o ISBN comprobable",
+      "primera_deteccion": "2026-10-27",
+      "retry_after": "2026-10-30"
     },
     "url:https://www.planetadelibros.com/libro-las-golondrinas-no-regresaran/458668": {
       "estado_ingesta": "pendiente_datos",
