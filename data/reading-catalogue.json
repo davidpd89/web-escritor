@@ -620,6 +620,15 @@
       "orden": 218,
       "slug": "tema-ciencia",
       "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Ciencias humanas y sociales.",
+      "id": "tema-ciencias-humanas-y-sociales",
+      "nombre": "Ciencias humanas y sociales",
+      "orden": 219,
+      "slug": "tema-ciencias-humanas-y-sociales",
+      "tipo": "tematica"
     }
   ],
   "libro_categorias": [
@@ -646,22 +655,6 @@
     {
       "categoria_id": "misterio",
       "libro_id": "lib-0001"
-    },
-    {
-      "categoria_id": "fantasia",
-      "libro_id": "isbn-9788425375118"
-    },
-    {
-      "categoria_id": "adultos",
-      "libro_id": "isbn-9788425375118"
-    },
-    {
-      "categoria_id": "novela-historica",
-      "libro_id": "isbn-9791387640439"
-    },
-    {
-      "categoria_id": "adultos",
-      "libro_id": "isbn-9791387640439"
     },
     {
       "categoria_id": "misterio-y-thriller",
@@ -882,18 +875,6 @@
     {
       "categoria_id": "aventuras",
       "libro_id": "lib-0001"
-    },
-    {
-      "categoria_id": "romance",
-      "libro_id": "isbn-9788425375118"
-    },
-    {
-      "categoria_id": "tema-amor-y-pareja",
-      "libro_id": "isbn-9788425375118"
-    },
-    {
-      "categoria_id": "tema-supervivencia",
-      "libro_id": "isbn-9791387640439"
     },
     {
       "categoria_id": "narrativa",
@@ -1710,6 +1691,90 @@
     {
       "categoria_id": "juvenil",
       "libro_id": "isbn-9791387962005"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "romance",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "novela-historica",
+      "libro_id": "isbn-9791387640439"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387640439"
+    },
+    {
+      "categoria_id": "tema-supervivencia",
+      "libro_id": "isbn-9791387640439"
+    },
+    {
+      "categoria_id": "tema-novela-grafica",
+      "libro_id": "isbn-9791387962272"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9791387962272"
+    },
+    {
+      "categoria_id": "terror",
+      "libro_id": "isbn-9791387962272"
+    },
+    {
+      "categoria_id": "comic-y-novela-grafica",
+      "libro_id": "isbn-9791387962272"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387962272"
+    },
+    {
+      "categoria_id": "tema-novela-literaria",
+      "libro_id": "isbn-9788423370405"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788423370405"
+    },
+    {
+      "categoria_id": "tema-infantil",
+      "libro_id": "isbn-9788408326540"
+    },
+    {
+      "categoria_id": "tema-deporte",
+      "libro_id": "isbn-9788408326540"
+    },
+    {
+      "categoria_id": "tema-ciencias-humanas-y-sociales",
+      "libro_id": "isbn-9788423440207"
+    },
+    {
+      "categoria_id": "tema-poder-y-politica",
+      "libro_id": "isbn-9788423440207"
+    },
+    {
+      "categoria_id": "nutricion-y-bienestar",
+      "libro_id": "isbn-9788425374371"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788425374371"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788425374371"
     }
   ],
   "libros": [
@@ -1901,9 +1966,9 @@
       "editorial": "Grijalbo",
       "editorial_slug": "grijalbo",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-21",
+      "fecha_actualizacion": "2026-10-28",
       "fecha_publicacion": "2026-10-15",
-      "fecha_verificacion": "2026-10-20",
+      "fecha_verificacion": "2026-10-28",
       "formato_edicion": "tapa-dura",
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-fantasia/626978-libro-la-hija-del-veneno-9788425375118",
       "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-fantasia/626978-libro-la-hija-del-veneno-9788425375118",
@@ -1915,11 +1980,11 @@
       "portada_alto": 1235,
       "portada_ancho": 800,
       "portada_edicion_verificada": true,
-      "portada_fecha_revision": "2026-10-20",
+      "portada_fecha_revision": "2026-10-28",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8050616-thickbox_default/la-hija-del-veneno.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425375118.webp",
       "pvp_centimos": 2490,
-      "pvp_fecha_verificacion": "2026-10-21",
+      "pvp_fecha_verificacion": "2026-10-28",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1947,9 +2012,9 @@
       "editorial": "Salamandra",
       "editorial_slug": "salamandra",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-21",
+      "fecha_actualizacion": "2026-10-28",
       "fecha_publicacion": "2026-10-15",
-      "fecha_verificacion": "2026-10-20",
+      "fecha_verificacion": "2026-10-28",
       "formato_edicion": "tapa-blanda",
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-historica/635110-libro-plaza-brugmann-33-9791387640439",
       "fuente_edad_url": "https://www.penguinlibros.com/es/novela-historica/635110-libro-plaza-brugmann-33-9791387640439",
@@ -1961,11 +2026,11 @@
       "portada_alto": 1235,
       "portada_ancho": 800,
       "portada_edicion_verificada": true,
-      "portada_fecha_revision": "2026-10-20",
+      "portada_fecha_revision": "2026-10-28",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7987990-thickbox_default/plaza-brugmann-33.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387640439.webp",
       "pvp_centimos": 2300,
-      "pvp_fecha_verificacion": "2026-10-21",
+      "pvp_fecha_verificacion": "2026-10-28",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -5762,6 +5827,231 @@
       "sinopsis_tipo": "extracto_editorial",
       "slug": "as-the-gods-will-la-secuela-10-shonen-9791387962005",
       "titulo": "As the Gods Will: La secuela 10 (Shônen)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387962272&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Nobuaki Kanazawa",
+        "RAZEN"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Tomogui: que comience la caza 1 (Seinen), de Nobuaki Kanazawa, RAZEN. Edición de Distrito Manga en castellano, en tapa blanda con sobrecubierta. Consta de 192 páginas. La editorial la incluye en novela gráfica. Publicación editorial: 2026-10-01.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con sobrecubierta · Distrito Manga",
+      "editorial": "Distrito Manga",
+      "editorial_catalogo_slug": "distrito-manga",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-28",
+      "fecha_publicacion": "2026-10-01",
+      "fecha_verificacion": "2026-10-28",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-grafica/634717-libro-tomogui-que-comience-la-caza-1-seinen-9791387962272",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-grafica/634717-libro-tomogui-que-comience-la-caza-1-seinen-9791387962272",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-grafica/634717-libro-tomogui-que-comience-la-caza-1-seinen-9791387962272",
+      "id": "isbn-9791387962272",
+      "idioma": "es",
+      "isbn13": "9791387962272",
+      "numero_paginas": 192,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-28",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8239179-thickbox_default/tomogui-que-comience-la-caza-1-seinen.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387962272.webp",
+      "pvp_centimos": 995,
+      "pvp_fecha_verificacion": "2026-10-28",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-28",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387962272"
+        }
+      ],
+      "sinopsis_breve": "Kaede Kanda decide utilizar a sus compañeros de clase para vengarse de la profesora Nanami Takao, a quien odia a raíz del suicidio de…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-grafica/634717-libro-tomogui-que-comience-la-caza-1-seinen-9791387962272",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "tomogui-que-comience-la-caza-1-seinen-9791387962272",
+      "titulo": "Tomogui: que comience la caza 1 (Seinen)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788423370405&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Natsuo Kirino"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Las golondrinas no regresarán, de Natsuo Kirino. Edición de Ediciones Destino en castellano, en rústica con solapas. Consta de 440 páginas. La editorial la incluye en novela literaria. Publicación editorial: 2026-10-21.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Ediciones Destino",
+      "editorial": "Ediciones Destino",
+      "editorial_slug": "ediciones-destino",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-28",
+      "fecha_publicacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-28",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-las-golondrinas-no-regresaran/458668",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-las-golondrinas-no-regresaran/458668",
+      "id": "isbn-9788423370405",
+      "idioma": "es",
+      "isbn13": "9788423370405",
+      "numero_paginas": 440,
+      "portada_alto": 619,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-28",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/c489869b-8a6a-4525-818f-a00dd4ebb6cb/d_360_620/portada_las-golondrinas-no-regresaran_natsuo-kirino_202606121020.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788423370405.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-28",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-28",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788423370405"
+        }
+      ],
+      "sinopsis_breve": "Una visión ácida y mordaz del Japón contemporáneo, que retrata con intensidad las injusticias de clase, género y poder, por la autora de Out.",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-las-golondrinas-no-regresaran/458668",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "las-golondrinas-no-regresaran-9788423370405",
+      "titulo": "Las golondrinas no regresarán"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408326540&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Roberto Santiago"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Los Once 12. El partido decisivo: rumbo al Himalaya, de Roberto Santiago. Edición de Destino Infantil & Juvenil en castellano, en rústica con solapas. Consta de 304 páginas. La editorial la incluye en infantil. Publicación editorial: 2026-10-21.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Destino Infantil & Juvenil",
+      "editorial": "Destino Infantil & Juvenil",
+      "editorial_catalogo_slug": "destino-infantil-juvenil",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-28",
+      "fecha_publicacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-28",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-los-once-12-el-partido-decisivo-rumbo-al-himalaya/458194",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-los-once-12-el-partido-decisivo-rumbo-al-himalaya/458194",
+      "id": "isbn-9788408326540",
+      "idioma": "es",
+      "isbn13": "9788408326540",
+      "numero_paginas": 304,
+      "portada_alto": 509,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-28",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/34230bc3-af2d-4b42-b133-28fe4b123f03/d_360_620/portada_los-once-12-el-partido-decisivo-rumbo-al-himalaya_roberto-santiago_202606181107.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788408326540.webp",
+      "pvp_centimos": 1395,
+      "pvp_fecha_verificacion": "2026-10-28",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-28",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788408326540"
+        }
+      ],
+      "sinopsis_breve": "Los Once tendrán que jugar el partido más decisivo de su vida para...",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-los-once-12-el-partido-decisivo-rumbo-al-himalaya/458194",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "los-once-12-el-partido-decisivo-rumbo-al-himalaya-9788408326540",
+      "titulo": "Los Once 12. El partido decisivo: rumbo al Himalaya"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788423440207&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Daron Acemoglu"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "¿Qué pasó con la democracia liberal?, de Daron Acemoglu. Edición de Deusto en castellano, en rústica con solapas. Consta de 544 páginas. La editorial la incluye en ciencias humanas y sociales. Publicación editorial: 2026-10-28.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Deusto",
+      "editorial": "Deusto",
+      "editorial_catalogo_slug": "deusto",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-28",
+      "fecha_publicacion": "2026-10-28",
+      "fecha_verificacion": "2026-10-28",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-que-paso-con-la-democracia-liberal/443210",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-que-paso-con-la-democracia-liberal/443210",
+      "id": "isbn-9788423440207",
+      "idioma": "es",
+      "isbn13": "9788423440207",
+      "numero_paginas": 544,
+      "portada_alto": 541,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-28",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/3dc6e93a-820e-4ff4-b1fd-b22b27fc3629/d_360_620/portada_que-paso-con-la-democracia-liberal_daron-acemoglu_202609230924.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788423440207.webp",
+      "pvp_centimos": 2395,
+      "pvp_fecha_verificacion": "2026-10-28",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-28",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788423440207"
+        }
+      ],
+      "sinopsis_breve": "Hace apenas unas décadas parecía que la democracia liberal había ganado para siempre. El comunismo había caído, la economía de mercado se imponía y…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-que-paso-con-la-democracia-liberal/443210",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "que-paso-con-la-democracia-liberal-9788423440207",
+      "titulo": "¿Qué pasó con la democracia liberal?"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425374371&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Dr. Will Cole"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Sana tus células, de Dr. Will Cole. Edición de Grijalbo en castellano, en tapa blanda con solapas. Consta de 432 páginas. La editorial la incluye en nutrición, belleza y fitness. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Grijalbo",
+      "editorial": "Grijalbo",
+      "editorial_slug": "grijalbo",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-28",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-28",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/616918-libro-sana-tus-celulas-9788425374371",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/616918-libro-sana-tus-celulas-9788425374371",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/616918-libro-sana-tus-celulas-9788425374371",
+      "id": "isbn-9788425374371",
+      "idioma": "es",
+      "isbn13": "9788425374371",
+      "numero_paginas": 432,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-28",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7890454-thickbox_default/sana-tus-celulas.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788425374371.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-28",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-28",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788425374371"
+        }
+      ],
+      "sinopsis_breve": "La degeneración celular es el verdadero motor del envejecimiento y de muchas enfermedades crónicas. Síntomas como la fatiga, la resistencia a la insulina, la…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/616918-libro-sana-tus-celulas-9788425374371",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "sana-tus-celulas-9788425374371",
+      "titulo": "Sana tus células"
     }
   ],
   "schema_version": 1

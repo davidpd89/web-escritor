@@ -68,17 +68,6 @@
       "precio_referencia_centimos": 2290
     },
     {
-      "libro_id": "isbn-9788467083316",
-      "formato": "tapa-dura",
-      "tipo": "compra",
-      "moneda": "EUR",
-      "precio_centimos": 2270,
-      "url": "https://www.amazon.es/dp/846708331X?tag=davidporto-21",
-      "actualizado_en": "2026-10-25T11:56:22Z",
-      "caduca_en": "2026-10-26T11:56:22Z",
-      "precio_referencia_centimos": 2390
-    },
-    {
       "libro_id": "isbn-9788448873479",
       "formato": "tapa-dura",
       "tipo": "compra",
@@ -626,6 +615,17 @@
       "actualizado_en": "2026-10-27T12:34:53Z",
       "caduca_en": "2026-10-28T12:34:53Z",
       "precio_referencia_centimos": 1795
+    },
+    {
+      "libro_id": "isbn-9788467083316",
+      "formato": "tapa-dura",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2270,
+      "url": "https://www.amazon.es/dp/846708331X?tag=davidporto-21",
+      "actualizado_en": "2026-10-28T13:36:51Z",
+      "caduca_en": "2026-10-29T13:36:51Z",
+      "precio_referencia_centimos": 2390
     }
   ],
   "ratings": [
@@ -830,11 +830,11 @@
     {
       "libro_id": "isbn-9788466380096",
       "puntuacion": 4.3,
-      "numero_valoraciones": 6331,
+      "numero_valoraciones": 6337,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/249407399-quiz-s-quiero",
-      "actualizado_en": "2026-10-27T12:32:37Z",
-      "caduca_en": "2026-11-03T12:32:37Z"
+      "actualizado_en": "2026-10-28T13:33:02Z",
+      "caduca_en": "2026-11-04T13:33:02Z"
     },
     {
       "libro_id": "isbn-9788466396806",
@@ -851,8 +851,8 @@
       "numero_valoraciones": 1,
       "fuente": "goodreads",
       "url": "https://www.goodreads.com/book/show/254982435-las-mitford",
-      "actualizado_en": "2026-10-27T12:32:37Z",
-      "caduca_en": "2026-11-03T12:32:37Z"
+      "actualizado_en": "2026-10-28T13:33:02Z",
+      "caduca_en": "2026-11-04T13:33:02Z"
     },
     {
       "libro_id": "isbn-9788467083330",
@@ -1010,11 +1010,11 @@
     {
       "libro_id": "lib-0001",
       "puntuacion": 4.03,
-      "numero_valoraciones": 1519,
+      "numero_valoraciones": 1529,
       "fuente": "hardcover",
       "url": "https://hardcover.app/books/coraline",
-      "actualizado_en": "2026-10-26T13:24:57Z",
-      "caduca_en": "2026-11-02T13:24:57Z"
+      "actualizado_en": "2026-10-28T13:33:02Z",
+      "caduca_en": "2026-11-04T13:33:02Z"
     }
   ]
 }
