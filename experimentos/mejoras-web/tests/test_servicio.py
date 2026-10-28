@@ -115,6 +115,28 @@ class EdgeCompartido(util.Caso):
         t = (LAB / "PARAR-MEJORAS-WEB.bat").read_text(); self.assertIn("parar --cerrar-edge", t); self.assertIn("comparte su perfil", t)
 
 
+class Reintentar(util.Caso):
+    def test_recupera_fallos_y_jobs_en_error_sin_tocar_github(self):
+        self.exp_preparado("MW-0001", estado="fallo_desarrollo"); self.c.execute("UPDATE expedientes SET motivo='parche invalido: x'"); self.exp_preparado("MW-0002", estado="preparado")
+        self.c.execute("INSERT INTO jobs(clave,tipo,area,estado,error,intentos,creado,actualizado) VALUES('I:a:1:0','I','a|1','error','chat inaccesible',3,?,?)", (mw.now(), mw.now())); self.c.commit()
+        with mock.patch.object(mw, "run") as r: self.assertEqual(mw.cmd_reintentar(NS(id=None)), 0)
+        r.assert_not_called()
+        e = self.c.execute("SELECT estado FROM expedientes WHERE id='MW-0001'").fetchone()[0]; self.assertEqual(e, "desarrollando")
+        self.assertEqual(self.c.execute("SELECT estado FROM expedientes WHERE id='MW-0002'").fetchone()[0], "preparado")  # lo demas intacto
+        j = self.c.execute("SELECT * FROM jobs WHERE tipo='D'").fetchone(); self.assertEqual(j["estado"], "pendiente"); self.assertIn("parche invalido", j["payload"])
+        i = self.c.execute("SELECT * FROM jobs WHERE tipo='I'").fetchone(); self.assertEqual((i["estado"], i["intentos"], i["error"]), ("pendiente", 0, None))
+
+    def test_con_id_solo_toca_ese_expediente(self):
+        self.exp_preparado("MW-0001", estado="fallo_desarrollo"); self.exp_preparado("MW-0002", estado="fallo_desarrollo")
+        mw.cmd_reintentar(NS(id="MW-0002"))
+        self.assertEqual(self.c.execute("SELECT estado FROM expedientes WHERE id='MW-0001'").fetchone()[0], "fallo_desarrollo")
+        self.assertEqual(self.c.execute("SELECT estado FROM expedientes WHERE id='MW-0002'").fetchone()[0], "desarrollando")
+
+    def test_claude_fallo_vuelve_a_su_fase(self):
+        self.exp_preparado("MW-0001", estado="claude_fallo"); mw.cmd_reintentar(NS(id=None))
+        self.assertEqual(self.c.execute("SELECT estado FROM expedientes").fetchone()[0], "parche_listo")  # tenia parche: vuelve a revision
+
+
 class Supervisor(util.Caso):
     def hijo(self, codigos, lanzados):
         it = iter(codigos)

@@ -489,6 +489,33 @@ def cmd_reintentar_infra(a):
     return actions.reintentar_infra(sys.modules[__name__], a.id)
 
 
+def cmd_reintentar(a):
+    """Recupera trabajo que agoto sus reintentos con una version anterior del codigo: jobs de investigacion en ERROR vuelven a la cola y los expedientes en
+    `fallo_desarrollo`/`claude_fallo` vuelven a desarrollo con el motivo del fallo anterior. Accion EXPLICITA (no ocurre sola); no toca Actions ni GitHub."""
+    import investigar
+    c = db()
+    try:
+        ids = [a.id] if a.id else None
+        n_exp = n_job = 0
+        for e in c.execute("SELECT id, estado, motivo FROM expedientes WHERE estado IN ('fallo_desarrollo','claude_fallo')").fetchall():
+            if ids and e["id"] not in ids: continue
+            if e["estado"] == "claude_fallo":
+                d = json.loads(c.execute("SELECT datos FROM expedientes WHERE id=?", (e["id"],)).fetchone()[0] or "{}"); d.pop("claude_fallos", None); d.pop("claude_no_antes", None)
+                c.execute("UPDATE expedientes SET datos=? WHERE id=?", (json.dumps(d, ensure_ascii=False), e["id"]))
+                prev = "contraste" if not c.execute("SELECT parche FROM expedientes WHERE id=?", (e["id"],)).fetchone()[0] else "revision"
+                set_estado(c, e["id"], "investigado" if prev == "contraste" else "parche_listo", "reintento manual tras fallo de Claude")
+            else:
+                set_estado(c, e["id"], "aprobado", "reintento manual del desarrollo")
+                investigar.encolar_desarrollo(c, e["id"], problemas=[f"intento anterior fallido: {(e['motivo'] or '')[:300]}"])
+            n_exp += 1
+        if not ids:
+            n_job = c.execute("UPDATE jobs SET estado='pendiente', intentos=0, no_antes=NULL, error=NULL, chat_id=NULL, fase=NULL, respuesta=NULL, actualizado=? WHERE estado='error' AND tipo='I'", (now(),)).rowcount
+            c.commit()
+        print(f"Reencolados: {n_exp} expediente(s) y {n_job} job(s) de investigacion. El investigador en marcha los recoge solo (no hace falta reiniciar).")
+        return 0
+    finally: c.close()
+
+
 def cmd_descartar(a):
     c = db()
     try:
@@ -509,6 +536,7 @@ def main(argv=None):
     pr = s.add_parser("pr"); pr.add_argument("id"); pr.add_argument("--confirmar", action="store_true"); pr.add_argument("--solo-local", action="store_true"); pr.set_defaults(f=cmd_pr)
     vp = s.add_parser("vista-previa"); vp.add_argument("id", nargs="?"); vp.add_argument("--puerto", type=int, default=8766); vp.add_argument("--sin-abrir", action="store_true"); vp.set_defaults(f=cmd_vista_previa)
     ri = s.add_parser("reintentar-infra"); ri.add_argument("id"); ri.set_defaults(f=cmd_reintentar_infra)
+    rr = s.add_parser("reintentar"); rr.add_argument("id", nargs="?"); rr.set_defaults(f=cmd_reintentar)
     d = s.add_parser("descartar"); d.add_argument("id"); d.add_argument("--motivo"); d.set_defaults(f=cmd_descartar)
     a = p.parse_args(argv)
     return a.f(a) or 0
