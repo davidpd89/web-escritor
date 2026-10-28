@@ -4,6 +4,11 @@
   const root = document.querySelector('[data-reading-catalogue]');
   if (!root) return;
   const normalize = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').trim();
+  // Solo los ISBN-13 completos admiten separadores y prefijos de presentación.
+  const searchQuery = s => {
+    const candidate = s.trim().replace(/^ISBN(?:-13)?\s*:?\s*/i, '');
+    return /^97[89](?:[\s-]*\d){10}$/.test(candidate) ? candidate.replace(/[\s-]/g, '') : normalize(s);
+  };
   const form = root.querySelector('[data-catalogue-filters]');
   const cards = [...root.querySelectorAll('[data-catalogue-book]')];
   const originalOrder = new Map(cards.map((card, i) => [card, i]));
@@ -103,7 +108,7 @@
       const lower = published || (month ? month + '-01' : year ? year + '-01-01' : '');
       const upper = published || (month ? new Date(Date.UTC(Number(month.slice(0, 4)), Number(month.slice(5)), 0)).toISOString().slice(0, 10) : year ? year + '-12-31' : '');
       const pages = Number(card.dataset.pages), range = !pages ? 'sin-dato' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga';
-      return normalize(card.dataset.search).includes(normalize(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !pick(v[k]).length || pick(v[k]).some(x => cats.includes(x))) && (!pick(v.grupo).length || pick(v.grupo).includes(card.dataset.group)) && (!pick(v.formato).length || pick(v.formato).some(x => formats.has(x))) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
+      return normalize(card.dataset.search).includes(searchQuery(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !pick(v[k]).length || pick(v[k]).some(x => cats.includes(x))) && (!pick(v.grupo).length || pick(v.grupo).includes(card.dataset.group)) && (!pick(v.formato).length || pick(v.formato).some(x => formats.has(x))) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
   }
   // Cada filtro cuenta sus opciones con el resto de filtros aplicados (sin el suyo): una opcion sin libros se atenua y nunca se oculta si esta marcada.
   const cardFacets = new Map(cards.map(card => [card, {}]));
