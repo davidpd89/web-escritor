@@ -1,1 +1,13 @@
-{ "schema_version": 2, "channels": [] }
+{
+  "schema_version": 2,
+  "channels": [
+    {
+      "type": "paypal_me",
+      "url": "https://paypal.me/DavidPortoDiaz"
+    },
+    {
+      "type": "kofi",
+      "url": "https://ko-fi.com/davidporto"
+    }
+  ]
+}

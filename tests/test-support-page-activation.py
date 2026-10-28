@@ -24,7 +24,7 @@ builder = load("build_support_page", "scripts/build-support-page.py")
 channels_mod = load("support_channels_test", "scripts/support_channels.py")
 gate = load("support_gate", "tests/test-support-release-gate.py")
 
-assert builder.check(ROOT) == [], "el repositorio sin canales debe estar en estado no activado"
+assert builder.check(ROOT) == [], "el repositorio debe estar coherente: sin canales no hay ruta; con canales, la página al día"
 assert gate.release_errors(ROOT) == []
 
 for kind, bad in (("paypal_me", "https://www.paypal.me/ab"), ("paypal_me", "https://www.paypal.me.evil.test/davidp"),

@@ -8055,6 +8055,27 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/editoriales/index.html"
+    },
+    {
+      "id": "support-project",
+      "url": "/apoyar/",
+      "label": "Apoya este proyecto",
+      "shortLabel": "Apoyar el proyecto",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "home",
+      "hubId": "home",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "writer"
+      ],
+      "jobs": [
+        "apoyar"
+      ],
+      "sourceFile": "apoyar/index.html",
+      "status": "public"
     }
   ]
 }
