@@ -104,12 +104,13 @@ def refresh(*, publish=False):
     # Register new routes before builders that deliberately consume git ls-files.
     command(sys.executable, 'scripts/build-reading-catalogue.py')
     command(sys.executable, 'scripts/build-editoriales.py', '--data', 'data/editoriales.json', '--output', '.')
-    command('git', 'add', '--', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-intake-state.json',
+    command(sys.executable, 'scripts/build-page-order.py')
+    command('git', 'add', '--', 'assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-intake-state.json',
             'data/content-registry.json', 'assets/reading-covers', 'assets/reading-audio', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio/index.html')
     command('git','add','--','assets/pinterest/feeds')
     for script in ('build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         command(sys.executable, 'scripts/' + script)
-    for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
+    for script in ('build-reading-catalogue.py', 'build-page-order.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         command(sys.executable, 'scripts/' + script, '--check')
     command(sys.executable, 'tests/test-reading-catalogue.py')
     command(sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_reading*.py', '-q')

@@ -26,6 +26,8 @@ jobs:
         run: python scripts/build-event-calendars.py --check
       - name: Test scheduled-event calendar generation
         run: python tests/test-event-calendars.py
+      - name: Check the prev/next page order is up to date
+        run: python scripts/build-page-order.py --check
       - name: Check canonical navigation coverage
         run: python scripts/check-navigation-coverage.py
       - name: Check visible and structured breadcrumb parity

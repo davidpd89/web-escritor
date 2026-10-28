@@ -298,6 +298,39 @@ html.v1 .editorial-media-slot>img{position:absolute;inset:0;width:100%;height:10
   html.v1 .section-context__links a{padding-inline:.55rem}
 }
 
+/* Pie «Anterior · Índice · Siguiente» de las fichas hermanas (JS, final de <main>). */
+html.v1 .sibling-pager{
+  width:min(100%,var(--layout-wide,72rem));
+  margin:clamp(2rem,5vw,3.5rem) auto 0;
+  padding:1rem max(.8rem,var(--page-gutter,1.25rem)) 0;
+  border-top:1px solid var(--dp-v4-rule);
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  gap:.75rem 1.25rem;
+  align-items:stretch;
+}
+html.v1 .sibling-pager a{
+  display:flex;
+  flex-direction:column;
+  gap:.15rem;
+  min-height:44px;
+  padding:.55rem .7rem;
+  color:var(--dp-v4-ink);
+  text-decoration:none;
+  border:1px solid var(--dp-v4-rule-soft);
+  background:var(--dp-v4-paper-soft);
+}
+html.v1 .sibling-pager a:hover{border-color:var(--dp-v4-blue-ink);background:var(--dp-v4-sand)}
+html.v1 .sibling-pager a:focus-visible{outline:3px solid var(--dp-v4-blue-ink);outline-offset:2px}
+html.v1 .sibling-pager small{font-size:.82rem;color:var(--dp-v4-muted);letter-spacing:.02em}
+html.v1 .sibling-pager strong{font-weight:600;line-height:1.3;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+html.v1 .sibling-pager__link--next{text-align:right}
+html.v1 .sibling-pager__hub{align-items:center;justify-content:center;text-align:center}
+@media (max-width:640px){
+  html.v1 .sibling-pager{grid-template-columns:1fr 1fr}
+  html.v1 .sibling-pager__hub{order:-1;grid-column:1 / -1}
+}
+
 @media (hover:hover) and (pointer:fine){
   html.v1 :is(.v1-section a,.tools-section a,.cuaderno-entry a,.book-section a):not(.primary-action):hover{
     text-decoration-color:var(--dp-context-ink,var(--dp-v4-blue-ink));
@@ -307,11 +340,13 @@ html.v1 .editorial-media-slot>img{position:absolute;inset:0;width:100%;height:10
 @media (prefers-reduced-motion:reduce){
   html.v1 .section-context__links a,
   html.v1 :is(.press-card,.id-card),
+  html.v1 .sibling-pager a,
   html.v1 .tool-filters button{transition:none}
 }
 
 @media print{
-  html.v1 .section-context{display:none!important}
+  html.v1 .section-context,
+  html.v1 .sibling-pager{display:none!important}
   html.v1 body{background:#fff}
   html.v1 .v1-main{background:#fff}
 }

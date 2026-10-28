@@ -246,7 +246,7 @@ SHELL_FOOTER = '''  <footer class="site-footer">
     </div>
   </footer>
 
-    <script defer src="/assets/v1-shell.js?v=25"></script>
+    <script defer src="/assets/v1-shell.js?v=26"></script>
 </body>
 </html>
 '''
@@ -291,13 +291,13 @@ def head(title: str, description: str, canonical: str, jsonld: dict) -> str:
         '<link rel="preload" as="style" href="/assets/v1-shell-lrb-v2.css?v=1">'
         '<link rel="preload" as="style" href="/assets/v1-lrb-material-v2.css?v=1">'
         '<link rel="preload" as="style" href="/assets/v1-home-editorial-v3.css?v=1">'
-        '<link rel="preload" as="style" href="/assets/v1-editorial-interior-v4.css?v=1">'
+        '<link rel="preload" as="style" href="/assets/v1-editorial-interior-v4.css?v=2">'
         '<link rel="preload" as="style" href="/assets/v1-editorial-interactions-v4.css?v=1">'
         '<link rel="preload" as="style" href="/assets/v1-site-cohesion-v6.css?v=2">'
         '<link rel="preload" as="style" href="/assets/v1-reflow-hardening-v7.css?v=1">'
         '<link rel="preload" as="style" href="/assets/v1-text-resilience-v8.css?v=1">'
         '<!-- v1-shell-preload:end -->'
-        '<link rel="stylesheet" href="/assets/v1-shell.css?v=4">'
+        '<link rel="stylesheet" href="/assets/v1-shell.css?v=5">'
         '<link rel="stylesheet" href="/assets/v1-components.css?v=3">'
         '<link rel="stylesheet" href="/assets/v1-families.css?v=2">'
         '<link rel="stylesheet" href="/assets/v1-cuaderno-topics.css?v=1">'

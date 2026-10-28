@@ -366,11 +366,69 @@
     setTimeout(() => observer.disconnect(), 6000);
   }
 
+  /* Pie «Anterior · Índice · Siguiente» al final de las fichas hermanas
+     (editoriales, libros, autores, herramientas, Cuaderno, Atlas). El orden
+     sale de assets/page-order.generated.js (scripts/build-page-order.py); si la
+     ficha aún no figura allí o el script falla, simplemente no se pinta. Va al
+     final de <main>, fuera de la primera pantalla, así que no mueve el diseño. */
+  function buildSiblingPager() {
+    const main = document.querySelector('main');
+    if (!main || root.dataset.lrbHome === 'true' || main.querySelector('.sibling-pager')) return;
+    const here = currentPath;
+    if (!/^\/(editoriales|recomendaciones|herramientas|cuaderno|atlas-literario)\/./.test(here)) return;
+    const render = () => {
+      const data = window.DP_PAGE_ORDER;
+      if (!data || !Array.isArray(data.families) || main.querySelector('.sibling-pager')) return;
+      const family = data.families.find((item) => here.startsWith(item.prefix));
+      if (!family) return;
+      const position = family.items.findIndex((item) => item[0] === here);
+      if (position === -1) return;
+      const total = family.items.length;
+      const nav = document.createElement('nav');
+      nav.className = 'sibling-pager';
+      nav.setAttribute('aria-label', `Seguir navegando: ${family.hub.label}`);
+      const cell = (neighbour, rel, caption) => {
+        const holder = document.createElement(neighbour ? 'a' : 'span');
+        holder.className = `sibling-pager__link sibling-pager__link--${rel}`;
+        if (!neighbour) return holder;
+        holder.href = neighbour[0];
+        holder.rel = rel;
+        const small = document.createElement('small');
+        small.textContent = caption;
+        const strong = document.createElement('strong');
+        strong.textContent = neighbour[1];
+        holder.append(small, strong);
+        return holder;
+      };
+      const hub = document.createElement('a');
+      hub.className = 'sibling-pager__hub';
+      hub.href = family.hub.href;
+      const hubLabel = document.createElement('strong');
+      hubLabel.textContent = family.hub.label;
+      const count = document.createElement('small');
+      count.textContent = `${position + 1} de ${total}`;
+      hub.append(hubLabel, count);
+      nav.append(
+        cell(family.items[position - 1], 'prev', '← Anterior'),
+        hub,
+        cell(family.items[position + 1], 'next', 'Siguiente →')
+      );
+      main.append(nav);
+    };
+    if (window.DP_PAGE_ORDER) return render();
+    const script = document.createElement('script');
+    script.src = '/assets/page-order.generated.js';
+    script.async = true;
+    script.addEventListener('load', render, { once: true });
+    document.head.append(script);
+  }
+
   function init() {
     normalizeMemoriaLinks();
     ensureBetaExploreRows();
     ensureHomeBetaNav();
     buildContextNav();
+    buildSiblingPager();
     prepareMediaSlots();
   }
 
