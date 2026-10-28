@@ -274,6 +274,27 @@ class EnvioYRecogida(Base):
         self.assertEqual(self.c.execute("SELECT estado FROM cola").fetchone()[0], "remoto_ok")
 
 
+class WorkflowRef(Base):
+    def test_config_apunta_a_la_rama_de_integracion_y_no_a_una_de_desarrollo(self):
+        self.assertEqual(mw.CFG["workflow_ref"], "lab/mejoras-web-20261024")
+        self.assertFalse(mw.CFG["workflow_ref"].startswith("research/")); self.assertNotEqual(mw.CFG["workflow_ref"], "main")  # en main el job se omite a proposito
+
+    def test_sin_workflow_en_la_rama_no_se_envia_nada(self):
+        self.item_validado(1); self.gh.workflow_disponible = lambda: "mejoras-web-grupo.yml no existe en la rama 'x'"
+        logs = []; ex = actions.Ejecutor(mw, gh=self.gh, sleep=lambda s: None, out=logs.append, cfg=self.cfgx); self.addCleanup(ex.c.close); ex.ejecutar()
+        self.assertEqual(self.gh.llamadas, []); self.assertTrue([l for l in logs if "NO SE ENVIA NADA" in l])
+        self.assertEqual(self.cola("mejoras-web/mw-0001@" + SHA(1)[:12])["estado"], "validado")  # sigue en la cola para cuando se arregle
+
+    def test_workflow_disponible_usa_la_api_de_contenidos_en_el_ref(self):
+        ordenes = []
+        def falso(args, **kw): ordenes.append(list(args)); return subprocess.CompletedProcess(args, 1 if "borrada" in " ".join(args) else 0, stdout="", stderr="HTTP 404: Not Found")
+        with mock.patch.object(mw, "run", falso):
+            self.assertIsNone(actions.Gh(mw).workflow_disponible())
+            mw.CFG["workflow_ref"] = "rama-borrada"; msg = actions.Gh(mw).workflow_disponible()
+        self.assertIn("contents/.github/workflows/mejoras-web-grupo.yml?ref=lab/mejoras-web-20261024", " ".join(ordenes[0]))
+        self.assertIn("rama-borrada", msg); self.assertIn("workflow_ref", msg)
+
+
 class Clasificacion(Base):
     def fin(self, defecto=None, final="success", log="", artefacto=True):
         cl = self.item_validado(1)

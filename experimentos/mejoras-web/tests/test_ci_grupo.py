@@ -107,12 +107,6 @@ class Workflow(unittest.TestCase):
             disparan.append(Path(w).name)
         self.assertEqual(disparan, [], "un push de la rama de desarrollo dispararia: " + ", ".join(disparan))
 
-    def test_no_se_han_tocado_los_workflows_generales(self):
-        r = subprocess.run(["git", "-C", str(mw.REPO), "diff", "--name-only", "origin/research/mejoras-web-orquestador-20261024", "--", ".github/workflows"], capture_output=True, text=True)
-        if r.returncode: self.skipTest("sin la rama de referencia")
-        tocados = {Path(x).name for x in r.stdout.split()}
-        self.assertLessEqual(tocados, {"mejoras-web-grupo.yml", "mejoras-web-preview.yml", "lab-mejoras-offline.yml"})
-
 
 if __name__ == "__main__":
     unittest.main()

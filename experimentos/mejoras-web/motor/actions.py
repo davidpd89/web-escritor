@@ -117,6 +117,16 @@ class Gh:
         campos = {"sha": sha, "modo": modo, "tests": tests, "intento": str(intento)}
         self._gh("workflow", "run", self.wf, "-R", self.repo, "--ref", self.q.CFG["workflow_ref"], *[a for k, v in campos.items() for a in ("-f", f"{k}={v}")])
 
+    def workflow_disponible(self):
+        """El workflow dedicado existe en la rama `workflow_ref` (GitHub solo despacha lo que existe en el --ref). Mismo metodo que qa_lote.Gh.workflow_ref del QA.
+        -> None si esta disponible; texto del problema si no (rama borrada tras fusionar una PR, workflow ausente...)."""
+        ref = self.q.CFG["workflow_ref"]
+        try: self._gh("api", f"repos/{self.repo}/contents/.github/workflows/{self.wf}?ref={ref}", "--silent")
+        except GhAuthError: raise
+        except GhError as e:
+            return f"{self.wf} no existe en la rama '{ref}' (config.json -> workflow_ref): {str(e)[:120]}. Pon en workflow_ref una rama del remoto que contenga el workflow (p. ej. {self.q.CFG['rama_base']})."
+        return None
+
     def runs_grupo(self, sha, intento=1):
         """Runs del workflow dedicado para ESTE commit e intento (el run-name lleva `sha #intento`)."""
         rs = json.loads(self._gh("run", "list", "-R", self.repo, "--workflow", self.wf, "--limit", "100", "--json", "databaseId,headSha,status,conclusion,event,createdAt,url,displayTitle") or "[]")
@@ -464,6 +474,11 @@ class Ejecutor:
         try: self.gh.ok(); gh_ok = True
         except GhAuthError as e: gh_ok = False; self.log(f"GitHub RECHAZA el token ({str(e)[:80]}): `gh auth login`. Se valida en local; los envios quedan para el siguiente clic")
         except (GhError, OSError) as e: gh_ok = False; self.log(f"GitHub no disponible ({str(e)[:80]}): se valida en local y se reintenta el envio en el siguiente clic")
+        if gh_ok and hasattr(self.gh, "workflow_disponible"):
+            try: problema = self.gh.workflow_disponible()
+            except GhError as e: problema = None; self.log(f"No se pudo comprobar el workflow ({str(e)[:80]}); se intenta igualmente")
+            if problema:  # sin esto, cada dispatch fallaba con un 422 poco claro y los items se quedaban reintentando
+                self.log("NO SE ENVIA NADA A ACTIONS: " + problema + " Se valida en local y lo validado queda en la cola."); gh_ok = False
         # reanudar: items que se quedaron validando (cierre a mitad) vuelven a validarse; los runs ya enviados se recuperan SIN reenviar
         for it in self.items():
             if it["estado"] == "validando": self.c.execute("UPDATE expedientes SET estado='preparado' WHERE id=? AND estado='validando'", (it["exp"],)); self.c.execute("DELETE FROM cola WHERE clave=?", (it["clave"],))

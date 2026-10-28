@@ -37,6 +37,9 @@ def verificar(real=False):
     if real:
         try: mw.refrescar_base(forzar=True); comprobar("rama_base", True, f"{mw.fuente_ref()} @ {mw.head_base()[:10]}")
         except Exception as exc: comprobar("rama_base", False, str(exc)[:240])
+        ref = mw.CFG["workflow_ref"]
+        lsr = mw.run(["git", "ls-remote", "--exit-code", "origin", f"refs/heads/{ref}"], cwd=mw.REPO, capture_output=True, text=True)
+        comprobar("workflow_ref", lsr.returncode == 0, f"rama '{ref}' del workflow existe en origin" if lsr.returncode == 0 else f"la rama workflow_ref '{ref}' NO existe en origin: EJECUTAR no podria despachar (config.json)", critico=False)
         pid = mw.CFG["gpt"].get("project_id", "")
         comprobar("project_chatgpt", pid.startswith("g-p-"), "configurado" if pid else "FALTA gpt.project_id en config.json (o MEJORAS_WEB_PROJECT_ID)")
         try: pw = importlib.util.find_spec("playwright.sync_api") is not None

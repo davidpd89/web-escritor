@@ -2,10 +2,9 @@
  "repo": "davidpd89/web-escritor",
  "sitio": "https://davidportodiaz.com",
  "rama_base": "lab/mejoras-web-20261024",
- "rama_desarrollo": "research/mejoras-web-motor-qa-20261027",
  "prefijo_rama": "mejoras-web/",
  "workflow_grupo": "mejoras-web-grupo.yml",
- "workflow_ref": "research/mejoras-web-motor-qa-20261027",
+ "workflow_ref": "lab/mejoras-web-20261024",
  "workflow_preview": "mejoras-web-preview.yml",
  "gpt": {
   "puerto_cdp": 9331,

@@ -7,8 +7,8 @@ run-name: "Mejoras web ${{ inputs.sha }} #${{ inputs.intento }}"
 # Solo workflow_dispatch: ni push ni pull_request, asi que nunca se dispara solo ni bloquea Required merge gate.
 # Lo despacha unicamente EJECUTAR-ACTIONS-MEJORAS-WEB.bat (experimentos/mejoras-web/motor/actions.py), con un maximo de 3 grupos a la vez.
 # El run-name lleva `sha #intento`: asi el ejecutor reconoce un run ya enviado (dedupe por SHA) y recupera su resultado sin reenviar.
-# Dependencia de rama: GitHub solo despacha un workflow que existe en la rama indicada por --ref (config.json: workflow_ref). Mientras el laboratorio
-# se desarrolla vive en research/mejoras-web-motor-qa-20261027; al integrarlo, workflow_ref pasa a lab/mejoras-web-20261024.
+# Dependencia de rama: GitHub solo despacha un workflow que existe en la rama indicada por --ref (config.json: workflow_ref = lab/mejoras-web-20261024). Si esa rama se borra o
+# no contiene este archivo, EJECUTAR lo detecta al arrancar y no envia nada. No usar `main` como ref: el job se omite en main a proposito.
 # No ejecuta auditorias generales, Pa11y, Reflow, Lighthouse ni regresion visual.
 # Patron: .github/workflows/qa-gpt-grupo.yml @ fe131c8ce6a663b54ab067ea5bc123318ececbb0 (rama automation/qa-gpt).
 

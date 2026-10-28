@@ -32,8 +32,8 @@ muestran un mensaje claro si falta algo.
 
 1. Clona o actualiza el repositorio en una carpeta/worktree **propio del laboratorio** (no el del QA):
    ```powershell
-   git fetch origin research/mejoras-web-motor-qa-20261027
-   git worktree add ..\web-escritor-mejoras origin/research/mejoras-web-motor-qa-20261027 -b lab/mejoras-local
+   git fetch origin main
+   git worktree add ..\web-escritor-mejoras origin/main -b lab/mejoras-local
    cd ..\web-escritor-mejoras\experimentos\mejoras-web
    ```
 2. Python 3.10+ y `pip install playwright` (solo se usa para hablar con Edge por CDP; no hace falta `playwright install`).
@@ -77,11 +77,12 @@ python -m unittest discover -s tests -p "test_*.py" -v
 * **Rama base**: se hace `git fetch` de `origin/lab/mejoras-web-20261024` cada 20 min y, si no existe en tu clon, el preflight lo dice con el comando exacto.
 * **Rama de desarrollo**: ningun disparador automatico. Los workflows del laboratorio son solo `workflow_dispatch`; los commits que tocan `experimentos/mejoras-web/**` y los workflows nuevos no coinciden con los filtros `paths` de los workflows existentes con `push` sin rama (cuaderno).
 
-## Dependencia de rama del workflow (no se activa por commitear)
+## Dependencia de rama del workflow
 
-GitHub solo despacha un workflow que existe en la rama que se pasa a `--ref`. `mejoras-web-grupo.yml` vive hoy en `research/mejoras-web-motor-qa-20261027` y `config.json` → `workflow_ref`
-apunta ahi. Al integrar el laboratorio en `lab/mejoras-web-20261024`, cambia `workflow_ref` a esa rama (y si algun dia pasa a `main`, a `main`). Si el dispatch no crea ningun run en `actions.espera_run_min` (10 min),
-el item pasa a `revision_humana` indicando exactamente eso. El workflow checkoutea el `sha` de la rama `mejoras-web/*` (publicada por EJECUTAR) y toma el driver (`ci_grupo.py`) del commit del workflow.
+GitHub solo despacha un workflow que existe en la rama que se pasa a `--ref`. `config.json` -> `workflow_ref` es `lab/mejoras-web-20261024` (la rama de integracion del laboratorio, que contiene
+`mejoras-web-grupo.yml` y el driver `motor/ci_grupo.py`). No uses `main` ni una rama de desarrollo que vayas a borrar al fusionar su PR: EJECUTAR comprueba al arrancar que el workflow existe en
+`workflow_ref` (y `preflight --real` lo avisa); si no, valida en local y no envia nada. Si el dispatch no crea ningun run en `actions.espera_run_min` (10 min), el item pasa a `revision_humana`.
+El workflow checkoutea el `sha` de la rama `mejoras-web/*` (publicada por EJECUTAR) y toma el driver del commit del workflow.
 
 ## Enlace verificable de la web con las mejoras (documentado, NO activado)
 
@@ -94,10 +95,5 @@ el item pasa a `revision_humana` indicando exactamente eso. El workflow checkout
 Ver `PROCEDENCIA.md` (tabla completa) y `legado-819/INDICE.md`. Resumen: se conservan `verificar_upstream.py` y `descubrimiento.py` (pistas opcionales); se reescriben `preflight.py` y `preview.py`;
 se sustituyen por el motor del QA `ciclo.py`, `pr_laboratorio.py`, `claude_cli.py`, `gpt_browser.py` y `rotacion.py`; no hay catalogo fijo: la rotacion area × lente (100 pares) cambia de orden en cada vuelta y no se agota.
 
-## Integrar esta rama en la #819 sin PR duplicadas
-
-La #819 (`research/mejoras-web-orquestador-20261024`, cerrada sin fusionar) **no se reabre ni se crea otra PR mientras se desarrolla**. Cuando David lo decida:
-1. Revisar localmente `research/mejoras-web-motor-qa-20261027` (tests offline + una ronda real).
-2. Avanzar la rama de la #819 a este trabajo: `git checkout research/mejoras-web-orquestador-20261024 && git merge --ff-only research/mejoras-web-motor-qa-20261027 && git push` (es fast-forward: esta rama parte del HEAD de la #819). Con la PR cerrada el push no dispara CI.
-3. Solo entonces reabrir **esa misma** PR #819 (o abrir una unica nueva hacia `lab/mejoras-web-20261024`, cerrando la antigua). Las PR hijas de cada mejora (`mejoras-web/<id>` → `lab/...`) las crea `mw.py pr`, que detecta una PR existente por rama y no la duplica; el tope por defecto es 2 abiertas.
-4. Cambiar `workflow_ref` a la rama donde viva `mejoras-web-grupo.yml`.
+## Estado de integracion
+El laboratorio ya esta en `main` (#959). Las mejoras aceptadas se acumulan en `lab/mejoras-web-20261024` mediante PR hijas (`mejoras-web/<id>` -> lab, en borrador, `mw.py pr`); pasar a `main` solo cuando David lo ordene.
