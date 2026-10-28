@@ -39,6 +39,12 @@ DESCRIPTION = (
 )
 
 
+META_DESCRIPTION = (
+    "Si las herramientas, guías y recursos de esta web te han resultado útiles, "
+    "puedes hacer una aportación voluntaria para que siga creciendo."
+)
+
+
 def render(channels: list[dict]) -> str:
     methods = render_channels(channels)
     source = f"""<!doctype html>
@@ -50,13 +56,13 @@ def render(channels: list[dict]) -> str:
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <link rel="canonical" href="https://davidportodiaz.com/apoyar/" />
   <title>Apoya este proyecto | David Porto Díaz</title>
-  <meta name="description" content="{DESCRIPTION}" />
+  <meta name="description" content="{META_DESCRIPTION}" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="stylesheet" href="/assets/v1-fonts.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-tokens.css?v=1" />
   <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
-  <link rel="stylesheet" href="/assets/v1-shell.css?v=5" />
+  <link rel="stylesheet" href="/assets/v1-shell.css?v=6" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-support.css?v=2" />
 </head>

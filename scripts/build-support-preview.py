@@ -34,7 +34,7 @@ def render_preview_source() -> str:
   <link rel="stylesheet" href="/assets/v1-fonts.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-tokens.css?v=1" />
   <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
-  <link rel="stylesheet" href="/assets/v1-shell.css?v=5" />
+  <link rel="stylesheet" href="/assets/v1-shell.css?v=6" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <style>
     .support-preview{width:min(calc(100% - 2rem),44rem);margin:clamp(2rem,6vw,5rem) auto}
