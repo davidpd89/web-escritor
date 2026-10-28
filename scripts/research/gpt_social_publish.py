@@ -18,6 +18,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import gpt_metricool_mcp as mcp  # noqa: E402
+import gpt_social_compose as compose  # noqa: E402
 
 REL = "redes-sociales/social-metrics.json"
 BRANCH = "main"
@@ -47,11 +48,29 @@ def validate(text: str, now: datetime) -> dict:
     if sorted(ids) != sorted(NETWORKS):
         raise PublishError("snapshot does not list exactly the six official networks")
     for n in nets:
-        if n.get("status") == "ok" and not (isinstance(n.get("followers"), int) and n["followers"] >= 0
-                                            and str(n.get("profile_url", "")).startswith("https://")):
+        if n.get("profile_url") != compose.PROFILES[n["id"]]:
+            raise PublishError(f"non-canonical profile URL for {n['id']}")
+        if n.get("status") == "ok" and not (isinstance(n.get("followers"), int) and n["followers"] >= 0):
             raise PublishError(f"bad data for {n.get('id')}")
-    if not any(n.get("status") == "ok" for n in nets):
+    valid = [n for n in nets if n.get("status") == "ok"]
+    if not valid:
         raise PublishError("no network with fresh data")
+    try:
+        deadlines = [_t(n["valid_until"]) for n in valid]
+        expected = {
+            "follower_relationships": sum(n["followers"] for n in valid),
+            "coverage": len(valid),
+            "eligible": len(NETWORKS),
+        }
+        totals = data["totals"]
+        for field, value in expected.items():
+            if field in totals or field == "follower_relationships":
+                if type(totals.get(field)) is not int or totals[field] != value:
+                    raise PublishError(f"inconsistent aggregate: {field}")
+        if expiry != min(deadlines):
+            raise PublishError("inconsistent aggregate: valid_until")
+    except (ValueError, KeyError, TypeError, AttributeError) as exc:
+        raise PublishError(f"invalid aggregate: {exc}") from exc
     if expiry <= now:
         raise PublishError("snapshot already expired")
     if any(word in text for word in FORBIDDEN):
@@ -100,6 +119,11 @@ def publish(source: Path, clone: Path, remote: str, now: datetime | None = None,
     for attempt in (1, 2):
         sync(clone)
         target = clone / REL
+        # Reject symlinks before any read, cadence decision or write.
+        # Inspect each component, including dangling symlinks.
+        for candidate in (clone / Path(REL).parts[0], target):
+            if candidate.is_symlink():
+                raise PublishError(f"refusing symbolic link in publication path: {candidate}")
         old_text = target.read_text(encoding="utf-8") if target.exists() else ""
         if old_text == text:
             return "noop"

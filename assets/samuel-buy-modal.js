@@ -85,7 +85,20 @@
     });
     d.addEventListener("close", () => {
       document.documentElement.classList.remove("modal-open");
+      const trigger = lastBuyTrigger;
       restoreFocus();
+      // Solo los cierres iniciados desde la entrada del modal deben
+      // retroceder. Si popstate ya navegó, no se retrocede otra vez.
+      if (history.state?.buyModal === true && window.location.hash === "#comprar") {
+        // Volver al fragmento anterior mueve el foco del navegador: se repone
+        // cuando la navegación termina (Escape y botón cerrar).
+        window.addEventListener("popstate", () => {
+          setTimeout(() => {
+            if (trigger instanceof HTMLElement && trigger.isConnected) trigger.focus({ preventScroll: true });
+          }, 0);
+        }, { once: true });
+        history.back();
+      }
     });
 
     d.querySelectorAll("[data-gc]").forEach((element) => {
@@ -121,6 +134,12 @@
   });
 
   window.addEventListener("popstate", () => {
-    if (dialog?.open) dialog.close();
+    if (!dialog?.open) return;
+    const trigger = lastBuyTrigger;
+    dialog.close();
+    // «Atrás» navega al fragmento anterior y el navegador mueve el foco: se repone después.
+    setTimeout(() => {
+      if (trigger instanceof HTMLElement && trigger.isConnected) trigger.focus({ preventScroll: true });
+    }, 0);
   });
 })();

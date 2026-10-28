@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const root=process.cwd();
+const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const video=html.match(/<video\b[^>]*data-hero-video\b[^>]*>/i)?.[0];
+assert.ok(video,'index.html: falta vídeo introductorio');
+assert.match(video,/\bmuted\b/i,'index.html: vídeo introductorio no silenciado');
+assert.match(video,/\bplaysinline\b/i,'index.html: vídeo sin reproducción integrada');
+assert.match(video,/\baria-hidden=["']true["']/i,'index.html: vídeo decorativo expuesto a lectores de pantalla');
+const poster=video.match(/\bposter=["']([^"']+)["']/i)?.[1];
+assert.ok(poster,'index.html: vídeo sin poster');
+const url=new URL(poster,'https://davidportodiaz.com');
+assert.equal(url.origin,'https://davidportodiaz.com','index.html: poster externo inesperado');
+const file=path.resolve(root,'.'+decodeURIComponent(url.pathname));
+assert.ok(file.startsWith(root+path.sep),'index.html: poster fuera del repositorio');
+assert.ok(fs.existsSync(file),`index.html: poster inexistente ${poster}`);
+assert.ok(fs.statSync(file).size>0,`index.html: poster vacío ${poster}`);
+console.log('PASS: vídeo introductorio y poster');

@@ -5,53 +5,6 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Convocatorias para escritores
 BEGIN:VEVENT
-UID:manera-montblanc-relatos-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261025
-DTEND;VALUE=DATE:20261026
-SUMMARY:Concurso de Relatos MANERA x Montblanc 2026
-DESCRIPTION:MANERA Magazine · Montblanc
-URL:https://maneramagazine.es/interiorismo/concurso-relatos-manera-montblan
- c-2026/
-END:VEVENT
-BEGIN:VEVENT
-UID:kannonical-terror-sobrenatural-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261025
-DTEND;VALUE=DATE:20261026
-SUMMARY:Convocatoria «Terror Sobrenatural» 2026
-DESCRIPTION:Kannonical Editores
-URL:https://kannonical-editores.github.io/convoc.html
-END:VEVENT
-BEGIN:VEVENT
-UID:zenda-mentesana-relatos-2026@davidportodiaz.com
-DTSTAMP:20261019T000000Z
-DTSTART;VALUE=DATE:20261025
-DTEND;VALUE=DATE:20261026
-SUMMARY:Concurso de relatos #MenteSana — Zenda + Iberdrola
-DESCRIPTION:Zenda\, con el patrocinio de Iberdrola
-URL:https://www.zendalibros.com/concurso-de-relatos-mentesana/
-END:VEVENT
-BEGIN:VEVENT
-UID:si-los-pasillos-hablaran-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261026
-DTEND;VALUE=DATE:20261027
-SUMMARY:I Concurso de Microrrelatos «Si los pasillos hablaran»
-DESCRIPTION:Supermercados Unide · Escuela de Escritores
-URL:https://escueladeescritores.com/concursos/si-los-pasillos-hablaran/
-END:VEVENT
-BEGIN:VEVENT
-UID:europe-direct-caceres-relato-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261026
-DTEND;VALUE=DATE:20261027
-SUMMARY:XIX Concurso de Relato Breve Europe Direct Cáceres 2026
-DESCRIPTION:Europe Direct Cáceres · Ayuntamiento de Cáceres
-URL:https://www.ayto-caceres.es/noticias/europe-direct-caceres-duplica-la-d
- otacion-de-sus-concursos-y-facilita-la-presentacion-digital-de-las-obras/
-END:VEVENT
-BEGIN:VEVENT
 UID:legado-manos-diversidad-literaria-2026@davidportodiaz.com
 DTSTAMP:20261003T000000Z
 DTSTART;VALUE=DATE:20261029

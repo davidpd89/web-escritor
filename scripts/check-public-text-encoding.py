@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +22,57 @@ MOJIBAKE = (
     "ðŸ",
     "ï»¿",
 )
+
+# Parse the serialized <meta> tag: HTMLParser decodes character references in
+# attribute values, but charset declarations may not contain character refs.
+RAW_ATTRIBUTE = re.compile(
+    r'''\s+([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?'''
+)
+
+
+def literal_meta_charset(starttag: str) -> str | None:
+    tail = starttag[5:]
+    pos = 0
+    while pos < len(tail):
+        match = RAW_ATTRIBUTE.match(tail, pos)
+        if match is None:
+            break
+        name, quoted_double, quoted_single, unquoted = match.groups()
+        if name.lower() == "charset":
+            return next((v for v in (quoted_double, quoted_single, unquoted)
+                         if v is not None), "")
+        pos = match.end()
+    return None
+
+
+class EarlyUtf8Meta(HTMLParser):
+    """Locate a real UTF-8 meta declaration, not one inside a comment/script."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.found = False
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() != "meta":
+            return
+        # Never accept an entity-encoded charset from the parsed attrs.
+        raw_value = literal_meta_charset(self.get_starttag_text())
+        if raw_value is not None and raw_value.lower() == "utf-8":
+            self.found = True
+
+    def handle_startendtag(self, tag, attrs):
+        self.handle_starttag(tag, attrs)
+
+
+def has_early_utf8_meta(raw: bytes) -> bool:
+    """The complete encoding declaration must fit in the first 1024 BYTES."""
+    parser = EarlyUtf8Meta()
+    # Latin-1 preserves the location of each source byte; ignore-ASCII
+    # decoding could turn a non-ASCII tag name into a fictitious <meta>.
+    parser.feed(raw[:1024].decode("latin-1"))
+    parser.close()
+    return parser.found
+
 
 def public_files() -> list[Path]:
     files: set[Path] = set()
@@ -63,9 +115,8 @@ for path in public_files():
             errors.append(f"{rel}:{line}: suspicious mojibake token {token!r}")
 
     if path.suffix.lower() in {".html", ".htm"}:
-        head = text[:12000]
-        if not re.search(r"<meta\s+charset\s*=\s*['\"]?utf-8", head, re.I):
-            errors.append(f"{rel}: public HTML lacks UTF-8 meta charset")
+        if not has_early_utf8_meta(raw):
+            errors.append(f"{rel}: public HTML lacks a real UTF-8 meta charset in its first 1024 bytes")
 
     if path.suffix.lower() == ".json":
         try:

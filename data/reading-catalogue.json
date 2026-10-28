@@ -539,6 +539,87 @@
       "orden": 209,
       "slug": "tema-comic-juvenil",
       "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Novela romántica juvenil.",
+      "id": "tema-novela-romantica-juvenil",
+      "nombre": "Novela romántica juvenil",
+      "orden": 210,
+      "slug": "tema-novela-romantica-juvenil",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Deporte.",
+      "id": "tema-deporte",
+      "nombre": "Deporte",
+      "orden": 211,
+      "slug": "tema-deporte",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Viajes.",
+      "id": "tema-viajes",
+      "nombre": "Viajes",
+      "orden": 212,
+      "slug": "tema-viajes",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Naturaleza.",
+      "id": "tema-naturaleza",
+      "nombre": "Naturaleza",
+      "orden": 213,
+      "slug": "tema-naturaleza",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Para padres.",
+      "id": "tema-para-padres",
+      "nombre": "Para padres",
+      "orden": 214,
+      "slug": "tema-para-padres",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Ciencia ficción juvenil.",
+      "id": "tema-ciencia-ficcion-juvenil",
+      "nombre": "Ciencia ficción juvenil",
+      "orden": 215,
+      "slug": "tema-ciencia-ficcion-juvenil",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Salud.",
+      "id": "tema-salud",
+      "nombre": "Salud",
+      "orden": 216,
+      "slug": "tema-salud",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Secretos.",
+      "id": "tema-secretos",
+      "nombre": "Secretos",
+      "orden": 217,
+      "slug": "tema-secretos",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Ciencia.",
+      "id": "tema-ciencia",
+      "nombre": "Ciencia",
+      "orden": 218,
+      "slug": "tema-ciencia",
+      "tipo": "tematica"
     }
   ],
   "libro_categorias": [
@@ -565,22 +646,6 @@
     {
       "categoria_id": "misterio",
       "libro_id": "lib-0001"
-    },
-    {
-      "categoria_id": "aventuras",
-      "libro_id": "isbn-9791387846008"
-    },
-    {
-      "categoria_id": "adultos",
-      "libro_id": "isbn-9791387846008"
-    },
-    {
-      "categoria_id": "fantasia",
-      "libro_id": "isbn-9788401039560"
-    },
-    {
-      "categoria_id": "adultos",
-      "libro_id": "isbn-9788401039560"
     },
     {
       "categoria_id": "fantasia",
@@ -817,14 +882,6 @@
     {
       "categoria_id": "aventuras",
       "libro_id": "lib-0001"
-    },
-    {
-      "categoria_id": "misterio-y-thriller",
-      "libro_id": "isbn-9788401039560"
-    },
-    {
-      "categoria_id": "terror",
-      "libro_id": "isbn-9788401039560"
     },
     {
       "categoria_id": "romance",
@@ -1405,6 +1462,254 @@
     {
       "categoria_id": "adultos",
       "libro_id": "isbn-9788410442771"
+    },
+    {
+      "categoria_id": "clasicos",
+      "libro_id": "isbn-9788491057031"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788491057031"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788491057031"
+    },
+    {
+      "categoria_id": "tema-novela-romantica-juvenil",
+      "libro_id": "isbn-9791388222801"
+    },
+    {
+      "categoria_id": "romance",
+      "libro_id": "isbn-9791388222801"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9791388222801"
+    },
+    {
+      "categoria_id": "tema-deporte",
+      "libro_id": "isbn-9791388222801"
+    },
+    {
+      "categoria_id": "juvenil",
+      "libro_id": "isbn-9791388222801"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9791387740382"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387740382"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-9-anos",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "tema-familia",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "tema-viajes",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "tema-naturaleza",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9791388277085"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-4-anos",
+      "libro_id": "isbn-9791387809829"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791387809829"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788427054479"
+    },
+    {
+      "categoria_id": "tema-novela-literaria",
+      "libro_id": "isbn-9788411078474"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788411078474"
+    },
+    {
+      "categoria_id": "tema-comic-juvenil",
+      "libro_id": "isbn-9791387962142"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9791387962142"
+    },
+    {
+      "categoria_id": "comic-y-novela-grafica",
+      "libro_id": "isbn-9791387962142"
+    },
+    {
+      "categoria_id": "tema-amistad",
+      "libro_id": "isbn-9791387962142"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9791387962142"
+    },
+    {
+      "categoria_id": "tema-para-padres",
+      "libro_id": "isbn-9788413445564"
+    },
+    {
+      "categoria_id": "nutricion-y-bienestar",
+      "libro_id": "isbn-9788413445564"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9788413445564"
+    },
+    {
+      "categoria_id": "tema-ciencia-ficcion-juvenil",
+      "libro_id": "isbn-9788427257627"
+    },
+    {
+      "categoria_id": "ciencia-ficcion",
+      "libro_id": "isbn-9788427257627"
+    },
+    {
+      "categoria_id": "tema-salud",
+      "libro_id": "isbn-9788408325222"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788408325222"
+    },
+    {
+      "categoria_id": "nutricion-y-bienestar",
+      "libro_id": "isbn-9788408325222"
+    },
+    {
+      "categoria_id": "tema-infantil",
+      "libro_id": "isbn-9791387526863"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9791387526863"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9791387512446"
+    },
+    {
+      "categoria_id": "tema-secretos",
+      "libro_id": "isbn-9791387512446"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387512446"
+    },
+    {
+      "categoria_id": "tema-manga",
+      "libro_id": "isbn-9791388100550"
+    },
+    {
+      "categoria_id": "tema-manga",
+      "libro_id": "isbn-9791388101311"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9791387846008"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387846008"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "terror",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-4-anos",
+      "libro_id": "isbn-9788419981035"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788419981035"
+    },
+    {
+      "categoria_id": "comic-y-novela-grafica",
+      "libro_id": "isbn-9788419981035"
+    },
+    {
+      "categoria_id": "tema-familia",
+      "libro_id": "isbn-9788419981035"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9780241831380"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9780241831380"
+    },
+    {
+      "categoria_id": "tema-ciencia",
+      "libro_id": "isbn-9788449346033"
+    },
+    {
+      "categoria_id": "tema-novela-contemporanea",
+      "libro_id": "isbn-9788467084832"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788467084832"
+    },
+    {
+      "categoria_id": "tema-comic-juvenil",
+      "libro_id": "isbn-9791387962005"
+    },
+    {
+      "categoria_id": "terror",
+      "libro_id": "isbn-9791387962005"
+    },
+    {
+      "categoria_id": "comic-y-novela-grafica",
+      "libro_id": "isbn-9791387962005"
+    },
+    {
+      "categoria_id": "juvenil",
+      "libro_id": "isbn-9791387962005"
     }
   ],
   "libros": [
@@ -1503,9 +1808,9 @@
       "editorial": "Alfaguara",
       "editorial_slug": "alfaguara",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-21",
+      "fecha_actualizacion": "2026-10-27",
       "fecha_publicacion": "2026-10-20",
-      "fecha_verificacion": "2026-10-20",
+      "fecha_verificacion": "2026-10-27",
       "formato_edicion": "tapa-dura",
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-aventura/636581-libro-la-hipotesis-mas-peligrosa-9791387846008",
       "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-aventura/636581-libro-la-hipotesis-mas-peligrosa-9791387846008",
@@ -1517,11 +1822,11 @@
       "portada_alto": 1235,
       "portada_ancho": 800,
       "portada_edicion_verificada": true,
-      "portada_fecha_revision": "2026-10-20",
+      "portada_fecha_revision": "2026-10-27",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8190863-thickbox_default/la-hipotesis-mas-peligrosa.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387846008.webp",
       "pvp_centimos": 2390,
-      "pvp_fecha_verificacion": "2026-10-21",
+      "pvp_fecha_verificacion": "2026-10-27",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1550,9 +1855,9 @@
       "editorial": "Plaza & Janés",
       "editorial_slug": "plaza-y-janes",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-21",
+      "fecha_actualizacion": "2026-10-27",
       "fecha_publicacion": "2026-10-15",
-      "fecha_verificacion": "2026-10-20",
+      "fecha_verificacion": "2026-10-27",
       "formato_edicion": "tapa-dura",
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-fantasia/635029-libro-otros-mundos-el-talisman-3-9788401039560",
       "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-fantasia/635029-libro-otros-mundos-el-talisman-3-9788401039560",
@@ -1564,11 +1869,11 @@
       "portada_alto": 1235,
       "portada_ancho": 800,
       "portada_edicion_verificada": true,
-      "portada_fecha_revision": "2026-10-20",
+      "portada_fecha_revision": "2026-10-27",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8250289-thickbox_default/otros-mundos-el-talisman-3.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401039560.webp",
       "pvp_centimos": 2790,
-      "pvp_fecha_verificacion": "2026-10-21",
+      "pvp_fecha_verificacion": "2026-10-27",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -4558,6 +4863,905 @@
       "sinopsis_tipo": "extracto_editorial",
       "slug": "cocina-para-cara-almendras-9788410442771",
       "titulo": "Cocina para cara almendras"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788491057031&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Virginia Woolf"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La señora Dalloway (edición especial limitada con cantos tintados), de Virginia Woolf. Edición de Penguin Clásicos en castellano, en tapa dura. Consta de 264 páginas. La editorial la incluye en grandes clásicos. Publicación editorial: 2026-10-22.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · Penguin Clásicos",
+      "editorial": "Penguin Clásicos",
+      "editorial_catalogo_slug": "penguin-clasicos",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-24",
+      "fecha_publicacion": "2026-10-22",
+      "fecha_verificacion": "2026-10-24",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-clasicos/621386-libro-la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-clasicos/621386-libro-la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-clasicos/621386-libro-la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031",
+      "id": "isbn-9788491057031",
+      "idioma": "es",
+      "isbn13": "9788491057031",
+      "numero_paginas": 264,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-24",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8059943-thickbox_default/la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788491057031.webp",
+      "pvp_centimos": 1695,
+      "pvp_fecha_verificacion": "2026-10-24",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-24",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788491057031"
+        }
+      ],
+      "sinopsis_breve": "La historia comienza una soleada mañana de 1923 y termina esa misma noche, cuando empiezan a retirarse los invitados de una fiesta que se…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-clasicos/621386-libro-la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031",
+      "titulo": "La señora Dalloway (edición especial limitada con cantos tintados)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388222801&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Susanna Herrero"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Solo un juego más (CAR HOCKEY 1), de Susanna Herrero. Edición de Montena en castellano, en tapa blanda con sobrecubierta. Consta de 480 páginas. La editorial la incluye en novela romántica juvenil. Publicación editorial: 2026-10-22.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Juvenil",
+      "edicion": "Tapa blanda con sobrecubierta · Montena",
+      "editorial": "Montena",
+      "editorial_catalogo_slug": "montena",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-24",
+      "fecha_publicacion": "2026-10-22",
+      "fecha_verificacion": "2026-10-24",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/635010-libro-solo-un-juego-mas-car-hockey-1-9791388222801",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/635010-libro-solo-un-juego-mas-car-hockey-1-9791388222801",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/635010-libro-solo-un-juego-mas-car-hockey-1-9791388222801",
+      "id": "isbn-9791388222801",
+      "idioma": "es",
+      "isbn13": "9791388222801",
+      "numero_paginas": 480,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-24",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8155881-thickbox_default/solo-un-juego-mas-car-hockey-1.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388222801.webp",
+      "pvp_centimos": 2095,
+      "pvp_fecha_verificacion": "2026-10-24",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-24",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388222801"
+        }
+      ],
+      "sinopsis_breve": "Cannon Donnelly acabó la carrera de Matemáticas summa cum laude y no sabe qué hacer con su vida, hasta que el entrenador del equipo…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/635010-libro-solo-un-juego-mas-car-hockey-1-9791388222801",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "solo-un-juego-mas-car-hockey-1-9791388222801",
+      "titulo": "Solo un juego más (CAR HOCKEY 1)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387740382&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jo Nesbo"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Sin piedad (Harry Hole 14), de Jo Nesbo. Edición de Reservoir Books en castellano, en tapa blanda con solapas. Consta de 488 páginas. La editorial la incluye en novela negra, misterio y thriller. Publicación editorial: 2026-11-05.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Reservoir Books",
+      "editorial": "Reservoir Books",
+      "editorial_slug": "reservoir-books",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-24",
+      "fecha_publicacion": "2026-11-05",
+      "fecha_verificacion": "2026-10-24",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637804-libro-sin-piedad-harry-hole-14-9791387740382",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637804-libro-sin-piedad-harry-hole-14-9791387740382",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637804-libro-sin-piedad-harry-hole-14-9791387740382",
+      "id": "isbn-9791387740382",
+      "idioma": "es",
+      "isbn13": "9791387740382",
+      "numero_paginas": 488,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-24",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8182091-thickbox_default/sin-piedad-harry-hole-14.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387740382.webp",
+      "pvp_centimos": 2390,
+      "pvp_fecha_verificacion": "2026-10-24",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-24",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387740382"
+        }
+      ],
+      "sinopsis_breve": "Harry Hole ha encontrado trabajo en una compañía de seguros, investigando posibles fraudes de sus clientes. Podría ser pan comido si Harry no se…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637804-libro-sin-piedad-harry-hole-14-9791387740382",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "sin-piedad-harry-hole-14-9791387740382",
+      "titulo": "Sin piedad (Harry Hole 14)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388277085&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jose Such"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Pipoka y la Fábrica del Desastre, de Jose Such. Edición de Alfaguara en castellano, en tapa dura. Consta de 288 páginas. La editorial la incluye en a partir de 9 años. Publicación editorial: 2026-10-22.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 9 años",
+      "edicion": "Tapa dura · Alfaguara",
+      "editorial": "Alfaguara",
+      "editorial_slug": "alfaguara",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-24",
+      "fecha_publicacion": "2026-10-22",
+      "fecha_verificacion": "2026-10-24",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634630-libro-pipoka-y-la-fabrica-del-desastre-9791388277085",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634630-libro-pipoka-y-la-fabrica-del-desastre-9791388277085",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634630-libro-pipoka-y-la-fabrica-del-desastre-9791388277085",
+      "id": "isbn-9791388277085",
+      "idioma": "es",
+      "isbn13": "9791388277085",
+      "numero_paginas": 288,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-24",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8278616-thickbox_default/pipoka-y-la-fabrica-del-desastre.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388277085.webp",
+      "pvp_centimos": 1995,
+      "pvp_fecha_verificacion": "2026-10-24",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-24",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388277085"
+        }
+      ],
+      "sinopsis_breve": "Un cuentacuentos errante y una marioneta llena de magia recorren la Península descubriendo paisajes y criaturas legendarias. Son Pipoka y Leo, van de pueblo…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634630-libro-pipoka-y-la-fabrica-del-desastre-9791388277085",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "pipoka-y-la-fabrica-del-desastre-9791388277085",
+      "titulo": "Pipoka y la Fábrica del Desastre"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387809829&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Sally Rippin"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico, de Sally Rippin. Edición de Montena en castellano, en tapa blanda. Consta de 48 páginas. La editorial la incluye en a partir de 4 años. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 4 años",
+      "edicion": "Tapa blanda · Montena",
+      "editorial": "Montena",
+      "editorial_catalogo_slug": "montena",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-24",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-24",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/635007-libro-aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/635007-libro-aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/635007-libro-aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829",
+      "id": "isbn-9791387809829",
+      "idioma": "es",
+      "isbn13": "9791387809829",
+      "numero_paginas": 48,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-24",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8132643-thickbox_default/aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387809829.webp",
+      "pvp_centimos": 795,
+      "pvp_fecha_verificacion": "2026-10-24",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-24",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387809829"
+        }
+      ],
+      "sinopsis_breve": "- ¡Y una historia de lo más divertida protagonizada por un grupo de monstruos!",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/635007-libro-aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829",
+      "titulo": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788427054479&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Lauren Asher"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Un amor de diciembre, de Lauren Asher. Edición de Ediciones Martínez Roca en castellano, en rústica con solapas. Consta de 384 páginas. La editorial la incluye en juvenil. Publicación editorial: 2026-10-14.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Ediciones Martínez Roca",
+      "editorial": "Ediciones Martínez Roca",
+      "editorial_catalogo_slug": "ediciones-martinez-roca",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-25",
+      "fecha_publicacion": "2026-10-14",
+      "fecha_verificacion": "2026-10-25",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-un-amor-de-diciembre/426146",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-un-amor-de-diciembre/426146",
+      "id": "isbn-9788427054479",
+      "idioma": "es",
+      "isbn13": "9788427054479",
+      "numero_paginas": 384,
+      "portada_alto": 500,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-25",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/db3165be-db6e-47bd-a4ee-73ee328b1359/d_360_620/portada_un-amor-de-diciembre_lauren-asher_202508041701.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788427054479.webp",
+      "pvp_centimos": 1890,
+      "pvp_fecha_verificacion": "2026-10-25",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-25",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788427054479"
+        }
+      ],
+      "sinopsis_breve": "No es complicado hacer de dama de honor en la boda de mi hermana. Ni siquiera teniendo en cuenta que se casa con mi…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-un-amor-de-diciembre/426146",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "un-amor-de-diciembre-9788427054479",
+      "titulo": "Un amor de diciembre"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788411078474&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Eva Blanch"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Urkinaona, de Eva Blanch. Edición de Tusquets Editores en castellano, en rústica con solapas. Consta de 288 páginas. La editorial la incluye en novela literaria. Publicación editorial: 2026-10-14.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Tusquets Editores",
+      "editorial": "Tusquets Editores",
+      "editorial_slug": "tusquets-editores",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-25",
+      "fecha_publicacion": "2026-10-14",
+      "fecha_verificacion": "2026-10-25",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-urkinaona/459319",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-urkinaona/459319",
+      "id": "isbn-9788411078474",
+      "idioma": "es",
+      "isbn13": "9788411078474",
+      "numero_paginas": 288,
+      "portada_alto": 539,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-25",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/f2c4bba2-4053-43c6-a12c-514ce9b180c6/d_360_620/portada_urkinaona_eva-blanch_202609070932.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788411078474.webp",
+      "pvp_centimos": 2090,
+      "pvp_fecha_verificacion": "2026-10-25",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-25",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788411078474"
+        }
+      ],
+      "sinopsis_breve": "Barcelona, octubre de 2019. Tras la sentencia del Tribunal Supremo a los líderes del procés, las calles estallan. Aeropuerto bloqueado, carreteras colapsadas, barricadas, manifestaciones…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-urkinaona/459319",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "urkinaona-9788411078474",
+      "titulo": "Urkinaona"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387962142&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Masamitsu Nigatsu"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "El guardaespaldas de Honeko Akabane 7 (Shônen), de Masamitsu Nigatsu. Edición de Distrito Manga en castellano, en tapa blanda con sobrecubierta. Consta de 192 páginas. La editorial la incluye en cómic juvenil. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda con sobrecubierta · Distrito Manga",
+      "editorial": "Distrito Manga",
+      "editorial_catalogo_slug": "distrito-manga",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-25",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-25",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/comic-juvenil/634715-libro-el-guardaespaldas-de-honeko-akabane-7-shonen-9791387962142",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/comic-juvenil/634715-libro-el-guardaespaldas-de-honeko-akabane-7-shonen-9791387962142",
+      "id": "isbn-9791387962142",
+      "idioma": "es",
+      "isbn13": "9791387962142",
+      "numero_paginas": 192,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-25",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8139643-thickbox_default/el-guardaespaldas-de-honeko-akabane-7-shonen.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387962142.webp",
+      "pvp_centimos": 995,
+      "pvp_fecha_verificacion": "2026-10-25",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-25",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387962142"
+        }
+      ],
+      "sinopsis_breve": "Los estudiantes de tercero han sobrevivido a la batalla de fin de trimestre contra dos grandes organizaciones criminales y han descubierto al marionetista que…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/comic-juvenil/634715-libro-el-guardaespaldas-de-honeko-akabane-7-shonen-9791387962142",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "el-guardaespaldas-de-honeko-akabane-7-shonen-9791387962142",
+      "titulo": "El guardaespaldas de Honeko Akabane 7 (Shônen)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788413445564&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Rubén Muñoz"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Niños ancestrales, de Rubén Muñoz. Edición de Alienta Editorial en castellano, en rústica con solapas. Consta de 320 páginas. La editorial la incluye en para padres. Publicación editorial: 2026-10-07.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Alienta Editorial",
+      "editorial": "Alienta Editorial",
+      "editorial_catalogo_slug": "alienta-editorial",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-25",
+      "fecha_publicacion": "2026-10-07",
+      "fecha_verificacion": "2026-10-25",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-ninos-ancestrales/458553",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-ninos-ancestrales/458553",
+      "id": "isbn-9788413445564",
+      "idioma": "es",
+      "isbn13": "9788413445564",
+      "numero_paginas": 320,
+      "portada_alto": 558,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-25",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/2b38cef4-49e3-4344-b250-a3abc22bb456/d_360_620/portada_ninos-ancestrales_ruben-munoz_202607301304.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788413445564.webp",
+      "pvp_centimos": 2095,
+      "pvp_fecha_verificacion": "2026-10-25",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-25",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788413445564"
+        }
+      ],
+      "sinopsis_breve": "Niños ancestrales nos enseña cómo las decisiones tempranas en el embarazo, durante la lactancia, la introducción alimentaria y el entorno moldean de forma decisiva…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-ninos-ancestrales/458553",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "ninos-ancestrales-9788413445564",
+      "titulo": "Niños ancestrales"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788427257627&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Veronica Roth"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados), de Veronica Roth. Edición de Molino en castellano, en tapa dura con sobrecubierta. Consta de 608 páginas. La editorial la incluye en ciencia ficción juvenil. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa dura con sobrecubierta · Molino",
+      "editorial": "Molino",
+      "editorial_catalogo_slug": "molino",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-25",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-25",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/ciencia-ficcion-juvenil/633365-libro-la-sexta-faccion-1-la-sexta-faccion-edicion-especial-limitada-con-cantos-tintados-9788427257627",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/ciencia-ficcion-juvenil/633365-libro-la-sexta-faccion-1-la-sexta-faccion-edicion-especial-limitada-con-cantos-tintados-9788427257627",
+      "id": "isbn-9788427257627",
+      "idioma": "es",
+      "isbn13": "9788427257627",
+      "numero_paginas": 608,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-25",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8059986-thickbox_default/la-sexta-faccion-1-la-sexta-faccion-edicion-especial-limitada-con-cantos-tintados.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788427257627.webp",
+      "pvp_centimos": 2595,
+      "pvp_fecha_verificacion": "2026-10-25",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-25",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788427257627"
+        }
+      ],
+      "sinopsis_breve": "Beatrice Prior está a punto de tomar una decisión a la que todos los habitantes de su mundo deben enfrentarse: cinco facciones. Cinco futuros.…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/ciencia-ficcion-juvenil/633365-libro-la-sexta-faccion-1-la-sexta-faccion-edicion-especial-limitada-con-cantos-tintados-9788427257627",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-sexta-faccion-1-la-sexta-faccion-edicion-especial-limitada-con-cantos-ti-9788427257627",
+      "titulo": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408325222&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Javier Dols Juste"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Tu mejor medicina eres tú, de Javier Dols Juste. Edición de Zenith en castellano, en rústica con solapas. Consta de 416 páginas. La editorial la incluye en salud. Publicación editorial: 2026-10-07.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Zenith",
+      "editorial": "Zenith",
+      "editorial_catalogo_slug": "zenith",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-26",
+      "fecha_publicacion": "2026-10-07",
+      "fecha_verificacion": "2026-10-26",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-tu-mejor-medicina-eres-tu/456744",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-tu-mejor-medicina-eres-tu/456744",
+      "id": "isbn-9788408325222",
+      "idioma": "es",
+      "isbn13": "9788408325222",
+      "numero_paginas": 416,
+      "portada_alto": 482,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-26",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/249db147-07c5-40da-b2ff-02147f22113c/d_360_620/portada_tu-mejor-medicina-eres-tu_javier-dols-juste_202609070918.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788408325222.webp",
+      "pvp_centimos": 2395,
+      "pvp_fecha_verificacion": "2026-10-26",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-26",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788408325222"
+        }
+      ],
+      "sinopsis_breve": "En un mundo saturado de información contradictoria sobre salud, este libro ofrece explicaciones claras, consejos y herramientas prácticas para transformar tu bienestar desde dentro.",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-tu-mejor-medicina-eres-tu/456744",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "tu-mejor-medicina-eres-tu-9788408325222",
+      "titulo": "Tu mejor medicina eres tú"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387526863&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Disney"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Stitch. Calendario de Adviento, de Disney. Edición de Libros Disney en castellano, en tapa dura sin s/cub. (cartoné). Consta de 576 páginas. La editorial la incluye en infantil. Publicación editorial: 2026-10-14.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa dura sin s/cub. (cartoné) · Libros Disney",
+      "editorial": "Libros Disney",
+      "editorial_catalogo_slug": "libros-disney",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-26",
+      "fecha_publicacion": "2026-10-14",
+      "fecha_verificacion": "2026-10-26",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-stitch-calendario-de-adviento/427175",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-stitch-calendario-de-adviento/427175",
+      "id": "isbn-9791387526863",
+      "idioma": "es",
+      "isbn13": "9791387526863",
+      "numero_paginas": 576,
+      "portada_alto": 544,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-26",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/374bcba8-dab3-48a2-a567-fa3d287db02d/d_360_620/portada_stitch-calendario-de-adviento__202606120851.webp",
+      "portada_local": "/assets/reading-covers/isbn-9791387526863.webp",
+      "pvp_centimos": 2495,
+      "pvp_fecha_verificacion": "2026-10-26",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-26",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387526863"
+        }
+      ],
+      "sinopsis_breve": "Vive la cuenta atrás para la Navidad con Stitch, Ángel y sus amigos . Descubre un nuevo cuento sorpresa cada día y empieza las…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-stitch-calendario-de-adviento/427175",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "stitch-calendario-de-adviento-9791387526863",
+      "titulo": "Stitch. Calendario de Adviento"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387512446&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Freida McFadden"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La inquilina, de Freida McFadden. Edición de Suma de Letras en castellano, en tapa blanda con solapas. Consta de 344 páginas. La editorial la incluye en novela negra, misterio y thriller. Publicación editorial: 2026-09-03.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Suma de Letras",
+      "editorial": "Suma de Letras",
+      "editorial_slug": "suma-de-letras",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-26",
+      "fecha_publicacion": "2026-09-03",
+      "fecha_verificacion": "2026-10-26",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+      "id": "isbn-9791387512446",
+      "idioma": "es",
+      "isbn13": "9791387512446",
+      "numero_paginas": 344,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-26",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7766628-thickbox_default/la-inquilina.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387512446.webp",
+      "pvp_centimos": 2090,
+      "pvp_fecha_verificacion": "2026-10-26",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-26",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387512446"
+        }
+      ],
+      "sinopsis_breve": "Blake Porter está en la cima del éxito... hasta que deja de estarlo. Despedido de un día para otro de su trabajo como directivo…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-inquilina-9791387512446",
+      "titulo": "La inquilina"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388100550&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Yukito Kishiro"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Gunnm Alita Mars Chronicle nº 10/11, de Yukito Kishiro. Edición de Planeta Cómic en castellano, en rústica sin solapas con s/cub.. Consta de 170 páginas. La editorial la incluye en manga. Publicación editorial: 2026-10-21.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica sin solapas con s/cub. · Planeta Cómic",
+      "editorial": "Planeta Cómic",
+      "editorial_catalogo_slug": "planeta-comic",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-26",
+      "fecha_publicacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-26",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-gunnm-alita-mars-chronicle-n-1011/450525",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-gunnm-alita-mars-chronicle-n-1011/450525",
+      "id": "isbn-9791388100550",
+      "idioma": "es",
+      "isbn13": "9791388100550",
+      "numero_paginas": 170,
+      "portada_alto": 509,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-26",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/eb68d7b7-b876-4f9e-98ab-08715da27aea/d_360_620/portada_gunnm-alita-mars-chronicle-n-1011_yukito-kishiro_202606051410.webp",
+      "portada_local": "/assets/reading-covers/isbn-9791388100550.webp",
+      "pvp_centimos": 950,
+      "pvp_fecha_verificacion": "2026-10-26",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-26",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388100550"
+        }
+      ],
+      "sinopsis_breve": "Una batalla espeluznante del Panzer Kunst contra Mecanismo. ¡Se dirime el duelo entre Keun y Gyapollo!",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-gunnm-alita-mars-chronicle-n-1011/450525",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "gunnm-alita-mars-chronicle-no-10-11-9791388100550",
+      "titulo": "Gunnm Alita Mars Chronicle nº 10/11"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388101311&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Kazuki Takahashi"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Yu-Gi-Oh! nº 04/22, de Kazuki Takahashi. Edición de Planeta Cómic en castellano, en rústica sin solapas con s/cub.. Consta de 408 páginas. La editorial la incluye en manga. Publicación editorial: 2026-10-21.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica sin solapas con s/cub. · Planeta Cómic",
+      "editorial": "Planeta Cómic",
+      "editorial_catalogo_slug": "planeta-comic",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-26",
+      "fecha_publicacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-26",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-yu-gi-oh-n-0422/454144",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-yu-gi-oh-n-0422/454144",
+      "id": "isbn-9791388101311",
+      "idioma": "es",
+      "isbn13": "9791388101311",
+      "numero_paginas": 408,
+      "portada_alto": 523,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-26",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/2377fe2c-c71a-447b-9da3-64b920dfc6f0/d_360_620/portada_yu-gi-oh-kanzenban-n-0422_kazuki-takahashi_202606101351.webp",
+      "portada_local": "/assets/reading-covers/isbn-9791388101311.webp",
+      "pvp_centimos": 1795,
+      "pvp_fecha_verificacion": "2026-10-26",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-26",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388101311"
+        }
+      ],
+      "sinopsis_breve": "Un enigmático muchacho llamado Bakura ha llegado al instituto de Yugi . Por lo visto, todos sus compañeros de juego han perdido el conocimiento…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-yu-gi-oh-n-0422/454144",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "yu-gi-oh-no-04-22-9791388101311",
+      "titulo": "Yu-Gi-Oh! nº 04/22"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788419981035&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Posy Simmonds"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Cinco cuentos, de Posy Simmonds. Edición de Salamandra en castellano, en tapa dura. Consta de 152 páginas. La editorial la incluye en a partir de 4 años. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 4 años",
+      "edicion": "Tapa dura · Salamandra",
+      "editorial": "Salamandra",
+      "editorial_slug": "salamandra",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-27",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-27",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/373151-libro-cinco-cuentos-9788419981035",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/373151-libro-cinco-cuentos-9788419981035",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/373151-libro-cinco-cuentos-9788419981035",
+      "id": "isbn-9788419981035",
+      "idioma": "es",
+      "isbn13": "9788419981035",
+      "numero_paginas": 152,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-27",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8270171-thickbox_default/cinco-cuentos.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788419981035.webp",
+      "pvp_centimos": 2695,
+      "pvp_fecha_verificacion": "2026-10-27",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-27",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788419981035"
+        }
+      ],
+      "sinopsis_breve": "Fred, Matilde, Lavanda, Lulú y el Gato Panadero protagonizan los cinco relatos reunidos en este volumen, creados por Posy Simmonds entre 1987 y 2004.…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/373151-libro-cinco-cuentos-9788419981035",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "cinco-cuentos-9788419981035",
+      "titulo": "Cinco cuentos"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9780241831380&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Louis Girod"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Curso de cocina - Los básicos, de Louis Girod. Edición de DK en castellano, en tapa dura. Consta de 160 páginas. La editorial la incluye en cocina. Publicación editorial: 2026-09-17.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · DK",
+      "editorial": "DK",
+      "editorial_catalogo_slug": "dk",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-27",
+      "fecha_publicacion": "2026-09-17",
+      "fecha_verificacion": "2026-10-27",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380",
+      "id": "isbn-9780241831380",
+      "idioma": "es",
+      "isbn13": "9780241831380",
+      "numero_paginas": 160,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-27",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8022153-thickbox_default/curso-de-cocina-los-basicos.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9780241831380.webp",
+      "pvp_centimos": 1800,
+      "pvp_fecha_verificacion": "2026-10-27",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-27",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9780241831380"
+        }
+      ],
+      "sinopsis_breve": "Este práctico libro reúne más de 60 recetas ilustradas, explicadas paso a paso para que puedas seguir cada preparación sin complicaciones. Desde platos clásicos…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "curso-de-cocina-los-basicos-9780241831380",
+      "titulo": "Curso de cocina - Los básicos"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788449346033&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Carlos López-Otín"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La eternidad y un día más, de Carlos López-Otín. Edición de Ediciones Paidós en castellano, en rústica con solapas. Consta de 224 páginas. La editorial la incluye en ciencia. Publicación editorial: 2026-10-14.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Ediciones Paidós",
+      "editorial": "Ediciones Paidós",
+      "editorial_catalogo_slug": "ediciones-paidos",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-27",
+      "fecha_publicacion": "2026-10-14",
+      "fecha_verificacion": "2026-10-27",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-la-eternidad-y-un-dia-mas/458853",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-la-eternidad-y-un-dia-mas/458853",
+      "id": "isbn-9788449346033",
+      "idioma": "es",
+      "isbn13": "9788449346033",
+      "numero_paginas": 224,
+      "portada_alto": 534,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-27",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/0f5c5fc8-fd43-486c-8700-06989ed59238/d_360_620/portada_la-eternidad-y-un-dia-mas__202606121310.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788449346033.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-27",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-27",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788449346033"
+        }
+      ],
+      "sinopsis_breve": "En la línea del bestseller Martes con mi viejo profesor , de Michael Albom, el prestigioso científico Carlos López-Otín nos presenta su primera obra…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-la-eternidad-y-un-dia-mas/458853",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-eternidad-y-un-dia-mas-9788449346033",
+      "titulo": "La eternidad y un día más"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788467084832&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Wm. Paul Young"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La cabaña, de Wm. Paul Young. Edición de Editorial Espasa en castellano, en rústica con solapas. Consta de 272 páginas. La editorial la incluye en novela contemporánea. Publicación editorial: 2026-10-21.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Editorial Espasa",
+      "editorial": "Editorial Espasa",
+      "editorial_slug": "editorial-espasa",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-27",
+      "fecha_publicacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-27",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-la-cabana/464448",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-la-cabana/464448",
+      "id": "isbn-9788467084832",
+      "idioma": "es",
+      "isbn13": "9788467084832",
+      "numero_paginas": 272,
+      "portada_alto": 544,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-27",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/4965ee93-986b-446a-aa4a-635e330f595c/d_360_620/portada_la-cabana_wm-paul-young_202609211453.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788467084832.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-27",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-27",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788467084832"
+        }
+      ],
+      "sinopsis_breve": "Si Dios te enviase una carta, ¿acudirías a su encuentro? La novela que ha vendido más de 30 millones de ejemplares en todo el…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-la-cabana/464448",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-cabana-9788467084832",
+      "titulo": "La cabaña"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387962005&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Muneyuki Kaneshiro",
+        "Akeji Fujimura"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "As the Gods Will: La secuela 10 (Shônen), de Muneyuki Kaneshiro, Akeji Fujimura. Edición de Distrito Manga en castellano, en tapa blanda con sobrecubierta. Consta de 568 páginas. La editorial la incluye en cómic juvenil. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Juvenil",
+      "edicion": "Tapa blanda con sobrecubierta · Distrito Manga",
+      "editorial": "Distrito Manga",
+      "editorial_catalogo_slug": "distrito-manga",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-27",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-27",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/comic-juvenil/634710-libro-as-the-gods-will-la-secuela-10-shonen-9791387962005",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/comic-juvenil/634710-libro-as-the-gods-will-la-secuela-10-shonen-9791387962005",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/comic-juvenil/634710-libro-as-the-gods-will-la-secuela-10-shonen-9791387962005",
+      "id": "isbn-9791387962005",
+      "idioma": "es",
+      "isbn13": "9791387962005",
+      "numero_paginas": 568,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-27",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8129771-thickbox_default/as-the-gods-will-la-secuela-10-shonen.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387962005.webp",
+      "pvp_centimos": 1895,
+      "pvp_fecha_verificacion": "2026-10-27",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-27",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387962005"
+        }
+      ],
+      "sinopsis_breve": "Tras pelearse con el mejor amigo de su infancia, Yasuto Akashi decide saltarse las clases. Sin embargo, lo que no se imagina es que…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/comic-juvenil/634710-libro-as-the-gods-will-la-secuela-10-shonen-9791387962005",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "as-the-gods-will-la-secuela-10-shonen-9791387962005",
+      "titulo": "As the Gods Will: La secuela 10 (Shônen)"
     }
   ],
   "schema_version": 1

@@ -33,7 +33,7 @@
     setCurrent(idFromHash());
   });
 
-  if (!('IntersectionObserver' in window)) return;
+  if (typeof window.IntersectionObserver !== 'function') return;
 
   const ratios = new Map(sections.map(section => [section.id, 0]));
   const observer = new IntersectionObserver(entries => {

@@ -80,8 +80,9 @@ def main() -> int:
     html_path = root / "asistente" / "index.html"
 
     if not (copy_path.exists() and js_path.exists() and html_path.exists()):
-        print("AVISO: faltan ficheros del asistente; nada que verificar.")
-        return 0
+        missing = [str(path.relative_to(root)) for path in (copy_path, js_path, html_path) if not path.is_file()]
+        print(f"ERROR: faltan ficheros obligatorios del asistente: {', '.join(missing)}")
+        return 1 if args.check else 0
 
     copy = load_copy(copy_path)
     errors: list[str] = []

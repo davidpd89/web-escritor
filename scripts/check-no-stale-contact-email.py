@@ -29,6 +29,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+from html import unescape
 import subprocess
 from pathlib import Path
 
@@ -42,6 +43,14 @@ def tracked_html(root: Path) -> list[Path]:
     return [root / rel for rel in out.split("\0") if rel]
 
 
+STALE_CONTACT_STEM = "samuelentremundos"
+
+
+def has_obsolete_contact(raw_html: str) -> bool:
+    """Catch the stale local-part even when HTML encodes its letters."""
+    return STALE_CONTACT_STEM in unescape(raw_html).casefold()
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--root", default=str(ROOT))
@@ -53,7 +62,7 @@ def main() -> int:
     for path in tracked_html(root):
         text = path.read_text(encoding="utf-8", errors="replace")
         rel = path.relative_to(root).as_posix()
-        if "samuelentremundos" in text.lower():
+        if has_obsolete_contact(text):
             errors.append(f"{rel}: contiene 'samuelentremundos' (email de contacto obsoleto o su fragmento en data-n) -- la direccion vigente es davidportodiaz@gmail.com")
 
     for e in errors:

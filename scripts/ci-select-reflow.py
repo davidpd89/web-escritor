@@ -57,6 +57,43 @@ def classify(files: list[str]) -> tuple[bool, str]:
     return False, f"{len(files)} archivo(s) fuera del sitio servido y del QA de reflow (scripts, tests, docs, workflows ajenos)"
 
 
+# Carpetas que el recorrido de reflow nunca visita (espejo de IGNORE_DIRS en qa/sitewide-reflow-browser.mjs).
+NON_PAGE_DIRS = {".git", ".github", "node_modules", "qa-artifacts", "docs", "lab", "_tools", "_reddit", "scripts", "tests"}
+MAX_SCOPED_PAGES = 40
+
+
+def page_route(f: str) -> str | None:
+    """Ruta servida de un .html publicado (misma regla que routeFromHtmlPath/normalizeRoute del recorrido), o None."""
+    f = f.replace("\\", "/")
+    if not f.endswith(".html") or any(s in NON_PAGE_DIRS or s.startswith(".") for s in f.split("/")):
+        return None
+    if f == "index.html":
+        return "/"
+    return "/" + (f[: -len("index.html")] if f.endswith("/index.html") else f)
+
+
+def scope_routes(files: list[str], exists=os.path.exists) -> list[str]:
+    """Rutas a recorrer si el PR SOLO toca paginas HTML publicadas; [] = recorrer todo (fail-closed).
+    Cualquier otro archivo relevante (CSS, JS, datos, generadores, workflows), un borrado, un renombrado o
+    demasiadas paginas => [] porque pueden alterar paginas que no estan en el diff. Se anade la portada como centinela."""
+    if not files:
+        return []
+    routes = []
+    for f in files:
+        f = f.replace("\\", "/")
+        route = page_route(f)
+        if route is None:
+            if any(fnmatch.fnmatchcase(f, p) for p in ALWAYS_RELEVANT) or not any(fnmatch.fnmatchcase(f, p) for p in SAFE_IGNORE):
+                return []
+            continue
+        if not exists(f):
+            return []
+        routes.append(route)
+    if not routes or len(routes) > MAX_SCOPED_PAGES:
+        return []
+    return sorted(set(routes) | {"/"})
+
+
 def changed_files(base: str, head: str) -> list[str]:
     out = subprocess.run(["git", "diff", "--name-only", base, head], capture_output=True, text=True, check=True).stdout
     return [x for x in out.splitlines() if x.strip()]
@@ -75,6 +112,14 @@ def main() -> int:
             run, reason = classify(changed_files(base, head))
         except subprocess.CalledProcessError as exc:
             run, reason = True, f"no se pudo calcular el diff ({exc.returncode}): se ejecuta por seguridad"
+    routes = []
+    if run and event == "pull_request" and base:
+        try:
+            routes = scope_routes(changed_files(base, head))
+        except subprocess.CalledProcessError:
+            routes = []
+    if routes:
+        reason += f" | alcance acotado a {len(routes)} ruta(s)"
     line = f"run={'true' if run else 'false'}"
     print(line, "|", reason)
     if os.environ.get("GITHUB_OUTPUT"):

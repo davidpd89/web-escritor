@@ -39,7 +39,7 @@ export function buildEventOutputs(model) {
   const jsonLd = buildJsonLd(model);
   const html = buildVisibleHtml(model);
   const ics = buildIcs(model);
-  const filename = `evento-${slugify(model.name)}-${eventDateKey(model)}.ics`;
+  const filename = `evento-${eventDateKey(model)}-${fnv1a(`${clean(model.url)}|${schemaStart(model)}`)}.ics`;
   return { jsonLd, html, ics, filename };
 }
 

@@ -76,6 +76,8 @@ jobs:
         run: python scripts/check-copy-tildes.py
       - name: Check FAQPage JSON-LD does not reappear in Recomendaciones (K.2)
         run: python scripts/check-recomendaciones-no-faqpage.py --check
+      - name: Preserve unpublished Noveris magic page quarantine
+        run: python scripts/check-noveris-magic-quarantine.py --check
       # Este escaneo vivia en assistant-hardening-qa.yml, que solo se dispara
       # cuando la PR toca ficheros del asistente: una clave colada en cualquier
       # otro sitio del repo no lo activaba y pasaba sin mirar. GitHub Pages
@@ -124,6 +126,10 @@ jobs:
         run: python scripts/build-pagefind-index.py --check
       - name: Check /cuaderno/temas/ topic collections are up to date
         run: python scripts/build-topic-collections.py --data data/topic-collections.json --root . --check
+      - name: Check Atlas literario pages are up to date and meet the release contract
+        run: |
+          python scripts/build-atlas-pages.py --data data/atlas-pages.json --root . --check
+          python scripts/check_atlas_release_contract.py --root . --manifest data/atlas-routes-manifest.json
       - name: Check static reading catalogue and book pages are up to date
         run: python scripts/build-reading-catalogue.py --check
       - name: Check reading sheet snapshot and editorial approval reproduce the catalogue

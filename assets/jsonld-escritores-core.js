@@ -142,6 +142,9 @@ export function validateInput(mode, data = {}) {
     https('image','la imagen'); https('authorUrl','la URL del autor');
     if (data.datePublished && !isIsoDate(data.datePublished)) errors.push('datePublished debe ser una fecha real en formato AAAA-MM-DD.');
     if (data.dateModified && !isIsoDate(data.dateModified)) errors.push('dateModified debe ser una fecha real en formato AAAA-MM-DD.');
+    if (isIsoDate(data.datePublished) && isIsoDate(data.dateModified) && clean(data.dateModified) < clean(data.datePublished)) {
+      errors.push('dateModified no puede ser anterior a datePublished.');
+    }
     info.push('Article está en la galería de funciones de datos estructurados de Google.');
   } else if (mode === 'event') {
     req('name','el nombre del evento'); https('url','la URL canónica del evento',true); req('startDate','la fecha/hora de inicio');

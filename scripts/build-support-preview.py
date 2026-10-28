@@ -33,7 +33,7 @@ def render_preview_source() -> str:
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="stylesheet" href="/assets/v1-fonts.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-tokens.css?v=1" />
-  <link rel="stylesheet" href="/assets/v1-base.css?v=1" />
+  <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-shell.css?v=4" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <style>

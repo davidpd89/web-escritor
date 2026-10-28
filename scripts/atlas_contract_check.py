@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 from datetime import date
 from pathlib import Path
@@ -107,7 +108,7 @@ def problems(data: dict) -> list[str]:
             return []
         return value
 
-    def check_source_evidence(source_id: str, scope: str) -> None:
+    def check_source_evidence(source_id: str, scope: str, verified_at: object = None) -> None:
         src = tables["sources"].get(source_id)
         if src is None:
             return  # require() ya informa de referencia inexistente
@@ -117,6 +118,33 @@ def problems(data: dict) -> list[str]:
             errors.append(f"{scope}: fuente {source_id!r} tiene retrieved_at que no es una fecha real")
         elif not valid_https_url(src["url"]):
             errors.append(f"{scope}: fuente {source_id!r} requiere URL HTTPS")
+        if valid_date(verified_at) and valid_date(src.get("retrieved_at")):
+            if date.fromisoformat(verified_at) < date.fromisoformat(src["retrieved_at"]):
+                errors.append(
+                    f"{scope}: verified_at anterior a retrieved_at de la fuente {source_id!r}"
+                )
+
+    # Los controles bidi no son válidos en nombres ni títulos públicos.
+    bidi_controls = set(range(0x202A, 0x202F)) | set(range(0x2066, 0x206A))
+    public_labels = {
+        "destinations": "name",
+        "places": "name",
+        "works": "title",
+        "authors": "name",
+        "routes": "title",
+    }
+    for category, field in public_labels.items():
+        for entry in tables[category].values():
+            value = entry.get(field)
+            if not isinstance(value, str):
+                continue
+            for char in value:
+                if ord(char) in bidi_controls:
+                    errors.append(
+                        f"{category}/{entry['id']}: {field} contiene "
+                        f"control bidireccional U+{ord(char):04X}"
+                    )
+                    break
 
     for dest in tables["destinations"].values():
         parent = dest.get("parent_id")
@@ -125,9 +153,48 @@ def problems(data: dict) -> list[str]:
             if parent == dest["id"]:
                 errors.append(f"destinations/{dest['id']}: parent_id no puede ser el propio destino")
 
+    seen_osm: dict[tuple[str, int], str] = {}
+    # Cada cadena de destinos debe terminar en una raíz, nunca en un ciclo.
+    destinations = tables["destinations"]
+    resolved: set[str] = set()
+    for destination_id in destinations:
+        if destination_id in resolved:
+            continue
+        seen: set[str] = set()
+        current = destination_id
+        while current in destinations and current not in resolved:
+            if current in seen:
+                errors.append(
+                    f"destinations/{current}: ciclo detectado en parent_id"
+                )
+                break
+            seen.add(current)
+            parent = destinations[current].get("parent_id")
+            if not isinstance(parent, str):
+                break
+            current = parent
+        resolved.update(seen)
+
     for place in tables["places"].values():
         scope = f"places/{place['id']}"
+        osm_type, osm_id = place.get("osm_type"), place.get("osm_id")
+        if isinstance(osm_type, str) and isinstance(osm_id, int) and not isinstance(osm_id, bool):
+            osm_key = (osm_type, osm_id)
+            if osm_key in seen_osm:
+                errors.append(
+                    f"{scope}: objeto OSM duplicado {osm_type}/{osm_id} "
+                    f"en {seen_osm[osm_key]} y {place['id']}"
+                )
+            else:
+                seen_osm[osm_key] = place["id"]
         require("destinations", place.get("destination_id"), scope)
+        if "overture_confidence" in place:
+            confidence = place["overture_confidence"]
+            if (not isinstance(confidence, (int, float))
+                    or isinstance(confidence, bool)
+                    or not math.isfinite(confidence)
+                    or not 0 <= confidence <= 1):
+                errors.append(scope + ": overture_confidence debe ser un número finito entre 0 y 1")
         lat, lon = place.get("latitude"), place.get("longitude")
         if (lat is None) != (lon is None):
             errors.append(scope + ": latitude y longitude deben aparecer juntas")
@@ -153,7 +220,7 @@ def problems(data: dict) -> list[str]:
         for source_id in id_list(place.get("source_ids", []), scope, "source_ids"):
             require("sources", source_id, scope)
             if place.get("status") == APPROVED:
-                check_source_evidence(source_id, scope)
+                check_source_evidence(source_id, scope, place.get("verified_at"))
         if bool(place.get("osm_id")) != bool(place.get("osm_type")):
             errors.append(scope + ": osm_id y osm_type deben aparecer juntos")
 
@@ -166,8 +233,28 @@ def problems(data: dict) -> list[str]:
         require("works", adaptation.get("original_work_id"), f"adaptations/{adaptation['id']}")
         if adaptation.get("status") == APPROVED:
             require_approved("works", adaptation.get("original_work_id"), f"adaptations/{adaptation['id']}")
+    seen_relationships: dict[tuple, str] = {}
     for relation in tables["relationships"].values():
         scope = f"relationships/{relation['id']}"
+        if relation.get("status") == APPROVED:
+            raw_sources = relation.get("source_ids")
+            if isinstance(raw_sources, list) and all(isinstance(source, str) for source in raw_sources):
+                semantic_key = (
+                    relation.get("place_id"),
+                    relation.get("subject_type"),
+                    relation.get("subject_id"),
+                    relation.get("relationship_type"),
+                    frozenset(raw_sources),
+                    relation.get("evidence_note"),
+                )
+                if all(isinstance(value, str) for value in semantic_key[:4]) and isinstance(semantic_key[5], str):
+                    previous_id = seen_relationships.get(semantic_key)
+                    if previous_id is not None:
+                        errors.append(
+                            f"{scope}: relación semántica duplicada de relationships/{previous_id}"
+                        )
+                    else:
+                        seen_relationships[semantic_key] = relation["id"]
         require("places", relation.get("place_id"), scope)
         typ = relation.get("relationship_type")
         required_subject = RELATIONS.get(typ)
@@ -192,7 +279,7 @@ def problems(data: dict) -> list[str]:
                 if table:
                     require_approved(table, relation.get("subject_id"), scope)
             for source_id in source_ids:
-                check_source_evidence(source_id, scope)
+                check_source_evidence(source_id, scope, relation.get("verified_at"))
             if not valid_date(relation.get("verified_at")) or not has_text(relation.get("evidence_note")):
                 errors.append(scope + ": aprobado exige fecha y evidencia")
             if typ == "popular_claim_unverified":
@@ -202,6 +289,15 @@ def problems(data: dict) -> list[str]:
         require("places", image.get("place_id"), scope)
         if image.get("status") == APPROVED:
             require_approved("places", image.get("place_id"), scope)
+            place_id = image.get("place_id")
+            owner = tables["places"].get(place_id) if isinstance(place_id, str) else None
+            if owner is not None:
+                image_ids = owner.get("image_ids")
+                if not isinstance(image_ids, list) or image["id"] not in image_ids:
+                    errors.append(
+                        f"{scope}: imagen aprobada sin vínculo inverso en "
+                        f"places/{place_id}.image_ids"
+                    )
             if not all(has_text(image.get(k)) for k in ("license", "license_url", "attribution", "source_url")):
                 errors.append(scope + ": imagen aprobada sin derechos/atribución")
             elif not (valid_https_url(image["source_url"]) and valid_https_url(image["license_url"])):
@@ -219,12 +315,24 @@ def problems(data: dict) -> list[str]:
                 errors.append(f"{scope}: parada {stop!r} pertenece a otro destino")
             if route.get("status") == APPROVED:
                 require_approved("places", stop, scope)
+                if stop_place is not None and stop_place.get("geo_precision") == "unlocated":
+                    errors.append(f"{scope}: parada {stop!r} sin localización geográfica utilizable (unlocated)")
         if route.get("status") == APPROVED:
             require_approved("destinations", route.get("destination_id"), scope)
-    for section in ("destinations", "places", "works", "authors", "adaptations", "routes"):
+    public_labels = {
+        "destinations": "name",
+        "places": "name",
+        "works": "title",
+        "authors": "name",
+        "adaptations": "title",
+        "routes": "title",
+    }
+    for section, field in public_labels.items():
         for item in tables[section].values():
             if item.get("status") != APPROVED:
                 continue
+            if not has_text(item.get(field)):
+                errors.append(f"{section}/{item['id']}: {field} requiere texto visible")
             if not item.get("verified_at"):
                 errors.append(f"{section}/{item['id']}: aprobación sin verified_at")
             elif not valid_date(item["verified_at"]):

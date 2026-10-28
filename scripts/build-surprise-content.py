@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse, json, re, sys
 from datetime import datetime
+from html.parser import HTMLParser
 from pathlib import Path
 
 ALLOWED_TYPES={"lectura","cronica","articulo","proceso","recomendacion","herramienta","recurso","curiosidad"}
@@ -40,6 +41,22 @@ def local_file(root:Path,url:str)->Path:
     if not rel: return root/"index.html"
     return root/rel/"index.html"
 
+class CanonicalParser(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.canonicals=[]
+
+    def handle_starttag(self,tag,attrs):
+        if tag.lower() != 'link':
+            return
+        attributes=dict(attrs)
+        rel=attributes.get('rel') or ''
+        if 'canonical' in rel.lower().split():
+            self.canonicals.append(attributes.get('href'))
+
+    handle_startendtag=handle_starttag
+
+
 def check_repo(root:Path,ready):
     problems=[]
     for item in ready:
@@ -49,7 +66,11 @@ def check_repo(root:Path,ready):
         if re.search(r'<meta[^>]+name=["\']robots["\'][^>]+content=["\'][^"\']*noindex',text,re.I):
             problems.append(f"noindex: {item['url']}")
         expected='https://davidportodiaz.com'+item['url']
-        if expected not in text: problems.append(f"canonical no confirmado: {item['url']}")
+        parser=CanonicalParser()
+        parser.feed(text)
+        parser.close()
+        if expected not in parser.canonicals:
+            problems.append(f"canonical no confirmado: {item['url']}")
     if problems: raise ValueError("; ".join(problems))
 
 def render(ready):
