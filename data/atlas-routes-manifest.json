@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "routes": [
+    {
+      "url": "/atlas-literario/",
+      "kind": "hub"
+    },
+    {
+      "url": "/atlas-literario/edimburgo/",
+      "kind": "destination"
+    },
+    {
+      "url": "/atlas-literario/dublin/",
+      "kind": "destination"
+    },
+    {
+      "url": "/atlas-literario/madrid-barrio-de-las-letras/",
+      "kind": "destination"
+    },
+    {
+      "url": "/atlas-literario/barcelona/",
+      "kind": "destination"
+    },
+    {
+      "url": "/atlas-literario/biblioteca-trinity-college-dublin/",
+      "kind": "place"
+    },
+    {
+      "url": "/atlas-literario/biblioteca-strahov-praga/",
+      "kind": "place"
+    },
+    {
+      "url": "/atlas-literario/shakespeare-and-company-paris/",
+      "kind": "place"
+    },
+    {
+      "url": "/atlas-literario/biblioteca-joanina-coimbra/",
+      "kind": "place"
+    },
+    {
+      "url": "/atlas-literario/ruta-barrio-de-las-letras/",
+      "kind": "route"
+    },
+    {
+      "url": "/atlas-literario/ruta-bloomsday-dublin/",
+      "kind": "route"
+    }
+  ]
+}

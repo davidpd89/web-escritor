@@ -84,7 +84,7 @@
       "parentId": "home",
       "hubId": "home",
       "discoverability": "secondary",
-      "footerEligible": false,
+      "footerEligible": true,
       "audience": [
         "reader",
         "press"
@@ -4092,6 +4092,205 @@
       "jobs": [
         "legal"
       ]
+    },
+    {
+      "id": "atlas-hub",
+      "url": "/atlas-literario/",
+      "label": "Atlas literario",
+      "shortLabel": "Atlas literario",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/index.html"
+    },
+    {
+      "id": "atlas-edimburgo",
+      "url": "/atlas-literario/edimburgo/",
+      "label": "Edimburgo, la primera Ciudad de la Literatura",
+      "shortLabel": "Edimburgo, la primera Ciudad de la Liter",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/edimburgo/index.html"
+    },
+    {
+      "id": "atlas-dublin",
+      "url": "/atlas-literario/dublin/",
+      "label": "Dublín: Ciudad de la Literatura y Bloomsday",
+      "shortLabel": "Dublín",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/dublin/index.html"
+    },
+    {
+      "id": "atlas-madrid-barrio-de-las-letras",
+      "url": "/atlas-literario/madrid-barrio-de-las-letras/",
+      "label": "Madrid y el Barrio de las Letras",
+      "shortLabel": "Madrid y el Barrio de las Letras",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/madrid-barrio-de-las-letras/index.html"
+    },
+    {
+      "id": "atlas-barcelona",
+      "url": "/atlas-literario/barcelona/",
+      "label": "Barcelona: Ciudad de la Literatura y Sant Jordi",
+      "shortLabel": "Barcelona",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/barcelona/index.html"
+    },
+    {
+      "id": "atlas-biblioteca-trinity-college-dublin",
+      "url": "/atlas-literario/biblioteca-trinity-college-dublin/",
+      "label": "La Biblioteca de Trinity College y el Long Room",
+      "shortLabel": "La Biblioteca de Trinity College y el Lo",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/biblioteca-trinity-college-dublin/index.html"
+    },
+    {
+      "id": "atlas-biblioteca-strahov-praga",
+      "url": "/atlas-literario/biblioteca-strahov-praga/",
+      "label": "La Biblioteca de Strahov, en Praga",
+      "shortLabel": "La Biblioteca de Strahov, en Praga",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/biblioteca-strahov-praga/index.html"
+    },
+    {
+      "id": "atlas-shakespeare-and-company-paris",
+      "url": "/atlas-literario/shakespeare-and-company-paris/",
+      "label": "Shakespeare and Company, en París",
+      "shortLabel": "Shakespeare and Company, en París",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/shakespeare-and-company-paris/index.html"
+    },
+    {
+      "id": "atlas-biblioteca-joanina-coimbra",
+      "url": "/atlas-literario/biblioteca-joanina-coimbra/",
+      "label": "La Biblioteca Joanina, en Coímbra",
+      "shortLabel": "La Biblioteca Joanina, en Coímbra",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/biblioteca-joanina-coimbra/index.html"
+    },
+    {
+      "id": "atlas-ruta-barrio-de-las-letras",
+      "url": "/atlas-literario/ruta-barrio-de-las-letras/",
+      "label": "Ruta a pie por el Barrio de las Letras",
+      "shortLabel": "Ruta a pie por el Barrio de las Letras",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/ruta-barrio-de-las-letras/index.html"
+    },
+    {
+      "id": "atlas-ruta-bloomsday-dublin",
+      "url": "/atlas-literario/ruta-bloomsday-dublin/",
+      "label": "Ruta del Ulises: los lugares de Bloomsday",
+      "shortLabel": "Ruta del Ulises",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/ruta-bloomsday-dublin/index.html"
     },
     {
       "id": "reading-book-lib-0001",

@@ -94,7 +94,7 @@ try {
   const live = await browser.newPage({ viewport: { width: 390, height: 900 } });
   await live.route('**/assets/reading-market.json', route => route.fulfill({ json: { schema_version: 1, offers: [], ratings: [{ ...payload.ratings[0], libro_id: 'lib-0001', actualizado_en: new Date(Date.now() - 3600000).toISOString(), caduca_en: new Date(Date.now() + 3600000).toISOString() }] } }));
   await live.goto(`${base}/`);
-  assert.deepEqual(await live.locator('#masthead-submenu-recommendations-hub a').allTextContents(), ['Catálogo de libros', 'Autores', 'Editoriales', 'Concursos']);
+  assert.deepEqual(await live.locator('#masthead-submenu-recommendations-hub a').allTextContents(), ['Catálogo de libros', 'Autores', 'Editoriales', 'Concursos', 'Atlas literario']);
   await live.goto(`${base}/recomendaciones/libros/coraline/`);
   const ratingLink = live.locator('[data-rating-book] a:has(.catalogue-stars)');
   await ratingLink.waitFor();
