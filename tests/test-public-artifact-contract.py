@@ -50,7 +50,6 @@ def main() -> None:
     # defense in depth even when a technical file is placed under /assets/.
     for path in (
         "docs/new-runbook.md",
-        "apoyar/index.html",  # Inactivo: no es publicable por una simple carpeta
         "apoyar/README.md",  # Never expose deployment/activation notes
         "apoyar/.env",
         "apoyar/private.key",
@@ -85,9 +84,9 @@ def main() -> None:
     assert "/*\n" in rendered, "assetsignore must start from a root deny"
     assert "!/assets/" in rendered
     assert "!/apoyar/" in rendered, "El namespace existe pero está protegido"
-    assert "\n/apoyar/\n" in rendered, (
-        "Cloudflare no debe publicar apoyos antes de que el registry los autorice"
-    )
+    assert_public("apoyar/index.html")  # Registrada y pública: solo esa página
+    assert "\n/apoyar/\n" not in rendered, "apoyar/index.html está autorizada en el registry"
+    assert "!/apoyar/index.html" in rendered
 
     # El builder y .assetsignore usan la MISMA fuente de verdad para pasar de
     # "cerrado" a "abierto". Simularlo solo en un directorio temporal.

@@ -147,6 +147,9 @@ html.v1[data-lrb-home="true"] .masthead-nav__item:nth-last-child(-n+2)>.masthead
 @media (max-width:639px){
   :root{--dp-lrb-utility-h:54px}
   html.v1 .site-header__inner,html.v1 .site-header[data-scrolled="true"] .site-header__inner{min-height:var(--dp-lrb-utility-h);padding-top:max(0px,env(safe-area-inset-top));padding-bottom:0}
+  /* Redes y apoyo viven en el pie y en el mapa del sitio; con seis botones más Comprar
+     la cabecera desbordaba a 390px con zoom de texto al 200 %. */
+  html.v1 .header-social,html.v1 .header-support{display:none}
   html.v1 .header-buy{font-size:.68rem;padding-inline:.55rem}
   html.v1[data-lrb-home="true"] .masthead{padding:.85rem var(--page-gutter) .6rem}
   html.v1[data-lrb-home="true"] .masthead__name{min-height:105px}
