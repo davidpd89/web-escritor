@@ -56,7 +56,7 @@ def render(channels: list[dict]) -> str:
   <link rel="stylesheet" href="/assets/v1-fonts.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-tokens.css?v=1" />
   <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
-  <link rel="stylesheet" href="/assets/v1-shell.css?v=4" />
+  <link rel="stylesheet" href="/assets/v1-shell.css?v=5" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-support.css?v=2" />
 </head>
