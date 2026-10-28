@@ -295,6 +295,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     const update = () => button.classList.toggle('is-visible', window.scrollY > 720);
     button.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: reduced.matches ? 'auto' : 'smooth' });
+      document.getElementById('contenido')?.focus({ preventScroll: true });
       emit('home_back_to_top');
     });
     addEventListener('scroll', update, { passive: true });
