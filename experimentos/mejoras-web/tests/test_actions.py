@@ -285,6 +285,14 @@ class WorkflowRef(Base):
         self.assertEqual(self.gh.llamadas, []); self.assertTrue([l for l in logs if "NO SE ENVIA NADA" in l])
         self.assertEqual(self.cola("mejoras-web/mw-0001@" + SHA(1)[:12])["estado"], "validado")  # sigue en la cola para cuando se arregle
 
+    def test_tambien_exige_el_workflow_en_la_rama_por_defecto(self):
+        """Hecho real (28/10): `gh workflow run` dio 404 'not found on the default branch' mientras el workflow solo estaba en una rama de desarrollo."""
+        def falso(args, **kw):
+            sin_ref = "contents/.github/workflows/mejoras-web-grupo.yml" in " ".join(args) and "?ref=" not in " ".join(args)
+            return subprocess.CompletedProcess(args, 1 if sin_ref else 0, stdout="", stderr="HTTP 404: Not Found")
+        with mock.patch.object(mw, "run", falso): msg = actions.Gh(mw).workflow_disponible()
+        self.assertIn("rama por defecto", msg); self.assertIn("main", msg)
+
     def test_workflow_disponible_usa_la_api_de_contenidos_en_el_ref(self):
         ordenes = []
         def falso(args, **kw): ordenes.append(list(args)); return subprocess.CompletedProcess(args, 1 if "borrada" in " ".join(args) else 0, stdout="", stderr="HTTP 404: Not Found")

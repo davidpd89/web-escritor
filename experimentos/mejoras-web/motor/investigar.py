@@ -323,7 +323,7 @@ def revisar(c, e, fetch=None):
     if not ok:
         return _tras_revision(c, e, "corregir", probl_proc, intento, maxi, "procedencia del codigo externo no verificada")
     entrada = json.dumps({"expediente": resumen_expediente(e), "criterio_aceptacion": (json.loads(e["contraste"] or "{}")).get("criterio_aceptacion"),
-                          "parche": prop["parche"], "pruebas": [{"ruta": t["ruta"], "contenido": t["contenido"][:6000]} for t in prop["pruebas"]],
+                          "parche": prop["parche"], "pruebas": [{"ruta": t["ruta"], "contenido": t["contenido"]} for t in prop["pruebas"]],  # COMPLETOS: recortarlos hacia que Claude rechazara tests "truncados" que no lo estaban (MW-0005/12/20/28/29)
                           "procedencia_verificada": regs, "expedientes_parecidos": similares(c, e)}, ensure_ascii=False)
     try: r = claude(c, f"revision:{e['id']}:{intento}", "revision", leer_prompt("revisar.txt"), entrada, ESQUEMA_REVISION)
     except claude_cli.ClaudeError as err: return _fallo_claude(c, e, err)
@@ -357,7 +357,13 @@ def fallo(c, job, err, nuevo_chat=True):
     cfg = mw.CFG
     n = c.execute("SELECT intentos FROM jobs WHERE id=?", (job["id"],)).fetchone()[0]
     reset = ",chat_id=NULL,fase=NULL,respuesta=NULL" if nuevo_chat else ""
-    if n > cfg["reintentos"]:
+    previo = c.execute("SELECT error FROM jobs WHERE id=?", (job["id"],)).fetchone()[0] or ""
+    if "[reencolado]" in previo and "[reencolado]" not in err: err = "[reencolado] " + err  # la marca sobrevive: el reencolado lento ocurre una sola vez
+    if n > cfg["reintentos"] and "inaccesible" in err and "[reencolado]" not in previo:
+        # Un chat que no abre es un problema de ChatGPT/navegador, no del trabajo: segunda oportunidad con chat NUEVO tras una espera (como el QA: reencolar_inaccesible_h)
+        nb = (mw._ahora() + dt.timedelta(hours=cfg.get("reencolar_inaccesible_h", 1))).isoformat(timespec="seconds")
+        c.execute(f"UPDATE jobs SET estado='pendiente',intentos=0,error=?,no_antes=?,actualizado=?{reset} WHERE id=?", (("[reencolado] " + err)[:300], nb, mw.now(), job["id"]))
+    elif n > cfg["reintentos"]:
         c.execute(f"UPDATE jobs SET estado='error',error=?,actualizado=?{reset} WHERE id=?", (err[:300], mw.now(), job["id"]))
         if job["tipo"] == "D":
             c.commit(); mw.set_estado(c, job["area"], "fallo_desarrollo", f"GPT no produjo un parche valido tras {n} intentos: {err[:200]}")
@@ -455,6 +461,18 @@ def reconciliar(c):
         elif ultimo and ultimo["estado"] == "hecho" and e["estado"] == "desarrollando": continue  # ya hay parche_listo/descarte: lo avanzara su estado
         else: encolar_desarrollo(c, e["id"]); n += 1
     return n
+
+
+def motivo_espera(c):
+    """Por que el investigador no hace nada ahora (para el log y ESTADO)."""
+    por = dict(c.execute("SELECT estado, COUNT(*) FROM expedientes GROUP BY estado").fetchall())
+    en_curso = sum(por.get(e, 0) for e in ACTIVOS)
+    if en_curso >= mw.CFG.get("max_pendientes", 6):
+        return (f"{en_curso} expedientes en curso (tope {mw.CFG.get('max_pendientes', 6)}): {por.get('preparado', 0)} preparado(s) esperan EJECUTAR; "
+                "no se abren investigaciones nuevas hasta que se ejecuten (ESTADO lo muestra)")
+    if consultas_ultima_hora(c) >= mw.CFG["flujo"].get("consultas_gpt_por_hora", 8): return "tope horario de consultas a ChatGPT; se reanuda en la hora siguiente"
+    prox = c.execute("SELECT MIN(no_antes) FROM jobs WHERE estado='pendiente' AND no_antes IS NOT NULL").fetchone()[0]
+    return f"trabajos en espera de reintento hasta {prox}" if prox else "sin trabajo pendiente"
 
 
 def paso(c):

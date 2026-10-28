@@ -360,7 +360,7 @@ def cmd_servicio(a):
         c.execute("UPDATE jobs SET no_antes=? WHERE estado='pendiente' AND fase='generando' AND chat_id IS NOT NULL", (now(),))
         c.commit(); (STATE / "limite").unlink(missing_ok=True)
         investigar.reconciliar(c)
-        errores = 0
+        errores = 0; ultimo_motivo = None
         try:
             while not flag("stop"):
                 lock.latido()
@@ -385,7 +385,9 @@ def cmd_servicio(a):
                 else:
                     prox = c.execute("SELECT MIN(no_antes) FROM jobs WHERE estado='pendiente' AND no_antes IS NOT NULL").fetchone()[0]
                     seg = 120 if not prox else max(15, min(600, (dt.datetime.fromisoformat(prox) - _ahora()).total_seconds()))
-                    c.commit(); marcar(estado="esperando", tarea=None, hasta=(_ahora() + dt.timedelta(seconds=seg)).isoformat(timespec="seconds"))
+                    motivo = investigar.motivo_espera(c); c.commit()
+                    marcar(estado="esperando", tarea=motivo, hasta=(_ahora() + dt.timedelta(seconds=seg)).isoformat(timespec="seconds"))
+                    if motivo != ultimo_motivo: print(f"{now()} En espera: {motivo}"); ultimo_motivo = motivo  # una linea por cambio: el log ya no parece colgado
                     dormir(seg, lock)
         finally:
             marcar(estado="parado", tarea=None, parado=now()); gpt_browser.PARADA = None; c.close()
@@ -508,10 +510,15 @@ def cmd_reintentar(a):
                 set_estado(c, e["id"], "aprobado", "reintento manual del desarrollo")
                 investigar.encolar_desarrollo(c, e["id"], problemas=[f"intento anterior fallido: {(e['motivo'] or '')[:300]}"])
             n_exp += 1
+        n_rev = 0
+        for e in c.execute("SELECT id FROM expedientes WHERE estado='parche_rechazado' AND (motivo LIKE '%trunca%' OR motivo LIKE '%truncad%')").fetchall():
+            if ids and e["id"] not in ids: continue
+            c.execute("UPDATE expedientes SET intentos_parche=1 WHERE id=?", (e["id"],))
+            set_estado(c, e["id"], "parche_listo", "revision repetida: el rechazo por 'test truncado' se debia a un recorte del propio laboratorio (corregido)"); n_rev += 1
         if not ids:
             n_job = c.execute("UPDATE jobs SET estado='pendiente', intentos=0, no_antes=NULL, error=NULL, chat_id=NULL, fase=NULL, respuesta=NULL, actualizado=? WHERE estado='error' AND tipo='I'", (now(),)).rowcount
             c.commit()
-        print(f"Reencolados: {n_exp} expediente(s) y {n_job} job(s) de investigacion. El investigador en marcha los recoge solo (no hace falta reiniciar).")
+        print(f"Reencolados: {n_exp} expediente(s) a desarrollo, {n_rev} a revision de Claude (rechazados por test truncado) y {n_job} job(s) de investigacion. El investigador en marcha los recoge solo (no hace falta reiniciar).")
         return 0
     finally: c.close()
 

@@ -158,6 +158,26 @@ class Reanudacion(util.Caso):
         with self.assertRaises(SystemExit): self.inv.procesar_job(self.c, self.c.execute("SELECT * FROM jobs").fetchone())
         self.assertTrue((mw.STATE / "limite").exists())
 
+    def test_chat_inaccesible_se_reencola_con_chat_nuevo_en_vez_de_fallar(self):
+        def ask_mal(question, wait_min, stall_min, on_chat=None, on_result=None, resume_cid=None, registro=None):
+            raise gpt_browser.Incompleta("conversacion x inaccesible tras 2 recargas: error de carga visible", None, "otro")
+        self.inv.ASK = ask_mal; self.job()
+        for _ in range(3):
+            self.c.execute("UPDATE jobs SET no_antes=NULL WHERE estado='pendiente'"); self.c.commit()
+            self.inv.procesar_job(self.c, self.c.execute("SELECT * FROM jobs").fetchone())
+        r = self.c.execute("SELECT * FROM jobs").fetchone()
+        self.assertEqual(r["estado"], "pendiente"); self.assertIn("[reencolado]", r["error"]); self.assertGreater(r["no_antes"], mw.now()); self.assertEqual((r["intentos"], r["chat_id"]), (0, None))
+        # la segunda vez ya si es definitivo (una sola segunda oportunidad)
+        for _ in range(3):
+            self.c.execute("UPDATE jobs SET no_antes=NULL WHERE estado='pendiente'"); self.c.commit()
+            self.inv.procesar_job(self.c, self.c.execute("SELECT * FROM jobs").fetchone())
+        self.assertEqual(self.c.execute("SELECT estado FROM jobs").fetchone()[0], "error")
+
+    def test_motivo_de_espera_explica_por_que_no_hay_trabajo(self):
+        mw.CFG["max_pendientes"] = 1; self.exp_preparado()
+        self.assertIn("1 preparado(s) esperan EJECUTAR", self.inv.motivo_espera(self.c))
+        mw.CFG["max_pendientes"] = 6; self.assertEqual(self.inv.motivo_espera(self.c), "sin trabajo pendiente")
+
     def test_reintentos_acotados_y_error_visible(self):
         def ask_mal(question, wait_min, stall_min, on_chat=None, on_result=None, resume_cid=None, registro=None):
             raise RuntimeError("fallo tecnico sin chat")
@@ -284,6 +304,14 @@ class Revision(util.Caso):
         self.c.execute("UPDATE expedientes SET estado='parche_listo', intentos_parche=2"); self.c.commit()  # ya no quedan intentos
         self.inv.revisar(self.c, self.c.execute("SELECT * FROM expedientes").fetchone())
         self.assertEqual(self.c.execute("SELECT estado FROM expedientes").fetchone()[0], "parche_rechazado")
+
+    def test_el_revisor_recibe_los_tests_completos_sin_recortar(self):
+        largo = "import re\nhtml = open('index.html', encoding='utf-8').read()\n" + "".join(f"assert 'x{i}' in html or True, 'm{i}'\n" for i in range(600)) + "assert 'FINAL-DEL-TEST' in html or True, 'fin'\n"
+        self.assertGreater(len(largo), 8000)
+        self.exp_preparado(estado="parche_listo", prop=self.propuesta_gpt(pruebas=[{"ruta": "tests/mejoras-web/mw-0001-skip.py", "contenido": largo}]))
+        self.c.execute("UPDATE expedientes SET intentos_parche=1"); self.c.commit(); reg = []
+        self.inv.CLAUDE_HOOK = hook({"revision": self.rev()}, reg); self.inv.revisar(self.c, self.c.execute("SELECT * FROM expedientes").fetchone())
+        self.assertIn("FINAL-DEL-TEST", reg[0][2])  # antes se recortaba a 6000 y Claude rechazaba "tests truncados"
 
     def test_rechazar(self):
         self.inv.CLAUDE_HOOK = hook({"revision": self.rev(decision="rechazar", motivo="Rompe la estructura de cabecera usada por todas las paginas del sitio.")}); self.inv.revisar(self.c, self.listo())

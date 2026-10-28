@@ -125,6 +125,11 @@ class Gh:
         except GhAuthError: raise
         except GhError as e:
             return f"{self.wf} no existe en la rama '{ref}' (config.json -> workflow_ref): {str(e)[:120]}. Pon en workflow_ref una rama del remoto que contenga el workflow (p. ej. {self.q.CFG['rama_base']})."
+        try: self._gh("api", f"repos/{self.repo}/contents/.github/workflows/{self.wf}", "--silent")  # sin ref = rama POR DEFECTO
+        except GhAuthError: raise
+        except GhError as e:
+            return (f"{self.wf} no existe en la rama por defecto del repositorio y GitHub responde 404 al despachar ('not found on the default branch'): "
+                    f"fusiona primero el workflow en main. Detalle: {str(e)[:100]}")
         return None
 
     def runs_grupo(self, sha, intento=1):

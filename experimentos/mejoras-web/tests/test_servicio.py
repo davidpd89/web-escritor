@@ -126,6 +126,14 @@ class Reintentar(util.Caso):
         j = self.c.execute("SELECT * FROM jobs WHERE tipo='D'").fetchone(); self.assertEqual(j["estado"], "pendiente"); self.assertIn("parche invalido", j["payload"])
         i = self.c.execute("SELECT * FROM jobs WHERE tipo='I'").fetchone(); self.assertEqual((i["estado"], i["intentos"], i["error"]), ("pendiente", 0, None))
 
+    def test_rechazados_por_test_truncado_vuelven_a_revision_de_claude(self):
+        self.exp_preparado("MW-0005", estado="parche_rechazado"); self.exp_preparado("MW-0003", estado="parche_rechazado")
+        self.c.execute("UPDATE expedientes SET motivo='sin intentos de correccion: el test llega truncado y es invalido' WHERE id='MW-0005'")
+        self.c.execute("UPDATE expedientes SET motivo='sin intentos de correccion: el parche referencia ficheros que no existen' WHERE id='MW-0003'"); self.c.commit()
+        mw.cmd_reintentar(NS(id=None))
+        self.assertEqual(self.c.execute("SELECT estado FROM expedientes WHERE id='MW-0005'").fetchone()[0], "parche_listo")
+        self.assertEqual(self.c.execute("SELECT estado FROM expedientes WHERE id='MW-0003'").fetchone()[0], "parche_rechazado")  # los rechazos reales se respetan
+
     def test_con_id_solo_toca_ese_expediente(self):
         self.exp_preparado("MW-0001", estado="fallo_desarrollo"); self.exp_preparado("MW-0002", estado="fallo_desarrollo")
         mw.cmd_reintentar(NS(id="MW-0002"))
