@@ -128,7 +128,7 @@ jobs:
         run: python scripts/build-topic-collections.py --data data/topic-collections.json --root . --check
       - name: Check Atlas literario pages are up to date and meet the release contract
         run: |
-          python scripts/build-atlas-pages.py --data data/atlas-pages.json --root . --check
+          python scripts/build-atlas-pages.py --data data/atlas/catalogue.json --root . --check
           python scripts/check_atlas_release_contract.py --root . --manifest data/atlas-routes-manifest.json
       - name: Check static reading catalogue and book pages are up to date
         run: python scripts/build-reading-catalogue.py --check

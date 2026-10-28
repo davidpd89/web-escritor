@@ -1,0 +1,68 @@
+name: Atlas directory sync
+
+on:
+  schedule:
+    - cron: '40 5 * * 1'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Consultar Wikidata y detectar cambios sin publicar'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+  statuses: write
+
+concurrency:
+  group: atlas-directory-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Install pinned validation and search dependencies
+        run: |
+          python -m pip install --requirement scripts/requirements.txt
+          npm ci
+      - name: Test the feed and catalogue contracts before network access
+        run: |
+          python tests/test-atlas-wikidata-feed.py
+          python tests/test-atlas-pages.py
+      - name: Query Wikidata and publish through protected main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$DRY_RUN" = 'true' ]; then
+            python scripts/refresh-atlas-directory.py
+          else
+            # Exit 75: main moved while the bot PR was in CI. Regenerate once from the new main.
+            for attempt in 1 2; do
+              rc=0
+              python scripts/refresh-atlas-directory.py --publish || rc=$?
+              if [ "$rc" -eq 0 ]; then break; fi
+              if [ "$rc" -ne 75 ] || [ "$attempt" -eq 2 ]; then exit "$rc"; fi
+              git fetch --quiet origin main
+              git switch --quiet --detach origin/main
+              git reset --quiet --hard origin/main
+              git clean --quiet -fd
+            done
+          fi

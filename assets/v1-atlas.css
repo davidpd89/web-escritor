@@ -79,3 +79,26 @@ html.v1 [data-family="atlas"] .atlas-tail p{margin:0}
   html.v1 [data-family="atlas"] .atlas-entry__body h3{font-size:clamp(1.5rem,7vw,2.3rem)}
   html.v1 [data-family="atlas"] .atlas-tail{align-items:flex-start;flex-direction:column}
 }
+
+/* Catálogo del Atlas (hub): reutiliza las clases de Libros recomendados. */
+html.v1 .atlas-catalogue .atlas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,18rem),1fr));gap:1rem;list-style:none;margin:0;padding:0}
+html.v1 .atlas-catalogue .atlas-card{display:flex;flex-direction:column;gap:.5rem;padding:1.1rem 1.15rem;border:1px solid var(--color-border);background:var(--color-surface,#fff)}
+html.v1 .atlas-catalogue .atlas-card[hidden]{display:none}
+html.v1 .atlas-catalogue .atlas-card__meta{display:flex;flex-wrap:wrap;gap:.25rem .75rem;margin:0;font:600 .7rem/1.4 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--color-muted)}
+html.v1 .atlas-catalogue .atlas-card h3{margin:0;font:400 clamp(1.3rem,2vw,1.7rem)/1.1 var(--font-display);letter-spacing:-.01em}
+html.v1 .atlas-catalogue .atlas-card h3 a{color:inherit;text-decoration:none}
+html.v1 .atlas-catalogue .atlas-card h3 a:hover{text-decoration:underline;text-decoration-color:var(--color-accent)}
+html.v1 .atlas-catalogue .atlas-card__summary{margin:0;font:400 var(--text-sm)/1.55 var(--font-reading);color:var(--color-muted)}
+html.v1 .atlas-catalogue .atlas-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.35rem}
+html.v1 .atlas-catalogue .atlas-chips li{padding:.2rem .5rem;border:1px solid var(--color-border);font:400 .75rem/1.3 var(--font-ui)}
+html.v1 .atlas-catalogue .atlas-chip__k{font-weight:600}
+html.v1 .atlas-catalogue .atlas-card__actions{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin:auto 0 0;padding-top:.5rem}
+html.v1 .atlas-catalogue .atlas-card__actions a{color:var(--color-text);font:600 var(--text-xs)/1.45 var(--font-ui);text-decoration:underline;text-underline-offset:.2em;text-decoration-color:var(--color-border)}
+html.v1 .atlas-catalogue .atlas-card__actions a:hover{text-decoration-color:var(--color-accent)}
+html.v1 .atlas-catalogue .atlas-empty{margin:1.5rem 0;font:400 var(--text-base)/1.6 var(--font-reading);color:var(--color-muted)}
+html.v1 .atlas-catalogue .visually-hidden,html.v1 [data-family="atlas"] .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+html.v1 [data-family="atlas"] .atlas-stops--plain{counter-reset:none}
+html.v1 [data-family="atlas"] .atlas-stops--plain li{padding-left:0}
+html.v1 [data-family="atlas"] .atlas-stops--plain li::before{content:none}
+html.v1 .atlas-catalogue .atlas-more{margin:1.5rem 0 0}
+html.v1 .atlas-catalogue .atlas-more[hidden]{display:none}

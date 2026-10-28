@@ -236,7 +236,7 @@ def render(data):
 
   <footer class="site-footer"></footer>
 
-  <script defer src="/assets/v1-shell.js?v=24"></script>
+  <script defer src="/assets/v1-shell.js?v=25"></script>
   <script src="/assets/writer-tools.js?v=2" defer></script>
 </body>
 </html>'''

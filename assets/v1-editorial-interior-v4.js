@@ -71,11 +71,12 @@
        directorio editorial/concursos el de herramientas para no perder estilos. */
     {
       key: 'cuaderno', label: 'Libros recomendados', home: '/recomendaciones/',
-      matches: (path) => path.startsWith('/recomendaciones/'),
+      matches: (path) => path.startsWith('/recomendaciones/') || path.startsWith('/atlas-literario/'),
       links: [
         ['/recomendaciones/', 'Catálogo'],
         ['/recomendaciones/autores/', 'Autores'],
         ['/editoriales/', 'Editoriales'],
+        ['/atlas-literario/', 'Atlas literario'],
         ['/convocatorias-escritores/', 'Concursos']
       ]
     },
@@ -86,6 +87,7 @@
         ['/recomendaciones/', 'Catálogo'],
         ['/recomendaciones/autores/', 'Autores'],
         ['/editoriales/', 'Editoriales'],
+        ['/atlas-literario/', 'Atlas literario'],
         ['/convocatorias-escritores/', 'Concursos']
       ]
     },
