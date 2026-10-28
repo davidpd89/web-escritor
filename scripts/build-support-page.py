@@ -57,6 +57,21 @@ def render(channels: list[dict]) -> str:
   <link rel="canonical" href="https://davidportodiaz.com/apoyar/" />
   <title>Apoya este proyecto | David Porto Díaz</title>
   <meta name="description" content="{META_DESCRIPTION}" />
+  <meta property="og:title" content="Apoya este proyecto | David Porto Díaz" />
+  <meta property="og:description" content="{META_DESCRIPTION}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://davidportodiaz.com/apoyar/" />
+  <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.jpg" />
+  <meta property="og:image:width" content="1731" />
+  <meta property="og:image:height" content="909" />
+  <meta property="og:image:alt" content="Apoya este proyecto | David Porto Díaz" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="David Porto Díaz" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Apoya este proyecto | David Porto Díaz" />
+  <meta name="twitter:description" content="{META_DESCRIPTION}" />
+  <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.jpg" />
+  <meta name="twitter:image:alt" content="Apoya este proyecto | David Porto Díaz" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="stylesheet" href="/assets/v1-fonts.css?v=2" />
@@ -65,6 +80,17 @@ def render(channels: list[dict]) -> str:
   <link rel="stylesheet" href="/assets/v1-shell.css?v=6" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-support.css?v=2" />
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://davidportodiaz.com/apoyar/#page",
+    "url": "https://davidportodiaz.com/apoyar/",
+    "name": "Apoya este proyecto",
+    "inLanguage": "es",
+    "isPartOf": {{"@id": "https://davidportodiaz.com/#website"}}
+  }}
+  </script>
 </head>
 <body data-back-to-top>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
