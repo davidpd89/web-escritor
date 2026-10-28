@@ -13,10 +13,9 @@ on:
       - 'data/navigation.json'
       - 'scripts/build-*.py'
       - 'scripts/site_shell.py'
-      - 'qa/sitewide-reflow-browser.mjs'
-      - 'qa/text-resilience-report-gate.mjs'
-      - 'qa/focus-not-obscured-audit.mjs'
-      - 'qa/target-size-audit.mjs'
+      - 'qa/*.mjs'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/sitewide-reflow-qa.yml'
   workflow_dispatch:
   schedule:
@@ -28,13 +27,13 @@ permissions:
 
 jobs:
   reflow-shard:
-    name: reflow shard ${{ matrix.shard }}/4
+    name: reflow shard ${{ matrix.shard }}/8
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
 
     steps:
       - name: Checkout
@@ -105,7 +104,8 @@ jobs:
           TARGET_SIZE_MODE: enforce
           TEXT_RESILIENCE_MODE: report
           FOCUS_OBSCURED_MODE: enforce
-          SHARD_TOTAL: '4'
+          QA_ONLY_ROUTES: ${{ steps.sel.outputs.routes }}
+          SHARD_TOTAL: '8'
           SHARD_INDEX: ${{ matrix.shard }}
         timeout-minutes: 70
         run: node qa/sitewide-reflow-browser.mjs

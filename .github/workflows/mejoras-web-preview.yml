@@ -1,0 +1,69 @@
+name: Mejoras web vista previa
+
+run-name: Mejoras web vista previa ${{ inputs.ref }}
+
+# ENLACE VERIFICABLE de la web con las mejoras aceptadas (rama lab/mejoras-web-20261024), como si fuera main pero SIN serlo, para revisarlas antes de pasarlas a main.
+# DOCUMENTADO PERO NO ACTIVADO: solo workflow_dispatch manual y con confirmacion escrita. Nunca se dispara con un push, una PR o el ejecutor del laboratorio.
+# NO toca GitHub Pages ni deploy-pages.yml ni la produccion: no pide permisos pages/id-token. Publica en un proyecto de Cloudflare Pages SEPARADO (rama de vista previa)
+# solo si existen el secreto CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID y la variable de repositorio MEJORAS_WEB_PAGES_PROJECT. Sin ellos, solo genera el
+# artefacto `mejoras-web-sitio` (descargable y servible en local con `python -m http.server`).
+# La vista previa lleva X-Robots-Tag noindex y robots.txt Disallow para que los buscadores no la indexen.
+# Pasar a main solo cuando David lo ordene: este workflow no abre PR ni fusiona nada.
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmar:
+        description: 'Escribe PUBLICAR-PREVIEW para confirmar'
+        required: true
+      ref:
+        description: 'Rama a previsualizar (lab/mejoras-web-* o mejoras-web/*)'
+        required: true
+        default: 'lab/mejoras-web-20261024'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mejoras-web-preview
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    if: ${{ inputs.confirmar == 'PUBLICAR-PREVIEW' && (startsWith(inputs.ref, 'lab/mejoras-web-') || startsWith(inputs.ref, 'mejoras-web/')) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.ref }}
+          fetch-depth: 1
+
+      - name: Montar el sitio estatico (sin .git, tests ni laboratorio) y marcarlo noindex
+        run: |
+          mkdir -p _site
+          rsync -a --exclude '.git' --exclude '.github' --exclude 'node_modules' --exclude 'experimentos' --exclude '_site' ./ _site/
+          printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt
+          printf '/*\n  X-Robots-Tag: noindex, nofollow\n' > _site/_headers
+
+      - name: Conservar el sitio como artefacto
+        uses: actions/upload-artifact@v5
+        with:
+          name: mejoras-web-sitio
+          path: _site
+          retention-days: 14
+
+      - name: Publicar en Cloudflare Pages (solo si esta configurado)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PAGES_PROJECT: ${{ vars.MEJORAS_WEB_PAGES_PROJECT }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ] || [ -z "$PAGES_PROJECT" ]; then
+            echo "### Vista previa: solo artefacto" >> "$GITHUB_STEP_SUMMARY"
+            echo "Falta CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID o la variable MEJORAS_WEB_PAGES_PROJECT. Descarga el artefacto mejoras-web-sitio y sirvelo en local." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          npx --yes wrangler@4 pages deploy _site --project-name "$PAGES_PROJECT" --branch lab-mejoras-web --commit-dirty=true
+          echo "### Vista previa publicada" >> "$GITHUB_STEP_SUMMARY"
+          echo "https://lab-mejoras-web.${PAGES_PROJECT}.pages.dev" >> "$GITHUB_STEP_SUMMARY"

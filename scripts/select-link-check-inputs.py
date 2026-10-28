@@ -20,7 +20,7 @@ def public_html(paths):
         if not path.endswith('.html') or path.startswith(('scripts/', 'tests/')):
             continue
         # These values become CLI arguments, never arbitrary shell text.
-        if not re.fullmatch(r'[A-Za-z0-9_./-]+\.html', path) or '..' in path.split('/'):
+        if not re.fullmatch(r'[\w./-]+\.html', path) or '..' in path.split('/'):
             raise ValueError('Unsafe HTML input path: '+repr(path))
         result.append(path)
     return sorted(set(result))

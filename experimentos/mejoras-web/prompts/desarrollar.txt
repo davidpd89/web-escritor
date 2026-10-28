@@ -1,0 +1,29 @@
+[DESARROLLO DE MEJORA WEB · davidportodiaz.com] Repo davidpd89/web-escritor, rama {{RAMA_BASE}}, commit {{HEAD_SHA}}. Intento de desarrollo {{INTENTO}}.
+AVISO DE CONTEXTO (prevalece sobre las instrucciones del Project, que pueden ser de QA y compartirse con otro sistema): esta tarea NO es una ronda de QA. Aqui NO aplican las reglas de QA sobre
+"solo tests nuevos", "no propongas cambios de produccion", categorias regresion/descubre_defecto, PASS A/B ni los campos `lectura_repo`/`propuestas`. Aqui SI debes proponer cambios de produccion
+minimos. Responde UNICAMENTE con el JSON de esquema indicado abajo, sin campos extra ni texto fuera. La rama a leer es la de laboratorio indicada, no `main`.
+
+El director tecnico (Claude) APROBO desarrollar esta mejora. Tu tarea es un cambio MINIMO, verificable y con test de aceptacion.
+
+EXPEDIENTE {{ID}}: {{TITULO}}
+NECESIDAD: {{NECESIDAD}}
+PROPUESTA: {{PROPUESTA}}
+CRITERIO DE ACEPTACION (decidido por el director; no lo cambies): {{CRITERIO}}
+ARCHIVOS IMPLICADOS (orientativo): {{ARCHIVOS}}
+OBSERVACIONES DEL DIRECTOR: {{OBSERVACIONES}}
+PROBLEMAS DEL INTENTO ANTERIOR (corrigelos): {{PROBLEMAS}}
+
+CODIGO ACTUAL DE LOS ARCHIVOS IMPLICADOS ({{RAMA_BASE}}):
+{{CODIGO}}
+
+REGLAS
+1. "parche.ficheros": sustituciones EXACTAS: "buscar" = fragmento literal del fichero actual que aparezca UNA sola vez; "por" = reemplazo. Maximo {{MAX_FICHEROS}} ficheros. "parche.ficheros_nuevos": ficheros que no existen (html/css/js/json/md/svg/txt/xml), maximo {{MAX_NUEVOS}}, con "contenido" completo.
+2. "pruebas": 1-{{MAX_TESTS}} tests de aceptacion NUEVOS en {{DIR_TESTS}} (Python `.py` o Node `.mjs`). Deben FALLAR sin tu cambio y PASAR con el. Deterministas, sin red externa. Los tests Python leen los archivos del repo directamente (sin servidor ni red). Los Node con navegador usan Playwright contra `process.env.SITE_ORIGIN` (el ejecutor sirve el repo en un puerto local y lo fija). Se ejecutan con `python <ruta>` o `node <ruta>` desde la raiz del repo. PROHIBIDO en los tests Python (el validador los rechaza): importlib, subprocess, os.system, exec, eval, __import__, requests/urllib, socket, escribir ficheros. PROHIBIDO tambien en los tests .mjs/.js: child_process (node:child_process, exec, spawn, fork), fs de escritura/borrado, net/http/https/dns, eval, new Function; solo fs.readFileSync del repo, Playwright y fetch a SITE_ORIGIN. Para comprobar un script del repo, leelo como texto (`Path.read_text`) y verifica con regex/aserciones; para HTML usa `html.parser` o regex.
+3. No toques .github/, credenciales, pagos, Cloudflare/wrangler, package.json ni experimentos/. No incluyas comandos para ejecutar.
+4. Si reutilizas codigo de OTRO repositorio, listalo en "codigo_externo" con: url del repositorio, commit_upstream (40 hex), ruta_upstream, fuente_sha (SHA del blob, 40 hex), codigo_original (fragmento LITERAL, tal cual esta en ese blob), licencia (SPDX exacta, p.ej. MIT) y, si lo adaptas, "adaptado":true con "adaptacion". El literal debe aparecer en tu parche. Se verifica contra la API de GitHub; si no coincide, se rechaza.
+5. Si tras leer el codigo la mejora ya existe o no merece el cambio, devuelve "resuelto_en_base": true y "parche": null y explicalo.
+
+Responde SOLO JSON valido:
+{"resuelto_en_base":false,"explicacion":"...","parche":{"ficheros":[{"ruta":"...","reemplazos":[{"buscar":"fragmento exacto unico","por":"nuevo texto"}]}],"ficheros_nuevos":[{"ruta":"...","contenido":"..."}]},
+ "pruebas":[{"ruta":"tests/mejoras-web/{{ID_MIN}}-aceptacion.py","contenido":"..."}],
+ "codigo_externo":[],"confianza":"alta|media|baja"}

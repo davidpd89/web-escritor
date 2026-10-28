@@ -111,7 +111,7 @@ html.v1 .catalogue-check.is-empty { opacity:.5; cursor:default; }
 html.v1 .catalogue-check:has(input:focus-visible) { outline:3px solid var(--catalogue-blue); outline-offset:1px; }
 @media (max-width:900px) { html.v1 .catalogue-layout { grid-template-columns:minmax(0,1fr); } html.v1 .catalogue-sidebar { position:static; max-height:none; overflow:visible; } }
 html.v1 .catalogue-tags--compact { gap:.3rem; margin:.5rem 0; }
-html.v1 .catalogue-tags--compact a { min-height:28px; padding:.1rem .5rem; font-size:.7rem; border-radius:999px; }
+html.v1 .catalogue-tags--compact a { min-height:28px; padding:.1rem .5rem; font-size:.75rem; border-radius:999px; }
 html.v1 .catalogue-extra-tags>summary { min-height:44px; color:var(--catalogue-blue); cursor:pointer; font:600 .75rem/1.5 var(--font-ui); display:list-item; align-content:center; }
 html.v1 .catalogue-card__buy { box-sizing:border-box; margin-top:.8rem; font-size:.72rem; gap:.5rem; }
 html.v1 .catalogue-source { font:400 .75rem/1.5 var(--font-ui); margin-block:.4rem .8rem; }

@@ -22,20 +22,60 @@ REGISTRY = json.loads((ROOT / "data/content-registry.json").read_text(encoding="
 DEFAULTS = REGISTRY.get("defaults", {})
 
 DURATION_RE = re.compile(r"P(?:\d+[YMWD])?(?:T(?:\d+H)?(?:\d+M)?(?:\d+(?:\.\d+)?S)?)?")
+# HTML durations represent exact seconds, unlike calendar ISO durations
+# that include variable-length months and years. See WHATWG 2.3.5.9.
+HTML_ISO_DURATION_RE = re.compile(
+    r"P(?:[0-9]+D(?:T(?=[0-9])(?:[0-9]+H)?(?:[0-9]+M)?"
+    r"(?:[0-9]+(?:\.[0-9]{1,3})?S)?)?"
+    r"|T(?=[0-9])(?:[0-9]+H)?(?:[0-9]+M)?"
+    r"(?:[0-9]+(?:\.[0-9]{1,3})?S)?)"
+)
+HTML_HUMAN_DURATION_PART_RE = re.compile(
+    r"[ \t\n\r\f]*([0-9]+)(\.[0-9]{1,3})?[ \t\n\r\f]*"
+    r"([WwDdHhMmSs])[ \t\n\r\f]*"
+)
+
+
+def valid_html_duration(value: str) -> bool:
+    """Validate ISO or human-readable WHATWG duration without unit reuse."""
+    if HTML_ISO_DURATION_RE.fullmatch(value):
+        return True
+    seen: set[str] = set()
+    position = 0
+    while position < len(value):
+        match = HTML_HUMAN_DURATION_PART_RE.match(value, position)
+        if match is None:
+            return False
+        scale = match.group(3).lower()
+        if scale in seen or (match.group(2) is not None and scale != "s"):
+            return False
+        seen.add(scale)
+        position = match.end()
+    return bool(seen)
 YEAR_RE = re.compile(r"\d{4,}")
 MONTH_RE = re.compile(r"(\d{4,})-(\d{2})")
 DATE_RE = re.compile(r"\d{4,}-\d{2}-\d{2}")
 WEEK_RE = re.compile(r"(\d{4,})-W(\d{2})")
-YEARLESS_RE = re.compile(r"\d{2}-\d{2}")
-TIME_RE = re.compile(r"\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?")
+YEARLESS_RE = re.compile(r"(?:--)?\d{2}-\d{2}")
+TIME_RE = re.compile(r"\d{2}:\d{2}(?::\d{2}(?:\.\d{1,3})?)?")
 OFFSET_RE = re.compile(r"(?:Z|[+-]\d{2}:?\d{2})")
+HTML_DATETIME_BASE = (
+    r"\d{4,}-\d{2}-\d{2}[T ]\d{2}:\d{2}"
+    r"(?::\d{2}(?:\.\d{1,3})?)?"
+)
+HTML_LOCAL_DATETIME_RE = re.compile(HTML_DATETIME_BASE)
+HTML_GLOBAL_DATETIME_RE = re.compile(HTML_DATETIME_BASE + r"(?:Z|[+-]\d{2}:?\d{2})")
 
 
 def parse_temporal(value: str, *, html_time: bool = False):
     value = value.strip()
     if not value:
         raise ValueError("empty temporal value")
-    if DURATION_RE.fullmatch(value):
+    if html_time:
+        if valid_html_duration(value):
+            return ("duration", value)
+    elif DURATION_RE.fullmatch(value):
+        # Preserve the existing schema.org ISO contract separately from HTML.
         return ("duration", value)
 
     if YEAR_RE.fullmatch(value):
@@ -52,6 +92,11 @@ def parse_temporal(value: str, *, html_time: bool = False):
         return ("month", (year, month))
 
     if DATE_RE.fullmatch(value):
+        if html_time and len(value.split("-", 1)[0]) > 4:
+            year, month, day = map(int, value.split("-"))
+            if year < 1 or not 1 <= month <= 12 or not 1 <= day <= calendar.monthrange(year, month)[1]:
+                raise ValueError(f"invalid HTML date {value!r}")
+            return ("html-only", value)
         try:
             return ("date", date.fromisoformat(value))
         except ValueError as exc:
@@ -63,18 +108,66 @@ def parse_temporal(value: str, *, html_time: bool = False):
     # denote a calendar date.
     if html_time:
         if YEARLESS_RE.fullmatch(value):
-            month, day = map(int, value.split("-"))
-            if not 1 <= month <= 12 or not 1 <= day <= 31:
+            month, day = map(int, value.removeprefix("--").split("-"))
+            # The yearless microsyntax uses a leap year so 02-29 is valid,
+            # but impossible month/day combinations must still fail.
+            if not 1 <= month <= 12 or not 1 <= day <= calendar.monthrange(2000, month)[1]:
                 raise ValueError(f"invalid yearless date {value!r}")
             return ("html-only", value)
         m = WEEK_RE.fullmatch(value)
         if m:
             year, week = map(int, m.groups())
-            if year >= 1 and 1 <= week <= 53:
-                return ("html-only", value)
+            if year >= 1:
+                jan1 = calendar.weekday(year, 1, 1)
+                last_week = 53 if (jan1 == 3 or (jan1 == 2 and calendar.isleap(year))) else 52
+                if 1 <= week <= last_week:
+                    return ("html-only", value)
             raise ValueError(f"invalid week {value!r}")
-        if TIME_RE.fullmatch(value) or OFFSET_RE.fullmatch(value):
-            return ("html-only", value)
+        if TIME_RE.fullmatch(value):
+            parts = value.split(":")
+            hour, minute = int(parts[0]), int(parts[1])
+            second = int(parts[2].split(".")[0]) if len(parts) == 3 else 0
+            if hour <= 23 and minute <= 59 and second <= 59:
+                return ("html-only", value)
+            raise ValueError(f"invalid time {value!r}")
+        if OFFSET_RE.fullmatch(value):
+            if value == "Z":
+                return ("html-only", value)
+            digits = value[1:].replace(":", "")
+            hours, minutes = int(digits[:2]), int(digits[2:])
+            # WHATWG permits +00:00 but forbids the negative sign for zero.
+            if hours <= 23 and minutes <= 59 and not (value.startswith("-") and hours == minutes == 0):
+                return ("html-only", value)
+            raise ValueError(f"invalid timezone offset {value!r}")
+
+    if html_time:
+        # <time datetime> permits either a local date/time (without timezone)
+        # or a global date/time (with timezone). Validate each microsyntax
+        # separately before asking Python to check actual clock/calendar values.
+        local = HTML_LOCAL_DATETIME_RE.fullmatch(value)
+        global_time = HTML_GLOBAL_DATETIME_RE.fullmatch(value)
+        if not (local or global_time) or (
+            global_time and value.endswith(("-00:00", "-0000"))
+        ):
+            raise ValueError(f"invalid HTML datetime {value!r}")
+
+    # HTML accepts years with more than four digits; Python datetime does not.
+    # Validate the rest using a leap-year surrogate, then check the actual
+    # calendar day of the original year and retain reduced precision.
+    if html_time and len(value.split("-", 1)[0]) > 4:
+        year_text, suffix = value.split("-", 1)
+        year = int(year_text)
+        if year < 1:
+            raise ValueError(f"invalid HTML year {year_text!r}")
+        surrogate = "2000-" + suffix
+        normalized = surrogate[:-1] + "+00:00" if surrogate.endswith("Z") else surrogate
+        try:
+            parsed = datetime.fromisoformat(normalized)
+            if parsed.day > calendar.monthrange(year, parsed.month)[1]:
+                raise ValueError("invalid day for original year")
+        except ValueError as exc:
+            raise ValueError(f"invalid HTML datetime {value!r}") from exc
+        return ("html-only", value)
 
     try:
         normalized = value[:-1] + "+00:00" if value.endswith("Z") else value
@@ -206,9 +299,17 @@ for path in sorted(public_html()):
                     )
 
             if "startDate" in parsed and "endDate" in parsed:
+                start_kind, start_value = parsed["startDate"]
+                end_kind, end_value = parsed["endDate"]
                 start = bounds(parsed["startDate"])
                 end = bounds(parsed["endDate"])
-                if start and end and end[1] < start[0]:
+                reversed_dates = bool(start and end and end[1] < start[0])
+                if start_kind == end_kind == "datetime":
+                    start_aware = start_value.utcoffset() is not None
+                    end_aware = end_value.utcoffset() is not None
+                    if start_aware == end_aware:
+                        reversed_dates = end_value < start_value
+                if reversed_dates:
                     errors.append(f"{rel}:{line}: endDate precedes startDate")
 
 if errors:

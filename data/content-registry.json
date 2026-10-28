@@ -84,7 +84,7 @@
       "parentId": "home",
       "hubId": "home",
       "discoverability": "secondary",
-      "footerEligible": false,
+      "footerEligible": true,
       "audience": [
         "reader",
         "press"
@@ -4094,6 +4094,349 @@
       ]
     },
     {
+      "id": "atlas-hub",
+      "url": "/atlas-literario/",
+      "label": "Atlas literario",
+      "shortLabel": "Atlas literario",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/index.html"
+    },
+    {
+      "id": "atlas-edimburgo",
+      "url": "/atlas-literario/edimburgo/",
+      "label": "Edimburgo, la primera Ciudad de la Literatura",
+      "shortLabel": "Edimburgo, la primera Ciudad de la Liter",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/edimburgo/index.html"
+    },
+    {
+      "id": "atlas-dublin",
+      "url": "/atlas-literario/dublin/",
+      "label": "Dublín: Ciudad de la Literatura y Bloomsday",
+      "shortLabel": "Dublín",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/dublin/index.html"
+    },
+    {
+      "id": "atlas-madrid-barrio-de-las-letras",
+      "url": "/atlas-literario/madrid-barrio-de-las-letras/",
+      "label": "Madrid y el Barrio de las Letras",
+      "shortLabel": "Madrid y el Barrio de las Letras",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/madrid-barrio-de-las-letras/index.html"
+    },
+    {
+      "id": "atlas-barcelona",
+      "url": "/atlas-literario/barcelona/",
+      "label": "Barcelona: Ciudad de la Literatura y Sant Jordi",
+      "shortLabel": "Barcelona",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/barcelona/index.html"
+    },
+    {
+      "id": "atlas-biblioteca-trinity-college-dublin",
+      "url": "/atlas-literario/biblioteca-trinity-college-dublin/",
+      "label": "La Biblioteca de Trinity College y el Long Room",
+      "shortLabel": "La Biblioteca de Trinity College y el Lo",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/biblioteca-trinity-college-dublin/index.html"
+    },
+    {
+      "id": "atlas-biblioteca-strahov-praga",
+      "url": "/atlas-literario/biblioteca-strahov-praga/",
+      "label": "La Biblioteca de Strahov, en Praga",
+      "shortLabel": "La Biblioteca de Strahov, en Praga",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/biblioteca-strahov-praga/index.html"
+    },
+    {
+      "id": "atlas-shakespeare-and-company-paris",
+      "url": "/atlas-literario/shakespeare-and-company-paris/",
+      "label": "Shakespeare and Company, en París",
+      "shortLabel": "Shakespeare and Company, en París",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/shakespeare-and-company-paris/index.html"
+    },
+    {
+      "id": "atlas-biblioteca-joanina-coimbra",
+      "url": "/atlas-literario/biblioteca-joanina-coimbra/",
+      "label": "La Biblioteca Joanina, en Coímbra",
+      "shortLabel": "La Biblioteca Joanina, en Coímbra",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/biblioteca-joanina-coimbra/index.html"
+    },
+    {
+      "id": "atlas-ruta-barrio-de-las-letras",
+      "url": "/atlas-literario/ruta-barrio-de-las-letras/",
+      "label": "Ruta a pie por el Barrio de las Letras",
+      "shortLabel": "Ruta a pie por el Barrio de las Letras",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/ruta-barrio-de-las-letras/index.html"
+    },
+    {
+      "id": "atlas-ruta-bloomsday-dublin",
+      "url": "/atlas-literario/ruta-bloomsday-dublin/",
+      "label": "Ruta del Ulises: los lugares de Bloomsday",
+      "shortLabel": "Ruta del Ulises",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/ruta-bloomsday-dublin/index.html"
+    },
+    {
+      "id": "atlas-oxford",
+      "url": "/atlas-literario/oxford/",
+      "label": "Oxford: la Bodleian, los Inklings y la Radcliffe Camera",
+      "shortLabel": "Oxford",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/oxford/index.html"
+    },
+    {
+      "id": "atlas-praga",
+      "url": "/atlas-literario/praga/",
+      "label": "Praga: Kafka y las bibliotecas barrocas",
+      "shortLabel": "Praga",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/praga/index.html"
+    },
+    {
+      "id": "atlas-lisboa",
+      "url": "/atlas-literario/lisboa/",
+      "label": "Lisboa: Pessoa y la librería más antigua del mundo",
+      "shortLabel": "Lisboa",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/lisboa/index.html"
+    },
+    {
+      "id": "atlas-livraria-lello-porto",
+      "url": "/atlas-literario/livraria-lello-porto/",
+      "label": "Livraria Lello, en Oporto",
+      "shortLabel": "Livraria Lello, en Oporto",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/livraria-lello-porto/index.html"
+    },
+    {
+      "id": "atlas-el-ateneo-grand-splendid-buenos-aires",
+      "url": "/atlas-literario/el-ateneo-grand-splendid-buenos-aires/",
+      "label": "El Ateneo Grand Splendid, en Buenos Aires",
+      "shortLabel": "El Ateneo Grand Splendid, en Buenos Aire",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/el-ateneo-grand-splendid-buenos-aires/index.html"
+    },
+    {
+      "id": "atlas-bronte-parsonage-haworth",
+      "url": "/atlas-literario/bronte-parsonage-haworth/",
+      "label": "La casa parroquial de las Brontë, en Haworth",
+      "shortLabel": "La casa parroquial de las Brontë, en Haw",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/bronte-parsonage-haworth/index.html"
+    },
+    {
+      "id": "atlas-biblioteca-de-alejandria",
+      "url": "/atlas-literario/biblioteca-de-alejandria/",
+      "label": "La Biblioteca de Alejandría: lo que se sabe y lo que es mito",
+      "shortLabel": "La Biblioteca de Alejandría",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/biblioteca-de-alejandria/index.html"
+    },
+    {
+      "id": "atlas-ruta-don-quijote",
+      "url": "/atlas-literario/ruta-don-quijote/",
+      "label": "La Ruta de Don Quijote en La Mancha",
+      "shortLabel": "La Ruta de Don Quijote en La Mancha",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "atlas-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-atlas"
+      ],
+      "sourceFile": "atlas-literario/ruta-don-quijote/index.html"
+    },
+    {
       "id": "reading-book-lib-0001",
       "url": "/recomendaciones/libros/coraline/",
       "label": "Coraline",
@@ -5316,6 +5659,366 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/libros/cocina-para-cara-almendras-9788410442771/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788491057031",
+      "url": "/recomendaciones/libros/la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031/",
+      "label": "La señora Dalloway (edición especial limitada con cantos tintados)",
+      "shortLabel": "La señora Dalloway (edición especial limitada con cantos tintados)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791388222801",
+      "url": "/recomendaciones/libros/solo-un-juego-mas-car-hockey-1-9791388222801/",
+      "label": "Solo un juego más (CAR HOCKEY 1)",
+      "shortLabel": "Solo un juego más (CAR HOCKEY 1)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/solo-un-juego-mas-car-hockey-1-9791388222801/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387740382",
+      "url": "/recomendaciones/libros/sin-piedad-harry-hole-14-9791387740382/",
+      "label": "Sin piedad (Harry Hole 14)",
+      "shortLabel": "Sin piedad (Harry Hole 14)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/sin-piedad-harry-hole-14-9791387740382/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791388277085",
+      "url": "/recomendaciones/libros/pipoka-y-la-fabrica-del-desastre-9791388277085/",
+      "label": "Pipoka y la Fábrica del Desastre",
+      "shortLabel": "Pipoka y la Fábrica del Desastre",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/pipoka-y-la-fabrica-del-desastre-9791388277085/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387809829",
+      "url": "/recomendaciones/libros/aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829/",
+      "label": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico",
+      "shortLabel": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788427054479",
+      "url": "/recomendaciones/libros/un-amor-de-diciembre-9788427054479/",
+      "label": "Un amor de diciembre",
+      "shortLabel": "Un amor de diciembre",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/un-amor-de-diciembre-9788427054479/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788411078474",
+      "url": "/recomendaciones/libros/urkinaona-9788411078474/",
+      "label": "Urkinaona",
+      "shortLabel": "Urkinaona",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/urkinaona-9788411078474/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387962142",
+      "url": "/recomendaciones/libros/el-guardaespaldas-de-honeko-akabane-7-shonen-9791387962142/",
+      "label": "El guardaespaldas de Honeko Akabane 7 (Shônen)",
+      "shortLabel": "El guardaespaldas de Honeko Akabane 7 (Shônen)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/el-guardaespaldas-de-honeko-akabane-7-shonen-9791387962142/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788413445564",
+      "url": "/recomendaciones/libros/ninos-ancestrales-9788413445564/",
+      "label": "Niños ancestrales",
+      "shortLabel": "Niños ancestrales",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/ninos-ancestrales-9788413445564/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788427257627",
+      "url": "/recomendaciones/libros/la-sexta-faccion-1-la-sexta-faccion-edicion-especial-limitada-con-cantos-ti-9788427257627/",
+      "label": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados)",
+      "shortLabel": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-sexta-faccion-1-la-sexta-faccion-edicion-especial-limitada-con-cantos-ti-9788427257627/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788408325222",
+      "url": "/recomendaciones/libros/tu-mejor-medicina-eres-tu-9788408325222/",
+      "label": "Tu mejor medicina eres tú",
+      "shortLabel": "Tu mejor medicina eres tú",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/tu-mejor-medicina-eres-tu-9788408325222/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387526863",
+      "url": "/recomendaciones/libros/stitch-calendario-de-adviento-9791387526863/",
+      "label": "Stitch. Calendario de Adviento",
+      "shortLabel": "Stitch. Calendario de Adviento",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/stitch-calendario-de-adviento-9791387526863/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387512446",
+      "url": "/recomendaciones/libros/la-inquilina-9791387512446/",
+      "label": "La inquilina",
+      "shortLabel": "La inquilina",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-inquilina-9791387512446/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791388100550",
+      "url": "/recomendaciones/libros/gunnm-alita-mars-chronicle-no-10-11-9791388100550/",
+      "label": "Gunnm Alita Mars Chronicle nº 10/11",
+      "shortLabel": "Gunnm Alita Mars Chronicle nº 10/11",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/gunnm-alita-mars-chronicle-no-10-11-9791388100550/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791388101311",
+      "url": "/recomendaciones/libros/yu-gi-oh-no-04-22-9791388101311/",
+      "label": "Yu-Gi-Oh! nº 04/22",
+      "shortLabel": "Yu-Gi-Oh! nº 04/22",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/yu-gi-oh-no-04-22-9791388101311/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788419981035",
+      "url": "/recomendaciones/libros/cinco-cuentos-9788419981035/",
+      "label": "Cinco cuentos",
+      "shortLabel": "Cinco cuentos",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/cinco-cuentos-9788419981035/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9780241831380",
+      "url": "/recomendaciones/libros/curso-de-cocina-los-basicos-9780241831380/",
+      "label": "Curso de cocina - Los básicos",
+      "shortLabel": "Curso de cocina - Los básicos",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/curso-de-cocina-los-basicos-9780241831380/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788449346033",
+      "url": "/recomendaciones/libros/la-eternidad-y-un-dia-mas-9788449346033/",
+      "label": "La eternidad y un día más",
+      "shortLabel": "La eternidad y un día más",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-eternidad-y-un-dia-mas-9788449346033/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788467084832",
+      "url": "/recomendaciones/libros/la-cabana-9788467084832/",
+      "label": "La cabaña",
+      "shortLabel": "La cabaña",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-cabana-9788467084832/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387962005",
+      "url": "/recomendaciones/libros/as-the-gods-will-la-secuela-10-shonen-9791387962005/",
+      "label": "As the Gods Will: La secuela 10 (Shônen)",
+      "shortLabel": "As the Gods Will: La secuela 10 (Shônen)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/as-the-gods-will-la-secuela-10-shonen-9791387962005/index.html"
     },
     {
       "id": "reading-author-neil-gaiman",
@@ -6578,6 +7281,384 @@
       "sourceFile": "recomendaciones/autores/bosco-castro/index.html"
     },
     {
+      "id": "reading-author-virginia-woolf",
+      "url": "/recomendaciones/autores/virginia-woolf/",
+      "label": "Virginia Woolf",
+      "shortLabel": "Virginia Woolf",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/virginia-woolf/index.html"
+    },
+    {
+      "id": "reading-author-susanna-herrero",
+      "url": "/recomendaciones/autores/susanna-herrero/",
+      "label": "Susanna Herrero",
+      "shortLabel": "Susanna Herrero",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/susanna-herrero/index.html"
+    },
+    {
+      "id": "reading-author-jo-nesbo",
+      "url": "/recomendaciones/autores/jo-nesbo/",
+      "label": "Jo Nesbo",
+      "shortLabel": "Jo Nesbo",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/jo-nesbo/index.html"
+    },
+    {
+      "id": "reading-author-jose-such",
+      "url": "/recomendaciones/autores/jose-such/",
+      "label": "Jose Such",
+      "shortLabel": "Jose Such",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/jose-such/index.html"
+    },
+    {
+      "id": "reading-author-sally-rippin",
+      "url": "/recomendaciones/autores/sally-rippin/",
+      "label": "Sally Rippin",
+      "shortLabel": "Sally Rippin",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/sally-rippin/index.html"
+    },
+    {
+      "id": "reading-author-lauren-asher",
+      "url": "/recomendaciones/autores/lauren-asher/",
+      "label": "Lauren Asher",
+      "shortLabel": "Lauren Asher",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/lauren-asher/index.html"
+    },
+    {
+      "id": "reading-author-eva-blanch",
+      "url": "/recomendaciones/autores/eva-blanch/",
+      "label": "Eva Blanch",
+      "shortLabel": "Eva Blanch",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/eva-blanch/index.html"
+    },
+    {
+      "id": "reading-author-masamitsu-nigatsu",
+      "url": "/recomendaciones/autores/masamitsu-nigatsu/",
+      "label": "Masamitsu Nigatsu",
+      "shortLabel": "Masamitsu Nigatsu",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/masamitsu-nigatsu/index.html"
+    },
+    {
+      "id": "reading-author-ruben-munoz",
+      "url": "/recomendaciones/autores/ruben-munoz/",
+      "label": "Rubén Muñoz",
+      "shortLabel": "Rubén Muñoz",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/ruben-munoz/index.html"
+    },
+    {
+      "id": "reading-author-veronica-roth",
+      "url": "/recomendaciones/autores/veronica-roth/",
+      "label": "Veronica Roth",
+      "shortLabel": "Veronica Roth",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/veronica-roth/index.html"
+    },
+    {
+      "id": "reading-author-javier-dols-juste",
+      "url": "/recomendaciones/autores/javier-dols-juste/",
+      "label": "Javier Dols Juste",
+      "shortLabel": "Javier Dols Juste",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/javier-dols-juste/index.html"
+    },
+    {
+      "id": "reading-author-disney",
+      "url": "/recomendaciones/autores/disney/",
+      "label": "Disney",
+      "shortLabel": "Disney",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/disney/index.html"
+    },
+    {
+      "id": "reading-author-freida-mcfadden",
+      "url": "/recomendaciones/autores/freida-mcfadden/",
+      "label": "Freida McFadden",
+      "shortLabel": "Freida McFadden",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/freida-mcfadden/index.html"
+    },
+    {
+      "id": "reading-author-yukito-kishiro",
+      "url": "/recomendaciones/autores/yukito-kishiro/",
+      "label": "Yukito Kishiro",
+      "shortLabel": "Yukito Kishiro",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/yukito-kishiro/index.html"
+    },
+    {
+      "id": "reading-author-kazuki-takahashi",
+      "url": "/recomendaciones/autores/kazuki-takahashi/",
+      "label": "Kazuki Takahashi",
+      "shortLabel": "Kazuki Takahashi",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/kazuki-takahashi/index.html"
+    },
+    {
+      "id": "reading-author-posy-simmonds",
+      "url": "/recomendaciones/autores/posy-simmonds/",
+      "label": "Posy Simmonds",
+      "shortLabel": "Posy Simmonds",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/posy-simmonds/index.html"
+    },
+    {
+      "id": "reading-author-louis-girod",
+      "url": "/recomendaciones/autores/louis-girod/",
+      "label": "Louis Girod",
+      "shortLabel": "Louis Girod",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/louis-girod/index.html"
+    },
+    {
+      "id": "reading-author-carlos-lopez-otin",
+      "url": "/recomendaciones/autores/carlos-lopez-otin/",
+      "label": "Carlos López-Otín",
+      "shortLabel": "Carlos López-Otín",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/carlos-lopez-otin/index.html"
+    },
+    {
+      "id": "reading-author-wm-paul-young",
+      "url": "/recomendaciones/autores/wm-paul-young/",
+      "label": "Wm. Paul Young",
+      "shortLabel": "Wm. Paul Young",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/wm-paul-young/index.html"
+    },
+    {
+      "id": "reading-author-muneyuki-kaneshiro",
+      "url": "/recomendaciones/autores/muneyuki-kaneshiro/",
+      "label": "Muneyuki Kaneshiro",
+      "shortLabel": "Muneyuki Kaneshiro",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/muneyuki-kaneshiro/index.html"
+    },
+    {
+      "id": "reading-author-akeji-fujimura",
+      "url": "/recomendaciones/autores/akeji-fujimura/",
+      "label": "Akeji Fujimura",
+      "shortLabel": "Akeji Fujimura",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/akeji-fujimura/index.html"
+    },
+    {
       "id": "reading-publisher-aguilar",
       "url": "/recomendaciones/editoriales/aguilar/",
       "label": "Aguilar",
@@ -6594,6 +7675,24 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/editoriales/aguilar/index.html"
+    },
+    {
+      "id": "reading-publisher-alienta-editorial",
+      "url": "/recomendaciones/editoriales/alienta-editorial/",
+      "label": "Alienta Editorial",
+      "shortLabel": "Alienta Editorial",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/alienta-editorial/index.html"
     },
     {
       "id": "reading-publisher-beascoa",
@@ -6722,6 +7821,24 @@
       "sourceFile": "recomendaciones/editoriales/dk/index.html"
     },
     {
+      "id": "reading-publisher-ediciones-martinez-roca",
+      "url": "/recomendaciones/editoriales/ediciones-martinez-roca/",
+      "label": "Ediciones Martínez Roca",
+      "shortLabel": "Ediciones Martínez Roca",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/ediciones-martinez-roca/index.html"
+    },
+    {
       "id": "reading-publisher-ediciones-paidos",
       "url": "/recomendaciones/editoriales/ediciones-paidos/",
       "label": "Ediciones Paidós",
@@ -6738,6 +7855,60 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/editoriales/ediciones-paidos/index.html"
+    },
+    {
+      "id": "reading-publisher-libros-disney",
+      "url": "/recomendaciones/editoriales/libros-disney/",
+      "label": "Libros Disney",
+      "shortLabel": "Libros Disney",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/libros-disney/index.html"
+    },
+    {
+      "id": "reading-publisher-molino",
+      "url": "/recomendaciones/editoriales/molino/",
+      "label": "Molino",
+      "shortLabel": "Molino",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/molino/index.html"
+    },
+    {
+      "id": "reading-publisher-montena",
+      "url": "/recomendaciones/editoriales/montena/",
+      "label": "Montena",
+      "shortLabel": "Montena",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/montena/index.html"
     },
     {
       "id": "reading-publisher-penguin-bolsillo",
@@ -6828,6 +7999,24 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/editoriales/vergara/index.html"
+    },
+    {
+      "id": "reading-publisher-zenith",
+      "url": "/recomendaciones/editoriales/zenith/",
+      "label": "Zenith",
+      "shortLabel": "Zenith",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/zenith/index.html"
     },
     {
       "id": "reading-index-autores",

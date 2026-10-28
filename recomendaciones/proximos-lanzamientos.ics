@@ -6,7 +6,7 @@ METHOD:PUBLISH
 X-WR-CALNAME:Próximos lanzamientos de libros recomendados
 BEGIN:VEVENT
 UID:isbn-9788467083378@davidportodiaz.com
-DTSTAMP:20261023T000000Z
+DTSTAMP:20261027T000000Z
 DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261029
 SUMMARY:Sale a la venta: Todo bajo control\, menos tú
@@ -16,12 +16,22 @@ URL:https://davidportodiaz.com/recomendaciones/libros/todo-bajo-control-men
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388092268@davidportodiaz.com
-DTSTAMP:20261023T000000Z
+DTSTAMP:20261027T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Ponte fino
 DESCRIPTION:Martín Berasategui\, David de Jorge · Debate
 URL:https://davidportodiaz.com/recomendaciones/libros/ponte-fino-9791388092
  268/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791387740382@davidportodiaz.com
+DTSTAMP:20261027T000000Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:Sale a la venta: Sin piedad (Harry Hole 14)
+DESCRIPTION:Jo Nesbo · Reservoir Books
+URL:https://davidportodiaz.com/recomendaciones/libros/sin-piedad-harry-hole
+ -14-9791387740382/
 END:VEVENT
 END:VCALENDAR

@@ -37,14 +37,31 @@ def validate(data, today):
         started=valid_date(raw.get('started_on'), f'{ident}.started_on', today)
         finished=valid_date(raw.get('finished_on'), f'{ident}.finished_on', today)
         if status=='finished' and not finished: fail(f'{ident}: finished requiere finished_on')
+        if status!='finished' and finished: fail(f'{ident}: finished_on incompatible con status {status}')
         if finished and started and finished < started: fail(f'{ident}: finished_on anterior a started_on')
         kind=raw.get('link_kind','none'); url=raw.get('url')
         if kind not in ALLOWED_LINK: fail(f'{ident}: link_kind inválido')
         if kind=='none' and url: fail(f'{ident}: link_kind none no admite URL')
         if kind!='none':
             if not url: fail(f'{ident}: falta URL')
-            p=urlparse(url)
-            if p.scheme!='https' or not p.netloc: fail(f'{ident}: URL debe ser HTTPS')
+            if not isinstance(url, str) or not url.startswith('https://'):
+                fail(f'{ident}: URL debe ser HTTPS')
+            if any(ord(ch) < 32 or ord(ch) == 127 for ch in url):
+                fail(f'{ident}: URL contiene caracteres de control')
+            try:
+                p=urlparse(url)
+                hostname=p.hostname
+                port=p.port
+                username=p.username
+                password=p.password
+            except ValueError:
+                fail(f'{ident}: URL mal formada')
+            if p.scheme != 'https' or not p.netloc or not hostname:
+                fail(f'{ident}: URL debe ser HTTPS válida')
+            if username is not None or password is not None or '@' in p.netloc:
+                fail(f'{ident}: URL con credenciales o autoridad ambigua')
+            if any(ch.isspace() for ch in p.netloc) or '\\' in p.netloc:
+                fail(f'{ident}: autoridad URL inválida')
         if kind=='affiliate' and len(disclosure) < 30: fail('Hay afiliación pero falta disclosure suficiente')
         verified=valid_date(raw.get('verified_on'), f'{ident}.verified_on', today)
         if kind!='none' and not verified: fail(f'{ident}: enlace sin verified_on')
@@ -77,17 +94,18 @@ def card(item):
 def render(items, disclosure, updated):
     groups=[('reading','Leyendo ahora'),('finished','Lecturas recientes'),('paused','En pausa')]
     sections=[]
+    ordered_items=[]
     for key,label in groups:
         subset=[x for x in items if x['status']==key]
         if not subset: continue
         if key=='finished': subset.sort(key=lambda x:x.get('finished_on') or '', reverse=True)
+        ordered_items.extend(subset)
         sections.append(f'<section class="reading-group"><h2>{label}</h2><div class="reading-grid">'+''.join(card(x) for x in subset)+'</div></section>')
     has_aff=any(x['link_kind']=='affiliate' for x in items)
     disclosure_html=f'<p class="reading-disclosure">{html.escape(disclosure)}</p>' if has_aff else ''
-    itemlist=','.join(json.dumps({'@type':'ListItem','position':i+1,'name':x['title']}, ensure_ascii=False) for i,x in enumerate(items))
-    schema=json.dumps({'@context':'https://schema.org','@type':'CollectionPage','name':'Qué estoy leyendo | David Porto Díaz','url':'https://davidportodiaz.com/lecturas/','inLanguage':'es','mainEntity':{'@type':'ItemList','itemListElement':[{'@type':'ListItem','position':i+1,'name':x['title']} for i,x in enumerate(items)]}}, ensure_ascii=False).replace('</','<\/')
+    schema=json.dumps({'@context':'https://schema.org','@type':'CollectionPage','name':'Qué estoy leyendo | David Porto Díaz','url':'https://davidportodiaz.com/lecturas/','inLanguage':'es','mainEntity':{'@type':'ItemList','itemListElement':[{'@type':'ListItem','position':i+1,'name':x['title']} for i,x in enumerate(ordered_items)]}}, ensure_ascii=False).replace('</','<\/')
     return f'''<!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow,max-image-preview:large"><title>Qué estoy leyendo | David Porto Díaz</title><meta name="description" content="Lecturas actuales y recientes de David Porto Díaz, con notas personales breves sobre lo que le está llamando la atención de cada libro."><link rel="canonical" href="https://davidportodiaz.com/lecturas/"><link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/reading-list.css?v=1"><script type="application/ld+json">{schema}</script></head>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow,max-image-preview:large"><title>Qué estoy leyendo | David Porto Díaz</title><meta name="description" content="Lecturas actuales y recientes de David Porto Díaz, con notas personales breves sobre lo que le está llamando la atención de cada libro."><link rel="canonical" href="https://davidportodiaz.com/lecturas/"><link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/reading-list.css?v=2"><script type="application/ld+json">{schema}</script></head>
 <body><main id="main-content" class="reading-page"><header class="reading-hero"><p class="eyebrow">Cuaderno de lector</p><h1>Qué estoy leyendo.</h1><p>No es un ranking ni una lista de compras. Son lecturas actuales y recientes con una nota sobre lo que me está llamando la atención.</p><p class="reading-updated">Actualizado: <time datetime="{updated}">{updated}</time></p></header>{''.join(sections)}{disclosure_html}</main></body></html>'''
 
 def main():

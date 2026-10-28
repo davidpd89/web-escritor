@@ -1,0 +1,9 @@
+import assert from 'node:assert/strict';
+import {chromium} from 'playwright';
+const BASE=(process.env.QA_ORIGIN||'http://127.0.0.1:4173').replace(/\/$/,'');
+const browser=await chromium.launch();
+const rgb=s=>{const m=s.match(/rgba?\(([^)]+)\)/);assert.ok(m,`Color inválido: ${s}`);return m[1].split(/[ ,/]+/).slice(0,3).map(Number)};
+const L=s=>rgb(s).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4}).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0);
+const contrast=(a,b)=>{const x=L(a),y=L(b);return(Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
+try{for(const width of [360,768,1280]){const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});try{const response=await page.goto(BASE+'/libros/',{waitUntil:'load'});assert.ok(response?.ok(),`/libros/ ${width}: HTTP ${response?.status()}`);const trigger=page.locator('.explore-trigger').first();await trigger.waitFor({state:'visible'});await trigger.click();const dialog=page.locator('.explore-dialog[open]');await dialog.waitFor({state:'visible'});const indexes=dialog.locator('.explore-row__index:visible');const count=await indexes.count();assert.ok(count>0,`/libros/ ${width}: menú sin índices visibles`);for(let i=0;i<count;i++){const v=await indexes.nth(i).evaluate(el=>{const s=getComputedStyle(el);const panel=getComputedStyle(el.closest('.explore-dialog'));return {text:el.textContent.trim(),fg:s.color,bg:panel.backgroundColor}});assert.ok(v.text,`/libros/ ${width}: índice ${i} vacío`);const c=contrast(v.fg,v.bg);assert.ok(c>=4.5,`/libros/ ${width}: índice ${i} contraste ${c.toFixed(2)}:1 ${JSON.stringify(v)}`)}}finally{await page.close()}}}finally{await browser.close()}
+console.log('explore-index-wcag-contrast: OK');

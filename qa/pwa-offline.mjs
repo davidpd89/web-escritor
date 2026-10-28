@@ -378,10 +378,15 @@ try {
     report.browser.viewports.push({ ...viewport, ...dimensions });
   }
 
+  // offline.html declara una CSP con hashes; la hoja de estres de text-spacing es inyeccion de QA, asi que se aplica en un contexto aparte que ignora la CSP.
+  const spacingContext = await browser.newContext({ bypassCSP: true, viewport: { width: 320, height: 900 } });
+  const spacingPage = await spacingContext.newPage();
+  await spacingPage.goto(`${origin}/offline.html`, { waitUntil: 'networkidle' });
+  await spacingPage.addStyleTag({ content: '*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}' });
+  const spacing = await spacingPage.evaluate(() => ({ innerWidth, scrollWidth: document.documentElement.scrollWidth }));
+  await spacingContext.close();
   await page.setViewportSize({ width: 320, height: 900 });
   await page.goto(`${origin}/offline.html`, { waitUntil: 'networkidle' });
-  await page.addStyleTag({ content: '*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}' });
-  const spacing = await page.evaluate(() => ({ innerWidth, scrollWidth: document.documentElement.scrollWidth }));
   assert(spacing.scrollWidth <= spacing.innerWidth + 1, 'WCAG text-spacing stress causes horizontal overflow');
   report.browser.textSpacing = spacing;
 

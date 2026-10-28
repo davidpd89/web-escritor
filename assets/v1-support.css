@@ -1,0 +1,14 @@
+/* Página /apoyar/: aportación voluntaria. Scoped to [data-family="support"]. */
+html.v1 [data-family="support"]{max-width:var(--layout-max)}
+html.v1 [data-family="support"] .support-page{width:min(100%,44rem);padding:clamp(1.5rem,5vw,4rem) 0}
+html.v1 [data-family="support"] .support-page h1{margin:.4rem 0 1rem;font:400 clamp(2.6rem,6vw,4.4rem)/1.04 var(--font-display);letter-spacing:-.025em;text-wrap:balance}
+html.v1 [data-family="support"] .support-page__lead{margin:0 0 2rem;font:400 clamp(1.1rem,1rem + .5vw,1.35rem)/1.6 var(--font-reading);color:var(--color-muted)}
+html.v1 [data-family="support"] .support-methods{display:grid;gap:1rem;margin:0 0 1.5rem}
+html.v1 [data-family="support"] .support-method{display:grid;gap:.25rem;padding:1.1rem 1.25rem;border:1px solid var(--color-border);border-radius:.5rem;color:var(--color-text);text-decoration:none;min-height:3.5rem}
+html.v1 [data-family="support"] .support-method strong{font:600 var(--text-base)/1.4 var(--font-ui)}
+html.v1 [data-family="support"] .support-method span{font:400 var(--text-sm)/1.5 var(--font-reading);color:var(--color-muted)}
+html.v1 [data-family="support"] .support-method:hover{border-color:var(--color-accent)}
+html.v1 [data-family="support"] .support-method:focus-visible{outline:2px solid var(--focus-color);outline-offset:3px}
+html.v1 [data-family="support"] .support-page__note,
+html.v1 [data-family="support"] .support-page__legal{margin:0 0 1rem;font:400 var(--text-sm)/1.6 var(--font-reading);color:var(--color-muted)}
+html.v1 [data-family="support"] .support-page__legal a{color:var(--color-text);text-underline-offset:.2em}

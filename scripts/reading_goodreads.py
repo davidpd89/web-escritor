@@ -1,5 +1,6 @@
 """Public ISBN pages only; no search crawling, login, reviews or bot bypass."""
 import json
+import math
 import re
 import time
 from html.parser import HTMLParser
@@ -22,8 +23,19 @@ class StructuredBook(HTMLParser):
             self.capture = False
             try:
                 item = json.loads(''.join(self.parts))
-                for obj in item if isinstance(item, list) else item.get('@graph', [item]):
-                    if isinstance(obj, dict) and obj.get('@type') == 'Book': self.books.append(obj)
+                def collect_books(node):
+                    if isinstance(node, list):
+                        for child in node:
+                            collect_books(child)
+                    elif isinstance(node, dict):
+                        types = node.get('@type')
+                        if types == 'Book' or (isinstance(types, list) and 'Book' in types):
+                            self.books.append(node)
+                        graph = node.get('@graph')
+                        if isinstance(graph, (list, dict)):
+                            collect_books(graph)
+
+                collect_books(item)
             except (ValueError, TypeError, AttributeError): pass
 
 def select_goodreads_rating(book, response):
@@ -37,10 +49,14 @@ def select_goodreads_rating(book, response):
         if not title_matches(str(obj.get('name', '')), book['titulo']): continue
         authors = obj.get('author', []); authors = authors if isinstance(authors, list) else [authors]
         if not any(author_matches(str(a.get('name', '')), name) for a in authors if isinstance(a, dict) for name in book['autores']): continue
-        rating = obj.get('aggregateRating') or {}; value = rating.get('ratingValue'); count = rating.get('ratingCount')
+        rating = obj.get('aggregateRating')
+        if not isinstance(rating, dict): continue
+        value = rating.get('ratingValue'); count = rating.get('ratingCount')
         if isinstance(value, bool) or isinstance(count, bool): continue
         try:
             value, parsed_count = float(value), float(count)
+            if not math.isfinite(value) or not math.isfinite(parsed_count):
+                continue
             count = int(parsed_count)
         except (ValueError, TypeError): continue
         if count != parsed_count: continue
@@ -56,7 +72,13 @@ class GoodreadsPublic:
     def fetch(self, url):
         time.sleep(max(0, self.delay - (time.monotonic() - self.last))); self.last = time.monotonic()
         with urlopen(Request(url, headers={'User-Agent': AGENT, 'Accept': 'text/html'}), timeout=18) as response:
-            if urlsplit(response.url).hostname != 'www.goodreads.com': raise ValueError('Unexpected Goodreads redirect')
+            final_url = urlsplit(response.url)
+            if (final_url.scheme != 'https'
+                    or final_url.hostname != 'www.goodreads.com'
+                    or final_url.username is not None
+                    or final_url.password is not None
+                    or final_url.port not in (None, 443)):
+                raise ValueError('Unexpected Goodreads redirect')
             raw = response.read(3_000_001)
             if len(raw) > 3_000_000: raise ValueError('Goodreads response too large')
             return raw.decode('utf-8'), response.url

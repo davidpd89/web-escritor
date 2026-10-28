@@ -15,7 +15,8 @@ import os
 import sys
 import re
 import json
-from datetime import datetime
+from html.parser import HTMLParser
+from datetime import datetime, timezone
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom import minidom
 import xml.etree.ElementTree as ET
@@ -34,10 +35,25 @@ def find_html_files():
                 yield os.path.join(dirpath, f)
 
 def is_noindex(html_text):
-    m = re.search(r'<meta[^>]+name=["\']robots["\'][^>]*content=["\']([^"\']+)["\']', html_text, flags=re.I)
-    if not m:
-        return False
-    return 'noindex' in m.group(1).lower()
+    class RobotsParser(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=True)
+            self.noindex = False
+
+        def handle_starttag(self, tag, attrs):
+            if tag != 'meta':
+                return
+            attributes = dict(attrs)
+            if (attributes.get('name') or '').strip().lower() != 'robots':
+                return
+            directives = (attributes.get('content') or '').lower().split(',')
+            if 'noindex' in (directive.strip() for directive in directives):
+                self.noindex = True
+
+    parser = RobotsParser()
+    parser.feed(html_text)
+    parser.close()
+    return parser.noindex
 
 # /cuaderno/ ya no es solo articulos: los hubs tematicos del doc 55
 # (/cuaderno/temas/, /cuaderno/temas/{slug}/) tambien viven bajo este
@@ -57,7 +73,7 @@ def is_non_article_page(json_ld_root) -> bool:
         return False
     graph = json_ld_root.get('@graph')
     if not isinstance(graph, list):
-        return False
+        graph = [json_ld_root]
     types = set()
     for node in graph:
         if isinstance(node, dict):
@@ -73,43 +89,51 @@ def extract_metadata(path):
     s = open(path, encoding='utf8', errors='ignore').read()
     if is_noindex(s):
         return {'path': path, 'title': None, 'url': None, 'date': None, 'description': None, 'skip': True}
-    # Try JSON-LD
-    m = re.search(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>([\s\S]*?)</script>', s, flags=re.I)
-    title=None; url=None; date=None; desc=None
-    if m:
+    # Inspect every JSON-LD block; non-article schemas must not shadow an Article.
+    title = None
+    url = None
+    date = None
+    desc = None
+    non_article_page = False
+    article_found = False
+    scripts = re.finditer(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>([\s\S]*?)</script>', s, flags=re.I)
+    for script in scripts:
         try:
-            j=json.loads(m.group(1))
-            if is_non_article_page(j):
-                return {'path': path, 'title': None, 'url': None, 'date': None, 'description': None, 'skip': True}
-            # Every article on the site emits its JSON-LD as a top-level
-            # @graph (Article + BreadcrumbList, etc), never a flat Article
-            # object -- so node = j always picked the @graph WRAPPER, whose
-            # .get('name')/.get('datePublished') are always None even though
-            # the real values sit one level down. That silently dropped
-            # every item's pubDate (confirmed empty in production feed.xml)
-            # and degraded the intended date sort to the alphabetical
-            # fallback below.
-            node = None
-            if isinstance(j, dict) and isinstance(j.get('@graph'), list):
-                for candidate in j['@graph']:
-                    if not isinstance(candidate, dict):
-                        continue
-                    t = candidate.get('@type')
-                    types = {t} if isinstance(t, str) else set(t or [])
-                    if types & ARTICLE_TYPES:
-                        node = candidate
-                        break
-            elif isinstance(j, dict):
-                node = j
-            elif isinstance(j, list) and j:
-                node = j[0]
-            if node:
+            payload = json.loads(script.group(1))
+        except (ValueError, TypeError):
+            continue
+        documents = payload if isinstance(payload, list) else [payload]
+        for document in documents:
+            if not isinstance(document, dict):
+                continue
+            if is_non_article_page(document):
+                non_article_page = True
+            graph = document.get('@graph')
+            nodes = graph if isinstance(graph, list) else [document]
+            for node in nodes:
+                if not isinstance(node, dict):
+                    continue
+                raw_type = node.get('@type')
+                if isinstance(raw_type, str):
+                    types = {raw_type}
+                elif isinstance(raw_type, list):
+                    types = {item for item in raw_type if isinstance(item, str)}
+                else:
+                    types = set()
+                if not types & ARTICLE_TYPES:
+                    continue
                 title = node.get('name') or node.get('headline')
                 url = node.get('url')
                 date = node.get('datePublished') or node.get('dateModified')
                 desc = node.get('description')
-        except Exception:
-            pass
+                article_found = True
+                break
+            if article_found:
+                break
+        if article_found:
+            break
+    if non_article_page and not article_found:
+        return {'path': path, 'title': None, 'url': None, 'date': None, 'description': None, 'skip': True}
     # Fallback to meta title
     if not title:
         m = re.search(r'<title>([^<]+)</title>', s, flags=re.I)
@@ -131,6 +155,9 @@ def extract_metadata(path):
 def iso_to_rfc2822(d):
     try:
         dt = datetime.fromisoformat(d.replace('Z','+00:00'))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        dt = dt.astimezone(timezone.utc)
         return dt.strftime('%a, %d %b %Y %H:%M:%S +0000')
     except Exception:
         return None
@@ -179,7 +206,15 @@ def collect_items():
     # en ext4. El feed se generaba distinto en local y en CI, y --check fallaba
     # en CI sin que hubiera cambiado ningun contenido. Se desempata por URL.
     items.sort(key=lambda x: x.get('url') or x.get('link') or '')
-    items.sort(key=lambda x: x.get('date') or '', reverse=True)
+    def instant(x):
+        try:
+            dt = datetime.fromisoformat((x.get('date') or '').replace('Z', '+00:00'))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            return dt.timestamp()
+        except Exception:
+            return float('-inf')
+    items.sort(key=instant, reverse=True)
     return items[:50], skipped
 
 def validate_xsl_asset(errors):

@@ -23,7 +23,7 @@ from zoneinfo import ZoneInfo
 
 from PIL import Image, ImageOps
 from reading_editorial_sources import CachedHTTP, SourceError, penguin_edition, product_links, publisher_author_bio
-from reading_intake_core import affiliate_destination, normalize_text, publisher_slug
+from reading_intake_core import affiliate_destination, clean_title, normalize_text, publisher_slug
 from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
 from reading_taxonomy import extra_categories
@@ -143,7 +143,7 @@ def classify(record, catalogue):
 
 def make_book(record, publisher, tag, today, cover, dimensions):
     ident = record['isbn13']
-    description = f'{record["titulo"]}, de {", ".join(record["autores"])}. '
+    description = f'{clean_title(record["titulo"])}, de {", ".join(record["autores"])}. '
     description += f'Edición de {publisher["name"]} en castellano, en {record["encuadernacion"].lower()}.'
     if record.get('numero_paginas'):
         description += f' Consta de {record["numero_paginas"]} páginas.'
@@ -153,8 +153,8 @@ def make_book(record, publisher, tag, today, cover, dimensions):
     published = record['fecha_publicacion_edicion']
     description += f' Publicación editorial: {published}.'
     book = {
-        'id': 'isbn-' + ident, 'slug': slug(record['titulo']) + '-' + ident,
-        'titulo': record['titulo'], 'autores': record['autores'], 'estado': 'publicado',
+        'id': 'isbn-' + ident, 'slug': slug(clean_title(record['titulo'])) + '-' + ident,
+        'titulo': clean_title(record['titulo']), 'autores': record['autores'], 'estado': 'publicado',
         'descripcion_breve': description, 'descripcion_original_confirmada': True,
         'isbn13': ident, 'editorial': publisher['name'],
         **({'editorial_catalogo_slug': publisher['slug']} if publisher.get('catalogo') else {'editorial_slug': publisher['slug']}),

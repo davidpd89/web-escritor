@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
+import { amazonLinkViolatesRel } from './amazon-link-policy.mjs';
 import { assertProductionRelease } from './production-release-marker.mjs';
 
 const O=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
@@ -29,13 +30,7 @@ try{
       const state=await page.evaluate(()=>{
         const badHref=[...document.querySelectorAll('a[href]')].filter(a=>/^(?:null|undefined|\[object object\])$/i.test((a.getAttribute('href')||'').trim())).map(a=>a.outerHTML.slice(0,220));
         const unsafeBlank=[...document.querySelectorAll('a[target="_blank"]')].filter(a=>!new Set((a.getAttribute('rel')||'').toLowerCase().split(/\s+/)).has('noopener')).map(a=>a.outerHTML.slice(0,220));
-        const affiliate=[...document.querySelectorAll('a[href*="amzn.to"],a[href*="amazon."]')].filter(a=>{
-          // El CTA "Seguir al autor" apunta a la tienda de autor, no es afiliado
-          // y por contrato (tests/test-amazon-author-follow.mjs) no lleva sponsored.
-          if(a.classList.contains('amazon-author-follow-link')) return false;
-          const rel=new Set((a.getAttribute('rel')||'').toLowerCase().split(/\s+/));
-          return !rel.has('sponsored')&&!rel.has('nofollow');
-        }).map(a=>a.outerHTML.slice(0,220));
+        const amazonLinks=[...document.querySelectorAll('a[href*="amzn.to"],a[href*="amazon."]')].map(a=>({href:a.href,rel:a.getAttribute('rel')||'',className:a.className||'',readerReview:a.hasAttribute('data-reader-review'),html:a.outerHTML.slice(0,220)}));
         const imageAlt=[...document.querySelectorAll('img')].filter(img=>!img.hasAttribute('alt')).map(img=>img.outerHTML.slice(0,220));
         const iframeTitle=[...document.querySelectorAll('iframe')].filter(f=>!(f.getAttribute('title')||'').trim()).map(f=>f.outerHTML.slice(0,220));
         const unnamedControls=[...document.querySelectorAll('input:not([type="hidden"]),select,textarea')].filter(el=>{
@@ -44,8 +39,9 @@ try{
           const labels=el.labels?.length||0;
           return !labelled&&!labels;
         }).map(el=>el.outerHTML.slice(0,220));
-        return {badHref,unsafeBlank,affiliate,imageAlt,iframeTitle,unnamedControls};
+        return {badHref,unsafeBlank,amazonLinks,imageAlt,iframeTitle,unnamedControls};
       });
+      state.affiliate=state.amazonLinks.filter(amazonLinkViolatesRel).map(l=>l.html);delete state.amazonLinks;
       for(const [kind,items] of Object.entries(state)) assert.deepEqual(items,[],`${route}: ${kind} ${JSON.stringify(items.slice(0,8))}`);
     }catch(e){failures.push(String(e?.message||e))}finally{await page.close();await context.close()}
   }

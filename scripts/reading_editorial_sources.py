@@ -20,7 +20,7 @@ from urllib.robotparser import RobotFileParser
 
 from decimal import Decimal, InvalidOperation
 
-from reading_intake_core import edition_date, isbn13, normalize_text
+from reading_intake_core import clean_title, edition_date, isbn13, normalize_text
 from reading_taxonomy import keyword_list
 
 AGENT = 'DavidPortoReadingCatalogue/1.0 (+https://davidportodiaz.com)'
@@ -268,7 +268,7 @@ def penguin_edition(document, source):
         raise SourceError('Metadatos de edición ausentes o ambiguos')
     p = items[0]
     features = {normalize_text(f.get('name', '')): str(f.get('value', '')).strip() for f in p['features'] if isinstance(f, dict)}
-    title = html.unescape(str(p.get('name', ''))).strip()
+    title = clean_title(html.unescape(str(p.get('name', ''))))
     authors = list(dict.fromkeys(html.unescape(a).strip()
         for feature in p['features'] if isinstance(feature, dict) and normalize_text(feature.get('name', '')) == 'autor'
         for a in re.split(r'\s*[;|]\s*', str(feature.get('value', ''))) if a.strip()))
