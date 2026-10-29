@@ -24,7 +24,7 @@ archive = re.search(r'<section\b[^>]*class="cuaderno-archive".*?</section>', htm
 assert feature and archive, 'Falta el índice visible'
 visible = set()
 for section in (feature.group(), archive.group()):
-    for href in re.findall(r'<a\b[^>]*href="(/cuaderno/[^"#?]+/)"', section):
+    for href in re.findall(r'<a\b[^>]*href="(/(?:cuaderno|recomendaciones)/[^"#?]+/)"', section):
         if not href.startswith('/cuaderno/temas/'):
             visible.add(href)
 

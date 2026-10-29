@@ -56,6 +56,20 @@ with tempfile.TemporaryDirectory() as tmp_dir:
         committed = (ROOT / rel).read_text(encoding="utf-8")
         check(generated == committed, f"{rel.as_posix()} está sincronizado con el builder")
 
+    # Una fecha de ejecución distinta no debe alterar los archivos si
+    # ninguna ficha cruza el umbral de caducidad entre ambas fechas.
+    with tempfile.TemporaryDirectory() as other_dir:
+        other = Path(other_dir)
+        next_date = date.fromordinal(target_date.toordinal() + 1)
+        be.build(DATA, other, next_date, False)
+        for rel in expected_paths:
+            first_output = (tmp / rel).read_bytes()
+            second_output = (other / rel).read_bytes()
+            check(
+                first_output == second_output,
+                f"{rel.as_posix()} es determinista entre dos fechas de ejecución",
+            )
+
     generated_index = (tmp / "editoriales/index.html").read_text(encoding="utf-8")
     check('class="v1"' in generated_index, "el índice generado mantiene shell V1")
     check("/assets/v1-shell.css?v=8" in generated_index, "el índice generado carga CSS V1")

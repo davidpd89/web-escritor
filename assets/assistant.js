@@ -140,6 +140,26 @@ const starters = document.querySelector("[data-assistant-starters]");
 const turnstileBox = document.querySelector("[data-assistant-turnstile]");
 const examples = [...document.querySelectorAll("[data-assistant-example]")];
 
+// El historial precede al formulario: este control permite volver a la
+// respuesta completa más reciente sin recorrer mensajes anteriores.
+const jumpToLatest = document.createElement("button");
+jumpToLatest.type = "button";
+jumpToLatest.className = "assistant-reply-chip";
+jumpToLatest.dataset.assistantJumpLatest = "";
+jumpToLatest.textContent = "Ir a la última respuesta";
+jumpToLatest.hidden = true;
+if (form && log) {
+  const composerRow = form.querySelector(".assistant-composer__row");
+  if (composerRow) composerRow.after(jumpToLatest);
+  else form.append(jumpToLatest);
+}
+let latestAnswer = null;
+jumpToLatest.addEventListener("click", () => {
+  if (!latestAnswer?.isConnected) return;
+  latestAnswer.focus({ preventScroll: true });
+  scrollToMessageStart(latestAnswer);
+});
+
 let requestSerial = 0;
 let activeController = null;
 let registryModulePromise;
@@ -307,6 +327,11 @@ function appendMessage(role, text, { sources = [], suggestions = [], pending = f
 
   article.append(bubble);
   log.append(article);
+  if (role === "assistant" && !pending) {
+    article.tabIndex = -1;
+    latestAnswer = article;
+    if (jumpToLatest.isConnected) jumpToLatest.hidden = false;
+  }
   scrollToMessageStart(article);
   return article;
 }
@@ -541,7 +566,11 @@ async function submitQuery(value) {
     if (serial === requestSerial) {
       setBusy(false);
       setStatus("");
-      input?.focus({ preventScroll: true });
+      // Al deshabilitar el botón de envío, el foco puede pasar a body.
+      // Se recupera en ese caso, pero no si el usuario eligió otro control.
+      if (document.activeElement === document.body || document.activeElement === input) {
+        input?.focus({ preventScroll: true });
+      }
     }
   }
 }

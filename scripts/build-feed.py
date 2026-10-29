@@ -168,6 +168,7 @@ def build_feed_bytes(items):
     SubElement(ch, 'title').text = 'Cuaderno — David Porto Díaz'
     SubElement(ch, 'link').text = 'https://davidportodiaz.com/cuaderno/'
     SubElement(ch, 'description').text = 'Entradas recientes del cuaderno'
+    SubElement(ch, 'language').text = 'es-es'
     for it in items:
         if not it.get('url') or not it.get('title'): continue
         item = SubElement(ch, 'item')
@@ -239,9 +240,14 @@ def validate_feed_content(xml_bytes, errors):
             errors.append(f'la descripcion de canal contiene la formulacion antigua centrada en Samuel/fantasia juvenil ("{marker}")')
             break
     try:
-        ET.fromstring(text)
+        root = ET.fromstring(text)
     except ET.ParseError as exc:
         errors.append(f'feed.xml generado no es XML valido: {exc}')
+        return
+    channel = root.find('channel')
+    languages = [] if channel is None else channel.findall('language')
+    if len(languages) != 1 or languages[0].text != 'es-es':
+        errors.append('channel debe contener exactamente un language con valor es-es')
 
 def main():
     parser = argparse.ArgumentParser()

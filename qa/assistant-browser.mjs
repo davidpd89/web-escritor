@@ -67,6 +67,10 @@ for (const [width, height] of viewports) {
   check(await page.locator('link[rel="canonical"]').getAttribute("href") === "https://davidportodiaz.com/asistente/", `${width}x${height}: canonical drift`);
   check(await page.locator('meta[name="robots"]').getAttribute("content") === "noindex,nofollow", `${width}x${height}: robots drift`);
   check(await page.locator("[data-assistant-log]").count() === 1, `${width}x${height}: chat log missing`);
+  check(await page.locator("[data-assistant-jump-latest]").count() === 1, `${width}x${height}: jump button count`);
+  check(!(await page.locator("[data-assistant-jump-latest]").isVisible()), `${width}x${height}: jump button visible before first answer`);
+  check(await page.locator("[data-assistant-log]").getAttribute("role") === "log", `${width}x${height}: log role drift`);
+  check(await page.locator("[data-assistant-log]").getAttribute("aria-live") === "polite", `${width}x${height}: live announcement drift`);
   check(await page.locator("[data-assistant-example]").count() === 3, `${width}x${height}: starter count`);
   check(await page.locator('.assistant-message--assistant').count() === 1, `${width}x${height}: welcome message missing`);
   check(await page.locator('.assistant-panel').count() === 0, `${width}x${height}: legacy panel was not upgraded`);
@@ -222,6 +226,50 @@ for (const [width, height] of viewports) {
   await waitIdle(page);
   check(await page.locator('[data-assistant-log] .assistant-message--user').count() === 1, "keyboard: starter must send one user turn");
   check(await page.locator("[data-assistant-query]").evaluate(el => el === document.activeElement), "keyboard: focus must return to query");
+  await page.locator("[data-assistant-query]").fill("¿De qué trata Las manecillas del recuerdo?");
+  await page.locator("[data-assistant-submit]").click();
+  await waitIdle(page);
+  const jump = page.locator("[data-assistant-jump-latest]");
+  const latest = page.locator('[data-assistant-log] .assistant-message--assistant').last();
+  const sources = latest.locator('.assistant-message__sources a');
+  check(await jump.count() === 1 && await jump.isVisible(), "keyboard: jump button must be unique and visible after answer");
+  check(await sources.count() > 0, "keyboard: Manecillas must have a canonical source");
+  await jump.focus();
+  await page.keyboard.press("Enter");
+  check(await latest.evaluate(el => el === document.activeElement && el.getAttribute("tabindex") === "-1"), "keyboard: Enter must focus second answer");
+  if (await sources.count() > 0) {
+    await page.keyboard.press("Tab");
+    check(await sources.first().evaluate(el => el === document.activeElement), "keyboard: Tab must reach the first source link");
+  }
+  await context.close();
+}
+
+// The embedded assistant shares the controller and must track the latest turn.
+{
+  const context = await browser.newContext({ viewport: { width: 390, height: 900 } });
+  const page = await context.newPage();
+  await page.goto(`${origin}/asistente/embed.html`);
+  const jump = page.locator('[data-assistant-jump-latest]');
+  await jump.waitFor({ state: "attached" });
+  check(await jump.count() === 1 && !(await jump.isVisible()), "embed: jump must initially be unique and hidden");
+  check(await page.locator('[data-assistant-log]').getAttribute('role') === 'log', "embed: log role drift");
+  check(await page.locator('[data-assistant-log]').getAttribute('aria-live') === 'polite', "embed: live region drift");
+  for (const question of [
+    "¿De qué trata Las manecillas del recuerdo?",
+    "¿Dónde puedo leer un fragmento de Las manecillas del recuerdo?",
+  ]) {
+    await page.locator('[data-assistant-query]').fill(question);
+    await page.locator('[data-assistant-submit]').click();
+    await waitIdle(page);
+    const latest = page.locator('[data-assistant-log] .assistant-message--assistant').last();
+    check(await jump.count() === 1 && await jump.isVisible(), "embed: jump must be unique and visible after answer");
+    check(await latest.locator('.assistant-message__sources a').count() > 0, "embed: expected local answer with sources");
+    await jump.focus();
+    await page.keyboard.press('Enter');
+    check(await latest.evaluate(el => el === document.activeElement && el.getAttribute('tabindex') === '-1'), "embed: jump must target newest answer");
+  }
+  check(await page.locator('[data-assistant-log] .assistant-message--user').count() === 2, "embed: expected two user turns");
+  check(await page.locator('[data-assistant-log] .assistant-message--assistant').count() === 3, "embed: expected welcome and two answers");
   await context.close();
 }
 

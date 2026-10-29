@@ -59,6 +59,18 @@
     button.removeAttribute('data-js-pending');
     const statusId = button.getAttribute('aria-describedby');
     const status = statusId ? document.getElementById(statusId) : null;
+    const box = button.closest('.article-utilities');
+    const manual = url => {
+      let i = box?.querySelector('.article-share-manual');
+      if (url && box && !i) {
+        box.insertAdjacentHTML('beforeend', '<input class="article-share-manual" aria-label="Enlace del artículo para copiar" readonly>');
+        i = box.lastElementChild;
+      }
+      if (i) {
+        i.hidden = !url;
+        if (url) { i.value = url; i.focus(); i.select(); }
+      }
+    };
     button.addEventListener('click', async () => {
       const url = button.dataset.shareUrl;
       const title = button.dataset.shareTitle || document.title;
@@ -66,6 +78,7 @@
       if (navigator.share) {
         try {
           await navigator.share({ title, url });
+          manual();
           if (status) status.textContent = 'Compartido.';
           return;
         } catch (error) {
@@ -74,9 +87,11 @@
       }
       try {
         await navigator.clipboard.writeText(url);
+        manual();
         if (status) status.textContent = 'Enlace copiado.';
       } catch {
-        if (status) status.textContent = 'No se pudo copiar el enlace.';
+        if (status) status.textContent = 'No se pudo copiar automáticamente. Selecciona el enlace para copiarlo';
+        manual(url);
       }
     });
   });
