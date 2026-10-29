@@ -558,6 +558,8 @@ def render_hub(data, books, template):
     if books:
         schema={'@context':'https://schema.org','@type':'ItemList','@id':SITE+'/recomendaciones/#catalogo','name':'Libros recomendados','numberOfItems':len(books),'itemListElement':[{'@type':'ListItem','position':i+1,'item':{'@type':'Book','@id':SITE+url(b)+'#book','name':b['titulo'],'url':SITE+url(b),'image':SITE+b['portada_local']}} for i,b in enumerate(books)]}
         page=page.replace('</head>','<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')+'</script>\n</head>')
+    breadcrumb={'@context':'https://schema.org',**_breadcrumb_schema([('Inicio','/'),('Libros recomendados','/recomendaciones/')])}
+    page=page.replace('</head>','<script type="application/ld+json">'+json.dumps(breadcrumb,ensure_ascii=False)+'</script>\n</head>',1)
     return inject_shell_auto(page)
 
 

@@ -295,6 +295,10 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     const update = () => button.classList.toggle('is-visible', window.scrollY > 720);
     button.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: reduced.matches ? 'auto' : 'smooth' });
+      // El botón se oculta al llegar arriba: el foco pasa al inicio del documento y el siguiente Tab llega al enlace «Saltar al contenido».
+      document.body.setAttribute('tabindex', '-1');
+      document.body.addEventListener('blur', () => document.body.removeAttribute('tabindex'), { once: true });
+      document.body.focus({ preventScroll: true });
       emit('home_back_to_top');
     });
     addEventListener('scroll', update, { passive: true });

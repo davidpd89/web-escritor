@@ -290,7 +290,7 @@
     item.dataset.betaMasthead = 'true';
     const submenuId = 'masthead-submenu-lectores-beta';
     item.innerHTML = `
-      <a href="/lectores-beta/" data-territory="lectores-beta" aria-haspopup="true">Lectores beta</a>
+      <a href="/lectores-beta/" data-territory="lectores-beta">Lectores beta</a>
       <button type="button" class="masthead-nav__submenu-trigger" aria-label="Ver opciones de Lectores beta" aria-expanded="false" aria-controls="${submenuId}">
         <svg aria-hidden="true" viewBox="0 0 16 16" focusable="false"><path d="m4 6 4 4 4-4"/></svg>
       </button>

@@ -562,7 +562,7 @@ def render_masthead_nav(nav: dict, by_id: dict[str, Entry]) -> str:
         links = "\n".join(f'                <a href="{href}">{label}</a>' for href, label in children)
         items.append(
             '            <li class="masthead-nav__item">\n'
-            f'              <a href="{entry.url}" data-territory="{item["id"]}" aria-haspopup="true">{entry.short_label}</a>\n'
+            f'              <a href="{entry.url}" data-territory="{item["id"]}">{entry.short_label}</a>\n'
             f'              <button type="button" class="masthead-nav__submenu-trigger" aria-label="Ver opciones de {entry.short_label}" aria-expanded="false" aria-controls="{panel}"><svg aria-hidden="true" viewBox="0 0 16 16" focusable="false"><path d="m4 6 4 4 4-4"/></svg></button>\n'
             f'              <div class="masthead-nav__submenu" id="{panel}" aria-label="Opciones de {entry.short_label}">\n'
             f'{links}\n'
@@ -608,7 +608,7 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str, allow_
         '      <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>\n'
         '    </form>\n'
     ) if allow_newsletter else ''
-    runtime_markup = '<script defer src="/assets/newsletter-general.js?v=5"></script>' if allow_newsletter else ''
+    runtime_markup = '<script defer src="/assets/newsletter-general.js?v=6"></script>' if allow_newsletter else ''
 
     return (
         '<dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>\n'
