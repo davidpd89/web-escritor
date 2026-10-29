@@ -246,7 +246,7 @@ SHELL_FOOTER = '''  <footer class="site-footer">
     </div>
   </footer>
 
-    <script defer src="/assets/v1-shell.js?v=27"></script>
+    <script defer src="/assets/v1-shell.js?v=28"></script>
 </body>
 </html>
 '''
@@ -280,6 +280,7 @@ def head(title: str, description: str, canonical: str, jsonld: dict) -> str:
         f'<meta name="twitter:image:alt" content="{esc(title)}">'
         '<meta name="theme-color" content="#ffffff">'
         f'<link rel="canonical" href="{esc(canonical)}">'
+        '<link rel="alternate" type="application/rss+xml" title="Cuaderno del autor — David Porto Díaz" href="https://davidportodiaz.com/cuaderno/feed.xml" />'
         '<link rel="icon" href="/favicon.ico" sizes="any" />'
         '<link rel="apple-touch-icon" href="/assets/david-porto-favicon.png">'
         '<link rel="manifest" href="/manifest.json">'

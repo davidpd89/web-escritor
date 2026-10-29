@@ -392,8 +392,8 @@
   // HTML href/src attribute). Bump the ?v= here AND the matching
   // TRACKED_ASSETS entry in check-asset-versions.py whenever either file's
   // content changes.
-  const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js?v=10';
-  const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js?v=10';
+  const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js?v=11';
+  const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js?v=11';
   const root = document.documentElement;
   const houseSvg = `
     <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
@@ -532,14 +532,17 @@
         if (willOpen) emit('masthead_submenu_open', { territory: key, position: position + 1 });
       });
       li.addEventListener('mouseenter', () => setSubmenuDismissed(li, false));
-      li.addEventListener('focusin', () => setSubmenuDismissed(li, false));
+      let escaping = false;
+      li.addEventListener('focusin', () => { if (!escaping) setSubmenuDismissed(li, false); });
       li.addEventListener('mouseleave', () => setSubmenuDismissed(li, false));
       li.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape') return;
         li.classList.remove('is-open');
         setSubmenuDismissed(li, true);
         trigger.setAttribute('aria-expanded', 'false');
+        escaping = true;
         trigger.focus({ preventScroll: true });
+        escaping = false;
       });
     });
 

@@ -1452,3 +1452,9 @@ html.v1[data-lrb-home="true"]:not(.lrb-compact) .site-header__left .explore-trig
 
 /* Printing must never include the cinematic first-visit overlay. */
 @media print{html.v1 .intro{display:none!important}}
+
+/* Modo de contraste forzado (Windows): los separadores de la columna lateral son degradados y desaparecen; se sustituyen por bordes reales. */
+@media (forced-colors:active){
+  html.v1[data-lrb-home="true"] .yale-rail{border-left:2px solid CanvasText}
+  html.v1[data-lrb-home="true"] .yale-rail-card:not(:last-child){border-bottom:1px solid CanvasText}
+}
