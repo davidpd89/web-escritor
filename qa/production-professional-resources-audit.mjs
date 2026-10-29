@@ -46,7 +46,9 @@ assert.equal(samuelPress.press?.mediaAssets,PRESS_MEDIA_DRIVE,'press-kit Samuel:
 const ed=JSON.parse((await exact('/editoriales/editoriales-data.json','editoriales/editoriales-data.json',true)).body);
 assert.ok(ed.publishers.length>=100,`editorial corpus too small: ${ed.publishers.length}`);
 const radar=JSON.parse((await exact('/convocatorias-escritores/opportunities.json','convocatorias-escritores/opportunities.json',true)).body);
-assert.ok(radar.generated_for<=TODAY && days(TODAY,radar.generated_for)<=1,`stale generated_for ${radar.generated_for}`);
+// generated_for solo cambia cuando el reloj altera el contenido (radar-clock-refresh no regenera si nada cambia);
+// la vigencia real la acotan abajo los plazos vencidos y verified_at.
+assert.ok(radar.generated_for<=TODAY,`generated_for in the future ${radar.generated_for}`);
 for(const x of radar.items){assert.ok(x.deadline>=TODAY,`${x.id}: expired ${x.deadline}`);assert.ok(x.verified_at<=TODAY&&days(TODAY,x.verified_at)<=30,`${x.id}: stale verification`)}
 for(const x of radar.watchlist||[])assert.ok(x.verified_at<=TODAY&&days(TODAY,x.verified_at)<=30,`${x.id}: stale watch`);
 const ics=(await exact('/convocatorias-escritores/deadlines.ics','convocatorias-escritores/deadlines.ics')).body.replace(/\r\n/g,'\n');
