@@ -155,11 +155,11 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     leadMedia.href = '/eventos.html#feria-libro-madrid-2026';
     leadMedia.setAttribute('aria-label', 'Feria del Libro de Madrid');
     const leadImage = new Image();
+    leadImage.loading = 'lazy';
     leadImage.src = '/assets/eventos/david-porto-diaz-lectores-feria-libro-madrid-2026-samuel.webp';
     leadImage.alt = 'David Porto Díaz sosteniendo Samuel entre mundos en su caseta de la Feria del Libro de Madrid';
     leadImage.width = 1086;
     leadImage.height = 1448;
-    leadImage.loading = 'eager';
     leadImage.decoding = 'async';
     leadMedia.append(leadImage);
     const leadTime = make('time', '', '10 junio 2026');
@@ -345,7 +345,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     rail.setAttribute('aria-label', 'Otros accesos destacados');
     [
       ['Autor', 'David Porto Díaz', 'Biografía, fotografías y recursos para lectores, librerías y medios.', '/autor.html'],
-      ['Comunidad', 'Lectores beta', 'Sé el primero en leer contenido y opina antes de que llegue a todos.', '/lectores-beta/#quiero-ser-lector'],
+      ['Comunidad', 'Lectores beta', 'Sé el primero en leer contenido y opina antes de que llegue a todos.', '/lectores-beta/'],
       ['Comprar', 'Comprar en Kindle', '', MANECILLAS_KINDLE_URL],
       ['Te leo', 'Escríbeme', '', AUTHOR_EMAIL_SENTINEL]
     ].forEach(([eyebrow, cardTitle, text, href]) => {
@@ -398,11 +398,11 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
       media.href = href;
       media.setAttribute('aria-label', cardTitle);
       const img = new Image();
+      img.loading = 'lazy';
       img.src = src;
       img.alt = cardTitle;
       img.width = srcWidth;
       img.height = srcHeight;
-      img.loading = 'lazy';
       img.decoding = 'async';
       media.append(wrapMediaFrame(img));
       const body = make('div', 'yale-tile__body');
@@ -454,11 +454,11 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     media.href = '/libros/samuel-entre-mundos/';
     media.setAttribute('aria-label', 'Samuel entre mundos');
     const image = new Image();
+    image.loading = 'lazy';
     image.src = '/assets/samuel_entre_mundos_3d.webp';
     image.alt = 'Portada de Samuel entre mundos';
     image.width = 1530;
     image.height = 2400;
-    image.loading = 'eager';
     image.decoding = 'async';
     media.append(wrapMediaFrame(image));
     const body = make('div', 'yale-feature-book__body');
@@ -491,7 +491,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     const grid = make('div', 'yale-tile-grid yale-tile-grid--tools');
     [
       ['Hub', 'Recursos gratuitos', 'Utilidades para revisar textos, preparar materiales y trabajar una obra desde el navegador.', '/herramientas/', ''],
-      ['Lectores beta', 'Tengo un manuscrito y me gustarían opiniones de lectores beta', 'Un punto de entrada para autores que buscan primeras lecturas antes de mover el texto.', '/lectores-beta/#enviar-manuscrito', 'yale-tile--blue'],
+      ['Lectores beta', 'Tengo un manuscrito y me gustarían opiniones de lectores beta', 'Un punto de entrada para autores que buscan primeras lecturas antes de mover el texto.', '/lectores-beta/enviar-manuscrito/', 'yale-tile--blue'],
       ['Manuscrito', 'Analizador de manuscrito', 'Una herramienta para ordenar capítulos, detectar señales del texto y revisar estructura.', '/herramientas/manuscrito/', '']
     ].forEach(([eyebrow, cardTitle, text, href, className]) => {
       const card = make('article', `yale-tile ${className}`.trim());
@@ -519,7 +519,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     const grid = make('div', 'yale-tile-grid yale-tile-grid--reading');
     [
       ['Del cuaderno', 'Qué es el portal fantasy', 'Una guía para entender puertas, grietas y mundos conectados.', '/cuaderno/que-es-el-portal-fantasy/'],
-      ['Herramientas', 'Tengo un manuscrito y quiero opiniones', 'Acceso para autores que buscan lectores beta antes de mover su texto.', '/lectores-beta/#enviar-manuscrito'],
+      ['Herramientas', 'Tengo un manuscrito y quiero opiniones', 'Acceso para autores que buscan lectores beta antes de mover su texto.', '/lectores-beta/enviar-manuscrito/'],
       ['Prensa', 'Materiales para medios', 'Bio, fichas, portadas, fotos y datos verificados para entrevistas o librerías.', '/prensa.html'],
       ['Agenda', 'Eventos y encuentros', 'Firmas, ferias, presentaciones y actividades con lectores.', '/eventos.html']
     ].forEach(([eyebrow, cardTitle, text, href], index) => {

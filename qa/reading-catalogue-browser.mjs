@@ -48,6 +48,43 @@ try {
     assert.deepEqual(errors, []);
     await context.close();
   }
+  // ISBN-13 con separadores: mismas fichas y conservación de la consulta original.
+  {
+    const context = await browser.newContext({ viewport: { width: 390, height: 900 } });
+    const page = await context.newPage();
+    await page.goto(`${BASE}/recomendaciones/`);
+    const query = page.locator('[data-filter="q"]');
+    const visibleIds = () => page.locator('[data-catalogue-book]:visible').evaluateAll(nodes => nodes.map(node => node.dataset.bookId).sort());
+    await query.fill('9791388092268');
+    const expected = await visibleIds();
+    assert(expected.includes('isbn-9791388092268'), 'El ISBN original debe encontrar Ponte fino');
+    for (const value of ['979-13-8809-226-8', '979 13 8809 226 8', 'ISBN 979-13-8809-226-8', 'ISBN-13: 979-13-8809-226-8']) {
+      await query.fill(value);
+      assert.deepEqual(await visibleIds(), expected, `Resultados distintos para ${value}`);
+    }
+    const persisted = 'ISBN 979-13-8809-226-8';
+    await query.fill(persisted);
+    assert.equal(new URLSearchParams(new URL(page.url()).hash.slice(1)).get('q'), persisted);
+    await page.reload();
+    assert.equal(await query.inputValue(), persisted);
+    assert.deepEqual(await visibleIds(), expected);
+    await query.fill('9790000000000');
+    assert.deepEqual(await visibleIds(), []);
+    assert(await page.locator('[data-catalogue-empty]').isVisible());
+    await query.fill('1984');
+    assert((await visibleIds()).includes('isbn-9788491058298'));
+    await query.fill('La hipótesis más peligrosa');
+    const accented = await visibleIds();
+    assert(accented.includes('isbn-9791387846008'));
+    await query.fill('La hipotesis mas peligrosa');
+    assert.deepEqual(await visibleIds(), accented);
+    await query.fill('Martín Berasategui');
+    const author = await visibleIds();
+    assert(author.includes('isbn-9791388092268'));
+    await query.fill('Martin Berasategui');
+    assert.deepEqual(await visibleIds(), author);
+    await context.close();
+  }
   // Real pilot: same purchase component and optional sections as other books.
   {
     const context = await browser.newContext({ viewport: { width: 390, height: 900 } });

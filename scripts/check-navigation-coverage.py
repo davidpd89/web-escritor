@@ -22,6 +22,7 @@ REGISTRY_PATH = ROOT / "data" / "content-registry.json"
 NAV_PATH = ROOT / "data" / "navigation.json"
 SITEMAP_PATH = ROOT / "sitemap.xml"
 TOOLS_PATH = ROOT / "data" / "tools-hub.json"
+HTML_SITEMAP_PATH = ROOT / "mapa-del-sitio" / "index.html"
 
 ALLOWED_STATUS = {"public", "gated", "noindex", "internal", "deprecated"}
 ALLOWED_DISCOVERABILITY = {"primary", "secondary", "contextual", "search-only", "sitemap-only"}
@@ -147,6 +148,32 @@ def main() -> int:
         source = item["sourceFile"]
         if source and not (ROOT / source).is_file():
             errors.append(f"{item_id}: sourceFile does not exist: {source}")
+
+    # El mapa HTML no debe promocionar artículos excluidos de ambos índices.
+    try:
+        sitemap_html = HTML_SITEMAP_PATH.read_text(encoding="utf-8")
+    except OSError as exc:
+        errors.append(f"cannot read mapa-del-sitio/index.html: {exc}")
+    else:
+        main_match = re.search(r"<main\b[\s\S]*?</main>", sitemap_html, re.I)
+        if not main_match:
+            errors.append("mapa-del-sitio/index.html: missing <main> element")
+        else:
+            for href in hrefs_in(main_match.group(0)):
+                parsed = urlparse(href)
+                if parsed.netloc and parsed.netloc != "davidportodiaz.com":
+                    continue
+                item = by_url.get(normalize_public_url(href))
+                if (
+                    item
+                    and item.get("type") == "article"
+                    and item.get("sitemap") is False
+                    and item.get("searchIndex") is False
+                ):
+                    errors.append(
+                        "mapa-del-sitio/index.html <main>: excluded article linked: "
+                        f"{item['url']} ({item['id']}; sitemap=false, searchIndex=false)"
+                    )
 
     # Relationships must resolve to canonical IDs.
     for item in entries:

@@ -391,6 +391,7 @@ async function shareAudit() {
     const shared = await page.evaluate(() => window.__shared);
     assert.equal(shared?.url, expected, 'share: Web Share URL');
     assert.equal(norm(await page.locator('#article-share-status').innerText()), 'Compartido.', 'share: feedback Web Share');
+    assert.equal(await page.locator('input.article-share-manual').count(), 0, 'share: éxito Web Share no crea alternativa');
     report.share.webShare = true;
     await context.close();
   }
@@ -402,7 +403,88 @@ async function shareAudit() {
     await page.click('[data-share-url]');
     assert.equal(await page.evaluate(() => window.__copied), expected, 'share: fallback clipboard');
     assert.equal(norm(await page.locator('#article-share-status').innerText()), 'Enlace copiado.', 'share: feedback clipboard');
+    assert.equal(await page.locator('input.article-share-manual').count(), 0, 'share: éxito de copia no crea alternativa');
     report.share.fallback = true;
+    await context.close();
+  }
+  {
+    const { context, page } = await open(spec, { viewport: { width: 320, height: 900 }, initScript: () => {
+      window.__copyCalls = 0;
+      window.__denyCopy = true;
+      Object.defineProperty(navigator, 'share', { configurable: true, value: undefined });
+      Object.defineProperty(navigator, 'clipboard', { configurable: true, value: {
+        writeText: async value => {
+          window.__copyCalls++;
+          if (window.__denyCopy) throw new DOMException('Denegado', 'NotAllowedError');
+          window.__copied = value;
+        },
+      } });
+    }});
+    const button = page.locator('[data-share-url]');
+    assert.equal(await page.locator('input.article-share-manual').count(), 0, 'share: sin campo antes de interacción');
+    await button.click();
+    const manual = page.locator('.article-utilities input.article-share-manual');
+    await manual.waitFor({ state: 'visible' });
+    assert.equal(await manual.count(), 1, 'share: un solo input en .article-utilities');
+    assert.equal(await manual.inputValue(), expected, 'share: URL original');
+    assert.equal(await manual.evaluate(input => input.readOnly), true, 'share: readonly');
+    assert.equal(await page.getByRole('textbox', { name: 'Enlace del artículo para copiar' }).count(), 1, 'share: nombre accesible');
+    assert.equal(await manual.evaluate(input => document.activeElement === input && input.selectionStart === 0 && input.selectionEnd === input.value.length), true, 'share: enfocado y seleccionado');
+    assert.equal(await page.locator('#article-share-status[role="status"]').textContent(), 'No se pudo copiar automáticamente. Selecciona el enlace para copiarlo');
+    await noOverflow(page, 'share: alternativa manual 320px');
+    await button.click();
+    assert.equal(await manual.count(), 1, 'share: segunda pulsación no duplica campo');
+    assert.equal(await page.evaluate(() => window.__copyCalls), 2, 'share: segundo intento de copia');
+    await page.evaluate(() => { window.__denyCopy = false; });
+    await button.click();
+    await page.waitForFunction(() => document.querySelector('#article-share-status')?.textContent === 'Enlace copiado.');
+    assert.equal(await manual.evaluate(input => input.hidden), true, 'share: éxito posterior oculta el campo');
+    assert.equal(await page.evaluate(() => window.__copied), expected, 'share: copia posterior correcta');
+    await page.evaluate(() => { window.__denyCopy = true; });
+    await button.click();
+    await manual.waitFor({ state: 'visible' });
+    await page.evaluate(() => {
+      Object.defineProperty(navigator, 'share', { configurable: true, value: async payload => { window.__sharedAfterFailure = payload; } });
+    });
+    const copiesBeforeShare = await page.evaluate(() => window.__copyCalls);
+    await button.click();
+    await page.waitForFunction(() => document.querySelector('#article-share-status')?.textContent === 'Compartido.');
+    assert.equal(await manual.evaluate(input => input.hidden), true, 'share: Web Share posterior oculta el campo');
+    assert.equal(await page.evaluate(() => window.__sharedAfterFailure?.url), expected, 'share: Web Share tras fallo');
+    assert.equal(await page.evaluate(() => window.__copyCalls), copiesBeforeShare, 'share: Web Share no toca clipboard');
+    report.share.manual = true;
+    await context.close();
+  }
+  {
+    const { context, page } = await open(spec, { initScript: () => {
+      Object.defineProperty(navigator, 'share', { configurable: true, value: undefined });
+      Object.defineProperty(navigator, 'clipboard', { configurable: true, value: undefined });
+    }});
+    await page.click('[data-share-url]');
+    const manual = page.locator('.article-utilities input.article-share-manual');
+    await manual.waitFor({ state: 'visible' });
+    assert.equal(await manual.inputValue(), expected, 'share: alternativa sin clipboard');
+    assert.equal(await page.locator('#article-share-status').textContent(), 'No se pudo copiar automáticamente. Selecciona el enlace para copiarlo');
+    report.share.clipboardAbsent = true;
+    await context.close();
+  }
+  {
+    const { context, page } = await open(spec, { initScript: () => {
+      window.__shares = 0;
+      window.__copies = 0;
+      Object.defineProperty(navigator, 'share', { configurable: true, value: async () => {
+        window.__shares++;
+        throw new DOMException('Cancelado', 'AbortError');
+      } });
+      Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async () => { window.__copies++; } } });
+    }});
+    await page.click('[data-share-url]');
+    await page.waitForTimeout(50);
+    assert.equal(await page.locator('#article-share-status').textContent(), '', 'share: AbortError no cambia mensaje');
+    assert.equal(await page.locator('input.article-share-manual').count(), 0, 'share: AbortError no crea input');
+    assert.equal(await page.evaluate(() => window.__shares), 1, 'share: AbortError una llamada');
+    assert.equal(await page.evaluate(() => window.__copies), 0, 'share: AbortError no accede al clipboard');
+    report.share.abort = true;
     await context.close();
   }
 }

@@ -94,6 +94,7 @@ function deprecatedDestination(href) {
 // the matching.
 const KNOWN_EDITORIAL_URL_MIGRATIONS = new Map([
   ['https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte', 'AIII-11 2026-08-27: canonical URL moved to /libros/#memoria-tierras-norte'],
+  ['/cuaderno/sistema-de-magia-noveris/', '2026-10-29: artículo en cuarentena (noindex, fuera del sitemap y del índice); deja de enlazarse desde el mapa HTML, MW-0008'],
   ['/las-manecillas-del-recuerdo/fragmentos/', '2026-10-28: «Leer un fragmento» sale del desplegable de Obras; sigue en la página de Las manecillas del recuerdo'],
   ['/las-manecillas-del-recuerdo/kindle/', '2026-10-28: «Comprar en Kindle» sale del desplegable de Obras; sigue en la página de Las manecillas del recuerdo'],
   ['https://www.threads.net/@davidportodiaz', '2026-09-01: Meta moved Threads profile URLs from threads.net to threads.com'],

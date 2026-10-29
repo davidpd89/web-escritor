@@ -73,6 +73,7 @@ html.v1 .article-meta a{color:var(--color-text)}
 html.v1 .article-utilities{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:1.25rem;min-height:44px}
 html.v1 .article-utilities [data-js-pending]{visibility:hidden}
 html.v1 .article-share-status{min-width:1px;font-size:var(--text-xs);color:var(--color-muted)}
+html.v1 .article-utilities .article-share-manual{flex:0 1 100%;width:100%;max-width:100%;min-width:0;box-sizing:border-box}
 html.v1 .article-print-source{display:none}
 
 html.v1 .article-layout{max-width:var(--layout-wide);display:grid;grid-template-columns:minmax(180px,3fr) minmax(0,7fr) minmax(80px,2fr);gap:clamp(1.5rem,4vw,4.5rem);padding-top:clamp(2.8rem,4.8vw,4.8rem)}
