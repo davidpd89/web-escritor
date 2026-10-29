@@ -446,6 +446,7 @@ def _lanzar_supervisor(modo):
 def _arrancar_ejecutor():
     """Ejecutor automatico en segundo plano (validar en local -> Actions (max 3) -> integrar en lab). Solo lo lanza INICIAR con autoejecutar=true o `ejecutar-bg`."""
     if Lock("actions").dueno(): print(f"El ejecutor YA esta en marcha (pid {Lock('actions').dueno()})."); return 0
+    set_flag("stop_actions", False)  # `parar` la deja puesta: sin esto el supervisor salia sin lanzar el ejecutor
     _lanzar_supervisor("ejecutar-actions")
     pid = 0
     for _ in range(40):
@@ -564,6 +565,8 @@ def cmd_reintentar(a):
                 c.execute("UPDATE jobs SET estado='reintentado' WHERE tipo='D' AND area=? AND estado='error'", (e["id"],))  # historial: ya no cuentan como errores vivos
                 investigar.encolar_desarrollo(c, e["id"], problemas=[f"intento anterior fallido: {(e['motivo'] or '')[:300]}"])
             n_exp += 1
+        for e in c.execute("SELECT id, motivo FROM expedientes WHERE estado='fallo_local'").fetchall():  # parche que ya no encaja tras integrarse otras mejoras: GPT lo adapta
+            if (not ids or e["id"] in ids) and investigar.redesarrollar_por_base(c, e["id"], e["motivo"]): n_exp += 1
         # items de la cola parados en revision humana por un push rechazado de una rama reconstruida: vuelven a validado (publicar() ya sabe reemplazarla)
         n_cola = 0
         for it in c.execute("SELECT clave, exp FROM cola WHERE estado='revision_humana'").fetchall():

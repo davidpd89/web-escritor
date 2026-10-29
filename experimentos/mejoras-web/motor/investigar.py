@@ -89,7 +89,7 @@ def area_de(area_id):
 def capacidad(c):
     """¿Se puede abrir otra investigacion? Tope de expedientes en curso + tope horario de consultas a ChatGPT."""
     n = c.execute(f"SELECT COUNT(*) FROM expedientes WHERE estado IN ({','.join('?' * len(ACTIVOS))})", ACTIVOS).fetchone()[0]
-    return n < mw.CFG.get("max_pendientes", 6)
+    return n < mw.CFG.get("max_pendientes", 6) * (3 if claude_cli.en_pausa(mw) else 1)  # sin cuota de Claude el trabajo de GPT se acumula (contraste/revision al volver)
 
 
 def consultas_ultima_hora(c):
@@ -116,6 +116,21 @@ def encolar_desarrollo(c, exp_id, problemas=(), observaciones=""):
               (clave, "D", exp_id, "pendiente", json.dumps({"exp": exp_id, "problemas": list(problemas), "observaciones": observaciones}), mw.now(), mw.now()))
     c.execute("UPDATE expedientes SET estado='desarrollando', intentos_parche=?, actualizado=? WHERE id=?", (n, mw.now(), exp_id))
     c.commit()
+
+
+BASE_CAMBIO = re.compile(r"aparece \d+ veces \(debe ser 1\)|no encaja|no se pudo aplicar", re.I)
+
+
+def redesarrollar_por_base(c, exp_id, motivo, maximo=None):
+    """Un parche que ya no encaja porque otra mejora integrada cambio el mismo fichero NO es un fallo definitivo: vuelve a GPT para adaptarlo a la base actual
+    (maximo `max_redesarrollos` veces por expediente). -> True si se reencolo."""
+    maximo = mw.CFG["flujo"].get("max_redesarrollos", 2) if maximo is None else maximo
+    if not BASE_CAMBIO.search(motivo or ""): return False
+    if c.execute("SELECT COUNT(*) FROM eventos WHERE entidad='redesarrollo_base' AND ident=?", (exp_id,)).fetchone()[0] >= maximo: return False
+    mw.evento(c, "redesarrollo_base", exp_id, "reencolado", (motivo or "")[:200])
+    mw.set_estado(c, exp_id, "aprobado", "la base de lab cambio y el parche ya no encaja: GPT lo adapta a los ficheros actuales")
+    encolar_desarrollo(c, exp_id, problemas=[f"La rama base ha avanzado (otras mejoras ya integradas) y tu parche anterior ya no se puede aplicar: {(motivo or '')[:300]}. Reescribe los reemplazos `buscar` sobre el contenido ACTUAL de los ficheros que se te dan; conserva la intencion y los tests."])
+    return True
 
 
 def next_job(c):
@@ -285,6 +300,9 @@ def _fallo_claude(c, e, err):
     """Un fallo de Claude no pierde el expediente: reintento con espera; al tercero queda `claude_fallo` visible en ESTADO. El tope diario pausa el servicio."""
     if "tope diario" in str(err):
         (mw.STATE / "limite").write_text(mw.now()); raise SystemExit(str(err))
+    if isinstance(err, claude_cli.ClaudeSinCuota):  # limite de la cuenta: el expediente espera, no cuenta como fallo
+        c.execute("UPDATE expedientes SET motivo=?, actualizado=? WHERE id=?", (f"Claude: {str(err)[:200]}", mw.now(), e["id"])); c.commit()
+        print(f"  {str(err)[:160]}"); return
     d = json.loads(e["datos"] or "{}"); n = d.get("claude_fallos", 0) + 1
     d["claude_fallos"] = n; d["claude_no_antes"] = (mw._ahora() + dt.timedelta(minutes=5 * n)).isoformat(timespec="seconds")
     c.execute("UPDATE expedientes SET datos=?, motivo=?, actualizado=? WHERE id=?", (json.dumps(d, ensure_ascii=False), f"Claude: {str(err)[:200]}", mw.now(), e["id"])); c.commit()
@@ -480,9 +498,10 @@ def motivo_espera(c):
 
 def paso(c):
     """Un paso del servicio. True = hizo trabajo; False = nada ejecutable ahora; SystemExit = limite/login (lo gestiona el bucle)."""
-    e = siguiente_exp(c, "investigado")
+    sin_claude = claude_cli.en_pausa(mw)  # limite de cuota de Claude: se sigue con GPT (investigar/desarrollar) y se retoma al volver la cuota
+    e = None if sin_claude else siguiente_exp(c, "investigado")
     if e: mw.marcar(estado="ejecutando", tarea="Claude contrasta " + e["id"]); print(f"{mw.now()} -> contraste {e['id']}: {e['titulo'][:60]}"); contrastar(c, e); return True
-    e = siguiente_exp(c, "parche_listo")
+    e = None if sin_claude else siguiente_exp(c, "parche_listo")
     if e: mw.marcar(estado="ejecutando", tarea="Claude revisa " + e["id"]); print(f"{mw.now()} -> revision {e['id']}"); revisar(c, e); return True
     job = next_job(c)
     if job is None and capacidad(c) and consultas_ultima_hora(c) < mw.CFG["flujo"].get("consultas_gpt_por_hora", 8):

@@ -75,6 +75,8 @@ def _texto(q, c, completo):
     # Claude
     cl = claude_cli.resumen_consumo(c); hoy = claude_cli.gasto_hoy(c, q.today()); tope = q.CFG["claude"].get("max_usd_dia")
     L += [f"Claude: {cl['llamadas']} consultas ({cl['ok']} ok) | {cl['usd']} USD en total | hoy {round(hoy, 3)} USD" + (f" de {tope} USD" if tope else "") + f" | {cl['tok_entrada']} tok entrada / {cl['tok_salida']} salida | {q.CFG['claude']['modelo']}"]
+    import time as _t
+    if claude_cli.en_pausa(q): L.append(f"  !! CLAUDE SIN CUOTA hasta {_t.strftime('%Y-%m-%d %H:%M', _t.localtime(claude_cli.hasta_pausa(q)))} (limite de la cuenta): contraste y revision en pausa; GPT sigue investigando y desarrollando")
     for r in c.execute("SELECT fecha, clave, error FROM claude_llamadas WHERE ok=0 ORDER BY id DESC LIMIT 3"): L.append(f"    error Claude {r['fecha']} {r['clave']}: {(r['error'] or '')[:110]}")
     # cola
     cola = c.execute("SELECT * FROM cola ORDER BY creado DESC").fetchall()

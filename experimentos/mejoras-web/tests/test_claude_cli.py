@@ -56,6 +56,31 @@ class Cli(util.Caso):
         a = self.args.read_text().splitlines(); self.assertEqual(len(a), 2)
         t1 = int(a[0].split("--max-turns ")[1].split()[0]); t2 = int(a[1].split("--max-turns ")[1].split()[0]); self.assertGreater(t2, t1)
 
+    def test_limite_semanal_pausa_claude_sin_gastar_mas_llamadas_ni_marcar_fallos(self):
+        claude_cli._AGOTADA.clear(); self.addCleanup(claude_cli._AGOTADA.clear)
+        resp = Path(self.tmp.name) / "resp.json"; resp.write_text(json.dumps({"subtype": "success", "is_error": True, "result": "You've hit your weekly limit \u00b7 resets Oct 30, 5am (Europe/Madrid)"}), encoding="utf-8")
+        self.falso(f"cat {resp}; exit 1")
+        with self.assertRaises(claude_cli.ClaudeSinCuota) as cm: self.llamar()
+        self.assertIn("pausa hasta", str(cm.exception)); self.assertTrue(claude_cli.en_pausa(mw))
+        n = self.args.read_text().count("\n")
+        with self.assertRaises(claude_cli.ClaudeSinCuota): self.llamar(clave="otra")
+        self.assertEqual(self.args.read_text().count("\n"), n)  # en pausa: ni se invoca a claude
+        # un expediente esperando no cuenta fallo ni pasa a claude_fallo
+        import investigar
+        self.exp_preparado("MW-0001", estado="investigado"); e = self.c.execute("SELECT * FROM expedientes").fetchone()
+        for _ in range(4): investigar._fallo_claude(self.c, e, claude_cli.ClaudeSinCuota("sin cuota"))
+        self.assertEqual(self.c.execute("SELECT estado FROM expedientes").fetchone()[0], "investigado")
+        self.assertNotIn("claude_fallos", json.loads(self.c.execute("SELECT datos FROM expedientes").fetchone()[0]))
+        self.assertFalse(investigar.paso(self.c) and self.c.execute("SELECT estado FROM expedientes").fetchone()[0] != "investigado")  # no contrasta en pausa
+
+    def test_reinicio_limite_entiende_el_aviso_y_si_no_devuelve_none(self):
+        import datetime as dt
+        ahora = dt.datetime(2026, 10, 28, 22, 0, tzinfo=dt.timezone.utc).timestamp()
+        t = claude_cli.reinicio_limite("hit your weekly limit · resets Oct 30, 5am (UTC)", ahora)
+        self.assertEqual(dt.datetime.fromtimestamp(t, dt.timezone.utc), dt.datetime(2026, 10, 30, 5, 0, tzinfo=dt.timezone.utc))
+        self.assertEqual(dt.datetime.fromtimestamp(claude_cli.reinicio_limite("resets 3:30pm (UTC)", ahora), dt.timezone.utc), dt.datetime(2026, 10, 29, 15, 30, tzinfo=dt.timezone.utc))
+        self.assertIsNone(claude_cli.reinicio_limite("sin fecha", ahora))
+
     def test_tope_diario_se_aplica_antes_de_llamar(self):
         self.falso('echo ejecutado >> ' + str(Path(self.tmp.name) / "marca") + '; echo \'{"structured_output": {"decision": "aprobar"}}\'')
         self.c.execute("INSERT INTO claude_llamadas(fecha,clave,tipo,coste_usd,ok) VALUES(?,?,?,?,1)", (mw.now(), "x", "t", 11.0)); self.c.commit()

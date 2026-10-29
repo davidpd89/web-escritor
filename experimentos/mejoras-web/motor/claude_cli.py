@@ -19,7 +19,7 @@ from pathlib import Path
 DEFECTOS = {"modelo": "claude-sonnet-5-5", "esfuerzo": "low", "max_turnos": 2, "timeout_s": 240, "max_usd_llamada": 0.5,
             "cuentas_extra": [], "extra_primero": False, "pausa_limite_s": 3600}
 # limite de uso de la suscripcion (no el --max-budget-usd de una llamada): se salta a la siguiente cuenta
-LIMITE = re.compile(r"usage limit|hit your limit|limit reached|rate.?limit|out of (extra )?usage|credit balance|\b429\b", re.I)
+LIMITE = re.compile(r"usage limit|hit your (?:\w+ )?limit|weekly limit|limit reached|rate.?limit|out of (extra )?usage|credit balance|\b429\b", re.I)
 _AGOTADA = {}  # dir de cuenta ("" = la del sistema) -> time.time() hasta el que no se usa
 _LOCK = threading.Lock()   # un Claude CLI de decision/revision a la vez dentro del proceso
 _LOCK_DEV = threading.Lock()  # el desarrollo (minutos, ejecuta tests) va aparte: no retiene revisiones ni decisiones
@@ -27,8 +27,44 @@ _CLAUDE_EXE = None
 
 
 class ClaudeError(RuntimeError): pass
+class ClaudeSinCuota(ClaudeError):
+    """Todas las cuentas estan en su limite de suscripcion (semanal/sesion): no es un fallo del expediente; Claude queda en pausa hasta `hasta_pausa`."""
 class ClaudeLimiteLlamada(ClaudeError):
     """La llamada agoto sus turnos o su presupuesto (error_max_turns / error_max_budget_usd): no es un fallo de Claude, se puede repetir con mas margen."""
+
+
+MESES = {m: i for i, m in enumerate(("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dic"), 1)}
+MESES["dec"] = 12; MESES["ene"] = 1; MESES["abr"] = 4; MESES["ago"] = 8
+
+
+def reinicio_limite(texto, ahora=None):
+    """Instante (epoch) en que el aviso 'resets Oct 30, 5am (Europe/Madrid)' dice que vuelve la cuota; None si no se entiende."""
+    import datetime as dt
+    m = re.search(r"resets\s+(?:(\w{3})\w*\s+(\d{1,2}),?\s+)?(\d{1,2})(?::(\d{2}))?\s*(am|pm)\s*(?:\(([^)]+)\))?", texto or "", re.I)
+    if not m: return None
+    ahora = ahora or time.time()
+    try:
+        try:
+            from zoneinfo import ZoneInfo
+            tz = ZoneInfo(m.group(6)) if m.group(6) else None
+        except Exception: tz = None
+        base = dt.datetime.fromtimestamp(ahora, tz)
+        h = int(m.group(3)) % 12 + (12 if m.group(5).lower() == "pm" else 0)
+        mes, dia = (MESES.get(m.group(1).lower()[:3]), int(m.group(2))) if m.group(1) else (base.month, base.day)
+        if not mes: return None
+        t = base.replace(month=mes, day=dia, hour=h, minute=int(m.group(4) or 0), second=0, microsecond=0)
+        if t.timestamp() <= ahora: t = t.replace(year=t.year + 1) if m.group(1) else t + dt.timedelta(days=1)
+        return t.timestamp()
+    except (ValueError, OverflowError, OSError): return None
+
+
+def hasta_pausa(q):
+    """Epoch hasta el que Claude esta en pausa por limite de cuota (0 si no)."""
+    try: return float((q.STATE / "claude_pausa").read_text(encoding="utf-8").split()[0])
+    except (OSError, ValueError, IndexError): return 0.0
+
+
+def en_pausa(q): return hasta_pausa(q) > time.time()
 
 
 def migrar(c):
@@ -117,6 +153,8 @@ def llamar(q, c, clave, tipo, sistema, entrada, esquema, herramientas="", cwd=No
             c.execute("DELETE FROM claude_veredictos WHERE clave=? AND hash=?", (clave, h))
             c.commit()
 
+    if hasta_pausa(q) > time.time():
+        raise ClaudeSinCuota(f"Claude sin cuota (limite de la cuenta) hasta {time.strftime('%Y-%m-%d %H:%M', time.localtime(hasta_pausa(q)))}")
     tope = cfg.get("max_usd_dia")
     if tope and gasto_hoy(c, q.today()) >= tope:
         raise ClaudeError(f"tope diario de gasto Claude alcanzado ({tope} USD): sin consultas hasta manana")
@@ -165,6 +203,10 @@ def llamar(q, c, clave, tipo, sistema, entrada, esquema, herramientas="", cwd=No
               "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
               (q.now(), clave, tipo, cfg["modelo"], esf, meta.get("turnos"), meta.get("coste"), meta.get("tok_in"), meta.get("tok_out"), meta.get("cache_lee"),
                meta.get("cache_crea"), seg, 0 if err else 1, err, h))
+    if err and err.startswith("[cuenta") and not any(_AGOTADA.get(x, 0) <= time.time() for x in cuentas(cfg)):  # todas las cuentas en limite: pausa global (hasta el reinicio que avisa Claude, o 1 h)
+        hasta = reinicio_limite(err) or time.time() + cfg["pausa_limite_s"]; hasta = min(max(hasta, time.time() + 600), time.time() + 7 * 86400)
+        (q.STATE / "claude_pausa").write_text(f"{hasta} {q.now()} {err[:200]}", encoding="utf-8"); c.commit()
+        raise ClaudeSinCuota(f"{err} -> Claude en pausa hasta {time.strftime('%Y-%m-%d %H:%M', time.localtime(hasta))}")
     if err: c.commit(); raise (ClaudeLimiteLlamada if err.startswith("LIMITE_LLAMADA") else ClaudeError)(err)
     c.execute("INSERT OR REPLACE INTO claude_veredictos(clave,hash,respuesta,fecha) VALUES(?,?,?,?)", (clave, h, json.dumps(salida, ensure_ascii=False), q.now())); c.commit()
     meta["segundos"] = seg

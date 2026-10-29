@@ -143,6 +143,17 @@ class Validacion(Base):
         self.assertNotIn("skip", (self.repo / "index.html").read_text(encoding="utf-8"))
         self.assertTrue(Path(it["local_log"]).is_file())
 
+    def test_si_la_base_cambio_y_el_parche_ya_no_encaja_vuelve_a_gpt_limitado(self):
+        eid = self.exp_preparado()
+        (self.repo / "index.html").write_text("<html><body>otra mejora ya reescribio todo</body></html>", encoding="utf-8")
+        util.git(self.repo, "commit", "-qam", "otra mejora"); util.git(self.repo, "update-ref", "refs/remotes/origin/lab/mejoras-web-20261024", "HEAD")
+        self.ex.capturar()
+        self.assertEqual(self.exp(eid), "desarrollando")
+        j = self.c.execute("SELECT * FROM jobs WHERE tipo='D'").fetchone(); self.assertIn("ya no se puede aplicar", j["payload"]); self.assertEqual(j["estado"], "pendiente")
+        for _ in range(3):  # tras agotar los redesarrollos queda como fallo visible, no en bucle infinito
+            self.c.execute("UPDATE expedientes SET estado='preparado' WHERE id=?", (eid,)); self.c.commit(); self.ex.capturar()
+        self.assertEqual(self.exp(eid), "fallo_local"); self.assertEqual(self.c.execute("SELECT COUNT(*) FROM jobs WHERE tipo='D'").fetchone()[0], 2)
+
     def test_es_idempotente_y_reanudable(self):
         self.exp_preparado(); self.ex.capturar(); self.assertEqual(self.ex.capturar(), 0)
         self.assertEqual(self.c.execute("SELECT COUNT(*) FROM cola").fetchone()[0], 1)
@@ -165,6 +176,7 @@ class Validacion(Base):
         it = self.c.execute("SELECT * FROM cola").fetchone(); self.assertEqual(it["estado"], "fallo_local"); self.assertIn("no es ejecutable", it["detalle"])
 
     def test_parche_que_no_encaja_con_la_base_actual(self):
+        mw.CFG["flujo"]["max_redesarrollos"] = 0  # sin redesarrollo automatico queda como fallo visible
         self.exp_preparado()
         (self.repo / "index.html").write_text("<html>otra cosa</html>", encoding="utf-8")
         util.git(self.repo, "commit", "-qam", "cambia base"); util.git(self.repo, "update-ref", "refs/remotes/origin/lab/mejoras-web-20261024", "HEAD")
@@ -239,7 +251,7 @@ class EnvioYRecogida(Base):
     def test_con_el_tope_diario_agotado_el_bucle_termina_sin_girar(self):
         for n in range(1, 3): self.item_validado(n)
         for i in range(12): self.c.execute("INSERT INTO envios VALUES(?,?,?)", (mw.today(), "x", i))
-        self.c.commit(); self.nuevo_ejecutor().ejecutar()  # no se cuelga: termina y deja lo validado para manana
+        self.c.commit(); self.nuevo_ejecutor(max_envios_dia=12).ejecutar()  # no se cuelga: termina y deja lo validado para manana
         self.assertEqual(self.gh.llamadas, []); self.assertEqual(self.c.execute("SELECT COUNT(*) FROM cola WHERE estado='validado'").fetchone()[0], 2)
 
     def test_tope_diario_de_envios(self):

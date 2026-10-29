@@ -380,6 +380,8 @@ class Ejecutor:
         q.set_estado(self.c, exp_id, "validando", "validacion local en worktree separado")
         try: wt, sha, base, tocados = parches.construir_candidata(e)
         except (ValueError, RuntimeError) as err:
+            import investigar
+            if investigar.redesarrollar_por_base(self.c, exp_id, str(err)): return self.log(f"{exp_id}: el parche ya no encaja en {q.CFG['rama_base']}; vuelve a GPT para adaptarlo")
             return q.set_estado(self.c, exp_id, "fallo_local", f"no se pudo construir la candidata: {str(err)[:300]}")
         clave = f"{e['rama'] or q.CFG['prefijo_rama'] + exp_id.lower()}@{sha[:12]}"
         rama = e["rama"] or q.CFG["prefijo_rama"] + exp_id.lower()
