@@ -52,9 +52,10 @@ class Aislamiento(util.Caso):
             self.assertNotIn("scripts/qa-gpt/", re.sub(r'"""[\s\S]*?"""', "", t), f.name)  # solo aparece en las docstrings de procedencia
             self.assertNotRegex(re.sub(r'"""[\s\S]*?"""', "", t), r"C:\\\\GIT\\\\qa-gpt-state(?!\")", f.name)
 
-    def test_node_modules_y_cuentas_no_se_heredan_del_qa(self):
-        self.assertEqual(mw.CFG["claude"]["cuentas_extra"], []); self.assertEqual(mw.CFG["actions"]["node_modules"], "")
-        self.assertNotIn("pblac", (LAB / "config.json").read_text(encoding="utf-8"))
+    def test_node_modules_no_se_hereda_del_qa_y_la_cuenta_extra_es_solo_la_de_claude(self):
+        # David pidio explicitamente reutilizar la cuenta secundaria de Claude del QA (solo la carpeta de login, ningun dato del QA)
+        self.assertEqual(mw.CFG["claude"]["cuentas_extra"], ["C:\\Users\\pblac\\.claude-cuenta2"]); self.assertEqual(mw.CFG["actions"]["node_modules"], "")
+        self.assertEqual((LAB / "config.json").read_text(encoding="utf-8").count("pblac"), 1)
 
 
 class InicioSinEfectosRemotos(util.Caso):
