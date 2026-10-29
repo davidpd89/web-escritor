@@ -5,18 +5,28 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Próximos lanzamientos de libros recomendados
 BEGIN:VEVENT
-UID:isbn-9788467083378@davidportodiaz.com
-DTSTAMP:20261027T000000Z
-DTSTART;VALUE=DATE:20261028
-DTEND;VALUE=DATE:20261029
-SUMMARY:Sale a la venta: Todo bajo control\, menos tú
-DESCRIPTION:Megan Maxwell · Editorial Espasa
-URL:https://davidportodiaz.com/recomendaciones/libros/todo-bajo-control-men
- os-tu-9788467083378/
+UID:isbn-9788433951212@davidportodiaz.com
+DTSTAMP:20261029T000000Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:Sale a la venta: Una casa en Brandemburgo
+DESCRIPTION:Jenny Erpenbeck · Editorial Anagrama
+URL:https://davidportodiaz.com/recomendaciones/libros/una-casa-en-brandembu
+ rgo-9788433951212/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788433951229@davidportodiaz.com
+DTSTAMP:20261029T000000Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:Sale a la venta: Vals de Mefisto
+DESCRIPTION:Sergio Pitol · Editorial Anagrama
+URL:https://davidportodiaz.com/recomendaciones/libros/vals-de-mefisto-97884
+ 33951229/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388092268@davidportodiaz.com
-DTSTAMP:20261027T000000Z
+DTSTAMP:20261029T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Ponte fino
@@ -26,7 +36,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/ponte-fino-9791388092
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387740382@davidportodiaz.com
-DTSTAMP:20261027T000000Z
+DTSTAMP:20261029T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Sin piedad (Harry Hole 14)

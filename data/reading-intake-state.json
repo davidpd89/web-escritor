@@ -797,6 +797,14 @@
       "primera_deteccion": "2026-10-20",
       "retry_after": "2026-10-23"
     },
+    "isbn13:9788401042751": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/literatura-contemporanea/643800-libro-la-casa-de-los-espiritus-9788401042751",
+      "isbn13": "9788401042751",
+      "motivo": "HTTP Error 504: Gateway Time-out",
+      "primera_deteccion": "2026-10-29",
+      "retry_after": "2026-11-01"
+    },
     "isbn13:9788402431332": {
       "datos": {
         "autores": [
@@ -1245,6 +1253,48 @@
       "isbn13": "9788403527027",
       "motivo": "Sello no presente en el registro editorial de la web",
       "primera_deteccion": "2026-10-20"
+    },
+    "isbn13:9788408324379": {
+      "datos": {
+        "autores": [
+          "Guinness World Records"
+        ],
+        "coleccion": "Guinness World Records",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Planeta Junior",
+        "editorial_slug": "planeta-junior",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-07",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-guinness-world-records-2027-futbol/454854",
+        "fuentes_autores": {
+          "Guinness World Records": "https://www.planetadelibros.com/autor/guinness-world-records/000001627"
+        },
+        "idioma": "es",
+        "isbn13": "9788408324379",
+        "materias": [
+          "Infantil"
+        ],
+        "numero_paginas": 192,
+        "palabras_clave": [
+          "Infantil",
+          "Fútbol",
+          "De 9 a 12 años",
+          "Juvenil",
+          "A partir de 12 años"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/9b7bf3ca-7f78-43fd-94bf-895bac374c19/d_360_620/portada_guinness-world-records-2027-futbol__202607211731.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1895,
+        "sinopsis_breve": "Aquí encontrarás una selección completamente nueva de contenidos dedicados a lo mejor del fútbol masculino y femenino . Todos los récords de tus jugadores…",
+        "titulo": "Guinness World Records 2027. Fútbol"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788408324379",
+      "libro_id": "isbn-9788408324379",
+      "primera_deteccion": "2026-10-29",
+      "publicado_en": "2026-10-29"
     },
     "isbn13:9788408324461": {
       "datos": {
@@ -1834,6 +1884,14 @@
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-20"
     },
+    "isbn13:9788419501127": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/349043-libro-etereo-bilogia-extranos-1-9788419501127",
+      "isbn13": "9788419501127",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-10-29",
+      "retry_after": "2026-11-01"
+    },
     "isbn13:9788419835734": {
       "datos": {
         "autores": [
@@ -2265,7 +2323,9 @@
       "isbn13": "9788425375118",
       "libro_id": "isbn-9788425375118",
       "primera_deteccion": "2026-10-20",
-      "publicado_en": "2026-10-20"
+      "publicado_en": "2026-10-20",
+      "retry_after": "2026-11-01",
+      "ultima_revision_error": "The read operation timed out"
     },
     "isbn13:9788426432575": {
       "datos": {
@@ -2594,6 +2654,108 @@
       "libro_id": "isbn-9788430629664",
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-21"
+    },
+    "isbn13:9788433951120": {
+      "datos": {
+        "autores": [
+          "Carlota Gurt"
+        ],
+        "coleccion": "Narrativas hispánicas",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Editorial Anagrama",
+        "editorial_slug": "editorial-anagrama",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-10-28",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/narrativas-hispanicas/los-paramos/9788433951120/NH_801",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788433951120",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 248,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34385_portadas_big.jpeg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1890,
+        "sinopsis_breve": "Ella ha llegado al lugar para pasar dos noches sola. Él celebra allí una comida con los compañeros de un trabajo al que se…",
+        "titulo": "Los páramos"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788433951120",
+      "libro_id": "isbn-9788433951120",
+      "primera_deteccion": "2026-10-29",
+      "publicado_en": "2026-10-29"
+    },
+    "isbn13:9788433951212": {
+      "datos": {
+        "autores": [
+          "Jenny Erpenbeck"
+        ],
+        "coleccion": "Panorama de narrativas",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Editorial Anagrama",
+        "editorial_slug": "editorial-anagrama",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-04",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/una-casa-en-brandemburgo/9788433951212/PN_1193",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788433951212",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 208,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34572_portadas_big.jpeg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1990,
+        "sinopsis_breve": "Con una ambición narrativa excepcional y una escritura tan original como conmovedora, Erpenbeck convierte un fragmento de tierra en el escenario de una de…",
+        "titulo": "Una casa en Brandemburgo"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788433951212",
+      "libro_id": "isbn-9788433951212",
+      "primera_deteccion": "2026-10-29",
+      "publicado_en": "2026-10-29"
+    },
+    "isbn13:9788433951229": {
+      "datos": {
+        "autores": [
+          "Sergio Pitol"
+        ],
+        "coleccion": "Compactos",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Editorial Anagrama",
+        "editorial_slug": "editorial-anagrama",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-04",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/compactos/vals-de-mefisto/9788433951229/CM_218",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788433951229",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 144,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34635_portadas_big.jpeg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1590,
+        "sinopsis_breve": "El autor sitúa a sus personajes en escenarios imposibles que de pronto se vuelven cotidianos. O en escenarios perfectamente familiares que, de repente, a…",
+        "titulo": "Vals de Mefisto"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788433951229",
+      "libro_id": "isbn-9788433951229",
+      "primera_deteccion": "2026-10-29",
+      "publicado_en": "2026-10-29"
     },
     "isbn13:9788439746621": {
       "datos": {
@@ -3861,8 +4023,31 @@
           "Novela histórica"
         ],
         "numero_paginas": 384,
+        "palabras_clave": [
+          "libros mas vendidos",
+          "mejores libros",
+          "libros recomendados",
+          "alemania",
+          "Bruselas",
+          "belgica",
+          "supervivencia",
+          "segunda guerra mundial",
+          "arte",
+          "espias",
+          "no vela historica",
+          "ficcion historica",
+          "holocausto",
+          "ocupacion nazi",
+          "resistencia",
+          "expoliacion",
+          "arte robado",
+          "vecinos",
+          "solidaridad",
+          "novela"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/7987990-thickbox_default/plaza-brugmann-33.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2300,
         "sinopsis_breve": "Charlotte Sauvin, estudiante de arte criada por su querido padre, un arquitecto, en el apartamento 4L, conoce cada rincón del edificio y a todos…",
         "titulo": "Plaza Brugmann, 33"
       },
@@ -4030,6 +4215,14 @@
       "libro_id": "isbn-9791387740382",
       "primera_deteccion": "2026-10-24",
       "publicado_en": "2026-10-24"
+    },
+    "isbn13:9791387740566": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/literatura-contemporanea/634250-libro-el-hombre-que-solo-escribia-en-los-aviones-9791387740566",
+      "isbn13": "9791387740566",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-10-29",
+      "retry_after": "2026-11-01"
     },
     "isbn13:9791387740979": {
       "estado_ingesta": "pendiente_datos",
@@ -5509,6 +5702,142 @@
       "primera_deteccion": "2026-10-24",
       "publicado_en": "2026-10-24"
     },
+    "isbn13:9791388306181": {
+      "datos": {
+        "autores": [
+          "Diego Arboleda"
+        ],
+        "coleccion": "",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Nórdica Libros",
+        "editorial_slug": "nordica-libros",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-10-05",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://nordicalibros.com/product/el-secreto-mejor-guardado-del-gran-museo-del-prado/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388306181",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 88,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/10/Prado_SOLOWEB.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1099,
+        "sinopsis_breve": "Un divertidísimo libro que introduce a los lectores en el Museo del Prado y, al mismo tiempo, en el mundo de los cuentos de…",
+        "titulo": "El secreto mejor guardado del gran Museo del Prado"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388306181",
+      "libro_id": "isbn-9791388306181",
+      "primera_deteccion": "2026-10-29",
+      "publicado_en": "2026-10-29"
+    },
+    "isbn13:9791388306259": {
+      "datos": {
+        "autores": [
+          "Sigmund Freud"
+        ],
+        "coleccion": "",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Nórdica Libros",
+        "editorial_slug": "nordica-libros",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-09-14",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://nordicalibros.com/product/dos-casos-clinicos/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388306259",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 104,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/09/Freud_SOLOWEB.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 999,
+        "sinopsis_breve": "Dos casos clínicos reúne los célebres estudios de Freud sobre Catalina e Isabel de R. Sigmund Freud no solo fue uno de los más…",
+        "titulo": "Dos casos clínicos"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388306259",
+      "libro_id": "isbn-9791388306259",
+      "primera_deteccion": "2026-10-29",
+      "publicado_en": "2026-10-29"
+    },
+    "isbn13:9791388306266": {
+      "datos": {
+        "autores": [
+          "Jesús Marchamalo"
+        ],
+        "coleccion": "",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Nórdica Libros",
+        "editorial_slug": "nordica-libros",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-09-28",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://nordicalibros.com/product/retratos-literarios/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388306266",
+        "materias": [
+          "Biografías y memorias"
+        ],
+        "numero_paginas": 352,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/09/Retratos_SOLOWEB.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1499,
+        "sinopsis_breve": "Un volumen excepcional que reúne las diez biografías de escritoras y escritores creadas por Marchamalo y Santos en esta década. Con prólogo de Luis…",
+        "titulo": "Retratos literarios"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388306266",
+      "libro_id": "isbn-9791388306266",
+      "primera_deteccion": "2026-10-29",
+      "publicado_en": "2026-10-29"
+    },
+    "isbn13:9791388306389": {
+      "datos": {
+        "autores": [
+          "Selma Lagerlöf"
+        ],
+        "coleccion": "",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Nórdica Libros",
+        "editorial_slug": "nordica-libros",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-10-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://nordicalibros.com/product/el-cochero/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388306389",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 200,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/09/cochero_SOLOWEB.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1099,
+        "sinopsis_breve": "Una de las grandes novelas de Selma Lagerlöf, Premio Nobel de Literatura En El cochero, Selma Lagerlöf teje una profunda narrativa que explora la…",
+        "titulo": "El cochero"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388306389",
+      "libro_id": "isbn-9791388306389",
+      "primera_deteccion": "2026-10-29",
+      "publicado_en": "2026-10-29"
+    },
     "isbn13:9791388437168": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/tematicas/641596-libro-starside-edicion-en-espanol-starside-1-9791388437168",
@@ -5523,7 +5852,7 @@
       "isbn13": null,
       "motivo": "Faltan título, autoría, sello o ISBN comprobable",
       "primera_deteccion": "2026-10-22",
-      "retry_after": "2026-10-25"
+      "retry_after": "2026-11-01"
     },
     "url:https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-72-kilos/429997": {
       "estado_ingesta": "pendiente_datos",
@@ -5628,6 +5957,22 @@
       "motivo": "Faltan título, autoría, sello o ISBN comprobable",
       "primera_deteccion": "2026-10-27",
       "retry_after": "2026-10-30"
+    },
+    "url:https://www.planetadelibros.com/libro-dora-vamos-a-explorar-libro-con-solapas/432519": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-dora-vamos-a-explorar-libro-con-solapas/432519",
+      "isbn13": null,
+      "motivo": "Faltan título, autoría, sello o ISBN comprobable",
+      "primera_deteccion": "2026-10-29",
+      "retry_after": "2026-11-01"
+    },
+    "url:https://www.planetadelibros.com/libro-el-museo-del-crimen/459305": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-el-museo-del-crimen/459305",
+      "isbn13": null,
+      "motivo": "Faltan título, autoría, sello o ISBN comprobable",
+      "primera_deteccion": "2026-10-29",
+      "retry_after": "2026-11-01"
     },
     "url:https://www.planetadelibros.com/libro-el-toque-delirium/457867": {
       "estado_ingesta": "pendiente_datos",

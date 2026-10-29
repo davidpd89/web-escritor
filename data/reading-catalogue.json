@@ -620,6 +620,15 @@
       "orden": 218,
       "slug": "tema-ciencia",
       "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Narrativa.",
+      "id": "tema-narrativa",
+      "nombre": "Narrativa",
+      "orden": 219,
+      "slug": "tema-narrativa",
+      "tipo": "tematica"
     }
   ],
   "libro_categorias": [
@@ -654,14 +663,6 @@
     {
       "categoria_id": "adultos",
       "libro_id": "isbn-9788425375118"
-    },
-    {
-      "categoria_id": "novela-historica",
-      "libro_id": "isbn-9791387640439"
-    },
-    {
-      "categoria_id": "adultos",
-      "libro_id": "isbn-9791387640439"
     },
     {
       "categoria_id": "misterio-y-thriller",
@@ -890,10 +891,6 @@
     {
       "categoria_id": "tema-amor-y-pareja",
       "libro_id": "isbn-9788425375118"
-    },
-    {
-      "categoria_id": "tema-supervivencia",
-      "libro_id": "isbn-9791387640439"
     },
     {
       "categoria_id": "narrativa",
@@ -1710,6 +1707,58 @@
     {
       "categoria_id": "juvenil",
       "libro_id": "isbn-9791387962005"
+    },
+    {
+      "categoria_id": "novela-historica",
+      "libro_id": "isbn-9791387640439"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387640439"
+    },
+    {
+      "categoria_id": "tema-supervivencia",
+      "libro_id": "isbn-9791387640439"
+    },
+    {
+      "categoria_id": "tema-narrativa",
+      "libro_id": "isbn-9791388306181"
+    },
+    {
+      "categoria_id": "tema-secretos",
+      "libro_id": "isbn-9791388306181"
+    },
+    {
+      "categoria_id": "tema-narrativa",
+      "libro_id": "isbn-9788433951229"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9791388306266"
+    },
+    {
+      "categoria_id": "tema-narrativa",
+      "libro_id": "isbn-9788433951212"
+    },
+    {
+      "categoria_id": "tema-infantil",
+      "libro_id": "isbn-9788408324379"
+    },
+    {
+      "categoria_id": "tema-deporte",
+      "libro_id": "isbn-9788408324379"
+    },
+    {
+      "categoria_id": "tema-narrativa",
+      "libro_id": "isbn-9791388306259"
+    },
+    {
+      "categoria_id": "tema-narrativa",
+      "libro_id": "isbn-9788433951120"
+    },
+    {
+      "categoria_id": "tema-narrativa",
+      "libro_id": "isbn-9791388306389"
     }
   ],
   "libros": [
@@ -1947,9 +1996,9 @@
       "editorial": "Salamandra",
       "editorial_slug": "salamandra",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-21",
+      "fecha_actualizacion": "2026-10-29",
       "fecha_publicacion": "2026-10-15",
-      "fecha_verificacion": "2026-10-20",
+      "fecha_verificacion": "2026-10-29",
       "formato_edicion": "tapa-blanda",
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-historica/635110-libro-plaza-brugmann-33-9791387640439",
       "fuente_edad_url": "https://www.penguinlibros.com/es/novela-historica/635110-libro-plaza-brugmann-33-9791387640439",
@@ -1961,11 +2010,11 @@
       "portada_alto": 1235,
       "portada_ancho": 800,
       "portada_edicion_verificada": true,
-      "portada_fecha_revision": "2026-10-20",
+      "portada_fecha_revision": "2026-10-29",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7987990-thickbox_default/plaza-brugmann-33.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387640439.webp",
       "pvp_centimos": 2300,
-      "pvp_fecha_verificacion": "2026-10-21",
+      "pvp_fecha_verificacion": "2026-10-29",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -5762,6 +5811,358 @@
       "sinopsis_tipo": "extracto_editorial",
       "slug": "as-the-gods-will-la-secuela-10-shonen-9791387962005",
       "titulo": "As the Gods Will: La secuela 10 (Shônen)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388306181&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Diego Arboleda"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "El secreto mejor guardado del gran Museo del Prado, de Diego Arboleda. Edición de Nórdica Libros en castellano, en tapa dura. Consta de 88 páginas. La editorial la incluye en narrativa. Publicación editorial: 2026-10-05.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa dura · Nórdica Libros",
+      "editorial": "Nórdica Libros",
+      "editorial_slug": "nordica-libros",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-29",
+      "fecha_publicacion": "2026-10-05",
+      "fecha_verificacion": "2026-10-29",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://nordicalibros.com/product/el-secreto-mejor-guardado-del-gran-museo-del-prado/",
+      "fuente_publicacion_url": "https://nordicalibros.com/product/el-secreto-mejor-guardado-del-gran-museo-del-prado/",
+      "id": "isbn-9791388306181",
+      "idioma": "es",
+      "isbn13": "9791388306181",
+      "numero_paginas": 88,
+      "portada_alto": 855,
+      "portada_ancho": 612,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-29",
+      "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/10/Prado_SOLOWEB.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388306181.webp",
+      "pvp_centimos": 1099,
+      "pvp_fecha_verificacion": "2026-10-29",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-29",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388306181"
+        }
+      ],
+      "sinopsis_breve": "Un divertidísimo libro que introduce a los lectores en el Museo del Prado y, al mismo tiempo, en el mundo de los cuentos de…",
+      "sinopsis_fuente_url": "https://nordicalibros.com/product/el-secreto-mejor-guardado-del-gran-museo-del-prado/",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "el-secreto-mejor-guardado-del-gran-museo-del-prado-9791388306181",
+      "titulo": "El secreto mejor guardado del gran Museo del Prado"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951229&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Sergio Pitol"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Vals de Mefisto, de Sergio Pitol. Edición de Editorial Anagrama en castellano, en tapa blanda. Consta de 144 páginas. La editorial la incluye en narrativa. Publicación editorial: 2026-11-04.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Editorial Anagrama",
+      "editorial": "Editorial Anagrama",
+      "editorial_slug": "editorial-anagrama",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-29",
+      "fecha_publicacion": "2026-11-04",
+      "fecha_verificacion": "2026-10-29",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/compactos/vals-de-mefisto/9788433951229/CM_218",
+      "fuente_publicacion_url": "https://www.anagrama-ed.es/libro/compactos/vals-de-mefisto/9788433951229/CM_218",
+      "id": "isbn-9788433951229",
+      "idioma": "es",
+      "isbn13": "9788433951229",
+      "numero_paginas": 144,
+      "portada_alto": 1092,
+      "portada_ancho": 719,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-29",
+      "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34635_portadas_big.jpeg",
+      "portada_local": "/assets/reading-covers/isbn-9788433951229.webp",
+      "pvp_centimos": 1590,
+      "pvp_fecha_verificacion": "2026-10-29",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-29",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788433951229"
+        }
+      ],
+      "sinopsis_breve": "El autor sitúa a sus personajes en escenarios imposibles que de pronto se vuelven cotidianos. O en escenarios perfectamente familiares que, de repente, a…",
+      "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/compactos/vals-de-mefisto/9788433951229/CM_218",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "vals-de-mefisto-9788433951229",
+      "titulo": "Vals de Mefisto"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388306266&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jesús Marchamalo"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Retratos literarios, de Jesús Marchamalo. Edición de Nórdica Libros en castellano, en tapa blanda. Consta de 352 páginas. La editorial la incluye en biografías y memorias. Publicación editorial: 2026-09-28.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Nórdica Libros",
+      "editorial": "Nórdica Libros",
+      "editorial_slug": "nordica-libros",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-29",
+      "fecha_publicacion": "2026-09-28",
+      "fecha_verificacion": "2026-10-29",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://nordicalibros.com/product/retratos-literarios/",
+      "fuente_publicacion_url": "https://nordicalibros.com/product/retratos-literarios/",
+      "id": "isbn-9791388306266",
+      "idioma": "es",
+      "isbn13": "9791388306266",
+      "numero_paginas": 352,
+      "portada_alto": 855,
+      "portada_ancho": 700,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-29",
+      "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/09/Retratos_SOLOWEB.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388306266.webp",
+      "pvp_centimos": 1499,
+      "pvp_fecha_verificacion": "2026-10-29",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-29",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388306266"
+        }
+      ],
+      "sinopsis_breve": "Un volumen excepcional que reúne las diez biografías de escritoras y escritores creadas por Marchamalo y Santos en esta década. Con prólogo de Luis…",
+      "sinopsis_fuente_url": "https://nordicalibros.com/product/retratos-literarios/",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "retratos-literarios-9791388306266",
+      "titulo": "Retratos literarios"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951212&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jenny Erpenbeck"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Una casa en Brandemburgo, de Jenny Erpenbeck. Edición de Editorial Anagrama en castellano, en tapa blanda. Consta de 208 páginas. La editorial la incluye en narrativa. Publicación editorial: 2026-11-04.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Editorial Anagrama",
+      "editorial": "Editorial Anagrama",
+      "editorial_slug": "editorial-anagrama",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-29",
+      "fecha_publicacion": "2026-11-04",
+      "fecha_verificacion": "2026-10-29",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/una-casa-en-brandemburgo/9788433951212/PN_1193",
+      "fuente_publicacion_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/una-casa-en-brandemburgo/9788433951212/PN_1193",
+      "id": "isbn-9788433951212",
+      "idioma": "es",
+      "isbn13": "9788433951212",
+      "numero_paginas": 208,
+      "portada_alto": 1130,
+      "portada_ancho": 719,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-29",
+      "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34572_portadas_big.jpeg",
+      "portada_local": "/assets/reading-covers/isbn-9788433951212.webp",
+      "pvp_centimos": 1990,
+      "pvp_fecha_verificacion": "2026-10-29",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-29",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788433951212"
+        }
+      ],
+      "sinopsis_breve": "Con una ambición narrativa excepcional y una escritura tan original como conmovedora, Erpenbeck convierte un fragmento de tierra en el escenario de una de…",
+      "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/una-casa-en-brandemburgo/9788433951212/PN_1193",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "una-casa-en-brandemburgo-9788433951212",
+      "titulo": "Una casa en Brandemburgo"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408324379&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Guinness World Records"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Guinness World Records 2027. Fútbol, de Guinness World Records. Edición de Planeta Junior en castellano, en rústica con solapas. Consta de 192 páginas. La editorial la incluye en infantil. Publicación editorial: 2026-10-07.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Planeta Junior",
+      "editorial": "Planeta Junior",
+      "editorial_catalogo_slug": "planeta-junior",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-29",
+      "fecha_publicacion": "2026-10-07",
+      "fecha_verificacion": "2026-10-29",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-guinness-world-records-2027-futbol/454854",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-guinness-world-records-2027-futbol/454854",
+      "id": "isbn-9788408324379",
+      "idioma": "es",
+      "isbn13": "9788408324379",
+      "numero_paginas": 192,
+      "portada_alto": 505,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-29",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/9b7bf3ca-7f78-43fd-94bf-895bac374c19/d_360_620/portada_guinness-world-records-2027-futbol__202607211731.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788408324379.webp",
+      "pvp_centimos": 1895,
+      "pvp_fecha_verificacion": "2026-10-29",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-29",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788408324379"
+        }
+      ],
+      "sinopsis_breve": "Aquí encontrarás una selección completamente nueva de contenidos dedicados a lo mejor del fútbol masculino y femenino . Todos los récords de tus jugadores…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-guinness-world-records-2027-futbol/454854",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "guinness-world-records-2027-futbol-9788408324379",
+      "titulo": "Guinness World Records 2027. Fútbol"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388306259&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Sigmund Freud"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Dos casos clínicos, de Sigmund Freud. Edición de Nórdica Libros en castellano, en tapa blanda. Consta de 104 páginas. La editorial la incluye en narrativa. Publicación editorial: 2026-09-14.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Nórdica Libros",
+      "editorial": "Nórdica Libros",
+      "editorial_slug": "nordica-libros",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-29",
+      "fecha_publicacion": "2026-09-14",
+      "fecha_verificacion": "2026-10-29",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://nordicalibros.com/product/dos-casos-clinicos/",
+      "fuente_publicacion_url": "https://nordicalibros.com/product/dos-casos-clinicos/",
+      "id": "isbn-9791388306259",
+      "idioma": "es",
+      "isbn13": "9791388306259",
+      "numero_paginas": 104,
+      "portada_alto": 855,
+      "portada_ancho": 596,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-29",
+      "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/09/Freud_SOLOWEB.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388306259.webp",
+      "pvp_centimos": 999,
+      "pvp_fecha_verificacion": "2026-10-29",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-29",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388306259"
+        }
+      ],
+      "sinopsis_breve": "Dos casos clínicos reúne los célebres estudios de Freud sobre Catalina e Isabel de R. Sigmund Freud no solo fue uno de los más…",
+      "sinopsis_fuente_url": "https://nordicalibros.com/product/dos-casos-clinicos/",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "dos-casos-clinicos-9791388306259",
+      "titulo": "Dos casos clínicos"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951120&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Carlota Gurt"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Los páramos, de Carlota Gurt. Edición de Editorial Anagrama en castellano, en tapa blanda. Consta de 248 páginas. La editorial la incluye en narrativa. Publicación editorial: 2026-10-28.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Editorial Anagrama",
+      "editorial": "Editorial Anagrama",
+      "editorial_slug": "editorial-anagrama",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-29",
+      "fecha_publicacion": "2026-10-28",
+      "fecha_verificacion": "2026-10-29",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/narrativas-hispanicas/los-paramos/9788433951120/NH_801",
+      "fuente_publicacion_url": "https://www.anagrama-ed.es/libro/narrativas-hispanicas/los-paramos/9788433951120/NH_801",
+      "id": "isbn-9788433951120",
+      "idioma": "es",
+      "isbn13": "9788433951120",
+      "numero_paginas": 248,
+      "portada_alto": 1130,
+      "portada_ancho": 719,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-29",
+      "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34385_portadas_big.jpeg",
+      "portada_local": "/assets/reading-covers/isbn-9788433951120.webp",
+      "pvp_centimos": 1890,
+      "pvp_fecha_verificacion": "2026-10-29",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-29",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788433951120"
+        }
+      ],
+      "sinopsis_breve": "Ella ha llegado al lugar para pasar dos noches sola. Él celebra allí una comida con los compañeros de un trabajo al que se…",
+      "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/narrativas-hispanicas/los-paramos/9788433951120/NH_801",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "los-paramos-9788433951120",
+      "titulo": "Los páramos"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388306389&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Selma Lagerlöf"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "El cochero, de Selma Lagerlöf. Edición de Nórdica Libros en castellano, en tapa blanda. Consta de 200 páginas. La editorial la incluye en narrativa. Publicación editorial: 2026-10-05.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Nórdica Libros",
+      "editorial": "Nórdica Libros",
+      "editorial_slug": "nordica-libros",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-29",
+      "fecha_publicacion": "2026-10-05",
+      "fecha_verificacion": "2026-10-29",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://nordicalibros.com/product/el-cochero/",
+      "fuente_publicacion_url": "https://nordicalibros.com/product/el-cochero/",
+      "id": "isbn-9791388306389",
+      "idioma": "es",
+      "isbn13": "9791388306389",
+      "numero_paginas": 200,
+      "portada_alto": 855,
+      "portada_ancho": 596,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-29",
+      "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/09/cochero_SOLOWEB.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388306389.webp",
+      "pvp_centimos": 1099,
+      "pvp_fecha_verificacion": "2026-10-29",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-29",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388306389"
+        }
+      ],
+      "sinopsis_breve": "Una de las grandes novelas de Selma Lagerlöf, Premio Nobel de Literatura En El cochero, Selma Lagerlöf teje una profunda narrativa que explora la…",
+      "sinopsis_fuente_url": "https://nordicalibros.com/product/el-cochero/",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "el-cochero-9791388306389",
+      "titulo": "El cochero"
     }
   ],
   "schema_version": 1
