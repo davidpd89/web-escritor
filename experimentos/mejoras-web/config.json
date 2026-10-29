@@ -29,8 +29,8 @@
   "timeout_s": 300,
   "max_usd_llamada": 1.0,
   "max_usd_dia": 10.0,
-  "cuentas_extra": [],
-  "extra_primero": false,
+  "cuentas_extra": ["C:\\Users\\pblac\\.claude-cuenta2"],
+  "extra_primero": true,
   "pausa_limite_s": 3600
  },
  "flujo": {
