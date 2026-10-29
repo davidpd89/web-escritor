@@ -1,7 +1,7 @@
 """vista_publica: servidor TEMPORAL con la web de la rama de laboratorio (lab/mejoras-web-*), para revisar las mejoras integradas SIN pasar por main.
 
 Cada pocos minutos: `git fetch` de la rama de laboratorio -> si cambio, worktree desacoplado -> `scripts/build-public-dist.py` (el MISMO artefacto allowlist que publica
-produccion: nada interno se sirve) -> se sirve en 127.0.0.1:<puerto> con X-Robots-Tag noindex y robots.txt Disallow. Un tunel gratuito y sin cuenta
+produccion: nada interno se sirve) -> se sirve en 127.0.0.1:<puerto> con X-Robots-Tag noindex y robots.txt Disallow. Con `vista_publica.tunel=true`, un tunel gratuito y sin cuenta
 (cloudflared "quick tunnel" si esta instalado; si no, `ssh` -> localhost.run, que trae Windows 10+) la expone en una URL https temporal que se escribe en
 <estado>/vista/vista.json y se muestra en ESTADO. La pagina /_lab/ lista las mejoras integradas (titulo, necesidad, criterio, fuentes, commit y fecha).
 Solo LEE el repositorio y la base del laboratorio; no publica en ningun sitio permanente, no toca main ni Pages ni Cloudflare. La URL cambia cada vez que se reinicia el tunel.
@@ -168,7 +168,8 @@ def bucle(q=mw, vista=None, cada_s=None, popen=None, sleep=time.sleep, una_vez=F
                 else:
                     if cambio: vista.escribir(error=None); print(f"{q.now()} vista reconstruida @ {vista.construido()[:10]}")
                 if srv is None and vista.actual.is_dir(): srv, _ = servir(vista, puerto); vista.escribir(local=f"http://127.0.0.1:{puerto}/")
-                if srv is not None: tunel.asegurar()
+                if srv is not None and cfg.get("tunel", True): tunel.asegurar()
+                elif srv is not None: vista.escribir(url=None, tunel="desactivado (vista_publica.tunel=false): solo local, nada se expone a internet")
                 if una_vez: break
                 q.dormir_flag(cada_s, "stop_vista", lock) if hasattr(q, "dormir_flag") else sleep(cada_s)
         finally:

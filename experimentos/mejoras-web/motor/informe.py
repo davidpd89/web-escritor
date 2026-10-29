@@ -43,7 +43,8 @@ def _texto(q, c, completo):
     except (OSError, ValueError): vj = {}
     wv = q.Lock("vista").dueno()
     url = vj.get("url") if wv else None
-    if wv and not url: url = f"(arrancando el tunel...{' ' + vj['tunel'] if vj.get('tunel') else ''}) local {vj.get('local', '')}"
+    if wv and not url and "desactivado" in str(vj.get("tunel", "")): url = f"SOLO LOCAL en tu PC: {vj.get('local', '')}   | cambios: {str(vj.get('local', '')).rstrip('/')}/_lab/   | lab @ {str(vj.get('sha', ''))[:8]}   (tunel publico desactivado)"
+    elif wv and not url: url = f"(arrancando el tunel...{' ' + vj['tunel'] if vj.get('tunel') else ''}) local {vj.get('local', '')}"
     if wv and vj.get("url"): url += f"   | cambios: {vj['url'].rstrip('/')}/_lab/   | lab @ {str(vj.get('sha', ''))[:8]}"
     if not wv: url = "PARADA (se arranca con INICIAR, autovista=true)"
     if vj.get("error"): url += f"   | ULTIMO ERROR DE BUILD: {vj['error'][:120]}"

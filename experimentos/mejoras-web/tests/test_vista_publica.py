@@ -93,7 +93,7 @@ class Tunel(Caso):
 
 class Bucle(Caso):
     def test_un_ciclo_construye_sirve_y_lanza_el_tunel(self):
-        mw.CFG["vista_publica"] = {"puerto": 0, "refresco_s": 1}; lanzado = []
+        mw.CFG["vista_publica"] = {"puerto": 0, "refresco_s": 1, "tunel": True}; lanzado = []
         class P:
             stdout = iter([]); 
             def poll(s): return None
@@ -102,6 +102,12 @@ class Bucle(Caso):
             V.bucle(mw, vista=self.v, popen=lambda a, **k: lanzado.append(a) or P(), una_vez=True)
         self.assertTrue((self.v.actual / "index.html").is_file()); self.assertEqual(len(lanzado), 1)
         self.assertFalse(mw.Lock("vista").path.exists())  # libera su bloqueo
+
+    def test_con_tunel_desactivado_solo_sirve_en_local(self):
+        mw.CFG["vista_publica"] = {"puerto": 0, "refresco_s": 1, "tunel": False}; lanzado = []
+        with mock.patch.object(V, "servir", lambda v, p: (mock.Mock(), None)):
+            V.bucle(mw, vista=self.v, popen=lambda a, **k: lanzado.append(a), una_vez=True)
+        self.assertEqual(lanzado, []); self.assertIn("desactivado", json.loads((self.v.dir / "vista.json").read_text())["tunel"])
 
     def test_no_arranca_dos_a_la_vez(self):
         mw.STATE.mkdir(parents=True, exist_ok=True); mw.Lock("vista").path.write_text(f"{os.getppid()} {mw.now()}")
