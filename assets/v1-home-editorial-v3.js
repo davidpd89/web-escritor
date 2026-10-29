@@ -83,9 +83,23 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
   // inline-block wrapper naturally shrinks to the image's rendered size,
   // so the brackets end up on the image, not floating in that gap
   // (2026-09-02, reported: bracket appearing detached near the hero text).
-  function wrapMediaFrame(image) {
+  // Imágenes con versión AVIF ya publicada: el navegador que la admite descarga solo esa (unos 50 KB frente a 189 KB del WebP); el resto usa el WebP del <img>.
+  const AVIF_ALTERNATIVES = { '/assets/samuel_entre_mundos_3d.webp': '/assets/samuel_entre_mundos_3d.avif' };
+
+  // `src` es la ruta WebP que el llamador asignará al <img> DESPUÉS de montar el <picture>: con el src ya puesto, el <img> suelto empieza a descargar el WebP antes de conocer su <source>.
+  function wrapMediaFrame(image, src) {
     const frame = make('span', 'media-frame');
-    frame.append(image);
+    const avif = src && AVIF_ALTERNATIVES[src];
+    if (avif) {
+      const picture = document.createElement('picture');
+      const source = document.createElement('source');
+      source.type = 'image/avif';
+      source.srcset = avif;
+      picture.append(source, image);
+      frame.append(picture);
+    } else {
+      frame.append(image);
+    }
     return frame;
   }
 
@@ -403,12 +417,12 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
       media.setAttribute('aria-label', cardTitle);
       const img = new Image();
       img.loading = 'lazy';
-      img.src = src;
       img.alt = cardTitle;
       img.width = srcWidth;
       img.height = srcHeight;
       img.decoding = 'async';
-      media.append(wrapMediaFrame(img));
+      media.append(wrapMediaFrame(img, src));
+      img.src = src;
       const body = make('div', 'yale-tile__body');
       body.append(make('p', 'editorial-card__eyebrow', eyebrow));
       const h = make('h3');
@@ -459,12 +473,12 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     media.setAttribute('aria-label', 'Samuel entre mundos');
     const image = new Image();
     image.loading = 'lazy';
-    image.src = '/assets/samuel_entre_mundos_3d.webp';
     image.alt = 'Portada de Samuel entre mundos';
     image.width = 1530;
     image.height = 2400;
     image.decoding = 'async';
-    media.append(wrapMediaFrame(image));
+    media.append(wrapMediaFrame(image, '/assets/samuel_entre_mundos_3d.webp'));
+    image.src = '/assets/samuel_entre_mundos_3d.webp';
     const body = make('div', 'yale-feature-book__body');
     body.append(make('p', 'editorial-card__eyebrow', 'Libros Indie'));
     const h = make('h3');

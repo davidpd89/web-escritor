@@ -202,6 +202,12 @@
       }, reduced ? 350 : 820);
     };
     enter.addEventListener('click', doEnter);
+    // El enlace «Saltar al contenido» queda por encima de la introducción mientras tiene el foco (v1-home.css): al activarlo se entra.
+    q('.skip-link')?.addEventListener('click', (event) => {
+      if (!document.documentElement.classList.contains('intro-lock')) return;
+      event.preventDefault();
+      doEnter();
+    });
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     let fallback = setTimeout(doEnter, reduced ? 5000 : 9600);
     // When initHeroVideo (below) confirms autoplay was rejected, the visitor
@@ -392,7 +398,7 @@
   // HTML href/src attribute). Bump the ?v= here AND the matching
   // TRACKED_ASSETS entry in check-asset-versions.py whenever either file's
   // content changes.
-  const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js?v=11';
+  const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js?v=13';
   const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js?v=11';
   const root = document.documentElement;
   const houseSvg = `
