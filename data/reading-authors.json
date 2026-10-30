@@ -54,7 +54,7 @@
       "biografia_fecha_revision": "2026-10-21",
       "biografia_fuente_url": "https://www.penguinlibros.com/es/1017828-sheila-masterson",
       "descripcion": "Libros de Sheila Masterson incluidos en este catálogo: La hija del veneno. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
-      "fecha_verificacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-30",
       "fuentes": [
         {
           "titulo": "La hija del veneno · ficha editorial",
@@ -70,7 +70,7 @@
       "biografia_fecha_revision": "2026-10-21",
       "biografia_fuente_url": "https://www.penguinlibros.com/es/1019892-alice-austen",
       "descripcion": "Libros de Alice Austen incluidos en este catálogo: Plaza Brugmann, 33. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
-      "fecha_verificacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-30",
       "fuentes": [
         {
           "titulo": "Plaza Brugmann, 33 · ficha editorial",
@@ -1322,12 +1322,16 @@
     },
     {
       "biografia_ultimo_intento": "2026-10-26",
-      "descripcion": "Libros de Disney incluidos en este catálogo: Stitch. Calendario de Adviento. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
-      "fecha_verificacion": "2026-10-26",
+      "descripcion": "Libros de Disney incluidos en este catálogo: Stitch. Calendario de Adviento; Agente Stitch 5. Los roedores de Roswell. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-30",
       "fuentes": [
         {
           "titulo": "Stitch. Calendario de Adviento · ficha editorial",
           "url": "https://www.planetadelibros.com/libro-stitch-calendario-de-adviento/427175"
+        },
+        {
+          "titulo": "Agente Stitch 5. Los roedores de Roswell · ficha editorial",
+          "url": "https://www.planetadelibros.com/libro-agente-stitch-5-los-roedores-de-roswell/456569"
         }
       ],
       "nombre": "Disney",
@@ -1468,6 +1472,140 @@
       ],
       "nombre": "Akeji Fujimura",
       "slug": "akeji-fujimura",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Miriam Jiménez Lastra es socióloga y politóloga especializada en mediación, negociación y resolución de conflictos por la Universidad Carlos III de Madrid. Profesionalmente, es…",
+      "biografia_fecha_revision": "2026-10-30",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/1019921-miriam-jimenez-lastra",
+      "descripcion": "Libros de Miriam Jiménez Lastra incluidos en este catálogo: No eres tú, es el sistema. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-30",
+      "fuentes": [
+        {
+          "titulo": "No eres tú, es el sistema · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/tiempo-libre-juvenil/634619-libro-no-eres-tu-es-el-sistema-9791387949884"
+        }
+      ],
+      "nombre": "Miriam Jiménez Lastra",
+      "slug": "miriam-jimenez-lastra",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Selma Ottilia Lovisa Lagerlöf /ˈsɛlma ʊˈtiːlɪa lʊˈviːsa ˈlɑːgərˌløːv/, también escrito como Selma Lagerlof o Selma Lagerloef, fue una escritora sueca de fama universal y la primera mujer en obtener un Premio Nobel de Literatura (1909).",
+      "biografia_fecha_revision": "2026-10-30",
+      "biografia_fuente_nombre": "Wikipedia",
+      "biografia_fuente_url": "https://es.wikipedia.org/wiki/Selma_Lagerl%C3%B6f",
+      "biografia_ultimo_intento": "2026-10-30",
+      "descripcion": "Libros de Selma Lagerlöf incluidos en este catálogo: El cochero. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-30",
+      "fuentes": [
+        {
+          "titulo": "El cochero · ficha editorial",
+          "url": "https://nordicalibros.com/product/el-cochero/"
+        }
+      ],
+      "nombre": "Selma Lagerlöf",
+      "slug": "selma-lagerlof",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Pablo Lolaso (Madrid, 1985) es maestro de Educación Primaria, profesión que ejerce bajo el nombre de Miguel Sánchez. Mediocre exentrenador de baloncesto, eterno jugador…",
+      "biografia_fecha_revision": "2026-10-30",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/996268-pablo-lolaso",
+      "descripcion": "Libros de Pablo Lolaso incluidos en este catálogo: Enzo Brown: loco por el basket 5 - La cancha es de todos. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-30",
+      "fuentes": [
+        {
+          "titulo": "Enzo Brown: loco por el basket 5 - La cancha es de todos · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634671-libro-enzo-brown-loco-por-el-basket-5-la-cancha-es-de-todos-9791387994563"
+        }
+      ],
+      "nombre": "Pablo Lolaso",
+      "slug": "pablo-lolaso",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Truman Streckfus Persons, más conocido como Truman Capote, fue un novelista, guionista, dramaturgo y actor ocasional estadounidense, ampliamente considerado uno de los mejores de su país. Varios de sus cuentos, novelas y obras de teatro se tienen por clásicos literarios, incluidas las novelas Breakfast at Tiffany's (1958) y In Cold Blood (1966), a la que calificó de «novela de no ficción». Sus obras se han adaptado a más de veinte películas y series de televisión.",
+      "biografia_fecha_revision": "2026-10-30",
+      "biografia_fuente_nombre": "Wikipedia",
+      "biografia_fuente_url": "https://es.wikipedia.org/wiki/Truman_Capote",
+      "biografia_ultimo_intento": "2026-10-30",
+      "descripcion": "Libros de Truman Capote incluidos en este catálogo: Tres cuentos. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-30",
+      "fuentes": [
+        {
+          "titulo": "Tres cuentos · ficha editorial",
+          "url": "https://www.anagrama-ed.es/libro/intervenciones/tres-cuentos/9788433951168/IN_5"
+        }
+      ],
+      "nombre": "Truman Capote",
+      "slug": "truman-capote",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-10-30",
+      "descripcion": "Libros de Fede Yankelevich incluidos en este catálogo: Tres cuentos. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-30",
+      "fuentes": [
+        {
+          "titulo": "Tres cuentos · ficha editorial",
+          "url": "https://www.anagrama-ed.es/libro/intervenciones/tres-cuentos/9788433951168/IN_5"
+        }
+      ],
+      "nombre": "Fede Yankelevich",
+      "slug": "fede-yankelevich",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Ursula Kroeber Le Guin fue una autora estadounidense conocida sobre todo por sus obras de ficción especulativa y, en especial, por las obras de literatura fantástica ambientadas en el mundo ficticio de Terramar, así como la serie de ciencia ficción de la federación Ekumen. Publicó su primera obra en 1959 y su carrera literaria duró casi sesenta años, con más de veinte novelas y más de cien relatos cortos, además de poesía, ensayo, crítica literaria, traducciones y libros para niños.",
+      "biografia_fecha_revision": "2026-10-30",
+      "biografia_fuente_nombre": "Wikipedia",
+      "biografia_fuente_url": "https://es.wikipedia.org/wiki/Ursula_K._Le_Guin",
+      "biografia_ultimo_intento": "2026-10-30",
+      "descripcion": "Libros de Ursula K. Le Guin incluidos en este catálogo: El libro de los gatos. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-30",
+      "fuentes": [
+        {
+          "titulo": "El libro de los gatos · ficha editorial",
+          "url": "https://nordicalibros.com/product/el-libro-de-los-gatos/"
+        }
+      ],
+      "nombre": "Ursula K. Le Guin",
+      "slug": "ursula-k-le-guin",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Sergio Pitol Deméneghi fue un escritor, traductor y diplomático mexicano.",
+      "biografia_fecha_revision": "2026-10-30",
+      "biografia_fuente_nombre": "Wikipedia",
+      "biografia_fuente_url": "https://es.wikipedia.org/wiki/Sergio_Pitol",
+      "biografia_ultimo_intento": "2026-10-30",
+      "descripcion": "Libros de Sergio Pitol incluidos en este catálogo: Vals de Mefisto. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-30",
+      "fuentes": [
+        {
+          "titulo": "Vals de Mefisto · ficha editorial",
+          "url": "https://www.anagrama-ed.es/libro/compactos/vals-de-mefisto/9788433951229/CM_218"
+        }
+      ],
+      "nombre": "Sergio Pitol",
+      "slug": "sergio-pitol",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Charles Spencer es escritor, historiador, orador, presentador y periodista. También es el noveno conde Spencer. Es autor de nueve libros de no ficción, entre…",
+      "biografia_fecha_revision": "2026-10-30",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/1022385-charles-spencer",
+      "descripcion": "Libros de Charles Spencer incluidos en este catálogo: El canto del cisne. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-30",
+      "fuentes": [
+        {
+          "titulo": "El canto del cisne · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libro-de-biografias/639317-libro-el-canto-del-cisne-9788401039928"
+        }
+      ],
+      "nombre": "Charles Spencer",
+      "slug": "charles-spencer",
       "tipo": "bibliografico"
     }
   ],
