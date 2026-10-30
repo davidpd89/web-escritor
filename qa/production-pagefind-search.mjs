@@ -23,9 +23,14 @@ if(S){
   assert.deepEqual(await r.json(),{schemaVersion:1,sha:S},'release marker mismatch');
 }
 
-const browser=await chromium.launch({headless:true});
-try{
+// Durante un deploy Pages puede servir pagefind.js y trozos del índice de versiones distintas
+// (o un 503): la búsqueda devuelve cero resultados o «invalid gzip data». Se repite el audit
+// completo en un contexto limpio; un fallo persistente sigue fallando con su causa.
+const ATTEMPTS=3;
+const RETRY_DELAY=Number(process.env.PAGEFIND_RETRY_DELAY_MS||20000);
+async function audit(browser){
   const context=await browser.newContext({viewport:{width:1280,height:800},reducedMotion:'reduce'});
+  try{
   const page=await context.newPage();
   await page.route(/(?:gc\.zgo\.at|goatcounter\.com|metricool\.com|clarity\.ms|c\.bing\.com)/,r=>r.abort());
   const errors=[];
@@ -82,9 +87,27 @@ try{
   const gated=await search('dónde empieza la jaula');
   assert.equal(gated.some(x=>x.url.includes('donde-empieza-la-jaula')),false,'gated route leaked into production search');
   assert.deepEqual(errors,[],'page errors: '+errors.join(' | '));
-  await context.close();
-}catch(e){
-  failures.push(String(e?.message||e));
+  }finally{
+    await context.close();
+  }
+}
+
+const browser=await chromium.launch({headless:true});
+try{
+  for(let attempt=1;attempt<=ATTEMPTS;attempt++){
+    try{
+      await audit(browser);
+      if(attempt>1) console.log(`production Pagefind recovered on attempt ${attempt}`);
+      failures.length=0;
+      break;
+    }catch(e){
+      failures.push(`attempt ${attempt}: ${String(e?.message||e)}`);
+      if(attempt<ATTEMPTS){
+        console.warn(`production Pagefind attempt ${attempt} failed, retrying: ${String(e?.message||e).split('\n')[0]}`);
+        await new Promise(r=>setTimeout(r,RETRY_DELAY));
+      }
+    }
+  }
 }finally{
   await browser.close();
 }
