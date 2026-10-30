@@ -1,0 +1,70 @@
+name: Accessibility regressions browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'accesibilidad/index.html'
+      - 'al-otro-lado/index.html'
+      - 'assets/al-otro-lado.css'
+      - 'assets/newsletter-popup.js'
+      - 'assets/v1-accessibility-statement.css'
+      - 'qa/accesibilidad-computed-contrast.mjs'
+      - 'qa/accesibilidad-fixture.mjs'
+      - 'qa/errores-progresivo-browser-fixture.mjs'
+      - 'qa/microstory-offline-harness.mjs'
+      - 'qa/microstory-print-contract.mjs'
+      - 'qa/newsletter-popup-invalid-email-browser.mjs'
+      - '.github/workflows/a11y-regressions-browser-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+      - name: Start local static server
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/a11y-qa-server.log 2>&1 &
+          echo $! > /tmp/a11y-qa-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/a11y-qa-server.log
+          exit 1
+      - name: Contraste calculado de la declaración de accesibilidad
+        run: node qa/accesibilidad-computed-contrast.mjs
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+      - name: Impresión de «Al otro lado» sin la sección secundaria
+        run: node qa/microstory-print-contract.mjs
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+      - name: Error de email del popup asociado al campo
+        run: node qa/newsletter-popup-invalid-email-browser.mjs
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173

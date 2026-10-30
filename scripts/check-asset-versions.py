@@ -71,7 +71,7 @@ HASH_LOCK_PATH = ROOT / "scripts" / "asset-version-hashes.json"
 # that changes the given asset. Then run this checker; it will list every
 # page still on the old version, or still completely unversioned.
 TRACKED_ASSETS = {
-    "script.js": "202610-launch-31",
+    "script.js": "202610-launch-32",
     "analytics-consent-banner.js": "16",
     "email-reveal.js": "3",
     "styles.css": "202609-launch-1",
@@ -99,7 +99,7 @@ TRACKED_ASSETS = {
     "v1-editorial.css": "4",
     "v1-editorial.js": "4",
     "newsletter-popup.css": "1",
-    "newsletter-popup.js": "4",
+    "newsletter-popup.js": "5",
     "v1-no-js-pending.css": "1",
     "cuaderno-index.css": "1",
     "editoriales.css": "3",
@@ -119,7 +119,7 @@ TRACKED_ASSETS = {
     "v1-support.css": "2",
     "dialogo-espanol.js": "3",
     "v1-beta-readers.css": "2",
-    "v1-accessibility-statement.css": "1",
+    "v1-accessibility-statement.css": "2",
     "v1-ai-authority.css": "1",
     "assistant-embed.css": "2",
     "assistant-embed.js": "2",
@@ -186,7 +186,7 @@ TRACKED_ASSETS = {
     "v1-samuel.css": "2",
     "samuel-quiz.js": "2",
     "samuel-buy-modal.js": "2",
-    "al-otro-lado.css": "1",
+    "al-otro-lado.css": "2",
     "v1-awards.css": "1",
     "v1-press.css": "1",
     "objeto-heredado.css": "1",
