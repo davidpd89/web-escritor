@@ -35,7 +35,7 @@ html.v1 .support-note{
   background:#eefaff;border-top:2px solid #b8860b;border-left:3px solid #1d4f96;
 }
 html.v1 .support-note__text{flex:1 1 22rem;margin:0;font:400 1rem/1.5 var(--font-reading);color:#2a2e31}
-html.v1 .support-note__kicker{display:block;margin-bottom:.1rem;font:400 1.3rem/1.15 'Yellowtail',var(--font-ui),cursive;color:#b8860b}
+html.v1 .support-note__kicker{display:block;margin-bottom:.1rem;font:400 1.3rem/1.15 'Yellowtail',var(--font-ui),cursive;color:#7a5a07}
 html.v1 .support-note__button{
   display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:2.75rem;padding:.6rem 1.3rem;
   background:#1d4f96;color:#fff;border-radius:999px;font:700 .95rem/1.2 var(--font-ui);text-decoration:none;white-space:nowrap;
