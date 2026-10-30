@@ -10,7 +10,7 @@ html.v1 .record-row--owners{grid-template-columns:1.1fr .7fr .7fr 1fr 1.4fr 1fr 
 html.v1 .record-row--evidence{grid-template-columns:.55fr .9fr 1.5fr 1.2fr .9fr 2.75rem}
 html.v1 .record-row--oral{grid-template-columns:1fr .9fr 2fr .9fr 1fr 2.75rem}
 html.v1 .record-row--timeline{grid-template-columns:.75fr .75fr 2fr 1fr 1fr 2.75rem}
-html.v1 .record-row input,html.v1 .record-row select,html.v1 .record-row textarea{width:100%;min-height:var(--control-min-height);border:1px solid var(--color-border);border-radius:var(--radius-input);background:var(--surface-page);color:var(--color-text);padding:.5rem .7rem;font:400 .9rem/1.4 var(--font-ui)}
+html.v1 .record-row input,html.v1 .record-row select,html.v1 .record-row textarea{width:100%;min-height:var(--control-min-height);border:1px solid var(--color-border);border-radius:var(--radius-input);background:var(--surface-page);color:var(--color-text);padding:.5rem .7rem;font:400 var(--input-font-size,max(16px,1rem))/1.4 var(--font-ui)}
 html.v1 .record-row textarea{resize:vertical;min-height:2.75rem}
 html.v1 .record-row input:focus-visible,html.v1 .record-row select:focus-visible,html.v1 .record-row textarea:focus-visible{outline:2px solid var(--focus-color);outline-offset:2px}
 html.v1 .record-remove{min-width:2.75rem;min-height:2.75rem;border:1px solid var(--color-border);background:none;color:var(--color-text);font-size:1.15rem;cursor:pointer}
