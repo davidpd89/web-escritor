@@ -169,6 +169,12 @@
     if (form) {
       root.querySelector('[data-catalogue-count]').textContent = visible + (visible === 1 ? ' libro' : ' libros') + (pages > 1 ? ' · página ' + currentPage + ' de ' + pages : ''); root.querySelector('[data-catalogue-empty]').hidden = visible !== 0;
       if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => !FACETS.includes(k) && value && !(k === 'orden' && value === 'editorial'))); for (const k of FACETS) for (const x of v[k]) hash.append(k, x); if (currentPage > 1) hash.set('pagina', String(currentPage)); history.replaceState(null, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
+      else {
+        // Restaurar o refrescar datos puede limitar la página (#pagina=99, vacía o no numérica):
+        // se corrige solo esa clave, sin entrada nueva en el historial ni hashchange.
+        const hash = new URLSearchParams(location.hash.slice(1)), page = currentPage > 1 ? String(currentPage) : null;
+        if (hash.get('pagina') !== page && (hash.has('pagina') || page)) { if (page) hash.set('pagina', page); else hash.delete('pagina'); history.replaceState(history.state, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
+      }
     }
   }
   function restore() {
