@@ -1,9 +1,9 @@
 # Release Readiness Evidence (Static Preflight Gate)
 
-- Generated: `2026-09-30T16:09:57.115497+00:00`
-- Branch: `fix/qa-traceability-keyboard-event-followup`
-- HEAD: `9f1f72eead6fb2239a4b0c122269458fb7762def`
-- Previous SHA (rollback candidate): `2b461024d407ed16fac023655f71872a56965f60`
+- Generated: `2026-10-30T14:37:01.727726+00:00`
+- Branch: `handoff/character-map-portable-svg-20261030`
+- HEAD: `6421ea85ba377e4abc31e293e49bf10f99b4337a`
+- Previous SHA (rollback candidate): `1058b0f8a9e6e6fb08035cc30b85ead14093be42`
 
 ## Status: `STATIC_CHECKS_PASSED`
 
@@ -17,26 +17,26 @@
 ## Commit Window (latest 20)
 
 ```text
-9f1f72ee fix(qa): close PR531 traceability and false-green coverage gaps
-2b461024 Merge pull request #531 from fix/qa-hardening-mutation-journeys-supplychain
-03acd591 docs: sync release-readiness report for merged main
-e8172f60 feat(qa): add supply-chain baseline, SEO collision checker, DOM integrity suite, search benchmark and core user journeys
-0add07af docs(sync): update editorial facts review dates, sync machine-readable files and rebuild feed.xml
-11a3b852 fix(analytics): unblock Clarity session capture with granted default and immediate implicit consent
-260f5f65 test(qa): add cross-device and SEO smoke tests, update radar dataset and harden CI parity
-4943b841 seo(structured-data): add missing BreadcrumbList JSON-LD to 27 published pages (#527)
-4dacaed8 fix(qa): extend asset-version checker to cover JS-side dynamic/static imports (#526)
-76317a8e perf(home): re-encode intro poster to WebP, real ~224ms LCP improvement (#525)
-881d1f40 fix(qa): make production-analytics-smoke actually assert (was log-only) (#524)
-ddcaf599 docs(qa): record 25x CI hunt evidence for the /autor.html @768 CLS flake (#523)
-7e824251 test(qa): add manual production analytics smoke (positive-case, on-demand) (#522)
-4d6a226a test(qa): add sitewide zero-console-errors crawl audit (#521)
-efbdb5ca fix(analytics): close production-hostname guard gaps (staging, legacy tags, Clarity fallback) (#520)
-7254d9f9 fix(analytics): also block Clarity/GoatCounter/Metricool on file:// opens (#518)
-4022692f perf(lcp): defer Clarity's injection off the LCP-critical main thread (#519)
-a17e8fd9 content(prensa): add Praza Pública opinion piece (#517)
-d0788680 fix(analytics): stop GoatCounter/Metricool/Clarity from firing on localhost (#516)
-ffa68c29 fix(seo): add ProfilePage dateCreated, drop invalid ItemList.dateModified (#515)
+6421ea85b ci(links): excluir el acortador amzn.to como amazon.*
+1058b0f8a docs: regenerar evidencia de preflight tras integrar main
+17fe6a005 Merge remote-tracking branch 'origin/main' into handoff/character-map-portable-svg-20261030
+f4a2ea43f [ENCARGO P2] Atlas: preservar foco al agotar Mostrar más (#999)
+e9dd7dd37 fix(personajes): el SVG exportado se ve igual fuera del sitio
+d30b1ef2a Merge remote-tracking branch 'origin/main' into handoff/character-map-portable-svg-20261030
+1e362e919 wip
+57328bb9b [ENCARGO P1] Personajes: un JSON ajeno no debe vaciar el mapa (#997)
+b57f3d29d merge main
+c369f933e [ENCARGO P2] Homogeneizar tipografía de campos móviles y verificar Safari (#995)
+7a92c9eed [ENCARGO P1] Pagefind: conservar el índice si falla su reconstrucción (#994)
+2dc6804ce [ENCARGO P2] Preflight: no certificar éxito en informes BLOCKED (#996)
+48199105f docs: encargar exportacion SVG autonoma de personajes
+85a335e83 fix: close audit gaps in QA, newsletter accessibility and public metrics (#993)
+c63bf1eed Rescatar correcciones QA pendientes: Noveris, publicar-web, contrato Atlas, Pagefind y kit de prensa (#991)
+8a2898bfe Accesibilidad: contraste, impresión de Al otro lado, error del popup, aviso de copia y enlaces de compra (#992)
+d0ef6ea78 Seguridad: CSP en el embed del asistente, en lecturas y completa en 8 herramientas (#990)
+51877af7d Quitar el symlink node_modules y refrescar el radar a 2026-10-30 (#989)
+20bdf5993 SEO: Article.image en cuatro artículos del Cuaderno y fediverse:creator en portada y novelas (#988)
+f123ab78f Portada: salto al contenido bajo la introducción, ahorro de datos y AVIF de Samuel (#987)
 ```
 
 ## Required Route Inventory
@@ -68,13 +68,28 @@ ffa68c29 fix(seo): add ProfilePage dateCreated, drop invalid ItemList.dateModifi
 | CI parity: hrefs | `python scripts/check-hrefs.py` | `PASS` |
 | CI parity: internal graph | `python scripts/check-internal-graph.py` | `PASS` |
 | CI parity: navigation coverage | `python scripts/check-navigation-coverage.py` | `PASS` |
+| CI parity: Atlas pages | `python scripts/build-atlas-pages.py --data data/atlas/catalogue.json --root . --check` | `PASS` |
+| CI parity: Atlas release contract | `python scripts/check_atlas_release_contract.py --root . --manifest data/atlas-routes-manifest.json` | `PASS` |
 | CI parity: heading structure | `python scripts/check-heading-structure.py` | `PASS` |
+| CI parity: public document/form contract | `python scripts/check-public-document-form-contract.py` | `PASS` |
 | CI parity: jsonld absolute URLs | `python scripts/check-jsonld-absolute-urls.py` | `PASS` |
 | CI parity: canonical entity IDs | `python scripts/check-canonical-entity-ids.py` | `PASS` |
+| CI parity: Wikidata sameAs known-good | `python scripts/check-wikidata-sameas.py` | `PASS` |
 | CI parity: editorial facts | `python scripts/check-editorial-facts.py` | `PASS` |
+| CI parity: recommendations evidence | `python scripts/check-recommendations-evidence.py --check` | `PASS` |
+| CI parity: Noveris editorial quarantine | `python scripts/check-noveris-magic-quarantine.py --check` | `PASS` |
+| CI parity: public time semantics | `python scripts/check-public-time-semantics.py` | `PASS` |
+| CI parity: article date and review lifecycle | `python scripts/check-article-dates.py --check` | `PASS` |
+| CI parity: global discoverability | `python scripts/check-global-discoverability.py` | `PASS` |
+| CI parity: AVIF/WebP format ladder | `python scripts/check-image-format-ladder.py --check` | `PASS` |
+| CI parity: professional writer resources | `python scripts/check-professional-resources.py` | `PASS` |
 | CI parity: AI discoverability | `python scripts/check-ai-discoverability.py` | `PASS` |
 | CI parity: social cards strict | `python scripts/check-social-cards.py --strict` | `PASS` |
 | CI parity: copy tildes | `python scripts/check-copy-tildes.py` | `PASS` |
+| CI parity: head icon normalization | `python scripts/check-head-icons.py --check` | `PASS` |
+| CI parity: head icon normalizer regression | `python tests/test-head-icon-normalizer.py` | `PASS` |
+| CI parity: interaction a11y anti-patterns | `python scripts/check-interaction-a11y-contracts.py` | `PASS` |
+| CI parity: radar clock projection | `python scripts/check-radar-clock-current.py` | `PASS` |
 | Authority: machine-readable contract | `python tests/test-machine-authority.py` | `PASS` |
 | Builder parity: editoriales | `python tests/test-editoriales-builder-parity-v1.py` | `PASS` |
 | Builder parity: convocatorias | `python tests/test-radar-builder-parity-v1.py` | `PASS` |
@@ -97,7 +112,7 @@ ffa68c29 fix(seo): add ProfilePage dateCreated, drop invalid ItemList.dateModifi
 ### CI parity: content indexes — PASS
 
 ```text
-Local asset check: 100 HTML files scanned; 0 broken local reference(s) (including 0 JS reference target(s) and 0 CSS url() target(s)).
+Local asset check: 470 HTML files scanned; 0 broken local reference(s) (including 0 JS reference target(s) and 0 CSS url() target(s)).
 ```
 
 ### CI parity: hrefs — PASS
@@ -110,11 +125,11 @@ HREF-OK
 
 ```text
 INTERNAL GRAPH REPORT
-Files scanned: 96
-Indexable pages: 62
+Files scanned: 466
+Indexable pages: 432
 
 INFO (1):
-  [noindex-skipped] 34 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, asistente\embed.html, asistente\index.html, donde-empieza-la-jaula\index.html, gracias-suscripcion\index.html, lecturas\index.html �
+  [noindex-skipped] 34 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, asistente\embed.html, asistente\index.html, cuaderno\sistema-de-magia-noveris\index.html, donde-empieza-la-jaula\index.html, gracias-suscripcion\index.html …
 
 Summary: 0 error(s), 0 warning(s)
 ```
@@ -122,48 +137,125 @@ Summary: 0 error(s), 0 warning(s)
 ### CI parity: navigation coverage — PASS
 
 ```text
-PASS: navigation coverage (69 registry routes, 62 sitemap routes, 22 interactive tools)
+PASS: navigation coverage (441 registry routes, 432 sitemap routes, 22 interactive tools)
+```
+
+### CI parity: Atlas pages — PASS
+
+```text
+PASS: 42 entradas en el catálogo, 18 fichas y hub, salida al día
+```
+
+### CI parity: Atlas release contract — PASS
+
+```text
+atlas-release-contract: 0 error(es)
 ```
 
 ### CI parity: heading structure — PASS
 
 ```text
-Heading/skip-link structure: 80 ficheros HTML revisados; 0 problema(s).
+Heading/skip-link structure: 450 ficheros HTML revisados; 0 problema(s).
+```
+
+### CI parity: public document/form contract — PASS
+
+```text
+PASS public document/form contract: 436 public HTML files
 ```
 
 ### CI parity: jsonld absolute URLs — PASS
 
 ```text
-OK � 72 page(s) with JSON-LD checked, all url/@id/isPartOf/about/mainEntity/isBasedOn references are absolute.
+OK — 444 page(s) with JSON-LD checked, all url/@id/isPartOf/about/mainEntity/isBasedOn references are absolute.
 ```
 
 ### CI parity: canonical entity IDs — PASS
 
 ```text
-CANONICAL ENTITY IDs: OK (4 entidades con @id, todas consistentes)
+CANONICAL ENTITY IDs: OK (204 entidades con @id, todas consistentes)
+```
+
+### CI parity: Wikidata sameAs known-good — PASS
+
+```text
+Found 6 distinct Wikidata QID(s) referenced in tracked HTML.
+
+  Q119429258: OK (portal fantasy — fantasy fiction involving travel between universes) — index.html:190
+  Q139678851: OK (David Porto Díaz — the author's own Wikidata item) — ai\index.html:138, autor.html:123, autor.html:507, index.html:203
+  Q139915381: OK (Samuel entre mundos — the novel's work item; verified and corrected 2026-09-07 (publication year, stray genre and misattached award fixed)) — libros\samuel-entre-mundos\index.html:126
+  Q139927664: OK (Noveris — fictional city in Samuel entre mundos (ES label only)) — ai\index.html:249, universo\noveris\index.html:97
+  Q1822655: OK (worldbuilding — practice of constructing an imaginary world) — autor.html:117, index.html:192
+  Q9326077: OK (speculative fiction — umbrella genre) — autor.html:116, index.html:191
+
+OK — every referenced QID is in the verified table, none are k
+... [truncated]
 ```
 
 ### CI parity: editorial facts — PASS
 
 ```text
-EDITORIAL FACT CHECK � mode=launch � date=2026-09-30 � publication=2026-09-03
+EDITORIAL FACT CHECK · mode=launch · date=2026-10-30 · publication=2026-09-03
 EDITORIAL FACT CHECK: OK
+```
+
+### CI parity: recommendations evidence — PASS
+
+```text
+Recommendations evidence check: 2 guia(s) revisada(s), 0 incumplimiento(s).
+```
+
+### CI parity: Noveris editorial quarantine — PASS
+
+```text
+Noveris magic quarantine check: 0 incumplimiento(s).
+```
+
+### CI parity: public time semantics — PASS
+
+```text
+PUBLIC TIME SEMANTICS: PASS (436 files, 672 <time> values, 460 JSON-LD blocks)
+```
+
+### CI parity: article date and review lifecycle — PASS
+
+```text
+PASS: article date/review lifecycle (6 Cuaderno articles, 0 scheduled reviews, 0 overdue, as-of 2026-10-30)
+```
+
+### CI parity: global discoverability — PASS
+
+```text
+PASS: global discoverability (477 tracked HTML artifacts; 432 indexable; search=IMPLEMENTADO; map=436 human destinations)
+Inventory: artifacts\global-discoverability\inventory.json
+```
+
+### CI parity: AVIF/WebP format ladder — PASS
+
+```text
+Image format ladder check: 7 fuente(s) elegibles, 0 incumplimiento(s).
+```
+
+### CI parity: professional writer resources — PASS
+
+```text
+OK professional resources: data, detail coverage, generated outputs, real-clock freshness and ICS parity
 ```
 
 ### CI parity: AI discoverability — PASS
 
 ```text
 [OK] Canonical sitemap declared: https://davidportodiaz.com/sitemap.xml
-[OK] OAI-SearchBot can crawl all key paths � ChatGPT Search indexing/search visibility
-[OK] ChatGPT-User can crawl all key paths � ChatGPT user-directed fetches
-[OK] Claude-SearchBot can crawl all key paths � Claude search visibility
-[OK] Claude-User can crawl all key paths � Claude user-directed fetches
-[OK] PerplexityBot can crawl all key paths � Perplexity search visibility
-[OK] Googlebot can crawl all key paths � Google Search / AI features use Google Search index
-[OK] bingbot can crawl all key paths � Bing/Copilot search index
-[INFO] Training-policy bot GPTBot: allowed � OpenAI model-development crawling
-[INFO] Training-policy bot ClaudeBot: allowed � Anthropic model-development crawling
-[INFO] Training-policy bot Google-Extended: allowed � Google generative-AI training/grounding control, separate from Googlebot
+[OK] OAI-SearchBot can crawl all key paths — ChatGPT Search indexing/search visibility
+[OK] ChatGPT-User can crawl all key paths — ChatGPT user-directed fetches
+[OK] Claude-SearchBot can crawl all key paths — Claude search visibility
+[OK] Claude-User can crawl all key paths — Claude user-directed fetches
+[OK] PerplexityBot can crawl all key paths — Perplexity search visibility
+[OK] Googlebot can crawl all key paths — Google Search / AI features use Google Search index
+[OK] bingbot can crawl all key paths — Bing/Copilot search index
+[INFO] Training-policy bot GPTBot: allowed — OpenAI model-development crawling
+[INFO] Training-policy bot ClaudeBot: allowed — Anthropic model-development crawling
+[INFO] Training-policy bot Google-Extended: allowed — Google generative-AI training/grounding control, separate from Googlebot
 ... [truncated]
 ```
 
@@ -171,19 +263,43 @@ EDITORIAL FACT CHECK: OK
 
 ```text
 NOTICE  shared article card used by 7 pages: https://davidportodiaz.com/assets/og-worldbuilding-noveris-ciudad-fantastica.jpg :: cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html, cuaderno/libros-fantasia-juvenil-espanola-2025-2026/index.html, cuaderno/portal-fantasy-vs-fantasia-epica/index.html, cuaderno/que-es-el-portal-fantasy/index.html, cuaderno/worldbuilding-noveris-ciudad-magica/index.html, recomendaciones/magia-con-coste/index.html, recomendaciones/portal-fantasy-espanol/index.html
-Social cards: 62 indexable HTML pages; 0 error(s), 0 warning(s), 1 notice(s).
+Social cards: 432 indexable HTML pages; 0 error(s), 0 warning(s), 1 notice(s).
 ```
 
 ### CI parity: copy tildes — PASS
 
 ```text
-COPY TILDES: OK (183 ficheros HTML/JS revisados)
+COPY TILDES: OK (557 ficheros HTML/JS revisados)
+```
+
+### CI parity: head icon normalization — PASS
+
+```text
+HEAD ICON CONTRACT: OK — verified; changed=0
+```
+
+### CI parity: head icon normalizer regression — PASS
+
+```text
+PASS head icon normalizer: browser ICO migrated, Apple touch brand preserved, self excluded
+```
+
+### CI parity: interaction a11y anti-patterns — PASS
+
+```text
+INTERACTION/A11Y CONTRACTS: PASS (449 tracked public HTML files)
+```
+
+### CI parity: radar clock projection — PASS
+
+```text
+RADAR CLOCK: CURRENT for 2026-10-30 (active=67 watch=13; generated_for=2026-10-30)
 ```
 
 ### Authority: machine-readable contract — PASS
 
 ```text
-PASS � machine authority contract (742 checks).
+PASS — machine authority contract (808 checks).
 ```
 
 ### Builder parity: editoriales — PASS
@@ -197,16 +313,21 @@ tests/test-editoriales-builder-parity-v1
   ok   editoriales/minotauro/index.html está sincronizado con el builder
   ok   editoriales/nocturna-ediciones/index.html está sincronizado con el builder
   ok   editoriales/duermevela-ediciones/index.html está sincronizado con el builder
-  ok   el índice generado mantiene shell V1
-  ok   el índice generado carga CSS V1
-  ok   el índice generado no vuelve al CSS legacy
-tests/test-editoriales-builder-parity-v1: OK
+  ok   editoriales/umbriel/index.html está sincronizado con el builder
+  ok   editoriales/editorial-hidra/index.html está sincronizado con el builder
+  ok   editoriales/nova/index.html está sincronizado con el builder
+  ok   editoriales/runas/index.html está sincronizado con el builder
+  ok   editoriales/gamon-fantasy/index.html está sincroniza
+... [truncated]
 ```
 
 ### Builder parity: convocatorias — PASS
 
 ```text
 tests/test-radar-builder-parity-v1
+  ok   campos privados extra en radar se rechazan
+  ok   campos privados extra en watchlist se rechazan
+  ok   ids duplicados entre radar y watchlist se rechazan
   ok   convocatorias-escritores/index.html está sincronizado
   ok   convocatorias-escritores/opportunities.json está sincronizado
   ok   convocatorias-escritores/deadlines.ics está sincronizado
@@ -230,8 +351,8 @@ Worker misconfigured: BREVO_DOI_TEMPLATE_ID must be a positive integer
 Worker misconfigured: BREVO_DOI_REDIRECT_URL must be a valid HTTPS URL
 Worker misconfigured: BREVO_LIST_ID must be a positive integer
 Worker misconfigured: BREVO_API_KEY missing
-Brevo DOI error 400: {"message":"Contact already exists","email":"qa-newsletter@example.test"}
-Brevo DOI error 500: secret upstream detail
+Brevo DOI error 400
+Brevo DOI error 500
 ```
 
 ### Newsletter: staging gate — PASS
@@ -258,21 +379,24 @@ test-manecillas-sample-build: OK
 ok mutation: stale published dataset -> FAIL
 ok mutation control: stale hidden item -> PASS
 ok current: freshly verified dataset -> PASS
+ok mutation: future verified_at is never treated as current
+ok mutation: future watchlist verification stays hidden
+ok mutation: cross-list duplicate id -> FAIL
 test-radar-freshness-real-clock: OK
 ```
 
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:15584) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
-Reparsing as ES module)
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:27816) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-map-svg/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module b)
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
   ok   DTSTART is 17:00 UTC per icalendar (got 2026-09-03 17:00:00+00:00)
   ok   folded DESCRIPTION unfolds correctly
   ok   event tool's JSON-LD re-parses with json.loads and keeps @type Event
   ok   JSON-LD nested address survives re-parse
-  ok   icalendar parses 2 VEVENT(s) from the radar builder's ICS
+  ok   icalendar parses 0 VEVENT(s) from the radar builder's ICS
   ok   the committed deadlines.ics parses with icalendar
 tests/test-ics-roundtrip-independent-parser: OK
 ```
@@ -280,10 +404,8 @@ tests/test-ics-roundtrip-independent-parser: OK
 ### Smoke: SEO & discoverability sitewide — PASS
 
 ```text
-BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1363 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
-OK: C:\GIT\web-escritor\.preview-dist-sitewide-qa satisfies the allowlist-first public-artifact contract (428 files).
-Auditing SEO & Schema on 73 published HTML pages...
-SEO & Schema Smoke: 890/890 assertions passed.
+Auditing SEO & Schema on 443 published HTML pages...
+SEO & Schema Smoke: 5704/5704 assertions passed.
 ALL SEO & DISCOVERABILITY CHECKS PASSED 100%!
 ```
 
@@ -330,14 +452,14 @@ test-dom-integrity: OK
 
 ```text
 ok   1. Production supply-chain has 0 vulnerabilities (npm audit --omit=dev)
-  ok   2. All 18 dev supply-chain advisories match live npm audit exactly
+  ok   2. All 6 dev supply-chain advisories match live npm audit exactly
 test-npm-supply-chain-baseline: OK
 ```
 
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `2b461024d407ed16fac023655f71872a56965f60`.
+2. Checkout rollback target SHA: `1058b0f8a9e6e6fb08035cc30b85ead14093be42`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
