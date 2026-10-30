@@ -29,6 +29,7 @@ on:
       - 'qa/production-nojs-history.mjs'
       - 'qa/production-asset-parity.mjs'
       - 'qa/production-pagefind-search.mjs'
+      - 'qa/test-production-pagefind-retry.mjs'
       - 'qa/production-pagefind-coverage.mjs'
       - 'qa/production-format-contract.mjs'
       - 'qa/production-http-semantics.mjs'
@@ -75,6 +76,7 @@ on:
       - 'qa/production-nojs-history.mjs'
       - 'qa/production-asset-parity.mjs'
       - 'qa/production-pagefind-search.mjs'
+      - 'qa/test-production-pagefind-retry.mjs'
       - 'qa/production-pagefind-coverage.mjs'
       - 'qa/production-format-contract.mjs'
       - 'qa/production-http-semantics.mjs'
@@ -165,6 +167,7 @@ jobs:
           node --check qa/production-url-alias-canonical.mjs
           node --check qa/production-asset-parity.mjs
           node --check qa/production-pagefind-search.mjs
+          node --check qa/test-production-pagefind-retry.mjs
           node --check qa/production-pagefind-coverage.mjs
           node --check qa/production-format-contract.mjs
           node --check qa/production-http-semantics.mjs
@@ -278,6 +281,10 @@ jobs:
 
       - name: Test keyboard focus observation regressions
         run: node qa/keyboard-focus-state.test.mjs
+
+      - name: Regression - Pagefind audit recovers from a rotated index
+        if: github.event_name == 'pull_request'
+        run: node qa/test-production-pagefind-retry.mjs
 
       - name: Audit focus trapping and restoration
         run: node qa/production-focus-restoration.mjs

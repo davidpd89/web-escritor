@@ -19,6 +19,10 @@ on:
       - 'qa/errores-progresivo-browser-fixture.mjs'
       - 'qa/microstory-offline-harness.mjs'
       - 'qa/microstory-print-contract.mjs'
+      - 'qa/tool-print-contract.mjs'
+      - 'clubes-de-lectura/preparar-sesion/index.html'
+      - 'recursos/ficha-historia-objeto-heredado/index.html'
+      - 'assets/club-session-builder.css'
       - 'qa/newsletter-popup-invalid-email-browser.mjs'
       - 'qa/mobile-form-typography-browser.mjs'
       - '.github/workflows/a11y-regressions-browser-qa.yml'
@@ -69,6 +73,10 @@ jobs:
           QA_ORIGIN: http://127.0.0.1:4173
       - name: Impresión de «Al otro lado» sin la sección secundaria
         run: node qa/microstory-print-contract.mjs
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+      - name: Impresión del club y de la ficha del objeto heredado (resultado sin formulario ni botones)
+        run: node qa/tool-print-contract.mjs
         env:
           QA_ORIGIN: http://127.0.0.1:4173
       - name: Error de email del popup asociado al campo

@@ -30,11 +30,20 @@ function isHttpsUrl(value) {
   try {
     const url = new URL(v);
     if (url.protocol !== 'https:' || !url.hostname) return false;
+    if (hasUserinfo(v)) return false;
     return !/%[0-9a-f]{2}/i.test(url.hostname);
   } catch {
     return false;
   }
 }
+
+// Una URL pública no puede llevar usuario ni contraseña: se rechaza con un aviso
+// propio y sin repetir la URL, para no mostrar la credencial.
+export function hasUserinfo(value) {
+  // El href normalizado lleva "@" en la autoridad sólo si hay usuario o contraseña.
+  try { return /^[a-z][a-z0-9+.-]*:\/\/[^/?#]*@/i.test(new URL(clean(value)).href); } catch { return false; }
+}
+const USERINFO_MSG = label => `${label} no puede incluir usuario ni contraseña.`;
 
 function isIsoDate(value) {
   const v = clean(value);
@@ -62,7 +71,9 @@ export function safeJsonLd(data) {
 
 export function buildJsonLd(mode, data = {}) {
   if (!MODES[mode]) throw new Error('Modo no soportado');
-  const d = Object.fromEntries(Object.entries(data).map(([k,v]) => [k, typeof v === 'string' ? clean(v) : v]));
+  // validateInput ya avisa; la vista previa tampoco copia la credencial.
+  const d = Object.fromEntries(Object.entries(data).map(([k,v]) => [k, typeof v === 'string' ? (hasUserinfo(v) ? '' : clean(v)) : v]));
+  if (d.sameAs) d.sameAs = sameAs(d.sameAs).filter(url => !hasUserinfo(url)).join('\n');
 
   if (mode === 'profile') {
     const personId = d.personId || (d.url ? `${d.url.replace(/\/$/, '')}/#person` : '');
@@ -121,13 +132,17 @@ export function validateInput(mode, data = {}) {
   const https = (key, label, required=false) => {
     const v = clean(data[key]);
     if (required && !v) errors.push(`Falta ${label}.`);
+    else if (v && hasUserinfo(v)) errors.push(USERINFO_MSG(label.charAt(0).toUpperCase() + label.slice(1)));
     else if (v && !isHttpsUrl(v)) errors.push(`${label} debe ser una URL HTTPS válida.`);
   };
 
   if (mode === 'profile') {
     req('name','el nombre del autor'); https('url','la URL canónica del perfil',true); https('image','la imagen');
     if (!clean(data.description)) warnings.push('Añade una descripción solo si esa información también es visible en la página.');
-    for (const url of sameAs(data.sameAs)) if (!isHttpsUrl(url)) errors.push(`sameAs no es una URL HTTPS válida: ${url}`);
+    for (const url of sameAs(data.sameAs)) {
+      if (hasUserinfo(url)) errors.push(USERINFO_MSG('Una URL de sameAs'));
+      else if (!isHttpsUrl(url)) errors.push(`sameAs no es una URL HTTPS válida: ${url}`);
+    }
     info.push('Google documenta ProfilePage; el Person va como mainEntity del perfil.');
   } else if (mode === 'book') {
     req('name','el título'); https('url','la URL canónica del libro',true); req('authorName','el autor');

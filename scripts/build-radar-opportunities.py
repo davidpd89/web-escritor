@@ -327,7 +327,7 @@ def render_page_body(items, today, watchlist=None):
   <link rel="stylesheet" href="/assets/v1-shell.css?v=8" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
-  <link rel="stylesheet" href="/assets/v1-tools.css?v=6" />
+  <link rel="stylesheet" href="/assets/v1-tools.css?v=7" />
   <link rel="stylesheet" href="/assets/radar-convocatorias.css?v=7">
   <script type="application/ld+json">{schema}</script>
 </head>
