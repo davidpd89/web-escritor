@@ -620,6 +620,24 @@
       "orden": 218,
       "slug": "tema-ciencia",
       "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Tiempo libre (juvenil).",
+      "id": "tema-tiempo-libre-juvenil",
+      "nombre": "Tiempo libre (juvenil)",
+      "orden": 219,
+      "slug": "tema-tiempo-libre-juvenil",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Narrativa.",
+      "id": "tema-narrativa",
+      "nombre": "Narrativa",
+      "orden": 220,
+      "slug": "tema-narrativa",
+      "tipo": "tematica"
     }
   ],
   "libro_categorias": [
@@ -646,22 +664,6 @@
     {
       "categoria_id": "misterio",
       "libro_id": "lib-0001"
-    },
-    {
-      "categoria_id": "fantasia",
-      "libro_id": "isbn-9788425375118"
-    },
-    {
-      "categoria_id": "adultos",
-      "libro_id": "isbn-9788425375118"
-    },
-    {
-      "categoria_id": "novela-historica",
-      "libro_id": "isbn-9791387640439"
-    },
-    {
-      "categoria_id": "adultos",
-      "libro_id": "isbn-9791387640439"
     },
     {
       "categoria_id": "misterio-y-thriller",
@@ -882,18 +884,6 @@
     {
       "categoria_id": "aventuras",
       "libro_id": "lib-0001"
-    },
-    {
-      "categoria_id": "romance",
-      "libro_id": "isbn-9788425375118"
-    },
-    {
-      "categoria_id": "tema-amor-y-pareja",
-      "libro_id": "isbn-9788425375118"
-    },
-    {
-      "categoria_id": "tema-supervivencia",
-      "libro_id": "isbn-9791387640439"
     },
     {
       "categoria_id": "narrativa",
@@ -1710,6 +1700,106 @@
     {
       "categoria_id": "juvenil",
       "libro_id": "isbn-9791387962005"
+    },
+    {
+      "categoria_id": "novela-historica",
+      "libro_id": "isbn-9791387640439"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387640439"
+    },
+    {
+      "categoria_id": "tema-supervivencia",
+      "libro_id": "isbn-9791387640439"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "romance",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "tema-tiempo-libre-juvenil",
+      "libro_id": "isbn-9791387949884"
+    },
+    {
+      "categoria_id": "tema-poder-y-politica",
+      "libro_id": "isbn-9791387949884"
+    },
+    {
+      "categoria_id": "tema-mujeres",
+      "libro_id": "isbn-9791387949884"
+    },
+    {
+      "categoria_id": "juvenil",
+      "libro_id": "isbn-9791387949884"
+    },
+    {
+      "categoria_id": "tema-narrativa",
+      "libro_id": "isbn-9791388306389"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-9-anos",
+      "libro_id": "isbn-9791387994563"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791387994563"
+    },
+    {
+      "categoria_id": "humor",
+      "libro_id": "isbn-9791387994563"
+    },
+    {
+      "categoria_id": "tema-amistad",
+      "libro_id": "isbn-9791387994563"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9791387994563"
+    },
+    {
+      "categoria_id": "ensayo",
+      "libro_id": "isbn-9788433951168"
+    },
+    {
+      "categoria_id": "tema-infantil",
+      "libro_id": "isbn-9791387901943"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9791387901943"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9791387901943"
+    },
+    {
+      "categoria_id": "poesia",
+      "libro_id": "isbn-9791388306297"
+    },
+    {
+      "categoria_id": "tema-narrativa",
+      "libro_id": "isbn-9788433951229"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788401039928"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788401039928"
     }
   ],
   "libros": [
@@ -1901,9 +1991,9 @@
       "editorial": "Grijalbo",
       "editorial_slug": "grijalbo",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-21",
+      "fecha_actualizacion": "2026-10-30",
       "fecha_publicacion": "2026-10-15",
-      "fecha_verificacion": "2026-10-20",
+      "fecha_verificacion": "2026-10-30",
       "formato_edicion": "tapa-dura",
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-fantasia/626978-libro-la-hija-del-veneno-9788425375118",
       "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-fantasia/626978-libro-la-hija-del-veneno-9788425375118",
@@ -1915,11 +2005,11 @@
       "portada_alto": 1235,
       "portada_ancho": 800,
       "portada_edicion_verificada": true,
-      "portada_fecha_revision": "2026-10-20",
+      "portada_fecha_revision": "2026-10-30",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8050616-thickbox_default/la-hija-del-veneno.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425375118.webp",
       "pvp_centimos": 2490,
-      "pvp_fecha_verificacion": "2026-10-21",
+      "pvp_fecha_verificacion": "2026-10-30",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1947,9 +2037,9 @@
       "editorial": "Salamandra",
       "editorial_slug": "salamandra",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-21",
+      "fecha_actualizacion": "2026-10-30",
       "fecha_publicacion": "2026-10-15",
-      "fecha_verificacion": "2026-10-20",
+      "fecha_verificacion": "2026-10-30",
       "formato_edicion": "tapa-blanda",
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-historica/635110-libro-plaza-brugmann-33-9791387640439",
       "fuente_edad_url": "https://www.penguinlibros.com/es/novela-historica/635110-libro-plaza-brugmann-33-9791387640439",
@@ -1961,11 +2051,11 @@
       "portada_alto": 1235,
       "portada_ancho": 800,
       "portada_edicion_verificada": true,
-      "portada_fecha_revision": "2026-10-20",
+      "portada_fecha_revision": "2026-10-30",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7987990-thickbox_default/plaza-brugmann-33.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387640439.webp",
       "pvp_centimos": 2300,
-      "pvp_fecha_verificacion": "2026-10-21",
+      "pvp_fecha_verificacion": "2026-10-30",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -5762,6 +5852,365 @@
       "sinopsis_tipo": "extracto_editorial",
       "slug": "as-the-gods-will-la-secuela-10-shonen-9791387962005",
       "titulo": "As the Gods Will: La secuela 10 (Shônen)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387949884&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Miriam Jiménez Lastra"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "No eres tú, es el sistema, de Miriam Jiménez Lastra. Edición de Alfaguara en castellano, en tapa blanda con solapas. Consta de 192 páginas. La editorial la incluye en tiempo libre (juvenil). Publicación editorial: 2026-10-22.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Juvenil",
+      "edicion": "Tapa blanda con solapas · Alfaguara",
+      "editorial": "Alfaguara",
+      "editorial_slug": "alfaguara",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-30",
+      "fecha_publicacion": "2026-10-22",
+      "fecha_verificacion": "2026-10-30",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/tiempo-libre-juvenil/634619-libro-no-eres-tu-es-el-sistema-9791387949884",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/tiempo-libre-juvenil/634619-libro-no-eres-tu-es-el-sistema-9791387949884",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/tiempo-libre-juvenil/634619-libro-no-eres-tu-es-el-sistema-9791387949884",
+      "id": "isbn-9791387949884",
+      "idioma": "es",
+      "isbn13": "9791387949884",
+      "numero_paginas": 192,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-30",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8168327-thickbox_default/no-eres-tu-es-el-sistema.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387949884.webp",
+      "pvp_centimos": 1895,
+      "pvp_fecha_verificacion": "2026-10-30",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-30",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387949884"
+        }
+      ],
+      "sinopsis_breve": "A través de una combinación de ensayo y narrativa, con un tono directo, desenfadado y cercano, este libro realiza un recorrido divulgativo donde podrás…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/tiempo-libre-juvenil/634619-libro-no-eres-tu-es-el-sistema-9791387949884",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "no-eres-tu-es-el-sistema-9791387949884",
+      "titulo": "No eres tú, es el sistema"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388306389&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Selma Lagerlöf"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "El cochero, de Selma Lagerlöf. Edición de Nórdica Libros en castellano, en tapa blanda. Consta de 200 páginas. La editorial la incluye en narrativa. Publicación editorial: 2026-10-05.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Nórdica Libros",
+      "editorial": "Nórdica Libros",
+      "editorial_slug": "nordica-libros",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-30",
+      "fecha_publicacion": "2026-10-05",
+      "fecha_verificacion": "2026-10-30",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://nordicalibros.com/product/el-cochero/",
+      "fuente_publicacion_url": "https://nordicalibros.com/product/el-cochero/",
+      "id": "isbn-9791388306389",
+      "idioma": "es",
+      "isbn13": "9791388306389",
+      "numero_paginas": 200,
+      "portada_alto": 855,
+      "portada_ancho": 596,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-30",
+      "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/09/cochero_SOLOWEB.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388306389.webp",
+      "pvp_centimos": 1099,
+      "pvp_fecha_verificacion": "2026-10-30",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-30",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388306389"
+        }
+      ],
+      "sinopsis_breve": "Una de las grandes novelas de Selma Lagerlöf, Premio Nobel de Literatura En El cochero, Selma Lagerlöf teje una profunda narrativa que explora la…",
+      "sinopsis_fuente_url": "https://nordicalibros.com/product/el-cochero/",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "el-cochero-9791388306389",
+      "titulo": "El cochero"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387994563&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Pablo Lolaso"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Enzo Brown: loco por el basket 5 - La cancha es de todos, de Pablo Lolaso. Edición de Ediciones B en castellano, en tapa dura. Consta de 192 páginas. La editorial la incluye en a partir de 9 años. Publicación editorial: 2026-10-29.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 9 años",
+      "edicion": "Tapa dura · Ediciones B",
+      "editorial": "Ediciones B",
+      "editorial_slug": "ediciones-b",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-30",
+      "fecha_publicacion": "2026-10-29",
+      "fecha_verificacion": "2026-10-30",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634671-libro-enzo-brown-loco-por-el-basket-5-la-cancha-es-de-todos-9791387994563",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634671-libro-enzo-brown-loco-por-el-basket-5-la-cancha-es-de-todos-9791387994563",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634671-libro-enzo-brown-loco-por-el-basket-5-la-cancha-es-de-todos-9791387994563",
+      "id": "isbn-9791387994563",
+      "idioma": "es",
+      "isbn13": "9791387994563",
+      "numero_paginas": 192,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-30",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8278668-thickbox_default/enzo-brown-loco-por-el-basket-5-la-cancha-es-de-todos.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387994563.webp",
+      "pvp_centimos": 1595,
+      "pvp_fecha_verificacion": "2026-10-30",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-30",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387994563"
+        }
+      ],
+      "sinopsis_breve": "*Una colección para niños y niñas a partir de 9 años , ideal para dar el salto final entre la literatura infantil y la…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634671-libro-enzo-brown-loco-por-el-basket-5-la-cancha-es-de-todos-9791387994563",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "enzo-brown-loco-por-el-basket-5-la-cancha-es-de-todos-9791387994563",
+      "titulo": "Enzo Brown: loco por el basket 5 - La cancha es de todos"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951168&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Truman Capote",
+        "Fede Yankelevich"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Tres cuentos, de Truman Capote, Fede Yankelevich. Edición de Editorial Anagrama en castellano, en tapa blanda. Consta de 112 páginas. La editorial la incluye en ensayo. Publicación editorial: 2026-11-04.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Editorial Anagrama",
+      "editorial": "Editorial Anagrama",
+      "editorial_slug": "editorial-anagrama",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-30",
+      "fecha_publicacion": "2026-11-04",
+      "fecha_verificacion": "2026-10-30",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/intervenciones/tres-cuentos/9788433951168/IN_5",
+      "fuente_publicacion_url": "https://www.anagrama-ed.es/libro/intervenciones/tres-cuentos/9788433951168/IN_5",
+      "id": "isbn-9788433951168",
+      "idioma": "es",
+      "isbn13": "9788433951168",
+      "numero_paginas": 112,
+      "portada_alto": 1018,
+      "portada_ancho": 720,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-30",
+      "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34573_portadas_big.jpeg",
+      "portada_local": "/assets/reading-covers/isbn-9788433951168.webp",
+      "pvp_centimos": 2490,
+      "pvp_fecha_verificacion": "2026-10-30",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-30",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788433951168"
+        }
+      ],
+      "sinopsis_breve": "Un recuerdo navideño, Una Navidad y El invitado del día de Acción de Gracias son tres memorables incursiones en el territorio de la memoria…",
+      "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/intervenciones/tres-cuentos/9788433951168/IN_5",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "tres-cuentos-9788433951168",
+      "titulo": "Tres cuentos"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387901943&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Disney"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Agente Stitch 5. Los roedores de Roswell, de Disney. Edición de Libros Disney en castellano, en rústica sin solapas. Consta de 224 páginas. La editorial la incluye en infantil. Publicación editorial: 2026-10-21.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica sin solapas · Libros Disney",
+      "editorial": "Libros Disney",
+      "editorial_catalogo_slug": "libros-disney",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-30",
+      "fecha_publicacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-30",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-agente-stitch-5-los-roedores-de-roswell/456569",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-agente-stitch-5-los-roedores-de-roswell/456569",
+      "id": "isbn-9791387901943",
+      "idioma": "es",
+      "isbn13": "9791387901943",
+      "numero_paginas": 224,
+      "portada_alto": 504,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-30",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/b8f04ea0-900a-463b-a0ac-7a0e5794ecde/d_360_620/portada_agente-stitch-5-los-roedores-de-roswell__202606120937.webp",
+      "portada_local": "/assets/reading-covers/isbn-9791387901943.webp",
+      "pvp_centimos": 1395,
+      "pvp_fecha_verificacion": "2026-10-30",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-30",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387901943"
+        }
+      ],
+      "sinopsis_breve": "El agente intergaláctico Stitch y sus amigos ya han protegido la Tierra de los alienígenas gracias al trabajo en equipo y a sus artilugios…",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-agente-stitch-5-los-roedores-de-roswell/456569",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "agente-stitch-5-los-roedores-de-roswell-9791387901943",
+      "titulo": "Agente Stitch 5. Los roedores de Roswell"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388306297&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Ursula K. Le Guin"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "El libro de los gatos, de Ursula K. Le Guin. Edición de Nórdica Libros en castellano, en tapa dura. Consta de 108 páginas. La editorial la incluye en poesía. Publicación editorial: 2026-10-26.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa dura · Nórdica Libros",
+      "editorial": "Nórdica Libros",
+      "editorial_slug": "nordica-libros",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-30",
+      "fecha_publicacion": "2026-10-26",
+      "fecha_verificacion": "2026-10-30",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://nordicalibros.com/product/el-libro-de-los-gatos/",
+      "fuente_publicacion_url": "https://nordicalibros.com/product/el-libro-de-los-gatos/",
+      "id": "isbn-9791388306297",
+      "idioma": "es",
+      "isbn13": "9791388306297",
+      "numero_paginas": 108,
+      "portada_alto": 855,
+      "portada_ancho": 613,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-30",
+      "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/10/Gatos_SOLOWEB.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388306297.webp",
+      "pvp_centimos": 1199,
+      "pvp_fecha_verificacion": "2026-10-30",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-30",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388306297"
+        }
+      ],
+      "sinopsis_breve": "Un volumen excepcional con los poemas, meditaciones y dibujos de gatos, originales y encantadores, de la legendaria autora. Incluye la difícil de encontrar obra…",
+      "sinopsis_fuente_url": "https://nordicalibros.com/product/el-libro-de-los-gatos/",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "el-libro-de-los-gatos-9791388306297",
+      "titulo": "El libro de los gatos"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951229&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Sergio Pitol"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Vals de Mefisto, de Sergio Pitol. Edición de Editorial Anagrama en castellano, en tapa blanda. Consta de 144 páginas. La editorial la incluye en narrativa. Publicación editorial: 2026-11-04.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Editorial Anagrama",
+      "editorial": "Editorial Anagrama",
+      "editorial_slug": "editorial-anagrama",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-30",
+      "fecha_publicacion": "2026-11-04",
+      "fecha_verificacion": "2026-10-30",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/compactos/vals-de-mefisto/9788433951229/CM_218",
+      "fuente_publicacion_url": "https://www.anagrama-ed.es/libro/compactos/vals-de-mefisto/9788433951229/CM_218",
+      "id": "isbn-9788433951229",
+      "idioma": "es",
+      "isbn13": "9788433951229",
+      "numero_paginas": 144,
+      "portada_alto": 1092,
+      "portada_ancho": 719,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-30",
+      "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34635_portadas_big.jpeg",
+      "portada_local": "/assets/reading-covers/isbn-9788433951229.webp",
+      "pvp_centimos": 1590,
+      "pvp_fecha_verificacion": "2026-10-30",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-30",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788433951229"
+        }
+      ],
+      "sinopsis_breve": "El autor sitúa a sus personajes en escenarios imposibles que de pronto se vuelven cotidianos. O en escenarios perfectamente familiares que, de repente, a…",
+      "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/compactos/vals-de-mefisto/9788433951229/CM_218",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "vals-de-mefisto-9788433951229",
+      "titulo": "Vals de Mefisto"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401039928&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Charles Spencer"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "El canto del cisne, de Charles Spencer. Edición de Plaza & Janés en castellano, en tapa dura con sobrecubierta. Consta de 376 páginas. La editorial la incluye en biografías y memorias. Publicación editorial: 2026-09-23.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura con sobrecubierta · Plaza & Janés",
+      "editorial": "Plaza & Janés",
+      "editorial_slug": "plaza-y-janes",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-30",
+      "fecha_publicacion": "2026-09-23",
+      "fecha_verificacion": "2026-10-30",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-biografias/639317-libro-el-canto-del-cisne-9788401039928",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libro-de-biografias/639317-libro-el-canto-del-cisne-9788401039928",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libro-de-biografias/639317-libro-el-canto-del-cisne-9788401039928",
+      "id": "isbn-9788401039928",
+      "idioma": "es",
+      "isbn13": "9788401039928",
+      "numero_paginas": 376,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-30",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8171000-thickbox_default/el-canto-del-cisne.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788401039928.webp",
+      "pvp_centimos": 2390,
+      "pvp_fecha_verificacion": "2026-10-30",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-30",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788401039928"
+        }
+      ],
+      "sinopsis_breve": "Durante su infancia, Charles y Diana, los menores de los Spencer, fueron inseparables; en secreto, se llamaban el uno al otro Duch y Carlos.…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/639317-libro-el-canto-del-cisne-9788401039928",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "el-canto-del-cisne-9788401039928",
+      "titulo": "El canto del cisne"
     }
   ],
   "schema_version": 1
