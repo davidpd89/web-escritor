@@ -334,9 +334,31 @@ async function qaPersonajes() {
   await page.setInputFiles('#import-file', { name: 'mapa.json', mimeType: 'application/json', buffer: Buffer.from(jsonText) });
   await page.waitForTimeout(40);
   assert.equal(await page.locator('#relation-list li').count(), 4);
-  await page.setInputFiles('#import-file', { name: 'mal.json', mimeType: 'application/json', buffer: Buffer.from('{malformed') });
+  const titleBefore = await page.inputValue('#map-title');
+  const nodesBefore = await page.locator('.map-node').count();
+  // Un archivo rechazado no vacía ni recorta el mapa actual y explica el motivo.
+  const rejected = [
+    ['mal.json', '{malformed', /no es un JSON válido/i],
+    ['ajeno.json', '{"unrelated":"not a character map"}', /falta la lista de personajes/i],
+    ['array.json', '[]', /no es un mapa de personajes/i],
+    ['futuro.json', '{"version":999,"characters":[{"id":"a","name":"Ana"}],"relations":[]}', /versión de mapa no admitida/i],
+    ['roto.json', '{"version":1,"characters":[{"id":"a","name":"Ana"}],"relations":[{"from":"a","to":"nadie"}]}', /no existe/i],
+  ];
+  for (const [name, text, reason] of rejected) {
+    await page.setInputFiles('#import-file', { name, mimeType: 'application/json', buffer: Buffer.from(text) });
+    await page.waitForTimeout(40);
+    const status = await page.locator('#map-status').innerText();
+    assert.match(status, /el mapa actual se conserva/i, `${name}: estado`);
+    assert.match(status, reason, `${name}: motivo`);
+    assert.equal(await page.locator('#relation-list li').count(), 4, `${name}: relaciones intactas`);
+    assert.equal(await page.locator('.map-node').count(), nodesBefore, `${name}: personajes intactos`);
+    assert.equal(await page.inputValue('#map-title'), titleBefore, `${name}: título intacto`);
+  }
+  // Un mapa vacío del esquema admitido sí se abre.
+  await page.setInputFiles('#import-file', { name: 'vacio.json', mimeType: 'application/json', buffer: Buffer.from('{"version":1,"title":"","characters":[],"relations":[]}') });
   await page.waitForTimeout(40);
-  assert.match(await page.locator('#map-status').innerText(), /no se ha podido/i);
+  assert.equal(await page.locator('#relation-list li').count(), 0);
+  assert.match(await page.locator('#map-status').innerText(), /mapa importado/i);
 
   const chars = Array.from({ length: 7 }, (_, i) => ({
     id: `p${i + 1}`,

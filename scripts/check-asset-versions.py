@@ -164,7 +164,7 @@ TRACKED_ASSETS = {
     "nombres-personajes-engine-compat.js": "1",
     "nombres-personajes.js": "1",
     "mapa-personajes.css": "3",
-    "mapa-personajes.js": "2",
+    "mapa-personajes.js": "3",
     "tipo-lector.css": "2",
     "tipo-lector-engine.js": "1",
     "tipo-lector.js": "1",

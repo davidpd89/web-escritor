@@ -5,8 +5,9 @@ import {
   relationshipSummary,
   serializeProject,
   parseProject,
+  ProjectImportError,
   slugify,
-} from './mapa-personajes-core.js';
+} from './mapa-personajes-core.js?v=2';
 
 const $ = sel => document.querySelector(sel);
 const root = $('[data-character-map]');
@@ -449,7 +450,9 @@ els.file.addEventListener('change', async () => {
   const file = els.file.files?.[0];
   if (!file) return;
   try {
-    project = parseProject(await file.text());
+    // Validar antes de asignar: si falla, el mapa actual queda intacto.
+    const imported = parseProject(await file.text());
+    project = imported;
     els.title.value = project.title;
     positions.clear();
     setCharacterError();
@@ -457,9 +460,9 @@ els.file.addEventListener('change', async () => {
     render(true);
     announce('Mapa importado.');
     analytics('character_map_import');
-  } catch {
-    announce('No se ha podido leer ese JSON.');
-    root.dataset.state = 'error';
+  } catch (error) {
+    const reason = error instanceof ProjectImportError ? ` ${error.message}` : '';
+    announce(`No se ha abierto el archivo; el mapa actual se conserva.${reason}`);
   }
   els.file.value = '';
 });
