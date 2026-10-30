@@ -33,10 +33,13 @@ ENTRY = {
     "discoverability": "secondary", "footerEligible": True, "audience": ["reader", "writer"],
     "jobs": ["apoyar"], "sourceFile": PAGE, "status": "public",
 }
-DESCRIPTION = (
-    "Las herramientas, las guías y los recursos de esta web se ofrecen gratis. Si te han resultado útiles "
-    "y quieres ayudar a mantenerlos y crear otros nuevos, puedes hacer una aportación voluntaria."
+LEAD = (
+    "Las herramientas, las guías, el catálogo de lecturas y el Atlas literario son gratuitos: "
+    "sin registro y sin muros de pago. Tu aportación los mantiene vivos y ayuda a crear otros nuevos."
 )
+SHARE_URL = ("https://wa.me/?text=Herramientas%20gratis%20para%20escritores%20y%20lectores%3A%20"
+             "https%3A%2F%2Fdavidportodiaz.com%2Fherramientas%2F")
+GOODREADS_URL = "https://www.goodreads.com/author/show/66843136.David_Porto_D_az"
 
 
 META_DESCRIPTION = (
@@ -79,7 +82,7 @@ def render(channels: list[dict]) -> str:
   <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-shell.css?v=8" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
-  <link rel="stylesheet" href="/assets/v1-support.css?v=2" />
+  <link rel="stylesheet" href="/assets/v1-support.css?v=3" />
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
@@ -97,14 +100,30 @@ def render(channels: list[dict]) -> str:
   <header class="site-header" data-header></header>
   <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog></dialog>
   <main id="contenido" class="v1-main" tabindex="-1" data-family="support">
-    <section class="support-page" aria-labelledby="support-title">
-      <p class="eyebrow">Aportación voluntaria</p>
-      <h1 id="support-title">Apoya este proyecto</h1>
-      <p class="support-page__lead">{DESCRIPTION} Gracias por leer y utilizar este espacio.</p>
-      <div class="support-methods">{methods}</div>
-      <p class="support-page__note">Elige el canal que te resulte más cómodo. El pago se completa en la plataforma elegida; nosotros no recogemos datos de tarjeta ni guardamos ningún dato de tu aportación en esta web.</p>
-      <p class="support-page__legal">La aportación es voluntaria y única, no da acceso a ningún contenido extra ni es una donación benéfica. Esta web también incluye enlaces de afiliado de Amazon, como se explica en el aviso legal.</p>
-      <p class="support-page__legal"><a href="/privacidad.html">Privacidad</a> · <a href="/aviso-legal.html">Aviso legal</a></p>
+    <section class="support-hero" aria-labelledby="support-title">
+      <p class="support-kicker">Gracias por estar aquí</p>
+      <h1 id="support-title">Todo es gratis. Si te ayuda, invítame a un café.</h1>
+      <p class="support-lead">{LEAD}</p>
+    </section>
+    <div class="support-methods" aria-label="Formas de aportar">{methods}</div>
+    <p class="support-trust">Aportación única y voluntaria. El pago se hace en PayPal o Ko-fi; esta web no ve ni guarda tus datos.</p>
+    <section class="support-free" aria-labelledby="support-free-title">
+      <h2 id="support-free-title">Lo que mantienes gratis</h2>
+      <ul class="support-free__list">
+        <li><a href="/herramientas/"><strong>Herramientas de escritura</strong><span>Revisan tu texto en el navegador, sin subirlo.</span></a></li>
+        <li><a href="/recomendaciones/"><strong>Libros recomendados</strong><span>Un catálogo de lecturas que crece cada día.</span></a></li>
+        <li><a href="/editoriales/"><strong>Editoriales y concursos</strong><span>Dónde enviar tu manuscrito y cuándo.</span></a></li>
+        <li><a href="/atlas-literario/"><strong>Atlas literario</strong><span>Los lugares reales de los libros, en un mapa.</span></a></li>
+      </ul>
+    </section>
+    <section class="support-other" aria-labelledby="support-other-title">
+      <h2 id="support-other-title">¿Ahora no puedes? También ayudas así</h2>
+      <ul class="support-other__list">
+        <li><a href="{SHARE_URL}" target="_blank" rel="noopener noreferrer">Comparte una herramienta por WhatsApp</a></li>
+        <li><a href="/las-manecillas-del-recuerdo/">Lee o regala mis novelas</a></li>
+        <li><a href="{GOODREADS_URL}" target="_blank" rel="noopener noreferrer">Deja una reseña en Goodreads</a></li>
+        <li><a href="/redes-sociales/">Sígueme en redes</a></li>
+      </ul>
     </section>
   </main>
   <footer class="site-footer"></footer>
