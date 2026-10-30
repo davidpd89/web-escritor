@@ -1,9 +1,9 @@
 # Release Readiness Evidence (Static Preflight Gate)
 
-- Generated: `2026-10-30T16:12:31.921214+00:00`
-- Branch: `handoff/catalogue-page-url-parity-20261030`
-- HEAD: `d0ba47dca11b921f5fa4d9ef0d9c9363293e5fbb`
-- Previous SHA (rollback candidate): `2ccebd5fcd508472ba3511913026a32cd6bb3f1f`
+- Generated: `2026-10-30T15:46:25.411275+00:00`
+- Branch: `handoff/event-ics-uri-encoding-20261030`
+- HEAD: `b8b5ce9244ce93eff2f038f83813cb2ef60c612a`
+- Previous SHA (rollback candidate): `8f1b14c09796ceb1ce7b5e798bf0289649cf7bf4`
 
 ## Status: `STATIC_CHECKS_PASSED`
 
@@ -17,8 +17,8 @@
 ## Commit Window (latest 20)
 
 ```text
-d0ba47dca [ENCARGO P3] Catálogo: normalizar en la URL las páginas fuera de rango
-2ccebd5fc docs: encargar paridad URL y paginacion del catalogo
+b8b5ce924 Eventos ICS: serializar URL como URI y rechazar controles en URLs
+8f1b14c09 docs: encargar serializacion URI correcta en ICS
 c369f933e [ENCARGO P2] Homogeneizar tipografía de campos móviles y verificar Safari (#995)
 7a92c9eed [ENCARGO P1] Pagefind: conservar el índice si falla su reconstrucción (#994)
 2dc6804ce [ENCARGO P2] Preflight: no certificar éxito en informes BLOCKED (#996)
@@ -388,8 +388,8 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:10212) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-page/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
-Reparsing as ES module beca)
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:34616) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-ics/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module becau)
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
   ok   DTSTART is 17:00 UTC per icalendar (got 2026-09-03 17:00:00+00:00)
@@ -459,7 +459,7 @@ test-npm-supply-chain-baseline: OK
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `2ccebd5fcd508472ba3511913026a32cd6bb3f1f`.
+2. Checkout rollback target SHA: `8f1b14c09796ceb1ce7b5e798bf0289649cf7bf4`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
