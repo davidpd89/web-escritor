@@ -62,6 +62,11 @@ try {
     // El estado sigue visible antes de decidir: cada ficha conserva su insignia.
     assert.equal(await page.locator('[data-editorial-card]:not([hidden]) .editorial-card__head .editorial-badge, [data-editorial-card]:not([hidden]) .editorial-card__head [class*="status"]').count() >= shown.length, true);
     assert.match(page.url(), /#genero=familia%3Afantasia$/, 'la familia queda en la URL compartible');
+    // La nota generada no forma parte del texto buscable: sin esto, buscar su propia frase
+    // devolvía todas las fichas de la familia.
+    await page.fill('[data-editoriales-search]', 'comprueba estado y condiciones');
+    assert.equal((await cards(page)).filter(c => !c.hidden).length, 0, 'la búsqueda encuentra el texto de la nota de familia');
+    await page.fill('[data-editoriales-search]', '');
 
     // 3. Combinación: familia + estado es conjunción; Limpiar restablece todo.
     await page.selectOption('[data-editoriales-status]', 'open');

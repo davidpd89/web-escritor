@@ -130,7 +130,7 @@ TRACKED_ASSETS = {
     "radar-convocatorias.js": "9",
     "surprise-content.generated.js": "1",
     "surprise-me.js": "1",
-    "editoriales.js": "4",
+    "editoriales.js": "5",
     "v1-events.css": "1",
     "v1-ferias.css": "1",
     "fragmento.css": "1",
