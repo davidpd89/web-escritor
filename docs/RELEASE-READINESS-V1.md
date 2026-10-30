@@ -1,13 +1,16 @@
 # Release Readiness Evidence (Static Preflight Gate)
 
-- Generated: `2026-10-30T15:42:32.988473+00:00`
+- Generated: `2026-10-30T15:47:52.371262+00:00`
 - Branch: `handoff/public-generators-url-userinfo-20261030`
-- HEAD: `3747ada55d63872ce8bbf2b5bcffc2abe06044d5`
-- Previous SHA (rollback candidate): `c369f933e52073604adc2972f902191289992e08`
+- HEAD: `aa36d9c4b91f9db7c7c27d4c4c26bc179741df8c`
+- Previous SHA (rollback candidate): `3747ada55d63872ce8bbf2b5bcffc2abe06044d5`
 
-## Status: `STATIC_CHECKS_PASSED`
+## Status: `BLOCKED`
 
-> **Este informe certifica el estado STATIC_CHECKS_PASSED.**
+> **Este informe NO certifica el preflight: 2 comprobación(es) fallida(s).**
+>
+> - Check `SEO: meta quality & collision prevention`: exit `1`
+> - Check `SEO: meta quality mutation tests`: exit `1`
 >
 > Cubre las comprobaciones estáticas, de paridad, unitarias y contratos locales
 > headless. No sustituye la ejecución completa de los gates requeridos de CI
@@ -17,6 +20,7 @@
 ## Commit Window (latest 20)
 
 ```text
+aa36d9c4b [ENCARGO P2] Rechazar URL con usuario o contraseña en generadores públicos
 3747ada55 docs: encargar rechazo de userinfo en generadores publicos
 c369f933e [ENCARGO P2] Homogeneizar tipografía de campos móviles y verificar Safari (#995)
 7a92c9eed [ENCARGO P1] Pagefind: conservar el índice si falla su reconstrucción (#994)
@@ -36,7 +40,6 @@ f123ab78f Portada: salto al contenido bajo la introducción, ahorro de datos y A
 78e5fa6e2 Atlas: el alimentador de Wikidata respeta el límite de WDQS (plazo total y consultas por país) (#981)
 3dfc3ae02 feat(atlas): catálogo filtrable (país, ciudad, tipo, vínculo, obra, autor) sobre el contrato de datos del Atlas (#977)
 0fce702c1 Libros: conector editorial genérico (Anagrama y Nórdica) y reparto por turnos entre fuentes (#978)
-e1ec921a9 feat(mejoras-web): laboratorio de mejoras web con Project y perfil de Edge compartidos con el QA (#959)
 ```
 
 ## Required Route Inventory
@@ -101,8 +104,8 @@ e1ec921a9 feat(mejoras-web): laboratorio de mejoras web con Project y perfil de 
 | Smoke: radar freshness real clock | `python tests/test-radar-freshness-real-clock.py` | `PASS` |
 | Smoke: ICS RFC5545 roundtrip | `python tests/test-ics-roundtrip-independent-parser.py` | `PASS` |
 | Smoke: SEO & discoverability sitewide | `node tests/test-seo-discoverability-smoke.mjs` | `PASS` |
-| SEO: meta quality & collision prevention | `python scripts/check-seo-meta-quality.py` | `PASS` |
-| SEO: meta quality mutation tests | `python tests/test-seo-meta-quality.py` | `PASS` |
+| SEO: meta quality & collision prevention | `python scripts/check-seo-meta-quality.py` | `FAIL` |
+| SEO: meta quality mutation tests | `python tests/test-seo-meta-quality.py` | `FAIL` |
 | DOM: integrity & ARIA resolution | `python scripts/check-dom-integrity.py` | `PASS` |
 | DOM: integrity mutation tests | `python tests/test-dom-integrity.py` | `PASS` |
 | Supply chain: baseline & zero prod vulns | `python tests/test-npm-supply-chain-baseline.py` | `PASS` |
@@ -167,7 +170,7 @@ PASS public document/form contract: 436 public HTML files
 ### CI parity: jsonld absolute URLs — PASS
 
 ```text
-OK — 444 page(s) with JSON-LD checked, all url/@id/isPartOf/about/mainEntity/isBasedOn references are absolute.
+OK — 450 page(s) with JSON-LD checked, all url/@id/isPartOf/about/mainEntity/isBasedOn references are absolute.
 ```
 
 ### CI parity: canonical entity IDs — PASS
@@ -226,7 +229,7 @@ PASS: article date/review lifecycle (6 Cuaderno articles, 0 scheduled reviews, 0
 ### CI parity: global discoverability — PASS
 
 ```text
-PASS: global discoverability (477 tracked HTML artifacts; 432 indexable; search=IMPLEMENTADO; map=436 human destinations)
+PASS: global discoverability (483 tracked HTML artifacts; 432 indexable; search=IMPLEMENTADO; map=436 human destinations)
 Inventory: artifacts\global-discoverability\inventory.json
 ```
 
@@ -263,7 +266,7 @@ OK professional resources: data, detail coverage, generated outputs, real-clock 
 
 ```text
 NOTICE  shared article card used by 7 pages: https://davidportodiaz.com/assets/og-worldbuilding-noveris-ciudad-fantastica.jpg :: cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html, cuaderno/libros-fantasia-juvenil-espanola-2025-2026/index.html, cuaderno/portal-fantasy-vs-fantasia-epica/index.html, cuaderno/que-es-el-portal-fantasy/index.html, cuaderno/worldbuilding-noveris-ciudad-magica/index.html, recomendaciones/magia-con-coste/index.html, recomendaciones/portal-fantasy-espanol/index.html
-Social cards: 432 indexable HTML pages; 0 error(s), 0 warning(s), 1 notice(s).
+Social cards: 438 indexable HTML pages; 0 error(s), 0 warning(s), 1 notice(s).
 ```
 
 ### CI parity: copy tildes — PASS
@@ -287,7 +290,7 @@ PASS head icon normalizer: browser ICO migrated, Apple touch brand preserved, se
 ### CI parity: interaction a11y anti-patterns — PASS
 
 ```text
-INTERACTION/A11Y CONTRACTS: PASS (449 tracked public HTML files)
+INTERACTION/A11Y CONTRACTS: PASS (455 tracked public HTML files)
 ```
 
 ### CI parity: radar clock projection — PASS
@@ -388,7 +391,7 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:18452) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-userinfo/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:32844) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-userinfo/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module )
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
@@ -409,24 +412,28 @@ SEO & Schema Smoke: 5704/5704 assertions passed.
 ALL SEO & DISCOVERABILITY CHECKS PASSED 100%!
 ```
 
-### SEO: meta quality & collision prevention — PASS
+### SEO: meta quality & collision prevention — FAIL
 
 ```text
-OK — Sitewide SEO meta quality, uniqueness, canonical and OG parity verified.
+FAIL — 9 SEO meta quality issue(s):
+- Duplicate <title> across indexable pages: 'Generador JSON-LD para escritores | Herramientas' in ['herramientas/json-ld-escritores/index.html', 'herramientas/json-ld-escritores/index.html', 'herramientas/json-ld-escritores/index.html']
+- Duplicate <title> across indexable pages: 'Generador de kit de prensa para escritores | Herramientas' in ['herramientas/kit-prensa-escritores/index.html', 'herramientas/kit-prensa-escritores/index.html', 'herramientas/kit-prensa-escritores/index.html']
+- Duplicate <title> across indexable pages: 'Preview de metadatos para libros | Herramientas' in ['herramientas/metadatos-libro/index.html', 'herramientas/metadatos-libro/index.html', 'herramientas/metadatos-libro/index.html']
+- Duplicate <meta name='description'> across indexable pages: 'Genera JSON-LD conservador para perfiles de autor, libros, a...' in ['herramientas
+... [truncated]
 ```
 
-### SEO: meta quality mutation tests — PASS
+### SEO: meta quality mutation tests — FAIL
 
 ```text
-ok   1. Current repository satisfies all SEO meta quality and uniqueness contracts
-  ok   2. Clean mock dataset passes check_seo_meta_quality with 0 errors
-  ok   3. Mutation test: duplicate <title> caught and rejected
-  ok   4. Mutation test: duplicate meta description caught and rejected
-  ok   5. Mutation test: multiple canonical tags caught and rejected
-  ok   6. Mutation test: canonical route mismatch caught and rejected
-  ok   7. Mutation test: og:url != canonical caught and rejected
-  ok   8. Mutation test: missing title and description caught and rejected
-test-seo-meta-quality: OK
+Traceback (most recent call last):
+  File "C:\GIT\wt-userinfo\tests\test-seo-meta-quality.py", line 38, in <module>
+    assert not issues, f"check-seo-meta-quality failed on current repository:\n" + "\n".join(issues)
+AssertionError: check-seo-meta-quality failed on current repository:
+Duplicate <title> across indexable pages: 'Generador JSON-LD para escritores | Herramientas' in ['herramientas/json-ld-escritores/index.html', 'herramientas/json-ld-escritores/index.html', 'herramientas/json-ld-escritores/index.html']
+Duplicate <title> across indexable pages: 'Generador de kit de prensa para escritores | Herramientas' in ['herramientas/kit-prensa-escritores/index.html', 'herramientas/kit-prensa-escritores/index.html', 'herramientas/kit-prensa-escritores/index.html']
+Duplicate <title> across indexable pages: 'Preview de metadatos para libros | Herramientas' in ['herramientas/metadatos-libro/
+... [truncated]
 ```
 
 ### DOM: integrity & ARIA resolution — PASS
@@ -459,7 +466,7 @@ test-npm-supply-chain-baseline: OK
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `c369f933e52073604adc2972f902191289992e08`.
+2. Checkout rollback target SHA: `3747ada55d63872ce8bbf2b5bcffc2abe06044d5`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

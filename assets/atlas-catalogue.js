@@ -67,7 +67,12 @@
         input.disabled = n === 0 && !input.checked;
       });
     });
-    if (count) count.textContent = shown === 1 ? '1 resultado' : shown + ' resultados';
+    if (count) {
+      var total = shown === 1 ? '1 resultado' : shown + ' resultados';
+      // Tras «Mostrar más» el total no cambia: el estado anuncia cuántas se ven ya.
+      if (limit > PAGE && shown > PAGE) total += shownNow >= shown ? ' · se muestran todos' : ' · se muestran ' + shownNow;
+      count.textContent = total;
+    }
     if (empty) empty.hidden = shown !== 0;
     var dirty = Boolean(query) || KEYS.some(function (key) { return state[key].length; });
     if (reset) reset.disabled = !dirty;
@@ -98,9 +103,28 @@
   function filtered() { limit = PAGE; apply(); }
   form.addEventListener('input', filtered);
   form.addEventListener('change', filtered);
-  if (more) more.addEventListener('click', function () { limit += PAGE; apply(); });
+  // Al revelar una tanda, el foco pasa al enlace de la primera entrada nueva,
+  // tanto si el botón sigue como si desaparece en la última tanda.
+  function showMore() {
+    var before = cards.filter(function (card) { return !card.hidden; });
+    limit += PAGE;
+    apply();
+    var first = cards.filter(function (card) { return !card.hidden && before.indexOf(card) === -1; })[0];
+    if (!first) return;
+    var target = first.querySelector('a[href]');
+    if (!target) { first.setAttribute('tabindex', '-1'); target = first; }
+    target.focus();
+  }
+  if (more) more.addEventListener('click', showMore);
   form.addEventListener('submit', function (event) { event.preventDefault(); filtered(); });
-  form.addEventListener('reset', function () { window.setTimeout(filtered, 0); });
+  form.addEventListener('reset', function () {
+    window.setTimeout(function () {
+      filtered();
+      // Restablecer se deshabilita a sí mismo: no dejar el foco en un botón inerte.
+      var active = document.activeElement;
+      if (search && (!active || active === document.body || active === reset)) search.focus();
+    }, 0);
+  });
   if (fieldset) fieldset.disabled = false;
   readUrl();
   apply();
