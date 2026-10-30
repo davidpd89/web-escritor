@@ -32,6 +32,7 @@ import argparse
 import hashlib
 import html
 import json
+import os
 import re
 import shutil
 from html.parser import HTMLParser
@@ -172,8 +173,12 @@ def build_src_tree(root: Path, pages: list[str], src_dir: Path) -> None:
 
 
 def run_pagefind(src_dir: Path, out_dir: Path) -> None:
-    if out_dir.exists():
-        shutil.rmtree(out_dir)
+    """Run the Pagefind CLI into `out_dir`, which must be a fresh staging dir.
+
+    It never deletes anything: build() points it at a sibling staging
+    directory and only promotes that over the live index after validating it,
+    so a missing dependency or a failed run leaves the previous index intact.
+    """
     subprocess.run(
         [
             "npx", "--no-install", "pagefind",
@@ -243,17 +248,86 @@ def write_manifest(out_dir: Path, pages: list[str], root: Path) -> None:
     )
 
 
+def _lock_path(out_dir: Path) -> Path:
+    return out_dir.parent / f".{out_dir.name}-build.lock"
+
+
+def _acquire_lock(out_dir: Path) -> Path | None:
+    """Exclusive build lock next to `out_dir` (O_EXCL works on Windows and Linux).
+
+    Concurrent builds share `.pagefind-src` and the promotion step; the
+    second one fails instead of deleting the first one's work.
+    """
+    lock = _lock_path(out_dir)
+    try:
+        fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+    except FileExistsError:
+        print(
+            f"FAIL: another Pagefind build holds {lock} -- wait for it, or delete the "
+            "lock if no build is running.",
+            file=sys.stderr,
+        )
+        return None
+    with os.fdopen(fd, "w", encoding="utf-8") as handle:
+        handle.write(f"{os.getpid()}\n")
+    return lock
+
+
+def _promote(staging: Path, out_dir: Path, backup: Path) -> None:
+    """Swap `staging` in as `out_dir`, restoring the previous index on failure.
+
+    Only renames onto paths that do not exist: renaming over a non-empty
+    directory fails on Windows, so the live index is first moved aside.
+    """
+    had_previous = out_dir.exists()
+    if had_previous:
+        os.replace(out_dir, backup)
+    try:
+        os.replace(staging, out_dir)
+    except BaseException:
+        if had_previous:
+            if out_dir.exists():
+                shutil.rmtree(out_dir, ignore_errors=True)
+            os.replace(backup, out_dir)
+        raise
+    if had_previous:
+        shutil.rmtree(backup, ignore_errors=True)
+
+
 def build(root: Path, out_dir: Path, src_dir: Path) -> int:
     pages = eligible_pages(root)
     if not pages:
         print("FAIL: no eligible pages found -- refusing to build an empty index.", file=sys.stderr)
         return 1
-    build_src_tree(root, pages, src_dir)
+    out_dir.parent.mkdir(parents=True, exist_ok=True)
+    lock = _acquire_lock(out_dir)
+    if lock is None:
+        return 1
+    staging = out_dir.parent / f".{out_dir.name}.staging-{os.getpid()}"
+    backup = out_dir.parent / f".{out_dir.name}.backup-{os.getpid()}"
     try:
-        run_pagefind(src_dir, out_dir)
+        for leftover in (staging, backup):
+            if leftover.exists():
+                shutil.rmtree(leftover)
+        build_src_tree(root, pages, src_dir)
+        try:
+            run_pagefind(src_dir, staging)
+        except (OSError, subprocess.CalledProcessError) as exc:
+            print(f"FAIL: Pagefind did not run ({exc}); previous index kept.", file=sys.stderr)
+            return 1
+        finally:
+            shutil.rmtree(src_dir, ignore_errors=True)
+        if not (staging / "pagefind.js").is_file():
+            print("FAIL: Pagefind produced no pagefind.js; previous index kept.", file=sys.stderr)
+            return 1
+        write_manifest(staging, pages, root)
+        if check(root, staging) != 0:
+            print("FAIL: new Pagefind output failed validation; previous index kept.", file=sys.stderr)
+            return 1
+        _promote(staging, out_dir, backup)
     finally:
-        shutil.rmtree(src_dir, ignore_errors=True)
-    write_manifest(out_dir, pages, root)
+        shutil.rmtree(staging, ignore_errors=True)
+        lock.unlink(missing_ok=True)
     print(f"BUILT {out_dir}: {len(pages)} page(s) indexed.")
     return 0
 
