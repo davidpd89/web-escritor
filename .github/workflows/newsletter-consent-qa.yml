@@ -15,6 +15,7 @@ on:
       - 'privacidad.html'
       - 'tests/test-newsletter-client-contract.mjs'
       - 'qa/newsletter-consent-browser.mjs'
+      - 'qa/newsletter-popup-success-browser.mjs'
       - '.github/workflows/newsletter-consent-qa.yml'
   workflow_dispatch:
 
@@ -76,3 +77,8 @@ jobs:
         env:
           QA_ORIGIN: http://127.0.0.1:4173
         run: node qa/newsletter-consent-browser.mjs
+
+      - name: Verify popup success keyboard and accessible dialog
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: node qa/newsletter-popup-success-browser.mjs

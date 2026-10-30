@@ -9,6 +9,7 @@ required_fragments = [
     "name: Required merge gate",
     "scripts/requirements.txt",
     "for f in tests/test-*.py",
+    "python -m unittest discover -s tests -p 'test_*.py'",
     "for f in tests/*.mjs",
     "python tests/test-release-identity.py",
     "python tests/test-public-artifact-contract.py",
@@ -22,3 +23,8 @@ assert not missing, (
 )
 
 print("PASS required merge gate universal coverage")
+
+tools_workflow = (ROOT / ".github/workflows/tool-tests.yml").read_text(encoding="utf-8")
+assert "python -m unittest discover -s tests -p 'test_*.py'" in tools_workflow, (
+    "Tool engine tests must include underscore-named Python contracts"
+)

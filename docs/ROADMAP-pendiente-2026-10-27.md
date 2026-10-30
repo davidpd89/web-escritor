@@ -23,12 +23,24 @@ Orden propuesto: de lo más barato y visible a lo más grande.
 | Bot diario de libros | Arreglado el fallo más frecuente (el PR del bot quedaba en conflicto si `main` avanzaba durante su CI): regenera desde `main` y reintenta una vez. |
 | Rendimiento | Imágenes de Samuel y Autor a su tamaño real (−320 KiB). La portada (vídeo de intro y CSS en varios archivos) queda sin tocar por riesgo en Safari. |
 
+## Estado a 30/10/2026 (contrastado con main)
+
+Este bloque sustituye los pendientes técnicos de la tabla del 28/10; las tablas
+anteriores se conservan como historial, no como inventario actual.
+
+| Área | Estado actual |
+|---|---|
+| Atlas literario | Hub y 18 fichas publicadas, catálogo filtrable y contrato de publicación. La revisión editorial del titular sigue siendo una tarea humana. |
+| Donaciones | `/apoyar/` ya está publicado con PayPal.me y Ko-fi; accesos Donar en cabecera y apoyo en el pie. No falta activación técnica. |
+| Catálogo de libros | 88 fichas publicadas; conector editorial genérico y reparto de fuentes integrados. No modificar automatismos en esta auditoría. |
+| QA transversal | Auditoría del 30/10: pruebas `test_*.py`, intérprete Python del preflight, paridad de lector social y confirmación accesible del popup. Ver `docs/audits/2026-10-30-maintenance.md`. |
+
 ## Lo que sigue
 
 1. **Atlas**: más fichas (nuevas ciudades, bibliotecas y librerías) y, más adelante, mapa interactivo. Cada ficha con etiqueta de certeza y fuentes.
 2. **Libros**: una tercera fuente de novedades (Anagrama tiene fichas con ISBN, PVP, páginas y fecha) exige decidir uso de portadas y leer encuadernación; precios editoriales cuando el piloto en vivo confirme el marcado de la tienda.
 3. **Rendimiento**: CSS crítico y menos peticiones en portada, con baseline visual regenerado.
-4. **Donaciones**: activar `/apoyar/` con el enlace de PayPal y enlaces contextuales discretos (después de resultados de herramientas).
+4. **Donaciones**: mantener los enlaces publicados y verificar el receptor con el titular antes de cambiar de proveedor. No realizar pagos de prueba automáticos.
 
 ## Decisiones ya tomadas
 

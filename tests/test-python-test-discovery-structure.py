@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 issues: list[str] = []
 
-for path in sorted(ROOT.glob("test-*.py")):
+for path in sorted(set(ROOT.glob("test-*.py")) | set(ROOT.glob("test_*.py"))):
     tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
     parents: dict[ast.AST, ast.AST] = {}
     for parent in ast.walk(tree):

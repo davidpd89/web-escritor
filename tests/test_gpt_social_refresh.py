@@ -104,17 +104,19 @@ class PublicArtifactTests(unittest.TestCase):
             self.assertNotIn(needle, text)
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
 class ReauthKeepsSnapshotTests(unittest.TestCase):
     def test_expired_metricool_login_keeps_last_good_and_exits_2(self):
         import gpt_social_snapshot as snap
         d = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, d, True)
         out = d / "m.json"
-        out.write_text((ROOT / "redes-sociales/social-metrics.json").read_text(encoding="utf-8"), encoding="utf-8")
+        # A live snapshot may have no Threads sample, or have a newer date.
+        # Seed the actual contract with a known, unexpired last-good value.
+        previous = snap.compose.compose([{
+            "id": "threads", "source": "metricool-mcp-export", "status": "ok",
+            "followers": 13, "observed_at": "2026-10-22",
+        }], now=NOW)
+        out.write_text(json.dumps(previous), encoding="utf-8")
         def dead(now):
             raise mcp.ReauthRequired("expired")
         with mock.patch.object(snap.metricool_live, "read", dead):
@@ -125,3 +127,7 @@ class ReauthKeepsSnapshotTests(unittest.TestCase):
         self.assertEqual(rc, 2)
         kept = {n["id"]: n["status"] for n in json.loads(out.read_text(encoding="utf-8"))["networks"]}
         self.assertEqual(kept["threads"], "ok")  # last-good Metricool value preserved
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -15,6 +15,7 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1] / "scripts" / "research"
 if str(ROOT) not in sys.path:
@@ -93,7 +94,10 @@ class PipelineTests(unittest.TestCase):
                 path.write_text(json.dumps(record), encoding="utf-8")
                 paths.append(str(path))
             output = root / "public.json"
-            self.assertEqual(compose.main([*paths, "--output", str(output)]), 0)
+            # Keep the CLI test on the same clock as its fixed input samples.
+            real_compose = compose.compose
+            with mock.patch.object(compose, "compose", side_effect=lambda sources: real_compose(sources, now=TEST_TIME)):
+                self.assertEqual(compose.main([*paths, "--output", str(output)]), 0)
             public = json.loads(output.read_text(encoding="utf-8"))
             self.assertEqual(public["totals"]["coverage"], 3)
             self.assertEqual(public["totals"]["follower_relationships"], 53)

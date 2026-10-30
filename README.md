@@ -1,44 +1,68 @@
-# Author Website
+# Web de David Porto Díaz
 
-Sitio web estático sencillo para un autor en español. Incluye una portada editorial, biografía, obras, prensa y un apartado de contacto.
+Sitio de autor en español: libros, artículos, recomendaciones, Atlas literario,
+herramientas, prensa y suscripción. Producción: <https://davidportodiaz.com/>.
 
-## Archivos
+## Arquitectura
 
-- `index.html` — Estructura principal del sitio.
-- `styles.css` — Estilos de diseño y tipografía.
-- `script.js` — Comportamiento de desplazamiento suave para enlaces internos.
-- `assets/` — Carpeta para imágenes, documentos o recursos adicionales.
+HTML/CSS/JavaScript estáticos. Node se usa para QA, no como servidor de
+producción. Datos y constructores: `data/` y `scripts/`, no publicables completos.
+La navegación común procede de `data/navigation.json` y
+`scripts/build-site-shell.py`. El service worker ofrece recuperación offline.
+Los formularios usan servicios externos: simularlos en QA, no crear suscriptores reales.
 
-## Vista previa local
+## Entorno y validación
 
-1. Abre `index.html` en tu navegador.
-2. O usa un servidor local simple si prefieres, por ejemplo con Python:
+CI usa Node 22 y Python 3.12. Mantener un entorno Python propio del repositorio.
 
-```powershell
-cd C:\GIT\author-website
-python -m http.server 8000
+```sh
+npm ci
+python -m pip install --requirement scripts/requirements.txt
+python scripts/release-readiness.py --output .ci/release-readiness-local.md
+python scripts/build-site-shell.py --check
+python scripts/build-sitemap.py --check
+python scripts/check-asset-versions.py
 ```
 
-Luego abre `http://localhost:8000`.
+Ambas convenciones de nombres Python son obligatorias: ejecutar individualmente
+`tests/test-*.py` y cargar `tests/test_*.py` con
+`python -m unittest discover -s tests -p 'test_*.py'`. Los motores Node son
+`tests/*.mjs`; el smoke HTTP necesita un origen configurado. Los workflows
+contienen los comandos completos de cada suite.
 
-## Publicar con GitHub Pages
+## Vista previa pública
 
-1. Crea un repositorio en GitHub.
-2. Asegúrate de que la rama principal se llame `main`.
-3. Publica la rama `main` en el repositorio.
-4. En la configuración de GitHub Pages, selecciona la rama `main` como fuente.
+No publicar el árbol de trabajo entero. Construir primero la allowlist:
 
-## Comandos de Git
-
-```powershell
-git add .
-git commit -m "Initial author website"
-git branch -M main
-git remote add origin https://github.com/USER/REPOSITORY.git
-git push -u origin main
+```sh
+python scripts/build-public-dist.py --out .preview-dist
+python scripts/build-public-dist.py --check-contents --out .preview-dist
+python -m http.server 4173 --bind 127.0.0.1 --directory .preview-dist
 ```
 
-Reemplaza `USER` y `REPOSITORY` por tus datos reales.
+Abrir <http://127.0.0.1:4173/>. Playwright usa `QA_ORIGIN` y, cuando se necesita
+un navegador local concreto, `QA_CHROMIUM_EXECUTABLE_PATH`.
+
+## Publicación y seguridad
+
+1. Abrir PR contra `main`, sin saltarse las protecciones ni checks requeridos.
+2. `Required merge gate` verifica contratos, ambas suites Python, motores Node,
+	generadores y aislamiento del artefacto. Otros flujos cubren navegador,
+	accesibilidad y rendimiento.
+3. La fusión dispara `.github/workflows/deploy-pages.yml`: construye el artefacto,
+	verifica su contenido, añade identidad del SHA y publica en GitHub Pages.
+4. El flujo comprueba **ese SHA exacto** en producción antes de enviar IndexNow.
+	Un merge por sí solo no equivale a despliegue verificado.
+
+No incluir credenciales, `.env`, scripts privados ni datos internos en el
+artefacto. Los Workers de Cloudflare requieren un despliegue independiente.
+Al cambiar un recurso registrado, mantener sincronizadas sus versiones y hashes
+con `scripts/check-asset-versions.py`.
+
+`npm audit --omit=dev` debe mantener cero vulnerabilidades. Los avisos transitivos
+de QA se contrastan con `data/npm-supply-chain-baseline.json`; no aplicar
+`npm audit fix --force` sin verificar compatibilidad.
+
 ## Nota operativa: Bookdala e imagen de prensa
 
 Bookdala publicó el artículo `Fantasía juvenil con voz propia en la Feria del Libro de Madrid`:

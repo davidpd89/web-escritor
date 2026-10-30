@@ -12,6 +12,7 @@ Exit codes: 0 ok/unchanged, 1 failed (last-good snapshot preserved), 2 REAUTH RE
 from __future__ import annotations
 
 import argparse
+import csv
 from datetime import datetime, timezone
 import json
 import os
@@ -42,8 +43,17 @@ def log(message: str) -> None:
 
 def _pid_alive(pid: int) -> bool:
     if os.name == "nt":
-        out = subprocess.run(["tasklist", "/FI", f"PID eq {pid}", "/NH"], capture_output=True, text=True).stdout
-        return str(pid) in out
+        # tasklist uses the Windows code page, not necessarily Python's UTF-8
+        # mode. Only its numeric CSV PID column is needed; localized messages
+        # must neither crash decoding nor match an unrelated PID substring.
+        result = subprocess.run(
+            ["tasklist", "/FI", f"PID eq {pid}", "/NH", "/FO", "CSV"],
+            capture_output=True,
+        )
+        if result.returncode != 0:
+            return True  # Unknown liveness: do not steal an active lock.
+        rows = csv.reader(result.stdout.decode("ascii", errors="replace").splitlines())
+        return any(len(row) > 1 and row[1] == str(pid) for row in rows)
     try:
         os.kill(pid, 0)
         return True
