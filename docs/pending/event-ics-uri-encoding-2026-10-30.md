@@ -1,6 +1,6 @@
 # Encargo: preservar URLs en el calendario del generador de eventos
 
-Estado: **BORRADOR, SIN IMPLEMENTAR**. P2: paridad de exportaciones/interoperabilidad.
+Estado: **IMPLEMENTADO** (2026-10-30). P2: paridad de exportaciones/interoperabilidad.
 Base: `c369f933e52073604adc2972f902191289992e08`.
 
 ## Reproducción sin red
@@ -54,3 +54,18 @@ estén afectados; el caso confirmado es la salida de este generador con esos car
 
 Esta PR solo prepara el encargo para otra IA. Continuar aquí con implementación,
 tests y publicación; no fusionar documentación como si resolviera el defecto.
+
+## Implementación
+
+- `assets/evento-escritor-core.js`: `URL:` se serializa con `icsUri()` (URI, sin
+  escape TEXT) a partir de la misma URL recortada que usa el JSON-LD. SUMMARY,
+  DESCRIPTION y LOCATION mantienen `escapeIcs`. El plegado a 75 octetos no cambia.
+- `isHttps()` rechaza controles y espacios internos: `new URL()` los eliminaba en
+  silencio, de modo que `https://x/a
+ATTENDEE:...` se daba por válida. Afecta
+  también a las URL del organizador y de la imagen, que usan el mismo validador.
+- Regresiones: `tests/test-evento-ics-rfc5545.mjs` (coma/punto y coma en path y
+  query, percent-encoding, fragmento, URL larga plegada, TEXT con roundtrip, CRLF,
+  tabulador, espacio y NUL rechazados), roja con el código anterior. QA del botón
+  real en `qa/tools-events-memory-browser.mjs`.
+- No verificado: importación en Outlook, Google Calendar y Apple Calendar.
