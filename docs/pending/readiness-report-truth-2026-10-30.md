@@ -1,6 +1,6 @@
 # Encargo: informe de preflight sin certificación contradictoria
 
-Estado: **PENDIENTE DE IMPLEMENTACIÓN — PR EN BORRADOR**.
+Estado: **IMPLEMENTADO (30/10)** — `build_report()` solo certifica con 0 fallos; en `BLOCKED` enumera checks/rutas fallidos. Regresión: `tests/test-release-readiness-report.py` (roja antes del cambio, verde después), cableada en `release-readiness-pre-main.yml`.
 Prioridad: P2, exactitud de evidencia de release; no es un bypass del gate.
 Base examinada: `85a335e8309b10f10961f58029810f7c50e3dbc6`.
 
