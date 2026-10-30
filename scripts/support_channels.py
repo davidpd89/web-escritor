@@ -12,31 +12,32 @@ from urllib.parse import urlsplit
 from support_paypal_link import validate_paypal_payment_link
 from support_stripe_link import validate_stripe_payment_link
 
-AMOUNTS = (2, 5, 10)
 HANDLE = r"[A-Za-z0-9_.-]{3,40}"
 
 CHANNELS = {
     "paypal_me": {
         "label": "PayPal", "host": ("www.paypal.me", "paypal.me"), "path": rf"/[A-Za-z0-9]{{3,20}}",
-        "blurb": "Con tu cuenta PayPal o con tarjeta. PayPal.me muestra el nombre de la cuenta que recibe.",
+        "blurb": "Si ya tienes cuenta, en dos clics. Tú eliges el importe.", "action": "Donar con PayPal",
     },
     "paypal_link": {
         "label": "PayPal y tarjeta", "blurb": "Elige el importe en PayPal (aportación única).",
+        "action": "Donar con PayPal",
     },
     "kofi": {
         "label": "Ko-fi", "host": ("ko-fi.com",), "path": rf"/{HANDLE}",
-        "blurb": "Un café, sin registrarte. Ko-fi no cobra comisión propia en aportaciones puntuales.",
+        "blurb": "¿Prefieres tarjeta y sin registrarte? Invítame a un café en Ko-fi.",
+        "action": "Invitar a un café", "badge": "Tarjeta · sin registro",
     },
     "buymeacoffee": {
         "label": "Buy Me a Coffee", "host": ("www.buymeacoffee.com", "buymeacoffee.com"), "path": rf"/{HANDLE}",
-        "blurb": "Un café con tarjeta o PayPal. La plataforma cobra una comisión.",
+        "blurb": "Un café con tarjeta o PayPal.", "action": "Invitar a un café",
     },
     "liberapay": {
         "label": "Liberapay", "host": ("liberapay.com",), "path": rf"/{HANDLE}",
-        "blurb": "Plataforma sin ánimo de lucro, para aportaciones recurrentes.",
+        "blurb": "Plataforma sin ánimo de lucro, para aportaciones recurrentes.", "action": "Apoyar en Liberapay",
     },
     "stripe": {
-        "label": "Tarjeta u otros medios", "blurb": "Elige cuánto aportar en Stripe (pago único).",
+        "label": "Tarjeta", "blurb": "Elige cuánto aportar con tarjeta (pago único).", "action": "Donar con tarjeta",
     },
 }
 
@@ -63,30 +64,21 @@ def validate_channel(kind: str, url: str) -> str:
     return url
 
 
-def amount_url(kind: str, url: str, amount: int) -> str | None:
-    """Solo PayPal.me admite el importe en la ruta: https://www.paypal.me/usuario/5EUR."""
-    return f"{url}/{amount}EUR" if kind == "paypal_me" else None
-
-
-def external(href: str, text: str, label: str, css: str = "support-method") -> str:
+def external(href: str, inner: str, label: str, css: str = "support-method") -> str:
     return (f'<a class="{css}" href="{escape(href, quote=True)}" target="_blank" rel="noopener noreferrer" '
-            f'aria-label="{escape(label, quote=True)}">{text}</a>')
+            f'aria-label="{escape(label, quote=True)}">{inner}</a>')
 
 
 def render_channel(kind: str, url: str) -> str:
-    """Un bloque por canal: botón principal y, si procede, importes rápidos."""
+    """Una tarjeta por canal: toda la tarjeta es el enlace, sin importes prefijados."""
     url = validate_channel(kind, url)
     spec = CHANNELS[kind]
-    main = external(
-        url, f'<strong>{escape(spec["label"])}</strong><span>{escape(spec["blurb"])}</span>',
-        f'Apoyar con {spec["label"]}; se abre en otra pestaña')
-    quick = ""
-    if kind == "paypal_me":
-        links = "".join(
-            external(amount_url(kind, url, n), f"{n} €", f"Aportar {n} euros con PayPal; se abre en otra pestaña",
-                     "support-amount") for n in AMOUNTS)
-        quick = f'<p class="support-amounts"><span>Importe rápido:</span> {links}</p>'
-    return f'<div class="support-channel">{main}{quick}</div>'
+    badge = f'<span class="support-method__badge">{escape(spec["badge"])}</span>' if spec.get("badge") else ""
+    inner = (f'{badge}<strong class="support-method__name">{escape(spec["label"])}</strong>'
+             f'<span class="support-method__text">{escape(spec["blurb"])}</span>'
+             f'<span class="support-method__action" aria-hidden="true">{escape(spec["action"])}</span>')
+    return external(url, inner, f'{spec["action"]} ({spec["label"]}); se abre en otra pestaña',
+                    f"support-method support-method--{kind.replace('_', '-')}")
 
 
 def render_channels(channels: list[dict]) -> str:
