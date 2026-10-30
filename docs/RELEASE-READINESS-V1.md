@@ -1,9 +1,9 @@
 # Release Readiness Evidence (Static Preflight Gate)
 
-- Generated: `2026-10-30T14:37:01.727726+00:00`
-- Branch: `handoff/character-map-portable-svg-20261030`
-- HEAD: `6421ea85ba377e4abc31e293e49bf10f99b4337a`
-- Previous SHA (rollback candidate): `1058b0f8a9e6e6fb08035cc30b85ead14093be42`
+- Generated: `2026-10-30T15:46:25.411275+00:00`
+- Branch: `handoff/event-ics-uri-encoding-20261030`
+- HEAD: `b8b5ce9244ce93eff2f038f83813cb2ef60c612a`
+- Previous SHA (rollback candidate): `8f1b14c09796ceb1ce7b5e798bf0289649cf7bf4`
 
 ## Status: `STATIC_CHECKS_PASSED`
 
@@ -17,19 +17,11 @@
 ## Commit Window (latest 20)
 
 ```text
-6421ea85b ci(links): excluir el acortador amzn.to como amazon.*
-1058b0f8a docs: regenerar evidencia de preflight tras integrar main
-17fe6a005 Merge remote-tracking branch 'origin/main' into handoff/character-map-portable-svg-20261030
-f4a2ea43f [ENCARGO P2] Atlas: preservar foco al agotar Mostrar más (#999)
-e9dd7dd37 fix(personajes): el SVG exportado se ve igual fuera del sitio
-d30b1ef2a Merge remote-tracking branch 'origin/main' into handoff/character-map-portable-svg-20261030
-1e362e919 wip
-57328bb9b [ENCARGO P1] Personajes: un JSON ajeno no debe vaciar el mapa (#997)
-b57f3d29d merge main
+b8b5ce924 Eventos ICS: serializar URL como URI y rechazar controles en URLs
+8f1b14c09 docs: encargar serializacion URI correcta en ICS
 c369f933e [ENCARGO P2] Homogeneizar tipografía de campos móviles y verificar Safari (#995)
 7a92c9eed [ENCARGO P1] Pagefind: conservar el índice si falla su reconstrucción (#994)
 2dc6804ce [ENCARGO P2] Preflight: no certificar éxito en informes BLOCKED (#996)
-48199105f docs: encargar exportacion SVG autonoma de personajes
 85a335e83 fix: close audit gaps in QA, newsletter accessibility and public metrics (#993)
 c63bf1eed Rescatar correcciones QA pendientes: Noveris, publicar-web, contrato Atlas, Pagefind y kit de prensa (#991)
 8a2898bfe Accesibilidad: contraste, impresión de Al otro lado, error del popup, aviso de copia y enlaces de compra (#992)
@@ -37,6 +29,14 @@ d0ef6ea78 Seguridad: CSP en el embed del asistente, en lecturas y completa en 8 
 51877af7d Quitar el symlink node_modules y refrescar el radar a 2026-10-30 (#989)
 20bdf5993 SEO: Article.image en cuatro artículos del Cuaderno y fediverse:creator en portada y novelas (#988)
 f123ab78f Portada: salto al contenido bajo la introducción, ahorro de datos y AVIF de Samuel (#987)
+59adf6220 Accesibilidad y SEO: 7 correcciones verificadas contra main (#986)
+22171a7ea Mejoras del laboratorio verificadas contra main (13) (#985)
+21820f26b fix(qa): la auditoría de producción no exige generated_for de ayer (#983)
+3689c513d feat(apoyar): activar /apoyar/ con PayPal.me y Ko-fi, RRSS y Donar en cabecera, aviso de apoyo en el pie (#982)
+69528da78 UX: pie Anterior · Índice · Siguiente en fichas hermanas (#980)
+78e5fa6e2 Atlas: el alimentador de Wikidata respeta el límite de WDQS (plazo total y consultas por país) (#981)
+3dfc3ae02 feat(atlas): catálogo filtrable (país, ciudad, tipo, vínculo, obra, autor) sobre el contrato de datos del Atlas (#977)
+0fce702c1 Libros: conector editorial genérico (Anagrama y Nórdica) y reparto por turnos entre fuentes (#978)
 ```
 
 ## Required Route Inventory
@@ -388,8 +388,8 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:27816) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-map-svg/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
-Reparsing as ES module b)
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:34616) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-ics/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module becau)
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
   ok   DTSTART is 17:00 UTC per icalendar (got 2026-09-03 17:00:00+00:00)
@@ -459,7 +459,7 @@ test-npm-supply-chain-baseline: OK
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `1058b0f8a9e6e6fb08035cc30b85ead14093be42`.
+2. Checkout rollback target SHA: `8f1b14c09796ceb1ce7b5e798bf0289649cf7bf4`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

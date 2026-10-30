@@ -126,7 +126,8 @@ export function buildIcs(model) {
   lines.push(`SUMMARY:${escapeIcs(model.name)}`);
   if (model.description) lines.push(`DESCRIPTION:${escapeIcs(model.description)}`);
   lines.push(`LOCATION:${escapeIcs([model.venueName, model.streetAddress, model.postalCode, model.addressLocality, model.addressRegion, model.addressCountry].map(clean).filter(Boolean).join(', '))}`);
-  lines.push(`URL:${escapeIcs(model.url)}`);
+  // URL es de tipo URI (RFC 5545 §3.3.13): sin el escape TEXT de comas y punto y coma.
+  lines.push(`URL:${icsUri(model.url)}`);
   lines.push('STATUS:CONFIRMED', 'END:VEVENT', 'END:VCALENDAR');
 
   return lines.map(foldIcsLine).join('\r\n') + '\r\n';
@@ -153,6 +154,12 @@ export function foldIcsLine(line) {
 
 export function escapeIcs(value) {
   return String(value || '').replace(/\\/g, '\\\\').replace(/\r\n|\r|\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;');
+}
+
+// La validación ya rechaza controles y espacios; aquí se descartan igualmente
+// para que ninguna entrada pueda abrir una propiedad nueva en el VEVENT.
+export function icsUri(value) {
+  return String(clean(value) || '').replace(/[\u0000-\u0020\u007f]/g, '');
 }
 
 export function parseOffsetDate(local, offset) {
@@ -188,7 +195,7 @@ function isOffset(v) {
   const minutes = Number(m[3]);
   return hours < 14 || (hours === 14 && minutes === 0);
 }
-function isHttps(v) { try { const u = new URL(String(v||'')); return u.protocol === 'https:' && !u.username && !u.password; } catch { return false; } }
+function isHttps(v) { const s = String(v||'').trim(); if (/[\u0000-\u0020\u007f]/.test(s)) return false; try { const u = new URL(s); return u.protocol === 'https:' && !u.username && !u.password; } catch { return false; } }
 function clean(v) { const s=String(v||'').trim(); return s || undefined; }
 function compact(obj) { return Object.fromEntries(Object.entries(obj).filter(([,v]) => v !== undefined && v !== '')); }
 function slugify(v) { return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,70) || 'evento'; }
