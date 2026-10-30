@@ -6,6 +6,7 @@ on:
     paths:
       - docs/RELEASE-READINESS-V1.md
       - scripts/release-readiness.py
+      - tests/test-release-readiness-*.py
       - .github/workflows/release-readiness-pre-main.yml
 
 jobs:
@@ -21,6 +22,10 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
+      - name: Release readiness unit tests
+        run: |
+          python tests/test-release-readiness-interpreter.py
+          python tests/test-release-readiness-report.py
       - name: Generate release readiness report
         run: python scripts/release-readiness.py --output artifacts/release-readiness/RELEASE-READINESS-V1.md
       - name: Upload readiness report artifact

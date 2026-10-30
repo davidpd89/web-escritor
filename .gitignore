@@ -65,6 +65,9 @@ lh.html
 # search index) IS committed: `import('/pagefind/pagefind.js')` needs to
 # resolve on a repo that ships as static files with no build step.
 .pagefind-src/
+.pagefind.staging-*/
+.pagefind.backup-*/
+.pagefind-build.lock
 
 # QA evidence written by the browser suites and uploaded by CI — generated,
 # never tracked.

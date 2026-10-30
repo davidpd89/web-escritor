@@ -104,7 +104,16 @@
   --z-sticky:100;
   --z-header:200;
   --z-dialog:800;
+
+  /* Texto que el usuario escribe en campos editables (input, select,
+     textarea de UI). En escritorio conserva la escala compacta de la UI; en
+     móvil/tablet o puntero táctil sube a un mínimo efectivo de 16px, el
+     umbral bajo el que Safari iOS amplía la página al enfocar. rem sigue al
+     tamaño de texto del usuario; max() evita bajar de 16px. */
+  --input-font-size:.95rem;
 }
+
+@media (max-width:48rem),(pointer:coarse){:root{--input-font-size:max(16px,1rem);}}
 
 @media (max-width:1023px){:root{--page-gutter:clamp(1.25rem,3.6vw,2rem);}}
 @media (max-width:389px){:root{--page-gutter:1rem;--grid-gap:.875rem;}}
