@@ -77,6 +77,35 @@ def carry_over(previous: object, sources: list[dict], now: datetime) -> list[dic
     return kept
 
 
+def drop_false_zeros(previous: object, sources: list[dict], errors: list[str]) -> list[dict]:
+    """Discard a 0 that replaces a positive count: Metricool returns 0 for a day it
+    has not consolidated yet, and a real account never loses every follower overnight."""
+    if not isinstance(previous, dict) or not isinstance(previous.get("networks"), list):
+        return sources
+    before = {r.get("id"): r.get("followers") for r in previous["networks"] if isinstance(r, dict)}
+
+    def suspicious(record: object) -> bool:
+        if not isinstance(record, dict) or record.get("followers") != 0:
+            return False
+        last = before.get(record.get("id"))
+        if isinstance(last, int) and last > 0:
+            errors.append(f"{record.get('id')}: 0 followers after {last}; kept last-good value")
+            return True
+        return False
+
+    kept = []
+    for source in sources:
+        if isinstance(source, dict) and source.get("kind") == compose.METRICOOL_BATCH_KIND:
+            records = [r for r in source.get("records") or [] if not suspicious(r)]
+            if not records:
+                continue  # an empty batch is invalid; the last-good values carry over instead
+            source = source | {"records": records}
+        elif suspicious(source):
+            continue
+        kept.append(source)
+    return kept
+
+
 REFRESH = timedelta(hours=6)
 TIMING = ("generated_at", "observed_at", "valid_until")
 
@@ -128,6 +157,7 @@ def main(argv: list[str] | None = None) -> int:
                 previous = json.loads(args.output.read_text(encoding="utf-8"))
             except (OSError, ValueError):
                 previous = None
+        sources = drop_false_zeros(previous, sources, errors)
         sources += carry_over(previous, sources, now)
         payload = compose.compose(sources, now=now)
         if not any(n["status"] == "ok" for n in payload["networks"]):
