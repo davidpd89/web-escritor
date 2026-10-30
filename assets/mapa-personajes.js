@@ -5,8 +5,9 @@ import {
   relationshipSummary,
   serializeProject,
   parseProject,
+  ProjectImportError,
   slugify,
-} from './mapa-personajes-core.js';
+} from './mapa-personajes-core.js?v=2';
 
 const $ = sel => document.querySelector(sel);
 const root = $('[data-character-map]');
@@ -386,10 +387,62 @@ els.exportJson.addEventListener('click', () => {
   download('mapa-personajes.json', 'application/json', serializeProject(project));
   analytics('character_map_export', 'json');
 });
-els.exportSvg.addEventListener('click', () => {
+// Propiedades que el SVG exportado necesita para verse igual fuera del sitio,
+// con su valor inicial en SVG: si coinciden, el atributo sobra.
+const PAINT_PROPS = {
+  fill: 'rgb(0, 0, 0)', 'fill-opacity': '1', stroke: 'none', 'stroke-width': '1px',
+  'stroke-dasharray': 'none', 'stroke-linejoin': 'miter', 'stroke-linecap': 'butt',
+  'stroke-opacity': '1', opacity: '1', 'paint-order': 'normal',
+};
+const TEXT_PROPS = { 'font-family': '', 'font-size': '', 'font-weight': '400', 'font-style': 'normal', 'text-anchor': 'start' };
+const PAINTED = new Set(['line', 'circle', 'path', 'rect', 'text']);
+
+function portableFontFamily(value) {
+  return /\b(sans-serif|serif|monospace|system-ui)\b/.test(value) ? value : `${value}, sans-serif`;
+}
+
+// Imagen autónoma: el CSS del sitio (selectores html.v1 y variables) no viaja
+// con el archivo, así que cada estilo calculado en pantalla se escribe como
+// atributo de presentación. Sin clases, hojas, fuentes ni scripts externos.
+function portableSvg() {
   const clone = els.svg.cloneNode(true);
+  const sources = [els.svg, ...els.svg.querySelectorAll('*')];
+  const copies = [clone, ...clone.querySelectorAll('*')];
+  sources.forEach((source, index) => {
+    const copy = copies[index];
+    for (const attr of [...copy.attributes]) {
+      if (attr.name === 'class' || attr.name === 'style' || attr.name === 'tabindex' || attr.name.startsWith('data-')) copy.removeAttribute(attr.name);
+    }
+    if (!PAINTED.has(source.localName)) return;
+    const computed = getComputedStyle(source);
+    const props = source.localName === 'text' ? { ...PAINT_PROPS, ...TEXT_PROPS } : PAINT_PROPS;
+    for (const [prop, initial] of Object.entries(props)) {
+      let value = computed.getPropertyValue(prop).trim();
+      if (!value || value === initial) continue;
+      if (prop === 'font-family') value = portableFontFamily(value);
+      copy.setAttribute(prop, value);
+    }
+  });
+  const [, , width, height] = (els.svg.getAttribute('viewBox') || '0 0 900 580').split(/\s+/);
   clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-  download('mapa-personajes.svg', 'image/svg+xml', new XMLSerializer().serializeToString(clone));
+  clone.setAttribute('width', width);
+  clone.setAttribute('height', height);
+  const ns = 'http://www.w3.org/2000/svg';
+  const background = document.createElementNS(ns, 'rect');
+  background.setAttribute('width', '100%');
+  background.setAttribute('height', '100%');
+  background.setAttribute('fill', getComputedStyle(els.svg).backgroundColor);
+  const title = document.createElementNS(ns, 'title');
+  title.textContent = project.title || 'Mapa de relaciones de personajes';
+  const desc = document.createElementNS(ns, 'desc');
+  const summary = relationshipSummary(visibleGraph(project, { focusId: els.focus.value, types: activeTypes() }));
+  desc.textContent = `${summary.characters} ${pluralPersonajes(summary.characters)} y ${summary.relations} ${pluralRelaciones(summary.relations)}.`;
+  clone.prepend(title, desc, background);
+  return new XMLSerializer().serializeToString(clone);
+}
+
+els.exportSvg.addEventListener('click', () => {
+  download('mapa-personajes.svg', 'image/svg+xml', portableSvg());
   analytics('character_map_export', 'svg');
 });
 els.importJson.addEventListener('click', () => els.file.click());
@@ -397,7 +450,9 @@ els.file.addEventListener('change', async () => {
   const file = els.file.files?.[0];
   if (!file) return;
   try {
-    project = parseProject(await file.text());
+    // Validar antes de asignar: si falla, el mapa actual queda intacto.
+    const imported = parseProject(await file.text());
+    project = imported;
     els.title.value = project.title;
     positions.clear();
     setCharacterError();
@@ -405,9 +460,9 @@ els.file.addEventListener('change', async () => {
     render(true);
     announce('Mapa importado.');
     analytics('character_map_import');
-  } catch {
-    announce('No se ha podido leer ese JSON.');
-    root.dataset.state = 'error';
+  } catch (error) {
+    const reason = error instanceof ProjectImportError ? ` ${error.message}` : '';
+    announce(`No se ha abierto el archivo; el mapa actual se conserva.${reason}`);
   }
   els.file.value = '';
 });

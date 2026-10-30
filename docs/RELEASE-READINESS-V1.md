@@ -1,9 +1,9 @@
 # Release Readiness Evidence (Static Preflight Gate)
 
-- Generated: `2026-10-30T16:07:32.624012+00:00`
+- Generated: `2026-10-30T16:12:31.921214+00:00`
 - Branch: `handoff/catalogue-page-url-parity-20261030`
-- HEAD: `2ccebd5fcd508472ba3511913026a32cd6bb3f1f`
-- Previous SHA (rollback candidate): `c369f933e52073604adc2972f902191289992e08`
+- HEAD: `d0ba47dca11b921f5fa4d9ef0d9c9363293e5fbb`
+- Previous SHA (rollback candidate): `2ccebd5fcd508472ba3511913026a32cd6bb3f1f`
 
 ## Status: `STATIC_CHECKS_PASSED`
 
@@ -17,6 +17,7 @@
 ## Commit Window (latest 20)
 
 ```text
+d0ba47dca [ENCARGO P3] Catálogo: normalizar en la URL las páginas fuera de rango
 2ccebd5fc docs: encargar paridad URL y paginacion del catalogo
 c369f933e [ENCARGO P2] Homogeneizar tipografía de campos móviles y verificar Safari (#995)
 7a92c9eed [ENCARGO P1] Pagefind: conservar el índice si falla su reconstrucción (#994)
@@ -36,7 +37,6 @@ f123ab78f Portada: salto al contenido bajo la introducción, ahorro de datos y A
 78e5fa6e2 Atlas: el alimentador de Wikidata respeta el límite de WDQS (plazo total y consultas por país) (#981)
 3dfc3ae02 feat(atlas): catálogo filtrable (país, ciudad, tipo, vínculo, obra, autor) sobre el contrato de datos del Atlas (#977)
 0fce702c1 Libros: conector editorial genérico (Anagrama y Nórdica) y reparto por turnos entre fuentes (#978)
-e1ec921a9 feat(mejoras-web): laboratorio de mejoras web con Project y perfil de Edge compartidos con el QA (#959)
 ```
 
 ## Required Route Inventory
@@ -388,7 +388,7 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:28572) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-page/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:10212) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-page/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module beca)
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
@@ -459,7 +459,7 @@ test-npm-supply-chain-baseline: OK
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `c369f933e52073604adc2972f902191289992e08`.
+2. Checkout rollback target SHA: `2ccebd5fcd508472ba3511913026a32cd6bb3f1f`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

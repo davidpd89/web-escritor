@@ -99,7 +99,11 @@
       document.documentElement.classList.remove('explore-open');
       dispatchEvent(new CustomEvent('dp:explore-close'));
       if (opener instanceof HTMLElement) {
+        // Runs twice (rAF + 80ms fallback); the second pass must not pull focus
+        // back if the visitor has already moved on to another control.
         const restoreOpener = () => {
+          const active = document.activeElement;
+          if (active && active !== document.body && active !== opener && !dialog.contains(active)) return;
           if (Math.abs(window.scrollY - scrollBeforeOpen) > 4) window.scrollTo(0, scrollBeforeOpen);
           opener.focus({ preventScroll: true });
         };
