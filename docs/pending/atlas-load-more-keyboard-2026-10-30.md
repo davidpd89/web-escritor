@@ -1,6 +1,14 @@
 # Encargo: continuidad de teclado al ampliar resultados del Atlas
 
-Estado: **BORRADOR, SIN IMPLEMENTAR**. Prioridad P2: navegación accesible.
+Estado: **IMPLEMENTADO en esta rama**. Prioridad P2: navegación accesible.
+Política: al revelar una tanda (teclado o puntero, intermedia o última) el foco va
+al enlace de la primera entrada nueva; el estado `role=status` pasa a
+«N resultados · se muestran X» / «· se muestran todos» solo tras ampliar (sin
+anuncio extra al cargar ni al filtrar). Restablecer, que se deshabilita a sí
+mismo, devuelve el foco a la búsqueda. Regresión en `qa/atlas-catalogue-browser.mjs`
+(roja contra main: foco `BODY`; verde a 390 y 1280 px, con fixture de 126
+entradas para la tanda intermedia). `atlas-catalogue.js` a `?v=3`.
+Lector de pantalla real: **NO verificado** (sin NVDA/VoiceOver en este entorno).
 Base examinada: `85a335e8309b10f10961f58029810f7c50e3dbc6`.
 
 ## Reproducción confirmada en producción
