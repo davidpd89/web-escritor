@@ -153,6 +153,7 @@ html.v1 [data-family="redes-sociales"] .social-more__list a:hover,html.v1 [data-
 html.v1 [data-family="redes-sociales"] .social-more__list .social-card__icon{width:2.25rem;height:2.25rem}
 html.v1 [data-family="redes-sociales"] .social-more__list .social-card__icon svg{width:1.15rem;height:1.15rem}
 html.v1 [data-family="redes-sociales"] .social-cta{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-6);margin-top:var(--space-8);padding:var(--space-6);border-radius:calc(var(--radius-input) * 2);background:linear-gradient(120deg,var(--home-image-blue) 0%,var(--home-image-blue-deep) 100%)}
+html.v1 [data-family="redes-sociales"] .social-cta picture{flex:none;display:block}
 html.v1 [data-family="redes-sociales"] .social-cta img{flex:none;width:7.5rem;height:auto;border-radius:4px;box-shadow:0 12px 28px rgba(0,30,60,.28);transform:rotate(-3deg)}
 html.v1 [data-family="redes-sociales"] .social-cta>div{flex:1 1 16rem;min-width:0}
 html.v1 [data-family="redes-sociales"] .social-cta h2{margin:0 0 var(--space-2);font:400 clamp(1.7rem,3.4vw,2.2rem)/1.1 var(--font-display)}
