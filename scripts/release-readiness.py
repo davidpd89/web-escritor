@@ -209,7 +209,18 @@ def build_report(output: Path) -> int:
     lines.append("")
     lines.append(f"## Status: `{summary}`")
     lines.append("")
-    lines.append("> **Este informe certifica el estado STATIC_CHECKS_PASSED.**")
+    if failures == 0:
+        lines.append("> **Este informe certifica el estado STATIC_CHECKS_PASSED.**")
+    else:
+        # Un informe BLOCKED no certifica nada: enumera lo que bloquea.
+        lines.append(f"> **Este informe NO certifica el preflight: {failures} comprobación(es) fallida(s).**")
+        lines.append(">")
+        for item in checks_data:
+            if item["status"] != "PASS":
+                lines.append(f"> - Check `{item['label']}`: exit `{item['exit_code']}`")
+        for route, mode, status in route_results:
+            if status != "PASS":
+                lines.append(f"> - Ruta `{route}` (`{mode}`): no encontrada")
     lines.append(">")
     lines.append("> Cubre las comprobaciones estáticas, de paridad, unitarias y contratos locales")
     lines.append("> headless. No sustituye la ejecución completa de los gates requeridos de CI")
