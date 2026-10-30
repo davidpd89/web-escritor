@@ -1,9 +1,9 @@
 # Release Readiness Evidence (Static Preflight Gate)
 
-- Generated: `2026-10-30T13:01:07.909576+00:00`
-- Branch: `handoff/character-map-safe-import-20261030`
-- HEAD: `aa43c8d89cd93f427c5d3b5ba7f8e9155c928765`
-- Previous SHA (rollback candidate): `48f869a2763603d14840c12f2617708c095726f1`
+- Generated: `2026-10-30T13:22:44.418766+00:00`
+- Branch: `handoff/character-map-portable-svg-20261030`
+- HEAD: `d30b1ef2a912e725d9ef7f08d20f2145382b25b6`
+- Previous SHA (rollback candidate): `1e362e91930a3bbf8fe958be4eba17a2e8d64f47`
 
 ## Status: `STATIC_CHECKS_PASSED`
 
@@ -17,11 +17,14 @@
 ## Commit Window (latest 20)
 
 ```text
-aa43c8d89 merge main
+d30b1ef2a Merge remote-tracking branch 'origin/main' into handoff/character-map-portable-svg-20261030
+1e362e919 wip
+57328bb9b [ENCARGO P1] Personajes: un JSON ajeno no debe vaciar el mapa (#997)
+b57f3d29d merge main
 c369f933e [ENCARGO P2] Homogeneizar tipografía de campos móviles y verificar Safari (#995)
 7a92c9eed [ENCARGO P1] Pagefind: conservar el índice si falla su reconstrucción (#994)
 2dc6804ce [ENCARGO P2] Preflight: no certificar éxito en informes BLOCKED (#996)
-48f869a27 docs: encargar importacion segura del mapa de personajes
+48199105f docs: encargar exportacion SVG autonoma de personajes
 85a335e83 fix: close audit gaps in QA, newsletter accessibility and public metrics (#993)
 c63bf1eed Rescatar correcciones QA pendientes: Noveris, publicar-web, contrato Atlas, Pagefind y kit de prensa (#991)
 8a2898bfe Accesibilidad: contraste, impresión de Al otro lado, error del popup, aviso de copia y enlaces de compra (#992)
@@ -34,9 +37,6 @@ f123ab78f Portada: salto al contenido bajo la introducción, ahorro de datos y A
 21820f26b fix(qa): la auditoría de producción no exige generated_for de ayer (#983)
 3689c513d feat(apoyar): activar /apoyar/ con PayPal.me y Ko-fi, RRSS y Donar en cabecera, aviso de apoyo en el pie (#982)
 69528da78 UX: pie Anterior · Índice · Siguiente en fichas hermanas (#980)
-78e5fa6e2 Atlas: el alimentador de Wikidata respeta el límite de WDQS (plazo total y consultas por país) (#981)
-3dfc3ae02 feat(atlas): catálogo filtrable (país, ciudad, tipo, vínculo, obra, autor) sobre el contrato de datos del Atlas (#977)
-0fce702c1 Libros: conector editorial genérico (Anagrama y Nórdica) y reparto por turnos entre fuentes (#978)
 ```
 
 ## Required Route Inventory
@@ -388,8 +388,8 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:27524) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-map-import/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
-Reparsing as ES modul)
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:2540) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-map-svg/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module be)
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
   ok   DTSTART is 17:00 UTC per icalendar (got 2026-09-03 17:00:00+00:00)
@@ -459,7 +459,7 @@ test-npm-supply-chain-baseline: OK
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `48f869a2763603d14840c12f2617708c095726f1`.
+2. Checkout rollback target SHA: `1e362e91930a3bbf8fe958be4eba17a2e8d64f47`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
