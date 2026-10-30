@@ -65,6 +65,9 @@ jobs:
           done
           exit $fail
 
+      - name: Run underscore-named Python contracts
+        run: python -m unittest discover -s tests -p 'test_*.py'
+
       - name: Verify third-party integration governance
         run: python scripts/check-third-party-integrations.py --check
 

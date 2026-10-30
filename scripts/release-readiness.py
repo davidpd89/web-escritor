@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import shlex
 import subprocess
 import sys
 import textwrap
@@ -85,10 +86,15 @@ ROUTE_CHECKS = [
 
 
 def run(cmd: str) -> tuple[int, str]:
+    # PATH may still point at another workspace's venv in a multi-root editor.
+    # These are fixed repository commands, not shell expressions.
+    args = shlex.split(cmd)
+    if args and args[0] == "python":
+        args[0] = sys.executable
     proc = subprocess.run(
-        cmd,
+        args,
         cwd=ROOT,
-        shell=True,
+        shell=False,
         text=True,
         capture_output=True,
         encoding="utf-8",

@@ -99,7 +99,7 @@ TRACKED_ASSETS = {
     "v1-editorial.css": "4",
     "v1-editorial.js": "4",
     "newsletter-popup.css": "1",
-    "newsletter-popup.js": "5",
+    "newsletter-popup.js": "6",
     "v1-no-js-pending.css": "1",
     "cuaderno-index.css": "1",
     "editoriales.css": "3",

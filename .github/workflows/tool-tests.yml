@@ -1,7 +1,7 @@
 name: Tool engine tests
 
 # Por que existe: los test-*.mjs de tests/ (motores de herramientas y
-# contratos del asistente) y los test-*.py de contratos compartidos deben
+# contratos del asistente) y los test-*.py/test_*.py de contratos compartidos deben
 # ejecutarse en cada PR que pueda alterar su comportamiento. El bucle por
 # fichero es deliberado: este repositorio no tiene un runner central y cada
 # test independiente imprime OK o lanza una assertion.
@@ -78,3 +78,5 @@ jobs:
             echo "::endgroup::"
           done
           exit $fail
+      - name: Run every tests/test_*.py via unittest discovery
+        run: python -m unittest discover -s tests -p 'test_*.py'

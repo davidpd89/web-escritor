@@ -170,12 +170,19 @@
           });
           const panel = d.querySelector("#nl-popup-panel");
           if (result.ok && result.state === "pending_confirmation") {
-            panel.innerHTML = '<p class="nl-popup-result-title">' + copy.okTitle + '</p><p class="nl-popup-result-body">' + copy.okBody + '</p>';
-            panel.tabIndex = -1;
-            panel.focus({ preventScroll: true });
+            // Keep the dialog's labelledby/describedby targets and close
+            // controls alive. Replacing the whole panel left an unnamed modal
+            // without any tabbable way out until a five-second timer expired.
+            const title = panel.querySelector("#nl-popup-title");
+            title.textContent = copy.okTitle;
+            panel.querySelector("#nl-popup-body").textContent = copy.okBody;
+            panel.querySelector(".eyebrow").hidden = true;
+            panel.querySelector("#nl-popup-form").remove();
+            panel.querySelector("#nl-popup-skip").textContent = "Cerrar";
+            title.tabIndex = -1;
+            title.focus({ preventScroll: true });
             safeSet(REQUESTED_KEY, String(Date.now()));
             _gcEvent("newsletter-pending-popup", "Newsletter DOI pendiente: popup");
-            setTimeout(dismiss, 5000);
           } else {
             throw new Error(result.code || "request_failed");
           }
