@@ -1,6 +1,11 @@
 # Encargo: conservar el índice Pagefind si falla su reconstrucción
 
-Estado: **PENDIENTE DE IMPLEMENTACIÓN — PR EN BORRADOR**.
+Estado: **IMPLEMENTADO (30/10)**. `build()` genera en `.pagefind.staging-<pid>` hermano,
+valida (pagefind.js + manifiesto + `check()`), promueve con rename a ruta libre y
+rollback desde `.pagefind.backup-<pid>`; lock exclusivo `.pagefind-build.lock` (O_EXCL)
+contra builds concurrentes. Regresión: `tests/test-pagefind-atomic-rebuild.py`
+(roja antes: `proceso fallido: el indice anterior cambio`; verde después).
+Build real en Windows: 430 páginas, `--check` PASS, salida idéntica salvo CRLF/LF.
 Prioridad: P1 de mantenimiento; no es una caída confirmada de producción.
 Base examinada: `85a335e8309b10f10961f58029810f7c50e3dbc6`.
 
