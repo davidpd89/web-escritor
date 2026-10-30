@@ -83,6 +83,26 @@
   const emptyClear = document.querySelector('[data-radar-empty-clear]');
   const empty = document.querySelector('[data-radar-filter-empty]');
   let today = todayCivil();
+  // Familias de descubrimiento (data/genre-families.json): «familia:relato» incluye relato corto,
+  // microrrelato... La ficha explica qué etiqueta literal la hace aparecer.
+  const FAMILY = 'familia:';
+  let fam = { labels: {}, tags: {} };
+  try {
+    fam = JSON.parse(document.querySelector('[data-genre-families]')?.textContent || '{}');
+    fam.labels ||= {};
+    fam.tags ||= {};
+  } catch { /* sin mapa: solo etiquetas exactas */ }
+  const explain = (item, familyId) => {
+    const note = item.querySelector('[data-genre-match]');
+    if (!note) return;
+    const hit = familyId
+      ? (item.dataset.genres || '').split('|').filter((tag) => (fam.tags[normalize(tag)] || []).includes(familyId))
+      : [];
+    note.textContent = hit.length
+      ? `Aparece en «${fam.labels[familyId] || familyId}» porque las bases declaran: ${hit.join(', ')}. Comprueba los requisitos antes de presentarte.`
+      : '';
+    note.hidden = !hit.length;
+  };
 
   const emit = (event, detail = {}) => document.dispatchEvent(new CustomEvent('dp:analytics', { detail: { event, ...detail } }));
 
@@ -122,6 +142,7 @@
     const q = normalize(query?.value);
     const wantedType = normalize(type?.value);
     const wantedGenre = normalize(genre?.value);
+    const wantedFamily = wantedGenre.startsWith(FAMILY) ? wantedGenre.slice(FAMILY.length) : '';
     const wantedKind = normalize(kind?.value);
     let visible = 0;
 
@@ -132,6 +153,7 @@
       const haystack = normalize(`${item.dataset.title || ''} ${item.dataset.organizer || ''} ${item.textContent || ''}`);
       const itemType = normalize(item.dataset.type);
       const itemGenres = normalize(item.dataset.genres).split('|');
+      const itemFamilies = (item.dataset.families || '').split('|').filter(Boolean);
       // Una ficha de la seccion de cerradas esta 'no disponible' por
       // definicion -- su plazo paso -- y aun asi se puede mostrar si quien
       // lee lo pide. Lo que no cambia es el caso que este guard protege de
@@ -144,11 +166,12 @@
       const matches = available
         && (!q || haystack.includes(q))
         && (!wantedType || itemType === wantedType)
-        && (!wantedGenre || itemGenres.includes(wantedGenre))
+        && (!wantedGenre || (wantedFamily ? itemFamilies.includes(wantedFamily) : itemGenres.includes(wantedGenre)))
         && (!wantedKind || itemKind === wantedKind)
         && (!soon?.checked || (itemKind === 'active' && closesSoon));
       item.hidden = !matches;
       if (matches) visible += 1;
+      explain(item, matches ? wantedFamily : '');
     });
 
     if (count) count.textContent = `${visible} ${visible === 1 ? 'convocatoria' : 'convocatorias'} ${visible === 1 ? 'visible' : 'visibles'}`;

@@ -1,6 +1,6 @@
 # Encargo de producto: encontrar dónde enviar sin conocer 104 etiquetas
 
-Estado: **BORRADOR, PROPUESTA SIN IMPLEMENTAR**. P1 de UX de recursos para escritores.
+Estado: **IMPLEMENTADO** en la PR #1009 (ver «Implementación» al final). P1 de UX de recursos para escritores.
 Base examinada: `f4a2ea43f3699e06fd96ccba0aab6c14d4b87f36`, 30/10/2026.
 
 ## Alcance e impacto observado
@@ -79,3 +79,32 @@ Tampoco crear páginas SEO por cada alias ni cambiar indexación por defecto.
 
 Otra IA continúa aquí con investigación, diseño, implementación y pruebas.
 El commit actual es solo documental; no fusionarlo como funcionalidad terminada.
+## Implementación (PR #1009)
+
+- **Inventario y taxonomía**: `data/genre-families.json` recoge 13 familias (forma, género y
+  público) y documenta las ambigüedades, entre ellas fantasía oscura, realismo mágico, novela
+  corta, new adult y las etiquetas que se quedan sin familia. Ninguna etiqueta de la fuente se
+  reescribe. Romantasy pertenece a Fantasía y a Romántica.
+- **Código compartido**: `scripts/genre_families.py` genera el selector con dos grupos: primero
+  «Familias (coincidencia amplia)», con valores `familia:<id>`, y después «Etiqueta exacta de la
+  fuente», donde siguen las 104 etiquetas literales. También genera el mapa JSON que usa el
+  cliente.
+- **/editoriales/**: la familia Fantasía muestra 61 fichas (la etiqueta exacta «fantasía» sigue
+  dando 54) e incluye Siruela, Andrómeda, Cetus, Vanadis y Dilatando Mentes. Cada ficha resalta
+  las etiquetas que coinciden y lo explica: «Aparece en «Fantasía y fantástico» porque declara:
+  …. Comprueba estado y condiciones antes de enviar.». La búsqueda libre también encuentra por el
+  nombre de la familia. La familia se guarda en la URL (`#genero=familia:fantasia`), se combina
+  con los demás filtros y «Limpiar» la quita junto con las notas.
+- **/convocatorias-escritores/**: funciona igual. La familia Relato reúne relato corto,
+  microrrelato, narrativa breve, etc., y la nota dice «las bases declaran: …».
+- **Sin JS**: no se ve ninguna nota ni el JSON, y las fichas siguen completas.
+- **Medidas a 390×844 en local**, con el mismo constructor y datos en las dos ramas:
+  - main: primera ficha a 1.820 px;
+  - rama: primera ficha a 1.808 px.
+  - La ayuda ocupa una línea corta. Estado, país y orden pasan a dos columnas a partir de 360 px.
+  - No hay scroll horizontal.
+- **Regresión**: `qa/writer-resources-genre-families.mjs` falla con main («el selector separa
+  familias y etiquetas exactas») y pasa en la rama.
+- **Tests ajustados**:
+  - `qa/data-radar-pairwise-filters.mjs` expande las opciones `familia:` con la taxonomía;
+  - el contrato de diseño espera dos columnas de filtros a partir de 360 px.

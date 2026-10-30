@@ -205,7 +205,7 @@ try {
 
       assert.equal(finder.display, 'grid', `${name}: mesa de consulta deja de ser grid`);
       assert.ok(finder.boxShadow.includes(BLUE) && finder.boxShadow.includes(GOLD), `${name}: mesa de consulta pierde el rail azul/dorado`);
-      assert.equal(columnCount(options.gridTemplateColumns), width > 900 ? 5 : width > 640 ? 2 : 1, `${name}: seam de filtros incorrecto`);
+      assert.equal(columnCount(options.gridTemplateColumns), width > 900 ? 5 : width >= 360 ? 2 : 1, `${name}: seam de filtros incorrecto (#1009: estado/país/orden en dos columnas desde 360 px)`);
 
       assert.equal(firstCard.display, 'grid', `${name}: expediente deja de ser grid`);
       assert.equal(columnCount(firstCard.gridTemplateColumns), width > 640 ? 2 : 1, `${name}: seam 641/640 del expediente incorrecto`);

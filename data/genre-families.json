@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "note": "Taxonomía de DESCUBRIMIENTO para /editoriales/ y /convocatorias-escritores/. Agrupa etiquetas literales de las fuentes en familias amplias; no sustituye la etiqueta de la fuente ni garantiza que una editorial o convocatoria acepte un manuscrito concreto. Una etiqueta puede pertenecer a varias familias (romantasy: fantasía y romántica). Las etiquetas sin familia siguen disponibles como etiqueta exacta.",
+  "families": [
+    {"id": "narrativa", "label": "Narrativa y novela", "axis": "forma", "tags": ["narrativa", "narrativa adulta", "narrativa contemporánea", "narrativa en español", "ficción", "ficción literaria", "ficción contemporánea", "ficción moderna", "ficción comercial", "ficción social", "literatura", "literatura contemporánea", "literatura social", "literatura hispanoamericana", "literatura internacional", "novela", "novela contemporánea", "novela corta"]},
+    {"id": "relato", "label": "Cuento, relato y microrrelato", "axis": "forma", "tags": ["cuento", "cuentos", "relato", "relato breve", "relato corto", "microrrelato", "narrativa breve", "prosa breve"]},
+    {"id": "poesia", "label": "Poesía", "axis": "forma", "tags": ["poesía"]},
+    {"id": "teatro", "label": "Teatro", "axis": "forma", "tags": ["teatro", "dramaturgia"]},
+    {"id": "no-ficcion", "label": "Ensayo y no ficción", "axis": "forma", "tags": ["ensayo", "ensayo literario", "no ficción", "no ficción narrativa", "biografía", "memorias", "memoria", "crónica", "periodismo", "pensamiento", "historia", "divulgación", "viajes"]},
+    {"id": "fantasia", "label": "Fantasía y fantástico", "axis": "género", "tags": ["fantasía", "fantasía oscura", "fantástico", "narrativa fantástica", "romantasy", "realismo mágico"]},
+    {"id": "ciencia-ficcion", "label": "Ciencia ficción y especulativa", "axis": "género", "tags": ["ciencia ficción", "ficción especulativa", "distopía", "ucronía"]},
+    {"id": "terror", "label": "Terror, gótico y weird", "axis": "género", "tags": ["terror", "horror cósmico", "gótico", "weird", "literatura extraña", "ficción insólita", "literatura insólita", "narrativa oscura"]},
+    {"id": "negra", "label": "Negra, thriller y misterio", "axis": "género", "tags": ["novela negra", "género negro", "thriller", "misterio", "intriga", "hardboiled", "suspenso"]},
+    {"id": "romantica", "label": "Romántica", "axis": "género", "tags": ["romance", "romántica", "romántico", "novela romántica", "romántica contemporánea", "romántica histórica", "romántica paranormal", "romance paranormal", "romantasy", "dark romance", "romcom", "sport romance"]},
+    {"id": "historica", "label": "Histórica", "axis": "género", "tags": ["novela histórica", "ficción histórica", "histórica", "romántica histórica", "relato histórico"]},
+    {"id": "infantil-juvenil", "label": "Infantil, juvenil y young adult", "axis": "público", "tags": ["infantil", "literatura infantil", "cuento infantil", "literatura infantil y juvenil", "juvenil", "novela juvenil", "joven adulto", "young adult", "new adult"]},
+    {"id": "comic", "label": "Cómic e ilustración", "axis": "forma", "tags": ["cómic", "ilustración", "libro ilustrado", "literatura ilustrada"]}
+  ],
+  "ambiguities": [
+    "«fantasía oscura» se agrupa en Fantasía y no en Terror: es fantasía con tono oscuro; las fichas que aceptan terror ya lo declaran aparte.",
+    "«realismo mágico» se agrupa en Fantasía como modo fantástico; no implica que la editorial publique fantasía épica.",
+    "«novela corta» queda en Narrativa y no en Relato: es una extensión de novela, no un cuento.",
+    "«new adult» se agrupa por público (Infantil, juvenil y young adult) aunque sea lectura adulta joven; no es un género.",
+    "Sin familia, solo como etiqueta exacta: erótica/erótico, LGTBIQ+, own voices, nuevas voces, literatura de género, narrativa de género, pulp, humor, aventuras, dark academia, folclore, clásicos y etiquetas temáticas de concursos (salud, minería, gastronomía...). Son públicos, temas o sellos editoriales que no definen por sí solos una familia de manuscrito."
+  ]
+}
