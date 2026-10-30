@@ -5,6 +5,8 @@ https?://([^/]+\.)?instagram\.com/.*
 https?://([^/]+\.)?facebook\.com/.*
 https?://([^/]+\.)?(twitter|x)\.com/.*
 https?://([^/]+\.)?amazon\.[^/]+/.*
+# amzn.to es el acortador de Amazon: redirige a amazon.es, que responde 302 antibot al CI.
+https?://amzn\.to/.*
 https?://([^/]+\.)?goodreads\.com/.*
 https?://([^/]+\.)?casadellibro\.com/.*
 https?://([^/]+\.)?fnac\.es/.*

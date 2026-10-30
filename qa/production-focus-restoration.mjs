@@ -86,16 +86,31 @@ try{
         );
         assert.equal(await opener.getAttribute('aria-expanded'),'false',`${route}: Explore opener aria-expanded did not reset`);
         assert.equal(await opener.evaluate(el=>document.activeElement===el),true,`${route}: focus was not restored to Explore opener after Escape`);
+        // The delayed restore pass (80ms) must not steal focus from a control the visitor moved to.
+        const movedTo=await page.evaluate(()=>{
+          const el=[...document.querySelectorAll('.site-header a[href], .site-header button')].find(n=>!n.matches('[data-explore-open]')&&n.getClientRects().length);
+          if(!el) return false;
+          el.setAttribute('data-qa-moved-focus','');
+          el.focus();
+          return document.activeElement===el;
+        });
+        if(movedTo){
+          await page.waitForTimeout(200);
+          assert.equal(await page.evaluate(()=>document.activeElement?.hasAttribute('data-qa-moved-focus')),true,`${route}: delayed Explore restore stole focus from the next control`);
+        }
       }
 
-      const submenu=page.locator('.masthead-nav__submenu-trigger:visible').first();
-      if(await submenu.count()){
+      // Pin one concrete trigger: a re-resolved `:visible` locator can point at another trigger mid-transition.
+      const visibleTrigger=page.locator('.masthead-nav__submenu-trigger:visible').first();
+      if(await visibleTrigger.count()){
+        await visibleTrigger.evaluate(el=>el.setAttribute('data-qa-focus-target',''));
+        const submenu=page.locator('.masthead-nav__submenu-trigger[data-qa-focus-target]');
         await submenu.focus();
         await submenu.click();
         assert.equal(await submenu.getAttribute('aria-expanded'),'true',`${route}: masthead submenu did not open`);
         await page.keyboard.press('Escape');
         await page.waitForFunction(
-          () => document.activeElement?.matches('.masthead-nav__submenu-trigger') &&
+          () => document.activeElement?.matches('.masthead-nav__submenu-trigger[data-qa-focus-target]') &&
             document.activeElement.getAttribute('aria-expanded') === 'false',
           null,
           {timeout:2000},
