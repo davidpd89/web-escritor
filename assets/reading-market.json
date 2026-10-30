@@ -626,6 +626,28 @@
       "actualizado_en": "2026-10-27T12:34:53Z",
       "caduca_en": "2026-10-28T12:34:53Z",
       "precio_referencia_centimos": 1795
+    },
+    {
+      "libro_id": "isbn-9791387901943",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 1325,
+      "url": "https://www.amazon.es/dp/B0H7JMHG3T?tag=davidporto-21",
+      "actualizado_en": "2026-10-30T20:03:10Z",
+      "caduca_en": "2026-10-31T20:03:10Z",
+      "precio_referencia_centimos": 1395
+    },
+    {
+      "libro_id": "isbn-9791388306297",
+      "formato": "tapa-dura",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2232,
+      "url": "https://www.amazon.es/dp/B0HD696LH6?tag=davidporto-21",
+      "actualizado_en": "2026-10-30T20:03:10Z",
+      "caduca_en": "2026-10-31T20:03:10Z",
+      "precio_referencia_centimos": 2350
     }
   ],
   "ratings": [
@@ -981,6 +1003,15 @@
       "caduca_en": "2026-11-03T12:32:37Z"
     },
     {
+      "libro_id": "isbn-9791388306297",
+      "puntuacion": 3.94,
+      "numero_valoraciones": 4,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/260023637-el-libro-de-los-gatos",
+      "actualizado_en": "2026-10-30T20:02:12Z",
+      "caduca_en": "2026-11-06T20:02:12Z"
+    },
+    {
       "libro_id": "lib-0001",
       "puntuacion": 4.13,
       "numero_valoraciones": 810447,
@@ -991,12 +1022,12 @@
     },
     {
       "libro_id": "isbn-9788427054479",
-      "puntuacion": 3.55,
-      "numero_valoraciones": 55,
+      "puntuacion": 3.51,
+      "numero_valoraciones": 56,
       "fuente": "hardcover",
       "url": "https://hardcover.app/books/un-amor-de-diciembre-2024",
-      "actualizado_en": "2026-10-27T12:32:37Z",
-      "caduca_en": "2026-11-03T12:32:37Z"
+      "actualizado_en": "2026-10-30T20:02:12Z",
+      "caduca_en": "2026-11-06T20:02:12Z"
     },
     {
       "libro_id": "isbn-9788466396806",
