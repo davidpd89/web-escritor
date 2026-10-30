@@ -501,10 +501,14 @@ def render_filters(data, type_options):
     advanced += select('descuento', 'Ofertas', [('', 'Todos los precios'), ('1', 'Con descuento'), ('10', '10 % o más'), ('25', '25 % o más'), ('50', '50 % o más')], 'data-market-control="offers" disabled')
     advanced += select('valoracion', 'Valoración de lectores', [('', 'Todas las valoraciones'), ('3', '3 estrellas o más'), ('4', '4 estrellas o más'), ('4.5', '4,5 estrellas o más')], 'data-market-control="ratings" disabled')
     advanced += '</div>'
-    return ('<aside class="catalogue-sidebar"><form class="catalogue-filters" data-catalogue-filters><fieldset disabled><legend>Encuentra tu próxima lectura</legend>' + search
-            + '<div class="catalogue-facets">' + facets + '</div><div class="catalogue-filter-grid">' + controls + '</div>'
+    # En móvil (≤900 px) solo la búsqueda queda a la vista; el resto de filtros se pliega tras
+    # «Filtros» para que los libros aparezcan en la primera pantalla. En escritorio el panel
+    # siempre está abierto y el botón no se muestra (lo decide el CSS: sin salto al cargar).
+    toggle = '<button type="button" class="catalogue-refine-toggle" aria-expanded="false" aria-controls="catalogue-refine" data-catalogue-refine-toggle>Filtros <span class="catalogue-refine-count" data-catalogue-refine-count></span><span aria-hidden="true">＋</span></button>'
+    return ('<aside class="catalogue-sidebar"><form class="catalogue-filters" data-catalogue-filters><fieldset disabled><legend>Encuentra tu próxima lectura</legend>' + search + toggle
+            + '<div class="catalogue-refine" id="catalogue-refine" data-catalogue-refine><div class="catalogue-facets">' + facets + '</div><div class="catalogue-filter-grid">' + controls + '</div>'
             '<details class="catalogue-details catalogue-more-filters"><summary>Más filtros: fechas, ofertas y valoraciones <span aria-hidden="true">＋</span></summary>' + advanced + '</details>'
-            '<div class="catalogue-filter-actions"><button type="submit">Buscar libros</button><button type="reset" disabled>Restablecer</button></div></fieldset></form></aside>')
+            '<div class="catalogue-filter-actions"><button type="submit">Buscar libros</button><button type="reset" disabled>Restablecer</button></div></div></fieldset></form></aside>')
 
 
 # Tipo de libro para el selector «Todos / Novela / Cocina…» junto al catálogo.
