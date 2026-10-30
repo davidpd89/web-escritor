@@ -1,9 +1,9 @@
 # Release Readiness Evidence (Static Preflight Gate)
 
-- Generated: `2026-10-30T15:49:57.774456+00:00`
+- Generated: `2026-10-30T16:38:03.739749+00:00`
 - Branch: `handoff/public-generators-url-userinfo-20261030`
-- HEAD: `87b38698ff392ec88ddb673dac0a92040c2d9b8c`
-- Previous SHA (rollback candidate): `aa36d9c4b91f9db7c7c27d4c4c26bc179741df8c`
+- HEAD: `2af6c5a255fee4d530a13a8b3b498e304886b96a`
+- Previous SHA (rollback candidate): `886fca8be219dd9b620f44ca59272adc1129aa04`
 
 ## Status: `STATIC_CHECKS_PASSED`
 
@@ -17,6 +17,8 @@
 ## Commit Window (latest 20)
 
 ```text
+2af6c5a25 Registrar versiones y hashes de los assets de URL con credenciales
+886fca8be Reaplicar versiones ?v= de los generadores tras integrar main
 87b38698f Merge remote-tracking branch 'origin/main' into handoff/public-generators-url-userinfo-20261030
 f5bdb3770 [ENCARGO P2] Personajes: SVG exportado portable y foco de Explorar estable (#998)
 aa36d9c4b [ENCARGO P2] Rechazar URL con usuario o contraseña en generadores públicos
@@ -35,8 +37,6 @@ d0ef6ea78 Seguridad: CSP en el embed del asistente, en lecturas y completa en 8 
 f123ab78f Portada: salto al contenido bajo la introducción, ahorro de datos y AVIF de Samuel (#987)
 59adf6220 Accesibilidad y SEO: 7 correcciones verificadas contra main (#986)
 22171a7ea Mejoras del laboratorio verificadas contra main (13) (#985)
-21820f26b fix(qa): la auditoría de producción no exige generated_for de ayer (#983)
-3689c513d feat(apoyar): activar /apoyar/ con PayPal.me y Ko-fi, RRSS y Donar en cabecera, aviso de apoyo en el pie (#982)
 ```
 
 ## Required Route Inventory
@@ -388,7 +388,7 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:27056) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-userinfo/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:32948) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-userinfo/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module )
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
@@ -459,7 +459,7 @@ test-npm-supply-chain-baseline: OK
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `aa36d9c4b91f9db7c7c27d4c4c26bc179741df8c`.
+2. Checkout rollback target SHA: `886fca8be219dd9b620f44ca59272adc1129aa04`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

@@ -201,7 +201,7 @@ async function testEvent() {
 
   const description = `${SENTINEL}\nCon ñ, áéíóú, coma, punto y coma; barra \\ — y «comillas».\n<script>alert(1)</script>`;
   await page.fill('#ev-name', 'Presentación de novela');
-  await page.fill('#ev-url', 'https://example.test/eventos/presentacion/');
+  await page.fill('#ev-url', 'https://example.test/eventos/presentacion,uno;sesion/?x=a,b');
   await page.fill('#ev-desc', description);
   await page.fill('#ev-start-dt', '2026-09-10T19:00');
   await page.fill('#ev-end-dt', '2026-09-10T20:30');
@@ -243,6 +243,8 @@ async function testEvent() {
   check(!/(^|[^\r])\n/.test(ics), 'Eventos ICS: no debe contener LF sin CR');
   check(unfolded.includes('punto y coma\\; barra \\\\'), 'Eventos ICS: escapado de ; y \\');
   for (const line of ics.split('\r\n')) check(new TextEncoder().encode(line).length <= 75, `Eventos ICS: línea >75 bytes`);
+  // URL es tipo URI (RFC 5545 §3.3.13): sale igual que en JSON-LD, sin el escape TEXT.
+  check(unfolded.split('\r\n').includes('URL:https://example.test/eventos/presentacion,uno;sesion/?x=a,b'), 'Eventos ICS: URL sin escapar comas ni punto y coma');
 
   await page.check('input[name="allDay"]');
   await page.fill('#ev-start-date', '2026-09-10');

@@ -6,7 +6,7 @@
 // independiente): parseo correcto, DTSTART 19:00+02:00 -> 17:00Z, 0 lineas de
 // mas de 75 octetos, CRLF, y descripcion desplegada identica con tildes y ñ.
 import assert from 'node:assert/strict';
-import { buildEventOutputs, foldIcsLine } from '../assets/evento-escritor-core.js';
+import { buildEventOutputs, foldIcsLine, validateEventModel } from '../assets/evento-escritor-core.js';
 
 const model = {
   name: 'Presentación de Las manecillas del recuerdo',
@@ -82,5 +82,29 @@ checkFoldRoundtrip('DESCRIPTION:' + '📚'.repeat(40)); // 4-byte UTF-8 (surroga
 checkFoldRoundtrip('DESCRIPTION:' + '文'.repeat(40)); // 3-byte UTF-8, repeated across many folds
 checkFoldRoundtrip('DESCRIPTION:' + 'a'.repeat(73) + '📚📚📚📚'); // ASCII run landing exactly at the fold boundary, then emoji
 checkFoldRoundtrip('DESCRIPTION:' + 'a'.repeat(74) + '文文文文'); // same, one byte off, for CJK
+
+// URL es tipo URI (RFC 5545 §3.3.13, §3.8.4.6): comas y punto y coma no se
+// escapan como TEXT. El destino debe coincidir con el del JSON-LD.
+function unfoldedProp(icsText, name) {
+  const line = icsText.replace(/\r\n /g, '').split('\r\n').find((l) => l.startsWith(`${name}:`));
+  return line && line.slice(name.length + 1);
+}
+for (const url of [
+  'https://example.com/eventos/uno,dos;sesion?x=a,b',
+  'https://example.com/ruta%20con%2Cescape?q=caf%C3%A9&r=1;2#seccion,a',
+  `https://example.com/${'larga-'.repeat(30)}?a=1,2;3`,
+]) {
+  const out = buildEventOutputs({ ...model, url, description: 'Texto, con; comas \\ barra\nsalto' });
+  assert.equal(unfoldedProp(out.ics, 'URL'), url, `URL del ICS debe preservar el destino: ${url}`);
+  assert.equal(JSON.parse(out.jsonLd).url, url, 'JSON-LD y ICS apuntan al mismo destino');
+  assert.equal(unfoldedProp(out.ics, 'DESCRIPTION'), 'Texto\\, con\\; comas \\\\ barra\\nsalto', 'TEXT sigue escapado');
+  for (const seg of out.ics.split('\r\n')) assert.ok(Buffer.byteLength(seg, 'utf8') <= 75, 'plegado a 75 octetos');
+}
+// Controles/CRLF: new URL() los eliminaría en silencio; deben rechazarse.
+for (const url of ['https://example.com/a\r\nATTENDEE:mailto:x@example.com', 'https://example.com/a\tb', 'https://example.com/a b', 'https://example.com/\u0000']) {
+  const errors = validateEventModel({ ...model, url });
+  assert.ok(errors.length > 0, `URL con controles/espacios debe rechazarse: ${JSON.stringify(url)}`);
+}
+assert.deepEqual(validateEventModel({ ...model, url: '  https://example.com/a,b  ' }), [], 'espacios exteriores se recortan');
 
 console.log('test-evento-ics-rfc5545: OK');
