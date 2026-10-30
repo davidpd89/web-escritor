@@ -10,6 +10,7 @@ _brevo_*.py
 *.xlsx
 *.pdf
 node_modules/
+node_modules
 
 # Copia local de trabajo del ebook -- no es un asset publicado por la web
 assets/Las_manecillas_del_recuerdo_David_Porto.epub
