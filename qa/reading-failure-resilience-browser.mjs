@@ -82,7 +82,7 @@ async function runCase(width,mode){
         label: box.querySelector('a')?.getAttribute('aria-label'),
         fill: box.querySelector('.catalogue-stars')?.style.getPropertyValue('--rating')
       })));
-      assert(ratings.every(r => !r.text || (r.text === 'Goodreads ★★★★★ 0,0 (0)' && r.fill === '0%' && r.label === 'Goodreads: aún sin valoraciones públicas')),'Only an explicitly empty Goodreads state may appear without verified ratings');
+      assert(ratings.every(r => !r.text || (r.text === 'Goodreads · consultar ficha' && !r.fill && !r.label)),'Without verified ratings only a neutral Goodreads link may appear, never a 0/5 score');
       assert(await page.locator('[data-filter="valoracion"]').isDisabled(),'No active rating filter without verified ratings');
       assert(await page.locator('[data-filter="precio_max"]').isEnabled(),'Editorial PVP filtering stays available without market prices');
       const maximum = Math.ceil(selected.pvp_centimos / 100);

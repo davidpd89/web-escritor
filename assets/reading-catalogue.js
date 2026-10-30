@@ -36,6 +36,8 @@
     if (source === 'hardcover') return Boolean(safeURL(r.url, ['hardcover.app', 'www.hardcover.app'], /^\/books\/[a-z0-9]+(?:-[a-z0-9]+)*$/));
     return false;
   };
+  // Muestra de 1–4 valoraciones con fuente y vigencia válidas: existe, pero no es una nota fiable.
+  const thinRating = r => Number.isSafeInteger(r.numero_valoraciones) && r.numero_valoraciones >= 1 && r.numero_valoraciones < 5 && validRating({...r, numero_valoraciones: 5});
   const discount = o => Number.isSafeInteger(o.precio_referencia_centimos) && o.precio_referencia_centimos > o.precio_centimos ? Math.floor((o.precio_referencia_centimos - o.precio_centimos) / o.precio_referencia_centimos * 100) : 0;
   // Index entries are validated by renderMarket. Recheck expiry on interaction,
   // without reparsing the same URLs for every card and quiz option.
@@ -82,15 +84,20 @@
     for (const box of root.querySelectorAll('[data-rating-book]')) {
       const r = ratingFor(box.dataset.ratingBook); box.replaceChildren();
       if (!r) {
-        // Sin valoración pública verificada: Goodreads con cinco estrellas vacías y 0,0 (0), enlazado a la ficha del ISBN.
-        if (/^\d{13}$/.test(box.dataset.isbn || '')) {
-          const none = document.createElement('a'); none.href = 'https://www.goodreads.com/book/isbn/' + box.dataset.isbn; none.target = '_blank'; none.rel = 'noopener noreferrer';
-          const empty = document.createElement('span'); empty.className = 'catalogue-stars'; empty.setAttribute('aria-hidden', 'true'); empty.style.setProperty('--rating', '0%'); empty.textContent = '★★★★★';
-          none.append('Goodreads ', empty, ' 0,0 (0)'); none.setAttribute('aria-label', 'Goodreads: aún sin valoraciones públicas'); box.append(none);
+        // Sin valoración verificada vigente NO se pinta una nota: ni estrellas vacías ni «0,0 (0)».
+        // Que aquí no haya dato utilizable (caducado, proveedor caído, fuente no válida) no prueba que la fuente tenga cero opiniones.
+        const thin = market.ratings.find(x => x.libro_id === box.dataset.ratingBook && thinRating(x));
+        const isbn = /^\d{13}$/.test(box.dataset.isbn || '') ? box.dataset.isbn : '';
+        if (thin || isbn) {
+          const ref = document.createElement('a'); ref.href = thin ? thin.url : 'https://www.goodreads.com/book/isbn/' + isbn; ref.target = '_blank'; ref.rel = 'noopener noreferrer';
+          ref.className = 'catalogue-rating__ref'; ref.dataset.ratingState = thin ? 'insufficient' : 'unavailable';
+          ref.textContent = thin ? ratingLabel(thin) + ' · menos de 5 valoraciones' : 'Goodreads · consultar ficha';
+          ref.title = thin ? 'Muestra demasiado pequeña para mostrar una nota. Consultado el ' + new Date(thin.actualizado_en).toLocaleDateString('es-ES') : 'Sin valoración verificada en este catálogo';
+          box.append(ref);
         }
         continue;
       }
-      const link = document.createElement('a'); link.href = r.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
+      const link = document.createElement('a'); link.href = r.url; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.dataset.ratingState = 'verified';
       const stars = document.createElement('span'); stars.className = 'catalogue-stars'; stars.setAttribute('aria-hidden', 'true'); stars.style.setProperty('--rating', r.puntuacion / 5 * 100 + '%'); stars.textContent = '★★★★★';
       link.append(ratingLabel(r) + ' ', stars, ' ' + r.puntuacion.toLocaleString('es-ES', {minimumFractionDigits: 1}) + ' (' + r.numero_valoraciones.toLocaleString('es-ES') + ')'); link.title = 'Consultado el ' + new Date(r.actualizado_en).toLocaleDateString('es-ES'); box.append(link);
     }

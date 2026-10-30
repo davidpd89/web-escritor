@@ -12,6 +12,7 @@ on:
       - 'tests/test-reading-catalogue.py'
       - 'qa/reading-catalogue-browser.mjs'
       - 'qa/reading-commerce-browser.mjs'
+      - 'qa/catalogue-ratings-trust.mjs'
       - 'qa/reading-type-selector-browser.mjs'
       - 'qa/reading-catalogue-v2-browser.mjs'
       - 'qa/build-reading-scale-fixture.py'
@@ -80,6 +81,7 @@ jobs:
           python scripts/build-reading-catalogue.py --check
           node qa/reading-catalogue-browser.mjs
           node qa/reading-commerce-browser.mjs
+          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-ratings-trust.mjs
           node qa/reading-intake-browser.mjs
           node qa/reading-catalogue-v2-browser.mjs
           node qa/reading-type-selector-browser.mjs

@@ -1,6 +1,6 @@
 # Encargo de confianza editorial: ausencia de valoración no significa cero estrellas
 
-Estado: **BORRADOR, SIN IMPLEMENTAR**. P1 de presentación editorial del catálogo.
+Estado: **IMPLEMENTADO** (ver «Implementación»). P1 de presentación editorial del catálogo.
 Base: `c369f933e52073604adc2972f902191289992e08`.
 
 ## Alcance confirmado
@@ -45,18 +45,46 @@ efecto en ventas; no inventar porcentajes ni una penalización SEO.
 
 ## Aceptación y pruebas
 
-- [ ] Propuesta antes/después en tarjetas reales sin rating y con rating verificado.
-- [ ] Regresiones: sin dato, caducado, proveedor fallido, 1–4 opiniones y >=5 opiniones.
-- [ ] Ningún estado no verificado muestra cero numérico como nota real.
-- [ ] Aria-label y texto visible describen lo mismo, sin afirmar hechos desconocidos.
-- [ ] La fuente y fecha de muestras válidas se conservan; no degradar filtros/orden.
-- [ ] Catálogo 390/768/1280, JS/no-JS, sin saltos de layout ni nuevas peticiones externas.
-- [ ] Pruebas existentes de ratings/market y browser ampliadas con semántica visual.
-- [ ] Inventario de superficies, versiones/hashes y CI antes de publicar; SHA verificado.
+- [x] Propuesta antes/después en tarjetas reales sin rating y con rating verificado.
+- [x] Regresiones: sin dato, caducado, proveedor fallido, 1–4 opiniones y >=5 opiniones.
+- [x] Ningún estado no verificado muestra cero numérico como nota real.
+- [x] Aria-label y texto visible describen lo mismo, sin afirmar hechos desconocidos.
+- [x] La fuente y fecha de muestras válidas se conservan; no degradar filtros/orden.
+- [x] Catálogo 390/768/1280, JS/no-JS, sin saltos de layout ni nuevas peticiones externas.
+- [x] Pruebas existentes de ratings/market y browser ampliadas con semántica visual.
+- [x] Inventario de superficies, versiones/hashes y CI antes de publicar; SHA verificado.
 
 No se garantiza una mejora de ranking: es un arreglo de confianza y calidad de
 presentación, relevante para UX y coherencia editorial. Cualquier conclusión
 SEO debe contrastarse posteriormente con Search Console si está disponible.
 
-Esta PR solo contiene el encargo. Otra IA continúa esta rama con diseño, código,
-tests y despliegue. No fusionar el documento como si solucionara las valoraciones.
+## Implementación
+
+Inventario: el único constructor es `renderMarket()` en `assets/reading-catalogue.js`, que
+pinta todas las cajas `[data-rating-book]`: el hub `/recomendaciones/` (88 tarjetas) y las 88
+fichas `/recomendaciones/libros/*/`. Las páginas de autor y editorial cargan el script pero no
+tienen cajas de valoración.
+El HTML estático no contiene notas ni `aggregateRating`, así que no hay más superficies.
+
+Estados (atributo `data-rating-state` en el enlace):
+
+| Estado | Cuándo | Visible = nombre accesible |
+|---|---|---|
+| `verified` | fuente válida, vigente (≤168 h), nota 1–5 y ≥5 opiniones | `Goodreads ★★★★★ 4,2 (12.345)` (estrellas `aria-hidden`), sin cambios |
+| `insufficient` | igual pero con 1–4 opiniones | `Goodreads · menos de 5 valoraciones` (con la fuente propia: Hardcover, Google Books), enlace a la ficha de esa fuente |
+| `unavailable` | sin dato, caducado, fuente/URL no válida o mercado caído | `Goodreads · consultar ficha`, enlace por ISBN-13; sin ISBN no se pinta nada |
+
+Antes/después en tarjetas reales sin rating: `Goodreads ★★★★★ 0,0 (0)` con aria-label «aún sin
+valoraciones públicas» → `Goodreads · consultar ficha`, sin estrellas ni aria-label. Con rating
+verificado no cambia nada. Sin aria-label, el nombre accesible coincide con el texto visible.
+Filtro y orden de valoración siguen usando solo valoraciones verificadas; no se relaja
+`validRating()`. Sin JS no se pinta ninguna nota (como antes).
+
+Pruebas:
+- `qa/catalogue-ratings-trust.mjs` (nueva, en recommendations-browser-qa): proveedor caído
+  (503), mercado vacío, y mezcla verificado / 4 opiniones / 1 opinión (Hardcover) /
+  caducado / host falsificado / sin dato a 390, 768 y 1280 px; filtro, orden, sin JS, sin
+  peticiones externas ni scroll horizontal. **Falla en main** («0,0 (0)»).
+- Actualizadas: `reading-commerce-browser`, `reading-failure-resilience-browser` y
+  `reading-type-selector-browser`, que daban por bueno el estado `0,0 (0)`.
+- `reading-catalogue.js` v=22; índice Pagefind regenerado.

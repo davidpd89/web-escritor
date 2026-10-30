@@ -52,7 +52,7 @@ try {
     assert.equal(await visibleBooks().count(), Math.min(either, 24), 'Recuperar la URL restaura la selección múltiple');
     await page.waitForFunction(() => [...document.querySelectorAll('[data-rating-book]')].every(box => box.textContent.trim()));
     const ratings = await page.locator('[data-rating-book] a').allInnerTexts();
-    assert.ok(ratings.length > 0 && ratings.every(text => text.startsWith('Goodreads') && /\d,\d+\s+\(\d/.test(text)), 'Valoración: «Goodreads», estrellas y nota (n), sin textos largos');
+    assert.ok(ratings.length > 0 && ratings.every(text => /^(Goodreads|Hardcover|Google Books)/.test(text) && (/\d,\d+\s+\(\d/.test(text) || /· (consultar ficha|menos de 5 valoraciones)$/.test(text)) && !/0,0 \(0\)/.test(text)), 'Valoración: fuente y nota (n) verificada, o enlace neutro; nunca 0,0 (0)');
     const tagCounts = await page.locator('[data-catalogue-book] .catalogue-tags li').evaluateAll(list => list.length);
     assert.ok(await page.locator('[data-catalogue-book]').evaluateAll(cards => cards.every(c => c.querySelectorAll('.catalogue-tags li').length <= 3)), 'Máximo 3 categorías por tarjeta');
     assert.ok(tagCounts >= 0);
