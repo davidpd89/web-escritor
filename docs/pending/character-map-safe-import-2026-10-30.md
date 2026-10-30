@@ -1,6 +1,15 @@
 # Encargo: importación validada y transaccional del mapa de personajes
 
-Estado: **BORRADOR, SIN IMPLEMENTAR**. Prioridad P1: pérdida de trabajo en memoria.
+Estado: **IMPLEMENTADO en esta rama**. Prioridad P1: pérdida de trabajo en memoria.
+`validateProject()`/`ProjectImportError` en `mapa-personajes-core.js` validan el
+contrato v1 (o exportación sin `version`) y rechazan objeto ajeno, array, versión
+desconocida, tipos erróneos, IDs repetidos, referencias rotas, duplicados y textos
+que se recortarían. El handler solo asigna tras validar y anuncia
+«No se ha abierto el archivo; el mapa actual se conserva. <motivo>». El mapa vacío
+v1 sigue abriéndose. Regresiones: `tests/test-mapa-personajes-import.mjs` (rojo con
+el core anterior: `{"unrelated":1}` → mapa vacío) y `qa/tools-structure-browser.mjs`
+(5 archivos rechazados con mapa, título y relaciones intactos). Import del core con
+`?v=2` y `mapa-personajes.js` a `?v=3`.
 Base examinada: `85a335e8309b10f10961f58029810f7c50e3dbc6`.
 
 ## Fallo confirmado
