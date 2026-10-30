@@ -1,6 +1,6 @@
 # Encargo: imprimir la sesión de club que acaba de generarse
 
-Estado: **BORRADOR, SIN IMPLEMENTAR**. Prioridad P1 funcional.
+Estado: **IMPLEMENTADO** (PR #1000). Prioridad P1 funcional.
 Base examinada: `c369f933e52073604adc2972f902191289992e08`.
 
 ## Reproducción confirmada
@@ -39,13 +39,13 @@ vacío: pueden imprimirse otras partes de la página, pero la sesión queda excl
 
 ## Aceptación y pruebas
 
-- [ ] Regresión roja sobre generación real + medio print: resultado visible.
-- [ ] Generar PDF y comprobar que contiene título sintético y preguntas generadas.
-- [ ] Probar sesiones de 30, 60 y 90 min y textos largos, sin recortes.
-- [ ] Sin formularios/botones/chrome ni datos de estados ocultos en el PDF.
-- [ ] Prueba negativa antes de generar: no imprimir resultado inexistente.
-- [ ] Revisar CSS compartido en otras herramientas; no romper sus exportaciones.
-- [ ] Evidencia antes/después, versiones/hashes y gates antes de publicar.
+- [x] Regresión roja sobre generación real + medio print: resultado visible.
+- [x] Generar PDF y comprobar que contiene título sintético y preguntas generadas.
+- [x] Probar sesiones de 30, 60 y 90 min y textos largos, sin recortes.
+- [x] Sin formularios/botones/chrome ni datos de estados ocultos en el PDF.
+- [x] Prueba negativa antes de generar: no imprimir resultado inexistente.
+- [x] Revisar CSS compartido en otras herramientas; no romper sus exportaciones.
+- [x] Evidencia antes/después, versiones/hashes y gates antes de publicar.
 - [ ] Verificar el SHA desplegado y repetir recorrido de impresión.
 
 Archivos de partida: `clubes-de-lectura/preparar-sesion/index.html`,
@@ -54,3 +54,15 @@ Archivos de partida: `clubes-de-lectura/preparar-sesion/index.html`,
 
 Esta PR solo contiene el encargo. Otra IA continúa esta rama con solución,
 pruebas y publicación. No fusionar el documento como si solucionara el defecto.
+## Implementación
+
+- Causa: `assets/v1-tools.css` ocultaba en `@media print` todo `.tool-panel`, y el resultado del club vive dentro de ese panel. La sonda con `emulateMedia print` mostró que la **ficha del objeto heredado** (`recursos/ficha-historia-objeto-heredado/`) tenía el mismo fallo: su botón «Imprimir / PDF» sacaba una página sin la ficha. Entrevista familiar no estaba afectada (tiene su propio CSS de impresión).
+- Contrato opt-in en `v1-tools.css` (v=7): un `.tool-panel[data-tool-print-panel]` sí se imprime, a ancho completo, sin `form`, `.tool-status` ni `.tool-actions`; un formulario que es el propio documento se marca con `data-tool-print-keep`. Las demás herramientas no cambian, porque no llevan el atributo.
+- Marcados: el panel del club, y el panel y el formulario de la ficha del objeto.
+- Regresión `qa/tool-print-contract.mjs`, en el workflow `a11y-regressions-browser-qa.yml`. Con el código de main falla en «club 30: la sesión generada no se imprime»; en la rama pasa. Cubre:
+  - prueba negativa antes de generar;
+  - sesiones de 30, 60 y 90 min con título y temas largos;
+  - título y preguntas visibles; formulario, estado y botones ocultos;
+  - ancho útil y PDF real, que añade contenido frente al PDF vacío;
+  - campos de la ficha impresos, sin botones ni estado.
+- Evidencia local: el texto del PDF de 90 min, extraído con pypdf, contiene «Libro sintético QA-1000» y las preguntas, y no «Imprimir» ni «Copiar».
