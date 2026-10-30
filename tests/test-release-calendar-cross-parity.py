@@ -11,7 +11,7 @@ import copy
 import importlib.util
 import json
 import unittest
-from datetime import date
+from datetime import date, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -125,10 +125,20 @@ class ReleaseCalendarCrossParity(unittest.TestCase):
         )
         self.assertEqual(published_book['estado'], 'publicado')
         self.assertEqual(preparation_book['estado'], 'publicado')
-        self.assertEqual(published_book['fecha_publicacion'], '2026-10-28')
+
+        # Fechas relativas al ancla de los datos: con un lanzamiento fijo
+        # (2026-10-28) el escenario caducaba en cuanto el intake diario añadía
+        # fichas posteriores, y el test bloqueaba cada publicación del catálogo.
+        anchor = date.fromisoformat(builder.data_anchor(
+            [b for b in data['libros'] if b['estado'] == 'publicado']
+        ))
+        release = anchor + timedelta(days=2)
+        published_book['fecha_publicacion'] = release.isoformat()
+        if published_book.get('anio_publicacion'):
+            published_book['anio_publicacion'] = release.year
 
         preparation_book['estado'] = 'listo'
-        preparation_book['fecha_actualizacion'] = '2026-10-29'
+        preparation_book['fecha_actualizacion'] = (release + timedelta(days=1)).isoformat()
 
         # Entrada admitida por el esquema real, no un objeto arbitrario.
         validated = builder.validate(data, ROOT)
