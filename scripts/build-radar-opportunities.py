@@ -381,7 +381,7 @@ def render_page_body(items, today, watchlist=None):
 
   <footer class="site-footer"></footer>
 
-  <script defer src="/assets/v1-shell.js?v=30"></script>
+  <script defer src="/assets/v1-shell.js?v=31"></script>
   <script src="/assets/radar-convocatorias.js?v=9" defer></script>
 </body>
 </html>'''
