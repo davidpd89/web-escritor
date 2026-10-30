@@ -48,7 +48,7 @@ CSS_HUB = (
     '<link rel="stylesheet" href="/assets/v1-tools.css?v=7"><link rel="stylesheet" href="/assets/v1-recommendations.css?v=2">'
     '<link rel="stylesheet" href="/assets/reading-catalogue.css?v=14"><link rel="stylesheet" href="/assets/v1-atlas.css?v=4">'
 )
-HUB_SCRIPT = '<script defer src="/assets/atlas-catalogue.js?v=2"></script>'
+HUB_SCRIPT = '<script defer src="/assets/atlas-catalogue.js?v=3"></script>'
 LABELS = ("hecho", "tradicion", "atribucion", "ficcion")
 
 COUNTRIES = {
