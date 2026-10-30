@@ -45,7 +45,7 @@ ATLAS_URL = f"{SITE}/atlas-literario/"
 CSS_OLD = '<link rel="stylesheet" href="/assets/v1-cuaderno-topics.css?v=1"><link rel="stylesheet" href="/assets/cuaderno-index.css?v=1">'
 CSS_PAGE = '<link rel="stylesheet" href="/assets/v1-atlas.css?v=4">'
 CSS_HUB = (
-    '<link rel="stylesheet" href="/assets/v1-tools.css?v=6"><link rel="stylesheet" href="/assets/v1-recommendations.css?v=2">'
+    '<link rel="stylesheet" href="/assets/v1-tools.css?v=7"><link rel="stylesheet" href="/assets/v1-recommendations.css?v=2">'
     '<link rel="stylesheet" href="/assets/reading-catalogue.css?v=15"><link rel="stylesheet" href="/assets/v1-atlas.css?v=4">'
 )
 HUB_SCRIPT = '<script defer src="/assets/atlas-catalogue.js?v=3"></script>'
