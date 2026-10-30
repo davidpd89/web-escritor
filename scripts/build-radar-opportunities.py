@@ -16,6 +16,9 @@ from urllib.parse import urlsplit
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from site_clock import site_today  # noqa: E402
 from site_shell import inject_shell_auto  # noqa: E402
+from genre_families import families_for, families_json, genre_select_options, load_families  # noqa: E402
+
+FAMILIES = load_families()
 
 STALE_DAYS = 30
 # Cuanto tiempo sigue publicada una convocatoria despues de cerrar. No se
@@ -161,10 +164,11 @@ def card(item, expired=False):
     kind_attr = ' data-radar-kind="expired"' if expired else ""
     badge = "Plazo finalizado" if expired else "Plazo verificado"
     deadline_term = "Cerró el" if expired else "Fecha límite"
-    return f'''<article class="{classes}" data-radar-item{kind_attr} data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="{esc(item['deadline'])}" data-verified-at="{esc(item['verified_at'])}">
+    return f'''<article class="{classes}" data-radar-item{kind_attr} data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-families="{esc('|'.join(families_for(item['genres'], FAMILIES)))}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="{esc(item['deadline'])}" data-verified-at="{esc(item['verified_at'])}">
 <div class="radar-card__top"><span class="radar-badge" data-radar-status>{esc(badge)}</span><span>{esc(item['type'].capitalize())}</span></div>
 <h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
 <dl><div><dt>{deadline_term}</dt> <dd><time datetime="{esc(item['deadline'])}">{deadline_label}</time></dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div>{prize}{eligibility}{submission_mode}</dl>
+<p class="radar-match" data-genre-match hidden></p>
 {note}
 <p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer" aria-label="Consultar convocatoria y bases: {esc(item['title'])}">Consultar convocatoria y bases</a></p></article>'''
 
@@ -176,10 +180,11 @@ def watch_card(item):
     expected = f'<div><dt>{expected_label}</dt> <dd>{esc(item.get("expected_window") or "Fecha aún no publicada")}</dd></div>'
     reference = f'<div><dt>Fuente y referencia</dt> <dd>{esc(item["reference_note"])}</dd></div>'
     note = f'<p class="radar-note">{esc(item.get("editorial_note"))}</p>' if item.get("editorial_note") else ""
-    return f'''<article class="radar-card radar-card--watch" data-radar-item data-radar-kind="watch" data-watch-kind="{esc(watch_kind)}" data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="" data-verified-at="{esc(item['verified_at'])}">
+    return f'''<article class="radar-card radar-card--watch" data-radar-item data-radar-kind="watch" data-watch-kind="{esc(watch_kind)}" data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-families="{esc('|'.join(families_for(item['genres'], FAMILIES)))}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="" data-verified-at="{esc(item['verified_at'])}">
 <div class="radar-card__top"><span class="radar-badge" data-radar-status>{esc(badge)}</span><span>{esc(item['type'].capitalize())}</span></div>
 <h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
 <dl><div><dt>Estado</dt> <dd>{esc(item['status_note'])}</dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div>{expected}{reference}</dl>
+<p class="radar-match" data-genre-match hidden></p>
 {note}
 <p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer" aria-label="Consultar convocatoria y bases: {esc(item['title'])}">Consultar convocatoria y bases</a></p></article>'''
 
@@ -227,7 +232,6 @@ def render_page_body(items, today, watchlist=None):
     visible_pool = active + watch + expired
     disabled_controls = " disabled" if not visible_pool else ""
     types = sorted({item["type"] for item in visible_pool})
-    genres = sorted({genre for item in visible_pool for genre in item["genres"]})
     options = lambda values: "\n".join(f'<option value="{esc(value)}">{esc(value.capitalize())}</option>' for value in values)
     watch_section = (
         f'<section class="radar-section radar-section--watch" data-radar-section="watch">'
@@ -324,7 +328,7 @@ def render_page_body(items, today, watchlist=None):
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-tools.css?v=7" />
-  <link rel="stylesheet" href="/assets/radar-convocatorias.css?v=6">
+  <link rel="stylesheet" href="/assets/radar-convocatorias.css?v=7">
   <script type="application/ld+json">{schema}</script>
 </head>
 <body data-back-to-top>
@@ -351,9 +355,10 @@ def render_page_body(items, today, watchlist=None):
       <div class="tool-options">
         <div class="tool-field"><label class="tool-field-label" for="radar-search">Buscar</label><input class="tool-input" id="radar-search" type="search" autocomplete="off" enterkeyhint="search" data-radar-search{disabled_controls} placeholder="Entidad, premio, género…"></div>
         <div class="tool-field"><label class="tool-field-label" for="radar-type">Tipo</label><select class="tool-select" id="radar-type" data-radar-type{disabled_controls}><option value="">Todos</option>{options(types)}</select></div>
-        <div class="tool-field"><label class="tool-field-label" for="radar-genre">Género</label><select class="tool-select" id="radar-genre" data-radar-genre{disabled_controls}><option value="">Todos</option>{options(genres)}</select></div>
+        <div class="tool-field"><label class="tool-field-label" for="radar-genre">Género</label><select class="tool-select" id="radar-genre" aria-describedby="radar-genre-ayuda" data-radar-genre{disabled_controls}><option value="">Todos</option>{genre_select_options([item["genres"] for item in visible_pool], FAMILIES, exact_label=lambda g: g.capitalize(), counts=False)}</select></div>
         <div class="tool-field"><label class="tool-field-label" for="radar-kind">Situación</label><select class="tool-select" id="radar-kind" data-radar-kind{disabled_controls}><option value="">Todas</option><option value="active">En plazo</option><option value="watch">Próximas / a vigilar</option></select></div>
       </div>
+      <p class="tool-note radar-genre-scope" id="radar-genre-ayuda">Una familia reúne variantes (por ejemplo, Cuento, relato y microrrelato incluye relato corto y microrrelato); la etiqueta exacta es la que declaran las bases. Que coincida el género no significa que cumplas los requisitos: revísalos en las bases oficiales.</p>
       <label class="tool-check"><input type="checkbox" data-radar-soon{disabled_controls}> <span>Cierra en 7 días</span></label>
       <label class="tool-check"><input type="checkbox" id="radar-expired" data-radar-expired{disabled_controls}> <span>Mostrar vencidas</span></label>
       <div class="tool-actions"><button type="button" class="text-action" data-radar-clear{disabled_controls}>Limpiar</button></div>
@@ -367,6 +372,7 @@ def render_page_body(items, today, watchlist=None):
     {watch_section}
     {expired_section}
     <div class="radar-empty" data-radar-filter-empty hidden><p>No hay coincidencias con estos filtros.</p><button type="button" class="button secondary" data-radar-empty-clear>Limpiar filtros</button></div>
+    <script type="application/json" data-genre-families>{families_json(FAMILIES)}</script>
 
     <section class="v1-section">
       <div class="tool-findings-block"><h2>Cómo se mantiene este radar</h2><p>Una lista de fuentes oficiales se revisa para detectar posibles cambios y nuevas convocatorias. Nada se publica automáticamente: una oportunidad solo aparece después de revisar la fuente oficial, su fecha límite y sus condiciones básicas. Una convocatoria activa que lleva más de 30 días sin volver a comprobarse deja de mostrarse aquí aunque su plazo siga abierto. Y cuando el plazo termina, la ficha no se borra: pasa a las cerradas, donde sigue a mano durante un año con sus bases y su fuente oficial, porque casi todas estas convocatorias vuelven a abrir al año siguiente.</p></div>
@@ -376,7 +382,7 @@ def render_page_body(items, today, watchlist=None):
   <footer class="site-footer"></footer>
 
   <script defer src="/assets/v1-shell.js?v=31"></script>
-  <script src="/assets/radar-convocatorias.js?v=8" defer></script>
+  <script src="/assets/radar-convocatorias.js?v=9" defer></script>
 </body>
 </html>'''
 

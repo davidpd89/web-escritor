@@ -5,6 +5,15 @@ on:
     paths:
       - 'editoriales/**'
       - 'assets/editoriales.css'
+      - 'assets/editoriales.js'
+      - 'assets/radar-convocatorias.css'
+      - 'assets/radar-convocatorias.js'
+      - 'convocatorias-escritores/**'
+      - 'data/genre-families.json'
+      - 'scripts/genre_families.py'
+      - 'scripts/build-radar-opportunities.py'
+      - 'qa/writer-resources-genre-families.mjs'
+      - 'qa/data-radar-pairwise-filters.mjs'
       - 'assets/v1-tools.css'
       - 'scripts/build-editoriales.py'
       - 'qa/editoriales-index-design-browser.mjs'
@@ -63,6 +72,15 @@ jobs:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts/editoriales-index
         run: node qa/editoriales-index-design-browser.mjs
+
+      - name: Run genre families discovery contract (#1009)
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: |
+          python3 scripts/build-editoriales.py --data data/editoriales.json --output . --check
+          python3 scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out convocatorias-escritores --check
+          node qa/writer-resources-genre-families.mjs
+          node qa/data-radar-pairwise-filters.mjs
 
       - name: Upload Editoriales visual evidence
         if: always()

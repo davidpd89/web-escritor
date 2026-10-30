@@ -7,6 +7,9 @@ const ROOT = process.cwd();
 const publishers = JSON.parse(fs.readFileSync(path.join(ROOT, 'editoriales/editoriales-data.json'), 'utf8')).publishers;
 const html = fs.readFileSync(path.join(ROOT, 'editoriales/index.html'), 'utf8');
 const script = fs.readFileSync(path.join(ROOT, 'assets/editoriales.js'), 'utf8');
+const taxonomy = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/genre-families.json'), 'utf8')).families;
+const familiesJson = html.match(/<script[^>]*\sdata-genre-families[^>]*>([\s\S]*?)<\/script>/)?.[1];
+assert.ok(familiesJson, 'Falta el mapa publicado de familias de género (#1009)');
 const collator = new Intl.Collator('es', { sensitivity: 'base' });
 const bySlug = new Map(publishers.map(p => [p.slug, p]));
 assert.equal(bySlug.size, publishers.length, 'El JSON contiene slugs repetidos');
@@ -50,6 +53,7 @@ const publishedCards = [...html.matchAll(/<article\b([^>]*\bdata-editorial-card\
     country: attribute(tag, 'data-country'),
     verifiedAt: attribute(tag, 'data-verified-at'),
     direct: attribute(tag, 'data-direct'),
+    families: attribute(tag, 'data-families'),
   };
   const record = bySlug.get(slug);
   assert.ok(record, `Tarjeta publicada sin correspondencia en JSON: ${slug}`);
@@ -59,7 +63,9 @@ const publishedCards = [...html.matchAll(/<article\b([^>]*\bdata-editorial-card\
     status: record.status, country: record.country, verifiedAt: record.verified_at,
     direct: String(record.direct_submission),
   })) assert.equal(data[key], expected, `${slug}: atributo ${key} frente al JSON`);
-  return { slug, dataset: data, textContent: decodeHtml(body.replace(/<[^>]*>/g, '')) };
+  const tags = [...body.matchAll(/<span class="editorial-genre">([^<]*)<\/span>/g)].map(m => decodeHtml(m[1]).trim());
+  assert.deepEqual(tags, record.genres, `${slug}: etiquetas visibles frente al JSON`);
+  return { slug, dataset: data, tags, textContent: decodeHtml(body.replace(/<[^>]*>/g, '')) };
 });
 assert.equal(publishedCards.length, publishers.length, 'La cantidad de tarjetas HTML no coincide con el JSON');
 assert.equal(new Set(publishedCards.map(p => p.slug)).size, publishers.length, 'Tarjetas HTML duplicadas');
@@ -122,13 +128,17 @@ function normalizeOracle(value = '') {
 }
 assert.equal(normalizeOracle('FANTASÍA'), normalizeOracle('fantasia'));
 assert.notEqual(normalizeOracle('España'), normalizeOracle('Espana'));
+// Familias desde data/genre-families.json, no desde el HTML ni desde editoriales.js.
+const familiesOf = genres => taxonomy.filter(f => f.tags.some(t => genres.some(g => normalizeOracle(g) === normalizeOracle(t))));
 function expectedIds({ status = '', country = '', genre = '', direct = false, search = '' }) {
   const q = normalizeOracle(search), g = normalizeOracle(genre), c = normalizeOracle(country);
+  const familyId = g.startsWith('familia:') ? g.slice('familia:'.length) : '';
   return publishers.filter(p => {
-    const searchable = normalizeOracle(`${p.name} ${p.group} ${p.genres.join('|')} ${p.country} ${publishedText.get(p.slug)}`);
+    const labels = familiesOf(p.genres).map(f => f.label).join(' ');
+    const searchable = normalizeOracle(`${p.name} ${p.group} ${p.genres.join('|')} ${p.country} ${publishedText.get(p.slug)} ${labels}`);
     return (!status || p.status === status) &&
       (!c || normalizeOracle(p.country) === c) &&
-      (!g || p.genres.some(value => normalizeOracle(value) === g)) &&
+      (!g || (familyId ? familiesOf(p.genres).some(f => f.id === familyId) : p.genres.some(value => normalizeOracle(value) === g))) &&
       (!direct || p.direct_submission === true) &&
       (!q || searchable.includes(q));
   }).map(p => p.slug);
@@ -151,7 +161,16 @@ function setup(initialHash = '') {
       focus() {},
     };
   }
-  const cards = publishedCards.map(p => ({ slug: p.slug, dataset: { ...p.dataset }, textContent: p.textContent, hidden: false }));
+  const classList = () => { const set = new Set(); return { add: c => set.add(c), remove: c => set.delete(c), contains: c => set.has(c) }; };
+  const cards = publishedCards.map(p => {
+    const note = { textContent: '', hidden: true };
+    const tags = p.tags.map(textContent => ({ textContent, classList: classList() }));
+    return {
+      slug: p.slug, dataset: { ...p.dataset }, textContent: p.textContent, hidden: false, note, tags,
+      querySelector(selector) { assert.equal(selector, '[data-genre-match]'); return note; },
+      querySelectorAll(selector) { assert.equal(selector, '.editorial-genre'); return tags; },
+    };
+  });
   const grid = {
     children: [...cards],
     appendChild(item) {
@@ -171,6 +190,7 @@ function setup(initialHash = '') {
     '[data-editoriales-count]': { textContent: '' },
     '[data-editoriales-empty]': { hidden: true },
     '.id-cards': grid,
+    '[data-genre-families]': { textContent: familiesJson },
   };
   const root = {
     querySelector(selector) { assert.ok(selector in controls, `Selector no simulado: ${selector}`); return controls[selector]; },
@@ -220,7 +240,7 @@ function setup(initialHash = '') {
     entries.splice(position + 1); entries.push(`${location.pathname}${location.search}${hash}`);
     position++; setLocation(entries[position]); emit('hashchange');
   }
-  return { el, grid, location, change, back: () => move(-1), forward: () => move(1), setHash };
+  return { el, grid, cards, location, change, back: () => move(-1), forward: () => move(1), setHash };
 }
 
 function assertView(view, row, label) {
@@ -302,5 +322,27 @@ assert.ok(positive > 0 && empty > 0, `La matriz necesita resultados y vacíos: $
   assertView(view, { status: 'open', direct: true, sort: 'recent' }, 'antes de limpiar con orden recent');
   view.el.reset.fire('click');
   assertView(view, {}, 'Limpiar filtros desde una ordenación no predeterminada');
+}
+{
+  // #1009: la familia amplía la etiqueta exacta, explica la coincidencia y no promete aceptación.
+  const fantasy = taxonomy.find(f => f.id === 'fantasia');
+  const exact = expectedIds({ genre: 'fantasía' });
+  const family = expectedIds({ genre: 'familia:fantasia' });
+  assert.ok(family.length > exact.length && exact.every(slug => family.includes(slug)), 'La familia debe contener y ampliar la etiqueta exacta');
+  const view = setup();
+  view.change('genre', 'familia:fantasia');
+  assertView(view, { genre: 'familia:fantasia' }, 'familia Fantasía');
+  for (const card of view.cards.filter(c => !c.hidden)) {
+    const hit = card.tags.filter(t => t.classList.contains('is-match')).map(t => t.textContent);
+    assert.ok(hit.length && hit.every(t => fantasy.tags.includes(t)), `${card.slug}: resaltado ${hit}`);
+    assert.equal(card.note.hidden, false, `${card.slug}: falta la explicación`);
+    assert.equal(card.note.textContent, `Aparece en «${fantasy.label}» porque declara: ${hit.join(', ')}. Comprueba estado y condiciones antes de enviar.`);
+  }
+  view.change('genre', 'fantasía');
+  assertView(view, { genre: 'fantasía' }, 'etiqueta exacta tras familia');
+  assert.ok(view.cards.every(c => c.note.hidden && !c.note.textContent), 'La etiqueta exacta no deja notas de familia');
+  view.setHash('#genero=familia%3Ainventada');
+  assert.equal(view.el.genre.value, '', 'una familia desconocida en la URL no filtra');
+  assert.ok(view.cards.every(c => !c.hidden && c.note.hidden), 'una familia desconocida oculta fichas o deja notas');
 }
 console.log(`test-editoriales-pairwise: OK (${matrix.length} combinaciones, ${positive} positivas, ${empty} vacías, HTML real y restauración)`);
