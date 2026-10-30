@@ -75,3 +75,12 @@ export function visibleSocialMetrics(snapshot, nowMs = Date.now()) {
              coverage: fresh.length, eligible: NETWORKS.length},
   };
 }
+
+/** Same validation as visibleSocialMetrics, judged at the snapshot's own
+ *  generated_at: the last published numbers, however old, for an explicitly
+ *  approximate display. Never use it to claim a figure is current. */
+export function lastKnownSocialMetrics(snapshot, nowMs = Date.now()) {
+  const generated = snapshot && typeof snapshot === 'object' ? instant(snapshot.generated_at) : null;
+  if (generated === null || !Number.isFinite(nowMs) || generated > nowMs) return visibleSocialMetrics(null);
+  return visibleSocialMetrics(snapshot, generated);
+}
