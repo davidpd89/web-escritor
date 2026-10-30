@@ -1,6 +1,10 @@
 # Encargo: SVG de personajes autónomo y visualmente equivalente
 
-Estado: **BORRADOR, SIN IMPLEMENTAR**. Prioridad P2: exportación funcional defectuosa.
+Estado: **IMPLEMENTADO** (2026-10-30). Prioridad P2: exportación funcional defectuosa.
+
+- `assets/mapa-personajes.js`: `portableSvg()` escribe los estilos calculados de líneas, círculos, flechas y textos como atributos de presentación (omitiendo los valores iniciales de SVG), retira `class`, `style`, `tabindex` y `data-*`, añade `width`/`height`, fondo, `<title>` y `<desc>` con `textContent`. Sin CSS, fuentes, scripts ni recursos externos.
+- `qa/tools-structure-browser.mjs`: importa un mapa con alianza, secreto, rivalidad dirigida y nombres con `<>&` y acentos; exporta; abre el SVG en un contexto aislado con la red abortada y compara trazo, discontinuidad, grosor, relleno y opacidad con la pantalla; contraste de textos >= 4,5:1; título y nombres escapados. Rojo con el código de main, verde en la rama.
+- No verificado: apertura manual en visores de escritorio (Inkscape, Vista previa, Illustrator).
 Base examinada: `85a335e8309b10f10961f58029810f7c50e3dbc6`.
 
 ## Fallo confirmado
