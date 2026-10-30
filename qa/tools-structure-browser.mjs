@@ -269,14 +269,96 @@ async function qaPersonajes() {
   assert.match(svgText, /<svg/);
   assert.match(svgText, /<title>Ana<\/title>/);
 
+  // SVG portable: abierto fuera del sitio (sin CSS ni red) debe verse igual que en pantalla.
+  const portableProject = {
+    version: 1,
+    title: 'Mapa «portátil» <prueba> & cía',
+    characters: [
+      { id: 'ana', name: 'Ana' },
+      { id: 'bea', name: 'Beatriz <Ñandú> & Óscar de la Peña' },
+      { id: 'ciro', name: 'Ciro' },
+    ],
+    relations: [
+      { from: 'ana', to: 'bea', type: 'alianza', label: 'pacto', directed: false },
+      { from: 'bea', to: 'ciro', type: 'secreto', label: 'sabe <algo>', directed: false },
+      { from: 'ana', to: 'ciro', type: 'rivalidad', label: 'deuda', directed: true },
+    ],
+  };
+  await page.setInputFiles('#import-file', { name: 'portable.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(portableProject)) });
+  await page.waitForFunction(() => document.querySelectorAll('#character-map .map-edge').length === 3);
+  const paintOf = (root) => {
+    const pick = (el) => {
+      const cs = getComputedStyle(el);
+      return { stroke: cs.stroke, dash: cs.strokeDasharray, width: cs.strokeWidth, fill: cs.fill, opacity: cs.opacity };
+    };
+    return {
+      lines: [...root.querySelectorAll('line')].map(pick),
+      circles: [...root.querySelectorAll('circle')].map(pick),
+      texts: [...root.querySelectorAll('text')].map(el => ({ fill: getComputedStyle(el).fill, text: el.textContent })),
+    };
+  };
+  const onScreen = await page.evaluate(`(${paintOf})(document.querySelector('#character-map'))`);
+  const portableDownload = page.waitForEvent('download');
+  await page.click('#export-svg');
+  const portableText = await fs.readFile(await (await portableDownload).path(), 'utf8');
+  assert.doesNotMatch(portableText, /<script|html\.v1|class=|style=|var\(--|@import|href="(?!#)|url\((?!#)/i, 'personajes: SVG con dependencias del sitio');
+  assert.match(portableText, /marker-end="url\(#arrow\)"/, 'personajes: SVG sin flecha dirigida');
+  assert.match(portableText, /<title>Mapa «portátil» &lt;prueba&gt; &amp; cía<\/title>/, 'personajes: SVG sin título accesible escapado');
+  assert.match(portableText, /<desc>3 personajes y 3 relaciones\.<\/desc>/, 'personajes: SVG sin descripción');
+  assert.match(portableText, /width="900" height="580"/, 'personajes: SVG sin tamaño intrínseco');
+  const isolated = await browser.newContext();
+  const isolatedRequests = [];
+  await isolated.route('**/*', route => { isolatedRequests.push(route.request().url()); return route.abort(); });
+  const viewer = await isolated.newPage();
+  await viewer.goto(`data:image/svg+xml;charset=utf-8,${encodeURIComponent(portableText)}`);
+  assert.equal(await viewer.evaluate(() => document.documentElement.localName), 'svg', 'personajes: SVG exportado mal formado');
+  const offSite = await viewer.evaluate(`(${paintOf})(document.documentElement)`);
+  const background = await viewer.evaluate(() => getComputedStyle(document.querySelector('svg > rect')).fill);
+  await isolated.close();
+  assert.deepEqual(isolatedRequests, [], 'personajes: el SVG pide recursos externos');
+  assert.deepEqual(offSite, onScreen, 'personajes: el SVG fuera del sitio no conserva trazos, rellenos o textos');
+  assert.ok(onScreen.lines.every(line => line.stroke !== 'none' && Number(line.opacity) > 0), 'personajes: aristas invisibles');
+  assert.equal(new Set(onScreen.lines.map(line => line.dash)).size, 3, 'personajes: los tipos de relación no se distinguen');
+  assert.ok(offSite.texts.some(t => t.text === 'Beatriz <Ñandú> & Ó…'), 'personajes: nombre visible con caracteres especiales');
+  assert.match(portableText, /<title>Beatriz &lt;Ñandú&gt; &amp; Óscar de la Peña<\/title>/, 'personajes: nombre completo escapado en el SVG');
+  const luminance = (rgb) => {
+    const [r, g, b] = rgb.match(/[\d.]+/g).slice(0, 3).map(Number).map(v => v / 255).map(v => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  };
+  const contrast = (a, b) => { const [x, y] = [luminance(a), luminance(b)].sort((m, n) => n - m); return (x + 0.05) / (y + 0.05); };
+  for (const text of offSite.texts) assert.ok(contrast(text.fill, background) >= 4.5, `personajes: contraste insuficiente en «${text.text}»`);
+  for (const circle of offSite.circles) assert.ok(contrast(offSite.texts[0].fill, circle.fill) >= 4.5, 'personajes: contraste del nombre sobre el nodo');
+
   await page.click('#clear-map');
   assert.equal(await page.locator('#relation-list li').count(), 0);
   await page.setInputFiles('#import-file', { name: 'mapa.json', mimeType: 'application/json', buffer: Buffer.from(jsonText) });
   await page.waitForTimeout(40);
   assert.equal(await page.locator('#relation-list li').count(), 4);
-  await page.setInputFiles('#import-file', { name: 'mal.json', mimeType: 'application/json', buffer: Buffer.from('{malformed') });
+  const titleBefore = await page.inputValue('#map-title');
+  const nodesBefore = await page.locator('.map-node').count();
+  // Un archivo rechazado no vacía ni recorta el mapa actual y explica el motivo.
+  const rejected = [
+    ['mal.json', '{malformed', /no es un JSON válido/i],
+    ['ajeno.json', '{"unrelated":"not a character map"}', /falta la lista de personajes/i],
+    ['array.json', '[]', /no es un mapa de personajes/i],
+    ['futuro.json', '{"version":999,"characters":[{"id":"a","name":"Ana"}],"relations":[]}', /versión de mapa no admitida/i],
+    ['roto.json', '{"version":1,"characters":[{"id":"a","name":"Ana"}],"relations":[{"from":"a","to":"nadie"}]}', /no existe/i],
+  ];
+  for (const [name, text, reason] of rejected) {
+    await page.setInputFiles('#import-file', { name, mimeType: 'application/json', buffer: Buffer.from(text) });
+    await page.waitForTimeout(40);
+    const status = await page.locator('#map-status').innerText();
+    assert.match(status, /el mapa actual se conserva/i, `${name}: estado`);
+    assert.match(status, reason, `${name}: motivo`);
+    assert.equal(await page.locator('#relation-list li').count(), 4, `${name}: relaciones intactas`);
+    assert.equal(await page.locator('.map-node').count(), nodesBefore, `${name}: personajes intactos`);
+    assert.equal(await page.inputValue('#map-title'), titleBefore, `${name}: título intacto`);
+  }
+  // Un mapa vacío del esquema admitido sí se abre.
+  await page.setInputFiles('#import-file', { name: 'vacio.json', mimeType: 'application/json', buffer: Buffer.from('{"version":1,"title":"","characters":[],"relations":[]}') });
   await page.waitForTimeout(40);
-  assert.match(await page.locator('#map-status').innerText(), /no se ha podido/i);
+  assert.equal(await page.locator('#relation-list li').count(), 0);
+  assert.match(await page.locator('#map-status').innerText(), /mapa importado/i);
 
   const chars = Array.from({ length: 7 }, (_, i) => ({
     id: `p${i + 1}`,
