@@ -15,6 +15,8 @@ await fs.mkdir(out,{recursive:true});
 const browser=await chromium.launch({headless:true});
 const results=[];
 const visible=page=>page.locator('[data-catalogue-book]:visible').evaluateAll(es=>es.map(e=>e.dataset.bookId));
+// En móvil (≤900 px) los filtros se pliegan tras «Filtros» (#1004): abrirlos como haría el lector.
+const openFilters=async page=>{const toggle=page.locator('[data-catalogue-refine-toggle]');if(await toggle.isVisible()&&await toggle.getAttribute('aria-expanded')==='false')await toggle.click();};
 
 async function runCase(width,mode){
   const context=await browser.newContext({viewport:{width,height:900},reducedMotion:'reduce'});
@@ -87,6 +89,7 @@ async function runCase(width,mode){
       assert(await page.locator('[data-filter="precio_max"]').isEnabled(),'Editorial PVP filtering stays available without market prices');
       const maximum = Math.ceil(selected.pvp_centimos / 100);
       if (maximum) {
+        await openFilters(page);
         await page.locator('[data-filter="precio_max"]').fill(String(maximum));
         assert.deepEqual(await visible(page),[selected.id],'Editorial PVP works after market failure');
         await page.locator('[data-filter="precio_max"]').fill('0.01');
@@ -109,6 +112,7 @@ async function runCase(width,mode){
     }
     assert.equal(new URL(page.url()).searchParams.get('utm_source'),'resilience-test','Source parameter survives interactions and reload');
     if(mode==='connection-failure'){
+      await openFilters(page);
       await page.getByRole('button',{name:'Restablecer',exact:true}).click();
       await page.waitForFunction(n=>document.querySelectorAll('[data-catalogue-book]:not([hidden])').length===Math.min(24,n),books.length);
       assert.equal(new URL(page.url()).hash,'','Reset remains available after transport failure');

@@ -22,6 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from site_clock import site_today  # noqa: E402
 from site_shell import inject_shell_auto  # noqa: E402
 from reading_publisher_links import render_books  # noqa: E402
+from genre_families import families_for, families_json, genre_select_options, load_families  # noqa: E402
 
 STATUS_LABELS = {
     "open": "Acepta manuscritos",
@@ -270,7 +271,7 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
         # 59 paginas escritas a mano. Las cadenas literales que habia debajo eran
         # una cuarta copia del shell y se quedaron atras en cuanto el shell paso a
         # generarse. Ver scripts/site_shell.py.
-        script = '<script src="/assets/editoriales.js?v=3" defer></script>' if js else ""
+        script = '<script src="/assets/editoriales.js?v=5" defer></script>' if js else ""
         jsonld_text = json.dumps(jsonld, ensure_ascii=False, separators=(',', ':')).replace('<', r'\u003c')
         return f'''<!DOCTYPE html>
 <html lang="es" class="v1">
@@ -320,8 +321,8 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
     <link rel="stylesheet" href="/assets/v1-shell.css?v=8" />
     <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
     <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
-    <link rel="stylesheet" href="/assets/v1-tools.css?v=6" />
-    <link rel="stylesheet" href="/assets/editoriales.css?v=3" />{"" if not extra_css else chr(10) + "    " + extra_css}
+    <link rel="stylesheet" href="/assets/v1-tools.css?v=7" />
+    <link rel="stylesheet" href="/assets/editoriales.css?v=4" />{"" if not extra_css else chr(10) + "    " + extra_css}
     <script type="application/ld+json">{jsonld_text}</script>
 </head>
 
@@ -336,7 +337,7 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
 
     <footer class="site-footer"></footer>
 
-    <script defer src="/assets/v1-shell.js?v=30"></script>
+    <script defer src="/assets/v1-shell.js?v=31"></script>
     {script}
 </body>
 </html>
@@ -375,24 +376,26 @@ def directory_date_modified(records: list[dict]) -> str:
 
 
 def render_index(site: str, records: list[dict], today: date) -> str:
-    genres = sorted({genre for r in records for genre in r["genres"]}, key=str.casefold)
+    families = load_families()
     countries = sorted({r["country"] for r in records}, key=str.casefold)
     cards = []
     for r in records:
         genres_pipe = "|".join(r["genres"])
+        families_pipe = "|".join(families_for(r["genres"], families))
         tags = "".join(f'<span class="editorial-genre">{esc(g)}</span>' for g in r["genres"])
         stale_note = '<p class="tool-note">Verificación antigua: revisa la fuente oficial antes de enviar.</p>' if stale(r, today) else ""
         cards.append(f'''
-<article class="id-card editorial-card" data-editorial-card data-name="{esc(r['name'])}" data-group="{esc(r['group'])}" data-genres="{esc(genres_pipe)}" data-status="{esc(r['status'])}" data-country="{esc(r['country'])}" data-verified-at="{esc(r['verified_at'])}" data-direct="{'true' if r['direct_submission'] else 'false'}">
+<article class="id-card editorial-card" data-editorial-card data-name="{esc(r['name'])}" data-group="{esc(r['group'])}" data-genres="{esc(genres_pipe)}" data-families="{esc(families_pipe)}" data-status="{esc(r['status'])}" data-country="{esc(r['country'])}" data-verified-at="{esc(r['verified_at'])}" data-direct="{'true' if r['direct_submission'] else 'false'}">
     <div class="editorial-card__head"><div><h2><a href="/editoriales/{esc(r['slug'])}/">{esc(r['name'])}</a></h2><p class="tool-meta">{esc(r['group'])}</p></div>{status_badge(r)}</div>
   <p>{esc(r['summary'])}</p>
     <div class="editorial-genres">{tags}</div>
+    <p class="editorial-match" data-genre-match hidden></p>
   <p class="editorial-verified">Comprobado: <time datetime="{esc(r['verified_at'])}">{esc(r['verified_at'])}</time></p>
 {stale_note}
     <div class="id-card__actions"><a class="text-action" href="/editoriales/{esc(r['slug'])}/">Ver requisitos y fuentes<span class="sr-only"> de {esc(r['name'])}</span></a></div>
 </article>''')
 
-    genre_options = ''.join(f'<option value="{esc(g)}">{esc(g)}</option>' for g in genres)
+    genre_options = genre_select_options([r["genres"] for r in records], families)
     country_options = ''.join(f'<option value="{esc(c)}">{esc(c)}</option>' for c in countries)
     canonical = f"{site}/editoriales/"
     description = "Directorio verificado de editoriales: recepción de manuscritos, requisitos, canal oficial, fecha de comprobación e historial de cambios."
@@ -409,11 +412,12 @@ def render_index(site: str, records: list[dict], today: date) -> str:
     <section class="tool-finder" aria-label="Filtrar editoriales">
         <div class="tool-options">
             <div class="tool-field"><label class="tool-field-label" for="editoriales-q">Buscar</label><input class="tool-input" id="editoriales-q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Editorial, sello, género…" data-editoriales-search></div>
-            <div class="tool-field"><label class="tool-field-label" for="editoriales-genero">Género</label><select class="tool-select" id="editoriales-genero" data-editoriales-genre><option value="">Todos</option>{genre_options}</select></div>
+            <div class="tool-field"><label class="tool-field-label" for="editoriales-genero">Género</label><select class="tool-select" id="editoriales-genero" aria-describedby="editoriales-genero-ayuda" data-editoriales-genre><option value="">Todos</option>{genre_options}</select></div>
             <div class="tool-field"><label class="tool-field-label" for="editoriales-estado">Estado</label><select class="tool-select" id="editoriales-estado" data-editoriales-status><option value="">Todos</option><option value="open">Acepta manuscritos</option><option value="closed">Recepción cerrada</option><option value="indirect">Vía indirecta</option><option value="award_only">Solo convocatoria/premio</option><option value="unknown">Por verificar</option></select></div>
             <div class="tool-field"><label class="tool-field-label" for="editoriales-pais">País</label><select class="tool-select" id="editoriales-pais" data-editoriales-country><option value="">Todos</option>{country_options}</select></div>
             <div class="tool-field"><label class="tool-field-label" for="editoriales-orden">Ordenar</label><select class="tool-select" id="editoriales-orden" data-editoriales-sort><option value="availability">Disponibilidad</option><option value="name">Nombre A–Z</option><option value="recent">Comprobación más reciente</option></select></div>
         </div>
+        <p class="tool-note editorial-genre-scope" id="editoriales-genero-ayuda" data-genre-scope>Las familias reúnen variantes (Fantasía incluye fantasía oscura y romantasy); la etiqueta exacta es la que declara la editorial. Coincidir en género no garantiza que acepte tu manuscrito.</p>
         <label class="tool-check"><input type="checkbox" data-editoriales-direct> <span>Solo envío directo</span></label>
         <div class="tool-actions"><button class="text-action" type="button" data-editoriales-reset>Limpiar</button></div>
         <p class="tool-count"><strong data-editoriales-count role="status" aria-live="polite">{len(records)} editoriales</strong> · Los filtros se guardan en el fragmento <code>#</code>; no crean páginas SEO nuevas.</p>
@@ -421,6 +425,7 @@ def render_index(site: str, records: list[dict], today: date) -> str:
     <section class="v1-section" aria-label="Directorio de editoriales"><div class="id-cards">{''.join(cards)}</div>
     <p class="tool-note" data-editoriales-empty hidden>No hay editoriales que coincidan con esos filtros.</p>
     </section>
+  <script type="application/json" data-genre-families>{families_json(families)}</script>
 </main>'''
     jsonld = {
         "@context": "https://schema.org",

@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 
 const base = process.env.RECOMMENDATIONS_BASE_URL || process.env.QA_BASE_URL || 'http://127.0.0.1:4173';
+// En móvil (≤900 px) los filtros se pliegan tras «Filtros» (#1004): abrirlos como haría el lector.
+const openFilters = async page => { const toggle = page.locator('[data-catalogue-refine-toggle]'); if (await toggle.isVisible() && await toggle.getAttribute('aria-expanded') === 'false') await toggle.click(); };
 const browser = await chromium.launch(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {});
 try {
   for (const viewport of [{ width: 1280, height: 900 }, { width: 390, height: 844 }]) {
@@ -11,6 +13,7 @@ try {
     page.on('pageerror', error => errors.push(String(error)));
     await page.addInitScript(() => sessionStorage.setItem('dp-intro-seen', '1'));
     await page.goto(`${base}/recomendaciones/`, { waitUntil: 'load' });
+    await openFilters(page);
     const box = (facet, value) => page.locator(`input[data-facet="${facet}"][value="${value}"]`);
     const visibleBooks = () => page.locator('[data-catalogue-book]:not([hidden])');
     await page.locator('input[data-facet="grupo"]').first().waitFor({ state: 'attached' });

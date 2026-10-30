@@ -15,6 +15,8 @@ on:
       - 'qa/catalogue-ratings-trust.mjs'
       - 'qa/reading-type-selector-browser.mjs'
       - 'qa/reading-catalogue-v2-browser.mjs'
+      - 'qa/catalogue-mobile-discovery.mjs'
+      - 'qa/catalogue-pagination-shareable-url.mjs'
       - 'qa/build-reading-scale-fixture.py'
       - 'assets/reading-market.json'
       - 'data/reading-authors.json'
@@ -85,6 +87,8 @@ jobs:
           node qa/reading-intake-browser.mjs
           node qa/reading-catalogue-v2-browser.mjs
           node qa/reading-type-selector-browser.mjs
+          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-mobile-discovery.mjs
+          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-pagination-shareable-url.mjs
       - name: Install Lighthouse CI
         if: always()
         run: npm install --global @lhci/cli@0.15.1

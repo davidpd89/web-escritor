@@ -380,3 +380,19 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editorial
     font-size:clamp(2.5rem,10.5vw,2.6rem)
   }
 }
+/* Familias de descubrimiento: la etiqueta literal que justifica la coincidencia se resalta y se explica. */
+html.v1 .editorial-genre.is-match{border-color:currentColor;color:var(--color-ink,#1b1b1b);background:var(--color-surface-alt,#f3efe6)}
+html.v1 .editorial-match{margin:0 0 .8rem;font:500 .82rem/1.5 var(--font-ui);color:var(--color-muted)}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) [data-editoriales-directory] .editorial-card>p.editorial-match{
+  max-width:74ch;margin:-.35rem 0 .9rem;color:var(--directory-muted);font:500 .82rem/1.5 var(--font-ui)
+}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) [data-editoriales-directory] .editorial-genre.is-match{
+  border-color:var(--directory-blue-deep);background:var(--directory-blue-deep);color:#fff
+}
+html.v1 .editorial-genre-scope{margin:.5rem 0 0;max-width:74ch}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-finder>.editorial-genre-scope{grid-column:1/-1;margin:0;padding:0;border:0;background:none;font-size:.82rem;line-height:1.5}
+/* Móvil: búsqueda y género a lo ancho; estado, país y orden en dos columnas para acercar las fichas. */
+@media(min-width:360px) and (max-width:640px){
+  html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem .75rem}
+  html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-options .tool-field:nth-child(-n+2){grid-column:1/-1}
+}

@@ -169,8 +169,8 @@ def render(data):
   <link rel="stylesheet" href="/assets/v1-shell.css?v=8" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
-  <link rel="stylesheet" href="/assets/v1-tools.css?v=6" />
-  <link rel="stylesheet" href="/assets/editoriales.css?v=3" />
+  <link rel="stylesheet" href="/assets/v1-tools.css?v=7" />
+  <link rel="stylesheet" href="/assets/editoriales.css?v=4" />
   <script type="application/ld+json">{schema}</script>
 </head>
 
@@ -236,7 +236,7 @@ def render(data):
 
   <footer class="site-footer"></footer>
 
-  <script defer src="/assets/v1-shell.js?v=30"></script>
+  <script defer src="/assets/v1-shell.js?v=31"></script>
   <script src="/assets/writer-tools.js?v=2" defer></script>
 </body>
 </html>'''

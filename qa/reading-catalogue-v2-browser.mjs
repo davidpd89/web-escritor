@@ -17,6 +17,8 @@ async function catalogueContext(options={}) {
   await context.addInitScript(()=>localStorage.setItem('nl-popup-ts',String(Date.now())));
   return context;
 }
+// En móvil (≤900 px) los filtros se pliegan tras «Filtros» (#1004): abrirlos como haría el lector.
+const openFilters = async page => { const toggle = page.locator('[data-catalogue-refine-toggle]'); if (await toggle.isVisible() && await toggle.getAttribute('aria-expanded') === 'false') await toggle.click(); };
 try {
   for(const count of [100,200]) {
     const context=await catalogueContext({viewport:{width:390,height:900},reducedMotion:'reduce'});
@@ -33,6 +35,7 @@ try {
     assert.equal(new URLSearchParams(new URL(page.url()).hash.slice(1)).get('pagina'),'2');
     await page.reload({waitUntil:'networkidle'});
     assert.match(await page.locator('[data-catalogue-count]').innerText(),/página 2/);
+    await openFilters(page);
     const ms=await page.evaluate(() => {
       const start=performance.now(), field=document.querySelector('[data-filter="q"]');
       field.value='Prueba técnica 099'; field.dispatchEvent(new Event('input',{bubbles:true}));
@@ -172,6 +175,7 @@ try {
       assert((await novelty.first().evaluate(e=>getComputedStyle(e).fontFamily)).includes('CatalogueNovelty'));
       assert(await page.locator('main').evaluate(e=>e.classList.contains('catalogue-fonts-ready')));
     }
+    await openFilters(page);
     await page.locator('.catalogue-more-filters>summary').click();
     assert(await page.locator('[data-filter="desde"]').isVisible());
     await page.screenshot({path:`${out}/hub-${width}.png`,fullPage:true});

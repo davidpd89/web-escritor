@@ -174,8 +174,16 @@
       if (offers.length) { const link = document.createElement('a'); link.href = offers[0].url; link.rel = 'sponsored nofollow noopener noreferrer'; link.target = '_blank'; link.textContent = 'Desde ' + money(offers[0].precio_centimos) + ' en Amazon'; link.title = 'Precio consultado el ' + new Date(offers[0].actualizado_en).toLocaleString('es-ES') + '. El precio aplicable será el de Amazon al comprar.'; box.append(link); }
     }
     if (form) {
+      const refineCount = root.querySelector('[data-catalogue-refine-count]');
+      if (refineCount) { const active = fields.filter(f => !['q', 'orden'].includes(f.dataset.filter) && f.value && !f.disabled).length + boxes.filter(b => b.checked).length; refineCount.textContent = active ? '· ' + active + (active === 1 ? ' activo' : ' activos') : ''; }
       root.querySelector('[data-catalogue-count]').textContent = visible + (visible === 1 ? ' libro' : ' libros') + (pages > 1 ? ' · página ' + currentPage + ' de ' + pages : ''); root.querySelector('[data-catalogue-empty]').hidden = visible !== 0;
       if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => !FACETS.includes(k) && value && !(k === 'orden' && value === 'editorial'))); for (const k of FACETS) for (const x of v[k]) hash.append(k, x); if (currentPage > 1) hash.set('pagina', String(currentPage)); history.replaceState(null, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
+      else {
+        // Restaurar o refrescar datos puede limitar la página (#pagina=99, vacía o no numérica):
+        // se corrige solo esa clave, sin entrada nueva en el historial ni hashchange.
+        const hash = new URLSearchParams(location.hash.slice(1)), page = currentPage > 1 ? String(currentPage) : null;
+        if (hash.get('pagina') !== page && (hash.has('pagina') || page)) { if (page) hash.set('pagina', page); else hash.delete('pagina'); history.replaceState(history.state, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
+      }
     }
   }
   function restore() {
@@ -273,6 +281,13 @@
   if (form) {
     form.querySelector('fieldset').disabled = false; form.querySelector('[type="reset"]').disabled = false;
     const sort = root.querySelector('[data-filter="orden"]'); if (sort) sort.disabled = false;
+    const refineToggle = form.querySelector('[data-catalogue-refine-toggle]'), refine = form.querySelector('[data-catalogue-refine]');
+    if (refineToggle && refine) {
+      const setRefine = open => { refine.toggleAttribute('data-open', open); refineToggle.setAttribute('aria-expanded', String(open)); };
+      refineToggle.addEventListener('click', () => setRefine(!refine.hasAttribute('data-open')));
+      // Escape cierra el panel móvil y devuelve el foco al botón (el <details> de «Más filtros» tiene prioridad).
+      refine.addEventListener('keydown', event => { if (event.key === 'Escape' && getComputedStyle(refineToggle).display !== 'none') { event.preventDefault(); setRefine(false); refineToggle.focus(); } });
+    }
     fields.forEach(f => f.addEventListener('input', () => { currentPage = 1; apply(); }));
     boxes.forEach(b => b.addEventListener('change', () => { currentPage = 1; apply(); }));
     form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; apply(); }); form.addEventListener('reset', () => setTimeout(() => { currentPage = 1; apply(); }, 0)); window.addEventListener('hashchange', restore); restore();

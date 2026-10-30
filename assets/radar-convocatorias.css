@@ -287,3 +287,6 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-gr
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card--expired dl>div:first-child time{color:var(--radar-muted)}
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card--expired h2{color:var(--radar-blue-deep)}
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-section--expired .radar-section__head .eyebrow{color:var(--radar-muted)}
+/* Familia de descubrimiento: explica qué etiqueta de las bases hace aparecer la ficha. */
+html.v1 .radar-match{margin:.6rem 0 0;font:500 .82rem/1.5 var(--font-ui);color:var(--color-muted)}
+html.v1 .radar-genre-scope{margin:.5rem 0 0;max-width:74ch}

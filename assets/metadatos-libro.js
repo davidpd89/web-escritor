@@ -13,11 +13,17 @@ export function httpsUrl(value) {
   try {
     const u = new URL(trimmed);
     if (u.protocol !== 'https:') return '';
+    if (hasUserinfo(trimmed)) return '';
     if (/%[0-9a-f]{2}/i.test(u.hostname)) return '';
     return u.href;
   } catch {
     return '';
   }
+}
+
+export function hasUserinfo(value) {
+  // El href normalizado lleva "@" en la autoridad sólo si hay usuario o contraseña.
+  try { return /^[a-z][a-z0-9+.-]*:\/\/[^/?#]*@/i.test(new URL(String(value || '').trim()).href); } catch { return false; }
 }
 
 export function buildMetaTags(v = {}) {
@@ -57,12 +63,15 @@ export function validateMetaTags(v = {}, built) {
   const items = [];
   if (!v.book) items.push('Añade el título del libro.');
   if (!v.description) items.push('Añade una descripción específica de esta página.');
-  if (v.url && !b.canonical) items.push('La URL canónica debe ser una URL HTTPS válida.');
+  if (v.url && hasUserinfo(v.url)) items.push('La URL canónica no puede incluir usuario ni contraseña.');
+  else if (v.url && !b.canonical) items.push('La URL canónica debe ser una URL HTTPS válida.');
   if (!v.url) items.push('Falta la URL canónica.');
-  if (v.image && !b.image) items.push('La imagen social debe usar una URL HTTPS válida.');
+  if (v.image && hasUserinfo(v.image)) items.push('La imagen social no puede incluir usuario ni contraseña.');
+  else if (v.image && !b.image) items.push('La imagen social debe usar una URL HTTPS válida.');
   if (!v.image) items.push('Falta una imagen social.');
   if (v.image && !v.imageAlt) items.push('Añade texto alternativo para la imagen social.');
-  if (v.authorUrl && !httpsUrl(v.authorUrl)) items.push('La URL del perfil del autor debe ser una URL HTTPS válida.');
+  if (v.authorUrl && hasUserinfo(v.authorUrl)) items.push('La URL del perfil del autor no puede incluir usuario ni contraseña.');
+  else if (v.authorUrl && !httpsUrl(v.authorUrl)) items.push('La URL del perfil del autor debe ser una URL HTTPS válida.');
   if ((v.description || '').length > 180) items.push('La descripción es larga. No hay un límite universal de snippet, pero conviene revisar que la idea principal aparezca pronto.');
   if (b.socialTitle.length > 90) items.push('El título social es largo y puede truncarse en algunas interfaces.');
   return items;

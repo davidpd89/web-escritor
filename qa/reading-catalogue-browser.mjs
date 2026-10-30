@@ -11,6 +11,8 @@ await fs.mkdir(OUT, { recursive: true });
 const fixturePath = `${OUT}/fixture.json`;
 execFileSync(process.env.PYTHON || 'python', ['tests/test-reading-catalogue.py', '--browser-fixture', fixturePath], { stdio: 'inherit' });
 const fixture = JSON.parse(await fs.readFile(fixturePath, 'utf8'));
+// En móvil (≤900 px) los filtros se pliegan tras «Filtros» (#1004): abrirlos como haría el lector.
+const openFilters = async page => { const toggle = page.locator('[data-catalogue-refine-toggle]'); if (await toggle.isVisible() && await toggle.getAttribute('aria-expanded') === 'false') await toggle.click(); };
 const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 try {
   for (const width of [320, 390, 768, 1024, 1440]) {
@@ -22,6 +24,7 @@ try {
     page.on('pageerror', e => errors.push(e.message));
     await page.goto(`${BASE}/recomendaciones/`);
     await page.waitForSelector('[data-catalogue-filters]:visible');
+    await openFilters(page);
     assert.match(await page.locator('h1').innerText(), /Libros recomendados/);
     assert.equal(await page.locator('[data-catalogue-book]').count(), realCount);
     assert(await page.locator('[data-catalogue-empty]').isHidden());
@@ -134,6 +137,7 @@ try {
   await page.clock.install({ time: new Date('2026-10-20T12:00:00Z') });
   await page.goto(`${BASE}/recomendaciones/`);
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 2);
+  await openFilters(page);
   await page.locator('details[data-facet-group="genero"]').evaluate(d => { d.open = true; }); await page.locator('details[data-facet-group="temporada"]').evaluate(d => { d.open = true; }); await page.locator('input[data-facet="genero"][value="romantasy"]').check();
   await page.locator('input[data-facet="temporada"][value="halloween"]').check();
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
@@ -145,6 +149,7 @@ try {
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
   await page.reload();
   assert.equal(await page.locator('[data-filter="q"]').inputValue(), 'TITULO');
+  await openFilters(page);
   await page.getByRole('button', { name: 'Restablecer' }).click();
   await page.locator('[data-filter="novedad"]').selectOption('180');
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
