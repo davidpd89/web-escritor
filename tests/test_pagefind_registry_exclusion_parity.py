@@ -7,10 +7,15 @@ manifest = json.loads((ROOT / 'pagefind/eligible-manifest.json').read_text(encod
 indexed = set(manifest['pages'])
 defaults = registry.get('defaults', {})
 by_source = {}
+# Las entradas de ancla (/pagina/#seccion) no son la página (#943): si la página
+# tiene entrada propia, solo cuentan las entradas de página.
+has_page_entry = {e['sourceFile'] for e in registry['entries'] if e.get('sourceFile') and '#' not in str(e.get('url') or '')}
 
 for entry in registry['entries']:
     source = entry.get('sourceFile')
     if not source:
+        continue
+    if source in has_page_entry and '#' in str(entry.get('url') or ''):
         continue
     effective = {**defaults, **entry}
     previous = by_source.get(source)

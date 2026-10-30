@@ -83,6 +83,14 @@ def problems(data: dict) -> list[str]:
             table[eid] = entry
         tables[category] = table
 
+    for category in ("authors", "places"):
+        for entry in tables[category].values():
+            if entry.get("status") == APPROVED and "official_url" in entry:
+                if not valid_https_url(entry["official_url"]):
+                    errors.append(
+                        f"{category}/{entry['id']}: official_url requiere URL HTTPS válida"
+                    )
+
     for category in ("destinations", "places", "routes"):
         seen: dict[str, str] = {}
         for entry in tables[category].values():
@@ -112,6 +120,8 @@ def problems(data: dict) -> list[str]:
         src = tables["sources"].get(source_id)
         if src is None:
             return  # require() ya informa de referencia inexistente
+        if not has_text(src.get("publisher")):
+            errors.append(f"{scope}: fuente {source_id!r} requiere publicador válido")
         if not all(has_text(src.get(k)) for k in ("url", "title", "retrieved_at", "evidence_summary")):
             errors.append(f"{scope}: fuente {source_id!r} requiere URL, título, fecha y evidencia")
         elif not valid_date(src["retrieved_at"]):
@@ -289,6 +299,8 @@ def problems(data: dict) -> list[str]:
         require("places", image.get("place_id"), scope)
         if image.get("status") == APPROVED:
             require_approved("places", image.get("place_id"), scope)
+            if "alt_original" in image and not has_text(image["alt_original"]):
+                errors.append(scope + ": alt_original declarado debe contener texto perceptible")
             place_id = image.get("place_id")
             owner = tables["places"].get(place_id) if isinstance(place_id, str) else None
             if owner is not None:
