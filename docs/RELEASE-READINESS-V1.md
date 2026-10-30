@@ -1,9 +1,9 @@
 # Release Readiness Evidence (Static Preflight Gate)
 
-- Generated: `2026-10-30T13:09:11.948591+00:00`
-- Branch: `handoff/atlas-load-more-keyboard-20261030`
-- HEAD: `3f4a3198a51b1c9e9579ecd390525351c861aab9`
-- Previous SHA (rollback candidate): `de46a8d7c4027e6c21f859a57cb4110f9e07336a`
+- Generated: `2026-10-30T13:01:07.909576+00:00`
+- Branch: `handoff/character-map-safe-import-20261030`
+- HEAD: `aa43c8d89cd93f427c5d3b5ba7f8e9155c928765`
+- Previous SHA (rollback candidate): `48f869a2763603d14840c12f2617708c095726f1`
 
 ## Status: `STATIC_CHECKS_PASSED`
 
@@ -17,11 +17,11 @@
 ## Commit Window (latest 20)
 
 ```text
-3f4a3198a merge main
+aa43c8d89 merge main
 c369f933e [ENCARGO P2] Homogeneizar tipografía de campos móviles y verificar Safari (#995)
 7a92c9eed [ENCARGO P1] Pagefind: conservar el índice si falla su reconstrucción (#994)
 2dc6804ce [ENCARGO P2] Preflight: no certificar éxito en informes BLOCKED (#996)
-de46a8d7c docs: encargar continuidad de teclado en Atlas
+48f869a27 docs: encargar importacion segura del mapa de personajes
 85a335e83 fix: close audit gaps in QA, newsletter accessibility and public metrics (#993)
 c63bf1eed Rescatar correcciones QA pendientes: Noveris, publicar-web, contrato Atlas, Pagefind y kit de prensa (#991)
 8a2898bfe Accesibilidad: contraste, impresión de Al otro lado, error del popup, aviso de copia y enlaces de compra (#992)
@@ -388,8 +388,8 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:6980) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-atlas-more/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
-Reparsing as ES module)
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:27524) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/wt-map-import/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES modul)
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
   ok   DTSTART is 17:00 UTC per icalendar (got 2026-09-03 17:00:00+00:00)
@@ -459,7 +459,7 @@ test-npm-supply-chain-baseline: OK
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `de46a8d7c4027e6c21f859a57cb4110f9e07336a`.
+2. Checkout rollback target SHA: `48f869a2763603d14840c12f2617708c095726f1`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
