@@ -46,10 +46,21 @@ ALLOWED_DIRECT: dict[str, set[str]] = {
     "v1-site-cohesion-v6.css": {
         "'Yellowtail',var(--font-ui),cursive",
     },
+    # /apoyar/ reutiliza el kicker y los titulares de la home.
+    "v1-support.css": {
+        "'Manrope Display','Manrope Fallback','Avenir Next',Avenir,'Segoe UI',sans-serif",
+    },
 }
 
 ALLOWED_SHORTHAND_TAILS: dict[str, set[str]] = {
     "v1-fragments.css": {
+        "'Yellowtail',var(--font-ui),cursive",
+    },
+    "v1-support.css": {
+        "'Yellowtail',var(--font-ui),cursive",
+        "'Manrope Display','Manrope Fallback','Avenir Next',Avenir,'Segoe UI',sans-serif",
+    },
+    "v1-tools-identity.css": {
         "'Yellowtail',var(--font-ui),cursive",
     },
     "v1-tools.css": {
