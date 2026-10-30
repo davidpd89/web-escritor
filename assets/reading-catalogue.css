@@ -168,3 +168,46 @@ html.v1 .catalogue-rating a { display:inline-flex; align-items:center; gap:.3rem
 html.v1 .catalogue-price-range__fields { display:grid; grid-template-columns:1fr 1fr; gap:.5rem; }
 html.v1 .catalogue-price-range__fields label { display:grid; gap:.2rem; font-size:.78rem; }
 html.v1 .catalogue-facet__title { margin:0 0 .4rem; font:600 .9rem/1.3 var(--font-ui); }
+
+/* Catálogo denso: tarjetas verticales, más libros por pantalla (3-4 en escritorio, 2 en móvil). */
+html.v1 .catalogue-grid { grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr)); gap:1rem; margin-top:1rem; }
+html.v1 .catalogue-card { grid-template-columns:minmax(0,1fr); grid-template-rows:auto 1fr; gap:.6rem; padding:.75rem; }
+html.v1 .catalogue-card>div { display:flex; flex-direction:column; }
+html.v1 .catalogue-card__cover { display:flex; justify-content:center; align-items:flex-end; aspect-ratio:2/3; max-height:260px; background:var(--catalogue-pale,#f6f2ea); }
+html.v1 .catalogue-card__cover img { width:auto; max-width:100%; max-height:100%; object-fit:contain; box-shadow:0 2px 8px rgba(0,0,0,.18); }
+html.v1 .catalogue-card h3 { margin:.15rem 0 .2rem; font-size:clamp(1.15rem,1.5vw,1.35rem); line-height:1.12; letter-spacing:-.01em; }
+html.v1 .catalogue-card .eyebrow { min-height:0; line-height:1.4; }
+html.v1 .catalogue-card .catalogue-author { margin:0 0 .35rem; font-size:.8rem; }
+html.v1 .catalogue-card .catalogue-tags--compact { margin:.2rem 0; }
+html.v1 .catalogue-card .catalogue-tags--compact a { min-height:24px; font-size:.68rem; }
+html.v1 .catalogue-card__description { margin:.2rem 0 .5rem; font-size:.84rem; line-height:1.5; display:-webkit-box; -webkit-line-clamp:4; line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
+html.v1 .catalogue-card .catalogue-facts { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.2rem .6rem; margin:.3rem 0; padding:.4rem .5rem; }
+html.v1 .catalogue-card .catalogue-facts dd { font-size:.78rem; }
+html.v1 .catalogue-card .text-action { margin-top:auto; padding-top:.3rem; }
+html.v1 .catalogue-card__buy { margin-top:.5rem; font-size:.78rem; }
+@media(max-width:1000px) { html.v1 .catalogue-grid { grid-template-columns:repeat(auto-fill,minmax(min(180px,100%),1fr)); } }
+@media(max-width:450px) { html.v1 .catalogue-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.6rem; } html.v1 .catalogue-card { grid-template-columns:minmax(0,1fr); gap:.4rem; padding:.5rem; } html.v1 .catalogue-card__cover { max-height:190px; } html.v1 .catalogue-card .catalogue-facts { grid-template-columns:minmax(0,1fr); } html.v1 .catalogue-card__description { -webkit-line-clamp:3; line-clamp:3; } }
+
+/* Filtros: las opciones vacías van al final y las largas se pliegan. */
+html.v1 .catalogue-facet__options .catalogue-check.is-collapsed { display:none!important; }
+html.v1 .catalogue-facet__more { margin:.3rem 0 0; padding:.3rem 0; min-height:44px; background:none; border:0; color:var(--catalogue-blue); font:600 .78rem/1.4 var(--font-ui); text-transform:none; letter-spacing:0; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
+html.v1 .catalogue-facet__more:hover { background:none; color:var(--catalogue-deep); }
+
+/* Ficha: sinopsis completa en párrafos y lecturas relacionadas con cubierta. */
+html.v1 .catalogue-synopsis p { margin:0 0 1rem; line-height:1.7; }
+html.v1 .catalogue-synopsis p:last-child { margin-bottom:0; }
+html.v1 .catalogue-related ul { grid-template-columns:repeat(auto-fill,minmax(min(150px,100%),1fr)); }
+html.v1 .catalogue-related li { display:flex; flex-direction:column; gap:.3rem; padding:.75rem; }
+html.v1 .catalogue-related a.catalogue-related__cover { display:flex; justify-content:center; min-height:0; aspect-ratio:2/3; max-height:200px; background:var(--catalogue-pale,#f6f2ea); }
+html.v1 .catalogue-related__image { width:auto; max-width:100%; max-height:100%; object-fit:contain; }
+html.v1 .catalogue-related li>a:not(.catalogue-related__cover) { font-size:1.1rem; min-height:44px; }
+html.v1 .catalogue-related li p { margin:0; color:#67635e; font-size:.8rem; }
+@media(max-width:700px) { html.v1 .catalogue-related ul { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+/* Fichas de autor y sello: rejilla densa y homogénea, con portada también en los índices. */
+html.v1 .catalogue-author-books { grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:1.25rem; }
+html.v1 .catalogue-author-books li { display:flex; flex-direction:column; gap:.5rem; }
+html.v1 .catalogue-author-books li > a { display:flex; flex-direction:column; gap:.75rem; font-size:1.25rem; }
+html.v1 .catalogue-author-books img, html.v1 .catalogue-index__image { width:auto; max-width:120px; max-height:180px; aspect-ratio:auto; object-fit:contain; margin:0; }
+html.v1 .reading-catalogue .catalogue-author-books p { margin:0; font-size:.92rem; line-height:1.45; }
+html.v1 .reading-catalogue .catalogue-index__bio { color:var(--catalogue-ink); opacity:.82; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+@media(max-width:450px) { html.v1 .catalogue-author-books { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; } }

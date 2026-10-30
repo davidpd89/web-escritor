@@ -73,7 +73,32 @@ GENRES = {
     'autoayuda': ('desarrollo-personal', 'Desarrollo personal'),
     'familia y crianza': ('familia-y-crianza', 'Familia y crianza'),
     'cocina': ('cocina', 'Cocina'),
+    # Sinónimos de las materias editoriales: una sola etiqueta por concepto en los filtros.
+    'narrativa': ('narrativa', 'Narrativa contemporánea'),
+    'narrativa contemporanea': ('narrativa', 'Narrativa contemporánea'),
+    'novela contemporanea': ('narrativa', 'Narrativa contemporánea'),
+    'novela literaria': ('narrativa', 'Narrativa contemporánea'),
+    'ficcion literaria': ('narrativa', 'Narrativa contemporánea'),
+    'novela grafica': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
+    'comic': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
+    'comics': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
+    'comic juvenil': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
+    'infantil': ('infantil', 'Infantil y juvenil'),
+    'ciencia ficcion juvenil': ('ciencia-ficcion', 'Ciencia ficción'),
+    'novela romantica juvenil': ('romance', 'Romance'),
+    'misterio': ('misterio-y-thriller', 'Misterio y thriller'),
+    'salud': ('nutricion-y-bienestar', 'Nutrición y bienestar'),
+    'para padres': ('familia-y-crianza', 'Familia y crianza'),
+    'ciencia': ('divulgacion-cientifica', 'Divulgación científica'),
+    'tiempo libre': ('tema-ocio-y-tiempo-libre', 'Ocio y tiempo libre'),
+    'tiempo libre juvenil': ('tema-ocio-y-tiempo-libre', 'Ocio y tiempo libre'),
+    'ocio y entretenimiento': ('tema-ocio-y-tiempo-libre', 'Ocio y tiempo libre'),
+    'business': ('tema-economia-y-empresa', 'Economía y empresa'),
+    'economia': ('tema-economia-y-empresa', 'Economía y empresa'),
+    'empresa': ('tema-economia-y-empresa', 'Economía y empresa'),
 }
+# Materias que solo nombran la sección de la web editorial, no el libro.
+SECTION_SUBJECTS = {'adultos', 'juvenil', 'libros', 'inicio', 'tematicas', 'temas', 'novedades', 'narrativa adultos'}
 
 
 def slug(value):
@@ -101,14 +126,19 @@ def classify(record, catalogue):
                                                 'descripcion': 'Edad orientativa de la editorial: ' + age_name + '.',
                                                 'orden': 150 + len(cats), 'activa': True})
                 cats[age_id] = catalogue['categorias'][-1]
+            if cats[age_id]['tipo'] == 'edad':
+                # Las franjas se ordenan por edad, no por fecha de alta.
+                cats[age_id]['orden'] = 140 + int(re.search(r'\d+', key).group())
             found.append(age_id)
         else:
             mapped = GENRES.get(key)
+            if key.endswith(' juvenil') and 'juvenil' in cats:
+                found.append('juvenil')
         if not mapped:
             # Preserve the source's actual subject even when it is new to the
             # catalogue. Age is never used as a substitute for a subject.
             name = ' '.join(str(subject).split())
-            if not name or normalize_text(name) in {'adultos', 'juvenil', 'libros', 'inicio'}:
+            if not name or normalize_text(name) in SECTION_SUBJECTS:
                 continue
             topic_slug=slug(name)
             if len(normalize_text(name).replace(' ','-'))>75:
@@ -186,6 +216,8 @@ def make_book(record, publisher, tag, today, cover, dimensions):
         book.update(sinopsis_breve=record['sinopsis_breve'],
                     sinopsis_fuente_url=record['fuente_bibliografica_url'],
                     sinopsis_tipo='extracto_editorial')
+        if record.get('sinopsis_completa'):
+            book['sinopsis_completa'] = record['sinopsis_completa']
     return book
 
 
@@ -230,6 +262,33 @@ def update_authors(payload, catalogue, new_books, today):
             used.add(key)
 
 
+def fill_full_synopses(catalogue, providers, http, max_books=6):
+    """Relee la ficha oficial de los libros sin sinopsis completa; nunca toca resúmenes propios."""
+    changed = 0
+    for book in catalogue['libros']:
+        if changed >= max_books or http.requests >= http.budget:
+            break
+        if book.get('sinopsis_completa') or book.get('sinopsis_tipo') == 'resumen_propio':
+            continue
+        url = book.get('fuente_bibliografica_url', '')
+        source = provider_of(url, providers)
+        if not source:
+            continue
+        try:
+            record = read_edition(source, http.get(url, ttl=30 * 86400).decode('utf-8', errors='replace'), url)
+        except (OSError, ValueError, KeyError, TypeError, TimeoutError):
+            continue  # Una ficha caída conserva el extracto actual.
+        full = record.get('sinopsis_completa', '')
+        if record.get('isbn13') == book.get('isbn13') and 60 <= len(full) <= 4500:
+            book['sinopsis_completa'] = full
+            book.setdefault('sinopsis_fuente_url', url)
+            book.setdefault('sinopsis_tipo', 'extracto_editorial')
+            if not book.get('sinopsis_breve') and record.get('sinopsis_breve'):
+                book['sinopsis_breve'] = record['sinopsis_breve']
+            changed += 1
+    return changed
+
+
 def enrich_author_bios(authors, state, http, today, max_profiles=7):
     """Cover five new authors plus two refreshes within the shared HTTP budget."""
     sources = {}
@@ -245,7 +304,8 @@ def enrich_author_bios(authors, state, http, today, max_profiles=7):
         if author.get('tipo') != 'bibliografico' or not re.fullmatch(r'https://www\.penguinlibros\.com/es/\d+-[a-z0-9-]+', source):
             continue
         reviewed = author.get('biografia_fecha_revision')
-        if reviewed and (date.fromisoformat(today) - date.fromisoformat(reviewed)).days < 30:
+        truncated = (author.get('biografia_breve') or '').endswith('…')
+        if reviewed and not truncated and (date.fromisoformat(today) - date.fromisoformat(reviewed)).days < 30:
             continue
         if attempted >= max_profiles or http.requests >= http.budget:
             break
@@ -481,8 +541,11 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                     ]))
                     categories = [c for c in categories if c not in old_book.get('categorias_excluidas', [])]
                     if old_book.get('sinopsis_tipo') == 'resumen_propio':
-                        for field in ('sinopsis_breve', 'sinopsis_fuente_url', 'sinopsis_tipo'):
-                            book[field] = old_book[field]
+                        for field in ('sinopsis_breve', 'sinopsis_fuente_url', 'sinopsis_tipo', 'sinopsis_completa'):
+                            if field in old_book:
+                                book[field] = old_book[field]
+                            else:
+                                book.pop(field, None)
                     trial['libro_categorias'] = [r for r in trial['libro_categorias'] if r['libro_id'] != book['id']]
                 else:
                     trial['libros'].append(book)
@@ -504,6 +567,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                     state['items'][key] = {'isbn13': isbn, 'estado_ingesta': 'pendiente_datos', 'primera_deteccion': previous.get('primera_deteccion', today), 'retry_after': (day + timedelta(days=3)).isoformat(), 'motivo': reason, 'fuente': url, **({'datos': record} if record else {})}
                 stats['pending'] += 1
         update_authors(authors, catalogue, new_books + updated_books, today)
+        stats['synopses_completed'] = fill_full_synopses(catalogue, providers, http, int(config.get('max_synopsis_backfill', 6)))
         stats['author_profiles_updated'] = enrich_author_bios(authors, state, http, today)
         wiki = config.get('author_wikipedia', {})
         if wiki.get('enabled'):
@@ -514,7 +578,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
     stats['updated'] = len(updated_books)
     stats['requests'], stats['cache_hits'] = http.requests, http.hits
     write_if_changed(cache / 'state.json', state)
-    if apply and (new_books or updated_books or stats['author_profiles_updated']):
+    if apply and (new_books or updated_books or stats['author_profiles_updated'] or stats['synopses_completed']):
         write_if_changed(root / 'data/reading-publishers.json', catalogue_publishers)
         for relative, content in assets.items():
             target = root / relative.lstrip('/')

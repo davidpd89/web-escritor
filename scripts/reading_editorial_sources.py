@@ -59,13 +59,22 @@ class PlainParagraphs(HTMLParser):
             self.parts.append(text)
 
 
-def editorial_excerpt(value, limit=24):
-    """A short attributed excerpt, never the publisher's complete synopsis."""
+SYNOPSIS_STOP = ('resenas', 'la critica', 'criticas', 'sobre el autor', 'sobre la autora')
+SYNOPSIS_MAX = 4000
+PARAGRAPH_BREAK = '\n\n'
+
+
+def _synopsis_paragraphs(value):
     parser = PlainParagraphs()
     parser.feed(str(value or ''))
     parser.flush()
-    candidates = [p for p in parser.paragraphs if len(p.split()) >= 10
-                  and not normalize_text(p).startswith(('resenas', 'la critica', 'criticas', 'sobre el autor'))
+    return parser.paragraphs
+
+
+def editorial_excerpt(value, limit=24):
+    """A short attributed excerpt for cards and meta descriptions."""
+    candidates = [p for p in _synopsis_paragraphs(value) if len(p.split()) >= 10
+                  and not normalize_text(p).startswith(SYNOPSIS_STOP)
                   and not p.startswith(('«', '“', '"'))]
     if not candidates:
         return ''
@@ -84,6 +93,34 @@ def editorial_excerpt(value, limit=24):
     text = max(enumerate(candidates), key=lambda pair: (score(pair[1]), -pair[0]))[1]
     words = text.split()
     return ' '.join(words[:limit]).rstrip(' ,;:') + ('…' if len(words) > limit else '')
+
+
+def editorial_synopsis(value):
+    """La sinopsis completa de la ficha: párrafos en orden hasta las reseñas o la nota de autor.
+
+    Se descartan titulares en mayúsculas, citas de prensa y párrafos de una sola palabra; el
+    resultado se corta por la última frase completa si supera SYNOPSIS_MAX caracteres.
+    """
+    kept = []
+    for text in _synopsis_paragraphs(value):
+        folded = normalize_text(text)
+        if folded.startswith(SYNOPSIS_STOP) and kept:
+            break
+        letters = [ch for ch in text if ch.isalpha()]
+        if (len(text.split()) < 3 or text.startswith(('«', '“', '"')) and kept
+                or sum(ch.isupper() for ch in letters) / max(1, len(letters)) > .6):
+            continue
+        if folded.startswith(SYNOPSIS_STOP):
+            continue
+        kept.append(text)
+    full = PARAGRAPH_BREAK.join(dict.fromkeys(kept))
+    if len(full.split()) < 10:
+        return ''
+    if len(full) > SYNOPSIS_MAX:
+        cut = full[:SYNOPSIS_MAX]
+        end = max(cut.rfind('. '), cut.rfind('.' + PARAGRAPH_BREAK[0]), cut.rfind('? '), cut.rfind('! '))
+        full = cut[:end + 1] if end > SYNOPSIS_MAX // 2 else cut.rsplit(' ', 1)[0] + '…'
+    return full
 
 
 def allowed_url(raw, hosts):
@@ -220,6 +257,9 @@ def product_links(document, source):
     return links
 
 
+BIO_LIMIT = 650
+
+
 def publisher_author_bio(document, source, name):
     parser = ProductHTML()
     parser.feed(document)
@@ -232,8 +272,16 @@ def publisher_author_bio(document, source, name):
     raw = parser.meta.get('description') or parser.meta.get('og:description') or ''
     if '\ufffd' in raw or len(raw.split()) < 12:
         raise SourceError('Biografía editorial ausente o dañada')
-    words = ' '.join(raw.split()).split()
-    return ' '.join(words[:24]).rstrip(' ,;:') + ('…' if len(words) > 24 else '')
+    text = ' '.join(raw.split())
+    if len(text) <= BIO_LIMIT:
+        return text
+    # Frases completas hasta el límite; solo se recorta a palabras si la primera ya no cabe.
+    kept = ''
+    for sentence in re.split(r'(?<=[.!?…])\s+', text):
+        if len(kept) + len(sentence) + 1 > BIO_LIMIT:
+            break
+        kept = (kept + ' ' + sentence).strip()
+    return kept if len(kept) >= 60 else text[:BIO_LIMIT - 1].rsplit(' ', 1)[0].rstrip(' ,;:') + '…'
 
 
 def _pvp_centimos(product):
@@ -305,5 +353,6 @@ def penguin_edition(document, source):
             'portada_fuente_url': image, 'fuente_bibliografica_url': source,
             'fuentes_autores': author_sources, 'coleccion': features.get('coleccion', ''),
             'sinopsis_breve': editorial_excerpt(p.get('description')) or editorial_excerpt(p.get('description_short')),
+            'sinopsis_completa': editorial_synopsis(p.get('description')) or editorial_synopsis(p.get('description_short')),
             'palabras_clave': keyword_list(html.unescape(str(p.get('meta_keywords', '')))),
             'pvp_centimos': pvp}
