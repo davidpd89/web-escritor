@@ -39,8 +39,10 @@ export function validatePressKitModel(model) {
   if (!String(model.bookTitle || "").trim()) errors.push("Falta el título del libro.");
   if (!String(model.bookDescription || "").trim()) errors.push("Falta la descripción/sinopsis del libro.");
   if (!['contact_only','editorial_use'].includes(model.assetPermission)) errors.push("Selecciona una política de uso de imágenes.");
-  if (model.website && !isHttpsUrl(model.website)) errors.push("La web debe usar una URL HTTPS válida.");
-  if (model.purchaseUrl && !isHttpsUrl(model.purchaseUrl)) errors.push("El enlace oficial debe usar una URL HTTPS válida.");
+  if (model.website && hasUserinfo(model.website)) errors.push("La web no puede incluir usuario ni contraseña.");
+  else if (model.website && !isHttpsUrl(model.website)) errors.push("La web debe usar una URL HTTPS válida.");
+  if (model.purchaseUrl && hasUserinfo(model.purchaseUrl)) errors.push("El enlace oficial no puede incluir usuario ni contraseña.");
+  else if (model.purchaseUrl && !isHttpsUrl(model.purchaseUrl)) errors.push("El enlace oficial debe usar una URL HTTPS válida.");
   if (model.publicationDate && !isIsoDate(model.publicationDate)) errors.push("La fecha de publicación debe ser una fecha real en formato AAAA-MM-DD.");
   return errors;
 }
@@ -146,7 +148,9 @@ export function formatMiB(bytes) {
 function clean(value) { const v = String(value || "").trim(); return v || undefined; }
 function cleanObject(obj) { return Object.fromEntries(Object.entries(obj).filter(([,v]) => v !== undefined && v !== "")); }
 function isEmail(v) { return /^[^\s@]{1,64}@[^\s@]{1,253}\.[^\s@]{2,}$/i.test(String(v || "").trim()); }
-function isHttpsUrl(v) { const t = String(v || '').trim(); if (!t) return false; try { const u = new URL(t); if (u.protocol !== "https:" || !u.hostname) return false; return !/%[0-9a-f]{2}/i.test(u.hostname); } catch { return false; } }
+// El href normalizado lleva "@" en la autoridad sólo si hay usuario o contraseña.
+function hasUserinfo(v) { try { return /^[a-z][a-z0-9+.-]*:\/\/[^/?#]*@/i.test(new URL(String(v || '').trim()).href); } catch { return false; } }
+function isHttpsUrl(v) { const t = String(v || '').trim(); if (!t) return false; try { const u = new URL(t); if (u.protocol !== "https:" || !u.hostname || hasUserinfo(t)) return false; return !/%[0-9a-f]{2}/i.test(u.hostname); } catch { return false; } }
 function isIsoDate(v) {
   const raw = String(v || '').trim();
   const m = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
