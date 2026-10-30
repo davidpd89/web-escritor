@@ -1,6 +1,6 @@
 # Encargo: impedir credenciales embebidas en URLs de salidas públicas
 
-Estado: **BORRADOR, SIN IMPLEMENTAR**. P2: prevención de publicación accidental.
+Estado: **IMPLEMENTADO** (rama `handoff/public-generators-url-userinfo-20261030`). P2: prevención de publicación accidental.
 Base: `c369f933e52073604adc2972f902191289992e08`.
 
 ## Evidencia reproducida
@@ -33,12 +33,12 @@ No afirmar que se probó la UI completa o un ZIP real: se verificaron los módul
 - Revisar generadores públicos equivalentes y compartir contrato/pruebas cuando
   sea útil, sin refactorización global innecesaria.
 - Conservar URLs normales, parámetros y fragmentos legítimos, y escapes anti-XSS.
-- [ ] Regresiones con userinfo sintético: usuario solo, contraseña y codificación.
-- [ ] Entradas normales siguen aceptadas; los tres consumidores aplican política coherente.
-- [ ] Ninguna salida ni mensaje contiene el componente sensible del caso rechazado.
-- [ ] Recorrido browser de cada formulario; ZIP sintético y código generado inspeccionados.
-- [ ] Tests de JSON-LD, metadatos y kit de prensa, versiones/hashes y CI en verde.
-- [ ] Evidencia antes/después y verificación del SHA tras publicar.
+- [x] Regresiones con userinfo sintético: usuario solo, contraseña y codificación.
+- [x] Entradas normales siguen aceptadas; los tres consumidores aplican política coherente.
+- [x] Ninguna salida ni mensaje contiene el componente sensible del caso rechazado.
+- [x] Recorrido browser de cada formulario; ZIP sintético y código generado inspeccionados.
+- [x] Tests de JSON-LD, metadatos y kit de prensa, versiones/hashes y CI en verde.
+- [ ] Evidencia antes/después y verificación del SHA tras publicar (tras el merge).
 
 Pruebas de partida: `tests/test-jsonld-escritores-core.mjs`,
 `tests/test-metadatos-libro.mjs`, `tests/test-kit-prensa-core.mjs` y QA de publicación.
