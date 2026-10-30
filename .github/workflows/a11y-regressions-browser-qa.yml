@@ -7,6 +7,12 @@ on:
       - 'al-otro-lado/index.html'
       - 'assets/al-otro-lado.css'
       - 'assets/newsletter-popup.js'
+      - 'assets/newsletter-popup.css'
+      - 'assets/v1-tokens.css'
+      - 'assets/v1-tools.css'
+      - 'assets/mapa-personajes.css'
+      - 'assets/jsonld-escritores.css'
+      - 'assets/objeto-heredado.css'
       - 'assets/v1-accessibility-statement.css'
       - 'qa/accesibilidad-computed-contrast.mjs'
       - 'qa/accesibilidad-fixture.mjs'
@@ -14,6 +20,7 @@ on:
       - 'qa/microstory-offline-harness.mjs'
       - 'qa/microstory-print-contract.mjs'
       - 'qa/newsletter-popup-invalid-email-browser.mjs'
+      - 'qa/mobile-form-typography-browser.mjs'
       - '.github/workflows/a11y-regressions-browser-qa.yml'
   workflow_dispatch:
 
@@ -66,5 +73,9 @@ jobs:
           QA_ORIGIN: http://127.0.0.1:4173
       - name: Error de email del popup asociado al campo
         run: node qa/newsletter-popup-invalid-email-browser.mjs
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+      - name: Campos de formulario a 16px o más en móvil (sin autozoom)
+        run: node qa/mobile-form-typography-browser.mjs
         env:
           QA_ORIGIN: http://127.0.0.1:4173

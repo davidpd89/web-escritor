@@ -1,6 +1,14 @@
 # Encargo: homogeneizar tipografía de campos editables en móvil
 
-Estado: **PENDIENTE DE IMPLEMENTACIÓN — PR EN BORRADOR**.
+Estado: **IMPLEMENTADO en esta rama** (token `--input-font-size` en `v1-tokens.css`:
+`.95rem` en escritorio, `max(16px,1rem)` en `max-width:48rem` o `pointer:coarse`;
+consumido por `v1-tools.css`, `newsletter-popup.css`, `mapa-personajes.css`,
+`jsonld-escritores.css` y `objeto-heredado.css`). Regresión de navegador:
+`qa/mobile-form-typography-browser.mjs` (320/390/768 px, 141 medidas, PASS),
+enganchada en `a11y-regressions-browser-qa.yml`. Censo de las 257 rutas con
+controles a 390 px: ninguna queda por debajo de 16 px. Zoom de usuario no se bloquea.
+Safari físico (iOS): **NO verificado**; la protección contra autozoom se infiere de
+la regla de 16 px, no de una prueba en dispositivo.
 Prioridad: P2, coherencia visual/usabilidad. Riesgo de zoom iOS por verificar.
 Base examinada: `85a335e8309b10f10961f58029810f7c50e3dbc6`.
 
