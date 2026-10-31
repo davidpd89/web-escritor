@@ -58,7 +58,14 @@ with tempfile.TemporaryDirectory() as td:
     assert "sin registro" in html.split("support-method--kofi", 1)[1].split("</a>", 1)[0].lower()
     for forbidden in ("support-amount", "Importe", "EUR\"", "aviso-legal", "benéfica", "afiliado", "/privacidad/"):
         assert forbidden not in html.split('<main', 1)[1].split('</main>', 1)[0], forbidden
-    assert "Todo es gratis" in html and 'data-family="support"' in html and "/assets/v1-support.css" in html
+    main = html.split('<main', 1)[1].split('</main>', 1)[0]
+    assert len(re.findall(r"<h1\b", html)) == 1 and "Gracias por estar aquí</h1>" in main
+    assert 'data-family="support"' in html and "/assets/v1-support.css" in html
+    # Sin el listado de lo gratuito; como ayuda alternativa, solo novelas y redes.
+    assert "support-free" not in main and "Todo es gratis" not in main
+    other = main.split('class="support-other__list"', 1)[1].split("</ul>", 1)[0]
+    assert re.findall(r'<a href="([^"]+)">([^<]+)</a>', other) == [
+        ("/libros/", "Recomienda mis novelas"), ("/redes-sociales/", "Sígueme en redes")], other
     registry = json.loads((root / "data/content-registry.json").read_text(encoding="utf-8"))
     assert sum(e["id"] == "support-project" for e in registry["entries"]) == 1
 print("PASS: /apoyar/ multicanal solo existe con canales válidos y cumple el gate")
