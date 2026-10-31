@@ -11,7 +11,8 @@ try {
     const page = await browser.newPage({ viewport });
     const errors = [];
     page.on('pageerror', error => errors.push(String(error)));
-    await page.addInitScript(() => sessionStorage.setItem('dp-intro-seen', '1'));
+    // Sin intro ni popup de newsletter: con más libros la prueba dura más y el popup tapaba las casillas.
+    await page.addInitScript(() => { try { sessionStorage.setItem('dp-intro-seen', '1'); localStorage.setItem('nl-popup-ts', String(Date.now())); localStorage.setItem('nl-subscribed', '1'); } catch {} });
     await page.goto(`${base}/recomendaciones/`, { waitUntil: 'load' });
     await openFilters(page);
     const box = (facet, value) => page.locator(`input[data-facet="${facet}"][value="${value}"]`);
