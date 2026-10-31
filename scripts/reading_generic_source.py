@@ -20,7 +20,7 @@ import re
 from decimal import Decimal, InvalidOperation
 from urllib.parse import urljoin, urlsplit
 
-from reading_editorial_sources import SourceError, editorial_excerpt
+from reading_editorial_sources import SourceError, editorial_excerpt, editorial_synopsis
 from reading_intake_core import clean_title, edition_date, isbn13, normalize_text
 from reading_planeta_source import _looks_spanish
 from reading_taxonomy import keyword_list
@@ -302,5 +302,6 @@ def generic_edition(source: dict, document: str, url: str) -> dict:
             'fuentes_autores': {},
             'coleccion': collection,
             'sinopsis_breve': editorial_excerpt(synopsis_html),
+            'sinopsis_completa': editorial_synopsis(synopsis_html),
             'palabras_clave': keyword_list(keywords),
             'pvp_centimos': price}
