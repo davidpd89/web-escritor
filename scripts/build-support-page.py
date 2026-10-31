@@ -121,7 +121,7 @@ def render(channels: list[dict]) -> str:
     </section>
   </main>
   <footer class="site-footer"></footer>
-  <script src="/assets/v1-shell.js?v=32" defer></script>
+  <script src="/assets/v1-shell.js?v=33" defer></script>
 </body>
 </html>
 """
