@@ -65,3 +65,23 @@ Continúa `.ci/2026-10-31-catalogo-etiquetas-goodreads-ingesta.md` (PR #1019).
   - Rangos de páginas.
   - Número de valoraciones en la tarjeta.
   - «Si te gustó X».
+
+## Seguimiento: sincronización automática a 161 libros
+- **La sincronización programada fallaba.** La ingesta de Planeta creaba la categoría `tema-manga`. #1028 lleva «Manga», «Manga Shonen/Seinen/…» y «Cómic manga» a `comic-y-novela-grafica` y añade un test.
+- **Fallo de QA en el PR del bot #1029.** El popup de newsletter tapaba las casillas en `qa/reading-type-selector-browser.mjs`. #1031 lo desactiva en la prueba, igual que la intro.
+- **#1029 quedó en conflicto con main.** Se cerró, se relanzó la sincronización (run 41233675860, en verde) y su nuevo PR #1033 se fusionó (00e25187e). Ya hay 161 libros publicados.
+- **QA local contra la rama de 161 libros, todo PASS:**
+  - type-selector
+  - catalogue-browser
+  - v2
+  - intake (160 importados, 41 editoriales)
+  - ratings-trust
+  - device-matrix
+  - commerce
+  - mobile-discovery
+  - pagination
+  - failure-resilience
+- **En vivo, tras el despliegue de 00e25187e:**
+  - A 390 y a 1280 px: 161 libros, `js?v=26`, 51 notas visibles, 0 ocultas, 0 etiquetas de edad, 0 «consultar» y 0 overflow.
+  - Matriz de dispositivos contra producción: PASS en 11 perfiles.
+- **Notas Goodreads:** 110 libros siguen sin nota verificada. El refresco por lotes las irá completando.
