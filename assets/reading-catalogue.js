@@ -127,6 +127,9 @@
   function renderFacets(v) {
     if (!form) return;
     for (const k of FACETS) {
+      // El generador omite los grupos sin ninguna categoría con libros.
+      const group = form.querySelector('[data-facet-group="' + k + '"]');
+      if (!group) continue;
       const own = boxes.filter(b => b.dataset.facet === k);
       const candidates = cards.filter(card => matches(card, {...v, [k]: []}));
       const sets = candidates.map(card => facetValues(card, k));
@@ -137,8 +140,31 @@
         label.querySelector('[data-facet-count]').textContent = '(' + count + ')';
         box.disabled = !count && !box.checked;
         label.classList.toggle('is-empty', box.disabled);
+        label.dataset.count = count;
       }
-      const group = form.querySelector('[data-facet-group="' + k + '"]'), chosen = own.filter(b => b.checked).length;
+      const chosen = own.filter(b => b.checked).length;
+      // Marcadas primero; después las que tienen libros (de más a menos, salvo el tipo de libro, que conserva su orden) y al final las vacías.
+      const list = group.querySelector('.catalogue-facet__options'), labels = own.map(b => b.closest('label'));
+      labels.forEach((label, i) => { if (label.dataset.order == null) label.dataset.order = i; });
+      const rank = label => label.querySelector('input').checked ? 0 : label.classList.contains('is-empty') ? 2 : 1;
+      const ordered = [...labels].sort((a, b) => rank(a) - rank(b) || (k === 'grupo' ? 0 : b.dataset.count - a.dataset.count) || a.dataset.order - b.dataset.order);
+      if (ordered.some((label, i) => list.children[i] !== label)) list.prepend(...ordered);
+      const shown = ordered.filter(label => !label.hidden), limit = 8, expanded = group.dataset.expanded === 'true';
+      let more = group.querySelector('[data-facet-more]');
+      if (shown.length > limit + 2 && !more) {
+        more = document.createElement('button'); more.type = 'button'; more.className = 'catalogue-facet__more'; more.dataset.facetMore = '';
+        more.addEventListener('click', () => { group.dataset.expanded = group.dataset.expanded === 'true' ? 'false' : 'true'; renderFacets(values()); });
+        list.after(more);
+      }
+      if (more) {
+        // Nunca se pliega una opción con libros: solo las vacías que sobran.
+        const keep = Math.max(limit, shown.filter(label => !label.classList.contains('is-empty')).length);
+        const collapsible = shown.length > keep + 2;
+        more.hidden = !collapsible;
+        shown.forEach((label, i) => label.classList.toggle('is-collapsed', collapsible && !expanded && i >= keep && !label.querySelector('input').checked));
+        more.textContent = expanded ? 'Ver menos' : 'Ver todas (' + shown.length + ')';
+        more.setAttribute('aria-expanded', String(expanded));
+      }
       group.hidden = own.every(b => b.closest('label').hidden);
       group.querySelector('[data-facet-selected]').textContent = chosen ? '(' + chosen + ' elegidas)' : '';
       if (chosen) group.open = true;

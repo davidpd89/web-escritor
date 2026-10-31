@@ -71,7 +71,7 @@ class MultiBookContractTests(unittest.TestCase):
                 self.root / b["portada_local"].lstrip("/"))
             self.data["libros"].append(b)
             cats = ["fantasia-juvenil", "halloween"] if i == 0 else (
-                ["romantasy", "fantasia"] if i == 1 else ["terror", "misterio"]
+                ["romantasy", "fantasia"] if i == 1 else ["terror", "misterio-y-thriller"]
             )
             self.data["libro_categorias"].extend(
                 {"libro_id": b["id"], "categoria_id": cat} for cat in cats

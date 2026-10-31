@@ -220,19 +220,27 @@ def find_context(current_path: str) -> Context | None:
     return next((c for c in CONTEXTS if c.matches(current_path)), None)
 
 
+# Rutas que pertenecen a la familia de otro enlace: las fichas de sellos del
+# catálogo marcan «Editoriales» aunque el enlace lleve al directorio general.
+FAMILY_ALIASES = {"/editoriales/": ("/recomendaciones/editoriales/",)}
+
+
 def score_links(context: Context, current_path: str) -> tuple[list[dict], dict | None]:
     scored = []
     for href, label in context.links:
         link_path = normalise(urlparse(href).path or href)
         exact = current_path == link_path
-        family = (not exact) and link_path.endswith("/") and link_path != "/" and current_path.startswith(link_path)
-        scored.append({"href": href, "label": label, "link_path": link_path, "exact": exact, "family": family})
+        prefixes = (link_path, *FAMILY_ALIASES.get(link_path, ()))
+        matched = [p for p in prefixes if p.endswith("/") and p != "/" and current_path.startswith(p)]
+        family = (not exact) and bool(matched)
+        depth = max((len(p) for p in matched), default=len(link_path))
+        scored.append({"href": href, "label": label, "link_path": link_path, "exact": exact, "family": family, "depth": depth})
     exact_match = next((s for s in scored if s["exact"]), None)
     best_family = None
     if not exact_match:
         candidates = [s for s in scored if s["family"]]
         if candidates:
-            best_family = max(candidates, key=lambda s: len(s["link_path"]))
+            best_family = max(candidates, key=lambda s: s["depth"])
     return scored, exact_match or best_family
 
 

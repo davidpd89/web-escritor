@@ -16,7 +16,7 @@ from decimal import Decimal, InvalidOperation
 from reading_intake_core import clean_title
 from urllib.parse import urljoin, urlsplit
 
-from reading_editorial_sources import SourceError, editorial_excerpt
+from reading_editorial_sources import SourceError, editorial_excerpt, editorial_synopsis
 from reading_intake_core import isbn13, normalize_text
 from reading_taxonomy import keyword_list
 
@@ -172,5 +172,6 @@ def planeta_edition(document: str, source: str) -> dict:
             'fuentes_autores': {a: author_sources[a] for a in authors},
             'coleccion': fields.get('coleccion', ''),
             'sinopsis_breve': editorial_excerpt(synopsis_html),
+            'sinopsis_completa': editorial_synopsis(synopsis_html),
             'palabras_clave': keyword_list(', '.join(topic_names)),
             'pvp_centimos': price}
