@@ -10,7 +10,7 @@ html.v1 [data-family="redes-sociales"] .social-hero h1 span{color:var(--color-ac
 html.v1 [data-family="redes-sociales"] .social-hero__lead{max-width:34rem;margin:0 0 var(--space-6);font:400 var(--text-lg)/1.55 var(--font-reading);color:var(--social-ink)}
 
 /* Una sola llamada a la acción: los iconos ya están en la constelación */
-html.v1 [data-family="redes-sociales"] .social-hero__cta{display:inline-flex;flex-wrap:wrap;align-items:center;max-width:100%;box-sizing:border-box;overflow-wrap:anywhere;gap:var(--space-2);min-height:2.75rem;padding:var(--space-2) var(--space-5);border-radius:999px;background:linear-gradient(150deg,#1d5f86 0%,var(--social-ink) 100%);color:#fff;font:600 var(--text-base)/1.2 var(--font-ui);text-decoration:none;box-shadow:0 10px 24px rgba(11,42,61,.28),inset 0 1px 0 rgba(255,255,255,.18);transition:transform .2s ease,box-shadow .2s ease}
+html.v1 [data-family="redes-sociales"] .social-hero__cta{display:inline-flex;flex-wrap:wrap;align-items:center;max-width:100%;box-sizing:border-box;overflow-wrap:break-word;gap:var(--space-2);min-height:2.75rem;padding:var(--space-2) min(var(--space-5),5vw);border-radius:999px;background:linear-gradient(150deg,#1d5f86 0%,var(--social-ink) 100%);color:#fff;font:600 var(--text-base)/1.2 var(--font-ui);text-decoration:none;box-shadow:0 10px 24px rgba(11,42,61,.28),inset 0 1px 0 rgba(255,255,255,.18);transition:transform .2s ease,box-shadow .2s ease}
 html.v1 [data-family="redes-sociales"] .social-hero__cta:hover{transform:translateY(-2px);color:#fff;box-shadow:0 14px 30px rgba(11,42,61,.34),inset 0 1px 0 rgba(255,255,255,.18)}
 html.v1 [data-family="redes-sociales"] .social-hero__cta:focus-visible{outline:3px solid var(--focus-color);outline-offset:3px}
 
@@ -32,8 +32,8 @@ html.v1 [data-family="redes-sociales"] .social-cloud figcaption strong{display:b
 /* Narrow pack in em (tiny screens or enlarged text): the proportional circles can no longer hold
    their figures, so the same links become a wrapped grid of pills. */
 @container social-cloud (max-width:13em){
-  html.v1 [data-family="redes-sociales"] .social-cloud__pack{aspect-ratio:auto!important;display:grid;grid-template-columns:repeat(auto-fill,minmax(6.5em,1fr));gap:.6rem}
-  html.v1 [data-family="redes-sociales"] .social-bubble{position:relative;left:auto!important;top:auto!important;width:auto!important;aspect-ratio:auto;flex-direction:row;gap:.5em;min-height:44px;padding:.45em .9em;border-radius:999px;animation:none}
+  html.v1 [data-family="redes-sociales"] .social-cloud__pack{aspect-ratio:auto!important;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(6.5em,100%),1fr));gap:.6rem}
+  html.v1 [data-family="redes-sociales"] .social-bubble{position:relative;left:auto!important;top:auto!important;width:auto!important;aspect-ratio:auto;flex-direction:row;gap:.5em;min-height:44px;max-width:100%;box-sizing:border-box;flex-wrap:wrap;padding:.45em .9em;border-radius:999px;animation:none}
   html.v1 [data-family="redes-sociales"] .social-bubble svg{width:1.15em;height:1.15em}
   html.v1 [data-family="redes-sociales"] .social-bubble b{font-size:1rem}
   html.v1 [data-family="redes-sociales"] .social-bubble::after{display:none}
@@ -121,5 +121,6 @@ html.v1 [data-family="redes-sociales"] .social-cta img{display:inline-block;widt
 }
 @media (forced-colors:active){
   html.v1 [data-family="redes-sociales"] .social-card__cta,html.v1 [data-family="redes-sociales"] .social-cta__button,html.v1 [data-family="redes-sociales"] .social-hero__cta,html.v1 [data-family="redes-sociales"] .social-bubble,html.v1 [data-family="redes-sociales"] .social-more__ico,html.v1 [data-family="redes-sociales"] .social-reach__ico{max-width:100%;overflow-wrap:anywhere;border:1px solid ButtonText}
+  html.v1 [data-family="redes-sociales"] .social-hero__cta{overflow-wrap:break-word}
   html.v1 [data-family="redes-sociales"] .social-reach__bar span{border:1px solid CanvasText}
 }
