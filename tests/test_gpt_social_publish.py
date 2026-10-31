@@ -13,7 +13,7 @@ import gpt_social_publish as pub  # noqa: E402
 import gpt_social_compose as compose  # noqa: E402
 
 NOW = datetime(2026, 10, 23, 12, 0, tzinfo=timezone.utc)
-IDS = ["bluesky", "mastodon", "threads", "instagram", "tiktok", "pinterest"]
+IDS = list(compose.PROFILES)
 
 
 def snapshot(followers=100, generated=NOW, valid_hours=47):
@@ -22,7 +22,7 @@ def snapshot(followers=100, generated=NOW, valid_hours=47):
     return json.dumps({"schema_version": 1, "generated_at": stamp, "networks": [
         {"id": i, "profile_url": compose.PROFILES[i], "followers": followers, "observed_at": stamp,
          "valid_until": until, "status": "ok"} for i in IDS],
-        "totals": {"follower_relationships": followers * 6, "valid_until": until}}, indent=2) + "\n"
+        "totals": {"follower_relationships": followers * len(IDS), "valid_until": until}}, indent=2) + "\n"
 
 
 def run(cwd, *a):

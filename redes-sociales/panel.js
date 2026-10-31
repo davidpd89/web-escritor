@@ -3,12 +3,13 @@ import {lastKnownSocialMetrics, visibleSocialMetrics} from './gpt_social_reader.
 const DATA_URL = '/redes-sociales/social-metrics.json';
 const grid = document.getElementById('social-grid');
 const totalEl = document.getElementById('social-total');
+const updatedEl = document.getElementById('social-updated');
 const number = new Intl.NumberFormat('es-ES', {useGrouping: 'always'});
 
 // The HTML ships the last published figures; live JSON refines them. A value that is
 // not fresh (expired JSON or the shipped figure) is still shown, marked approximate.
 // Cards marked data-static (networks outside the JSON) keep their printed figure.
-// Pinterest is followed but never counted on the page, so only the total includes it.
+// Pinterest's card leads with views, so only the total includes its followers.
 function render(fresh, known) {
   const pickOf = (id, shipped) => {
     const live = fresh.networks.find(n => n.id === id);
@@ -39,6 +40,12 @@ function render(fresh, known) {
   }
   const approx = rows.some(r => r.approx);
   totalEl.textContent = (approx ? '≈ ' : '') + number.format(total);
+  // The stamp follows the newest live reading; the printed date stays if none is newer.
+  const newest = fresh.networks.map(n => String(n.observed_at || '').slice(0, 10)).filter(d => /^\d{4}-\d{2}-\d{2}$/.test(d)).sort().pop();
+  if (updatedEl && newest && newest > updatedEl.dateTime) {
+    updatedEl.dateTime = newest;
+    updatedEl.textContent = new Intl.DateTimeFormat('es-ES', {day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'}).format(new Date(newest + 'T12:00:00Z'));
+  }
 }
 
 fetch(DATA_URL, {cache: 'no-cache'})

@@ -4,14 +4,18 @@
  * not trust stored `status: ok` or an old `totals.follower_relationships`.
  * Use only the publisher's explicit UTC expiration for each metric.
  */
-const NETWORKS = ['bluesky', 'mastodon', 'threads', 'instagram', 'tiktok', 'pinterest'];
+const NETWORKS = ['bluesky', 'mastodon', 'threads', 'instagram', 'tiktok', 'pinterest', 'facebook', 'x'];
+// Same-day public profile reads are preferred; Metricool's closed-day export is the fallback.
+const PUBLIC_OR_METRICOOL = id => [`${id}-public-profile`, 'metricool-mcp-export'];
 const SOURCES = {
-  bluesky: 'bluesky-public-appview',
-  mastodon: 'mastodon-public-search',
-  threads: 'metricool-mcp-export',
-  instagram: 'metricool-mcp-export',
-  tiktok: 'metricool-mcp-export',
-  pinterest: 'metricool-mcp-export',
+  bluesky: ['bluesky-public-appview'],
+  mastodon: ['mastodon-public-search'],
+  threads: PUBLIC_OR_METRICOOL('threads'),
+  instagram: PUBLIC_OR_METRICOOL('instagram'),
+  tiktok: PUBLIC_OR_METRICOOL('tiktok'),
+  pinterest: PUBLIC_OR_METRICOOL('pinterest'),
+  facebook: PUBLIC_OR_METRICOOL('facebook'),
+  x: ['x-public-profile'],
 };
 const ISO_UTC = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/;
 const MAX_SNAPSHOT_AGE_MS = 48 * 60 * 60 * 1000; // Same limit as Python publisher.
@@ -58,7 +62,7 @@ export function visibleSocialMetrics(snapshot, nowMs = Date.now()) {
         observed.time <= generated &&
         generated - observed.time <= MAX_SNAPSHOT_AGE_MS + (observed.dateOnly ? 86400000 : 0) &&
         expires !== null && observed.time <= expires;
-    const usable = row.status === 'ok' && row.source === SOURCES[row.id] &&
+    const usable = row.status === 'ok' && SOURCES[row.id].includes(row.source) &&
         Number.isSafeInteger(row.followers) && row.followers >= 0 &&
         plausible && expires >= nowMs &&
         expires <= generated + MAX_SNAPSHOT_AGE_MS;

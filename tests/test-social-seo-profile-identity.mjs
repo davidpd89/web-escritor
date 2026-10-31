@@ -28,6 +28,6 @@ for (const [id, profile] of expected) {
 }
 
 test('redes-sociales: ninguna identidad duplicada', () => {
-  assert.equal(expected.size, 6);
+  assert.equal(expected.size, 8);
   assert.equal(new Set(expected.values()).size, expected.size, '/redes-sociales/: perfiles duplicados');
 });
