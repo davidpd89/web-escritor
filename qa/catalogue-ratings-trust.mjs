@@ -76,6 +76,8 @@ try {
     // ≥5 opiniones vigentes: nota, recuento y estrellas; nombre accesible = texto visible.
     assert.equal(by[verified].state, 'verified');
     assert.equal(by[verified].text, 'Goodreads ★★★★★ 4,2 (12.345)');
+    // El primer pintado (antes de llegar reading-market.json) oculta las cajas vacías; al llegar la nota debe volver a verse.
+    assert.equal(by[verified].hidden, false, `${width}px: la nota verificada queda oculta`);
     assert.equal(Math.round(parseFloat(by[verified].fill)), 84);
     assert.equal(by[verified].label, null);
     // 1–4 opiniones: se dice que la muestra es pequeña, sin nota y con su propia fuente.

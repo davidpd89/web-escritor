@@ -82,7 +82,7 @@
       ratingsIndex.get(rating.libro_id).push(rating);
     }
     for (const box of root.querySelectorAll('[data-rating-book]')) {
-      const r = ratingFor(box.dataset.ratingBook); box.replaceChildren();
+      const r = ratingFor(box.dataset.ratingBook); box.replaceChildren(); box.hidden = false;
       if (!r) {
         // Sin valoración verificada vigente NO se pinta una nota: ni estrellas vacías ni «0,0 (0)».
         // Que aquí no haya dato utilizable (caducado, proveedor caído, fuente no válida) no prueba que la fuente tenga cero opiniones.
