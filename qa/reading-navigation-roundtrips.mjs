@@ -97,6 +97,9 @@ async function journey(width,source,target){
       link=page.locator(`${submenu} a[href="${target.href}"]`);
     }else{
       link=page.locator(`footer.site-footer a[href="${target.href}"]`).first();
+      // Footer groups are exclusive <details>: open the owning one as a reader would.
+      const group=page.locator('footer.site-footer details.ft-group').filter({has:page.locator(`a[href="${target.href}"]`)});
+      if(await group.count()&&!(await group.first().evaluate(d=>d.open)))await group.first().locator('summary').click();
     }
     assert.equal(await link.count(),1,'The intended navigation entry exists');
     result.linkText=norm(await link.innerText());assert(result.linkText,'Link must have a readable label');
