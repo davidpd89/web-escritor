@@ -44,9 +44,10 @@ class GoodreadsRedirectPreflight(unittest.TestCase):
         self.assertEqual(attempts, [origin], 'Goodreads: se siguió una redirección hacia un origen ajeno')
 
     def test_default_transport_uses_automatic_redirect_handler(self):
+        # fetch() solo reintenta con backoff; el transporte y la validación del destino viven en fetch_once().
         import inspect
         import reading_goodreads
-        source = inspect.getsource(reading_goodreads.GoodreadsPublic.fetch)
+        source = inspect.getsource(reading_goodreads.GoodreadsPublic.fetch_once)
         self.assertIn('urlopen(', source)
         self.assertIn('final_url', source)
         self.assertNotIn('HTTPRedirectHandler', source)

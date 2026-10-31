@@ -202,6 +202,10 @@ class CachedHTTP:
             content = response.read(limit + 1)
             if len(content) > limit:
                 raise SourceError('Respuesta editorial demasiado grande')
+            expected = response.headers.get('Content-Length', '')
+            # A connection cut mid-body must not be cached as the page for 30 days.
+            if expected.isdigit() and len(content) < int(expected):
+                raise SourceError('Respuesta editorial incompleta')
         tmp = body.with_suffix('.tmp')
         tmp.write_bytes(content)
         tmp.replace(body)
