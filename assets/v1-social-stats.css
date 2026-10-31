@@ -9,55 +9,62 @@ html.v1 [data-family="redes-sociales"] .social-hero h1{margin:0 0 var(--space-4)
 html.v1 [data-family="redes-sociales"] .social-hero h1 span{color:var(--color-accent);font-variant-numeric:tabular-nums}
 html.v1 [data-family="redes-sociales"] .social-hero__lead{max-width:34rem;margin:0 0 var(--space-6);font:400 var(--text-lg)/1.55 var(--font-reading);color:var(--social-ink)}
 
-/* Botones redondos de seguir, uno por red, con su color de marca */
-html.v1 [data-family="redes-sociales"] .social-chips{display:flex;flex-wrap:wrap;gap:var(--space-3);margin:0;padding:0;list-style:none}
-html.v1 [data-family="redes-sociales"] .social-chips a{display:grid;place-items:center;width:3rem;height:3rem;border-radius:50%;background:var(--brand);color:#fff;box-shadow:0 6px 16px rgba(11,42,61,.18);transition:transform .2s ease,box-shadow .2s ease}
-html.v1 [data-family="redes-sociales"] .social-chips a:hover,html.v1 [data-family="redes-sociales"] .social-chips a:focus-visible{transform:translateY(-3px);box-shadow:0 10px 22px rgba(11,42,61,.26)}
-html.v1 [data-family="redes-sociales"] .social-chips a:focus-visible{outline:3px solid var(--focus-color);outline-offset:3px}
-html.v1 [data-family="redes-sociales"] .social-chips svg{width:1.35rem;height:1.35rem}
+/* Una sola llamada a la acción: los iconos ya están en la constelación */
+html.v1 [data-family="redes-sociales"] .social-hero__cta{display:inline-flex;align-items:center;gap:var(--space-2);min-height:2.75rem;padding:var(--space-2) var(--space-5);border-radius:999px;background:linear-gradient(150deg,#1d5f86 0%,var(--social-ink) 100%);color:#fff;font:600 var(--text-base)/1.2 var(--font-ui);text-decoration:none;box-shadow:0 10px 24px rgba(11,42,61,.28),inset 0 1px 0 rgba(255,255,255,.18);transition:transform .2s ease,box-shadow .2s ease}
+html.v1 [data-family="redes-sociales"] .social-hero__cta:hover{transform:translateY(-2px);color:#fff;box-shadow:0 14px 30px rgba(11,42,61,.34),inset 0 1px 0 rgba(255,255,255,.18)}
+html.v1 [data-family="redes-sociales"] .social-hero__cta:focus-visible{outline:3px solid var(--focus-color);outline-offset:3px}
 
 /* Constelación: cada burbuja es una red, su área proporcional a los seguidores */
-html.v1 [data-family="redes-sociales"] .social-cloud{margin:0;min-width:0}
+html.v1 [data-family="redes-sociales"] .social-cloud{margin:0;min-width:0;container:social-cloud/inline-size}
 html.v1 [data-family="redes-sociales"] .social-cloud__pack{position:relative;width:100%;margin:0;padding:0;list-style:none;container-type:inline-size}
-html.v1 [data-family="redes-sociales"] .social-bubble{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(var(--d) * .02cqw);aspect-ratio:1;border-radius:50%;background:var(--brand);color:#fff;text-decoration:none;box-shadow:0 12px 30px rgba(11,42,61,.22),inset 0 -10px 24px rgba(0,0,0,.18),inset 0 8px 18px rgba(255,255,255,.18);animation:social-float 7s ease-in-out infinite;transition:scale .25s ease,box-shadow .25s ease}
+html.v1 [data-family="redes-sociales"] .social-bubble{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(var(--d) * .02cqw);aspect-ratio:1;border-radius:50%;background:var(--brand);color:#fff;text-decoration:none;box-shadow:0 12px 30px rgba(11,42,61,.22),inset 0 -10px 24px rgba(0,0,0,.22),inset 0 8px 18px rgba(255,255,255,.2);box-shadow:0 14px 32px color-mix(in srgb,var(--glow,#0b2a3d) 38%,transparent),0 2px 6px rgba(11,42,61,.18),inset 0 -12px 26px rgba(0,0,0,.24),inset 0 0 0 1px rgba(255,255,255,.14);animation:social-float 7s ease-in-out infinite;transition:scale .25s ease,box-shadow .25s ease}
+html.v1 [data-family="redes-sociales"] .social-bubble::before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(55% 40% at 34% 20%,rgba(255,255,255,.42) 0%,rgba(255,255,255,0) 100%);pointer-events:none}
+html.v1 [data-family="redes-sociales"] .social-bubble svg,html.v1 [data-family="redes-sociales"] .social-bubble b{position:relative;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
 html.v1 [data-family="redes-sociales"] .social-bubble svg{width:max(.875rem,calc(var(--d) * .3cqw));height:max(.875rem,calc(var(--d) * .3cqw))}
 html.v1 [data-family="redes-sociales"] .social-bubble b{font:700 max(.75rem,calc(var(--d) * .15cqw))/1 var(--font-ui);font-variant-numeric:tabular-nums;letter-spacing:.01em}
 html.v1 [data-family="redes-sociales"] .social-bubble::after{content:attr(data-name);position:absolute;left:50%;bottom:0;translate:-50% 45%;box-shadow:0 4px 12px rgba(11,42,61,.25);padding:.2rem .6rem;border-radius:999px;background:var(--social-ink);color:#fff;font:600 var(--text-xs)/1.4 var(--font-ui);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s ease}
-html.v1 [data-family="redes-sociales"] .social-bubble:hover,html.v1 [data-family="redes-sociales"] .social-bubble:focus-visible{z-index:2;scale:1.08;color:#fff;box-shadow:0 18px 40px rgba(11,42,61,.32),inset 0 -10px 24px rgba(0,0,0,.18),inset 0 8px 18px rgba(255,255,255,.18)}
+html.v1 [data-family="redes-sociales"] .social-bubble:hover,html.v1 [data-family="redes-sociales"] .social-bubble:focus-visible{z-index:2;scale:1.08;color:#fff;box-shadow:0 20px 44px color-mix(in srgb,var(--glow,#0b2a3d) 55%,transparent),0 2px 6px rgba(11,42,61,.18),inset 0 -12px 26px rgba(0,0,0,.24),inset 0 0 0 1px rgba(255,255,255,.2)}
 html.v1 [data-family="redes-sociales"] .social-bubble:hover::after,html.v1 [data-family="redes-sociales"] .social-bubble:focus-visible::after{opacity:1}
 html.v1 [data-family="redes-sociales"] .social-bubble:focus-visible{outline:3px solid var(--focus-color);outline-offset:4px}
 @keyframes social-float{0%,100%{translate:0 0}50%{translate:0 -6px}}
 html.v1 [data-family="redes-sociales"] .social-cloud figcaption{margin-top:var(--space-6);text-align:center;font:400 var(--text-base)/1.4 var(--font-ui);color:var(--social-ink);overflow-wrap:anywhere}
 html.v1 [data-family="redes-sociales"] .social-cloud figcaption strong{display:block;font:400 var(--text-4xl)/1 var(--font-display);color:var(--social-ink);font-variant-numeric:tabular-nums}
+/* Narrow pack in em (tiny screens or enlarged text): the proportional circles can no longer hold
+   their figures, so the same links become a wrapped grid of pills. */
+@container social-cloud (max-width:13em){
+  html.v1 [data-family="redes-sociales"] .social-cloud__pack{aspect-ratio:auto!important;display:grid;grid-template-columns:repeat(auto-fill,minmax(6.5em,1fr));gap:.6rem}
+  html.v1 [data-family="redes-sociales"] .social-bubble{position:relative;left:auto!important;top:auto!important;width:auto!important;aspect-ratio:auto;flex-direction:row;gap:.5em;min-height:44px;padding:.45em .9em;border-radius:999px;animation:none}
+  html.v1 [data-family="redes-sociales"] .social-bubble svg{width:1.15em;height:1.15em}
+  html.v1 [data-family="redes-sociales"] .social-bubble b{font-size:1rem}
+  html.v1 [data-family="redes-sociales"] .social-bubble::after{display:none}
+}
 
 /* Tarjetas por red: franja con logo y color de marca, dos datos y botón de seguir */
 html.v1 [data-family="redes-sociales"] .social-networks{margin:0 0 var(--space-8)}
-html.v1 [data-family="redes-sociales"] .social-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,max(18rem,calc((100% - 2 * var(--space-5)) / 3))),1fr));gap:var(--space-5);margin:0;padding:0;list-style:none}
-html.v1 [data-family="redes-sociales"] .social-grid .social-card{display:flex;flex-direction:column;min-width:0;border:1px solid var(--color-border);border-radius:calc(var(--radius-input) * 1.5);background:var(--surface-page);overflow:hidden;box-shadow:0 1px 2px rgba(11,42,61,.06);transition:transform .25s ease,box-shadow .25s ease}
-html.v1 [data-family="redes-sociales"] .social-grid .social-card:hover,html.v1 [data-family="redes-sociales"] .social-grid .social-card:focus-within{transform:translateY(-4px);box-shadow:0 16px 36px rgba(11,42,61,.14)}
-html.v1 [data-family="redes-sociales"] .social-grid [data-network="bluesky"]{--btn:#0a66d8}
-html.v1 [data-family="redes-sociales"] .social-grid [data-network="instagram"]{--btn:#c13584}
-html.v1 [data-family="redes-sociales"] .social-grid [data-network="mastodon"]{--btn:#563acc}
-html.v1 [data-family="redes-sociales"] .social-grid [data-network="tiktok"]{--btn:#010101}
-html.v1 [data-family="redes-sociales"] .social-grid [data-network="threads"]{--btn:#101010}
-html.v1 [data-family="redes-sociales"] .social-grid [data-network="facebook"]{--btn:#0a5fcc}
-html.v1 [data-family="redes-sociales"] .social-card__band{position:relative;order:1;display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3) var(--space-4);padding:var(--space-5);background-color:var(--btn);background-image:var(--grad);color:#fff;overflow:hidden}
-html.v1 [data-family="redes-sociales"] .social-card__logo{display:grid;place-items:center;flex:none;width:3.25rem;height:3.25rem;border-radius:var(--radius-control);background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
-html.v1 [data-family="redes-sociales"] .social-card__logo svg{width:1.75rem;height:1.75rem}
-html.v1 [data-family="redes-sociales"] .social-card__count{position:relative;z-index:1;min-width:0;margin:0;font:600 var(--text-sm)/1.2 var(--font-ui);letter-spacing:.04em;text-transform:uppercase;overflow-wrap:anywhere}
+html.v1 [data-family="redes-sociales"] .social-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-5);margin:0;padding:0;list-style:none}
+@media (min-width:36rem){html.v1 [data-family="redes-sociales"] .social-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:72rem){html.v1 [data-family="redes-sociales"] .social-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+html.v1 [data-family="redes-sociales"] .social-grid .social-card{display:flex;flex-direction:column;min-width:0;border:1px solid var(--color-border);border-radius:calc(var(--radius-input) * 1.5);background:var(--surface-page);overflow:hidden;box-shadow:0 1px 2px rgba(11,42,61,.06),0 8px 24px rgba(11,42,61,.06);transition:transform .25s ease,box-shadow .25s ease}
+html.v1 [data-family="redes-sociales"] .social-grid .social-card:hover,html.v1 [data-family="redes-sociales"] .social-grid .social-card:focus-within{transform:translateY(-4px);box-shadow:0 16px 36px rgba(11,42,61,.14);box-shadow:0 18px 40px color-mix(in srgb,var(--glow,#0b2a3d) 30%,transparent),0 2px 6px rgba(11,42,61,.08)}
+html.v1 [data-family="redes-sociales"] .social-card__band{position:relative;order:1;display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3) var(--space-4);padding:var(--space-5);background-color:var(--btn);background-image:var(--grad);color:#fff;box-shadow:inset 0 -1px 0 rgba(0,0,0,.25),inset 0 -24px 40px -24px rgba(0,0,0,.35);overflow:hidden}
+html.v1 [data-family="redes-sociales"] .social-card__band::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 14px);pointer-events:none}
+html.v1 [data-family="redes-sociales"] .social-card__logo{display:grid;place-items:center;flex:none;width:3.25rem;height:3.25rem;border-radius:var(--radius-control);background:linear-gradient(160deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,.08) 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.32),0 6px 16px rgba(0,0,0,.22)}
+html.v1 [data-family="redes-sociales"] .social-card__logo svg{width:1.75rem;height:1.75rem;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
+html.v1 [data-family="redes-sociales"] .social-card__logo{position:relative;z-index:1}
+html.v1 [data-family="redes-sociales"] .social-card__count{position:relative;z-index:1;min-width:0;margin:0;font:600 var(--text-sm)/1.2 var(--font-ui);letter-spacing:.04em;text-transform:uppercase;text-shadow:0 1px 3px rgba(0,0,0,.3);overflow-wrap:anywhere}
 html.v1 [data-family="redes-sociales"] .social-card__count strong{display:block;font:400 var(--text-4xl)/1 var(--font-display);letter-spacing:0;text-transform:none;font-variant-numeric:tabular-nums}
-html.v1 [data-family="redes-sociales"] .social-card__mark{position:absolute;right:0;bottom:-2rem;width:7.5rem;height:7.5rem;opacity:.13;pointer-events:none}
+html.v1 [data-family="redes-sociales"] .social-card__mark{position:absolute;right:0;bottom:-2rem;width:7.5rem;height:7.5rem;opacity:.16;rotate:-12deg;pointer-events:none}
 html.v1 [data-family="redes-sociales"] .social-card__mark svg{width:100%;height:100%}
 html.v1 [data-family="redes-sociales"] .social-card__body{order:2;flex:1;min-width:0;padding:var(--space-5) var(--space-5) 0}
 html.v1 [data-family="redes-sociales"] .social-card__name{margin:0;font:400 var(--text-2xl)/1.15 var(--font-display);color:var(--social-ink);overflow-wrap:anywhere}
 html.v1 [data-family="redes-sociales"] .social-card__name span{display:block;margin-top:var(--space-1);font:500 var(--text-sm)/1.3 var(--font-ui);color:var(--color-muted)}
 html.v1 [data-family="redes-sociales"] .social-card__blurb{margin:var(--space-3) 0 var(--space-4);font:400 var(--text-base)/1.5 var(--font-reading);color:var(--color-text)}
 html.v1 [data-family="redes-sociales"] .social-card__stats{display:flex;flex-wrap:wrap;gap:var(--space-2);margin:0}
-html.v1 [data-family="redes-sociales"] .social-card__stats div{display:flex;flex-direction:column-reverse;flex:1 1 7rem;min-width:0;padding:var(--space-2) var(--space-3);border-radius:var(--radius-control);background:var(--surface-quiet)}
+html.v1 [data-family="redes-sociales"] .social-card__stats div{display:flex;flex-direction:column-reverse;flex:1 1 7rem;min-width:0;padding:var(--space-2) var(--space-3);border-radius:var(--radius-control);background:var(--surface-quiet);background:color-mix(in srgb,var(--glow,#0b2a3d) 8%,var(--surface-quiet));box-shadow:inset 3px 0 0 color-mix(in srgb,var(--glow,#0b2a3d) 70%,transparent)}
 html.v1 [data-family="redes-sociales"] .social-card__stats dt{font:500 var(--text-xs)/1.3 var(--font-ui);color:var(--color-muted);overflow-wrap:anywhere}
 html.v1 [data-family="redes-sociales"] .social-card__stats dd{margin:0;font:700 var(--text-lg)/1.2 var(--font-ui);color:var(--social-ink);font-variant-numeric:tabular-nums}
-html.v1 [data-family="redes-sociales"] .social-card__cta{order:3;display:flex;justify-content:center;align-items:center;max-width:100%;min-height:2.75rem;margin:var(--space-5);padding:var(--space-2) var(--space-4);border-radius:999px;background:var(--btn);color:#fff;font:600 var(--text-base)/1.2 var(--font-ui);text-align:center;text-decoration:none;overflow-wrap:anywhere;transition:filter .2s ease}
-html.v1 [data-family="redes-sociales"] .social-card__cta:hover{filter:brightness(1.12);color:#fff}
+html.v1 [data-family="redes-sociales"] .social-card__cta{order:3;display:flex;justify-content:center;align-items:center;max-width:100%;min-height:2.75rem;margin:var(--space-5);padding:var(--space-2) var(--space-4);border-radius:999px;background-color:var(--btn);background-image:var(--grad);color:#fff;font:600 var(--text-base)/1.2 var(--font-ui);text-align:center;text-decoration:none;overflow-wrap:anywhere;box-shadow:0 8px 20px rgba(11,42,61,.2),inset 0 1px 0 rgba(255,255,255,.22);box-shadow:0 8px 20px color-mix(in srgb,var(--glow,#0b2a3d) 35%,transparent),inset 0 1px 0 rgba(255,255,255,.22);transition:filter .2s ease,transform .2s ease}
+html.v1 [data-family="redes-sociales"] .social-card__cta:hover{filter:brightness(1.12);transform:translateY(-1px);color:#fff}
 html.v1 [data-family="redes-sociales"] .social-card__cta:focus-visible{outline:3px solid var(--focus-color);outline-offset:3px}
 html.v1 [data-family="redes-sociales"] .social-note{margin:var(--space-4) 0 0;text-align:center;font:400 var(--text-sm)/1.5 var(--font-ui);color:var(--color-muted)}
 
@@ -109,10 +116,10 @@ html.v1 [data-family="redes-sociales"] .social-cta img{display:inline-block;widt
 
 @media (prefers-reduced-motion:reduce){
   html.v1 [data-family="redes-sociales"] .social-bubble{animation:none;transition:none}
-  html.v1 [data-family="redes-sociales"] .social-grid .social-card,html.v1 [data-family="redes-sociales"] .social-chips a,html.v1 [data-family="redes-sociales"] .social-more__list a,html.v1 [data-family="redes-sociales"] .social-cta__button{transition:none}
-  html.v1 [data-family="redes-sociales"] .social-grid .social-card:hover,html.v1 [data-family="redes-sociales"] .social-grid .social-card:focus-within,html.v1 [data-family="redes-sociales"] .social-chips a:hover,html.v1 [data-family="redes-sociales"] .social-more__list a:hover,html.v1 [data-family="redes-sociales"] .social-cta__button:hover{transform:none}
+  html.v1 [data-family="redes-sociales"] .social-grid .social-card,html.v1 [data-family="redes-sociales"] .social-hero__cta,html.v1 [data-family="redes-sociales"] .social-more__list a,html.v1 [data-family="redes-sociales"] .social-cta__button{transition:none}
+  html.v1 [data-family="redes-sociales"] .social-grid .social-card:hover,html.v1 [data-family="redes-sociales"] .social-grid .social-card:focus-within,html.v1 [data-family="redes-sociales"] .social-hero__cta:hover,html.v1 [data-family="redes-sociales"] .social-more__list a:hover,html.v1 [data-family="redes-sociales"] .social-cta__button:hover{transform:none}
 }
 @media (forced-colors:active){
-  html.v1 [data-family="redes-sociales"] .social-card__cta,html.v1 [data-family="redes-sociales"] .social-cta__button,html.v1 [data-family="redes-sociales"] .social-chips a,html.v1 [data-family="redes-sociales"] .social-bubble,html.v1 [data-family="redes-sociales"] .social-more__ico,html.v1 [data-family="redes-sociales"] .social-reach__ico{max-width:100%;overflow-wrap:anywhere;border:1px solid ButtonText}
+  html.v1 [data-family="redes-sociales"] .social-card__cta,html.v1 [data-family="redes-sociales"] .social-cta__button,html.v1 [data-family="redes-sociales"] .social-hero__cta,html.v1 [data-family="redes-sociales"] .social-bubble,html.v1 [data-family="redes-sociales"] .social-more__ico,html.v1 [data-family="redes-sociales"] .social-reach__ico{max-width:100%;overflow-wrap:anywhere;border:1px solid ButtonText}
   html.v1 [data-family="redes-sociales"] .social-reach__bar span{border:1px solid CanvasText}
 }

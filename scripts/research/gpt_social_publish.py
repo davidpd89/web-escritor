@@ -23,10 +23,10 @@ import gpt_social_compose as compose  # noqa: E402
 
 REL = "redes-sociales/social-metrics.json"
 BRANCH = "main"
-MIN_INTERVAL = timedelta(hours=20)   # at most ~1 public update per day
+MIN_INTERVAL = timedelta(hours=5, minutes=30)  # each 6-hourly run may publish changed counts
 EXPIRY_MARGIN = timedelta(hours=18)  # republish earlier if the remote data nears expiry
 FORBIDDEN = ("brandId", "access_token", "refresh_token", "client_id", "Bearer")
-NETWORKS = {"bluesky", "mastodon", "threads", "instagram", "tiktok", "pinterest"}
+NETWORKS = set(compose.PROFILES)
 
 
 class PublishError(RuntimeError):
@@ -47,7 +47,7 @@ def validate(text: str, now: datetime) -> dict:
     except (ValueError, KeyError, TypeError) as exc:
         raise PublishError(f"invalid snapshot: {exc}") from exc
     if sorted(ids) != sorted(NETWORKS):
-        raise PublishError("snapshot does not list exactly the six official networks")
+        raise PublishError("snapshot does not list exactly the official networks")
     for n in nets:
         if n.get("profile_url") != compose.PROFILES[n["id"]]:
             raise PublishError(f"non-canonical profile URL for {n['id']}")

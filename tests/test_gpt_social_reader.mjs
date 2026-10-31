@@ -12,7 +12,7 @@ function fixture() {
 }
 test('recomputes totals instead of trusting stale or forged aggregate', () => {
   const out=visibleSocialMetrics(fixture(), NOW);
-  assert.deepEqual(out.totals, {follower_relationships: 9, coverage:2,eligible:6});
+  assert.deepEqual(out.totals, {follower_relationships: 9, coverage:2,eligible:8});
 });
 test('zero followers is a genuine count', () => {
   const out=visibleSocialMetrics(fixture(),NOW);
@@ -45,7 +45,7 @@ test('duplicated account rejects entire corrupted snapshot',()=>{
   assert.equal(visibleSocialMetrics(x,NOW).totals.coverage,0);
 });
 test('unknown network in snapshot rejected, not published',()=>{
-  const x=fixture();x.networks.push({id:'x',followers:888,observed_at:'2026-10-22T10:00:00Z',valid_until:'2026-10-24T11:00:00Z'});
+  const x=fixture();x.networks.push({id:'youtube',followers:888,observed_at:'2026-10-22T10:00:00Z',valid_until:'2026-10-24T11:00:00Z'});
   assert.equal(visibleSocialMetrics(x,NOW).totals.coverage,0);
 });
 test('future-generated snapshot yields no counters',()=>{
@@ -74,9 +74,23 @@ test('browser accepts verified Instagram, TikTok and Pinterest from Metricool', 
                      observed_at:'2026-10-22T10:00:00Z',valid_until:'2026-10-24T11:00:00Z'});
   }
   const output=visibleSocialMetrics(x,NOW);
-  assert.deepEqual(output.totals,{follower_relationships:75,coverage:5,eligible:6});
+  assert.deepEqual(output.totals,{follower_relationships:75,coverage:5,eligible:8});
   assert.deepEqual(output.networks.map(x=>x.id),
-    ['bluesky','mastodon','threads','instagram','tiktok','pinterest']);
+    ['bluesky','mastodon','threads','instagram','tiktok','pinterest','facebook','x']);
+});
+test('browser accepts same-day public profile counts, including X and Facebook', () => {
+  const x=fixture();
+  for (const [id, followers] of [['instagram',2069],['facebook',252],['x',137]]) {
+    x.networks.push({id, followers, source:`${id}-public-profile`,status:'ok',
+                     observed_at:'2026-10-22T10:00:00Z',valid_until:'2026-10-24T11:00:00Z'});
+  }
+  assert.deepEqual(visibleSocialMetrics(x,NOW).totals,{follower_relationships:9+2069+252+137,coverage:5,eligible:8});
+});
+test('X counts only from its public profile, never from Metricool', () => {
+  const x=fixture();
+  x.networks.push({id:'x',followers:137,source:'metricool-mcp-export',status:'ok',
+                   observed_at:'2026-10-22T10:00:00Z',valid_until:'2026-10-24T11:00:00Z'});
+  assert.equal(visibleSocialMetrics(x,NOW).totals.coverage,2);
 });
 test('browser rejects wrong metricool source for one of the new networks', () => {
   const x=fixture();

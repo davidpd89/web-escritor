@@ -27,7 +27,8 @@ test('redes-sociales: JSON público sin campos privados anidados', () => {
     assert.equal(url.protocol, 'https:', `/redes-sociales/: URL pública insegura para ${row.id}`);
     assert.equal(url.username, '', `/redes-sociales/: usuario incrustado en URL de ${row.id}`);
     assert.equal(url.password, '', `/redes-sociales/: contraseña incrustada en URL de ${row.id}`);
-    assert.equal(url.search, '', `/redes-sociales/: parámetros de consulta en perfil ${row.id}`);
+    // Facebook pages without a vanity name are addressed only by their numeric id.
+    assert.match(url.search, row.id === 'facebook' ? /^\?id=\d+$/ : /^$/, `/redes-sociales/: parámetros de consulta en perfil ${row.id}`);
   }
 });
 
