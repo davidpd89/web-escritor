@@ -104,7 +104,7 @@ def networks() -> dict:
 def attempt() -> int:
     """One snapshot run; maps ReauthRequired to rc=2 and transient errors to rc=1."""
     try:
-        return snapshot.main(["--output", str(OUTPUT), "--metricool-live", "--expected-did", BLUESKY_DID,
+        return snapshot.main(["--output", str(OUTPUT), "--metricool-live", "--public-live", "--expected-did", BLUESKY_DID,
                               "--expected-mastodon-id", MASTODON_ID])
     except mcp.ReauthRequired as exc:
         log(f"REAUTH REQUIRED: {exc}")

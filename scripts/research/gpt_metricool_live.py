@@ -15,9 +15,10 @@ import gpt_metricool_followers as followers
 import gpt_metricool_mcp as mcp
 import gpt_social_compose as compose
 
-METRICS = ["THEV01", "IGEV01", "TKEV07", "PIEV09"]  # Threads, Instagram, TikTok, Pinterest
+METRICS = ["THEV01", "IGEV01", "TKEV07", "PIEV09", "FBEV17"]  # Threads, Instagram, TikTok, Pinterest, Facebook
 BRAND_FIELD = {"threads": "threadsData", "instagram": "instagramData",
-               "tiktok": "tiktokData", "pinterest": "pinterestData"}
+               "tiktok": "tiktokData", "pinterest": "pinterestData",
+               "facebook": "facebookData"}  # Facebook: page id, not a handle
 TZ = ZoneInfo("Europe/Madrid")
 
 
@@ -32,8 +33,9 @@ def closed_day(now: datetime) -> date:
 def verified_networks(brand: dict) -> set[str]:
     """Networks whose connected Metricool handle equals the official profile link."""
     data = brand.get("networksData") or {}
+    expected = {net: handle(compose.PROFILES[net]) for net in BRAND_FIELD} | {"facebook": compose.FACEBOOK_PAGE_ID}
     return {net for net, field in BRAND_FIELD.items()
-            if str(data.get(field) or "").lstrip("@").lower() == handle(compose.PROFILES[net])}
+            if str(data.get(field) or "").lstrip("@").lower() == expected[net]}
 
 
 def pick_brand(brands: list[dict]) -> tuple[dict, set[str]]:

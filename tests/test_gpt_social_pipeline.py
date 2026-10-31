@@ -67,8 +67,8 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(public["totals"]["follower_relationships"], 53)
         self.assertEqual(public["totals"]["coverage"], 3)
         self.assertEqual([x["status"] for x in public["networks"]],
-                         ["ok", "ok", "ok", "pending", "pending", "pending"])
-        self.assertEqual(public["totals"]["eligible"], 6)
+                         ["ok", "ok", "ok"] + ["pending"] * 5)
+        self.assertEqual(public["totals"]["eligible"], 8)
 
     def test_real_source_contracts_do_not_leak_private_identifiers(self):
         body = json.dumps(compose.compose(collect(), now=TEST_TIME))
@@ -132,13 +132,14 @@ class MultiMetricoolPipelineTests(unittest.TestCase):
         }
         batch = metricool_batch_reader.normalize(synthetic)
         public = compose.compose([batch], now=TEST_TIME)
-        self.assertEqual(public["totals"]["follower_relationships"], 412)
-        self.assertEqual(public["totals"]["coverage"], 4)
-        self.assertEqual(public["totals"]["eligible"], 6)
+        # Facebook is verified by page id since v4, so the batch now counts five networks.
+        self.assertEqual(public["totals"]["follower_relationships"], 515)
+        self.assertEqual(public["totals"]["coverage"], 5)
+        self.assertEqual(public["totals"]["eligible"], 8)
         self.assertEqual(public["networks"][2]["source"], "metricool-mcp-export")
         self.assertIsNone(public["networks"][0]["followers"])
         self.assertIn("instagram", [r["id"] for r in public["networks"]])
-        self.assertNotIn("facebook", [r["id"] for r in public["networks"]])
+        self.assertIn("facebook", [r["id"] for r in public["networks"]])
         self.assertNotIn("youtube", [r["id"] for r in public["networks"]])
         self.assertNotIn("twitter", [r["id"] for r in public["networks"]])
 
@@ -151,9 +152,9 @@ class MultiMetricoolPipelineTests(unittest.TestCase):
         batch = metricool_batch_reader.normalize(synthetic)
         b, m, _ = collect()
         public = compose.compose([batch, b, m], now=TEST_TIME)
-        self.assertEqual(public["totals"]["follower_relationships"], 17 + 23 + 412)
-        self.assertEqual(public["totals"]["coverage"], 6)
-        self.assertEqual(len(public["networks"]), 6)
+        self.assertEqual(public["totals"]["follower_relationships"], 17 + 23 + 515)
+        self.assertEqual(public["totals"]["coverage"], 7)
+        self.assertEqual(len(public["networks"]), 8)
 
 if __name__ == "__main__":
     unittest.main()
