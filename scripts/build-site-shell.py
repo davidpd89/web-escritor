@@ -226,10 +226,12 @@ def email_reveal_link(
     return f'<a {" ".join(attrs)}>{html.escape(label)}</a>'
 
 # Perfiles del pie: todos con el mismo botón circular. Para añadir una red
-# (p. ej. X) basta con otra tupla (nombre, url, svg) en su sitio.
+# basta con otra tupla (nombre, url, svg) en su sitio.
 FOOTER_SOCIAL: list[tuple[str, str, str]] = [
     ('Instagram', 'https://www.instagram.com/davidportodiaz/',
      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg>'),
+    ('X', 'https://x.com/davidportodiaz',
+     '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg>'),
     ('Facebook', 'https://www.facebook.com/profile.php?id=61590793667301',
      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16.7 3H7.3A4.3 4.3 0 0 0 3 7.3v9.4A4.3 4.3 0 0 0 7.3 21h4.2v-6.6H9.4v-2.6h2.1V9.8c0-2.1 1.3-3.3 3.2-3.3.9 0 1.7.1 1.9.1v2.2h-1.3c-1 0-1.2.5-1.2 1.2v1.7h2.4l-.3 2.6h-2.1V21h2.6a4.3 4.3 0 0 0 4.3-4.3V7.3A4.3 4.3 0 0 0 16.7 3z"/></svg>'),
     ('TikTok', 'https://www.tiktok.com/@davidportoescritor',
