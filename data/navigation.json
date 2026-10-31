@@ -32,8 +32,18 @@
       "previewId": "press"
     }
   ],
+  "exploreExtras": [
+    {
+      "id": "lectores-beta",
+      "previewId": "lectores-beta"
+    }
+  ],
   "exploreShortcuts": [],
-  "exploreUtilities": [],
+  "exploreUtilities": [
+    "site-map",
+    "site-social-stats",
+    "support-project"
+  ],
   "footer": {
     "Obra": [
       "work-manecillas",
@@ -62,6 +72,7 @@
       "site-privacy",
       "site-legal",
       "site-ai",
+      "site-accessibility",
       "reading-policy",
       "editorial-method"
     ]
@@ -102,17 +113,20 @@
       "tools-hub",
       "tool-manuscript",
       "tool-dialogue",
-      "tool-repetitions"
+      "tool-repetitions",
+      "tool-book-metadata"
     ],
     "autor": [
       "author",
       "awards",
+      "events",
       "notebook-hub",
-      "events"
+      "lectores-beta"
     ],
     "prensa": [
       "press",
       "events",
+      "fairs",
       "awards"
     ],
     "recomendaciones": [
@@ -174,12 +188,12 @@
         "targetId": "editorials-hub"
       },
       {
-        "label": "Concursos",
-        "targetId": "opportunities"
-      },
-      {
         "label": "Atlas literario",
         "targetId": "atlas-hub"
+      },
+      {
+        "label": "Concursos",
+        "targetId": "opportunities"
       }
     ],
     "tools-hub": [
@@ -210,8 +224,26 @@
         "targetId": "press"
       },
       {
+        "label": "Eventos y firmas",
+        "targetId": "events"
+      },
+      {
+        "label": "Ferias del libro",
+        "targetId": "fairs"
+      },
+      {
         "label": "Premios y reconocimientos",
         "targetId": "awards"
+      }
+    ],
+    "lectores-beta": [
+      {
+        "label": "Quiero ser lector beta",
+        "targetId": "lectores-beta"
+      },
+      {
+        "label": "Quiero enviar mi manuscrito",
+        "targetId": "lectores-beta-enviar-manuscrito"
       }
     ]
   }
