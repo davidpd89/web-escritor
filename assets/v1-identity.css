@@ -469,7 +469,7 @@ html.v1 [data-family="identity"] .contact-card .text-action{
     min-width:0;padding:clamp(1.45rem,2.5vw,2rem) clamp(1.35rem,2.5vw,2.25rem) clamp(1.55rem,2.6vw,2.15rem) 0;
     border:0;border-bottom:1px solid var(--author-rule);border-radius:0;background:transparent;box-shadow:none
   }
-  html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) #libros .id-card:nth-child(2){padding-left:clamp(1.35rem,2.5vw,2.25rem);border-left:1px solid var(--author-rule)}
+  html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) #libros .id-card:nth-child(even):not(.id-card--featured){padding-left:clamp(1.35rem,2.5vw,2.25rem);border-left:1px solid var(--author-rule)}
   html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) #libros .id-card .eyebrow{color:var(--author-gold-text)}
   html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) #libros .id-card h3{color:var(--author-blue-deep);font-size:clamp(1.35rem,1.75vw,1.8rem)}
   html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) #libros .id-card--featured{
@@ -561,7 +561,7 @@ html.v1 [data-family="identity"] .contact-card .text-action{
     html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) #menciones .id-cards,
     html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) #escritura .id-cards{grid-template-columns:minmax(0,1fr)}
     html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) #libros .id-card,
-    html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) #libros .id-card:nth-child(2){padding-left:0;padding-right:0;border-left:0}
+    html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) #libros .id-card:nth-child(even):not(.id-card--featured){padding-left:0;padding-right:0;border-left:0}
     html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) #libros .id-card--featured{grid-column:1;padding:1.55rem 1.2rem}
     html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) #escritura .id-card{padding:1.35rem 0}
     html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) #escritura .id-card+.id-card{border-left:0;border-top:1px solid var(--author-rule-soft)}
