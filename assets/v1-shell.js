@@ -180,7 +180,7 @@
     if (!intro) return;
     let seen = false;
     try { seen = sessionStorage.getItem('dp-intro-seen') === '1'; } catch {}
-    if (seen) { intro.hidden = true; return; }
+    if (seen || document.documentElement.classList.contains('intro-seen')) { intro.hidden = true; return; }
     const enter = q('[data-intro-enter]', intro);
     const behind = qa('.site-header, main, .site-footer');
     behind.forEach((el) => el.setAttribute('inert', ''));
@@ -207,6 +207,15 @@
       }, reduced ? 350 : 820);
     };
     enter.addEventListener('click', doEnter);
+    // Volver con atras/adelante desde bfcache restaura la pagina tal como se
+    // dejo: si ya se habia pulsado Entrar, terminar de cerrar la intro al
+    // instante en vez de mostrar de nuevo la capa a medio salir.
+    window.addEventListener('pageshow', (event) => {
+      if (!event.persisted || !entered) return;
+      intro.hidden = true;
+      document.documentElement.classList.remove('intro-lock');
+      behind.forEach((el) => el.removeAttribute('inert'));
+    });
     // El enlace «Saltar al contenido» queda por encima de la introducción mientras tiene el foco (v1-home.css): al activarlo se entra.
     q('.skip-link')?.addEventListener('click', (event) => {
       if (!document.documentElement.classList.contains('intro-lock')) return;
@@ -216,10 +225,9 @@
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     let fallback = setTimeout(doEnter, reduced ? 5000 : 9600);
     // When initHeroVideo (below) confirms autoplay was rejected, the visitor
-    // is otherwise stuck looking at a frozen poster frame for up to 9.6s with
-    // "Entrar" still invisible (it's timed to fade in only once the ink
-    // reveal would have finished, ~4.6s in, so it doesn't fight the video for
-    // attention). Reported live on a physical iPhone in Low Power Mode: no
+    // is otherwise stuck looking at a frozen poster frame for up to 9.6s
+    // ("Entrar" is visible from the start since 2026-10-31, but not everyone
+    // notices it on a still frame). Reported live on a physical iPhone in Low Power Mode: no
     // motion ever starts, so the wait just reads as a broken/hung page.
     // Skip that wait once we know there's nothing to wait for.
     intro.addEventListener('dp-hero-video-blocked', () => {
