@@ -163,17 +163,22 @@ html.v1[data-lrb-home="true"] .masthead-nav__item:nth-last-child(-n+2)>.masthead
   /* The territory labels are intentionally removed on phone; hamburger/Explore owns global navigation. */
 }
 
-/* RRSS se ve en todos los móviles (petición del autor). Para hacerle sitio sin tocar los 42 px
-   de Asistente y Menú, Inicio y Mapa se compactan y el sobre de contacto, que sigue en el pie,
-   se oculta por debajo de 480px. */
+/* RRSS y el sobre de contacto se ven en todos los móviles (petición del autor). Para que quepan
+   en una fila desde 360px, los iconos se compactan a 32-38px (por encima de los 24px de WCAG 2.5.8)
+   y los botones de texto ajustan su padding; por debajo de 375px el margen lateral baja a 12px. */
 @media (max-width:479px){
-  html.v1 .site-header__actions .header-contact{display:none}
+  html.v1 .site-header__actions .header-contact{width:32px}
   html.v1 .site-header__inner{column-gap:.2rem}
   html.v1 .site-header__left{gap:0}
   /* Con texto ampliado o espaciado (WCAG 1.4.12) los botones bajan de fila en vez de desbordar. */
-  html.v1 .site-header__actions{gap:.15rem;flex-wrap:wrap;justify-content:flex-end;row-gap:.25rem;min-width:0;max-width:100%}
-  html.v1 .header-home,html.v1 .header-sitemap{width:36px}
-  html.v1 .header-social,html.v1 .header-buy,html.v1 .header-donate{padding-inline:.32rem;font-size:.64rem;letter-spacing:0}
+  html.v1 .site-header__actions{gap:.1rem;flex-wrap:wrap;justify-content:flex-end;row-gap:.25rem;min-width:0;max-width:100%}
+  html.v1 .header-home,html.v1 .header-sitemap{width:32px}
+  html.v1 .header-search{min-width:36px;width:36px;padding-inline:0;justify-content:center}
+  html.v1 .explore-trigger{width:38px}
+  html.v1 .header-social,html.v1 .header-buy,html.v1 .header-donate{padding-inline:.22rem;font-size:.64rem;letter-spacing:0}
+}
+@media (max-width:374px){
+  html.v1 .site-header__inner{padding-inline:12px}
 }
 /* Por debajo de 360px (o con texto ampliado) las acciones pasan a una segunda fila alineada a la derecha. */
 @media (max-width:359px){
