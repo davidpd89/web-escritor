@@ -120,6 +120,7 @@ html.v1 .site-footer .ft-group__links a{display:flex;align-items:center;min-widt
 html.v1 .site-footer .ft-group__links a:hover{color:var(--ft-ink);transform:translateX(3px);text-decoration:none}
 html.v1 .site-footer .ft-group__links a[aria-current="page"]{color:var(--ft-brass-hi);font-weight:600}
 html.v1 .site-footer .ft__bottom{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.75rem 2rem;margin-top:clamp(2rem,4vw,3rem);padding-top:1.5rem;border-top:1px solid var(--ft-line)}
+html.v1 .site-footer .ft__bottom>*{min-width:0;max-width:100%;overflow-wrap:anywhere}
 html.v1 .site-footer .ft__legal{margin:0;font-size:.8rem;color:var(--ft-muted)}
 html.v1 .site-footer .ft__bottom .footer-support{flex:1 1 22rem;margin:0;text-align:right;font-size:.82rem;line-height:1.55;color:var(--ft-muted)}
 html.v1 .site-footer .ft__bottom .footer-support a{color:var(--ft-brass-hi);text-decoration:underline;text-underline-offset:3px}
