@@ -63,6 +63,7 @@ with tempfile.TemporaryDirectory() as td:
     assert 'data-family="support"' in html and "/assets/v1-support.css" in html
     # Sin el listado de lo gratuito; como ayuda alternativa, solo novelas y redes.
     assert "support-free" not in main and "Todo es gratis" not in main
+    assert "support-trust" not in main and "esta web no ve" not in main
     other = main.split('class="support-other__list"', 1)[1].split("</ul>", 1)[0]
     assert re.findall(r'<a href="([^"]+)">([^<]+)</a>', other) == [
         ("/libros/", "Recomienda mis novelas"), ("/redes-sociales/", "Sígueme en redes")], other

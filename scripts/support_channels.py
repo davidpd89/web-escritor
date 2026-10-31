@@ -89,7 +89,7 @@ def render_channel(kind: str, url: str) -> str:
     url = validate_channel(kind, url)
     spec = CHANNELS[kind]
     badge = f'<span class="support-method__badge">{escape(spec["badge"])}</span>' if spec.get("badge") else ""
-    inner = (f'{icon_svg(spec.get("icon", "wallet"))}{badge}<strong class="support-method__name">{escape(spec["label"])}</strong>'
+    inner = (f'<span class="support-method__top">{icon_svg(spec.get("icon", "wallet"))}{badge}</span><strong class="support-method__name">{escape(spec["label"])}</strong>'
              f'<span class="support-method__text">{escape(spec["blurb"])}</span>'
              f'<span class="support-method__action" aria-hidden="true">{escape(spec["action"])}</span>')
     return external(url, inner, f'{spec["action"]} ({spec["label"]}); se abre en otra pestaña',
