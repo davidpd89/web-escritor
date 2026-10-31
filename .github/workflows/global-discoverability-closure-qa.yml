@@ -105,7 +105,7 @@ jobs:
 
   browser:
     runs-on: ubuntu-24.04
-    timeout-minutes: 75
+    timeout-minutes: 45
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -142,6 +142,55 @@ jobs:
           mkdir -p artifacts/global-discoverability
           node qa/global-discoverability-browser.mjs 2>&1 | tee artifacts/global-discoverability/browser.log
 
+      - name: Upload browser evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: global-discoverability-browser
+          path: artifacts/global-discoverability/
+          if-no-files-found: error
+          retention-days: 14
+
+  # El reflow de todo el sitio iba en serie dentro de `browser` y, con el
+  # catálogo en ~555 rutas, superaba los 75 min del job (cancelado en #1024,
+  # #1026 y #1027 sin ningún fallo real). Se reparte en 4 fragmentos en
+  # paralelo con el mismo SHARD_TOTAL/SHARD_INDEX que usa
+  # sitewide-reflow-qa.yml: cubre exactamente las mismas rutas.
+  reflow:
+    name: reflow ${{ matrix.shard }}/4
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
       - name: Start static server for existing sitewide reflow gate
         shell: bash
         run: |
@@ -159,18 +208,19 @@ jobs:
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
+          SHARD_TOTAL: '4'
+          SHARD_INDEX: ${{ matrix.shard }}
         run: |
           set -o pipefail
           mkdir -p artifacts/sitewide-reflow
           node qa/sitewide-reflow-browser.mjs 2>&1 | tee artifacts/sitewide-reflow/reflow.log
 
-      - name: Upload browser evidence
+      - name: Upload reflow evidence
         if: always()
         uses: actions/upload-artifact@v6
         with:
-          name: global-discoverability-browser
+          name: global-discoverability-reflow-${{ matrix.shard }}
           path: |
-            artifacts/global-discoverability/
             artifacts/sitewide-reflow/
             /tmp/global-discoverability-http.log
           if-no-files-found: error
