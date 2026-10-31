@@ -245,8 +245,8 @@ def synopsis_paragraphs(b):
     return [synopsis(b)]
 
 
-def card_synopsis(b, limit=420):
-    """Primer tramo de la sinopsis completa; la tarjeta lo recorta visualmente a pocas líneas."""
+def card_synopsis(b, limit=200):
+    """Primer tramo de la sinopsis completa, corto en origen: la tarjeta no recorta texto con CSS (reflujo al 200 %)."""
     text = ' '.join(synopsis_paragraphs(b))
     if len(text) <= limit:
         return text

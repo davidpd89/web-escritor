@@ -43,7 +43,7 @@ class FullSynopsisTests(unittest.TestCase):
         book = {'sinopsis_completa': 'Primer párrafo con texto suficiente. ' * 5 + '\n\n' + 'Segundo párrafo. ' * 40,
                 'sinopsis_tipo': 'extracto_editorial', 'sinopsis_breve': 'Breve.'}
         self.assertEqual(len(builder.synopsis_paragraphs(book)), 2)
-        self.assertLessEqual(len(builder.card_synopsis(book)), 421)
+        self.assertLessEqual(len(builder.card_synopsis(book)), 201)
         self.assertTrue(builder.card_synopsis(book).endswith('…'))
         self.assertNotIn('\n', builder.meta_synopsis(book))
 
