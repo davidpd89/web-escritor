@@ -648,36 +648,294 @@
       "actualizado_en": "2026-10-30T20:03:10Z",
       "caduca_en": "2026-10-31T20:03:10Z",
       "precio_referencia_centimos": 2350
+    },
+    {
+      "libro_id": "isbn-9791387922955",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2275,
+      "url": "https://www.amazon.es/dp/B0GX3GPW9K?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2395
+    },
+    {
+      "libro_id": "isbn-9788410140707",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2270,
+      "url": "https://www.amazon.es/dp/8410140705?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2390
+    },
+    {
+      "libro_id": "isbn-9788425374371",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2175,
+      "url": "https://www.amazon.es/dp/8425374375?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2290
+    },
+    {
+      "libro_id": "isbn-9791388306273",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2370,
+      "url": "https://www.amazon.es/dp/B0HD5YZC9S?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2495
+    },
+    {
+      "libro_id": "isbn-9788433951212",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 1890,
+      "url": "https://www.amazon.es/dp/8433951211?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 1990
+    },
+    {
+      "libro_id": "isbn-9791387928018",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2090,
+      "url": "https://www.amazon.es/dp/B0H15F1LV8?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2200
+    },
+    {
+      "libro_id": "isbn-9788449344626",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2080,
+      "url": "https://www.amazon.es/dp/844934462X?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2190
+    },
+    {
+      "libro_id": "isbn-9788466685139",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2080,
+      "url": "https://www.amazon.es/dp/8466685138?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2190
+    },
+    {
+      "libro_id": "isbn-9788408327271",
+      "formato": "tapa-dura",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2365,
+      "url": "https://www.amazon.es/dp/8408327275?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2490
+    },
+    {
+      "libro_id": "isbn-9788433951182",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 1796,
+      "url": "https://www.amazon.es/dp/8433951181?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 1890
+    },
+    {
+      "libro_id": "isbn-9791388306174",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 1990,
+      "url": "https://www.amazon.es/dp/B0H73ZF29N?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2095
+    },
+    {
+      "libro_id": "isbn-9788423370658",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2175,
+      "url": "https://www.amazon.es/dp/8423370658?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2290
+    },
+    {
+      "libro_id": "isbn-9788410096547",
+      "formato": "tapa-dura",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2175,
+      "url": "https://www.amazon.es/dp/8410096544?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2290
+    },
+    {
+      "libro_id": "isbn-9788433951267",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2365,
+      "url": "https://www.amazon.es/dp/8433951262?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2490
+    },
+    {
+      "libro_id": "isbn-9788410171893",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 1567,
+      "url": "https://www.amazon.es/dp/8410171899?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 1650
+    },
+    {
+      "libro_id": "isbn-9788410171855",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2137,
+      "url": "https://www.amazon.es/dp/8410171856?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2250
+    },
+    {
+      "libro_id": "isbn-9788410171879",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 1330,
+      "url": "https://www.amazon.es/dp/8410171872?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 1400
+    },
+    {
+      "libro_id": "isbn-9788410171770",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 1852,
+      "url": "https://www.amazon.es/dp/8410171775?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 1950
+    },
+    {
+      "libro_id": "isbn-9791387922429",
+      "formato": "tapa-dura",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2802,
+      "url": "https://www.amazon.es/dp/B0GN6NNWST?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2950
+    },
+    {
+      "libro_id": "isbn-9780241837849",
+      "formato": "tapa-dura",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2370,
+      "url": "https://www.amazon.es/dp/0241837847?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2495
+    },
+    {
+      "libro_id": "isbn-9791388042775",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 1899,
+      "url": "https://www.amazon.es/dp/B0HJW7FVNV?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2000
+    },
+    {
+      "libro_id": "isbn-9788433951205",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2081,
+      "url": "https://www.amazon.es/dp/8433951203?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2190
+    },
+    {
+      "libro_id": "isbn-9788410171916",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 1852,
+      "url": "https://www.amazon.es/dp/8410171910?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 1950
+    },
+    {
+      "libro_id": "isbn-9788408326342",
+      "formato": "tapa-dura",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 1515,
+      "url": "https://www.amazon.es/dp/8408326341?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 1595
+    },
+    {
+      "libro_id": "isbn-9788433951199",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2081,
+      "url": "https://www.amazon.es/dp/843395119X?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z",
+      "precio_referencia_centimos": 2190
+    },
+    {
+      "libro_id": "isbn-9788410171985",
+      "formato": "tapa-blanda",
+      "tipo": "compra",
+      "moneda": "EUR",
+      "precio_centimos": 2100,
+      "url": "https://www.amazon.es/dp/8410171988?tag=davidporto-21",
+      "actualizado_en": "2026-10-31T19:29:00Z",
+      "caduca_en": "2026-11-01T19:29:00Z"
     }
   ],
   "ratings": [
-    {
-      "libro_id": "isbn-9788427054479",
-      "puntuacion": 3.51,
-      "numero_valoraciones": 56,
-      "fuente": "hardcover",
-      "url": "https://hardcover.app/books/un-amor-de-diciembre-2024",
-      "actualizado_en": "2026-10-30T20:02:12Z",
-      "caduca_en": "2026-11-06T20:02:12Z"
-    },
-    {
-      "libro_id": "isbn-9788466396806",
-      "puntuacion": 3.81,
-      "numero_valoraciones": 1626,
-      "fuente": "hardcover",
-      "url": "https://hardcover.app/books/carrie",
-      "actualizado_en": "2026-10-27T12:32:37Z",
-      "caduca_en": "2026-11-03T12:32:37Z"
-    },
-    {
-      "libro_id": "lib-0001",
-      "puntuacion": 4.03,
-      "numero_valoraciones": 1519,
-      "fuente": "hardcover",
-      "url": "https://hardcover.app/books/coraline",
-      "actualizado_en": "2026-10-26T13:24:57Z",
-      "caduca_en": "2026-11-02T13:24:57Z"
-    },
     {
       "libro_id": "isbn-9788401031380",
       "puntuacion": 3.8,
@@ -733,6 +991,15 @@
       "caduca_en": "2026-11-30T07:49:26Z"
     },
     {
+      "libro_id": "isbn-9788401042751",
+      "puntuacion": 5.0,
+      "numero_valoraciones": 1,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/262091443-la-casa-de-los-esp-ritus",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
       "libro_id": "isbn-9788402431486",
       "puntuacion": 4.0,
       "numero_valoraciones": 2,
@@ -769,6 +1036,87 @@
       "caduca_en": "2026-11-30T07:49:26Z"
     },
     {
+      "libro_id": "isbn-9788408327271",
+      "puntuacion": 5.0,
+      "numero_valoraciones": 1,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/255015633-lazos-de-fuego-academia-bloodwing-2-edici-n-especial-con-cantos-tintad",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788410171732",
+      "puntuacion": 3.88,
+      "numero_valoraciones": 16,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/248299766-aby",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788410171770",
+      "puntuacion": 4.28,
+      "numero_valoraciones": 2120,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/249278565-la-cruz-torcida",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788410171817",
+      "puntuacion": 4.01,
+      "numero_valoraciones": 2522,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/250658436-eva-est-dormida",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788410171855",
+      "puntuacion": 3.5,
+      "numero_valoraciones": 2,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/252181552-m-ster-ngel-del-r-o",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788410171879",
+      "puntuacion": 3.8,
+      "numero_valoraciones": 5,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/253846575-la-vida-en-el-campo",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788410171893",
+      "puntuacion": 3.13,
+      "numero_valoraciones": 4,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/257195580-la-casa-del-callej-n",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788410171916",
+      "puntuacion": 2.58,
+      "numero_valoraciones": 3,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/257782424-la-llamada-de-los-olores",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788410171961",
+      "puntuacion": 5.0,
+      "numero_valoraciones": 1,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/260077939-estructuras-invisibles-s-l",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
       "libro_id": "isbn-9788410442771",
       "puntuacion": 5.0,
       "numero_valoraciones": 1,
@@ -785,6 +1133,15 @@
       "url": "https://www.goodreads.com/book/show/254125747-el-ojo-de-la-novia-frenop-tica",
       "actualizado_en": "2026-10-31T07:49:26Z",
       "caduca_en": "2026-11-30T07:49:26Z"
+    },
+    {
+      "libro_id": "isbn-9788413145211",
+      "puntuacion": 3.86,
+      "numero_valoraciones": 62543,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/183526485-mentiras-y-secretos",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
     },
     {
       "libro_id": "isbn-9788418967566",
@@ -877,6 +1234,51 @@
       "caduca_en": "2026-11-30T07:49:26Z"
     },
     {
+      "libro_id": "isbn-9788433951045",
+      "puntuacion": 3.19,
+      "numero_valoraciones": 4,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/258192814-plastificados",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788433951151",
+      "puntuacion": 3.87,
+      "numero_valoraciones": 550,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/258193027-las-luces",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788433951182",
+      "puntuacion": 3.35,
+      "numero_valoraciones": 20,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/258675478-los-perplejos",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788433951205",
+      "puntuacion": 3.65,
+      "numero_valoraciones": 7239,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/260172355-nos-quedamos-o-nos-vamos",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788433951212",
+      "puntuacion": 3.35,
+      "numero_valoraciones": 10030,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/258733737-una-casa-en-brandemburgo",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
       "libro_id": "isbn-9788433951229",
       "puntuacion": 3.91,
       "numero_valoraciones": 178,
@@ -884,6 +1286,42 @@
       "url": "https://www.goodreads.com/book/show/259152676-vals-de-mefisto",
       "actualizado_en": "2026-10-31T07:49:26Z",
       "caduca_en": "2026-11-30T07:49:26Z"
+    },
+    {
+      "libro_id": "isbn-9788433951250",
+      "puntuacion": 3.98,
+      "numero_valoraciones": 6808,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/260172288-el-volumen-del-tiempo-iv",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788433951267",
+      "puntuacion": 4.25,
+      "numero_valoraciones": 4,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/259153005-manifiesto-por-otra-econom-a-y-otra-pol-tica",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788433951397",
+      "puntuacion": 3.64,
+      "numero_valoraciones": 291,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/258192476-la-tumba-del-marinero",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9788433951403",
+      "puntuacion": 3.53,
+      "numero_valoraciones": 195,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/258192451-pensamientos-est-riles",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
     },
     {
       "libro_id": "isbn-9788439746621",
@@ -958,6 +1396,15 @@
       "caduca_en": "2026-11-30T07:49:26Z"
     },
     {
+      "libro_id": "isbn-9788467083378",
+      "puntuacion": 5.0,
+      "numero_valoraciones": 2,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/254956956-todo-bajo-control-menos-t",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
       "libro_id": "isbn-9788491058298",
       "puntuacion": 4.21,
       "numero_valoraciones": 5814101,
@@ -976,6 +1423,24 @@
       "caduca_en": "2026-11-30T07:49:26Z"
     },
     {
+      "libro_id": "isbn-9791387574598",
+      "puntuacion": 3.98,
+      "numero_valoraciones": 13354,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/251601647-los-doce-secretos",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9791387574666",
+      "puntuacion": 4.34,
+      "numero_valoraciones": 4164,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/254451350-yo-que-te-he-querido-tanto",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
       "libro_id": "isbn-9791387846008",
       "puntuacion": 4.35,
       "numero_valoraciones": 22,
@@ -992,6 +1457,60 @@
       "url": "https://www.goodreads.com/book/show/254372887-mi-amor-no-muere-my-love-never-dies",
       "actualizado_en": "2026-10-31T07:49:26Z",
       "caduca_en": "2026-11-30T07:49:26Z"
+    },
+    {
+      "libro_id": "isbn-9791387922429",
+      "puntuacion": 4.22,
+      "numero_valoraciones": 5042,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/249483887-atlas-de-islas-remotas",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9791387922474",
+      "puntuacion": 3.66,
+      "numero_valoraciones": 677,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/250309080-la-serpiente",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9791387922825",
+      "puntuacion": 3.81,
+      "numero_valoraciones": 65,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/249641921-una-woolf-propia",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9791387922955",
+      "puntuacion": 4.03,
+      "numero_valoraciones": 6087,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/251503858-malina",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9791387922962",
+      "puntuacion": 4.04,
+      "numero_valoraciones": 191,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/252718866-la-hija-del-gran-invierno",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9791387928018",
+      "puntuacion": 3.72,
+      "numero_valoraciones": 20598,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/252047579-l-z-r",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
     },
     {
       "libro_id": "isbn-9791387949884",
@@ -1057,6 +1576,15 @@
       "caduca_en": "2026-11-30T07:49:26Z"
     },
     {
+      "libro_id": "isbn-9791388042225",
+      "puntuacion": 4.27,
+      "numero_valoraciones": 145309,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/251104819-cambiar-el-agua-de-las-flores",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
       "libro_id": "isbn-9791388101311",
       "puntuacion": 4.0,
       "numero_valoraciones": 1,
@@ -1073,6 +1601,33 @@
       "url": "https://www.goodreads.com/book/show/254125703-tor",
       "actualizado_en": "2026-10-31T07:49:26Z",
       "caduca_en": "2026-11-30T07:49:26Z"
+    },
+    {
+      "libro_id": "isbn-9791388306174",
+      "puntuacion": 3.9,
+      "numero_valoraciones": 2444,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/257038419-glifo",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9791388306259",
+      "puntuacion": 4.5,
+      "numero_valoraciones": 2,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/258067594-dos-casos-cl-nicos",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "isbn-9791388306273",
+      "puntuacion": 3.92,
+      "numero_valoraciones": 3,
+      "fuente": "goodreads",
+      "url": "https://www.goodreads.com/book/show/259958749-la-tercera-vida-de-grange-copeland",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
     },
     {
       "libro_id": "isbn-9791388306297",
@@ -1100,6 +1655,42 @@
       "url": "https://www.goodreads.com/book/show/6785288-coraline",
       "actualizado_en": "2026-10-31T07:49:26Z",
       "caduca_en": "2026-11-30T07:49:26Z"
+    },
+    {
+      "libro_id": "isbn-9788427054479",
+      "puntuacion": 3.51,
+      "numero_valoraciones": 56,
+      "fuente": "hardcover",
+      "url": "https://hardcover.app/books/un-amor-de-diciembre-2024",
+      "actualizado_en": "2026-10-30T20:02:12Z",
+      "caduca_en": "2026-11-06T20:02:12Z"
+    },
+    {
+      "libro_id": "isbn-9788466396806",
+      "puntuacion": 3.81,
+      "numero_valoraciones": 1626,
+      "fuente": "hardcover",
+      "url": "https://hardcover.app/books/carrie",
+      "actualizado_en": "2026-10-27T12:32:37Z",
+      "caduca_en": "2026-11-03T12:32:37Z"
+    },
+    {
+      "libro_id": "isbn-9788491058298",
+      "puntuacion": 4.25,
+      "numero_valoraciones": 8958,
+      "fuente": "hardcover",
+      "url": "https://hardcover.app/books/1984",
+      "actualizado_en": "2026-10-31T19:24:55Z",
+      "caduca_en": "2026-11-30T19:24:55Z"
+    },
+    {
+      "libro_id": "lib-0001",
+      "puntuacion": 4.03,
+      "numero_valoraciones": 1519,
+      "fuente": "hardcover",
+      "url": "https://hardcover.app/books/coraline",
+      "actualizado_en": "2026-10-26T13:24:57Z",
+      "caduca_en": "2026-11-02T13:24:57Z"
     }
   ]
 }
