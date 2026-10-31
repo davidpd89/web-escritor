@@ -32,15 +32,16 @@ class SnapshotPipelineTests(unittest.TestCase):
     def read(self):
         return json.loads(self.out.read_text(encoding="utf-8"))
 
-    def test_full_offline_run_covers_six_networks_without_private_ids(self):
+    def test_full_offline_run_covers_eight_networks_without_private_ids(self):
         self.assertEqual(snap.main(self.args()), 0)
         data = self.read()
         by_id = {n["id"]: n for n in data["networks"]}
-        self.assertEqual(list(by_id), ["bluesky", "mastodon", "threads", "instagram", "tiktok", "pinterest"])
+        self.assertEqual(list(by_id), ["bluesky", "mastodon", "threads", "instagram", "tiktok", "pinterest", "facebook", "x"])
+        self.assertIsNone(by_id["x"]["followers"])  # X comes only from its public profile
         self.assertEqual(by_id["bluesky"]["followers"], 23)  # public AppView wins over Metricool's 900
-        self.assertEqual(data["totals"]["follower_relationships"], 23 + 23 + 101 + 102 + 104 + 105)
+        self.assertEqual(data["totals"]["follower_relationships"], 23 + 23 + 101 + 102 + 104 + 105 + 103)
         text = self.out.read_text(encoding="utf-8")
-        for private in ("did:", "fixture-local", "facebook", "youtube", "twitter"):
+        for private in ("did:", "fixture-local", "youtube", "twitter"):
             self.assertNotIn(private, text)
 
     def test_rerun_is_idempotent_and_ignores_generated_at(self):
@@ -144,7 +145,7 @@ class SnapshotPipelineTests(unittest.TestCase):
         js.write_text(script,
                       encoding="utf-8")
         out = subprocess.run(["node", str(js), str(self.out)], capture_output=True, text=True, check=True)
-        self.assertEqual(json.loads(out.stdout), [458, None])
+        self.assertEqual(json.loads(out.stdout), [561, None])
 
 
 if __name__ == "__main__":

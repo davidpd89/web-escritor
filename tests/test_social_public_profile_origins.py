@@ -25,7 +25,9 @@ class SocialProfileOrigins(unittest.TestCase):
                 self.assertIsNotNone(parsed.hostname, f'{path}: autoridad ausente en {identity}')
                 self.assertIsNone(parsed.username, f'{path}: usuario incrustado en {identity}')
                 self.assertIsNone(parsed.password, f'{path}: contraseña incrustada en {identity}')
-                self.assertFalse(parsed.query, f'{path}: parámetros inesperados en {identity}')
+                # Facebook pages without a vanity name are addressed only by their numeric id.
+                allowed_query = r'id=\d+' if identity == 'facebook' else ''
+                self.assertRegex(parsed.query, f'^{allowed_query}$', f'{path}: parámetros inesperados en {identity}')
                 self.assertFalse(parsed.fragment, f'{path}: fragmento inesperado en {identity}')
 
 

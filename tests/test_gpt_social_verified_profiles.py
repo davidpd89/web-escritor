@@ -1,4 +1,4 @@
-"""Verified brand identity gate: Metricool matches public author URLs for 4 networks."""
+"""Verified brand identity gate: Metricool matches public author URLs for 5 networks."""
 import importlib.util
 from datetime import datetime, timezone
 from pathlib import Path
@@ -23,18 +23,19 @@ def batch():
 
 
 class VerifiedSocialTests(unittest.TestCase):
-    def test_four_confirmed_metricool_networks_selected(self):
+    def test_five_confirmed_metricool_networks_selected(self):
         public = sc.compose([batch()], now=NOW)
-        self.assertEqual(public['totals']['coverage'], 4)
-        self.assertEqual(public['totals']['eligible'], 6)
-        self.assertEqual(public['totals']['follower_relationships'], 101 + 102 + 104 + 105)
+        self.assertEqual(public['totals']['coverage'], 5)
+        self.assertEqual(public['totals']['eligible'], 8)
+        self.assertEqual(public['totals']['follower_relationships'], 101 + 102 + 103 + 104 + 105)
 
     def test_uncorroborated_pages_excluded(self):
         public = sc.compose([batch()], now=NOW)
         names = [item['id'] for item in public['networks']]
         self.assertEqual(names, ['bluesky', 'mastodon', 'threads',
-                                 'instagram', 'tiktok', 'pinterest'])
-        for unverified in ('facebook', 'twitter', 'youtube'):
+                                 'instagram', 'tiktok', 'pinterest', 'facebook', 'x'])
+        self.assertIsNone(public['networks'][-1]['followers'])  # Metricool's twitter field is not trusted for X
+        for unverified in ('twitter', 'youtube'):
             self.assertNotIn(unverified, names)
 
     def test_bluesky_not_doubled_with_metricool_field(self):
@@ -42,11 +43,11 @@ class VerifiedSocialTests(unittest.TestCase):
                    'source': 'bluesky-public-appview', 'status': 'ok',
                    'observed_at': '2026-10-22T11:00:00Z'}
         public = sc.compose([batch(), appview], now=NOW)
-        self.assertEqual(public['totals']['follower_relationships'], 420)
-        self.assertEqual(public['totals']['coverage'], 5)
+        self.assertEqual(public['totals']['follower_relationships'], 523)
+        self.assertEqual(public['totals']['coverage'], 6)
 
     def test_explicit_providers_for_each_new_network(self):
-        for network in ('instagram', 'tiktok', 'pinterest'):
+        for network in ('instagram', 'tiktok', 'pinterest', 'facebook'):
             source = {'id': network, 'followers': 3, 'observed_at': '2026-10-21',
                       'status': 'ok', 'source': 'metricool-mcp-export'}
             self.assertEqual(sc.compose([source], now=NOW)['totals']['coverage'], 1)
@@ -77,13 +78,13 @@ class VerifiedSocialTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Unverified period'):
             sc.compose([source], now=NOW)
 
-    def test_null_one_network_keeps_three_others(self):
+    def test_null_one_network_keeps_the_others(self):
         source = batch()
         source['records'][2]['followers'] = None
         source['records'][2]['observed_at'] = None
         public = sc.compose([source], now=NOW)
-        self.assertEqual(public['totals']['coverage'], 3)
-        self.assertEqual(public['totals']['follower_relationships'], 101 + 104 + 105)
+        self.assertEqual(public['totals']['coverage'], 4)
+        self.assertEqual(public['totals']['follower_relationships'], 101 + 103 + 104 + 105)
 
     def test_expired_accounts_drop_out_independently(self):
         source = batch()

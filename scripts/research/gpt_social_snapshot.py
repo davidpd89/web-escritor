@@ -8,7 +8,9 @@ python scripts/research/gpt_social_snapshot.py --output out/social-metrics.json 
     --now 2026-10-22T08:00:00Z
 
 Without --*-fixture, Bluesky and Mastodon are read from their public APIs.
-Metricool is always a private local export (no API key here). A failing source
+Metricool is always a private local export (no API key here). --public-live adds
+same-day counts read from the official public profiles; they replace Metricool's
+closed-day value when plausible (see prefer_live). A failing source
 leaves its network pending, or keeps the previous unexpired value; the file is
 rewritten only when published content changes (generated_at is ignored).
 """
@@ -25,6 +27,7 @@ import gpt_metricool_live as metricool_live
 import gpt_social_bluesky as bluesky
 import gpt_social_compose as compose
 import gpt_social_mastodon as mastodon
+import gpt_social_public as public
 
 
 def load(path: Path) -> object:
@@ -106,6 +109,41 @@ def drop_false_zeros(previous: object, sources: list[dict], errors: list[str]) -
     return kept
 
 
+# A same-day public read may exceed the closed-day reference by real growth, but a
+# parse error (a different counter, "1 mil" read as 1) shows up as a large jump.
+LIVE_RANGE = (0.8, 1.5)
+LIVE_SLACK = 50
+
+
+def prefer_live(previous: object, sources: list[dict], live: list[dict], errors: list[str]) -> list[dict]:
+    """Use each public-profile record instead of the Metricool one when it is plausible
+    against Metricool's value from this run, or else the last published value."""
+    reference = {}
+    if isinstance(previous, dict) and isinstance(previous.get("networks"), list):
+        reference = {r.get("id"): r.get("followers") for r in previous["networks"] if isinstance(r, dict)}
+    for source in sources:
+        for record in compose.public_records(source):
+            if isinstance(record, dict) and isinstance(record.get("followers"), int):
+                reference[record["id"]] = record["followers"]
+    accepted = {}
+    for record in live:
+        ref, count = reference.get(record["id"]), record["followers"]
+        if isinstance(ref, int) and ref > 0 and not (
+                LIVE_RANGE[0] * ref <= count <= LIVE_RANGE[1] * ref + LIVE_SLACK):
+            errors.append(f"{record['id']}: public count {count} implausible against {ref}; kept reference")
+            continue
+        accepted[record["id"]] = record
+    kept = []
+    for source in sources:
+        if isinstance(source, dict) and source.get("kind") == compose.METRICOOL_BATCH_KIND:
+            records = [r for r in source.get("records") or [] if r.get("id") not in accepted]
+            if records:
+                kept.append(source | {"records": records})
+        elif not (isinstance(source, dict) and source.get("id") in accepted):
+            kept.append(source)
+    return kept + list(accepted.values())
+
+
 REFRESH = timedelta(hours=6)
 TIMING = ("generated_at", "observed_at", "valid_until")
 
@@ -143,6 +181,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--metricool-export", type=Path)
     p.add_argument("--metricool-live", action="store_true",
                    help="read Metricool through the authenticated official MCP (needs the one-time login)")
+    p.add_argument("--public-live", action="store_true",
+                   help="also read same-day counts from the official public profiles")
     p.add_argument("--expected-did")
     p.add_argument("--expected-mastodon-id")
     p.add_argument("--now", help="UTC ISO instant for reproducible runs (default: current time)")
@@ -158,6 +198,8 @@ def main(argv: list[str] | None = None) -> int:
             except (OSError, ValueError):
                 previous = None
         sources = drop_false_zeros(previous, sources, errors)
+        if args.public_live:
+            sources = prefer_live(previous, sources, public.read(now, errors), errors)
         sources += carry_over(previous, sources, now)
         payload = compose.compose(sources, now=now)
         if not any(n["status"] == "ok" for n in payload["networks"]):
