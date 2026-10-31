@@ -117,6 +117,14 @@ class TaxonomyTests(unittest.TestCase):
         bands = sorted((c for c in data['categorias'] if c['id'].startswith('edad-')), key=lambda c: c['orden'])
         self.assertEqual([c['nombre'] for c in bands], ['De 0 a 3 años', 'A partir de 4 años', 'A partir de 9 años'])
 
+    def test_manga_subjects_join_comic_instead_of_a_new_topic(self):
+        # Planeta etiqueta su manga como «Manga», «Manga Shonen» o «Manga Seinen»; sin mapa, la ingesta creaba tema-manga.
+        data = catalogue()
+        with patch.object(pipeline, 'extra_categories', return_value=[]):
+            for subject in ('Manga', 'Manga Shonen', 'Manga Seinen', 'Cómic manga'):
+                self.assertEqual(pipeline.classify({'materias': [subject]}, data)[0], 'comic-y-novela-grafica', subject)
+        self.assertFalse([c['id'] for c in data['categorias'] if 'manga' in c['id']])
+
     def test_published_catalogue_has_no_redundant_topics(self):
         import json
         data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
