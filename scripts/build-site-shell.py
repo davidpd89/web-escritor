@@ -575,13 +575,18 @@ def render_explore_utilities(nav: dict, by_id: dict[str, Entry]) -> str:
     <640px) y el comentario de esa hoja dice que «el menú es dueño de la
     navegación global»: sin esta fila, en un teléfono no había forma de llegar
     a Redes sociales ni a Contacto desde ningún menú, solo bajando al pie."""
+    contact = '<a href="/prensa.html#contacto">Contacto</a>'
     links: list[str] = []
     for item_id in nav.get("exploreUtilities", []):
         if item_id == "support-project" and not support_active():
             continue
         entry = by_id[item_id]
         links.append(f'<a href="{entry.url}">{entry.short_label}</a>')
-    links.insert(min(2, len(links)), '<a href="/prensa.html#contacto">Contacto</a>')
+        # Contacto no es una ruta del registro: va justo después de Redes.
+        if item_id == "site-social-stats":
+            links.append(contact)
+    if contact not in links:
+        links.append(contact)
     if not links:
         return ""
     return (
