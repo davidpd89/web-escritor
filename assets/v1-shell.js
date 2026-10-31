@@ -160,6 +160,7 @@
       cuaderno: ['Cuaderno', 'Archivo de artículos y libros recomendados.'],
       herramientas: ['Herramientas', 'Utilidades gratuitas para problemas concretos de escritura y publicación.'],
       prensa: ['Prensa y eventos', 'Apariciones, materiales de prensa y agenda.'],
+      'lectores-beta': ['Lectores beta', 'Lee material sin publicar y comparte una opinión honesta, o envía tu manuscrito para recibir la suya.'],
       asistente: ['Asistente', 'Pregunta y encuentra la página que necesitas.']
     };
     const setPreview = (key) => {

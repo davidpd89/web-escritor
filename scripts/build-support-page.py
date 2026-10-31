@@ -84,9 +84,9 @@ def render(channels: list[dict]) -> str:
   <link rel="stylesheet" href="/assets/v1-fonts.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-tokens.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
-  <link rel="stylesheet" href="/assets/v1-shell.css?v=12" />
+  <link rel="stylesheet" href="/assets/v1-shell.css?v=13" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
-  <link rel="stylesheet" href="/assets/v1-support.css?v=4" />
+  <link rel="stylesheet" href="/assets/v1-support.css?v=6" />
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
@@ -111,7 +111,6 @@ def render(channels: list[dict]) -> str:
         <p class="support-lead">{LEAD}</p>
       </section>
       <div class="support-methods" aria-label="Formas de aportar">{methods}</div>
-      <p class="support-trust"><svg class="support-trust__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3"/></svg><span>Aportación única y voluntaria. El pago se hace en PayPal o Ko-fi; esta web no ve ni guarda tus datos.</span></p>
     </div>
     <section class="support-other" aria-labelledby="support-other-title">
       <h2 id="support-other-title">¿Ahora no puedes? También ayudas así</h2>
@@ -122,7 +121,7 @@ def render(channels: list[dict]) -> str:
     </section>
   </main>
   <footer class="site-footer"></footer>
-  <script src="/assets/v1-shell.js?v=33" defer></script>
+  <script src="/assets/v1-shell.js?v=34" defer></script>
 </body>
 </html>
 """
