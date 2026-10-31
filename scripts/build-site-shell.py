@@ -197,6 +197,7 @@ PRIMARY_BUY_URL = _EDITORIAL_FACTS["books"]["lasManecillasDelRecuerdo"]["purchas
 # in its markup; assets/email-reveal.js builds the real mailto: link only
 # after a human click/keypress.
 EMAIL_REVEAL_RUNTIME = '<script defer src="/assets/email-reveal.js?v=3"></script>'
+FOOTER_RUNTIME = '<script defer src="/assets/footer-accordion.js?v=1"></script>'
 
 
 def email_reveal_link(
@@ -682,17 +683,27 @@ def render_support_nudge(current_path: str) -> str:
 def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: str, current_path: str) -> str:
     groups = footer_groups_with_extras(nav, by_id, extras, rel_path)
     cols: list[str] = [
-        '      <div>\n'
-        '        <strong class="brand__name">David Porto Díaz</strong>\n'
-        '        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>\n'
-        f'        {SOCIAL_ROW}\n'
-        f'        {email_reveal_link("Contactar por email")}\n'
-        '        <a class="text-action footer-all-networks" href="/redes-sociales/">Ver todas las redes</a>\n'
+        '      <div class="footer-brand">\n'
+        '        <div class="footer-brand__id">\n'
+        '          <strong class="brand__name">David Porto Díaz</strong>\n'
+        '          <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>\n'
+        '        </div>\n'
+        '        <div class="footer-brand__contact">\n'
+        f'          {SOCIAL_ROW}\n'
+        '          <div class="footer-brand__actions">\n'
+        f'            {email_reveal_link("Contactar por email")}\n'
+        '            <a class="text-action footer-all-networks" href="/redes-sociales/">Ver todas las redes</a>\n'
+        '          </div>\n'
+        '        </div>\n'
         '      </div>'
     ]
     for group_name, entries in groups.items():
         links = "".join(link(entry, current_path) for entry in entries)
-        cols.append(f'      <nav aria-label="{group_name}"><h2>{group_name}</h2>{links}</nav>')
+        cols.append(
+            f'      <nav aria-label="{group_name}"><details class="footer-group" open>'
+            f'<summary><h2>{group_name}</h2></summary>'
+            f'<div class="footer-links">{links}</div></details></nav>'
+        )
 
     legal = [
         '      <span>© 2026 David Porto Díaz. Todos los derechos reservados.</span>'
@@ -702,12 +713,15 @@ def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: st
         '  <div class="site-footer__grid">\n'
         + "\n".join(cols)
         + '\n  </div>\n'
-        + render_support_nudge(current_path)
-        + '  <p class="footer-legal">\n'
+        '  <div class="footer-bottom">\n'
+        '  <p class="footer-legal">\n'
         + "\n".join(legal)
         + '\n  </p>\n'
+        + render_support_nudge(current_path)
+        + '  </div>\n'
         '</footer>\n'
         + EMAIL_REVEAL_RUNTIME
+        + FOOTER_RUNTIME
     )
 
 
