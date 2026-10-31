@@ -51,6 +51,8 @@ try {
     await page.screenshot({ path: `${OUT}/catalogue-${width}.png`, fullPage: true });
     await page.goto(`${BASE}/cuaderno/`);
     assert.equal(await page.locator('.cuaderno-feature h2 a, .cuaderno-entry h3 a').count(), 8);
+    // On mobile the reachable link lives in a closed footer <details>: open it as a reader would.
+    await page.locator('footer.site-footer details.ft-group').filter({ has: page.locator('a[href="/recomendaciones/"]') }).first().locator('summary').click();
     await page.getByRole('link', { name: 'Libros recomendados', exact: true }).first().click();
     assert.equal(new URL(page.url()).pathname, '/recomendaciones/');
     assert.deepEqual(errors, []);
