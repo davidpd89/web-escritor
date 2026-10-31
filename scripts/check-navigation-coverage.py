@@ -68,6 +68,10 @@ def navigation_refs(nav: dict) -> list[tuple[str, str]]:
         refs.append(("exploreTerritories.id", item.get("id", "")))
         refs.append(("exploreTerritories.previewId", item.get("previewId", "")))
 
+    for item in nav.get("exploreExtras", []):
+        refs.append(("exploreExtras.id", item.get("id", "")))
+        refs.append(("exploreExtras.previewId", item.get("previewId", "")))
+
     for item in nav.get("exploreShortcuts", []):
         refs.append(("exploreShortcuts.targetId", item.get("targetId", "")))
 

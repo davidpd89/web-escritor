@@ -21,14 +21,12 @@ const TERRITORIES = [
   ['recommendations-hub', '/recomendaciones/'],
   ['tools-hub', '/herramientas/'],
   ['press', '/prensa.html'],
+  // «Lectores beta» ya es estático (data/navigation.json → exploreExtras,
+  // scripts/build-site-shell.py): está también sin JavaScript, así que la
+  // aserción no-js espera las mismas 6 entradas que con JS.
+  ['lectores-beta', '/lectores-beta/'],
 ];
-// "Lectores beta" is injected client-side by ensureHomeBetaNav() in
-// assets/v1-editorial-interior-v4.js -- only on the home masthead, and only
-// when JS runs. It is NOT part of TERRITORIES itself: the no-JS assertion
-// below must keep expecting exactly the 5 static territories, since that
-// item never appears without JavaScript.
-const BETA_TERRITORY = ['lectores-beta', '/lectores-beta/'];
-const withBeta = (territories) => [...territories, BETA_TERRITORY];
+const withBeta = (territories) => territories;
 const VIEWPORTS = [[1440,900],[1024,900],[768,1000],[390,900],[320,900]];
 
 const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });

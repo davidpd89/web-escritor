@@ -1391,7 +1391,7 @@
       "territory": "sitio",
       "parentId": "home",
       "hubId": "home",
-      "discoverability": "contextual",
+      "discoverability": "secondary",
       "audience": [
         "reader",
         "writer",
@@ -1400,7 +1400,8 @@
       "jobs": [
         "orientar"
       ],
-      "sourceFile": "empieza-aqui/index.html"
+      "sourceFile": "empieza-aqui/index.html",
+      "footerEligible": true
     },
     {
       "id": "site-map",

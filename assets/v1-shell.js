@@ -160,6 +160,7 @@
       cuaderno: ['Cuaderno', 'Archivo de artículos y libros recomendados.'],
       herramientas: ['Herramientas', 'Utilidades gratuitas para problemas concretos de escritura y publicación.'],
       prensa: ['Prensa y eventos', 'Apariciones, materiales de prensa y agenda.'],
+      'lectores-beta': ['Lectores beta', 'Lee material sin publicar y comparte una opinión honesta, o envía tu manuscrito para recibir la suya.'],
       asistente: ['Asistente', 'Pregunta y encuentra la página que necesitas.']
     };
     const setPreview = (key) => {
@@ -403,7 +404,7 @@
   // TRACKED_ASSETS entry in check-asset-versions.py whenever either file's
   // content changes.
   const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js?v=13';
-  const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js?v=11';
+  const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js?v=12';
   const root = document.documentElement;
   const houseSvg = `
     <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
