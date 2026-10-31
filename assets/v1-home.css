@@ -5,25 +5,21 @@
    colors/typeface, only the compositional idea. Iterating with feedback. */
 html.v1 .intro{position:fixed;inset:0;z-index:900;background:#000;overflow:hidden}
 html.v1.intro-lock .skip-link:focus{z-index:901}
-html.v1 .intro[hidden]{display:none}
+html.v1 .intro[hidden],html.v1.intro-seen .intro{display:none}
 html.v1 .intro__stage{position:absolute;inset:0;display:grid;place-items:center;background:#000}
 html.v1 .intro__video{max-width:100%;max-height:100%;width:auto;height:100%;object-fit:contain;display:block;background:#000}
 html.v1 .intro__panel{position:absolute;inset:0;background-image:url('hero-tinta-final.jpg?v=2');background-size:cover;background-position:center;opacity:0;pointer-events:none}
 html.v1 .intro__panel--l{clip-path:inset(0 50% 0 0)}
 html.v1 .intro__panel--r{clip-path:inset(0 0 0 50%)}
 
-/* El boton de entrar aparece recien cuando la tinta ya se ha ido (T_END del
-   video ~4.5s), para no competir con el momento cinematografico; con
-   reduced-motion se muestra ya desde el principio, sin animacion. */
+/* El boton de entrar esta disponible desde el principio (2026-10-31): quien
+   ya conoce la intro puede saltarla sin esperar al final del video. Solo un
+   fundido breve; con reduced-motion aparece directamente, sin animacion. */
 @keyframes intro-enter-in{from{opacity:0;transform:translate(-50%,6px)}to{opacity:1;transform:translate(-50%,0)}}
-html.v1 .intro__enter{position:absolute;left:50%;bottom:clamp(4.5rem,15vh,7.5rem);z-index:2;transform:translate(-50%,6px);appearance:none;font-family:var(--font-ui);font-weight:600;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dp-paper);background:color-mix(in srgb,#000 25%,transparent);border:1px solid color-mix(in srgb,var(--dp-paper) 55%,transparent);border-radius:999px;padding:.9rem 3rem;cursor:pointer;opacity:0;transition:background .2s ease,border-color .2s ease}
-html.v1 .intro__enter:hover,html.v1 .intro__enter:focus-visible{background:color-mix(in srgb,var(--dp-paper) 16%,transparent);border-color:var(--dp-paper)}
+html.v1 .intro__enter{position:absolute;left:50%;bottom:clamp(4.5rem,15vh,7.5rem);z-index:2;transform:translate(-50%,6px);appearance:none;font-family:var(--font-ui);font-weight:600;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dp-paper);background:color-mix(in srgb,#000 72%,transparent);border:1px solid color-mix(in srgb,var(--dp-paper) 55%,transparent);border-radius:999px;padding:.9rem 3rem;cursor:pointer;opacity:0;transition:background .2s ease,border-color .2s ease}
+html.v1 .intro__enter:hover,html.v1 .intro__enter:focus-visible{background:#000;border-color:var(--dp-paper)}
 @media(prefers-reduced-motion:no-preference){
-  html.v1 .intro__enter{animation:intro-enter-in .9s ease-out 4.6s forwards}
-  /* Autoplay rejected (e.g. iPhone Low Power Mode): there is no ink reveal
-     to wait for, so don't make the visitor stare at a frozen poster with an
-     invisible exit for 4.6s. Bring "Entrar" in right away. */
-  html.v1 .intro--stalled .intro__enter{animation-delay:.3s}
+  html.v1 .intro__enter{animation:intro-enter-in .5s ease-out .2s forwards}
 }
 @media(prefers-reduced-motion:reduce){
   html.v1 .intro__enter{opacity:1;transform:translate(-50%,0)}
