@@ -5,8 +5,18 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Próximos lanzamientos de libros recomendados
 BEGIN:VEVENT
+UID:isbn-9788433951182@davidportodiaz.com
+DTSTAMP:20261031T000000Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:Sale a la venta: Los perplejos
+DESCRIPTION:Cynthia Rimsky · Editorial Anagrama
+URL:https://davidportodiaz.com/recomendaciones/libros/los-perplejos-9788433
+ 951182/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788433951168@davidportodiaz.com
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Sale a la venta: Tres cuentos
@@ -15,8 +25,18 @@ URL:https://davidportodiaz.com/recomendaciones/libros/tres-cuentos-97884339
  51168/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788433951212@davidportodiaz.com
+DTSTAMP:20261031T000000Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:Sale a la venta: Una casa en Brandemburgo
+DESCRIPTION:Jenny Erpenbeck · Editorial Anagrama
+URL:https://davidportodiaz.com/recomendaciones/libros/una-casa-en-brandembu
+ rgo-9788433951212/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788433951229@davidportodiaz.com
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Sale a la venta: Vals de Mefisto
@@ -26,7 +46,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/vals-de-mefisto-97884
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388092268@davidportodiaz.com
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Ponte fino
@@ -36,12 +56,32 @@ URL:https://davidportodiaz.com/recomendaciones/libros/ponte-fino-9791388092
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387740382@davidportodiaz.com
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Sin piedad (Harry Hole 14)
 DESCRIPTION:Jo Nesbo · Reservoir Books
 URL:https://davidportodiaz.com/recomendaciones/libros/sin-piedad-harry-hole
  -14-9791387740382/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788433951267@davidportodiaz.com
+DTSTAMP:20261031T000000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+SUMMARY:Sale a la venta: Manifiesto por otra economía y otra política
+DESCRIPTION:Emanuele Felice · Editorial Anagrama
+URL:https://davidportodiaz.com/recomendaciones/libros/manifiesto-por-otra-e
+ conomia-y-otra-politica-9788433951267/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788433951670@davidportodiaz.com
+DTSTAMP:20261031T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Cómo construir la soberanía digital europea
+DESCRIPTION:Francesca Bria · Editorial Anagrama
+URL:https://davidportodiaz.com/recomendaciones/libros/como-construir-la-sob
+ erania-digital-europea-9788433951670/
 END:VEVENT
 END:VCALENDAR

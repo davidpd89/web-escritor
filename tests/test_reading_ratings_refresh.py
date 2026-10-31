@@ -131,7 +131,7 @@ class GoogleRatingsTests(unittest.TestCase):
         self.assertEqual(len(result["ratings"]), 2)
         self.assertEqual(result["ratings"][0], market["ratings"][0])
         self.assertEqual(result["ratings"][1]["fuente"], "google_books")
-        self.assertEqual(result["ratings"][1]["caduca_en"], "2026-10-28T10:00:00Z")
+        self.assertEqual(result["ratings"][1]["caduca_en"], "2026-11-20T10:00:00Z")
 
     def test_failures_do_not_replace_previous_data_or_expand_budget(self):
         old = {"libro_id": "lib-0001", "fuente": "google_books",
@@ -148,6 +148,22 @@ class GoogleRatingsTests(unittest.TestCase):
         self.assertEqual(len(stats["failures"]), 1)
         self.assertEqual(result["ratings"], [old])
         self.assertEqual(stats["updated"], 0)
+
+    def test_unrated_books_are_queued_before_rated_ones(self):
+        rated = {"libro_id": "lib-0001", "fuente": "google_books",
+                 "puntuacion": 4.2, "numero_valoraciones": 16,
+                 "url": "https://books.google.com/books?id=x",
+                 "actualizado_en": "2026-10-20T10:00:00Z",
+                 "caduca_en": "2026-11-19T10:00:00Z"}
+        calls = []
+        def provider(isbn):
+            calls.append(isbn)
+            return {"items": []}
+        for day in range(1, 8):
+            calls.clear()
+            ratings.refresh({"libros": BOOKS}, {"ratings": [rated]}, provider,
+                now=datetime(2026, 10, day, tzinfo=timezone.utc), budget=1)
+            self.assertEqual(calls, ["9788425371967"])
 
     def test_no_network_is_required_for_fixture_and_changed_writes_only(self):
         with tempfile.TemporaryDirectory() as root:

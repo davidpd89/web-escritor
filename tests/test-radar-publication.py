@@ -51,7 +51,7 @@ def scenario(failure=None, skipped_job=False, conflict=False):
                                        'html_url':'https://github.com/owner/repo/actions/runs/2/job/1'}
                                       for name in module.REQUIRED_JOBS.values()]})
         return ''
-    with patch.object(module, 'gh', gh):
+    with patch.object(module, 'gh', gh), patch.object(module.time, 'sleep', lambda _s: None):
         if conflict:
             try:
                 module.run('automation/radar-clock-test')
@@ -73,6 +73,8 @@ def scenario(failure=None, skipped_job=False, conflict=False):
         assert not deployments
     elif failure or skipped_job:
         assert not merges and not deployments
+        # A failed run gets exactly one rerun of its failed jobs before publication stops.
+        assert sum(call[:2] == ('run','rerun') for call in calls) == (1 if failure else 0)
     else:
         assert len(merges) == len(deployments) == 1
         assert '--match-head-commit' in merges[0] and 'expected-sha' in merges[0]
