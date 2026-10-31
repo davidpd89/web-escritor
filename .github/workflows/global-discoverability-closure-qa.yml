@@ -159,6 +159,10 @@ jobs:
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
+          # The full 595-route sweep already runs sharded in the required
+          # reflow-sitewide gate; unsharded here it outran the 75 min timeout.
+          # Keep this gate on the discoverability surfaces it guards.
+          QA_ONLY_ROUTES: / /index.html /mapa-del-sitio/ /404.html /offline.html
         run: |
           set -o pipefail
           mkdir -p artifacts/sitewide-reflow
