@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 from datetime import datetime, timedelta, timezone
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -83,8 +84,19 @@ def effective(data: dict) -> list:
     return [{k: v for k, v in n.items() if k not in ("observed_at", "valid_until")} for n in data["networks"]]
 
 
+GIT_TIMEOUT = 300  # seconds; an unattended run must never hang on the network or a credential prompt
+GIT_ENV = {**os.environ, "GIT_TERMINAL_PROMPT": "0", "GCM_INTERACTIVE": "never"}
+
+
+def run_git(argv: list[str]) -> subprocess.CompletedProcess:
+    try:
+        return subprocess.run(argv, capture_output=True, text=True, env=GIT_ENV, timeout=GIT_TIMEOUT)
+    except subprocess.TimeoutExpired as exc:
+        raise PublishError(f"git {argv[1:4]} timed out after {GIT_TIMEOUT}s") from exc
+
+
 def git(clone: Path, *args: str, check: bool = True) -> subprocess.CompletedProcess:
-    r = subprocess.run(["git", "-C", str(clone), *args], capture_output=True, text=True)
+    r = run_git(["git", "-C", str(clone), *args])
     if check and r.returncode:
         raise PublishError(f"git {args[0]} failed: {r.stderr.strip()[:300]}")
     return r
@@ -94,8 +106,7 @@ def ensure_clone(clone: Path, remote: str) -> None:
     if (clone / ".git").exists():
         return
     clone.parent.mkdir(parents=True, exist_ok=True)
-    r = subprocess.run(["git", "clone", "--quiet", "--branch", BRANCH, "--single-branch", remote, str(clone)],
-                       capture_output=True, text=True)
+    r = run_git(["git", "clone", "--quiet", "--branch", BRANCH, "--single-branch", remote, str(clone)])
     if r.returncode:
         raise PublishError("clone failed: " + r.stderr.strip()[:300])
     git(clone, "config", "user.name", "social-stats-bot")

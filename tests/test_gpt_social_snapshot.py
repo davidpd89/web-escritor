@@ -80,6 +80,27 @@ class SnapshotPipelineTests(unittest.TestCase):
         m = {n["id"]: n for n in self.read()["networks"]}
         self.assertIsNone(m["mastodon"]["followers"])
 
+    def test_zero_after_positive_count_keeps_last_good_value(self):
+        snap.main(self.args())
+        raw = json.loads((FX / "metricool_followers.fixture.json").read_text())
+        raw["rows"][0][4] = "0.0"  # TikTok: Metricool's unconsolidated day
+        zero = self.dir / "zero.json"
+        zero.write_text(json.dumps(raw), encoding="utf-8")
+        a = self.args(now="2026-10-22T20:00:00Z", **{"--metricool-export": 1}) + ["--metricool-export", str(zero)]
+        self.assertEqual(snap.main(a), 0)
+        m = {n["id"]: n for n in self.read()["networks"]}
+        self.assertEqual(m["tiktok"]["followers"], 104)
+        self.assertEqual(m["instagram"]["followers"], 102)
+
+    def test_zero_without_positive_history_is_published(self):
+        raw = json.loads((FX / "metricool_followers.fixture.json").read_text())
+        raw["rows"][0][5] = "0.0"  # Pinterest legitimately starting at 0
+        zero = self.dir / "zero.json"
+        zero.write_text(json.dumps(raw), encoding="utf-8")
+        self.assertEqual(snap.main(self.args(**{"--metricool-export": 1}) + ["--metricool-export", str(zero)]), 0)
+        m = {n["id"]: n for n in self.read()["networks"]}
+        self.assertEqual(m["pinterest"]["followers"], 0)
+
     def test_all_sources_failing_preserves_output(self):
         snap.main(self.args())
         before = self.out.read_bytes()

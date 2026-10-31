@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {visibleSocialMetrics} from '../scripts/research/gpt_social_reader.mjs';
+import {visibleSocialMetrics, lastKnownSocialMetrics} from '../scripts/research/gpt_social_reader.mjs';
 const NOW = Date.parse('2026-10-22T12:00:00Z');
 function fixture() {
   return {schema_version: 1, generated_at: '2026-10-22T11:00:00Z',
@@ -115,4 +115,19 @@ test('safe per-network integer values must not yield an imprecise total', () => 
   const visible=visibleSocialMetrics(x,NOW);
   assert.equal(visible.totals.coverage,2);
   assert.equal(visible.totals.follower_relationships,null);
+});
+test('last known keeps expired counters for an approximate display',()=>{
+  const out=lastKnownSocialMetrics(fixture(),Date.parse('2026-11-30T00:00:00Z'));
+  assert.equal(out.networks[0].followers,9);
+  assert.equal(out.totals.coverage,2);
+});
+test('last known refuses a snapshot from the future or without a date',()=>{
+  assert.equal(lastKnownSocialMetrics(fixture(),Date.parse('2026-10-22T10:00:00Z')).totals.coverage,0);
+  const x=fixture(); delete x.generated_at;
+  assert.equal(lastKnownSocialMetrics(x,NOW).totals.coverage,0);
+  assert.equal(lastKnownSocialMetrics(null,NOW).totals.coverage,0);
+});
+test('last known still rejects forged records',()=>{
+  const x=fixture(); x.networks[0].source='metricool-mcp-export';
+  assert.equal(lastKnownSocialMetrics(x,NOW).totals.follower_relationships,0);
 });

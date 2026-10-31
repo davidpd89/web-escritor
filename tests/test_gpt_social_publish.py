@@ -120,6 +120,23 @@ class PublisherTests(unittest.TestCase):
         self.assertNotIn("feature.txt", run(self.bare, "ls-tree", "--name-only", "main"))
         self.assertEqual(run(self.bare, "rev-list", "--count", "main"), "2")
 
+    def test_hung_git_becomes_publish_error_without_prompting(self):
+        seen = {}
+
+        def hang(argv, **kw):
+            seen.update(kw)
+            raise subprocess.TimeoutExpired(argv, kw["timeout"])
+
+        original = pub.subprocess.run
+        pub.subprocess.run = hang
+        try:
+            with self.assertRaises(pub.PublishError):
+                pub.git(self.tmp, "fetch", "origin")
+        finally:
+            pub.subprocess.run = original
+        self.assertEqual(seen["env"]["GIT_TERMINAL_PROMPT"], "0")
+        self.assertGreater(seen["timeout"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()
