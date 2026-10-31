@@ -224,8 +224,9 @@ try {
         assert.equal(contextCss.position, 'relative');
       }
 
-      const footerHeading = await style(page.locator('.site-footer h2').first());
-      assert.equal(footerHeading.color, BLUE);
+      /* The shared dark footer must not inherit the legacy page accent. */
+      const footerHeading = await style(page.locator('.site-footer .ft-group__title').first());
+      assert.notEqual(footerHeading.color, BLUE, `${name}: footer heading adopta el azul legacy`);
 
       const launcher = page.locator('.assistant-widget__launcher');
       await launcher.waitFor({ state:'attached', timeout:4000 });

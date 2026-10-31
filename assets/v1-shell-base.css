@@ -126,7 +126,8 @@ html.v1 .site-footer .ft__bottom .footer-support{flex:1 1 22rem;margin:0;text-al
 html.v1 .site-footer .ft__bottom .footer-support a{color:var(--ft-brass-hi);text-decoration:underline;text-underline-offset:3px}
 html.v1 .site-footer .ft__bottom .footer-support a:hover{color:var(--ft-ink)}
 html.v1 .site-footer .ft a:focus-visible,html.v1 .site-footer .ft summary:focus-visible{outline:2px solid var(--ft-brass-hi)!important;outline-offset:3px;color:var(--ft-ink)!important}
-html.v1 .site-footer .ft-social:focus-visible,html.v1 .site-footer .ft-btn:focus-visible{color:var(--ft-bg)!important}
+html.v1 .site-footer .ft-social:hover,html.v1 .site-footer .ft-social:focus-visible,html.v1 .site-footer .ft-btn:hover,html.v1 .site-footer .ft-btn:focus-visible{color:var(--ft-bg)!important}
+html.v1 .site-footer .ft-group__links a:hover,html.v1 .site-footer .ft__bottom .footer-support a:hover{color:var(--ft-ink)!important}
 @media (max-width:767px){html.v1 .site-footer .ft-group__links a{min-height:44px}html.v1 .site-footer .ft__bottom{flex-direction:column;align-items:center;text-align:center}html.v1 .site-footer .ft__bottom .footer-support{flex:none;text-align:center}html.v1 .site-footer .ft__legal{order:2}html.v1 .site-footer .ft-btn{flex:1 1 12rem}}
 @media (prefers-reduced-motion:reduce){html.v1 .site-footer .ft-group[open] .ft-group__links{animation:none}html.v1 .site-footer .ft *{transition:none!important}}
 /* Social profiles. Lives here rather than in v1-families.css because the

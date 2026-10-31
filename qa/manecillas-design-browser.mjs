@@ -227,8 +227,9 @@ try {
         assert.equal(themeList.display, 'grid');
       }
 
-      const footerHeading = await style(page.locator('.site-footer h2').first());
-      assert.equal(footerHeading.color, BLUE);
+      /* The shared dark footer must not inherit the legacy page accent. */
+      const footerHeading = await style(page.locator('.site-footer .ft-group__title').first());
+      assert.notEqual(footerHeading.color, BLUE, `${name}: footer heading adopta el azul legacy`);
 
       const launcher = page.locator('.assistant-widget__launcher');
       await launcher.waitFor({ state: 'attached', timeout: 4000 });
@@ -250,10 +251,11 @@ try {
       await waitForStyle(submitLocator, 'backgroundColor', DEEP);
       assert.equal((await style(submitLocator)).color, 'rgb(255, 255, 255)');
 
-      const social = page.locator('.site-footer .social-icon').first();
+      /* The redesigned dark footer uses its own brass hover, not the legacy blue. */
+      const social = page.locator('.site-footer .ft-social').first();
       await social.hover();
-      await waitForStyle(social, 'backgroundColor', BLUE);
-      assert.equal((await style(social)).color, 'rgb(255, 255, 255)');
+      await waitForStyle(social, 'backgroundColor', 'rgb(185, 154, 99)');
+      await waitForStyle(social, 'color', 'rgb(23, 20, 18)');
 
       await page.locator('[data-explore-open]').click();
       const dialog = page.locator('[data-explore-dialog]');
