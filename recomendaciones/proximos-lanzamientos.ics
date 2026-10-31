@@ -5,6 +5,16 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Próximos lanzamientos de libros recomendados
 BEGIN:VEVENT
+UID:isbn-9788433951199@davidportodiaz.com
+DTSTAMP:20261031T000000Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:Sale a la venta: Este deseo no es el mío
+DESCRIPTION:Andrea Proenza · Editorial Anagrama
+URL:https://davidportodiaz.com/recomendaciones/libros/este-deseo-no-es-el-m
+ io-9788433951199/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788433951182@davidportodiaz.com
 DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20261104
@@ -73,6 +83,16 @@ SUMMARY:Sale a la venta: Manifiesto por otra economía y otra política
 DESCRIPTION:Emanuele Felice · Editorial Anagrama
 URL:https://davidportodiaz.com/recomendaciones/libros/manifiesto-por-otra-e
  conomia-y-otra-politica-9788433951267/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788433951205@davidportodiaz.com
+DTSTAMP:20261031T000000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+SUMMARY:Sale a la venta: ¿Nos quedamos o nos vamos?
+DESCRIPTION:Lionel Shriver · Editorial Anagrama
+URL:https://davidportodiaz.com/recomendaciones/libros/nos-quedamos-o-nos-va
+ mos-9788433951205/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951670@davidportodiaz.com
