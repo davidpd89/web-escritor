@@ -1,31 +1,31 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-30T22:09:15Z",
+  "generated_at": "2026-10-31T10:14:14Z",
   "networks": [
     {
       "id": "bluesky",
       "profile_url": "https://bsky.app/profile/davidportoescritor.bsky.social",
-      "followers": 5097,
-      "observed_at": "2026-10-30T22:09:15Z",
-      "valid_until": "2026-11-01T22:09:15Z",
+      "followers": 5098,
+      "observed_at": "2026-10-31T10:14:14Z",
+      "valid_until": "2026-11-02T10:14:14Z",
       "source": "bluesky-public-appview",
       "status": "ok"
     },
     {
       "id": "mastodon",
       "profile_url": "https://mastodon.social/@davidportodiaz",
-      "followers": 1297,
-      "observed_at": "2026-10-30T22:09:15Z",
-      "valid_until": "2026-11-01T22:09:15Z",
+      "followers": 1303,
+      "observed_at": "2026-10-31T10:14:14Z",
+      "valid_until": "2026-11-02T10:14:14Z",
       "source": "mastodon-public-search",
       "status": "ok"
     },
     {
       "id": "threads",
       "profile_url": "https://www.threads.com/@davidportodiaz",
-      "followers": 339,
-      "observed_at": "2026-10-29",
-      "valid_until": "2026-10-31T22:59:59Z",
+      "followers": 345,
+      "observed_at": "2026-10-30",
+      "valid_until": "2026-11-01T22:59:59Z",
       "source": "metricool-mcp-export",
       "status": "ok"
     },
@@ -51,14 +51,14 @@
       "id": "pinterest",
       "profile_url": "https://www.pinterest.com/davidportodiaz/",
       "followers": 8,
-      "observed_at": "2026-10-29",
-      "valid_until": "2026-10-31T22:59:59Z",
+      "observed_at": "2026-10-30",
+      "valid_until": "2026-11-01T22:59:59Z",
       "source": "metricool-mcp-export",
       "status": "ok"
     }
   ],
   "totals": {
-    "follower_relationships": 9920,
+    "follower_relationships": 9933,
     "valid_until": "2026-10-31T22:59:59Z",
     "coverage": 6,
     "eligible": 6,

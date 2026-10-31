@@ -405,7 +405,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
     for source in providers:
         for index in source['index_urls']:
             try:
-                document = http.get(index, ttl=12 * 3600).decode('utf-8')
+                document = http.get(index, ttl=12 * 3600).decode('utf-8', errors='replace')
                 for url in discover_links(source, document, index):
                     queue.setdefault(url, source)
             except (OSError, ValueError, TimeoutError) as exc:
