@@ -60,7 +60,7 @@ def resolve_local(ref: str, page_rel: str) -> str:
 
 
 def main() -> None:
-    assert resolve_local("../assets/v1-shell.css?v=14", "libros/index.html") == REQUIRED_STYLESHEET
+    assert resolve_local("../assets/v1-shell.css?v=15", "libros/index.html") == REQUIRED_STYLESHEET
     assert resolve_local("/assets/v1-shell.js?v=16", "libros/index.html") == REQUIRED_SCRIPT
     assert resolve_local("https://example.com/v1-shell.js", "index.html") == ""
 

@@ -21,6 +21,8 @@ import tempfile
 from zoneinfo import ZoneInfo
 
 # Verified against autor.html and scripts/build-site-shell.py (main, 22/10/2026).
+# Facebook and X added 31/10/2026: the Facebook link is the page Metricool reads
+# (page id checked in gpt_social_public) and the X bio links back to this site.
 PROFILES = {
     "bluesky": "https://bsky.app/profile/davidportoescritor.bsky.social",
     "mastodon": "https://mastodon.social/@davidportodiaz",
@@ -28,13 +30,18 @@ PROFILES = {
     "instagram": "https://www.instagram.com/davidportodiaz/",
     "tiktok": "https://www.tiktok.com/@davidportoescritor",
     "pinterest": "https://www.pinterest.com/davidportodiaz/",
+    "facebook": "https://www.facebook.com/profile.php?id=61590793667301",
+    "x": "https://x.com/davidportodiaz",
 }
-EXPECTED_SOURCES = {"bluesky": "bluesky-public-appview",
-                    "mastodon": "mastodon-public-search",
-                    "threads": "metricool-mcp-export",
-                    "instagram": "metricool-mcp-export",
-                    "tiktok": "metricool-mcp-export",
-                    "pinterest": "metricool-mcp-export"}
+# The page behind the Facebook profile link; Metricool's facebookData holds this id.
+FACEBOOK_PAGE_ID = "1180093231849748"
+# Accepted providers per network. Same-day public profile reads are preferred;
+# Metricool's closed-day export is the fallback where it is connected.
+EXPECTED_SOURCES = {"bluesky": frozenset({"bluesky-public-appview"}),
+                    "mastodon": frozenset({"mastodon-public-search"}),
+                    **{net: frozenset({"metricool-mcp-export", f"{net}-public-profile"})
+                       for net in ("threads", "instagram", "tiktok", "pinterest", "facebook")},
+                    "x": frozenset({"x-public-profile"})}
 MAX_AGE = timedelta(hours=48)
 MAX_INPUT_BYTES = 64_000
 MAX_PUBLIC_COUNT = 2**53 - 1  # JSON numbers must remain exact in JS.
@@ -43,8 +50,8 @@ SOURCE_RE = re.compile(r"[a-z][a-z0-9-]{0,79}\Z")
 UNVERIFIED_PERIOD_FIELDS = ("views_30d", "impressions_30d", "interactions_30d")
 # Exact set of follower candidates returned by the already-tested #705 reader.
 # Public profile URLs and Metricool account handles independently checked.
-# Accept Threads, Instagram, TikTok, Pinterest from this connected brand.
-# Bluesky retains public AppView; Facebook, X, YouTube remain unverified.
+# Accept Threads, Instagram, TikTok, Pinterest, Facebook from this connected brand.
+# Bluesky retains public AppView; X and YouTube are not connected there.
 METRICOOL_BATCH_KIND = "metricool-follower-candidates"
 METRICOOL_CANDIDATES = frozenset((
     "bluesky", "threads", "instagram", "facebook",
@@ -88,7 +95,7 @@ def public_records(source: object) -> list[dict]:
                 raise ValueError("Unverified period metric in Metricool batch")
         if record.get("followers") is not None and record.get("observed_at") != day:
             raise ValueError("Metricool candidate date differs from batch")
-        if identity in ("threads", "instagram", "tiktok", "pinterest"):
+        if identity in ("threads", "instagram", "tiktok", "pinterest", "facebook"):
             selected.append(record)
     return selected
 
@@ -118,7 +125,7 @@ def normalize(source: object, now: datetime) -> tuple[str, dict]:
     name = source.get("source")
     if not isinstance(name, str) or not SOURCE_RE.fullmatch(name):
         raise ValueError(f"{key}: source must be a short nonempty identifier")
-    if name != EXPECTED_SOURCES[key]:
+    if name not in EXPECTED_SOURCES[key]:
         raise ValueError(f"{key}: wrong provider for network")
     if source.get("status") not in ("ok", "partial"):
         raise ValueError(f"{key}: unexpected source status")

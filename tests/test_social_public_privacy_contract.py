@@ -13,7 +13,7 @@ class PublicSocialPrivacyContract(unittest.TestCase):
         allowed_network = {'id', 'profile_url', 'followers', 'observed_at', 'valid_until', 'source', 'status'}
         allowed_totals = {'follower_relationships', 'valid_until', 'coverage', 'eligible', 'label'}
         self.assertEqual(set(data['totals']), allowed_totals, f'{PUBLIC}: campos agregados no autorizados')
-        self.assertEqual(len(data['networks']), 6, f'{PUBLIC}: número de redes inesperado')
+        self.assertEqual(len(data['networks']), 8, f'{PUBLIC}: número de redes inesperado')
         for network in data['networks']:
             self.assertEqual(set(network), allowed_network, f'{PUBLIC}: campos no públicos en {network.get("id")}')
             self.assertIsInstance(network['profile_url'], str)

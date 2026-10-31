@@ -54,24 +54,25 @@ def metricool_batch(include_threads=True):
 
 
 class ComposeTests(unittest.TestCase):
-    def test_batch_counts_only_four_verified_metricool_profiles(self):
+    def test_batch_counts_only_five_verified_metricool_profiles(self):
         public = sc.compose([metricool_batch()], now=NOW)
-        self.assertEqual(public["totals"]["coverage"], 4)
-        self.assertEqual(public["totals"]["follower_relationships"], 313)
+        self.assertEqual(public["totals"]["coverage"], 5)
+        self.assertEqual(public["totals"]["follower_relationships"], 413)
         self.assertEqual(public["networks"][2]["id"], "threads")
         self.assertTrue(all(x["followers"] is None for x in public["networks"][:2]))
         self.assertEqual([r["id"] for r in public["networks"][3:]],
-                         ["instagram", "tiktok", "pinterest"])
+                         ["instagram", "tiktok", "pinterest", "facebook", "x"])
+        self.assertIsNone(public["networks"][-1]["followers"])  # Metricool "twitter" is not X
 
     def test_bundle_and_public_readers_do_not_double_count_bluesky(self):
         public = sc.compose([metricool_batch(), bsky(), mastodon()], now=NOW)
-        self.assertEqual(public["totals"]["coverage"], 6)
-        self.assertEqual(public["totals"]["follower_relationships"], 324)
+        self.assertEqual(public["totals"]["coverage"], 7)
+        self.assertEqual(public["totals"]["follower_relationships"], 424)
 
     def test_batch_without_threads_does_not_extend_public_account_list(self):
         public = sc.compose([metricool_batch(include_threads=False)], now=NOW)
-        self.assertEqual(public["totals"]["coverage"], 3)
-        self.assertEqual(public["totals"]["eligible"], 6)
+        self.assertEqual(public["totals"]["coverage"], 4)
+        self.assertEqual(public["totals"]["eligible"], 8)
 
     def test_batch_duplicate_candidate_rejected(self):
         batch = metricool_batch()
@@ -116,18 +117,18 @@ class ComposeTests(unittest.TestCase):
             target = Path(tmp) / "last-good.json"
             batch = metricool_batch(include_threads=False)
             batch["records"] = [r for r in batch["records"]
-                                if r["id"] in ("bluesky", "facebook", "youtube", "twitter")]
+                                if r["id"] in ("bluesky", "youtube", "twitter")]
             src.write_text(json.dumps(batch), encoding="utf-8")
             target.write_text('{"old": true}', encoding="utf-8")
             with redirect_stderr(io.StringIO()):
                 self.assertEqual(sc.main([str(src), "--output", str(target)]), 1)
             self.assertEqual(json.loads(target.read_text()), {"old": True})
 
-    def test_six_profiles_aggregate_with_three_sources_and_pending_others(self):
+    def test_profiles_aggregate_with_three_sources_and_pending_others(self):
         result = sc.compose([threads(), bsky(), mastodon()], now=NOW)
         self.assertEqual(result["totals"]["follower_relationships"], 18)
         self.assertEqual(result["totals"]["coverage"], 3)
-        self.assertEqual(result["totals"]["eligible"], 6)
+        self.assertEqual(result["totals"]["eligible"], 8)
         self.assertEqual([r["id"] for r in result["networks"]], list(sc.PROFILES))
         self.assertEqual(result["generated_at"], "2026-10-22T12:00:00Z")
 
