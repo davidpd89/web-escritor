@@ -742,13 +742,15 @@ def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: st
                   has_note: bool = False) -> str:
     """Pie en banda oscura: marca centrada, redes, dos acciones gemelas y
     los grupos del registro como desplegables (<details name> exclusivos,
-    cerrados por defecto y funcionales sin JS)."""
+    funcionales sin JS). «Obra» empieza abierto para que los dos libros sean
+    enlaces directos visibles en cualquier pantalla; el resto, cerrados)."""
     groups = footer_groups_with_extras(nav, by_id, extras, rel_path)
     navs: list[str] = []
     for group_name, entries in groups.items():
         links = "".join(link(entry, current_path) for entry in entries)
+        is_open = " open" if group_name == "Obra" else ""
         navs.append(
-            f'      <nav aria-label="{group_name}"><details class="ft-group" name="ft-nav">'
+            f'      <nav aria-label="{group_name}"><details class="ft-group" name="ft-nav"{is_open}>'
             f'<summary><h2><span class="ft-group__title">{group_name}</span></h2>{FOOTER_CHEVRON}</summary>'
             f'<div class="ft-group__links">{links}</div></details></nav>'
         )

@@ -106,7 +106,7 @@ html.v1 .site-footer .ft__nav nav{display:block;min-width:0;overflow-wrap:break-
 html.v1 .site-footer .ft-group>summary{display:flex;align-items:center;justify-content:space-between;gap:.75rem;min-height:3.5rem;padding:.9rem .15rem;list-style:none;cursor:pointer;border-bottom:1px solid var(--ft-line);transition:border-color var(--motion-state) var(--ease-standard)}
 html.v1 .site-footer .ft-group>summary::-webkit-details-marker{display:none}
 html.v1 .site-footer .ft-group>summary::marker{content:""}
-html.v1 .site-footer .ft-group h2{margin:0;font:inherit;line-height:1.2}
+html.v1 .site-footer .ft-group h2{margin:0;min-width:0;font:inherit;line-height:1.2;overflow-wrap:anywhere}
 html.v1 .site-footer .ft-group__title{font-family:var(--font-ui);font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ft-ink);transition:color var(--motion-state) var(--ease-standard)}
 html.v1 .site-footer .ft-group__chevron{width:1.1rem;height:1.1rem;flex:none;color:var(--ft-brass);transition:transform var(--motion-state) var(--ease-standard)}
 html.v1 .site-footer .ft-group>summary:hover .ft-group__title,html.v1 .site-footer .ft-group[open]>summary .ft-group__title{color:var(--ft-brass-hi)}
