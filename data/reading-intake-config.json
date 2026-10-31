@@ -100,6 +100,46 @@
       ],
       "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
       "enabled": true
+    },
+    {
+      "id": "duomo-es",
+      "provider": "generic",
+      "hosts": [
+        "www.duomoediciones.com"
+      ],
+      "cover_hosts": [
+        "www.duomoediciones.com"
+      ],
+      "index_urls": [
+        "https://www.duomoediciones.com/"
+      ],
+      "product_path": "/libro/[a-z0-9-]+/",
+      "default_publisher": "Duomo Ediciones",
+      "author_link": "/autor/",
+      "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "enabled": true
+    },
+    {
+      "id": "periferica-es",
+      "provider": "generic",
+      "hosts": [
+        "www.editorialperiferica.com"
+      ],
+      "cover_hosts": [
+        "www.editorialperiferica.com"
+      ],
+      "index_urls": [
+        "https://www.editorialperiferica.com/"
+      ],
+      "product_path": "/libros/[a-z0-9-]+/",
+      "default_publisher": "Editorial Periférica",
+      "author_link": "/autor/",
+      "default_format": "tapa-blanda",
+      "regex": {
+        "sinopsis": "id=\"description\"[^>]*>(.*?)<div class=\"text-right\""
+      },
+      "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "enabled": true
     }
   ],
   "publisher_aliases": [
