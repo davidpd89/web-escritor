@@ -257,6 +257,7 @@ PREVIEW_COPY = {
     "author": "Biografía, obra y trayectoria.",
     "press": "Apariciones, materiales y agenda.",
     "site-map": "Índice completo para recorrer todo el sitio por secciones.",
+    "lectores-beta": "Lee material sin publicar o envía tu manuscrito.",
 }
 # Copy de la aside de preview (distinto del de la fila: la fila usa la
 # etiqueta corta, la aside la frase larga que se ve al abrir el diálogo).
@@ -270,7 +271,20 @@ PREVIEW_ASIDE_COPY = {
     "author": "Biografía, obra y trayectoria.",
     "press": "Apariciones, materiales y agenda.",
     "site-map": "Índice completo para recorrer todo el sitio por secciones.",
+    "lectores-beta": "Lee material sin publicar y comparte una opinión honesta, o envía tu manuscrito para recibir la suya.",
 }
+
+
+def explore_rows_source(nav: dict) -> list[dict]:
+    """Filas de primer nivel de Explorar y de la barra de la home, en orden.
+
+    `exploreTerritories` son los 5 territorios canónicos (contrato vigilado por
+    check-navigation-coverage.py); `exploreExtras` añade filas de igual peso
+    que no son territorio (Lectores beta). Antes esas filas las inyectaba
+    v1-editorial-interior-v4.js con otra forma (dos filas planas en Explorar y
+    un desplegable en la home) y sin red sin JS; ahora salen de aquí, iguales
+    en los dos menús y en todas las páginas."""
+    return [*nav.get("exploreTerritories", []), *nav.get("exploreExtras", [])]
 
 
 @dataclass(frozen=True)
@@ -494,7 +508,7 @@ def render_explore_rows(nav: dict, by_id: dict[str, Entry]) -> list[tuple[str, s
 # Each shortcut nests under the territory it actually belongs to (its own
 # small link, not a same-weight sibling row) instead of sitting in a
 # separate "Accesos directos" list -- e.g. "Leer un fragmento" is a child of
-# Obras, not its own numbered entry. exploreUtilities (site-map) isn't
+# Obras, not its own numbered entry. exploreUtilities isn't
 # rendered here at all: it now lives as its own header button.
 EXPLORE_SHORTCUT_PARENTS = {
     "notebook-hub": "notebook-hub",
@@ -519,13 +533,14 @@ def menu_children(nav: dict, by_id: dict[str, Entry], menu_id: str) -> list[tupl
 
 
 def render_explore_territories(nav: dict, by_id: dict[str, Entry]) -> str:
+    rows_source = explore_rows_source(nav)
     children_by_parent = {
         item["id"]: menu_children(nav, by_id, item["id"])
-        for item in nav.get("exploreTerritories", [])
+        for item in rows_source
     }
 
     markup: list[str] = []
-    for index, item in enumerate(nav.get("exploreTerritories", []), 1):
+    for index, item in enumerate(rows_source, 1):
         entry = by_id[item["id"]]
         copy = PREVIEW_COPY.get(item["id"], entry.label)
         children = children_by_parent.get(item["id"], [])
@@ -553,11 +568,39 @@ def render_explore_territories(nav: dict, by_id: dict[str, Entry]) -> str:
     return "\n".join(markup)
 
 
+def render_explore_utilities(nav: dict, by_id: dict[str, Entry]) -> str:
+    """Accesos de utilidad al pie de Explorar (mapa, redes, contacto, apoyo).
+
+    En móvil la cabecera oculta RRSS y Contacto por espacio (v1-shell-lrb-v2.css,
+    <640px) y el comentario de esa hoja dice que «el menú es dueño de la
+    navegación global»: sin esta fila, en un teléfono no había forma de llegar
+    a Redes sociales ni a Contacto desde ningún menú, solo bajando al pie."""
+    contact = '<a href="/prensa.html#contacto">Contacto</a>'
+    links: list[str] = []
+    for item_id in nav.get("exploreUtilities", []):
+        if item_id == "support-project" and not support_active():
+            continue
+        entry = by_id[item_id]
+        links.append(f'<a href="{entry.url}">{entry.short_label}</a>')
+        # Contacto no es una ruta del registro: va justo después de Redes.
+        if item_id == "site-social-stats":
+            links.append(contact)
+    if contact not in links:
+        links.append(contact)
+    if not links:
+        return ""
+    return (
+        '    <nav class="explore-utilities" aria-label="Más accesos">'
+        + "".join(links)
+        + '</nav>\n'
+    )
+
+
 def render_masthead_nav(nav: dict, by_id: dict[str, Entry]) -> str:
     """Barra de territorios de la home (`.masthead-nav`), generada desde la misma
     lista que Explorar para que ambos menús no puedan divergir."""
     items: list[str] = []
-    for item in nav.get("exploreTerritories", []):
+    for item in explore_rows_source(nav):
         entry = by_id[item["id"]]
         children = menu_children(nav, by_id, item["id"])
         panel = f"masthead-submenu-{item['id']}"
@@ -634,6 +677,7 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str, allow_
         f'        <p class="explore-preview__copy" data-preview-copy>{default_copy}</p>\n'
         '      </aside>\n'
         '    </div>\n\n'
+        + render_explore_utilities(nav, by_id)
         + subscribe_markup +
         '  </div>\n'
         '</dialog>\n'

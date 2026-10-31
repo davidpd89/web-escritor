@@ -4,6 +4,7 @@ import math
 import re
 import time
 from html.parser import HTMLParser
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 from urllib.parse import urlsplit
 from urllib.robotparser import RobotFileParser
@@ -67,9 +68,17 @@ def select_goodreads_rating(book, response):
     return None
 
 class GoodreadsPublic:
-    def __init__(self, delay=2):
-        self.delay = delay; self.last = 0; self.robots = None; self.unavailable = False
+    def __init__(self, delay=2, backoff=(20, 60)):
+        self.delay = delay; self.backoff = backoff; self.last = 0; self.robots = None; self.unavailable = False
     def fetch(self, url):
+        # Goodreads answers sporadic 503/429 bursts; wait and retry before giving up the run.
+        for pause in (*self.backoff, None):
+            try:
+                return self.fetch_once(url)
+            except (HTTPError, URLError, TimeoutError) as exc:
+                if pause is None or getattr(exc, 'code', 503) not in (429, 503): raise
+                time.sleep(pause)
+    def fetch_once(self, url):
         time.sleep(max(0, self.delay - (time.monotonic() - self.last))); self.last = time.monotonic()
         with urlopen(Request(url, headers={'User-Agent': AGENT, 'Accept': 'text/html'}), timeout=18) as response:
             final_url = urlsplit(response.url)
@@ -102,4 +111,4 @@ class GoodreadsPublic:
             # A missing ISBN is ordinary; denial/rate limit/transport failure stops the provider.
             if getattr(exc, 'code', None) == 404: return {'books': []}
             self.unavailable = True
-            raise RuntimeError('Goodreads public lookup failed: ' + type(exc).__name__) from exc
+            raise RuntimeError('Goodreads public lookup failed: ' + type(exc).__name__ + (' ' + str(getattr(exc, 'code', '')) if getattr(exc, 'code', None) else '')) from exc

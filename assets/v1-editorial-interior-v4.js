@@ -9,8 +9,6 @@
 
   const MEMORIA_EXTERNAL_URL = 'https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte';
   const MEMORIA_INTERNAL_URL = '/libros/#memoria-tierras-norte';
-  const BETA_READER_URL = '/lectores-beta/';
-  const BETA_MANUSCRIPT_URL = '/lectores-beta/enviar-manuscrito/';
 
   const normalise = (value) => {
     const url = new URL(value, location.origin);
@@ -55,7 +53,8 @@
       links: [
         ['/libros/', 'Todas las obras'],
         ['/las-manecillas-del-recuerdo/', 'Las manecillas del recuerdo'],
-        ['/libros/samuel-entre-mundos/', 'Samuel entre mundos']
+        ['/libros/samuel-entre-mundos/', 'Samuel entre mundos'],
+        ['/libros/#memoria-tierras-norte', 'La memoria de las tierras del norte']
       ]
     },
     {
@@ -93,12 +92,13 @@
     },
     {
       key: 'herramientas', label: 'Herramientas', home: '/herramientas/',
-      matches: (path) => path.startsWith('/herramientas/'),
+      matches: (path) => path.startsWith('/herramientas/') || path === '/clubes-de-lectura/preparar-sesion/' || path === '/recursos/ficha-historia-objeto-heredado/',
       links: [
         ['/herramientas/', 'Todas las herramientas'],
         ['/herramientas/manuscrito/', 'Manuscrito'],
         ['/herramientas/dialogo/', 'Diálogo'],
-        ['/herramientas/repeticiones/', 'Repeticiones']
+        ['/herramientas/repeticiones/', 'Repeticiones'],
+        ['/herramientas/metadatos-libro/', 'Publicar y promocionar']
       ]
     },
     {
@@ -111,13 +111,13 @@
     },
     {
       key: 'autor', label: 'Autor', home: '/autor.html',
-      matches: (path) => path === '/autor.html' || path === '/premios.html' || path.startsWith('/lectores-beta/'),
+      matches: (path) => path === '/autor.html' || path === '/premios.html' || path === '/al-otro-lado/' || path.startsWith('/lectores-beta/'),
       links: [
         ['/autor.html', 'Autor'],
         ['/premios.html', 'Premios'],
+        ['/eventos.html', 'Eventos'],
         ['/cuaderno/', 'Cuaderno'],
-        ['/lectores-beta/', 'Lectores beta'],
-        ['/eventos.html', 'Eventos']
+        ['/lectores-beta/', 'Lectores beta']
       ]
     },
     {
@@ -133,7 +133,12 @@
   ];
 
   function buildContextNav() {
-    if (root.dataset.lrbHome === 'true' || document.querySelector('.section-context')) return;
+    if (root.dataset.lrbHome === 'true') return;
+    const existing = document.querySelector('.section-context');
+    if (existing) {
+      revealActiveContextLink(existing.querySelector('.section-context__links'));
+      return;
+    }
     const context = contexts.find((item) => item.matches(currentPath));
     if (!context) return;
 
@@ -161,16 +166,23 @@
     // specific) prefix qualifies. Scoring every link independently used to
     // let an exact match ("El libro") and its own ancestor family link
     // ("← Obras") both claim aria-current="page" on the same page.
+    // Mirrors FAMILY_ALIASES in scripts/build-section-context-nav.py: las
+    // fichas de sellos del catálogo marcan «Editoriales» aunque el enlace
+    // lleve al directorio general.
+    const familyAliases = { '/editoriales/': ['/recomendaciones/editoriales/'] };
     const scored = context.links.map(([href, label]) => {
       const linkPath = normalise(href);
       const exact = currentPath === linkPath;
-      const familyMatch = !exact && linkPath.endsWith('/') && linkPath !== '/' && currentPath.startsWith(linkPath);
-      return { href, label, linkPath, exact, familyMatch };
+      const matched = [linkPath, ...(familyAliases[linkPath] || [])]
+        .filter((prefix) => prefix.endsWith('/') && prefix !== '/' && currentPath.startsWith(prefix));
+      const familyMatch = !exact && matched.length > 0;
+      const depth = matched.length ? Math.max(...matched.map((prefix) => prefix.length)) : linkPath.length;
+      return { href, label, linkPath, exact, familyMatch, depth };
     });
     const exactMatch = scored.find((item) => item.exact);
     const bestFamilyMatch = !exactMatch && scored
       .filter((item) => item.familyMatch)
-      .sort((a, b) => b.linkPath.length - a.linkPath.length)[0];
+      .sort((a, b) => b.depth - a.depth)[0];
     const currentItem = exactMatch || bestFamilyMatch || null;
     scored.forEach((item) => {
       const link = document.createElement('a');
@@ -184,8 +196,17 @@
     nav.append(inner);
     header.insertAdjacentElement('afterend', nav);
 
-    const active = links.querySelector('[aria-current="page"]');
-    if (active) requestAnimationFrame(() => {
+    revealActiveContextLink(links);
+  }
+
+  // Deja a la vista el enlace actual dentro de la fila desplazable de la barra
+  // de sección. Antes solo se hacía cuando el JS creaba la barra; las ~440
+  // páginas con la barra pre-renderizada (build-section-context-nav.py) nunca
+  // lo hacían, y en tablet/móvil el elemento actual podía quedar fuera.
+  function revealActiveContextLink(links) {
+    const active = links?.querySelector('[aria-current="page"]');
+    if (!active) return;
+    requestAnimationFrame(() => {
       // Element.scrollIntoView() here (even with block/inline:'nearest') was
       // shifting Chromium's sequential focus-navigation starting point to
       // this link on page load, so the very first real Tab press landed on
@@ -193,152 +214,18 @@
       // the strip's own scrollLeft directly reveals the active item in its
       // horizontally-scrollable row without touching document-level scroll
       // or focus navigation at all.
-      const linkLeft = active.offsetLeft;
-      const linkRight = linkLeft + active.offsetWidth;
-      const viewLeft = links.scrollLeft;
-      const viewRight = viewLeft + links.clientWidth;
-      if (linkLeft < viewLeft) links.scrollLeft = linkLeft;
-      else if (linkRight > viewRight) links.scrollLeft = linkRight - links.clientWidth;
+      if (links.scrollWidth <= links.clientWidth) return;
+      const box = active.getBoundingClientRect();
+      const view = links.getBoundingClientRect();
+      if (box.left < view.left) links.scrollLeft -= view.left - box.left;
+      else if (box.right > view.right) links.scrollLeft += box.right - view.right;
     });
   }
 
-  // Mirrors renumberExploreRows in v1-shell.js: flat sequential numbering,
-  // no Secciones/Accesos directos grouping.
-  function renumberExploreRows(list) {
-    [...list.querySelectorAll('.explore-row__index')].forEach((idx, position) => {
-      idx.textContent = String(position + 1);
-    });
-  }
-
-  function makeExploreRow({ href, label, copy, preview }) {
-    const item = document.createElement('div');
-    item.className = 'explore-item';
-    const link = document.createElement('a');
-    link.className = 'explore-row';
-    link.href = href;
-    link.dataset.preview = preview;
-    link.dataset.betaExplore = preview;
-
-    const index = document.createElement('span');
-    index.className = 'explore-row__index';
-    const body = document.createElement('span');
-    body.className = 'explore-row__body';
-    const strong = document.createElement('strong');
-    strong.textContent = label;
-    const small = document.createElement('small');
-    small.textContent = copy;
-    body.append(strong, small);
-    link.append(index, body);
-    item.append(link);
-    return item;
-  }
-
-  function ensureBetaExploreRows() {
-    const dialog = document.querySelector('[data-explore-dialog]');
-    const list = dialog?.querySelector('.explore-list');
-    if (!dialog || !list || list.querySelector('[data-beta-explore]')) return;
-
-    const rows = [
-      makeExploreRow({
-        href: BETA_READER_URL,
-        label: 'Quiero ser lector beta',
-        copy: 'Apúntate para recibir materiales sin publicar y compartir una opinión honesta.',
-        preview: 'lectores-beta'
-      }),
-      makeExploreRow({
-        href: BETA_MANUSCRIPT_URL,
-        label: 'Quiero enviar mi manuscrito',
-        copy: 'Envía tu manuscrito y los lectores beta te dan su opinión sincera antes de publicar.',
-        preview: 'lectores-beta-manuscrito'
-      })
-    ];
-    const assistantLink = list.querySelector('[data-assistant-menu-link]');
-    const assistantItem = assistantLink ? assistantLink.closest('.explore-item') : null;
-    rows.forEach((row) => list.insertBefore(row, assistantItem || null));
-    renumberExploreRows(list);
-
-    const labelNode = dialog.querySelector('[data-preview-label]');
-    const copyNode = dialog.querySelector('[data-preview-copy]');
-    const media = dialog.querySelector('[data-preview-media]');
-    const previews = {
-      'lectores-beta': ['Lectores beta', 'Lee material sin publicar y comparte una opinión honesta en una lista separada de la newsletter.'],
-      'lectores-beta-manuscrito': ['Enviar manuscrito', 'Envía tu manuscrito y los lectores beta te dan su opinión sincera antes de publicar.']
-    };
-    rows.forEach((row) => {
-      const link = row.querySelector('a');
-      if (!link) return;
-      const show = () => {
-        const value = previews[link.dataset.preview];
-        if (!value) return;
-        if (labelNode) labelNode.textContent = value[0];
-        if (copyNode) copyNode.textContent = value[1];
-        if (media) media.dataset.preview = link.dataset.preview;
-      };
-      link.addEventListener('mouseenter', show);
-      link.addEventListener('focus', show);
-    });
-  }
-
-  function ensureHomeBetaNav() {
-    if (root.dataset.lrbHome !== 'true') return;
-    const nav = document.querySelector('.masthead-nav');
-    const list = nav?.querySelector('.masthead-nav__list');
-    if (!nav || !list || list.querySelector('[data-beta-masthead]')) return;
-
-    const item = document.createElement('li');
-    item.className = 'masthead-nav__item';
-    item.dataset.betaMasthead = 'true';
-    const submenuId = 'masthead-submenu-lectores-beta';
-    item.innerHTML = `
-      <a href="/lectores-beta/" data-territory="lectores-beta">Lectores beta</a>
-      <button type="button" class="masthead-nav__submenu-trigger" aria-label="Ver opciones de Lectores beta" aria-expanded="false" aria-controls="${submenuId}">
-        <svg aria-hidden="true" viewBox="0 0 16 16" focusable="false"><path d="m4 6 4 4 4-4"/></svg>
-      </button>
-      <div class="masthead-nav__submenu" id="${submenuId}" aria-label="Opciones de Lectores beta">
-        <a href="${BETA_READER_URL}">Quiero ser lector beta</a>
-        <a href="${BETA_MANUSCRIPT_URL}">Quiero enviar mi manuscrito</a>
-      </div>`;
-    list.append(item);
-
-    const trigger = item.querySelector('.masthead-nav__submenu-trigger');
-    const setDismissed = (dismissed) => {
-      const submenu = item.querySelector(':scope > .masthead-nav__submenu');
-      item.classList.toggle('is-dismissed', dismissed);
-      if (!submenu) return;
-      const props = ['opacity', 'visibility', 'pointer-events', 'transform', 'transition-delay'];
-      if (dismissed) {
-        submenu.style.opacity = '0';
-        submenu.style.visibility = 'hidden';
-        submenu.style.pointerEvents = 'none';
-        submenu.style.transform = 'translateY(-2px)';
-        submenu.style.transitionDelay = '0s';
-      } else {
-        props.forEach((prop) => submenu.style.removeProperty(prop));
-      }
-    };
-    trigger?.addEventListener('click', (event) => {
-      event.stopPropagation();
-      const willOpen = !item.classList.contains('is-open');
-      document.querySelectorAll('.masthead-nav__item.is-open').forEach((other) => {
-        if (other === item) return;
-        other.classList.remove('is-open');
-        other.querySelector('.masthead-nav__submenu-trigger')?.setAttribute('aria-expanded', 'false');
-      });
-      item.classList.toggle('is-open', willOpen);
-      setDismissed(!willOpen);
-      trigger.setAttribute('aria-expanded', String(willOpen));
-    });
-    item.addEventListener('mouseenter', () => setDismissed(false));
-    item.addEventListener('focusin', () => setDismissed(false));
-    item.addEventListener('mouseleave', () => setDismissed(false));
-    item.addEventListener('keydown', (event) => {
-      if (event.key !== 'Escape') return;
-      item.classList.remove('is-open');
-      setDismissed(true);
-      trigger?.setAttribute('aria-expanded', 'false');
-      trigger?.focus({ preventScroll: true });
-    });
-  }
+  /* Lectores beta ya no se inyecta aquí: Explorar y la barra de la home lo
+     reciben estático desde data/navigation.json (exploreExtras) vía
+     scripts/build-site-shell.py, con la misma forma que los demás territorios
+     y también sin JavaScript. */
 
   function normalizeMemoriaLinks(scope = document) {
     scope.querySelectorAll?.(`a[href="${MEMORIA_EXTERNAL_URL}"]`).forEach((link) => {
@@ -425,8 +312,6 @@
 
   function init() {
     normalizeMemoriaLinks();
-    ensureBetaExploreRows();
-    ensureHomeBetaNav();
     buildContextNav();
     buildSiblingPager();
     prepareMediaSlots();

@@ -211,6 +211,11 @@ def google_response(isbn: str, key_env: str, timeout=18) -> dict:
     return obj
 
 
+# Aggregates on thousands of votes move slowly; a short TTL only made them vanish
+# whenever a provider throttled CI for a few days.
+RATING_TTL_DAYS = 30
+
+
 def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
             budget: int, source: str = "google_books") -> tuple[dict, dict]:
     """Merge provider-sourced ratings, keep Goodreads legacy separate.
@@ -235,7 +240,10 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
              if book_id in published_ids}
     # Rotate fair slices to cover the entire growing catalogue.
     offset = (now.astimezone(timezone.utc).date().toordinal() * max(budget, 1)) % len(published) if published else 0
-    queued = published[offset:] + published[:offset]
+    rotated = published[offset:] + published[:offset]
+    # Books without a rating from this source go first, then the ones expiring
+    # soonest: a provider that blocks after a few requests still fills gaps.
+    queued = sorted(rotated, key=lambda b: (b["id"] in after, str(after.get(b["id"], {}).get("caduca_en", ""))))
     for book in queued:
         if stats["attempted"] >= budget:
             break
@@ -267,7 +275,7 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
                 continue
             timestamp = now.astimezone(timezone.utc)
             rated["actualizado_en"] = timestamp.isoformat(timespec="seconds").replace("+00:00", "Z")
-            rated["caduca_en"] = (timestamp + timedelta(days=7)).isoformat(timespec="seconds").replace("+00:00", "Z")
+            rated["caduca_en"] = (timestamp + timedelta(days=RATING_TTL_DAYS)).isoformat(timespec="seconds").replace("+00:00", "Z")
             after[book["id"]] = rated
             stats["updated"] += 1
         except (RuntimeError, OSError, ValueError, TypeError) as exc:

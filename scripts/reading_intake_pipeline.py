@@ -83,6 +83,13 @@ GENRES = {
     'comic': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
     'comics': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
     'comic juvenil': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
+    'manga': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
+    'manga shonen': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
+    'manga seinen': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
+    'manga shojo': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
+    'manga josei': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
+    'manga kodomo': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
+    'comic manga': ('comic-y-novela-grafica', 'Cómic y novela gráfica'),
     'infantil': ('infantil', 'Infantil y juvenil'),
     'ciencia ficcion juvenil': ('ciencia-ficcion', 'Ciencia ficción'),
     'novela romantica juvenil': ('romance', 'Romance'),
@@ -405,7 +412,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
     for source in providers:
         for index in source['index_urls']:
             try:
-                document = http.get(index, ttl=12 * 3600).decode('utf-8')
+                document = http.get(index, ttl=12 * 3600).decode('utf-8', errors='replace')
                 for url in discover_links(source, document, index):
                     queue.setdefault(url, source)
             except (OSError, ValueError, TimeoutError) as exc:
