@@ -35,11 +35,15 @@ ENTRY = {
 }
 LEAD = (
     "Las herramientas, las guías, el catálogo de lecturas y el Atlas literario son gratuitos: "
-    "sin registro y sin muros de pago. Tu aportación los mantiene vivos y ayuda a crear otros nuevos."
+    "sin registro y sin muros de pago. Si te ayudan, un café los mantiene vivos y ayuda a crear otros nuevos."
 )
-SHARE_URL = ("https://wa.me/?text=Herramientas%20gratis%20para%20escritores%20y%20lectores%3A%20"
-             "https%3A%2F%2Fdavidportodiaz.com%2Fherramientas%2F")
-GOODREADS_URL = "https://www.goodreads.com/author/show/66843136.David_Porto_D_az"
+CUP_SVG = (
+    '<svg class="support-cup" viewBox="0 0 64 64" aria-hidden="true" focusable="false">'
+    '<path class="support-cup__steam" d="M25 6c-3 4 3 7 0 11M33 4c-3 4 3 7 0 11M41 6c-3 4 3 7 0 11"/>'
+    '<path class="support-cup__body" d="M12 24h36v14a16 16 0 0 1-16 16h-4a16 16 0 0 1-16-16z"/>'
+    '<path class="support-cup__handle" d="M48 29h3a7 7 0 0 1 0 14h-4"/>'
+    '<path class="support-cup__saucer" d="M6 58h48"/></svg>'
+)
 
 
 META_DESCRIPTION = (
@@ -82,7 +86,7 @@ def render(channels: list[dict]) -> str:
   <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-shell.css?v=8" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
-  <link rel="stylesheet" href="/assets/v1-support.css?v=3" />
+  <link rel="stylesheet" href="/assets/v1-support.css?v=4" />
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
@@ -100,28 +104,19 @@ def render(channels: list[dict]) -> str:
   <header class="site-header" data-header></header>
   <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog></dialog>
   <main id="contenido" class="v1-main" tabindex="-1" data-family="support">
-    <section class="support-hero" aria-labelledby="support-title">
-      <p class="support-kicker">Gracias por estar aquí</p>
-      <h1 id="support-title">Todo es gratis. Si te ayuda, invítame a un café.</h1>
-      <p class="support-lead">{LEAD}</p>
-    </section>
-    <div class="support-methods" aria-label="Formas de aportar">{methods}</div>
-    <p class="support-trust">Aportación única y voluntaria. El pago se hace en PayPal o Ko-fi; esta web no ve ni guarda tus datos.</p>
-    <section class="support-free" aria-labelledby="support-free-title">
-      <h2 id="support-free-title">Lo que mantienes gratis</h2>
-      <ul class="support-free__list">
-        <li><a href="/herramientas/"><strong>Herramientas de escritura</strong><span>Revisan tu texto en el navegador, sin subirlo.</span></a></li>
-        <li><a href="/recomendaciones/"><strong>Libros recomendados</strong><span>Un catálogo de lecturas que crece cada día.</span></a></li>
-        <li><a href="/editoriales/"><strong>Editoriales y concursos</strong><span>Dónde enviar tu manuscrito y cuándo.</span></a></li>
-        <li><a href="/atlas-literario/"><strong>Atlas literario</strong><span>Los lugares reales de los libros, en un mapa.</span></a></li>
-      </ul>
-    </section>
+    <div class="support-sheet">
+      <section class="support-hero" aria-labelledby="support-title">
+        {CUP_SVG}
+        <h1 id="support-title" class="support-title">Gracias por estar aquí</h1>
+        <p class="support-lead">{LEAD}</p>
+      </section>
+      <div class="support-methods" aria-label="Formas de aportar">{methods}</div>
+      <p class="support-trust"><svg class="support-trust__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3"/></svg><span>Aportación única y voluntaria. El pago se hace en PayPal o Ko-fi; esta web no ve ni guarda tus datos.</span></p>
+    </div>
     <section class="support-other" aria-labelledby="support-other-title">
       <h2 id="support-other-title">¿Ahora no puedes? También ayudas así</h2>
       <ul class="support-other__list">
-        <li><a href="{SHARE_URL}" target="_blank" rel="noopener noreferrer">Comparte una herramienta por WhatsApp</a></li>
-        <li><a href="/las-manecillas-del-recuerdo/">Lee o regala mis novelas</a></li>
-        <li><a href="{GOODREADS_URL}" target="_blank" rel="noopener noreferrer">Deja una reseña en Goodreads</a></li>
+        <li><a href="/libros/">Recomienda mis novelas</a></li>
         <li><a href="/redes-sociales/">Sígueme en redes</a></li>
       </ul>
     </section>

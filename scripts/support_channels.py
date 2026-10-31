@@ -26,7 +26,7 @@ CHANNELS = {
     "kofi": {
         "label": "Ko-fi", "host": ("ko-fi.com",), "path": rf"/{HANDLE}",
         "blurb": "¿Prefieres tarjeta y sin registrarte? Invítame a un café en Ko-fi.",
-        "action": "Invitar a un café", "badge": "Tarjeta · sin registro",
+        "action": "Invitar a un café", "badge": "Tarjeta · sin registro", "icon": "cup",
     },
     "buymeacoffee": {
         "label": "Buy Me a Coffee", "host": ("www.buymeacoffee.com", "buymeacoffee.com"), "path": rf"/{HANDLE}",
@@ -69,12 +69,27 @@ def external(href: str, inner: str, label: str, css: str = "support-method") -> 
             f'aria-label="{escape(label, quote=True)}">{inner}</a>')
 
 
+_ICON_PATHS = {
+    # Iconos de trazo propios (sin logotipos de marca): monedero y taza.
+    "wallet": '<path d="M4 8.5A2.5 2.5 0 0 1 6.5 6H19v3"/><path d="M4 8.5V17a2 2 0 0 0 2 2h14V9H6.5A2.5 2.5 0 0 1 4 6.5"/><circle cx="16" cy="14" r="1.2"/>',
+    "cup": '<path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3.5c-1 1.2 1 2.3 0 3.5M12 3.5c-1 1.2 1 2.3 0 3.5"/>',
+}
+
+
+def icon_svg(name: str) -> str:
+    paths = _ICON_PATHS.get(name)
+    if not paths:
+        return ""
+    return (f'<span class="support-method__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false">'
+            f'{paths}</svg></span>')
+
+
 def render_channel(kind: str, url: str) -> str:
     """Una tarjeta por canal: toda la tarjeta es el enlace, sin importes prefijados."""
     url = validate_channel(kind, url)
     spec = CHANNELS[kind]
     badge = f'<span class="support-method__badge">{escape(spec["badge"])}</span>' if spec.get("badge") else ""
-    inner = (f'{badge}<strong class="support-method__name">{escape(spec["label"])}</strong>'
+    inner = (f'{icon_svg(spec.get("icon", "wallet"))}{badge}<strong class="support-method__name">{escape(spec["label"])}</strong>'
              f'<span class="support-method__text">{escape(spec["blurb"])}</span>'
              f'<span class="support-method__action" aria-hidden="true">{escape(spec["action"])}</span>')
     return external(url, inner, f'{spec["action"]} ({spec["label"]}); se abre en otra pestaña',
