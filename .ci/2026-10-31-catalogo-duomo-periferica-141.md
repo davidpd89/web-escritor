@@ -8,7 +8,8 @@ Continúa `.ci/2026-10-31-catalogo-etiquetas-goodreads-ingesta.md` (PR #1019).
   - Último fix: `tests/test_goodreads_redirect_preflight_zone.py` pasa a inspeccionar `fetch_once`. Con el backoff, `urlopen` vive allí; ese test era el que tumbaba python-tests en CI.
 - **#1020** `feat/catalogo-fuentes-duomo-periferica`:
   - Parte de #1019 y añade Duomo, Periférica y la materia por Thema; el catálogo llega a 141 libros.
-  - Hay que rebasarla sobre main cuando #1019 entre (pagefind y sitemap con `--theirs` y regenerar).
+  - Rebasada con `git rebase --onto origin/main 49b5693db` tras el squash de #1019.
+- **#1019 fusionada (0ad4df853) y desplegada.** Comprobado en vivo con Playwright: 121 tarjetas, 0 etiquetas de edad, 0 «consultar ficha», sin desbordamiento a 390 px y css v=17.
 
 ## Cambios (#1020)
 - **`scripts/reading_generic_source.py`:**
@@ -35,13 +36,20 @@ Continúa `.ci/2026-10-31-catalogo-etiquetas-goodreads-ingesta.md` (PR #1019).
   - reading-failure-resilience-browser
 - **SEO:** la ficha ya publica Book, BreadcrumbList y WebPage. `datePublished` solo aparece con fecha completa y ya pasada, que es lo correcto para las novedades futuras.
 
+## Bug en vivo: las estrellas no se veían (corregido en #1020)
+- **Síntoma en producción:** 0 notas visibles. El HTML sí tenía la nota (p. ej. «Goodreads ★★★★★ 3,91 (178)»), pero la caja seguía con `hidden`.
+- **Causa:** `refresh()` pinta primero sin `reading-market.json` y oculta las cajas vacías de las tarjetas. Cuando llegaba el mercado, `renderMarket` las rellenaba pero no les quitaba `hidden`.
+- **Arreglo:** `assets/reading-catalogue.js` pone `box.hidden = false` antes de pintar, y el asset pasa a `v=26` con su hash registrado.
+- **QA:** `qa/catalogue-ratings-trust.mjs` exige que la nota verificada sea visible. Falla sin el arreglo («390px: la nota verificada queda oculta») y pasa con él.
+- **Después del arreglo, todo en verde:** pagefind regenerado (537 páginas, `--check` en verde), ratings-trust, catalogue-browser, device-matrix, commerce, type-selector y v2-browser.
+
 ## Fallos
 - CI #1019 python-tests: el test leía el código fuente de `fetch` → corregido (`49b5693db`).
 - Primer intento de QA sin Playwright: la junction de node_modules estaba mal escapada en bash → se recreó con PowerShell.
 
 ## Pendiente
-- CI y merge de #1019, después rebase de #1020, su CI y su merge.
-- Verificación en vivo de `/recomendaciones/`: 141 libros, sin etiqueta de edad y estrellas visibles.
+- CI y merge de #1020 (commit f42160499).
+- Verificación en vivo después del despliegue: 141 libros, js v=26, estrellas visibles y sin etiqueta de edad.
 - Editoriales descartadas por ahora:
   - Valdemar, Acantilado, Impedimenta y Plataforma: no publican fecha de edición.
   - Asteroide: no da año ni encuadernación.
