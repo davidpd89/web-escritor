@@ -12,7 +12,9 @@ function attr(tag, name) {
 
 for (const [id, profile] of expected) {
   test(`redes-sociales: identidad oficial de ${id}`, () => {
-    const card = html.match(new RegExp('<li\\b[^>]*class="social-card"[^>]*data-network="' + id + '"[^>]*>([\\s\\S]*?)<\\/li>', 'i'));
+    // Networks without a stats card (Pinterest) are linked from their hero chip instead.
+    const item = cls => html.match(new RegExp('<li\\b[^>]*class="' + cls + '"[^>]*data-network="' + id + '"[^>]*>([\\s\\S]*?)<\\/li>', 'i'));
+    const card = item('social-card') ?? item('social-chip');
     assert.ok(card, `/redes-sociales/: falta tarjeta ${id}`);
     const anchor = card[1].match(/<a\b[^>]*>/i);
     assert.ok(anchor, `/redes-sociales/: falta enlace ${id}`);
