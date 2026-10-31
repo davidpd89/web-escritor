@@ -122,6 +122,7 @@ CONTEXTS: tuple[Context, ...] = (
             ("/libros/", "Todas las obras"),
             ("/las-manecillas-del-recuerdo/", "Las manecillas del recuerdo"),
             ("/libros/samuel-entre-mundos/", "Samuel entre mundos"),
+            ("/libros/#memoria-tierras-norte", "La memoria de las tierras del norte"),
         ),
     ),
     Context(
@@ -163,13 +164,16 @@ CONTEXTS: tuple[Context, ...] = (
     ),
     Context(
         key="herramientas", label="Herramientas", home="/herramientas/",
+        # Herramientas publicadas fuera de /herramientas/ (enlazadas desde su
+        # índice): sin esta entrada se quedaban sin barra de sección.
         prefixes=("/herramientas/",),
-        exacts=(),
+        exacts=("/clubes-de-lectura/preparar-sesion/", "/recursos/ficha-historia-objeto-heredado/"),
         links=(
             ("/herramientas/", "Todas las herramientas"),
             ("/herramientas/manuscrito/", "Manuscrito"),
             ("/herramientas/dialogo/", "Diálogo"),
             ("/herramientas/repeticiones/", "Repeticiones"),
+            ("/herramientas/metadatos-libro/", "Publicar y promocionar"),
         ),
     ),
     # La metodología no está en los menús: solo se enlaza desde su propia página y el pie.
@@ -183,13 +187,14 @@ CONTEXTS: tuple[Context, ...] = (
     ),
     Context(
         key="autor", label="Autor", home="/autor.html",
-        prefixes=("/lectores-beta/",), exacts=("/autor.html", "/premios.html"),
+        # Mismo orden que el submenú «Autor» de Explorar (data/navigation.json).
+        prefixes=("/lectores-beta/",), exacts=("/autor.html", "/premios.html", "/al-otro-lado/"),
         links=(
             ("/autor.html", "Autor"),
             ("/premios.html", "Premios"),
+            ("/eventos.html", "Eventos"),
             ("/cuaderno/", "Cuaderno"),
             ("/lectores-beta/", "Lectores beta"),
-            ("/eventos.html", "Eventos"),
         ),
     ),
     Context(
