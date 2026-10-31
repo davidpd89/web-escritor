@@ -84,7 +84,7 @@ def render(channels: list[dict]) -> str:
   <link rel="stylesheet" href="/assets/v1-fonts.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-tokens.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
-  <link rel="stylesheet" href="/assets/v1-shell.css?v=8" />
+  <link rel="stylesheet" href="/assets/v1-shell.css?v=12" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-support.css?v=4" />
   <script type="application/ld+json">
@@ -122,7 +122,7 @@ def render(channels: list[dict]) -> str:
     </section>
   </main>
   <footer class="site-footer"></footer>
-  <script src="/assets/v1-shell.js?v=31" defer></script>
+  <script src="/assets/v1-shell.js?v=32" defer></script>
 </body>
 </html>
 """
