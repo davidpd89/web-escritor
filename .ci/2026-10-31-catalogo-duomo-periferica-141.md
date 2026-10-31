@@ -47,9 +47,14 @@ Continúa `.ci/2026-10-31-catalogo-etiquetas-goodreads-ingesta.md` (PR #1019).
 - CI #1019 python-tests: el test leía el código fuente de `fetch` → corregido (`49b5693db`).
 - Primer intento de QA sin Playwright: la junction de node_modules estaba mal escapada en bash → se recreó con PowerShell.
 
+## En vivo (davidportodiaz.com/recomendaciones/, tras merge 07cbff885 y despliegue 41196845958)
+- **A 390 y a 1280 px:**
+  - 141 libros, `reading-catalogue.js?v=26`.
+  - 29 notas Goodreads visibles y 0 cajas con nota ocultas.
+  - 0 etiquetas de edad, 0 «consultar ficha» y 0 px de scroll horizontal.
+- **Notas:** los 112 libros restantes aún no tienen nota verificada. El refresco por lotes, con 30 días de TTL y los libros sin nota primero, las irá completando.
+
 ## Pendiente
-- CI y merge de #1020 (commit f42160499).
-- Verificación en vivo después del despliegue: 141 libros, js v=26, estrellas visibles y sin etiqueta de edad.
 - Editoriales descartadas por ahora:
   - Valdemar, Acantilado, Impedimenta y Plataforma: no publican fecha de edición.
   - Asteroide: no da año ni encuadernación.
