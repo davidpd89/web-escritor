@@ -861,9 +861,30 @@
           "Biografías y memorias"
         ],
         "numero_paginas": 440,
+        "palabras_clave": [
+          "jorge marti",
+          "la habitacion roja",
+          "indie",
+          "grupo indie",
+          "izal",
+          "sidonie",
+          "libro musica",
+          "biografia musico",
+          "ayer",
+          "indestructibles",
+          "voy a hacerte recordar",
+          "nuevos romanticos",
+          "la moneda en el aire",
+          "in the middle of norway",
+          "la segunda oportunidad",
+          "nunca ganaremos el mundial",
+          "fatiga"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8324491-thickbox_default/cancion-de-amor-definitiva.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2190,
         "sinopsis_breve": "Jorge Martí es líder y cantante de una de las bandas más importantes del indie español: La habitación roja. Pero su vida no es…",
+        "sinopsis_completa": "«Cambio de ánimo, de país y de profesión según las circunstancias. Un día estoy cantando sobre el escenario de un festival abarrotado de gente y al siguiente ejerciendo de enfermero en una residencia para pacientes con demencia y alzhéimer en Noruega. Esta doble vida, entre la música y la enfermedad, me obliga a ir y venir constantemente. Vivo entre dos mundos pero no encajo en ninguno, y todo parece estar siempre a punto de resquebrajarse. El escenario y el amor son una tregua, una burbuja a salvo de todo lo que me asfixia. Me he pasado la vida tratando de ser alguien más allá de mi casa para al final llegar a la conclusión de que lo que me importa es ser alguien en ella. Aquí es donde residen el gran amor de mi vida y mis hijas, y es donde sigo manteniendo intacta la esperanza de escribir algún día la canción de amor definitiva».\n\nJorge Martí es líder y cantante de una de las bandas más importantes del indie español: La habitación roja. Pero su vida no es la que se podría esperar del líder de una banda de rock, tiene una cara A: la que muestra en el escenario cuando canta junto a sus fans a pleno pulmón Ayer o Indestructibles , concede entrevistas y viaja promocionando sus discos. Y una cara B, desconocida para sus miles de fans, la del fracaso, las expectativas no cumplidas, la decepción, la enfermedad, y también el amor y la música, que tal vez sean la misma cosa.",
         "titulo": "Canción de amor definitiva"
       },
       "estado_ingesta": "publicado",
@@ -879,6 +900,57 @@
       "motivo": "Portada editorial ausente",
       "primera_deteccion": "2026-10-20",
       "retry_after": "2026-10-23"
+    },
+    "isbn13:9788401042751": {
+      "datos": {
+        "autores": [
+          "Isabel Allende"
+        ],
+        "coleccion": "Éxitos",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "PLAZA & JANÉS",
+        "editorial_slug": "plaza-y-janes",
+        "encuadernacion": "Tapa dura con sobrecubierta",
+        "fecha_publicacion_edicion": "2026-11-03",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/literatura-contemporanea/643800-libro-la-casa-de-los-espiritus-9788401042751",
+        "fuentes_autores": {
+          "Isabel Allende": "https://www.penguinlibros.com/es/401-isabel-allende"
+        },
+        "idioma": "es",
+        "isbn13": "9788401042751",
+        "materias": [
+          "Literatura contemporánea"
+        ],
+        "numero_paginas": 560,
+        "palabras_clave": [
+          "premio planeta 2026",
+          "la hora antes del alba",
+          "la casa de los espiritus",
+          "violeta isabel allende",
+          "largo petalo de mar",
+          "isabel allende libro s",
+          "mujeres del alma mia",
+          "el amante japones",
+          "paula isabel allende",
+          "afrodita",
+          "cuentos de eva luna",
+          "de amor y de sombra",
+          "el cuaderno"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8358393-thickbox_default/la-casa-de-los-espiritus.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2490,
+        "sinopsis_breve": "En el corazón de la historia están Clara del Valle y Esteban Trueba. Ella es clarividente, excéntrica y capaz de comunicarse con los espíritus.…",
+        "sinopsis_completa": "La casa de los espíritus , la novela que consagró internacionalmente a Isabel Allende y se convirtió en un clásico de la literatura latinoamericana contemporánea , cuenta la historia de la familia Trueba a lo largo de varias generaciones, entrelazando saga familiar, memoria, amor, poder y convulsión política.\n\nEn el corazón de la historia están Clara del Valle y Esteban Trueba. Ella es clarividente, excéntrica y capaz de comunicarse con los espíritus. Él, un terrateniente autoritario cuya ambición y temperamento marcarán para siempre a quienes lo rodean. A su alrededor crecerán hijos y nietos, surgirán amores que desafían las diferencias sociales y las decisiones de una generación dejarán heridas que deberá afrontar la siguiente.\n\nMientras la gran casa de la esquina se llena de cuadernos, secretos y presencias sobrenaturales, el mundo exterior también se transforma. Las desigualdades sociales, la lucha por el poder y la violencia política terminan atravesando los muros de la familia hasta hacer inseparables la historia privada de los Trueba y la historia colectiva de su país.\n\nConsiderada una de las obras más emblemáticas de Isabel Allende, La casa de los espíritus combina elementos del realismo mágico con la novela histórica y la saga familiar para explorar el amor, la memoria, la opresión, las diferencias de clase y las consecuencias de la violencia a través de generaciones.",
+        "titulo": "La casa de los espíritus"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788401042751",
+      "libro_id": "isbn-9788401042751",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
     },
     "isbn13:9788402431332": {
       "datos": {
@@ -1531,6 +1603,49 @@
       "primera_deteccion": "2026-10-22",
       "publicado_en": "2026-10-22"
     },
+    "isbn13:9788408326632": {
+      "datos": {
+        "autores": [
+          "Inma Rubiales"
+        ],
+        "coleccion": "Planeta",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Editorial Planeta",
+        "editorial_slug": "editorial-planeta",
+        "encuadernacion": "Tapa dura con sobrecubierta",
+        "fecha_publicacion_edicion": "2026-10-28",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-hasta-que-nos-quedemos-sin-estrellas-edicion-especial/458229",
+        "fuentes_autores": {
+          "Inma Rubiales": "https://www.planetadelibros.com/autor/inma-rubiales/000056764"
+        },
+        "idioma": "es",
+        "isbn13": "9788408326632",
+        "materias": [
+          "Juvenil"
+        ],
+        "numero_paginas": 600,
+        "palabras_clave": [
+          "Juvenil",
+          "Romántica",
+          "A partir de 16 años",
+          "Influencers"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/31099d85-c179-4f9a-acfa-f36d5e8a4c93/d_360_620/portada_hasta-que-nos-quedemos-sin-estrellas-edicion-especial_inma-rubiales_202606121013.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2390,
+        "sinopsis_breve": "Liam ha perdido su pasión por las redes sociales. Está metido en una relación falsa con Michelle y el...",
+        "sinopsis_completa": "Edición especial de una de las novelas más leídas de Inma Rubiales, con ilustraciones de Vero Navarro\n\nLiam ha perdido su pasión por las redes sociales. Está metido en una relación falsa con Michelle y el...",
+        "titulo": "Hasta que nos quedemos sin estrellas (edición especial)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-hasta-que-nos-quedemos-sin-estrellas-edicion-especial/458229",
+      "isbn13": "9788408326632",
+      "motivo": "Materia editorial no clasificada; queda pendiente",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
     "isbn13:9788408326830": {
       "datos": {
         "autores": [
@@ -2059,7 +2174,7 @@
       "datos": {
         "autores": [
           "Patrik Ouředník",
-          "Bruno Remaury"
+          "Eugenio Baroncelli"
         ],
         "coleccion": "Serie menor",
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
@@ -2281,6 +2396,46 @@
       "primera_deteccion": "2026-10-21",
       "retry_after": "2026-10-24"
     },
+    "isbn13:9788411078399": {
+      "datos": {
+        "autores": [
+          "Reinaldo Arenas"
+        ],
+        "coleccion": "Andanzas",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Tusquets Editores",
+        "editorial_slug": "tusquets-editores",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-14",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-el-portero/458589",
+        "fuentes_autores": {
+          "Reinaldo Arenas": "https://www.planetadelibros.com/autor/reinaldo-arenas/000028899"
+        },
+        "idioma": "es",
+        "isbn13": "9788411078399",
+        "materias": [
+          "Novela literaria"
+        ],
+        "numero_paginas": 232,
+        "palabras_clave": [
+          "Novela literaria",
+          "Novela contemporánea"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/8d31663e-5f0f-4c37-88db-eacb09de1ef9/d_360_620/portada_el-portero_reinaldo-arenas_202608311429.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1990,
+        "sinopsis_breve": "El microcosmos de un rascacielos de Nueva York retratado por la mirada perpleja del portero, un cubano exiliado que, al igual que el propio…",
+        "sinopsis_completa": "El microcosmos de un rascacielos de Nueva York retratado por la mirada perpleja del portero, un cubano exiliado que, al igual que el propio Arenas, es incapaz de adaptarse al American way of life .",
+        "titulo": "El portero"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788411078399",
+      "libro_id": "isbn-9788411078399",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
     "isbn13:9788411078474": {
       "datos": {
         "autores": [
@@ -2457,6 +2612,42 @@
       "primera_deteccion": "2026-10-22",
       "retry_after": "2026-10-29"
     },
+    "isbn13:9788416634361": {
+      "datos": {
+        "autores": [
+          "ANDRE AGASSI"
+        ],
+        "coleccion": "",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2016-10-06",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/open-edicion-bestseller/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788416634361",
+        "materias": [
+          "Biografías y memorias"
+        ],
+        "numero_paginas": 480,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2021/08/9788416634361.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1590,
+        "sinopsis_breve": "Siendo un bebé, le pusieron una raqueta de juguete en la mano. Desde entonces, Agassi no ha hecho otra cosa que golpear pelotas de…",
+        "sinopsis_completa": "Siendo un bebé, le pusieron una raqueta de juguete en la mano. Desde entonces, Agassi no ha hecho otra cosa que golpear pelotas de tenis. Su padre, obsesionado en convertirlo en un astro del deporte, cosntruyó una máquina (el dragón) que disparaba 2.500 pelotas al día contra el pequeño Andre. Escrita por el premio Pulitzer J. R. Moehringer, Open es la semblanza a corazón abierto de André Agassi, que en estas memorias se muestra tal como es: un hombre que debió enfrentarse a las presiones de su familia, de la fama, pero que siempre conservó el valor de la amistad y un sentido altruista de la vida. En esta cautivadora autobiografía, Agassi revela, con sentido del humor y ternura, una vida definida por la contradicción entre un destino impuesto y el anhelo por complacer a quienes lo han sacrificado todo por él. «Odio el tenis, lo detesto con una oscura y secreta pasión, y sin embargo sigo jugando porque no tengo alternativa. Y ese abismo, esa contradicción entre lo que quiero hacer y lo que de hecho hago, es la esencia de mi vida.» Andre Agassi «Formidable e hipnótico.» Rosa Montero «Por favor, no dejen de leerlo.» J. Ernesto Ayala-Dip «El mejor libro que he leído en la última década.» Alessandro Baricco «Cuando terminas sientes que amas al protagonista.» Jesús Carrasco, autor de Intemperie. «Inconmesurable.» Albert Espinosa «Un libro apasionante, no he podido dejar de leerlo.» Juan José Millás «Maravillosamente escrito.» Jordi Puntí «Se lee con diversión y ganas de más.» David Trueba «¡Sorprendente y magnífica lectura!» Sergio Vila-Sanjuán &amp;nbsp; Leer",
+        "titulo": "Open (Edición Bestseller)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/open-edicion-bestseller/",
+      "isbn13": "9788416634361",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
     "isbn13:9788417128203": {
       "datos": {
         "autores": [
@@ -2489,6 +2680,76 @@
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/el-bar-de-las-grandes-esperanzas-edicion-bestseller/",
       "isbn13": "9788417128203",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
+    "isbn13:9788417761943": {
+      "datos": {
+        "autores": [
+          "ELIZABETH STROUT"
+        ],
+        "coleccion": "",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2020-06-10",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/olive-kitteridge-edicion-bestseller/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788417761943",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 324,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2021/08/OliveKitteridgeEDICIONBEST.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1590,
+        "sinopsis_breve": "PREMIO PULITZER UNA NOVELA DE UNA EMOCI&amp;Oacute;N INTENSA Y &amp;Uacute;NICA Olive Kitteridge es una maestra retirada que vive en un peque&amp;ntilde;o lugar de Maine…",
+        "sinopsis_completa": "PREMIO PULITZER UNA NOVELA DE UNA EMOCI&amp;Oacute;N INTENSA Y &amp;Uacute;NICA Olive Kitteridge es una maestra retirada que vive en un peque&amp;ntilde;o lugar de Maine, en Nueva Inglaterra. A veces dura, otras paciente, a veces l&amp;uacute;cida, otras abnegadamente ciega, Olive lamenta las transformaciones que han agitado el peque&amp;ntilde;o pueblo de Crosby y la deriva catastr&amp;oacute;fica que va tomando el mundo entero, pero no siempre se da cuenta de los cambios menos perceptibles que afectan a las personas m&amp;aacute;s cercanas: la desesperaci&amp;oacute;n de un ex alumno que ha perdido las ganas de vivir; la soledad de su hijo, que se siente tiranizado por los irracionales caprichos maternos; y la presencia de su marido, Henry, que vive su fidelidad conyugal como una maldita bendici&amp;oacute;n. Mientras la gente del lugar va afrontando sus problemas, sean leves o graves, Olive va tomando conciencia de s&amp;iacute; misma y de las personas que la rodean, muchas veces dolorosamente, pero siempre con una honestidad entra&amp;ntilde;able. Leer",
+        "titulo": "Olive Kitteridge (Edición Bestseller)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/olive-kitteridge-edicion-bestseller/",
+      "isbn13": "9788417761943",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
+    "isbn13:9788418128721": {
+      "datos": {
+        "autores": [
+          "Nita Prose"
+        ],
+        "coleccion": "Nefelibata",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2023-02-13",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/la-camarera/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788418128721",
+        "materias": [],
+        "numero_paginas": 384,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2022/12/LA_CAMARERA_frontal_397x609.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1980,
+        "sinopsis_breve": "★ Ganadora del premio Goodreads al Mejor Libro de Misterio ★ ★ Bestseller de The Sunday Times y de The New York Times ★…",
+        "sinopsis_completa": "★ Ganadora del premio Goodreads al Mejor Libro de Misterio ★ ★ Bestseller de The Sunday Times y de The New York Times ★ ★ Publicada en más de 40 países. ★ «Una heroína inolvidable, la más interesante y adorable que me he encontrado en mucho tiempo.» Stephen King Un cadáver sobre la cama. Esta vez no será tan fácil dejarlo todo impoluto. Bienvenidos al hotel Regency Grand, donde nada es lo que parece. Molly es una joven camarera en un hotel de lujo. Es tímida y torpe en el trato social. Es también aplicada, comprometida, profesional. Una perfeccionista. En su trabajo, mulle almohadones y arregla los desastres que ocasionan los huéspedes, barriendo sus secretos. Es solo una camarera, y nadie repara en ella. Pero un asombroso hallazgo en una de las suites hace que su vida dé un vuelco, y la obliga a convertirse en detective para limpiar su propio nombre, a adentrarse en un mundo que va más allá de lo aparente. &amp;nbsp; » Mira el booktrailer aquí &amp;nbsp; &amp;nbsp;",
+        "titulo": "La camarera"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/la-camarera/",
+      "isbn13": "9788418128721",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
       "retry_after": "2026-11-03"
@@ -2655,6 +2916,163 @@
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
     },
+    "isbn13:9788419004161": {
+      "datos": {
+        "autores": [
+          "MAURICE LEBLANC"
+        ],
+        "coleccion": "Infantil Juvenil",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2022-03-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/arsene-lupin-contra-herlock-sholmes/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788419004161",
+        "materias": [],
+        "numero_paginas": 252,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2022/02/Lupin3BRILLI.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1200,
+        "sinopsis_breve": "El clásico que inspiró el último éxito de Netflix, LUPIN Una nueva edición de la aventura que catapultó a la fama al legendario ladrón…",
+        "sinopsis_completa": "El clásico que inspiró el último éxito de Netflix, LUPIN Una nueva edición de la aventura que catapultó a la fama al legendario ladrón de guante blanco. Experto en derecho y medicina, diestro en artes marciales, además de prestidigitador y auténtico seductor, Arsène Lupin es un héroe de los bajos fondos a quien nadie gana en sagacidad. En esta entrega, el ladrón de guante blanco por excelencia se encuentra con el popular y emblemático detective Herlock Sholmes. La rivalidad y la diversión están servidas.",
+        "titulo": "Arsène Lupin contra Herlock Sholmes"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/arsene-lupin-contra-herlock-sholmes/",
+      "isbn13": "9788419004161",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
+    "isbn13:9788419004178": {
+      "datos": {
+        "autores": [
+          "Park Minjoon"
+        ],
+        "coleccion": "Los Imperdibles",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2021-12-13",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/dentro-del-juego-del-calamar-luz-verde-a-los-secretos-de-la-serie-manual-de-instrucciones-no-oficial/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788419004178",
+        "materias": [],
+        "numero_paginas": 160,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2022/02/978841900417.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1190,
+        "sinopsis_breve": "ENTRA EN EL MUNDO DEL MAYOR FENÓMENO DE LOS ÚLTIMOS AÑOS... SI TE ATREVES ¿Hasta dónde estarías dispuesto a llegar para saldar tus deudas?…",
+        "sinopsis_completa": "ENTRA EN EL MUNDO DEL MAYOR FENÓMENO DE LOS ÚLTIMOS AÑOS... SI TE ATREVES ¿Hasta dónde estarías dispuesto a llegar para saldar tus deudas? Este manual de instrucciones 100% no oficial de la serie te ofrece todo lo que necesitas para sacar el máximo partido a cada episodio. Disfruta de información exclusiva sobre la historia, los personajes, los secretos de cada juego y cómo ganarlos, y un montón de detalles, análisis y pruebas para que demuestres tus conocimientos y habilidades. Con este libro serás el concursante número 457... Y JUGARÁS CON VENTAJA. El juego del calamar es una de las series de más éxito de la historia. Con cerca de 150 millones de espectadores, se ha convertido en un fenómeno que va mucho más allá de Netflix y ha invadido televisores, dispositivos, redes sociales y prensa... del mundo entero. Esta perturbadora mezcla de juegos infantiles, sangre, lucha por la supervivencia y crítica contra el sistema se inspira en Battle Royale y en el universo manga. En muy poco tiempo ha roto todos los esquemas, ha trascendido a la propia serie y está demostrando que las reglas del juego han cambiado.",
+        "titulo": "Dentro del juego del calamar. Luz verde a los secretos de la serie: Manual de instrucciones no oficial"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/dentro-del-juego-del-calamar-luz-verde-a-los-secretos-de-la-serie-manual-de-instrucciones-no-oficial/",
+      "isbn13": "9788419004178",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
+    "isbn13:9788419004826": {
+      "datos": {
+        "autores": [
+          "Elisabetta Gnone"
+        ],
+        "coleccion": "Infantil Juvenil",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2022-11-07",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/fairy-oak-la-trilogia/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788419004826",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 1008,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2022/10/fairy.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1690,
+        "sinopsis_breve": "Fairy Oak es un pueblo habitado por criaturas mágicas y seres sin poderes, pero es difícil distinguir a las unas de los otros, pues…",
+        "sinopsis_completa": "Fairy Oak es un pueblo habitado por criaturas mágicas y seres sin poderes, pero es difícil distinguir a las unas de los otros, pues magos, brujas y ciudadanos normales viven en sus casas de piedra desde hace tanto tiempo que nadie presta ya atención a sus rarezas recíprocas y todos se parecen un poco. Salvo las hadas, que son muy pequeñas y luminosas, y... vuelan. Esta historia está contada por una de ellas y narra la aventura fabulosa de dos hermanas gemelas, Vainilla y Pervinca.",
+        "titulo": "Fairy Oak. La Trilogía"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/fairy-oak-la-trilogia/",
+      "isbn13": "9788419004826",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
+    "isbn13:9788419357373": {
+      "datos": {
+        "autores": [
+          "Chloe Walsh"
+        ],
+        "coleccion": "Lo más visto",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Juvenil",
+        "editorial": "MONTENA",
+        "editorial_slug": "montena",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2024-01-25",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/337359-libro-binding-13-los-chicos-de-tommen-1-9788419357373",
+        "fuentes_autores": {
+          "Chloe Walsh": "https://www.penguinlibros.com/es/962939-chloe-walsh"
+        },
+        "idioma": "es",
+        "isbn13": "9788419357373",
+        "materias": [
+          "Novela romántica juvenil"
+        ],
+        "numero_paginas": 656,
+        "palabras_clave": [
+          "binding 13",
+          "binding 13 edicion especial",
+          "libro binding 13 español",
+          "mejores libros 2024",
+          "libros juveniles romance",
+          "libro romance",
+          "chloe wal sh español",
+          "boys of tommen",
+          "los chicos de tommen",
+          "colleen hoover",
+          "romper el circulo",
+          "joana marcus",
+          "la quimica del amor",
+          "blinding"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/7690646-thickbox_default/binding-13-los-chicos-de-tommen-1.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1995,
+        "sinopsis_breve": "La vida nunca ha sido fácil para Shannon Lynch. Acosada y torturada por sus antiguas compañeras, llega a Tommen a mitad del año escolar…",
+        "sinopsis_completa": "Hasta ahora han permanecido en lados opuestos del campo, pero cuando sus dos mundos choquen, nada volverá a ser lo mismo.\n\nJohnny Kavanagh lo tiene todo a su favor. En el campo de rugby es una fuerza imparable. Ha nacido para el estrellato y nada detendrá su camino a la cima. Ni siquiera la tímida chica nueva del Instituto Tommen. La de los ojos tristes y los moratones escondidos. La que lo distrae como nunca nadie lo ha hecho.\n\nLa vida nunca ha sido fácil para Shannon Lynch. Acosada y torturada por sus antiguas compañeras, llega a Tommen a mitad del año escolar, rezando por un nuevo comienzo y desesperada por librarse de los demonios de su pasado. En su primer día en la prestigiosa escuela privada, conoce, de forma bastante impactante, al famoso Johnny Kavanagh. Atrapada en un torbellino de sentimientos hacia él y desesperada por pasar desapercibida, Shannon se convierte una vez más en el blanco del acoso, pero la flamante estrella del rugby irlandés resulta ser un aliado de lo más inesperado.\n\nUnidos por su frágil amistad y su innegable química, Johnny y Shannon tendrán que enfrentarse a todos los obstáculos que amenazarán el comienzo de una relación que puede ser mucho más...",
+        "titulo": "Binding 13 (Los chicos de Tommen 1)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/337359-libro-binding-13-los-chicos-de-tommen-1-9788419357373",
+      "isbn13": "9788419357373",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
     "isbn13:9788419378927": {
       "datos": {
         "autores": [
@@ -2785,6 +3203,40 @@
       "libro_id": "isbn-9788419456007",
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-20"
+    },
+    "isbn13:9788419521620": {
+      "datos": {
+        "autores": [
+          "Marta Martín Girón"
+        ],
+        "coleccion": "Los Imperdibles",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2023-09-18",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/dama-blanca/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788419521620",
+        "materias": [],
+        "numero_paginas": 348,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2023/07/Dama-blanca-1.jpeg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1990,
+        "sinopsis_breve": "El thriller del que todos hablan. El primer caso del inspector Yago Reyes. Más de 100.000 lectores Una chica asesinada en los arrozales de…",
+        "sinopsis_completa": "El thriller del que todos hablan. El primer caso del inspector Yago Reyes. Más de 100.000 lectores Una chica asesinada en los arrozales de Cullera. Una investigación a contrarreloj. Un rastro que conduce a una impactante verdad. Los inspectores Yago Reyes y Aines Collado se enfrentan a uno de sus peores casos como agentes de homicidios. Una joven de apenas quince años es hallada muerta y semidesnuda entre unos arrozales de la localidad valenciana de Cullera. ¿Quién podría desear la muerte de la joven? ¿Guarda este caso relación con otras desapariciones? ¿Se trata de un asesino en serie? Comienza así una investigación a contrarreloj para atrapar al culpable. A cada paso dado, aumentan las sospechas de que alguien de su entorno más cercano ha podido ser el responsable de su muerte. ¿Qué se esconde en la mente de un asesino? Un crimen inquietante. Una impactante verdad. » Mira el booktrailer aquí",
+        "titulo": "Dama Blanca"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/dama-blanca/",
+      "isbn13": "9788419521620",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
     },
     "isbn13:9788419834027": {
       "datos": {
@@ -2927,6 +3379,62 @@
       "estado_ingesta": "publicado",
       "isbn13": "9788419868466",
       "libro_id": "isbn-9788419868466",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
+    "isbn13:9788419868480": {
+      "datos": {
+        "autores": [
+          "Lyona"
+        ],
+        "coleccion": "Biblioteca Saint-Exupéry",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 7 años",
+        "editorial": "SALAMANDRA INFANTIL Y JUVENIL",
+        "editorial_slug": "salamandra",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-10-29",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/635099-libro-la-principita-9788419868480",
+        "fuentes_autores": {
+          "Lyona": "https://www.penguinlibros.com/es/91676--lyona"
+        },
+        "idioma": "es",
+        "isbn13": "9788419868480",
+        "materias": [
+          "A partir de 7 años"
+        ],
+        "numero_paginas": 128,
+        "palabras_clave": [
+          "novela grafica",
+          "el principito",
+          "feminismo",
+          "prespectiva feminista",
+          "princesas",
+          "clasicos",
+          "libros de lyona",
+          "cuentos feministas",
+          "libros ilustrados",
+          "para mujeres",
+          "le petite prince",
+          "ilustraciones",
+          "autoras españolas",
+          "igualdad",
+          "libertad",
+          "empoderamiento",
+          "libros para mujeres",
+          "nuevos"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8278771-thickbox_default/la-principita.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1795,
+        "sinopsis_breve": "Una preciosa novela gráfica que aporta una perspectiva feminista del adorado clásico. Tomando la fábula de Saint-Exupéry como punto de partida, Lyona nos ofrece…",
+        "sinopsis_completa": "«¿Viajas sola? -preguntó la princesa.\n\n-¿Tú no lo haces?-respondió la Principita suavemente.\n\n-No, si no me lo ordenan.\n\n-Y entonces ¿qué puedes hacer?\n\n-No tengo que hacer nada, solo estar perfecta y no molestar. Y si alguna vez me pasa algo malo, un príncipe azul vendrá a mi rescate. Mi padre le dará mi mano. Nos casaremos, seremos felices y comeremos perdices.\n\n-Eso no suena a felicidad - replicó la Principita\n\n-Pero todas las niñas sueñan con ser princesas...»\n\nUna preciosa novela gráfica que aporta una perspectiva feminista del adorado clásico. Tomando la fábula de Saint-Exupéry como punto de partida, Lyona nos ofrece una visión valiente que dará voz a muchas y nos hará pensar mientras de esta preciosa aventura.",
+        "titulo": "La principita"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788419868480",
+      "libro_id": "isbn-9788419868480",
       "primera_deteccion": "2026-10-31",
       "publicado_en": "2026-10-31"
     },
@@ -3074,6 +3582,14 @@
       "primera_deteccion": "2026-10-22",
       "publicado_en": "2026-10-22"
     },
+    "isbn13:9788425361401": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/novela-romantica/620371-libro-yo-tambien-no-es-te-quiero-quererte-1-9788425361401",
+      "isbn13": "9788425361401",
+      "motivo": "Portada editorial ausente",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
     "isbn13:9788425371790": {
       "datos": {
         "autores": [
@@ -3175,6 +3691,61 @@
       "libro_id": "isbn-9788425373121",
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-20"
+    },
+    "isbn13:9788425373152": {
+      "datos": {
+        "autores": [
+          "Adrián Díaz Alonso"
+        ],
+        "coleccion": "Bienestar, salud y vida sana",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "GRIJALBO",
+        "editorial_slug": "grijalbo",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-10-29",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/634994-libro-como-no-tener-diabetes-9788425373152",
+        "fuentes_autores": {
+          "Adrián Díaz Alonso": "https://www.penguinlibros.com/es/1019927-adrian-diaz-alonso"
+        },
+        "idioma": "es",
+        "isbn13": "9788425373152",
+        "materias": [
+          "Nutrición, belleza y fitness"
+        ],
+        "numero_paginas": 256,
+        "palabras_clave": [
+          "2026",
+          "alimentación",
+          "autoestima",
+          "azúcar",
+          "carbohidratos",
+          "comida real",
+          "control glucémico",
+          "desarrollo personal",
+          "dia mundial de la diabetes",
+          "diabe tes gestacional",
+          "diabetes libro",
+          "diabetes libros",
+          "diabetes para dummies",
+          "diabetes sin problemas",
+          "diabetes tipo 2",
+          "diabetes",
+          "dieta"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/7890453-thickbox_default/como-no-tener-diabetes.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "Enfermero especialista en pediatría, educador en diabetes y divulgador reconocido a nivel nacional, Adrián lleva veinte años conviviendo con esta afección y más de…",
+        "sinopsis_completa": "La diabetes no avisa. Este libro sí.\n\n¿Sabías que la suma de personas con diabetes en el mundo equivale a la población de Estados Unidos y la Unión Europea juntos? ¿O que el 10% de todo el gasto médico mundial se dedica a tratar esta enfermedad? La diabetes es una de las grandes pandemias silenciosas de nuestro tiempo y a menudo empieza mucho antes de administrar la medicación e incluso de conseguir el diagnóstico.\n\nEn este libro, Adrián Díaz, más conocido como Don Sacarino, cuenta con evidencia, experiencia y mucho sentido común por qué es tan fácil entrar en ese club y, sobre todo, qué puedes hacer para mantener la enfermedad lejos de tu puerta y de la de los tuyos.\n\nEnfermero especialista en pediatría, educador en diabetes y divulgador reconocido a nivel nacional, Adrián lleva veinte años conviviendo con esta afección y más de una década ayudando a miles de personas a entenderla mejor. Sin alarmismo vacío, pero sin edulcorar la realidad, en estas páginas desmonta mitos sobre el azúcar, el peso, el estrés, el sedentarismo o los ultraprocesados, y ofrece herramientas claras para construir una vida más saludable y proteger la salud metabólica.\n\nUna guía muy necesaria para comprender la gran pandemia del siglo XXI y empezar a frenarla a tiempo.",
+        "titulo": "Cómo no tener diabetes"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788425373152",
+      "libro_id": "isbn-9788425373152",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
     },
     "isbn13:9788425374012": {
       "datos": {
@@ -3518,9 +4089,29 @@
           "Literatura contemporánea"
         ],
         "numero_paginas": 152,
+        "palabras_clave": [
+          "alba donati",
+          "wislawa szymborska",
+          "sylvia plath",
+          "emily dickinson",
+          "antonia pozzi",
+          "biografia",
+          "libros recomendados",
+          "novedades libros 2026",
+          "poemar io",
+          "poetas",
+          "virginia woolf",
+          "libros de poesia",
+          "libros feministas",
+          "libros poesia",
+          "cuentos para niñas rebeldes",
+          "la libreria en la co"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/7987985-thickbox_default/esas-muchachas-que-escriben-poemas.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1890,
         "sinopsis_breve": "Pasionales o tímidas, reservadas o atormentadas, deseosas o marginadas, valientes, vitales o llenas de ímpetu... Las jóvenes poetas que pueblan este libro están unidas…",
+        "sinopsis_completa": "Pasionales o tímidas, reservadas o atormentadas, deseosas o marginadas, valientes, vitales o llenas de ímpetu... Las jóvenes poetas que pueblan este libro están unidas por un talento natural para encadenar las palabras, por un amor desinteresado por la literatura y por una firme convicción en la necesidad del cambio. Y, muy a menudo, por desgracia, por el acoso de hombres que no terminan de comprender su grandeza y para quienes ellas no son más que «esas muchachas que escriben poemas».\n\nRetrato tras retrato, este almanaque ilumina lo que Virginia Woolf —cuya presencia se deja sentir en estas páginas— llamaba «momentos de vida». Los herbarios de Dickinson y el complicado tablero familiar en el pequeño paraíso de Amherst; el genio de Ajmátova para eludir la censura estatal y los celos de sus maridos; la inquietud de Antonia Pozzi entre las aulas universitarias y su felicidad en las montañas de su tierra natal; las estrategias con las que Szymborska combatía las obligaciones sociales tras el Premio Nobel; los trajes de moda que una jovencísima Sylvia Plath arrojaba desde un rascacielos de Nueva York como pura performance… Vidas diferentes y distantes en el tiempo, pero unidas por una visión del mundo más fuerte que cualquier cronología: la poesía como vida y la vida como poesía. Alba Donati nos traslada al magnífico caos de estas existencias dedicadas enteramente a la palabra, y consigue que resuenen con fuerza sus voces únicas en este libro singular e inclasificable.",
         "titulo": "Esas muchachas que escriben poemas"
       },
       "estado_ingesta": "publicado",
@@ -3858,6 +4449,76 @@
       "primera_deteccion": "2026-10-31",
       "retry_after": "2026-11-03"
     },
+    "isbn13:9788433951045": {
+      "datos": {
+        "autores": [
+          "Sabrina Duque"
+        ],
+        "coleccion": "Nuevos cuadernos Anagrama",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Editorial Anagrama",
+        "editorial_slug": "editorial-anagrama",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-10-14",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/nuevos-cuadernos-anagrama/plastificados/9788433951045/NCA_114",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788433951045",
+        "materias": [
+          "Ensayo"
+        ],
+        "numero_paginas": 96,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34389_portadas_big.jpeg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1190,
+        "sinopsis_breve": "Nos hemos vuelto seres humanos plastificados. Vivimos rodeados de plástico e ingerimos microplásticos. Es cierto que reciclamos, elaboramos estudios alarmantes sobre las consecuencias de…",
+        "sinopsis_completa": "Nos hemos vuelto seres humanos plastificados. Vivimos rodeados de plástico e ingerimos microplásticos. Es cierto que reciclamos, elaboramos estudios alarmantes sobre las consecuencias de los microplásticos en nuestro organismo e intentamos reducir su consumo. Pero la realidad es que se calcula que la producción mundial de plástico primario alcanzará los mil cien millones de toneladas en 2050. ¿Hay soluciones? ¿Podemos hacer algo como individuos? Este libro es una invitación a tomar conciencia y reaccionar ante esta situación.",
+        "titulo": "Plastificados"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788433951045",
+      "libro_id": "isbn-9788433951045",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
+    "isbn13:9788433951069": {
+      "datos": {
+        "autores": [
+          "Michel Foucault"
+        ],
+        "coleccion": "Argumentos",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Editorial Anagrama",
+        "editorial_slug": "editorial-anagrama",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-10-14",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/argumentos/los-hermafroditas/9788433951069/A_647",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788433951069",
+        "materias": [
+          "Ensayo"
+        ],
+        "numero_paginas": 168,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34392_portadas_big.jpeg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1990,
+        "sinopsis_breve": "En 1978, Michel Foucault anunció un volumen de su Historia de la sexualidad dedicado a los hermafroditas. Sin embargo, al reorientar su investigación hacia…",
+        "sinopsis_completa": "En 1978, Michel Foucault anunció un volumen de su Historia de la sexualidad dedicado a los hermafroditas. Sin embargo, al reorientar su investigación hacia la Antigüedad, renunció a él. Quedó en sus archivos un manuscrito que era un primer esbozo de ese libro anunciado, un texto al que el paso del tiempo ha ido dotando de una renovada actualidad. En él, el filósofo, a partir de la lectura del diario del hermafrodita del siglo XIX Herculine Barbin, elabora la distinción crucial, tanto histórica como teórica, entre sexo anatómico y sexualidad.\n\nA través de varios juicios celebrados entre los siglos XVI y XVIII, plantea tres etapas sucesivas en el modo de afrontar la realidad de los hermafroditas y pone de relieve el paso de un régimen jurídico que atribuía un «sexo por decisión» a otro que postulaba que cada individuo tiene un único sexo «verdadero», que le corresponde a la ciencia médica determinar.\n\nEste importante inédito de Michel Foucault va acompañado de un prefacio de Arianna Sforzini y un epílogo de Éric Fassin, que lo contextualizan y exploran su relevancia y su absoluta vigencia en el mundo contemporáneo.",
+        "titulo": "Los hermafroditas"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788433951069",
+      "libro_id": "isbn-9788433951069",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
     "isbn13:9788433951083": {
       "datos": {
         "autores": [
@@ -3893,6 +4554,41 @@
       "primera_deteccion": "2026-10-31",
       "publicado_en": "2026-10-31"
     },
+    "isbn13:9788433951106": {
+      "datos": {
+        "autores": [
+          "Alaa al Aswani"
+        ],
+        "coleccion": "Panorama de narrativas",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Editorial Anagrama",
+        "editorial_slug": "editorial-anagrama",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-10-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/en-alejandria-los-arboles-caminan/9788433951106/PN_1191",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788433951106",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 448,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34404_portadas_big.jpeg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2390,
+        "sinopsis_breve": "Tras el éxito de La república era esto , Alaa al Aswani regresa con En Alejandría, los árboles caminan , cuyo título remite a…",
+        "sinopsis_completa": "En julio de 1952, la revolución egipcia pone fin a un mundo. Dos años más tarde, Abdul Náser asciende al poder, y sobre la antaño cosmopolita Alejandría comienzan a soplar vientos de transformación.\n\nHubo un tiempo en que esta perla del Mediterráneo fue un refugio de lenguas entrelazadas, cines art déco, cafés literarios y una burguesía ilustrada que vivía de espaldas al desierto y de cara al mar. Pero las consecuencias del colonialismo europeo y el auge del nacionalismo naserista resquebrajan ese frágil equilibrio.\n\nReunidos en el bar del griego Artinos, un grupo de personajes memorables –artistas, abogados, empresarios, libreras, maîtres – entrecruzan sus historias a la vez que contemplan cómo su Alejandría va desapareciendo poco a poco para dar paso a otra que no solo no conocen, sino que tampoco les quiere.\n\nAl Aswani señala con lucidez las grietas de ese derrumbe: el fracaso de las élites, la mediocridad burocrática, el oportunismo político y la lenta imposición de un pensamiento único que sustituye la diversidad por el miedo. Y con la pérdida de la convivencia como primer síntoma de la deriva autoritaria.\n\nTras el éxito de La república era esto , Alaa al Aswani regresa con En Alejandría, los árboles caminan , cuyo título remite a la leyenda de Zarqá al Yamama, la vidente que anunció que los árboles caminaban y fue tomada por loca. Nadie quiso escucharla, y su pueblo fue derrotado por un enemigo que avanzaba camuflado entre ramas. Una advertencia que resuena en estas páginas.\n\nCon una mirada crítica y profundamente humana, Alaa al Aswani –una de las voces más valientes de la literatura egipcia contemporánea– reconstruye la Alejandría de Náser para levantar acta de una desaparición y trazar, al mismo tiempo, una lúcida denuncia de los totalitarismos.",
+        "titulo": "En Alejandría, los árboles caminan"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788433951106",
+      "libro_id": "isbn-9788433951106",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
     "isbn13:9788433951113": {
       "datos": {
         "autores": [
@@ -3917,6 +4613,7 @@
         "precision_fecha": "dia",
         "pvp_centimos": 1390,
         "sinopsis_breve": "El mago de Viena disuelve las fronteras entre los géneros. En un trabajo sin índices, dispuesto en fragmentos oníricos, inverosímiles, reales o irreales, el…",
+        "sinopsis_completa": "Con prólogo de Daniel Saldaña París.\n\nSergio Pitol cuenta, nada más empezar el libro, que, para Robert Louis Stevenson, un aspirante a escritor debe transformarse en un simio con alta capacidad de imitación cuya responsabilidad es leer a sus autores preferidos con una actitud más afín a la del detective que a la del esteta.\n\nEl mago de Viena disuelve las fronteras entre los géneros. En un trabajo sin índices, dispuesto en fragmentos oníricos, inverosímiles, reales o irreales, el autor deja entrever su intensa relación con la escritura, el descubrimiento de su ars poetica. Entre estas páginas, Pitol nos cuenta lo que piensa sobre grandes obras, sobre ciertos géneros, sobre reconocidos autores y sobre sus propias creaciones, o nos relata con anécdotas pintorescas sus viajes, de Varsovia a Xalapa, pasando por Pekín, La Habana y Barcelona, que aparecen como materia literaria y vital.\n\nPara Pitol, escritor, traductor y diplomático, la literatura nunca ha sido imaginaria, sino la sustancia más tangible, más hermosa de la realidad. El mago de Viena es una fricción constante de temas y géneros literarios para potenciar la memoria, la escritura, los autores predilectos, los viajes y descubrir, como creían los alquimistas, que «todo está en todo».",
         "titulo": "El mago de Viena"
       },
       "estado_ingesta": "pendiente_datos",
@@ -3924,7 +4621,7 @@
       "isbn13": "9788433951113",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-30",
-      "retry_after": "2026-11-02"
+      "retry_after": "2026-11-03"
     },
     "isbn13:9788433951151": {
       "datos": {
@@ -4170,6 +4867,41 @@
       "primera_deteccion": "2026-10-30",
       "publicado_en": "2026-10-30"
     },
+    "isbn13:9788433951250": {
+      "datos": {
+        "autores": [
+          "Solvej Balle"
+        ],
+        "coleccion": "Panorama de narrativas",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Editorial Anagrama",
+        "editorial_slug": "editorial-anagrama",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-18",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/el-volumen-del-tiempo-iv/9788433951250/PN_1194",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788433951250",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 192,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34750_portadas_big.jpeg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1990,
+        "sinopsis_breve": "Solvej Balle continúa avanzando en su seductora y retadora heptalogía —«la respuesta de nuestro siglo a Proust», en palabras del crítico del New York…",
+        "sinopsis_completa": "Tara, la protagonista, sigue atrapada en el bucle temporal que se inició un 18 de noviembre, un tiempo detenido en el que siguen apareciendo nuevos personajes, otros náufragos anclados al limbo temporal. ¿Quiénes son y cómo han llegado hasta allí? ¿Comparten todos la misma experiencia? ¿Con qué palabras abordar lo que sucede y el espacio que habitan? ¿Son pobladores de una nueva realidad, un nuevo mundo?\n\nTodos ellos confluyen ahora en una casa en Bremen, que se convierte en una suerte de cuartel general desde el que tratar de encontrar respuestas a su desconcertante situación y también, si es posible, un lenguaje común que les permita describirla y compartirla.\n\nSolvej Balle continúa avanzando en su seductora y retadora heptalogía —«la respuesta de nuestro siglo a Proust», en palabras del crítico del New York Times A. O. Scott—, un fascinante periplo que alcanza ahora su ecuador con nuevas e inquietantes preguntas, insólitos enigmas y dilemas.",
+        "titulo": "El volumen del tiempo IV"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788433951250",
+      "libro_id": "isbn-9788433951250",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
     "isbn13:9788433951267": {
       "datos": {
         "autores": [
@@ -4202,6 +4934,76 @@
       "estado_ingesta": "publicado",
       "isbn13": "9788433951267",
       "libro_id": "isbn-9788433951267",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
+    "isbn13:9788433951298": {
+      "datos": {
+        "autores": [
+          "Jon Lee Anderson"
+        ],
+        "coleccion": "Crónicas",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Editorial Anagrama",
+        "editorial_slug": "editorial-anagrama",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-11",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/cronicas/perder-la-guerra/9788433951298/CR_150",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788433951298",
+        "materias": [
+          "Crónica"
+        ],
+        "numero_paginas": 408,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34668_portadas_big.jpeg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2990,
+        "sinopsis_breve": "Este libro reúne los reportajes que Jon Lee Anderson escribió sobre el terreno para el New Yorker , y que explican lo sucedido entre…",
+        "sinopsis_completa": "Jon Lee Anderson escribió sus primeras crónicas sobre los talibanes en los años ochenta del pasado siglo. Entonces los muyahidines luchaban contra la invasión soviética de Afganistán, con el apoyo encubierto de la CIA, y eran vistos con simpatía por la opinión pública estadounidense.\n\nTodo cambió tras los ataques terroristas del 11-S de 2001: Al Qaeda había contado con la protección de los talibanes afganos y Osama bin Laden podía estar oculto en las montañas de ese país. La reacción estadounidense fue invadir Afganistán con el apoyo de una coalición internacional y tratar de sostener un Gobierno prooccidental.\n\n¿Qué había cambiado en menos de dos décadas para que esos guerreros anticomunistas pasaran a ser sanguinarios antioccidentales y maltratadores de mujeres? ¿Y cómo fue posible que, en otras dos décadas, el intento de democratizar el país se desmoronase y la coalición occidental abandonara Afganistán en manos de los talibanes?\n\nEste libro reúne los reportajes que Jon Lee Anderson escribió sobre el terreno para el New Yorker , y que explican lo sucedido entre 2001 y 2021. El autor retrata con modélica y panorámica mirada periodística el país: desde la situación de las tropas extranjeras y las entrañas del gobierno de Hamid Karzai hasta la realidad cotidiana de los habitantes de Kabul y las zonas rurales, con especial atención a las mujeres.",
+        "titulo": "Perder la guerra"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788433951298",
+      "libro_id": "isbn-9788433951298",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
+    "isbn13:9788433951397": {
+      "datos": {
+        "autores": [
+          "Luna Miguel"
+        ],
+        "coleccion": "La bella Varsovia",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Editorial Anagrama",
+        "editorial_slug": "editorial-anagrama",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-10-28",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/la-bella-varsovia/la-tumba-del-marinero/9788433951397/LBV_34",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788433951397",
+        "materias": [
+          "Poesía"
+        ],
+        "numero_paginas": 136,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34587_portadas_big.jpeg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1490,
+        "sinopsis_breve": "La tumba del marinero es uno de los libros centrales de la obra de Luna Miguel, el punto de partida de lo que después…",
+        "sinopsis_completa": "La tumba del marinero es uno de los libros centrales de la obra de Luna Miguel, el punto de partida de lo que después se convertiría, junto a Los estómagos y El arrecife de las sirenas , en la Trilogía del cuerpo . Ante la pregunta de si es posible cartografiar la herida, la poeta responde con un inventario minucioso de la carne, explorando el sufrimiento palpitante del deseo, la enfermedad o la droga. Así, estos versos, que logran contar una experiencia de vidas dañadas, se despliegan como un libro de poemas narrativo o como una novela de terror somático.\n\nEn la tradición de las grandes videntes del dolor, como Marina Tsvietáieva o Alejandra Pizarnik, la lírica de Luna Miguel se proyecta como el grito de quien cree que, a pesar de los arañazos, las brechas y la metástasis, el cuerpo sigue siendo nuestra ancla al mundo, un lugar de descubrimiento y también placer, porque la literatura más honda se escribe con la sangre todavía caliente.\n\nA través de diez secciones que funcionan como incisiones —desde las «costuras» iniciales hasta la «destrucción» final—, la poeta investiga sobre el origen de la herida y de la cicatriz, porque de ahí surge nuestra identidad: fue la marca de Odiseo en su muslo, aquel surco dejado por el colmillo de un jabalí, lo que permitió a su vieja nodriza reconocerlo.",
+        "titulo": "La tumba del marinero"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788433951397",
+      "libro_id": "isbn-9788433951397",
       "primera_deteccion": "2026-10-31",
       "publicado_en": "2026-10-31"
     },
@@ -5279,6 +6081,49 @@
       "primera_deteccion": "2026-10-22",
       "publicado_en": "2026-10-22"
     },
+    "isbn13:9788467083613": {
+      "datos": {
+        "autores": [
+          "Laura Álvarez (La pediatra Laura)"
+        ],
+        "coleccion": "Espasa Bienestar y Salud",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Espasa",
+        "editorial_slug": "editorial-espasa",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-28",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-preparados-listos-llego-el-bebe/457869",
+        "fuentes_autores": {
+          "Laura Álvarez (La pediatra Laura)": "https://www.planetadelibros.com/autor/laura-alvarez-la-pediatra-laura/000057740"
+        },
+        "idioma": "es",
+        "isbn13": "9788467083613",
+        "materias": [
+          "Para padres"
+        ],
+        "numero_paginas": 272,
+        "palabras_clave": [
+          "Para padres",
+          "Crianza respetuosa",
+          "Embarazo",
+          "Autoayuda",
+          "Crecimiento personal"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/e066f3ea-f8d3-4e22-a265-96581b868ebf/d_360_620/portada_preparados-listos-llego-el-bebe_laura-alvarez-la-pediatra-laura_202609141432.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "En Preparados, listos, ¡llegó el bebé! , la pediatra Laura Álvarez da respuesta a muchas de las dudas que surgen desde el embarazo y…",
+        "sinopsis_completa": "La guía clara, práctica y actual que acompaña a las familias en los primeros años de crianza.\n\nEn Preparados, listos, ¡llegó el bebé! , la pediatra Laura Álvarez da respuesta a muchas de las dudas que surgen desde el embarazo y la llegada del recién nacido hasta las primeras etapas de la infancia: el sueño, la lactancia, la alimentación, el desarrollo, las rabietas, las enfermedades...",
+        "titulo": "Preparados, listos, ¡llegó el bebé!"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788467083613",
+      "libro_id": "isbn-9788467083613",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
     "isbn13:9788467084832": {
       "datos": {
         "autores": [
@@ -5679,6 +6524,41 @@
       "primera_deteccion": "2026-10-31",
       "retry_after": "2026-11-03"
     },
+    "isbn13:9791387574406": {
+      "datos": {
+        "autores": [
+          "AGNÈS MARTIN-LUGAND"
+        ],
+        "coleccion": "Nefelibata",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-10-19",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/los-renaceres/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791387574406",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 400,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/09/Los-renaceres-300-pp-676x1024.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2000,
+        "sinopsis_breve": "LA AUTORA BESTSELLER QUE EMOCIONA A LOS LECTORES «Deslumbrante.» Elle HAY MIRADAS QUE DAÑAN. OTRAS TIENEN EL PODER DE SANAR… Por casualidad, un hombre…",
+        "sinopsis_completa": "LA AUTORA BESTSELLER QUE EMOCIONA A LOS LECTORES «Deslumbrante.» Elle HAY MIRADAS QUE DAÑAN. OTRAS TIENEN EL PODER DE SANAR… Por casualidad, un hombre y una mujer se encuentran en la barra de un bistró. Rebecca se enfrenta a un bloqueo creativo: la inspiración la ha abandonado y las dudas han tomado el control de su vida. Lino es un artesano apasionado por la historia del arte y atormentado por los fantasmas de su pasado. Inclinado a confiar en ella, se sincera antes de desaparecer en la noche. Fascinada por su historia, Rebecca se lanza a buscarlo, decidida a convertirlo en el protagonista de su próxima novela. Conmovedora y luminosa, Los renaceres nos habla de segundas oportunidades, mujeres que se reinventan y vínculos capaces de transformar una vida. Un canto al coraje de renacer cuando el corazón lo pide.",
+        "titulo": "Los renaceres"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387574406",
+      "libro_id": "isbn-9791387574406",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
     "isbn13:9791387574543": {
       "datos": {
         "autores": [
@@ -5782,6 +6662,40 @@
       "primera_deteccion": "2026-10-31",
       "retry_after": "2026-11-03"
     },
+    "isbn13:9791387574819": {
+      "datos": {
+        "autores": [
+          "ZACHARY THOMAS DODSON"
+        ],
+        "coleccion": "Fuera de colección",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-11-02",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/murcielagos-de-la-republica/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791387574819",
+        "materias": [],
+        "numero_paginas": 448,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/09/MdlR_3D.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 3490,
+        "sinopsis_breve": "UNA CARTA SELLADA. UN AMOR QUE ENTRELAZA PASADO Y FUTURO. UNA EXPERIENCIA DE LECTURA ÚNICA. «Una gloriosa demostración de todo lo que el papel…",
+        "sinopsis_completa": "UNA CARTA SELLADA. UN AMOR QUE ENTRELAZA PASADO Y FUTURO. UNA EXPERIENCIA DE LECTURA ÚNICA. «Una gloriosa demostración de todo lo que el papel tradicional todavía puede hacer en manos de un genio creativo. Es una locura hermosa y maravillosa.» The Washington Post «Murciélagos de la República es un maravilloso relato de cartas perdidas y halladas, en la línea de J. J. Abrams y Doug Dorst con S. El barco de Teseo.» Publishers Weekly En 1843, Zadock Thomas debe abandonar a la mujer que ama en Chicago para entregar una carta secreta a un infame general en el frente de guerra. El destino de la volátil República de Texas, así como el futuro de Zadock, dependen de su misión. Pero cuando una nube de murciélagos lo aparta del camino, tropieza con algo inesperado... Trescientos años después, el mundo se ha derrumbado. Zeke Thomas ha heredado de su abuelo, un prestigioso senador, un sobre sellado. Cuando la carta desaparece, Zeke se ve arrastrado a una creciente insurgencia que podría liberarlo… o poner fin a su relación amorosa, al legado de su familia y a la República entera. A medida que ambas historias se entrelazan y la propia Historia comienza a deshilarse, estalla una guerra a través del tiempo entre una civilización perdida, un futuro olvidado y el caos de lo salvaje. «Es difícil no admirar el meticuloso esfuerzo y la ambición del autor.» The New York Times UN VIAJE EXTRAORDINARIO, LA CAUTIVADORA Y EMOCIONANTE TRAVESÍA DE UNOS PERSONAJES CUYAS VIDAS SE ENTRELAZAN A LO LARGO DE 300 AÑOS. Edición tapa dura con acabado en tela en un estuche sellado. Una obra de arte a todo color con ilustraciones, mapas dibujados a mano, tipografías únicas... Un libro con mapas, cartas y materiales especiales. &amp;nbsp; https://www.duomoediciones.com/wp-content/uploads/2026/09/Booktrailer-Murcielagos-De-La-Republica-LOWLOWLOW.mp4",
+        "titulo": "Murciélagos de la República"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/murcielagos-de-la-republica/",
+      "isbn13": "9791387574819",
+      "motivo": "Materia editorial no clasificada; queda pendiente",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
     "isbn13:9791387574833": {
       "datos": {
         "autores": [
@@ -5812,6 +6726,40 @@
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/jane-austen-y-el-incomodo-incidente-de-scargrave-manor/",
       "isbn13": "9791387574833",
+      "motivo": "Materia editorial no clasificada; queda pendiente",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
+    "isbn13:9791387574871": {
+      "datos": {
+        "autores": [
+          "Steve Berry"
+        ],
+        "coleccion": "Los Imperdibles",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-10-19",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/la-lista/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791387574871",
+        "materias": [],
+        "numero_paginas": 448,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/09/9791388273230-661x1024.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2200,
+        "sinopsis_breve": "EL APASIONANTE THRILLER DEL AUTOR BESTSELLER MUNDIAL CON MÁS DE 27 MILLONES DE LECTORES UN PUEBLO PEQUEÑO. UNA EMPRESA CON MÉTODOS POCO ORTODOXOS. UN…",
+        "sinopsis_completa": "EL APASIONANTE THRILLER DEL AUTOR BESTSELLER MUNDIAL CON MÁS DE 27 MILLONES DE LECTORES UN PUEBLO PEQUEÑO. UNA EMPRESA CON MÉTODOS POCO ORTODOXOS. UN HOMBRE ATRAPADO EN UNA CONSPIRACIÓN LETAL. Tras diez años de exilio voluntario, Brent Walker regresa a Concord, la pequeña localidad de Georgia donde creció, para cuidar de su madre enferma y asumir un puesto como abogado de la poderosa Southern Republic, la empresa que sostiene la economía de toda la región. Sin embargo, un secreto inconfesable se esconde bajo la apariencia de una comunidad próspera y ejemplar. Cuando una misteriosa lista llega a sus manos, Brent descubre que alguien lleva décadas dispuesto a hacer cualquier cosa para proteger los beneficios de la compañía… incluso matar. &amp;nbsp;",
+        "titulo": "La lista"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/la-lista/",
+      "isbn13": "9791387574871",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
       "retry_after": "2026-11-03"
@@ -6789,12 +7737,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "A partir de 12 años",
         "editorial": "ALFAGUARA IJC",
+        "editorial_slug": "alfaguara",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-10-08",
         "formato_edicion": "tapa-dura",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/627577-libro-luna-nueva-edicion-especial-limitada-bella-y-jacob-por-el-20-aniversario-9791387949792",
         "fuentes_autores": {
-          "Stephenie Meyer": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/627577-libro-luna-nueva-edicion-especial-limitada-bella-y-jacob-por-el-20-aniversario-9791387949792"
+          "Stephenie Meyer": "https://www.penguinlibros.com/es/6308-stephenie-meyer"
         },
         "idioma": "es",
         "isbn13": "9791387949792",
@@ -6802,15 +7751,40 @@
           "Novela romántica juvenil"
         ],
         "numero_paginas": 576,
+        "palabras_clave": [
+          "luna nueva",
+          "luna nueva edicion especial",
+          "luna nueva libro",
+          "saga crepusculo",
+          "bella swan",
+          "vampiros",
+          "edicion coleccionista",
+          "libros de stepheni e meyer",
+          "20 aniversario",
+          "new moon",
+          "romance",
+          "hombres lobo",
+          "amor",
+          "ilustraciones",
+          "libro ilustrado",
+          "fantasia",
+          "juvenil",
+          "saga",
+          "eclipse",
+          "sol"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8295167-thickbox_default/luna-nueva-edicion-especial-limitada-bella-y-jacob-por-el-20-aniversario.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 3695,
+        "sinopsis_breve": "Para Bella Swan hay una cosa más importante que su propia vida: Edward Cullen. Pero enamorarse de un vampiro es más peligroso de lo…",
+        "sinopsis_completa": "«Cuando el papel me cortó el dedo, solo salió una gota de sangre del pequeño rasguño. Entonces, todo pasó muy rápido. \"¡No!\", rugió Edward. Aturdida y desorientada, miré a los ojos enfurecidos de seis vampiros repentinamente hambrientos.»\n\nPara Bella Swan hay una cosa más importante que su propia vida: Edward Cullen. Pero enamorarse de un vampiro es más peligroso de lo que Bella podría haber imaginado. Edward ya ha rescatado a Bella de las garras de un diabólico vampiro, pero ahora, a medida que su arriesgada relación amenaza todo lo que es cercano y querido para ellos, se dan cuenta de que quizás sus problemas no hayan hecho nada más que empezar...\n\nLa \"Saga Crepúsculo\" ha vendido ya más de 160 millones de copias en todo el mundo y más de 3 millones de ejemplares solo en España:\n\n** Número 1 en la lista de bestsellers de The New York Times y del USA Today.\n\n** Mejor Novela Young Adult de Todos los Tiempos por la revista Time.\n\n** NPR a la Mejor Novela Adolescente.\n\n** Recomendada por el editor de The New York Times.",
         "titulo": "Luna nueva (edición especial limitada «Bella y Jacob» por el 20º aniversario)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/627577-libro-luna-nueva-edicion-especial-limitada-bella-y-jacob-por-el-20-aniversario-9791387949792",
+      "estado_ingesta": "publicado",
       "isbn13": "9791387949792",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20"
+      "libro_id": "isbn-9791387949792",
+      "primera_deteccion": "2026-10-20",
+      "publicado_en": "2026-10-31"
     },
     "isbn13:9791387949884": {
       "datos": {
@@ -7533,6 +8507,111 @@
       "primera_deteccion": "2026-10-20",
       "retry_after": "2026-10-23"
     },
+    "isbn13:9791388042225": {
+      "datos": {
+        "autores": [
+          "Valérie Perrin"
+        ],
+        "coleccion": "Nefelibata",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-06-01",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/cambiar-el-agua-de-las-flores/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388042225",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 464,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/05/Cambiar-el-agua-de-las-flores-300-dpi-copia.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2000,
+        "sinopsis_breve": "UNA NOVELA CELEBRADA Y LEÍDA EN TODO EL MUNDO DE LA AUTORA DEL ÉXITO DE VENTAS INTERNACIONAL TATÁ «Leer esta novela es como flotar…",
+        "sinopsis_completa": "UNA NOVELA CELEBRADA Y LEÍDA EN TODO EL MUNDO DE LA AUTORA DEL ÉXITO DE VENTAS INTERNACIONAL TATÁ «Leer esta novela es como flotar en plena felicidad.» Elle UNA MUJER INOLVIDABLE QUE APRENDE A RECONSTRUIRSE A TRAVÉS DE LAS COSAS SIMPLES. Violette Toussaint es la guarda del cementerio de un pequeño pueblo de Borgoña. Visitantes ocasionales y habituales acuden a la casa de esta mujer luminosa y de gran corazón a resguardarse del frío, compartir confidencias y reconfortarse con el café que ella les ofrece, entre risas y lágrimas. Su vida transcurre al ritmo de esas historias íntimas y sus días parecen destinados a ser así para siempre. Pero, de repente, todo cambia. Un policía llegado de Marsella se presenta con una extraña petición: su madre, recientemente fallecida, había expresado el deseo de ser enterrada en aquel remoto pueblo, en la tumba de un hombre a quien él no conoce. A partir de ese momento, los acontecimientos toman un giro inesperado: emergen vínculos hasta entonces ocultos entre vivos y muertos, y algunas almas que parecían sombrías se revelan, en realidad, llenas de luz. Tras la extraordinaria acogida de Tatá, llega la intensa historia de una mujer que, pese a las pruebas de la vida, sigue creyendo obstinadamente en la felicidad. Con su tan singular talento para hacer excepcional lo ordinario, Perrin crea, alrededor de Cambiar el agua de las flores, un mundo lleno de poesía y humanidad. MATERIAL PARA CLUB DE LECTURA",
+        "titulo": "Cambiar el agua de las flores"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388042225",
+      "libro_id": "isbn-9791388042225",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
+    "isbn13:9791388042256": {
+      "datos": {
+        "autores": [
+          "Alex Landragin"
+        ],
+        "coleccion": "Nefelibata",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-10-26",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/historia-de-dos-almas/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388042256",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 400,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/07/FRONTAL_ALTA_Cruces.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1800,
+        "sinopsis_breve": "DOS LIBROS EN UN LIBRO. TRES HISTORIAS EN UNA NOVELA. UNA EXPERIENCIA DE LECTURA ÚNICA. «Una aventura literaria extraordinaria.» laSexta SIETE VIDAS. TRES MANUSCRITOS.…",
+        "sinopsis_completa": "DOS LIBROS EN UN LIBRO. TRES HISTORIAS EN UNA NOVELA. UNA EXPERIENCIA DE LECTURA ÚNICA. «Una aventura literaria extraordinaria.» laSexta SIETE VIDAS. TRES MANUSCRITOS. DOS ALMAS QUE SE BUSCAN. UN ASESINO… Una rica coleccionista encarga a un encuadernador que reúna tres manuscritos con una única condición: que no los lea. Pero, tras la misteriosa muerte de la mujer, decide romper su promesa. Lo que encuentra en esas páginas son tres historias fascinantes e inquietantes que se entrelazan a través del tiempo y los continentes: un poeta atrapado en una extraña villa cerca de Bruselas; una peligrosa intriga de manuscritos raros y sociedades literarias en el París de entreguerras; y una historia de memoria y olvido que nace en una remota isla del Pacífico y culmina frente a la tumba de un célebre poeta. Un laberinto literario de secretos, destinos cruzados y manuscritos perdidos. UN LIBRO DISEÑADO PARA SER LEÍDO EN DOS DIRECCIONES DIFERENTES, QUE ABARCA CIENTO CINCUENTA AÑOS Y SIETE VIDAS.",
+        "titulo": "Historia de dos almas"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/historia-de-dos-almas/",
+      "isbn13": "9791388042256",
+      "motivo": "Respuesta editorial demasiado grande",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
+    "isbn13:9791388042270": {
+      "datos": {
+        "autores": [
+          "Franck Thilliez"
+        ],
+        "coleccion": "Infantil Juvenil",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-02",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/el-libro-maldito/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388042270",
+        "materias": [],
+        "numero_paginas": 388,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/06/El-libro-maldito-frontal-732x1024.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1990,
+        "sinopsis_breve": "La historia que ha aterrorizado a más de 100.000 jóvenes. ¡Abre un capítulo al día! Leerlo es enfrentarse a lo peor… 1 de diciembre.…",
+        "sinopsis_completa": "La historia que ha aterrorizado a más de 100.000 jóvenes. ¡Abre un capítulo al día! Leerlo es enfrentarse a lo peor… 1 de diciembre. Nael encuentra un cuaderno delante de su casa. Es el cuaderno de Leo, un adolescente secuestrado hace exactamente un año. Desde ese momento, el destino de ambos queda vinculado para siempre. Nael está atrapado en un día que se repite una y otra vez. Un día para descubrir quién es Leo. Un día para salvar su propia vida. Un día para morir. «Acaba de pasar una cosa. Una cosa HORRIBLE. Si alguien llega a leer esto algún día, CUIDADO, detente ahora mismo. No leas la continuación hasta mañana. Es una cuestión de VIDA O MUERTE. ¡MUERTE!» El thriller por entregas del maestro del thriller, Franck Thilliez, con las escalofriantes ilustraciones de Thomas Gilbert. ¡Abre los 24 capítulos sellados en una cuenta atrás que te pondrá los pelos de punta!",
+        "titulo": "El libro maldito"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/el-libro-maldito/",
+      "isbn13": "9791388042270",
+      "motivo": "Materia editorial no clasificada; queda pendiente",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
     "isbn13:9791388042324": {
       "datos": {
         "autores": [
@@ -7821,6 +8900,47 @@
       "libro_id": "isbn-9791388101311",
       "primera_deteccion": "2026-10-26",
       "publicado_en": "2026-10-26"
+    },
+    "isbn13:9791388101595": {
+      "datos": {
+        "autores": [
+          "Drawill"
+        ],
+        "coleccion": "Universo Planeta Manga",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Planeta Cómic",
+        "editorial_slug": "planeta-comic",
+        "encuadernacion": "Rústica sin solapas con s/cub.",
+        "fecha_publicacion_edicion": "2026-10-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-planeta-manga-aten/455526",
+        "fuentes_autores": {
+          "Drawill": "https://www.planetadelibros.com/autor/drawill/000057557"
+        },
+        "idioma": "es",
+        "isbn13": "9791388101595",
+        "materias": [
+          "Manga"
+        ],
+        "numero_paginas": 216,
+        "palabras_clave": [
+          "Manga",
+          "Cómic",
+          "Juvenil"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/726e000e-e11d-43fa-88b9-82cd21b23ae6/d_360_620/portada_planeta-manga-aten_drawill_202606091213.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 995,
+        "sinopsis_breve": "En la antigüedad, Rhim-Vul-Sil y sus compañero s liberaron al imperio de Egipto de la tiranía de un faraón despiadado . Siglos después, la…",
+        "sinopsis_completa": "¡Un trepidante shonen de la mano de Drawill! Mitología egipcia, antiguos héroes y faraones tiranos. Serie de Planeta Manga recopilada en un solo tomo. ¡Con páginas extras y a color!\n\nEn la antigüedad, Rhim-Vul-Sil y sus compañero s liberaron al imperio de Egipto de la tiranía de un faraón despiadado . Siglos después, la historia se repite. Un nuevo faraón ha sumido al pueblo en la...",
+        "titulo": "Planeta Manga: Aten"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388101595",
+      "libro_id": "isbn-9791388101595",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
     },
     "isbn13:9791388101700": {
       "datos": {
@@ -8131,6 +9251,48 @@
       "primera_deteccion": "2026-10-24",
       "publicado_en": "2026-10-24"
     },
+    "isbn13:9791388279263": {
+      "datos": {
+        "autores": [
+          "Juan Manuel García Pincho (@cienciasdelcomportamiento)"
+        ],
+        "coleccion": "Aprender hoy",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Temas de Hoy",
+        "editorial_slug": "temas-de-hoy",
+        "encuadernacion": "Tapa dura sin s/cub. (cartoné)",
+        "fecha_publicacion_edicion": "2026-09-30",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-ciencias-del-comportamiento-edicion-especial/459303",
+        "fuentes_autores": {
+          "Juan Manuel García Pincho (@cienciasdelcomportamiento)": "https://www.planetadelibros.com/autor/juan-manuel-garcia-pincho-cienciasdelcomportamiento/000063984"
+        },
+        "idioma": "es",
+        "isbn13": "9791388279263",
+        "materias": [
+          "Ciencias humanas y sociales"
+        ],
+        "numero_paginas": 512,
+        "palabras_clave": [
+          "Ciencias humanas y sociales",
+          "Autoayuda",
+          "Habilidades sociales",
+          "Psicología"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/6850a847-957a-4a64-81db-4ea1d1245be2/d_360_620/portada_ciencias-del-comportamiento-edicion-especial__202606111708.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2290,
+        "sinopsis_breve": "Juan Manuel ‘Pincho’, experto en ciencias del comportamiento, comunicación no consciente y negociación de incidentes críticos, te ofrece su método para que puedas aplicarlo…",
+        "sinopsis_completa": "Juan Manuel ‘Pincho’, experto en ciencias del comportamiento, comunicación no consciente y negociación de incidentes críticos, te ofrece su método para que puedas aplicarlo en tu día a día y salir victorioso de todas las situaciones que se te pongan por delante. Esta...",
+        "titulo": "Ciencias del comportamiento (Edición especial)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388279263",
+      "libro_id": "isbn-9791388279263",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
     "isbn13:9791388306129": {
       "datos": {
         "autores": [
@@ -8233,6 +9395,76 @@
       "estado_ingesta": "publicado",
       "isbn13": "9791388306181",
       "libro_id": "isbn-9791388306181",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
+    "isbn13:9791388306259": {
+      "datos": {
+        "autores": [
+          "Sigmund Freud"
+        ],
+        "coleccion": "",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Nórdica Libros",
+        "editorial_slug": "nordica-libros",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-09-14",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://nordicalibros.com/product/dos-casos-clinicos/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388306259",
+        "materias": [
+          "Ensayo"
+        ],
+        "numero_paginas": 104,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/09/Freud_SOLOWEB.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 999,
+        "sinopsis_breve": "Dos casos clínicos reúne los célebres estudios de Freud sobre Catalina e Isabel de R. Sigmund Freud no solo fue uno de los más…",
+        "sinopsis_completa": "Dos casos clínicos reúne los célebres estudios de Freud sobre Catalina e Isabel de R. Sigmund Freud no solo fue uno de los más grandes exploradores de la mente humana, sino también un excelente prosista con una amplísima cultura humanística. En ninguna parte quedan mejor reflejadas estas dos facetas como en sus legendarios casos clínicos, cuya estructura, según el novelista John Updike, «tiene una elegancia arquitectónica que iguala a la de los mejores escritores de su tiempo». Este volumen reúne dos de los casos clínicos más importantes estudiados por Freud. Podemos observar su lúcido análisis y cómo se reflejaba en los trastornos psicológicos la violencia sufrida por las mujeres. «Asistimos también a la lectura de la gran novela del psicoanálisis, lo que es tanto como viajar desde la hipnosis al método catártico y desde este a la asociación libre, pero también desde el mapa del cuerpo, con su conjunto de síntomas, al territorio inmaterial del inconsciente». Juan José Millás",
+        "titulo": "Dos casos clínicos"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388306259",
+      "libro_id": "isbn-9791388306259",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
+    "isbn13:9791388306266": {
+      "datos": {
+        "autores": [
+          "Jesús Marchamalo"
+        ],
+        "coleccion": "",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Nórdica Libros",
+        "editorial_slug": "nordica-libros",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-09-28",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://nordicalibros.com/product/retratos-literarios/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388306266",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 352,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/09/Retratos_SOLOWEB.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1499,
+        "sinopsis_breve": "Un volumen excepcional que reúne las diez biografías de escritoras y escritores creadas por Marchamalo y Santos en esta década. Con prólogo de Luis…",
+        "sinopsis_completa": "Un volumen excepcional que reúne las diez biografías de escritoras y escritores creadas por Marchamalo y Santos en esta década. Con prólogo de Luis Landero. «Jesús Marchamalo los escribe, Antonio Santos los ilustra y Diego Moreno los edita. De esa confabulación salen a la luz desde hace ya diez años unos mínimos e ingeniosos libritos que, en unas pocas páginas y grabados, cuentan la biografía antológica de algún escritor célebre, y lo hacen con tanta gracia y significación que, leídos y vistos en un vuelo, nos dejan la impresión de conocer de cerca, y de un modo de lo más original y humano, al escritor de turno. Es más, al término de la lectura, nos sentimos amigos suyos: así de cordial y revelador es el retrato que estos libritos hacen de cada autor». Del prólogo de Luis Landero",
+        "titulo": "Retratos literarios"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388306266",
+      "libro_id": "isbn-9791388306266",
       "primera_deteccion": "2026-10-31",
       "publicado_en": "2026-10-31"
     },
@@ -8339,6 +9571,94 @@
       "primera_deteccion": "2026-10-30",
       "publicado_en": "2026-10-30"
     },
+    "isbn13:9791388387395": {
+      "datos": {
+        "autores": [
+          "Joan Maria Thomàs"
+        ],
+        "coleccion": "Historia",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "DEBATE",
+        "editorial_slug": "debate",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-10-30",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-historia/644265-libro-franquistas-contra-franquistas-9791388387395",
+        "fuentes_autores": {
+          "Joan Maria Thomàs": "https://www.penguinlibros.com/es/743-joan-maria-thomas"
+        },
+        "idioma": "es",
+        "isbn13": "9791388387395",
+        "materias": [
+          "Historia"
+        ],
+        "numero_paginas": 320,
+        "palabras_clave": [
+          "regimen dictadura franquista",
+          "franquismo",
+          "francisco franco",
+          "historia politica de españa siglo xx",
+          "segunda republica",
+          "guerra civil española",
+          "falange española",
+          "bando nacional",
+          "carlis"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8366065-thickbox_default/franquistas-contra-franquistas.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2490,
+        "sinopsis_breve": "El bando «nacional» que venció en la Guerra Civil se mantuvo en el poder durante decenios. Era un conjunto cimentado en la lucha y…",
+        "sinopsis_completa": "El bando «nacional» que venció en la Guerra Civil se mantuvo en el poder durante decenios. Era un conjunto cimentado en la lucha y formado por el ejército, la Iglesia, el partido único creado en 1937, los carlistas de la Comunión Tradicionalista -no siempre integrados en el partido-, los alfonsinos (después juanistas) de Renovación Española, sectores patronales, empresariales, propietarios agrarios y aún decenas de miles de medianos y pequeños campesinos, así como sectores de las clases medias urbanas.\n\nPese a un programa fundamental compartido de anticomunismo y antizquierdismo en general; oposición a la democracia y al liberalismo; catolicismo; uso de la violencia como arma política; y antimasonería; el franquismo incluía sectores distintos que competían a la hora de ganar cuotas de poder, o el poder total. Las poco estudiadas luchas entre franquistas nada más terminar la guerra constituyen la fascinante historia que marcó el devenir del régimen y sus equilibrios internos los siguientes cuarenta años.",
+        "titulo": "Franquistas contra franquistas"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388387395",
+      "libro_id": "isbn-9791388387395",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
+    "isbn13:9791388387715": {
+      "datos": {
+        "autores": [
+          "Heino Falcke"
+        ],
+        "coleccion": "Ciencia y Tecnología",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "DEBATE",
+        "editorial_slug": "debate",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-10-26",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/ciencia-y-tecnologia/643996-libro-la-luz-en-la-oscuridad-9791388387715",
+        "fuentes_autores": {
+          "Heino Falcke": "https://www.penguinlibros.com/es/90525-heino-falcke"
+        },
+        "idioma": "es",
+        "isbn13": "9791388387715",
+        "materias": [
+          "Ciencia y tecnología"
+        ],
+        "numero_paginas": 336,
+        "palabras_clave": [
+          "2021",
+          "en castellano",
+          "en español"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8358350-thickbox_default/la-luz-en-la-oscuridad.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2290,
+        "sinopsis_breve": "El 10 de abril de 2019 un equipo internacional de astrónomos liderados por el profesor Heino Falcke maravilló al mundo publicando la primera imagen…",
+        "sinopsis_completa": "El 10 de abril de 2019 un equipo internacional de astrónomos liderados por el profesor Heino Falcke maravilló al mundo publicando la primera imagen de un agujero negro. Por fin la comunidad científica conseguía la prueba irrefutable de lo que Einstein había predicho en su teoría de la relatividad acerca de estos fenómenos hacía más de cien años. Sin embargo, las implicaciones de este hallazgo van más allá: si bien son objetos relativamente simples de definir, los agujeros negros plantean algunos de los interrogantes más complejos sobre la naturaleza del espacio, del tiempo, y, por último, de nuestra existencia.\n\nEn este libro, Falcke no solo nos narra la emocionante historia de esta proeza científica, sino que da un paso más intentando responder a las grandes preguntas filosóficas que este hito plantea: ¿existe algo más allá de la nada?, ¿puede la ciencia explicar lo inexplicable?, ¿cuál es el origen de nuestra existencia y qué sentido tiene nuestro paso por el mundo?\n\nPara Heino Falcke, la astrofísica y la metafísica, la razón y la fe, no tienen por qué excluirse mutuamente. La luz en la oscuridad es un poderoso alegato a favor de la ciencia que nos habla de lo que sabemos pero también de los misterios que quedan por resolver.",
+        "titulo": "La luz en la oscuridad"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388387715",
+      "libro_id": "isbn-9791388387715",
+      "primera_deteccion": "2026-10-31",
+      "publicado_en": "2026-10-31"
+    },
     "isbn13:9791388437168": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/tematicas/641596-libro-starside-edicion-en-espanol-starside-1-9791388437168",
@@ -8347,11 +9667,35 @@
       "primera_deteccion": "2026-10-21",
       "retry_after": "2026-10-24"
     },
+    "url:https://www.anagrama-ed.es/libro/llibres-anagrama/el-volum-del-temps-iv/9788433951274/LA_149": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.anagrama-ed.es/libro/llibres-anagrama/el-volum-del-temps-iv/9788433951274/LA_149",
+      "isbn13": null,
+      "motivo": "Edición no identificada como castellano",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
+    "url:https://www.duomoediciones.com/libro/el-libro-de-las-palabras/": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/el-libro-de-las-palabras/",
+      "isbn13": null,
+      "motivo": "Encuadernación desconocida o no física",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
     "url:https://www.duomoediciones.com/libro/el-ultimo-oso/": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/el-ultimo-oso/",
       "isbn13": null,
       "motivo": "Edición no identificada como castellano",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
+    "url:https://www.duomoediciones.com/libro/la-dependienta-edicion-especial-de-lujo/": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/la-dependienta-edicion-especial-de-lujo/",
+      "isbn13": null,
+      "motivo": "Fecha editorial ausente o inválida",
       "primera_deteccion": "2026-10-31",
       "retry_after": "2026-11-03"
     },
@@ -8419,6 +9763,14 @@
       "primera_deteccion": "2026-10-24",
       "retry_after": "2026-10-27"
     },
+    "url:https://www.planetadelibros.com/libro-benvinguts-a-bord-els-escriu-el-seu-comandant/458663": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-benvinguts-a-bord-els-escriu-el-seu-comandant/458663",
+      "isbn13": null,
+      "motivo": "Edición no identificada como castellano",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
+    },
     "url:https://www.planetadelibros.com/libro-calendario-cachorritos-2027/455516": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-calendario-cachorritos-2027/455516",
@@ -8458,6 +9810,14 @@
       "motivo": "Faltan título, autoría, sello o ISBN comprobable",
       "primera_deteccion": "2026-10-22",
       "retry_after": "2026-10-25"
+    },
+    "url:https://www.planetadelibros.com/libro-creepy-n-2529/363731": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-creepy-n-2529/363731",
+      "isbn13": null,
+      "motivo": "Faltan título, autoría, sello o ISBN comprobable",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
     },
     "url:https://www.planetadelibros.com/libro-crimen-antes-de-navidad/456038": {
       "estado_ingesta": "pendiente_datos",
@@ -8594,6 +9954,14 @@
       "motivo": "Faltan título, autoría, sello o ISBN comprobable",
       "primera_deteccion": "2026-10-24",
       "retry_after": "2026-10-27"
+    },
+    "url:https://www.planetadelibros.com/libro-pesadilla-antes-de-navidad-guia-visual-definitiva/426951": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-pesadilla-antes-de-navidad-guia-visual-definitiva/426951",
+      "isbn13": null,
+      "motivo": "Faltan título, autoría, sello o ISBN comprobable",
+      "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-03"
     },
     "url:https://www.planetadelibros.com/libro-spooky-love/454057": {
       "estado_ingesta": "pendiente_datos",

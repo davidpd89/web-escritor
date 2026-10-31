@@ -512,6 +512,33 @@
       "orden": 206,
       "slug": "filosofia",
       "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Crónica.",
+      "id": "tema-cronica",
+      "nombre": "Crónica",
+      "orden": 207,
+      "slug": "tema-cronica",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Ciencias humanas y sociales.",
+      "id": "tema-ciencias-humanas-y-sociales",
+      "nombre": "Ciencias humanas y sociales",
+      "orden": 208,
+      "slug": "tema-ciencias-humanas-y-sociales",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Ciencia y tecnología.",
+      "id": "tema-ciencia-y-tecnologia",
+      "nombre": "Ciencia y tecnología",
+      "orden": 209,
+      "slug": "tema-ciencia-y-tecnologia",
+      "tipo": "tematica"
     }
   ],
   "libro_categorias": [
@@ -550,22 +577,6 @@
     {
       "categoria_id": "misterio-y-thriller",
       "libro_id": "lib-0001"
-    },
-    {
-      "categoria_id": "biografias-y-memorias",
-      "libro_id": "isbn-9788401042119"
-    },
-    {
-      "categoria_id": "adultos",
-      "libro_id": "isbn-9788401042119"
-    },
-    {
-      "categoria_id": "narrativa",
-      "libro_id": "isbn-9788426434272"
-    },
-    {
-      "categoria_id": "adultos",
-      "libro_id": "isbn-9788426434272"
     },
     {
       "categoria_id": "biografias-y-memorias",
@@ -730,22 +741,6 @@
     {
       "categoria_id": "aventuras",
       "libro_id": "lib-0001"
-    },
-    {
-      "categoria_id": "tema-amor-y-pareja",
-      "libro_id": "isbn-9788401042119"
-    },
-    {
-      "categoria_id": "poesia",
-      "libro_id": "isbn-9788426434272"
-    },
-    {
-      "categoria_id": "biografias-y-memorias",
-      "libro_id": "isbn-9788426434272"
-    },
-    {
-      "categoria_id": "tema-mujeres",
-      "libro_id": "isbn-9788426434272"
     },
     {
       "categoria_id": "humor",
@@ -1934,6 +1929,190 @@
     {
       "categoria_id": "narrativa",
       "libro_id": "isbn-9791387574666"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788426434272"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788426434272"
+    },
+    {
+      "categoria_id": "poesia",
+      "libro_id": "isbn-9788426434272"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788426434272"
+    },
+    {
+      "categoria_id": "tema-mujeres",
+      "libro_id": "isbn-9788426434272"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788401042119"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788401042119"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788401042119"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9791387574406"
+    },
+    {
+      "categoria_id": "historia",
+      "libro_id": "isbn-9791388387395"
+    },
+    {
+      "categoria_id": "tema-poder-y-politica",
+      "libro_id": "isbn-9791388387395"
+    },
+    {
+      "categoria_id": "epoca-siglo-xx",
+      "libro_id": "isbn-9791388387395"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791388387395"
+    },
+    {
+      "categoria_id": "ensayo",
+      "libro_id": "isbn-9788433951045"
+    },
+    {
+      "categoria_id": "ensayo",
+      "libro_id": "isbn-9791388306259"
+    },
+    {
+      "categoria_id": "tema-cronica",
+      "libro_id": "isbn-9788433951298"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9791388042225"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9791388306266"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-7-anos",
+      "libro_id": "isbn-9788419868480"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788419868480"
+    },
+    {
+      "categoria_id": "comic-y-novela-grafica",
+      "libro_id": "isbn-9788419868480"
+    },
+    {
+      "categoria_id": "tema-mujeres",
+      "libro_id": "isbn-9788419868480"
+    },
+    {
+      "categoria_id": "ensayo",
+      "libro_id": "isbn-9788433951069"
+    },
+    {
+      "categoria_id": "familia-y-crianza",
+      "libro_id": "isbn-9788467083613"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788467083613"
+    },
+    {
+      "categoria_id": "nutricion-y-bienestar",
+      "libro_id": "isbn-9788467083613"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788401042751"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788401042751"
+    },
+    {
+      "categoria_id": "tema-mujeres",
+      "libro_id": "isbn-9788401042751"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788401042751"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788433951106"
+    },
+    {
+      "categoria_id": "tema-ciencias-humanas-y-sociales",
+      "libro_id": "isbn-9791388279263"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9791388279263"
+    },
+    {
+      "categoria_id": "nutricion-y-bienestar",
+      "libro_id": "isbn-9788425373152"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788425373152"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788425373152"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788411078399"
+    },
+    {
+      "categoria_id": "poesia",
+      "libro_id": "isbn-9788433951397"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788433951250"
+    },
+    {
+      "categoria_id": "comic-y-novela-grafica",
+      "libro_id": "isbn-9791388101595"
+    },
+    {
+      "categoria_id": "tema-ciencia-y-tecnologia",
+      "libro_id": "isbn-9791388387715"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791388387715"
+    },
+    {
+      "categoria_id": "juvenil",
+      "libro_id": "isbn-9791387949792"
+    },
+    {
+      "categoria_id": "romance",
+      "libro_id": "isbn-9791387949792"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9791387949792"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9791387949792"
     }
   ],
   "libros": [
@@ -2409,9 +2588,9 @@
       "editorial": "Plaza & Janés",
       "editorial_slug": "plaza-y-janes",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-21",
+      "fecha_actualizacion": "2026-10-31",
       "fecha_publicacion": "2026-10-09",
-      "fecha_verificacion": "2026-10-20",
+      "fecha_verificacion": "2026-10-31",
       "formato_edicion": "tapa-blanda",
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-biografias/641920-libro-cancion-de-amor-definitiva-9788401042119",
       "fuente_edad_url": "https://www.penguinlibros.com/es/libro-de-biografias/641920-libro-cancion-de-amor-definitiva-9788401042119",
@@ -2423,11 +2602,11 @@
       "portada_alto": 1235,
       "portada_ancho": 800,
       "portada_edicion_verificada": true,
-      "portada_fecha_revision": "2026-10-20",
+      "portada_fecha_revision": "2026-10-31",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8324491-thickbox_default/cancion-de-amor-definitiva.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401042119.webp",
       "pvp_centimos": 2190,
-      "pvp_fecha_verificacion": "2026-10-21",
+      "pvp_fecha_verificacion": "2026-10-31",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -2436,7 +2615,7 @@
         }
       ],
       "sinopsis_breve": "Jorge Martí es líder y cantante de una de las bandas más importantes del indie español: La habitación roja. Pero su vida no es…",
-      "sinopsis_completa": "«Cambio de ánimo, de país y de profesión según las circunstancias. Un día estoy cantando sobre el escenario de un festival abarrotado de gente y al siguiente ejerciendo de enfermero en una residencia para pacientes con demencia y alzhéimer en Noruega. Esta doble vida, entre la música y la enfermedad, me obliga a ir y venir constantemente. Vivo entre dos mundos pero no encajo en ninguno, y todo parece estar siempre a punto de resquebrajarse. El escenario y el amor son una tregua, una burbuja a salvo de todo lo que me asfixia. Me he pasado la vida tratando de ser alguien más allá de mi casa para al final llegar a la conclusión de que lo que me importa es ser alguien en ella. Aquí es donde residen el gran amor de mi vida y mis hijas, y es donde sigo manteniendo intacta la esperanza de escribir algún día la canción de amor definitiva».\n\nJorge Martí es líder y cantante de una de las bandas más importantes del indie español: La habitación roja. Pero su vida no es la que se podría esperar del líder de una banda de rock, tiene una cara A: la que muestra en el escenario cuando canta junto a sus fans a pleno pulmón Ayer o Indestructibles, concede entrevistas y viaja promocionando sus discos. Y una cara B, desconocida para sus miles de fans, la del fracaso, las expectativas no cumplidas, la decepción, la enfermedad, y también el amor y la música, que tal vez sean la misma cosa.",
+      "sinopsis_completa": "«Cambio de ánimo, de país y de profesión según las circunstancias. Un día estoy cantando sobre el escenario de un festival abarrotado de gente y al siguiente ejerciendo de enfermero en una residencia para pacientes con demencia y alzhéimer en Noruega. Esta doble vida, entre la música y la enfermedad, me obliga a ir y venir constantemente. Vivo entre dos mundos pero no encajo en ninguno, y todo parece estar siempre a punto de resquebrajarse. El escenario y el amor son una tregua, una burbuja a salvo de todo lo que me asfixia. Me he pasado la vida tratando de ser alguien más allá de mi casa para al final llegar a la conclusión de que lo que me importa es ser alguien en ella. Aquí es donde residen el gran amor de mi vida y mis hijas, y es donde sigo manteniendo intacta la esperanza de escribir algún día la canción de amor definitiva».\n\nJorge Martí es líder y cantante de una de las bandas más importantes del indie español: La habitación roja. Pero su vida no es la que se podría esperar del líder de una banda de rock, tiene una cara A: la que muestra en el escenario cuando canta junto a sus fans a pleno pulmón Ayer o Indestructibles , concede entrevistas y viaja promocionando sus discos. Y una cara B, desconocida para sus miles de fans, la del fracaso, las expectativas no cumplidas, la decepción, la enfermedad, y también el amor y la música, que tal vez sean la misma cosa.",
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/641920-libro-cancion-de-amor-definitiva-9788401042119",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "cancion-de-amor-definitiva-9788401042119",
@@ -2456,9 +2635,9 @@
       "editorial": "Lumen",
       "editorial_slug": "lumen",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-21",
+      "fecha_actualizacion": "2026-10-31",
       "fecha_publicacion": "2026-10-08",
-      "fecha_verificacion": "2026-10-20",
+      "fecha_verificacion": "2026-10-31",
       "formato_edicion": "tapa-blanda",
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635022-libro-esas-muchachas-que-escriben-poemas-9788426434272",
       "fuente_edad_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635022-libro-esas-muchachas-que-escriben-poemas-9788426434272",
@@ -2470,11 +2649,11 @@
       "portada_alto": 1235,
       "portada_ancho": 800,
       "portada_edicion_verificada": true,
-      "portada_fecha_revision": "2026-10-20",
+      "portada_fecha_revision": "2026-10-31",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7987985-thickbox_default/esas-muchachas-que-escriben-poemas.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788426434272.webp",
       "pvp_centimos": 1890,
-      "pvp_fecha_verificacion": "2026-10-21",
+      "pvp_fecha_verificacion": "2026-10-31",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -8485,6 +8664,918 @@
       "sinopsis_tipo": "extracto_editorial",
       "slug": "yo-que-te-he-querido-tanto-9791387574666",
       "titulo": "Yo que te he querido tanto"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387574406&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "AGNÈS MARTIN-LUGAND"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Los renaceres, de AGNÈS MARTIN-LUGAND. Edición de Duomo Ediciones en castellano, en tapa blanda. Consta de 400 páginas. La editorial la incluye en narrativa. Publicación editorial: 2026-10-19.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Duomo Ediciones",
+      "editorial": "Duomo Ediciones",
+      "editorial_slug": "duomo-ediciones",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-10-19",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/los-renaceres/",
+      "fuente_publicacion_url": "https://www.duomoediciones.com/libro/los-renaceres/",
+      "id": "isbn-9791387574406",
+      "idioma": "es",
+      "isbn13": "9791387574406",
+      "numero_paginas": 400,
+      "portada_alto": 1024,
+      "portada_ancho": 676,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/09/Los-renaceres-300-pp-676x1024.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387574406.webp",
+      "pvp_centimos": 2000,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387574406"
+        }
+      ],
+      "sinopsis_breve": "LA AUTORA BESTSELLER QUE EMOCIONA A LOS LECTORES «Deslumbrante.» Elle HAY MIRADAS QUE DAÑAN. OTRAS TIENEN EL PODER DE SANAR… Por casualidad, un hombre…",
+      "sinopsis_completa": "LA AUTORA BESTSELLER QUE EMOCIONA A LOS LECTORES «Deslumbrante.» Elle HAY MIRADAS QUE DAÑAN. OTRAS TIENEN EL PODER DE SANAR… Por casualidad, un hombre y una mujer se encuentran en la barra de un bistró. Rebecca se enfrenta a un bloqueo creativo: la inspiración la ha abandonado y las dudas han tomado el control de su vida. Lino es un artesano apasionado por la historia del arte y atormentado por los fantasmas de su pasado. Inclinado a confiar en ella, se sincera antes de desaparecer en la noche. Fascinada por su historia, Rebecca se lanza a buscarlo, decidida a convertirlo en el protagonista de su próxima novela. Conmovedora y luminosa, Los renaceres nos habla de segundas oportunidades, mujeres que se reinventan y vínculos capaces de transformar una vida. Un canto al coraje de renacer cuando el corazón lo pide.",
+      "sinopsis_fuente_url": "https://www.duomoediciones.com/libro/los-renaceres/",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "los-renaceres-9791387574406",
+      "titulo": "Los renaceres"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388387395&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Joan Maria Thomàs"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Franquistas contra franquistas, de Joan Maria Thomàs. Edición de Debate en castellano, en tapa blanda con solapas. Consta de 320 páginas. La editorial la incluye en historia. Publicación editorial: 2026-10-30.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Debate",
+      "editorial": "Debate",
+      "editorial_catalogo_slug": "debate",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-10-30",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-historia/644265-libro-franquistas-contra-franquistas-9791388387395",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-historia/644265-libro-franquistas-contra-franquistas-9791388387395",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-historia/644265-libro-franquistas-contra-franquistas-9791388387395",
+      "id": "isbn-9791388387395",
+      "idioma": "es",
+      "isbn13": "9791388387395",
+      "numero_paginas": 320,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8366065-thickbox_default/franquistas-contra-franquistas.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388387395.webp",
+      "pvp_centimos": 2490,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388387395"
+        }
+      ],
+      "sinopsis_breve": "El bando «nacional» que venció en la Guerra Civil se mantuvo en el poder durante decenios. Era un conjunto cimentado en la lucha y…",
+      "sinopsis_completa": "El bando «nacional» que venció en la Guerra Civil se mantuvo en el poder durante decenios. Era un conjunto cimentado en la lucha y formado por el ejército, la Iglesia, el partido único creado en 1937, los carlistas de la Comunión Tradicionalista -no siempre integrados en el partido-, los alfonsinos (después juanistas) de Renovación Española, sectores patronales, empresariales, propietarios agrarios y aún decenas de miles de medianos y pequeños campesinos, así como sectores de las clases medias urbanas.\n\nPese a un programa fundamental compartido de anticomunismo y antizquierdismo en general; oposición a la democracia y al liberalismo; catolicismo; uso de la violencia como arma política; y antimasonería; el franquismo incluía sectores distintos que competían a la hora de ganar cuotas de poder, o el poder total. Las poco estudiadas luchas entre franquistas nada más terminar la guerra constituyen la fascinante historia que marcó el devenir del régimen y sus equilibrios internos los siguientes cuarenta años.",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-historia/644265-libro-franquistas-contra-franquistas-9791388387395",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "franquistas-contra-franquistas-9791388387395",
+      "titulo": "Franquistas contra franquistas"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951045&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Sabrina Duque"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Plastificados, de Sabrina Duque. Edición de Editorial Anagrama en castellano, en tapa blanda. Consta de 96 páginas. La editorial la incluye en ensayo. Publicación editorial: 2026-10-14.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Editorial Anagrama",
+      "editorial": "Editorial Anagrama",
+      "editorial_slug": "editorial-anagrama",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-10-14",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/nuevos-cuadernos-anagrama/plastificados/9788433951045/NCA_114",
+      "fuente_publicacion_url": "https://www.anagrama-ed.es/libro/nuevos-cuadernos-anagrama/plastificados/9788433951045/NCA_114",
+      "id": "isbn-9788433951045",
+      "idioma": "es",
+      "isbn13": "9788433951045",
+      "numero_paginas": 96,
+      "portada_alto": 1200,
+      "portada_ancho": 720,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34389_portadas_big.jpeg",
+      "portada_local": "/assets/reading-covers/isbn-9788433951045.webp",
+      "pvp_centimos": 1190,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788433951045"
+        }
+      ],
+      "sinopsis_breve": "Nos hemos vuelto seres humanos plastificados. Vivimos rodeados de plástico e ingerimos microplásticos. Es cierto que reciclamos, elaboramos estudios alarmantes sobre las consecuencias de…",
+      "sinopsis_completa": "Nos hemos vuelto seres humanos plastificados. Vivimos rodeados de plástico e ingerimos microplásticos. Es cierto que reciclamos, elaboramos estudios alarmantes sobre las consecuencias de los microplásticos en nuestro organismo e intentamos reducir su consumo. Pero la realidad es que se calcula que la producción mundial de plástico primario alcanzará los mil cien millones de toneladas en 2050. ¿Hay soluciones? ¿Podemos hacer algo como individuos? Este libro es una invitación a tomar conciencia y reaccionar ante esta situación.",
+      "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/nuevos-cuadernos-anagrama/plastificados/9788433951045/NCA_114",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "plastificados-9788433951045",
+      "titulo": "Plastificados"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388306259&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Sigmund Freud"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Dos casos clínicos, de Sigmund Freud. Edición de Nórdica Libros en castellano, en tapa blanda. Consta de 104 páginas. La editorial la incluye en ensayo. Publicación editorial: 2026-09-14.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Nórdica Libros",
+      "editorial": "Nórdica Libros",
+      "editorial_slug": "nordica-libros",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-09-14",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://nordicalibros.com/product/dos-casos-clinicos/",
+      "fuente_publicacion_url": "https://nordicalibros.com/product/dos-casos-clinicos/",
+      "id": "isbn-9791388306259",
+      "idioma": "es",
+      "isbn13": "9791388306259",
+      "numero_paginas": 104,
+      "portada_alto": 855,
+      "portada_ancho": 596,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/09/Freud_SOLOWEB.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388306259.webp",
+      "pvp_centimos": 999,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388306259"
+        }
+      ],
+      "sinopsis_breve": "Dos casos clínicos reúne los célebres estudios de Freud sobre Catalina e Isabel de R. Sigmund Freud no solo fue uno de los más…",
+      "sinopsis_completa": "Dos casos clínicos reúne los célebres estudios de Freud sobre Catalina e Isabel de R. Sigmund Freud no solo fue uno de los más grandes exploradores de la mente humana, sino también un excelente prosista con una amplísima cultura humanística. En ninguna parte quedan mejor reflejadas estas dos facetas como en sus legendarios casos clínicos, cuya estructura, según el novelista John Updike, «tiene una elegancia arquitectónica que iguala a la de los mejores escritores de su tiempo». Este volumen reúne dos de los casos clínicos más importantes estudiados por Freud. Podemos observar su lúcido análisis y cómo se reflejaba en los trastornos psicológicos la violencia sufrida por las mujeres. «Asistimos también a la lectura de la gran novela del psicoanálisis, lo que es tanto como viajar desde la hipnosis al método catártico y desde este a la asociación libre, pero también desde el mapa del cuerpo, con su conjunto de síntomas, al territorio inmaterial del inconsciente». Juan José Millás",
+      "sinopsis_fuente_url": "https://nordicalibros.com/product/dos-casos-clinicos/",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "dos-casos-clinicos-9791388306259",
+      "titulo": "Dos casos clínicos"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951298&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jon Lee Anderson"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Perder la guerra, de Jon Lee Anderson. Edición de Editorial Anagrama en castellano, en tapa blanda. Consta de 408 páginas. La editorial la incluye en crónica. Publicación editorial: 2026-11-11.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Editorial Anagrama",
+      "editorial": "Editorial Anagrama",
+      "editorial_slug": "editorial-anagrama",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-11-11",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/cronicas/perder-la-guerra/9788433951298/CR_150",
+      "fuente_publicacion_url": "https://www.anagrama-ed.es/libro/cronicas/perder-la-guerra/9788433951298/CR_150",
+      "id": "isbn-9788433951298",
+      "idioma": "es",
+      "isbn13": "9788433951298",
+      "numero_paginas": 408,
+      "portada_alto": 1130,
+      "portada_ancho": 719,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34668_portadas_big.jpeg",
+      "portada_local": "/assets/reading-covers/isbn-9788433951298.webp",
+      "pvp_centimos": 2990,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788433951298"
+        }
+      ],
+      "sinopsis_breve": "Este libro reúne los reportajes que Jon Lee Anderson escribió sobre el terreno para el New Yorker , y que explican lo sucedido entre…",
+      "sinopsis_completa": "Jon Lee Anderson escribió sus primeras crónicas sobre los talibanes en los años ochenta del pasado siglo. Entonces los muyahidines luchaban contra la invasión soviética de Afganistán, con el apoyo encubierto de la CIA, y eran vistos con simpatía por la opinión pública estadounidense.\n\nTodo cambió tras los ataques terroristas del 11-S de 2001: Al Qaeda había contado con la protección de los talibanes afganos y Osama bin Laden podía estar oculto en las montañas de ese país. La reacción estadounidense fue invadir Afganistán con el apoyo de una coalición internacional y tratar de sostener un Gobierno prooccidental.\n\n¿Qué había cambiado en menos de dos décadas para que esos guerreros anticomunistas pasaran a ser sanguinarios antioccidentales y maltratadores de mujeres? ¿Y cómo fue posible que, en otras dos décadas, el intento de democratizar el país se desmoronase y la coalición occidental abandonara Afganistán en manos de los talibanes?\n\nEste libro reúne los reportajes que Jon Lee Anderson escribió sobre el terreno para el New Yorker , y que explican lo sucedido entre 2001 y 2021. El autor retrata con modélica y panorámica mirada periodística el país: desde la situación de las tropas extranjeras y las entrañas del gobierno de Hamid Karzai hasta la realidad cotidiana de los habitantes de Kabul y las zonas rurales, con especial atención a las mujeres.",
+      "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/cronicas/perder-la-guerra/9788433951298/CR_150",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "perder-la-guerra-9788433951298",
+      "titulo": "Perder la guerra"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388042225&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Valérie Perrin"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Cambiar el agua de las flores, de Valérie Perrin. Edición de Duomo Ediciones en castellano, en tapa blanda. Consta de 464 páginas. La editorial la incluye en narrativa. Publicación editorial: 2026-06-01.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Duomo Ediciones",
+      "editorial": "Duomo Ediciones",
+      "editorial_slug": "duomo-ediciones",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-06-01",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/cambiar-el-agua-de-las-flores/",
+      "fuente_publicacion_url": "https://www.duomoediciones.com/libro/cambiar-el-agua-de-las-flores/",
+      "id": "isbn-9791388042225",
+      "idioma": "es",
+      "isbn13": "9791388042225",
+      "numero_paginas": 464,
+      "portada_alto": 1211,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/05/Cambiar-el-agua-de-las-flores-300-dpi-copia.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388042225.webp",
+      "pvp_centimos": 2000,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388042225"
+        }
+      ],
+      "sinopsis_breve": "UNA NOVELA CELEBRADA Y LEÍDA EN TODO EL MUNDO DE LA AUTORA DEL ÉXITO DE VENTAS INTERNACIONAL TATÁ «Leer esta novela es como flotar…",
+      "sinopsis_completa": "UNA NOVELA CELEBRADA Y LEÍDA EN TODO EL MUNDO DE LA AUTORA DEL ÉXITO DE VENTAS INTERNACIONAL TATÁ «Leer esta novela es como flotar en plena felicidad.» Elle UNA MUJER INOLVIDABLE QUE APRENDE A RECONSTRUIRSE A TRAVÉS DE LAS COSAS SIMPLES. Violette Toussaint es la guarda del cementerio de un pequeño pueblo de Borgoña. Visitantes ocasionales y habituales acuden a la casa de esta mujer luminosa y de gran corazón a resguardarse del frío, compartir confidencias y reconfortarse con el café que ella les ofrece, entre risas y lágrimas. Su vida transcurre al ritmo de esas historias íntimas y sus días parecen destinados a ser así para siempre. Pero, de repente, todo cambia. Un policía llegado de Marsella se presenta con una extraña petición: su madre, recientemente fallecida, había expresado el deseo de ser enterrada en aquel remoto pueblo, en la tumba de un hombre a quien él no conoce. A partir de ese momento, los acontecimientos toman un giro inesperado: emergen vínculos hasta entonces ocultos entre vivos y muertos, y algunas almas que parecían sombrías se revelan, en realidad, llenas de luz. Tras la extraordinaria acogida de Tatá, llega la intensa historia de una mujer que, pese a las pruebas de la vida, sigue creyendo obstinadamente en la felicidad. Con su tan singular talento para hacer excepcional lo ordinario, Perrin crea, alrededor de Cambiar el agua de las flores, un mundo lleno de poesía y humanidad. MATERIAL PARA CLUB DE LECTURA",
+      "sinopsis_fuente_url": "https://www.duomoediciones.com/libro/cambiar-el-agua-de-las-flores/",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "cambiar-el-agua-de-las-flores-9791388042225",
+      "titulo": "Cambiar el agua de las flores"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388306266&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jesús Marchamalo"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Retratos literarios, de Jesús Marchamalo. Edición de Nórdica Libros en castellano, en tapa blanda. Consta de 352 páginas. La editorial la incluye en narrativa. Publicación editorial: 2026-09-28.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Nórdica Libros",
+      "editorial": "Nórdica Libros",
+      "editorial_slug": "nordica-libros",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-09-28",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://nordicalibros.com/product/retratos-literarios/",
+      "fuente_publicacion_url": "https://nordicalibros.com/product/retratos-literarios/",
+      "id": "isbn-9791388306266",
+      "idioma": "es",
+      "isbn13": "9791388306266",
+      "numero_paginas": 352,
+      "portada_alto": 855,
+      "portada_ancho": 700,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/09/Retratos_SOLOWEB.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388306266.webp",
+      "pvp_centimos": 1499,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388306266"
+        }
+      ],
+      "sinopsis_breve": "Un volumen excepcional que reúne las diez biografías de escritoras y escritores creadas por Marchamalo y Santos en esta década. Con prólogo de Luis…",
+      "sinopsis_completa": "Un volumen excepcional que reúne las diez biografías de escritoras y escritores creadas por Marchamalo y Santos en esta década. Con prólogo de Luis Landero. «Jesús Marchamalo los escribe, Antonio Santos los ilustra y Diego Moreno los edita. De esa confabulación salen a la luz desde hace ya diez años unos mínimos e ingeniosos libritos que, en unas pocas páginas y grabados, cuentan la biografía antológica de algún escritor célebre, y lo hacen con tanta gracia y significación que, leídos y vistos en un vuelo, nos dejan la impresión de conocer de cerca, y de un modo de lo más original y humano, al escritor de turno. Es más, al término de la lectura, nos sentimos amigos suyos: así de cordial y revelador es el retrato que estos libritos hacen de cada autor». Del prólogo de Luis Landero",
+      "sinopsis_fuente_url": "https://nordicalibros.com/product/retratos-literarios/",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "retratos-literarios-9791388306266",
+      "titulo": "Retratos literarios"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788419868480&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Lyona"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La principita, de Lyona. Edición de Salamandra en castellano, en tapa dura. Consta de 128 páginas. La editorial la incluye en a partir de 7 años. Publicación editorial: 2026-10-29.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 7 años",
+      "edicion": "Tapa dura · Salamandra",
+      "editorial": "Salamandra",
+      "editorial_slug": "salamandra",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-10-29",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/635099-libro-la-principita-9788419868480",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/635099-libro-la-principita-9788419868480",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/635099-libro-la-principita-9788419868480",
+      "id": "isbn-9788419868480",
+      "idioma": "es",
+      "isbn13": "9788419868480",
+      "numero_paginas": 128,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8278771-thickbox_default/la-principita.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788419868480.webp",
+      "pvp_centimos": 1795,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788419868480"
+        }
+      ],
+      "sinopsis_breve": "Una preciosa novela gráfica que aporta una perspectiva feminista del adorado clásico. Tomando la fábula de Saint-Exupéry como punto de partida, Lyona nos ofrece…",
+      "sinopsis_completa": "«¿Viajas sola? -preguntó la princesa.\n\n-¿Tú no lo haces?-respondió la Principita suavemente.\n\n-No, si no me lo ordenan.\n\n-Y entonces ¿qué puedes hacer?\n\n-No tengo que hacer nada, solo estar perfecta y no molestar. Y si alguna vez me pasa algo malo, un príncipe azul vendrá a mi rescate. Mi padre le dará mi mano. Nos casaremos, seremos felices y comeremos perdices.\n\n-Eso no suena a felicidad - replicó la Principita\n\n-Pero todas las niñas sueñan con ser princesas...»\n\nUna preciosa novela gráfica que aporta una perspectiva feminista del adorado clásico. Tomando la fábula de Saint-Exupéry como punto de partida, Lyona nos ofrece una visión valiente que dará voz a muchas y nos hará pensar mientras de esta preciosa aventura.",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/635099-libro-la-principita-9788419868480",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-principita-9788419868480",
+      "titulo": "La principita"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951069&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Michel Foucault"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Los hermafroditas, de Michel Foucault. Edición de Editorial Anagrama en castellano, en tapa blanda. Consta de 168 páginas. La editorial la incluye en ensayo. Publicación editorial: 2026-10-14.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Editorial Anagrama",
+      "editorial": "Editorial Anagrama",
+      "editorial_slug": "editorial-anagrama",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-10-14",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/argumentos/los-hermafroditas/9788433951069/A_647",
+      "fuente_publicacion_url": "https://www.anagrama-ed.es/libro/argumentos/los-hermafroditas/9788433951069/A_647",
+      "id": "isbn-9788433951069",
+      "idioma": "es",
+      "isbn13": "9788433951069",
+      "numero_paginas": 168,
+      "portada_alto": 1130,
+      "portada_ancho": 719,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34392_portadas_big.jpeg",
+      "portada_local": "/assets/reading-covers/isbn-9788433951069.webp",
+      "pvp_centimos": 1990,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788433951069"
+        }
+      ],
+      "sinopsis_breve": "En 1978, Michel Foucault anunció un volumen de su Historia de la sexualidad dedicado a los hermafroditas. Sin embargo, al reorientar su investigación hacia…",
+      "sinopsis_completa": "En 1978, Michel Foucault anunció un volumen de su Historia de la sexualidad dedicado a los hermafroditas. Sin embargo, al reorientar su investigación hacia la Antigüedad, renunció a él. Quedó en sus archivos un manuscrito que era un primer esbozo de ese libro anunciado, un texto al que el paso del tiempo ha ido dotando de una renovada actualidad. En él, el filósofo, a partir de la lectura del diario del hermafrodita del siglo XIX Herculine Barbin, elabora la distinción crucial, tanto histórica como teórica, entre sexo anatómico y sexualidad.\n\nA través de varios juicios celebrados entre los siglos XVI y XVIII, plantea tres etapas sucesivas en el modo de afrontar la realidad de los hermafroditas y pone de relieve el paso de un régimen jurídico que atribuía un «sexo por decisión» a otro que postulaba que cada individuo tiene un único sexo «verdadero», que le corresponde a la ciencia médica determinar.\n\nEste importante inédito de Michel Foucault va acompañado de un prefacio de Arianna Sforzini y un epílogo de Éric Fassin, que lo contextualizan y exploran su relevancia y su absoluta vigencia en el mundo contemporáneo.",
+      "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/argumentos/los-hermafroditas/9788433951069/A_647",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "los-hermafroditas-9788433951069",
+      "titulo": "Los hermafroditas"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788467083613&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Laura Álvarez (La pediatra Laura)"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Preparados, listos, ¡llegó el bebé!, de Laura Álvarez (La pediatra Laura). Edición de Editorial Espasa en castellano, en rústica con solapas. Consta de 272 páginas. La editorial la incluye en para padres. Publicación editorial: 2026-10-28.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Editorial Espasa",
+      "editorial": "Editorial Espasa",
+      "editorial_slug": "editorial-espasa",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-10-28",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-preparados-listos-llego-el-bebe/457869",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-preparados-listos-llego-el-bebe/457869",
+      "id": "isbn-9788467083613",
+      "idioma": "es",
+      "isbn13": "9788467083613",
+      "numero_paginas": 272,
+      "portada_alto": 541,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/e066f3ea-f8d3-4e22-a265-96581b868ebf/d_360_620/portada_preparados-listos-llego-el-bebe_laura-alvarez-la-pediatra-laura_202609141432.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788467083613.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788467083613"
+        }
+      ],
+      "sinopsis_breve": "En Preparados, listos, ¡llegó el bebé! , la pediatra Laura Álvarez da respuesta a muchas de las dudas que surgen desde el embarazo y…",
+      "sinopsis_completa": "La guía clara, práctica y actual que acompaña a las familias en los primeros años de crianza.\n\nEn Preparados, listos, ¡llegó el bebé! , la pediatra Laura Álvarez da respuesta a muchas de las dudas que surgen desde el embarazo y la llegada del recién nacido hasta las primeras etapas de la infancia: el sueño, la lactancia, la alimentación, el desarrollo, las rabietas, las enfermedades...",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-preparados-listos-llego-el-bebe/457869",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "preparados-listos-llego-el-bebe-9788467083613",
+      "titulo": "Preparados, listos, ¡llegó el bebé!"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401042751&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Isabel Allende"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La casa de los espíritus, de Isabel Allende. Edición de Plaza & Janés en castellano, en tapa dura con sobrecubierta. Consta de 560 páginas. La editorial la incluye en literatura contemporánea. Publicación editorial: 2026-11-03.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura con sobrecubierta · Plaza & Janés",
+      "editorial": "Plaza & Janés",
+      "editorial_slug": "plaza-y-janes",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-11-03",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/literatura-contemporanea/643800-libro-la-casa-de-los-espiritus-9788401042751",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/literatura-contemporanea/643800-libro-la-casa-de-los-espiritus-9788401042751",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/literatura-contemporanea/643800-libro-la-casa-de-los-espiritus-9788401042751",
+      "id": "isbn-9788401042751",
+      "idioma": "es",
+      "isbn13": "9788401042751",
+      "numero_paginas": 560,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8358393-thickbox_default/la-casa-de-los-espiritus.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788401042751.webp",
+      "pvp_centimos": 2490,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788401042751"
+        }
+      ],
+      "sinopsis_breve": "En el corazón de la historia están Clara del Valle y Esteban Trueba. Ella es clarividente, excéntrica y capaz de comunicarse con los espíritus.…",
+      "sinopsis_completa": "La casa de los espíritus , la novela que consagró internacionalmente a Isabel Allende y se convirtió en un clásico de la literatura latinoamericana contemporánea , cuenta la historia de la familia Trueba a lo largo de varias generaciones, entrelazando saga familiar, memoria, amor, poder y convulsión política.\n\nEn el corazón de la historia están Clara del Valle y Esteban Trueba. Ella es clarividente, excéntrica y capaz de comunicarse con los espíritus. Él, un terrateniente autoritario cuya ambición y temperamento marcarán para siempre a quienes lo rodean. A su alrededor crecerán hijos y nietos, surgirán amores que desafían las diferencias sociales y las decisiones de una generación dejarán heridas que deberá afrontar la siguiente.\n\nMientras la gran casa de la esquina se llena de cuadernos, secretos y presencias sobrenaturales, el mundo exterior también se transforma. Las desigualdades sociales, la lucha por el poder y la violencia política terminan atravesando los muros de la familia hasta hacer inseparables la historia privada de los Trueba y la historia colectiva de su país.\n\nConsiderada una de las obras más emblemáticas de Isabel Allende, La casa de los espíritus combina elementos del realismo mágico con la novela histórica y la saga familiar para explorar el amor, la memoria, la opresión, las diferencias de clase y las consecuencias de la violencia a través de generaciones.",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/literatura-contemporanea/643800-libro-la-casa-de-los-espiritus-9788401042751",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-casa-de-los-espiritus-9788401042751",
+      "titulo": "La casa de los espíritus"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951106&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Alaa al Aswani"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "En Alejandría, los árboles caminan, de Alaa al Aswani. Edición de Editorial Anagrama en castellano, en tapa blanda. Consta de 448 páginas. La editorial la incluye en narrativa. Publicación editorial: 2026-10-21.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Editorial Anagrama",
+      "editorial": "Editorial Anagrama",
+      "editorial_slug": "editorial-anagrama",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/en-alejandria-los-arboles-caminan/9788433951106/PN_1191",
+      "fuente_publicacion_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/en-alejandria-los-arboles-caminan/9788433951106/PN_1191",
+      "id": "isbn-9788433951106",
+      "idioma": "es",
+      "isbn13": "9788433951106",
+      "numero_paginas": 448,
+      "portada_alto": 1130,
+      "portada_ancho": 719,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34404_portadas_big.jpeg",
+      "portada_local": "/assets/reading-covers/isbn-9788433951106.webp",
+      "pvp_centimos": 2390,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788433951106"
+        }
+      ],
+      "sinopsis_breve": "Tras el éxito de La república era esto , Alaa al Aswani regresa con En Alejandría, los árboles caminan , cuyo título remite a…",
+      "sinopsis_completa": "En julio de 1952, la revolución egipcia pone fin a un mundo. Dos años más tarde, Abdul Náser asciende al poder, y sobre la antaño cosmopolita Alejandría comienzan a soplar vientos de transformación.\n\nHubo un tiempo en que esta perla del Mediterráneo fue un refugio de lenguas entrelazadas, cines art déco, cafés literarios y una burguesía ilustrada que vivía de espaldas al desierto y de cara al mar. Pero las consecuencias del colonialismo europeo y el auge del nacionalismo naserista resquebrajan ese frágil equilibrio.\n\nReunidos en el bar del griego Artinos, un grupo de personajes memorables –artistas, abogados, empresarios, libreras, maîtres – entrecruzan sus historias a la vez que contemplan cómo su Alejandría va desapareciendo poco a poco para dar paso a otra que no solo no conocen, sino que tampoco les quiere.\n\nAl Aswani señala con lucidez las grietas de ese derrumbe: el fracaso de las élites, la mediocridad burocrática, el oportunismo político y la lenta imposición de un pensamiento único que sustituye la diversidad por el miedo. Y con la pérdida de la convivencia como primer síntoma de la deriva autoritaria.\n\nTras el éxito de La república era esto , Alaa al Aswani regresa con En Alejandría, los árboles caminan , cuyo título remite a la leyenda de Zarqá al Yamama, la vidente que anunció que los árboles caminaban y fue tomada por loca. Nadie quiso escucharla, y su pueblo fue derrotado por un enemigo que avanzaba camuflado entre ramas. Una advertencia que resuena en estas páginas.\n\nCon una mirada crítica y profundamente humana, Alaa al Aswani –una de las voces más valientes de la literatura egipcia contemporánea– reconstruye la Alejandría de Náser para levantar acta de una desaparición y trazar, al mismo tiempo, una lúcida denuncia de los totalitarismos.",
+      "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/en-alejandria-los-arboles-caminan/9788433951106/PN_1191",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "en-alejandria-los-arboles-caminan-9788433951106",
+      "titulo": "En Alejandría, los árboles caminan"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388279263&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Juan Manuel García Pincho (@cienciasdelcomportamiento)"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Ciencias del comportamiento (Edición especial), de Juan Manuel García Pincho (@cienciasdelcomportamiento). Edición de Temas de Hoy en castellano, en tapa dura sin s/cub. (cartoné). Consta de 512 páginas. La editorial la incluye en ciencias humanas y sociales. Publicación editorial: 2026-09-30.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa dura sin s/cub. (cartoné) · Temas de Hoy",
+      "editorial": "Temas de Hoy",
+      "editorial_catalogo_slug": "temas-de-hoy",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-09-30",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-ciencias-del-comportamiento-edicion-especial/459303",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-ciencias-del-comportamiento-edicion-especial/459303",
+      "id": "isbn-9791388279263",
+      "idioma": "es",
+      "isbn13": "9791388279263",
+      "numero_paginas": 512,
+      "portada_alto": 548,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/6850a847-957a-4a64-81db-4ea1d1245be2/d_360_620/portada_ciencias-del-comportamiento-edicion-especial__202606111708.webp",
+      "portada_local": "/assets/reading-covers/isbn-9791388279263.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388279263"
+        }
+      ],
+      "sinopsis_breve": "Juan Manuel ‘Pincho’, experto en ciencias del comportamiento, comunicación no consciente y negociación de incidentes críticos, te ofrece su método para que puedas aplicarlo…",
+      "sinopsis_completa": "Juan Manuel ‘Pincho’, experto en ciencias del comportamiento, comunicación no consciente y negociación de incidentes críticos, te ofrece su método para que puedas aplicarlo en tu día a día y salir victorioso de todas las situaciones que se te pongan por delante. Esta...",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-ciencias-del-comportamiento-edicion-especial/459303",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "ciencias-del-comportamiento-edicion-especial-9791388279263",
+      "titulo": "Ciencias del comportamiento (Edición especial)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425373152&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Adrián Díaz Alonso"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Cómo no tener diabetes, de Adrián Díaz Alonso. Edición de Grijalbo en castellano, en tapa blanda con solapas. Consta de 256 páginas. La editorial la incluye en nutrición, belleza y fitness. Publicación editorial: 2026-10-29.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Grijalbo",
+      "editorial": "Grijalbo",
+      "editorial_slug": "grijalbo",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-10-29",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/634994-libro-como-no-tener-diabetes-9788425373152",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/634994-libro-como-no-tener-diabetes-9788425373152",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/634994-libro-como-no-tener-diabetes-9788425373152",
+      "id": "isbn-9788425373152",
+      "idioma": "es",
+      "isbn13": "9788425373152",
+      "numero_paginas": 256,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7890453-thickbox_default/como-no-tener-diabetes.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788425373152.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788425373152"
+        }
+      ],
+      "sinopsis_breve": "Enfermero especialista en pediatría, educador en diabetes y divulgador reconocido a nivel nacional, Adrián lleva veinte años conviviendo con esta afección y más de…",
+      "sinopsis_completa": "La diabetes no avisa. Este libro sí.\n\n¿Sabías que la suma de personas con diabetes en el mundo equivale a la población de Estados Unidos y la Unión Europea juntos? ¿O que el 10% de todo el gasto médico mundial se dedica a tratar esta enfermedad? La diabetes es una de las grandes pandemias silenciosas de nuestro tiempo y a menudo empieza mucho antes de administrar la medicación e incluso de conseguir el diagnóstico.\n\nEn este libro, Adrián Díaz, más conocido como Don Sacarino, cuenta con evidencia, experiencia y mucho sentido común por qué es tan fácil entrar en ese club y, sobre todo, qué puedes hacer para mantener la enfermedad lejos de tu puerta y de la de los tuyos.\n\nEnfermero especialista en pediatría, educador en diabetes y divulgador reconocido a nivel nacional, Adrián lleva veinte años conviviendo con esta afección y más de una década ayudando a miles de personas a entenderla mejor. Sin alarmismo vacío, pero sin edulcorar la realidad, en estas páginas desmonta mitos sobre el azúcar, el peso, el estrés, el sedentarismo o los ultraprocesados, y ofrece herramientas claras para construir una vida más saludable y proteger la salud metabólica.\n\nUna guía muy necesaria para comprender la gran pandemia del siglo XXI y empezar a frenarla a tiempo.",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/634994-libro-como-no-tener-diabetes-9788425373152",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "como-no-tener-diabetes-9788425373152",
+      "titulo": "Cómo no tener diabetes"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788411078399&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Reinaldo Arenas"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "El portero, de Reinaldo Arenas. Edición de Tusquets Editores en castellano, en rústica con solapas. Consta de 232 páginas. La editorial la incluye en novela literaria. Publicación editorial: 2026-10-14.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica con solapas · Tusquets Editores",
+      "editorial": "Tusquets Editores",
+      "editorial_slug": "tusquets-editores",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-10-14",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-el-portero/458589",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-el-portero/458589",
+      "id": "isbn-9788411078399",
+      "idioma": "es",
+      "isbn13": "9788411078399",
+      "numero_paginas": 232,
+      "portada_alto": 539,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/8d31663e-5f0f-4c37-88db-eacb09de1ef9/d_360_620/portada_el-portero_reinaldo-arenas_202608311429.webp",
+      "portada_local": "/assets/reading-covers/isbn-9788411078399.webp",
+      "pvp_centimos": 1990,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788411078399"
+        }
+      ],
+      "sinopsis_breve": "El microcosmos de un rascacielos de Nueva York retratado por la mirada perpleja del portero, un cubano exiliado que, al igual que el propio…",
+      "sinopsis_completa": "El microcosmos de un rascacielos de Nueva York retratado por la mirada perpleja del portero, un cubano exiliado que, al igual que el propio Arenas, es incapaz de adaptarse al American way of life .",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-el-portero/458589",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "el-portero-9788411078399",
+      "titulo": "El portero"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951397&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Luna Miguel"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La tumba del marinero, de Luna Miguel. Edición de Editorial Anagrama en castellano, en tapa blanda. Consta de 136 páginas. La editorial la incluye en poesía. Publicación editorial: 2026-10-28.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Editorial Anagrama",
+      "editorial": "Editorial Anagrama",
+      "editorial_slug": "editorial-anagrama",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-10-28",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/la-bella-varsovia/la-tumba-del-marinero/9788433951397/LBV_34",
+      "fuente_publicacion_url": "https://www.anagrama-ed.es/libro/la-bella-varsovia/la-tumba-del-marinero/9788433951397/LBV_34",
+      "id": "isbn-9788433951397",
+      "idioma": "es",
+      "isbn13": "9788433951397",
+      "numero_paginas": 136,
+      "portada_alto": 1244,
+      "portada_ancho": 720,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34587_portadas_big.jpeg",
+      "portada_local": "/assets/reading-covers/isbn-9788433951397.webp",
+      "pvp_centimos": 1490,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788433951397"
+        }
+      ],
+      "sinopsis_breve": "La tumba del marinero es uno de los libros centrales de la obra de Luna Miguel, el punto de partida de lo que después…",
+      "sinopsis_completa": "La tumba del marinero es uno de los libros centrales de la obra de Luna Miguel, el punto de partida de lo que después se convertiría, junto a Los estómagos y El arrecife de las sirenas , en la Trilogía del cuerpo . Ante la pregunta de si es posible cartografiar la herida, la poeta responde con un inventario minucioso de la carne, explorando el sufrimiento palpitante del deseo, la enfermedad o la droga. Así, estos versos, que logran contar una experiencia de vidas dañadas, se despliegan como un libro de poemas narrativo o como una novela de terror somático.\n\nEn la tradición de las grandes videntes del dolor, como Marina Tsvietáieva o Alejandra Pizarnik, la lírica de Luna Miguel se proyecta como el grito de quien cree que, a pesar de los arañazos, las brechas y la metástasis, el cuerpo sigue siendo nuestra ancla al mundo, un lugar de descubrimiento y también placer, porque la literatura más honda se escribe con la sangre todavía caliente.\n\nA través de diez secciones que funcionan como incisiones —desde las «costuras» iniciales hasta la «destrucción» final—, la poeta investiga sobre el origen de la herida y de la cicatriz, porque de ahí surge nuestra identidad: fue la marca de Odiseo en su muslo, aquel surco dejado por el colmillo de un jabalí, lo que permitió a su vieja nodriza reconocerlo.",
+      "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/la-bella-varsovia/la-tumba-del-marinero/9788433951397/LBV_34",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-tumba-del-marinero-9788433951397",
+      "titulo": "La tumba del marinero"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951250&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Solvej Balle"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "El volumen del tiempo IV, de Solvej Balle. Edición de Editorial Anagrama en castellano, en tapa blanda. Consta de 192 páginas. La editorial la incluye en narrativa. Publicación editorial: 2026-11-18.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda · Editorial Anagrama",
+      "editorial": "Editorial Anagrama",
+      "editorial_slug": "editorial-anagrama",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-11-18",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/el-volumen-del-tiempo-iv/9788433951250/PN_1194",
+      "fuente_publicacion_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/el-volumen-del-tiempo-iv/9788433951250/PN_1194",
+      "id": "isbn-9788433951250",
+      "idioma": "es",
+      "isbn13": "9788433951250",
+      "numero_paginas": 192,
+      "portada_alto": 1130,
+      "portada_ancho": 719,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/35/thumb_34750_portadas_big.jpeg",
+      "portada_local": "/assets/reading-covers/isbn-9788433951250.webp",
+      "pvp_centimos": 1990,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788433951250"
+        }
+      ],
+      "sinopsis_breve": "Solvej Balle continúa avanzando en su seductora y retadora heptalogía —«la respuesta de nuestro siglo a Proust», en palabras del crítico del New York…",
+      "sinopsis_completa": "Tara, la protagonista, sigue atrapada en el bucle temporal que se inició un 18 de noviembre, un tiempo detenido en el que siguen apareciendo nuevos personajes, otros náufragos anclados al limbo temporal. ¿Quiénes son y cómo han llegado hasta allí? ¿Comparten todos la misma experiencia? ¿Con qué palabras abordar lo que sucede y el espacio que habitan? ¿Son pobladores de una nueva realidad, un nuevo mundo?\n\nTodos ellos confluyen ahora en una casa en Bremen, que se convierte en una suerte de cuartel general desde el que tratar de encontrar respuestas a su desconcertante situación y también, si es posible, un lenguaje común que les permita describirla y compartirla.\n\nSolvej Balle continúa avanzando en su seductora y retadora heptalogía —«la respuesta de nuestro siglo a Proust», en palabras del crítico del New York Times A. O. Scott—, un fascinante periplo que alcanza ahora su ecuador con nuevas e inquietantes preguntas, insólitos enigmas y dilemas.",
+      "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/el-volumen-del-tiempo-iv/9788433951250/PN_1194",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "el-volumen-del-tiempo-iv-9788433951250",
+      "titulo": "El volumen del tiempo IV"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388101595&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Drawill"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Planeta Manga: Aten, de Drawill. Edición de Planeta Cómic en castellano, en rústica sin solapas con s/cub.. Consta de 216 páginas. La editorial la incluye en manga. Publicación editorial: 2026-10-21.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Rústica sin solapas con s/cub. · Planeta Cómic",
+      "editorial": "Planeta Cómic",
+      "editorial_catalogo_slug": "planeta-comic",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-planeta-manga-aten/455526",
+      "fuente_publicacion_url": "https://www.planetadelibros.com/libro-planeta-manga-aten/455526",
+      "id": "isbn-9791388101595",
+      "idioma": "es",
+      "isbn13": "9791388101595",
+      "numero_paginas": 216,
+      "portada_alto": 506,
+      "portada_ancho": 360,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/726e000e-e11d-43fa-88b9-82cd21b23ae6/d_360_620/portada_planeta-manga-aten_drawill_202606091213.webp",
+      "portada_local": "/assets/reading-covers/isbn-9791388101595.webp",
+      "pvp_centimos": 995,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388101595"
+        }
+      ],
+      "sinopsis_breve": "En la antigüedad, Rhim-Vul-Sil y sus compañero s liberaron al imperio de Egipto de la tiranía de un faraón despiadado . Siglos después, la…",
+      "sinopsis_completa": "¡Un trepidante shonen de la mano de Drawill! Mitología egipcia, antiguos héroes y faraones tiranos. Serie de Planeta Manga recopilada en un solo tomo. ¡Con páginas extras y a color!\n\nEn la antigüedad, Rhim-Vul-Sil y sus compañero s liberaron al imperio de Egipto de la tiranía de un faraón despiadado . Siglos después, la historia se repite. Un nuevo faraón ha sumido al pueblo en la...",
+      "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-planeta-manga-aten/455526",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "planeta-manga-aten-9791388101595",
+      "titulo": "Planeta Manga: Aten"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388387715&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Heino Falcke"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La luz en la oscuridad, de Heino Falcke. Edición de Debate en castellano, en tapa blanda con solapas. Consta de 336 páginas. La editorial la incluye en ciencia y tecnología. Publicación editorial: 2026-10-26.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Debate",
+      "editorial": "Debate",
+      "editorial_catalogo_slug": "debate",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-10-26",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/ciencia-y-tecnologia/643996-libro-la-luz-en-la-oscuridad-9791388387715",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/ciencia-y-tecnologia/643996-libro-la-luz-en-la-oscuridad-9791388387715",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/ciencia-y-tecnologia/643996-libro-la-luz-en-la-oscuridad-9791388387715",
+      "id": "isbn-9791388387715",
+      "idioma": "es",
+      "isbn13": "9791388387715",
+      "numero_paginas": 336,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8358350-thickbox_default/la-luz-en-la-oscuridad.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388387715.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388387715"
+        }
+      ],
+      "sinopsis_breve": "El 10 de abril de 2019 un equipo internacional de astrónomos liderados por el profesor Heino Falcke maravilló al mundo publicando la primera imagen…",
+      "sinopsis_completa": "El 10 de abril de 2019 un equipo internacional de astrónomos liderados por el profesor Heino Falcke maravilló al mundo publicando la primera imagen de un agujero negro. Por fin la comunidad científica conseguía la prueba irrefutable de lo que Einstein había predicho en su teoría de la relatividad acerca de estos fenómenos hacía más de cien años. Sin embargo, las implicaciones de este hallazgo van más allá: si bien son objetos relativamente simples de definir, los agujeros negros plantean algunos de los interrogantes más complejos sobre la naturaleza del espacio, del tiempo, y, por último, de nuestra existencia.\n\nEn este libro, Falcke no solo nos narra la emocionante historia de esta proeza científica, sino que da un paso más intentando responder a las grandes preguntas filosóficas que este hito plantea: ¿existe algo más allá de la nada?, ¿puede la ciencia explicar lo inexplicable?, ¿cuál es el origen de nuestra existencia y qué sentido tiene nuestro paso por el mundo?\n\nPara Heino Falcke, la astrofísica y la metafísica, la razón y la fe, no tienen por qué excluirse mutuamente. La luz en la oscuridad es un poderoso alegato a favor de la ciencia que nos habla de lo que sabemos pero también de los misterios que quedan por resolver.",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/ciencia-y-tecnologia/643996-libro-la-luz-en-la-oscuridad-9791388387715",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-luz-en-la-oscuridad-9791388387715",
+      "titulo": "La luz en la oscuridad"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387949792&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Stephenie Meyer"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Luna nueva (edición especial limitada «Bella y Jacob» por el 20º aniversario), de Stephenie Meyer. Edición de Alfaguara en castellano, en tapa dura. Consta de 576 páginas. La editorial la incluye en novela romántica juvenil. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 12 años",
+      "edicion": "Tapa dura · Alfaguara",
+      "editorial": "Alfaguara",
+      "editorial_slug": "alfaguara",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-31",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-31",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/627577-libro-luna-nueva-edicion-especial-limitada-bella-y-jacob-por-el-20-aniversario-9791387949792",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/627577-libro-luna-nueva-edicion-especial-limitada-bella-y-jacob-por-el-20-aniversario-9791387949792",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/627577-libro-luna-nueva-edicion-especial-limitada-bella-y-jacob-por-el-20-aniversario-9791387949792",
+      "id": "isbn-9791387949792",
+      "idioma": "es",
+      "isbn13": "9791387949792",
+      "numero_paginas": 576,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-31",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8295167-thickbox_default/luna-nueva-edicion-especial-limitada-bella-y-jacob-por-el-20-aniversario.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387949792.webp",
+      "pvp_centimos": 3695,
+      "pvp_fecha_verificacion": "2026-10-31",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-31",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387949792"
+        }
+      ],
+      "sinopsis_breve": "Para Bella Swan hay una cosa más importante que su propia vida: Edward Cullen. Pero enamorarse de un vampiro es más peligroso de lo…",
+      "sinopsis_completa": "«Cuando el papel me cortó el dedo, solo salió una gota de sangre del pequeño rasguño. Entonces, todo pasó muy rápido. \"¡No!\", rugió Edward. Aturdida y desorientada, miré a los ojos enfurecidos de seis vampiros repentinamente hambrientos.»\n\nPara Bella Swan hay una cosa más importante que su propia vida: Edward Cullen. Pero enamorarse de un vampiro es más peligroso de lo que Bella podría haber imaginado. Edward ya ha rescatado a Bella de las garras de un diabólico vampiro, pero ahora, a medida que su arriesgada relación amenaza todo lo que es cercano y querido para ellos, se dan cuenta de que quizás sus problemas no hayan hecho nada más que empezar...\n\nLa \"Saga Crepúsculo\" ha vendido ya más de 160 millones de copias en todo el mundo y más de 3 millones de ejemplares solo en España:\n\n** Número 1 en la lista de bestsellers de The New York Times y del USA Today.\n\n** Mejor Novela Young Adult de Todos los Tiempos por la revista Time.\n\n** NPR a la Mejor Novela Adolescente.\n\n** Recomendada por el editor de The New York Times.",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/627577-libro-luna-nueva-edicion-especial-limitada-bella-y-jacob-por-el-20-aniversario-9791387949792",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "luna-nueva-edicion-especial-limitada-bella-y-jacob-por-el-20o-aniversario-9791387949792",
+      "titulo": "Luna nueva (edición especial limitada «Bella y Jacob» por el 20º aniversario)"
     }
   ],
   "schema_version": 1

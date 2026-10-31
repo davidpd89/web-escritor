@@ -150,7 +150,7 @@
       "biografia_fecha_revision": "2026-10-30",
       "biografia_fuente_url": "https://www.penguinlibros.com/es/181771-jorge-marti-aguas",
       "descripcion": "Libros de Jorge Martí Aguas incluidos en este catálogo: Canción de amor definitiva. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
-      "fecha_verificacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-31",
       "fuentes": [
         {
           "titulo": "Canción de amor definitiva · ficha editorial",
@@ -166,7 +166,7 @@
       "biografia_fecha_revision": "2026-10-30",
       "biografia_fuente_url": "https://www.penguinlibros.com/es/207678-alba-donati",
       "descripcion": "Libros de Alba Donati incluidos en este catálogo: Esas muchachas que escriben poemas. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
-      "fecha_verificacion": "2026-10-21",
+      "fecha_verificacion": "2026-10-31",
       "fuentes": [
         {
           "titulo": "Esas muchachas que escriben poemas · ficha editorial",
@@ -1887,12 +1887,16 @@
     },
     {
       "biografia_ultimo_intento": "2026-10-31",
-      "descripcion": "Libros de Luna Miguel incluidos en este catálogo: Pensamientos estériles. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "descripcion": "Libros de Luna Miguel incluidos en este catálogo: Pensamientos estériles; La tumba del marinero. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
       "fecha_verificacion": "2026-10-31",
       "fuentes": [
         {
           "titulo": "Pensamientos estériles · ficha editorial",
           "url": "https://www.anagrama-ed.es/libro/la-bella-varsovia/pensamientos-esteriles/9788433951403/LBV_119"
+        },
+        {
+          "titulo": "La tumba del marinero · ficha editorial",
+          "url": "https://www.anagrama-ed.es/libro/la-bella-varsovia/la-tumba-del-marinero/9788433951397/LBV_34"
         }
       ],
       "nombre": "Luna Miguel",
@@ -2306,6 +2310,302 @@
       ],
       "nombre": "Roberta Recchia",
       "slug": "roberta-recchia",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de AGNÈS MARTIN-LUGAND incluidos en este catálogo: Los renaceres. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "Los renaceres · ficha editorial",
+          "url": "https://www.duomoediciones.com/libro/los-renaceres/"
+        }
+      ],
+      "nombre": "AGNÈS MARTIN-LUGAND",
+      "slug": "agnes-martin-lugand",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Joan Maria Thomàs Andreu es un historiador español, catedrático de Historia Contemporánea en la Universidad Rovira i Virgili, académico correspondiente de la Real Academia de la Historia, cuya producción se ha centrado en la historia del falangismo, del franquismo, del fascismo, la biografía, las relaciones Estados Unidos-España franquista y la lucha por la obtención de materiales estratégicos durante la Segunda Guerra Mundial (wolframio).",
+      "biografia_fecha_revision": "2026-10-31",
+      "biografia_fuente_nombre": "Wikipedia",
+      "biografia_fuente_url": "https://es.wikipedia.org/wiki/Joan_Maria_Thom%C3%A0s",
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de Joan Maria Thomàs incluidos en este catálogo: Franquistas contra franquistas. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "Franquistas contra franquistas · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-de-historia/644265-libro-franquistas-contra-franquistas-9791388387395"
+        }
+      ],
+      "nombre": "Joan Maria Thomàs",
+      "slug": "joan-maria-thomas",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Sabrina Duque es una periodista, cronista y traductora ecuatoriana. Ha sido traducida al inglés, italiano y portugués.",
+      "biografia_fecha_revision": "2026-10-31",
+      "biografia_fuente_nombre": "Wikipedia",
+      "biografia_fuente_url": "https://es.wikipedia.org/wiki/Sabrina_Duque",
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de Sabrina Duque incluidos en este catálogo: Plastificados. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "Plastificados · ficha editorial",
+          "url": "https://www.anagrama-ed.es/libro/nuevos-cuadernos-anagrama/plastificados/9788433951045/NCA_114"
+        }
+      ],
+      "nombre": "Sabrina Duque",
+      "slug": "sabrina-duque",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de Sigmund Freud incluidos en este catálogo: Dos casos clínicos. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "Dos casos clínicos · ficha editorial",
+          "url": "https://nordicalibros.com/product/dos-casos-clinicos/"
+        }
+      ],
+      "nombre": "Sigmund Freud",
+      "slug": "sigmund-freud",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Jon Lee Anderson es un periodista estadounidense que se ha especializado en temas latinoamericanos y en las guerras posteriores a los atentados del 11 de septiembre de 2001.",
+      "biografia_fecha_revision": "2026-10-31",
+      "biografia_fuente_nombre": "Wikipedia",
+      "biografia_fuente_url": "https://es.wikipedia.org/wiki/Jon_Lee_Anderson",
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de Jon Lee Anderson incluidos en este catálogo: Perder la guerra. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "Perder la guerra · ficha editorial",
+          "url": "https://www.anagrama-ed.es/libro/cronicas/perder-la-guerra/9788433951298/CR_150"
+        }
+      ],
+      "nombre": "Jon Lee Anderson",
+      "slug": "jon-lee-anderson",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de Valérie Perrin incluidos en este catálogo: Cambiar el agua de las flores. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "Cambiar el agua de las flores · ficha editorial",
+          "url": "https://www.duomoediciones.com/libro/cambiar-el-agua-de-las-flores/"
+        }
+      ],
+      "nombre": "Valérie Perrin",
+      "slug": "valerie-perrin",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Jesús Marchamalo García es un escritor y periodista de radio, televisión y prensa escrita.",
+      "biografia_fecha_revision": "2026-10-31",
+      "biografia_fuente_nombre": "Wikipedia",
+      "biografia_fuente_url": "https://es.wikipedia.org/wiki/Jes%C3%BAs_Marchamalo",
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de Jesús Marchamalo incluidos en este catálogo: Retratos literarios. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "Retratos literarios · ficha editorial",
+          "url": "https://nordicalibros.com/product/retratos-literarios/"
+        }
+      ],
+      "nombre": "Jesús Marchamalo",
+      "slug": "jesus-marchamalo",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Marta Puig, más conocida como Lyona (Barcelona, 1979), es una artista polifacética. Ha realizado más de cien videoclips para grupos como Love of Lesbian, Sidonie, Lori Meyers, Carlos Sadness, Amaral... En 2011 ilustró Yo mataré monstruos por ti, un cuento escrito por Santi Balmes. Desde entonces ha publicado más de veinte libros; en uno de los más recientes, la novela gráfica Madr¿eh?, nos cuenta su experiencia personal con la infertilidad y los procesos de reproducción asistida.",
+      "biografia_fecha_revision": "2026-10-31",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/91676--lyona",
+      "descripcion": "Libros de Lyona incluidos en este catálogo: La principita. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "La principita · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/635099-libro-la-principita-9788419868480"
+        }
+      ],
+      "nombre": "Lyona",
+      "slug": "lyona",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Paul-Michel Foucault, conocido como Michel Foucault, fue un filósofo, historiador, sociólogo y psicólogo francés. Fue profesor en varias universidades francesas y estadounidenses y catedrático de Historia de los sistemas de pensamiento en el Collège de France (1970-1984), en reemplazo de la cátedra de Historia del pensamiento filosófico, que ocupó hasta su muerte Jean Hyppolite. El 12 de abril de 1970, la asamblea general de profesores del Collége de France eligió a Michel Foucault, que por entonces tenía 43 años, como titular de la nueva cátedra.",
+      "biografia_fecha_revision": "2026-10-31",
+      "biografia_fuente_nombre": "Wikipedia",
+      "biografia_fuente_url": "https://es.wikipedia.org/wiki/Michel_Foucault",
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de Michel Foucault incluidos en este catálogo: Los hermafroditas. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "Los hermafroditas · ficha editorial",
+          "url": "https://www.anagrama-ed.es/libro/argumentos/los-hermafroditas/9788433951069/A_647"
+        }
+      ],
+      "nombre": "Michel Foucault",
+      "slug": "michel-foucault",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de Laura Álvarez (La pediatra Laura) incluidos en este catálogo: Preparados, listos, ¡llegó el bebé!. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "Preparados, listos, ¡llegó el bebé! · ficha editorial",
+          "url": "https://www.planetadelibros.com/libro-preparados-listos-llego-el-bebe/457869"
+        }
+      ],
+      "nombre": "Laura Álvarez (La pediatra Laura)",
+      "slug": "laura-alvarez-la-pediatra-laura",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Isabel Allende nació en Perú y se crio en Chile. Novelista, feminista y filántropa, es una de las escritoras más leídas en el mundo: ha vendido más de ochenta millones de ejemplares de sus libros en cuarenta y dos idiomas. Todos sus libros han sido aclamados por el público y la crítica, entre los que se incluyen La casa de los espíritus, Eva Luna, Paula, La isla bajo el mar, Violeta o El viento conoce mi nombre. Además de su faceta como escritora, dedica gran parte de su tiempo a la lucha por los derechos humanos.",
+      "biografia_fecha_revision": "2026-10-31",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/401-isabel-allende",
+      "descripcion": "Libros de Isabel Allende incluidos en este catálogo: La casa de los espíritus. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "La casa de los espíritus · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/literatura-contemporanea/643800-libro-la-casa-de-los-espiritus-9788401042751"
+        }
+      ],
+      "nombre": "Isabel Allende",
+      "slug": "isabel-allende",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de Alaa al Aswani incluidos en este catálogo: En Alejandría, los árboles caminan. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "En Alejandría, los árboles caminan · ficha editorial",
+          "url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/en-alejandria-los-arboles-caminan/9788433951106/PN_1191"
+        }
+      ],
+      "nombre": "Alaa al Aswani",
+      "slug": "alaa-al-aswani",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de Juan Manuel García Pincho (@cienciasdelcomportamiento) incluidos en este catálogo: Ciencias del comportamiento (Edición especial). Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "Ciencias del comportamiento (Edición especial) · ficha editorial",
+          "url": "https://www.planetadelibros.com/libro-ciencias-del-comportamiento-edicion-especial/459303"
+        }
+      ],
+      "nombre": "Juan Manuel García Pincho (@cienciasdelcomportamiento)",
+      "slug": "juan-manuel-garcia-pincho-cienciasdelcomportamiento",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Don Sacarino es el alter ego de Adrián Díaz, enfermero especialista en pediatría, educador y divulgador en diabetes, y una persona que convive con la diabetes desde hace veinte años. Con su proyecto lleva más de diez ayudando a la comunidad diabética, hasta el punto de convertirse en uno de los referentes de España en esta patología. Con una comunidad de más de 240.000 personas a sus espaldas y tras dos libros publicados, se lanza a esta nueva aventura para frenar, de una vez por todas, la tendencia de esta plaga silenciosa.",
+      "biografia_fecha_revision": "2026-10-31",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/1019927-adrian-diaz-alonso",
+      "descripcion": "Libros de Adrián Díaz Alonso incluidos en este catálogo: Cómo no tener diabetes. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "Cómo no tener diabetes · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/634994-libro-como-no-tener-diabetes-9788425373152"
+        }
+      ],
+      "nombre": "Adrián Díaz Alonso",
+      "slug": "adrian-diaz-alonso",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de Reinaldo Arenas incluidos en este catálogo: El portero. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "El portero · ficha editorial",
+          "url": "https://www.planetadelibros.com/libro-el-portero/458589"
+        }
+      ],
+      "nombre": "Reinaldo Arenas",
+      "slug": "reinaldo-arenas",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de Solvej Balle incluidos en este catálogo: El volumen del tiempo IV. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "El volumen del tiempo IV · ficha editorial",
+          "url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/el-volumen-del-tiempo-iv/9788433951250/PN_1194"
+        }
+      ],
+      "nombre": "Solvej Balle",
+      "slug": "solvej-balle",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-10-31",
+      "descripcion": "Libros de Drawill incluidos en este catálogo: Planeta Manga: Aten. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "Planeta Manga: Aten · ficha editorial",
+          "url": "https://www.planetadelibros.com/libro-planeta-manga-aten/455526"
+        }
+      ],
+      "nombre": "Drawill",
+      "slug": "drawill",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "HEINO FALCKE es profesor de radioastronomía y física de astropartículas. Su principal campo de investigación son los agujeros negros. Ha sido galardonado con el Premio Spinoza, el Premio Breakthrough in Fundamental Physics y la Medalla Henry Draper (el Nobel estadounidense para la astronomía).",
+      "biografia_fecha_revision": "2026-10-31",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/90525-heino-falcke",
+      "descripcion": "Libros de Heino Falcke incluidos en este catálogo: La luz en la oscuridad. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "La luz en la oscuridad · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/ciencia-y-tecnologia/643996-libro-la-luz-en-la-oscuridad-9791388387715"
+        }
+      ],
+      "nombre": "Heino Falcke",
+      "slug": "heino-falcke",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Stephenie Meyer se licenció en Literatura Inglesa en la Brigham Young University. Es autora de la serie best seller «Crepúsculo», de la que se han vendido 155 millones de libros en todo el mundo. En 2008 publicó The Host, su primera novela para adultos, que entró directamente en el número uno de las listas de más vendidos de The New York Times y The Wall Street Journal y fue llevada al cine en 2013. Meyer vive con su marido y sus tres hijos en Arizona.",
+      "biografia_fecha_revision": "2026-10-31",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/6308-stephenie-meyer",
+      "descripcion": "Libros de Stephenie Meyer incluidos en este catálogo: Luna nueva (edición especial limitada «Bella y Jacob» por el 20º aniversario). Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-31",
+      "fuentes": [
+        {
+          "titulo": "Luna nueva (edición especial limitada «Bella y Jacob» por el 20º aniversario) · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/627577-libro-luna-nueva-edicion-especial-limitada-bella-y-jacob-por-el-20-aniversario-9791387949792"
+        }
+      ],
+      "nombre": "Stephenie Meyer",
+      "slug": "stephenie-meyer",
       "tipo": "bibliografico"
     }
   ],

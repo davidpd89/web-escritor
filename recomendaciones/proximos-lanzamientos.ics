@@ -5,6 +5,16 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Próximos lanzamientos de libros recomendados
 BEGIN:VEVENT
+UID:isbn-9788401042751@davidportodiaz.com
+DTSTAMP:20261031T000000Z
+DTSTART;VALUE=DATE:20261103
+DTEND;VALUE=DATE:20261104
+SUMMARY:Sale a la venta: La casa de los espíritus
+DESCRIPTION:Isabel Allende · Plaza & Janés
+URL:https://davidportodiaz.com/recomendaciones/libros/la-casa-de-los-espiri
+ tus-9788401042751/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788433951199@davidportodiaz.com
 DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20261104
@@ -85,6 +95,16 @@ URL:https://davidportodiaz.com/recomendaciones/libros/manifiesto-por-otra-e
  conomia-y-otra-politica-9788433951267/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788433951298@davidportodiaz.com
+DTSTAMP:20261031T000000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+SUMMARY:Sale a la venta: Perder la guerra
+DESCRIPTION:Jon Lee Anderson · Editorial Anagrama
+URL:https://davidportodiaz.com/recomendaciones/libros/perder-la-guerra-9788
+ 433951298/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788433951205@davidportodiaz.com
 DTSTAMP:20261031T000000Z
 DTSTART;VALUE=DATE:20261111
@@ -103,5 +123,15 @@ SUMMARY:Sale a la venta: Cómo construir la soberanía digital europea
 DESCRIPTION:Francesca Bria · Editorial Anagrama
 URL:https://davidportodiaz.com/recomendaciones/libros/como-construir-la-sob
  erania-digital-europea-9788433951670/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788433951250@davidportodiaz.com
+DTSTAMP:20261031T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: El volumen del tiempo IV
+DESCRIPTION:Solvej Balle · Editorial Anagrama
+URL:https://davidportodiaz.com/recomendaciones/libros/el-volumen-del-tiempo
+ -iv-9788433951250/
 END:VEVENT
 END:VCALENDAR
