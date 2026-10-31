@@ -161,16 +161,23 @@
     // specific) prefix qualifies. Scoring every link independently used to
     // let an exact match ("El libro") and its own ancestor family link
     // ("← Obras") both claim aria-current="page" on the same page.
+    // Same FAMILY_ALIASES as scripts/build-section-context-nav.py: catalogue
+    // publisher pages mark "Editoriales" even though that link goes to the
+    // general directory.
+    const familyAliases = { '/editoriales/': ['/recomendaciones/editoriales/'] };
     const scored = context.links.map(([href, label]) => {
       const linkPath = normalise(href);
       const exact = currentPath === linkPath;
-      const familyMatch = !exact && linkPath.endsWith('/') && linkPath !== '/' && currentPath.startsWith(linkPath);
-      return { href, label, linkPath, exact, familyMatch };
+      const matched = [linkPath, ...(familyAliases[linkPath] || [])]
+        .filter((p) => p.endsWith('/') && p !== '/' && currentPath.startsWith(p));
+      const familyMatch = !exact && matched.length > 0;
+      const depth = matched.length ? Math.max(...matched.map((p) => p.length)) : linkPath.length;
+      return { href, label, linkPath, exact, familyMatch, depth };
     });
     const exactMatch = scored.find((item) => item.exact);
     const bestFamilyMatch = !exactMatch && scored
       .filter((item) => item.familyMatch)
-      .sort((a, b) => b.linkPath.length - a.linkPath.length)[0];
+      .sort((a, b) => b.depth - a.depth)[0];
     const currentItem = exactMatch || bestFamilyMatch || null;
     scored.forEach((item) => {
       const link = document.createElement('a');
