@@ -30,8 +30,13 @@ try {
     assert(await page.locator('[data-catalogue-empty]').isHidden());
     assert.deepEqual(await page.locator('.section-context__links a').allInnerTexts(), ['Catálogo', 'Autores', 'Editoriales', 'Atlas literario', 'Concursos']);
     await page.locator('details[data-facet-group="genero"]').evaluate(d => { d.open = true; });
-    // Sin libros compatibles la opción queda desactivada en lugar de llevar a una página vacía.
-    assert(await page.locator('input[data-facet="genero"][value="romantasy"]').isDisabled());
+    // Una categoría sin ningún libro publicado no se ofrece: sería una casilla muerta.
+    assert.equal(await page.locator('input[data-facet="genero"][value="romantasy"]').count(), 0);
+    // Con un tipo de libro elegido, los géneros sin resultados bajan al final y quedan desactivados.
+    await page.locator('input[data-facet="grupo"][value="novela"]').check();
+    const genreState = await page.locator('details[data-facet-group="genero"] input[data-facet]').evaluateAll(xs => xs.map(x => x.disabled));
+    assert(genreState.includes(true) && genreState.indexOf(true) > 0 && genreState.slice(genreState.indexOf(true)).every(Boolean), 'Las opciones vacías van al final');
+    await page.locator('input[data-facet="grupo"][value="novela"]').uncheck();
     await page.locator('input[data-facet="grupo"][value="cocina"]').check();
     await page.getByRole('button', { name: 'Restablecer' }).click();
     assert.equal(await page.locator('input[data-facet]:checked').count(), 0);

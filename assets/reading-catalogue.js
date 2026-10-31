@@ -29,7 +29,7 @@
   const ratingSource = r => ['google_books', 'hardcover'].includes(r.fuente) ? r.fuente : !r.fuente || r.fuente === 'goodreads' ? 'goodreads' : null;
   const ratingLabel = r => ratingSource(r) === 'google_books' ? 'Google Books' : ratingSource(r) === 'hardcover' ? 'Hardcover' : 'Goodreads';
   const validRating = r => {
-    if (!fresh(r, 168) || !Number.isFinite(r.puntuacion) || r.puntuacion < 1 || r.puntuacion > 5 || !Number.isSafeInteger(r.numero_valoraciones) || r.numero_valoraciones < 5) return false; // una sola valoración no es una referencia
+    if (!fresh(r, 720) || !Number.isFinite(r.puntuacion) || r.puntuacion < 1 || r.puntuacion > 5 || !Number.isSafeInteger(r.numero_valoraciones) || r.numero_valoraciones < 5) return false; // una sola valoración no es una referencia
     const source = ratingSource(r);
     if (source === 'goodreads') return Boolean(safeURL(r.url, ['www.goodreads.com', 'goodreads.com'], /^\/book\/show\/\d/));
     if (source === 'google_books') { const link = safeURL(r.url, ['books.google.com'], /^\/books$/); return Boolean(link && /^[A-Za-z0-9_-]{1,150}$/.test(link.searchParams.get('id') || '')); }
@@ -42,7 +42,7 @@
   // Index entries are validated by renderMarket. Recheck expiry on interaction,
   // without reparsing the same URLs for every card and quiz option.
   const offersFor = id => (offersIndex.get(id) || []).filter(o => fresh(o, 24));
-  const ratingFor = id => (ratingsIndex.get(id) || []).find(r => fresh(r, 168));
+  const ratingFor = id => (ratingsIndex.get(id) || []).find(r => fresh(r, 720));
   const currency = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
   const madridDate = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit' });
   const money = cents => currency.format(cents / 100);
@@ -82,12 +82,14 @@
       ratingsIndex.get(rating.libro_id).push(rating);
     }
     for (const box of root.querySelectorAll('[data-rating-book]')) {
-      const r = ratingFor(box.dataset.ratingBook); box.replaceChildren();
+      const r = ratingFor(box.dataset.ratingBook); box.replaceChildren(); box.hidden = false;
       if (!r) {
         // Sin valoración verificada vigente NO se pinta una nota: ni estrellas vacías ni «0,0 (0)».
         // Que aquí no haya dato utilizable (caducado, proveedor caído, fuente no válida) no prueba que la fuente tenga cero opiniones.
         const thin = market.ratings.find(x => x.libro_id === box.dataset.ratingBook && thinRating(x));
         const isbn = /^\d{13}$/.test(box.dataset.isbn || '') ? box.dataset.isbn : '';
+        // En la tarjeta, sin nota no se pinta nada: «consultar ficha» era ruido en 70 de 96 libros.
+        if (!thin && box.closest('.catalogue-card')) { box.hidden = true; continue; }
         if (thin || isbn) {
           const ref = document.createElement('a'); ref.href = thin ? thin.url : 'https://www.goodreads.com/book/isbn/' + isbn; ref.target = '_blank'; ref.rel = 'noopener noreferrer';
           ref.className = 'catalogue-rating__ref'; ref.dataset.ratingState = thin ? 'insufficient' : 'unavailable';
@@ -127,6 +129,9 @@
   function renderFacets(v) {
     if (!form) return;
     for (const k of FACETS) {
+      // El generador omite los grupos sin ninguna categoría con libros.
+      const group = form.querySelector('[data-facet-group="' + k + '"]');
+      if (!group) continue;
       const own = boxes.filter(b => b.dataset.facet === k);
       const candidates = cards.filter(card => matches(card, {...v, [k]: []}));
       const sets = candidates.map(card => facetValues(card, k));
@@ -137,8 +142,31 @@
         label.querySelector('[data-facet-count]').textContent = '(' + count + ')';
         box.disabled = !count && !box.checked;
         label.classList.toggle('is-empty', box.disabled);
+        label.dataset.count = count;
       }
-      const group = form.querySelector('[data-facet-group="' + k + '"]'), chosen = own.filter(b => b.checked).length;
+      const chosen = own.filter(b => b.checked).length;
+      // Marcadas primero; después las que tienen libros (de más a menos, salvo el tipo de libro, que conserva su orden) y al final las vacías.
+      const list = group.querySelector('.catalogue-facet__options'), labels = own.map(b => b.closest('label'));
+      labels.forEach((label, i) => { if (label.dataset.order == null) label.dataset.order = i; });
+      const rank = label => label.querySelector('input').checked ? 0 : label.classList.contains('is-empty') ? 2 : 1;
+      const ordered = [...labels].sort((a, b) => rank(a) - rank(b) || (k === 'grupo' ? 0 : b.dataset.count - a.dataset.count) || a.dataset.order - b.dataset.order);
+      if (ordered.some((label, i) => list.children[i] !== label)) list.prepend(...ordered);
+      const shown = ordered.filter(label => !label.hidden), limit = 8, expanded = group.dataset.expanded === 'true';
+      let more = group.querySelector('[data-facet-more]');
+      if (shown.length > limit + 2 && !more) {
+        more = document.createElement('button'); more.type = 'button'; more.className = 'catalogue-facet__more'; more.dataset.facetMore = '';
+        more.addEventListener('click', () => { group.dataset.expanded = group.dataset.expanded === 'true' ? 'false' : 'true'; renderFacets(values()); });
+        list.after(more);
+      }
+      if (more) {
+        // Nunca se pliega una opción con libros: solo las vacías que sobran.
+        const keep = Math.max(limit, shown.filter(label => !label.classList.contains('is-empty')).length);
+        const collapsible = shown.length > keep + 2;
+        more.hidden = !collapsible;
+        shown.forEach((label, i) => label.classList.toggle('is-collapsed', collapsible && !expanded && i >= keep && !label.querySelector('input').checked));
+        more.textContent = expanded ? 'Ver menos' : 'Ver todas (' + shown.length + ')';
+        more.setAttribute('aria-expanded', String(expanded));
+      }
       group.hidden = own.every(b => b.closest('label').hidden);
       group.querySelector('[data-facet-selected]').textContent = chosen ? '(' + chosen + ' elegidas)' : '';
       if (chosen) group.open = true;

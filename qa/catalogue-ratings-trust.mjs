@@ -28,7 +28,7 @@ async function open(market, { width = 1280, javaScriptEnabled = true } = {}) {
 }
 const boxes = page => page.locator('[data-rating-book]').evaluateAll(list => list.map(box => {
   const a = box.querySelector('a');
-  return { id: box.dataset.ratingBook, isbn: box.dataset.isbn || '', text: box.textContent.replace(/\s+/g, ' ').trim(), state: a?.dataset.ratingState || '', label: a?.getAttribute('aria-label') ?? null, href: a?.href || '', stars: Boolean(box.querySelector('.catalogue-stars')), fill: box.querySelector('.catalogue-stars')?.style.getPropertyValue('--rating') || '' };
+  return { id: box.dataset.ratingBook, card: Boolean(box.closest('.catalogue-card')), hidden: box.hidden, isbn: box.dataset.isbn || '', text: box.textContent.replace(/\s+/g, ' ').trim(), state: a?.dataset.ratingState || '', label: a?.getAttribute('aria-label') ?? null, href: a?.href || '', stars: Boolean(box.querySelector('.catalogue-stars')), fill: box.querySelector('.catalogue-stars')?.style.getPropertyValue('--rating') || '' };
 }));
 const unverifiedOk = (b, where) => {
   assert.doesNotMatch(b.text, /0,0|\(0\)|★/, `${where}: ${b.id} pinta una nota sin verificar: «${b.text}»`);
@@ -45,7 +45,11 @@ try {
     assert.ok(all.length > 20, 'el catálogo debe tener tarjetas con valoración');
     for (const b of all) {
       unverifiedOk(b, market === 'fail' ? 'proveedor caído' : 'sin dato');
-      if (b.isbn.length === 13) {
+      if (b.card) {
+        // En la tarjeta, sin nota no se pinta nada: el enlace neutro era ruido en la cuadrícula.
+        assert.equal(b.text, '', `${b.id}: la tarjeta no muestra texto sin valoración`);
+        assert.equal(b.hidden, true, `${b.id}: la caja vacía no reserva altura`);
+      } else if (b.isbn.length === 13) {
         assert.equal(b.text, 'Goodreads · consultar ficha');
         assert.equal(b.state, 'unavailable');
         assert.equal(b.href, `https://www.goodreads.com/book/isbn/${b.isbn}`);
@@ -72,6 +76,8 @@ try {
     // ≥5 opiniones vigentes: nota, recuento y estrellas; nombre accesible = texto visible.
     assert.equal(by[verified].state, 'verified');
     assert.equal(by[verified].text, 'Goodreads ★★★★★ 4,2 (12.345)');
+    // El primer pintado (antes de llegar reading-market.json) oculta las cajas vacías; al llegar la nota debe volver a verse.
+    assert.equal(by[verified].hidden, false, `${width}px: la nota verificada queda oculta`);
     assert.equal(Math.round(parseFloat(by[verified].fill)), 84);
     assert.equal(by[verified].label, null);
     // 1–4 opiniones: se dice que la muestra es pequeña, sin nota y con su propia fuente.
@@ -81,12 +87,12 @@ try {
       assert.equal(by[id].text, text);
       assert.equal(by[id].href, href);
     }
-    // Caducado, fuente falsificada y sin dato: enlace neutro a la ficha por ISBN.
+    // Caducado, fuente falsificada y sin dato: la tarjeta no pinta nada.
     for (const id of [expired, forged, none]) {
       unverifiedOk(by[id], `${width}px ${id}`);
-      assert.equal(by[id].state, 'unavailable');
-      assert.equal(by[id].text, 'Goodreads · consultar ficha');
-      assert.match(by[id].href, /^https:\/\/www\.goodreads\.com\/book\/isbn\/\d{13}$/);
+      assert.equal(by[id].card, true);
+      assert.equal(by[id].text, '');
+      assert.equal(by[id].hidden, true);
     }
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     assert.ok(overflow <= 0, `${width}px: scroll horizontal de ${overflow} px`);

@@ -26,3 +26,20 @@ html.v1 .tool-trust span{border-color:var(--tool-blue);color:var(--tool-blue-dee
 html.v1 .tool-source-list a:hover{color:var(--tool-blue)}
 
 html.v1 .tool-two-col{border-color:var(--tool-blue-deep)}
+
+/* Invitación a apoyar al final de cada herramienta (inyectada por build-site-shell.py).
+   Una línea con el kicker dorado y un botón azul; discreta, pero visible. */
+html.v1 .support-note{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.9rem 1.5rem;
+  margin:clamp(2rem,4vw,3rem) 0 0;padding:clamp(1rem,2.5vw,1.35rem) clamp(1.1rem,3vw,1.6rem);
+  background:#eefaff;border-top:2px solid #b8860b;border-left:3px solid #1d4f96;
+}
+html.v1 .support-note__text{flex:1 1 18rem;min-width:0;overflow-wrap:anywhere;margin:0;font:400 1rem/1.5 var(--font-reading);color:#2a2e31}
+html.v1 .support-note__kicker{display:block;margin-bottom:.1rem;font:400 1.3rem/1.15 'Yellowtail',var(--font-ui),cursive;color:#7a5a07}
+html.v1 .support-note__button{
+  display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:2.75rem;padding:.6rem 1.3rem;
+  background:#1d4f96;color:#fff;border-radius:999px;font:700 .95rem/1.2 var(--font-ui);text-decoration:none;max-width:100%;text-align:center;overflow-wrap:anywhere;
+}
+html.v1 .support-note__button::after{content:"→"}
+html.v1 .support-note__button:hover{background:#0d2c57;color:#fff}
+html.v1 .support-note__button:focus-visible{outline:3px solid #1d4f96;outline-offset:3px}

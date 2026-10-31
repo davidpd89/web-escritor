@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import re
 import shutil
 import sys
 import tempfile
@@ -50,10 +51,21 @@ with tempfile.TemporaryDirectory() as td:
     assert gate.release_errors(root) == [], gate.release_errors(root)
     assert builder.check(root) == []
     html = (root / "apoyar/index.html").read_text(encoding="utf-8")
-    assert html.count("support-method") >= 2 and "noindex" not in html
-    for amount in (2, 5, 10):  # importes rápidos solo en PayPal.me
-        assert f"https://www.paypal.me/davidporto/{amount}EUR" in html
-    assert html.count("support-amount") >= 3 and "ko-fi.com/davidporto/" not in html
+    assert "noindex" not in html
+    # Solo dos botones: PayPal y Ko-fi (este con tarjeta y sin registro). Sin importes ni texto legal.
+    cards = re.findall(r'<a class="support-method support-method--([a-z-]+)" href="([^"]+)"', html)
+    assert cards == [("paypal-me", "https://www.paypal.me/davidporto"), ("kofi", "https://ko-fi.com/davidporto")], cards
+    assert "sin registro" in html.split("support-method--kofi", 1)[1].split("</a>", 1)[0].lower()
+    for forbidden in ("support-amount", "Importe", "EUR\"", "aviso-legal", "benéfica", "afiliado", "/privacidad/"):
+        assert forbidden not in html.split('<main', 1)[1].split('</main>', 1)[0], forbidden
+    main = html.split('<main', 1)[1].split('</main>', 1)[0]
+    assert len(re.findall(r"<h1\b", html)) == 1 and "Gracias por estar aquí</h1>" in main
+    assert 'data-family="support"' in html and "/assets/v1-support.css" in html
+    # Sin el listado de lo gratuito; como ayuda alternativa, solo novelas y redes.
+    assert "support-free" not in main and "Todo es gratis" not in main
+    other = main.split('class="support-other__list"', 1)[1].split("</ul>", 1)[0]
+    assert re.findall(r'<a href="([^"]+)">([^<]+)</a>', other) == [
+        ("/libros/", "Recomienda mis novelas"), ("/redes-sociales/", "Sígueme en redes")], other
     registry = json.loads((root / "data/content-registry.json").read_text(encoding="utf-8"))
     assert sum(e["id"] == "support-project" for e in registry["entries"]) == 1
 print("PASS: /apoyar/ multicanal solo existe con canales válidos y cumple el gate")

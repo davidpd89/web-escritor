@@ -74,6 +74,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
 
     deadline = time.monotonic() + timeout
     pending = set(workflows)
+    retried = set()
     while pending:
         if time.monotonic() >= deadline:
             raise TimeoutError(f'CI timed out; PR left open: {sorted(pending)}')
@@ -91,6 +92,13 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
             url = f'https://github.com/{repo}/actions/runs/{result["databaseId"]}'
             context = REQUIRED_JOBS.get(workflow)
             if result['conclusion'] != 'success':
+                # Browser jobs fail sporadically (one in four bot PRs lost its day this way);
+                # a single rerun of the failed jobs on the same commit still needs real green.
+                if workflow not in retried:
+                    retried.add(workflow)
+                    gh('run', 'rerun', str(result['databaseId']), '--failed')
+                    print(f'RETRY {workflow} ({result["databaseId"]})', flush=True)
+                    continue
                 if context:
                     report_job(repo, sha, context, 'failure', url)
                 raise RuntimeError(f'{workflow} failed ({result["databaseId"]}); PR left open')

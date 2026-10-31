@@ -33,9 +33,16 @@ ENTRY = {
     "discoverability": "secondary", "footerEligible": True, "audience": ["reader", "writer"],
     "jobs": ["apoyar"], "sourceFile": PAGE, "status": "public",
 }
-DESCRIPTION = (
-    "Las herramientas, las guías y los recursos de esta web se ofrecen gratis. Si te han resultado útiles "
-    "y quieres ayudar a mantenerlos y crear otros nuevos, puedes hacer una aportación voluntaria."
+LEAD = (
+    "Las herramientas, las guías, el catálogo de lecturas y el Atlas literario son gratuitos: "
+    "sin registro y sin muros de pago. Si te ayudan, un café los mantiene vivos y ayuda a crear otros nuevos."
+)
+CUP_SVG = (
+    '<svg class="support-cup" viewBox="0 0 64 64" aria-hidden="true" focusable="false">'
+    '<path class="support-cup__steam" d="M25 6c-3 4 3 7 0 11M33 4c-3 4 3 7 0 11M41 6c-3 4 3 7 0 11"/>'
+    '<path class="support-cup__body" d="M12 24h36v14a16 16 0 0 1-16 16h-4a16 16 0 0 1-16-16z"/>'
+    '<path class="support-cup__handle" d="M48 29h3a7 7 0 0 1 0 14h-4"/>'
+    '<path class="support-cup__saucer" d="M6 58h48"/></svg>'
 )
 
 
@@ -79,7 +86,7 @@ def render(channels: list[dict]) -> str:
   <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-shell.css?v=10" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
-  <link rel="stylesheet" href="/assets/v1-support.css?v=2" />
+  <link rel="stylesheet" href="/assets/v1-support.css?v=4" />
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
@@ -97,14 +104,21 @@ def render(channels: list[dict]) -> str:
   <header class="site-header" data-header></header>
   <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog></dialog>
   <main id="contenido" class="v1-main" tabindex="-1" data-family="support">
-    <section class="support-page" aria-labelledby="support-title">
-      <p class="eyebrow">Aportación voluntaria</p>
-      <h1 id="support-title">Apoya este proyecto</h1>
-      <p class="support-page__lead">{DESCRIPTION} Gracias por leer y utilizar este espacio.</p>
-      <div class="support-methods">{methods}</div>
-      <p class="support-page__note">Elige el canal que te resulte más cómodo. El pago se completa en la plataforma elegida; nosotros no recogemos datos de tarjeta ni guardamos ningún dato de tu aportación en esta web.</p>
-      <p class="support-page__legal">La aportación es voluntaria y única, no da acceso a ningún contenido extra ni es una donación benéfica. Esta web también incluye enlaces de afiliado de Amazon, como se explica en el aviso legal.</p>
-      <p class="support-page__legal"><a href="/privacidad.html">Privacidad</a> · <a href="/aviso-legal.html">Aviso legal</a></p>
+    <div class="support-sheet">
+      <section class="support-hero" aria-labelledby="support-title">
+        {CUP_SVG}
+        <h1 id="support-title" class="support-title">Gracias por estar aquí</h1>
+        <p class="support-lead">{LEAD}</p>
+      </section>
+      <div class="support-methods" aria-label="Formas de aportar">{methods}</div>
+      <p class="support-trust"><svg class="support-trust__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3"/></svg><span>Aportación única y voluntaria. El pago se hace en PayPal o Ko-fi; esta web no ve ni guarda tus datos.</span></p>
+    </div>
+    <section class="support-other" aria-labelledby="support-other-title">
+      <h2 id="support-other-title">¿Ahora no puedes? También ayudas así</h2>
+      <ul class="support-other__list">
+        <li><a href="/libros/">Recomienda mis novelas</a></li>
+        <li><a href="/redes-sociales/">Sígueme en redes</a></li>
+      </ul>
     </section>
   </main>
   <footer class="site-footer"></footer>

@@ -20,7 +20,7 @@ import re
 from decimal import Decimal, InvalidOperation
 from urllib.parse import urljoin, urlsplit
 
-from reading_editorial_sources import SourceError, editorial_excerpt
+from reading_editorial_sources import SourceError, editorial_excerpt, editorial_synopsis
 from reading_intake_core import clean_title, edition_date, isbn13, normalize_text
 from reading_planeta_source import _looks_spanish
 from reading_taxonomy import keyword_list
@@ -29,6 +29,8 @@ from reading_taxonomy import keyword_list
 REVIEWED: dict[str, tuple[tuple[str, ...], tuple[str, ...]]] = {
     'anagrama-es': (('www.anagrama-ed.es',), ('cms.anagrama-ed.es',)),
     'nordica-es': (('nordicalibros.com',), ('nordicalibros.com',)),
+    'duomo-es': (('www.duomoediciones.com',), ('www.duomoediciones.com',)),
+    'periferica-es': (('www.editorialperiferica.com',), ('www.editorialperiferica.com',)),
 }
 
 FORMATS = (
@@ -43,7 +45,10 @@ LABELS = {
     'formato': {'formato', 'encuadernacion', 'presentacion', 'tipo de encuadernacion', 'tapa'},
     'coleccion': {'coleccion', 'serie'},
     'pvp': {'pvp', 'pvp con iva', 'precio', 'precio con iva'},
+    'thema': {'thema', 'codigo thema', 'materia thema'},
 }
+# Prefijos de la clasificación Thema que declara la propia editorial; más fiables que deducir de la sinopsis.
+THEMA_SUBJECTS = (('DC', 'Poesía'), ('DN', 'Biografías y memorias'), ('F', 'Narrativa'), ('Q', 'Ensayo'), ('J', 'Ensayo'))
 LABEL_OF = {text: field for field, texts in LABELS.items() for text in texts}
 MONTHS = {'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4, 'mayo': 5, 'junio': 6, 'julio': 7, 'agosto': 8,
           'septiembre': 9, 'setiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12}
@@ -53,7 +58,8 @@ SUBJECT_RULES = (
     (r'\b(cuentos|relatos)\b', 'Narrativa'),
     (r'\b(novela|narrativa|trilogia|saga)\b', 'Narrativa'),
     (r'\b(memorias|autobiograf\w+|biografia|diarios?)\b', 'Biografías y memorias'),
-    (r'\b(ensayo|ensayos|estudio|analisis|historia|filosofia|psicoanalisis)\b', 'Ensayo'),
+    # «historia», «estudio» o «análisis» salen en casi cualquier sinopsis de novela: no deciden la materia.
+    (r'\b(ensayo|ensayos|filosofia|psicoanalisis)\b', 'Ensayo'),
 )
 JSONLD = re.compile(r'<script[^>]+type="application/ld\+json"[^>]*>(.*?)</script>', re.S | re.I)
 BLOCK = re.compile(r'</?(?:p|div|li|ul|ol|dt|dd|dl|th|td|tr|table|section|article|h[1-6]|span|strong|b|em|i|a|label|small|br)\b[^>]*>', re.I)
@@ -147,6 +153,8 @@ def _date(value: str):
     match = re.fullmatch(r'(\d{1,2})[/.-](\d{1,2})[/.-](20\d{2})', value)
     if match:
         value = f'{match.group(3)}-{int(match.group(2)):02d}-{int(match.group(1)):02d}'
+    elif match := re.fullmatch(r'(\d{1,2})[/.-](20\d{2})', value):
+        value = f'{match.group(2)}-{int(match.group(1)):02d}'
     elif re.match(r'20\d{2}-\d{2}-\d{2}', value):
         value = value[:10]
     iso, precision = edition_date(value)
@@ -216,8 +224,13 @@ def _synopsis_html(source: dict, document: str, fallback: str) -> str:
 
 
 def _infer_subject(*texts: str) -> list[str]:
+    # Gana la materia con más apariciones: un «poema» suelto en la sinopsis no convierte una novela en poesía.
     folded = normalize_text(' '.join(texts))
-    return next(([subject] for pattern, subject in SUBJECT_RULES if re.search(pattern, folded)), [])
+    scores = {}
+    for pattern, subject in SUBJECT_RULES:
+        scores[subject] = scores.get(subject, 0) + len(re.findall(pattern, folded))
+    best = max(scores.values(), default=0)
+    return [next(subject for subject, score in scores.items() if score == best)] if best else []
 
 
 def _authors(source: dict, document: str, book: dict, title_end: int) -> list[str]:
@@ -285,6 +298,8 @@ def generic_edition(source: dict, document: str, url: str) -> dict:
                   or collection_key.replace('-', ' ').capitalize())
     subject = source.get('subject_by_collection', {}).get(collection_key)
     genre = book.get('genre')
+    thema = (ficha.get('thema') or '').strip().upper()
+    subject = subject or next((name for prefix, name in THEMA_SUBJECTS if thema.startswith(prefix)), None)
     subjects = [s for s in ([subject] if subject else _names(genre) if genre else []) if s] or _infer_subject(title, synopsis)
     keywords = book.get('keywords')
     keywords = ', '.join(keywords) if isinstance(keywords, list) else str(keywords or '')
@@ -302,5 +317,6 @@ def generic_edition(source: dict, document: str, url: str) -> dict:
             'fuentes_autores': {},
             'coleccion': collection,
             'sinopsis_breve': editorial_excerpt(synopsis_html),
+            'sinopsis_completa': editorial_synopsis(synopsis_html),
             'palabras_clave': keyword_list(keywords),
             'pvp_centimos': price}
