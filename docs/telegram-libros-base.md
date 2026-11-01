@@ -42,6 +42,15 @@ python scripts/reading_telegram.py --channels .local/telegram/channels.json --se
 python scripts/reading_telegram.py --channels .local/telegram/channels.json --send --watch
 ```
 
+Para probar en cualquier fecha una edición revisada sin presentarla como novedad de hoy:
+
+```sh
+python scripts/reading_telegram.py --channels .local/telegram/channels.json --test-asin 8498382378
+python scripts/reading_telegram.py --channels .local/telegram/channels.json --test-asin 8498382378 --send
+```
+
+`--test-asin` conserva la fecha editorial real y añade «PRUEBA · ficha de libro / No es una novedad de hoy». Usa `.local/telegram/smoke.db`, separada de las entregas diarias. No admite `--watch` ni `--date`. El catálogo demo continúa bloqueando envíos reales. Repetir esta prueba con la misma base omite la edición ya enviada; no borrar la base para comprobar duplicados.
+
 `--date` solo sirve para previews. Los envíos usan la fecha actual de Madrid. Si no hay novedades reales ese día, esperar a una fecha elegible o preparar un catálogo de prueba **separado** con `--catalog`; no alterar las fechas del catálogo editorial compartido. Repetir el comando con la misma base debe omitir lo ya enviado.
 
 ## Ejecución automática y estado
@@ -73,3 +82,11 @@ La base permite probar selección y entrega; el servicio completo de novedades d
 ## Hallazgo de la revisión inicial (1 de noviembre de 2026)
 
 En el catálogo revisado hay 161 entradas: solo una cumple todos los requisitos del piloto, Coraline, que tiene enlace de producto. Las otras 160 quedan pendientes según los requisitos combinados; muchas fichas usan búsquedas por ISBN. Por tanto, el catálogo automatizado actual no basta todavía para alimentar diariamente este canal con enlaces de producto. La siguiente tarea concreta es resolver destinos de edición verificados para las novedades, o definir expresamente otro formato que identifique las búsquedas como búsquedas. No se relajó esa validación para aparentar que la automatización ya está completa.
+
+## Prueba real realizada (1 de noviembre de 2026)
+
+Con autorización del propietario se creó `@DavidPortoLibrosBot` en BotFather y se conectó al canal privado «Libros · Pruebas David Porto». La API verificó el bot y su estado de administrador con permiso de publicar; sin permisos de editar/borrar mensajes ajenos o promover administradores. El token y la configuración del destino permanecen exclusivamente en `.local/telegram/`, ignorado por Git. No se incluyen credenciales ni enlace de invitación privado en esta documentación.
+
+Se ejecutó `--test-asin 8498382378 --send`: estado `sent`, ficha de Coraline visible en Telegram Web, marcada como prueba con fecha editorial 2009-06-01. El enlace renderizado conserva `https://www.amazon.es/dp/8498382378?tag=davidporto-21`. La segunda ejecución devolvió `skipped:sent`; no apareció otro mensaje. La lectura del canal y el enlace se comprobaron mediante el Edge existente por CDP 9240, sin abrir otro perfil.
+
+Esta prueba acredita entrega real e idempotencia tras una segunda ejecución. No acredita todavía descubrimiento diario completo, servidor permanente, entrega exactamente una vez ante fallos de red o publicación automática de todas las novedades. No se ha dejado un proceso continuo ni un cron de envíos reales activo.

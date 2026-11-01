@@ -182,6 +182,41 @@ def run(
     return results
 
 
+def smoke(
+    catalog: dict, asin: str, db_path: Path, live: bool = False, sender=send
+) -> list[dict]:
+    """Exercise one reviewed edition without claiming it was released today.
+
+    Use a separate delivery database so the test cannot suppress a daily job.
+    """
+    selected = [book for book in catalog["books"] if book["asin"] == asin]
+    if len(selected) != 1:
+        raise ValueError("Choose one eligible ASIN from the existing catalogue")
+    test_catalog = {**catalog, "books": selected}
+
+    def test_text(text):
+        return text.replace(
+            "📚 <b>Novedad de hoy</b>",
+            "🧪 <b>PRUEBA · ficha de libro</b>\nNo es una novedad de hoy.",
+            1,
+        )
+
+    def test_sender(token, chat_id, text):
+        return sender(token, chat_id, test_text(text))
+
+    results = run(
+        test_catalog,
+        date.fromisoformat(selected[0]["release_date"]),
+        db_path,
+        live,
+        sender=test_sender,
+    )
+    for result in results:
+        if "text" in result:
+            result["text"] = test_text(result["text"])
+    return results
+
+
 def main() -> None:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
@@ -190,10 +225,11 @@ def main() -> None:
         "--catalog", type=Path, default=Path("data/reading-catalogue.json")
     )
     parser.add_argument("--channels", type=Path, required=True)
-    parser.add_argument(
-        "--db", type=Path, default=Path(".local/telegram/deliveries.db")
-    )
+    parser.add_argument("--db", type=Path)
     parser.add_argument("--date", type=date.fromisoformat, help="Preview date only")
+    parser.add_argument(
+        "--test-asin", help="One labelled test edition; uses a separate smoke database"
+    )
     parser.add_argument(
         "--send", action="store_true", help="Enable real Telegram delivery"
     )
@@ -203,6 +239,13 @@ def main() -> None:
     args = parser.parse_args()
     if args.send and args.date:
         parser.error("--date is only allowed for preview")
+    if args.test_asin and (args.watch or args.date):
+        parser.error("--test-asin cannot be combined with --watch or --date")
+    db_path = args.db or Path(
+        ".local/telegram/smoke.db"
+        if args.test_asin
+        else ".local/telegram/deliveries.db"
+    )
     try:
         while True:
             today = args.date or datetime.now(ZoneInfo("Europe/Madrid")).date()
@@ -216,7 +259,12 @@ def main() -> None:
                 ),
                 flush=True,
             )
-            results = run(catalog, today, args.db, args.send)
+            if args.test_asin:
+                if db_path.resolve() == Path(".local/telegram/deliveries.db").resolve():
+                    raise ValueError("Smoke test requires its own database")
+                results = smoke(catalog, args.test_asin, db_path, args.send)
+            else:
+                results = run(catalog, today, db_path, args.send)
             print(json.dumps(results, ensure_ascii=False), flush=True)
             if not args.watch:
                 if any(

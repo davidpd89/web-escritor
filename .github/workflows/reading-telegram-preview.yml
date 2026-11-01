@@ -23,3 +23,5 @@ jobs:
       - run: python -m unittest discover -s tests -p 'test_reading_telegram.py' -v
       - name: Preview existing catalogue without secrets or Telegram calls
         run: python scripts/reading_telegram.py --channels data/reading-telegram.example.json
+      - name: Preview a labelled historical edition without publishing
+        run: python scripts/reading_telegram.py --channels data/reading-telegram.example.json --test-asin 8498382378

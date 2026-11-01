@@ -12,10 +12,30 @@ import unittest
 from unittest.mock import Mock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from reading_telegram import from_reading_catalogue, run, send
+from reading_telegram import from_reading_catalogue, run, send, smoke
 
 
 class ReadingTelegramTests(unittest.TestCase):
+    def test_labelled_smoke_preview(self):
+        result = smoke(self.catalog(), "8498382378", self.root / "smoke.db")
+        self.assertIn("PRUEBA", result[0]["text"])
+        self.assertNotIn("Novedad de hoy", result[0]["text"])
+        self.assertIn("2026-11-01", result[0]["text"])
+        self.assertFalse((self.root / "smoke.db").exists())
+
+    def test_smoke_delivery_and_dedup(self):
+        with (
+            patch.dict("os.environ", {"TEST_TOKEN": "test"}),
+            patch("reading_telegram.time.sleep"),
+        ):
+            sender = Mock(return_value=("sent", 5))
+            db = self.root / "smoke.db"
+            result = smoke(self.catalog(), "8498382378", db, True, sender=sender)
+            self.assertEqual(result[0]["status"], "sent")
+            self.assertIn("PRUEBA", sender.call_args.args[2])
+            smoke(self.catalog(), "8498382378", db, True, sender=sender)
+            self.assertEqual(sender.call_count, 2)
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
