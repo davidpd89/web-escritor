@@ -696,7 +696,10 @@ def render_author(a,data,books,template):
     elif a.get('tipo') != 'bibliografico':
         person['sameAs']=[source['url'] for source in a['fuentes']]
     schema={'@context':'https://schema.org','@graph':[person,{'@type':'CollectionPage','@id':canonical,'url':canonical,'name':a['nombre']+' · Información y libros','mainEntity':{'@id':canonical+'#person'},'hasPart':[{'@id':SITE+url(b)+'#book'} for b in selected]},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':label,'item':SITE+href} for i,(label,href) in enumerate([('Inicio','/'),('Libros recomendados','/recomendaciones/'),(a['nombre'],author_url(a))])]}]}
-    return render_detail_page(template,main,canonical,a['nombre']+' · Información y libros | David Porto Díaz',bio,schema,selected[0] if selected else None)
+    titles=', '.join(b['titulo'] for b in selected[:2])
+    meta=a['nombre']+': '+(str(count)+(' libro recomendado' if count==1 else ' libros recomendados')+(' ('+titles+')' if titles else '')+', ' if count else '')+'biografía, géneros y editoriales.'
+    if len(meta)>160: meta=a['nombre']+': '+str(count)+(' libro recomendado' if count==1 else ' libros recomendados')+', biografía, géneros y editoriales.'
+    return render_detail_page(template,main,canonical,a['nombre']+': libros y biografía | David Porto Díaz',meta if a.get('tipo') != 'bibliografico' or count else bio,schema,selected[0] if selected else None)
 
 
 def _newest_first(books):
