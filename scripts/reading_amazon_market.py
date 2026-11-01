@@ -318,7 +318,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
     for start in range(0,len(due),5):
         group=due[start:start+5]
         found={b['id']:{} for b in group}
-        current=group[0]
+        current,priced=group[0],False
         try:
             for current in group:
                 if not verified_formats(current):
@@ -328,6 +328,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
                     # Kindle and audiobook editions have their own ASIN and no ISBN.
                     keep(found[current['id']],current,ask(provider.discover,current))
                     current['formatos_amazon_buscados']=day
+            priced=True
             pending=[(b,asin) for b in group for asin,fmt in verified_formats(b).items() if fmt not in found[b['id']]]
             if hasattr(provider,'items'):
                 asins=list(dict.fromkeys(asin for _,asin in pending))
@@ -342,7 +343,8 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
                 for current in {b['id']:b for b,_ in pending}.values():
                     keep(found[current['id']],current,ask(provider,current))
         except LookupError:
-            stats['attempted']+=len(group)
+            # Only the books that reached Amazon count; the one cut off did not.
+            stats['attempted']+=len(group) if priced else group.index(current)
             break  # Daily limit reached: the rest stays due for tomorrow.
         except (RuntimeError,OSError,ValueError,KeyError,TypeError) as exc:
             stats['attempted']+=len(group)

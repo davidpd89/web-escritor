@@ -43,9 +43,7 @@
   // without reparsing the same URLs for every card and quiz option.
   const offersFor = id => (offersIndex.get(id) || []).filter(o => fresh(o, 24));
   const ratingFor = id => (ratingsIndex.get(id) || []).find(r => fresh(r, 720));
-  const currency = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
   const madridDate = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit' });
-  const money = cents => currency.format(cents / 100);
   let dateMinute = -1, dateValue;
   const today = () => {
     const minute = Math.floor(Date.now() / 60000);
@@ -88,8 +86,7 @@
         // Que aquí no haya dato utilizable (caducado, proveedor caído, fuente no válida) no prueba que la fuente tenga cero opiniones.
         const thin = market.ratings.find(x => x.libro_id === box.dataset.ratingBook && thinRating(x));
         const isbn = /^\d{13}$/.test(box.dataset.isbn || '') ? box.dataset.isbn : '';
-        // En la tarjeta, sin nota no se pinta nada: «consultar ficha» era ruido en 70 de 96 libros.
-        if (!thin && box.closest('.catalogue-card')) { box.hidden = true; continue; }
+        // Tarjeta y ficha muestran lo mismo: nota verificada o enlace neutro a Goodreads.
         if (thin || isbn) {
           const ref = document.createElement('a'); ref.href = thin ? thin.url : 'https://www.goodreads.com/book/isbn/' + isbn; ref.target = '_blank'; ref.rel = 'noopener noreferrer';
           ref.className = 'catalogue-rating__ref'; ref.dataset.ratingState = thin ? 'insufficient' : 'unavailable';
@@ -197,10 +194,6 @@
     const shown = new Set(found.slice((currentPage - 1) * pageSize, currentPage * pageSize));
     for (const card of cards) card.hidden = !shown.has(card);
     renderPagination(pages, visible);
-    for (const box of root.querySelectorAll('[data-price-book]')) {
-      const offers = offersFor(box.dataset.priceBook).filter(o => !v.formato.length || v.formato.includes(o.formato)).sort((a, b) => a.precio_centimos - b.precio_centimos); box.replaceChildren(); box.hidden = !offers.length;
-      if (offers.length) { const link = document.createElement('a'); link.href = offers[0].url; link.rel = 'sponsored nofollow noopener noreferrer'; link.target = '_blank'; link.textContent = 'Desde ' + money(offers[0].precio_centimos) + ' en Amazon'; link.title = 'Precio consultado el ' + new Date(offers[0].actualizado_en).toLocaleString('es-ES') + '. El precio aplicable será el de Amazon al comprar.'; box.append(link); }
-    }
     if (form) {
       const refineCount = root.querySelector('[data-catalogue-refine-count]');
       if (refineCount) { const active = fields.filter(f => !['q', 'orden'].includes(f.dataset.filter) && f.value && !f.disabled).length + boxes.filter(b => b.checked).length; refineCount.textContent = active ? '· ' + active + (active === 1 ? ' activo' : ' activos') : ''; }

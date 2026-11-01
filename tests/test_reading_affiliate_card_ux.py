@@ -92,10 +92,11 @@ class AffiliateNavigationTest(unittest.TestCase):
         html = builder.render_hub(self.data, books, self.template)
         self.assertGreaterEqual(html.count('class="catalogue-tags'), 2)
         self.assertEqual(builder.publication_date_label(self.coraline), "1 de junio de 2009")
-        self.assertIn('<dl class="catalogue-facts">', html)
+        self.assertIn('<p class="catalogue-byline">', html)
+        self.assertNotIn('catalogue-facts', html)
         self.assertIn(self.imported["editorial"], html)
         if self.imported.get("numero_paginas"):
-            self.assertIn("<dt>Páginas</dt><dd>" + str(self.imported["numero_paginas"]) + "</dd>", html)
+            self.assertIn('<span class="catalogue-pages">' + str(self.imported["numero_paginas"]) + " páginas</span>", html)
         self.assertNotIn("Edad:", html)
         if self.imported.get("fecha_publicacion"):
             self.assertIn(" de ", builder.publication_date_label(self.imported))

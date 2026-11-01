@@ -45,11 +45,8 @@ try {
     assert.ok(all.length > 20, 'el catálogo debe tener tarjetas con valoración');
     for (const b of all) {
       unverifiedOk(b, market === 'fail' ? 'proveedor caído' : 'sin dato');
-      if (b.card) {
-        // En la tarjeta, sin nota no se pinta nada: el enlace neutro era ruido en la cuadrícula.
-        assert.equal(b.text, '', `${b.id}: la tarjeta no muestra texto sin valoración`);
-        assert.equal(b.hidden, true, `${b.id}: la caja vacía no reserva altura`);
-      } else if (b.isbn.length === 13) {
+      // Tarjeta y ficha muestran lo mismo: con ISBN, el enlace neutro a Goodreads.
+      if (b.isbn.length === 13) {
         assert.equal(b.text, 'Goodreads · consultar ficha');
         assert.equal(b.state, 'unavailable');
         assert.equal(b.href, `https://www.goodreads.com/book/isbn/${b.isbn}`);
@@ -87,12 +84,12 @@ try {
       assert.equal(by[id].text, text);
       assert.equal(by[id].href, href);
     }
-    // Caducado, fuente falsificada y sin dato: la tarjeta no pinta nada.
+    // Caducado, fuente falsificada y sin dato: ni nota ni fuente ajena, solo el enlace neutro.
     for (const id of [expired, forged, none]) {
       unverifiedOk(by[id], `${width}px ${id}`);
       assert.equal(by[id].card, true);
-      assert.equal(by[id].text, '');
-      assert.equal(by[id].hidden, true);
+      assert.equal(by[id].text, 'Goodreads · consultar ficha');
+      assert.equal(by[id].state, 'unavailable');
     }
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     assert.ok(overflow <= 0, `${width}px: scroll horizontal de ${overflow} px`);
