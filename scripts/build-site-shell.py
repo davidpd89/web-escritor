@@ -198,7 +198,7 @@ PRIMARY_BUY_URL = _EDITORIAL_FACTS["books"]["lasManecillasDelRecuerdo"]["purchas
 # now emits an inert `[data-email-reveal]` trigger with no address anywhere
 # in its markup; assets/email-reveal.js builds the real mailto: link only
 # after a human click/keypress.
-EMAIL_REVEAL_RUNTIME = '<script defer src="/assets/email-reveal.js?v=4"></script>'
+EMAIL_REVEAL_RUNTIME = '<script defer src="/assets/email-reveal.js?v=5"></script>'
 
 
 def email_reveal_link(
@@ -493,7 +493,9 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
         '    </div>\n'
         '    <div class="site-header__actions">\n'
         '      <a class="header-social" href="/redes-sociales/" aria-label="Redes sociales" title="Redes sociales">RRSS</a>\n'
-        '      <a class="header-contact" href="/prensa.html#contacto" aria-label="Contactar" title="Contactar">\n'
+        # Same mail chooser as the footer «@ Escríbeme» (email-reveal.js +
+        # v1-shell.js); without JS it stays a link to the press contact section.
+        '      <a class="header-contact" href="/prensa.html#contacto" data-email-reveal data-email-keep-markup aria-label="Contactar" title="Contactar">\n'
         '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M4 6.5h16v11H4z"/><path d="m4.5 7 7.5 6 7.5-6"/></svg>\n'
         '      </a>\n'
         f"{SUPPORT_LINK if support_active() else ''}"
