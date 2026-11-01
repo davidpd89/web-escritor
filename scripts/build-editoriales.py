@@ -454,6 +454,39 @@ def source_link(record: dict, url: str, label: str, css_class: str = "") -> str:
     return f'<a{css} href="{esc(url)}" target="_blank" rel="noopener noreferrer">{esc(label)}</a>'
 
 
+TITLE_BY_STATUS = {
+    "open": "{name} acepta manuscritos: cómo enviar",
+    "closed": "{name}: recepción de manuscritos cerrada",
+    "indirect": "{name}: manuscritos solo por vía indirecta",
+    "award_only": "{name}: manuscritos solo por premio",
+    "unknown": "{name}: ¿acepta manuscritos?",
+}
+SNIPPET_BY_STATUS = {
+    "open": "Sí acepta manuscritos",
+    "closed": "Recepción cerrada por ahora",
+    "indirect": "No recibe envíos directos",
+    "award_only": "Solo recibe originales por convocatoria o premio",
+    "unknown": "Estado aún por verificar",
+}
+
+
+def detail_title_for(record: dict) -> str:
+    title = TITLE_BY_STATUS[record["status"]].format(name=record["name"])
+    if len(title) + len(" | David Porto Díaz") <= 70:
+        return f"{title} | David Porto Díaz"
+    return f"{record['name']}: manuscritos | David Porto Díaz"
+
+
+def detail_description(record: dict) -> str:
+    channel = (record.get("submission_channel") or "").strip()
+    parts = [f"{record['name']}: {SNIPPET_BY_STATUS[record['status']]}."]
+    if record["status"] == "open" and channel:
+        parts.append(f"Canal: {channel.lower()}.")
+    parts.append(f"Requisitos y fuente oficial, comprobado el {record['verified_at']}.")
+    text = " ".join(parts)
+    return text if len(text) <= 160 else f"{record['name']}: {SNIPPET_BY_STATUS[record['status']]}. Requisitos y fuente oficial, comprobado el {record['verified_at']}."
+
+
 def render_detail(site: str, record: dict, today: date) -> str:
     canonical = f"{site}/editoriales/{record['slug']}/"
     status = STATUS_LABELS[record["status"]]
@@ -471,7 +504,7 @@ def render_detail(site: str, record: dict, today: date) -> str:
     email_html = f'<a href="mailto:{esc(email)}">{esc(email)}</a>' if email else "No se publica un correo de envío para el estado actual."
     response = esc(record.get("response_time") or "No se publica un plazo oficial en esta ficha.")
     stale_html = '<p class="tool-note"><strong>Revisión recomendada:</strong> esta ficha lleva más de 90 días sin verificarse. Comprueba la fuente oficial antes de usar los datos.</p>' if stale(record, today) else ""
-    description = f"{record['name']}: estado de recepción de manuscritos, requisitos, canal oficial, fuentes y fecha de comprobación."
+    description = detail_description(record)
     instructions = (
         '<p class="tool-note">El canal oficial no está disponible. La recepción de manuscritos queda por verificar.</p>'
         if record['submission_url'] in record.get('unavailable_urls', []) else
@@ -517,9 +550,7 @@ def render_detail(site: str, record: dict, today: date) -> str:
             ]),
         ],
     }
-    detail_title = f"{record['name']}: manuscritos y requisitos | David Porto Díaz"
-    if len(detail_title) > 70:
-        detail_title = f"{record['name']}: manuscritos | David Porto Díaz"
+    detail_title = detail_title_for(record)
     return page_shell(title=detail_title, description=description, canonical=canonical, main_html=main, jsonld=jsonld, extra_css='<link rel="stylesheet" href="/assets/v1-editoriales-detail.css?v=1" />')
 
 
