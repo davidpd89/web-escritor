@@ -239,6 +239,24 @@ def tags(cats, compact=False):
     return group(cats)
 
 
+QUALITY_DATA = ('isbn13', 'numero_paginas', 'editorial', 'fecha_publicacion', 'edad_recomendada')
+
+
+def quality_gate(b):
+    """Motivos por los que una ficha aún no aporta valor propio (lista vacía = indexable).
+
+    Una ficha con solo extracto editorial y botón de compra es afiliación débil:
+    necesita al menos una señal propia y datos de edición suficientes."""
+    own = (b.get('sinopsis_tipo') == 'resumen_propio' or b.get('autoria_propia')
+           or b.get('lectura_personal_confirmada') or approved_reviews_for(b))
+    reasons = [] if own else ['sin texto propio']
+    if sum(1 for key in QUALITY_DATA if b.get(key)) < 3:
+        reasons.append('datos de edición insuficientes')
+    if not amazon_destination(b):
+        reasons.append('sin enlace de compra')
+    return reasons
+
+
 def synopsis(b):
     return b.get('sinopsis_breve') or b['descripcion_breve']
 
@@ -632,7 +650,7 @@ def render_hub(data, books, template):
     return inject_shell_auto(page)
 
 
-def render_book(data,b,template):
+def render_book(data,b,template,enforce_quality=False):
     canonical=SITE+url(b)
     title=book_title(b)
     description=meta_synopsis(b)
@@ -664,7 +682,10 @@ def render_book(data,b,template):
     if reviews:
         schema['@graph'][0]['review']=[{'@type':'Review','author':{'@type':'Person','name':r['nombre_publico']},'datePublished':r['fecha_envio'],'name':r['titulo_resena'],'reviewBody':r['texto_resena'],'reviewRating':{'@type':'Rating','ratingValue':r['puntuacion'],'bestRating':5,'worstRating':1}} for r in reviews]
         schema['@graph'][0]['aggregateRating']={'@type':'AggregateRating','ratingValue':round(sum(r['puntuacion'] for r in reviews)/len(reviews),2),'ratingCount':len(reviews),'bestRating':5,'worstRating':1}
-    return render_detail_page(template,main,canonical,title,description,schema,b)
+    page=render_detail_page(template,main,canonical,title,description,schema,b)
+    if enforce_quality and quality_gate(b):
+        page=page.replace('<meta name="robots" content="index,follow,max-image-preview:large" />','<meta name="robots" content="noindex,follow" />',1)
+    return page
 
 
 def related_books(data, book):
@@ -857,6 +878,8 @@ def main():
     parser.add_argument('--root', type=Path, default=ROOT)
     parser.add_argument('--data', type=Path)
     parser.add_argument('--check', action='store_true')
+    parser.add_argument('--umbral-calidad', choices=('informe', 'aplicar'), default='informe',
+                        help='aplicar: noindex,follow (y fuera del sitemap) en fichas sin valor propio')
     args = parser.parse_args()
     root = args.root.resolve()
     try:
@@ -869,7 +892,9 @@ def main():
         if map_path.exists():
             outputs['mapa-del-sitio/index.html'] = render_map(map_path.read_text(encoding='utf-8'), books, authors, publisher_records(root))
         for b in books:
-            outputs[url(b).lstrip('/') + 'index.html'] = render_book(data, b, template)
+            outputs[url(b).lstrip('/') + 'index.html'] = render_book(data, b, template, args.umbral_calidad == 'aplicar')
+        weak = {b['id']: quality_gate(b) for b in books}
+        weak = {k: v for k, v in weak.items() if v}
         active_authors = [a for a in authors if any(a['nombre'] in b['autores'] for b in books)]
         for a in active_authors:
             outputs[author_url(a).lstrip('/') + 'index.html'] = render_author(a, data, books, template, active_authors)
@@ -902,6 +927,8 @@ def main():
                     (target.write_bytes(text.encode('utf-8')) if rel.endswith('.ics') else target.write_text(text, encoding='utf-8', newline='\n'))
         require(not args.check or not drift, 'Catálogo desactualizado: ' + ', '.join(drift))
         print(f'Catálogo OK: {len(books)} libros publicados; {len(drift)} archivos {"pendientes" if args.check else "actualizados"}.')
+        print(f'Umbral de calidad ({args.umbral_calidad}): {len(books) - len(weak)} indexables, {len(weak)} por debajo'
+              + (' (noindex)' if args.umbral_calidad == 'aplicar' else ' (sin cambios en la web)') + '.')
         return 0
     except (ValidationError, ValueError, KeyError, TypeError) as exc:
         print(f'ERROR: {exc}', file=sys.stderr)
