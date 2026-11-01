@@ -118,24 +118,32 @@ def work_key(title, authors):
     return normalize_text(title), tuple(sorted(normalize_text(a) for a in authors))
 
 
+def age_band(subject, catalogue, cats):
+    """Categoría de edad de una franja editorial («De 9 a 12 años», «A partir de 7 años»), o None."""
+    key = normalize_text(subject)
+    if not re.fullmatch(r'(?:de \d+ a \d+ anos|a partir de \d+ anos)', key):
+        return None
+    age_id, age_name = 'edad-' + key.replace(' ', '-'), ' '.join(str(subject).split())
+    if age_id not in cats:
+        catalogue['categorias'].append({'id': age_id, 'slug': age_id, 'nombre': age_name, 'tipo': 'edad',
+                                        'descripcion': 'Edad orientativa de la editorial: ' + age_name + '.',
+                                        'orden': 150 + len(cats), 'activa': True})
+        cats[age_id] = catalogue['categorias'][-1]
+    if cats[age_id]['tipo'] == 'edad':
+        # Las franjas se ordenan por edad, no por fecha de alta.
+        cats[age_id]['orden'] = 140 + int(re.search(r'\d+', key).group())
+    return age_id
+
+
 def classify(record, catalogue):
     found = []
     cats = {c['id']: c for c in catalogue['categorias']}
     for subject in record['materias']:
         key = normalize_text(subject)
-        band = re.fullmatch(r'(?:de \d+ a \d+ anos|a partir de \d+ anos)', key)
-        if band:
+        age_id = age_band(subject, catalogue, cats)
+        if age_id:
             # La «materia» de los libros infantiles de Penguin es su franja de edad.
             mapped = ('infantil', 'Infantil y juvenil')
-            age_id, age_name = 'edad-' + key.replace(' ', '-'), ' '.join(str(subject).split())
-            if age_id not in cats:
-                catalogue['categorias'].append({'id': age_id, 'slug': age_id, 'nombre': age_name, 'tipo': 'edad',
-                                                'descripcion': 'Edad orientativa de la editorial: ' + age_name + '.',
-                                                'orden': 150 + len(cats), 'activa': True})
-                cats[age_id] = catalogue['categorias'][-1]
-            if cats[age_id]['tipo'] == 'edad':
-                # Las franjas se ordenan por edad, no por fecha de alta.
-                cats[age_id]['orden'] = 140 + int(re.search(r'\d+', key).group())
             found.append(age_id)
         else:
             mapped = GENRES.get(key)
@@ -170,10 +178,14 @@ def classify(record, catalogue):
     if not found:
         raise SourceError('Materia editorial no clasificada; queda pendiente')
     age = normalize_text(record.get('edad_recomendada', ''))
+    youngest = re.fullmatch(r'(?:de|a partir de) (\d+)(?: a \d+)? anos', age)
     if age == 'adultos':
         found.append('adultos')
-    elif 'juvenil' in age or age in ('a partir de 12 anos', 'a partir de 14 anos', 'a partir de 16 anos'):
+    elif 'juvenil' in age or (youngest and int(youngest.group(1)) >= 12):
         found.append('juvenil')
+    elif youngest:
+        # Planeta publica la franja infantil como edad, no como materia («De 9 a 12 años»).
+        found += [age_band(record['edad_recomendada'], catalogue, cats)] + ['infantil'] * ('infantil' in cats)
     if not found:
         raise SourceError('Materia editorial no clasificada; queda pendiente')
     return list(dict.fromkeys(found))

@@ -1,5 +1,6 @@
 """Sinopsis completa en la ficha y taxonomía canónica de las materias editoriales."""
 import importlib.util
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -132,7 +133,7 @@ class TaxonomyTests(unittest.TestCase):
         for duplicate in ('tema-narrativa', 'tema-novela-literaria', 'tema-tematicas', 'tema-salud', 'tema-manga'):
             self.assertNotIn(duplicate, ids)
         edad = sorted((c for c in data['categorias'] if c['id'].startswith('edad-')), key=lambda c: c['orden'])
-        ages = [int(''.join(ch for ch in c['id'].split('-a-')[0] if ch.isdigit()) or 0) for c in edad]
+        ages = [int(next(iter(re.findall(r'\d+', c['id'])), 0)) for c in edad]
         self.assertEqual(ages, sorted(ages))
 
 

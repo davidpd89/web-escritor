@@ -548,6 +548,24 @@
       "orden": 210,
       "slug": "tema-economia-politica-sociedad-y-actualidad",
       "tipo": "tematica"
+    },
+    {
+      "id": "edad-de-9-a-12-anos",
+      "slug": "edad-de-9-a-12-anos",
+      "nombre": "De 9 a 12 años",
+      "tipo": "edad",
+      "descripcion": "Edad orientativa de la editorial: De 9 a 12 años.",
+      "orden": 149,
+      "activa": true
+    },
+    {
+      "id": "edad-de-6-a-8-anos",
+      "slug": "edad-de-6-a-8-anos",
+      "nombre": "De 6 a 8 años",
+      "tipo": "edad",
+      "descripcion": "Edad orientativa de la editorial: De 6 a 8 años.",
+      "orden": 146,
+      "activa": true
     }
   ],
   "libro_categorias": [
@@ -2298,6 +2316,42 @@
     {
       "categoria_id": "misterio-y-thriller",
       "libro_id": "isbn-9791387574949"
+    },
+    {
+      "categoria_id": "edad-de-9-a-12-anos",
+      "libro_id": "isbn-9788408326427"
+    },
+    {
+      "categoria_id": "juvenil",
+      "libro_id": "isbn-9788427054479"
+    },
+    {
+      "categoria_id": "edad-de-6-a-8-anos",
+      "libro_id": "isbn-9791387526863"
+    },
+    {
+      "categoria_id": "edad-de-6-a-8-anos",
+      "libro_id": "isbn-9791387901943"
+    },
+    {
+      "categoria_id": "juvenil",
+      "libro_id": "isbn-9788408327271"
+    },
+    {
+      "categoria_id": "edad-de-9-a-12-anos",
+      "libro_id": "isbn-9788408326342"
+    },
+    {
+      "categoria_id": "juvenil",
+      "libro_id": "isbn-9788408326861"
+    },
+    {
+      "categoria_id": "juvenil",
+      "libro_id": "isbn-9788408325499"
+    },
+    {
+      "categoria_id": "edad-de-9-a-12-anos",
+      "libro_id": "isbn-9788408324362"
     }
   ],
   "libros": [
@@ -5640,7 +5694,9 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-magic-animals-misiones-especiales-2-el-templo-escondido/458174",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "magic-animals-misiones-especiales-2-el-templo-escondido-9788408326427",
-      "titulo": "Magic Animals. Misiones especiales 2. El templo escondido"
+      "titulo": "Magic Animals. Misiones especiales 2. El templo escondido",
+      "edad_recomendada": "De 9 a 12 años",
+      "fuente_edad_url": "https://www.planetadelibros.com/libro-magic-animals-misiones-especiales-2-el-templo-escondido/458174"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788423441051&tag=davidporto-21",
@@ -6532,7 +6588,9 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-un-amor-de-diciembre/426146",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "un-amor-de-diciembre-9788427054479",
-      "titulo": "Un amor de diciembre"
+      "titulo": "Un amor de diciembre",
+      "edad_recomendada": "A partir de 16 años",
+      "fuente_edad_url": "https://www.planetadelibros.com/libro-un-amor-de-diciembre/426146"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788411078474&tag=davidporto-21",
@@ -6857,7 +6915,9 @@
           "precio_centimos": 2370
         }
       ],
-      "precios_amazon_revision": "2026-11-01"
+      "precios_amazon_revision": "2026-11-01",
+      "edad_recomendada": "De 6 a 8 años",
+      "fuente_edad_url": "https://www.planetadelibros.com/libro-stitch-calendario-de-adviento/427175"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387512446&tag=davidporto-21",
@@ -7605,7 +7665,9 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-agente-stitch-5-los-roedores-de-roswell/456569",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "agente-stitch-5-los-roedores-de-roswell-9791387901943",
-      "titulo": "Agente Stitch 5. Los roedores de Roswell"
+      "titulo": "Agente Stitch 5. Los roedores de Roswell",
+      "edad_recomendada": "De 6 a 8 años",
+      "fuente_edad_url": "https://www.planetadelibros.com/libro-agente-stitch-5-los-roedores-de-roswell/456569"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388306297&tag=davidporto-21",
@@ -8887,7 +8949,9 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-lazos-de-fuego-academia-bloodwing-2-edicion-especial-con-cantos-tintados/458671",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "lazos-de-fuego-academia-bloodwing-2-edicion-especial-con-cantos-tintados-9788408327271",
-      "titulo": "Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados"
+      "titulo": "Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados",
+      "edad_recomendada": "A partir de 16 años",
+      "fuente_edad_url": "https://www.planetadelibros.com/libro-lazos-de-fuego-academia-bloodwing-2-edicion-especial-con-cantos-tintados/458671"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951182&tag=davidporto-21",
@@ -9973,7 +10037,9 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-el-caos-de-beca-3-vale-este-no-era-el-plan/458107",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "el-caos-de-beca-3-vale-este-no-era-el-plan-9788408326342",
-      "titulo": "El caos de Beca 3. Vale, este no era el plan"
+      "titulo": "El caos de Beca 3. Vale, este no era el plan",
+      "edad_recomendada": "De 9 a 12 años",
+      "fuente_edad_url": "https://www.planetadelibros.com/libro-el-caos-de-beca-3-vale-este-no-era-el-plan/458107"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951199&tag=davidporto-21",
@@ -11417,7 +11483,9 @@
       "titulo": "El día de la Trilla (Empíreo) Edición limitada con cantos tintados",
       "formatos_amazon_buscados": "2026-11-01",
       "formatos_compra": [],
-      "precios_amazon_revision": "2026-11-01"
+      "precios_amazon_revision": "2026-11-01",
+      "edad_recomendada": "A partir de 14 años",
+      "fuente_edad_url": "https://www.planetadelibros.com/libro-el-dia-de-la-trilla-empireo-edicion-limitada-con-cantos-tintados/458340"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788466686884&tag=davidporto-21",
@@ -11708,7 +11776,9 @@
           "precio_centimos": 2080
         }
       ],
-      "precios_amazon_revision": "2026-11-01"
+      "precios_amazon_revision": "2026-11-01",
+      "edad_recomendada": "A partir de 16 años",
+      "fuente_edad_url": "https://www.planetadelibros.com/libro-un-otono-para-enamorarnos/456847"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9780241834923&tag=davidporto-21",
@@ -12384,7 +12454,9 @@
           "precio_centimos": 2560
         }
       ],
-      "precios_amazon_revision": "2026-11-01"
+      "precios_amazon_revision": "2026-11-01",
+      "edad_recomendada": "De 9 a 12 años",
+      "fuente_edad_url": "https://www.planetadelibros.com/libro-guinness-world-records-2027/454853"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387598815&tag=davidporto-21",

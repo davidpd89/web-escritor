@@ -314,7 +314,7 @@ def own_text_section(b):
 
 
 def age_phrase(age):
-    return '' if not age else age[0].lower() + age[1:] if age.startswith('A partir') else 'para ' + age.lower()
+    return '' if not age else age[0].lower() + age[1:] if age.startswith(('A partir', 'De ', 'Desde ')) else 'para ' + age.lower()
 
 
 def own_meta_description(b):
