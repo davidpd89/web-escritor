@@ -41,7 +41,10 @@
     link.dataset.emailRevealed = 'true';
 
     const after = trigger.dataset.emailLabelAfter?.trim();
-    link.textContent = after || emailAddress();
+    // A trigger already labelled with its "after" text keeps its own markup
+    // (e.g. the decorative @ in the footer button).
+    if (after && trigger.textContent.includes(after)) link.append(...trigger.cloneNode(true).childNodes);
+    else link.textContent = after || emailAddress();
 
     // Keep a useful accessible name even when the visual label is an action.
     link.setAttribute(
@@ -75,7 +78,10 @@
   // revisiting the element all keep working.
   const revealAndOpen = (trigger) => {
     const link = reveal(trigger);
-    if (link) window.location.href = link.href;
+    // Activate the real link rather than assigning location: on desktop the
+    // shell's mail chooser (v1-shell.js) intercepts it; elsewhere the
+    // browser follows the mailto: natively.
+    if (link) link.click();
   };
 
   document.addEventListener('click', (event) => {

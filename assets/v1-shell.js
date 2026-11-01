@@ -369,6 +369,109 @@
     });
   }
 
+  // On a desktop without a mail app configured (most people use Gmail or
+  // Outlook in the browser), a mailto: link opens an empty "Open with..."
+  // prompt or nothing at all. Phones always offer a mail handler, so touch
+  // devices keep the native link; on desktop a click opens a small chooser
+  // instead: webmail compose, the native app, or copy the address.
+  function initMailChooser() {
+    if (!window.matchMedia?.('(hover: hover) and (pointer: fine)').matches) return false;
+    let panel = null;
+    let opener = null;
+
+    const close = (restoreFocus) => {
+      if (!panel) return;
+      panel.remove();
+      panel = null;
+      if (restoreFocus) opener?.focus({ preventScroll: true });
+      opener = null;
+    };
+
+    const position = (link) => {
+      const r = link.getBoundingClientRect();
+      const w = panel.offsetWidth;
+      const h = panel.offsetHeight;
+      const left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), window.innerWidth - w - 8);
+      const below = r.bottom + 8;
+      const top = below + h <= window.innerHeight - 8 ? below : Math.max(8, r.top - h - 8);
+      panel.style.left = `${Math.round(left)}px`;
+      panel.style.top = `${Math.round(top)}px`;
+    };
+
+    const open = (link) => {
+      close(false);
+      const url = new URL(link.href);
+      const email = decodeURIComponent(url.pathname);
+      const subject = url.searchParams.get('subject') || '';
+      const body = url.searchParams.get('body') || '';
+      // %20 rather than "+" for spaces: Outlook shows a literal "+".
+      const compose = (base, params) => `${base}?${new URLSearchParams(
+        Object.entries(params).filter(([, v]) => v),
+      ).toString().replace(/\+/g, '%20')}`;
+      const gmail = compose('https://mail.google.com/mail/', { view: 'cm', fs: '1', to: email, su: subject, body });
+      const outlook = compose('https://outlook.live.com/mail/0/deeplink/compose', { to: email, subject, body });
+
+      opener = link;
+      panel = document.createElement('div');
+      panel.className = 'mail-chooser';
+      panel.setAttribute('role', 'dialog');
+      panel.setAttribute('aria-label', 'Elegir cómo escribir el correo');
+      const address = document.createElement('p');
+      address.className = 'mail-chooser__address';
+      address.textContent = email;
+      const list = document.createElement('div');
+      list.className = 'mail-chooser__list';
+      const item = (label, href) => {
+        const a = document.createElement('a');
+        a.className = 'mail-chooser__item';
+        a.href = href;
+        a.textContent = label;
+        if (href.startsWith('https:')) {
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+        }
+        a.addEventListener('click', () => setTimeout(() => close(false)));
+        list.append(a);
+      };
+      item('Abrir en Gmail', gmail);
+      item('Abrir en Outlook', outlook);
+      item('Usar mi app de correo', link.href);
+      if (navigator.clipboard?.writeText) {
+        const copy = document.createElement('button');
+        copy.type = 'button';
+        copy.className = 'mail-chooser__item';
+        copy.textContent = 'Copiar dirección';
+        copy.addEventListener('click', () => {
+          navigator.clipboard.writeText(email).then(() => { copy.textContent = 'Dirección copiada ✓'; }).catch(() => {});
+        });
+        list.append(copy);
+      }
+      panel.append(address, list);
+      document.body.append(panel);
+      position(link);
+      list.querySelector('.mail-chooser__item')?.focus({ preventScroll: true });
+    };
+
+    document.addEventListener('click', (event) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const link = event.target.closest?.('a[href^="mailto:"]');
+      if (!link || link.closest('.mail-chooser')) return;
+      event.preventDefault();
+      open(link);
+    });
+    // pointerdown, not click: the reveal trigger opens the chooser from inside
+    // its own click, and that same click must not count as "outside".
+    document.addEventListener('pointerdown', (event) => {
+      if (panel && !panel.contains(event.target)) close(false);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && panel) close(true);
+    });
+    window.addEventListener('resize', () => close(false));
+    window.addEventListener('scroll', () => { if (panel && opener) position(opener); }, { passive: true });
+    return true;
+  }
+
   // A browser's default action for dropping a file anywhere on the page is
   // to navigate away and display that file, discarding whatever the visitor
   // was typing -- confirmed live (dragover/drop both fire with
@@ -386,13 +489,37 @@
     window.addEventListener('drop', (event) => { if (isFileDrag(event)) event.preventDefault(); });
   }
 
+  // Footer groups are an exclusive accordion on phones; from 768px they sit in
+  // four columns, so all of them stay open (otherwise three columns look empty).
+  function initFooterGroups() {
+    const groups = qa('.site-footer details.ft-group');
+    if (!groups.length || !window.matchMedia) return;
+    const wide = matchMedia('(min-width: 768px)');
+    const initial = groups.map((group) => group.open);
+    const apply = () => groups.forEach((group, i) => {
+      if (wide.matches) {
+        group.removeAttribute('name');
+        group.open = true;
+      } else {
+        group.open = initial[i];
+        group.setAttribute('name', 'ft-nav');
+      }
+    });
+    groups.forEach((group) => group.querySelector('summary')?.addEventListener('click', (event) => {
+      if (wide.matches) event.preventDefault();
+    }));
+    wide.addEventListener?.('change', apply);
+    apply();
+  }
+
   initHeader();
   initExplore();
   initIntro();
   initHeroVideo();
   initAssistantWidget();
   initHeaderSearch();
-  initMailtoCopyFallback();
+  if (!initMailChooser()) initMailtoCopyFallback();
+  initFooterGroups();
   initDropProtection();
 })();
 
