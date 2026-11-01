@@ -163,21 +163,21 @@ html.v1[data-lrb-home="true"] .masthead-nav__item:nth-last-child(-n+2)>.masthead
 }
 
 /* RRSS y el sobre de contacto se ven en todos los móviles (petición del autor). Para hacerles sitio
-   sin perder ningún control, los iconos del header se compactan a 36px por debajo de 560px. */
+   sin perder ningún control, Inicio, Mapa y el sobre se compactan a 36px por debajo de 560px; Menú y Asistente
+   conservan los 42px del contrato táctil del proyecto. */
 @media (max-width:559px){
   html.v1 .site-header__inner{column-gap:.2rem;padding-inline:max(.5rem,env(safe-area-inset-left)) max(.5rem,env(safe-area-inset-right))}
   html.v1 .site-header__left{gap:0}
   /* Con texto ampliado o espaciado (WCAG 1.4.12) los botones bajan de fila en vez de desbordar. */
   html.v1 .site-header__actions{gap:.15rem;flex-wrap:wrap;justify-content:flex-end;row-gap:.25rem;min-width:0;max-width:100%}
-  html.v1 .header-search,html.v1 .header-home,html.v1 .header-sitemap,html.v1 .header-contact,html.v1 .explore-trigger{min-width:36px;width:36px}
+  html.v1 .header-home,html.v1 .header-sitemap,html.v1 .header-contact{min-width:36px;width:36px}
   html.v1 .header-social,html.v1 .header-buy,html.v1 .header-donate{padding-inline:.32rem;font-size:.64rem;letter-spacing:0}
 }
-/* A 360-389px (móviles pequeños) se afinan un poco más los iconos para seguir en una sola fila. */
-@media (max-width:389px){
-  html.v1 .header-search,html.v1 .header-home,html.v1 .header-sitemap,html.v1 .header-contact,html.v1 .explore-trigger{min-width:34px;width:34px}
-  html.v1 .header-social,html.v1 .header-buy,html.v1 .header-donate{padding-inline:.25rem;font-size:.6rem}
-  html.v1[data-lrb-home="true"] .site-header .header-buy{letter-spacing:0}
-  html.v1 .header-social{padding-inline:.15rem}
+/* A 360-399px se afinan un poco más los iconos y los textos para seguir en una sola fila. */
+@media (max-width:399px){
+  html.v1 .header-home,html.v1 .header-sitemap,html.v1 .header-contact{min-width:34px;width:34px}
+  html.v1 .header-social,html.v1 .header-buy,html.v1 .header-donate{padding-inline:.15rem;font-size:.6rem}
+  html.v1[data-lrb-home="true"] .site-header .header-buy{letter-spacing:0;font-weight:700}
 }
 /* Por debajo de 360px (o con texto ampliado) las acciones pasan a una segunda fila alineada a la derecha. */
 @media (max-width:359px){
