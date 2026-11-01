@@ -296,7 +296,8 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
     books.sort(key=lambda b:b.get('precios_amazon_revision',''))
     unpriced=sum(not b.get('precios_amazon_revision') for b in books)
     due=books[:max(unpriced,-(-len(books)//max(1,sweep_days)))]
-    stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[]}
+    stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[],'sin_oferta':[]}
+    answers={}
 
     def ask(call,*args):
         if stats['requests']>=budget:
@@ -308,6 +309,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
         return payload
 
     def keep(found,book,payload):
+        answers.setdefault(book['id'],[]).append(payload)
         for offer in select_offers(book,payload,tag,now):
             best=found.get(offer['formato'])
             if not best or best['precio_centimos']>offer['precio_centimos']:
@@ -357,4 +359,33 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
             book['precios_amazon_revision']=day
             stats['updated']+=1
             stats['prices']+=len(found[book['id']])
+            if not book.get('formatos_compra'):
+                stats['sin_oferta'].append({'book_id':book['id'],'motivo':miss_reason(book,answers.get(book['id'],[]))})
     return market,stats
+
+
+MISS_STAGES=('sin_resultados','titulo_distinto','autor_distinto','sin_isbn_ni_edicion_digital','sin_oferta_nueva')
+
+
+def miss_reason(book,payloads):
+    """How far the closest Amazon result got before select_offers dropped it, so the
+    nightly report says why a book still has no offer instead of a bare count."""
+    wanted,best=isbn13(book.get('isbn13')),0
+    for payload in payloads:
+        container=next((v for f in ('searchResult','itemsResult','itemResults')
+                        if isinstance((v:=amazon_dict(payload).get(f)),dict)),{})
+        for item in amazon_list(container.get('items')):
+            info=amazon_dict(amazon_dict(item).get('itemInfo'))
+            title=amazon_dict(info.get('title')).get('displayValue','')
+            stage=1
+            if isinstance(title,str) and title_matches(title,book['titulo']):
+                stage=2
+                names=[c.get('name','') for c in amazon_list(amazon_dict(info.get('byLineInfo')).get('contributors'))
+                       if isinstance(c,dict) and isinstance(c.get('name'),str)]
+                if any(author_matches(n,a) for n in names for a in book['autores']):
+                    stage=3
+                    eans=amazon_list(amazon_dict(amazon_dict(info.get('externalIds')).get('eans')).get('displayValues'))
+                    if wanted in {isbn13(v) for v in eans if isinstance(v,str)} or in_spanish(info):
+                        stage=4
+            best=max(best,stage)
+    return MISS_STAGES[best]

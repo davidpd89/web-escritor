@@ -9,7 +9,7 @@ from unittest.mock import patch
 from urllib.error import HTTPError
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents
+from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents,miss_reason
 
 NOW=datetime(2026,10,21,10,tzinfo=timezone.utc)
 BOOK={'id':'lib-1','titulo':'Coraline','autores':['Neil Gaiman'],
@@ -127,6 +127,22 @@ def kindle(title='Coraline',language='Español',asin='B08CYCPBZN',amount=6.64):
 
 
 class AmazonFormatDiscoveryTests(unittest.TestCase):
+    def test_report_says_why_a_book_still_has_no_offer(self):
+        empty={'searchResult':{'items':[]}}
+        self.assertEqual(miss_reason(BOOK,[empty]),'sin_resultados')
+        self.assertEqual(miss_reason(BOOK,[kindle('Otra cosa')]),'titulo_distinto')
+        other=response(); other['searchResult']['items'][0]['itemInfo']['byLineInfo']['contributors'][0]['name']='Otra Persona'
+        self.assertEqual(miss_reason(BOOK,[empty,other]),'autor_distinto')
+        print_no_isbn=response(); print_no_isbn['searchResult']['items'][0]['itemInfo']['externalIds']={}
+        self.assertEqual(miss_reason(BOOK,[print_no_isbn]),'sin_isbn_ni_edicion_digital')
+        no_listing=response(); no_listing['searchResult']['items'][0]['offersV2']={'listings':[]}
+        self.assertEqual(miss_reason(BOOK,[no_listing]),'sin_oferta_nueva')
+        book=dict(BOOK,formatos_compra=[])
+        _,stats=refresh_offers({'libros':[book]},{'offers':[]},lambda b:no_listing,'contrato-21',NOW)
+        self.assertEqual(stats['sin_oferta'],[{'book_id':'lib-1','motivo':'sin_oferta_nueva'}])
+        _,stats=refresh_offers({'libros':[dict(BOOK,formatos_compra=[])]},{'offers':[]},lambda b:response(),'contrato-21',NOW)
+        self.assertEqual(stats['sin_oferta'],[])
+
     def test_spanish_kindle_without_isbn_is_accepted_by_exact_title(self):
         offers=select_offers(BOOK,kindle('Coraline (Edición ilustrada)'),'contrato-21',NOW)
         self.assertEqual([(o['formato'],o['precio_centimos']) for o in offers],[('ebook',664)])
