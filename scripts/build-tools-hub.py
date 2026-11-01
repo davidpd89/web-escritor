@@ -258,7 +258,7 @@ def render(data, tools, directories):
 
   <script defer src="/assets/v1-shell.js?v=36"></script>
   <script defer src="/assets/analytics-consent-banner.js?v=16"></script>
-  <script defer src="/script.js?v=202610-launch-32"></script>
+  <script defer src="/script.js?v=202610-launch-33"></script>
   <script src="/assets/herramientas-hub.js?v=20260819-1" defer></script>
 </body>
 </html>
