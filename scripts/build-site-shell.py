@@ -198,7 +198,7 @@ PRIMARY_BUY_URL = _EDITORIAL_FACTS["books"]["lasManecillasDelRecuerdo"]["purchas
 # now emits an inert `[data-email-reveal]` trigger with no address anywhere
 # in its markup; assets/email-reveal.js builds the real mailto: link only
 # after a human click/keypress.
-EMAIL_REVEAL_RUNTIME = '<script defer src="/assets/email-reveal.js?v=3"></script>'
+EMAIL_REVEAL_RUNTIME = '<script defer src="/assets/email-reveal.js?v=4"></script>'
 
 
 def email_reveal_link(
@@ -208,6 +208,7 @@ def email_reveal_link(
     href: str = "/prensa.html#contacto",
     subject: str | None = None,
     label_after: str | None = None,
+    prefix_html: str = "",
 ) -> str:
     """An interaction-gated contact trigger with no address in its markup.
 
@@ -225,7 +226,7 @@ def email_reveal_link(
         attrs.append(f'data-email-subject="{html.escape(subject, quote=True)}"')
     if label_after:
         attrs.append(f'data-email-label-after="{html.escape(label_after, quote=True)}"')
-    return f'<a {" ".join(attrs)}>{html.escape(label)}</a>'
+    return f'<a {" ".join(attrs)}>{prefix_html}{html.escape(label)}</a>'
 
 # Perfiles del pie: todos con el mismo botón circular. Para añadir una red
 # basta con otra tupla (nombre, url, svg) en su sitio.
@@ -798,7 +799,11 @@ def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: st
             f'<summary><h2><span class="ft-group__title">{group_name}</span></h2>{FOOTER_CHEVRON}</summary>'
             f'<div class="ft-group__links">{links}</div></details></nav>'
         )
-    email = email_reveal_link("Escríbeme", css_class="ft-btn", label_after="Escríbeme")
+    email = email_reveal_link(
+        "Escríbeme", css_class="ft-btn", label_after="Escríbeme",
+        # Visible @ so a visitor searching the page for "@" finds the contact.
+        prefix_html='<span class="ft-btn__at" aria-hidden="true">@</span>',
+    )
     return (
         '<footer class="site-footer">\n'
         '<div class="ft">\n'
