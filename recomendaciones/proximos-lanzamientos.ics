@@ -6,7 +6,7 @@ METHOD:PUBLISH
 X-WR-CALNAME:Próximos lanzamientos de libros recomendados
 BEGIN:VEVENT
 UID:isbn-9788401042751@davidportodiaz.com
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261101T000000Z
 DTSTART;VALUE=DATE:20261103
 DTEND;VALUE=DATE:20261104
 SUMMARY:Sale a la venta: La casa de los espíritus
@@ -16,7 +16,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-casa-de-los-espiri
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951199@davidportodiaz.com
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261101T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Sale a la venta: Este deseo no es el mío
@@ -26,7 +26,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/este-deseo-no-es-el-m
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951182@davidportodiaz.com
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261101T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Sale a la venta: Los perplejos
@@ -36,7 +36,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-perplejos-9788433
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951168@davidportodiaz.com
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261101T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Sale a la venta: Tres cuentos
@@ -46,7 +46,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/tres-cuentos-97884339
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951212@davidportodiaz.com
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261101T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Sale a la venta: Una casa en Brandemburgo
@@ -56,7 +56,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/una-casa-en-brandembu
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951229@davidportodiaz.com
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261101T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Sale a la venta: Vals de Mefisto
@@ -65,8 +65,18 @@ URL:https://davidportodiaz.com/recomendaciones/libros/vals-de-mefisto-97884
  33951229/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788466686884@davidportodiaz.com
+DTSTAMP:20261101T000000Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:Sale a la venta: La abadía sin ojos
+DESCRIPTION:Jordi Wild · Ediciones B
+URL:https://davidportodiaz.com/recomendaciones/libros/la-abadia-sin-ojos-97
+ 88466686884/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9791388092268@davidportodiaz.com
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261101T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Ponte fino
@@ -76,7 +86,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/ponte-fino-9791388092
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387740382@davidportodiaz.com
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261101T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Sin piedad (Harry Hole 14)
@@ -86,7 +96,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/sin-piedad-harry-hole
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951267@davidportodiaz.com
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261101T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Manifiesto por otra economía y otra política
@@ -96,7 +106,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/manifiesto-por-otra-e
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951298@davidportodiaz.com
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261101T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Perder la guerra
@@ -106,7 +116,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/perder-la-guerra-9788
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951205@davidportodiaz.com
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261101T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: ¿Nos quedamos o nos vamos?
@@ -115,8 +125,17 @@ URL:https://davidportodiaz.com/recomendaciones/libros/nos-quedamos-o-nos-va
  mos-9788433951205/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788433951281@davidportodiaz.com
+DTSTAMP:20261101T000000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+SUMMARY:Sale a la venta: ¿Yo?
+DESCRIPTION:Peter Flamm · Editorial Anagrama
+URL:https://davidportodiaz.com/recomendaciones/libros/yo-9788433951281/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788433951670@davidportodiaz.com
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261101T000000Z
 DTSTART;VALUE=DATE:20261118
 DTEND;VALUE=DATE:20261119
 SUMMARY:Sale a la venta: Cómo construir la soberanía digital europea
@@ -126,7 +145,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/como-construir-la-sob
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951250@davidportodiaz.com
-DTSTAMP:20261031T000000Z
+DTSTAMP:20261101T000000Z
 DTSTART;VALUE=DATE:20261118
 DTEND;VALUE=DATE:20261119
 SUMMARY:Sale a la venta: El volumen del tiempo IV

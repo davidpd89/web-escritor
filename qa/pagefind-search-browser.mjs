@@ -98,7 +98,11 @@ try {
     // header/Explorar/footer contamination bug specifically -- if the
     // exclusion selectors ever regressed, EVERY page on the site would match
     // (56 indexed pages), not a small, legitimate handful.
-    assert.ok(kindle.length <= 8, `"${q}" returned ${kindle.length} results -- looks like shell-chrome contamination (header/Explorar/footer text leaking into every page), got: ${JSON.stringify(kindle)}`);
+    // Catalogue book pages are excluded from the ceiling: since 2026-11 their
+    // Amazon format list ("Kindle", "Tapa blanda"...) is real page content.
+    // Contamination would still show up in every non-catalogue page.
+    const nonCatalogue = kindle.filter((item) => !item.url.startsWith('/recomendaciones/libros/'));
+    assert.ok(nonCatalogue.length <= 8, `"${q}" returned ${nonCatalogue.length} non-catalogue results -- looks like shell-chrome contamination (header/Explorar/footer text leaking into every page), got: ${JSON.stringify(kindle)}`);
     assert.ok(
       kindle.some((item) => item.url === '/las-manecillas-del-recuerdo/kindle/'),
       `"${q}" must surface the Kindle landing page itself, got: ${JSON.stringify(kindle)}`,
