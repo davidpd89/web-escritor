@@ -339,6 +339,9 @@ def save_results(payloads, rows, state, out=OUT):
 
 def consult(question, ids, port, wait_min):
     os.environ['RRSS_CHATGPT_CDP_PORT'] = str(port)
+    # El horario de descanso 00-07 h es de las redes sociales (parecer uso humano); los textos de la
+    # web trabajan toda la noche (David, 02/11/2026), así que este proceso queda fuera de esa regla.
+    os.environ['RRSS_NIGHT_OK'] = '1'
     sys.path.insert(0, str(RRSS_TOOLS))
     import chatgpt_consult
     repair = 'Devuelve otra vez la respuesta completa: un único bloque ```json con {"fichas": [...]} y exactamente estos id: ' + ', '.join(ids)

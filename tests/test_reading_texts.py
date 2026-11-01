@@ -3,6 +3,7 @@
 Usa datos y plantillas reales. No abre el navegador ni consulta ChatGPT.
 """
 import copy
+import os
 import importlib.util
 import json
 import unittest
@@ -111,6 +112,16 @@ class ReadingTextsTest(unittest.TestCase):
                 self.assertIsNone(texts.consult_batch([self.payload], state, args))
             self.assertEqual(waits[-1], expected)
         self.assertEqual(state, {})
+
+    def test_web_texts_run_through_the_night_unlike_social_networks(self):
+        from types import SimpleNamespace
+        from unittest import mock
+        seen = {}
+        fake = SimpleNamespace(consult=lambda *a, **k: (seen.setdefault('night', os.environ.get('RRSS_NIGHT_OK')), '')[1:] + (None,))
+        with mock.patch.dict('sys.modules', {'chatgpt_consult': fake}), mock.patch.dict(os.environ, {}, clear=False):
+            os.environ.pop('RRSS_NIGHT_OK', None)
+            texts.consult('pregunta', ['a'], 9240, 1)
+        self.assertEqual(seen['night'], '1')
 
     def test_rejection_reasons_go_back_into_the_next_prompt_and_worse_repairs_never_replace(self):
         import tempfile
