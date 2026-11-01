@@ -100,6 +100,18 @@ class ReadingTextsTest(unittest.TestCase):
         self.assertEqual(blocks, [])
         self.assertIn('no se admite abstenerse', errors[0])
 
+    def test_consult_failures_wait_and_never_spend_attempts(self):
+        from types import SimpleNamespace
+        from unittest import mock
+        QuietHoursError = type('QuietHoursError', (RuntimeError,), {})
+        state, waits = {}, []
+        args = SimpleNamespace(port=0, wait_min=1)
+        for exc, expected in ((QuietHoursError('descanso'), 3600), (OSError('cdp'), 60)):
+            with mock.patch.object(texts, 'consult', side_effect=exc), mock.patch.object(texts.time, 'sleep', waits.append),                     mock.patch.dict('sys.modules', {'quiet_hours': SimpleNamespace(seconds_until_active=lambda: 3600)}):
+                self.assertIsNone(texts.consult_batch([self.payload], state, args))
+            self.assertEqual(waits[-1], expected)
+        self.assertEqual(state, {})
+
     def test_rejection_reasons_go_back_into_the_next_prompt_and_worse_repairs_never_replace(self):
         import tempfile
         with tempfile.TemporaryDirectory() as tmp:

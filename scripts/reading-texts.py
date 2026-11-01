@@ -346,6 +346,27 @@ def consult(question, ids, port, wait_min):
     return answer
 
 
+def idle_seconds(exc):
+    """Pausa tras un fallo de la consulta: hasta el fin del horario de descanso de RRSS o un minuto ante otros errores."""
+    if type(exc).__name__ == 'QuietHoursError':
+        sys.path.insert(0, str(RRSS_TOOLS))
+        import quiet_hours
+        return max(60, quiet_hours.seconds_until_active())
+    return 60
+
+
+def consult_batch(payloads, state, args):
+    """Respuesta del lote, o None si falló la consulta: un fallo de infraestructura no gasta intentos de los libros."""
+    ids = [p['id'] for p in payloads]
+    try:
+        return extract_json(consult(build_prompt(payloads, state), ids, args.port, args.wait_min)) or []
+    except Exception as exc:  # noqa: BLE001 - un lote fallido no para el bucle
+        wait = idle_seconds(exc)
+        print(f'Lote {ids[0]}…: {type(exc).__name__}; espera {wait // 60:.0f} min', flush=True)
+        time.sleep(wait)
+        return None
+
+
 def git(*args, cwd=ROOT, capture=False):
     if capture:
         return subprocess.check_output(['git', *args], cwd=cwd, text=True)
@@ -418,13 +439,9 @@ def loop(args):
             print('Sin pendientes', flush=True)
             break
         payloads = [payload(data, b) for b in books]
-        ids = [p['id'] for p in payloads]
-        try:
-            answer = consult(build_prompt(payloads, state), ids, args.port, args.wait_min)
-            rows = extract_json(answer) or []
-        except Exception as exc:  # noqa: BLE001 - un lote fallido no para el bucle
-            print(f'Lote {ids[0]}…: {type(exc).__name__}', flush=True)
-            rows = []
+        rows = consult_batch(payloads, state, args)
+        if rows is None:
+            continue
         saved, rejected = save_results(payloads, rows, state)
         write_json(STATE, state)
         done += len(books)
