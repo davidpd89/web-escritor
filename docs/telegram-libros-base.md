@@ -1,6 +1,6 @@
 # Telegram: base conectada a Web Escritor
 
-**Estado actual:** canal «Novedades de libros» y tarea local activos. Formato definitivo con portada verificada, título, autor, fecha, hasta tres géneros y enlace Amazon. Las comprobaciones de ejemplo se mantienen separadas de las entregas diarias; los apartados de la primera prueba conservan su contexto histórico.
+**Estado actual:** ejecución remota en GitHub Actions, sin dependencia del ordenador. La tarea Windows está desactivada. La configuración vigente y las pruebas de migración están en [operación remota](telegram-libros-operacion-remota.md). Los apartados siguientes conservan el histórico de implementación.
 
 ## Orientación y relación con lo existente
 
