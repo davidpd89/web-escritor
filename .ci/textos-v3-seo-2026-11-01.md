@@ -48,6 +48,12 @@
   - estilo variado;
   - de 2 a 4 frases.
 
+## Arreglos del 02/11
+- `GENERIC_NAMES`: ISBN, Kindle, Amazon, ebook… dejan de rechazarse como entidades sin respaldo. Test incluido.
+- `git()` lee en UTF-8. El bucle se caía con `UnicodeDecodeError` cp1252 al leer el catálogo con ñ. Test incluido; se comprobó que falla sin el arreglo.
+- El bucle se relanzó a las 00:44 (`.local/reading-texts-run2.log`). Va a unos 4 de 5 guardados por lote.
+- `test_reading*.py`: 241 OK.
+
 ## Pendientes
 1. Muestra del bucle v3 → publicar (`reading-texts.py publish`) → PR con los textos.
 2. Comprobar que se fusionan la #1052 (formatos/UI; el último push alinea la QA con «Goodreads · ver opiniones») y la #1053.
