@@ -182,7 +182,7 @@
       "biografia_fecha_revision": "2026-10-30",
       "biografia_fuente_url": "https://www.penguinlibros.com/es/1019920-jorge-bolanos",
       "descripcion": "Libros de Jorge Bolaños incluidos en este catálogo: La Risa de mi vida. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
-      "fecha_verificacion": "2026-10-21",
+      "fecha_verificacion": "2026-11-01",
       "fuentes": [
         {
           "titulo": "La Risa de mi vida · ficha editorial",
@@ -198,7 +198,7 @@
       "biografia_fecha_revision": "2026-10-30",
       "biografia_fuente_url": "https://www.penguinlibros.com/es/1002683-sylvester-stallone",
       "descripcion": "Libros de Sylvester Stallone incluidos en este catálogo: Los escalones. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
-      "fecha_verificacion": "2026-10-21",
+      "fecha_verificacion": "2026-11-01",
       "fuentes": [
         {
           "titulo": "Los escalones · ficha editorial",
@@ -675,12 +675,16 @@
     },
     {
       "biografia_ultimo_intento": "2026-10-21",
-      "descripcion": "Libros de DK incluidos en este catálogo: Antigua Roma (Civilizaciones antiguas para niños). Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
-      "fecha_verificacion": "2026-10-21",
+      "descripcion": "Libros de DK incluidos en este catálogo: Antigua Roma (Civilizaciones antiguas para niños); Star Wars Enciclopedia de naves, cazas estelares y otros vehículos. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
       "fuentes": [
         {
           "titulo": "Antigua Roma (Civilizaciones antiguas para niños) · ficha editorial",
           "url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634734-libro-antigua-roma-civilizaciones-antiguas-para-ninos-9780241839362"
+        },
+        {
+          "titulo": "Star Wars Enciclopedia de naves, cazas estelares y otros vehículos · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634729-libro-star-wars-enciclopedia-de-naves-cazas-estelares-y-otros-vehiculos-9780241838068"
         }
       ],
       "nombre": "DK",
@@ -2362,12 +2366,20 @@
     },
     {
       "biografia_ultimo_intento": "2026-10-31",
-      "descripcion": "Libros de JØRN LIER HORST incluidos en este catálogo: Clue. El misterio del reloj. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
-      "fecha_verificacion": "2026-10-31",
+      "descripcion": "Libros de JØRN LIER HORST incluidos en este catálogo: Clue. El misterio del reloj; Clue. El misterio de la salamandra; Clue. El misterio bajo el agua. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
       "fuentes": [
         {
           "titulo": "Clue. El misterio del reloj · ficha editorial",
           "url": "https://www.duomoediciones.com/libro/clue-el-misterio-del-reloj/"
+        },
+        {
+          "titulo": "Clue. El misterio de la salamandra · ficha editorial",
+          "url": "https://www.duomoediciones.com/libro/clue-el-misterio-de-la-salamandra/"
+        },
+        {
+          "titulo": "Clue. El misterio bajo el agua · ficha editorial",
+          "url": "https://www.duomoediciones.com/libro/clue-el-misterio-bajo-el-agua/"
         }
       ],
       "nombre": "JØRN LIER HORST",
@@ -2604,6 +2616,264 @@
       ],
       "nombre": "Solvej Balle",
       "slug": "solvej-balle",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Rebecca Yarros es una escritora estadounidense, conocida por su saga de libros de fantasía llamada Empíreo, la cual será adaptada en una serie de televisión en Amazon. Yarros se graduó en la Universidad de Troy en la cual se graduó de Historia Europea e Inglés.",
+      "biografia_fecha_revision": "2026-11-01",
+      "biografia_fuente_nombre": "Wikipedia",
+      "biografia_fuente_url": "https://es.wikipedia.org/wiki/Rebecca_Yarros",
+      "biografia_ultimo_intento": "2026-11-01",
+      "descripcion": "Libros de Rebecca Yarros incluidos en este catálogo: El día de la Trilla (Empíreo) Edición limitada con cantos tintados. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "El día de la Trilla (Empíreo) Edición limitada con cantos tintados · ficha editorial",
+          "url": "https://www.planetadelibros.com/libro-el-dia-de-la-trilla-empireo-edicion-limitada-con-cantos-tintados/458340"
+        }
+      ],
+      "nombre": "Rebecca Yarros",
+      "slug": "rebecca-yarros",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "JORDI WILD es el creador y presentador de The Wild Project, el pódcast más importante en lengua española. Como autor, ha vendido más de cien mil ejemplares de sus anteriores libros. Fascinado por el terror, el misterio, la historia y los aspectos más oscuros de la naturaleza humana, lleva años trasladando esas obsesiones a sus diferentes proyectos creativos.",
+      "biografia_fecha_revision": "2026-11-01",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/204491-jordi-wild",
+      "descripcion": "Libros de Jordi Wild incluidos en este catálogo: La abadía sin ojos. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "La abadía sin ojos · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637430-libro-la-abadia-sin-ojos-9788466686884"
+        }
+      ],
+      "nombre": "Jordi Wild",
+      "slug": "jordi-wild",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-11-01",
+      "descripcion": "Libros de La Vecina Rubia incluidos en este catálogo: El hombre ideal. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "El hombre ideal · ficha editorial",
+          "url": "https://www.planetadelibros.com/libro-el-hombre-ideal/457174"
+        }
+      ],
+      "nombre": "La Vecina Rubia",
+      "slug": "la-vecina-rubia",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Rocío S. Rosado, más conocida como Mamá Atómica, es creadora de contenido gastronómico y una apasionada de todo lo que hace disfrutar de la vida: la cocina, los libros, los viajes, el deporte, el mar, los atardeceres y el tiempo en familia. Aunque compagina esta faceta con su trabajo diario, en febrero de 2025 comenzó a compartir sus recetas y experiencias gastronómicas en redes sociales, donde en muy poco tiempo ha creado una de las comunidades gastronómicas más bonitas de España, reuniendo a cientos de miles de seguidores.",
+      "biografia_fecha_revision": "2026-11-01",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/1019960-rocio-s-rosado",
+      "descripcion": "Libros de Rocío S. Rosado incluidos en este catálogo: Las recetas de Mamá Atómica. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "Las recetas de Mamá Atómica · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-de-cocina/635004-libro-las-recetas-de-mama-atomica-9788425375934"
+        }
+      ],
+      "nombre": "Rocío S. Rosado",
+      "slug": "rocio-s-rosado",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-11-01",
+      "descripcion": "Libros de Peter Flamm incluidos en este catálogo: ¿Yo?. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "¿Yo? · ficha editorial",
+          "url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/-yo-/9788433951281/PN_1195"
+        }
+      ],
+      "nombre": "Peter Flamm",
+      "slug": "peter-flamm",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-11-01",
+      "descripcion": "Libros de Sophie Jomain incluidos en este catálogo: Un otoño para enamorarnos. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "Un otoño para enamorarnos · ficha editorial",
+          "url": "https://www.planetadelibros.com/libro-un-otono-para-enamorarnos/456847"
+        }
+      ],
+      "nombre": "Sophie Jomain",
+      "slug": "sophie-jomain",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Charles Perrault (París, 1628–1703) fue un escritor francés, principalmente reconocido por haber dado forma literaria a cuentos clásicos infantiles como Piel de asno, Pulgarcito, Barba Azul, La Cenicienta, La bella durmiente, Caperucita Roja y El Gato con Botas, atemperando en muchos casos la crudeza de las versiones orales, la mayoría de sus cuentos son infantiles y de fantasía.",
+      "biografia_fecha_revision": "2026-11-01",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/1019886-charles-perrault",
+      "descripcion": "Libros de Charles Perrault incluidos en este catálogo: La magia de la música - Cenicienta. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "La magia de la música - Cenicienta · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/634722-libro-la-magia-de-la-musica-cenicienta-9780241834923"
+        }
+      ],
+      "nombre": "Charles Perrault",
+      "slug": "charles-perrault",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Virginia Mendoza (La Mancha, 1987) se licenció en Periodismo y en Antropología Social y Cultural por la Universidad Miguel Hernández de Elche y se especializó en Antropología prehistórica por la UNED.Ha publicado libros sobre arraigo y desarraigo en los que fusiona periodismo y antropología, como Quién te cerrará los ojos (Libros del KO, 2017), Heridas del viento (La línea del horizonte, 2018), Detendrán mi río (Libros del KO, 2021) y La sed (Debate, 2024), traducido a varios idiomas. En 2019 obtuvo el Premio Manuel Iradier a la Comunicación, otorgado por la Sociedad Geográfica La Exploradora.",
+      "biografia_fecha_revision": "2026-11-01",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/963347-virginia-mendoza",
+      "descripcion": "Libros de Virginia Mendoza incluidos en este catálogo: Memoria de las manos. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "Memoria de las manos · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/economia-politica-y-actualidad/634701-libro-memoria-de-las-manos-9791387904968"
+        }
+      ],
+      "nombre": "Virginia Mendoza",
+      "slug": "virginia-mendoza",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Noelia Dopazo es creadora de contenido y profesora. En redes, bajo el usuario de @noelia_dopazo, comparte videos de lifestyle, moda y humor, siempre con un tono cercano, natural y muy reconocible. En su primera novela juvenil, Noelia habla de amor, rupturas, sueños pendientes y segundas oportunidades en una historia intensa, romántica y llena de verdad.",
+      "biografia_fecha_revision": "2026-11-01",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/1019898-noelia-dopazo",
+      "descripcion": "Libros de Noelia Dopazo incluidos en este catálogo: Cuando fuimos todo. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "Cuando fuimos todo · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/635017-libro-cuando-fuimos-todo-9791387598440"
+        }
+      ],
+      "nombre": "Noelia Dopazo",
+      "slug": "noelia-dopazo",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-11-01",
+      "descripcion": "Libros de Andrea Longarela incluidos en este catálogo: Te espero en el fin del mundo. Edición especial con cantos decorados. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "Te espero en el fin del mundo. Edición especial con cantos decorados · ficha editorial",
+          "url": "https://www.planetadelibros.com/libro-te-espero-en-el-fin-del-mundo-edicion-especial-con-cantos-decorados/458449"
+        }
+      ],
+      "nombre": "Andrea Longarela",
+      "slug": "andrea-longarela",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-11-01",
+      "descripcion": "Libros de Steve Smallman incluidos en este catálogo: Mi mamá es... - Una unicornia solitaria. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "Mi mamá es... - Una unicornia solitaria · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/634655-libro-mi-mama-es-una-unicornia-solitaria-9788448874575"
+        }
+      ],
+      "nombre": "Steve Smallman",
+      "slug": "steve-smallman",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-11-01",
+      "descripcion": "Libros de Nickelodeon incluidos en este catálogo: AVATAR. La leyenda de Aang 5 - Norte y sur. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "AVATAR. La leyenda de Aang 5 - Norte y sur · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634659-libro-avatar-la-leyenda-de-aang-5-norte-y-sur-9788448874803"
+        }
+      ],
+      "nombre": "Nickelodeon",
+      "slug": "nickelodeon",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Alana S. Portero es una escritora, poeta, dramaturga y directora escénica española que escribe sobre cultura, feminismo y activismo LGTB con un enfoque concreto en la realidad de las mujeres trans.",
+      "biografia_fecha_revision": "2026-11-01",
+      "biografia_fuente_nombre": "Wikipedia",
+      "biografia_fuente_url": "https://es.wikipedia.org/wiki/Alana_S._Portero",
+      "biografia_ultimo_intento": "2026-11-01",
+      "descripcion": "Libros de Alana S. Portero incluidos en este catálogo: Cosamala. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "Cosamala · ficha editorial",
+          "url": "https://www.planetadelibros.com/libro-cosamala/458658"
+        }
+      ],
+      "nombre": "Alana S. Portero",
+      "slug": "alana-s-portero",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-11-01",
+      "descripcion": "Libros de Struan Murray incluidos en este catálogo: Dragonborn. El amanecer de los dragones. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "Dragonborn. El amanecer de los dragones · ficha editorial",
+          "url": "https://www.duomoediciones.com/libro/dragonborn-el-amanecer-de-los-dragones/"
+        }
+      ],
+      "nombre": "Struan Murray",
+      "slug": "struan-murray",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-11-01",
+      "descripcion": "Libros de Catherine Le Nevez incluidos en este catálogo: Amsterdam de cerca 2027-2028. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "Amsterdam de cerca 2027-2028 · ficha editorial",
+          "url": "https://www.planetadelibros.com/libro-amsterdam-de-cerca-2027-2028/449008"
+        }
+      ],
+      "nombre": "Catherine Le Nevez",
+      "slug": "catherine-le-nevez",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_ultimo_intento": "2026-11-01",
+      "descripcion": "Libros de Guinness World Records incluidos en este catálogo: Guinness World Records 2027. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "Guinness World Records 2027 · ficha editorial",
+          "url": "https://www.planetadelibros.com/libro-guinness-world-records-2027/454853"
+        }
+      ],
+      "nombre": "Guinness World Records",
+      "slug": "guinness-world-records",
+      "tipo": "bibliografico"
+    },
+    {
+      "biografia_breve": "Nova Banks escribe novelas románticas que se adentran en la vida de personajes imperfectos. Sus historias ofrecen una mezcla de momentos dignos de desvanecimiento y un equilibrio de dolor y consuelo, ¡pero todas conducen a un merecido «felices para siempre»! Le encanta todo lo relacionado con el romance, la fantasía y todo lo que tenga un novio atractivo.",
+      "biografia_fecha_revision": "2026-11-01",
+      "biografia_fuente_url": "https://www.penguinlibros.com/es/1019899-nova-banks",
+      "descripcion": "Libros de Nova Banks incluidos en este catálogo: Rinkmates. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-11-01",
+      "fuentes": [
+        {
+          "titulo": "Rinkmates · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/635018-libro-rinkmates-9791387598815"
+        }
+      ],
+      "nombre": "Nova Banks",
+      "slug": "nova-banks",
       "tipo": "bibliografico"
     }
   ],
