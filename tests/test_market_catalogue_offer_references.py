@@ -1,24 +1,26 @@
 import json
 import unittest
-from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+
+def priced():
+    """Amazon prices now live per format in the catalogue (formatos_compra)."""
+    catalogue = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+    return [(book, option) for book in catalogue['libros']
+            for option in book.get('formatos_compra', []) if 'precio_centimos' in option]
+
+
 class MarketCatalogueReferences(unittest.TestCase):
-    def test_offers_reference_published_books(self):
-        catalogue = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+    def test_prices_belong_to_published_books(self):
         market = json.loads((ROOT / 'assets/reading-market.json').read_text(encoding='utf-8'))
-        books = catalogue['libros']
-        counts = Counter(book['id'] for book in books)
-        by_id = {book['id']: book for book in books}
-        self.assertTrue(market['offers'], 'reading-market.json: no hay ofertas publicadas')
-        for offer in market['offers']:
-            book_id = offer['libro_id']
-            with self.subTest(book=book_id):
-                self.assertEqual(counts[book_id], 1, f'reading-market.json: oferta {book_id} sin libro único en reading-catalogue.json')
-                if counts[book_id] == 1:
-                    self.assertEqual(by_id[book_id]['estado'], 'publicado', f'{book_id}: precio publicado para un libro en estado {by_id[book_id]["estado"]!r}')
+        self.assertEqual(market['offers'], [], 'reading-market.json: los precios se guardan en el catálogo')
+        self.assertTrue(priced(), 'reading-catalogue.json: no hay precios publicados')
+        for book, option in priced():
+            with self.subTest(book=book['id'], format=option['formato']):
+                self.assertEqual(book['estado'], 'publicado', f'{book["id"]}: precio para un libro en estado {book["estado"]!r}')
+                self.assertTrue(book.get('precios_amazon_revision'), f'{book["id"]}: precio sin fecha de revisión')
 
 if __name__ == '__main__':
     unittest.main()

@@ -85,20 +85,16 @@ def refresh(*, publish=False):
     amazon_id=os.getenv('AMAZON_CREATORS_CLIENT_ID','').strip()
     amazon_secret=os.getenv('AMAZON_CREATORS_CLIENT_SECRET','').strip()
     if amazon_config.get('enabled') and amazon_id and amazon_secret:
-        from datetime import timedelta
         from reading_amazon_market import CreatorsPrices, refresh_offers
         books=read_json(ROOT/'data/reading-catalogue.json')
         tag=config['amazon_partner_tag']
-        # A slice of books per day (each comes round before max_age_days); the
-        # discovered Kindle/audiobook ASINs are stored in formatos_compra.
+        # Nightly sweep: prices are written into formatos_compra and the pages are
+        # rebuilt below; prices stay published until a newer one replaces them.
         market,price_stats=refresh_offers(books,market,CreatorsPrices(amazon_id,amazon_secret,tag),tag,
-                                         datetime.now(timezone.utc),int(amazon_config.get('requests_per_day',100)),
-                                         timedelta(days=int(amazon_config.get('max_age_days',7))))
+                                         datetime.now(timezone.utc),sweep_days=int(amazon_config.get('sweep_days',7)))
         write_if_changed(ROOT/'.ci/reading-intake/prices-report.json',price_stats)
         print('Precios Amazon: '+json.dumps(price_stats,ensure_ascii=True),flush=True)
-        changed_ratings=write_changed(market_path,market) or changed_ratings
-        if price_stats['formats_added']:
-            changed_ratings=write_changed(ROOT/'data/reading-catalogue.json',books) or changed_ratings
+        changed_ratings=write_changed(ROOT/'data/reading-catalogue.json',books) or changed_ratings
     # A scheduled RSS item can become due without a new book or rating. Build
     # current pages first, then advance feeds inside this SAME daily writer.
     command(sys.executable, 'scripts/build-reading-catalogue.py')

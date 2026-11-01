@@ -2121,28 +2121,32 @@
       "formato_edicion": "tapa-blanda",
       "formatos_compra": [
         {
-          "fecha_verificacion": "2026-10-20",
+          "fecha_verificacion": "2026-10-25",
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8498382378",
-          "url": "https://www.amazon.es/dp/8498382378?tag=davidporto-21"
+          "url": "https://www.amazon.es/dp/8498382378?tag=davidporto-21",
+          "precio_centimos": 1135
         },
         {
-          "fecha_verificacion": "2026-10-20",
+          "fecha_verificacion": "2026-10-25",
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8498382378",
-          "url": "https://www.amazon.es/dp/847888579X?tag=davidporto-21"
+          "url": "https://www.amazon.es/dp/847888579X?tag=davidporto-21",
+          "precio_centimos": 1420
         },
         {
-          "fecha_verificacion": "2026-10-20",
+          "fecha_verificacion": "2026-10-25",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/8498382378",
-          "url": "https://www.amazon.es/dp/B08CYCPBZN?tag=davidporto-21"
+          "url": "https://www.amazon.es/dp/B08CYCPBZN?tag=davidporto-21",
+          "precio_centimos": 664
         },
         {
-          "fecha_verificacion": "2026-10-20",
+          "fecha_verificacion": "2026-10-25",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/8498382378",
-          "url": "https://www.amazon.es/dp/B08CR4VJRT?tag=davidporto-21"
+          "url": "https://www.amazon.es/dp/B08CR4VJRT?tag=davidporto-21",
+          "precio_centimos": 629
         }
       ],
       "fragmento_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372/fragmento",
@@ -2178,7 +2182,8 @@
       "sinopsis_tipo": "resumen_propio",
       "slug": "coraline",
       "titulo": "Coraline",
-      "url_amazon_afiliada": "https://www.amazon.es/dp/8498382378?tag=davidporto-21"
+      "url_amazon_afiliada": "https://www.amazon.es/dp/8498382378?tag=davidporto-21",
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387846008&tag=davidporto-21",
@@ -2225,7 +2230,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-aventura/636581-libro-la-hipotesis-mas-peligrosa-9791387846008",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-hipotesis-mas-peligrosa-9791387846008",
-      "titulo": "La hipótesis más peligrosa"
+      "titulo": "La hipótesis más peligrosa",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/B0H7YHH8P6?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H7YHH8P6",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2270
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401039560&tag=davidporto-21",
@@ -2273,7 +2288,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-fantasia/635029-libro-otros-mundos-el-talisman-3-9788401039560",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "otros-mundos-el-talisman-3-9788401039560",
-      "titulo": "Otros mundos (El Talismán 3)"
+      "titulo": "Otros mundos (El Talismán 3)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8401039568?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8401039568",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2650
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425375118&tag=davidporto-21",
@@ -2320,7 +2345,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-fantasia/626978-libro-la-hija-del-veneno-9788425375118",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-hija-del-veneno-9788425375118",
-      "titulo": "La hija del veneno"
+      "titulo": "La hija del veneno",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8425375118?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8425375118",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2365
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387640439&tag=davidporto-21",
@@ -2367,7 +2402,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-historica/635110-libro-plaza-brugmann-33-9791387640439",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "plaza-brugmann-33-9791387640439",
-      "titulo": "Plaza Brugmann, 33"
+      "titulo": "Plaza Brugmann, 33",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0H5RDQTM8?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H5RDQTM8",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2185
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425375040&tag=davidporto-21",
@@ -2461,7 +2506,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/634618-libro-mi-amor-no-muere-9791387846794",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "mi-amor-no-muere-9791387846794",
-      "titulo": "Mi amor no muere"
+      "titulo": "Mi amor no muere",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0H5WQWHCQ?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H5WQWHCQ",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2080
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788426432575&tag=davidporto-21",
@@ -2508,7 +2563,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/635019-libro-el-linaje-de-pierre-9788426432575",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "el-linaje-de-pierre-9788426432575",
-      "titulo": "El linaje de Pierre"
+      "titulo": "El linaje de Pierre",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8426432573?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8426432573",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2175
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388137006&tag=davidporto-21",
@@ -2649,7 +2714,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635022-libro-esas-muchachas-que-escriben-poemas-9788426434272",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "esas-muchachas-que-escriben-poemas-9788426434272",
-      "titulo": "Esas muchachas que escriben poemas"
+      "titulo": "Esas muchachas que escriben poemas",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8426434274?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8426434274",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1795
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788466684606&tag=davidporto-21",
@@ -2696,7 +2771,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/634678-libro-la-risa-de-mi-vida-9788466684606",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-risa-de-mi-vida-9788466684606",
-      "titulo": "La Risa de mi vida"
+      "titulo": "La Risa de mi vida",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8466684603?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8466684603",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1985
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401036897&tag=davidporto-21",
@@ -2743,7 +2828,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/437990-libro-los-escalones-9788401036897",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "los-escalones-9788401036897",
-      "titulo": "Los escalones"
+      "titulo": "Los escalones",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8401036895?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8401036895",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2175
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788439746621&tag=davidporto-21",
@@ -2790,7 +2885,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/635085-libro-la-merma-9788439746621",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-merma-9788439746621",
-      "titulo": "La merma"
+      "titulo": "La merma",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8439746628?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8439746628",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1700
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788419456007&tag=davidporto-21",
@@ -2837,7 +2942,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/635112-libro-la-casa-de-la-cienaga-serie-slow-horses-7-9788419456007",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-casa-de-la-cienaga-serie-slow-horses-7-9788419456007",
-      "titulo": "La Casa de la Ciénaga (Serie Slow Horses 7)"
+      "titulo": "La Casa de la Ciénaga (Serie Slow Horses 7)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8419456004?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8419456004",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2185
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788439747222&tag=davidporto-21",
@@ -2884,7 +2999,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635088-libro-la-luz-y-el-hilo-laurea-9788439747222",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-luz-y-el-hilo-laurea-9788439747222",
-      "titulo": "La luz y el hilo (Láurea)"
+      "titulo": "La luz y el hilo (Láurea)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8439747225?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8439747225",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1700
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425371790&tag=davidporto-21",
@@ -2978,7 +3103,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-autoayuda/634993-libro-sacate-a-esa-persona-de-la-cabeza-9788425373121",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "sacate-a-esa-persona-de-la-cabeza-9788425373121",
-      "titulo": "Sácate a esa persona de la cabeza"
+      "titulo": "Sácate a esa persona de la cabeza",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8425373123?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8425373123",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2080
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387640491&tag=davidporto-21",
@@ -3122,7 +3257,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/545701-libro-mas-simple-9791387928032",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "mas-simple-9791387928032",
-      "titulo": "Más Simple"
+      "titulo": "Más Simple",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/B0GHSQS8DR?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0GHSQS8DR",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2850
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425371967&tag=davidporto-21",
@@ -3169,7 +3314,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/634991-libro-muerdelo-9788425371967",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "muerdelo-9788425371967",
-      "titulo": "Muérdelo"
+      "titulo": "Muérdelo",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8425371961?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8425371961",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2365
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387629694&tag=davidporto-21",
@@ -3216,7 +3371,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/635080-libro-comete-la-vida-a-bocados-con-pausa-y-plato-9791387629694",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "comete-la-vida-a-bocados-con-pausa-y-plato-9791387629694",
-      "titulo": "Cómete la vida a bocados con Pausa y Plato"
+      "titulo": "Cómete la vida a bocados con Pausa y Plato",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0H5RQTBGC?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H5RQTBGC",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2365
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425374074&tag=davidporto-21",
@@ -3263,7 +3428,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/631803-libro-20-minutos-y-listo-9788425374074",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "20-minutos-y-listo-9788425374074",
-      "titulo": "20 minutos ¡y listo!"
+      "titulo": "20 minutos ¡y listo!",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8425374073?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8425374073",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 3125
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425374869&tag=davidporto-21",
@@ -3310,7 +3485,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/631807-libro-la-fibra-es-la-solucion-9788425374869",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-fibra-es-la-solucion-9788425374869",
-      "titulo": "La fibra es la solución"
+      "titulo": "La fibra es la solución",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8425374863?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8425374863",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2080
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425374012&tag=davidporto-21",
@@ -3357,7 +3542,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/545229-libro-barbacoa-9788425374012",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "barbacoa-9788425374012",
-      "titulo": "Barbacoa"
+      "titulo": "Barbacoa",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8425374014?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8425374014",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2840
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387975340&tag=davidporto-21",
@@ -3404,7 +3599,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/literatura-contemporanea/631444-libro-un-dia-en-la-vida-de-clarita-9791387975340",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "un-dia-en-la-vida-de-clarita-9791387975340",
-      "titulo": "Un día en la vida de Clarita"
+      "titulo": "Un día en la vida de Clarita",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0H17HTC5Y?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H17HTC5Y",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1890
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401039836&tag=davidporto-21",
@@ -3451,7 +3656,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/tiempo-libre/635030-libro-familia-contamos-nuestra-historia-me-cuentas-tu-historia-9788401039836",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "familia-contamos-nuestra-historia-me-cuentas-tu-historia-9788401039836",
-      "titulo": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?)"
+      "titulo": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8401039835?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8401039835",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1510
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410466470&tag=davidporto-21",
@@ -3498,7 +3713,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-ciencia-ficcion/635049-libro-el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6-9788410466470",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6-9788410466470",
-      "titulo": "El ojo de la novia frenopática (Carl el Mazmorrero 6)"
+      "titulo": "El ojo de la novia frenopática (Carl el Mazmorrero 6)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8410466473?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8410466473",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2460
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401037917&tag=davidporto-21",
@@ -3545,7 +3770,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-fantasia/627020-libro-las-pruebas-del-tarot-9788401037917",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "las-pruebas-del-tarot-9788401037917",
-      "titulo": "Las Pruebas del Tarot"
+      "titulo": "Las Pruebas del Tarot",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8401037913?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8401037913",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2366
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401031380&tag=davidporto-21",
@@ -3592,7 +3827,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/635026-libro-bajamar-9788401031380",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "bajamar-9788401031380",
-      "titulo": "Bajamar"
+      "titulo": "Bajamar",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8401031389?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8401031389",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2175
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788430629664&tag=davidporto-21",
@@ -3639,7 +3884,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-historia/635117-libro-los-pilares-de-la-historia-9788430629664",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "los-pilares-de-la-historia-9788430629664",
-      "titulo": "Los pilares de la historia"
+      "titulo": "Los pilares de la historia",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8430629661?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8430629661",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2650
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788491058298&tag=davidporto-21",
@@ -3686,7 +3941,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-clasicos/621402-libro-1984-edicion-especial-limitada-con-cantos-tintados-9788491058298",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "1984-edicion-especial-limitada-con-cantos-tintados-9788491058298",
-      "titulo": "1984 (edición especial limitada con cantos tintados)"
+      "titulo": "1984 (edición especial limitada con cantos tintados)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/849105829X?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/849105829X",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1610
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9780241847640&tag=davidporto-21",
@@ -3780,7 +4045,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/634736-libro-da-miedo-o-no-da-miedo-enciclomini-9780241847633",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "da-miedo-o-no-da-miedo-enciclomini-9780241847633",
-      "titulo": "¿Da miedo o no da miedo? (Enciclomini)"
+      "titulo": "¿Da miedo o no da miedo? (Enciclomini)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/024184763X?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/024184763X",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1225
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788402431936&tag=davidporto-21",
@@ -3827,7 +4102,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634667-libro-ibanez-mitico-2-el-preboste-de-seguridad-9788402431936",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "ibanez-mitico-2-el-preboste-de-seguridad-9788402431936",
-      "titulo": "Ibáñez Mítico 2 - El preboste de seguridad"
+      "titulo": "Ibáñez Mítico 2 - El preboste de seguridad",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8402431933?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8402431933",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1705
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388092053&tag=davidporto-21",
@@ -3874,7 +4159,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/634692-libro-menu-del-dia-mesa-y-mantel-9791388092053",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "menu-del-dia-mesa-y-mantel-9791388092053",
-      "titulo": "Menú del día (Mesa y mantel)"
+      "titulo": "Menú del día (Mesa y mantel)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/B0H5WZV4RV?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H5WZV4RV",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2080
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788403526853&tag=davidporto-21",
@@ -3921,7 +4216,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/634614-libro-treinta-y-cuatro-9788403526853",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "treinta-y-cuatro-9788403526853",
-      "titulo": "Treinta y cuatro"
+      "titulo": "Treinta y cuatro",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8403526857?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8403526857",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1890
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387994303&tag=davidporto-21",
@@ -3968,7 +4273,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/631486-libro-me-llamo-goa-12-eres-unica-goa-9791387994303",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "me-llamo-goa-12-eres-unica-goa-9791387994303",
-      "titulo": "Me llamo Goa 12 - ¡Eres única, Goa!"
+      "titulo": "Me llamo Goa 12 - ¡Eres única, Goa!",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/B0H17Q1JK8?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H17Q1JK8",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1610
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387994532&tag=davidporto-21",
@@ -4015,7 +4330,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634670-libro-amigos-de-verdad-9791387994532",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "amigos-de-verdad-9791387994532",
-      "titulo": "Amigos de verdad"
+      "titulo": "Amigos de verdad",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0H5WMDRNH?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H5WMDRNH",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1610
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788418967566&tag=davidporto-21",
@@ -4062,7 +4387,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/545012-libro-esmorzaret-mesa-y-mantel-9788418967566",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "esmorzaret-mesa-y-mantel-9788418967566",
-      "titulo": "Esmorzaret (Mesa y mantel)"
+      "titulo": "Esmorzaret (Mesa y mantel)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8418967560?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8418967560",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2080
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387949938&tag=davidporto-21",
@@ -4109,7 +4444,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/tematicas/634621-libro-alas-de-escarcha-y-oro-el-canto-del-cisne-9791387949938",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "alas-de-escarcha-y-oro-el-canto-del-cisne-9791387949938",
-      "titulo": "Alas de escarcha y oro: El canto del cisne"
+      "titulo": "Alas de escarcha y oro: El canto del cisne",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0H5WR93HD?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H5WR93HD",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1895
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9780241839362&tag=davidporto-21",
@@ -4767,7 +5112,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-lamu-n-0817/455537",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "lamu-no-08-17-9791388101700",
-      "titulo": "Lamu nº 08/17"
+      "titulo": "Lamu nº 08/17",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0H7JNR1L9?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H7JNR1L9",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1515
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788449346026&tag=davidporto-21",
@@ -4812,7 +5167,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-destroza-este-diario-diversion-extrema/458335",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "destroza-este-diario-diversion-extrema-9788449346026",
-      "titulo": "Destroza este diario. Diversión EXTREMA"
+      "titulo": "Destroza este diario. Diversión EXTREMA",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8449346029?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8449346029",
+          "fecha_verificacion": "2026-10-27",
+          "precio_centimos": 1230
+        }
+      ],
+      "precios_amazon_revision": "2026-10-27"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408326427&tag=davidporto-21",
@@ -4858,7 +5223,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-magic-animals-misiones-especiales-2-el-templo-escondido/458174",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "magic-animals-misiones-especiales-2-el-templo-escondido-9788408326427",
-      "titulo": "Magic Animals. Misiones especiales 2. El templo escondido"
+      "titulo": "Magic Animals. Misiones especiales 2. El templo escondido",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8408326422?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8408326422",
+          "fecha_verificacion": "2026-10-27",
+          "precio_centimos": 1705
+        }
+      ],
+      "precios_amazon_revision": "2026-10-27"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788423441051&tag=davidporto-21",
@@ -4903,7 +5278,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-como-ganar-una-guerra-comercial/458964",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "como-ganar-una-guerra-comercial-9788423441051",
-      "titulo": "Cómo ganar una guerra comercial"
+      "titulo": "Cómo ganar una guerra comercial",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8423441059?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8423441059",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2275
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788467083330&tag=davidporto-21",
@@ -4949,7 +5334,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-corazon-de-silex/455997",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "corazon-de-silex-9788467083330",
-      "titulo": "Corazón de sílex"
+      "titulo": "Corazón de sílex",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8467083336?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8467083336",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2175
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408326380&tag=davidporto-21",
@@ -4994,7 +5389,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-la-guerra-fria-contada-para-escepticos/458170",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-guerra-fria-contada-para-escepticos-9788408326380",
-      "titulo": "La Guerra Fría contada para escépticos"
+      "titulo": "La Guerra Fría contada para escépticos",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8408326384?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8408326384",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2270
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788467083354&tag=davidporto-21",
@@ -5039,7 +5444,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-la-vida-nueva-de-pedrito-de-andia/456000",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-vida-nueva-de-pedrito-de-andia-9788467083354",
-      "titulo": "La vida nueva de Pedrito de Andía"
+      "titulo": "La vida nueva de Pedrito de Andía",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8467083352?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8467083352",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2270
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788467083378&tag=davidporto-21",
@@ -5084,7 +5499,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-todo-bajo-control-menos-tu/456003",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "todo-bajo-control-menos-tu-9788467083378",
-      "titulo": "Todo bajo control, menos tú"
+      "titulo": "Todo bajo control, menos tú",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8467083379?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8467083379",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2175
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788467083316&tag=davidporto-21",
@@ -5129,7 +5554,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-las-mitford/455995",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "las-mitford-9788467083316",
-      "titulo": "Las Mitford"
+      "titulo": "Las Mitford",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/846708331X?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/846708331X",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2270
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788448873479&tag=davidporto-21",
@@ -5176,7 +5611,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634649-libro-superdonuts-3-el-destino-de-los-donuts-9788448873479",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "superdonuts-3-el-destino-de-los-donuts-9788448873479",
-      "titulo": "Superdónuts 3 - El destino de los dónuts"
+      "titulo": "Superdónuts 3 - El destino de los dónuts",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8448873475?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8448873475",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1325
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788466380096&tag=davidporto-21",
@@ -5362,7 +5807,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-clasicos/621386-libro-la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-senora-dalloway-edicion-especial-limitada-con-cantos-tintados-9788491057031",
-      "titulo": "La señora Dalloway (edición especial limitada con cantos tintados)"
+      "titulo": "La señora Dalloway (edición especial limitada con cantos tintados)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/849105703X?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/849105703X",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1695
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388222801&tag=davidporto-21",
@@ -5409,7 +5864,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/635010-libro-solo-un-juego-mas-car-hockey-1-9791388222801",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "solo-un-juego-mas-car-hockey-1-9791388222801",
-      "titulo": "Solo un juego más (CAR HOCKEY 1)"
+      "titulo": "Solo un juego más (CAR HOCKEY 1)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0H5RJCPT2?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H5RJCPT2",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1990
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387740382&tag=davidporto-21",
@@ -5456,7 +5921,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637804-libro-sin-piedad-harry-hole-14-9791387740382",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "sin-piedad-harry-hole-14-9791387740382",
-      "titulo": "Sin piedad (Harry Hole 14)"
+      "titulo": "Sin piedad (Harry Hole 14)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0HC3Y2XLT?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0HC3Y2XLT",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2270
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388277085&tag=davidporto-21",
@@ -5503,7 +5978,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634630-libro-pipoka-y-la-fabrica-del-desastre-9791388277085",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "pipoka-y-la-fabrica-del-desastre-9791388277085",
-      "titulo": "Pipoka y la Fábrica del Desastre"
+      "titulo": "Pipoka y la Fábrica del Desastre",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/B0H5WT49KM?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H5WT49KM",
+          "fecha_verificacion": "2026-10-26",
+          "precio_centimos": 1895
+        }
+      ],
+      "precios_amazon_revision": "2026-10-26"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387809829&tag=davidporto-21",
@@ -5550,7 +6035,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/635007-libro-aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "aprender-a-leer-en-la-escuela-de-monstruos-25-magnifico-y-terrorifico-9791387809829",
-      "titulo": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico"
+      "titulo": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0H5RJMRM4?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H5RJMRM4",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 755
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788427054479&tag=davidporto-21",
@@ -5595,7 +6090,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-un-amor-de-diciembre/426146",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "un-amor-de-diciembre-9788427054479",
-      "titulo": "Un amor de diciembre"
+      "titulo": "Un amor de diciembre",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8427054475?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8427054475",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1795
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788411078474&tag=davidporto-21",
@@ -5640,7 +6145,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-urkinaona/459319",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "urkinaona-9788411078474",
-      "titulo": "Urkinaona"
+      "titulo": "Urkinaona",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8411078477?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8411078477",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1985
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387962142&tag=davidporto-21",
@@ -5730,7 +6245,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-ninos-ancestrales/458553",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "ninos-ancestrales-9788413445564",
-      "titulo": "Niños ancestrales"
+      "titulo": "Niños ancestrales",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8413445566?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8413445566",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 1990
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788427257627&tag=davidporto-21",
@@ -5775,7 +6300,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/ciencia-ficcion-juvenil/633365-libro-la-sexta-faccion-1-la-sexta-faccion-edicion-especial-limitada-con-cantos-tintados-9788427257627",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-sexta-faccion-1-la-sexta-faccion-edicion-especial-limitada-con-cantos-ti-9788427257627",
-      "titulo": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados)"
+      "titulo": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8427257627?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8427257627",
+          "fecha_verificacion": "2026-10-25",
+          "precio_centimos": 2465
+        }
+      ],
+      "precios_amazon_revision": "2026-10-25"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408325222&tag=davidporto-21",
@@ -6464,7 +6999,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-agente-stitch-5-los-roedores-de-roswell/456569",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "agente-stitch-5-los-roedores-de-roswell-9791387901943",
-      "titulo": "Agente Stitch 5. Los roedores de Roswell"
+      "titulo": "Agente Stitch 5. Los roedores de Roswell",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0H7JMHG3T?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H7JMHG3T",
+          "fecha_verificacion": "2026-10-30",
+          "precio_centimos": 1325
+        }
+      ],
+      "precios_amazon_revision": "2026-10-30"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388306297&tag=davidporto-21",
@@ -6509,7 +7054,17 @@
       "sinopsis_fuente_url": "https://nordicalibros.com/product/el-libro-de-los-gatos/",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "el-libro-de-los-gatos-9791388306297",
-      "titulo": "El libro de los gatos"
+      "titulo": "El libro de los gatos",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/B0HD696LH6?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0HD696LH6",
+          "fecha_verificacion": "2026-10-30",
+          "precio_centimos": 2232
+        }
+      ],
+      "precios_amazon_revision": "2026-10-30"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951229&tag=davidporto-21",
@@ -6968,7 +7523,17 @@
       "sinopsis_fuente_url": "https://nordicalibros.com/product/malina/",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "malina-9791387922955",
-      "titulo": "Malina"
+      "titulo": "Malina",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0GX3GPW9K?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0GX3GPW9K",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2275
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410140707&tag=davidporto-21",
@@ -7013,7 +7578,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-tinderella/458020",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "tinderella-9788410140707",
-      "titulo": "Tinderella"
+      "titulo": "Tinderella",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8410140705?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8410140705",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2270
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425374371&tag=davidporto-21",
@@ -7060,7 +7635,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/616918-libro-sana-tus-celulas-9788425374371",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "sana-tus-celulas-9788425374371",
-      "titulo": "Sana tus células"
+      "titulo": "Sana tus células",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8425374375?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8425374375",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2175
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951083&tag=davidporto-21",
@@ -7150,7 +7735,17 @@
       "sinopsis_fuente_url": "https://nordicalibros.com/product/la-tercera-vida-de-grange-copeland/",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-tercera-vida-de-grange-copeland-9791388306273",
-      "titulo": "La tercera vida de Grange Copeland"
+      "titulo": "La tercera vida de Grange Copeland",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0HD5YZC9S?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0HD5YZC9S",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2370
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951212&tag=davidporto-21",
@@ -7195,7 +7790,17 @@
       "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/una-casa-en-brandemburgo/9788433951212/PN_1193",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "una-casa-en-brandemburgo-9788433951212",
-      "titulo": "Una casa en Brandemburgo"
+      "titulo": "Una casa en Brandemburgo",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8433951211?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8433951211",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 1890
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387922962&tag=davidporto-21",
@@ -7287,7 +7892,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/literatura-contemporanea/631917-libro-lazar-9791387928018",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "lazar-9791387928018",
-      "titulo": "Lázár"
+      "titulo": "Lázár",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0H15F1LV8?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H15F1LV8",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2090
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788449344626&tag=davidporto-21",
@@ -7332,7 +7947,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-duelo/457508",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "duelo-9788449344626",
-      "titulo": "Duelo"
+      "titulo": "Duelo",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/844934462X?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/844934462X",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2080
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788466685139&tag=davidporto-21",
@@ -7379,7 +8004,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-negocio/634681-libro-el-efecto-creativo-9788466685139",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "el-efecto-creativo-9788466685139",
-      "titulo": "El efecto creativo"
+      "titulo": "El efecto creativo",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8466685138?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8466685138",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2080
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951403&tag=davidporto-21",
@@ -7514,7 +8149,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-lazos-de-fuego-academia-bloodwing-2-edicion-especial-con-cantos-tintados/458671",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "lazos-de-fuego-academia-bloodwing-2-edicion-especial-con-cantos-tintados-9788408327271",
-      "titulo": "Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados"
+      "titulo": "Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8408327275?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8408327275",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2365
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951182&tag=davidporto-21",
@@ -7559,7 +8204,17 @@
       "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/narrativas-hispanicas/los-perplejos/9788433951182/NH_802",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "los-perplejos-9788433951182",
-      "titulo": "Los perplejos"
+      "titulo": "Los perplejos",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8433951181?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8433951181",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 1796
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388306174&tag=davidporto-21",
@@ -7604,7 +8259,17 @@
       "sinopsis_fuente_url": "https://nordicalibros.com/product/glifo/",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "glifo-9791388306174",
-      "titulo": "Glifo"
+      "titulo": "Glifo",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0H73ZF29N?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0H73ZF29N",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 1990
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788423370658&tag=davidporto-21",
@@ -7649,7 +8314,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-criar-juntos-de-verdad/457274",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "criar-juntos-de-verdad-9788423370658",
-      "titulo": "Criar juntos de verdad"
+      "titulo": "Criar juntos de verdad",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8423370658?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8423370658",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2175
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410096547&tag=davidporto-21",
@@ -7696,7 +8371,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-espiritualidad/635082-libro-los-genios-creen-en-dios-9788410096547",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "los-genios-creen-en-dios-9788410096547",
-      "titulo": "Los genios creen en Dios"
+      "titulo": "Los genios creen en Dios",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8410096544?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8410096544",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2175
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951267&tag=davidporto-21",
@@ -7741,7 +8426,17 @@
       "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/argumentos/manifiesto-para-otra-economia-y-otra-politica/9788433951267/A_650",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "manifiesto-por-otra-economia-y-otra-politica-9788433951267",
-      "titulo": "Manifiesto por otra economía y otra política"
+      "titulo": "Manifiesto por otra economía y otra política",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8433951262?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8433951262",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2365
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410171817&tag=davidporto-21",
@@ -7831,7 +8526,17 @@
       "sinopsis_fuente_url": "https://www.editorialperiferica.com/libros/la-casa-del-callejon/",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-casa-del-callejon-9788410171893",
-      "titulo": "La casa del callejón"
+      "titulo": "La casa del callejón",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8410171899?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8410171899",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 1567
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410171855&tag=davidporto-21",
@@ -7876,7 +8581,17 @@
       "sinopsis_fuente_url": "https://www.editorialperiferica.com/libros/mister-angel-del-rio-2/",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "mister-angel-del-rio-9788410171855",
-      "titulo": "Mister Ángel del Río"
+      "titulo": "Mister Ángel del Río",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8410171856?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8410171856",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2137
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410171961&tag=davidporto-21",
@@ -7967,7 +8682,17 @@
       "sinopsis_fuente_url": "https://www.editorialperiferica.com/libros/la-vida-en-el-campo-2/",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-vida-en-el-campo-9788410171879",
-      "titulo": "La vida en el campo"
+      "titulo": "La vida en el campo",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8410171872?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8410171872",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 1330
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410171770&tag=davidporto-21",
@@ -8012,7 +8737,17 @@
       "sinopsis_fuente_url": "https://www.editorialperiferica.com/libros/la-cruz-torcida/",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-cruz-torcida-9788410171770",
-      "titulo": "La cruz torcida"
+      "titulo": "La cruz torcida",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8410171775?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8410171775",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 1852
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410171732&tag=davidporto-21",
@@ -8192,7 +8927,17 @@
       "sinopsis_fuente_url": "https://nordicalibros.com/product/atlas-de-islas-remotas-ed-actualizada/",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "atlas-de-islas-remotas-ed-actualizada-9791387922429",
-      "titulo": "Atlas de islas remotas (ed. actualizada)"
+      "titulo": "Atlas de islas remotas (ed. actualizada)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/B0GN6NNWST?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0GN6NNWST",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2802
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9780241837849&tag=davidporto-21",
@@ -8239,7 +8984,17 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/634725-libro-la-ciencia-del-horneado-la-ciencia-de-la-cocina-9780241837849",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-ciencia-del-horneado-la-ciencia-de-la-cocina-9780241837849",
-      "titulo": "La ciencia del horneado (La ciencia de la cocina)"
+      "titulo": "La ciencia del horneado (La ciencia de la cocina)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/0241837847?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/0241837847",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2370
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388042775&tag=davidporto-21",
@@ -8284,7 +9039,17 @@
       "sinopsis_fuente_url": "https://www.duomoediciones.com/libro/un-deseo-para-cada-dia/",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "un-deseo-para-cada-dia-9791388042775",
-      "titulo": "Un deseo para cada día"
+      "titulo": "Un deseo para cada día",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/B0HJW7FVNV?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/B0HJW7FVNV",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 1899
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951205&tag=davidporto-21",
@@ -8329,7 +9094,17 @@
       "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/panorama-de-narrativas/-nos-quedamos-o-nos-vamos-/9788433951205/PN_1192",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "nos-quedamos-o-nos-vamos-9788433951205",
-      "titulo": "¿Nos quedamos o nos vamos?"
+      "titulo": "¿Nos quedamos o nos vamos?",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8433951203?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8433951203",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2081
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410171916&tag=davidporto-21",
@@ -8374,7 +9149,17 @@
       "sinopsis_fuente_url": "https://www.editorialperiferica.com/libros/la-llamada-de-los-olores/",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-llamada-de-los-olores-9788410171916",
-      "titulo": "La llamada de los olores"
+      "titulo": "La llamada de los olores",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8410171910?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8410171910",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 1852
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408326342&tag=davidporto-21",
@@ -8419,7 +9204,17 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-el-caos-de-beca-3-vale-este-no-era-el-plan/458107",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "el-caos-de-beca-3-vale-este-no-era-el-plan-9788408326342",
-      "titulo": "El caos de Beca 3. Vale, este no era el plan"
+      "titulo": "El caos de Beca 3. Vale, este no era el plan",
+      "formatos_compra": [
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/8408326341?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8408326341",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 1515
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788433951199&tag=davidporto-21",
@@ -8464,7 +9259,17 @@
       "sinopsis_fuente_url": "https://www.anagrama-ed.es/libro/argumentos/este-deseo-no-es-el-mio/9788433951199/A_649",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "este-deseo-no-es-el-mio-9788433951199",
-      "titulo": "Este deseo no es el mío"
+      "titulo": "Este deseo no es el mío",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/843395119X?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/843395119X",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2081
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387922825&tag=davidporto-21",
@@ -8554,7 +9359,17 @@
       "sinopsis_fuente_url": "https://www.editorialperiferica.com/libros/munda/",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "munda-9788410171985",
-      "titulo": "Munda"
+      "titulo": "Munda",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8410171988?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8410171988",
+          "fecha_verificacion": "2026-10-31",
+          "precio_centimos": 2100
+        }
+      ],
+      "precios_amazon_revision": "2026-10-31"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788413145211&tag=davidporto-21",

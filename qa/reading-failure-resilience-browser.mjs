@@ -106,9 +106,11 @@ async function runCase(width,mode){
     const amazon=card.locator('.catalogue-card__buy');
     assert.equal(await amazon.getAttribute('target'),'_blank','Purchase still opens another tab');
     assert.equal(new URL(await amazon.getAttribute('href')).searchParams.get('tag'),'davidporto-21','Purchase retains the affiliate tag');
-    if(selected.pvp_centimos){
-      const expected=(selected.pvp_centimos/100).toLocaleString('es-ES',{style:'currency',currency:'EUR'}).replace(/\s/g,' ');
-      assert((await card.locator('.catalogue-pvp').innerText()).replace(/\s/g,' ').includes(expected),'Editorial PVP remains available independently of market data');
+    // Static price: Amazon per format when known, otherwise the editorial PVP.
+    const staticPrice=(selected.formatos_compra||[]).find(o=>o.precio_centimos)?.precio_centimos||selected.pvp_centimos;
+    if(staticPrice){
+      const expected=(staticPrice/100).toLocaleString('es-ES',{style:'currency',currency:'EUR'}).replace(/\s/g,' ');
+      assert((await card.locator('.catalogue-pvp').innerText()).replace(/\s/g,' ').includes(expected),'Static price remains available independently of market data');
     }
     assert.equal(new URL(page.url()).searchParams.get('utm_source'),'resilience-test','Source parameter survives interactions and reload');
     if(mode==='connection-failure'){
