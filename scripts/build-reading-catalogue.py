@@ -277,6 +277,59 @@ def book_meta_description(data, b):
         _SHARED_META.update(key=key, shared={text for text, ids in seen.items() if len(ids) > 1})
     text = meta_synopsis(b)
     return b['titulo'] + ': ' + text if text[:157] in _SHARED_META['shared'] else text
+TEXTS_DIR = 'data/reading-texts'
+OWN_TEXTS = {}
+# Títulos visibles de cada módulo de orientación (scripts/reading-texts.py decide cuáles admite cada familia).
+MODULE_TITLES = {
+    'edad_y_sensibilidad': 'Edad recomendada y contenido',
+    'encaje_documentado': 'Qué tipo de lectura propone',
+    'esta_edicion': 'Qué distingue esta edición',
+    'temas_y_enfoque': 'Qué cuestiones aborda',
+    'contenido_y_uso': 'Qué incluye y cómo está organizado',
+    'como_se_utiliza': 'Cómo se juega con este libro',
+    'edad_y_formato': 'Edad y características del libro',
+}
+
+
+def load_own_texts(root):
+    """Módulos validados por scripts/reading-texts.py, uno por libro y fuera del JSON que reescribe el barrido."""
+    texts = {}
+    for path in sorted((root / TEXTS_DIR).glob('*.json')):
+        t = json.loads(path.read_text(encoding='utf-8'))
+        require(t.get('id') == path.stem, f'{path.name}: id distinto del nombre del fichero')
+        require(all(x.get('modulo') in MODULE_TITLES for x in t.get('bloques', [])), f'{path.name}: módulo desconocido')
+        if t.get('bloques'):
+            texts[t['id']] = t
+    return texts
+
+
+def own_text_section(b):
+    """«Antes de elegir este libro»: solo aparece si el libro tiene módulos validados."""
+    t = OWN_TEXTS.get(b['id'])
+    if not t:
+        return ''
+    return ('<section class="catalogue-own-text"><h2>Antes de elegir este libro</h2>' + ''.join(
+        '<h3>' + MODULE_TITLES[x['modulo']] + '</h3><p>' + esc(x['texto']) + '</p>' for x in t['bloques'])
+        + '</section><h2 class="catalogue-synopsis-heading">Sinopsis de la editorial</h2>')
+
+
+def age_phrase(age):
+    return '' if not age else age[0].lower() + age[1:] if age.startswith('A partir') else 'para ' + age.lower()
+
+
+def own_meta_description(b):
+    """Meta con datos de la edición y lo que aporta la ficha; nunca la escribe el redactor."""
+    t = OWN_TEXTS.get(b['id'])
+    if not t:
+        return None
+    facts = [b.get('formato_edicion', '').replace('-', ' '), f"{b['numero_paginas']} páginas" if b.get('numero_paginas') else '',
+             age_phrase(b.get('edad_recomendada', ''))]
+    lead = f"{b['titulo']}, de {', '.join(b['autores'])}"
+    facts = ', '.join(f for f in facts if f)
+    topics = ' y '.join(MODULE_TITLES[x['modulo']].lower() for x in t['bloques'][:2])
+    return (lead + (': ' + facts if facts else '') + '. Antes de elegirlo: ' + topics + '.')
+
+
 
 
 def synopsis_attribution(b):
@@ -652,7 +705,8 @@ def render_hub(data, books, template):
 def render_book(data,b,template):
     canonical=SITE+url(b)
     title=book_title(b)
-    description=book_meta_description(data,b)
+    description=own_meta_description(b) or book_meta_description(data,b)
+    own_before=own_text_section(b)
     cats=categories(data,b)
     upcoming=b in upcoming_books([book for book in data['libros'] if book['estado'] == 'publicado'])
     rows=[('Edición',b['edicion'].split(' · ')[0]),('ISBN-13',b.get('isbn13')),('Idioma',LANGUAGES.get(b.get('idioma'),b.get('idioma')))]
@@ -670,7 +724,7 @@ def render_book(data,b,template):
     if amazon_href:
         cover='<a href="'+esc(amazon_href)+'" aria-label="'+esc(amazon_action_label(b))+': '+esc(b['titulo'])+' (otra pestaña)" target="_blank" rel="sponsored nofollow noopener noreferrer">'+cover+'</a>'
     speech=''
-    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue" data-family="recomendaciones" data-reading-catalogue><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(b['titulo'])+'</li></ol></nav><article class="catalogue-book-layout"><div class="catalogue-cover-panel">'+cover+'</div><div><header class="catalogue-book-heading"><p class="eyebrow catalogue-when">'+release_line(b,upcoming)+'</p><h1>'+esc(b['titulo'])+'</h1><p class="catalogue-author">'+author_links(b)+'</p>'+byline(b)+'<div class="catalogue-rating" data-rating-book="'+esc(b['id'])+'" data-isbn="'+esc(b.get('isbn13',''))+'"></div></header><div class="catalogue-synopsis" data-catalogue-description>'+''.join('<p>'+esc(p)+'</p>' for p in synopsis_paragraphs(b))+'</div>'+tags(cats)
+    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue" data-family="recomendaciones" data-reading-catalogue><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(b['titulo'])+'</li></ol></nav><article class="catalogue-book-layout"><div class="catalogue-cover-panel">'+cover+'</div><div><header class="catalogue-book-heading"><p class="eyebrow catalogue-when">'+release_line(b,upcoming)+'</p><h1>'+esc(b['titulo'])+'</h1><p class="catalogue-author">'+author_links(b)+'</p>'+byline(b)+'<div class="catalogue-rating" data-rating-book="'+esc(b['id'])+'" data-isbn="'+esc(b.get('isbn13',''))+'"></div></header>'+own_before+'<div class="catalogue-synopsis" data-catalogue-description>'+''.join('<p>'+esc(p)+'</p>' for p in synopsis_paragraphs(b))+'</div>'+tags(cats)
     if b.get('autoria_propia'):
         main+='<p>Obra de David Porto Díaz.</p>'
     if b.get('avisos_contenido'):
@@ -879,6 +933,8 @@ def main():
     try:
         data = json.loads((args.data or root / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
         books = validate(data, root)
+        OWN_TEXTS.clear()
+        OWN_TEXTS.update(load_own_texts(root))
         authors = author_records(root)
         template = (root / 'scripts/templates/reading-catalogue.html.tmpl').read_text(encoding='utf-8')
         outputs = {'recomendaciones/index.html': render_hub(data, books, template)}
