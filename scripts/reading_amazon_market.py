@@ -5,7 +5,7 @@ import time
 from datetime import datetime, timedelta, timezone
 from decimal import Decimal, InvalidOperation
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlsplit
+from urllib.parse import parse_qs, urlsplit
 from urllib.request import Request, urlopen
 
 from reading_ratings_refresh import isbn13, title_matches, author_matches, key
@@ -30,6 +30,15 @@ def asin_from_url(url):
         return None
     match=re.search(r'/(?:dp|gp/product)/([A-Z0-9]{10})(?:/|$)',parsed.path)
     return match.group(1) if match else None
+
+
+def offer_url(item,asin,tag):
+    # Amazon's own detailPageURL keeps our tag plus its linkCode, so the sale
+    # also counts towards the Creators API quota; anything else falls back.
+    url=item.get('detailPageURL')
+    if asin_from_url(url)==asin and parse_qs(urlsplit(url).query).get('tag')==[tag]:
+        return url
+    return f'https://www.amazon.es/dp/{asin}?tag={tag}'
 
 
 def money_cents(money):
@@ -126,7 +135,7 @@ def select_offers(book,payload,tag,now):
             if cents is None:
                 continue
             offer={'libro_id':book['id'],'formato':fmt,'tipo':'compra','moneda':'EUR',
-                   'precio_centimos':cents,'url':f'https://www.amazon.es/dp/{asin}?tag={tag}',
+                   'precio_centimos':cents,'url':offer_url(item,asin,tag),
                    'actualizado_en':now.isoformat(timespec='seconds').replace('+00:00','Z'),
                    'caduca_en':expires.isoformat(timespec='seconds').replace('+00:00','Z')}
             reference=money_cents(amazon_dict(price.get('savingBasis')).get('money'))
@@ -143,7 +152,7 @@ class CreatorsPrices:
         self.token=None
         self.last=0
 
-    def post(self,url,payload,headers=None):
+    def post(self,url,payload,headers=None,retries=3):
         time.sleep(max(0,1.1-(time.monotonic()-self.last)))
         self.last=time.monotonic()
         request=Request(url,data=json.dumps(payload).encode(),method='POST',
@@ -156,6 +165,17 @@ class CreatorsPrices:
                 error=json.loads(exc.read(20000))
             except ValueError:
                 error={}
+            if not isinstance(error,dict):
+                error={}
+            if exc.code==429 and retries:
+                # Throttling is per second: wait what Amazon asks (bounded) and retry.
+                wait=error.get('retryAfterSeconds') or (exc.headers or {}).get('Retry-After')
+                try:
+                    wait=min(60.0,max(1.0,float(wait)))
+                except (TypeError,ValueError):
+                    wait=2.0*2**(3-retries)
+                time.sleep(wait)
+                return self.post(url,payload,headers,retries-1)
             if exc.code==403 and ('eligib' in str(error.get('message','')).lower() or any(e.get('code')=='AssociateNotEligible' for e in error.get('errors',[]) if isinstance(e,dict))):
                 raise RuntimeError('pending_amazon_eligibility') from exc
             raise RuntimeError(f'Amazon Creators HTTP {exc.code}') from exc

@@ -89,6 +89,30 @@ class AmazonPriceTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError,'^pending_amazon_eligibility$'):
                 client.post('https://api.amazon.co.uk/auth/o2/token',{})
 
+    def test_amazon_detail_url_is_kept_only_with_our_tag_and_asin(self):
+        payload=response(); item=payload['searchResult']['items'][0]
+        item['detailPageURL']='https://www.amazon.es/dp/8498382378?tag=contrato-21&linkCode=ogi&th=1&psc=1'
+        self.assertEqual(select_offers(BOOK,payload,'contrato-21',NOW)[0]['url'],item['detailPageURL'])
+        for other in ['https://www.amazon.es/dp/8498382378?tag=otro-21&linkCode=ogi',
+                      'https://www.amazon.es/dp/B000000000?tag=contrato-21',
+                      'https://evil.example/dp/8498382378?tag=contrato-21',None]:
+            item['detailPageURL']=other
+            self.assertEqual(select_offers(BOOK,payload,'contrato-21',NOW)[0]['url'],
+                             'https://www.amazon.es/dp/8498382378?tag=contrato-21')
+
+    def test_throttling_waits_and_retries_before_giving_up(self):
+        client=CreatorsPrices('id','secret','contrato-21')
+        def throttled():
+            return HTTPError('https://creatorsapi.amazon/catalog/v1/searchItems',429,'Too Many Requests',{},
+                             io.BytesIO(b'{"retryAfterSeconds":3}'))
+        ok=io.BytesIO(b'{"searchResult":{"items":[]}}')
+        with patch('reading_amazon_market.time.sleep') as sleep,              patch('reading_amazon_market.urlopen',side_effect=[throttled(),throttled(),ok]):
+            self.assertEqual(client.post('https://creatorsapi.amazon/catalog/v1/searchItems',{}),{'searchResult':{'items':[]}})
+        self.assertIn(3.0,[c.args[0] for c in sleep.call_args_list])
+        with patch('reading_amazon_market.time.sleep'),              patch('reading_amazon_market.urlopen',side_effect=[throttled() for _ in range(4)]):
+            with self.assertRaisesRegex(RuntimeError,'^Amazon Creators HTTP 429$'):
+                client.post('https://creatorsapi.amazon/catalog/v1/searchItems',{})
+
 
 if __name__=='__main__':
     unittest.main()
