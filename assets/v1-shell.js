@@ -338,46 +338,16 @@
     });
   }
 
-  // A visitor without a mail client configured (common on desktop browsers
-  // that use webmail) sees a mailto: link do nothing when clicked. Copy the
-  // address to the clipboard alongside the native mailto attempt and show a
-  // brief confirmation, so there's always a usable fallback either way.
-  function initMailtoCopyFallback() {
-    if (!navigator.clipboard?.writeText) return;
-    let toast = null;
-    let hideTimer = null;
-    const showToast = (link, email) => {
-      if (!toast) {
-        toast = document.createElement('div');
-        toast.className = 'mailto-copy-toast';
-        toast.setAttribute('role', 'status');
-        toast.setAttribute('aria-live', 'polite');
-        toast.style.cssText = 'position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);z-index:9999;background:var(--dp-ink,#171614);color:#fff;font:500 .85rem/1.4 var(--font-ui,system-ui,sans-serif);padding:.65rem 1.1rem;border-radius:.5rem;box-shadow:0 8px 24px rgba(0,0,0,.25);max-width:min(90vw,26rem);text-align:center;opacity:0;transition:opacity .2s ease';
-        document.body.append(toast);
-      }
-      toast.textContent = `Email copiado: ${email}`;
-      requestAnimationFrame(() => { toast.style.opacity = '1'; });
-      clearTimeout(hideTimer);
-      hideTimer = setTimeout(() => { if (toast) toast.style.opacity = '0'; }, 4000);
-    };
-    document.addEventListener('click', (event) => {
-      const link = event.target.closest('a[href^="mailto:"]');
-      if (!link) return;
-      const email = decodeURIComponent(link.href.replace(/^mailto:/, '').split('?')[0]);
-      if (!email) return;
-      navigator.clipboard.writeText(email).then(() => showToast(link, email)).catch(() => {});
-    });
-  }
-
-  // On a desktop without a mail app configured (most people use Gmail or
-  // Outlook in the browser), a mailto: link opens an empty "Open with..."
-  // prompt or nothing at all. Phones always offer a mail handler, so touch
-  // devices keep the native link; on desktop a click opens a small chooser
-  // instead: webmail compose, the native app, or copy the address.
+  // A mailto: link does nothing useful on a computer without a mail app
+  // configured (most people use Gmail or Outlook in the browser): an empty
+  // "Open with..." prompt or nothing at all. So every mailto: link, on any
+  // device, opens a small chooser instead: webmail compose, the native app,
+  // or copy the address.
   function initMailChooser() {
-    if (!window.matchMedia?.('(hover: hover) and (pointer: fine)').matches) return false;
     let panel = null;
     let opener = null;
+    let reopenGuard = null;
+    let lastWidth = window.innerWidth;
 
     const close = (restoreFocus) => {
       if (!panel) return;
@@ -396,6 +366,36 @@
       const top = below + h <= window.innerHeight - 8 ? below : Math.max(8, r.top - h - 8);
       panel.style.left = `${Math.round(left)}px`;
       panel.style.top = `${Math.round(top)}px`;
+    };
+
+    // The async Clipboard API is refused without clipboard permission (some
+    // browsers, embedded webviews, non-focused documents) and used to fail
+    // silently, so the first click looked dead. Copy synchronously from a
+    // selection of the visible address first, inside the click gesture, and
+    // keep the async API as a second attempt.
+    const copyText = (text, source) => {
+      const selection = window.getSelection?.();
+      let copied = false;
+      if (selection) {
+        const saved = selection.rangeCount ? selection.getRangeAt(0) : null;
+        const range = document.createRange();
+        range.selectNodeContents(source);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        try { copied = document.execCommand('copy'); } catch { copied = false; }
+        selection.removeAllRanges();
+        if (saved) selection.addRange(saved);
+      }
+      if (copied) return Promise.resolve();
+      if (navigator.clipboard?.writeText) return navigator.clipboard.writeText(text);
+      return Promise.reject(new Error('clipboard unavailable'));
+    };
+
+    const selectAddress = (address) => {
+      const range = document.createRange();
+      range.selectNodeContents(address);
+      window.getSelection()?.removeAllRanges();
+      window.getSelection()?.addRange(range);
     };
 
     const open = (link) => {
@@ -436,17 +436,33 @@
       item('Abrir en Gmail', gmail);
       item('Abrir en Outlook', outlook);
       item('Usar mi app de correo', link.href);
-      if (navigator.clipboard?.writeText) {
-        const copy = document.createElement('button');
-        copy.type = 'button';
-        copy.className = 'mail-chooser__item';
-        copy.textContent = 'Copiar dirección';
-        copy.addEventListener('click', () => {
-          navigator.clipboard.writeText(email).then(() => { copy.textContent = 'Dirección copiada ✓'; }).catch(() => {});
+      const copy = document.createElement('button');
+      copy.type = 'button';
+      copy.className = 'mail-chooser__item';
+      copy.textContent = 'Copiar dirección';
+      const status = document.createElement('p');
+      status.className = 'mail-chooser__status';
+      status.setAttribute('role', 'status');
+      let resetTimer = null;
+      copy.addEventListener('click', () => {
+        clearTimeout(resetTimer);
+        copyText(email, address).then(() => {
+          copy.textContent = 'Dirección copiada ✓';
+          status.textContent = 'Dirección copiada al portapapeles';
+        }, () => {
+          // Last resort: leave the address selected for Ctrl+C / long press.
+          selectAddress(address);
+          copy.textContent = 'Selecciónala y cópiala';
+          status.textContent = 'No se pudo copiar: la dirección queda seleccionada';
+        }).finally(() => {
+          resetTimer = setTimeout(() => {
+            copy.textContent = 'Copiar dirección';
+            status.textContent = '';
+          }, 4000);
         });
-        list.append(copy);
-      }
-      panel.append(address, list);
+      });
+      list.append(copy);
+      panel.append(address, list, status);
       document.body.append(panel);
       position(link);
       list.querySelector('.mail-chooser__item')?.focus({ preventScroll: true });
@@ -457,19 +473,46 @@
       const link = event.target.closest?.('a[href^="mailto:"]');
       if (!link || link.closest('.mail-chooser')) return;
       event.preventDefault();
+      // A second click on the link that opened the chooser just closes it.
+      if (reopenGuard === link) {
+        reopenGuard = null;
+        return;
+      }
       open(link);
     });
     // pointerdown, not click: the reveal trigger opens the chooser from inside
     // its own click, and that same click must not count as "outside".
     document.addEventListener('pointerdown', (event) => {
-      if (panel && !panel.contains(event.target)) close(false);
+      reopenGuard = null;
+      if (!panel || panel.contains(event.target)) return;
+      if (opener?.contains(event.target)) reopenGuard = opener;
+      close(false);
     });
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && panel) close(true);
+      if (!panel) return;
+      if (event.key === 'Escape') close(true);
+      // The chooser sits at the end of <body>: tabbing past either end hands
+      // focus back to the link that opened it instead of leaving the page.
+      if (event.key === 'Tab') {
+        const items = panel.querySelectorAll('.mail-chooser__item');
+        const edge = event.shiftKey ? items[0] : items[items.length - 1];
+        if (document.activeElement === edge) {
+          event.preventDefault();
+          close(true);
+        }
+      }
     });
-    window.addEventListener('resize', () => close(false));
+    // Tabbing out of the chooser closes it, so it never lingers behind focus.
+    document.addEventListener('focusin', (event) => {
+      if (panel && !panel.contains(event.target) && event.target !== opener) close(false);
+    });
+    // Only a real width change: phones fire resize while the URL bar shows
+    // or hides during scroll, and that must not close the chooser.
+    window.addEventListener('resize', () => {
+      if (window.innerWidth !== lastWidth) close(false);
+      lastWidth = window.innerWidth;
+    });
     window.addEventListener('scroll', () => { if (panel && opener) position(opener); }, { passive: true });
-    return true;
   }
 
   // A browser's default action for dropping a file anywhere on the page is
@@ -518,7 +561,7 @@
   initHeroVideo();
   initAssistantWidget();
   initHeaderSearch();
-  if (!initMailChooser()) initMailtoCopyFallback();
+  initMailChooser();
   initFooterGroups();
   initDropProtection();
 })();

@@ -42,15 +42,22 @@
 
     const after = trigger.dataset.emailLabelAfter?.trim();
     // A trigger already labelled with its "after" text keeps its own markup
-    // (e.g. the decorative @ in the footer button).
-    if (after && trigger.textContent.includes(after)) link.append(...trigger.cloneNode(true).childNodes);
-    else link.textContent = after || emailAddress();
+    // (e.g. the decorative @ in the footer button), and so does an icon-only
+    // trigger (the header envelope) that asks for it.
+    const keepMarkup = 'emailKeepMarkup' in trigger.dataset;
+    if (keepMarkup || (after && trigger.textContent.includes(after))) {
+      link.append(...trigger.cloneNode(true).childNodes);
+    } else {
+      link.textContent = after || emailAddress();
+    }
 
     // Keep a useful accessible name even when the visual label is an action.
+    const name = after || (keepMarkup && trigger.getAttribute('aria-label'));
     link.setAttribute(
       'aria-label',
-      after ? `${after}: ${emailAddress()}` : `Enviar correo a ${emailAddress()}`,
+      name ? `${name}: ${emailAddress()}` : `Enviar correo a ${emailAddress()}`,
     );
+    if (trigger.title) link.title = trigger.title;
 
     // Preserve ids used as styling/anchor hooks, but do not copy arbitrary
     // attributes that could accidentally reintroduce data into the mailto.
