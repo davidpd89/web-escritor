@@ -10,3 +10,6 @@ Pillow==12.3.0
 # los .ics generados de verdad se abren con un parser ajeno, no solo que
 # cumplen la forma esperada por sus propias aserciones estructurales.
 icalendar==7.3.0
+# Telegram reading worker, also imported by the repository unittest suite.
+requests==2.32.5
+tzdata==2025.2

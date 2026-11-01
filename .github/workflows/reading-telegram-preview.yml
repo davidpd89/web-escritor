@@ -1,0 +1,25 @@
+name: Reading Telegram preview
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/reading_telegram.py'
+      - 'scripts/requirements-telegram.txt'
+      - 'tests/test_reading_telegram.py'
+      - 'data/reading-telegram.example.json'
+      - '.github/workflows/reading-telegram-preview.yml'
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r scripts/requirements-telegram.txt
+      - run: python -m unittest discover -s tests -p 'test_reading_telegram.py' -v
+      - name: Preview existing catalogue without secrets or Telegram calls
+        run: python scripts/reading_telegram.py --channels data/reading-telegram.example.json

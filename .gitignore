@@ -27,6 +27,7 @@ _tools/
 _reddit/
 _david/
 .env
+.local/
 .env.*
 !.env.example
 __pycache__/
