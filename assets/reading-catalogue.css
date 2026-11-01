@@ -41,7 +41,6 @@ html.v1 .catalogue-card .eyebrow{margin:0;font-size:.65rem;line-height:1.4;}
 html.v1 .catalogue-author{margin:.4rem 0 1rem;color:var(--catalogue-deep);font:600 .9rem/1.5 var(--font-ui);}
 html.v1 .catalogue-author a{display:inline-block;max-width:100%;padding-block:.2rem;color:inherit;text-decoration-color:var(--catalogue-gold);text-underline-offset:3px;}
 html.v1 .catalogue-card__description{margin:.2rem 0 .5rem;font-size:.84rem;line-height:1.5;}
-html.v1 .catalogue-card__meta,html.v1 .catalogue-data-note{color:#67635e;font-size:.8rem;line-height:1.55;overflow-wrap:anywhere;}
 html.v1 .catalogue-card .text-action{margin-top:auto;padding-top:.3rem;color:var(--catalogue-blue);}
 html.v1 .catalogue-book-layout{display:grid;grid-template-columns:minmax(180px,.65fr) minmax(0,1.4fr);gap:clamp(2rem,5vw,5rem);margin-block:2rem 3rem;align-items:start;}
 html.v1 .catalogue-cover-panel{position:sticky;top:8rem;padding:1rem;border:1px solid var(--catalogue-rule);border-top:3px solid var(--catalogue-blue);background:var(--catalogue-pale);box-shadow:inset 0 2px 0 var(--catalogue-gold);}
@@ -49,8 +48,6 @@ html.v1 .catalogue-book-heading{padding-bottom:1rem;margin-bottom:1.25rem;border
 html.v1 .catalogue-book-heading h1{margin:.3rem 0 .65rem;color:var(--catalogue-blue);font:400 clamp(2.8rem,6vw,5.5rem)/1.02 var(--font-display);letter-spacing:-.035em;overflow-wrap:anywhere;}
 html.v1 .catalogue-book-heading .catalogue-author{margin-bottom:.5rem;}
 html.v1 .reading-catalogue [data-catalogue-description]{font-size:1.05rem;line-height:1.75;max-width:65ch;}
-html.v1 .catalogue-audio{margin:1.25rem 0;padding:.9rem 1rem;border-left:2px solid var(--catalogue-blue);background:var(--catalogue-pale);box-shadow:inset 2px 0 0 var(--catalogue-gold);}
-html.v1 .catalogue-audio p{margin:0 0 .6rem;color:var(--catalogue-deep);font:600 .8rem/1.5 var(--font-ui);}
 html.v1 .reading-catalogue audio{display:block;min-width:0;max-width:100%;width:100%;color-scheme:light;}
 html.v1 .catalogue-tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:1rem 0;padding:0;}
 html.v1 .catalogue-tags li{min-width:0;max-width:100%;}
@@ -83,7 +80,7 @@ html.v1 .catalogue-author-books img,html.v1 .catalogue-index__image{width:auto;m
 @media(max-width:1000px){html.v1 .catalogue-grid{grid-template-columns:repeat(auto-fill,minmax(min(180px,100%),1fr));}}
 @media(max-width:700px){html.v1 .catalogue-filter-grid{grid-template-columns:repeat(2,minmax(0,1fr));} html.v1 .catalogue-book-layout{grid-template-columns:minmax(0,1fr);} html.v1 .catalogue-cover-panel{position:static;width:100%;max-width:300px;margin-inline:auto;}}
 @media(max-width:450px){html.v1 .catalogue-filter-grid,html.v1 .catalogue-results-head{grid-template-columns:minmax(0,1fr);} html.v1 .catalogue-filters{padding:1rem;} html.v1 .catalogue-buy ul{grid-template-columns:minmax(0,1fr);} html.v1 .catalogue-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;} html.v1 .catalogue-card{gap:.4rem;padding:.5rem;} html.v1 .catalogue-card__cover{max-height:190px;} html.v1 .catalogue-offers ul{grid-template-columns:repeat(2,minmax(0,1fr));} html.v1 .catalogue-author-books{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;}}
-@media print{html.v1 .catalogue-filters,html.v1 .catalogue-speech,html.v1 .catalogue-audio,html.v1 .catalogue-results-head label{display:none!important;} html.v1 .catalogue-grid{display:block;} html.v1 .catalogue-card{break-inside:avoid;} html.v1 .catalogue-cover-panel{position:static;}}
+@media print{html.v1 .catalogue-filters,html.v1 .catalogue-results-head label{display:none!important;} html.v1 .catalogue-grid{display:block;} html.v1 .catalogue-card{break-inside:avoid;} html.v1 .catalogue-cover-panel{position:static;}}
 html.v1 .catalogue-more-filters{margin-top:1.5rem;border:1px solid var(--catalogue-blue);background:#fff;}
 html.v1 .catalogue-more-filters>summary{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:52px;padding:.8rem 1rem;color:var(--catalogue-blue);font:700 .9rem/1.5 var(--font-ui);cursor:pointer;}
 html.v1 .catalogue-more-filters>summary span{font-size:1.6rem;line-height:1;}
@@ -152,7 +149,6 @@ html.v1 .catalogue-related a{max-width:100%;overflow-wrap:anywhere;display:inlin
 html.v1 .catalogue-reader-reviews article{padding-block:1rem;border-top:1px solid var(--catalogue-rule);}
 html.v1 .catalogue-reader-reviews h3{color:var(--catalogue-blue);font:400 1.4rem/1.2 var(--font-display);}
 html.v1 .catalogue-review-text{white-space:pre-line;overflow-wrap:anywhere;}
-html.v1 .catalogue-card__meta{font-size:.82rem;line-height:1.65;color:#526071;}
 
 /* Fecha, editorial y precio: una línea cada uno, sin bloques de datos. */
 html.v1 .reading-catalogue .catalogue-when{display:flex;flex-wrap:wrap;align-items:baseline;gap:.15rem .5rem;}
