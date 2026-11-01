@@ -151,6 +151,12 @@ with tempfile.TemporaryDirectory() as tmp:
     assert ics == m.render_release_ics([shown, soon]) and all(len(line.encode()) <= 75 for line in ics.split(CRLF))
     assert 'Añadir al calendario' in m.render_book({**data, 'libros': [shown, soon]}, soon, template)
     assert 'Añadir al calendario' not in m.render_book({**data, 'libros': [shown, soon]}, shown, template)
+    weak = copy.deepcopy(shown)
+    weak.update(sinopsis_tipo='extracto_editorial', autoria_propia=False, lectura_personal_confirmada=False)
+    assert 'sin texto propio' in m.quality_gate(weak), 'un extracto editorial sin señal propia no pasa el umbral'
+    assert 'noindex,follow' in m.render_book({**data, 'libros': [weak]}, weak, template, True)
+    assert 'noindex' not in m.render_book({**data, 'libros': [weak]}, weak, template), 'en modo informe la ficha sigue indexable'
+    assert 'sin texto propio' not in m.quality_gate({**weak, 'sinopsis_tipo': 'resumen_propio'})
     if '--browser-fixture' in sys.argv:
         # Only serialize synthetic HTML for interception in a browser test.
         b['titulo'] = 'Título de prueba técnica'
