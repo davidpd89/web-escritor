@@ -2,7 +2,10 @@ name: Reading catalogue intake
 
 on:
   schedule:
-    - cron: '30 6 * * *'
+    # 02:00 in Madrid all year: 00:00 UTC in summer (CEST), 01:00 UTC in winter (CET).
+    # The clock job keeps the one that matches today's offset.
+    - cron: '0 0 * * *'
+    - cron: '0 1 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -25,8 +28,26 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  clock:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      run: ${{ steps.madrid.outputs.run }}
+    steps:
+      - id: madrid
+        env:
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+        # Decided by the cron that fired, not the current hour: a delayed run still counts.
+        run: |
+          offset=$(TZ=Europe/Madrid date +%z)
+          case "$EVENT:$SCHEDULE:$offset" in
+            schedule:'0 0 * * *':+0200|schedule:'0 1 * * *':+0100|workflow_dispatch:*) echo run=true >> "$GITHUB_OUTPUT" ;;
+            *) echo run=false >> "$GITHUB_OUTPUT" ;;
+          esac
   intake:
-    if: vars.READING_INTAKE_ENABLED == 'true' && (github.ref == 'refs/heads/main' || inputs.dry_run)
+    needs: clock
+    if: needs.clock.outputs.run == 'true' && vars.READING_INTAKE_ENABLED == 'true' && (github.ref == 'refs/heads/main' || inputs.dry_run)
     runs-on: ubuntu-latest
     timeout-minutes: 135
     steps:

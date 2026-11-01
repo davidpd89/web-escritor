@@ -2,7 +2,7 @@
 import json
 import re
 import time
-from datetime import datetime, timedelta, timezone
+from datetime import date,datetime, timedelta, timezone
 from decimal import Decimal, InvalidOperation
 from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qs, urlsplit
@@ -225,6 +225,13 @@ class CreatorsPrices:
             common.update(keywords=book['isbn13'],searchIndex='Books',itemCount=10)
         return self.post('https://creatorsapi.amazon/catalog/v1/'+operation,common,headers)
 
+    def items(self,asins):
+        # One request prices up to ten ASINs, whichever books they belong to.
+        return self.post('https://creatorsapi.amazon/catalog/v1/getItems',{
+            'marketplace':'www.amazon.es','partnerTag':self.tag,'condition':'New',
+            'currencyOfPreference':'EUR','resources':RESOURCES,
+            'itemIds':list(asins)[:10],'itemIdType':'ASIN'},self.headers())
+
     def discover(self,book):
         # Title + author across all departments finds the Kindle/Audible editions.
         return self.post('https://creatorsapi.amazon/catalog/v1/searchItems',{
@@ -256,41 +263,96 @@ def store_prices(book,offers,day):
 
 
 FORMAT_ORDER=('tapa-blanda','tapa-dura','ebook','audiolibro')
+# Kindle/audiobook editions often appear months after the print one: look again
+# after this long, so books without a digital edition do not spend quota nightly.
+REDISCOVER_AFTER=timedelta(days=90)
+
+
+def needs_discovery(book,now):
+    if {'ebook','audiolibro'}<={o['formato'] for o in book.get('formatos_compra',[])}:
+        return False
+    searched=book.get('formatos_amazon_buscados')
+    return not searched or now.date()-date.fromisoformat(searched)>=REDISCOVER_AFTER
+
+
+def only_items(payload,asins):
+    """The share of a batched getItems answer that belongs to one book."""
+    container=next((v for f in ('itemsResult','itemResults','searchResult')
+                    if isinstance((v:=amazon_dict(payload).get(f)),dict)),{})
+    return {'itemsResult':{'items':[i for i in amazon_list(container.get('items'))
+                                    if isinstance(i,dict) and i.get('asin') in asins]}}
 
 
 def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,sweep_days=7):
-    """Nightly sweep: the books checked longest ago go first and the whole catalogue
-    comes round every sweep_days. Writes prices into the books; market is untouched."""
+    """Nightly sweep: books never priced plus the ones checked longest ago, so the
+    whole catalogue comes round every sweep_days. Known ASINs are priced ten per
+    request; ISBN and format searches run once per book. Prices go into the books;
+    market is untouched."""
     if not 0<=budget<=AMAZON_DAILY_LIMIT:
         raise ValueError('Price refresh budget outside the Amazon daily limit')
     now=now.astimezone(timezone.utc)
     day=now.date().isoformat()
     books=[b for b in catalogue['libros'] if b.get('estado')=='publicado' and isbn13(b.get('isbn13'))]
     books.sort(key=lambda b:b.get('precios_amazon_revision',''))
+    unpriced=sum(not b.get('precios_amazon_revision') for b in books)
+    due=books[:max(unpriced,-(-len(books)//max(1,sweep_days)))]
     stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[]}
-    for book in books[:-(-len(books)//max(1,sweep_days))]:
+
+    def ask(call,*args):
         if stats['requests']>=budget:
-            break
-        stats['attempted']+=1
+            raise LookupError
+        stats['requests']+=1
+        payload=call(*args)
+        if payload.get('errors') and not any(payload.get(key) for key in ['searchResult','itemsResult','itemResults']):
+            raise RuntimeError('Amazon returned only errors')
+        return payload
+
+    def keep(found,book,payload):
+        for offer in select_offers(book,payload,tag,now):
+            best=found.get(offer['formato'])
+            if not best or best['precio_centimos']>offer['precio_centimos']:
+                found[offer['formato']]=offer
+
+    # Five books hold about ten ASINs: one getItems each group. A group is saved
+    # as soon as it is complete, so a cut-off night still moves the sweep forward.
+    for start in range(0,len(due),5):
+        group=due[start:start+5]
+        found={b['id']:{} for b in group}
+        current=group[0]
         try:
-            payload=provider(book)
-            stats['requests']+=1
-            if payload.get('errors') and not any(payload.get(key) for key in ['searchResult','itemsResult','itemResults']):
-                raise RuntimeError('Amazon returned only errors')
-            found={o['formato']:o for o in select_offers(book,payload,tag,now)}
-            have={o['formato'] for o in book.get('formatos_compra',[])}|set(found)
-            # Kindle and audiobook editions have their own ASIN and no ISBN.
-            if hasattr(provider,'discover') and stats['requests']<budget and not {'ebook','audiolibro'}<=have:
-                stats['requests']+=1
-                for offer in select_offers(book,provider.discover(book),tag,now):
-                    if offer['formato'] not in found or found[offer['formato']]['precio_centimos']>offer['precio_centimos']:
-                        found[offer['formato']]=offer
-            stats['formats_added']+=store_prices(book,found.values(),day)
-            book['precios_amazon_revision']=day
-            stats['updated']+=1
-            stats['prices']+=len(found)
+            for current in group:
+                if not verified_formats(current):
+                    # No ASIN yet: the ISBN search finds the printed edition.
+                    keep(found[current['id']],current,ask(provider,current))
+                if hasattr(provider,'discover') and needs_discovery(current,now):
+                    # Kindle and audiobook editions have their own ASIN and no ISBN.
+                    keep(found[current['id']],current,ask(provider.discover,current))
+                    current['formatos_amazon_buscados']=day
+            pending=[(b,asin) for b in group for asin,fmt in verified_formats(b).items() if fmt not in found[b['id']]]
+            if hasattr(provider,'items'):
+                asins=list(dict.fromkeys(asin for _,asin in pending))
+                for i in range(0,len(asins),10):
+                    batch=set(asins[i:i+10])
+                    owners={b['id']:b for b,asin in pending if asin in batch}
+                    current=next(iter(owners.values()))
+                    payload=ask(provider.items,asins[i:i+10])
+                    for book in owners.values():
+                        keep(found[book['id']],book,only_items(payload,set(verified_formats(book))))
+            else:
+                for current in {b['id']:b for b,_ in pending}.values():
+                    keep(found[current['id']],current,ask(provider,current))
+        except LookupError:
+            stats['attempted']+=len(group)
+            break  # Daily limit reached: the rest stays due for tomorrow.
         except (RuntimeError,OSError,ValueError,KeyError,TypeError) as exc:
-            stats['failures'].append({'book_id':book['id'],'error':str(exc)[:140]})
+            stats['attempted']+=len(group)
+            stats['failures'].append({'book_id':current['id'],'error':str(exc)[:140]})
             stats['status']='pending_amazon_eligibility' if str(exc)=='pending_amazon_eligibility' else 'provider_unavailable'
             break
+        stats['attempted']+=len(group)
+        for book in group:
+            stats['formats_added']+=store_prices(book,found[book['id']].values(),day)
+            book['precios_amazon_revision']=day
+            stats['updated']+=1
+            stats['prices']+=len(found[book['id']])
     return market,stats

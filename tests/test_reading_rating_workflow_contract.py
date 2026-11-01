@@ -30,7 +30,9 @@ class RatingWorkflowContract(unittest.TestCase):
 
     def test_daily_sync_has_optional_credentials_and_no_extra_workflow(self):
         yaml = (ROOT / ".github/workflows/reading-catalogue-sync.yml").read_text(encoding="utf-8")
-        self.assertIn("cron: '30 6 * * *'", yaml)
+        self.assertIn("cron: '0 0 * * *'", yaml)
+        self.assertIn("cron: '0 1 * * *'", yaml)
+        self.assertIn("TZ=Europe/Madrid", yaml)
         self.assertIn("secrets.GOOGLE_BOOKS_API_KEY", yaml)
         self.assertIn("secrets.HARDCOVER_API_KEY", yaml)
         config = json.loads((ROOT / "data/reading-intake-config.json").read_text(encoding="utf-8"))
