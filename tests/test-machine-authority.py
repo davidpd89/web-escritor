@@ -357,7 +357,10 @@ def main() -> int:
     check(finalist["type"] == "finalistSelection" and finalist["submittedWork"] is None, "Juan Andrés Teno must remain an author-level recognition without an unverified submitted work")
     check(finalist.get("sourceUrl") == "https://www.babidibulibros.com/premio-literatura-juan-andres-teno/", "Juan Andrés Teno official call source drift")
     check(bool(finalist.get("sourceLimitation")), "Juan Andrés Teno source limitation must be explicit")
-    check(wolves_award["type"] == "award" and wolves_award["holder"] == author["name"] and wolves_award["submittedWork"] is None, "Aullidos en papel award ownership drift")
+    # El autor confirmó el 31/10/2026 el título del microrrelato ganador.
+    check(wolves_award["type"] == "award" and wolves_award["holder"] == author["name"], "Aullidos en papel award ownership drift")
+    check(wolves_award["submittedWork"] == "Piel de sentencia" and wolves_award.get("submittedWorkType") == "microrrelato", "Aullidos en papel submitted work drift: debe ser el microrrelato «Piel de sentencia»")
+    check(wolves_award["submittedWork"] not in {sam["title"], man["title"]}, "Aullidos en papel award attributed to a novel")
     check(wolves_award.get("sourceUrl") == "https://www.diversidadliteraria.com/resultado-del-i-concurso-de--aullidos-en-papel-i", "Aullidos en papel official results source drift")
     check(len(author_press["awards"]) == 2, "author press-kit awards must contain exactly the two true awards")
     check(any("Letras Como Espada" in a["name"] for a in author_press["awards"]) and any("Aullidos en papel" in a["name"] for a in author_press["awards"]), "author press-kit awards must contain both true awards")
