@@ -220,8 +220,16 @@ def url(b):
     return f"/recomendaciones/libros/{b['slug']}/"
 
 
+# Índice libro → categorías que main() activa solo mientras pinta: sin él, cada ficha recorre todas las relaciones
+# por cada libro afín y el coste crece con el cubo del catálogo. Fuera de main() (tests) se calcula al vuelo.
+CATEGORY_INDEX = None
+
+
 def categories(data, b):
-    ids = {r["categoria_id"] for r in data["libro_categorias"] if r["libro_id"] == b["id"]}
+    if CATEGORY_INDEX is not None and CATEGORY_INDEX[0] is data:
+        ids = CATEGORY_INDEX[1].get(b["id"], set())
+    else:
+        ids = {r["categoria_id"] for r in data["libro_categorias"] if r["libro_id"] == b["id"]}
     return sorted((c for c in data["categorias"] if c["id"] in ids and c["activa"]), key=lambda c: (c["orden"], c["id"]))
 
 
@@ -394,10 +402,23 @@ def book_title(b):
     return b['titulo'][:74-len(suffix)].rsplit(' ', 1)[0] + '…' + suffix
 
 
+AUTHOR_CACHE = {}
+
+
 def author_records(root=ROOT):
+    """Autores validados; se leen una vez por versión del archivo, no una por ficha."""
     path = root / 'data/reading-authors.json'
     if not path.exists():
         return []
+    stat = path.stat()
+    key = (str(path), stat.st_mtime_ns, stat.st_size)
+    if key not in AUTHOR_CACHE:
+        AUTHOR_CACHE.clear()
+        AUTHOR_CACHE[key] = load_author_records(path)
+    return AUTHOR_CACHE[key]
+
+
+def load_author_records(path):
     payload = json.loads(path.read_text(encoding='utf-8'))
     require(set(payload) == {'schema_version', 'autores'} and payload['schema_version'] == 1, 'Contrato de autores inválido')
     names, slugs = set(), set()
@@ -788,9 +809,13 @@ def render_author(a,data,books,template,all_authors=()):
         context+='<p>Editoriales: '+', '.join(publisher_link(b) for b in publishers.values())+'.</p>'
     related=[]
     if topics and all_authors:
+        by_author={}
+        for b in books:
+            for name in b['autores']:
+                by_author.setdefault(name,[]).append(b)
         for other in all_authors:
             if other['nombre']==a['nombre']: continue
-            shared=sum(1 for b in books if other['nombre'] in b['autores'] for c in categories(data,b) if c['id'] in topics)
+            shared=sum(1 for b in by_author.get(other['nombre'],()) for c in categories(data,b) if c['id'] in topics)
             if shared: related.append((-shared,other['nombre'],other))
         related=[o for _,_,o in sorted(related, key=lambda t:(t[0],t[1]))[:6]]
     if related:
@@ -935,6 +960,11 @@ def main():
         books = validate(data, root)
         OWN_TEXTS.clear()
         OWN_TEXTS.update(load_own_texts(root))
+        global CATEGORY_INDEX
+        index = {}
+        for r in data['libro_categorias']:
+            index.setdefault(r['libro_id'], set()).add(r['categoria_id'])
+        CATEGORY_INDEX = (data, index)
         authors = author_records(root)
         template = (root / 'scripts/templates/reading-catalogue.html.tmpl').read_text(encoding='utf-8')
         outputs = {'recomendaciones/index.html': render_hub(data, books, template)}
