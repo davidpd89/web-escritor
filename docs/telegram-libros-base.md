@@ -54,6 +54,14 @@ No programar envíos reales desde Actions con una base efímera o un caché como
 
 ## Próximas piezas, en este orden
 
+### Página de acceso y enlaces internos
+
+Decisión del propietario (1 de noviembre de 2026): una página propia de Telegram dentro de redes sociales, propuesta `/redes-sociales/telegram/`. Enlazarla desde `/redes-sociales/` y el apartado de libros/recomendaciones. Reservar la posibilidad de otras páginas como Discord, sin presentar comunidades aún inexistentes como disponibles. El texto promocional se definirá después de validar el canal.
+
+Antes de publicar la página: disponer del enlace real del canal, probar unirse desde móvil y escritorio, explicar si es un canal de avisos o un grupo de conversación y comprobar las publicaciones. El bot publica; las personas se unen al canal, no necesitan abrir una conversación con el bot para recibir las publicaciones del canal. La URL y los enlaces se integrarán con los generadores de navegación, registro, sitemap y contratos existentes. Evitar una página pública vacía o botones ficticios mientras falta el destino.
+
+### Orden de activación
+
 1. Verificar la prueba privada con una edición y enlace reales; guardar el resultado sin credenciales.
 2. Establecer alojamiento y estado duradero, actualizaciones de catálogo y un solo escritor por conjunto de canales.
 3. Añadir reintentos acotados de rechazos seguros/429, alertas y resolución de estados inciertos. Hoy se espacian envíos un segundo, sin reintentos automáticos.
