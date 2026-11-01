@@ -374,7 +374,7 @@ def consult_batch(payloads, state, args):
 
 def git(*args, cwd=ROOT, capture=False):
     if capture:
-        return subprocess.check_output(['git', *args], cwd=cwd, text=True)
+        return subprocess.check_output(['git', *args], cwd=cwd, text=True, encoding='utf-8')
     subprocess.run(['git', *args], cwd=cwd, check=True)
 
 

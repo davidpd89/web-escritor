@@ -70,6 +70,10 @@ class ReadingTextsTest(unittest.TestCase):
         self.assertEqual([x['modulo'] for x in blocks], ['encaje_documentado', 'para_quien', 'que_formato_elegir', 'lecturas_afines'])
         self.assertEqual(blocks[-1]['enlaces'], [self.payload['afines_ids'][self.affine]])
 
+    def test_git_output_is_read_as_utf8_whatever_the_console_codepage(self):
+        data = json.loads(texts.git('show', 'HEAD:data/reading-catalogue.json', capture=True))
+        self.assertTrue(any('ñ' in json.dumps(b, ensure_ascii=False) or 'á' in json.dumps(b, ensure_ascii=False) for b in data['libros']))
+
     def test_generic_format_names_are_not_unbacked_entities(self):
         errors = self.check(texto='Propone una historia con un conflicto central claro; el ISBN identifica esta edición y existe versión Kindle aparte.')[1]
         self.assertFalse(any('nombres sin respaldo' in e for e in errors), errors)
