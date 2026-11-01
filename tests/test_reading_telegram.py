@@ -41,6 +41,7 @@ class ReadingTelegramTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         self.source = {
+            "categorias": [{"id": "fantasia", "nombre": "Fantasía", "tipo": "genero"}],
             "libro_categorias": [{"libro_id": "one", "categoria_id": "fantasia"}],
             "libros": [
                 {
@@ -84,7 +85,8 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertEqual(len(result), 2)
         self.assertIn("tag=davidporto-21", result[0]["text"])
         self.assertIn("&lt;uno&gt;", result[0]["text"])
-        self.assertIn("afiliado", result[0]["text"])
+        self.assertIn("Fantasía", result[0]["text"])
+        self.assertNotIn("comisión", result[0]["text"])
         self.assertEqual(run(catalog, date(2026, 11, 2), db), [])
         self.assertFalse(db.exists())
 

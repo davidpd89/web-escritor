@@ -1,5 +1,7 @@
 # Telegram: base conectada a Web Escritor
 
+**Estado actual:** canal privado de novedades y tarea local activos; ficha de prueba actualizada; selección diaria y resolución editorial de productos funcionando. Véase «Canal de novedades: operación local activada» para la configuración vigente. Los apartados de la primera prueba conservan su contexto histórico.
+
 ## Orientación y relación con lo existente
 
 Esta base pertenece a Web Escritor. Consume `data/reading-catalogue.json`, sus relaciones `libro_categorias`, `fecha_publicacion`, fuente editorial y `url_amazon_afiliada`. No crea un catálogo de producción alternativo ni modifica fichas públicas. Telegram enlaza directamente a Amazon, como ha solicitado el propietario; el recorrido Pinterest → web → Amazon permanece independiente.
@@ -20,7 +22,7 @@ No se trasladan: motores y modelos de apuestas, Betfair, claves de cuotas, banco
 
 Copiar el ejemplo a `.local/telegram/channels.json`. Poner los IDs reales del canal privado (cadena numérica o @usuario) y sus categorías; `[]` recibe todos los libros elegibles. Un bot puede servir varios canales; `token_env` permite bots distintos. Para enviar, establecer `demo: false` y mantener `enabled: true`; `enabled: false` detiene la ejecución. Configurar la variable `READING_TELEGRAM_BOT_TOKEN` en el entorno del proceso. No se carga `.env` automáticamente ni se guarda el token en JSON.
 
-El enlace se conserva exactamente desde el catálogo, incluido el tag real existente, y solo se admite una URL de producto Amazon.es reconocida por `reading_amazon_market.asin_from_url`. Una búsqueda por ISBN se deja pendiente; no se inventa ASIN ni se sustituye por un producto parecido. Los mensajes con tag muestran aviso de afiliación. No se consultan precios ni se usan imágenes de Amazon.
+El enlace se conserva exactamente desde el catálogo, incluido el tag real existente, y solo se admite una URL de producto Amazon.es reconocida por `reading_amazon_market.asin_from_url`. Una búsqueda por ISBN se deja pendiente; no se inventa ASIN ni se sustituye por un producto parecido. Por indicación del propietario, se ha retirado el pie largo sobre comisiones. Las fichas muestran título, autor, fecha editorial, géneros y «Ver en Amazon», sin vista previa de Amazon. No se consultan precios ni se usan imágenes de Amazon.
 
 ## Pruebas reproducibles
 
@@ -59,7 +61,7 @@ La web es estática: GitHub Pages no ejecuta el bot. Para la primera operación 
 
 La base predeterminada es `.local/telegram/deliveries.db`. La clave es canal + ASIN. `sending` se confirma antes de HTTP; `sent` guarda message_id; `uncertain` y `rejected` quedan bloqueados para revisión. Antes de restablecer una fila, comprobar el canal: un timeout puede haber entregado el mensaje. No prometer exactamente una entrega ni borrar la base entre ejecuciones.
 
-No programar envíos reales desde Actions con una base efímera o un caché como única memoria: podría perderse el estado y duplicarse la publicación. El workflow de esta PR es solo preview. No hay cron de envío activado, secretos añadidos ni despliegue realizado.
+No programar envíos reales desde Actions con una base efímera o un caché como única memoria: podría perderse el estado y duplicarse la publicación. El workflow de esta PR es solo preview. GitHub no tiene secretos de Telegram ni un cron de envío: la operación local se documenta más abajo.
 
 ## Próximas piezas, en este orden
 
@@ -89,4 +91,32 @@ Con autorización del propietario se creó `@DavidPortoLibrosBot` en BotFather y
 
 Se ejecutó `--test-asin 8498382378 --send`: estado `sent`, ficha de Coraline visible en Telegram Web, marcada como prueba con fecha editorial 2009-06-01. El enlace renderizado conserva `https://www.amazon.es/dp/8498382378?tag=davidporto-21`. La segunda ejecución devolvió `skipped:sent`; no apareció otro mensaje. La lectura del canal y el enlace se comprobaron mediante el Edge existente por CDP 9240, sin abrir otro perfil.
 
-Esta prueba acredita entrega real e idempotencia tras una segunda ejecución. No acredita todavía descubrimiento diario completo, servidor permanente, entrega exactamente una vez ante fallos de red o publicación automática de todas las novedades. No se ha dejado un proceso continuo ni un cron de envíos reales activo.
+Esta prueba acredita entrega real e idempotencia tras una segunda ejecución. No acredita todavía descubrimiento diario completo, servidor permanente, entrega exactamente una vez ante fallos de red o publicación automática de todas las novedades. En aquella primera prueba no se activó un proceso continuo; la activación posterior se documenta más abajo.
+
+
+## Canal de novedades: operación local activada
+
+Configuración aprobada el 1 de noviembre de 2026. El canal privado se llama ahora «Novedades de libros · Pruebas». Se conservan su ID y suscriptores, y las firmas de administrador siguen desactivadas. El token y el enlace de invitación continúan fuera del repositorio.
+
+`reading_telegram_worker.py` ejecuta un ciclo completo, sin navegador ni API de pago:
+
+1. Lee el catálogo y configuración editorial actuales de main desde GitHub. No hace pull sobre el checkout ni sobrescribe trabajo ajeno. Si la descarga falla no publica desde un catálogo antiguo.
+2. Revisa las ediciones desde tres días atrás hasta treinta días por delante. Reutiliza los parsers de Penguin, Planeta y fuentes genéricas revisadas; respeta robots, hosts, caché de una hora y presupuesto HTTP.
+3. Comprueba ISBN, título y autores de la edición seleccionada. Usa la fecha editorial actual, de modo que un aplazamiento no se convierta en una falsa novedad de hoy.
+4. Busca un único producto Amazon.es enlazado en esa ficha editorial. No visita Amazon, no deriva ASIN de ISBN, no acepta búsquedas ni escoge entre productos ambiguos. Compone el enlace con el tag existente configurado para el proyecto.
+5. Guarda un snapshot privado, prepara el mensaje con los nombres de género del catálogo y publica únicamente si la fecha coincide con hoy en Europe/Madrid. No recupera días anteriores como novedades actuales.
+6. Persiste las entregas SQLite y el informe `last-run.json`. Un libro sin verificación suficiente no bloquea los demás. Un fallo de entrega incierto no se reenvía automáticamente.
+
+En la comprobación real se revisaron 21 ediciones: se resolvieron 20 productos, incluidos 13 lanzamientos de noviembre. Una edición antigua con enlace ambiguo quedó pendiente. Hoy no hubo libros del día en el catálogo conectado: el ciclo terminó correctamente sin publicar novedades. El primer lanzamiento próximo verificado es del 3 de noviembre de 2026. Estas cifras describen el catálogo conectado, no todos los libros publicados en España.
+
+### Instalación y verificación
+
+El instalador `scripts/install-reading-telegram-task.ps1` recibe `-PrivateRoot` y `-PythonExecutable`. Requiere `channels.json`, `bot-token.txt` privados y las dependencias de `scripts/requirements-telegram.txt` en ese Python. Usar `pythonw.exe` evita ventanas. Crea una copia congelada de los módulos en el runtime privado, sin actualizar silenciosamente código operativo desde una PR. Rechaza sobrescribir una tarea existente.
+
+La tarea Windows `WEB_Libros_Telegram_Novedades` comprueba el catálogo cada quince minutos, con la cuenta actual sin elevación ni contraseña guardada. Evita instancias simultáneas y recupera una ejecución pendiente. El primer ciclo real se verificó con resultado 0 e informe `status=ok`, `live=true`, sin entregas pendientes para hoy.
+
+Requiere este ordenador encendido, conectado y la sesión de Windows iniciada. No es un servidor remoto permanente. La ingesta editorial existente está habilitada mediante `READING_INTAKE_ENABLED=true`; Telegram consume lo incorporado a main. Si un libro todavía no ha llegado a main el día de salida no puede anunciarlo. Antes de ampliar la difusión debe medirse ese retraso y la cobertura de fuentes.
+
+Estado privado: `last-run.json`, `editorial-verification.json`, `catalogue.json` y `deliveries.db` bajo PrivateRoot. Fallo global devuelve 1; novedades del día bloqueadas o entregas inciertas devuelven 2. Los pendientes de fechas distintas a hoy quedan en el informe sin convertir un ciclo vacío correcto en error. No hay alertas externas ni reintentos ciegos.
+
+Para detener la operación: deshabilitar la tarea Windows o poner `enabled: false` en channels.json. Para actualizar el runtime: detener la tarea, revisar los cambios y reemplazar deliberadamente los módulos congelados antes de reactivarla. No borrar deliveries.db. Una futura instalación en servidor utilizará la misma selección y necesitará migrar el estado y el token por un canal privado.

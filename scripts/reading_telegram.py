@@ -13,7 +13,7 @@ import re
 import sqlite3
 import sys
 import time
-from urllib.parse import urlencode, parse_qs, urlsplit
+from urllib.parse import urlencode
 from zoneinfo import ZoneInfo
 
 import requests
@@ -41,6 +41,11 @@ def from_reading_catalogue(path: Path, channels_path: Path) -> dict:
         if not channel["chat_id"] or not channel["token_env"]:
             raise ValueError("Missing channel configuration")
     categories = {}
+    genre_names = {
+        c["id"]: c["nombre"]
+        for c in source.get("categorias", [])
+        if c.get("tipo") == "genero" and c.get("activa", True)
+    }
     for relation in source["libro_categorias"]:
         categories.setdefault(relation["libro_id"], []).append(relation["categoria_id"])
     books, pending, seen = [], [], set()
@@ -74,6 +79,13 @@ def from_reading_catalogue(path: Path, channels_path: Path) -> dict:
                 "author": ", ".join(book["autores"]),
                 "release_date": published,
                 "categories": categories.get(book["id"], []),
+                "genres": list(
+                    dict.fromkeys(
+                        genre_names[c]
+                        for c in categories.get(book["id"], [])
+                        if c in genre_names
+                    )
+                ),
                 "source_url": book["fuente_publicacion_url"],
                 "amazon_url": url,
             }
@@ -88,13 +100,13 @@ def from_reading_catalogue(path: Path, channels_path: Path) -> dict:
 
 def message(book: dict, tag: str) -> str:
     url = book.get("amazon_url") or amazon_url(book["asin"], tag)
+    genres = book.get("genres", [])
+    genre_line = f"📖 {escape(', '.join(genres))}\n" if genres else ""
     text = (
         f"📚 <b>Novedad de hoy</b>\n\n<b>{escape(book['title'])}</b>\n"
-        f"{escape(book['author'])}\n📅 {book['release_date']}\n\n"
+        f"{escape(book['author'])}\n📅 {book['release_date']}\n{genre_line}\n"
         f'<a href="{escape(url, quote=True)}">Ver en Amazon</a>'
     )
-    if tag or parse_qs(urlsplit(url).query).get("tag"):
-        text += "\n\nEnlace de afiliado. Podemos recibir una comisión por tu compra."
     return text
 
 
@@ -103,7 +115,12 @@ def send(token: str, chat_id: str, text: str) -> tuple[str, int | None]:
     try:
         response = requests.post(
             f"https://api.telegram.org/bot{token}/sendMessage",
-            json={"chat_id": chat_id, "text": text, "parse_mode": "HTML"},
+            json={
+                "chat_id": chat_id,
+                "text": text,
+                "parse_mode": "HTML",
+                "link_preview_options": {"is_disabled": True},
+            },
             timeout=15,
         )
         data = response.json()
