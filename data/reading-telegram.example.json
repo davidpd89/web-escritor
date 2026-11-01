@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "demo": true,
+  "channels": [
+    {"chat_id": "@SUSTITUIR_CANAL_GENERAL", "token_env": "READING_TELEGRAM_BOT_TOKEN", "categories": []},
+    {"chat_id": "@SUSTITUIR_CANAL_FANTASIA", "token_env": "READING_TELEGRAM_BOT_TOKEN", "categories": ["fantasia", "fantasia-juvenil"]}
+  ]
+}
