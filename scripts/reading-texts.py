@@ -36,6 +36,8 @@ MAX_BLOCKS = 5
 MIN_BLOCKS = 2
 COPY_WORDS = 8
 AFFINES = 5
+# Siglas y nombres genéricos de formato o tienda: no son entidades que deban venir de las evidencias.
+GENERIC_NAMES = {'isbn', 'kindle', 'amazon', 'ebook', 'pdf', 'epub', 'audible'}
 # Afirmaciones que el modelo no puede sostener con los datos de entrada salvo que la sinopsis las traiga.
 CLAIMS = re.compile(r'premi|galard|best ?seller|superventas|millones de|ejemplares vendidos|adaptaci|netflix|película|serie de televisi|'
                     r'la crítica|aclamad|traducid[oa] a|obra maestra|he leído|me encant|nuestra opinión|mi opinión|lo recomiendo', re.I)
@@ -245,7 +247,7 @@ def validate_block(p, x):
     # Mayúscula a mitad de frase = nombre propio: tiene que venir de las evidencias citadas.
     names = {m.group(0) for m in re.finditer(r'[A-ZÁÉÍÓÚÑ][\wáéíóúñü]+', text)
              if (before := text[:m.start()].rstrip()) and before[-1] not in '.!?¿¡«"(:\n'}
-    unknown = sorted(n for n in names if n.lower() not in known)
+    unknown = sorted(n for n in names if n.lower() not in known | GENERIC_NAMES)
     if unknown:
         errors.append('nombres sin respaldo: ' + ', '.join(unknown[:5]))
     return errors

@@ -70,6 +70,12 @@ class ReadingTextsTest(unittest.TestCase):
         self.assertEqual([x['modulo'] for x in blocks], ['encaje_documentado', 'para_quien', 'que_formato_elegir', 'lecturas_afines'])
         self.assertEqual(blocks[-1]['enlaces'], [self.payload['afines_ids'][self.affine]])
 
+    def test_generic_format_names_are_not_unbacked_entities(self):
+        errors = self.check(texto='Propone una historia con un conflicto central claro; el ISBN identifica esta edición y existe versión Kindle aparte.')[1]
+        self.assertFalse(any('nombres sin respaldo' in e for e in errors), errors)
+        errors = self.check(texto='Propone una historia con un conflicto central claro que recuerda a Tolkien en su forma de construir el mundo.')[1]
+        self.assertIn('encaje_documentado: nombres sin respaldo: Tolkien', errors)
+
     def test_rejects_meta_doubts_template_phrases_and_unlinked_comparisons(self):
         self.assertTrue(any('fuentes' in e for e in self.check(texto='Propone una historia de conflicto central, aunque la sinopsis no aclara del todo cómo termina el planteamiento.')[1]))
         self.assertTrue(any('fuentes' in e for e in self.check(texto='Propone una historia de conflicto central claro; la información disponible no detalla la edad exacta del protagonista.')[1]))
