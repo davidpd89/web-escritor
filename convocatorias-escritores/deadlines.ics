@@ -5,58 +5,6 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Convocatorias para escritores
 BEGIN:VEVENT
-UID:bienestar-jabones-alonso-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261101
-DTEND;VALUE=DATE:20261102
-SUMMARY:II Concurso de Microrrelatos del Bienestar 2026
-DESCRIPTION:Jabones Alonso de la Torre
-URL:https://www.jabonesalonsodelatorre.com/bases-ii-concurso-de-microrrelat
- os-del-bienestar/
-END:VEVENT
-BEGIN:VEVENT
-UID:aster-astronomia-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261101
-DTEND;VALUE=DATE:20261102
-SUMMARY:VI Concurso de Relatos de Astronomía ASTER 2026
-DESCRIPTION:ASTER Agrupació Astronòmica de Barcelona
-URL:https://aster.cat/concurs-de-relats-dastronomia-aster-2026/
-END:VEVENT
-BEGIN:VEVENT
-UID:libros-asteroide-no-ficcion-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261101
-DTEND;VALUE=DATE:20261102
-SUMMARY:VII Premio de No Ficción Libros del Asteroide 2026
-DESCRIPTION:Libros del Asteroide
-URL:https://librosdelasteroide.com/actualidad-asteroide/321/se-abre-la-conv
- ocatoria-del-vii-premio-de-no-ficcion-lda
-END:VEVENT
-BEGIN:VEVENT
-UID:terbi-humor-cosmico-2026@davidportodiaz.com
-DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261101
-DTEND;VALUE=DATE:20261102
-SUMMARY:XVI Certamen TerBi de Relato Temático «Humor Cósmico» 2026
-DESCRIPTION:TerBi · Asociación Vasca de Ciencia Ficción\, Fantasía y Te
- rror
-URL:https://notcf.blogspot.com/2026/05/bases-del-xvi-certamen-terbi-de-rela
- to.html
-END:VEVENT
-BEGIN:VEVENT
-UID:angeles-alvarez-arazola-micro-2026@davidportodiaz.com
-DTSTAMP:20261019T000000Z
-DTSTART;VALUE=DATE:20261101
-DTEND;VALUE=DATE:20261102
-SUMMARY:VI Certamen Internacional de Microrrelatos «Ángeles Álvarez Araz
- ola — Con M de Mujer»
-DESCRIPTION:Asociación de Mujeres Progresistas contra la Discriminación y
-  la Violencia de Género de Jaén
-URL:https://www.escritores.org/concursos/BASES%20VI%20EDICI%C3%93N%20CERTAM
- EN%20INTERNACIONAL%20MICRO%20AAA.pdf
-END:VEVENT
-BEGIN:VEVENT
 UID:premio-alfaguara-novela-2027@davidportodiaz.com
 DTSTAMP:20261003T000000Z
 DTSTART;VALUE=DATE:20261102
@@ -116,26 +64,6 @@ URL:https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Vic
  alvaro/Actividades-y-eventos/IV-Concurso-bilingue-de-Microrrelatos-frances
  -espanol/?vgnextchannel=497b48e063f28010VgnVCM100000dc0ca8c0RCRD&vgnextfmt
  =default&vgnextoid=61fa9b05da8b0a10VgnVCM100000891ecb1aRCRD
-END:VEVENT
-BEGIN:VEVENT
-UID:premio-primavera-novela-2027@davidportodiaz.com
-DTSTAMP:20261002T000000Z
-DTSTART;VALUE=DATE:20261115
-DTEND;VALUE=DATE:20261116
-SUMMARY:Premio Primavera de Novela 2027
-DESCRIPTION:Editorial Espasa
-URL:https://premios.planetadelibros.com/es-ES/candidatura/?id=premio-primav
- era-novela-2027
-END:VEVENT
-BEGIN:VEVENT
-UID:espasa-calpe-juvenil-2027@davidportodiaz.com
-DTSTAMP:20261002T000000Z
-DTSTART;VALUE=DATE:20261115
-DTEND;VALUE=DATE:20261116
-SUMMARY:I Premio Espasa Calpe de Novela Juvenil 2027
-DESCRIPTION:Editorial Espasa Calpe
-URL:https://premios.planetadelibros.com/es-ES/candidatura/?id=espasa-calpe-
- novela-juvenil-2027
 END:VEVENT
 BEGIN:VEVENT
 UID:vidas-que-inspiran-2026@davidportodiaz.com
@@ -245,25 +173,6 @@ DTEND;VALUE=DATE:20261128
 SUMMARY:Premio Alfabeto de Ensayo Breve «(Con)vivir hoy» 2026
 DESCRIPTION:Editorial Alfabeto · Plataforma Editorial
 URL:https://www.editorialalfabeto.com/premioalfabeto
-END:VEVENT
-BEGIN:VEVENT
-UID:premio-azorin-novela-2027@davidportodiaz.com
-DTSTAMP:20261002T000000Z
-DTSTART;VALUE=DATE:20261130
-DTEND;VALUE=DATE:20261201
-SUMMARY:Premio Azorín de Novela 2027
-DESCRIPTION:Diputación de Alicante y Editorial Planeta
-URL:https://agendacultural.diputacionalicante.es/event/premio-azorin-de-nov
- ela-2027/
-END:VEVENT
-BEGIN:VEVENT
-UID:castillo-puche-novela-corta-2026@davidportodiaz.com
-DTSTAMP:20261002T000000Z
-DTSTART;VALUE=DATE:20261130
-DTEND;VALUE=DATE:20261201
-SUMMARY:XXXIV Certamen de Novela Corta «José Luis Castillo-Puche»
-DESCRIPTION:AMPA e IES José Luis Castillo-Puche · Yecla
-URL:https://www.iescastillopuche.net/novela/bases.html
 END:VEVENT
 BEGIN:VEVENT
 UID:voluntariado-paliativos-microrrelatos-2026@davidportodiaz.com
