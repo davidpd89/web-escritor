@@ -23,9 +23,12 @@
   const pageSize = 24;
   let offersIndex = new Map(), ratingsIndex = new Map();
   const stamp = s => typeof s === 'string' && /T.*(?:Z|[+-]\d\d:\d\d)$/.test(s) ? Date.parse(s) : NaN;
+  // Precios: se renuevan por turnos y valen una semana (scripts/reading_amazon_market.py).
+  const PRICE_HOURS = 7 * 24;
+  const FORMAT_LABELS = { 'tapa-blanda': 'Tapa blanda', 'tapa-dura': 'Tapa dura', ebook: 'Kindle', audiolibro: 'Audiolibro' };
   const fresh = (e, hours) => { const start = stamp(e.actualizado_en), end = stamp(e.caduca_en), now = Date.now(); return Number.isFinite(start) && Number.isFinite(end) && start <= now && end > now && end > start && end - start <= hours * 3600000 && now - start <= hours * 3600000; };
   const safeURL = (raw, hosts, path) => { try { const u = new URL(raw); return u.protocol === 'https:' && !u.username && !u.password && !u.port && hosts.includes(u.hostname) && path.test(u.pathname) ? u : null; } catch { return null; } };
-  const validOffer = o => { const u = safeURL(o.url, ['amazon.es', 'www.amazon.es'], /\/(?:dp|gp\/product)\/[A-Z0-9]{10}(?:\/|$)/); return fresh(o, 24) && o.moneda === 'EUR' && o.tipo === 'compra' && ['tapa-blanda', 'tapa-dura', 'ebook', 'audiolibro'].includes(o.formato) && Number.isSafeInteger(o.precio_centimos) && o.precio_centimos > 0 && o.precio_centimos < 100000000 && u && /^[A-Za-z0-9-]+$/.test(u.searchParams.get('tag') || ''); };
+  const validOffer = o => { const u = safeURL(o.url, ['amazon.es', 'www.amazon.es'], /\/(?:dp|gp\/product)\/[A-Z0-9]{10}(?:\/|$)/); return fresh(o, PRICE_HOURS) && o.moneda === 'EUR' && o.tipo === 'compra' && ['tapa-blanda', 'tapa-dura', 'ebook', 'audiolibro'].includes(o.formato) && Number.isSafeInteger(o.precio_centimos) && o.precio_centimos > 0 && o.precio_centimos < 100000000 && u && /^[A-Za-z0-9-]+$/.test(u.searchParams.get('tag') || ''); };
   const ratingSource = r => ['google_books', 'hardcover'].includes(r.fuente) ? r.fuente : !r.fuente || r.fuente === 'goodreads' ? 'goodreads' : null;
   const ratingLabel = r => ratingSource(r) === 'google_books' ? 'Google Books' : ratingSource(r) === 'hardcover' ? 'Hardcover' : 'Goodreads';
   const validRating = r => {
@@ -41,7 +44,7 @@
   const discount = o => Number.isSafeInteger(o.precio_referencia_centimos) && o.precio_referencia_centimos > o.precio_centimos ? Math.floor((o.precio_referencia_centimos - o.precio_centimos) / o.precio_referencia_centimos * 100) : 0;
   // Index entries are validated by renderMarket. Recheck expiry on interaction,
   // without reparsing the same URLs for every card and quiz option.
-  const offersFor = id => (offersIndex.get(id) || []).filter(o => fresh(o, 24));
+  const offersFor = id => (offersIndex.get(id) || []).filter(o => fresh(o, PRICE_HOURS));
   const ratingFor = id => (ratingsIndex.get(id) || []).find(r => fresh(r, 720));
   const currency = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
   const madridDate = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit' });
@@ -199,7 +202,10 @@
     renderPagination(pages, visible);
     for (const box of root.querySelectorAll('[data-price-book]')) {
       const offers = offersFor(box.dataset.priceBook).filter(o => !v.formato.length || v.formato.includes(o.formato)).sort((a, b) => a.precio_centimos - b.precio_centimos); box.replaceChildren(); box.hidden = !offers.length;
-      if (offers.length) { const link = document.createElement('a'); link.href = offers[0].url; link.rel = 'sponsored nofollow noopener noreferrer'; link.target = '_blank'; link.textContent = 'Desde ' + money(offers[0].precio_centimos) + ' en Amazon'; link.title = 'Precio consultado el ' + new Date(offers[0].actualizado_en).toLocaleString('es-ES') + '. El precio aplicable será el de Amazon al comprar.'; box.append(link); }
+      const offerLink = (o, text) => { const link = document.createElement('a'); link.href = o.url; link.rel = 'sponsored nofollow noopener noreferrer'; link.target = '_blank'; link.dataset.purchaseFormat = o.formato; link.textContent = text; return link; };
+      // Tarjeta: el precio más bajo. Ficha: cada formato con su precio en Amazon.
+      if (box.closest('.catalogue-card')) { if (offers.length) box.append(offerLink(offers[0], 'Desde ' + money(offers[0].precio_centimos) + ' en Amazon')); }
+      else offers.forEach((o, i) => { if (i) box.append(' · '); box.append(offerLink(o, FORMAT_LABELS[o.formato] + ': ' + money(o.precio_centimos))); });
     }
     if (form) {
       const refineCount = root.querySelector('[data-catalogue-refine-count]');

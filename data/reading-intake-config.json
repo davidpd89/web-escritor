@@ -187,7 +187,8 @@
   "amazon_price_refresh": {
     "enabled": true,
     "requests_per_day": 100,
-    "notes": "Solo Creators API, ISBN o ASIN verificado, EUR y compra nueva. Una denegación detiene el lote; se vuelve a comprobar al día siguiente. No se publican precios sin respuesta válida."
+    "notes": "Solo Creators API, ISBN o ASIN verificado, EUR y compra nueva. Cada día se consulta una parte del catálogo para que todos los libros pasen antes de max_age_days; los precios más antiguos se retiran. La búsqueda por título y autor añade ASIN Kindle/audiolibro en español a formatos_compra. Una denegación detiene el lote.",
+    "max_age_days": 7
   },
   "ratings_refresh": {
     "enabled": true,

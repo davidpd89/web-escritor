@@ -14,6 +14,17 @@ RESOURCES=['itemInfo.title','itemInfo.byLineInfo','itemInfo.externalIds',
            'itemInfo.classifications','offersV2.listings.price',
            'offersV2.listings.condition','offersV2.listings.availability',
            'offersV2.listings.dealDetails','offersV2.listings.type']
+# Prices are refreshed in rotation, not hourly: an offer stays usable for a week
+# and the whole catalogue cycles before it expires.
+PRICE_MAX_AGE=timedelta(days=7)
+# Kindle/audiobook editions have their own ASIN and no ISBN; look for them again
+# only after this long, so books without a digital edition do not spend quota daily.
+REDISCOVER_AFTER=timedelta(days=90)
+BINDINGS={'paperback':'tapa-blanda','tapa blanda':'tapa-blanda','mass market paperback':'tapa-blanda',
+          'libro de bolsillo':'tapa-blanda','hardcover':'tapa-dura','tapa dura':'tapa-dura',
+          'kindle':'ebook','formato kindle':'ebook','kindle edition':'ebook','version kindle':'ebook',
+          'edicion kindle':'ebook','ebook kindle':'ebook','audio cd':'audiolibro','cd de audio':'audiolibro',
+          'audible audiobook':'audiolibro','audiolibro de audible':'audiolibro','audiolibro':'audiolibro'}
 
 
 def asin_from_url(url):
@@ -59,6 +70,19 @@ def verified_formats(book):
     return {asin:fmt for asin,fmt in known.items() if asin}
 
 
+def same_title(title,canonical):
+    # Without an ISBN a prefix match is not enough ("Dune" vs "Dune Mesías"):
+    # only subtitles in brackets or after a colon may differ.
+    bare=lambda t: key(re.sub(r'\s*[\(\[].*?[\)\]]','',t).split(':')[0])
+    return bool(bare(canonical)) and bare(title)==bare(canonical)
+
+
+def in_spanish(info):
+    languages=amazon_list(amazon_dict(amazon_dict(info.get('contentInfo')).get('languages')).get('displayValues'))
+    return any(isinstance(l,dict) and isinstance(l.get('displayValue'),str)
+               and key(l['displayValue']) in {'espanol','spanish','castellano'} for l in languages)
+
+
 def amazon_dict(value):
     return value if isinstance(value,dict) else {}
 
@@ -67,7 +91,7 @@ def amazon_list(value):
     return value if isinstance(value,list) else []
 
 
-def select_offers(book,payload,tag,now):
+def select_offers(book,payload,tag,now,max_age=PRICE_MAX_AGE):
     if not re.fullmatch(r'[A-Za-z0-9-]+',tag):
         raise ValueError('Invalid partner tag')
     now=now.astimezone(timezone.utc)
@@ -101,10 +125,9 @@ def select_offers(book,payload,tag,now):
                               if isinstance(value,str)}
         binding_value=amazon_dict(amazon_dict(info.get('classifications')).get('binding')).get('displayValue','')
         binding=key(binding_value) if isinstance(binding_value,str) else ''
-        fmt=known.get(asin) or {'paperback':'tapa-blanda','tapa blanda':'tapa-blanda',
-            'hardcover':'tapa-dura','tapa dura':'tapa-dura','kindle':'ebook','formato kindle':'ebook',
-            'audio cd':'audiolibro','audible audiobook':'audiolibro'}.get(binding)
-        if not fmt or (asin not in known and not isbn_match):
+        fmt=known.get(asin) or BINDINGS.get(binding)
+        digital=fmt in {'ebook','audiolibro'} and same_title(title,book['titulo']) and in_spanish(info)
+        if not fmt or (asin not in known and not isbn_match and not digital):
             continue
         for listing in amazon_list(amazon_dict(item.get('offersV2')).get('listings')):
             if not isinstance(listing,dict):
@@ -117,7 +140,7 @@ def select_offers(book,payload,tag,now):
             access=deal.get('accessType')
             if access and access!='ALL':
                 continue
-            expires=now+timedelta(hours=24)
+            expires=now+max_age
             try:
                 if deal.get('startTime') and datetime.fromisoformat(deal['startTime'].replace('Z','+00:00'))>now:
                     continue
@@ -185,11 +208,15 @@ class CreatorsPrices:
             raise RuntimeError('Invalid Amazon Creators response')
         return result
 
-    def __call__(self,book):
+    def headers(self):
         if not self.token:
             self.token=self.post('https://api.amazon.co.uk/auth/o2/token',{
                 'grant_type':'client_credentials','client_id':self.client_id,
                 'client_secret':self.secret,'scope':'creatorsapi::default'})['access_token']
+        return {'Authorization':'Bearer '+self.token,'x-marketplace':'www.amazon.es'}
+
+    def __call__(self,book):
+        headers=self.headers()
         common={'marketplace':'www.amazon.es','partnerTag':self.tag,'condition':'New',
                 'currencyOfPreference':'EUR','resources':RESOURCES}
         known=verified_formats(book)
@@ -199,29 +226,81 @@ class CreatorsPrices:
         else:
             operation='searchItems'
             common.update(keywords=book['isbn13'],searchIndex='Books',itemCount=10)
-        return self.post('https://creatorsapi.amazon/catalog/v1/'+operation,common,
-                         {'Authorization':'Bearer '+self.token,'x-marketplace':'www.amazon.es'})
+        return self.post('https://creatorsapi.amazon/catalog/v1/'+operation,common,headers)
+
+    def discover(self,book):
+        # Title + author across all departments finds the Kindle/Audible editions.
+        return self.post('https://creatorsapi.amazon/catalog/v1/searchItems',{
+            'marketplace':'www.amazon.es','partnerTag':self.tag,'condition':'New',
+            'currencyOfPreference':'EUR','resources':RESOURCES+['itemInfo.contentInfo'],
+            'keywords':book['titulo']+' '+book['autores'][0],'searchIndex':'All','itemCount':10},
+            self.headers())
 
 
-def refresh_offers(catalogue,market,provider,tag,now,budget=100):
-    if not 0<=budget<=100:
-        raise ValueError('Price refresh budget outside 0..100')
+def needs_discovery(book,now):
+    options=book.get('formatos_compra',[])
+    if {'ebook','audiolibro'}<={o['formato'] for o in options}:
+        return False
+    checked=max((o['fecha_verificacion'] for o in options),default='')
+    return not checked or now.date()-datetime.fromisoformat(checked).date()>=REDISCOVER_AFTER
+
+
+def remember_formats(book,offers,tag,now):
+    # ASINs may be kept indefinitely: next refreshes use one getItems for every
+    # format, and the static filters/links know the format without prices.
+    options=list(book.get('formatos_compra',[]))
+    have={o['formato'] for o in options}
+    found={o['formato']:asin_from_url(o['url']) for o in offers}
+    direct=asin_from_url(book.get('url_amazon_afiliada'))
+    if direct and book.get('formato_edicion'):
+        found.setdefault(book['formato_edicion'],direct)
+    day=now.date().isoformat()
+    added=[{'formato':fmt,'url':f'https://www.amazon.es/dp/{asin}?tag={tag}',
+            'fuente_url':f'https://www.amazon.es/dp/{asin}','fecha_verificacion':day}
+           for fmt,asin in sorted(found.items()) if asin and fmt not in have]
+    if not added and options:
+        # Nothing new: the date records that the search ran, retried after REDISCOVER_AFTER.
+        options=[dict(o,fecha_verificacion=day) for o in options]
+    book['formatos_compra']=options+added
+
+
+def refresh_offers(catalogue,market,provider,tag,now,budget=100,max_age=PRICE_MAX_AGE):
+    """Refresh a slice of the catalogue each day; discovered formats update the books in place."""
+    if not 0<=budget<=1000:
+        raise ValueError('Price refresh budget outside 0..1000')
+    now=now.astimezone(timezone.utc)
     books=[b for b in catalogue['libros'] if b.get('estado')=='publicado' and isbn13(b.get('isbn13'))]
     after=list(market.get('offers',[]))
-    stats={'attempted':0,'updated':0,'offers':0,'failures':[]}
-    offset=(now.astimezone(timezone.utc).date().toordinal()*max(1,budget))%len(books) if books else 0
-    for book in (books[offset:]+books[:offset])[:budget]:
+    stats={'attempted':0,'updated':0,'offers':0,'requests':0,'formats_added':0,'failures':[]}
+    # Every book comes round a day before its price expires, with no more requests than that needs.
+    per_day=min(len(books),-(-len(books)//max(1,max_age.days-1)))
+    offset=(now.date().toordinal()*max(1,per_day))%len(books) if books else 0
+    for book in (books[offset:]+books[:offset])[:per_day]:
+        if stats['requests']>=budget:
+            break
         stats['attempted']+=1
         try:
             payload=provider(book)
+            stats['requests']+=1
             if payload.get('errors') and not any(payload.get(key) for key in ['searchResult','itemsResult','itemResults']):
                 raise RuntimeError('Amazon returned only errors')
-            fresh=select_offers(book,payload,tag,now)
-            after=[o for o in after if o.get('libro_id')!=book['id']]+fresh
+            fresh={o['formato']:o for o in select_offers(book,payload,tag,now,max_age)}
+            if hasattr(provider,'discover') and stats['requests']<budget and needs_discovery(book,now):
+                stats['requests']+=1
+                for offer in select_offers(book,provider.discover(book),tag,now,max_age):
+                    if offer['formato'] not in fresh or fresh[offer['formato']]['precio_centimos']>offer['precio_centimos']:
+                        fresh[offer['formato']]=offer
+                before=len(book.get('formatos_compra',[]))
+                remember_formats(book,fresh.values(),tag,now)
+                stats['formats_added']+=len(book['formatos_compra'])-before
+            after=[o for o in after if o.get('libro_id')!=book['id']]+list(fresh.values())
             stats['updated']+=1
             stats['offers']+=len(fresh)
         except (RuntimeError,OSError,ValueError,KeyError,TypeError) as exc:
             stats['failures'].append({'book_id':book['id'],'error':str(exc)[:140]})
             stats['status']='pending_amazon_eligibility' if str(exc)=='pending_amazon_eligibility' else 'provider_unavailable'
             break
+    # Expired prices leave the file even for books outside today's slice.
+    stamp=now.isoformat(timespec='seconds').replace('+00:00','Z')
+    after=[o for o in after if not isinstance(o.get('caduca_en'),str) or o['caduca_en']>stamp]
     return {**market,'offers':after},stats

@@ -24,7 +24,7 @@ class PublishedOfferChronology(unittest.TestCase):
                     values.append(parsed)
                 start, end = values
                 self.assertGreater(end, start, f'{label}: precio caducado antes de su actualización')
-                self.assertLessEqual(end - start, timedelta(hours=24), f'{label}: vigencia comercial superior a 24 horas')
+                self.assertLessEqual(end - start, timedelta(days=7), f'{label}: vigencia comercial superior a 7 días')
 
 if __name__ == '__main__':
     unittest.main()
