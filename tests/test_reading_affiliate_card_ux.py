@@ -51,13 +51,16 @@ class AffiliateNavigationTest(unittest.TestCase):
         p.feed(html)
         return p.links
 
-    def test_imported_cover_is_clickable_to_tagged_isbn_search(self):
+    def test_imported_cover_opens_the_amazon_product_or_tagged_isbn_search(self):
         b = self.imported
         html = builder.render_book(self.data, b, self.template)
         candidate = [x for x in self.links(html)
                      if x["attrs"].get("aria-label", "").startswith("Comprar en Amazon:")]
         self.assertEqual(len(candidate), 1)
-        self.assertEqual(candidate[0]["attrs"]["href"], b["amazon_busqueda_isbn"])
+        # With a verified ASIN the cover goes straight to the product; otherwise to the ISBN search.
+        self.assertEqual(candidate[0]["attrs"]["href"], builder.amazon_destination(b))
+        self.assertTrue(candidate[0]["attrs"]["href"] == b["amazon_busqueda_isbn"]
+                        or "/dp/" in candidate[0]["attrs"]["href"])
         self.assertEqual(candidate[0]["attrs"]["target"], "_blank")
         self.assertIn("sponsored", candidate[0]["attrs"]["rel"])
         self.assertIn("tag=davidporto-21", candidate[0]["attrs"]["href"])
@@ -89,10 +92,11 @@ class AffiliateNavigationTest(unittest.TestCase):
         html = builder.render_hub(self.data, books, self.template)
         self.assertGreaterEqual(html.count('class="catalogue-tags'), 2)
         self.assertEqual(builder.publication_date_label(self.coraline), "1 de junio de 2009")
-        self.assertIn('<dl class="catalogue-facts">', html)
+        self.assertIn('<p class="catalogue-byline">', html)
+        self.assertNotIn('catalogue-facts', html)
         self.assertIn(self.imported["editorial"], html)
         if self.imported.get("numero_paginas"):
-            self.assertIn("<dt>Páginas</dt><dd>" + str(self.imported["numero_paginas"]) + "</dd>", html)
+            self.assertIn('<span class="catalogue-pages">' + str(self.imported["numero_paginas"]) + " páginas</span>", html)
         self.assertNotIn("Edad:", html)
         if self.imported.get("fecha_publicacion"):
             self.assertIn(" de ", builder.publication_date_label(self.imported))

@@ -1,3 +1,4 @@
+import copy
 import sys
 import unittest
 from pathlib import Path
@@ -26,7 +27,8 @@ class RotationInvariance(unittest.TestCase):
         def provider(book):
             calls.append(book['id'])
             return {'searchResult':{'items':[]}}
-        amazon.refresh_offers(CATALOG,MARKET,provider,'contrato-21',now,budget=1)
+        # The sweep stamps the books it checks, so each instant gets a fresh catalogue.
+        amazon.refresh_offers(copy.deepcopy(CATALOG),MARKET,provider,'contrato-21',now,budget=1)
         return calls
 
     def test_provider_selection_is_instant_based(self):

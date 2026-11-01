@@ -54,7 +54,7 @@ try {
     check(await overflow(page) <= 0, `scroll horizontal en el catálogo (${await overflow(page)} px)`);
     const state = await page.evaluate(() => {
       const cards = [...document.querySelectorAll('.catalogue-card')];
-      const facts = document.querySelector('.catalogue-card .catalogue-facts');
+      const facts = document.querySelector('.catalogue-card .catalogue-byline');
       const first = cards.find(c => c.offsetParent);
       const small = cards.slice(0, 6).flatMap(c => [...c.querySelectorAll('a')].filter(a => a.offsetParent).map(a => a.getBoundingClientRect()).filter(r => r.height < 24 || r.width < 24));
       return {
@@ -70,7 +70,7 @@ try {
     });
     check(state.ageTags === 0, `${state.ageTags} etiquetas de edad en tarjetas`);
     check(state.maxTags <= 3, `una tarjeta lleva ${state.maxTags} etiquetas`);
-    check(['rgba(0, 0, 0, 0)', 'transparent'].includes(state.factsBackground), `la caja de datos conserva fondo ${state.factsBackground}`);
+    check(['rgba(0, 0, 0, 0)', 'transparent'].includes(state.factsBackground), `la línea editorial conserva fondo ${state.factsBackground}`);
     check(state.emptyRatings === 0, `${state.emptyRatings} cajas de valoración vacías reservan altura`);
     check(state.smallTargets === 0, `${state.smallTargets} enlaces de menos de 24 px en las primeras tarjetas`);
     check(state.bookNodes >= 6, 'el ItemList no publica nodos Book');

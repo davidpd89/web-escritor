@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Paridad de los enlaces principales Amazon de fichas publicadas."""
+import importlib.util
 import json
 from html.parser import HTMLParser
 from pathlib import Path
@@ -25,6 +26,10 @@ class Links(HTMLParser):
             self.links.append(self.active)
             self.active = None
 
+spec = importlib.util.spec_from_file_location('reading_builder', ROOT / 'scripts/build-reading-catalogue.py')
+builder = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(builder)
+
 catalogue = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
 errors = []
 checked = 0
@@ -32,7 +37,8 @@ checked = 0
 for book in catalogue['libros']:
     if book['estado'] != 'publicado':
         continue
-    expected = book.get('url_amazon_afiliada') or book.get('amazon_busqueda_isbn')
+    # The verified ASIN (/dp/) wins over the ISBN search, as on the page.
+    expected = builder.amazon_destination(book)
     if not expected:
         continue
     path = ROOT / 'recomendaciones' / 'libros' / book['slug'] / 'index.html'

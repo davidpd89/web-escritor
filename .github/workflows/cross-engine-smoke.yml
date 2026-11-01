@@ -38,7 +38,8 @@ jobs:
         uses: actions/cache@v5
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-cross-engine-${{ hashFiles('package-lock.json') }}
+          # The runner image is part of the key: WebKit links against its system ICU.
+          key: playwright-cross-engine-${{ env.ImageOS }}-${{ hashFiles('package-lock.json') }}
 
       - name: Install Playwright browsers (Chromium + Firefox + WebKit, with OS deps)
         if: steps.playwright-cache.outputs.cache-hit != 'true'

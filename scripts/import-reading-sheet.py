@@ -40,6 +40,9 @@ def read_live(spreadsheet, token):
     return {tab: item.get('values', []) for tab, item in zip(TABS, payload['valueRanges'])}
 
 
+AMAZON_FIELDS = ('formatos_compra', 'precios_amazon_revision', 'formatos_amazon_buscados')
+
+
 def convert(snapshot, review, existing, root):
     sheets = snapshot['sheets']
     if any(tab not in sheets for tab in TABS):
@@ -93,6 +96,9 @@ def convert(snapshot, review, existing, root):
         if row.get('edad_orientativa') and age_source.get('url') and 'edad_recomendada' not in approved:
             book['edad_recomendada'] = row['edad_orientativa']
             book['fuente_edad_url'] = age_source['url']
+        # The nightly Amazon sweep owns these fields; the sheet never rewinds them.
+        previous = next((b for b in existing['libros'] if b['id'] == book['id']), {})
+        book.update({k: previous[k] for k in AMAZON_FIELDS if k in previous})
         book_links = [link for link in links if link['libro_id'] == source_id and link.get('url')]
         book['resenas'] = [{'titulo': link['titulo_visible'], 'url': link['url'], 'fecha_verificacion': link['fecha_consulta']} for link in book_links if link['tipo'].startswith('resenas')]
         fragment = next((link for link in book_links if link['tipo'] == 'fragmento'), {})

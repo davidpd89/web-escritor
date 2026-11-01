@@ -1,30 +1,32 @@
 import json
-import re
+from datetime import date
 import unittest
-from datetime import datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-UTC_FORMAT = re.compile(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$')
+
+
+def priced():
+    """Amazon prices now live per format in the catalogue (formatos_compra)."""
+    catalogue = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+    return [(book, option) for book in catalogue['libros']
+            for option in book.get('formatos_compra', []) if 'precio_centimos' in option]
+
 
 class PublishedOfferChronology(unittest.TestCase):
-    def test_offer_validity_interval(self):
-        market = json.loads((ROOT / 'assets/reading-market.json').read_text(encoding='utf-8'))
-        self.assertTrue(market['offers'], 'reading-market.json: no hay fechas comerciales que comprobar')
-        for offer in market['offers']:
-            label = f'{offer["libro_id"]}/{offer["formato"]}'
-            with self.subTest(offer=label):
-                values = []
-                for field in ('actualizado_en', 'caduca_en'):
-                    value = offer[field]
-                    self.assertIsInstance(value, str, f'{label}: {field} no es texto')
-                    self.assertRegex(value, UTC_FORMAT, f'{label}: {field} no es UTC: {value}')
-                    parsed = datetime.fromisoformat(value.replace('Z', '+00:00'))
-                    self.assertEqual(parsed.isoformat(timespec='seconds').replace('+00:00', 'Z'), value, f'{label}: {field} no representa una fecha UTC válida')
-                    values.append(parsed)
-                start, end = values
-                self.assertGreater(end, start, f'{label}: precio caducado antes de su actualización')
-                self.assertLessEqual(end - start, timedelta(hours=24), f'{label}: vigencia comercial superior a 24 horas')
+    def test_price_dates(self):
+        # Prices do not expire: they stay until the nightly sweep brings a newer one.
+        self.assertTrue(priced(), 'reading-catalogue.json: no hay fechas de precio que comprobar')
+        today = date.today()
+        for book, option in priced():
+            label = f'{book["id"]}/{option["formato"]}'
+            with self.subTest(price=label):
+                checked = date.fromisoformat(option['fecha_verificacion'])
+                revision = date.fromisoformat(book['precios_amazon_revision'])
+                self.assertLessEqual(checked, revision, f'{label}: precio posterior a la última revisión')
+                self.assertLessEqual(revision, today, f'{label}: revisión en el futuro')
+                self.assertIsInstance(option['precio_centimos'], int, f'{label}: precio no entero')
+                self.assertGreaterEqual(option['precio_centimos'], 100, f'{label}: precio sospechoso')
 
 if __name__ == '__main__':
     unittest.main()

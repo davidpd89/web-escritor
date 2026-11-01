@@ -49,7 +49,7 @@ Continúa `.ci/2026-10-31-catalogo-etiquetas-goodreads-ingesta.md` (PR #1019).
 
 ## En vivo (davidportodiaz.com/recomendaciones/, tras merge 07cbff885 y despliegue 41196845958)
 - **A 390 y a 1280 px:**
-  - 141 libros, `reading-catalogue.js?v=26`.
+  - 141 libros, `reading-catalogue.js?v=27`.
   - 29 notas Goodreads visibles y 0 cajas con nota ocultas.
   - 0 etiquetas de edad, 0 «consultar ficha» y 0 px de scroll horizontal.
 - **Notas:** los 112 libros restantes aún no tienen nota verificada. El refresco por lotes, con 30 días de TTL y los libros sin nota primero, las irá completando.

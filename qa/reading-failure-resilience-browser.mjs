@@ -86,14 +86,14 @@ async function runCase(width,mode){
       })));
       assert(ratings.every(r => !r.text || (r.text === 'Goodreads · consultar ficha' && !r.fill && !r.label)),'Without verified ratings only a neutral Goodreads link may appear, never a 0/5 score');
       assert(await page.locator('[data-filter="valoracion"]').isDisabled(),'No active rating filter without verified ratings');
-      assert(await page.locator('[data-filter="precio_max"]').isEnabled(),'Editorial PVP filtering stays available without market prices');
-      const maximum = Math.ceil(selected.pvp_centimos / 100);
-      if (maximum) {
+      assert(await page.locator('[data-filter="precio_max"]').isEnabled(),'Static Amazon price filtering stays available without market data');
+      const maximum = Math.ceil(Math.min(...(selected.formatos_compra||[]).map(o=>o.precio_centimos).filter(Boolean)) / 100);
+      if (Number.isFinite(maximum)) {
         await openFilters(page);
         await page.locator('[data-filter="precio_max"]').fill(String(maximum));
-        assert.deepEqual(await visible(page),[selected.id],'Editorial PVP works after market failure');
+        assert.deepEqual(await visible(page),[selected.id],'Static Amazon price works after market failure');
         await page.locator('[data-filter="precio_max"]').fill('0.01');
-        assert.deepEqual(await visible(page),[],'PVP filtering excludes editions above the limit');
+        assert.deepEqual(await visible(page),[],'Price filtering excludes editions above the limit');
         await page.locator('[data-filter="precio_max"]').fill('');
       }
       // Reload with the generated hash: the failure must not break shared links.
@@ -106,9 +106,11 @@ async function runCase(width,mode){
     const amazon=card.locator('.catalogue-card__buy');
     assert.equal(await amazon.getAttribute('target'),'_blank','Purchase still opens another tab');
     assert.equal(new URL(await amazon.getAttribute('href')).searchParams.get('tag'),'davidporto-21','Purchase retains the affiliate tag');
-    if(selected.pvp_centimos){
-      const expected=(selected.pvp_centimos/100).toLocaleString('es-ES',{style:'currency',currency:'EUR'}).replace(/\s/g,' ');
-      assert((await card.locator('.catalogue-pvp').innerText()).replace(/\s/g,' ').includes(expected),'Editorial PVP remains available independently of market data');
+    // Static price: only Amazon's (one of its formats), never the editorial PVP.
+    const prices=(selected.formatos_compra||[]).map(o=>o.precio_centimos).filter(Boolean);
+    if(prices.length){
+      const text=(await card.locator('.catalogue-amazon-price').innerText()).replace(/\s/g,' ');
+      assert(prices.some(c=>text.includes((c/100).toLocaleString('es-ES',{style:'currency',currency:'EUR'}).replace(/\s/g,' '))),'Static Amazon price remains available independently of market data');
     }
     assert.equal(new URL(page.url()).searchParams.get('utm_source'),'resilience-test','Source parameter survives interactions and reload');
     if(mode==='connection-failure'){

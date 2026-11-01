@@ -186,8 +186,8 @@
   ],
   "amazon_price_refresh": {
     "enabled": true,
-    "requests_per_day": 100,
-    "notes": "Solo Creators API, ISBN o ASIN verificado, EUR y compra nueva. Una denegación detiene el lote; se vuelve a comprobar al día siguiente. No se publican precios sin respuesta válida."
+    "sweep_days": 7,
+    "notes": "Solo Creators API, ISBN o ASIN verificado, EUR y compra nueva. Cada noche se revisan los libros consultados hace más tiempo, de modo que todo el catálogo se recorre cada sweep_days. El precio de cada formato se guarda en formatos_compra y sigue publicado hasta que llega uno nuevo. La búsqueda por título y autor añade las ediciones Kindle y audiolibro en español. Sin más límite que el de Amazon (8640 peticiones al día); una denegación detiene el lote."
   },
   "ratings_refresh": {
     "enabled": true,
