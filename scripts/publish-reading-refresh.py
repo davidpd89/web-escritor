@@ -24,6 +24,7 @@ def allowed_path(path):
         r'assets/reading-covers/isbn-97[89][0-9]{10}(?:-320)?\.webp|'
         r'assets/reading-audio/[a-z0-9-]+-[a-f0-9]{12}\.mp3|'
         r'assets/pinterest/feeds/[a-z0-9-]+\.xml|'
+        r'data/reading-texts/(?:isbn-97[89][0-9]{10}|lib-[0-9]{4})\.json|'
         r'pagefind/[A-Za-z0-9_./-]+)', path)) and '..' not in path.split('/')
 
 
