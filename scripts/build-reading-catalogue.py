@@ -19,6 +19,7 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from site_shell import inject_shell_auto
+from reading_intake_core import strip_shouting
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://davidportodiaz.com"
@@ -248,13 +249,14 @@ def tags(cats, compact=False):
 
 
 def synopsis(b):
-    return b.get('sinopsis_breve') or b['descripcion_breve']
+    return strip_shouting(b.get('sinopsis_breve') or b['descripcion_breve'])
 
 
 def synopsis_paragraphs(b):
-    """Sinopsis entera para la ficha; el extracto breve si la fuente aún no se ha releído."""
+    """Sinopsis entera para la ficha; el extracto breve si la fuente aún no se ha releído.
+    Sin titulares en mayúsculas ni citas de prensa pegados al texto (ficha, tarjeta y meta)."""
     if b.get('sinopsis_tipo') != 'resumen_propio' and b.get('sinopsis_completa'):
-        return [p for p in b['sinopsis_completa'].split('\n\n') if p.strip()]
+        return [strip_shouting(p) for p in b['sinopsis_completa'].split('\n\n') if p.strip()]
     return [synopsis(b)]
 
 

@@ -20,7 +20,7 @@ from urllib.robotparser import RobotFileParser
 
 from decimal import Decimal, InvalidOperation
 
-from reading_intake_core import clean_title, edition_date, isbn13, normalize_text
+from reading_intake_core import clean_title, edition_date, isbn13, normalize_text, strip_shouting
 from reading_taxonomy import keyword_list
 
 AGENT = 'DavidPortoReadingCatalogue/1.0 (+https://davidportodiaz.com)'
@@ -112,7 +112,7 @@ def editorial_synopsis(value):
             continue
         if folded.startswith(SYNOPSIS_STOP):
             continue
-        kept.append(text)
+        kept.append(strip_shouting(text))
     full = PARAGRAPH_BREAK.join(dict.fromkeys(kept))
     if len(full.split()) < 10:
         return ''
