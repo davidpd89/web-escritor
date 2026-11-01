@@ -669,11 +669,18 @@ function _gcEvent(path, title) {
     send();
     return;
   }
-  scheduleTask(() => {
+  // count.js loads async and can land after the first events of a page (e.g.
+  // sample-start-manecillas fires on load, sample-complete much later), which
+  // used to drop the early ones and skew funnels. Keep trying for ~15s.
+  let attempts = 0;
+  const retry = () => {
     if (window.goatcounter && window.goatcounter.count) {
       send();
+    } else if (++attempts < 60) {
+      setTimeout(retry, 250);
     }
-  }, "background");
+  };
+  scheduleTask(retry, "background");
 }
 
 // Bridge for opt-in modules (Article Tools, herramientas/*) that dispatch a
