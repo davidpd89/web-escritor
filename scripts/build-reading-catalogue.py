@@ -262,6 +262,23 @@ def meta_synopsis(b):
     return ' '.join(synopsis_paragraphs(b)).rstrip('…')
 
 
+_SHARED_META = {}
+
+
+def book_meta_description(data, b):
+    """Descripción meta única: si otra ficha publicada comparte el texto editorial
+    (sagas con la misma contracubierta) en los 160 caracteres visibles, se antepone el título."""
+    books = [x for x in data['libros'] if x['estado'] == 'publicado']
+    key = tuple(x['id'] for x in books)
+    if _SHARED_META.get('key') != key:
+        seen = {}
+        for x in books:
+            seen.setdefault(meta_synopsis(x)[:157], set()).add(x['id'])
+        _SHARED_META.update(key=key, shared={text for text, ids in seen.items() if len(ids) > 1})
+    text = meta_synopsis(b)
+    return b['titulo'] + ': ' + text if text[:157] in _SHARED_META['shared'] else text
+
+
 def synopsis_attribution(b):
     return ''
 
@@ -635,7 +652,7 @@ def render_hub(data, books, template):
 def render_book(data,b,template):
     canonical=SITE+url(b)
     title=book_title(b)
-    description=meta_synopsis(b)
+    description=book_meta_description(data,b)
     cats=categories(data,b)
     upcoming=b in upcoming_books([book for book in data['libros'] if book['estado'] == 'publicado'])
     rows=[('Edición',b['edicion'].split(' · ')[0]),('ISBN-13',b.get('isbn13')),('Idioma',LANGUAGES.get(b.get('idioma'),b.get('idioma')))]
