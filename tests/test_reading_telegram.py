@@ -12,10 +12,113 @@ import unittest
 from unittest.mock import Mock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from reading_telegram import from_reading_catalogue, run, send, smoke
+from reading_telegram import from_reading_catalogue, run, send, smoke, cover_url
 
 
 class ReadingTelegramTests(unittest.TestCase):
+    def test_only_verified_site_cover_is_used(self):
+        book = {
+            "portada_edicion_verificada": True,
+            "portada_local": "/assets/reading-covers/book.webp",
+        }
+        self.assertEqual(
+            cover_url(book),
+            "https://davidportodiaz.com/assets/reading-covers/book.webp",
+        )
+        for path in [
+            "//evil.example/book.jpg",
+            "/assets/reading-covers/../private.png",
+            "https://evil.example/book.jpg",
+        ]:
+            self.assertIsNone(cover_url({**book, "portada_local": path}))
+        self.assertIsNone(cover_url({**book, "portada_edicion_verificada": False}))
+
+    def test_photo_transport_uses_caption_and_returns_message_id(self):
+        post = Mock(
+            return_value=Mock(
+                status_code=200, json=lambda: {"ok": True, "result": {"message_id": 99}}
+            )
+        )
+        with patch("reading_telegram.requests.post", post):
+            self.assertEqual(
+                send(
+                    "secret",
+                    "@test",
+                    "caption",
+                    "https://davidportodiaz.com/assets/reading-covers/book.webp",
+                ),
+                ("sent", 99),
+            )
+        self.assertTrue(post.call_args.args[0].endswith("/sendPhoto"))
+        self.assertEqual(post.call_args.kwargs["json"]["caption"], "caption")
+
+    def test_rejected_photo_falls_back_to_text(self):
+        responses = [
+            Mock(status_code=400, json=lambda: {"ok": False}),
+            Mock(
+                status_code=200,
+                json=lambda: {"ok": True, "result": {"message_id": 100}},
+            ),
+        ]
+        with patch("reading_telegram.requests.post", side_effect=responses) as post:
+            self.assertEqual(
+                send("secret", "@test", "caption", "https://example.org/cover.webp"),
+                ("sent", 100),
+            )
+        self.assertEqual(post.call_count, 2)
+        self.assertTrue(post.call_args.args[0].endswith("/sendMessage"))
+
+    def test_ambiguous_photo_is_not_retried_as_text(self):
+        import requests
+
+        with patch(
+            "reading_telegram.requests.post", side_effect=requests.Timeout()
+        ) as post:
+            self.assertEqual(
+                send("secret", "@test", "caption", "https://example.org/cover.webp"),
+                ("uncertain", None),
+            )
+        self.assertEqual(post.call_count, 1)
+
+    def test_rate_limit_wait_is_persisted(self):
+        with (
+            patch(
+                "reading_telegram.requests.post",
+                return_value=Mock(
+                    status_code=429,
+                    json=lambda: {"ok": False, "parameters": {"retry_after": 60}},
+                ),
+            ),
+            patch("reading_telegram.time.time", return_value=1000),
+        ):
+            self.assertEqual(send("secret", "@test", "caption"), ("retry:1060", None))
+
+    def test_rate_limited_job_waits_and_then_retries(self):
+        catalog = self.catalog()
+        catalog["channels"] = catalog["channels"][:1]
+        sender = Mock(side_effect=[("retry:1060", None), ("sent", 50)])
+        with (
+            patch.dict("os.environ", {"TEST_TOKEN": "test"}),
+            patch("reading_telegram.time.sleep"),
+            patch("reading_telegram.time.time", return_value=1000),
+        ):
+            run(catalog, date(2026, 11, 1), self.root / "retry.db", True, sender=sender)
+            result = run(
+                catalog, date(2026, 11, 1), self.root / "retry.db", True, sender=sender
+            )
+            self.assertEqual(sender.call_count, 1)
+            self.assertEqual(result[0]["status"], "skipped:retry:1060")
+        with (
+            patch.dict("os.environ", {"TEST_TOKEN": "test"}),
+            patch("reading_telegram.time.sleep"),
+            patch("reading_telegram.time.time", return_value=1061),
+        ):
+            result = run(
+                catalog, date(2026, 11, 1), self.root / "retry.db", True, sender=sender
+            )
+        self.assertEqual(result[0]["status"], "sent")
+        self.assertEqual(sender.call_count, 2)
+
     def test_labelled_smoke_preview(self):
         result = smoke(self.catalog(), "8498382378", self.root / "smoke.db")
         self.assertIn("PRUEBA", result[0]["text"])

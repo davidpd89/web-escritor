@@ -1,6 +1,6 @@
 # Telegram: base conectada a Web Escritor
 
-**Estado actual:** canal privado de novedades y tarea local activos; ficha de prueba actualizada; selección diaria y resolución editorial de productos funcionando. Véase «Canal de novedades: operación local activada» para la configuración vigente. Los apartados de la primera prueba conservan su contexto histórico.
+**Estado actual:** canal «Novedades de libros» y tarea local activos. Formato definitivo con portada verificada, título, autor, fecha, hasta tres géneros y enlace Amazon. Las comprobaciones de ejemplo se mantienen separadas de las entregas diarias; los apartados de la primera prueba conservan su contexto histórico.
 
 ## Orientación y relación con lo existente
 
@@ -96,7 +96,7 @@ Esta prueba acredita entrega real e idempotencia tras una segunda ejecución. No
 
 ## Canal de novedades: operación local activada
 
-Configuración aprobada el 1 de noviembre de 2026. El canal privado se llama ahora «Novedades de libros · Pruebas». Se conservan su ID y suscriptores, y las firmas de administrador siguen desactivadas. El token y el enlace de invitación continúan fuera del repositorio.
+Configuración aprobada el 1 de noviembre de 2026. El canal se llama «Novedades de libros», sin la etiqueta de pruebas en nombre ni descripción. Sigue siendo privado con acceso por invitación, conserva su ID y suscriptores y no tiene grupo de discusión. Las firmas de administrador siguen desactivadas. El token y el enlace de invitación continúan fuera del repositorio.
 
 `reading_telegram_worker.py` ejecuta un ciclo completo, sin navegador ni API de pago:
 
@@ -120,3 +120,15 @@ Requiere este ordenador encendido, conectado y la sesión de Windows iniciada. N
 Estado privado: `last-run.json`, `editorial-verification.json`, `catalogue.json` y `deliveries.db` bajo PrivateRoot. Fallo global devuelve 1; novedades del día bloqueadas o entregas inciertas devuelven 2. Los pendientes de fechas distintas a hoy quedan en el informe sin convertir un ciclo vacío correcto en error. No hay alertas externas ni reintentos ciegos.
 
 Para detener la operación: deshabilitar la tarea Windows o poner `enabled: false` en channels.json. Para actualizar el runtime: detener la tarea, revisar los cambios y reemplazar deliberadamente los módulos congelados antes de reactivarla. No borrar deliveries.db. Una futura instalación en servidor utilizará la misma selección y necesitará migrar el estado y el token por un canal privado.
+
+## Formato definitivo y comprobaciones de portada
+
+Una publicación es una foto con caption HTML: 📚 Novedad de hoy, título destacado, autor, 📅 fecha editorial, 🏷️ hasta tres géneros y enlace «Ver en Amazon». Se omiten géneros no declarados; no se inventan por el título. La clasificación procede del catálogo compartido. Se mantienen título, autor y fecha completos; no se añaden sinopsis, precios, estrellas o llamadas comerciales repetidas.
+
+La foto usa exclusivamente una cubierta marcada como edición verificada y alojada bajo `/assets/reading-covers/` de la web. No se descargan imágenes de Amazon, no se generan cubiertas y no se permiten rutas arbitrarias. `sendPhoto` conserva foto y texto en una única entrega registrada. Si no hay cubierta verificada, se envía texto; si Telegram rechaza definitivamente la foto con HTTP 400, se intenta el texto una sola vez. Un timeout o respuesta ambigua no dispara un segundo mensaje, para evitar duplicados.
+
+Ante HTTP 429, se persiste el instante indicado por `retry_after`: los ciclos siguientes esperan hasta entonces y solo después reintentan. Otros rechazos y entregas inciertas requieren revisión. No se reenvía una novedad en un día posterior por haber pasado el plazo.
+
+Se enviaron dos ejemplos reales con cubiertas distintas, de Anagrama y Penguin: «Tres cuentos» y «Sin piedad (Harry Hole 14)». Se comprobaron visualmente en Telegram Web las dos fotos, la legibilidad del caption y los destinos Amazon; ambas entregas quedaron como `sent`. Se repitieron con la misma base de ejemplos y se omitieron sin duplicar. Están identificadas como pruebas y conservan sus fechas futuras reales; no entran en la base de publicaciones diarias. El formato automático diario usa «Novedad de hoy» únicamente cuando la fecha coincide.
+
+La versión local definitiva se actualiza de forma controlada: se pausa la tarea, se respaldan sus módulos, se instala la versión revisada y se vuelve a verificar un ciclo real. El nombre y descripción ya no hablan de pruebas. El alojamiento continúa siendo este ordenador, no un servidor 24/7; esa limitación no desaparece por cerrar el formato editorial.

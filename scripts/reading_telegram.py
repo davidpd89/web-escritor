@@ -1,4 +1,4 @@
-"""Isolated book-channel pilot, based on Bet's HTTP/HTML Telegram transport."""
+"""Daily release channel with verified covers and persistent delivery state."""
 
 from __future__ import annotations
 
@@ -18,6 +18,19 @@ from zoneinfo import ZoneInfo
 
 import requests
 from reading_amazon_market import asin_from_url
+
+
+def cover_url(book: dict) -> str | None:
+    path = book.get("portada_local", "")
+    if (
+        book.get("portada_edicion_verificada") is True
+        and isinstance(path, str)
+        and re.fullmatch(
+            r"/assets/reading-covers/[a-zA-Z0-9_-]+\.(?:webp|jpg|jpeg|png)", path
+        )
+    ):
+        return "https://davidportodiaz.com" + path
+    return None
 
 
 def amazon_url(asin: str, tag: str = "") -> str:
@@ -88,6 +101,7 @@ def from_reading_catalogue(path: Path, channels_path: Path) -> dict:
                 ),
                 "source_url": book["fuente_publicacion_url"],
                 "amazon_url": url,
+                "cover_url": cover_url(book),
             }
         )
     return {
@@ -101,7 +115,7 @@ def from_reading_catalogue(path: Path, channels_path: Path) -> dict:
 def message(book: dict, tag: str) -> str:
     url = book.get("amazon_url") or amazon_url(book["asin"], tag)
     genres = book.get("genres", [])
-    genre_line = f"📖 {escape(', '.join(genres))}\n" if genres else ""
+    genre_line = f"🏷️ {escape(', '.join(genres[:3]))}\n" if genres else ""
     text = (
         f"📚 <b>Novedad de hoy</b>\n\n<b>{escape(book['title'])}</b>\n"
         f"{escape(book['author'])}\n📅 {book['release_date']}\n{genre_line}\n"
@@ -110,17 +124,20 @@ def message(book: dict, tag: str) -> str:
     return text
 
 
-def send(token: str, chat_id: str, text: str) -> tuple[str, int | None]:
+def send(
+    token: str, chat_id: str, text: str, photo_url: str | None = None
+) -> tuple[str, int | None]:
     """Never expose requests exceptions: they can contain the bot token in the URL."""
     try:
+        method = "sendPhoto" if photo_url else "sendMessage"
+        payload = {"chat_id": chat_id, "parse_mode": "HTML"}
+        if photo_url:
+            payload.update(photo=photo_url, caption=text)
+        else:
+            payload.update(text=text, link_preview_options={"is_disabled": True})
         response = requests.post(
-            f"https://api.telegram.org/bot{token}/sendMessage",
-            json={
-                "chat_id": chat_id,
-                "text": text,
-                "parse_mode": "HTML",
-                "link_preview_options": {"is_disabled": True},
-            },
+            f"https://api.telegram.org/bot{token}/{method}",
+            json=payload,
             timeout=15,
         )
         data = response.json()
@@ -128,7 +145,15 @@ def send(token: str, chat_id: str, text: str) -> tuple[str, int | None]:
             mid = data.get("result", {}).get("message_id")
             if type(mid) is int:
                 return "sent", mid
-        # A definitive client rejection can be retried on a later cycle.
+        # A rejected photo has not been delivered; text fallback is safe.
+        if photo_url and response.status_code == 400 and data.get("ok") is False:
+            return send(token, chat_id, text)
+        if response.status_code == 429 and data.get("ok") is False:
+            try:
+                delay = max(1, int(data.get("parameters", {}).get("retry_after", 900)))
+            except (ValueError, TypeError, AttributeError):
+                delay = 900
+            return f"retry:{int(time.time()) + delay}", None
         if 400 <= response.status_code < 500 and data.get("ok") is False:
             return "rejected", None
     except (requests.RequestException, ValueError, AttributeError, TypeError):
@@ -179,6 +204,12 @@ def run(
                 "SELECT status FROM deliveries WHERE chat=? AND asin=?", key
             ).fetchone()
             if row:
+                if row[0].startswith("retry:") and time.time() >= int(
+                    row[0].split(":", 1)[1]
+                ):
+                    db.execute("DELETE FROM deliveries WHERE chat=? AND asin=?", key)
+                    row = None
+            if row:
                 db.commit()
                 results.append(
                     {"chat_id": key[0], "asin": key[1], "status": "skipped:" + row[0]}
@@ -187,7 +218,10 @@ def run(
             db.execute("INSERT INTO deliveries VALUES (?, ?, 'sending', NULL)", key)
             db.commit()
             status, mid = sender(
-                tokens[channel["token_env"]], key[0], message(book, tag)
+                tokens[channel["token_env"]],
+                key[0],
+                message(book, tag),
+                book.get("cover_url"),
             )
             db.execute(
                 "UPDATE deliveries SET status=?, message_id=? WHERE chat=? AND asin=?",
@@ -218,8 +252,8 @@ def smoke(
             1,
         )
 
-    def test_sender(token, chat_id, text):
-        return sender(token, chat_id, test_text(text))
+    def test_sender(token, chat_id, text, photo_url=None):
+        return sender(token, chat_id, test_text(text), photo_url)
 
     results = run(
         test_catalog,
@@ -289,9 +323,11 @@ def main() -> None:
                         (
                             "uncertain",
                             "rejected",
+                            "retry",
                             "skipped:uncertain",
                             "skipped:sending",
                             "skipped:rejected",
+                            "skipped:retry",
                         )
                     )
                     for r in results

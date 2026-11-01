@@ -179,6 +179,7 @@ def cycle(root: Path, live=False):
             "skipped:uncertain",
             "skipped:rejected",
         }
+        or r["status"].startswith(("retry:", "skipped:retry:"))
         for r in deliveries
     )
     report = {
