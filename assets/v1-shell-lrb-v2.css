@@ -8,7 +8,7 @@
   --dp-lrb-nav-h:40px;
 }
 
-/* Utility bar: left = assistant/home/menu, right = buy. */
+/* Utility bar: left = menú/inicio/mapa/asistente, right = RRSS/contacto/donar/comprar. */
 html.v1 .site-header{z-index:calc(var(--z-header) + 3);background:var(--surface-page);border-bottom:1px solid var(--color-border)}
 html.v1 .site-header__inner,
 html.v1 .site-header[data-scrolled="true"] .site-header__inner{min-height:var(--dp-lrb-utility-h);padding-block:0;gap:.28rem}
@@ -60,7 +60,6 @@ html.v1 .header-donate:hover,html.v1 .header-donate:focus-visible{background:#05
 html.v1 .footer-support{margin:1.5rem 0 0;font-size:.82rem;line-height:1.55;color:var(--color-muted)}
 html.v1 .footer-support a{display:inline;min-height:0;font-size:inherit;color:inherit;text-decoration:underline;text-underline-offset:.2em}
 html.v1 .footer-support a:hover,html.v1 .footer-support a:focus-visible{color:#050505}
-html.v1 .site-header__left .explore-trigger{order:3}
 /* Estado A only hides the hamburger on desktop Home, before any scroll
    compacts the header. Below 900px the hamburger is the only entry point
    into Explorar (the territory row and its dropdowns don't fit), so it must
@@ -163,17 +162,22 @@ html.v1[data-lrb-home="true"] .masthead-nav__item:nth-last-child(-n+2)>.masthead
   /* The territory labels are intentionally removed on phone; hamburger/Explore owns global navigation. */
 }
 
-/* RRSS se ve en todos los móviles (petición del autor). Para hacerle sitio sin tocar los 42 px
-   de Asistente y Menú, Inicio y Mapa se compactan y el sobre de contacto, que sigue en el pie,
-   se oculta por debajo de 480px. */
-@media (max-width:479px){
-  html.v1 .site-header__actions .header-contact{display:none}
-  html.v1 .site-header__inner{column-gap:.2rem}
+/* RRSS y el sobre de contacto se ven en todos los móviles (petición del autor). Para hacerles sitio
+   sin perder ningún control, los iconos del header se compactan a 36px por debajo de 560px. */
+@media (max-width:559px){
+  html.v1 .site-header__inner{column-gap:.2rem;padding-inline:max(.5rem,env(safe-area-inset-left)) max(.5rem,env(safe-area-inset-right))}
   html.v1 .site-header__left{gap:0}
   /* Con texto ampliado o espaciado (WCAG 1.4.12) los botones bajan de fila en vez de desbordar. */
   html.v1 .site-header__actions{gap:.15rem;flex-wrap:wrap;justify-content:flex-end;row-gap:.25rem;min-width:0;max-width:100%}
-  html.v1 .header-home,html.v1 .header-sitemap{width:36px}
+  html.v1 .header-search,html.v1 .header-home,html.v1 .header-sitemap,html.v1 .header-contact,html.v1 .explore-trigger{min-width:36px;width:36px}
   html.v1 .header-social,html.v1 .header-buy,html.v1 .header-donate{padding-inline:.32rem;font-size:.64rem;letter-spacing:0}
+}
+/* A 360-389px (móviles pequeños) se afinan un poco más los iconos para seguir en una sola fila. */
+@media (max-width:389px){
+  html.v1 .header-search,html.v1 .header-home,html.v1 .header-sitemap,html.v1 .header-contact,html.v1 .explore-trigger{min-width:34px;width:34px}
+  html.v1 .header-social,html.v1 .header-buy,html.v1 .header-donate{padding-inline:.25rem;font-size:.6rem}
+  html.v1[data-lrb-home="true"] .site-header .header-buy{letter-spacing:0}
+  html.v1 .header-social{padding-inline:.15rem}
 }
 /* Por debajo de 360px (o con texto ampliado) las acciones pasan a una segunda fila alineada a la derecha. */
 @media (max-width:359px){
