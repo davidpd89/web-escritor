@@ -43,7 +43,7 @@ export const EDITORIAL_PUBLIC_FACTS = {
       "organizer": "Diversidad Literaria",
       "year": 2026,
       "holder": "David Porto Díaz",
-      "submittedWork": null
+      "submittedWork": "Piel de sentencia"
     },
     "letrasComoEspada": {
       "result": "Primer Premio",

@@ -200,7 +200,9 @@ try {
     assert.match(await stages.nth(0).innerText(), /Las manecillas del recuerdo/);
     assert.match(await stages.nth(1).innerText(), /Samuel entre mundos/);
     const visibleMain = await page.locator('main').innerText();
-    assert(!/Dónde empieza la jaula|PIEL/i.test(visibleMain), 'catálogo: fuga de obra gated');
+    // «Piel de sentencia» es el microrrelato premiado en Aullidos en papel I, no el proyecto descartado PIEL.
+    const gatedScan = visibleMain.replace(/Piel de sentencia/g, '');
+    assert(!/Dónde empieza la jaula|\bPIEL\b/i.test(gatedScan), 'catálogo: fuga de obra gated');
     assert(await page.locator('a[href="/libros/samuel-entre-mundos/"]').count() > 0, 'Samuel dejó de ser accesible');
     verifyErrors();
     report.navigation.catalogHierarchy = true;
