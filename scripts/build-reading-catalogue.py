@@ -668,7 +668,7 @@ def render_detail_page(template,main,canonical,title,description,schema,b=None):
     return inject_shell_auto(page)
 
 
-def render_author(a,data,books,template):
+def render_author(a,data,books,template,all_authors=()):
     selected=sorted([b for b in books if a['nombre'] in b['autores']], key=lambda b:(b.get('fecha_publicacion') or b.get('fecha_publicacion_parcial') or str(b.get('anio_publicacion','')), b['titulo']), reverse=True)
     canonical=SITE+author_url(a)
     topics={c['id']:c for b in selected for c in categories(data,b) if c['tipo'] in {'genero','tematica'}}
@@ -682,6 +682,15 @@ def render_author(a,data,books,template):
         context+='<p>Géneros y temas presentes en sus libros:</p>'+tags(list(topics.values()))
     if publishers:
         context+='<p>Editoriales: '+', '.join(publisher_link(b) for b in publishers.values())+'.</p>'
+    related=[]
+    if topics and all_authors:
+        for other in all_authors:
+            if other['nombre']==a['nombre']: continue
+            shared=sum(1 for b in books if other['nombre'] in b['autores'] for c in categories(data,b) if c['id'] in topics)
+            if shared: related.append((-shared,other['nombre'],other))
+        related=[o for _,_,o in sorted(related, key=lambda t:(t[0],t[1]))[:6]]
+    if related:
+        context+='<p>Autores con géneros y temas parecidos: '+', '.join('<a href="'+esc(author_url(o))+'">'+esc(o['nombre'])+'</a>' for o in related)+'.</p>'
     context+='</section>'
     items=''
     for b in selected:
@@ -830,7 +839,7 @@ def main():
             outputs[url(b).lstrip('/') + 'index.html'] = render_book(data, b, template)
         active_authors = [a for a in authors if any(a['nombre'] in b['autores'] for b in books)]
         for a in active_authors:
-            outputs[author_url(a).lstrip('/') + 'index.html'] = render_author(a, data, books, template)
+            outputs[author_url(a).lstrip('/') + 'index.html'] = render_author(a, data, books, template, active_authors)
         outputs['recomendaciones/autores/index.html'] = render_authors_index(active_authors, books, template)
         catalogue_publishers = publisher_records(root)
         active_publishers = [p for p in catalogue_publishers if any(b.get('editorial_catalogo_slug') == p['slug'] for b in books)]
