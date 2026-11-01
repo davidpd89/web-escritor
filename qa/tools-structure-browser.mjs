@@ -16,7 +16,7 @@ const routes = {
 
 const metadata = {
   personajes: {
-    title: 'Mapa de relaciones de personajes | Herramientas',
+    title: 'Mapa de relaciones de personajes gratis para novela | David Porto Díaz',
     description: 'Crea un mapa visual de relaciones entre personajes en tu navegador. Sin cuenta ni servidor.',
     canonical: 'https://davidportodiaz.com/herramientas/personajes/',
     h1: 'Mapa de relaciones de personajes',
