@@ -187,7 +187,7 @@ try {
 
       const footerBefore = await style(page.locator('.site-footer'), '::before');
       assert.match(footerBefore.backgroundImage, /linear-gradient/, `${name}: footer sin doble regla Cuaderno`);
-      assert.equal((await style(page.locator('.site-footer .brand__name'))).color, BLUE, `${name}: firma footer no azul`);
+      assert.ok((await page.locator('.site-footer .ft__name').textContent()).trim(), `${name}: footer sin firma de marca`);
 
       measurements.push({ name, width, height, mastheadCols, featureCols, entryCols, continuityCols, newsletterCols, overflow });
 

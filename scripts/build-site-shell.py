@@ -227,19 +227,39 @@ def email_reveal_link(
         attrs.append(f'data-email-label-after="{html.escape(label_after, quote=True)}"')
     return f'<a {" ".join(attrs)}>{html.escape(label)}</a>'
 
-SOCIAL_ROW = (
-    '<div class="social-row">'
-    '<a class="social-icon" href="https://www.instagram.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg></a>'
-    '<a class="social-icon" href="https://www.facebook.com/profile.php?id=61590793667301" target="_blank" rel="noopener noreferrer me" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16.7 3H7.3A4.3 4.3 0 0 0 3 7.3v9.4A4.3 4.3 0 0 0 7.3 21h4.2v-6.6H9.4v-2.6h2.1V9.8c0-2.1 1.3-3.3 3.2-3.3.9 0 1.7.1 1.9.1v2.2h-1.3c-1 0-1.2.5-1.2 1.2v1.7h2.4l-.3 2.6h-2.1V21h2.6a4.3 4.3 0 0 0 4.3-4.3V7.3A4.3 4.3 0 0 0 16.7 3z"/></svg></a>'
-    '<a class="social-icon" href="https://www.tiktok.com/@davidportoescritor" target="_blank" rel="noopener noreferrer me" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M14 3c.4 2.2 2 3.8 4.2 4.1v2.7c-1.5 0-2.9-.4-4.1-1.2v6.1a4.9 4.9 0 1 1-4.2-4.9v2.7a2.2 2.2 0 1 0 1.6 2.1V3h2.5z"/></svg></a>'
-    '<a class="social-icon" href="https://www.threads.com/@davidportodiaz" target="_blank" rel="noopener noreferrer me" aria-label="Threads" title="Threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M12 21c4.4 0 7-2.8 7-7.5C19 8 16.5 4 12 4 8 4 5.5 6.8 5.5 11c0 3 1.8 4.8 4.3 4.8 2 0 3.4-1.2 3.4-3 0-1.4-.9-2.3-2.1-2.3-.9 0-1.5.5-1.7 1.2"/></svg></a>'
-    '<a class="social-icon" href="https://bsky.app/profile/davidportoescritor.bsky.social" target="_blank" rel="noopener noreferrer me" aria-label="Bluesky" title="Bluesky"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 7c-1.6-2.3-4.6-3.6-6.7-3.2-.3 2.3.4 5.4 2 7.1-1.6.1-2.8.8-3 1.7.7.9 2.3 1.3 3.8 1-.9 1.1-1.1 2.6-.5 3.8 1.6.1 3.7-1.1 4.6-2.8.4 1 .9 1.9 1.5 2.6.6-.7 1.1-1.6 1.5-2.6.9 1.7 3 2.9 4.6 2.8.6-1.2.4-2.7-.5-3.8 1.5.3 3.1-.1 3.8-1-.2-.9-1.4-1.6-3-1.7 1.6-1.7 2.3-4.8 2-7.1-2.1-.4-5.1.9-6.7 3.2-.2.3-.4.6-.5 1-.1-.4-.3-.7-.5-1z"/></svg></a>'
-    '<a class="social-icon" href="https://www.pinterest.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Pinterest" title="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2C6.5 2 3 5.6 3 10c0 3.2 1.8 5.1 3 5.7.2.1.4 0 .4-.3l.4-1.5c0-.2 0-.3-.1-.5-.4-.5-.7-1.4-.7-2.3 0-3 2.2-5.7 5.8-5.7 3.1 0 4.9 1.9 4.9 4.5 0 3.4-1.5 5.6-3.5 5.6-1.1 0-2-.9-1.7-2.1.3-1.3.9-2.7.9-3.7 0-.8-.5-1.5-1.4-1.5-1.1 0-2 1.2-2 2.7 0 1 .3 1.7.3 1.7s-1.2 4.9-1.4 5.8c-.4 1.6-.1 3.6 0 3.8.1.1.2.1.3 0 .1-.2 1.5-1.9 2-3.5.1-.4.6-2.3.6-2.3.3.6 1.2 1.1 2.2 1.1 2.9 0 5-2.7 5-6.4C20 5.7 16.5 2 12 2z"/></svg></a>'
-    '<a class="social-icon" href="https://www.linkedin.com/in/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM3.5 9h3v12h-3V9zm6.5 0h2.9v1.6c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.6 2.3 4.6 5.4V21h-3v-6.1c0-1.5-.5-2.5-1.9-2.5-1.4 0-2 1-2 2.4V21h-3V9z"/></svg></a>'
-    '<a class="social-icon" href="https://mastodon.social/@davidportodiaz" target="_blank" rel="noopener noreferrer me" aria-label="Mastodon" title="Mastodon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.052c1.517.362 3.076.545 4.641.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.014.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.36V9.058c0-1.148-.484-1.73-1.452-1.73-1.07 0-1.61.694-1.61 2.06v2.98h-2.346v-2.98c0-1.366-.54-2.06-1.61-2.06-.968 0-1.452.583-1.452 1.73v5.45H6.33V8.874c0-1.148.293-2.06.878-2.734.603-.674 1.393-1.02 2.375-1.02 1.135 0 1.995.436 2.55 1.31l.55.923.55-.922c.555-.875 1.415-1.31 2.55-1.31.982 0 1.772.345 2.375 1.02.585.673.878 1.585.878 2.733v5.634z"/></svg></a>'
-    '<a class="text-action" href="https://www.goodreads.com/author/show/66843136.David_Porto_D_az" target="_blank" rel="noopener noreferrer">Goodreads</a>'
-    "</div>"
-)
+# Perfiles del pie: todos con el mismo botón circular. Para añadir una red
+# basta con otra tupla (nombre, url, svg) en su sitio.
+FOOTER_SOCIAL: list[tuple[str, str, str]] = [
+    ('Instagram', 'https://www.instagram.com/davidportodiaz/',
+     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg>'),
+    ('X', 'https://x.com/davidportodiaz',
+     '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg>'),
+    ('Facebook', 'https://www.facebook.com/profile.php?id=61590793667301',
+     '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16.7 3H7.3A4.3 4.3 0 0 0 3 7.3v9.4A4.3 4.3 0 0 0 7.3 21h4.2v-6.6H9.4v-2.6h2.1V9.8c0-2.1 1.3-3.3 3.2-3.3.9 0 1.7.1 1.9.1v2.2h-1.3c-1 0-1.2.5-1.2 1.2v1.7h2.4l-.3 2.6h-2.1V21h2.6a4.3 4.3 0 0 0 4.3-4.3V7.3A4.3 4.3 0 0 0 16.7 3z"/></svg>'),
+    ('TikTok', 'https://www.tiktok.com/@davidportoescritor',
+     '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M14 3c.4 2.2 2 3.8 4.2 4.1v2.7c-1.5 0-2.9-.4-4.1-1.2v6.1a4.9 4.9 0 1 1-4.2-4.9v2.7a2.2 2.2 0 1 0 1.6 2.1V3h2.5z"/></svg>'),
+    ('Threads', 'https://www.threads.com/@davidportodiaz',
+     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M12 21c4.4 0 7-2.8 7-7.5C19 8 16.5 4 12 4 8 4 5.5 6.8 5.5 11c0 3 1.8 4.8 4.3 4.8 2 0 3.4-1.2 3.4-3 0-1.4-.9-2.3-2.1-2.3-.9 0-1.5.5-1.7 1.2"/></svg>'),
+    ('Bluesky', 'https://bsky.app/profile/davidportoescritor.bsky.social',
+     '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 7c-1.6-2.3-4.6-3.6-6.7-3.2-.3 2.3.4 5.4 2 7.1-1.6.1-2.8.8-3 1.7.7.9 2.3 1.3 3.8 1-.9 1.1-1.1 2.6-.5 3.8 1.6.1 3.7-1.1 4.6-2.8.4 1 .9 1.9 1.5 2.6.6-.7 1.1-1.6 1.5-2.6.9 1.7 3 2.9 4.6 2.8.6-1.2.4-2.7-.5-3.8 1.5.3 3.1-.1 3.8-1-.2-.9-1.4-1.6-3-1.7 1.6-1.7 2.3-4.8 2-7.1-2.1-.4-5.1.9-6.7 3.2-.2.3-.4.6-.5 1-.1-.4-.3-.7-.5-1z"/></svg>'),
+    ('Pinterest', 'https://www.pinterest.com/davidportodiaz/',
+     '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2C6.5 2 3 5.6 3 10c0 3.2 1.8 5.1 3 5.7.2.1.4 0 .4-.3l.4-1.5c0-.2 0-.3-.1-.5-.4-.5-.7-1.4-.7-2.3 0-3 2.2-5.7 5.8-5.7 3.1 0 4.9 1.9 4.9 4.5 0 3.4-1.5 5.6-3.5 5.6-1.1 0-2-.9-1.7-2.1.3-1.3.9-2.7.9-3.7 0-.8-.5-1.5-1.4-1.5-1.1 0-2 1.2-2 2.7 0 1 .3 1.7.3 1.7s-1.2 4.9-1.4 5.8c-.4 1.6-.1 3.6 0 3.8.1.1.2.1.3 0 .1-.2 1.5-1.9 2-3.5.1-.4.6-2.3.6-2.3.3.6 1.2 1.1 2.2 1.1 2.9 0 5-2.7 5-6.4C20 5.7 16.5 2 12 2z"/></svg>'),
+    ('LinkedIn', 'https://www.linkedin.com/in/davidportodiaz/',
+     '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM3.5 9h3v12h-3V9zm6.5 0h2.9v1.6c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.6 2.3 4.6 5.4V21h-3v-6.1c0-1.5-.5-2.5-1.9-2.5-1.4 0-2 1-2 2.4V21h-3V9z"/></svg>'),
+    ('Mastodon', 'https://mastodon.social/@davidportodiaz',
+     '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.052c1.517.362 3.076.545 4.641.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.014.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.36V9.058c0-1.148-.484-1.73-1.452-1.73-1.07 0-1.61.694-1.61 2.06v2.98h-2.346v-2.98c0-1.366-.54-2.06-1.61-2.06-.968 0-1.452.583-1.452 1.73v5.45H6.33V8.874c0-1.148.293-2.06.878-2.734.603-.674 1.393-1.02 2.375-1.02 1.135 0 1.995.436 2.55 1.31l.55.923.55-.922c.555-.875 1.415-1.31 2.55-1.31.982 0 1.772.345 2.375 1.02.585.673.878 1.585.878 2.733v5.634z"/></svg>'),
+    ('Goodreads', 'https://www.goodreads.com/author/show/66843136.David_Porto_D_az',
+     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11.5" cy="9.5" r="4.5"/><path d="M16 5v10a5 5 0 0 1-9.2 2.7"/></svg>'),
+]
+
+
+def render_footer_social() -> str:
+    items = "".join(
+        f'<li><a class="ft-social" href="{url}" target="_blank" rel="noopener noreferrer me" '
+        f'aria-label="{name}" title="{name}">{svg}</a></li>'
+        for name, url, svg in FOOTER_SOCIAL
+    )
+    return f'<ul class="ft__social" aria-label="Redes sociales">{items}</ul>'
 
 # Copy exacto de las 59 páginas escritas a mano, antes de que este builder
 # existiera (recuperado de origin/implementacion-web-2026 con `git show`), no
@@ -755,34 +775,54 @@ def render_support_nudge(current_path: str, has_note: bool = False) -> str:
     )
 
 
+FOOTER_CHEVRON = (
+    '<svg class="ft-group__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+    'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" '
+    'focusable="false"><path d="m6 9 6 6 6-6"/></svg>'
+)
+
+
 def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: str, current_path: str,
                   has_note: bool = False) -> str:
+    """Pie en banda oscura: marca centrada, redes, dos acciones gemelas y
+    los grupos del registro como desplegables (<details name> exclusivos,
+    funcionales sin JS). «Obra» empieza abierto para que los dos libros sean
+    enlaces directos visibles en cualquier pantalla; el resto, cerrados)."""
     groups = footer_groups_with_extras(nav, by_id, extras, rel_path)
-    cols: list[str] = [
-        '      <div>\n'
-        '        <strong class="brand__name">David Porto Díaz</strong>\n'
-        '        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>\n'
-        f'        {SOCIAL_ROW}\n'
-        f'        {email_reveal_link("Contactar por email")}\n'
-        '        <a class="text-action footer-all-networks" href="/redes-sociales/">Ver todas las redes</a>\n'
-        '      </div>'
-    ]
+    navs: list[str] = []
     for group_name, entries in groups.items():
         links = "".join(link(entry, current_path) for entry in entries)
-        cols.append(f'      <nav aria-label="{group_name}"><h2>{group_name}</h2>{links}</nav>')
-
-    legal = [
-        '      <span>© 2026 David Porto Díaz. Todos los derechos reservados.</span>'
-    ]
+        is_open = " open" if group_name == "Obra" else ""
+        navs.append(
+            f'      <nav aria-label="{group_name}"><details class="ft-group" name="ft-nav"{is_open}>'
+            f'<summary><h2><span class="ft-group__title">{group_name}</span></h2>{FOOTER_CHEVRON}</summary>'
+            f'<div class="ft-group__links">{links}</div></details></nav>'
+        )
+    email = email_reveal_link("Escríbeme", css_class="ft-btn", label_after="Escríbeme")
     return (
         '<footer class="site-footer">\n'
-        '  <div class="site-footer__grid">\n'
-        + "\n".join(cols)
-        + '\n  </div>\n'
+        '<div class="ft">\n'
+        '  <div class="ft__inner">\n'
+        '    <div class="ft__brand">\n'
+        '      <span class="ft__ornament" aria-hidden="true"><span></span></span>\n'
+        '      <p class="ft__name">David Porto Díaz</p>\n'
+        '      <p class="ft__role">Escritor</p>\n'
+        '      <p class="ft__tagline">Autor de <em>Las manecillas del recuerdo</em> y <em>Samuel entre mundos</em>.</p>\n'
+        f'      {render_footer_social()}\n'
+        '      <div class="ft__actions">\n'
+        f'        {email}\n'
+        '        <a class="ft-btn" href="/redes-sociales/">Todas mis redes</a>\n'
+        '      </div>\n'
+        '    </div>\n'
+        '    <div class="ft__nav">\n'
+        + "\n".join(navs)
+        + '\n    </div>\n'
+        '    <div class="ft__bottom">\n'
+        '      <p class="ft__legal">© 2026 David Porto Díaz. Todos los derechos reservados.</p>\n'
         + render_support_nudge(current_path, has_note)
-        + '  <p class="footer-legal">\n'
-        + "\n".join(legal)
-        + '\n  </p>\n'
+        + '    </div>\n'
+        '  </div>\n'
+        '</div>\n'
         '</footer>\n'
         + EMAIL_REVEAL_RUNTIME
     )
