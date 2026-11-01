@@ -1,6 +1,7 @@
-"""One autonomous local cycle: current main catalogue -> editorial verification -> Telegram.
+"""Autonomous cycle: current main catalogue -> editorial verification -> Telegram.
 
-Run periodically with a persistent private root. No browser, paid API or Git writes.
+Run locally with SQLite, or on GitHub Actions with durable remote checkpoints.
+No browser or paid provider API. Private runtime files never become public assets.
 """
 
 from __future__ import annotations
@@ -27,7 +28,7 @@ from reading_editorial_sources import (
 from reading_generic_source import generic_edition, reviewed_hosts
 from reading_intake_core import isbn13, normalize_text
 from reading_planeta_source import planeta_edition
-from reading_telegram import amazon_url, from_reading_catalogue, run
+from reading_telegram import amazon_url, from_reading_catalogue, run, smoke
 
 MAIN = "https://raw.githubusercontent.com/davidpd89/web-escritor/main/data/"
 
@@ -134,7 +135,7 @@ def verified_snapshot(catalogue, intake, today, fetch):
     return result, report
 
 
-def cycle(root: Path, live=False):
+def cycle(root: Path, live=False, github_state=False, test_asin=None):
     root = root.resolve()
     # The scheduler serializes cycles, in addition to SQLite delivery claims.
     catalogue = main_json("reading-catalogue.json")
@@ -164,12 +165,24 @@ def cycle(root: Path, live=False):
         {"date": today.isoformat(), **verification},
     )
     catalog = from_reading_catalogue(root / "catalogue.json", root / "channels.json")
+    store = None
     if live:
         # This private token file never enters command arguments, reports or Git.
         os.environ["READING_TELEGRAM_BOT_TOKEN"] = (
             (root / "bot-token.txt").read_text(encoding="utf-8").strip()
         )
-    deliveries = run(catalog, today, root / "deliveries.db", live)
+        if github_state:
+            from reading_telegram_state import remote_state
+
+            store = remote_state("smoke" if test_asin else "daily")
+    db_path = root / ("smoke.db" if test_asin else "deliveries.db")
+    if store:
+        store.restore(db_path, catalog)
+    checkpoint = store.checkpoint if store else None
+    if test_asin:
+        deliveries = smoke(catalog, test_asin, db_path, live, checkpoint=checkpoint)
+    else:
+        deliveries = run(catalog, today, db_path, live, checkpoint=checkpoint)
     attention = any(
         r["status"]
         in {
@@ -201,9 +214,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, required=True)
     parser.add_argument("--send", action="store_true")
+    parser.add_argument("--github-state", action="store_true")
+    parser.add_argument("--test-asin")
     args = parser.parse_args()
     try:
-        report = cycle(args.root, args.send)
+        report = cycle(args.root, args.send, args.github_state, args.test_asin)
         if report["status"] == "needs_attention":
             return 2
         return 0

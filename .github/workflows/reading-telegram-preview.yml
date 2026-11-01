@@ -5,10 +5,13 @@ on:
     paths:
       - 'scripts/reading_telegram.py'
       - 'scripts/reading_telegram_worker.py'
+      - 'scripts/reading_telegram_state.py'
       - 'scripts/install-reading-telegram-task.ps1'
       - 'scripts/requirements-telegram.txt'
       - 'tests/test_reading_telegram.py'
       - 'tests/test_reading_telegram_worker.py'
+      - 'tests/test_reading_telegram_state.py'
+      - '.github/workflows/reading-telegram-publish.yml'
       - 'data/reading-telegram.example.json'
       - '.github/workflows/reading-telegram-preview.yml'
 permissions:

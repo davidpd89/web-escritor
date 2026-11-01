@@ -168,6 +168,7 @@ def run(
     live: bool = False,
     tag: str = "",
     sender=send,
+    checkpoint=None,
 ) -> list[dict]:
     due = [b for b in catalog["books"] if b["release_date"] == today.isoformat()]
     jobs = [
@@ -217,6 +218,10 @@ def run(
                 continue
             db.execute("INSERT INTO deliveries VALUES (?, ?, 'sending', NULL)", key)
             db.commit()
+            if checkpoint:
+                checkpoint(
+                    db_path
+                )  # Must be durable remotely BEFORE the HTTP side effect.
             status, mid = sender(
                 tokens[channel["token_env"]],
                 key[0],
@@ -228,13 +233,20 @@ def run(
                 (status, mid, *key),
             )
             db.commit()
+            if checkpoint:
+                checkpoint(db_path)
             results.append({"chat_id": key[0], "asin": key[1], "status": status})
             time.sleep(1)  # Conservative pacing for this small pilot.
     return results
 
 
 def smoke(
-    catalog: dict, asin: str, db_path: Path, live: bool = False, sender=send
+    catalog: dict,
+    asin: str,
+    db_path: Path,
+    live: bool = False,
+    sender=send,
+    checkpoint=None,
 ) -> list[dict]:
     """Exercise one reviewed edition without claiming it was released today.
 
@@ -261,6 +273,7 @@ def smoke(
         db_path,
         live,
         sender=test_sender,
+        checkpoint=checkpoint,
     )
     for result in results:
         if "text" in result:
