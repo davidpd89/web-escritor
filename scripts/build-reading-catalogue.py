@@ -281,6 +281,7 @@ TEXTS_DIR = 'data/reading-texts'
 OWN_TEXTS = {}
 # Títulos visibles de cada módulo de orientación (scripts/reading-texts.py decide cuáles admite cada familia).
 MODULE_TITLES = {
+    'para_quien': 'Para quién es',
     'edad_y_sensibilidad': 'Edad recomendada y contenido',
     'encaje_documentado': 'Qué tipo de lectura propone',
     'esta_edicion': 'Qué distingue esta edición',
@@ -288,6 +289,8 @@ MODULE_TITLES = {
     'contenido_y_uso': 'Qué incluye y cómo está organizado',
     'como_se_utiliza': 'Cómo se juega con este libro',
     'edad_y_formato': 'Edad y características del libro',
+    'que_formato_elegir': 'Qué formato elegir',
+    'lecturas_afines': 'Con qué otros libros compararlo',
 }
 
 
@@ -303,14 +306,26 @@ def load_own_texts(root):
     return texts
 
 
-def own_text_section(b):
+def own_block_html(x, live):
+    """Un módulo; las comparaciones enlazan cada título a su ficha y desaparecen si un afín ya no está publicado."""
+    text = esc(x['texto'])
+    for i in x.get('enlaces', []):
+        if i not in live:
+            return ''
+        title = esc(live[i]['titulo'])
+        text = text.replace(title, '<a href="' + url(live[i]) + '">' + title + '</a>', 1)
+    return '<h3>' + MODULE_TITLES[x['modulo']] + '</h3><p>' + text + '</p>'
+
+
+def own_text_section(b, data=None):
     """«Antes de elegir este libro»: solo aparece si el libro tiene módulos validados."""
     t = OWN_TEXTS.get(b['id'])
-    if not t:
+    live = {x['id']: x for x in (data or {}).get('libros', []) if x['estado'] == 'publicado'}
+    blocks = ''.join(own_block_html(x, live) for x in t['bloques']) if t else ''
+    if not blocks:
         return ''
-    return ('<section class="catalogue-own-text"><h2>Antes de elegir este libro</h2>' + ''.join(
-        '<h3>' + MODULE_TITLES[x['modulo']] + '</h3><p>' + esc(x['texto']) + '</p>' for x in t['bloques'])
-        + '</section><h2 class="catalogue-synopsis-heading">Sinopsis de la editorial</h2>')
+    return ('<section class="catalogue-own-text"><h2>Antes de elegir este libro</h2>' + blocks
+            + '</section><h2 class="catalogue-synopsis-heading">Sinopsis de la editorial</h2>')
 
 
 def age_phrase(age):
@@ -706,7 +721,7 @@ def render_book(data,b,template):
     canonical=SITE+url(b)
     title=book_title(b)
     description=own_meta_description(b) or book_meta_description(data,b)
-    own_before=own_text_section(b)
+    own_before=own_text_section(b,data)
     cats=categories(data,b)
     upcoming=b in upcoming_books([book for book in data['libros'] if book['estado'] == 'publicado'])
     rows=[('Edición',b['edicion'].split(' · ')[0]),('ISBN-13',b.get('isbn13')),('Idioma',LANGUAGES.get(b.get('idioma'),b.get('idioma')))]
