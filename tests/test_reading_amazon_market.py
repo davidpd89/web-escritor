@@ -9,7 +9,7 @@ from unittest.mock import patch
 from urllib.error import HTTPError
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents
+from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents,discovery_index
 
 NOW=datetime(2026,10,21,10,tzinfo=timezone.utc)
 BOOK={'id':'lib-1','titulo':'Coraline','autores':['Neil Gaiman'],
@@ -174,6 +174,20 @@ class AmazonFormatDiscoveryTests(unittest.TestCase):
         self.assertEqual(sorted(seen),sorted(b['id'] for b in many['libros']),'cada libro una vez por barrido')
         _,stats=refresh_offers(many,{'offers':[]},lambda b:response(),'contrato-21',NOW,budget=3)
         self.assertEqual(stats['requests'],3,'nunca por encima del límite de Amazon')
+
+    def test_books_without_ebook_are_searched_in_the_kindle_store(self):
+        # Ten results across all departments miss the Kindle of a saga's fourth volume.
+        self.assertEqual(discovery_index(dict(BOOK,formatos_compra=[{'formato':'tapa-blanda'}])),'KindleStore')
+        self.assertEqual(discovery_index(dict(BOOK,formatos_compra=[{'formato':'ebook'}])),'All')
+        class Provider:
+            def __init__(self): self.searched=[]
+            def __call__(self,book): return response()
+            def discover(self,book): self.searched.append(book['id']); return {'searchResult':{'items':[]}}
+        books=[dict(BOOK,id=f'lib-{i}',precios_amazon_revision='2026-10-20',formatos_amazon_buscados='2026-10-20',formatos_compra=[]) for i in range(14)]
+        books[9].pop('formatos_amazon_buscados')
+        provider=Provider()
+        refresh_offers({'libros':books},{'offers':[]},provider,'contrato-21',NOW)
+        self.assertEqual(provider.searched,['lib-9'],'el libro sin buscar no espera a su turno de precio')
 
     def test_known_asins_are_priced_ten_per_request_and_formats_searched_once(self):
         class Provider:

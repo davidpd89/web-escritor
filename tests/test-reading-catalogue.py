@@ -133,7 +133,9 @@ with tempfile.TemporaryDirectory() as tmp:
     escaped = m.render_book(data, b, template)
     assert '<script>alert' not in escaped and '\\u003cscript' in escaped
     assert m.book_group([{'id': 'cocina'}]) == 'cocina' and m.book_group([{'id': 'adultos'}, {'id': 'fantasia'}]) == 'novela'
-    assert m.book_group([{'id': 'cocina'}, {'id': 'desarrollo-personal'}]) == 'cocina' and m.book_group([{'id': 'adultos'}]) == 'otros'
+    assert m.book_group([{'id': 'cocina'}, {'id': 'desarrollo-personal'}]) == 'cocina' and m.book_group([{'id': 'adultos'}]) == 'ensayo'
+    assert m.book_group([{'id': 'poesia'}]) == 'poesia' and m.book_group([{'id': 'tema-viajes'}]) == 'viajes'
+    assert m.book_group([{'id': 'biografias-y-memorias'}]) == 'ensayo' and m.book_group([{'id': 'tema-amor-y-pareja'}]) == 'novela'
     future = copy.deepcopy(b)
     future.update(fecha_publicacion='2999-01-01', fecha_actualizacion='2026-10-21')
     page = m.render_book(data, future, template)

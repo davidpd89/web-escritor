@@ -90,8 +90,8 @@
         if (thin || isbn) {
           const ref = document.createElement('a'); ref.href = thin ? thin.url : 'https://www.goodreads.com/book/isbn/' + isbn; ref.target = '_blank'; ref.rel = 'noopener noreferrer';
           ref.className = 'catalogue-rating__ref'; ref.dataset.ratingState = thin ? 'insufficient' : 'unavailable';
-          ref.textContent = thin ? ratingLabel(thin) + ' · menos de 5 valoraciones' : 'Goodreads · consultar ficha';
-          ref.title = thin ? 'Muestra demasiado pequeña para mostrar una nota. Consultado el ' + new Date(thin.actualizado_en).toLocaleDateString('es-ES') : 'Sin valoración verificada en este catálogo';
+          ref.textContent = thin ? ratingLabel(thin) + ' · menos de 5 valoraciones' : 'Goodreads · sin valoraciones aún';
+          ref.title = thin ? 'Muestra demasiado pequeña para mostrar una nota. Consultado el ' + new Date(thin.actualizado_en).toLocaleDateString('es-ES') : 'Todavía no hay valoraciones verificadas de esta edición';
           box.append(ref);
         }
         continue;
@@ -125,6 +125,7 @@
   }
   function renderFacets(v) {
     if (!form) return;
+    const typed = pick(v.grupo).length > 0;
     for (const k of FACETS) {
       // El generador omite los grupos sin ninguna categoría con libros.
       const group = form.querySelector('[data-facet-group="' + k + '"]');
@@ -135,7 +136,8 @@
       for (const box of own) {
         const total = cards.some(card => facetValues(card, k).has(box.value));
         const count = sets.filter(set => set.has(box.value)).length, label = box.closest('label');
-        label.hidden = !total && !box.checked;
+        // Con un tipo de libro elegido solo quedan las opciones de ese tipo (Novela → sus géneros).
+        label.hidden = (!total || (typed && k !== 'grupo' && !count)) && !box.checked;
         label.querySelector('[data-facet-count]').textContent = '(' + count + ')';
         box.disabled = !count && !box.checked;
         label.classList.toggle('is-empty', box.disabled);
@@ -244,7 +246,7 @@
     if (!quiz) return;
     const panel = quiz.querySelector('.catalogue-quiz__panel');
     panel.replaceChildren();
-    let criteria = {}, index = 0, history = [], started = false;
+    let criteria = {}, index = 0, history = [], started = false, done = false;
     const optionsFrom = name => FACETS.includes(name) ? boxes.filter(b => b.dataset.facet === name).map(b => ({label: b.nextElementSibling.textContent, values: {[name]: b.value}})) : [...(fields.find(f => f.dataset.filter === name)?.options || [])].filter(o => o.value && !o.disabled).map(o => ({label: o.textContent, values: {[name]: o.value}}));
     const steps = [
       {key: 'novedad', question: '¿Buscas algo recién publicado?', options: () => [
@@ -265,7 +267,7 @@
       const element = document.createElement('button'); element.type = 'button'; element.textContent = label;
       element.addEventListener('click', action); return element;
     };
-    const reset = () => { criteria = {}; index = 0; history = []; render(); };
+    const reset = () => { criteria = {}; index = 0; history = []; done = false; render(); };
     function render() {
       panel.replaceChildren();
       while (index < steps.length && !usable(steps[index]).length) index++;
@@ -273,7 +275,12 @@
       const status = document.createElement('p'); status.className = 'catalogue-quiz__progress'; status.setAttribute('role', 'status');
       const heading = document.createElement('h2'); heading.tabIndex = -1;
       const choices = document.createElement('div'); choices.className = 'catalogue-quiz__choices';
-      if (index < steps.length) {
+      if (done) {
+        // El test sigue abierto con los resultados aplicados: desde aquí se vuelve a empezar o se quitan los filtros.
+        status.textContent = 'Resultados del test aplicados · ' + cards.filter(card => matches(card, values())).length + ' libros';
+        heading.textContent = 'Estos son tus libros';
+        choices.append(button('Restablecer filtros', () => { form.reset(); reset(); }));
+      } else if (index < steps.length) {
         const total = history.length + steps.slice(index).filter(step => usable(step).length).length;
         status.textContent = 'Pregunta ' + (history.length + 1) + ' de ' + total + ' · ' + count + ' libros disponibles';
         heading.textContent = steps[index].question;
@@ -288,12 +295,12 @@
         if (count) choices.append(button('Ver mis resultados', () => {
           for (const field of fields) field.value = criteria[field.dataset.filter] || (field.dataset.filter === 'orden' ? 'editorial' : '');
           for (const box of boxes) box.checked = pick(criteria[box.dataset.facet]).includes(box.value);
-          currentPage = 1; apply(); quiz.open = false;
+          currentPage = 1; apply(); done = true; render();
           const result = root.querySelector('.catalogue-results-head h2'); result.tabIndex = -1; result.focus({preventScroll: true}); result.scrollIntoView({block: 'start'});
         }));
       }
       const actions = document.createElement('div'); actions.className = 'catalogue-filter-actions';
-      if (history.length) actions.append(button('← Volver', () => { const previous = history.pop(); index = previous.index; criteria = previous.criteria; render(); }));
+      if (history.length) actions.append(button('← Volver', () => { const previous = history.pop(); done = false; index = previous.index; criteria = previous.criteria; render(); }));
       actions.append(button('Empezar de nuevo', reset));
       panel.append(status, heading, choices, actions); heading.focus({preventScroll: true});
     }
@@ -310,7 +317,11 @@
       refine.addEventListener('keydown', event => { if (event.key === 'Escape' && getComputedStyle(refineToggle).display !== 'none') { event.preventDefault(); setRefine(false); refineToggle.focus(); } });
     }
     fields.forEach(f => f.addEventListener('input', () => { currentPage = 1; apply(); }));
-    boxes.forEach(b => b.addEventListener('change', () => { currentPage = 1; apply(); }));
+    boxes.forEach(b => b.addEventListener('change', () => {
+      currentPage = 1; apply();
+      // Al elegir el tipo se abre solo «Género»; el resto de grupos se pliega para no abrumar.
+      if (b.dataset.facet === 'grupo' && b.checked) for (const group of form.querySelectorAll('[data-facet-group]')) if (group.dataset.facetGroup !== 'grupo') group.open = group.dataset.facetGroup === 'genero' || group.querySelector('input:checked') !== null;
+    }));
     form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; apply(); }); form.addEventListener('reset', () => setTimeout(() => { currentPage = 1; apply(); }, 0)); window.addEventListener('hashchange', restore); restore();
   }
   const refresh = () => { renderNovelty(); renderMarket(); apply(false); };

@@ -91,7 +91,7 @@ class MultiBookContractTests(unittest.TestCase):
             self.assertIn(b["titulo"], html)
             self.assertIn('data-purchase-format="ebook"', html)
             self.assertIn('rel="sponsored nofollow noopener noreferrer"', html)
-            self.assertIn('href="' + b["url_amazon_afiliada"] + '"', html)
+            self.assertIn('href="' + b["url_amazon_afiliada"] + '&amp;language=es_ES"', html)
             self.assertNotIn("Segundo libro de prueba" if b["id"] == "contrato-001"
                              else "Primer libro de prueba", html)
         self.assertEqual(len({builder.url(b) for b in books}), 3)
