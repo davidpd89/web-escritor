@@ -513,6 +513,12 @@ def amazon_action_label(b):
     return 'Comprar en Amazon'
 
 
+def primary_format(b):
+    """Formato de la caja al que lleva el botón principal (None si es búsqueda o un enlace sin formato)."""
+    destination = amazon_destination(b)
+    return next((o['formato'] for o in purchase_formats(b) if amazon_es(o['url']) == destination), None)
+
+
 LANGUAGES = {'es': 'Español', 'ca': 'Català', 'gl': 'Galego', 'eu': 'Euskara', 'en': 'Inglés', 'fr': 'Francés', 'it': 'Italiano', 'pt': 'Portugués', 'de': 'Alemán'}
 
 
@@ -563,12 +569,13 @@ def amazon_es(link):
 def format_box(b, compact=False):
     """Los cuatro formatos siempre en el mismo orden: precio de Amazon o ✕ si Amazon no tiene esa edición."""
     by_format = {o['formato']: o for o in purchase_formats(b)}
+    main = None if compact else primary_format(b)
     cells = []
     for f in BOX_ORDER:
         o = by_format.get(f)
         if o:
             price = money(o['precio_centimos']) if o.get('precio_centimos') else 'Ver precio'
-            cells.append(f'<li><a class="catalogue-format" data-purchase-format="{f}" href="{esc(amazon_es(o["url"]))}" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="{FORMATS[f]}: {price} en Amazon (otra pestaña)"><span>{FORMATS[f]}</span><strong>{price}</strong></a></li>')
+            cells.append(f'<li><a class="catalogue-format{" is-primary" if f == main else ""}" data-purchase-format="{f}" href="{esc(amazon_es(o["url"]))}" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="{FORMATS[f]}: {price} en Amazon (otra pestaña)"><span>{FORMATS[f]}</span><strong>{price}</strong></a></li>')
         else:
             cells.append(f'<li><span class="catalogue-format is-missing" data-missing-format="{f}" aria-label="{FORMATS[f]}: no disponible en Amazon"><span>{FORMATS[f]}</span><strong aria-hidden="true">✕</strong></span></li>')
     heading = '' if compact else '<h2>Formatos y precios en Amazon</h2>'
@@ -749,7 +756,8 @@ def render_book(data,b,template):
     if external:
         extra+='<details class="catalogue-details"><summary>Opiniones y referencias externas ('+str(len(external))+')</summary><ul>'+''.join(f'<li><a href="{esc(r["url"])}" target="_blank" rel="noopener noreferrer">{esc(r["titulo"])}</a></li>' for r in external)+'</ul></details>'
     destination=amazon_destination(b)
-    buy=format_box(b)+(('<a class="catalogue-buy-link" href="'+esc(destination)+'" target="_blank" rel="sponsored nofollow noopener noreferrer">'+esc(amazon_action_label(b))+' <span aria-hidden="true">↗</span></a>') if destination else '')
+    main_format=primary_format(b)
+    buy=format_box(b)+(('<a class="catalogue-buy-link" href="'+esc(destination)+'" target="_blank" rel="sponsored nofollow noopener noreferrer">'+esc(amazon_action_label(b)+(' · '+FORMATS[main_format] if main_format else ''))+' <span aria-hidden="true">↗</span></a>') if destination else '')
     cover=image(b, sizes='(max-width: 600px) 65vw, 400px')
     amazon_href = amazon_destination(b)
     if amazon_href:

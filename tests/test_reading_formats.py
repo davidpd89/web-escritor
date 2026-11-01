@@ -31,6 +31,16 @@ class FormatBoxTest(unittest.TestCase):
         self.assertIn('catalogue-formats--card', card)
         self.assertNotIn('<h2>', card)
 
+    def test_main_button_names_and_highlights_the_format_it_buys(self):
+        self.assertEqual(m.primary_format(BOOK), 'tapa-blanda')
+        box = m.format_box(BOOK)
+        self.assertEqual(box.count('is-primary'), 1)
+        self.assertIn('catalogue-format is-primary" data-purchase-format="tapa-blanda"', box)
+        self.assertNotIn('is-primary', m.format_box(BOOK, compact=True))
+        search = {**BOOK, 'formatos_compra': [], 'amazon_busqueda_isbn': 'https://www.amazon.es/s?k=9788433929000&tag=davidporto-21'}
+        self.assertIsNone(m.primary_format(search))
+        self.assertNotIn('is-primary', m.format_box(search))
+
     def test_book_without_amazon_formats_shows_four_crosses(self):
         self.assertEqual(m.format_box({**BOOK, 'formatos_compra': []}).count('is-missing'), 4)
 

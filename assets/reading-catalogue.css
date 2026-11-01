@@ -198,6 +198,7 @@ html.v1 .catalogue-formats ul{display:grid;grid-template-columns:repeat(4,minmax
 html.v1 .catalogue-format{display:flex;flex-direction:column;justify-content:center;gap:.1rem;min-height:56px;padding:.45rem .6rem;border:2px solid var(--catalogue-gold);border-radius:10px;background:#fffaf0;color:#5a5650;font:600 .72rem/1.25 var(--font-ui);text-decoration:none;}
 html.v1 .catalogue-format strong{color:var(--catalogue-deep,#1d3a5f);font:700 1.1rem/1.2 var(--font-ui);white-space:nowrap;}
 html.v1 a.catalogue-format:hover,html.v1 a.catalogue-format:focus-visible{background:var(--catalogue-gold);color:var(--catalogue-deep,#1d3a5f);}
+html.v1 .catalogue-format.is-primary{border-color:#c7861a;background:#fff1cc;box-shadow:inset 0 0 0 1px #c7861a;}
 html.v1 .catalogue-format.is-missing{border:1px dashed var(--catalogue-rule);background:#f4f4f2;color:#67635e;}
 html.v1 .catalogue-format.is-missing strong{color:#8a8580;font-weight:600;}
 html.v1 .catalogue-formats--card{margin:.35rem 0 0;}
