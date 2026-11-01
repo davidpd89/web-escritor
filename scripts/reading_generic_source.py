@@ -56,8 +56,9 @@ MONTHS = {'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4, 'mayo': 5, 'junio': 
 SUBJECT_RULES = (
     (r'\b(poemas?|poesia|poetico|poemario)\b', 'Poesía'),
     (r'\b(cuentos|relatos)\b', 'Narrativa'),
-    (r'\b(novela|narrativa|trilogia|saga)\b', 'Narrativa'),
-    (r'\b(memorias|autobiograf\w+|biografia|diarios?)\b', 'Biografías y memorias'),
+    (r'\b(novela|narrativa|trilogia|saga|thriller|detectives?)\b', 'Narrativa'),
+    # «diarios secretos» o «sus memorias» salen en tramas de ficción: solo cuenta el género nombrado.
+    (r'\b(autobiograf\w+|biografia|libro de memorias)\b', 'Biografías y memorias'),
     # «historia», «estudio» o «análisis» salen en casi cualquier sinopsis de novela: no deciden la materia.
     (r'\b(ensayo|ensayos|filosofia|psicoanalisis)\b', 'Ensayo'),
 )
