@@ -1,5 +1,5 @@
 /* Editorial catalogue: the same blue/gold rules and typography as Convocatorias. */
-@font-face{font-family:CatalogueNovelty;src:url('/assets/fonts/yellowtail-normal-400-latin.woff2') format('woff2');font-style:normal;font-weight:400;font-display:block;}
+@font-face{font-family:CatalogueNovelty;src:url('/assets/fonts/yellowtail-catalogue-subset.woff2') format('woff2');font-style:normal;font-weight:400;font-display:block;}
 html.v1 .reading-catalogue .catalogue-novelty{color:#946500;font-family:CatalogueNovelty,cursive;font-size:1.35rem;font-weight:400;text-transform:none;letter-spacing:0;visibility:hidden;}
 html.v1 .reading-catalogue.catalogue-fonts-ready .catalogue-novelty{visibility:visible;}
 html.v1 .reading-catalogue.catalogue-fonts-failed .catalogue-novelty{visibility:visible;font-family:var(--font-ui);font-size:.9rem;font-weight:700;}
@@ -122,7 +122,6 @@ html.v1 .catalogue-refine-toggle{display:none!important;}
 }
 html.v1 .catalogue-tags--compact{gap:.3rem;margin:.5rem 0;}
 html.v1 .catalogue-tags--compact a{min-height:28px;padding:.1rem .5rem;font-size:.75rem;border-radius:999px;}
-html.v1 .catalogue-extra-tags>summary{min-height:44px;color:var(--catalogue-blue);cursor:pointer;font:600 .75rem/1.5 var(--font-ui);display:list-item;align-content:center;}
 html.v1 .catalogue-card__buy{box-sizing:border-box;justify-content:center;margin-top:.5rem;font-size:.78rem;gap:.5rem;}
 html.v1 .catalogue-source{font:400 .75rem/1.5 var(--font-ui);margin-block:.4rem .8rem;}
 html.v1 .catalogue-source a{color:var(--catalogue-blue);display:inline-flex;align-items:center;min-height:44px;}
