@@ -16,6 +16,7 @@
   // Filtros con varias opciones a la vez (OR dentro de cada uno, AND entre ellos), como casillas.
   const FACETS = ['grupo', 'genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca', 'formato'];
   const boxes = form ? [...form.querySelectorAll('input[data-facet]')] : [];
+  const FIXED_ORDER = ['grupo', 'edad', 'formato'];
   const pick = x => Array.isArray(x) ? x : x ? [x] : [];
   const collator = new Intl.Collator('es', { sensitivity: 'base', numeric: true });
   let market = { offers: [], ratings: [] };
@@ -64,10 +65,17 @@
   }
   const values = () => ({...Object.fromEntries(fields.map(f => [f.dataset.filter, f.disabled ? '' : f.value])), ...Object.fromEntries(FACETS.map(k => [k, boxes.filter(b => b.dataset.facet === k && b.checked).map(b => b.value)]))});
   const matchingOffers = (card, v) => offersFor(card.dataset.bookId).filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.descuento || discount(o) >= Number(v.descuento)));
-  // El precio que se filtra y ordena es el PVP de la edición publicada por la editorial: siempre disponible y comparable.
-  const pvpOf = card => Number(card.dataset.pvp) || null;
-  const priceOk = (card, v) => { const c = pvpOf(card); return (!v.precio_min || (c !== null && c >= Math.round(Number(v.precio_min) * 100))) && (!v.precio_max || (c !== null && c <= Math.round(Number(v.precio_max) * 100))); };
-  const minPrice = card => pvpOf(card);
+  // Precio de Amazon por formato («tapa-dura:1700 ebook:999»): se filtra y ordena dentro de un mismo formato
+  // para no mezclar un Kindle con una tapa dura.
+  const formatPrices = card => new Map((card.dataset.formatPrices || '').split(' ').filter(Boolean).map(x => x.split(':')).map(([f, c]) => [f, Number(c)]));
+  // El formato del precio es el elegido junto al precio; si no hay, los marcados en «Formato»; si tampoco, cualquiera.
+  const priceFormats = v => v.precio_formato ? [v.precio_formato] : pick(v.formato);
+  const priceOf = (card, formats) => { const prices = [...formatPrices(card)].filter(([f]) => !formats.length || formats.includes(f)).map(([, c]) => c); return prices.length ? Math.min(...prices) : null; };
+  const priceOk = (card, v) => {
+    if (!v.precio_min && !v.precio_max) return true;
+    const min = v.precio_min ? Math.round(Number(v.precio_min) * 100) : 0, max = v.precio_max ? Math.round(Number(v.precio_max) * 100) : Infinity, formats = priceFormats(v);
+    return [...formatPrices(card)].some(([f, c]) => (!formats.length || formats.includes(f)) && c >= min && c <= max);
+  };
   function renderMarket() {
     offersIndex = new Map(); ratingsIndex = new Map();
     for (const offer of market.offers.filter(validOffer)) {
@@ -144,11 +152,11 @@
         label.dataset.count = count;
       }
       const chosen = own.filter(b => b.checked).length;
-      // Marcadas primero; después las que tienen libros (de más a menos, salvo el tipo de libro, que conserva su orden) y al final las vacías.
+      // Marcadas primero; después las que tienen libros (de más a menos, salvo tipo, edad y formato, que conservan su orden natural) y al final las vacías.
       const list = group.querySelector('.catalogue-facet__options'), labels = own.map(b => b.closest('label'));
       labels.forEach((label, i) => { if (label.dataset.order == null) label.dataset.order = i; });
       const rank = label => label.querySelector('input').checked ? 0 : label.classList.contains('is-empty') ? 2 : 1;
-      const ordered = [...labels].sort((a, b) => rank(a) - rank(b) || (k === 'grupo' ? 0 : b.dataset.count - a.dataset.count) || a.dataset.order - b.dataset.order);
+      const ordered = [...labels].sort((a, b) => rank(a) - rank(b) || (FIXED_ORDER.includes(k) ? 0 : b.dataset.count - a.dataset.count) || a.dataset.order - b.dataset.order);
       if (ordered.some((label, i) => list.children[i] !== label)) list.prepend(...ordered);
       const shown = ordered.filter(label => !label.hidden), limit = 8, expanded = group.dataset.expanded === 'true';
       let more = group.querySelector('[data-facet-more]');
@@ -182,7 +190,7 @@
         case 'autor': return collator.compare(a.dataset.author, b.dataset.author);
         case 'editorial': case 'fecha_desc': case 'fecha_asc': return nullable(dateOf(a), dateOf(b), v.orden !== 'fecha_asc');
         case 'paginas_asc': case 'paginas_desc': return nullable(Number(a.dataset.pages) || null, Number(b.dataset.pages) || null, v.orden === 'paginas_desc');
-        case 'precio_asc': case 'precio_desc': return nullable(minPrice(a, v), minPrice(b, v), v.orden === 'precio_desc');
+        case 'precio_tapa-dura': case 'precio_tapa-blanda': case 'precio_ebook': case 'precio_audiolibro': { const format = [v.orden.slice(7)]; return nullable(priceOf(a, format), priceOf(b, format)); }
         case 'valoracion_desc': return nullable(ratingFor(a.dataset.bookId)?.puntuacion ?? null, ratingFor(b.dataset.bookId)?.puntuacion ?? null, true);
         default: return 0;
       }
@@ -237,8 +245,18 @@
       });
       return button;
     };
-    const position = document.createElement('span'); position.textContent = 'Página ' + currentPage + ' de ' + pages;
-    nav.append(move('← Anterior', currentPage - 1, currentPage === 1), position, move('Siguiente →', currentPage + 1, currentPage === pages));
+    // Números pulsables: primera, última y las vecinas de la actual; el resto se resume con «…».
+    const numbers = document.createElement('span'); numbers.className = 'catalogue-pagination__pages';
+    let last = 0;
+    for (let page = 1; page <= pages; page++) {
+      if (page !== 1 && page !== pages && Math.abs(page - currentPage) > 1) continue;
+      if (page - last > 1) { const gap = document.createElement('span'); gap.className = 'catalogue-pagination__gap'; gap.setAttribute('aria-hidden', 'true'); gap.textContent = '…'; numbers.append(gap); }
+      const number = move(String(page), page, false); number.setAttribute('aria-label', 'Página ' + page);
+      if (page === currentPage) number.setAttribute('aria-current', 'page');
+      numbers.append(number); last = page;
+    }
+    const position = document.createElement('span'); position.className = 'catalogue-pagination__position'; position.textContent = 'Página ' + currentPage + ' de ' + pages;
+    nav.append(move('← Anterior', currentPage - 1, currentPage === 1), numbers, move('Siguiente →', currentPage + 1, currentPage === pages), position);
   }
   function setupQuiz() {
     if (!form || !cards.length) return;
@@ -249,6 +267,7 @@
     let criteria = {}, index = 0, history = [], started = false, done = false;
     const optionsFrom = name => FACETS.includes(name) ? boxes.filter(b => b.dataset.facet === name).map(b => ({label: b.nextElementSibling.textContent, values: {[name]: b.value}})) : [...(fields.find(f => f.dataset.filter === name)?.options || [])].filter(o => o.value && !o.disabled).map(o => ({label: o.textContent, values: {[name]: o.value}}));
     const steps = [
+      {key: 'grupo', question: '¿Qué tipo de libro buscas?', options: () => optionsFrom('grupo')},
       {key: 'novedad', question: '¿Buscas algo recién publicado?', options: () => [
         {label: 'Sí, una novedad', values: {novedad: '15'}},
         {label: 'Un próximo lanzamiento', values: {novedad: 'proximamente'}},
@@ -260,7 +279,8 @@
       {key: 'paginas', question: '¿Cuánto te apetece leer?', options: () => optionsFrom('paginas')},
       {key: 'formato', question: '¿Tienes un formato en mente?', options: () => optionsFrom('formato')},
       {key: 'valoracion', question: '¿Quieres priorizar las valoraciones de lectores?', options: () => optionsFrom('valoracion')},
-      {key: 'precio_max', question: '¿Qué presupuesto prefieres?', options: () => [10, 20, 30].map(price => ({label: 'Hasta ' + price + ' €', values: {precio_max: String(price)}}))}
+      // El presupuesto se aplica al formato elegido antes (si lo hay), nunca mezclando Kindle y papel en silencio.
+      {key: 'precio_max', question: () => criteria.formato ? '¿Qué presupuesto prefieres en ' + optionsFrom('formato').find(o => o.values.formato === criteria.formato).label.toLocaleLowerCase('es') + '?' : '¿Qué presupuesto prefieres (en cualquier formato)?', options: () => [10, 20, 30].map(price => ({label: 'Hasta ' + price + ' €', values: {precio_max: String(price)}}))}
     ];
     const usable = step => step.options().filter(o => cards.some(card => matches(card, {...criteria, ...o.values})));
     const button = (label, action) => {
@@ -268,6 +288,12 @@
       element.addEventListener('click', action); return element;
     };
     const reset = () => { criteria = {}; index = 0; history = []; done = false; render(); };
+    const showResults = () => {
+      for (const field of fields) field.value = criteria[field.dataset.filter] || (field.dataset.filter === 'orden' ? 'editorial' : '');
+      for (const box of boxes) box.checked = pick(criteria[box.dataset.facet]).includes(box.value);
+      currentPage = 1; apply(); done = true; render();
+      const result = root.querySelector('.catalogue-results-head h2'); result.tabIndex = -1; result.focus({preventScroll: true}); result.scrollIntoView({block: 'start'});
+    };
     function render() {
       panel.replaceChildren();
       while (index < steps.length && !usable(steps[index]).length) index++;
@@ -281,9 +307,8 @@
         heading.textContent = 'Estos son tus libros';
         choices.append(button('Restablecer filtros', () => { form.reset(); reset(); }));
       } else if (index < steps.length) {
-        const total = history.length + steps.slice(index).filter(step => usable(step).length).length;
-        status.textContent = 'Pregunta ' + (history.length + 1) + ' de ' + total + ' · ' + count + ' libros disponibles';
-        heading.textContent = steps[index].question;
+        const question = steps[index].question;
+        heading.textContent = typeof question === 'function' ? question() : question;
         for (const option of [...usable(steps[index]), {label: 'Me da igual, continuar', values: {}}]) {
           choices.append(button(option.label, () => {
             history.push({index, criteria: {...criteria}}); criteria = {...criteria, ...option.values}; index++; render();
@@ -292,16 +317,14 @@
       } else {
         status.textContent = count + (count === 1 ? ' libro encaja con tus respuestas' : ' libros encajan con tus respuestas');
         heading.textContent = count ? 'Tu próxima lectura te espera' : 'Los datos han cambiado. Prueba otra selección';
-        if (count) choices.append(button('Ver mis resultados', () => {
-          for (const field of fields) field.value = criteria[field.dataset.filter] || (field.dataset.filter === 'orden' ? 'editorial' : '');
-          for (const box of boxes) box.checked = pick(criteria[box.dataset.facet]).includes(box.value);
-          currentPage = 1; apply(); done = true; render();
-          const result = root.querySelector('.catalogue-results-head h2'); result.tabIndex = -1; result.focus({preventScroll: true}); result.scrollIntoView({block: 'start'});
-        }));
+        if (count) choices.append(button('Ver mis resultados', showResults));
       }
       const actions = document.createElement('div'); actions.className = 'catalogue-filter-actions';
+      // Desde la primera pregunta se puede saltar al catálogo con lo respondido hasta ahora.
+      if (!done && index < steps.length) { const now = button('Mostrar ya los resultados (' + count + (count === 1 ? ' libro)' : ' libros)'), showResults); now.className = 'catalogue-quiz__now'; actions.append(now); }
       if (history.length) actions.append(button('← Volver', () => { const previous = history.pop(); done = false; index = previous.index; criteria = previous.criteria; render(); }));
       actions.append(button('Empezar de nuevo', reset));
+      status.hidden = !status.textContent;
       panel.append(status, heading, choices, actions); heading.focus({preventScroll: true});
     }
     quiz.addEventListener('toggle', () => { if (quiz.open && !started) { started = true; render(); } });
