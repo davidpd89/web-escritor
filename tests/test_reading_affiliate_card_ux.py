@@ -88,6 +88,12 @@ class AffiliateNavigationTest(unittest.TestCase):
             self.assertTrue(all("sponsored" in x["attrs"].get("rel", "") for x in buying))
             self.assertTrue(all(x["attrs"].get("target") == "_blank" for x in buying))
 
+    def test_age_phrase_reads_naturally_for_every_age_band(self):
+        self.assertEqual(builder.age_phrase('De 9 a 12 años'), 'de 9 a 12 años')
+        self.assertEqual(builder.age_phrase('A partir de 7 años'), 'a partir de 7 años')
+        self.assertEqual(builder.age_phrase('Adultos'), 'para adultos')
+        self.assertEqual(builder.age_phrase(''), '')
+
     def test_cards_keep_categories_and_human_readable_edition_metadata(self):
         books = [self.coraline, self.imported]
         html = builder.render_hub(self.data, books, self.template)

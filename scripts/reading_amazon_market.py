@@ -59,8 +59,13 @@ def money_cents(money):
         return None
 
 
+class DailyLimitReached(Exception):
+    """Amazon's 8640 requests a day are spent. Not a LookupError: a KeyError in the
+    data must not pass for the end of the night."""
+
+
 def verified_formats(book):
-    known={asin_from_url(o['url']):o['formato'] for o in book.get('formatos_compra',[])}
+    known={asin_from_url(o.get('url')):o['formato'] for o in book.get('formatos_compra',[])}
     direct=asin_from_url(book.get('url_amazon_afiliada'))
     if direct and book.get('formato_edicion'):
         known.setdefault(direct,book['formato_edicion'])
@@ -256,7 +261,7 @@ def store_prices(book,offers,day):
                      'fuente_url':f'https://www.amazon.es/dp/{asin}','fecha_verificacion':day}
             options.append(current); by_format[offer['formato']]=current
             added+=1
-        elif asin_from_url(current['url'])!=asin:
+        elif asin_from_url(current.get('url')) not in (None,asin):
             continue  # An already verified edition is never replaced by another ASIN.
         current.update(url=offer['url'],precio_centimos=offer['precio_centimos'],fecha_verificacion=day)
     order=list(FORMAT_ORDER)
@@ -275,8 +280,13 @@ def discovery_index(book):
 
 
 def needs_discovery(book,now):
-    if {'ebook','audiolibro'}<={o['formato'] for o in book.get('formatos_compra',[])}:
+    formats={o['formato'] for o in book.get('formatos_compra',[])}
+    if {'ebook','audiolibro'}<=formats:
         return False
+    if not formats:
+        # Nothing to buy yet (new release, ISBN Amazon does not list): search by
+        # title on every sweep; it is a handful of requests against 8640 a day.
+        return True
     searched=book.get('formatos_amazon_buscados')
     return not searched or now.date()-date.fromisoformat(searched)>=REDISCOVER_AFTER
 
@@ -306,11 +316,12 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
     if hasattr(provider,'discover'):
         # A missing Kindle or audiobook is looked for the first night, not when the price turn comes.
         due+=[b for b in books[share:] if needs_discovery(b,now)]
-    stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[]}
+    stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[],'sin_oferta':[]}
+    answers={}
 
     def ask(call,*args):
         if stats['requests']>=budget:
-            raise LookupError
+            raise DailyLimitReached
         stats['requests']+=1
         payload=call(*args)
         if payload.get('errors') and not any(payload.get(key) for key in ['searchResult','itemsResult','itemResults']):
@@ -318,6 +329,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
         return payload
 
     def keep(found,book,payload):
+        answers.setdefault(book['id'],[]).append(payload)
         for offer in select_offers(book,payload,tag,now):
             best=found.get(offer['formato'])
             if not best or best['precio_centimos']>offer['precio_centimos']:
@@ -352,7 +364,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
             else:
                 for current in {b['id']:b for b,_ in pending}.values():
                     keep(found[current['id']],current,ask(provider,current))
-        except LookupError:
+        except DailyLimitReached:
             # Only the books that reached Amazon count; the one cut off did not.
             stats['attempted']+=len(group) if priced else group.index(current)
             break  # Daily limit reached: the rest stays due for tomorrow.
@@ -367,4 +379,33 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
             book['precios_amazon_revision']=day
             stats['updated']+=1
             stats['prices']+=len(found[book['id']])
+            if not book.get('formatos_compra'):
+                stats['sin_oferta'].append({'book_id':book['id'],'motivo':miss_reason(book,answers.get(book['id'],[]))})
     return market,stats
+
+
+MISS_STAGES=('sin_resultados','titulo_distinto','autor_distinto','sin_isbn_ni_edicion_digital','sin_oferta_nueva')
+
+
+def miss_reason(book,payloads):
+    """How far the closest Amazon result got before select_offers dropped it, so the
+    nightly report says why a book still has no offer instead of a bare count."""
+    wanted,best=isbn13(book.get('isbn13')),0
+    for payload in payloads:
+        container=next((v for f in ('searchResult','itemsResult','itemResults')
+                        if isinstance((v:=amazon_dict(payload).get(f)),dict)),{})
+        for item in amazon_list(container.get('items')):
+            info=amazon_dict(amazon_dict(item).get('itemInfo'))
+            title=amazon_dict(info.get('title')).get('displayValue','')
+            stage=1
+            if isinstance(title,str) and title_matches(title,book['titulo']):
+                stage=2
+                names=[c.get('name','') for c in amazon_list(amazon_dict(info.get('byLineInfo')).get('contributors'))
+                       if isinstance(c,dict) and isinstance(c.get('name'),str)]
+                if any(author_matches(n,a) for n in names for a in book['autores']):
+                    stage=3
+                    eans=amazon_list(amazon_dict(amazon_dict(info.get('externalIds')).get('eans')).get('displayValues'))
+                    if wanted in {isbn13(v) for v in eans if isinstance(v,str)} or in_spanish(info):
+                        stage=4
+            best=max(best,stage)
+    return MISS_STAGES[best]
