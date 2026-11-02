@@ -454,8 +454,9 @@ def book_title(b, books=()):
     for i, name in enumerate(short_titles(b['titulo'])):
         if i and name.casefold() in clash:
             break
-        for title in (f'{name} · {authors} | Libros recomendados', f'{name} · {authors}'):
-            if len(title) <= 75:
+        # El sufijo de marca solo si todo cabe en los ~60 caracteres que Google muestra sin cortar.
+        for title, limit in ((f'{name} · {authors} | Libros recomendados', 60), (f'{name} · {authors}', 75)):
+            if len(title) <= limit:
                 return title
     # Con muchas firmas (guías, obras colectivas) cabe «primer autor y otros»: el autor no se pierde nunca.
     lead = ' · ' + b['autores'][0] + (' y otros' if len(b['autores']) > 1 else '')
