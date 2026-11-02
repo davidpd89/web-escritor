@@ -61,6 +61,9 @@ class GenericSourceTests(unittest.TestCase):
     def test_subject_needs_more_than_one_stray_word(self):
         self.assertEqual(_infer_subject('La comadrona', 'Una novela sobre la historia de una mujer y un poema de su madre, una novela coral'), ['Narrativa'])
         self.assertEqual(_infer_subject('Glosas', 'Un poemario: poemas sobre la poesía'), ['Poesía'])
+        # Un misterio con «diarios secretos» y «memorias» del sospechoso sigue siendo narrativa.
+        self.assertEqual(_infer_subject('Clue. El misterio del reloj', 'Los detectives leen los diarios secretos y las memorias del relojero'), ['Narrativa'])
+        self.assertEqual(_infer_subject('Una vida', 'Libro de memorias de la autora'), ['Biografías y memorias'])
         self.assertEqual(_infer_subject('Sin pistas', 'La historia de un estudio'), [])
 
     def test_links_are_limited_to_reviewed_host_and_product_path(self):

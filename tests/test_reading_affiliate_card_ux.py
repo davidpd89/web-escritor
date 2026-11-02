@@ -70,7 +70,7 @@ class AffiliateNavigationTest(unittest.TestCase):
         html = builder.render_book(self.data, b, self.template)
         cover = [x for x in self.links(html) if x["attrs"].get("aria-label", "").startswith("Comprar en Amazon:")]
         self.assertEqual(len(cover), 1)
-        self.assertEqual(cover[0]["attrs"]["href"], b["url_amazon_afiliada"])
+        self.assertEqual(cover[0]["attrs"]["href"], builder.amazon_es(b["url_amazon_afiliada"]))
 
     def test_cards_offer_ficha_and_amazon_separately(self):
         books = [self.coraline, self.imported]
@@ -83,9 +83,10 @@ class AffiliateNavigationTest(unittest.TestCase):
             self.assertTrue(all(x["attrs"].get("target") == "_blank" for x in ficha))
             self.assertTrue(all("noopener" in x["attrs"].get("rel", "") for x in ficha))
             buying = [x for x in links if x["attrs"].get("href") == builder.amazon_destination(b)]
-            self.assertEqual(len(buying), 1)
-            self.assertIn("sponsored", buying[0]["attrs"].get("rel", ""))
-            self.assertEqual(buying[0]["attrs"].get("target"), "_blank")
+            # El botón de compra y la casilla de su formato en la caja de precios llevan al mismo destino.
+            self.assertGreaterEqual(len(buying), 1)
+            self.assertTrue(all("sponsored" in x["attrs"].get("rel", "") for x in buying))
+            self.assertTrue(all(x["attrs"].get("target") == "_blank" for x in buying))
 
     def test_cards_keep_categories_and_human_readable_edition_metadata(self):
         books = [self.coraline, self.imported]

@@ -23,7 +23,7 @@ from zoneinfo import ZoneInfo
 
 from PIL import Image, ImageOps
 from reading_editorial_sources import CachedHTTP, SourceError, penguin_edition, product_links, publisher_author_bio
-from reading_intake_core import affiliate_destination, clean_title, normalize_text, publisher_slug
+from reading_intake_core import affiliate_destination, clean_author, clean_title, normalize_text, publisher_slug
 from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
 from reading_taxonomy import extra_categories
@@ -503,6 +503,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                         raise SourceError('Edición fuera de la ventana de selección configurada')
                 if normalize_text(record['titulo']).startswith(('estuche ', 'pack ', 'caja ')):
                     raise SourceError('Estuche o pack: requiere relación de obras comprobada')
+                record['autores'] = [clean_author(a) for a in record['autores']]
                 work = work_key(record['titulo'], record['autores'])
                 if work in works and (not refresh or work != work_key(old_book['titulo'], old_book['autores'])):
                     raise SourceError('Otra edición de una obra ya incluida; no se duplica la URL')

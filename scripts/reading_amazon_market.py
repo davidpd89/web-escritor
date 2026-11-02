@@ -233,11 +233,13 @@ class CreatorsPrices:
             'itemIds':list(asins)[:10],'itemIdType':'ASIN'},self.headers())
 
     def discover(self,book):
-        # Title + author across all departments finds the Kindle/Audible editions.
+        # Title + author finds the Kindle/Audible editions. Ten results across all
+        # departments miss the Kindle of a saga's later volumes, so a book without
+        # an ebook is searched in the Kindle store itself.
         return self.post('https://creatorsapi.amazon/catalog/v1/searchItems',{
             'marketplace':'www.amazon.es','partnerTag':self.tag,'condition':'New',
             'currencyOfPreference':'EUR','resources':RESOURCES+['itemInfo.contentInfo'],
-            'keywords':book['titulo']+' '+book['autores'][0],'searchIndex':'All','itemCount':10},
+            'keywords':book['titulo']+' '+book['autores'][0],'searchIndex':discovery_index(book),'itemCount':10},
             self.headers())
 
 
@@ -268,6 +270,10 @@ FORMAT_ORDER=('tapa-blanda','tapa-dura','ebook','audiolibro')
 REDISCOVER_AFTER=timedelta(days=90)
 
 
+def discovery_index(book):
+    return 'All' if 'ebook' in {o['formato'] for o in book.get('formatos_compra',[])} else 'KindleStore'
+
+
 def needs_discovery(book,now):
     if {'ebook','audiolibro'}<={o['formato'] for o in book.get('formatos_compra',[])}:
         return False
@@ -295,7 +301,11 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
     books=[b for b in catalogue['libros'] if b.get('estado')=='publicado' and isbn13(b.get('isbn13'))]
     books.sort(key=lambda b:b.get('precios_amazon_revision',''))
     unpriced=sum(not b.get('precios_amazon_revision') for b in books)
-    due=books[:max(unpriced,-(-len(books)//max(1,sweep_days)))]
+    share=max(unpriced,-(-len(books)//max(1,sweep_days)))
+    due=books[:share]
+    if hasattr(provider,'discover'):
+        # A missing Kindle or audiobook is looked for the first night, not when the price turn comes.
+        due+=[b for b in books[share:] if needs_discovery(b,now)]
     stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[]}
 
     def ask(call,*args):
