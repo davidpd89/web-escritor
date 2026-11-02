@@ -294,7 +294,7 @@ def classify_public_artifact(rel_path: str) -> str:
         return "verification"
     if (
         rel_path.startswith("press-kit/")
-        or rel_path in {"robots.txt", "sitemap.xml", "editoriales-sitemap.xml", "humans.txt", "llms.txt", "llms-full.txt"}
+        or rel_path in {"robots.txt", "sitemap.xml", "editoriales-sitemap.xml", "humans.txt", "llms.txt", "llms-full.txt", "recomendaciones/llms.txt"}
     ):
         return "machine-readable"
     if rel_path.endswith(".html"):
