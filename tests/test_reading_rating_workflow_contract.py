@@ -32,6 +32,8 @@ class RatingWorkflowContract(unittest.TestCase):
         yaml = (ROOT / ".github/workflows/reading-catalogue-sync.yml").read_text(encoding="utf-8")
         self.assertIn("cron: '0 0 * * *'", yaml)
         self.assertIn("cron: '0 1 * * *'", yaml)
+        # Tandas de día para que las novedades no esperen a la noche.
+        self.assertIn("schedule:'0 11 * * *':*", yaml)
         self.assertIn("TZ=Europe/Madrid", yaml)
         self.assertIn("secrets.GOOGLE_BOOKS_API_KEY", yaml)
         self.assertIn("secrets.HARDCOVER_API_KEY", yaml)

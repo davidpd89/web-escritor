@@ -6,6 +6,10 @@ on:
     # The clock job keeps the one that matches today's offset.
     - cron: '0 0 * * *'
     - cron: '0 1 * * *'
+    # Mientras se llena el catálogo, dos tandas más de día (12:00 y 18:00 en invierno, 13:00 y 19:00
+    # en verano): los libros nuevos no esperan a la noche. Cada tanda lee primero lo próximo y lo nuevo.
+    - cron: '0 11 * * *'
+    - cron: '0 17 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -42,7 +46,7 @@ jobs:
         run: |
           offset=$(TZ=Europe/Madrid date +%z)
           case "$EVENT:$SCHEDULE:$offset" in
-            schedule:'0 0 * * *':+0200|schedule:'0 1 * * *':+0100|workflow_dispatch:*) echo run=true >> "$GITHUB_OUTPUT" ;;
+            schedule:'0 0 * * *':+0200|schedule:'0 1 * * *':+0100|schedule:'0 11 * * *':*|schedule:'0 17 * * *':*|workflow_dispatch:*) echo run=true >> "$GITHUB_OUTPUT" ;;
             *) echo run=false >> "$GITHUB_OUTPUT" ;;
           esac
   intake:
