@@ -118,24 +118,32 @@ def work_key(title, authors):
     return normalize_text(title), tuple(sorted(normalize_text(a) for a in authors))
 
 
+def age_band(subject, catalogue, cats):
+    """Categoría de edad de una franja editorial («De 9 a 12 años», «A partir de 7 años»), o None."""
+    key = normalize_text(subject)
+    if not re.fullmatch(r'(?:de \d+ a \d+ anos|a partir de \d+ anos)', key):
+        return None
+    age_id, age_name = 'edad-' + key.replace(' ', '-'), ' '.join(str(subject).split())
+    if age_id not in cats:
+        catalogue['categorias'].append({'id': age_id, 'slug': age_id, 'nombre': age_name, 'tipo': 'edad',
+                                        'descripcion': 'Edad orientativa de la editorial: ' + age_name + '.',
+                                        'orden': 150 + len(cats), 'activa': True})
+        cats[age_id] = catalogue['categorias'][-1]
+    if cats[age_id]['tipo'] == 'edad':
+        # Las franjas se ordenan por edad, no por fecha de alta.
+        cats[age_id]['orden'] = 140 + int(re.search(r'\d+', key).group())
+    return age_id
+
+
 def classify(record, catalogue):
     found = []
     cats = {c['id']: c for c in catalogue['categorias']}
     for subject in record['materias']:
         key = normalize_text(subject)
-        band = re.fullmatch(r'(?:de \d+ a \d+ anos|a partir de \d+ anos)', key)
-        if band:
+        age_id = age_band(subject, catalogue, cats)
+        if age_id:
             # La «materia» de los libros infantiles de Penguin es su franja de edad.
             mapped = ('infantil', 'Infantil y juvenil')
-            age_id, age_name = 'edad-' + key.replace(' ', '-'), ' '.join(str(subject).split())
-            if age_id not in cats:
-                catalogue['categorias'].append({'id': age_id, 'slug': age_id, 'nombre': age_name, 'tipo': 'edad',
-                                                'descripcion': 'Edad orientativa de la editorial: ' + age_name + '.',
-                                                'orden': 150 + len(cats), 'activa': True})
-                cats[age_id] = catalogue['categorias'][-1]
-            if cats[age_id]['tipo'] == 'edad':
-                # Las franjas se ordenan por edad, no por fecha de alta.
-                cats[age_id]['orden'] = 140 + int(re.search(r'\d+', key).group())
             found.append(age_id)
         else:
             mapped = GENRES.get(key)
@@ -170,10 +178,14 @@ def classify(record, catalogue):
     if not found:
         raise SourceError('Materia editorial no clasificada; queda pendiente')
     age = normalize_text(record.get('edad_recomendada', ''))
+    youngest = re.fullmatch(r'(?:de|a partir de) (\d+)(?: a \d+)? anos', age)
     if age == 'adultos':
         found.append('adultos')
-    elif 'juvenil' in age or age in ('a partir de 12 anos', 'a partir de 14 anos', 'a partir de 16 anos'):
+    elif 'juvenil' in age or (youngest and int(youngest.group(1)) >= 12):
         found.append('juvenil')
+    elif youngest:
+        # Planeta publica la franja infantil como edad, no como materia («De 9 a 12 años»).
+        found += [age_band(record['edad_recomendada'], catalogue, cats)] + ['infantil'] * ('infantil' in cats)
     if not found:
         raise SourceError('Materia editorial no clasificada; queda pendiente')
     return list(dict.fromkeys(found))
@@ -370,7 +382,15 @@ def read_edition(source, document, url):
     return planeta_edition(document, url) if source['provider'] == 'planeta' else penguin_edition(document, url)
 
 
+# Techos de una ejecución: 60 fichas nuevas como máximo (cada una pasa las mismas validaciones)
+# y 400 peticiones públicas a las editoriales, a 1,5 s entre peticiones (unos 10 min).
+MAX_NEW_CEILING = 60
+MAX_REQUESTS_CEILING = 400
+
+
 def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False, today=None):
+    if not 1 <= (max_new or config['max_new_books']) <= MAX_NEW_CEILING or not 1 <= config['max_requests'] <= MAX_REQUESTS_CEILING:
+        raise ValueError('max_new_books o max_requests fuera de los techos de una ejecución')
     today = today or datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
     day = date.fromisoformat(today)
     if config.get('schema_version') != 1 or not config.get('enabled'):
@@ -620,10 +640,10 @@ def main():
     args = p.parse_args()
     if not args.live:
         p.error('La red requiere --live; las pruebas utilizan fixtures offline')
-    if args.max_new is not None and not 1 <= args.max_new <= 25:
-        p.error('--max-new debe estar entre 1 y 25')
-    if args.max_requests is not None and not 1 <= args.max_requests <= 160:
-        p.error('--max-requests debe estar entre 1 y 160')
+    if args.max_new is not None and not 1 <= args.max_new <= MAX_NEW_CEILING:
+        p.error(f'--max-new debe estar entre 1 y {MAX_NEW_CEILING}')
+    if args.max_requests is not None and not 1 <= args.max_requests <= MAX_REQUESTS_CEILING:
+        p.error(f'--max-requests debe estar entre 1 y {MAX_REQUESTS_CEILING}')
     try:
         report = ingest(read_json(args.config), ROOT, args.cache, max_new=args.max_new, max_requests=args.max_requests, apply=args.apply)
         write_if_changed(args.report, report)

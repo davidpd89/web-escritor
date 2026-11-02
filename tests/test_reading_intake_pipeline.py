@@ -103,6 +103,14 @@ class ContractTests(unittest.TestCase):
         self.record['cover_use_basis'] = 'Cubierta editorial para identificación bibliográfica.'
         self.book = make_book(self.record, {'name': 'Salamandra', 'slug': 'salamandra'}, 'davidporto-21', '2026-10-20', '/assets/reading-covers/test.png', (600, 900))
 
+    def test_nightly_quota_fits_the_run_ceilings(self):
+        config = json.loads((ROOT / 'data/reading-intake-config.json').read_text(encoding='utf-8'))
+        self.assertGreaterEqual(config['max_new_books'], 60)
+        self.assertLessEqual(config['max_new_books'], pipeline.MAX_NEW_CEILING)
+        self.assertLessEqual(config['max_requests'], pipeline.MAX_REQUESTS_CEILING)
+        with self.assertRaisesRegex(ValueError, 'techos'):
+            pipeline.ingest({**config, 'max_requests': pipeline.MAX_REQUESTS_CEILING + 1}, ROOT, Path(tempfile.mkdtemp()))
+
     def test_affiliate_search_is_not_fake_product(self):
         self.assertIn('/s?k=9780140328721&tag=davidporto-21', self.book['amazon_busqueda_isbn'])
         self.assertNotIn('url_amazon_afiliada', self.book)
