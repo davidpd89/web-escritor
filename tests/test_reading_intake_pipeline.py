@@ -111,11 +111,16 @@ class ContractTests(unittest.TestCase):
 
     def test_long_seo_titles_remain_bounded_and_distinct(self):
         self.book['titulo'] = 'Un título muy largo ' * 12
-        title = builder.book_title(self.book)
+        alone = builder.book_title(self.book, {'libros': [self.book]})
+        self.assertLessEqual(len(alone), 75)
+        self.assertTrue(alone.endswith(' · ' + self.book['autores'][0]), 'sin choque, el título recortado lleva el autor y no el ISBN')
+        self.assertNotIn(self.book['isbn13'], alone)
+        other = {**self.book, 'id': 'otro-tomo', 'isbn13': '9780140449136'}
+        data = {'libros': [self.book, other]}
+        title = builder.book_title(self.book, data)
         self.assertLessEqual(len(title), 75)
         self.assertIn(self.book['isbn13'], title)
-        other = {**self.book, 'isbn13': '9780140449136'}
-        self.assertNotEqual(title, builder.book_title(other))
+        self.assertNotEqual(title, builder.book_title(other, data))
 
     def test_partial_publication_never_gets_fake_day(self):
         self.record.update(precision_fecha='mes', fecha_publicacion_edicion='2026-10')

@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import html
 import json
+import math
 import re
 import sys
 from datetime import date, timedelta
@@ -383,15 +384,26 @@ def novelty(b, fallback):
     return '<span class="catalogue-novelty" data-release-label="' + esc(b.get('fecha_publicacion', '')) + '" hidden>Novedad</span>'
 
 
-def book_title(b):
+def _short_title(b, suffix):
+    return b['titulo'][:74-len(suffix)].rsplit(' ', 1)[0].rstrip(' .,:;-–(') + '…' + suffix
+
+
+def book_title(b, data=None):
     base = b['titulo'] + ' · ' + ', '.join(b['autores'])
     full = base + ' | Libros recomendados'
     if len(full) <= 75:
         return full
     if len(base) <= 75:
         return base
-    suffix = ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8])
-    return b['titulo'][:74-len(suffix)].rsplit(' ', 1)[0] + '…' + suffix
+    # Recortado con el primer autor: es lo que se busca. El ISBN solo distingue
+    # cuando otro libro del catálogo (otro tomo de la serie) daría el mismo título.
+    by_author = ' · ' + b['autores'][0]
+    if len(by_author) <= 30:
+        title = _short_title(b, by_author)
+        others = [x for x in (data or {}).get('libros', []) if x['id'] != b['id'] and x['estado'] == 'publicado' and x['autores'][:1] == b['autores'][:1]]
+        if not any(_short_title(x, by_author) == title for x in others):
+            return title
+    return _short_title(b, ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8]))
 
 
 def author_records(root=ROOT):
@@ -704,7 +716,7 @@ def render_hub(data, books, template):
 
 def render_book(data,b,template):
     canonical=SITE+url(b)
-    title=book_title(b)
+    title=book_title(b,data)
     description=own_meta_description(b) or book_meta_description(data,b)
     own_before=own_text_section(b)
     cats=categories(data,b)
@@ -738,16 +750,40 @@ def render_book(data,b,template):
     return render_detail_page(template,main,canonical,title,description,schema,b)
 
 
+AUDIENCES=(('infantil',{'infantil'}),('juvenil',{'juvenil','fantasia-juvenil'}),('adultos',{'adultos'}))
+
+
+def audience(cat_ids):
+    """Público declarado (infantil, juvenil, adultos) o None si no consta."""
+    return next((name for name,ids in AUDIENCES if cat_ids & ids),None)
+
+
+def min_age(b):
+    """Edad mínima de lectura declarada (Adultos = 18) o None."""
+    age=b.get('edad_recomendada') or ''
+    if age.casefold().startswith('adult'):
+        return 18
+    m=re.search(r'\d+',age)
+    return int(m.group(0)) if m else None
+
+
 def related_books(data, book):
+    # Cada categoría compartida pesa por lo rara que es («Hockey» dice más que «Romance») y no se cruzan públicos.
+    own={c['id'] for c in categories(data,book)}
     wanted={c['id'] for c in categories(data,book) if c['tipo'] in {'genero','tematica'}}
+    pool=[(x,{c['id'] for c in categories(data,x)}) for x in data['libros'] if x['estado']=='publicado' and x['id']!=book['id']]
+    total=len(pool)+1
+    df={c:1+sum(c in cats for _,cats in pool) for c in wanted}
+    public,age=audience(own),min_age(book)
     ranked=[]
-    for candidate in data['libros']:
-        if candidate['estado'] != 'publicado' or candidate['id'] == book['id']:
-            continue
-        shared=wanted & {c['id'] for c in categories(data,candidate)}
+    for candidate,cats in pool:
+        shared=wanted & cats
         same_author=bool(set(book['autores']) & set(candidate['autores']))
+        other,other_age=audience(cats),min_age(candidate)
+        if not same_author and ((public and other and public!=other) or (age is not None and other_age is not None and abs(age-other_age)>4)):
+            continue
         if shared or same_author:
-            ranked.append((same_author,len(shared),candidate))
+            ranked.append((same_author,sum(math.log(total/df[c]) for c in shared),candidate))
     ranked.sort(key=lambda row:(-row[0],-row[1],row[2]['titulo'].casefold()))
     if not ranked:
         return ''
