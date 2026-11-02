@@ -399,6 +399,31 @@ def save_results(payloads, rows, state, out=OUT):
     return saved, rejected
 
 
+def instant_power(pg, _level=None):
+    """Selector de ChatGPT al mínimo (Instant) para los textos de fichas.
+
+    Prueba del 02/11/2026 con los mismos 5 libros: Instant tarda ~136 s por lote frente a 163-291 s en
+    High y el validador acepta los mismos bloques (88 % frente a 90 %). RRSS sigue en Alta: su consulta
+    vuelve a subir el selector en cada uso. Se lleva al extremo con flechas, sin depender del idioma.
+    """
+    try:
+        button = pg.locator('button[aria-label*="modelo" i], button[aria-label*="model" i]').first
+        button.wait_for(state='visible', timeout=20000)
+        button.click()
+        pg.wait_for_timeout(1200)
+        slider = pg.locator('[role="slider"]').first
+        if slider.count():
+            slider.focus()
+            for _ in range(4):
+                pg.keyboard.press('ArrowLeft')
+                pg.wait_for_timeout(600)
+        pg.keyboard.press('Escape')
+        pg.wait_for_timeout(500)
+        return bool(slider.count())
+    except Exception:  # noqa: BLE001 - sin selector se escribe con el nivel que haya
+        return False
+
+
 def consult(question, ids, port, wait_min):
     os.environ['RRSS_CHATGPT_CDP_PORT'] = str(port)
     # El horario de descanso 00-07 h es de las redes sociales (parecer uso humano); los textos de la
@@ -406,6 +431,7 @@ def consult(question, ids, port, wait_min):
     os.environ['RRSS_NIGHT_OK'] = '1'
     sys.path.insert(0, str(RRSS_TOOLS))
     import chatgpt_consult
+    chatgpt_consult.set_power = instant_power  # solo en este proceso; los ficheros de RRSS no cambian
     repair = 'Devuelve otra vez la respuesta completa: un único bloque ```json con {"fichas": [...]} y exactamente estos id: ' + ', '.join(ids)
     answer, _ = chatgpt_consult.consult(question, (), wait_min, validate=answer_label(ids), repair=repair)
     return answer
