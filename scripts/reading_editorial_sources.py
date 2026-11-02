@@ -37,7 +37,8 @@ class PlainParagraphs(HTMLParser):
         self.paragraphs, self.parts, self.ignored = [], [], 0
 
     def flush(self):
-        text = ' '.join(' '.join(self.parts).split())
+        # Las etiquetas en línea (<em>, <b>) no separan palabras: «<em>Título</em>, de» queda «Título, de».
+        text = ' '.join(''.join(self.parts).split())
         if text:
             self.paragraphs.append(text)
         self.parts = []

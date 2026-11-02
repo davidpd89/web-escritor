@@ -1,5 +1,6 @@
 """Sinopsis completa en la ficha y taxonomía canónica de las materias editoriales."""
 import importlib.util
+import json
 import re
 import sys
 import unittest
@@ -36,6 +37,20 @@ class FullSynopsisTests(unittest.TestCase):
         self.assertNotIn('extraordinaria', full)
         self.assertEqual(full.count('\n\n'), 1)
         self.assertFalse(editorial_excerpt(HTML).endswith('margen.'))
+
+    def test_inline_tags_do_not_add_spaces_before_punctuation_or_inside_words(self):
+        html = '<p>En <em>El paraíso perdido</em>, de Milton, el arcángel revela una histo<b>ria</b> futura que Eva no debe escuchar nunca.</p>'
+        self.assertEqual(editorial_synopsis(html), 'En El paraíso perdido, de Milton, el arcángel revela una historia futura que Eva no debe escuchar nunca.')
+        self.assertIn('perdido, de', editorial_excerpt(html))
+
+    def test_published_synopses_have_no_space_before_punctuation(self):
+        data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+        bad = [b['id'] for b in data['libros'] for k in ('sinopsis_completa', 'sinopsis_breve') if re.search(r'\w [,.;:)]', b.get(k) or '')]
+        self.assertEqual(bad, [])
+
+    def test_month_only_publication_date_still_reaches_the_book_schema(self):
+        page = (ROOT / 'recomendaciones/libros/eva-esta-dormida-9788410171817/index.html').read_text(encoding='utf-8')
+        self.assertIn('"datePublished": "2026-04"', page)
 
     def test_too_short_text_is_not_a_synopsis(self):
         self.assertEqual(editorial_synopsis('<p>Novela negra.</p>'), '')
