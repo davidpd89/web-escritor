@@ -21,7 +21,7 @@ Cómo escribir cada bloque:
 Qué pide cada módulo:
 - para_quien: con qué lector encaja (gustos, edad, momento) y con cuál no, por género, tema y edad.
 - que_formato_elegir: qué ofrece cada formato de formatos_disponibles para este libro concreto (extensión, uso, regalo, lectura en el móvil, escucha), sin precios.
-- lecturas_afines: compara el libro con uno o dos títulos de afines_catalogo, nombrados exactamente como aparecen (sin las comillas «»), y di en qué se parecen y en qué se diferencian.
+- lecturas_afines: compara el libro con uno o dos títulos de afines_catalogo, nombrados exactamente como aparecen (sin las comillas «»), y di en qué se parecen y en qué se diferencian para quien lee (tema, tono, público, autoría), sin nombrar las «categorías» de la web.
 - El resto: la pregunta que indica su "necesidad".
 
 Escribe todos los módulos permitidos: no se admite abstenerse ni devolver bloques vacíos. Cada bloque tiene de 2 a 4 frases, de 80 a 650 caracteres y sin saltos de línea.

@@ -53,6 +53,13 @@
 - `git()` lee en UTF-8. El bucle se caía con `UnicodeDecodeError` cp1252 al leer el catálogo con ñ. Test incluido; se comprobó que falla sin el arreglo.
 - El bucle se relanzó a las 00:44 (`.local/reading-texts-run2.log`). Va a unos 4 de 5 guardados por lote.
 - `test_reading*.py`: 241 OK.
+- **Taxonomía interna (02/11, de noche):** 34 de 57 salidas decían cosas como «comparte las categorías Aventuras e Infancia», sobre todo en `lecturas_afines` (31). Eso describe el menú de la web, no el libro.
+  - `validate_block` rechaza «categoría(s)» y el motivo explica cómo repararlo (tema, tono, público, autoría). El prompt también lo pide.
+  - `pending()` vuelve a encolar los textos guardados con bloques que el validador vigente ya no acepta y manda el motivo en `corregir`.
+  - `save_results()` combina una reparación parcial con los bloques válidos ya guardados; una peor sigue sin sustituirlos.
+  - `publish()` solo copia los bloques que pasan el validador vigente.
+  - Test nuevo: `test_catalogue_taxonomy_is_rejected_and_stale_saved_blocks_are_repaired`. `test_reading*.py`: 242 OK.
+  - Bucle relanzado (run3, `.local/reading-texts-run3.log`); hay 154 pendientes, incluidos los 34 que hay que reparar.
 
 ## Pendientes
 1. Muestra del bucle v3 → publicar (`reading-texts.py publish`) → PR con los textos.

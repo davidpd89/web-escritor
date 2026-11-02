@@ -50,6 +50,8 @@ META = re.compile(r'informaci[oó]n disponible|no se (detalla|especifica|indica|
                   r'no (existe|hay|consta) (una |ninguna )?(confirmaci|informaci|dato)|sin (una )?confirmaci|no (concreta|precisa|aclara|detalla|confirma)n?\b|'
                   r'\b(la|las|esta|estas) (sinopsis|evidencias?|fuentes?|datos disponibles)\b|seg[uú]n (la|los) (sinopsis|datos)', re.I)
 # Muletillas de texto generado en español: suenan a plantilla y no informan.
+# «Comparte las categorías Infancia e Infantil y juvenil» describe el menú de la web, no el libro.
+TAXONOMY = re.compile(r'\bcategor[ií]as?\b', re.I)
 AI_TELLS = re.compile(r'\ben definitiva\b|\bsin duda\b|sum[eé]rg|\bun viaje (a|por|hacia)\b|en un mundo (donde|en el que)|'
                       r'\bno solo\b[^.]{0,80}\bsino (también|que)\b|\bse erige\b|\bpromete\b|\bdescubre\b|a medida que avanza|'
                       r'\buna (lectura|obra|historia) que (nos )?invita|\bal fin y al cabo\b|\bcabe destacar\b|\bvale la pena\b', re.I)
@@ -170,7 +172,7 @@ def source_hash(p):
 
 
 def pending(data, out=OUT, state=None):
-    state = state or {}
+    state = {} if state is None else state
     rows = []
     for b in published(data):
         p = payload(data, b)
@@ -181,9 +183,13 @@ def pending(data, out=OUT, state=None):
         entry = state.get(b['id'], {})
         if entry.get('hash') == h and entry.get('intentos', 0) >= MAX_ATTEMPTS:
             continue
-        # Un texto vigente vuelve a la cola mientras le falten bloques que se descartaron.
-        if saved and saved.get('fuente_hash') == h and saved.get('version') == VERSION and not saved.get('descartados'):
+        # Un texto vigente vuelve a la cola mientras le falten bloques que se descartaron o que el validador ya no acepta.
+        stale = [f"{x.get('modulo')}: " + '; '.join(validate_block(p, x)) for x in (saved or {}).get('bloques', []) if validate_block(p, x)]
+        if saved and saved.get('fuente_hash') == h and saved.get('version') == VERSION and not saved.get('descartados') and not stale:
             continue
+        if stale:  # el motivo llega al prompt como «corregir»
+            base = entry if entry.get('hash') == h else {'hash': h, 'intentos': 0}
+            state[b['id']] = {**base, 'errores': list(dict.fromkeys([*base.get('errores', []), *stale]))}
         rows.append((bool(catalogue.amazon_destination(b)), len(p['modulos_permitidos']), b.get('fecha_publicacion') or '', b))
     # Primero lo que se puede comprar, con más evidencia aprovechable y más reciente.
     return [r[-1] for r in sorted(rows, key=lambda r: r[:3], reverse=True)]
@@ -229,6 +235,8 @@ def validate_block(p, x):
         errors.append('habla de las fuentes en vez de informar: ' + meta.group(0).lower())
     if tell := AI_TELLS.search(text):
         errors.append('muletilla: ' + tell.group(0).lower())
+    if TAXONOMY.search(text):
+        errors.append('nombra las categorías del catálogo: explica el parecido para el lector (tema, tono, público, autoría)')
     if x['modulo'] == 'lecturas_afines' and not linked(p, text):
         errors.append('no nombra ningún título de afines_catalogo')
     cited = ' '.join(as_text(p['evidencias'][k]) for k in keys)
@@ -251,6 +259,11 @@ def validate_block(p, x):
     if unknown:
         errors.append('nombres sin respaldo: ' + ', '.join(unknown[:5]))
     return errors
+
+
+def valid_blocks(p, blocks):
+    """Bloques guardados que siguen pasando el validador vigente: endurecerlo retira lo que ya no cumple."""
+    return [x for x in blocks or [] if not validate_block(p, x)]
 
 
 def linked(p, text):
@@ -327,8 +340,10 @@ def save_results(payloads, rows, state, out=OUT):
         blocks, errors = ([], ['sin respuesta']) if t is None else validate_text(p, t)
         entry['errores'] = errors
         old = read_json(out / (p['id'] + '.json'))
-        if old and old.get('fuente_hash') == h and len(old.get('bloques', [])) >= len(blocks):
-            blocks = []  # una reparación peor no sustituye a lo que ya se aceptó
+        kept = valid_blocks(p, old.get('bloques')) if old and old.get('fuente_hash') == h else []
+        # Una reparación completa lo guardado (puede traer solo el módulo que faltaba); una peor no lo sustituye.
+        merged = blocks + [x for x in kept if x['modulo'] not in {y['modulo'] for y in blocks}]
+        blocks = merged if blocks and len(merged) > len(kept) else []
         if not blocks:  # se reintenta con los motivos hasta MAX_ATTEMPTS
             rejected += 1
             continue
@@ -395,8 +410,12 @@ def publish(out=OUT):
     target = tree / 'data/reading-texts'
     target.mkdir(exist_ok=True)
     for path in texts:
-        if path.stem in ids and read_json(path).get('bloques'):
-            shutil.copyfile(path, target / path.name)
+        record = read_json(path)
+        if path.stem in ids:
+            # Se publica solo lo que pasa el validador vigente, aunque se guardara con uno más permisivo.
+            blocks = valid_blocks(payload(data, next(b for b in published(data) if b['id'] == path.stem)), record.get('bloques'))
+            if len(blocks) >= MIN_BLOCKS:
+                write_json(target / path.name, {**record, 'bloques': blocks})
     run = lambda *cmd: subprocess.run([sys.executable, *cmd], cwd=tree, check=True)
     for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         run('scripts/' + script)

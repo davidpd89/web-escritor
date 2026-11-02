@@ -151,6 +151,27 @@ class ReadingTextsTest(unittest.TestCase):
             (out / (self.book['id'] + '.json')).unlink()
             self.assertNotIn(self.book['id'], [b['id'] for b in texts.pending(self.data, out, state)])
 
+    def test_catalogue_taxonomy_is_rejected_and_stale_saved_blocks_are_repaired(self):
+        """«Comparte las categorías X» describe el menú de la web: el validador lo rechaza, también en lo ya guardado."""
+        import tempfile
+        taxonomy = {**self.others[2], 'texto': f'{self.affine} comparte las categorías Aventuras e Infancia con este volumen, aunque cambia de tono.'}
+        errors = texts.validate_block(self.payload, taxonomy)
+        self.assertTrue(any('categorías del catálogo' in e for e in errors), errors)
+        with tempfile.TemporaryDirectory() as tmp:
+            out, state = Path(tmp), {}
+            old = {'id': self.book['id'], 'familia': self.payload['familia'], 'bloques': [self.block, *self.others[:2], taxonomy],
+                   'descartados': [], 'version': texts.VERSION, 'fuente_hash': texts.source_hash(self.payload)}
+            texts.write_json(out / (self.book['id'] + '.json'), old)
+            self.assertIn(self.book['id'], [b['id'] for b in texts.pending(self.data, out, state)])
+            self.assertIn('lecturas_afines: nombra las categorías', texts.build_prompt([self.payload], state))
+            # La reparación trae solo el módulo afectado y se combina con los bloques válidos ya guardados.
+            repair = {'id': self.book['id'], 'bloques': [self.block, self.others[2]]}
+            self.assertEqual(texts.save_results([self.payload], [repair], state, out), (1, 0))
+            saved = texts.read_json(out / (self.book['id'] + '.json'))
+            self.assertEqual(sorted(x['modulo'] for x in saved['bloques']),
+                             ['encaje_documentado', 'lecturas_afines', 'para_quien', 'que_formato_elegir'])
+            self.assertNotIn('categorías', json.dumps(saved, ensure_ascii=False))
+
     def test_answer_parsing_requires_every_id(self):
         answer = 'Aquí está:\n```json\n' + json.dumps({'fichas': [self.good]}, ensure_ascii=False) + '\n```'
         self.assertEqual(texts.answer_label([self.book['id']])(answer), 'JSON_VALIDO')
