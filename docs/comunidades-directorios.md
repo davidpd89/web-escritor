@@ -67,6 +67,48 @@ Lo que más ayuda ahora:
 4. **Enlaces cruzados:** en la descripción de cada canal de Telegram, una línea «Charla y recomendaciones: discord.gg/g7dEWxj3F»; en #bienvenida de Discord ya está el enlace a /comunidad/, que lleva a la carpeta de Telegram.
 5. **Silencio:** mantener un único envío diario por canal y que solo Novedades notifique con sonido; es lo que más reduce las bajas.
 
+## Dónde anunciarse (pendiente: lo hace David con su cuenta)
+
+Se usa una invitación de Discord distinta para cada sitio, para medir de dónde llega gente que participa. Antes de publicar se leen las normas de cada sitio, y solo se comparte donde la autopromoción esté permitida.
+
+**Directorios de Discord** (además de DISBOARD, Top.gg y Discadia):
+- [ ] discord.me
+- [ ] discords.com
+- [ ] discordservers.com
+- [ ] disforge.com
+- [ ] El bot `/libro` en top.gg/bots y discordbotlist.com, cuando esté desplegado.
+
+**Directorios de Telegram** (además de TGStat y Telemetr):
+- [ ] TLGRM.es
+- [ ] TelegramChannels.me
+- [ ] BuscadorTelegram
+- [ ] Canalestelegram.info
+- [ ] La búsqueda interna de Telegram, que funciona con nombres y descripciones claros. Ya está hecho en los 10 canales públicos.
+
+**Comunidades de lectores en español:**
+- [ ] Reddit: r/libros, r/literatura, r/Fantasia, r/BookClub (en inglés, solo si encaja) y r/escribir. Primero participar; la invitación solo en los hilos de autopromoción o donde las normas la admitan.
+- [ ] Grupos de Goodreads en español (grupos de lectura conjunta, por género) y StoryGraph: enlace en el perfil y en temas de clubes.
+- [ ] Lemmy y Mastodon: comunidades de libros en español (p. ej. en lemmy.world, feddit y mastodon.social, etiqueta #libros).
+- [ ] Foros y grupos de Facebook de clubes de lectura y bibliotecas.
+
+**Canales propios de David:**
+- [ ] Web: `/comunidad/` enlazada desde la cabecera, las fichas, los artículos, `/recomendaciones/` y la newsletter.
+- [ ] Bookstagram, BookTok, X y YouTube: enlace en la biografía; contenido con valor (recomendaciones, resultados de votaciones, tertulias) que termine en «el club está en…».
+- [ ] Libros de David: una línea en la página final o de agradecimientos de las próximas ediciones y del ebook.
+- [ ] Firma de correo y kit de prensa.
+
+**Colaboraciones:**
+- [ ] Tertulias cruzadas con otros clubes pequeños, bibliotecas, librerías, autores y booktubers en español. Proponer 3 al mes.
+
+## Amazon Afiliados en Discord y Telegram
+
+Antes de poner enlaces de afiliado directamente en Discord o Telegram:
+- [ ] Dar de alta los dos como sitios en la cuenta de Afiliados. Amazon.es solo nombra Instagram, Facebook, X, YouTube, TikTok y Twitch. Mientras no esté confirmado, los envíos enlazan a la ficha de la web.
+- [ ] Nada de acortadores ni redirecciones que oculten Amazon.
+- [ ] «#publicidad» o un aviso claro junto al enlace, más la declaración de afiliado fijada en cada canal.
+- [ ] Precio solo con la hora de consulta y la nota de que puede cambiar.
+- [ ] Sin XP, roles ni sorteos por comprar o por pulsar enlaces.
+
 ## Qué no hacer
 
 - No comprar miembros ni votos, ni usar servidores de «intercambio de anuncios»: DISBOARD y Top.gg lo penalizan y Discord puede cerrar el servidor.

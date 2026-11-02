@@ -716,3 +716,117 @@ Código listo y probado en local; **no desplegado** (GitHub Actions está parado
 - Crear el grupo de comentarios de Telegram (10.6).
 - Crear los webhooks de Discord y los dos secretos (`READING_TELEGRAM_CHANNELS_JSON` y `READING_DISCORD_WEBHOOKS_JSON`).
 - Quién modera Discord, además de David.
+- Instalar los bots de §12.2 (OAuth de David) y arrancar los rituales de §12.3.
+- Dar de alta Discord y Telegram como sitios en Amazon Afiliados (§12.10).
+
+## 12. Interacción, bots gratuitos y crecimiento (investigación del 2 de noviembre de 2026)
+
+Fuentes: documentación de Discord, Telegram y Amazon Afiliados, fichas de servidores de libros en DISBOARD y Top.gg, y dos consultas a ChatGPT (resumidas aquí). Lo que depende de condiciones de terceros lleva «comprobar» y se revisa al ejecutar la PR.
+
+### 12.1 Principio
+
+- Discord sirve para conversar, Telegram para la difusión por género y la web para el catálogo y la compra. El diferencial es el bot propio (`/libro` y el modo inline).
+- Éxito no es tener más canales ni más bots. Es que alguien llegue buscando su próxima lectura, acierte y se quede por la gente.
+- Hay pocos bots y cada uno hace una sola cosa. No se añaden bots que repitan algo nativo (encuestas, eventos, AutoMod, onboarding) ni MEE6, que tiene funciones de pago y anuncios.
+
+### 12.2 Bots gratuitos: uno por función
+
+| Prioridad | Bot | Función | Plan gratis | Dónde |
+|---|---|---|---|---|
+| ya | Lurkr | Niveles sin anuncios (§10.5) | sí | 18 canales |
+| ya | `@DavidPortoLibrosBot` / `/libro` | 3 libros reales del catálogo | propio | todo |
+| 1 | **Apollo** | Eventos con inscripción y recordatorio: tertulia mensual y lectura silenciosa semanal | sí: eventos ilimitados, 5 series recurrentes | #club-de-lectura y el canal de voz |
+| 2 | **Suggestions** (suggestions.gg) | Sugerencias con votos y estados | núcleo gratis | Opcional. El foro nativo #sugerencias (§12.4) ya lo cubre, así que solo se instala si se queda corto |
+| 3 | **Fumiko** *o* **Marginalia** (solo uno) | Seguimiento de lecturas, retos e importación de Goodreads o StoryGraph | comprobar límites | Se prueba con 5 lectores y se queda el más simple |
+| 4 | **Carl-bot** (solo starboard) | #joyas-del-club: los mensajes con ⭐ de 3 personas distintas | starboard gratis | Se activa cuando haya reseñas de miembros |
+| 5 | **CUB PROTECTOR** / pregunta del día | 3 preguntas semanales de libros, respuesta en hilo | gratis | Cuando haya participación |
+| más tarde | Birthday Bot, GiveawayBot | Cumpleaños voluntarios y sorteos puntuales de libros | gratis | Solo con la comunidad activa; los sorteos nunca como gancho principal |
+
+Instalar cada bot requiere OAuth con la cuenta de David: se hace al ejecutar la PR, uno a uno, con los permisos mínimos y sin rol de administrador.
+
+### 12.3 Rituales semanales (interacción y clics, no spam)
+
+Se empieza con tres (martes, jueves y domingo) y se añaden más cuando haya habituales:
+
+- **Lunes · ¿Qué estás leyendo?** Empezando, a medias o terminado, con foto de la portada. Sin enlaces.
+- **Martes · Tres libros para un mismo gusto.** Selección temática del catálogo con enlace a la ficha de la web.
+- **Miércoles · Batalla de portadas.** Encuesta nativa entre dos libros.
+- **Jueves · Consultorio lector.** Un miembro pide algo, la gente responde y `/libro` propone tres.
+- **Viernes · Descubrimiento de la semana.** Reseña de un miembro, con su permiso.
+- **Sábado · Lectura compartida.** Voz de 30–45 min sin cámara y charla opcional al final.
+- **Domingo · Balance lector.** Un libro terminado, uno abandonado y uno pendiente. Recopilación mensual en la web.
+
+Además:
+- **Libro del mes** votado: cada persona propone uno, se eligen 4 finalistas y se vota en #votaciones.
+- **Sprints de lectura** en voz.
+- **Reto anual sin presión:** 6, 12, 24 o 52 libros, o libre. Insignias por constancia y variedad, nunca por comprar.
+
+### 12.4 Voz y voto
+
+- **Foro #sugerencias (creado y verificado el 2 de noviembre de 2026):**
+  - una propuesta por publicación;
+  - etiquetas 💡 Idea, 📚 Libro para el club y 🛠️ Mejora del servidor, más las de moderación 👀 En estudio, ✅ Aceptada, 🚀 Hecha y ❌ Descartada;
+  - etiqueta obligatoria y reacción por defecto 👍;
+  - publicación semilla «¿Qué te gustaría encontrar en el club?».
+- **Revisión mensual:** las más votadas pasan a un estado con su motivo y se publica en #anuncios «Lo que habéis cambiado» con 3 decisiones aplicadas. Votar sin consecuencias desanima.
+- **Consejo lector rotatorio:** 3 voluntarios al mes que proponen actividades, sin moderar.
+- **Encuesta trimestral de 5 preguntas:** facilidad, notificaciones, utilidad, qué sobra y una mejora libre.
+- **Reconocimientos:** «Recomendación del mes» y «Reseña más útil», nunca ligados a compras ni a enlaces.
+- **Biblioteca viva:** las mejores recomendaciones pasan a las fichas de la web («Recomendado por 3 miembros», «ideal si te gustó…») tras revisión editorial.
+
+### 12.5 Lo que nadie más ofrece
+
+1. **Perfil lector en `/libro`:** «fantasía adulta, sin triángulo amoroso, menos de 400 páginas, final cerrado», con 3 resultados y el porqué de cada uno. Siguiente PR del bot.
+2. **Botones en Telegram:** «Otro parecido», «Menos romance», «Más oscuro» y «Ver ficha».
+3. **Radar personal:** avisos por autor o saga elegidos por el usuario (los roles 🔔 ya cubren el género).
+4. **Buddy reading:** emparejar lectores del mismo título en un hilo con fecha y normas antispoiler.
+5. **Mapa literario:** «viajamos a través de un libro», enlazado con `/atlas-literario/`.
+6. **Legal y curado:** muchos canales de libros en español de Telegram reparten PDF pirata. Aquí solo hay recomendaciones con ficha y compra legal, y conviene decirlo en las descripciones.
+
+### 12.6 Discord y Google: que nos encuentren
+
+- **Descubrimiento de Discord** (requisitos actualizados en octubre de 2026, comprobar al ejecutar):
+  - servidor Comunidad con al menos 1000 miembros y 8 semanas de antigüedad;
+  - actividad suficiente;
+  - 2FA para moderadores.
+  - Los servidores descubribles tienen una página pública indexable, con resúmenes de canales anunciados para el 16 de noviembre y mensajes para mediados de diciembre de 2026. Esa presencia web no se aplica en la UE.
+  - Hasta entonces, el SEO lo hace `/comunidad/`.
+- **`/comunidad/`** como página de destino para «club de lectura online gratis», «Discord libros español», «canales de Telegram de libros» y «club de lectura de fantasía». Enlazada desde la cabecera, las fichas, los artículos y la newsletter.
+- **Invitaciones distintas por origen** (web, Instagram, Reddit, directorios, colaboraciones) para saber qué fuente trae gente que participa. Discord muestra los usos por invitación.
+- **Directorios y dónde anunciarse:** `docs/comunidades-directorios.md`.
+
+### 12.7 Telegram: configuración ideal
+
+- **Índice:** mensaje fijado en Novedades y en la carpeta con los 17 canales, cómo silenciarlos y la declaración comercial.
+- **Reacciones limitadas:** 👀 me interesa, 📖 leído, ❤️ recomendado y 👎 no me convence.
+- **Un único grupo de debate** con Temas (General, Pide un libro, Leyendo ahora, Club de lectura, Sugerencias), vinculado a los canales generales (§10.6). Nunca 17 chats.
+- **Encuesta nativa semanal** en Novedades o en el grupo, sin duplicarla en los 17 canales.
+- **Formato de envío:** portada, título, autor, gancho de una línea, «para quien le gustó…» y un solo enlace a la ficha. Sin muchos hashtags.
+- **Boosts e Historias:** las Historias de canal requieren nivel de boost. Se piden boosts a los suscriptores Premium una vez, sin insistir. Uso previsto: preguntas rápidas y recordatorios, no repetir novedades.
+- **Mensajes directos al canal y publicaciones sugeridas** (Telegram, 2025): sirven para recibir propuestas de lectores.
+- **Métricas:**
+  - vistas por envío entre el 30 y el 60 % de los suscriptores es sano;
+  - vigilar bajas y silenciados tras cada cambio de frecuencia.
+
+### 12.8 Errores que hunden estas comunidades
+
+- Muchos canales vacíos. Mejor fusionar (p. ej. #votaciones con Más votados) que tener 20 canales muertos.
+- Automatizarlo todo: los bots publican, pero no crean vínculos. Hace falta una actividad humana semanal.
+- Confundir clics con fidelidad, forzar la atención con menciones o hacer sorteos constantes.
+- Retos competitivos, spoilers sin control y convertir el servidor en escaparate del autor.
+
+### 12.9 Métricas (línea base de 4 semanas antes de fijar objetivos)
+
+- Miembros nuevos activos a 7 días y retención a 30 días.
+- Participantes únicos por semana (sin bots).
+- Peticiones de recomendación respondidas y asistentes a eventos.
+- Visitas a fichas desde Discord y Telegram; clics salientes a Amazon.
+- Bajas y silenciados en Telegram.
+
+### 12.10 Amazon Afiliados (comprobar antes de difundir enlaces fuera de la web)
+
+- Amazon.es enumera como redes sociales admitidas Instagram, Facebook, X, YouTube, TikTok y Twitch. **Discord y Telegram no figuran:** hay que darlos de alta como sitios en la cuenta de Afiliados (Central → Información de la cuenta → sitios web y apps) o, mientras tanto, enlazar a la ficha de la web, que es la que lleva el enlace de afiliado.
+- Sin acortadores ni redirecciones que oculten el destino.
+- «#publicidad» o un aviso equivalente junto a cada enlace comercial, más la declaración de afiliado en la web.
+- No publicar precios ni descuentos sin la hora de consulta y la nota «el precio puede cambiar». Nada de alertas de precio automáticas.
+- Sin recompensas, XP ni sorteos por comprar o por pulsar enlaces. Todas las actividades se pueden hacer sin comprar.

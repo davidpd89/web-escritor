@@ -150,3 +150,29 @@ Rama local `feat/comunidades-telegram-discord` en el worktree `C:\GIT\wt-comunid
 - El script **no se ha ejecutado** (pide secretos de David): worker sin desplegar, `/libro` sin registrar, webhook de Telegram sin poner.
 - `/setinline` en @BotFather, alta en directorios, grupo de debate de Telegram, borrar 2 mensajes antiguos, webhooks/secretos de avisos.
 - Commit local sin push; sin PR.
+
+## Tramo 4: interacción, bots y crecimiento
+
+### Hecho
+- **Discord:** foro **#sugerencias** en CHARLA. Verificado con captura.
+  - Directrices.
+  - 3 etiquetas de tipo y 4 de estado (estas, solo para moderación).
+  - Etiqueta obligatoria y reacción 👍 por defecto.
+  - Publicación semilla.
+- **Investigación:** 2 consultas a ChatGPT, más fuentes de Discord, Telegram y Amazon. Volcada en `docs/comunidades-plan.md` §12:
+  - bots gratuitos, uno por función;
+  - rituales;
+  - voz y voto;
+  - diferenciales;
+  - Discovery y SEO;
+  - Telegram;
+  - errores;
+  - métricas;
+  - Amazon Afiliados.
+- `docs/comunidades-directorios.md`: dónde anunciarse (checklist) y normas de Amazon en Discord y Telegram.
+- `.ci/PR_BODY-comunidades.md`: sección de interacción y checklist «Al ejecutar la PR» de 12 pasos.
+
+### No comprobado / pendiente
+- Bots externos (Apollo, Fumiko/Marginalia, Carl-bot…) **no instalados**: requieren el OAuth de David.
+- Requisitos de Discovery y lista de redes admitidas por Amazon.es: tomados de la investigación y marcados «comprobar» al ejecutar la PR.
+- Sin push ni PR, según lo pedido. Hay que ejecutar la PR cuando David lo diga.
