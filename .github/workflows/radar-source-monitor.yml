@@ -6,7 +6,7 @@ name: Radar source monitor
 
 on:
   schedule:
-    - cron: '30 6 * * 1,4'
+    - cron: '0 0 * * 1,4'  # 01:00 en Madrid (CET): sync no urgente, de noche
   workflow_dispatch:
     inputs:
       max_sources:

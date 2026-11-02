@@ -2,7 +2,7 @@ name: Atlas directory sync
 
 on:
   schedule:
-    - cron: '40 5 * * 1'
+    - cron: '0 0 * * 1'  # 01:00 en Madrid (CET): sync no urgente, de noche
   workflow_dispatch:
     inputs:
       dry_run:

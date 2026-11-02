@@ -7,6 +7,11 @@ on:
       - pendiente-h-gpt-lineas-1-200
   workflow_dispatch:
 
+concurrency:
+  # En una PR, un push nuevo cancela la CI del commit anterior; main y los programados no se cancelan.
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   runtime-scoping:
     runs-on: ubuntu-latest
