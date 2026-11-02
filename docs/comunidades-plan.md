@@ -640,11 +640,12 @@ Banner horizontal 960×540 para el servidor de Discord «Club de lectura · Davi
   - Tres reglas de AutoMod (spam de menciones con límite de 5, spam sospechoso y palabras marcadas). Bloquean el mensaje y envían una alerta a #registro-moderacion.
   - Modo lento: 10 s en #que-estas-leyendo y 30 s en #off-topic, con sus temas.
   - Mensajes publicados en #normas (7 normas) y #bienvenida.
-- **Invitación permanente:** <https://discord.gg/uryeRquFEe>. No caduca, no tiene límite de usos y no da membresía temporal.
-- **Pendiente: requiere que David acepte las directrices de Comunidad de Discord.**
-  - Activar el modo Comunidad.
-  - Convertir #anuncios y los canales AL DÍA en canales de anuncios.
-  - Configurar el Onboarding (4.4).
+- **Propiedad:** el servidor es de la cuenta «David Porto» (davidportodiaz.com) desde el 2 de noviembre de 2026. La cuenta antigua que lo creó ya no es miembro, sus invitaciones están revocadas y no hay webhooks ni apps suyas.
+- **Invitación permanente:** <https://discord.gg/g7dEWxj3F>, creada por David Porto. No caduca y no tiene límite de usos.
+- **Modo Comunidad activado** (directrices aceptadas con autorización de David): correo verificado obligatorio, notificaciones «Solo menciones», permisos arriesgados quitados a @everyone, canal de normas #normas y canal de avisos de Discord #moderator-only (creado por el asistente).
+- **Canales de anuncios:** #anuncios y los 5 de AL DÍA (#novedades, #todos-los-libros, #ofertas, #proximos-lanzamientos y #mas-votados). Se pueden seguir desde otros servidores.
+- #normas y #bienvenida vuelven a estar publicados desde David Porto. Los 2 mensajes antiguos de la cuenta anterior los borra David a mano.
+- **Pendiente opcional:** Onboarding (4.4).
 - **Webhooks:** no se crean desde aquí. David los crea, uno por canal de avisos, y los guarda en el secreto `READING_DISCORD_WEBHOOKS_JSON` (mapa `id → URL`). Nunca se guardan en el repositorio.
 
 ### 10.3 Publicación (worker, siguiente PR)
@@ -659,7 +660,7 @@ Banner horizontal 960×540 para el servidor de Discord «Club de lectura · Davi
 
 ## 11. Pendiente de confirmar con David
 
-- Aceptar las directrices de Comunidad de Discord, para activar los canales de anuncios y el Onboarding.
+- Borrar los 2 mensajes antiguos de #normas y #bienvenida (los de la cuenta anterior) y, si se quiere, configurar el Onboarding.
 - Crear los webhooks de Discord y los dos secretos (`READING_TELEGRAM_CHANNELS_JSON` y `READING_DISCORD_WEBHOOKS_JSON`).
 - Quién modera Discord, además de David.
 - Si se quiere el bot conserje (necesita un Cloudflare Worker gratuito).
