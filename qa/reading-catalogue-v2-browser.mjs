@@ -204,7 +204,10 @@ try {
   await staticContext.close();
   const cold=await catalogueContext({viewport:{width:390,height:900}});
   const coldPage=await cold.newPage();
-  await coldPage.clock.setFixedTime(new Date('2026-10-21T10:00:00Z'));
+  // Reloj derivado del primer libro con fecha del listado (3 días antes = «Próximamente»): una fecha fija
+  // deja de cubrir la primera página cuando el catálogo crece con novedades más recientes.
+  const firstRelease=(await fs.readFile('recomendaciones/index.html','utf8')).match(/data-release-label="(\d{4}-\d{2}-\d{2})"/)[1];
+  await coldPage.clock.setFixedTime(new Date(Date.parse(firstRelease+'T10:00:00Z')-3*86400000));
   const noveltyFont=(await fs.readFile('assets/reading-catalogue.css','utf8')).match(/font-family:CatalogueNovelty;src:url\('([^']+)'/)[1];
   await cold.route('**'+noveltyFont,route=>route.abort());
   await coldPage.goto(base+'/recomendaciones/',{waitUntil:'networkidle'});
