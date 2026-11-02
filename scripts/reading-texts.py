@@ -438,6 +438,12 @@ def git(*args, cwd=ROOT, capture=False):
     subprocess.run(['git', *args], cwd=cwd, check=True)
 
 
+def git_add(paths, cwd=ROOT):
+    """Añade las rutas por stdin: cientos de fichas regeneradas superan el límite de línea de comandos de Windows."""
+    subprocess.run(['git', 'add', '--pathspec-from-file=-', '--pathspec-file-nul'], cwd=cwd, check=True,
+                   input='\0'.join(paths).encode('utf-8'))
+
+
 def publish(out=OUT):
     """Copia los textos a un árbol limpio de origin/main y publica con el flujo protegido del barrido."""
     texts = sorted(out.glob('*.json'))
@@ -480,7 +486,7 @@ def publish(out=OUT):
     branch = 'automation/reading-catalogue-textos-' + now.strftime('%Y-%m-%d-%H%M%S')
     count = len([p for p in paths if p.startswith('data/reading-texts/')])
     git('switch', '-q', '-c', branch, cwd=tree)
-    git('add', '--', *paths, cwd=tree)
+    git_add(paths, cwd=tree)
     git('commit', '-q', '-m', f'Orientación propia en {count} fichas de lectura', cwd=tree)
     git('push', '-q', 'origin', 'HEAD:refs/heads/' + branch, cwd=tree)
     body = tree.parent / 'pr-body.md'
