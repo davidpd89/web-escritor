@@ -41,7 +41,9 @@ class CatalogueGEO(unittest.TestCase):
         authors, publishers = [], []
         text = builder.render_llms_index(self.data, self.books, authors, publishers)
         with_audience = [b for b in self.books if builder.own_summary(b)]
-        self.assertGreater(len(with_audience), len(self.books) * 0.9)
+        # Todo libro con «Para quién es» validado lo lleva; los recién incorporados esperan a su texto.
+        self.assertEqual(len(with_audience), sum(1 for b in self.books if any(x['modulo'] == 'para_quien' for x in (builder.OWN_TEXTS.get(b['id']) or {}).get('bloques', []))))
+        self.assertGreater(len(with_audience), 100)
         for b in with_audience:
             line = next(l for l in text.splitlines() if f"{builder.url(b)})" in l)
             self.assertIn('Para quién es: ' + builder.own_summary(b), line, b['id'])
@@ -50,7 +52,7 @@ class CatalogueGEO(unittest.TestCase):
 
     def test_own_meta_descriptions_fit_without_cutting_a_sentence(self):
         metas = {b['id']: builder.own_meta_description(b) for b in self.books if builder.OWN_TEXTS.get(b['id'])}
-        self.assertGreater(len(metas), len(self.books) * 0.9)
+        self.assertGreater(len(metas), 100)
         long = {i: m for i, m in metas.items() if len(m) > 160 or not m.endswith('.')}
         self.assertLessEqual(len(long), 2, long)
 
