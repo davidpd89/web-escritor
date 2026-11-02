@@ -13,7 +13,7 @@ spec.loader.exec_module(publication)
 
 EXACT = {'assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-publishers.json', 'data/reading-intake-state.json', 'data/reading-pinterest-state.json',
          'data/content-registry.json', 'recomendaciones/index.html', 'recomendaciones/autores/index.html',
-         'recomendaciones/editoriales/index.html', 'recomendaciones/proximos-lanzamientos.ics', 'mapa-del-sitio/index.html',
+         'recomendaciones/editoriales/index.html', 'recomendaciones/proximos-lanzamientos.ics', 'recomendaciones/llms.txt', 'mapa-del-sitio/index.html',
          'sitemap.xml', 'editoriales-sitemap.xml'}
 
 
