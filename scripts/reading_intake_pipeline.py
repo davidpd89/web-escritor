@@ -553,7 +553,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 book = make_book(record, publishers[canonical_publisher], config['amazon_partner_tag'], today, path, dimensions)
                 if refresh:
                     book['id'], book['slug'] = old_book['id'], old_book['slug']
-                    for field in ('resenas', 'formatos_compra', 'url_amazon_afiliada', 'fragmento_url', 'fragmento_texto', 'fragmento_uso_autorizado', 'fragmento_base_uso', 'audio_fragmento', 'avisos_contenido', 'lectura_personal_confirmada', 'evidencia_lectura', 'autoria_propia', 'categorias_excluidas'):
+                    for field in ('resenas', 'formatos_compra', 'precios_amazon_revision', 'formatos_amazon_buscados', 'url_amazon_afiliada', 'fragmento_url', 'fragmento_texto', 'fragmento_uso_autorizado', 'fragmento_base_uso', 'audio_fragmento', 'avisos_contenido', 'lectura_personal_confirmada', 'evidencia_lectura', 'autoria_propia', 'categorias_excluidas'):
                         if field in old_book:
                             book[field] = old_book[field]
                     changed = any(book.get(k) != old_book.get(k) for k in set(book) - {'fecha_verificacion', 'portada_fecha_revision', 'fecha_actualizacion'})
