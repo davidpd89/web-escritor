@@ -267,7 +267,7 @@ def own_summary(b):
     """«Para quién es» validado, en una línea para índices de texto (llms.txt)."""
     t = OWN_TEXTS.get(b['id'])
     block = next((x for x in t['bloques'] if x['modulo'] == 'para_quien'), None) if t else None
-    return clip(block['texto'], 300) if block else ''
+    return clip(block['texto'], 200) if block else ''
 
 
 def synopsis_paragraphs(b):
@@ -729,9 +729,11 @@ def render_llms_index(data, books, authors, publishers):
                   if (names := [c['nombre'] for c in cats if c['tipo'] == tipo])]
         age = b.get('edad_recomendada') or ', '.join(c['nombre'] for c in cats if c['tipo'] == 'edad')
         who = own_summary(b)
-        facts += [age and 'Edad: ' + age, who and 'Para quién es: ' + who, 'Sinopsis de la editorial: ' + clip(b['sinopsis_breve'], 300)]
-        text = '. '.join(f.rstrip('.') for f in facts if f)
-        lines.append(f"- [{b['titulo']}]({SITE}{url(b)}): " + text + ('' if text.endswith('…') else '.'))
+        facts += [age and 'Edad: ' + age, who and 'Para quién es: ' + who]
+        head = f"- [{b['titulo']}]({SITE}{url(b)}): " + '. '.join(f.rstrip('.') for f in facts if f) + '. Sinopsis de la editorial: '
+        # Cada línea cabe en 700 caracteres: la sinopsis de la editorial se queda con el espacio que deja lo propio.
+        synopsis = clip(b['sinopsis_breve'], max(60, min(300, 690 - len(head))))
+        lines.append(head + synopsis.rstrip('.') + ('' if synopsis.endswith('…') else '.'))
     return '\n'.join(lines) + '\n'
 
 
