@@ -384,15 +384,26 @@ def novelty(b, fallback):
     return '<span class="catalogue-novelty" data-release-label="' + esc(b.get('fecha_publicacion', '')) + '" hidden>Novedad</span>'
 
 
-def book_title(b):
+def _short_title(b, suffix):
+    return b['titulo'][:74-len(suffix)].rsplit(' ', 1)[0].rstrip(' .,:;-–(') + '…' + suffix
+
+
+def book_title(b, data=None):
     base = b['titulo'] + ' · ' + ', '.join(b['autores'])
     full = base + ' | Libros recomendados'
     if len(full) <= 75:
         return full
     if len(base) <= 75:
         return base
-    suffix = ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8])
-    return b['titulo'][:74-len(suffix)].rsplit(' ', 1)[0] + '…' + suffix
+    # Recortado con el primer autor: es lo que se busca. El ISBN solo distingue
+    # cuando otro libro del catálogo (otro tomo de la serie) daría el mismo título.
+    by_author = ' · ' + b['autores'][0]
+    if len(by_author) <= 30:
+        title = _short_title(b, by_author)
+        others = [x for x in (data or {}).get('libros', []) if x['id'] != b['id'] and x['estado'] == 'publicado' and x['autores'][:1] == b['autores'][:1]]
+        if not any(_short_title(x, by_author) == title for x in others):
+            return title
+    return _short_title(b, ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8]))
 
 
 def author_records(root=ROOT):
@@ -705,7 +716,7 @@ def render_hub(data, books, template):
 
 def render_book(data,b,template):
     canonical=SITE+url(b)
-    title=book_title(b)
+    title=book_title(b,data)
     description=own_meta_description(b) or book_meta_description(data,b)
     own_before=own_text_section(b)
     cats=categories(data,b)

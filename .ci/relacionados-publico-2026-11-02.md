@@ -17,3 +17,9 @@
 
 ## Pendientes
 - CI de la PR y merge.
+
+## Títulos largos con autor (segundo commit)
+- `book_title(b, data)`: si «Título · Autor | Libros recomendados» pasa de 75 caracteres, se recorta el título y se termina en « · Primer autor». Antes terminaba en « · ISBN». El ISBN solo se usa si otro tomo del mismo autor daría el mismo título, o si el autor ocupa más de 30 caracteres.
+- Cambian 11 de las 12 fichas (p. ej., «La señora Dalloway (edición especial limitada con cantos… · Virginia Woolf»).
+- El test `test_long_seo_titles_remain_bounded_and_distinct` cubre los dos casos.
+- Verificado: los `--check` de toda la cadena OK, 236 tests OK y `test-reading-catalogue` PASS.
