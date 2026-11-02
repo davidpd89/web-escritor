@@ -4,56 +4,51 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La magia de la música - Cenicienta está pensado para lectores a partir de 4 años que disfruten de cuentos con magia, baile y sonidos. Sus botones musicales y su escenario desplegable lo alejan de una lectura exclusivamente textual o de un relato largo.",
+      "texto": "La magia de la música - Cenicienta está pensado para niños a partir de 4 años que disfruten de los cuentos de fantasía, la música y los libros interactivos. Encaja menos con quien busque una lectura exclusivamente textual, ya que escuchar melodías mediante botones y abrir un escenario desplegable forma parte de la experiencia.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "La magia de la música - Cenicienta se utiliza leyendo el cuento y pulsando los botones de sus páginas para escuchar piezas clásicas. Las melodías incluyen composiciones de Chaikovsky, Mozart y Saint-Saëns, y al final se abre un escenario en 3D.",
+      "texto": "Se utiliza pulsando los botones de las páginas para escuchar melodías de música clásica mientras se sigue la historia ilustrada. Entre los compositores presentes figuran Chaikovsky, Mozart y Saint-Saëns; al terminar el cuento, se puede abrir un escenario desplegable en 3D que añade una actividad visual a la lectura.",
       "evidencias": [
-        "titulo",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "La magia de la música - Cenicienta está dirigido a partir de 4 años y reúne 24 páginas. La edición en castellano de DK tiene tapa dura, botones para activar música y un desplegable final en 3D que añade una actividad manual a la lectura.",
+      "texto": "Está recomendado a partir de 4 años y se presenta en tapa dura, con una extensión de 24 páginas. El volumen combina una adaptación del cuento de Cenicienta con ilustraciones, botones musicales y un escenario final desplegable en 3D, características que permiten alternar lectura, escucha y exploración visual.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
-        "numero_paginas",
         "edicion",
-        "idioma",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es la presentación disponible de La magia de la música - Cenicienta. En sus 24 páginas combina lectura con botones de música, y la encuadernación rígida permite manipular el libro mientras se abre el escenario desplegable final.",
+      "texto": "La tapa dura es el formato disponible para La magia de la música - Cenicienta. Sus 24 páginas integran botones para reproducir melodías y un escenario desplegable en 3D, por lo que el ejemplar físico permite utilizar los mecanismos interactivos que acompañan el cuento.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La magia de la música - Cenicienta y Mi mamá es... - Una unicornia solitaria comparten elementos mágicos dirigidos a la infancia. Charles Perrault presenta un cuento con música accionada por botones; Steve Smallman sitúa a dos amigos en un bosque encantado, con una búsqueda como punto de partida.",
+      "texto": "La magia de la música - Cenicienta comparte el interés por la música con Aprender a leer en la Escuela de Monstruos 24 - Dos artistas muy solistas, de Sally Rippin. En el primero se escuchan melodías al pulsar botones y se abre un escenario en 3D; el segundo presenta a personajes que disfrutan cantando y actuando ante sus amigos.",
       "evidencias": [
         "titulo",
-        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448874575"
+        "isbn-9791387724184"
       ]
     }
   ],
