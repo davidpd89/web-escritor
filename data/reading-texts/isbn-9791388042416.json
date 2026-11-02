@@ -1,10 +1,19 @@
 {
   "id": "isbn-9791388042416",
-  "familia": "no_ficcion",
+  "familia": "narrativa",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Clue. El misterio del reloj se dirige a lectores jóvenes interesados en investigaciones criminales de ficción, pistas y búsquedas con peligro. No plantea una biografía ni una reconstrucción documental de un delito: sigue a un grupo de personajes que intenta recuperar un reloj robado mientras se enfrenta a sospechosos y situaciones arriesgadas.",
+      "texto": "Clue. El misterio del reloj se orienta a lectores jóvenes interesados en investigar robos, seguir pistas y resolver enigmas junto a un grupo de detectives. Sus fugitivos, peligros y personajes sospechosos lo alejan de las lecturas tranquilas que prescinden del suspense.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Clue. El misterio del reloj desarrolla una investigación detectivesca a partir del robo de un objeto valioso y una búsqueda del tesoro. El suspense procede de reconstruir lo sucedido mediante pistas, diarios secretos y encuentros con sospechosos, mientras los protagonistas se enfrentan a peligros durante el caso.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,20 +22,20 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Duomo Ediciones publica Clue. El misterio del reloj en una nueva edición de tapa dura con 192 páginas. El volumen está escrito por JØRN LIER HORST e incorpora ilustraciones de David G. Forés a la narración de misterio, manteniendo el texto en castellano.",
+      "texto": "Esta edición de Clue. El misterio del reloj reúne 192 páginas en castellano y se presenta en tapa dura bajo el sello de Duomo Ediciones. Incorpora ilustraciones de David G. Forés y se identifica como una nueva edición de la aventura, con publicación fechada el 2026-09-07.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
-        "autores",
         "idioma",
-        "sinopsis_editorial"
+        "edicion",
+        "editorial",
+        "sinopsis_editorial",
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Clue. El misterio del reloj se ofrece en tapa dura y tiene 192 páginas. Esta presentación reúne el thriller juvenil y las ilustraciones de David G. Forés en un volumen físico, lo que permite alternar la narración de las pesquisas con las imágenes que acompañan al relato.",
+      "texto": "Clue. El misterio del reloj está disponible en tapa dura, con 192 páginas. Su encuadernación rígida resulta apropiada para conservar el volumen en una estantería o volver a consultar las pistas y las ilustraciones durante la lectura en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -36,21 +45,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Clue. El misterio bajo el agua y Clue. El misterio del reloj son títulos de JØRN LIER HORST agrupados en Misterio y thriller. El primero sitúa su incógnita bajo el agua desde el propio título; el segundo parte del asalto a una joyería y sigue la búsqueda de un reloj sustraído, con pistas y personajes sospechosos.",
+      "texto": "Clue. El misterio del reloj y Clue. El misterio de la salamandra son obras de Jørn Lier Horst que comparten el suspense juvenil y la presencia de jóvenes detectives. El primero se organiza alrededor del robo de un reloj valioso y una búsqueda del tesoro, mientras que el segundo plantea otro enigma identificado por una salamandra en su título.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387574949"
+        "isbn-9791388042409"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "224179d7253dc99d",
+  "fuente_hash": "8ef2ca1d1a5986ce",
   "origen": "chatgpt-web"
 }

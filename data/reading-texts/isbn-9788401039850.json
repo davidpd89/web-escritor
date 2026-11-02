@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788401039850",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La trama francesa se dirige a lectores adultos de misterio y thriller interesados en secuestros, espionaje e investigaciones que implican a distintos servicios de inteligencia. Encaja menos con quienes buscan un misterio sin operaciones encubiertas o prefieren evitar historias donde los protagonistas afrontan amenazas directas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un thriller de alcance internacional que comienza con el secuestro de una pareja durante su luna de miel y se desarrolla mediante una investigación entre organismos de inteligencia. La incorporación de un joven abogado como señuelo en una operación de la CIA añade un conflicto de riesgo personal a la búsqueda de los responsables.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La trama francesa está disponible en tapa dura con sobrecubierta, en una edición de 416 páginas en castellano. La encuadernación rígida y la cubierta exterior ofrecen una presentación física para conservar el ejemplar o regalarlo, frente a la flexibilidad propia de una edición de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "formato_edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La tapadera (La tapadera 1) y La trama francesa comparten autor, John Grisham, y un vínculo argumental con el mundo del derecho. La tapadera (La tapadera 1) parte de las ofertas profesionales que recibe Mitch McDeere tras sus estudios; La trama francesa introduce a un joven abogado en una operación de inteligencia relacionada con un secuestro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788401042706"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "32994917f095f270",
+  "origen": "chatgpt-web"
+}

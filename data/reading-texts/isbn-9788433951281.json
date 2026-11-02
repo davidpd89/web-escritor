@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Yo? encaja con lectores de narrativa contemporánea interesados en la identidad personal, la suplantación y las consecuencias psicológicas de la guerra. Su construcción mediante un monólogo interior puede alejar a quienes prefieran una narración centrada en la acción externa y los diálogos.",
+      "texto": "¿Yo? se dirige a lectores de narrativa interesados en los conflictos de identidad, las consecuencias psicológicas de la guerra y los relatos centrados en la conciencia del protagonista. Encaja menos con quienes buscan aventuras desligadas del trauma bélico o una narración que avance principalmente mediante acontecimientos externos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "¿Yo? es una novela de narrativa contemporánea que utiliza el monólogo interior para explorar la distancia entre la identidad propia y la asumida. La experiencia de la guerra, los recuerdos personales y la vida construida bajo otro nombre generan un conflicto psicológico en el que la percepción del protagonista ocupa el centro del relato.",
+      "texto": "¿Yo? utiliza el monólogo interior para explorar la identidad de un soldado que adopta la vida de otra persona después de apropiarse de su documentación. La narración combina las experiencias de esa nueva existencia con recuerdos de su pasado y las secuelas de la guerra, de manera que el conflicto afecta tanto a su posición social como a su percepción de sí mismo.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,10 +22,9 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición de ¿Yo? publicada por Editorial Anagrama el 2026-11-11 está escrita en castellano y se presenta en tapa blanda, con 176 páginas. Es una recuperación en español de la novela de Peter Flamm, cuya reedición en la lengua original apareció en 2023, después de décadas fuera de circulación.",
+      "texto": "La edición de Editorial Anagrama presenta ¿Yo? en castellano, con encuadernación de tapa blanda y 176 páginas. Su publicación, fechada en 2026-11-11, coincide con el centenario de la obra y llega después de su recuperación editorial en la lengua original en 2023.",
       "evidencias": [
         "titulo",
-        "autores",
         "editorial",
         "edicion",
         "fecha_publicacion",
@@ -36,18 +35,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Yo? se ofrece en tapa blanda, con 176 páginas de lectura en castellano. Su extensión permite transportar el volumen en una bolsa y seguir en papel el monólogo interior del protagonista, con libertad para detenerse y regresar a los pasajes donde se cruzan recuerdos e identidades.",
+      "texto": "¿Yo? está disponible en tapa blanda y reúne 176 páginas en castellano, una extensión contenida para una novela centrada en el monólogo interior. La cubierta flexible permite manejar y transportar el volumen físico sin recurrir a un dispositivo de lectura digital.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
+        "formato_edicion",
         "sinopsis_editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5870421f13dddd36",
+  "fuente_hash": "257198a7f9b9746a",
   "origen": "chatgpt-web"
 }

@@ -3,12 +3,30 @@
   "familia": "narrativa",
   "bloques": [
     {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de novela histórica interesados en conspiraciones políticas, conflictos militares y luchas por el poder. Sus 1240 páginas y la presencia de combates, traiciones y envenenamientos lo alejan de quienes prefieren narraciones breves o historias sin violencia.",
+      "evidencias": [
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela histórica ambientada en el año 96 d. C., donde el fracaso de una conspiración desencadena enfrentamientos y decisiones improvisadas. La guardia pretoriana, el Coliseo y las intrigas políticas forman parte de esta primera entrega de la Trilogía de Trajano.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
       "modulo": "esta_edicion",
-      "texto": "Esta edición limitada de Booket incorpora cantos decorados y una encuadernación en tapa dura sin sobrecubierta, de tipo cartoné. Reúne 1240 páginas en castellano y presenta la primera entrega de la Trilogía de Trajano con esos acabados físicos.",
+      "texto": "Esta edición especial de Booket se presenta en tapa dura sin sobrecubierta, con cantos decorados y 1240 páginas en castellano. Su carácter limitado y el tratamiento decorativo de los bordes distinguen esta presentación de una encuadernación convencional.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
+        "formato_edicion",
         "numero_paginas",
         "idioma",
         "sinopsis_editorial"
@@ -16,22 +34,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las 1240 páginas se presentan en tapa dura sin sobrecubierta, con encuadernación cartoné. Los cantos decorados distinguen el volumen físico y forman parte de esta edición limitada, tanto para conservarla en una biblioteca como para regalarla.",
+      "texto": "La tapa dura reúne las 1240 páginas en un volumen físico con encuadernación en cartoné y cantos decorados. Por su extensión, supone manejar un libro voluminoso; el acabado de esta edición también responde a usos como conservar el ejemplar en una biblioteca personal o entregarlo como regalo.",
       "evidencias": [
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "edicion",
-        "titulo",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cosamala también relaciona un crimen con un conflicto histórico, pero incorpora brujas y se sitúa en la guerra civil, mientras Santiago Posteguillo aborda una conspiración imperial. La hija del joyero parte de Málaga, 1867, frente al escenario del año 96 d. C. y las luchas políticas de esta novela.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
         "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788432251436",
+        "isbn-9788466685016"
       ]
     }
   ],
-  "descartados": [
-    "para_quien: nombres sin respaldo: Roma",
-    "encaje_documentado: copia 8 palabras seguidas de la sinopsis",
-    "lecturas_afines: más de cuatro frases",
-    "faltan módulos: encaje_documentado, lecturas_afines, para_quien"
-  ],
+  "descartados": [],
   "version": 3,
   "fuente_hash": "57a47f4199b89775",
   "origen": "chatgpt-web"

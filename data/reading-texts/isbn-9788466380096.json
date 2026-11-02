@@ -3,6 +3,51 @@
   "familia": "narrativa",
   "bloques": [
     {
+      "modulo": "encaje_documentado",
+      "texto": "Propone una comedia romántica adulta construida alrededor de un acuerdo entre Zac Anderson y Grace Harris que los lleva a recorrer la Ruta 66. La oposición entre sus ideas sobre el amor sostiene la relación y plantea la posibilidad de que ambos cambien de opinión. El título lo identifica como el n.º 2 de Quererte.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta presentación de Quizá sí quiero (edición limitada · Verano) (Quererte 2) lleva en el título la identificación «edición limitada · Verano» y utiliza el formato bolsillo flexibook. Es una edición en castellano de Penguin Bolsillo, publicada en tapa blanda y con 464 páginas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "formato_edicion",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Para Quizá sí quiero (edición limitada · Verano) (Quererte 2), el formato disponible es tapa blanda, concretamente una edición de bolsillo flexibook. Sus 464 páginas permiten tener la novela completa en un ejemplar físico de bolsillo, una presentación práctica para llevar en el bolso o la mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los finales perfectos no existen, también de Violeta Reed, parte de la desconfianza de Ben Sharp hacia los finales felices y las comedias románticas. Quizá sí quiero (edición limitada · Verano) (Quererte 2) comparte ese escepticismo a través de Zac Anderson, pero desarrolla el conflicto mediante un acuerdo con Grace Harris y un recorrido por carretera.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425371745"
+      ]
+    },
+    {
       "modulo": "para_quien",
       "texto": "Está pensado para lectores adultos de novela romántica que buscan conflictos entre personajes con expectativas sentimentales opuestas. No responde a quien prefiera una historia centrada en el misterio: el eje es la relación entre un médico que rechaza enamorarse y una editora que desea vivir su propia historia de amor.",
       "evidencias": [
@@ -10,40 +55,12 @@
         "categorias",
         "sinopsis_editorial"
       ]
-    },
-    {
-      "modulo": "encaje_documentado",
-      "texto": "La lectura se articula alrededor de una relación romántica entre personas de caracteres opuestos y un recorrido por carretera. Grace Harris acepta acompañar a Zac Anderson desde California hasta Nueva York a cambio de ayuda con un problema profesional, lo que convierte la convivencia en el centro del conflicto sentimental; el título lo identifica como el n.º 2.",
-      "evidencias": [
-        "categorias",
-        "sinopsis_editorial",
-        "titulo"
-      ]
-    },
-    {
-      "modulo": "esta_edicion",
-      "texto": "Esta versión lleva en el título la identificación edición limitada · Verano y está publicada por Penguin Bolsillo en formato bolsillo flexibook. Reúne 464 páginas en castellano y se identifica mediante el ISBN 9788466380096, lo que permite distinguir esta presentación editorial al buscarla.",
-      "evidencias": [
-        "titulo",
-        "edicion",
-        "editorial",
-        "numero_paginas",
-        "idioma",
-        "isbn13"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La presentación disponible es en tapa blanda, concretamente en bolsillo flexibook de Penguin Bolsillo. Sus 464 páginas quedan reunidas en un volumen físico de formato bolsillo, que permite llevar la novela y continuar la lectura fuera de casa sin depender de una pantalla.",
-      "evidencias": [
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
-      ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "para_quien: muletilla: un viaje por",
+    "faltan módulos: para_quien"
+  ],
   "version": 3,
   "fuente_hash": "396d1b3c703b7452",
   "origen": "chatgpt-web"

@@ -1,0 +1,60 @@
+{
+  "id": "isbn-9791387526870",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para niños de 3 a 5 años que exploran los animales mediante sonidos y personajes de Disney. Su propuesta interactiva se diferencia de una narración infantil convencional: el centro de la actividad es presionar el libro y reconocer los 50 sonidos que contiene.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se juega presionando el libro para activar sonidos de animales y escucharlos junto a personajes de Disney. Sus 50 sonidos incluyen los de la gallina, el perro, el león, el pingüino, el castor y la ballena, lo que permite relacionar cada animal con su sonido característico.",
+      "evidencias": [
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada es de 3 a 5 años y el libro tiene 28 páginas en tapa dura. Combina la exploración de animales con una actividad sonora que requiere interactuar físicamente con el ejemplar, en lugar de limitarse a pasar páginas.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "formato_edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura contiene las 28 páginas y la función interactiva para escuchar 50 sonidos de animales. Es un formato de uso físico: la actividad se desarrolla presionando el propio libro, con los personajes de Disney acompañando el reconocimiento de los distintos animales.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agente Stitch 5. Los roedores de Roswell también pertenece a Disney, pero desarrolla un misterio intergaláctico basado en el trabajo en equipo, en lugar de una actividad sonora sobre animales. Stitch. Calendario de Adviento propone 24 historias para la cuenta atrás navideña, mientras este libro organiza su experiencia alrededor de 50 sonidos.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387901943",
+        "isbn-9791387526863"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04fef0481d38aa75",
+  "origen": "chatgpt-web"
+}

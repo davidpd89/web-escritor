@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788401037894",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un baile en Versalles está dirigido a lectores adultos de romance y relatos sobre familias, expectativas sociales y decisiones personales. Sus conflictos giran alrededor de las relaciones sentimentales, la influencia de los padres y las aspiraciones de cuatro jóvenes, por lo que encaja menos con quienes buscan una historia ajena a esas preocupaciones.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Un baile en Versalles combina romance con conflictos familiares y decisiones sobre el futuro de cuatro debutantes durante el verano de 1959. Danielle Steel utiliza una presentación en sociedad como punto de encuentro entre ambiciones académicas, expectativas familiares y relaciones sentimentales que ponen a prueba las prioridades de las protagonistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un baile en Versalles figura en Tapa blanda con solapas, una edición de Plaza & Janés que reúne 304 páginas. Es una presentación física para quienes prefieren leer en papel, conservar el ejemplar en su biblioteca o regalar una novela centrada en las historias de cuatro jóvenes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La casa de los espíritus, de Isabel Allende, comparte con Un baile en Versalles el peso de los vínculos familiares, aunque sigue la historia de una familia en lugar de centrarse en cuatro debutantes. Los finales perfectos no existen, de Violeta Reed, se acerca por el componente romántico, pero parte del escepticismo de Ben Sharp ante los desenlaces de las comedias románticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788401042751",
+        "isbn-9788425371745"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b1d43492161db603",
+  "origen": "chatgpt-web"
+}

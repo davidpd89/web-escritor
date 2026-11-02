@@ -1,0 +1,65 @@
+{
+  "id": "isbn-9788408324379",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guinness World Records 2027. Fútbol está dirigido a lectores de 9 a 12 años interesados en las estadísticas, los récords y las competiciones futbolísticas. Incluye contenidos sobre equipos, jugadores y logros tanto del fútbol masculino como del femenino. Su enfoque deportivo no encaja con quien busca una novela de ficción o una recopilación de récords de múltiples disciplinas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Guinness World Records 2027. Fútbol funciona como una guía de consulta sobre marcas y acontecimientos futbolísticos. Sus contenidos permiten revisar récords de goles, partidos, equipos y jugadores, además de referencias a la Copa Mundial de la FIFA 2026. La organización temática facilita acudir a los datos deportivos sin necesidad de seguir una historia narrativa.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Guinness World Records 2027. Fútbol está recomendado para lectores de 9 a 12 años y tiene 192 páginas. Se publica en castellano, en una edición de tapa blanda con solapas. El contenido se concentra en el fútbol masculino y femenino, con récords de jugadores, equipos y competiciones.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de Guinness World Records 2027. Fútbol. Esta edición de 192 páginas utiliza una encuadernación rústica con solapas, que permite manejar y transportar el volumen sin la rigidez del cartoné. Su presentación está orientada a la consulta física de récords y datos futbolísticos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guinness World Records 2027 es la comparación más directa con Guinness World Records 2027. Fútbol: ambos pertenecen a Guinness World Records y reúnen contenidos sobre récords. La edición dedicada al fútbol se concentra en jugadores, equipos y competiciones masculinas y femeninas. Guinness World Records 2027 amplía el alcance a ciencia, naturaleza, cultura y otros ámbitos, mientras que el volumen futbolístico mantiene un enfoque especializado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788408324362"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bcbadb57ae8c2f8b",
+  "origen": "chatgpt-web"
+}

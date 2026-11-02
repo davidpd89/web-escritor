@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Clue. El misterio de la salamandra encaja con lectores jóvenes interesados en resolver crímenes y seguir pistas junto a tres investigadores de su edad aproximada. El hallazgo de un cadáver, las persecuciones y el peligro que afrontan los protagonistas lo alejan de quienes buscan un misterio sin amenazas ni situaciones de riesgo.",
+      "texto": "Clue. El misterio de la salamandra se dirige a lectores jóvenes interesados en crímenes, pistas ocultas, investigaciones y persecuciones. Puede encajar menos con quienes prefieran historias sin muertes ni situaciones inquietantes, ya que el caso comienza con la aparición de un cadáver en la playa.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,39 +13,52 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un thriller juvenil de investigación que combina enigmas, suspense y peligro físico. Cecilia, Leo y Une deben relacionar la aparición de un cadáver con un tatuaje de salamandra y ciertos acontecimientos del pasado, mientras la investigación los expone a persecuciones y amenazas.",
+      "texto": "Clue. El misterio de la salamandra combina misterio detectivesco y suspense juvenil alrededor de una muerte que requiere investigación. Un tatuaje con forma de salamandra, pistas difíciles de interpretar y un secreto del pasado sostienen una trama centrada en averiguar qué ocurrió y quién está implicado.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La nueva edición en tapa dura de Clue. El misterio de la salamandra incorpora ilustraciones de David G. Forés. Duomo Ediciones la publica en castellano con 160 páginas y el ISBN 9791388042409, en un volumen que reúne la narración y su acompañamiento gráfico.",
+      "texto": "La edición de Clue. El misterio de la salamandra publicada por Duomo Ediciones es de tapa dura y contiene 160 páginas en castellano. Se presenta como una nueva edición de la aventura e incorpora ilustraciones de David G. Forés, con fecha de publicación del 2026-09-07.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
-        "formato_edicion",
         "numero_paginas",
         "idioma",
-        "isbn13",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 160 páginas de Clue. El misterio de la salamandra y las ilustraciones de David G. Forés en un ejemplar físico. Permite conservar el libro en una estantería, prestarlo o regalarlo, además de regresar a las páginas anteriores para revisar las pistas durante la lectura.",
+      "texto": "Clue. El misterio de la salamandra se ofrece en tapa dura, con 160 páginas. Su encuadernación rígida permite conservar el libro y consultar nuevamente sus pistas e ilustraciones en papel, mientras que la extensión concentra la investigación en un volumen relativamente breve.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "sinopsis_editorial"
       ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Clue. El misterio de la salamandra y Clue. El misterio del reloj, ambos de Jørn Lier Horst, comparten el interés por los enigmas y los jóvenes detectives. En el primero, la investigación nace de un cadáver y un tatuaje misterioso; el segundo se identifica por el reloj de su título y mantiene el enfoque de suspense para lectores jóvenes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388042416"
+      ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0aff5f943f472e13",
+  "fuente_hash": "ff070361502b4211",
   "origen": "chatgpt-web"
 }
