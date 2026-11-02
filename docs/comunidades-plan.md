@@ -620,9 +620,10 @@ Banner horizontal 960×540 para el servidor de Discord «Club de lectura · Davi
   - Géneros: Thriller, Romántica, Fantasía, Terror, Ciencia ficción, Histórica, Infantil y juvenil, Ensayo y no ficción, Cocina y bienestar, Cómic, Poesía, Religión y espiritualidad.
 - `@DavidPortoLibrosBot` es administrador de los 17 canales, con permisos para publicar, editar y borrar mensajes.
 - Carpeta compartible **«Libros DP»** con los 17 canales: <https://t.me/addlist/lja92v39DGE4YmM0>. Es el botón «Unirme a todos» de /comunidad/.
-- Usernames públicos: hay 7 activos (`novedades_libros_dp`, `todos_libros_dp`, `ofertas_libros_dp`, `masvotados_libros_dp`, `proximos_libros_dp`, `thriller_libros_dp`, `romantica_libros_dp`).
-  - Los otros 10 usan por ahora un enlace de invitación, porque Telegram limita cuántos usernames se pueden asignar seguidos (FLOOD_WAIT).
-  - Cuando se les asigne el username se regenera `communities.json`.
+- **Usernames públicos (10):** novedades, todos, ofertas, más votados, próximos, thriller, romántica, fantasía, terror y ciencia ficción, todos con el formato `<tema>_libros_dp`.
+  - Telegram permite como máximo 10 canales públicos por cuenta sin Premium (`CHANNELS_ADMIN_PUBLIC_TOO_MUCH`).
+  - Los otros 7 (histórica, infantil y juvenil, ensayo, cocina, cómic, poesía y religión) usan un enlace de invitación `t.me/+…` y también están en la carpeta.
+- Las 17 fotos de canal están puestas.
 - Los chat_id de los canales **no** se guardan en el repositorio. Van en el secreto `READING_TELEGRAM_CHANNELS_JSON`: un mapa `id → @usuario o chat_id`, que gestiona David.
 
 ### 10.2 Discord: «Club de lectura · David Porto»
