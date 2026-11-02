@@ -1,6 +1,25 @@
 # Plan de comunidades lectoras (definición, 2 de noviembre de 2026)
 
-Estado: **definición, pendiente de luz verde.** Nada de este documento está implementado salvo lo marcado como «hecho». Sin push, sin workflows y sin canales nuevos creados.
+Estado: **luz verde de David (2 nov, tarde): crear canales, servidor de Discord e imágenes.** Sin push ni workflows hasta que Actions esté libre.
+
+## Correcciones de David (prevalecen sobre el resto del documento)
+
+1. **Todos los géneros desde el lanzamiento.**
+   - El catálogo se está llenando continuamente: el bot de ingesta añade novedades y fondo cada día.
+   - El volumen medido hoy no limita qué canales se abren.
+   - Poesía, Histórica, Religión, Terror, Ciencia ficción y Más votados se crean ya, cada uno con su canal. Se elimina la regla de «fase 2 por volumen».
+2. **Horario de publicación fijo para no molestar** (hora de Madrid):
+   - de lunes a viernes, a las **11:30**;
+   - sábados y domingos, a las **18:30**.
+
+   Cada canal recibe en esa franja lo que le toque ese día: una ficha por libro, en ráfaga corta y espaciada. Nada fuera de esa hora.
+3. **Más votados con Goodreads.**
+   - El catálogo ya guarda valoraciones de Goodreads (`assets/reading-market.json → ratings`, que hoy tiene 84 libros con puntuación y número de votos).
+   - El canal publica un ranking con esos datos, que son los que ya se muestran en la web y enlazan a Goodreads.
+4. **Un solo bot** (`@DavidPortoLibrosBot`) gestiona **muchos canales**.
+   - Cada persona se suscribe solo a lo que quiere: solo Novedades («hoy sale X, mañana sale Y»), solo un género, etc.
+   - Así no recibe mensajes de lo que no le interesa.
+5. **Ofertas.** `reading-market.json → offers` ya existe como fuente de partida para el canal.
 
 Complementa a `docs/comunidades-telegram-discord.md` (lo ya publicado en `/comunidad/`) y a `docs/telegram-libros-base.md` (el bot de Novedades que ya funciona).
 
@@ -592,11 +611,54 @@ Banner horizontal 960×540 para el servidor de Discord «Club de lectura · Davi
 8. **Publicación:** push y PR **cuando Actions esté libre**, y alta en directorios.
 9. **Después:** Ofertas (comparador de precios), Más votados (votación de la comunidad), bot conserje, páginas por canal, RSS.
 
-## 10. Pendiente de confirmar con David
+## 10. Estado real (creado el 2 de noviembre de 2026 desde el Edge de David)
 
-- Nombres visibles y `@usuario` definitivos (sección 1.2).
-- Fusiones de géneros: thriller+terror, fantasía+ciencia ficción y la nueva «No ficción». ¿Religión, poesía y cocina por separado ya, aunque tengan poco volumen?
-- Más votados: ¿votación de la comunidad + Open Library en vez de Goodreads?
-- Nombre del servidor de Discord y quién modera.
+### 10.1 Telegram
+
+- **17 canales de difusión** creados con título, descripción (horario y enlace a /comunidad/) y foto propia:
+  - Al día: Novedades, Todos los libros nuevos, Ofertas de hoy, Próximos lanzamientos, Más votados.
+  - Géneros: Thriller, Romántica, Fantasía, Terror, Ciencia ficción, Histórica, Infantil y juvenil, Ensayo y no ficción, Cocina y bienestar, Cómic, Poesía, Religión y espiritualidad.
+- `@DavidPortoLibrosBot` es administrador de los 17 canales, con permisos para publicar, editar y borrar mensajes.
+- Carpeta compartible **«Libros DP»** con los 17 canales: <https://t.me/addlist/lja92v39DGE4YmM0>. Es el botón «Unirme a todos» de /comunidad/.
+- Usernames públicos: hay 7 activos (`novedades_libros_dp`, `todos_libros_dp`, `ofertas_libros_dp`, `masvotados_libros_dp`, `proximos_libros_dp`, `thriller_libros_dp`, `romantica_libros_dp`).
+  - Los otros 10 usan por ahora un enlace de invitación, porque Telegram limita cuántos usernames se pueden asignar seguidos (FLOOD_WAIT).
+  - Cuando se les asigne el username se regenera `communities.json`.
+- Los chat_id de los canales **no** se guardan en el repositorio. Van en el secreto `READING_TELEGRAM_CHANNELS_JSON`: un mapa `id → @usuario o chat_id`, que gestiona David.
+
+### 10.2 Discord: «Club de lectura · David Porto»
+
+- **Estructura:**
+  - INICIO: #bienvenida, #normas, #anuncios.
+  - AL DÍA: #novedades, #todos-los-libros, #ofertas, #proximos-lanzamientos, #mas-votados.
+  - POR GÉNERO: 12 canales.
+  - CHARLA: foros #pide-recomendacion y #club-de-lectura, más #que-estas-leyendo, #votaciones y #off-topic.
+  - MODERACIÓN: #registro-moderacion, privado.
+- **Configuración:**
+  - Icono, banner, descripción y roles.
+  - Filtro de contenido sensible.
+  - Tres reglas de AutoMod (spam de menciones con límite de 5, spam sospechoso y palabras marcadas). Bloquean el mensaje y envían una alerta a #registro-moderacion.
+  - Modo lento: 10 s en #que-estas-leyendo y 30 s en #off-topic, con sus temas.
+  - Mensajes publicados en #normas (7 normas) y #bienvenida.
+- **Invitación permanente:** <https://discord.gg/uryeRquFEe>. No caduca, no tiene límite de usos y no da membresía temporal.
+- **Pendiente: requiere que David acepte las directrices de Comunidad de Discord.**
+  - Activar el modo Comunidad.
+  - Convertir #anuncios y los canales AL DÍA en canales de anuncios.
+  - Configurar el Onboarding (4.4).
+- **Webhooks:** no se crean desde aquí. David los crea, uno por canal de avisos, y los guarda en el secreto `READING_DISCORD_WEBHOOKS_JSON` (mapa `id → URL`). Nunca se guardan en el repositorio.
+
+### 10.3 Publicación (worker, siguiente PR)
+
+- **Horario:**
+  - Un solo envío por canal y día: de lunes a viernes a las 11:30 y los fines de semana a las 18:30 (Europe/Madrid).
+  - Próximos lanzamientos se publica los lunes a las 11:30.
+  - Más votados se publica los sábados a las 18:30.
+- **Más votados:** ranking a partir de `assets/reading-market.json → ratings` (nota y número de valoraciones de Goodreads), con un mínimo de votos para entrar.
+- **Ofertas:** a partir de `reading-market.json → offers`. Solo bajadas reales (antes → ahora).
+- **Pie común:** «Más canales: davidportodiaz.com/comunidad · Enlaces de afiliado».
+
+## 11. Pendiente de confirmar con David
+
+- Aceptar las directrices de Comunidad de Discord, para activar los canales de anuncios y el Onboarding.
+- Crear los webhooks de Discord y los dos secretos (`READING_TELEGRAM_CHANNELS_JSON` y `READING_DISCORD_WEBHOOKS_JSON`).
+- Quién modera Discord, además de David.
 - Si se quiere el bot conserje (necesita un Cloudflare Worker gratuito).
-- Reglas de cada grupo (más adelante).

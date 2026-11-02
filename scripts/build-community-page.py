@@ -50,7 +50,7 @@ FAQ = [
     ("¿Verán los demás mi número de teléfono?",
      "En los canales de Telegram, no: solo publica el canal y las personas suscritas no ven quién más está dentro."),
     ("¿Cuántos mensajes voy a recibir?",
-     "Depende del canal. Novedades publica cada mañana los libros del día; los canales por género, solo cuando hay un libro de ese género. Puedes silenciar cualquier canal sin salir de él."),
+     "Como máximo un envío al día por canal, siempre a la misma hora: de lunes a viernes a las 11:30 y los fines de semana a las 18:30 (hora de Madrid). Próximos lanzamientos sale los lunes y Los más votados, los sábados. Puedes silenciar cualquier canal sin salir de él."),
     ("¿Los enlaces a libros son de afiliado?",
      "Sí. Los enlaces a Amazon llevan un código de afiliado: si compras, la web recibe una pequeña comisión sin que el precio cambie para ti."),
     ("¿Puedo proponer un canal nuevo?",
@@ -79,6 +79,8 @@ def validate(config: dict) -> list[str]:
         if not gid or gid in seen:
             errors.append(f"id vacío o repetido: {gid!r}")
         seen.add(gid)
+        if group.get("avatar") and not (ROOT / group["avatar"].lstrip("/")).is_file():
+            errors.append(f"{gid}: falta el avatar {group['avatar']}")
         if group.get("platform") not in platforms:
             errors.append(f"{gid}: plataforma sin definir")
         if group.get("status") not in STATUS_LABEL:
@@ -98,8 +100,8 @@ def check_invite(platform: str, invite: str, label: str) -> list[str]:
     return []
 
 
-def join_button(platform: str, name: str, invite: str) -> str:
-    label = f"Unirme en {name}"
+def join_button(platform: str, name: str, invite: str, label: str = "") -> str:
+    label = label or f"Unirme en {name}"
     return (f'<a class="community-join community-join--{platform}" href="{esc(invite)}" '
             f'target="_blank" rel="noopener noreferrer">{ICONS[platform]}<span>{esc(label)}</span></a>')
 
@@ -109,13 +111,15 @@ def render_group(group: dict, platform_name: str) -> str:
     invite = group.get("invite", "")
     if invite:
         action = join_button(group["platform"], platform_name, invite)
+    elif group["platform"] == "discord" and status == "active":
+        action = ""  # se entra con la invitación del servidor, arriba
     elif status == "active":
         action = '<span class="community-soon">Enlace muy pronto</span>'
     else:
         action = '<span class="community-soon">Próximamente</span>'
     return (
         f'<li class="community-card" id="{esc(group["id"])}" data-status="{status}">'
-        f'<div class="community-card__head"><h4>{esc(group["name"])}</h4>'
+        f'<div class="community-card__head">{avatar(group)}<h4>{esc(group["name"])}</h4>'
         f'<span class="community-badge community-badge--{status}">{STATUS_LABEL[status]}</span></div>'
         f'<p>{esc(group["description"])}</p>'
         f'<p class="community-card__cadence">{esc(group["cadence"])}</p>'
@@ -123,9 +127,17 @@ def render_group(group: dict, platform_name: str) -> str:
     )
 
 
+def avatar(group: dict) -> str:
+    src = group.get("avatar", "")
+    if not src:
+        return ""
+    return (f'<img class="community-card__avatar" src="{esc(src)}" alt="" width="48" height="48" '
+            'loading="lazy" decoding="async" />')
+
+
 def render_platform_intro(key: str, platform: dict) -> str:
     invite = platform.get("invite", "")
-    action = join_button(key, platform["name"], invite) if invite else ""
+    action = join_button(key, platform["name"], invite, platform.get("invite_label", "")) if invite else ""
     return (
         f'<div class="community-platform__intro"><span class="community-platform__icon">{ICONS[key]}</span>'
         f'<div><p class="community-platform__kind">{esc(platform["kind"])}</p>'
@@ -240,7 +252,7 @@ def render(config: dict) -> str:
   <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-shell.css?v=21" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
-  <link rel="stylesheet" href="/assets/v1-community.css?v=1" />
+  <link rel="stylesheet" href="/assets/v1-community.css?v=2" />
   <script type="application/ld+json">
   {json_ld(config)}
   </script>
