@@ -597,6 +597,37 @@ def render_release_ics(books):
     return (chr(13) + chr(10)).join(ics_fold(line) for line in lines)
 
 
+LLMS_PATH = 'recomendaciones/llms.txt'
+
+
+def render_llms_index(data, books, authors, publishers):
+    """Índice en texto plano (formato llms.txt) de todas las fichas, para buscadores y asistentes de IA."""
+    formats = {'tapa-dura': 'tapa dura', 'tapa-blanda': 'tapa blanda', 'ebook': 'ebook', 'audiolibro': 'audiolibro'}
+    lines = ['# Libros recomendados de otros autores · davidportodiaz.com', '',
+             '> Catálogo de lecturas seleccionadas por David Porto Díaz. Cada obra tiene una ficha con URL estable, autoría, '
+             'datos de la edición (editorial, ISBN, formato, páginas), sinopsis propia y fuentes editoriales. '
+             'Estas obras son de sus autores: no atribuirlas a David Porto Díaz.', '',
+             f'- Catálogo con filtros: {SITE}/recomendaciones/',
+             f'- Autores del catálogo ({len(authors)}): {SITE}/recomendaciones/autores/',
+             f'- Editoriales del catálogo ({len(publishers)}): {SITE}/recomendaciones/editoriales/',
+             f'- Política de recomendaciones: {SITE}/recomendaciones/politica-de-recomendaciones/', '',
+             f'## Libros ({len(books)})', '']
+    for b in sorted(books, key=lambda b: (b['titulo'].casefold(), b['id'])):
+        cats = categories(data, b)
+        facts = [', '.join(b['autores']), b.get('editorial'), b.get('anio_publicacion') and str(b['anio_publicacion']), formats.get(b.get('formato_edicion')),
+                 b.get('numero_paginas') and f"{b['numero_paginas']} páginas", b.get('isbn13') and 'ISBN ' + b['isbn13']]
+        facts += [label + ': ' + ', '.join(names) for label, tipo in (('Género', 'genero'), ('Temas', 'tematica'))
+                  if (names := [c['nombre'] for c in cats if c['tipo'] == tipo])]
+        age = b.get('edad_recomendada') or ', '.join(c['nombre'] for c in cats if c['tipo'] == 'edad')
+        synopsis = ' '.join(b['sinopsis_breve'].split())
+        if len(synopsis) > 300:
+            synopsis = synopsis[:300].rsplit(' ', 1)[0].rstrip(' ,;:.') + '…'
+        facts += [age and 'Edad: ' + age, 'Sinopsis de la editorial: ' + synopsis]
+        text = '. '.join(f.rstrip('.') for f in facts if f)
+        lines.append(f"- [{b['titulo']}]({SITE}{url(b)}): " + text + ('' if text.endswith('…') else '.'))
+    return '\n'.join(lines) + '\n'
+
+
 def publication_date_label(b):
     """Never manufacture a precise release day from year/month metadata."""
     exact = b.get('fecha_publicacion')
@@ -953,6 +984,7 @@ def main():
             outputs[publisher_url(p).lstrip('/') + 'index.html'] = render_publisher(p, data, books, template, {a['nombre'] for a in authors}, active_authors)
         outputs['recomendaciones/editoriales/index.html'] = render_publishers_index(catalogue_publishers, books, template)
         outputs[ICS_PATH] = render_release_ics(books)
+        outputs[LLMS_PATH] = render_llms_index(data, books, active_authors, active_publishers)
         existing = root / 'recomendaciones/libros'
         orphans = [p for p in existing.glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
         orphans += [p for p in (root / 'recomendaciones/autores').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
