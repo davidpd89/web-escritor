@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9788408326779",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición limitada de Booket incorpora cantos decorados y una encuadernación en tapa dura sin sobrecubierta, de tipo cartoné. Reúne 1240 páginas en castellano y presenta la primera entrega de la Trilogía de Trajano con esos acabados físicos.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las 1240 páginas se presentan en tapa dura sin sobrecubierta, con encuadernación cartoné. Los cantos decorados distinguen el volumen físico y forman parte de esta edición limitada, tanto para conservarla en una biblioteca como para regalarla.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "para_quien: nombres sin respaldo: Roma",
+    "encaje_documentado: copia 8 palabras seguidas de la sinopsis",
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: encaje_documentado, lecturas_afines, para_quien"
+  ],
+  "version": 3,
+  "fuente_hash": "57a47f4199b89775",
+  "origen": "chatgpt-web"
+}
