@@ -4,16 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un amor de diciembre encaja con lectores de historias románticas que buscan conflictos de pareja relacionados con una boda familiar y una expareja. Su estructura de adviento permite repartir la lectura durante diciembre; quienes prefieran tramas alejadas de las relaciones sentimentales encontrarán aquí precisamente ese tipo de conflicto.",
+      "texto": "Encaja con lectores a partir de 16 años interesados en romances juveniles, conflictos familiares y lecturas organizadas para diciembre. No se orienta a quienes busquen fantasía o una trama alejada de las relaciones sentimentales.",
       "evidencias": [
-        "titulo",
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "La edad recomendada es a partir de 16 años. El conflicto romántico incluye una boda familiar en la que la hermana de la narradora se casa con su expareja, una situación centrada en las relaciones personales y las tensiones sentimentales.",
+      "evidencias": [
+        "edad_recomendada",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela romántica de adviento cuya estructura propone avanzar mediante un capítulo diario durante diciembre. El conflicto arranca cuando la protagonista debe participar como dama de honor en la boda de su hermana, que va a casarse con quien fue su pareja. La celebración familiar y esa relación anterior constituyen el punto de partida sentimental.",
+      "texto": "Es una novela romántica juvenil planteada como lectura de adviento, con la propuesta de avanzar un capítulo al día durante diciembre. El conflicto parte de una dama de honor que debe participar en la boda de su hermana con su propia expareja.",
       "evidencias": [
         "categorias",
         "sinopsis_editorial"
@@ -21,7 +30,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un amor de diciembre está disponible en tapa blanda, en una edición rústica con solapas de 384 páginas. El formato físico permite seguir el calendario de lectura de adviento, con un capítulo por día, y conservar todos los capítulos reunidos para una lectura continuada.",
+      "texto": "Un amor de diciembre se ofrece en tapa blanda, con encuadernación rústica con solapas y 384 páginas. El volumen permite seguir en papel la lectura de un capítulo diario durante diciembre y conservar el punto de lectura entre sesiones.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -32,19 +41,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un amor de diciembre y Cuando fuimos todo abordan relaciones sentimentales en las que el pasado de la pareja importa. En Cuando fuimos todo, Emma cree que su relación con Gael durará siempre; Un amor de diciembre parte de una expareja que reaparece vinculada a la boda de una hermana y organiza la lectura siguiendo el calendario de adviento.",
+      "texto": "Amor en pole position (Dirty Air 3), también de Lauren Asher, comparte con Un amor de diciembre el interés por las relaciones románticas. Mientras el primero sitúa su historia de amor en el mundo de la Fórmula 1, Un amor de diciembre desarrolla un conflicto alrededor de una boda familiar y propone una lectura diaria durante diciembre.",
       "evidencias": [
         "titulo",
+        "autores",
         "afines_catalogo",
+        "categorias",
         "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9791387598440"
+        "isbn-9788427055674"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8bc2f9b6c55cb89c",
+  "fuente_hash": "dfab718ddd490174",
   "origen": "chatgpt-web"
 }
