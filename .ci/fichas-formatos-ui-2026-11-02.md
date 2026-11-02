@@ -29,3 +29,8 @@ PR #1052 (`feat/fichas-formatos-ui`): https://github.com/davidpd89/web-escritor/
 - `.catalogue-format.is-missing strong` pasa a #67635e (AA); CSS ?v=23 (bump-asset-version).
 - Test nuevo `tests/test_reading_missing_format_contrast.py` (calcula el contraste WCAG desde el CSS).
 - Verificado local: pytest test_reading* OK, catálogo/shell/sitemap/pagefind/page-order --check, budgets, asset-versions OK. Pendiente: CI pa11y en la PR.
+
+## Merge con main (02/11, mañana)
+- Conflicto en `reading_amazon_market.py`: se combinan el barrido con `discover` (rama) y `sin_oferta`/`answers` (main).
+- Arreglo estructural: el límite diario lanzaba `LookupError`, de modo que cualquier `KeyError` del catálogo (una entrada de `formatos_compra` sin `url`) se tomaba por «fin de cupo» y cortaba la noche en silencio. Ahora hay `DailyLimitReached`, y las entradas sin `url` cuentan como «sin ASIN» y se rellenan con la oferta encontrada. Lo cubre `test_books_without_ebook_are_searched_in_the_kindle_store`.
+- JSON del catálogo: fusión a tres bandas por registro, 0 choques. Builds, checks y `pytest tests/test_reading*.py` en verde en local.
