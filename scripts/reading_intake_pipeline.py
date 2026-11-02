@@ -37,6 +37,9 @@ ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('catalogue_builder', ROOT / 'scripts/build-reading-catalogue.py')
 builder = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(builder)
+texts_spec = importlib.util.spec_from_file_location('reading_texts_gate', ROOT / 'scripts/reading-texts.py')
+texts = importlib.util.module_from_spec(texts_spec)
+texts_spec.loader.exec_module(texts)
 
 GENRES = {
     'poesia': ('poesia','Poesía'),
@@ -578,6 +581,11 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 else:
                     trial['libros'].append(book)
                 trial['libro_categorias'] += [{'libro_id': book['id'], 'categoria_id': c} for c in categories]
+                # Una ficha que no admite al menos dos bloques de orientación es contenido pobre y tumbaría
+                # la puerta de tests de todo el lote: queda pendiente hasta que la fuente traiga más datos.
+                modules = {m['modulo'] for m in texts.payload(trial, book)['modulos_permitidos']}
+                if len(modules) < texts.MIN_BLOCKS or 'para_quien' not in modules:
+                    raise SourceError('Datos insuficientes para orientar al lector: ' + (', '.join(sorted(modules)) or 'ningún bloque'))
                 builder.validate(trial, validation_root)
                 catalogue = trial
                 assets[path] = image
