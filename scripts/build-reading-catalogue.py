@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import html
 import json
+import math
 import re
 import sys
 from datetime import date, timedelta
@@ -410,6 +411,9 @@ def short_titles(title):
 
 def book_title(b, books=()):
     """Título SEO de hasta 75 caracteres que conserva el autor; el ISBN solo entra si el título corto choca con otra ficha."""
+    if isinstance(books, dict):
+        # Firma de main: el catálogo entero; solo cuentan las fichas publicadas.
+        books = [x for x in books.get('libros', []) if x.get('estado') == 'publicado']
     authors = ', '.join(b['autores'])
     clash = {x['titulo'].casefold() for x in books if x['id'] != b['id'] and x['autores'] == b['autores']}
     clash |= {t.casefold() for x in books if x['id'] != b['id'] and x['autores'] == b['autores'] for t in short_titles(x['titulo'])}
@@ -424,6 +428,8 @@ def book_title(b, books=()):
     if len(cut) >= 20 and not any(t.startswith(cut.casefold()) for t in clash):
         return cut + '…' + tail
     suffix = ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8])
+    if len(tail) <= 30:
+        suffix = tail + suffix  # El autor es lo que se busca: se queda también junto al ISBN.
     return b['titulo'][:74-len(suffix)].rsplit(' ', 1)[0] + '…' + suffix
 
 
@@ -771,16 +777,40 @@ def render_book(data,b,template):
     return render_detail_page(template,main,canonical,title,description,schema,b)
 
 
+AUDIENCES=(('infantil',{'infantil'}),('juvenil',{'juvenil','fantasia-juvenil'}),('adultos',{'adultos'}))
+
+
+def audience(cat_ids):
+    """Público declarado (infantil, juvenil, adultos) o None si no consta."""
+    return next((name for name,ids in AUDIENCES if cat_ids & ids),None)
+
+
+def min_age(b):
+    """Edad mínima de lectura declarada (Adultos = 18) o None."""
+    age=b.get('edad_recomendada') or ''
+    if age.casefold().startswith('adult'):
+        return 18
+    m=re.search(r'\d+',age)
+    return int(m.group(0)) if m else None
+
+
 def related_books(data, book):
+    # Cada categoría compartida pesa por lo rara que es («Hockey» dice más que «Romance») y no se cruzan públicos.
+    own={c['id'] for c in categories(data,book)}
     wanted={c['id'] for c in categories(data,book) if c['tipo'] in {'genero','tematica'}}
+    pool=[(x,{c['id'] for c in categories(data,x)}) for x in data['libros'] if x['estado']=='publicado' and x['id']!=book['id']]
+    total=len(pool)+1
+    df={c:1+sum(c in cats for _,cats in pool) for c in wanted}
+    public,age=audience(own),min_age(book)
     ranked=[]
-    for candidate in data['libros']:
-        if candidate['estado'] != 'publicado' or candidate['id'] == book['id']:
-            continue
-        shared=wanted & {c['id'] for c in categories(data,candidate)}
+    for candidate,cats in pool:
+        shared=wanted & cats
         same_author=bool(set(book['autores']) & set(candidate['autores']))
+        other,other_age=audience(cats),min_age(candidate)
+        if not same_author and ((public and other and public!=other) or (age is not None and other_age is not None and abs(age-other_age)>4)):
+            continue
         if shared or same_author:
-            ranked.append((same_author,len(shared),candidate))
+            ranked.append((same_author,sum(math.log(total/df[c]) for c in shared),candidate))
     ranked.sort(key=lambda row:(-row[0],-row[1],row[2]['titulo'].casefold()))
     if not ranked:
         return ''
