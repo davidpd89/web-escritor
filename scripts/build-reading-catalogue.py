@@ -457,13 +457,16 @@ def book_title(b, books=()):
         for title in (f'{name} · {authors} | Libros recomendados', f'{name} · {authors}'):
             if len(title) <= 75:
                 return title
-    tail = ' · ' + authors
-    cut = b['titulo'][:74-len(tail)].rsplit(' ', 1)[0].rstrip(' -–—:.,')
-    if len(cut) >= 20 and not any(t.startswith(cut.casefold()) for t in clash):
-        return cut + '…' + tail
+    # Con muchas firmas (guías, obras colectivas) cabe «primer autor y otros»: el autor no se pierde nunca.
+    lead = ' · ' + b['autores'][0] + (' y otros' if len(b['autores']) > 1 else '')
+    tails = [' · ' + authors] + ([lead] if lead != ' · ' + authors else [])
+    for tail in tails:
+        cut = b['titulo'][:74-len(tail)].rsplit(' ', 1)[0].rstrip(' -–—:.,')
+        if len(cut) >= 20 and not any(t.startswith(cut.casefold()) for t in clash):
+            return cut + '…' + tail
     suffix = ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8])
-    if len(tail) <= 30:
-        suffix = tail + suffix  # El autor es lo que se busca: se queda también junto al ISBN.
+    tail = next((t for t in tails if len(t) <= 30), '')
+    suffix = tail + suffix  # El autor es lo que se busca: se queda también junto al ISBN.
     return b['titulo'][:74-len(suffix)].rsplit(' ', 1)[0] + '…' + suffix
 
 

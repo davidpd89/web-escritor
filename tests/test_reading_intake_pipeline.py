@@ -179,6 +179,13 @@ class ContractTests(unittest.TestCase):
         b['titulo'] = 'Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?)'
         self.assertEqual(builder.book_title(b), 'Familia, ¿contamos nuestra historia? · Briar Boleyn | Libros recomendados')
 
+    def test_long_author_list_keeps_the_first_author(self):
+        b = {**self.book, 'titulo': 'Indonesia 2 (Guías de País Lonely Planet) Actualizada con mapas desplegables',
+             'autores': ['Virginia Maxwell', 'Ashley Harrell', 'Mark Johanson', 'Paul Harding']}
+        title = builder.book_title(b)
+        self.assertIn('Virginia Maxwell y otros', title)
+        self.assertLessEqual(len(title), 75)
+
     def test_special_edition_title_never_collides_with_the_plain_edition(self):
         plain = {**self.book, 'id': 'a', 'titulo': 'La señora Dalloway', 'autores': ['Virginia Woolf']}
         special = {**plain, 'id': 'b', 'titulo': 'La señora Dalloway (edición especial limitada con cantos tintados)'}
