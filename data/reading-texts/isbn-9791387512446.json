@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387512446",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La inquilina se dirige a lectores adultos de misterio y thriller que buscan conflictos relacionados con la convivencia, los problemas económicos y los secretos personales. No encaja con quienes prefieren historias alejadas de la tensión doméstica, ya que la amenaza surge dentro de la propia vivienda.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La inquilina plantea un thriller doméstico en el que una decisión económica termina convirtiendo el hogar en un lugar amenazante. Blake Porter alquila una habitación a Whitney y empieza a relacionar comportamientos extraños, ruidos y olores con la posibilidad de que alguien conozca sus secretos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La inquilina está editada en tapa blanda con solapas y tiene 344 páginas. Su encuadernación flexible permite transportarla sin la rigidez de una tapa dura, mientras que las solapas forman parte del acabado físico de esta edición de Suma de Letras.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La inquilina y Los doce secretos utilizan los secretos como punto de partida para generar sospechas. La primera concentra la amenaza en una vivienda compartida, mientras que Los doce secretos presenta un pueblo pequeño como escenario de su intriga, desplazando el conflicto del espacio doméstico al entorno de una comunidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387574598"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5c807c2721b48d99",
+  "origen": "chatgpt-web"
+}

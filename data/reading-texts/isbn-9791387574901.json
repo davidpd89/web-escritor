@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387574901",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dragonborn. El amanecer de los dragones se orienta a lectores de fantasía interesados en protagonistas infantiles, criaturas ocultas entre humanos y el aprendizaje de poderes extraordinarios. No responde a quien busque una historia realista sin elementos sobrenaturales, pues los dragones y la amenaza de una guerra sostienen el conflicto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La fantasía de Dragonborn. El amanecer de los dragones combina identidad, transformación y entrenamiento ante una posible guerra entre dragones y humanos. Alex Evans manifiesta su naturaleza mediante el fuego y llega a Skralla, guiada por Oliphos, para prepararse junto a otros niños dragones frente a los planes de Drak Midna.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Dragonborn. El amanecer de los dragones publicada por Duomo Ediciones se distingue por su encuadernación en tapa dura, los detalles dorados y los cantos tintados. El volumen contiene 368 páginas en castellano y presenta acabados decorativos que forman parte de esta edición física.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para Dragonborn. El amanecer de los dragones y reúne sus 368 páginas en papel. Los cantos tintados y los detalles dorados aportan características visibles al ejemplar físico, tanto para conservarlo en una colección como para regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b59d77c3f22004a5",
+  "origen": "chatgpt-web"
+}

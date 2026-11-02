@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788433951151",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las luces se dirige a lectores de poesía contemporánea interesados en obras que alternan versos, prosa y formas de comunicación cotidiana. No está planteado como una narración de argumento continuo: Ben Lerner utiliza imágenes del espacio, referencias tecnológicas y vínculos humanos para desarrollar sus temas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Las luces es un libro de poesía que combina formas versales y prosa para reflexionar sobre la creación artística y las relaciones entre las personas. Ben Lerner incorpora referencias musicales, mensajes de voz e imágenes de la naturaleza y el espacio, con una perspectiva que oscila entre las experiencias individuales y los problemas colectivos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las luces está disponible en tapa blanda, con una extensión de 168 páginas. La edición física permite leer consecutivamente los poemas y fragmentos en prosa o regresar a composiciones concretas, además de subrayar y anotar los pasajes que se quieran consultar después.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las luces y El libro de los gatos incluyen poesía, pero Ben Lerner explora cuestiones tecnológicas y sociales, mientras Ursula K. Le Guin reúne textos y dibujos relacionados con los gatos. La llamada de los olores también trabaja con experiencias difíciles de retener mediante la escritura, aunque Las luces amplía esa preocupación hacia la creación artística y las crisis colectivas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306297",
+        "isbn-9788410171916"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e727362b54ff4531",
+  "origen": "chatgpt-web"
+}

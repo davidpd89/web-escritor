@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791387846794",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi amor no muere está dirigido a lectores adultos interesados en historias de mujeres, relaciones sentimentales y violencia mafiosa vinculadas a hechos reales. La desaparición de Rossella Casini y el enfrentamiento entre clanes sitúan la obra lejos del romance ligero y de las lecturas que evitan la violencia o los desenlaces trágicos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Mi amor no muere examina cómo la violencia de la mafia condiciona las decisiones personales y las relaciones amorosas a través de la historia de Rossella Casini. Roberto Saviano reconstruye su trayectoria desde la Italia de 1977 hasta su desaparición el 22 de febrero de 1981, relacionando su historia con las luchas entre clanes y la actuación de la ’Ndrangheta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi amor no muere cuenta con una edición en tapa blanda con solapas de 352 páginas, publicada por Alfaguara. Es un volumen de cubierta flexible para leer en papel, transportar durante los desplazamientos y conservar como ejemplar físico de la reconstrucción narrativa realizada por Roberto Saviano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La casa de los espíritus narra una historia familiar, mientras Mi amor no muere se concentra en Rossella Casini y en la violencia que rodea a la familia de su pareja. Con Esas muchachas que escriben poemas comparte la atención a las experiencias femeninas, aunque Roberto Saviano reconstruye la historia de una mujer concreta y Alba Donati presenta figuras femeninas de caracteres diversos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401042751",
+        "isbn-9788426434272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d25b38757044e6c5",
+  "origen": "chatgpt-web"
+}

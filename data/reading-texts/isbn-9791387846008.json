@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791387846008",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La hipótesis más peligrosa se dirige a lectores adultos interesados en las aventuras marítimas, los enigmas históricos y las relaciones familiares difíciles. Aunque su protagonista tiene dieciséis años, el conflicto entre padre e hijo y la trama policíaca la alejan de una aventura infantil; tampoco está centrada en el romance.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La hipótesis más peligrosa, de Arturo Pérez-Reverte, combina la aventura marítima con una historia de iniciación y una intriga policíaca. La búsqueda de un padre ausente conduce a una travesía en velero donde el tráfico de arte robado, la navegación y el pasado del Mediterráneo forman parte del conflicto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La hipótesis más peligrosa está disponible en tapa dura con sobrecubierta, en una edición de Alfaguara de 392 páginas. La encuadernación rígida resulta práctica para conservar el ejemplar o regalarlo; por su extensión y presentación, es un volumen más apropiado para leer en casa que para llevar en un bolsillo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La hipótesis más peligrosa y El ojo de la novia frenopática (Carl el Mazmorrero 6) comparten el peligro como motor de la acción, aunque plantean conflictos diferentes. Arturo Pérez-Reverte desarrolla una aventura marítima con un enigma histórico y familiar; Matt Dinniman presenta una situación centrada en la captura de un monstruo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410466470"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d1180286f55aafe5",
+  "origen": "chatgpt-web"
+}

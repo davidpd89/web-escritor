@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387949938",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores a partir de 12 años que busquen fantasía juvenil con romance, intrigas de corte y una competición por un puesto. No encaja con quien prefiera historias realistas o ajenas a los conflictos de poder.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La disputa por un puesto en la Corte Cisne articula un conflicto entre supervivencia, autoridad y vínculos personales. Eira intenta avanzar en una selección competitiva mientras su relación con Danayher queda atravesada por las intrigas de palacio.",
+      "evidencias": [
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas es la opción disponible, con 384 páginas en castellano. Su encuadernación flexible permite leerla y transportarla en papel; las solapas forman parte de esta edición de Alfaguara.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte fantasía y romance con La hija del veneno, mientras que con Coraline coincide en fantasía, aventuras y misterio. En este libro, el conflicto se centra en una selección dentro de una corte y en el vínculo con la heredera al trono.",
+      "evidencias": [
+        "afines_catalogo",
+        "categorias",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "lib-0001",
+        "isbn-9788425375118"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b15291820e75e194",
+  "origen": "chatgpt-web"
+}

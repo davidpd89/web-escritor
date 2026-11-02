@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419456007",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Casa de la Ciénaga (Serie Slow Horses 7), de Mick Herron, se dirige a lectores adultos de misterio y thriller interesados en el espionaje británico y las luchas internas del poder. Su conflicto combina amenazas contra agentes apartados, irregularidades administrativas y maniobras del servicio secreto. No sigue el modelo del espía infalible: sus protagonistas trabajan desde una posición vulnerable dentro de la institución.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La Casa de la Ciénaga (Serie Slow Horses 7) plantea un thriller de espionaje en el que la amenaza surge del propio aparato de seguridad. Los agentes descubren que sus identidades oficiales han desaparecido de los sistemas del servicio secreto, mientras se acumulan incidentes sospechosos. El título lo identifica como el n.º 7 de la serie Slow Horses, y la trama aborda la burocracia, la lealtad institucional y las consecuencias de las decisiones políticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Casa de la Ciénaga (Serie Slow Horses 7) está disponible en tapa blanda con solapas, en una edición de Salamandra de 368 páginas. El formato permite seguir las intrigas de espionaje en papel, volver a escenas anteriores y conservar el volumen junto a otras lecturas de la serie. Su extensión es un dato útil para organizar la lectura por sesiones.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a3c80761c6cf7f1c",
+  "origen": "chatgpt-web"
+}

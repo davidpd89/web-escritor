@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788433951229",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vals de Mefisto se dirige a lectores de narrativa contemporánea interesados en relatos donde lo cotidiano se transforma en situaciones extrañas y difíciles de interpretar. Su estructura de cuatro historias, con cambios de registro y escenarios poco convencionales, puede no encajar con quienes prefieran una única trama lineal de desarrollo realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Vals de Mefisto reúne cuatro relatos que exploran las alteraciones de la percepción mediante escenarios familiares y acontecimientos insólitos. La narración enlaza episodios y cambia de tono, con situaciones ambientadas en Venecia, Samarcanda y Varsovia que desplazan progresivamente el relato hacia la extrañeza.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Vals de Mefisto, publicada por Editorial Anagrama el 2026-11-04, tiene 144 páginas en castellano y encuadernación en tapa blanda. Además de los cuatro relatos de Sergio Pitol, incluye un prólogo de Enrique Vila-Matas, un contenido introductorio que forma parte de esta publicación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vals de Mefisto está disponible en tapa blanda, con 144 páginas que reúnen cuatro relatos y un prólogo. El formato permite llevar el volumen para leer cada historia en sesiones independientes y consultar sobre papel la introducción de Enrique Vila-Matas antes de abordar los textos de Sergio Pitol.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "autores"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "82af6f8805da3434",
+  "origen": "chatgpt-web"
+}

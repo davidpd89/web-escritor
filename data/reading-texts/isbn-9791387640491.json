@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791387640491",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores adultos de novela histórica interesados en la memoria, el amor y las consecuencias de la guerra en el siglo XX. No responde a quien busque una trama ajena al trauma histórico: aparecen la represión estalinista, el Holodomor y el Holocausto.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La historia de Romana y Uliana (Amadoca 1) plantea una novela histórica donde una identidad perdida obliga a reconstruir una vida. El relato parte de un soldado con amnesia en Kiev y conecta las relaciones personales con episodios de la historia de Ucrania. Es el primer tomo del ciclo Amadoca.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La historia de Romana y Uliana (Amadoca 1) está disponible en tapa blanda con solapas. Sus 544 páginas componen un volumen largo para leer en papel, y las solapas pueden utilizarse como señalador para retomar la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cosamala y La historia de Romana y Uliana (Amadoca 1) relacionan conflictos históricos y vidas personales. Cosamala introduce brujas y un crimen de la guerra civil; la novela de Sofía Andrujóvich se centra en la memoria y en la historia de Ucrania durante el siglo XX.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7198d0a822d2ba6a",
+  "origen": "chatgpt-web"
+}

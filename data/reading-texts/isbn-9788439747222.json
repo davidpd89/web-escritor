@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788439747222",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La luz y el hilo (Láurea) está orientado a lectores adultos interesados en poesía, escritura autobiográfica y reflexiones sobre el lenguaje y los vínculos humanos. No sigue una trama de ficción convencional: Han Kang reúne ensayos, poemas, fotografías y diarios que relacionan experiencias personales con preguntas sobre el amor y la comunicación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La luz y el hilo (Láurea) propone una lectura que alterna ensayo, poesía, fotografía y escritura diarística. Han Kang examina la relación entre la experiencia íntima y el acto de comunicarse mediante palabras, con motivos recurrentes como el cuidado de un jardín y la posibilidad de establecer vínculos entre quien escribe y quien lee.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La luz y el hilo (Láurea) está disponible en tapa dura, en la edición de Random House de 176 páginas. La encuadernación rígida permite conservar y consultar en papel un volumen que combina ensayos, poemas, fotografías y diarios, con distintas formas de escritura a las que regresar durante la relectura.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La luz y el hilo (Láurea) se acerca a El libro de los gatos por combinar poesía con otras formas de reflexión personal. En el volumen de Han Kang aparecen ensayos, fotografías y diarios sobre el lenguaje y los vínculos humanos; Ursula K. Le Guin reúne poemas, meditaciones y dibujos centrados en los gatos, con un asunto más delimitado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2fe4182c3230de04",
+  "origen": "chatgpt-web"
+}

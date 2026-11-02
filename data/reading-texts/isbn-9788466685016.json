@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788466685016",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La hija del joyero se dirige a lectores adultos de novela histórica interesados en los secretos familiares y los obstáculos que afrontaban las mujeres en el siglo XIX. No encaja con quien busque fantasía o una historia ambientada en la actualidad, ya que sus conflictos están ligados a la sociedad de su época.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La hija del joyero es una novela histórica que combina conflictos familiares, desigualdades sociales y una investigación relacionada con la familia real. Ágata Guirado desafía las restricciones de su oficio y sigue la pista de un anillo robado entre Málaga y Madrid, en una trama situada en el siglo XIX.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La hija del joyero se ofrece en tapa dura con sobrecubierta, una presentación que permite conservar el volumen protegido en la estantería o entregarlo como regalo. Sus 560 páginas se reúnen en una edición física de Ediciones B, por lo que la elección se centra en la lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La hija del joyero y Cosamala sitúan un delito dentro de una narración vinculada al pasado. Inma Aguilera aborda un anillo desaparecido y secretos familiares en el siglo XIX, mientras Alana S. Portero parte de un crimen de la guerra civil para construir una historia de brujas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "43a604cbb856a537",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388279263",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ciencias del comportamiento (Edición especial) se dirige a quien busca aplicar un método sobre comportamiento, comunicación no consciente y negociación en situaciones cotidianas. Quien prefiera una historia de ficción encontrará aquí un libro de desarrollo personal y ciencias humanas y sociales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Ciencias del comportamiento (Edición especial) se presenta en cartoné sin sobrecubierta, publicado por Temas de Hoy. Esta edición en castellano contiene 512 páginas y se identifica con el ISBN 9791388279263, que permite distinguirla de otras presentaciones del título.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ciencias del comportamiento (Edición especial) se ofrece en tapa dura, en un volumen de 512 páginas sin sobrecubierta. El soporte físico permite leer y volver a consultar en papel el método que propone Juan Manuel García Pincho (@cienciasdelcomportamiento), sin necesitar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c43047cd13605c5d",
+  "origen": "chatgpt-web"
+}

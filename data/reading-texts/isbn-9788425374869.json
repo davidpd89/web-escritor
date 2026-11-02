@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788425374869",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La fibra es la solución se dirige a adultos que quieren aumentar su consumo de fibra mediante cambios cotidianos, recetas y planes de comidas. No está planteado como un recetario general: se organiza alrededor del objetivo de consumir 30 gramos de fibra al día.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "La fibra es la solución incluye un método de seis pasos, 30 recetas y cuatro planes semanales para incorporar fibra a la dieta. Alterna explicaciones sobre salud intestinal con consejos para distintas necesidades, desde dietas altas en proteínas hasta pérdida de peso, y recetas de desayunos, platos principales y dulces.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La fibra es la solución está disponible en tapa blanda con solapas y contiene 264 páginas. En papel pueden consultarse los planes semanales y las recetas durante la preparación de las comidas; las solapas sirven para señalar un apartado y retomarlo después.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La fibra es la solución y Cómo no tener diabetes tratan cuestiones de salud, pero Kristen Stavridis concreta su enfoque en el consumo de fibra, mientras que Adrián Díaz Alonso aborda la diabetes. Frente a Resistencia biológica, que cuestiona las consecuencias de la vida moderna sobre el organismo, La fibra es la solución propone cambios alimentarios mediante recetas y planes semanales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425373152",
+        "isbn-9788425371790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a1eb4b177a8a52e1",
+  "origen": "chatgpt-web"
+}

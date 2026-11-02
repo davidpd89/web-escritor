@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788425371790",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Resistencia biológica se dirige a lectores adultos interesados en cómo la alimentación, la exposición a la luz y los hábitos cotidianos se relacionan con la salud. Quien busque un libro dedicado exclusivamente a un nutriente encontrará aquí un planteamiento más amplio sobre el funcionamiento del cuerpo.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Resistencia biológica está disponible en tapa blanda y Kindle. La edición física reúne sus 304 páginas en un volumen con solapas que se puede consultar y prestar; Kindle permite llevar el texto en un lector electrónico o leerlo desde el móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Resistencia biológica y Sana tus células tratan la relación entre el funcionamiento del cuerpo y la salud. José Manuel Ruiz Lorenzo aborda la alimentación y la exposición a la luz, mientras que Sana tus células se centra en la degeneración celular. La fibra es la solución se ocupa específicamente del consumo diario de fibra, frente al planteamiento más amplio de Resistencia biológica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374869",
+        "isbn-9788425374371"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d6c8721dc17eecd9",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791387922429",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Atlas de islas remotas (ed. actualizada) encaja con lectores interesados en territorios aislados y sucesos reales insólitos. No sigue una trama única con un protagonista: reúne historias de distintas islas y sus habitantes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Propone una lectura de narrativa contemporánea organizada alrededor de 55 islas remotas. Judith Schalansky reúne episodios de exploración, encuentros humanos y fenómenos naturales, de modo que cada territorio aporta una historia diferente.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición suma un prefacio nuevo y cinco islas al atlas, hasta alcanzar 55 territorios. Entre las incorporaciones figuran Isla de Gough y las Islas Midway; Nórdica Libros la publica en castellano, con 160 páginas en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Atlas de islas remotas (ed. actualizada) de Nórdica Libros es de tapa blanda y tiene 160 páginas, para trasladarla y consultarla por islas. También se ofrece en tapa dura, con cubierta rígida para conservar un volumen al que volver.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf51bad280d11de5",
+  "origen": "chatgpt-web"
+}

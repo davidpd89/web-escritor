@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788423370658",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Criar juntos de verdad se dirige a madres, padres y personas implicadas en la crianza que quieren examinar cómo se distribuyen las responsabilidades familiares. Su enfoque no se centra en la alimentación o la salud pediátrica, sino en el reparto del trabajo de cuidar a los hijos y las desigualdades que pueden surgir entre quienes crían.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Criar juntos de verdad está disponible en tapa blanda, con 320 páginas encuadernadas en rústica con solapas. La edición física permite releer los planteamientos sobre las responsabilidades de crianza y compartir el ejemplar entre quienes participan en el cuidado familiar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Criar juntos de verdad y Preparados, listos, ¡llegó el bebé! comparten el interés por la crianza familiar, pero responden a preocupaciones distintas. La obra de Laura Álvarez (La pediatra Laura) acompaña los primeros años de vida de los hijos, mientras que Armando Bastida @armandobastidaep se ocupa de cómo madres y padres distribuyen las responsabilidades al criar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083613"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db2c5a2dca51f10e",
+  "origen": "chatgpt-web"
+}

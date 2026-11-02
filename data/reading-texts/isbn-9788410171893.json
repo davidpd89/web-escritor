@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410171893",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La casa del callejón encaja con lectores interesados en las relaciones de poder dentro de la familia, la subordinación femenina y los conflictos psicológicos. No está orientada a quienes prefieren tramas dominadas por la acción exterior: la tensión procede del control doméstico, la dependencia afectiva y los celos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela de conflicto doméstico que examina la autoridad de don Lùcio sobre Antonietta y Nicolina. Maria Messina construye esa relación mediante las rutinas de una casa cerrada, los silencios y la contradicción entre el deseo de libertad y los vínculos emocionales que mantienen a ambas mujeres sometidas.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La casa del callejón se presenta en tapa blanda, con 136 páginas en castellano. Su extensión permite distribuir la lectura en pocas sesiones y manejar un ejemplar físico relativamente breve, adecuado para volver sobre los silencios y las tensiones entre los personajes.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "298959157997ff5b",
+  "origen": "chatgpt-web"
+}

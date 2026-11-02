@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791388306389",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cochero se dirige a quienes leen novelas sobre dilemas morales, fe y transformación personal, con un trasfondo relacionado con la cultura sueca. Su combinación de realismo, folclore y misticismo se aleja de una narración estrictamente realista, por lo que encaja menos con lectores que prefieren conflictos sin componentes espirituales.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El cochero combina realismo y componentes místicos en una novela centrada en la conciencia moral y los conflictos interiores. Selma Lagerlöf sitúa estas cuestiones en la Suecia de comienzos del siglo veinte, incorporando tradiciones del folclore sueco y una escritura lírica para examinar la fe y el crecimiento personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cochero se presenta en tapa blanda, con 200 páginas en la edición de Nórdica Libros. Es un volumen físico que permite leer sin pantalla, marcar pasajes relacionados con las reflexiones morales de la novela y conservar el ejemplar para volver a ellos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fec3d72c42c06b9c",
+  "origen": "chatgpt-web"
+}

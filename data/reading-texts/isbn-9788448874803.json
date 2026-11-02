@@ -1,0 +1,36 @@
+{
+  "id": "isbn-9788448874803",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Beascoa reúne 232 páginas en tapa dura y se distingue por incluir ilustraciones y contenido adicional. Su identificador es 9788448874803; el título la identifica como el n.º 5.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial",
+        "isbn13",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la presentación recogida para estas 232 páginas de cómic y fantasía. Permite consultar las ilustraciones y el contenido adicional en papel, tanto durante la lectura como al volver a una escena.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "para_quien: copia 8 palabras seguidas de la sinopsis",
+    "lecturas_afines: copia 8 palabras seguidas de la sinopsis",
+    "faltan módulos: lecturas_afines, para_quien"
+  ],
+  "version": 3,
+  "fuente_hash": "9cc912c315bdc505",
+  "origen": "chatgpt-web"
+}

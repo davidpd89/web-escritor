@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788425374074",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "20 minutos ¡y listo!, de Jamie Oliver, se orienta a adultos que cocinan a diario y necesitan preparar comidas en poco tiempo. También contempla opciones con menos carne o sin ella. No está concebido para quienes buscan elaboraciones largas: sus recetas se ajustan a 20 minutos o menos y utilizan diez ingredientes como máximo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Reúne 120 recetas que se preparan en 20 minutos como máximo, con hasta diez ingredientes cada una. Los capítulos agrupan propuestas de pollo, pasta y ñoquis, legumbres, arroz, pescado, verduras, huevos, carne y sopas. Esta distribución permite buscar una preparación según el ingrediente principal o el tipo de comida que se quiera cocinar.",
+      "evidencias": [
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne las 320 páginas de 20 minutos ¡y listo! en un recetario físico para consultar mientras se cocina. Permite regresar a una preparación y comprobar sus ingredientes sobre el papel, sin utilizar un móvil. La encuadernación rígida ofrece un volumen que puede conservarse para consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Como Barbacoa, 20 minutos ¡y listo! está firmado por Jamie Oliver, pero cambia el enfoque en la barbacoa por recetas cotidianas sujetas al límite de 20 minutos. Curso de cocina - Los básicos, de Louis Girod, reúne más de 60 recetas ilustradas con instrucciones paso a paso; el libro de Jamie Oliver organiza su propuesta alrededor de la rapidez y de un máximo de diez ingredientes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788425374012",
+        "isbn-9780241831380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e2f61a564f7ffcb1",
+  "origen": "chatgpt-web"
+}

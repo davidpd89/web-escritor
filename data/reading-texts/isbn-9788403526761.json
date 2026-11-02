@@ -1,0 +1,34 @@
+{
+  "id": "isbn-9788403526761",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sin filtro se dirige a adultos interesados en el desarrollo personal y en cómo hablar de sus emociones sin compartir más de lo conveniente. Leslie John aborda la comunicación en las relaciones personales y laborales, por lo que no responde a quien busque una novela de ficción, sino a quien quiera examinar cuándo abrirse a los demás y cuándo reservarse información.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sin filtro se publica en tapa blanda con solapas, en una edición de 320 páginas de Aguilar. El formato en papel permite subrayar o volver a las ideas de Leslie John sobre confianza y comunicación; las solapas pueden utilizarse para señalar el punto de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8bf87f5c57448061",
+  "origen": "chatgpt-web"
+}

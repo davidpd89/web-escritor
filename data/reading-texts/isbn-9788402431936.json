@@ -1,0 +1,70 @@
+{
+  "id": "isbn-9788402431936",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ibáñez Mítico 2 - El preboste de seguridad está orientado a lectores a partir de 7 años interesados en las historietas de Mortadelo y Filemón. También aborda la trayectoria editorial de Francisco Ibáñez, por lo que su contenido va más allá de una aventura infantil sin materiales históricos adicionales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Bruguera publica Ibáñez Mítico 2 - El preboste de seguridad en tapa dura con sobrecubierta, recuperando la historieta completa con viñetas restauradas y documentación inédita. Sus 64 páginas incorporan además un prólogo de Jordi Canyissà que acompaña esta recuperación de la obra de Francisco Ibáñez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Ibáñez Mítico 2 - El preboste de seguridad está recomendado a partir de 7 años y cuenta con 64 páginas en castellano. Es un cómic de tapa dura con sobrecubierta que combina una historieta de Mortadelo y Filemón con materiales destinados a explicar su contexto editorial.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ibáñez Mítico 2 - El preboste de seguridad se ofrece en tapa dura con sobrecubierta, con una extensión de 64 páginas. Esta presentación física permite hojear las viñetas restauradas y consultar el prólogo y los contenidos adicionales, tanto durante la lectura como en revisiones posteriores.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ibáñez Mítico 2 - El preboste de seguridad y AVATAR. La leyenda de Aang 5 - Norte y sur retoman personajes conocidos por otras aventuras. Francisco Ibáñez aparece aquí mediante una historieta recuperada con materiales históricos, mientras el libro de Nickelodeon amplía las historias de Aang y sus compañeros y aborda el futuro de las Tribus Agua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874803"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "86d002d043bf81e7",
+  "origen": "chatgpt-web"
+}

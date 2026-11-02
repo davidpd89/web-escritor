@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387574666",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yo que te he querido tanto encaja con lectores interesados en relatos de crecimiento personal, rupturas familiares y reconstrucción de la confianza. Su protagonista tiene catorce años, pero la historia aborda también las relaciones entre adultos y las consecuencias de una desaparición. Quienes busquen una lectura alejada del dolor, la separación y el desarraigo encontrarán aquí esos conflictos en primer plano.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Yo que te he querido tanto, de Roberta Recchia, es una novela contemporánea sobre las consecuencias familiares de una desaparición y el comienzo de una vida lejos del hogar. Luca debe adaptarse a otra familia y a un entorno desconocido mientras intenta recuperar la confianza en los demás. El perdón, la pertenencia y los vínculos afectivos articulan su proceso de crecimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yo que te he querido tanto está disponible en tapa blanda, con 368 páginas en castellano. Esta edición de Duomo Ediciones permite distribuir la lectura entre varias sesiones y conservar un ejemplar físico para volver a los episodios familiares. Su extensión supera la de una novela breve, por lo que resulta práctico utilizar un marcapáginas para seguir el avance.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "152e25765b84c37b",
+  "origen": "chatgpt-web"
+}

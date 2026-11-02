@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791387962036",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La bestia del rey 13 (Shôjo) se dirige a lectores juveniles interesados en el romance fantástico, los conflictos entre grupos sociales y las tensiones políticas. Encaja menos con quien busque una historia realista y alejada de las disputas de poder, ya que la relación entre los protagonistas está condicionada por reformas sociales y una amenaza de guerra.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La bestia del rey 13 (Shôjo) combina una promesa de matrimonio con las dificultades de transformar una sociedad dividida entre humanos y semihumanos. Rangetsu regresa al palacio con un cargo militar, mientras Tenyô impulsa cambios que provocan la reacción de otras naciones. La relación sentimental convive así con tensiones sociales y la posibilidad de un enfrentamiento bélico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La bestia del rey 13 (Shôjo) está disponible en tapa blanda con sobrecubierta y tiene 168 páginas. Esta edición permite seguir en papel el desarrollo del conflicto entre humanos y semihumanos, con una cubierta exterior que puede conservarse junto al volumen.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La bestia del rey 13 (Shôjo) comparte con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, la presencia de personajes cuya identidad condiciona su situación personal. Mientras Rei Tôma sitúa a sus protagonistas ante una promesa matrimonial, reformas sociales y posibles enfrentamientos entre naciones, la historia de Marta Morillo parte de una protagonista que mantiene ocultos sus dones y debilidades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1cf485a7f01aa8ef",
+  "origen": "chatgpt-web"
+}

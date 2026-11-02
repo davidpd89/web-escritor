@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9791387922474",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La serpiente se dirige a lectores interesados en la narrativa antibelicista, la vida militar y la psicología del miedo. No encaja con quien busca una historia de batallas: sus tensiones surgen del servicio militar, la convivencia entre reclutas y las decisiones individuales.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La serpiente combina una perspectiva antibelicista con el análisis del miedo en una Suecia en alerta militar durante la Segunda Guerra Mundial. Una parte aborda la relación entre una joven y un soldado sádico; otra sigue a Scriver y sus compañeros, hasta un desenlace ligado a su intento de vencer el miedo.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La serpiente cuenta con 296 páginas en tapa blanda, en una edición en castellano de Nórdica Libros. El volumen permite leer en papel y volver a los pasajes sobre el miedo y la responsabilidad individual sin utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "27e8c4b5bd262dad",
+  "origen": "chatgpt-web"
+}

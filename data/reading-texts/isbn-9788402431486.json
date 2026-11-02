@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788402431486",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Uketamo. Abrazar la vida tal cual viene, de Ana Galeote Frontelo, está dirigido a adultos interesados en el desarrollo personal, la espiritualidad y la aceptación de los cambios. Reúne experiencias personales, pensamiento japonés y psicología práctica para abordar la necesidad de controlar lo que sucede. No es una novela ni un estudio dedicado exclusivamente al zen: combina distintas tradiciones con reflexiones sobre la vida cotidiana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Uketamo. Abrazar la vida tal cual viene puede leerse en tapa blanda o Kindle, con una extensión de 208 páginas. La edición de Bruguera incorpora solapas y permite tener el texto físico a mano para revisar sus reflexiones sobre aceptación y psicología práctica. Kindle facilita consultar esos contenidos desde el móvil o continuar la lectura en un dispositivo compatible sin llevar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Uketamo. Abrazar la vida tal cual viene y Los genios creen en Dios comparten el interés por cuestiones espirituales, aunque parten de preguntas diferentes. Ana Galeote Frontelo aborda la aceptación mediante experiencias, filosofía japonesa y psicología práctica; José Carlos González-Hurtado plantea la relación entre la fe y la ciencia. La diferencia está en el enfoque: gestionar la relación con los cambios vitales frente a examinar el lugar de las creencias religiosas ante el conocimiento científico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410096547"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8aa7583043b5a3ef",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788408326380",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Guerra Fría contada para escépticos está dirigido a lectores de historia contemporánea interesados en la rivalidad entre Estados Unidos y la Unión Soviética, con un tratamiento poco solemne. Quien busque una novela de espionaje encontrará aquí una obra histórica que aborda también los servicios secretos y los conflictos encubiertos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La Guerra Fría contada para escépticos aborda la confrontación internacional mediante episodios relacionados con el espionaje, la propaganda, los misiles y las intervenciones políticas. Juan Eslava Galán examina cómo la rivalidad entre Estados Unidos y la Unión Soviética condicionó buena parte del siglo xx, con un planteamiento alejado de la solemnidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Guerra Fría contada para escépticos se ofrece en tapa dura con sobrecubierta. Sus 384 páginas forman un volumen físico que puede conservarse para futuras consultas; la sobrecubierta, además, puede retirarse mientras se lee para protegerla del desgaste.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Guerra Fría contada para escépticos y Franquistas contra franquistas examinan procesos históricos vinculados al poder, pero el segundo se concentra en el bando vencedor de la Guerra Civil y su permanencia en el gobierno. Los pilares de la historia plantea una reflexión general sobre la capacidad explicativa de la historia, mientras Juan Eslava Galán estudia un periodo concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387395",
+        "isbn-9788430629664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1cce59f6a7eb46e3",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788425371967",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Muérdelo se dirige a lectores adultos interesados en preparar guisos y aprovechar lo que queda para elaborar bocadillos. No encaja tanto con quien busque un recetario centrado exclusivamente en postres, ya que su propuesta gira en torno a platos salados, panes, guarniciones y salsas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Muérdelo reúne recetas de guisos y bocadillos que permiten dar una segunda utilidad a las preparaciones ya cocinadas. María Lo incorpora también panes caseros, guarniciones y salsas que pueden emplearse en los bocadillos o combinarse con otros platos. El aprovechamiento de los restos conecta las distintas elaboraciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Muérdelo está disponible en tapa blanda con solapas y tiene 256 páginas. Esta edición física permite consultar las recetas durante la preparación de guisos, panes y bocadillos, además de volver a las indicaciones cuando se quiera aprovechar lo cocinado anteriormente.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Muérdelo comparte con Cómete la vida a bocados con Pausa y Plato, de Juan Sánchez, el propósito de llevar recetas a la cocina cotidiana, pero María Lo se concentra en guisos y bocadillos elaborados a partir de sus restos. Frente a Curso de cocina - Los básicos, de Louis Girod, que reúne más de 60 recetas ilustradas paso a paso, aquí el aprovechamiento de lo ya cocinado articula las preparaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241831380",
+        "isbn-9791387629694"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b3e300bb5d3e40a8",
+  "origen": "chatgpt-web"
+}

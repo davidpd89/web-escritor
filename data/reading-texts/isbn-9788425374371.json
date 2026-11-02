@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425374371",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sana tus células está dirigido a lectores adultos interesados en nutrición, bienestar y envejecimiento celular. Sus protocolos, evaluaciones y pautas de alimentación y ejercicio lo sitúan en la lectura práctica, no en la ficción.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sana tus células está disponible en tapa blanda con solapas y consta de 432 páginas. La edición en papel facilita volver a sus protocolos prácticos, evaluaciones personalizadas y propuestas de hábitos cotidianos, con las solapas como apoyo para localizar el punto de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sana tus células y La fibra es la solución vinculan alimentación y salud, pero se fijan en aspectos distintos. La fibra es la solución aborda el consumo de 30 gramos de fibra al día, mientras Sana tus células se ocupa del envejecimiento celular e incorpora ayuno y cronutrición.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374869"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "08086db8c310e850",
+  "origen": "chatgpt-web"
+}

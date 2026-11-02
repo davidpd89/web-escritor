@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788466683043",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mamá necesita un respiro está dirigido a lectores adultos interesados en la maternidad cotidiana, la carga mental y las dificultades de compaginar crianza, pareja y bienestar emocional. Inma Sáenz relata experiencias familiares con humor a través de un diario personal; quien busque instrucciones de crianza organizadas por etapas encontrará aquí vivencias y reflexiones en lugar de un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mamá necesita un respiro se ofrece en tapa blanda con solapas, una edición de 240 páginas publicada por Ediciones B. El formato físico permite marcar episodios del diario, retomar sus reflexiones sobre la maternidad en distintos momentos o regalar un ejemplar en papel.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mamá necesita un respiro y Criar juntos de verdad comparten el interés por la crianza, pero Inma Sáenz narra su experiencia materna con humor mientras el segundo libro se centra en criar en equipo. Frente a Preparados, listos, ¡llegó el bebé!, que orienta a las familias durante los primeros años, Mamá necesita un respiro aborda el cansancio, la culpa y las relaciones familiares desde un diario personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370658",
+        "isbn-9788467083613"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "536b29ea45e3b0ab",
+  "origen": "chatgpt-web"
+}

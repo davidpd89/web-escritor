@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791387904968",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Memoria de las manos encaja con adultos interesados en la evolución humana, el cuidado mutuo y los orígenes de nuestra especie. No responde a la búsqueda de una novela de ficción: Virginia Mendoza aborda estos asuntos desde la paleoantropología, la arqueología y otras disciplinas científicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Propone una lectura de divulgación sobre el papel del cuidado y la empatía en la historia de nuestra especie. Virginia Mendoza relaciona hallazgos de paleoantropología, arqueología, neurociencia y biología evolutiva con prácticas como compartir alimentos, proteger a los vulnerables y establecer vínculos sociales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas reúne las 248 páginas de Memoria de las manos en un volumen de papel para consultar y releer. Kindle permite llevar el texto en el móvil o en un lector electrónico, sin cargar con el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Memoria de las manos y Los pilares de la historia buscan explicar el presente mirando al pasado, pero toman caminos distintos. Virginia Mendoza examina el cuidado en la evolución humana; Javier Fernández Sebastián se pregunta por la capacidad de la historia para interpretar un mundo en crisis.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c98af0c6f9a08a55",
+  "origen": "chatgpt-web"
+}

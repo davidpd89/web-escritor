@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408320890",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amsterdam de cerca 2027-2028 está dirigido a quienes quieren conocer Ámsterdam a través de sus canales, su pasado medieval y sus transformaciones urbanas. No es una novela ambientada en la ciudad: Catherine Le Nevez presenta un libro de viajes centrado en las características de este destino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Amsterdam de cerca 2027-2028 propone una lectura práctica sobre Ámsterdam, centrada en su paisaje urbano y en la convivencia de distintas etapas históricas. Catherine Le Nevez aborda el contraste entre el núcleo medieval, el sistema de canales y los antiguos espacios industriales reconvertidos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amsterdam de cerca 2027-2028 se presenta en tapa blanda, con encuadernación rústica con solapas y 192 páginas. El formato físico permite llevar el libro durante una visita a Ámsterdam y consultar sus contenidos sobre la ciudad mientras se prepara o se revisa un recorrido.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amsterdam de cerca 2027-2028 y Pipoka y la Fábrica del Desastre comparten el interés por los lugares que se recorren, aunque pertenecen a tipos de lectura distintos. El libro de Catherine Le Nevez se centra en el espacio urbano de Ámsterdam, mientras el de Jose Such presenta un recorrido de ficción por la Península con una marioneta mágica y criaturas legendarias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a41c13f5074c3bc",
+  "origen": "chatgpt-web"
+}

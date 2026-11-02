@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788410171985",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Munda encaja con lectores de narrativa contemporánea interesados en la experimentación literaria, la poesía y los libros que reflexionan sobre su propia creación. Resulta menos afín a quien prefiera una trama lineal de un solo género, porque Juan Cárdenas combina procedimientos de la novela epistolar, la traducción y la escritura poética.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Munda es una novela epistolar que incorpora poesía, traducciones y una reflexión sobre los mecanismos de la creación literaria. Juan Cárdenas desarrolló el libro mientras revisaba la versión inglesa de El diablo de las provincias, reorganizando fragmentos hasta dar forma a otra obra. Su estructura también utiliza la adivinación y recursos narrativos próximos al videojuego.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Munda corresponde a Editorial Periférica y se presenta en castellano, en tapa blanda, con 224 páginas. El ISBN 9788410171985 identifica esta presentación concreta de la obra de Juan Cárdenas y permite distinguirla al consultar catálogos o buscar ejemplares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Munda está disponible en tapa blanda, con 224 páginas que permiten alternar la lectura por sesiones y volver a fragmentos anteriores. El papel resulta útil para subrayar sus pasajes poéticos y seguir las conexiones entre cartas, traducciones y reflexiones sobre la escritura, elementos que conviven dentro de la obra.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d70a676488b463dd",
+  "origen": "chatgpt-web"
+}

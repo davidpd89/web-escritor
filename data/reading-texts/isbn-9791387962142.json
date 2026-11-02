@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387962142",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El guardaespaldas de Honeko Akabane 7 (Shônen) encaja con lectores juveniles interesados en acción, amistades sometidas a tensión y secretos entre estudiantes. No responde a quien busque una historia cotidiana alejada de los enfrentamientos con organizaciones criminales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Se trata de un cómic juvenil de aventuras que combina amenazas criminales con dudas sobre la lealtad de los personajes. Después de una batalla escolar, Ibuki comparte un respiro con Honeko Akabane, pero una revelación sobre unos mensajes altera lo que creía saber.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El guardaespaldas de Honeko Akabane 7 (Shônen) es en tapa blanda con sobrecubierta y tiene 192 páginas. Es un volumen físico manejable para seguir la historia y colocarlo junto a otras entregas; el título lo identifica como el n.º 7.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El guardaespaldas de Honeko Akabane 7 (Shônen) y As the Gods Will: La secuela 10 (Shônen) parten de conflictos entre jóvenes vinculados al ámbito escolar. Masamitsu Nigatsu desarrolla una amenaza criminal y sospechas de traición; la historia de Muneyuki Kaneshiro y Akeji Fujimura arranca con una pelea entre amigos y una ausencia a clase.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962005"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8b52c356c0d9b7c4",
+  "origen": "chatgpt-web"
+}

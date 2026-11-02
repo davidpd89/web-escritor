@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788408327011",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de romance que busquen una relación nacida de la amistad de infancia y condicionada por la distancia y los proyectos personales. En cambio, no se centra en el misterio ni en una trama de acción, sino en los vínculos afectivos.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Violet y Levi protagonizan un romance que nace de una amistad de infancia y enfrenta maneras distintas de imaginar el futuro. La distancia y la voluntad de construir o abandonar un hogar determinan el tipo de conflicto.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "El rasgo propio de esta edición de Booket son los cantos decorados, junto con la tapa dura de cartoné sin sobrecubierta. Contiene 560 páginas en castellano y se identifica con el ISBN 9788408327011.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato ofrecido para esta edición especial de 560 páginas, con cantos decorados y cubierta de cartoné sin sobrecubierta. Por su encuadernación rígida y sus elementos decorativos, puede conservarse en estantería o entregarse como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db1f255dd6a832e9",
+  "origen": "chatgpt-web"
+}

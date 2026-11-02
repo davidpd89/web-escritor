@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387809829",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico se dirige a niños a partir de 4 años que están empezando a leer y se interesan por los monstruos. Las frases rimadas y las ilustraciones en color lo sitúan lejos de las lecturas extensas sin apoyo visual.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico se recomienda a partir de 4 años y contiene 48 páginas en tapa blanda. Emplea mayúsculas, rimas e ilustraciones a todo color; el título lo identifica como el n.º 25.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico se ofrece en tapa blanda de 48 páginas. La edición en papel permite seguir el texto en mayúsculas y observar las ilustraciones a color durante una lectura compartida o los primeros ejercicios de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8b65436c2ad4a1b1",
+  "origen": "chatgpt-web"
+}

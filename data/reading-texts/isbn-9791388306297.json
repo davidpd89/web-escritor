@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388306297",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de los gatos se dirige a quienes buscan poemas y reflexiones sobre los felinos, acompañados de dibujos de Ursula K. Le Guin. No responde a la expectativa de una novela de trama única: reúne piezas sobre la presencia de los gatos en la vida y la creación de la autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una colección de poemas, meditaciones y dibujos que examina la conducta de los gatos y su relación con las personas. Incluye El arte de Bunditsu y más de treinta piezas vinculadas a las reflexiones de Ursula K. Le Guin sobre estos animales, su independencia y su manera de relacionarse.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Nórdica Libros contiene las 108 páginas de El libro de los gatos, incluidos poemas, meditaciones y dibujos. El volumen físico permite alternar lectura y contemplación de las ilustraciones, además de volver a piezas concretas sin necesidad de seguir un orden narrativo continuo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El libro de los gatos se puede comparar con La llamada de los olores por convertir percepciones cotidianas en materia de escritura. Ursula K. Le Guin se fija en los felinos mediante poemas, meditaciones y dibujos, mientras Ryoko Sekiguchi intenta conservar olores, sabores y voces a través de las palabras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410171916"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f461a3c13ee4b8b",
+  "origen": "chatgpt-web"
+}

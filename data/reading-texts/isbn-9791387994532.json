@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9791387994532",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amigos de verdad está dirigido a lectores a partir de 9 años que quieren comprender mejor las amistades, los límites personales y los conflictos con sus compañeros. No responde al interés por una historia de ficción: propone orientación práctica mediante ejemplos, pruebas y actividades de reflexión.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Amigos de verdad se utiliza como guía de consulta y reflexión sobre situaciones habituales entre amigos. Incluye tests, ejemplos de conflictos, consejos, citas y espacios para reflexionar, de manera que cada cuestión puede trabajarse por separado y retomarse cuando resulte necesario.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Amigos de verdad está recomendado a partir de 9 años y tiene 176 páginas en castellano. Su edición de Ediciones B es de tapa blanda con solapas, y el contenido combina explicaciones sobre las relaciones personales, recursos ilustrados y ejercicios para comprender las emociones.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas reúne las 176 páginas de Amigos de verdad en un ejemplar flexible para leer y consultar sus ejercicios. Al tratarse de una guía con tests y espacios de reflexión, el papel permite volver a esas actividades cuando surgen dificultades en las relaciones de amistad.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amigos de verdad comparte con Enzo Brown: loco por el basket 5 - La cancha es de todos el interés por las relaciones de amistad durante la infancia. La obra de Iris Pérez-Bonaventura ofrece herramientas para gestionar conflictos y establecer límites, mientras que el título de Pablo Lolaso sitúa el baloncesto en primer plano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994563"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7804da0b526ccdd9",
+  "origen": "chatgpt-web"
+}

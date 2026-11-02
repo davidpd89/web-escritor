@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788408326427",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores infantiles y juveniles que buscan fantasía de aventuras, misiones colectivas y amenazas relacionadas con la naturaleza. No encaja tanto con quienes prefieren historias realistas, pues el conflicto surge de una vegetación anómala y de los animales afectados en Narúa. El título lo identifica como el n.º 2 de Misiones especiales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura sin sobrecubierta es el formato de esta edición, que reúne 192 páginas en castellano y utiliza una encuadernación de cartoné. Su cubierta rígida resulta práctica para conservar el ejemplar y volver a leer la misión de Yuna, Abi, Éric, Cloe y Nico. También permite mantener el volumen en papel junto a otras aventuras infantiles.",
+      "evidencias": [
+        "edicion",
+        "formato_edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AVATAR. La leyenda de Aang 5 - Norte y sur comparte el protagonismo de un grupo de aventureros, pero desarrolla su conflicto alrededor de las Tribus Agua; aquí la misión conduce a un valle cuya vegetación crece sin control. Pipoka y la Fábrica del Desastre también incorpora elementos mágicos, aunque sigue a un cuentacuentos y una marioneta por la Península, en lugar de un equipo que busca un templo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874803",
+        "isbn-9791388277085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d9bc4d74fe1819a",
+  "origen": "chatgpt-web"
+}

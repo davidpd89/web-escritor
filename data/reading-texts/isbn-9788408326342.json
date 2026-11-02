@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788408326342",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El caos de Beca 3. Vale, este no era el plan se dirige al público infantil y juvenil interesado en las amistades, los secretos y la vida en el instituto. Beca tiene doce años y afronta el robo de un cuaderno, los exámenes y un campamento; no encaja tanto con quien busque una historia adulta alejada de los problemas escolares.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El caos de Beca 3. Vale, este no era el plan se edita en tapa dura de cartoné, con 224 páginas. La edición de Destino Infantil & Juvenil lleva cubierta rígida sin sobrecubierta, una presentación en papel que permite conservar el libro, prestarlo o entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9e2b676679a206bf",
+  "origen": "chatgpt-web"
+}

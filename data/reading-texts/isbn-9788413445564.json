@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788413445564",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Niños ancestrales se dirige a familias interesadas en cómo la alimentación y el entorno influyen en el desarrollo infantil, desde el embarazo hasta las primeras etapas de crianza. No responde a la búsqueda de un relato sobre la infancia: Rubén Muñoz aborda cuestiones de salud digestiva, inmunitaria, neurológica y emocional desde una perspectiva divulgativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Niños ancestrales examina decisiones relacionadas con el embarazo, la lactancia, la introducción de alimentos y el ambiente en el que crecen los niños. Rubén Muñoz desarrolla estos asuntos por capítulos e incluye explicaciones sobre el aparato digestivo y los factores vinculados al desarrollo inmunitario, neurológico y emocional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Niños ancestrales se publica en tapa blanda con solapas, en una edición de Alienta Editorial de 320 páginas. El formato en papel permite regresar a los capítulos dedicados al embarazo, la lactancia o la alimentación infantil y utilizar las solapas para localizar pasajes durante las consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Niños ancestrales se aproxima a Preparados, listos, ¡llegó el bebé! por su atención a los cuidados durante las primeras etapas de la vida. Rubén Muñoz se concentra en nutrición, entorno y desarrollo infantil desde el embarazo; Laura Álvarez (La pediatra Laura) plantea una guía práctica para acompañar a las familias durante los primeros años de crianza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083613"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "02b9515e1ecda673",
+  "origen": "chatgpt-web"
+}

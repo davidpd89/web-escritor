@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387928018",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lázár se dirige a lectores adultos que buscan historias familiares atravesadas por el declive aristocrático, la guerra y los cambios políticos. No se limita a la vida de un solo protagonista: el relato pasa de Lajos von Lázár a sus hijos, que afrontan de distinta manera la opresión y el peso de su linaje.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Lázár sigue a una familia aristocrática cuyas tierras y posición se ven afectadas por el final del orden de los Habsburgo, la guerra y la ocupación. El arco narrativo atraviesa el siglo XX y llega hasta el levantamiento nacional húngaro de 1956, mientras las nuevas generaciones buscan libertad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lázár tiene 288 páginas y se publica en tapa blanda con solapas por Salamandra. La edición física permite retomar en papel una historia que se despliega entre generaciones, sin depender de un dispositivo electrónico ni de una descarga.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cc62e706c0cee0dd",
+  "origen": "chatgpt-web"
+}

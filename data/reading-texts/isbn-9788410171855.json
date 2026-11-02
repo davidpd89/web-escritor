@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410171855",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mister Ángel del Río encaja con lectores interesados en el exilio español, la historia literaria y los límites entre la documentación y la ficción. No se plantea como una biografía estrictamente documental: Enrique Andrés Ruiz combina la investigación sobre una figura histórica con reconstrucciones imaginativas y reflexiones sobre la escritura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La novela combina investigación literaria, recreación histórica y una prosa de orientación lírica para seguir las huellas de Ángel del Río. Sus relaciones con Federico García Lorca y otros escritores permiten abordar el exilio español en Estados Unidos y la manera en que documentos e imaginación intervienen en la reconstrucción del pasado.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Mister Ángel del Río en tapa blanda contiene 336 páginas en castellano. La lectura en papel permite detenerse en las referencias a escritores, documentos y acontecimientos del exilio, así como regresar a los pasajes donde la investigación se mezcla con la ficción.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e6748482e0e9e3e4",
+  "origen": "chatgpt-web"
+}

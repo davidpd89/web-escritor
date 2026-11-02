@@ -1,0 +1,59 @@
+{
+  "id": "isbn-9788448873479",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Superdónuts 3 - El destino de los dónuts encaja con lectores a partir de 7 años que disfrutan del humor, las peripecias disparatadas y los conflictos de ciencia ficción contados mediante viñetas. No está orientado a quienes prefieren historias realistas y cotidianas, sin robots, persecuciones ni viajes temporales.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Superdónuts 3 - El destino de los dónuts está recomendado a partir de 7 años y consta de 208 páginas. Es un cómic de Neill Cameron publicado en castellano, con ilustraciones a todo color y encuadernación de tapa dura. El título lo identifica como el n.º 3, y la descripción editorial confirma que pertenece a la tercera entrega de la serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "numero_paginas",
+        "categorias",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Superdónuts 3 - El destino de los dónuts se ofrece en tapa dura, con 208 páginas a todo color. El volumen físico permite seguir las escenas de acción y los chistes en sus páginas ilustradas, además de conservarlo para volver a leer las peripecias de sus personajes.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Superdónuts 3 - El destino de los dónuts comparte con Enzo Brown: loco por el basket 5 - La cancha es de todos, de Pablo Lolaso, el protagonismo de personajes que afrontan nuevas situaciones, pero Neill Cameron recurre a robots y viajes temporales, mientras el otro título gira alrededor del baloncesto. Frente a LEGO® Ninjago - La pluma del destino: El ataque del guardián de los pergaminos, de Jed King, que incorpora una minifigura y un modelo para construir, Superdónuts desarrolla su propuesta en páginas ilustradas a todo color.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994563",
+        "isbn-9780241837979"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "033a07e9d7c7d467",
+  "origen": "chatgpt-web"
+}

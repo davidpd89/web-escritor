@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788402431967",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ansiedad. ¿Cómo se sale de aquí? se dirige a lectores adultos interesados en la experiencia de la ansiedad contada mediante ilustraciones y humor. Quien busque un tratado exclusivamente clínico encontrará, en cambio, el relato personal de Gemma Correll sobre el pánico y los obstáculos cotidianos de convivir con la ansiedad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ansiedad. ¿Cómo se sale de aquí? se presenta en tapa blanda con solapas y cuenta con 448 páginas. Esta edición en papel permite seguir las ilustraciones y el relato sobre la ansiedad de Gemma Correll sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ansiedad. ¿Cómo se sale de aquí? comparte con Cómo no tener diabetes y La fibra es la solución el interés por la salud y el bienestar. La diferencia está en el enfoque: Gemma Correll cuenta su experiencia con la ansiedad mediante ilustraciones y humor, mientras los otros títulos se ocupan, respectivamente, de la diabetes y del consumo de fibra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425373152",
+        "isbn-9788425374869"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b7c712415e61849d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788401039836",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?) se dirige a adultos que quieran reunir recuerdos mediante preguntas y aportaciones de distintos familiares. Encaja menos con quienes busquen una narración ya escrita, porque sus 208 páginas están pensadas para incorporar experiencias, fotografías y tradiciones propias.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?) es un cuaderno participativo para construir una memoria familiar compartida. Elma van Vliet organiza la actividad mediante preguntas, espacios para presentar a cada miembro y páginas destinadas a fotografías, recetas, tradiciones y un árbol genealógico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura con sobrecubierta es el formato de Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?). Sus 208 páginas permiten escribir respuestas, pegar fotografías y conservar recuerdos familiares en un objeto físico que puede completarse entre varias personas o entregarse como regalo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?) y Destroza este diario. Diversión EXTREMA convierten el libro en una actividad creativa, en lugar de una narración convencional. Elma van Vliet propone conservar relatos, fotografías y recetas familiares; Keri Smith invita a destruir, explorar e imaginar mediante una experiencia más experimental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346026"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b615a4401895d2d0",
+  "origen": "chatgpt-web"
+}

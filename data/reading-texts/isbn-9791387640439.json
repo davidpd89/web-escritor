@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791387640439",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Plaza Brugmann, 33 se dirige a lectores adultos de novela histórica interesados en la ocupación alemana, la resistencia y los dilemas de supervivencia. Su historia coral y el peso de las decisiones morales la distinguen de una narración centrada exclusivamente en un protagonista o alejada de los conflictos bélicos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Plaza Brugmann, 33, de Alice Austen, es una novela histórica coral ambientada en la Bruselas ocupada. La desaparición de una familia y de una colección de arte altera la convivencia en un edificio cuyos habitantes deben decidir cómo actuar ante el régimen nazi. El arte, la confianza entre vecinos y la resistencia sostienen el conflicto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Plaza Brugmann, 33 está disponible en tapa blanda con solapas, en una edición de Salamandra de 384 páginas. La cubierta flexible permite trasladar el ejemplar con mayor facilidad que uno de tapa dura, mientras que las solapas ofrecen una presentación distinta de la tapa blanda sencilla.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Plaza Brugmann, 33 y Cosamala sitúan sus conflictos en contextos históricos atravesados por la violencia, pero recurren a enfoques narrativos diferentes. Alice Austen muestra la ocupación alemana de Bruselas a través de una comunidad de vecinos; Alana S. Portero convierte un crimen de la guerra civil en el punto de partida de una historia gótica de brujas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "211a4d854628190e",
+  "origen": "chatgpt-web"
+}

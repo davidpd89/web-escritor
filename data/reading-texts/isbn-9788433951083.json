@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788433951083",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Donde Álvaro Pombo se dirige a lectores interesados en las biografías literarias y en la trayectoria personal y creativa de Álvaro Pombo. No responde a la búsqueda de una novela de ficción: Mario Crespo López reconstruye su vida mediante episodios personales, etapas de formación y documentación sobre su carrera.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Donde Álvaro Pombo es una biografía literaria que relaciona la experiencia personal de Álvaro Pombo con su evolución como escritor. Mario Crespo López recorre su formación, la etapa vinculada al Birkbeck College y su regreso a Madrid, además de explorar sus lecturas iniciales y sus relaciones con el mundo editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Donde Álvaro Pombo está editado en tapa blanda y reúne 520 páginas. Esta edición permite seguir en papel una trayectoria biográfica extensa y regresar a etapas concretas de la vida y la producción literaria de Álvaro Pombo durante consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde Álvaro Pombo y Memoria de las manos comparten la atención a la experiencia humana, aunque el primero reconstruye una vida literaria y el segundo se ocupa del cuerpo y la empatía. Los pilares de la historia también invita a examinar el pasado, pero lo hace desde una pregunta sobre la disciplina histórica, no mediante la biografía de un escritor.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629664",
+        "isbn-9791387904968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "29f839d9493d7101",
+  "origen": "chatgpt-web"
+}

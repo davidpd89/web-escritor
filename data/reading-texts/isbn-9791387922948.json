@@ -1,0 +1,36 @@
+{
+  "id": "isbn-9791387922948",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las almas feroces encaja con quien busca narrativa contemporánea de misterio, secretos vecinales y relaciones marcadas por el pasado. No se orienta a lectores que prefieren evitar historias construidas alrededor de la muerte de una joven y los conflictos íntimos de una comunidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Las almas feroces plantea un misterio coral alrededor de la muerte de Leo, con la sheriff Lauren Hobler entre quienes tratan de comprender lo ocurrido. La investigación convive con la vida en Mercy, donde los silencios y las relaciones entre vecinos sostienen el conflicto.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las almas feroces tiene 256 páginas y se ofrece en tapa blanda y Kindle. La primera permite leer y prestar el ejemplar en papel; la segunda facilita llevar la novela en el móvil sin sumar un volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eaa518e084848ea3",
+  "origen": "chatgpt-web"
+}

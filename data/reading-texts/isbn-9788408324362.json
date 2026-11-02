@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408324362",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guinness World Records 2027 está dirigido al público infantil y juvenil con curiosidad por los récords en deportes, naturaleza, ciencia y cultura. No desarrolla una aventura con personajes y argumento: reúne marcas y logros de distintos ámbitos, desde fenómenos naturales hasta habilidades humanas, para una lectura centrada en datos y curiosidades.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Guinness World Records 2027 es una edición en castellano de Planeta Junior, publicada en 2026 y compuesta por 256 páginas. Se presenta en encuadernación cartoné sin sobrecubierta y reúne récords relacionados con la naturaleza, los avances científicos, las hazañas deportivas, el entretenimiento y la cultura.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Guinness World Records 2027 se ofrece en tapa dura sin sobrecubierta, con 256 páginas de contenido. La encuadernación cartoné proporciona una cubierta rígida para un libro que puede abrirse repetidamente en busca de distintos récords y conservarse como volumen de consulta o regalarse a lectores interesados en las curiosidades del mundo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guinness World Records 2027 y Pipoka y la Fábrica del Desastre comparten el interés por explorar lugares y aspectos sorprendentes del mundo, aunque ofrecen lecturas distintas. Guinness World Records reúne marcas de ciencia, naturaleza y deporte; Jose Such sigue las peripecias de un cuentacuentos y una marioneta por paisajes y criaturas legendarias de la Península.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8242af4316aa6d38",
+  "origen": "chatgpt-web"
+}

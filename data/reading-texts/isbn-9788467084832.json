@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788467084832",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La cabaña encaja con lectores de narrativa contemporánea interesados en cuestiones espirituales y en las decisiones que plantea la posibilidad de encontrarse con Dios. No se orienta a quienes buscan una historia desligada de la religión, puesto que una invitación divina constituye el interrogante que pone en marcha la novela.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La cabaña parte de una situación hipotética: recibir una carta de Dios y tener que decidir si acudir a la cita. Wm. Paul Young utiliza ese planteamiento religioso como punto de entrada a una novela contemporánea en la que la aceptación o el rechazo de ese encuentro constituye la primera cuestión para el lector.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La cabaña se ofrece en tapa blanda, concretamente en rústica con solapas. La edición de Editorial Espasa reúne 272 páginas en castellano, con una encuadernación flexible que facilita sostener el libro y guardarlo sin la rigidez de unas tapas duras. Las solapas también pueden utilizarse para señalar el punto de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "764a80aac78db906",
+  "origen": "chatgpt-web"
+}

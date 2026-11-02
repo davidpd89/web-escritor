@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788466396806",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Carrie (edición serie) está dirigida a lectores adultos de terror y misterio que acepten una historia sobre acoso escolar, fanatismo religioso y sucesos sobrenaturales. No encaja con quien busque una novela de instituto ligera o prefiera evitar situaciones de humillación y violencia.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Carrie (edición serie), de Stephen King, es una novela de terror que transforma un conflicto adolescente en una amenaza sobrenatural. El acoso que sufre Carrie, la influencia religiosa de su madre y los acontecimientos desencadenados en el instituto conectan el drama personal con el miedo colectivo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Carrie (edición serie) se publica en tapa blanda de bolsillo, con 256 páginas y el sello Penguin Bolsillo. Es una edición física fácil de transportar en un bolso o una mochila, apropiada para repartir la lectura entre desplazamientos sin cargar con un volumen de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Carrie (edición serie) y La abadía sin ojos incorporan la religión a conflictos personales marcados por circunstancias inquietantes. Stephen King aborda el acoso escolar y la convivencia con una madre fanática; Jordi Wild parte del exilio de un sacerdote a un monasterio hermético tras un escándalo que amenaza su vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466686884"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "19901b57c6fe0f64",
+  "origen": "chatgpt-web"
+}

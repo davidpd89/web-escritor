@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788425375934",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las recetas de Mamá Atómica se dirige a adultos que buscan preparar comidas caseras, recuperar recetas familiares y organizar la alimentación cotidiana mediante menús semanales. Su enfoque doméstico, con arroces, cenas, postres y platos italianos, se aleja de quien busque exclusivamente técnicas de cocina profesional o preparaciones de restaurante.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Las recetas de Mamá Atómica reúne preparaciones familiares tradicionales, arroces, recetas italianas, propuestas para cenar y postres. Rocío S. Rosado incorpora también menús semanales, de modo que el recetario sirve tanto para consultar platos concretos como para planificar las comidas de varios días sin tener que decidir cada preparación desde cero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las recetas de Mamá Atómica se presenta en tapa blanda con solapas y contiene 208 páginas. Su edición física permite tener las recetas junto a los fogones, marcar las preparaciones habituales y consultar los menús semanales mientras se organiza la compra o se decide qué cocinar.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las recetas de Mamá Atómica y 20 minutos ¡y listo! comparten el interés por facilitar la cocina cotidiana, aunque Jamie Oliver pone el acento en preparar platos en poco tiempo y Rocío S. Rosado en las recetas familiares y los menús semanales. Curso de cocina - Los básicos ofrece más de 60 recetas ilustradas paso a paso, frente al enfoque doméstico basado en platos conocidos y planificación de las comidas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9780241831380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "37cc02f2f87d8370",
+  "origen": "chatgpt-web"
+}

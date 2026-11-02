@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788408327271",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de fantasía juvenil interesados en academias, dragones y conflictos donde el linaje determina quién tiene poder. La amenaza de muerte y la dificultad de sobrevivir al entorno académico lo alejan de las historias escolares centradas en la convivencia y las aventuras sin grandes peligros.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Propone una fantasía de academia donde la herencia familiar y el vínculo con los dragones pueden determinar la supervivencia. El despertar de una de estas criaturas altera el equilibrio de poder y convierte un entorno de aprendizaje en un escenario de amenazas relacionadas con el linaje y la caída de una dinastía.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición limitada se distingue por la tapa dura con sobrecubierta, los cantos tintados, las guardas con acabados metalizados y un mapa desplegable. Editorial Planeta reúne estos elementos en un volumen de 640 páginas en español, con una presentación física que incorpora materiales adicionales al texto.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible, con 640 páginas y una sobrecubierta exterior. Su extensión exige tener en cuenta el volumen físico durante la lectura, mientras que los cantos tintados, las guardas metalizadas y el mapa desplegable son características que cobran especial importancia al conservar el ejemplar o entregarlo como regalo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "07edd3d0c733a430",
+  "origen": "chatgpt-web"
+}

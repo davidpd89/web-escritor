@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388306129",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mary (Nórdica Clásicos) se dirige a lectores interesados en personajes femeninos que cuestionan las expectativas de su entorno y buscan independencia intelectual. El conflicto se concentra en la insatisfacción personal y las limitaciones impuestas a las mujeres, por lo que encaja menos con quienes prefieran historias de aventuras o acción exterior.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Mary (Nórdica Clásicos), de Mary Wollstonecraft, es una novela de conflicto interior con un componente autobiográfico. La protagonista intenta construir una identidad propia frente a los modelos femeninos de su época, mientras el aislamiento y la frustración condicionan sus decisiones. El interés narrativo reside en esa tensión entre las aspiraciones individuales y las restricciones sociales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mary (Nórdica Clásicos) se presenta en tapa blanda, con 140 páginas en castellano. Es una edición física de extensión breve, manejable para llevar en el bolso o la mochila y retomar la lectura en distintos momentos. La publica Nórdica Libros.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "49728e8ef4a8b25c",
+  "origen": "chatgpt-web"
+}
