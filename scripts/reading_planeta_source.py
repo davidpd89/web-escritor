@@ -24,6 +24,8 @@ HOST = 'www.planetadelibros.com'
 COVER_HOSTS = ('proassetspdlcom.cdnstatics2.com',)
 PRODUCT_PATH = re.compile(r'^/libro-[a-z0-9-]+/(\d{1,9})/?$')
 AUTHOR_PATH = re.compile(r'^/autor/[a-z0-9-]+/\d+/?$')
+# Las fichas infantiles y juveniles publican la franja de edad como una temática más («De 9 a 12 años»).
+AGE_TOPIC = re.compile(r'(?:De \d+ a \d+|A partir de \d+|Desde \d+) años')
 MONTHS = {'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4, 'mayo': 5, 'junio': 6, 'julio': 7, 'agosto': 8,
           'septiembre': 9, 'setiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12}
 SPANISH = {'el', 'la', 'los', 'las', 'una', 'del', 'que', 'con', 'por', 'para', 'sus', 'pero', 'como', 'más', 'su', 'se', 'en', 'y'}
@@ -166,8 +168,8 @@ def planeta_edition(document: str, source: str) -> dict:
             'fecha_publicacion_edicion': published, 'precision_fecha': 'dia',
             'idioma': 'es', 'formato_edicion': format_id, 'encuadernacion': binding,
             'numero_paginas': int(count) if count.isdigit() else None,
-            'materias': topic_names[:1],
-            'edad_recomendada': '',
+            'materias': [t for t in topic_names if not AGE_TOPIC.fullmatch(t)][:1],
+            'edad_recomendada': next((t for t in topic_names if AGE_TOPIC.fullmatch(t)), ''),
             'portada_fuente_url': image, 'fuente_bibliografica_url': source,
             'fuentes_autores': {a: author_sources[a] for a in authors},
             'coleccion': fields.get('coleccion', ''),

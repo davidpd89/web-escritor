@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Rellena en libros ya publicados lo que la ficha oficial de Penguin Libros ya expone:
-PVP y categorías adicionales (palabras clave editoriales). Solo añade; no cambia nada más.
+PVP, categorías adicionales (palabras clave editoriales) y la sinopsis completa si falta.
+Solo añade; no cambia nada más.
 
 Uso: python scripts/backfill-reading-metadata.py [--apply] [--max N]
 Sin modelos ni APIs de pago; respeta robots, caché y presupuesto de CachedHTTP.
@@ -43,6 +44,21 @@ def add_categories(catalogue, book, record):
     return added
 
 
+def fill_book(catalogue, book, record, url, today):
+    changes = {}
+    if record.get('pvp_centimos') and book.get('pvp_centimos') != record['pvp_centimos']:
+        book.update(pvp_centimos=record['pvp_centimos'], pvp_fecha_verificacion=today)
+        changes['pvp'] = record['pvp_centimos']
+    # Una ficha sin sinopsis completa recibe la oficial y su fuente; una ya escrita o un resumen propio no se tocan.
+    if not book.get('sinopsis_completa') and book.get('sinopsis_tipo') != 'resumen_propio' and record.get('sinopsis_completa'):
+        book.update(sinopsis_completa=record['sinopsis_completa'], sinopsis_fuente_url=url)
+        changes['sinopsis'] = len(record['sinopsis_completa'])
+    added = add_categories(catalogue, book, record)
+    if added:
+        changes['categorias'] = added
+    return changes
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--apply', action='store_true')
@@ -52,23 +68,22 @@ def main():
     path = ROOT / 'data/reading-catalogue.json'
     catalogue = read_json(path)
     http = CachedHTTP(ROOT / '.ci/reading-editorial-cache/http', ['www.penguinlibros.com'], budget=args.max, delay=1.5)
-    report = {'libros': 0, 'pvp': 0, 'categorias_nuevas': 0, 'errores': []}
+    report = {'libros': 0, 'pvp': 0, 'sinopsis': 0, 'categorias_nuevas': 0, 'errores': []}
     for book in catalogue['libros']:
         url = product_url(book)
         if not url:
             continue
         report['libros'] += 1
         try:
-            record = penguin_edition(http.get(url, ttl=86400).decode('utf-8'), url)
+            record = penguin_edition(http.get(url, ttl=86400).decode('utf-8', errors='replace'), url)
         except (SourceError, OSError, ValueError, TimeoutError) as exc:
             report['errores'].append({'id': book['id'], 'error': str(exc)[:120]})
             continue
-        if record.get('pvp_centimos') and book.get('pvp_centimos') != record['pvp_centimos']:
-            book.update(pvp_centimos=record['pvp_centimos'], pvp_fecha_verificacion=today)
-            report['pvp'] += 1
-        added = add_categories(catalogue, book, record)
-        report['categorias_nuevas'] += len(added)
-        print(f"{book['id']}: pvp={record.get('pvp_centimos')} +{added}")
+        changes = fill_book(catalogue, book, record, url, today)
+        for key in ('pvp', 'sinopsis'):
+            report[key] += key in changes
+        report['categorias_nuevas'] += len(changes.get('categorias', []))
+        print(f"{book['id']}: {changes}")
     print(json.dumps(report, ensure_ascii=False))
     if args.apply:
         write_if_changed(path, catalogue)
