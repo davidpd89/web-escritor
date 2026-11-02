@@ -15,6 +15,7 @@ from reading_intake_fetch import read_json, write_if_changed
 from reading_ratings_refresh import refresh as refresh_ratings, google_response, hardcover_response, write_changed
 
 ROOT = Path(__file__).resolve().parents[1]
+TEXTS_PREFIX = 'automation/reading-catalogue-textos-'
 spec = importlib.util.spec_from_file_location('reading_publication', ROOT / 'scripts/publish-reading-refresh.py')
 publisher = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(publisher)
@@ -47,6 +48,12 @@ def radar_isbns(config):
     return isbns
 
 
+def pending_batches(opened):
+    """Cargas del propio escritor; las PR de textos las regenera su bucle y no frenan los libros."""
+    return [p['headRefName'] for p in opened if p['headRefName'].startswith('automation/reading-catalogue-')
+            and not p['headRefName'].startswith(TEXTS_PREFIX)]
+
+
 def refresh(*, publish=False):
     config = read_json(ROOT / 'data/reading-intake-config.json')
     if publish and subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=all'], cwd=ROOT, text=True).strip():
@@ -55,7 +62,7 @@ def refresh(*, publish=False):
         raise ValueError('Autopublicación desactivada en la configuración')
     # A failed previous batch stays inspectable; never pile up duplicate writers.
     opened = json.loads(publisher.publication.gh('pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName'))
-    pending = [p['headRefName'] for p in opened if p['headRefName'].startswith('automation/reading-catalogue-')]
+    pending = pending_batches(opened)
     if pending:
         if len(pending) != 1:
             raise ValueError('Hay varias cargas pendientes; revisar antes de continuar')
