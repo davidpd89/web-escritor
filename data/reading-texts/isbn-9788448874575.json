@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788448874575",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi mamá es... - Una unicornia solitaria encaja con lectores a partir de 4 años que disfrutan de criaturas fantásticas y búsquedas familiares. No es una lectura realista: Pepita, una dragona de una sola ala, recorre un bosque con Gruñón para encontrar a su madre.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Está recomendado a partir de 4 años y cuenta con 32 páginas en tapa dura. La edición en castellano de Beascoa ofrece una extensión breve para seguir la búsqueda de Pepita y Gruñón en una sesión de lectura compartida o por partes.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura protege las 32 páginas de Mi mamá es... - Una unicornia solitaria durante las lecturas repetidas. Es un formato físico que permite pasar las páginas juntos mientras Pepita y Gruñón buscan a su madre, y conservar el ejemplar para volver a leerlo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi mamá es... - Una unicornia solitaria se puede comparar con La magia de la música - Cenicienta por presentar dificultades relacionadas con el hogar en un entorno de cuento. Steve Smallman sigue la búsqueda de una madre entre criaturas del bosque, mientras Charles Perrault sitúa a Cenicienta ante las exigencias de una duquesa y sus hijas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241834923"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "911fc30695658e3b",
+  "origen": "chatgpt-web"
+}

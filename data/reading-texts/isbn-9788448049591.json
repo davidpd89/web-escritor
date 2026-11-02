@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788448049591",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El hombre ideal se dirige a quienes buscan novela negra y misterio en un entorno de poder económico y secretos de la alta sociedad. Encaja menos con lectores que prefieran historias sin suspense ni tensiones relacionadas con las apariencias sociales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El hombre ideal es una novela negra con elementos de misterio y thriller centrada en Anna de Leiva, vinculada a una gran empresa de salud privada. El patrimonio familiar, las apariencias y un secreto que amenaza con salir a la luz configuran el conflicto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta primera edición de El hombre ideal es limitada, está dedicada y firmada por La Vecina Rubia. Libros Cúpula la presenta en rústica con solapas, con 456 páginas en castellano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El hombre ideal se ofrece en tapa blanda, en una edición de 456 páginas con solapas. Es el formato en papel para quien quiera un volumen flexible que pueda trasladar en una bolsa o entregar como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ca4e7ada1139eef",
+  "origen": "chatgpt-web"
+}

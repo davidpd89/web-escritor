@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788433951205",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Nos quedamos o nos vamos? se dirige a lectores de narrativa contemporánea interesados en los dilemas sobre la vejez, la autonomía personal y las decisiones compartidas dentro de una pareja. No encaja con quienes prefieran evitar el suicidio y la demencia como asuntos centrales, porque ambos condicionan el pacto entre Kay Wilkinson y Cyril y las distintas posibilidades de su futuro.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "¿Nos quedamos o nos vamos? explora mediante futuros alternativos las consecuencias de una decisión tomada para afrontar el envejecimiento. Kay Wilkinson y Cyril acuerdan suicidarse cuando ambos cumplan ochenta años, pero Lionel Shriver desarrolla diferentes desenlaces según cambian su salud, sus convicciones y su relación. La estructura permite examinar un mismo dilema desde resultados distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Nos quedamos o nos vamos? se presenta en tapa blanda, con 320 páginas en castellano, bajo el sello Editorial Anagrama. La lectura en papel permite detenerse en cada variación del futuro de Kay Wilkinson y Cyril y volver a los dilemas anteriores para comparar cómo cambian las consecuencias de su decisión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ff3a07c5787a97f",
+  "origen": "chatgpt-web"
+}

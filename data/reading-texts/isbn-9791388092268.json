@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388092268",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ponte fino se dirige a adultos que quieren preparar comida casera con recetas de bocadillos, tortillas, pescados, carnes y postres. Martín Berasategui y David de Jorge ofrecen preparaciones explicadas mediante fotografías e instrucciones sucesivas. No está centrado en técnicas experimentales ni en ingredientes difíciles de conseguir, sino en elaborar platos reconocibles en la cocina doméstica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Ponte fino reúne recetas de Martín Berasategui y David de Jorge que abarcan bocadillos, tortillas, ensaladas, pescados, carnes y postres. Las preparaciones se presentan con fotografías e instrucciones paso a paso para seguir su elaboración en casa. El contenido se centra en platos de cocina cotidiana y combinaciones destinadas a comidas completas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ponte fino está disponible en tapa dura, en una edición de Debate que reúne 208 páginas. El formato físico permite consultar las fotografías y los pasos de cada receta mientras se cocina, además de conservar el recetario en papel. La encuadernación rígida lo diferencia de una edición en tapa blanda por su estructura exterior.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ponte fino y Curso de cocina - Los básicos explican preparaciones mediante instrucciones por etapas acompañadas de material visual. Martín Berasategui y David de Jorge reúnen platos caseros como tortillas, carnes y postres, con fotografías de las recetas; Louis Girod presenta más de 60 elaboraciones ilustradas centradas en facilitar el seguimiento de cada preparación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241831380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3ef19b0d4a32df1f",
+  "origen": "chatgpt-web"
+}

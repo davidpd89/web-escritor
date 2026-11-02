@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791388306174",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Glifo se dirige a lectores de ensayo interesados en la imaginación, la memoria y la solidaridad ante las divisiones sociales. No responde a quien busque exclusivamente una argumentación abstracta sin personajes: las preguntas se desarrollan mediante dos hermanas y un fantasma.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Glifo examina qué papel pueden cumplir las historias ante una sociedad dividida y cómo se relacionan con el cuidado, la resistencia y la memoria. Ali Smith plantea esas cuestiones a través de Petra y Patch, dos hermanas cuya relación vuelve a cruzarse con un fantasma años después.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Glifo se publica en tapa blanda, con 240 páginas en la edición de Nórdica Libros. Este formato permite subrayar en papel los pasajes sobre imaginación y solidaridad, y volver a ellos sin necesidad de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Glifo y Este deseo no es el mío se ocupan de preguntas sobre la sociedad actual, pero Ali Smith aborda la imaginación y la solidaridad, mientras que Andrea Proenza se centra en las relaciones afectivas atravesadas por la tecnología. En Glifo, esas reflexiones toman forma mediante la historia de Petra y Patch y la figura de un fantasma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788433951199"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a7fcf866534c682f",
+  "origen": "chatgpt-web"
+}

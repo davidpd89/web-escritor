@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788433951403",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensamientos estériles se dirige a lectores de poesía que buscan textos sobre deseo, sexualidad, miedo y transformación del cuerpo. Encaja menos con quien prefiera una trama narrativa continua o poemas alejados de imágenes de heridas, violencia e intimidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un poemario centrado en el cuerpo como lugar de deseo, memoria y conflicto. Luna Miguel explora la relación entre el amor y la sexualidad, a la vez que plantea cómo se construye una voz propia durante la juventud y cómo el miedo interviene en esa búsqueda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En tapa blanda, las 88 páginas de Pensamientos estériles forman un volumen breve para leer poemas por separado o volver a ellos. La edición de Editorial Anagrama en castellano permite una lectura en papel, con la posibilidad de detenerse en textos concretos sin seguir una trama continua.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pensamientos estériles y El libro de los gatos comparten la escritura poética, pero el centro de sus textos es distinto. Luna Miguel trabaja el cuerpo, el deseo y la violencia; Ursula K. Le Guin reúne poemas, meditaciones y dibujos centrados en los gatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e845303d0f375cc3",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788433951250",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El volumen del tiempo IV encaja con lectores interesados en los bucles temporales, las realidades alteradas y las preguntas que surgen cuando varias personas experimentan un mismo fenómeno inexplicable. No es la entrada más directa para quien busque una historia independiente, porque recupera el conflicto temporal de Tara y desarrolla una situación que ya estaba en marcha.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El volumen del tiempo IV plantea una narración contemporánea sobre personas atrapadas en una anomalía temporal que comenzó un 18 de noviembre. Tara y otros afectados se reúnen en una casa de Bremen para investigar su situación y buscar una manera común de explicarla. El título lo identifica como el n.º IV de una heptalogía de Solvej Balle.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El volumen del tiempo IV en tapa blanda contiene 192 páginas en castellano y está publicada por Editorial Anagrama. Su extensión facilita transportarla y retomar la lectura por sesiones, mientras que el soporte en papel permite regresar a los encuentros y preguntas que se acumulan alrededor del bucle temporal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5f5905855819601e",
+  "origen": "chatgpt-web"
+}

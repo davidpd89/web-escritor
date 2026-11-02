@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9780241839362",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Antigua Roma (Civilizaciones antiguas para niños) está dirigido a lectores a partir de 9 años interesados en historia, costumbres y personajes de las civilizaciones antiguas. No plantea una aventura de ficción: explica cómo vivían distintas personas de la sociedad romana e incluye aspectos de la época que pueden resultar inquietantes para lectores sensibles.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "DK presenta Antigua Roma (Civilizaciones antiguas para niños) para lectores a partir de 9 años, en tapa dura y con 160 páginas. Sus fotografías e ilustraciones acompañan explicaciones de oficios, alimentación, higiene, espectáculos y personajes históricos, combinando la consulta visual con la lectura de datos sobre la vida cotidiana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Antigua Roma (Civilizaciones antiguas para niños) reúne 160 páginas con fotografías e ilustraciones. La encuadernación rígida protege el volumen durante las consultas repetidas, mientras que el formato en papel permite recorrer las imágenes y volver a distintos apartados sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antigua Roma (Civilizaciones antiguas para niños) comparte la clasificación infantil y juvenil con Star Wars Enciclopedia de naves, cazas estelares y otros vehículos, también de DK. La diferencia está en el objeto de consulta: oficios, costumbres y espacios de la civilización romana en el primero, frente a las naves y otros vehículos que identifica el título del segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9780241838068"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "985bdec421e3439a",
+  "origen": "chatgpt-web"
+}

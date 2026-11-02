@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9788449346033",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La eternidad y un día más se dirige a lectores interesados en la divulgación científica y las experiencias humanas relacionadas con la enfermedad y la duración de la vida. Quien busque una exposición exclusivamente técnica encontrará una obra de no ficción novelada centrada en la historia de Sammy Basso.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La eternidad y un día más aborda la experiencia de Sammy Basso, paciente de progeria, y las preguntas sobre cómo afrontar una vida marcada por la posibilidad de morir prematuramente. Carlos López-Otín emplea la no ficción novelada para relacionar una historia personal con la reflexión sobre el sentido de la existencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La eternidad y un día más está disponible en tapa blanda, en una edición rústica con solapas de 224 páginas. El soporte físico permite leerla sin pantalla, señalar pasajes sobre los que volver y conservar el volumen para futuras consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0634d48aa4457035",
+  "origen": "chatgpt-web"
+}

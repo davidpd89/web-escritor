@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788418967566",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esmorzaret (Mesa y mantel) se dirige a lectores adultos interesados en la cocina valenciana, sus bocadillos y las costumbres que rodean la mesa. No es un manual general de técnicas culinarias: se centra en el esmorzaret y sus más de 40 combinaciones.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esmorzaret (Mesa y mantel) está disponible en tapa dura y tiene 248 páginas. El volumen en papel reúne el contexto de esta costumbre valenciana y más de 40 combinaciones de bocadillos para consultar en la cocina o compartir en la mesa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esmorzaret (Mesa y mantel) y Curso de cocina - Los básicos se ocupan de preparaciones culinarias, pero Marta Hortelano presenta bocadillos y costumbres valencianas, mientras Louis Girod explica más de 60 recetas ilustradas paso a paso. Barbacoa, de Jamie Oliver, se centra en una forma de cocinar; aquí el eje es una comida colectiva y su tradición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374012",
+        "isbn-9780241831380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c28b73156c0aba6e",
+  "origen": "chatgpt-web"
+}

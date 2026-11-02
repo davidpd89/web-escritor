@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788401039560",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Otros mundos (El Talismán 3) se dirige a lectores adultos interesados en la fantasía, el terror y los conflictos que atraviesan distintas realidades. Sus 920 páginas y su amenaza de alcance sobrenatural lo alejan de las novelas breves y de las historias estrictamente realistas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Otros mundos (El Talismán 3), de Stephen King y Peter Straub, combina fantasía y terror en una amenaza que afecta a varios mundos. Jack Sawyer debe enfrentarse a adolescentes infectados y a las fuerzas de Gullet; el título lo identifica como el n.º 3 de El Talismán. La edición incluye ilustraciones en blanco y negro de Gabriel Rodríguez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Otros mundos (El Talismán 3) es una tapa dura con sobrecubierta de Plaza & Janés y alcanza las 920 páginas. Por su extensión, resulta más manejable como lectura prolongada en casa que en desplazamientos con poco espacio; la cubierta rígida permite conservar el volumen junto a otros libros.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Otros mundos (El Talismán 3) y Carrie (edición serie) comparten la autoría de Stephen King y presentan conflictos que afectan a personajes jóvenes. La primera, escrita también por Peter Straub, enfrenta a Jack Sawyer con una amenaza entre mundos; Carrie (edición serie) concentra la atención en una adolescente acosada en el instituto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396806"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ee9740db144d7e0",
+  "origen": "chatgpt-web"
+}

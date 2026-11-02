@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788401036897",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los escalones se dirige a lectores adultos interesados en memorias personales sobre el esfuerzo, las decisiones y la trayectoria profesional. Sylvester Stallone repasa su infancia, las dificultades de sus comienzos y el trabajo que desembocó en Rocky; no es una novela de ficción ni un manual de ejercicios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Los escalones aborda la resiliencia y la fuerza de voluntad desde la experiencia autobiográfica de Sylvester Stallone. El relato sitúa sus inicios en Nueva York en 1969, llega al reconocimiento de Rocky en 1977 y también examina los años posteriores de su carrera profesional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los escalones se presenta en tapa dura con sobrecubierta, una encuadernación rígida pensada para conservar el ejemplar y facilitar su relectura. Son 352 páginas en castellano publicadas por Plaza & Janés; esta presentación también permite regalar una edición física protegida por su cubierta exterior.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los escalones se aproxima a El canto del cisne por el relato de experiencias personales marcadas por circunstancias difíciles. Mientras Sylvester Stallone reconstruye su trayectoria de trabajo y perseverancia, Charles Spencer parte del dolor por la muerte de su hermana Diana; uno sigue una carrera profesional y el otro aborda una pérdida familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039928"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0239a996e0fcc5ad",
+  "origen": "chatgpt-web"
+}

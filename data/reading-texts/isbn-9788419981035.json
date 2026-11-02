@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788419981035",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cinco cuentos está orientado a lectores a partir de 4 años y a familias interesadas en historias con humor y personajes variados. Quien busque una única aventura larga encontrará en cambio cinco relatos reunidos en un mismo libro.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada para Cinco cuentos es a partir de 4 años, y la edición tiene 152 páginas en tapa dura. Los cinco relatos combinan rasgos del álbum ilustrado y del cómic e incorporan material original e introducciones de Posy Simmonds.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cinco cuentos está disponible en tapa dura, con 152 páginas en castellano. Al reunir historias ilustradas dentro de un solo volumen, permite leer cada relato por separado y volver a sus personajes en sucesivas lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cinco cuentos e Ibáñez Mítico 2 - El preboste de seguridad se acercan a la narración mediante historias dibujadas. Posy Simmonds reúne cinco relatos protagonizados por distintos personajes e incluye textos introductorios; Francisco Ibáñez presenta una historieta concreta, en lugar de una recopilación de cinco cuentos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431936"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0379ebba07844713",
+  "origen": "chatgpt-web"
+}

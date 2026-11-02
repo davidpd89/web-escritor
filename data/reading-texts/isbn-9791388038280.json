@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388038280",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando tu hijo te habla peor que a nadie está dirigido a personas adultas que afrontan discusiones, distancia o malas contestaciones de sus hijos. Aborda esas tensiones mediante la neurociencia y la inteligencia emocional, no mediante una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuando tu hijo te habla peor que a nadie se presenta en tapa blanda con solapas y tiene 288 páginas. El papel permite retomar sus herramientas prácticas y revisar las situaciones familiares descritas, mientras las solapas facilitan señalar dónde continuar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando tu hijo te habla peor que a nadie y Criar juntos de verdad abordan la crianza, pero el primero se centra en los conflictos entre madres e hijos, mientras que el segundo trata la crianza en equipo. Mamá necesita un respiro se aproxima a la experiencia de la maternidad, más que a las discusiones familiares concretas.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370658",
+        "isbn-9788466683043"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ccd06d2c920ec013",
+  "origen": "chatgpt-web"
+}

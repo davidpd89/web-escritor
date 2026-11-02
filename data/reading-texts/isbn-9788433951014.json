@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788433951014",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La revuelta de los copistas encaja con lectores de ensayo interesados en la inteligencia artificial, el acceso al conocimiento y el poder económico de las empresas tecnológicas. No está planteado como un manual para utilizar herramientas digitales, sino como un examen de quién ha organizado el saber colectivo, quién lo comercializa y qué consecuencias políticas tiene ese proceso.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Xavier Nueno examina en La revuelta de los copistas la privatización del conocimiento acumulado en bibliotecas y su explotación comercial mediante sistemas de inteligencia artificial. El ensayo relaciona los litigios de autores y editoriales con el trabajo histórico de copistas, bibliotecarios y archiveros, y plantea que los modelos de lenguaje alimentados con la memoria colectiva deberían hacerse públicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La revuelta de los copistas está disponible en tapa blanda y Kindle, con 336 páginas en su edición impresa de Editorial Anagrama. La tapa blanda permite subrayar y consultar físicamente sus argumentos sobre inteligencia artificial y conocimiento colectivo; Kindle facilita leer el ensayo en el móvil o en un lector electrónico sin llevar el volumen de papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La revuelta de los copistas y Cómo construir la soberanía digital europea examinan quién ejerce el poder sobre los recursos y las decisiones del entorno digital. Xavier Nueno cuestiona la apropiación del conocimiento colectivo por las empresas de inteligencia artificial, mientras Francesca Bria plantea la disyuntiva de Europa entre desarrollar su propia soberanía digital o dejar su futuro en manos ajenas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788433951670"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b2017ed4ae6296c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788433951106",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En Alejandría, los árboles caminan se dirige a lectores interesados en los cambios políticos, la convivencia entre comunidades y la desaparición de una sociedad cosmopolita. Su conflicto combina historias personales con las consecuencias del colonialismo y el nacionalismo, por lo que encaja menos con quienes busquen una trama desligada de los procesos históricos y sociales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "En Alejandría, los árboles caminan es una novela ambientada en Alejandría durante las transformaciones políticas iniciadas con la revolución egipcia de julio de 1952. Las vidas de varios personajes vinculados a un mismo bar muestran cómo el nacionalismo y el autoritarismo alteran la convivencia, las oportunidades y el futuro de una ciudad antes caracterizada por su diversidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En Alejandría, los árboles caminan se ofrece en tapa blanda, con 448 páginas en castellano. Esta edición de Editorial Anagrama permite consultar y recuperar pasajes en papel, utilizar marcadores durante la lectura y conservar o prestar el volumen una vez terminado.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc9fc070dfbb6bb5",
+  "origen": "chatgpt-web"
+}

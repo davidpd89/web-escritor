@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791387629694",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómete la vida a bocados con Pausa y Plato se dirige a personas adultas que quieren cocinar platos cotidianos, desde tapeos hasta postres, con explicaciones directas. No está planteado para quien busque una novela o un tratado teórico: su contenido gira en torno a recetas que se preparan en casa.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Reúne recetas de aperitivos, tapeos, salsas, cocina de tradición familiar y postres. Juan Sánchez plantea instrucciones claras y un tono de humor para pasar de guardar ideas de platos a prepararlos; el recetario tiene 224 páginas.",
+      "evidencias": [
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas es el formato disponible de Cómete la vida a bocados con Pausa y Plato. Sus 224 páginas permiten mantener las recetas a mano junto a la zona de trabajo y consultar de nuevo las instrucciones mientras se cocina.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "20 minutos ¡y listo! también se orienta a cocinar cuando se dispone de poco tiempo, mientras Cómete la vida a bocados con Pausa y Plato reúne aperitivos, tapeos, salsas y postres. Curso de cocina - Los básicos destaca sus más de 60 recetas ilustradas paso a paso; Juan Sánchez recurre a instrucciones claras y humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9780241831380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "169d0c17b5713a09",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9780241834923",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La magia de la música - Cenicienta está pensado para lectores a partir de 4 años que disfruten de cuentos con magia, baile y sonidos. Sus botones musicales y su escenario desplegable lo alejan de una lectura exclusivamente textual o de un relato largo.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "La magia de la música - Cenicienta se utiliza leyendo el cuento y pulsando los botones de sus páginas para escuchar piezas clásicas. Las melodías incluyen composiciones de Chaikovsky, Mozart y Saint-Saëns, y al final se abre un escenario en 3D.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La magia de la música - Cenicienta está dirigido a partir de 4 años y reúne 24 páginas. La edición en castellano de DK tiene tapa dura, botones para activar música y un desplegable final en 3D que añade una actividad manual a la lectura.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es la presentación disponible de La magia de la música - Cenicienta. En sus 24 páginas combina lectura con botones de música, y la encuadernación rígida permite manipular el libro mientras se abre el escenario desplegable final.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La magia de la música - Cenicienta y Mi mamá es... - Una unicornia solitaria comparten elementos mágicos dirigidos a la infancia. Charles Perrault presenta un cuento con música accionada por botones; Steve Smallman sitúa a dos amigos en un bosque encantado, con una búsqueda como punto de partida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874575"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d619f559b53fc44d",
+  "origen": "chatgpt-web"
+}

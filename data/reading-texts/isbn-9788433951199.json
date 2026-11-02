@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788433951199",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este deseo no es el mío se dirige a quienes buscan un ensayo sobre la influencia de la tecnología en la intimidad, las relaciones personales y las desigualdades. No encaja con quien espere un manual de aplicaciones o una defensa incondicional del progreso digital: Andrea Proenza plantea una lectura crítica desde el feminismo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Analiza cómo las redes sociales, las aplicaciones de citas y la inteligencia artificial intervienen en las relaciones, la percepción del cuerpo y el deseo. Andrea Proenza aborda estos cambios desde una perspectiva feminista que cuestiona la reproducción de desigualdades y formas de dominación, sin presentar la tecnología como una solución universal ni como una amenaza absoluta.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Este deseo no es el mío está disponible en tapa blanda, con 328 páginas editadas por Editorial Anagrama. La presentación en papel permite subrayar argumentos y volver a pasajes sobre redes sociales, vínculos afectivos e inteligencia artificial sin necesidad de utilizar un dispositivo digital durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo construir la soberanía digital europea, de Francesca Bria, y Este deseo no es el mío examinan las relaciones entre tecnología y poder. La primera aborda la autonomía digital de Europa frente a decisiones externas; el ensayo de Andrea Proenza se concentra en la intimidad, el cuerpo y los vínculos personales desde una perspectiva feminista.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788433951670"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d380f8bbb50d2ee7",
+  "origen": "chatgpt-web"
+}

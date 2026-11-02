@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791387928032",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Más Simple está pensado para lectores adultos que cocinan en casa y buscan recetas rápidas, con ingredientes de despensa y opciones de verduras, carne y pescado. Su variedad de desayunos, entrantes y platos principales lo aleja de quienes necesitan un recetario dedicado exclusivamente a la repostería o a una única clase de preparación.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Más Simple incluye 130 recetas que abarcan desayunos, entrantes, verduras, platos vegetarianos, carnes y pescados, con preparaciones como granola, cremas de legumbres y salmón al horno. Yotam Ottolenghi añade tres secciones de consulta dedicadas a los fundamentos de cocina, los ingredientes básicos de despensa y la planificación de comidas para organizar tanto el día a día como las reuniones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Más Simple se ofrece en tapa dura, con 304 páginas que reúnen 130 recetas y tres secciones complementarias de consulta. La encuadernación rígida permite mantener el recetario como volumen físico de uso repetido en la cocina y también facilita su presentación como regalo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Más Simple y 20 minutos ¡y listo! se orientan a quienes quieren cocinar sin dedicar demasiado tiempo, aunque el libro de Jamie Oliver destaca los 20 minutos desde su título y Yotam Ottolenghi reúne 130 recetas variadas. Curso de cocina - Los básicos ofrece más de 60 recetas ilustradas paso a paso, mientras Más Simple complementa sus preparaciones con secciones sobre despensa, fundamentos y planificación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9780241831380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "993160736515960a",
+  "origen": "chatgpt-web"
+}

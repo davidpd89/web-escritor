@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9780241847633",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para niños de 0 a 3 años que empiezan a reconocer sus emociones y a expresar qué cosas les asustan. Quien busque una narración extensa encontrará aquí 12 páginas centradas en la participación, las imágenes y el juego con una rueda giratoria.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El juego consiste en girar una rueda para elegir si algo produce miedo o no. Cada respuesta sirve para conversar sobre emociones y diferencias de percepción, mientras el movimiento de la rueda ejercita la coordinación de los dedos durante la lectura compartida.",
+      "evidencias": [
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada es de 0 a 3 años y la edición tiene 12 páginas en tapa dura. Sus hojas de cartón y el mecanismo giratorio permiten que los niños participen físicamente, sin limitarse a escuchar la lectura de un adulto.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es Tapa dura, con 12 páginas de un libro de cartón diseñado para la manipulación infantil. Este soporte permite sujetar el volumen y accionar directamente su rueda, por lo que la actividad de elegir respuestas forma parte del objeto físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9b5da23b36dc877a",
+  "origen": "chatgpt-web"
+}

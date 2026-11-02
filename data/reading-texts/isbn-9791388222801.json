@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9791388222801",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Solo un juego más (CAR HOCKEY 1) encaja con lectores de romance juvenil que buscan rivalidad sentimental, convivencia difícil y conflictos relacionados con el deporte. La relación entre Cannon y Benji parte de una antipatía mutua dentro del entorno del hockey sobre hielo, por lo que resulta menos afín a quienes prefieren romances sin enfrentamientos personales o historias alejadas de la competición.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Solo un juego más (CAR HOCKEY 1) está clasificado como juvenil y presenta conflictos de convivencia, rechazo interpersonal y presión asociada al regreso al deporte. Cannon se enfrenta a la posibilidad de trabajar con Benji, con quien mantiene una relación especialmente difícil, mientras intenta decidir qué hacer tras terminar sus estudios.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Solo un juego más (CAR HOCKEY 1) plantea un romance juvenil deportivo en el que una oportunidad profesional obliga a afrontar relaciones personales incómodas. Cannon recibe una propuesta para incorporarse como segunda entrenadora de un equipo de hockey sobre hielo, pero aceptarla supone regresar a ese entorno y trabajar junto a Benji.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Solo un juego más (CAR HOCKEY 1) cuenta con una edición de tapa blanda con sobrecubierta que reúne 480 páginas. La sobrecubierta añade una protección exterior al volumen y puede retirarse durante la lectura, mientras que la extensión permite distribuir la historia en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Solo un juego más (CAR HOCKEY 1) puede compararse con Rinkmates, de Nova Banks, porque ambos títulos relacionan el romance con el mundo deportivo. En la novela de Susanna Herrero, el conflicto concreto nace de una oferta para entrenar a un equipo de hockey y de la mala relación entre Cannon y Benji, que además están unidos por vínculos familiares indirectos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387598815"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "25d40775cd8ba30b",
+  "origen": "chatgpt-web"
+}

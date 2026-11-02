@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791388042409",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Clue. El misterio de la salamandra encaja con lectores jóvenes interesados en resolver crímenes y seguir pistas junto a tres investigadores de su edad aproximada. El hallazgo de un cadáver, las persecuciones y el peligro que afrontan los protagonistas lo alejan de quienes buscan un misterio sin amenazas ni situaciones de riesgo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un thriller juvenil de investigación que combina enigmas, suspense y peligro físico. Cecilia, Leo y Une deben relacionar la aparición de un cadáver con un tatuaje de salamandra y ciertos acontecimientos del pasado, mientras la investigación los expone a persecuciones y amenazas.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La nueva edición en tapa dura de Clue. El misterio de la salamandra incorpora ilustraciones de David G. Forés. Duomo Ediciones la publica en castellano con 160 páginas y el ISBN 9791388042409, en un volumen que reúne la narración y su acompañamiento gráfico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "formato_edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 160 páginas de Clue. El misterio de la salamandra y las ilustraciones de David G. Forés en un ejemplar físico. Permite conservar el libro en una estantería, prestarlo o regalarlo, además de regresar a las páginas anteriores para revisar las pistas durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0aff5f943f472e13",
+  "origen": "chatgpt-web"
+}

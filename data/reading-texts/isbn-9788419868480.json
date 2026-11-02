@@ -1,0 +1,60 @@
+{
+  "id": "isbn-9788419868480",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La principita está dirigida a lectores a partir de 7 años interesados en novelas gráficas que cuestionan los papeles tradicionales asignados a las niñas. Su perspectiva feminista se distancia de los cuentos de princesas basados en obedecer, aparentar perfección y esperar el rescate de un príncipe, por lo que propone una lectura distinta de ese modelo.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La principita está recomendada a partir de 7 años y tiene 128 páginas. Lyona presenta una novela gráfica en castellano, publicada en tapa dura, que utiliza el relato clásico de Saint-Exupéry como punto de partida para tratar las expectativas impuestas a las niñas y su capacidad de decidir por sí mismas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "idioma",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La principita puede leerse en tapa dura o en Kindle. La edición física reúne sus 128 páginas en un volumen rígido que permite hojear las ilustraciones y conservarlo como regalo; Kindle facilita llevar la novela gráfica en un dispositivo compatible, aunque el tamaño de la pantalla influye en cómo se aprecian sus viñetas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La principita y Cinco cuentos presentan historias protagonizadas por personajes definidos, pero sus estructuras son diferentes. Lyona desarrolla una única novela gráfica que revisa las convenciones de los cuentos de princesas, mientras Posy Simmonds reúne cinco relatos independientes con protagonistas distintos, creados entre 1987 y 2004.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419981035"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1b4b7e12aa3b3056",
+  "origen": "chatgpt-web"
+}

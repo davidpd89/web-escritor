@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788427257627",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) está dirigida al público juvenil que lee ciencia ficción sobre sociedades divididas y decisiones personales de alto coste. La trama gira alrededor de una elección que puede separar a Beatrice Prior de su familia; no está planteada como narrativa realista cotidiana.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es ciencia ficción juvenil de corte distópico, con una sociedad organizada en facciones que condicionan el futuro de sus habitantes. Beatrice Prior afronta una decisión que afecta a su familia y la sitúa ante una rebelión clandestina; el título identifica esta entrega como el n.º 1.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición se distingue por los cantos tintados anunciados en el título y por su encuadernación en tapa dura con sobrecubierta. Molino la publica en castellano con 608 páginas, y su denominación comercial la identifica como una edición especial limitada, con una presentación física diferenciada por el acabado de los bordes.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) se ofrece en tapa dura con sobrecubierta. Sus 608 páginas y el acabado de los cantos hacen que esta presentación tenga interés como objeto físico para conservar, releer o regalar, además de servir para la lectura habitual en papel.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e0050e41c194c20f",
+  "origen": "chatgpt-web"
+}

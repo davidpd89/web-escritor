@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788467083316",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las Mitford encaja con lectores de narrativa contemporánea interesados en las relaciones familiares, las memorias personales y las distintas trayectorias de unas hermanas. No responde a quien busque una aventura centrada en la acción, porque su punto de partida es la decisión de Pamela Mitford de reconstruir la historia de su familia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Las Mitford propone una narración familiar articulada alrededor de los recuerdos de Pamela Mitford. La novela contrapone su perspectiva a las vidas de Nancy, Diana, Unity y Jessica, entre las que aparecen vínculos con posiciones políticas enfrentadas. El conflicto nace de contar una historia compartida desde una voz que hasta entonces no ocupaba el centro del relato.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las Mitford está disponible en tapa dura con sobrecubierta, en una edición de 536 páginas de Editorial Espasa. Es un volumen físico que permite conservar la novela en una biblioteca o entregarla como regalo; la sobrecubierta añade una protección exterior que puede retirarse durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41524925f2f3d92d",
+  "origen": "chatgpt-web"
+}

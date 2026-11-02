@@ -1,0 +1,61 @@
+{
+  "id": "isbn-9788466380096",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para lectores adultos de novela romántica que buscan conflictos entre personajes con expectativas sentimentales opuestas. No responde a quien prefiera una historia centrada en el misterio: el eje es la relación entre un médico que rechaza enamorarse y una editora que desea vivir su propia historia de amor.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La lectura se articula alrededor de una relación romántica entre personas de caracteres opuestos y un recorrido por carretera. Grace Harris acepta acompañar a Zac Anderson desde California hasta Nueva York a cambio de ayuda con un problema profesional, lo que convierte la convivencia en el centro del conflicto sentimental; el título lo identifica como el n.º 2.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta versión lleva en el título la identificación edición limitada · Verano y está publicada por Penguin Bolsillo en formato bolsillo flexibook. Reúne 464 páginas en castellano y se identifica mediante el ISBN 9788466380096, lo que permite distinguir esta presentación editorial al buscarla.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La presentación disponible es en tapa blanda, concretamente en bolsillo flexibook de Penguin Bolsillo. Sus 464 páginas quedan reunidas en un volumen físico de formato bolsillo, que permite llevar la novela y continuar la lectura fuera de casa sin depender de una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Te espero en el fin del mundo. Edición especial con cantos decorados, de Andrea Longarela, también aborda una relación amorosa condicionada por las circunstancias. En esa historia, la distancia y los proyectos personales afectan a Vi y Levi; aquí, la proximidad de un recorrido en coche pone a prueba a dos personas con ideas enfrentadas sobre el amor.",
+      "evidencias": [
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788408327011"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "396d1b3c703b7452",
+  "origen": "chatgpt-web"
+}

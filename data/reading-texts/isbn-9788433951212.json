@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788433951212",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una casa en Brandemburgo encaja con lectores de narrativa contemporánea interesados en la memoria, el desarraigo y los cambios políticos del siglo XX. Quien busque una única historia protagonizada siempre por la misma persona encontrará aquí una estructura coral que reúne doce vidas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La novela sigue la transformación de una casa junto a un lago de Brandemburgo a través de doce vidas de distintos habitantes. El mismo lugar permite observar las consecuencias de guerras, desplazamientos y cambios de fronteras sobre la idea de hogar, con el paso del tiempo como eje narrativo.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una casa en Brandemburgo se presenta en tapa blanda, con 208 páginas en castellano, en la edición de Editorial Anagrama. Su extensión y encuadernación permiten leerla en papel y transportarla en un bolso o una mochila, sin necesidad de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dcca160365402819",
+  "origen": "chatgpt-web"
+}

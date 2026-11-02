@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788403525238",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El alma de las especias se dirige a lectores adultos interesados en la cocina y en la historia cultural de las plantas y los condimentos. No responde a quien busca únicamente recetas rápidas: Jessica Ramos también aborda orígenes, leyendas y usos vinculados al cuidado personal.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas de El alma de las especias reúne 448 páginas para consultar en papel sus apartados sobre plantas y especias. Kindle permite llevar la lectura en el móvil o en un lector electrónico sin cargar con el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El alma de las especias y Curso de cocina - Los básicos abordan la cocina de forma distinta: Jessica Ramos explora la historia y los usos de los ingredientes, mientras Louis Girod reúne más de 60 recetas ilustradas paso a paso. Barbacoa, de Jamie Oliver, se concentra en una técnica culinaria; El alma de las especias se ocupa de las plantas y sus relatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374012",
+        "isbn-9780241831380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8db9c26b28e0fda0",
+  "origen": "chatgpt-web"
+}

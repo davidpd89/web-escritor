@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388042775",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un deseo para cada día encaja con lectores de narrativa contemporánea que buscan historias navideñas sobre relaciones familiares, rupturas sentimentales y segundas oportunidades. Su propuesta de un capítulo diario durante diciembre también permite distribuir la lectura a lo largo del mes. Quien prefiera aventuras fantásticas encontrará aquí conflictos ligados a la vida cotidiana y las decisiones personales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela contemporánea de ambientación navideña organizada para leer un capítulo cada día de diciembre. La historia transcurre en Sankt Anna y sigue los problemas personales de los hermanos Stjärne, desde las relaciones de pareja hasta el desempleo y el regreso al lugar de origen. El conflicto combina vínculos familiares, recuerdos difíciles y oportunidades de cambiar de rumbo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Para seguir el calendario de lectura de diciembre en papel, Un deseo para cada día cuenta con una edición de tapa blanda de 448 páginas. El volumen permite avanzar un capítulo por jornada, según la estructura propuesta por la propia obra, o leer varios seguidos. La edición de Duomo Ediciones está publicada en castellano.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "afd35d1edd72e312",
+  "origen": "chatgpt-web"
+}

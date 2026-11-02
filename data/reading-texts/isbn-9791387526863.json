@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387526863",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Stitch. Calendario de Adviento se dirige al público infantil que disfruta de las aventuras de Stitch, Ángel y sus amigos y de los cuentos relacionados con la Navidad. No responde a quien busque una sola aventura continua: reúne 24 historias para acompañar los días de la cuenta atrás navideña.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Stitch. Calendario de Adviento está disponible en tapa dura, con 576 páginas encuadernadas en cartoné. El formato permite conservar juntos los 24 cuentos, abrir el volumen cada día de la cuenta atrás hasta Navidad y guardarlo para volver a utilizarlo en otra ocasión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Stitch. Calendario de Adviento y Agente Stitch 5. Los roedores de Roswell comparten a Stitch y sus amigos, pero organizan sus aventuras de manera diferente. El primero reúne 24 cuentos vinculados a la Navidad; el segundo presenta un misterio intergaláctico relacionado con la protección de la Tierra frente a los alienígenas.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387901943"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "36b0caa0eb6f0dee",
+  "origen": "chatgpt-web"
+}

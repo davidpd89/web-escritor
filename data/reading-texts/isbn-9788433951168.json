@@ -1,0 +1,63 @@
+{
+  "id": "isbn-9788433951168",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tres cuentos encaja con quien busque relatos sobre la infancia, las reuniones familiares y la memoria de lo perdido. Sus 112 páginas se apoyan en celebraciones y en una perspectiva infantil; se aleja de las lecturas centradas en una acción prolongada.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Tres cuentos es una tapa blanda en castellano de Editorial Anagrama, con 112 páginas. Las ilustraciones de Fede Yankelevich acompañan los tres relatos de Truman Capote y dan presencia visual a objetos y gestos asociados al recuerdo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Tres cuentos aborda el recuerdo de la infancia a través de tres encuentros familiares durante celebraciones. La mirada de Buddy vincula la Navidad y el Día de Acción de Gracias con la pérdida y la nostalgia, mientras las ilustraciones de Fede Yankelevich recuperan detalles cotidianos.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tres cuentos está disponible en tapa blanda y tapa dura. La edición de Editorial Anagrama en tapa blanda tiene 112 páginas y una cubierta flexible para llevarla; la tapa dura ofrece una encuadernación rígida para quien dé prioridad a conservar el volumen o regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tres cuentos puede ponerse junto a Glifo por la importancia que ambos conceden a las historias frente a experiencias difíciles. Truman Capote parte de recuerdos familiares de infancia, mientras Glifo, de Ali Smith, plantea si un relato puede ayudar a soportar el mundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306174"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e7541194404a2e91",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791387949884",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado al público juvenil interesado en comprender cómo el poder, la política y las estructuras sociales influyen en las decisiones cotidianas. Su combinación de ensayo y narración divulgativa encaja con la curiosidad por la sociología, pero se aleja de quienes buscan una novela de aventuras con un conflicto principalmente ficticio.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "La clasificación editorial es juvenil y el contenido aborda cuestiones de poder, política, capitalismo y meritocracia desde una perspectiva de sociología crítica. Su enfoque exige interés por los debates sociales y por la influencia del entorno en la conducta individual, con ejemplos tomados del consumo, las marcas y el entretenimiento digital.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Combina ensayo y narración para explicar cómo los sistemas sociales condicionan comportamientos que suelen parecer decisiones estrictamente personales. El enfoque divulgativo utiliza referencias al consumo, las plataformas digitales y la cultura popular para relacionar conceptos sociológicos con situaciones reconocibles de la vida cotidiana.",
+      "evidencias": [
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No eres tú, es el sistema está disponible en tapa blanda con solapas, en un volumen de 192 páginas publicado por Alfaguara. La extensión y la encuadernación flexible facilitan transportarlo y consultar de nuevo sus ejemplos de sociología durante la lectura, sin necesidad de utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8f66cce512c8efa4",
+  "origen": "chatgpt-web"
+}

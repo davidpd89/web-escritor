@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788426434272",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esas muchachas que escriben poemas se dirige a lectores adultos interesados en las vidas de mujeres dedicadas a la poesía y en las circunstancias que condicionaron su trabajo. Su estructura de retratos biográficos responde menos a quien busque exclusivamente poemas que a quien quiera conocer las experiencias personales y sociales de sus autoras.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Alba Donati reconstruye episodios de la vida de distintas poetas y examina cómo influyeron en ellas la familia, la censura, las relaciones personales y las exigencias sociales. Los retratos incluyen a Dickinson, Ajmátova, Antonia Pozzi, Szymborska y Sylvia Plath. El enfoque relaciona la escritura con las condiciones concretas en que estas mujeres vivieron y crearon.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esas muchachas que escriben poemas está editado en tapa blanda con solapas y tiene 152 páginas. La extensión y la organización mediante retratos permiten leer en papel las distintas vidas por separado o recorrer el conjunto de manera seguida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esas muchachas que escriben poemas y El libro de los gatos comparten su relación con la creación poética, aunque ofrecen materiales distintos. Alba Donati reúne retratos biográficos de escritoras, mientras el volumen de Ursula K. Le Guin contiene poemas, meditaciones y dibujos dedicados a los gatos. Uno se acerca a las autoras desde sus vidas; el otro presenta directamente textos y dibujos de una escritora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388306297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "189888d1b184f502",
+  "origen": "chatgpt-web"
+}

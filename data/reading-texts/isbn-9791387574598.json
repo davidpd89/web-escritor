@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791387574598",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los doce secretos encaja con lectores de narrativa contemporánea interesados en crímenes, investigaciones periodísticas y acontecimientos del pasado que vuelven a tener consecuencias. No se orienta a quienes buscan historias sin violencia criminal, porque dos asesinatos conectados por el tiempo sostienen el conflicto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Los doce secretos construye una intriga criminal alrededor de dos asesinatos separados por veinte años y relacionados con una misma familia. Ben Harper, periodista especializado en sucesos, debe revisar la muerte de su hermano cuando aparecen nuevas pruebas y secretos entre los habitantes de Haddley.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los doce secretos puede leerse en tapa blanda o en Kindle. La edición en papel reúne 416 páginas y permite conservar un ejemplar físico; Kindle facilita llevar la lectura en un dispositivo electrónico o en el móvil sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los doce secretos y Mentiras y secretos (Perfectos Mentirosos 1) sitúan los secretos en el centro de sus respectivos conflictos. La novela de Robert Gold los relaciona con asesinatos y el pasado de un periodista, mientras que Mentiras y secretos (Perfectos Mentirosos 1) se desarrolla en una universidad de élite, entre fiestas, cotilleos y relaciones estudiantiles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413145211"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0eb08641db911079",
+  "origen": "chatgpt-web"
+}

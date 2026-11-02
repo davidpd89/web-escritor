@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788467083330",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela de intriga contemporánea en la que una laguna de memoria se relaciona con hechos que otras mujeres ocultaron años atrás. La historia sitúa a Arri Martín en un ambiente de desfiles, fiestas y personas influyentes, donde el poder forma parte del conflicto.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Corazón de sílex se publica en tapa blanda, en una edición rústica con solapas de 296 páginas en castellano. Es la opción en papel para quien quiera llevar consigo la novela y leerla por etapas sin recurrir a un volumen de cubierta rígida.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Corazón de sílex y El vuelo de los gansos exploran conflictos en los que el poder condiciona a los personajes. Emilia Landaluce y Rosa Belmonte lo abordan mediante un misterio ligado a mujeres y al entorno de la moda; Ángel Boixadós plantea enfrentarse al poder como un asunto de principios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375040"
+      ]
+    },
+    {
+      "modulo": "para_quien",
+      "texto": "Corazón de sílex encaja con lectores de misterio y narrativa contemporánea que buscan conflictos relacionados con la memoria, los secretos y las relaciones de poder. Su escenario de modelos, fiestas y figuras influyentes lo aleja de las aventuras ambientadas en mundos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "para_quien: afirmaciones sin respaldo: premi",
+    "faltan módulos: para_quien"
+  ],
+  "version": 3,
+  "fuente_hash": "e384a1ac8f789ffa",
+  "origen": "chatgpt-web"
+}

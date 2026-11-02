@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791388306273",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La tercera vida de Grange Copeland se dirige a quienes buscan relatos de conflictos familiares entre generaciones, abandono y reparación afectiva. La dureza de las relaciones entre padres, hijos y nietos la aleja de quien prefiera historias sin rupturas familiares.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La tercera vida de Grange Copeland aborda el abandono, el fracaso de una búsqueda de futuro y la posibilidad de recomponer vínculos familiares. Sigue a Grange Copeland desde su marcha del Sur de Estados Unidos hasta el regreso y el cuidado de su nieta Ruth Copeland, con el coste del amor como eje.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tercera vida de Grange Copeland está disponible en tapa blanda y tiene 352 páginas. Es una edición en papel para seguir la historia de varias generaciones y regresar a los pasajes de su conflicto familiar sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La tercera vida de Grange Copeland y Este deseo no es el mío abordan los vínculos afectivos desde perspectivas distintas. Alice Walker sigue a una familia marcada por el abandono y el regreso; Andrea Proenza examina relaciones atravesadas por redes sociales y aplicaciones para ligar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788433951199"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "80f5f3a1393dd9ae",
+  "origen": "chatgpt-web"
+}

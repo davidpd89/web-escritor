@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788433951397",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La tumba del marinero se dirige a lectores de poesía interesados en la relación entre el cuerpo, el deseo y el sufrimiento. Su cercanía al terror somático y sus referencias a la enfermedad y las drogas la alejan de quienes buscan poemas de temática ligera.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Se trata de poesía con estructura narrativa, organizada en diez secciones que examinan el origen de las heridas y las cicatrices. El cuerpo aparece como lugar de dolor, deseo e identidad, con imágenes y conflictos que aproximan el poemario al terror somático.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 136 páginas de La tumba del marinero en papel, con la posibilidad de volver físicamente a cualquiera de sus diez secciones. Kindle permite llevar el poemario en un lector electrónico o en el móvil, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La tumba del marinero comparte con Pensamientos estériles la poesía y la autoría de Luna Miguel. Para distinguir La tumba del marinero dentro de esa comparación, su propuesta concreta es un recorrido narrativo en diez secciones sobre las heridas del cuerpo, el deseo, la enfermedad y la identidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788433951403"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "53246ae3d3914245",
+  "origen": "chatgpt-web"
+}

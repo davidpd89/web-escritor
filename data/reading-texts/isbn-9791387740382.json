@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791387740382",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sin piedad (Harry Hole 14) se dirige a lectores adultos de misterio y thriller interesados en investigaciones de homicidios y asesinos en serie. No encaja con quien prefiera evitar crímenes brutales o busque una historia alejada de la violencia.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un thriller policial construido alrededor de asesinatos que reproducen escenas del cine clásico y de un vínculo entre sus víctimas. El trabajo de Harry Hole investigando fraudes de seguros se cruza con la pesquisa de Oleg Fauke, que acaba de incorporarse a Homicidios.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sin piedad (Harry Hole 14) está disponible en tapa blanda con solapas, con 488 páginas en castellano. Esta edición permite seguir la investigación en un volumen físico, sin depender de una pantalla, y utilizar las solapas para señalar el punto de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1bd46afe81757bdd",
+  "origen": "chatgpt-web"
+}

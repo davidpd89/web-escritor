@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788430629664",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los pilares de la historia está dirigido a adultos interesados en ensayos sobre historia, memoria y las relaciones entre política y relatos del pasado. No responde a la búsqueda de una cronología de acontecimientos: examina los conceptos con los que se interpreta el tiempo histórico.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Javier Fernández Sebastián estudia cómo las metáforas del progreso, las revoluciones, la decadencia y las redes moldean la comprensión de la historia. Su enfoque es ensayístico: relaciona esas imágenes con las disputas de memoria y la incertidumbre del futuro.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas reúne las 688 páginas de Los pilares de la historia en la edición de Taurus. Es una opción en papel para avanzar por capítulos o volver a pasajes de un ensayo extenso, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los pilares de la historia comparte Historia y Poder y política con Franquistas contra franquistas, y Ensayo y Poder y política con Manifiesto por otra economía y otra política. Su enfoque se distingue por analizar las metáforas que organizan la interpretación del pasado, en lugar de relatar una sucesión de hechos.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388387395",
+        "isbn-9788433951267"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "efdcaf81ceb0b507",
+  "origen": "chatgpt-web"
+}

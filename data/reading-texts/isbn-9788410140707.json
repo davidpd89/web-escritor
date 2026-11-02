@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9788410140707",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tinderella se dirige a quienes buscan narrativa contemporánea sobre relaciones familiares, citas e identidad pública. El conflicto de Ella Tacón de Aguja nace en un entorno aristocrático marcado por la belleza y el lujo, no en un mundo fantástico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Tinderella propone una lectura de narrativa contemporánea centrada en la apariencia social y la identidad. Ella Tacón de Aguja vive a la sombra de Marlene y Olivia, cuyas posiciones dentro de una familia aristocrática muestran el peso de la imagen pública.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tinderella está disponible en tapa blanda con solapas y tiene 608 páginas. Esta edición reúne toda la novela en papel; las solapas pueden servir para marcar la página durante la lectura y el volumen puede conservarse o regalarse.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d0b5b5da22ac8d9a",
+  "origen": "chatgpt-web"
+}

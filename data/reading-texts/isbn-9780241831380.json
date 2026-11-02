@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9780241831380",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Curso de cocina - Los básicos está pensado para adultos que comienzan a cocinar y quieren seguir preparaciones con apoyo visual. Quien busque exclusivamente técnicas avanzadas o una sola especialidad encontrará, en cambio, recetas variadas y explicaciones elementales.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Curso de cocina - Los básicos reúne más de 60 recetas con instrucciones paso a paso, fotografías e ilustraciones. Incluye técnicas fundamentales, variantes, platos como lasaña y estofado de ternera y postres como crumble de frutas, para consultar cada preparación mientras se cocina.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Curso de cocina - Los básicos está disponible en tapa dura y tiene 160 páginas. La cubierta rígida protege el volumen durante las consultas frecuentes, mientras que las fotografías y los pasos pueden seguirse sobre papel junto a los ingredientes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Curso de cocina - Los básicos y Barbacoa son libros de cocina, pero Louis Girod enseña preparaciones variadas con instrucciones ilustradas, mientras que Jamie Oliver se centra en la barbacoa. Frente a 20 minutos ¡y listo!, orientado a cocinar con poco tiempo, Curso de cocina - Los básicos comienza por las técnicas fundamentales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788425374012"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0aad6b4f0d5dfcf1",
+  "origen": "chatgpt-web"
+}

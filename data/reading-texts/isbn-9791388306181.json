@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791388306181",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El secreto mejor guardado del gran Museo del Prado encaja con lectores que buscan una historia breve donde la visita a un museo desemboca en un misterio fantástico. No es una guía de arte ni un ensayo sobre pintura: Diego Arboleda desarrolla una aventura con reglas insólitas, secretos y referencias a los cuentos de Andersen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El secreto mejor guardado del gran Museo del Prado combina una aventura de misterio con elementos de cuento de hadas en un espacio museístico. Prisca conoce unas prohibiciones extraordinarias relacionadas con las salas antiguas y su cierre al público; esas reglas introducen el peligro y conectan los secretos del museo con la magia y los relatos de Andersen.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El secreto mejor guardado del gran Museo del Prado tiene 88 páginas y se publica en tapa dura por Nórdica Libros. Su extensión permite recorrer la aventura en pocas sesiones, mientras que la cubierta rígida facilita conservar el volumen o presentarlo como regalo a alguien interesado en historias de museos y misterios.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El secreto mejor guardado del gran Museo del Prado y Mentiras y secretos (Perfectos Mentirosos 1) comparten la presencia de secretos en entornos reconocibles, pero sus conflictos son diferentes. Diego Arboleda incorpora magia y cuentos de Andersen a un museo; Alex Mírez sitúa su historia en una universidad donde pesan las fiestas, los cotilleos y las relaciones entre estudiantes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413145211"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6a49bd24c82b2d37",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,65 @@
+{
+  "id": "isbn-9791388137006",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tor se dirige a lectores adultos interesados en el crimen real y el periodismo narrativo. Su reconstrucción de tres muertes en un conflicto vecinal, con violencia y miedo, lo aleja de quienes buscan una lectura ligera o alejada de sucesos violentos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Tor publicada por Reservoir Books es la primera en castellano y presenta un texto revisado, acompañado de imágenes y comentarios adicionales. Se publica en tapa blanda con solapas y reúne 408 páginas, con materiales que amplían el contenido respecto a versiones anteriores.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Tor aborda las disputas por una montaña del Pirineo y las tres muertes relacionadas con sus trece propietarios. Carles Porta reconstruye los hechos mediante el periodismo narrativo y una investigación prolongada sobre la violencia, el miedo y los secretos que rodean el caso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las 408 páginas de Tor se ofrecen en tapa blanda con solapas, una encuadernación flexible para leer en papel y volver a consultar sus pasajes. Esta presentación también permite hojear directamente las imágenes y los comentarios incorporados a la edición revisada.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tor puede compararse con Clue. El misterio del reloj por el interés que ambos títulos muestran hacia el misterio. Carles Porta reconstruye un caso de tres muertes reales mediante el periodismo narrativo, mientras que Clue. El misterio del reloj anuncia desde su título un enigma relacionado con un reloj.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388042416"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "512a95294a12d478",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9780241837986",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores a partir de 7 años interesados en las mascotas, la amistad y las aventuras de rescate. El conflicto principal consiste en recuperar unos conejitos escapados tras los daños causados por una tormenta, en lugar de resolver un misterio criminal o afrontar combates.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de DK incorpora una minifigura LEGO® de Nova y dibujos de Marta Kissi. Se presenta en tapa dura, con 128 páginas en castellano, y combina el relato ilustrado con una pieza física relacionada con uno de sus personajes.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La clasificación editorial establece una edad de lectura a partir de 7 años. El volumen tiene 128 páginas, está escrito en castellano y utiliza encuadernación de tapa dura; además, contiene ilustraciones y una minifigura LEGO® vinculada a la historia.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se ofrece en Tapa dura, una edición física de 128 páginas que incorpora una minifigura LEGO® de Nova. Esta presentación permite conservar juntos el libro ilustrado y el personaje incluido, una característica relevante para quien quiera combinar lectura y juego con objetos de la colección.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1343e252f61693ec",
+  "origen": "chatgpt-web"
+}

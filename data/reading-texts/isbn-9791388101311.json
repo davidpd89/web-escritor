@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791388101311",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yu-Gi-Oh! nº 04/22 encaja con lectores de manga que buscan misterios relacionados con juegos, estudiantes y elementos sobrenaturales. No responde a quienes prefieren conflictos realistas, porque la llegada de Bakura al instituto de Yugi introduce un colgante semejante al Puzle Milenario y varios compañeros de juego que han quedado en coma.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Yu-Gi-Oh! nº 04/22 propone un manga de misterio escolar en el que los juegos se relacionan con un poder milenario y acontecimientos difíciles de explicar. La aparición de Bakura, las pérdidas de conocimiento de sus compañeros y el parecido entre su colgante y el Puzle Milenario conducen a Yugi y sus amigos hasta la casa del recién llegado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yu-Gi-Oh! nº 04/22 tiene 408 páginas y está disponible tanto en tapa blanda como en Kindle. La edición en rústica sin solapas con sobrecubierta permite conservar el manga en papel; Kindle permite llevar la lectura en un móvil o lector electrónico sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Yu-Gi-Oh! nº 04/22 y As the Gods Will: La secuela 10 (Shônen) presentan conflictos vinculados a estudiantes, aunque sus puntos de partida son distintos. Kazuki Takahashi introduce un misterio relacionado con juegos, compañeros en coma y un objeto milenario; la historia de Muneyuki Kaneshiro y Akeji Fujimura comienza con la decisión de Yasuto Akashi de faltar a clase tras discutir con su mejor amigo de la infancia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962005"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6317b46f06f5e3f",
+  "origen": "chatgpt-web"
+}

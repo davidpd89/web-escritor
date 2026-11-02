@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388277030",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Juan y la habichuela mágica está orientado a lectores a partir de 4 años que disfruten de los cuentos tradicionales reinterpretados en verso y acompañados de ilustraciones. La historia incorpora una planta gigantesca, un tesoro y una criatura amenazante, por lo que puede encajar menos con quienes prefieran relatos realistas o sin situaciones de peligro.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Juan y la habichuela mágica está recomendado a partir de 4 años y se presenta como un álbum ilustrado de 32 páginas en tapa dura. Roald Dahl reinterpreta en verso el cuento clásico de la habichuela y el gigante, en una edición en castellano publicada por Alfaguara.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Juan y la habichuela mágica se publica en tapa dura, con 32 páginas que reúnen una reinterpretación ilustrada del cuento en verso de Roald Dahl. La encuadernación rígida facilita sujetar el libro durante la lectura compartida y volver a sus páginas con lectores a partir de 4 años.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "edad_recomendada",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a541924ddbaf2a04",
+  "origen": "chatgpt-web"
+}

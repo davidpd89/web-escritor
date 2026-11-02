@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788401042119",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Canción de amor definitiva está dirigido a lectores adultos interesados en memorias personales sobre música, familia, enfermedad y relaciones afectivas. Su enfoque biográfico encaja menos con quien busque una novela romántica de ficción o una historia dedicada exclusivamente a la trayectoria musical de su autor.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Jorge Martí Aguas aborda la convivencia entre su actividad musical y su trabajo como enfermero en Noruega, donde atiende a personas con demencia y alzhéimer. El relato contrapone la exposición pública del escenario con las dificultades privadas, las expectativas incumplidas y el cuidado de su familia. El amor y la música aparecen como elementos que conectan esas experiencias.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Canción de amor definitiva cuenta con una edición de tapa blanda con solapas y 440 páginas. El volumen en papel permite recorrer sus recuerdos personales de forma continuada o volver a episodios relacionados con la música, el trabajo sanitario y la familia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Canción de amor definitiva y La Risa de mi vida se apoyan en experiencias personales para hablar de afectos y vida familiar. Jorge Martí Aguas contrapone la música con el trabajo sanitario y la enfermedad, mientras Jorge Bolaños parte de la adopción de una perra. El primero trata la tensión entre sus distintas responsabilidades; el segundo, la transformación de la vida cotidiana por un animal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788466684606"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2611af3788aef43a",
+  "origen": "chatgpt-web"
+}

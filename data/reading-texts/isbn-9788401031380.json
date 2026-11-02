@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788401031380",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bajamar está dirigido a lectores adultos que buscan misterio y thriller vinculados a conflictos sociales en una localidad costera. La muerte de una defensora del turismo sostenible y los intereses inmobiliarios que rodean el escenario hacen que encaje menos con quienes prefieren historias alejadas de crímenes y circunstancias inquietantes.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Bajamar plantea un thriller de misterio ambientado en una villa marinera de la costa cantábrica afectada por la especulación inmobiliaria. Ibon Martín sitúa la muerte sospechosa de una influencer vinculada al turismo sostenible en un entorno de intereses enfrentados, de manera que el conflicto social forma parte del enigma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bajamar se ofrece en tapa dura con sobrecubierta, en una edición de 496 páginas publicada por Plaza & Janés. La encuadernación rígida proporciona un soporte resistente para conservar o prestar el ejemplar, mientras que la sobrecubierta añade una protección exterior al volumen físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f1cf6bc98f2cf82",
+  "origen": "chatgpt-web"
+}

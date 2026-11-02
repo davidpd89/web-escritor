@@ -1,0 +1,55 @@
+{
+  "id": "lib-0001",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Coraline encaja con lectores desde los 9 años que buscan fantasía oscura y misterios en escenarios domésticos. Puede no encajar con quienes evitan las amenazas de encierro: unos padres alternativos quieren retener a la protagonista.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Coraline se recomienda a partir de 9 años y combina misterio, fantasía oscura y terror. Su amenaza central es quedar atrapada en una versión alternativa del hogar, con unos padres que no quieren dejar marchar a la protagonista; ese riesgo de encierro puede inquietar a lectores sensibles.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Coraline, de Salamandra, tiene 160 páginas y solapas para leerla en papel y llevarla consigo. La tapa dura aporta una cubierta rígida para relecturas o regalo; Kindle permite leer en el móvil y el audiolibro escuchar la historia.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coraline y Cosamala recurren a lo inquietante, pero sitúan el conflicto en lugares diferentes: Coraline abre la puerta a otro hogar, mientras Cosamala parte de un crimen de la guerra civil y una historia de brujas. Neil Gaiman escribe fantasía juvenil; Alana S. Portero recurre a lo gótico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "05b08b51eef8d887",
+  "origen": "chatgpt-web"
+}

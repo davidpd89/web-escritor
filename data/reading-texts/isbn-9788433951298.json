@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788433951298",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Perder la guerra encaja con lectores que buscan periodismo narrativo sobre Afganistán, los talibanes y las consecuencias de la intervención militar internacional. No está orientado a quien prefiera ficción o una novela de guerra con personajes inventados: Jon Lee Anderson reúne reportajes realizados sobre el terreno que documentan acontecimientos comprendidos entre 2001 y 2021.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Perder la guerra es una recopilación de crónicas de Jon Lee Anderson escritas desde Afganistán para el New Yorker. Los reportajes abarcan el periodo de 2001 a 2021 y examinan la intervención extranjera, el gobierno de Hamid Karzai y las condiciones de vida de la población. También prestan atención a las mujeres y a las diferencias entre Kabul y las áreas rurales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Perder la guerra está editado en tapa blanda por Editorial Anagrama y reúne 408 páginas en castellano. El formato en papel permite consultar los reportajes por separado, subrayar acontecimientos y regresar a distintos momentos del periodo comprendido entre 2001 y 2021 para seguir la evolución del conflicto afgano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dd9f0354363292ff",
+  "origen": "chatgpt-web"
+}

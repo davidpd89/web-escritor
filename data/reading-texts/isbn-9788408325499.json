@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788408325499",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un otoño para enamorarnos se dirige a quien busca romance juvenil con una herencia, una mansión y un misterio. Quien prefiera historias sentimentales sin intriga encontrará aquí una carta enigmática y un secreto ligado al pasado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Un otoño para enamorarnos combina una trama romántica con el misterio de una propiedad heredada en Francia. La carta, el reencuentro y la ambientación de Halloween sitúan la intriga junto a la relación sentimental, sin convertirla en una historia exclusivamente amorosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un otoño para enamorarnos se ofrece en tapa blanda, en una edición rústica con solapas de 320 páginas. Es un volumen para leer en papel; las solapas pueden utilizarse para señalar el punto de lectura sin añadir un marcapáginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un otoño para enamorarnos comparte con Cuando fuimos todo el interés por los vínculos amorosos, pero aquí una herencia y una mansión introducen el misterio, mientras que Emma parte de su certeza sobre Gael. Frente a Alas de escarcha y oro: El canto del cisne, cuyo arranque se centra en los dones ocultos de Eira, el conflicto nace de un legado familiar y un reencuentro.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9791387598440"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c7248734fc4412f",
+  "origen": "chatgpt-web"
+}
