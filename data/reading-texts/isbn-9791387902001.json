@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387902001",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mickey. Días de amor. Libro para colorear con ceras está pensado para niños de 3 a 5 años que disfrutan coloreando y resolviendo actividades visuales. Su contenido gira alrededor de Mickey, Minnie y sus amigos, por lo que se aparta de los libros infantiles centrados en una narración continua.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Mickey. Días de amor. Libro para colorear con ceras se utiliza coloreando ilustraciones y completando juegos sobre el papel. Incluye laberintos, sopas de letras, ejercicios para encontrar diferencias y más de 50 pegatinas que permiten decorar las páginas o acompañar las actividades.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Mickey. Días de amor. Libro para colorear con ceras está dirigido a niños de 3 a 5 años. Tiene 48 páginas en castellano y se presenta en rústica sin solapas, una encuadernación flexible para realizar las actividades de coloreado y los juegos incluidos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible de Mickey. Días de amor. Libro para colorear con ceras es la tapa blanda, adecuada para trabajar directamente sobre las páginas. Sus 48 páginas reúnen dibujos, pasatiempos y pegatinas, de modo que el uso del ejemplar depende de la interacción física con su contenido.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "e7a9d3d4ec4bbc52",
+  "origen": "chatgpt-web"
+}
