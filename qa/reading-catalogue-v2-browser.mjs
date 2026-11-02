@@ -70,6 +70,7 @@ try {
     for(let step=0;step<12;step++) {
       if(await page.getByRole('button',{name:'Ver mis resultados',exact:true}).count()) break;
       assert(!/presupuesto/.test(await page.locator('.catalogue-quiz__panel h2').innerText()),'Skip absent prices');
+      assert(Number((await page.locator('.catalogue-quiz__now').innerText()).match(/\d+/)[0])>3,'Con tres libros o menos el test va a los resultados');
       assert(await page.locator('.catalogue-quiz__choices button').count()>=2);
       await page.getByRole('button',{name:'Me da igual, continuar',exact:true}).click();
     }
