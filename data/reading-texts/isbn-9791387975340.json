@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387975340",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un día en la vida de Clarita se orienta a lectores adultos de narrativa contemporánea interesados en los cambios personales ligados al trabajo y la jubilación. Quien busque una historia que abarque años encontrará, en cambio, un conflicto concentrado en la última jornada laboral de Clarita.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Un día en la vida de Clarita es una narración contemporánea que condensa su acción en el último día de trabajo de una empleada de banca. Un suceso imprevisto altera esa rutina y convierte la respuesta de Clarita en un conflicto de afirmación personal, con humor e intriga.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un día en la vida de Clarita se ofrece en tapa blanda con solapas, con 144 páginas en la edición de Alfaguara. Su extensión permite seguir en un volumen físico una historia concentrada en unas pocas horas, sin necesidad de un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "437db827d2aa4d02",
+  "origen": "chatgpt-web"
+}

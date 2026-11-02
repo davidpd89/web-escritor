@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788410171817",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Eva está dormida se dirige a lectores de narrativa contemporánea interesados en la memoria familiar, la identidad cultural y los conflictos históricos europeos. No responde a quien busque una intriga desligada de la política: los vínculos entre Eva, su madre y Vito Anania están marcados por las tensiones y la represión en Tirol del Sur.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela de memoria familiar e identidad colectiva que utiliza un trayecto en tren para conectar distintas épocas. Los recuerdos de Eva relacionan las vidas de Gerda Huber y Vito Anania con los cambios territoriales de Tirol del Sur, la represión fascista y las restricciones impuestas a la población de habla alemana.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 408 páginas de Eva está dormida en un volumen físico en castellano. Este formato permite avanzar por una narración extensa en papel, retomar los episodios familiares e históricos y conservar el ejemplar para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cfe165500c9d6f21",
+  "origen": "chatgpt-web"
+}

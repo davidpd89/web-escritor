@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791388306266",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Retratos literarios, de Jesús Marchamalo, está dirigido a quienes quieren conocer a escritores a través de perfiles biográficos breves acompañados de grabados. No responde a la búsqueda de una novela de ficción con un argumento continuado: reúne vidas literarias distintas y permite acercarse a cada una por separado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una lectura biográfica construida a partir de diez semblanzas de escritores y escritoras elaboradas durante una década. Jesús Marchamalo firma los textos y Antonio Santos aporta las ilustraciones, de modo que palabra e imagen se combinan para presentar distintas trayectorias personales. El interés recae en las personas retratadas y en cómo se cuentan sus vidas.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Nórdica Libros presenta Retratos literarios en castellano y tapa blanda, con 352 páginas. Incorpora un prólogo de Luis Landero y se identifica mediante el ISBN 9791388306266. Estos datos permiten reconocer el volumen que reúne las biografías ilustradas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite hojear Retratos literarios y alternar entre los textos y los grabados de sus perfiles biográficos. Su cubierta flexible facilita manejar el volumen para consultar un retrato, cerrarlo y retomarlo en otro momento. La lectura en papel conserva la relación directa entre las palabras y las ilustraciones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db0b509a73c3c412",
+  "origen": "chatgpt-web"
+}

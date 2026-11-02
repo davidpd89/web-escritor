@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788426432575",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El linaje de Pierre se dirige a lectores adultos interesados en la memoria familiar, las relaciones entre padres e hijos y la historia europea del siglo XX. Su investigación sobre varias generaciones y los acontecimientos históricos que atravesaron sus vidas encaja menos con quienes buscan una narración desligada del pasado o centrada exclusivamente en una historia individual.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El linaje de Pierre aborda la memoria heredada, la relación entre una hija y su padre y la influencia de los acontecimientos históricos en una familia. Anne Berest reconstruye tres generaciones de su linaje bretón a partir de cuatro cuadernos de memorias, enlazando las luchas campesinas, la ocupación alemana, la reconstrucción de Brest y mayo del 68.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El linaje de Pierre se publica en tapa blanda con solapas y reúne 448 páginas en castellano. Esta edición de Lumen permite seguir en papel la investigación de Anne Berest y conservar el volumen con una cubierta flexible, sin recurrir a una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cosamala y El linaje de Pierre relacionan historias personales con sucesos del pasado, pero la primera transforma un crimen real de la guerra civil en una historia de brujas, mientras Anne Berest reconstruye su memoria familiar mediante documentos. La historia de Romana y Uliana (Amadoca 1) también introduce la memoria como conflicto a través de un soldado amnésico; El linaje de Pierre se centra en recuperar los recuerdos de varias generaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788432251436",
+        "isbn-9791387640491"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e94a3842f01a1862",
+  "origen": "chatgpt-web"
+}

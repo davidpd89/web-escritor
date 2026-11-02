@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788425373152",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo no tener diabetes está dirigido a adultos que quieren comprender los factores relacionados con la diabetes y los hábitos de prevención. Se centra en alimentación, estrés, peso y sedentarismo, por lo que no encaja con quien busque una historia de ficción o una lectura ajena a la salud metabólica.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo no tener diabetes se ofrece en tapa blanda con solapas, en una edición de 256 páginas de Grijalbo. El papel permite volver a las explicaciones sobre azúcar, ultraprocesados y salud metabólica, y consultar cuestiones concretas sin necesidad de mantener abierto un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo no tener diabetes coincide con La fibra es la solución en el interés por los hábitos alimentarios vinculados a la salud, pero este último se concentra en el consumo diario de fibra. Frente a Sana tus células, centrado en la degeneración celular y el envejecimiento, Adrián Díaz Alonso aborda específicamente la prevención de la diabetes y los factores cotidianos relacionados con ella.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788425374869",
+        "isbn-9788425374371"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a7be6def320b340e",
+  "origen": "chatgpt-web"
+}

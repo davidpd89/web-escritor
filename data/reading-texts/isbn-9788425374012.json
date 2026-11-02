@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788425374012",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Barbacoa está dirigido a lectores adultos interesados en preparar recetas a la parrilla, tanto con carbón como con gas, y mejorar el control de las brasas y la temperatura. No encaja con quienes buscan exclusivamente cocina sin barbacoa, porque sus preparaciones y consejos giran alrededor de esta técnica.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Barbacoa combina 90 recetas con consejos prácticos para preparar brasas, regular la temperatura y marinar alimentos en parrillas de carbón o gas. Las preparaciones incluyen brochetas, verduras, ensaladas, hamburguesas, panes planos y tacos, y están planteadas para cocinar a la parrilla durante distintas estaciones del año.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Barbacoa se presenta en tapa dura y reúne 256 páginas para consultar recetas y técnicas de cocina en papel. La encuadernación rígida permite conservar el recetario como libro de consulta y utilizarlo durante la preparación de los platos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Barbacoa y 20 minutos ¡y listo! son libros de cocina de Jamie Oliver, pero el primero se concentra en la parrilla y el segundo se presenta como una propuesta para quienes disponen de poco tiempo. Frente a Curso de cocina - Los básicos, que reúne más de 60 recetas ilustradas paso a paso, Barbacoa ofrece 90 preparaciones y consejos específicos sobre brasas, marinados y temperatura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9780241831380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d5ba2fff18b3c523",
+  "origen": "chatgpt-web"
+}

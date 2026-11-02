@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410171770",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La cruz torcida se dirige a lectores interesados en el ascenso del nazismo y sus efectos sobre la vida familiar, las relaciones amorosas y las decisiones individuales. No encaja con quien busque una historia romántica separada de su contexto político: la persecución racial condiciona directamente el futuro de Lexa Kluger y Moritz Weissmann.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La novela retrata a una familia del sur de Alemania durante el avance del nazismo, entre la Nochebuena de 1932 y el verano de 1933. El desempleo de los hermanos de Lexa Kluger, su acercamiento al partido nazi y la discriminación sufrida por Moritz Weissmann muestran cómo las transformaciones políticas alteran las lealtades familiares y las relaciones personales.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La cruz torcida cuenta con una edición en tapa blanda de 352 páginas, publicada en castellano por Editorial Periférica. El ejemplar físico permite seguir en papel la evolución de la familia Kluger durante los meses que abarca la historia y regresar a los episodios que muestran el avance de la persecución política y racial.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "436ba77e67844cde",
+  "origen": "chatgpt-web"
+}

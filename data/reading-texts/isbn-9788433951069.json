@@ -1,0 +1,67 @@
+{
+  "id": "isbn-9788433951069",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los hermafroditas se dirige a quienes quieran examinar cómo la medicina y el derecho han definido el sexo a lo largo del tiempo. Su análisis de juicios históricos y de un diario personal requiere interés por la reflexión teórica; no responde a la búsqueda de una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Los hermafroditas estudia la distinción entre sexo anatómico y sexualidad desde la historia del derecho y la medicina. Michel Foucault toma el diario de Herculine Barbin y varios procesos judiciales de los siglos XVI a XVIII para mostrar el cambio desde la elección jurídica del sexo hacia su determinación médica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los hermafroditas está disponible en tapa blanda, con 168 páginas en la edición de Editorial Anagrama. La cubierta flexible facilita llevar el texto y consultarlo durante una lectura que alterna casos históricos, reflexión teórica y materiales de contextualización.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los hermafroditas puede compararse con Este deseo no es el mío por el interés de ambos en las normas y entornos que moldean la vida íntima. Michel Foucault estudia decisiones jurídicas y médicas sobre el sexo; Andrea Proenza se centra en la influencia de plataformas digitales sobre las relaciones afectivas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788433951199"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición en castellano de Los hermafroditas, publicada por Editorial Anagrama, tiene 168 páginas en tapa blanda. Junto al manuscrito inédito de Michel Foucault aparecen dos textos complementarios: el prefacio firmado por Arianna Sforzini y el epílogo a cargo de Éric Fassin.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "esta_edicion: copia 8 palabras seguidas de la sinopsis",
+    "faltan módulos: esta_edicion"
+  ],
+  "version": 3,
+  "fuente_hash": "db0d22df1f690c62",
+  "origen": "chatgpt-web"
+}

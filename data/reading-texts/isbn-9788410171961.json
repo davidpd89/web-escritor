@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9788410171961",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estructuras Invisibles S. L. encaja con lectores de narrativa contemporánea interesados en la explotación laboral, la culpa y las relaciones entre el trabajo y la justicia, con presencia de humor negro. No responde a quien busque una historia laboral sin consecuencias trágicas ni judiciales: la muerte de un trabajador desencadena el conflicto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela social que relaciona las condiciones de trabajo con la responsabilidad individual y las consecuencias penales de un accidente. Bentor Marrero continúa transportando grandes estructuras por Tenerife en un camión que incumple las exigencias de seguridad, mientras el recuerdo de su compañero muerto acompaña una huida marcada por la culpa y el humor negro.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estructuras Invisibles S. L. está disponible en tapa blanda y Kindle, con una edición física de 200 páginas. La tapa blanda permite leer el relato en un volumen de papel manejable; Kindle facilita llevarlo en un lector electrónico o en el móvil sin transportar el ejemplar, manteniendo el acceso a la historia de Bentor Marrero.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b0153141879619af",
+  "origen": "chatgpt-web"
+}

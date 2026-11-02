@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788433951281",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Yo? encaja con lectores de narrativa contemporánea interesados en la identidad personal, la suplantación y las consecuencias psicológicas de la guerra. Su construcción mediante un monólogo interior puede alejar a quienes prefieran una narración centrada en la acción externa y los diálogos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "¿Yo? es una novela de narrativa contemporánea que utiliza el monólogo interior para explorar la distancia entre la identidad propia y la asumida. La experiencia de la guerra, los recuerdos personales y la vida construida bajo otro nombre generan un conflicto psicológico en el que la percepción del protagonista ocupa el centro del relato.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de ¿Yo? publicada por Editorial Anagrama el 2026-11-11 está escrita en castellano y se presenta en tapa blanda, con 176 páginas. Es una recuperación en español de la novela de Peter Flamm, cuya reedición en la lengua original apareció en 2023, después de décadas fuera de circulación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Yo? se ofrece en tapa blanda, con 176 páginas de lectura en castellano. Su extensión permite transportar el volumen en una bolsa y seguir en papel el monólogo interior del protagonista, con libertad para detenerse y regresar a los pasajes donde se cruzan recuerdos e identidades.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5870421f13dddd36",
+  "origen": "chatgpt-web"
+}

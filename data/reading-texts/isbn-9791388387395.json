@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388387395",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Franquistas contra franquistas se dirige a lectores adultos interesados en la historia política del siglo XX y las disputas por el poder dentro del franquismo. Su enfoque no responde a quien busque una historia general de la Guerra Civil, ya que se concentra en los enfrentamientos entre los sectores vencedores después de la contienda.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Franquistas contra franquistas examina las pugnas por el poder entre grupos que habían combatido en el mismo bando durante la Guerra Civil. Joan Maria Thomàs analiza las diferencias entre el ejército, la Iglesia, los carlistas y otras familias del régimen, y explica cómo sus rivalidades condicionaron los equilibrios políticos del franquismo durante las décadas posteriores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Franquistas contra franquistas está disponible en tapa blanda con solapas y reúne 320 páginas. Esta edición física permite subrayar, añadir anotaciones y volver a consultar los pasajes dedicados a las distintas facciones del régimen, algo útil cuando se quiere seguir la evolución de sus enfrentamientos políticos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Franquistas contra franquistas y La Guerra Fría contada para escépticos tratan conflictos políticos del siglo XX, pero el primero estudia las luchas internas del franquismo y el segundo aborda la Guerra Fría. Frente a Los pilares de la historia, que plantea la utilidad de la historia para interpretar un mundo en crisis, Joan Maria Thomàs investiga un episodio concreto de las relaciones de poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629664",
+        "isbn-9788408326380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2bbec900198aff32",
+  "origen": "chatgpt-web"
+}

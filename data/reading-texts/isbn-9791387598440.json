@@ -1,0 +1,65 @@
+{
+  "id": "isbn-9791387598440",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando fuimos todo se dirige a lectores de romance juvenil interesados en las rupturas, la reconstrucción personal y las dificultades para comenzar una nueva relación. El peso de la historia recae en las decisiones sentimentales de Emma, por lo que encaja menos con quienes buscan una trama de acción o una lectura alejada de los conflictos amorosos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Cuando fuimos todo se clasifica como novela juvenil y aborda el dolor de una separación, la pérdida de confianza y el miedo a volver a enamorarse. También introduce la atracción de Emma por Adrián, uno de los profesores de la Academia de Artes, una circunstancia relevante para quienes prestan atención a las relaciones entre personas con posiciones diferentes dentro de un centro educativo.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Cuando fuimos todo propone un romance juvenil centrado en reconstruir la identidad personal después de una relación que parecía definitiva. La llegada de Emma a la Academia de Artes abre una etapa distinta, mientras su acercamiento a Adrián plantea un conflicto entre protegerse emocionalmente y aceptar nuevos sentimientos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuando fuimos todo está publicado en tapa blanda con solapas y reúne 256 páginas en castellano. Las solapas pueden utilizarse para marcar el avance entre sesiones, mientras que el volumen físico permite seguir la historia sin recurrir a un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando fuimos todo y Solo un juego más (CAR HOCKEY 1), de Susanna Herrero, comparten el interés por los vínculos amorosos y los conflictos entre personajes. La novela de Noelia Dopazo sitúa el cambio sentimental después de una ruptura y en una Academia de Artes, mientras que el título de Susanna Herrero introduce expresamente el hockey como elemento diferenciador.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388222801"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7bdfb1ccd89f2823",
+  "origen": "chatgpt-web"
+}

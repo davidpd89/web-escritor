@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788449344626",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Duelo se dirige a lectores interesados en comprender la pérdida desde la filosofía y el desarrollo personal. Michael Cholbi examina cómo el dolor puede influir en la identidad y en la reconstrucción personal, por lo que encaja menos con quienes buscan una novela centrada en personajes y acontecimientos ficticios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Duelo está disponible en tapa blanda, en una edición rústica con solapas de 288 páginas publicada por Ediciones Paidós. El formato en papel permite subrayar argumentos filosóficos, anotar reflexiones sobre la pérdida y regresar a determinados pasajes durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Duelo y Cuando fuimos todo se acercan a los vínculos afectivos desde perspectivas diferentes: Michael Cholbi reflexiona filosóficamente sobre la pérdida, mientras que la historia de Emma y Gael parte de una relación amorosa. La fibra es la solución también aborda cuestiones de bienestar personal, pero desde los hábitos alimentarios y los efectos de consumir fibra, no desde la experiencia emocional del duelo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374869",
+        "isbn-9791387598440"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d0d565fe375e818",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788401042751",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La casa de los espíritus se dirige a lectores adultos interesados en las sagas familiares, las relaciones afectivas y los conflictos sociales con elementos sobrenaturales. Su argumento abarca varias generaciones y cuestiones políticas, por lo que se aleja de las historias centradas exclusivamente en una relación romántica.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La casa de los espíritus combina narrativa contemporánea, saga familiar y realismo mágico. Las capacidades sobrenaturales de Clara del Valle conviven con los conflictos de clase, las relaciones sentimentales y la violencia política. Las decisiones de cada generación repercuten en las siguientes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura con sobrecubierta reúne las 560 páginas de La casa de los espíritus en un volumen físico, adecuado para conservar o regalar. Kindle permite leer esta historia de varias generaciones desde un dispositivo compatible y continuarla en distintos lugares sin llevar el libro en papel.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La casa de los espíritus comparte Mujeres y Narrativa contemporánea con Esas muchachas que escriben poemas, mientras que con Mi amor no muere coincide en Amor y pareja y Mujeres. La obra de Isabel Allende desarrolla esos temas mediante una saga familiar de varias generaciones, marcada también por la desigualdad social, la política y lo sobrenatural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788426434272",
+        "isbn-9791387846794"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eea89e68610fdc9f",
+  "origen": "chatgpt-web"
+}

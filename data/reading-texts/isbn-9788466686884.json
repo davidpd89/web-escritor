@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788466686884",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La abadía sin ojos se dirige a lectores adultos interesados en el terror y los misterios ambientados en comunidades religiosas aisladas. No encaja con quien busque una intriga realista sin sucesos extraños: la hostilidad de los monjes, las figuras vendadas y los fenómenos nocturnos forman parte del conflicto.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La abadía sin ojos combina terror, fantasía y misterio alrededor de una comunidad religiosa hermética. El traslado forzoso de Lorenzo a Saint Ophiel lo enfrenta a normas desconocidas y secretos peligrosos, mientras la conducta de sus habitantes y los sucesos nocturnos dificultan distinguir las amenazas humanas de los fenómenos extraños.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La abadía sin ojos puede leerse en tapa dura con sobrecubierta o en Kindle. La edición física de Ediciones B suma 568 páginas y permite conservar el libro en papel; la digital ofrece la posibilidad de continuar la lectura desde un móvil o un lector electrónico sin transportar ese volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Carrie (edición serie), de Stephen King, y La abadía sin ojos utilizan las creencias religiosas como parte de sus conflictos inquietantes. Carrie (edición serie) relaciona ese elemento con el acoso escolar y una madre fanática, mientras que La abadía sin ojos sitúa la amenaza en un monasterio que recibe con hostilidad a un sacerdote.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788466396806"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "22a3f3d4e86bb826",
+  "origen": "chatgpt-web"
+}

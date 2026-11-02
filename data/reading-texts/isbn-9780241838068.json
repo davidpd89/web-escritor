@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9780241838068",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores a partir de 7 años interesados en conocer las máquinas y los vehículos del universo Star Wars. No está dirigido a quienes busquen una novela con una trama continuada: su contenido se centra en clasificar vehículos y explicar sus características, modelos y dimensiones.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Está indicado para lectores a partir de 7 años y reúne 256 páginas en castellano. La edición de DK tiene encuadernación de tapa dura y organiza los vehículos según su ámbito de circulación: tierra, mar, aire y espacio, con información técnica sobre cada uno.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta enciclopedia de 256 páginas. Su organización por clases de vehículos permite consultar un apartado concreto y volver a él cuando interese revisar modelos o dimensiones; la encuadernación rígida también resulta práctica para conservar el volumen o regalarlo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Este volumen y Antigua Roma (Civilizaciones antiguas para niños) son publicaciones de DK clasificadas como literatura infantil y juvenil. La diferencia está en el objeto de consulta: aquí se examinan vehículos del universo Star Wars, mientras que el otro título se ocupa de una civilización histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241839362"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e069b8845eca4390",
+  "origen": "chatgpt-web"
+}

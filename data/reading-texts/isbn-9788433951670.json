@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788433951670",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo construir la soberanía digital europea se dirige a lectores de ensayo interesados en la autonomía tecnológica de Europa y sus consecuencias políticas y sociales. No es una guía de programación ni un manual de dispositivos: Francesca Bria examina la dependencia de infraestructuras externas y plantea qué decisiones públicas permitirían reducirla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Francesca Bria examina qué implica que escuelas, hospitales y gobiernos europeos dependan de tecnologías e infraestructuras controladas por terceros. Cómo construir la soberanía digital europea defiende una alternativa democrática y de código abierto, orientada al interés colectivo frente a los modelos tecnológicos asociados a Washington y Pekín.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo construir la soberanía digital europea ofrece dos formatos: tapa blanda y Kindle. La edición impresa reúne 144 páginas para leer, marcar y consultar los argumentos sobre autonomía tecnológica, mientras Kindle permite llevar el ensayo en un lector electrónico o en el móvil sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo construir la soberanía digital europea y La revuelta de los copistas examinan el poder de las empresas tecnológicas, pero Francesca Bria se centra en la dependencia de los servicios públicos y Xavier Nueno en la apropiación del patrimonio intelectual de las bibliotecas. Este deseo no es el mío desplaza el análisis hacia las relaciones afectivas condicionadas por redes sociales y aplicaciones digitales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788433951199",
+        "isbn-9788433951014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cb9a02c43ced5d66",
+  "origen": "chatgpt-web"
+}

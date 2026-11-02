@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388042225",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cambiar el agua de las flores se dirige a lectores interesados en historias de duelo, relaciones personales y reconstrucción emocional después de experiencias dolorosas. La protagonista trabaja en un cementerio y su vida se cruza con secretos familiares relacionados con personas fallecidas. El peso de la muerte y la pérdida puede alejar a quienes prefieran evitar estos asuntos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Cambiar el agua de las flores, de Valérie Perrin, entrelaza la vida cotidiana de una guarda de cementerio con historias personales que permanecían ocultas. La petición de un policía acerca del entierro de su madre desencadena preguntas sobre vínculos del pasado. La memoria, la pérdida y la posibilidad de reconstruirse sostienen una narración centrada en las relaciones humanas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cambiar el agua de las flores se ofrece en tapa blanda, con 464 páginas en castellano y edición de Duomo Ediciones. Su extensión permite planificar una lectura distribuida en varias sesiones, mientras que el ejemplar físico facilita volver a las relaciones entre personajes conforme aparecen nuevos detalles sobre su pasado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "670a2863107807a8",
+  "origen": "chatgpt-web"
+}

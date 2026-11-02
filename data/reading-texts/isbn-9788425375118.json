@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788425375118",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La hija del veneno se dirige a lectores adultos de fantasía romántica oscura que busquen relaciones conflictivas, matrimonios de conveniencia y elementos sobrenaturales. La presencia de asesinatos, hombres abusivos y vampiros la aleja de quienes prefieren romances cotidianos sin violencia ni amenazas para sus protagonistas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La hija del veneno combina el romance de enemigos a amantes con una lucha por sobrevivir dentro de un matrimonio de inconveniencia. Sheila Masterson construye el conflicto alrededor de Harlow, cuyos besos matan a cualquier persona excepto a su prometido, y de una convivencia en una fortaleza rodeada de bosques habitados por vampiros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La hija del veneno está disponible en tapa dura con sobrecubierta, con una extensión de 792 páginas. Esta presentación reúne toda la lectura en un volumen de cubierta rígida, adecuado para conservar en la biblioteca personal, consultar de nuevo o entregar como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La hija del veneno y Las Pruebas del Tarot presentan protagonistas femeninas ante situaciones decisivas: Harlow intenta sobrevivir a su matrimonio, mientras Kestrel se ha preparado para competir. Para Dafne 2 también introduce una consecuencia sobrenatural vinculada al amor, pero allí una flecha de Eros provoca una herida, mientras que en la novela de Sheila Masterson el peligro procede de un beso mortal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401037917",
+        "isbn-9791387962050"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fc6ae1fdfccc2092",
+  "origen": "chatgpt-web"
+}

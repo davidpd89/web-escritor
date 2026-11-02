@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788410171916",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La llamada de los olores encaja con quienes buscan una narración poética sobre el olfato y la memoria. Se aleja de una historia lineal de acción: enlaza episodios de distintas épocas y lugares con reflexiones sobre la huella de las sensaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La llamada de los olores combina historias ambientadas en siglos y lugares distintos con anotaciones sobre aromas y recuerdos. Ryoko Sekiguchi usa el olfato como hilo conductor de una narración híbrida que incorpora reflexiones al final de cada relato.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La llamada de los olores está disponible en tapa blanda, con 192 páginas en castellano publicadas por Editorial Periférica. El soporte en papel permite avanzar entre relatos y regresar a los cuadernos de olores que acompañan cada historia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La llamada de los olores y La vida en el campo emplean historias para observar experiencias humanas, pero con focos distintos. Ryoko Sekiguchi relaciona aromas y memoria mediante episodios de diversos tiempos y lugares; Giovanni Verga cuenta vidas y muertes con atención al habla de la gente sencilla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410171879"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f3a4fab0df935d2d",
+  "origen": "chatgpt-web"
+}

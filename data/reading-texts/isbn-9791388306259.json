@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388306259",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dos casos clínicos está dirigido a lectores de ensayo interesados en el psicoanálisis y en cómo se analizan los trastornos psicológicos. No es una guía de autoayuda ni una novela: reúne estudios de Sigmund Freud sobre pacientes y sobre la evolución de sus métodos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Dos casos clínicos examina los trastornos psicológicos y su relación con la violencia sufrida por mujeres mediante los estudios de Catalina e Isabel de R. Sigmund Freud expone, a través de esos análisis, el paso de la hipnosis al método catártico y a la asociación libre.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dos casos clínicos se edita en tapa blanda por Nórdica Libros y consta de 104 páginas. Este soporte permite llevar ambos estudios en un solo volumen y releer o anotar las observaciones clínicas directamente sobre el papel.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dos casos clínicos y Este deseo no es el mío examinan aspectos de la experiencia psicológica y afectiva, pero desde ámbitos distintos. Sigmund Freud analiza trastornos en dos casos de mujeres, mientras que Andrea Proenza sitúa las relaciones personales en un entorno atravesado por redes sociales y aplicaciones digitales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788433951199"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dbd8ca6c1a62ee53",
+  "origen": "chatgpt-web"
+}

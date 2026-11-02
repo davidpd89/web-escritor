@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788432251436",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cosamala se dirige a quienes leen terror gótico y ficción histórica ambientada en la guerra civil. Su combinación de violencia política y brujería queda lejos de quien busque una recreación histórica sin episodios sangrientos ni elementos de terror.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Cosamala mezcla terror e historia en Andalucía, en 1937, a partir de un crimen vinculado a la guerra civil y una historia de brujas. El avance de la columna Carranza por la sierra norte de Sevilla establece el contexto de violencia y sometimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cosamala se ofrece en tapa blanda, en rústica con solapas, y tiene 272 páginas. Esta edición sirve para leer en papel su relato histórico de terror, y las solapas permiten marcar el punto de lectura sin añadir otro objeto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cosamala y La historia de Romana y Uliana (Amadoca 1) parten de situaciones atravesadas por la violencia. Alana S. Portero sitúa terror y brujería en Andalucía durante 1937; la historia de Sofía Andrujóvich comienza con un soldado desfigurado y amnésico en un hospital de Kiev.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387640491"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf40c9eeed4322ba",
+  "origen": "chatgpt-web"
+}

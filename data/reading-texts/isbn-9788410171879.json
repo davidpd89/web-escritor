@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788410171879",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida en el campo encaja con quienes buscan cuentos sobre oficios rurales, pobreza y conflictos humanos entre comunidades sicilianas. Sus historias de muerte, deseo y dificultades materiales se alejan de una lectura campestre apacible o una novela de trama única.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La vida en el campo reúne cuentos de Giovanni Verga sobre campesinos, mineros y pescadores sicilianos, aunque su clasificación editorial es poesía. Su escritura recupera el habla popular y emplea una mirada verista sobre las desigualdades, la pasión y la muerte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La vida en el campo se ofrece en tapa blanda, con 152 páginas en castellano editadas por Editorial Periférica. La encuadernación flexible permite llevar el libro durante desplazamientos y leer sus cuentos por separado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La vida en el campo y La llamada de los olores se acercan a experiencias cotidianas desde la escritura, aunque cambian el foco. Giovanni Verga narra la pobreza y los conflictos de comunidades sicilianas; Ryoko Sekiguchi se detiene en olores, sabores y voces que se desvanecen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410171916"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3b9742bd09335028",
+  "origen": "chatgpt-web"
+}

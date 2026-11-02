@@ -1,0 +1,62 @@
+{
+  "id": "isbn-9780241837849",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a personas adultas que quieren comprender los procesos de la panadería y la repostería, tanto si están empezando como si ya tienen práctica. Matt Adlard combina elaboraciones con explicaciones sobre ingredientes y temperaturas, por lo que encaja menos con quien únicamente busque recetas rápidas sin fundamentos técnicos.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Se trata de la edición en castellano de DK, encuadernada en tapa dura y con 224 páginas. El ISBN 9780241837849 identifica esta versión de la obra de Matt Adlard, que reúne explicaciones técnicas, ilustraciones y preparaciones de panadería y repostería.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "isbn13",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Reúne más de 50 recetas presentadas paso a paso, entre ellas panes, galletas, tartas y otros postres. Las ilustraciones acompañan explicaciones sobre el comportamiento de los ingredientes y el control de la temperatura, además de orientaciones para corregir errores habituales y trabajar con masas madre o preparaciones sin gluten y veganas.",
+      "evidencias": [
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición es de tapa dura y tiene 224 páginas. Sus ilustraciones y recetas permanecen en papel para consultar instrucciones, técnicas y temperaturas durante el horneado; la encuadernación rígida permite conservar el volumen entre preparaciones y volver a utilizarlo como libro de consulta.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Curso de cocina - Los básicos, de Louis Girod, también presenta preparaciones ilustradas con instrucciones paso a paso. Mientras ese libro aborda fundamentos generales de cocina mediante más de 60 recetas, la obra de Matt Adlard concentra sus más de 50 elaboraciones en panadería y repostería, con especial atención a las reacciones de los ingredientes y al control del horno.",
+      "evidencias": [
+        "afines_catalogo",
+        "sinopsis_editorial",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9780241831380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "123d07f8a36f3ec0",
+  "origen": "chatgpt-web"
+}

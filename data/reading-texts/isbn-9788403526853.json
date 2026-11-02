@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788403526853",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Treinta y cuatro está dirigido a lectores adultos de biografías y memorias interesados en la relación con el cuerpo, la identidad y los vínculos familiares. Puede resultar poco adecuado para quien prefiera lecturas alejadas de la culpa, la vergüenza o el miedo, ya que estas emociones forman parte del conflicto personal que aborda Carolina Lapausa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Treinta y cuatro examina cómo la exigencia personal y el rechazo del propio cuerpo afectan a la identidad y a las relaciones cercanas. Carolina Lapausa incorpora diferentes perspectivas, entre ellas las de una madre, un padre, una amiga y una terapeuta. El enfoque conecta la experiencia individual con las formas de acompañar, proteger y participar en la reconstrucción personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Treinta y cuatro se publica en tapa blanda con solapas y tiene 176 páginas. Esta edición permite leer en papel un relato construido a partir de distintas miradas sobre la identidad, el cuerpo y las relaciones personales, en un volumen físico de extensión contenida.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Treinta y cuatro comparte con Ansiedad. ¿Cómo se sale de aquí?, de Gemma Correll, el interés por el malestar emocional, aunque Carolina Lapausa lo aborda mediante una experiencia personal vinculada al cuerpo y la identidad. Frente a El canto del cisne, de Charles Spencer, que parte del dolor por la pérdida de su hermana, aquí el conflicto se construye alrededor de la propia identidad y de las relaciones que intervienen en ella.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431967",
+        "isbn-9788401039928"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8815c8428e2719d8",
+  "origen": "chatgpt-web"
+}

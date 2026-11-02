@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9791388277085",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pipoka y la Fábrica del Desastre está dirigido a lectores a partir de 9 años interesados en aventuras con magia, criaturas legendarias y defensa de la naturaleza. Su conflicto gira alrededor de la amenaza de destrucción de un bosque y del valor de las palabras, por lo que se aleja de las historias realistas sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Pipoka y la Fábrica del Desastre está recomendado a partir de 9 años y tiene 288 páginas. La edición de Alfaguara es en tapa dura y contiene una aventura fantástica ambientada en distintos pueblos y paisajes de la Península, con criaturas legendarias y un conflicto relacionado con la protección del bosque.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pipoka y la Fábrica del Desastre se publica en tapa dura, con 288 páginas en castellano. La encuadernación rígida permite conservar el libro en papel o regalarlo, mientras que su extensión ofrece una aventura que puede repartirse en varias sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pipoka y la Fábrica del Desastre y Superdónuts 3 - El destino de los dónuts comparten una aventura con elementos fantásticos y una amenaza que afrontar. Jose Such sitúa el conflicto en un recorrido entre pueblos para proteger un bosque, mientras Neill Cameron plantea un viaje al futuro acompañado de un descubrimiento aterrador.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873479"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0027c578ac0c234f",
+  "origen": "chatgpt-web"
+}

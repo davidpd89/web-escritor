@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788467083354",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida nueva de Pedrito de Andía se dirige a lectores de narrativa literaria interesados en la maduración de un muchacho, sus primeras emociones y las relaciones dentro de una familia acomodada. Su ambientación vasca y el peso de las amistades y los secretos orientan la lectura hacia los cambios personales. Resulta menos afín a quienes buscan fantasía o aventuras dominadas por la acción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela literaria sobre el crecimiento personal durante un verano decisivo. Pedrito de Andía pertenece a una familia vasca acomodada y comienza a reconsiderar aquello que antes daba por seguro, mientras las amistades, los secretos y las primeras emociones alteran su percepción del entorno. La historia sitúa el cambio interior del protagonista en el centro del conflicto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La vida nueva de Pedrito de Andía se ofrece en tapa dura de cartoné, sin sobrecubierta, con 360 páginas en castellano. Esta encuadernación proporciona un volumen rígido para conservar en la biblioteca y releer pasajes sobre el verano y las relaciones del protagonista. La edición corresponde a Editorial Espasa.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "330ccdf6c503a265",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788466684606",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Risa de mi vida está dirigido a lectores adultos interesados en relatos personales sobre animales de compañía, afectos familiares y humor cotidiano. El vínculo entre Jorge Bolaños y una perra adoptada ocupa el centro del libro, por lo que su enfoque autobiográfico se aleja del que tendría un manual de adiestramiento canino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Jorge Bolaños relata cómo la llegada de Risa, una perra que inicialmente no quería adoptar, cambió su relación con los animales y su vida familiar. A través de esa convivencia trata el amor, el humor, las aspiraciones personales y los momentos difíciles. También incorpora experiencias relacionadas con Laura, su hijo, Londres y su actividad sobre los escenarios.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Risa de mi vida se publica en tapa blanda con solapas y consta de 184 páginas. Su edición en papel reúne el relato autobiográfico en un solo volumen, adecuado para una lectura seguida o para retomar episodios concretos de la convivencia familiar con Risa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Risa de mi vida y Canción de amor definitiva parten de vivencias personales y tratan el lugar del afecto en la vida familiar. Jorge Bolaños construye su relato alrededor de la adopción de una perra, mientras Jorge Martí Aguas aborda las exigencias de su actividad musical y su trabajo sanitario. El vínculo con un animal centra el primero; la convivencia entre profesión, enfermedad y hogar marca el segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788401042119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2b2fc95d5bbc8052",
+  "origen": "chatgpt-web"
+}

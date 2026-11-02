@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788408326861",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El día de la Trilla (Empíreo) Edición limitada con cantos tintados se dirige a lectores de fantasía juvenil interesados en dragones, formación de jinetes y pruebas de supervivencia. Encaja menos con quienes prefieren conflictos sin violencia letal: los cadetes afrontan una prueba en la que pueden perder la vida.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Propone fantasía de formación militar centrada en una prueba que pone en juego la vida de los aspirantes. La Trilla enfrenta a trece cadetes del Colegio de Guerra Basgiath con el peligro del fuego dracónido y la exigencia de establecer un vínculo con un dragón. El conflicto combina una competición de supervivencia con una relación decisiva entre jinete y criatura.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de El día de la Trilla (Empíreo) Edición limitada con cantos tintados se identifica por los cantos tintados, la encuadernación en tapa dura y la sobrecubierta. Está publicada por Editorial Planeta en castellano y lleva el ISBN 9788408326861, que permite localizar exactamente esta presentación.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite leer sus 304 páginas en papel, sin móvil ni reproductor de audio. La cubierta rígida facilita conservar el libro, prestarlo o entregarlo como regalo. Quien prefiera consultar páginas físicas tendrá el texto reunido en un único volumen que puede utilizar sin depender de una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "formato_edicion",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "50e044a0d6971433",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788427054479",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un amor de diciembre encaja con lectores de historias románticas que buscan conflictos de pareja relacionados con una boda familiar y una expareja. Su estructura de adviento permite repartir la lectura durante diciembre; quienes prefieran tramas alejadas de las relaciones sentimentales encontrarán aquí precisamente ese tipo de conflicto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela romántica de adviento cuya estructura propone avanzar mediante un capítulo diario durante diciembre. El conflicto arranca cuando la protagonista debe participar como dama de honor en la boda de su hermana, que va a casarse con quien fue su pareja. La celebración familiar y esa relación anterior constituyen el punto de partida sentimental.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un amor de diciembre está disponible en tapa blanda, en una edición rústica con solapas de 384 páginas. El formato físico permite seguir el calendario de lectura de adviento, con un capítulo por día, y conservar todos los capítulos reunidos para una lectura continuada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un amor de diciembre y Cuando fuimos todo abordan relaciones sentimentales en las que el pasado de la pareja importa. En Cuando fuimos todo, Emma cree que su relación con Gael durará siempre; Un amor de diciembre parte de una expareja que reaparece vinculada a la boda de una hermana y organiza la lectura siguiendo el calendario de adviento.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387598440"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8bc2f9b6c55cb89c",
+  "origen": "chatgpt-web"
+}

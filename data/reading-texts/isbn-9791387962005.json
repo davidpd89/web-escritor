@@ -1,0 +1,59 @@
+{
+  "id": "isbn-9791387962005",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este cómic juvenil encaja con quienes buscan terror en un instituto y pruebas que ponen en peligro a los alumnos. Queda lejos de una historia escolar cotidiana: faltar a clase separa a parte del alumnado del resto, y ambos grupos deben enfrentarse a desafíos de supervivencia.",
+      "evidencias": [
+        "categorias",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "La orientación de lectura es juvenil, pero el contenido gira en torno a situaciones de riesgo mortal para estudiantes. Los juegos obligan a tomar decisiones de supervivencia que pueden comprometer la conducta hacia los demás. El peligro constante y los conflictos morales pueden inquietar a lectores sensibles a las amenazas contra jóvenes.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Propone terror juvenil en formato cómic, con juegos que funcionan como pruebas de vida o muerte. La acción distingue entre alumnos que acudieron al instituto y quienes se ausentaron, enfrentados a rondas distintas de supervivencia; el título lo identifica como el n.º 10.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El formato de este volumen es tapa blanda con sobrecubierta, editado por Distrito Manga. Con 568 páginas, es una edición física extensa que reúne la lectura en un solo tomo; la sobrecubierta puede retirarse durante el uso y volver a colocarse al guardarlo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El guardaespaldas de Honeko Akabane 7 (Shônen), de Masamitsu Nigatsu, también presenta estudiantes sometidos a situaciones peligrosas. Allí el conflicto surge de organizaciones criminales y enemigos ocultos; en este cómic, las amenazas proceden de juegos de supervivencia que enfrentan a los alumnos con decisiones extremas.",
+      "evidencias": [
+        "afines_catalogo",
+        "sinopsis_editorial",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387962142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cb32f6749ad8cda2",
+  "origen": "chatgpt-web"
+}

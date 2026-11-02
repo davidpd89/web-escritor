@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387994563",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores a partir de 9 años que buscan humor, amistad y baloncesto en una historia infantil. Quien prefiera aventuras alejadas del deporte encontrará aquí un conflicto centrado en la unión de un equipo y las dificultades para financiar un viaje.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Está indicado a partir de 9 años y tiene 192 páginas en tapa dura. Pertenece a la literatura infantil y juvenil, con humor y amistad alrededor de un equipo de baloncesto que intenta reunir dinero para viajar junto.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 192 páginas y las ilustraciones de David Garrido en un ejemplar físico que permite hojear las escenas ilustradas. Es el formato de compra recogido para este título y permite conservarlo en papel o entregarlo como regalo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "esta_edicion: nombres sin respaldo: ISBN",
+    "lecturas_afines: copia 8 palabras seguidas de la sinopsis",
+    "faltan módulos: esta_edicion, lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "dbcd76c5b2eabc66",
+  "origen": "chatgpt-web"
+}

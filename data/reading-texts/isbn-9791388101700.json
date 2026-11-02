@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388101700",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lamu nº 08/17 encaja con lectores de manga que busquen humor basado en enredos personales, reacciones inesperadas y situaciones disparatadas. Las peripecias de Ataru y Ten-chan se alejan de una narración solemne o centrada exclusivamente en grandes enfrentamientos, ya que los conflictos descritos parten de incidentes cotidianos y familiares.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Lamu nº 08/17 es un manga que desarrolla situaciones cómicas alrededor de los percances de Ataru y del comportamiento de Ten-chan. Una disputa familiar en la playa y el contraste entre el carácter habitual de Ten-chan y su reacción ante su madre muestran cómo Rumiko Takahashi construye conflictos a partir de encuentros inesperados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lamu nº 08/17 se presenta en tapa blanda, con 360 páginas en castellano y encuadernación rústica sin solapas. El formato flexible facilita transportar el tomo y leerlo en papel, mientras que sus 360 páginas concentran el contenido en un único volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lamu nº 08/17 y As the Gods Will: La secuela 10 (Shônen) comparten la presentación como entregas numeradas de historias de origen japonés. Rumiko Takahashi desarrolla situaciones caóticas con Ataru y Ten-chan, mientras Muneyuki Kaneshiro y Akeji Fujimura presentan a Yasuto Akashi tras una pelea con su amigo de la infancia y su decisión de faltar a clase.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962005"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "35839d650d5c95d6",
+  "origen": "chatgpt-web"
+}

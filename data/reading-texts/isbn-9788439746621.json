@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788439746621",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La merma está dirigida a lectores adultos de memorias que buscan una experiencia de enfermedad, rehabilitación y cambios en la escritura narrada desde la vivencia personal. María Moreno observa su cuerpo después de un ACV y utiliza una mirada mordaz; el libro se aleja de una guía clínica de recuperación o de un relato de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La merma explora las transformaciones del cuerpo, la autonomía y el lenguaje después de un ACV. María Moreno describe su estancia en una clínica durante el covid, los ejercicios para recuperar movilidad y el reto de escribir con la mano izquierda, mientras reflexiona sobre la discapacidad y la vulnerabilidad física.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La merma se publica en tapa blanda con solapas, una presentación en papel de 160 páginas. Su extensión permite distribuir la lectura en sesiones breves y regresar a los pasajes sobre rehabilitación y escritura; las solapas ofrecen una protección adicional a la cubierta flexible durante el uso.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La merma y Ansiedad. ¿Cómo se sale de aquí? tratan experiencias de malestar, aunque parten de problemas distintos. María Moreno se centra en las consecuencias físicas y expresivas de un ACV, mientras Gemma Correll presenta la ansiedad mediante la imagen de un parque de atracciones que nadie ha pedido visitar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431967"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4d54b482dd0ef5d8",
+  "origen": "chatgpt-web"
+}

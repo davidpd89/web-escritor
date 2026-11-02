@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788410096547",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los genios creen en Dios se dirige a adultos interesados en la relación entre ciencia, razón y creencias religiosas desde una perspectiva favorable a la fe. No está planteado como una exposición neutral de las posiciones creyentes y ateas, pues José Carlos González-Hurtado defiende que el conocimiento científico y la creencia en Dios son compatibles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Los genios creen en Dios desarrolla una argumentación sobre la relación entre conocimiento científico y fe religiosa a partir de figuras de la historia del pensamiento. José Carlos González-Hurtado recurre a testimonios de Newton, Pasteur, Einstein y Ramón y Cajal para defender que la investigación racional no excluye la creencia en Dios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los genios creen en Dios está disponible en tapa dura con sobrecubierta y tiene 288 páginas. La encuadernación rígida permite conservarlo como volumen de consulta, mientras que la sobrecubierta añade protección exterior para guardarlo en la biblioteca o entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los genios creen en Dios vincula el pensamiento científico con la fe, mientras que Uketamo. Abrazar la vida tal cual viene se ocupa de la aceptación frente a la presión por obtener resultados y certezas. José Carlos González-Hurtado construye su argumento mediante testimonios de científicos; Ana Galeote Frontelo plantea una reflexión sobre la actitud ante las circunstancias de la vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431486"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41ed62732c535aed",
+  "origen": "chatgpt-web"
+}

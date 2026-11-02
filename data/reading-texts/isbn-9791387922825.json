@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791387922825",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una Woolf propia encaja con lectores interesados en Virginia Woolf, la escritura y el lugar de las mujeres en la literatura. No responde a quien busque una novela extensa o una trama de aventuras: es un texto de homenaje de 64 páginas que parte de una reflexión sobre el lenguaje.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Una Woolf propia propone una lectura de narrativa contemporánea centrada en cómo empieza un texto: Ali Smith se detiene en el «Pero» inicial de Una habitación propia. A partir de esa palabra, construye un homenaje a Virginia Woolf que relaciona las decisiones del lenguaje con la escritura y la presencia de las mujeres en la literatura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Una Woolf propia reúne 64 páginas en castellano, una extensión manejable para llevar el libro a diario y leerlo en sesiones breves. Esta edición de Nórdica Libros permite subrayar las reflexiones sobre Virginia Woolf y regresar a los pasajes que analizan el comienzo de Una habitación propia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La referencia de comparación es Glifo, de Ali Smith: ¿Puede una historia impedir que el mundo se vuelva insoportable? Ambos títulos comparten autoría e interés por el alcance de las palabras, pero Una Woolf propia examina la escritura desde un homenaje a Virginia Woolf, mientras Glifo plantea una pregunta sobre la capacidad de las historias para enfrentarse a una realidad difícil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306174"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "abb4fc68f9c9264e",
+  "origen": "chatgpt-web"
+}

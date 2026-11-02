@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788467083378",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todo bajo control, menos tú está dirigido a lectores de novela romántica interesados en personajes que compaginan vínculos afectivos y obligaciones familiares. Encaja menos con quien busque fantasía o una trama sin tensión sentimental: Yuls Pérez cuida de su madre y procura evitar complicaciones con Oliver Dávila.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela romántica sobre el choque entre las responsabilidades cotidianas y una posible relación. Yuls Pérez trabaja para llegar a fin de mes y cuida de su madre, mientras Oliver Dávila aparece como alguien que puede complicar el equilibrio que ella intenta mantener.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 544 páginas de Todo bajo control, menos tú en papel, con una cubierta de solapas. La edición en rústica de Editorial Espasa ofrece un volumen extenso para avanzar por sesiones y retomar la lectura sin depender de un dispositivo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todo bajo control, menos tú y Cuando fuimos todo comparten el interés por relaciones sentimentales que alteran las certezas de sus protagonistas. Megan Maxwell introduce las responsabilidades laborales y familiares de Yuls Pérez, mientras Noelia Dopazo parte de la convicción de Emma sobre su futuro con Gael.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387598440"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7bb3b5c5a7a7fd57",
+  "origen": "chatgpt-web"
+}

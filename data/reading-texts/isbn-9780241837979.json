@@ -1,0 +1,61 @@
+{
+  "id": "isbn-9780241837979",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este libro se orienta a lectores a partir de 7 años interesados en combates ninja y conflictos fantásticos. La amenaza de modificar destinos, junto con una minifigura y piezas para montar, lo distancia de los cuentos realistas o puramente narrativos.",
+      "evidencias": [
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de DK se publica en tapa dura, con 128 páginas en castellano. Reúne la narración de Jed King, ilustraciones en blanco y negro de Leo Trinidad, una minifigura de Euphrasia y piezas para construir a Dex.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada es a partir de 7 años, con una extensión de 128 páginas. El volumen en tapa dura combina una historia ninja con imágenes en blanco y negro y elementos físicos para montar.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible en esta edición de 128 páginas. Permite alternar la lectura de la misión con la construcción de Dex a partir de las piezas incluidas y el uso de la minifigura de Euphrasia.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Este libro se compara con Pipoka y la Fábrica del Desastre por la presencia de magia y aventuras. Jed King plantea un enfrentamiento por una pluma capaz de cambiar destinos e incorpora una minifigura y piezas, mientras Jose Such relata el recorrido de un cuentacuentos y una marioneta mágica por la Península.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c231f231889f1c6f",
+  "origen": "chatgpt-web"
+}

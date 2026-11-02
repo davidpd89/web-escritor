@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788410442771",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cocina para cara almendras está dirigido a adultos que buscan recetas ilustradas, desde platos sencillos hasta preparaciones más elaboradas, con especial protagonismo de la carne. No encaja con quien prefiera un recetario centrado en cocina vegetariana o un enfoque estrictamente formal, porque Bosco Castro emplea un tono irreverente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Cocina para cara almendras contiene más de 100 recetas ilustradas que abarcan preparaciones sencillas y otras de mayor elaboración. Incluye filetes, hamburguesas y guisos, con la carne como elemento principal de su propuesta y el humor presente en la manera de explicar la cocina.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cocina para cara almendras está disponible en tapa blanda con solapas y tiene 208 páginas. Esta presentación permite consultar las recetas ilustradas directamente en papel y utilizar las solapas como marcadores para localizar una preparación durante su elaboración.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cocina para cara almendras y Curso de cocina - Los básicos son recetarios ilustrados que reúnen instrucciones para preparar platos en casa. Bosco Castro presenta más de 100 recetas con predominio de la carne y un tono irreverente, mientras Louis Girod explica paso a paso más de 60 recetas básicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241831380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d14c1347c64bdb8e",
+  "origen": "chatgpt-web"
+}

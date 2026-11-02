@@ -1,0 +1,65 @@
+{
+  "id": "isbn-9791388042416",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Clue. El misterio del reloj se dirige a lectores jóvenes interesados en investigaciones criminales de ficción, pistas y búsquedas con peligro. No plantea una biografía ni una reconstrucción documental de un delito: sigue a un grupo de personajes que intenta recuperar un reloj robado mientras se enfrenta a sospechosos y situaciones arriesgadas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Duomo Ediciones publica Clue. El misterio del reloj en una nueva edición de tapa dura con 192 páginas. El volumen está escrito por JØRN LIER HORST e incorpora ilustraciones de David G. Forés a la narración de misterio, manteniendo el texto en castellano.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "autores",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Clue. El misterio del reloj aborda la investigación de un robo que afecta a una joyería y provoca la desaparición de oro, joyas y un reloj valioso. La búsqueda combina indicios, diarios secretos, huéspedes sospechosos y encuentros con fugitivos; el enfoque es el de una aventura detectivesca de ficción donde resolver el caso implica asumir riesgos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Clue. El misterio del reloj se ofrece en tapa dura y tiene 192 páginas. Esta presentación reúne el thriller juvenil y las ilustraciones de David G. Forés en un volumen físico, lo que permite alternar la narración de las pesquisas con las imágenes que acompañan al relato.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Clue. El misterio bajo el agua y Clue. El misterio del reloj son títulos de JØRN LIER HORST agrupados en Misterio y thriller. El primero sitúa su incógnita bajo el agua desde el propio título; el segundo parte del asalto a una joyería y sigue la búsqueda de un reloj sustraído, con pistas y personajes sospechosos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387574949"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "224179d7253dc99d",
+  "origen": "chatgpt-web"
+}

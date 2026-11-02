@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788423441051",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo ganar una guerra comercial se dirige a lectores interesados en la economía internacional y las consecuencias políticas de los aranceles. Su enfoque sobre el comercio global lo aleja de la narrativa bélica: trata los conflictos económicos entre países, no una guerra contada como ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un libro de análisis económico y político sobre las disputas comerciales y sus consecuencias internacionales. Soumaya Keynes y Chad P. Bown examinan el retorno de los aranceles y sitúan las relaciones comerciales en un contexto de conflictos armados y rivalidades geopolíticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo ganar una guerra comercial se publica en tapa blanda, con una encuadernación rústica con solapas. Sus 424 páginas permiten abordar el análisis en papel y regresar a los apartados sobre comercio internacional y política arancelaria para consultar cuestiones concretas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo ganar una guerra comercial comparte con El vuelo de los gansos el interés por las relaciones de poder, pero se ocupa de disputas económicas en lugar de enfrentamientos motivados por principios. Los pilares de la historia también plantea cómo comprender un mundo en crisis, aunque desde la reflexión histórica y no desde las políticas comerciales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375040",
+        "isbn-9788430629664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "58fe581fb5b70f87",
+  "origen": "chatgpt-web"
+}

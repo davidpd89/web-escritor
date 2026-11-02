@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788411078474",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Urkinaona se dirige a lectores de narrativa contemporánea interesados en los conflictos políticos y sus consecuencias para distintos personajes. Quien busque una historia desligada de la actualidad política encontrará aquí una trama situada durante las protestas de Barcelona de octubre de 2019.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Urkinaona es una novela coral ambientada en Barcelona durante las movilizaciones de octubre de 2019, posteriores a la sentencia del Tribunal Supremo sobre los líderes del procés. Eva Blanch entrelaza el conflicto que ocupa las calles con la experiencia de una adolescente descontenta cuya historia queda vinculada a las protestas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Urkinaona se ofrece en tapa blanda, mediante una edición rústica con solapas de 288 páginas. Esta presentación permite leerla y conservarla en papel, así como transportar el ejemplar sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a91abe4c74807007",
+  "origen": "chatgpt-web"
+}

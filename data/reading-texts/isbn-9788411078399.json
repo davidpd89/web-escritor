@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9788411078399",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El portero encaja con lectores de narrativa contemporánea interesados en el exilio y en la vida dentro de un rascacielos de Nueva York. Quien busque un relato de integración sin fricciones encontrará lo contrario: un portero cubano que no logra adaptarse al estilo de vida estadounidense.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El portero presenta la vida de un rascacielos de Nueva York desde la perspectiva de un trabajador cubano exiliado. El conflicto que sostiene esta novela de narrativa contemporánea es su extrañamiento ante las costumbres estadounidenses, observado a través de la rutina y los habitantes del edificio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El portero puede leerse en tapa blanda o en Kindle. La edición en papel es rústica con solapas y tiene 232 páginas; Kindle permite llevar la lectura en un dispositivo compatible o en el móvil sin cargar con el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e560e94b3e82878",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788401039928",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El canto del cisne, de Charles Spencer, se dirige a adultos interesados en memorias personales sobre Diana y su entorno familiar. La infancia compartida, el matrimonio real, la presión de la prensa y la muerte de su hermana atraviesan el relato. Encaja menos con quien busca una novela de ficción o una aproximación impersonal a la historia de la monarquía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje es el vínculo entre hermanos, desde la infancia y el divorcio de sus padres hasta la muerte de Diana. Charles Spencer incorpora recuerdos de la vida familiar, el paso de su hermana a la esfera pública y el deterioro del matrimonio real. La persecución de la prensa y el duelo aportan una perspectiva personal a acontecimientos conocidos públicamente.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En tapa dura con sobrecubierta, El canto del cisne ofrece 376 páginas en papel para recorrer los recuerdos de Charles Spencer. Esta presentación permite volver a episodios familiares concretos y conservar el volumen en una estantería. La lectura se realiza directamente sobre las páginas, sin depender de una pantalla o de la reproducción de audio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esas muchachas que escriben poemas, de Alba Donati, comparte el interés por las vidas de mujeres, pero dirige la atención a distintas figuras vinculadas a la poesía. El canto del cisne, de Charles Spencer, concentra la mirada en Diana y adopta la perspectiva de su hermano. Frente a esa pluralidad de figuras literarias, aquí domina una relación familiar marcada por la exposición pública y la pérdida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788426434272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "64cb5965ef57cecf",
+  "origen": "chatgpt-web"
+}

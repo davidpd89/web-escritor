@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788449346026",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Destroza este diario. Diversión EXTREMA está pensado para quienes buscan ocio creativo y quieren intervenir en las páginas de un libro. No es una lectura narrativa convencional: la propuesta de Keri Smith gira en torno a romper, pintar, manchar y experimentar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Propone una experiencia participativa centrada en transformar el propio libro mediante acciones creativas. En lugar de seguir el argumento de una novela, el lector utiliza las páginas para probar formas de pintar, romper o dejar marcas, dentro de una edición que intensifica las propuestas creativas.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Destroza este diario. Diversión EXTREMA se presenta en tapa blanda, con encuadernación rústica sin solapas y 256 páginas. El soporte de papel permite realizar las intervenciones materiales que plantea Keri Smith, desde pintar hasta manchar o romper hojas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Destroza este diario. Diversión EXTREMA y Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?) plantean maneras de utilizar un libro más allá de seguir una ficción. Keri Smith propone alterar físicamente las páginas; Elma van Vliet presenta una obra vinculada a contar la historia familiar y regalarla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039836"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a1514c1673b5fc2f",
+  "origen": "chatgpt-web"
+}

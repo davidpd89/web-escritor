@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9791388042539",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tirano, de Conn Iggulden, encaja con lectores interesados en la ficción histórica sobre el poder imperial, las conspiraciones familiares y las disputas sucesorias. La acción se sitúa en la Roma de Claudio, Agripina y Nerón, con el nombramiento del heredero como detonante político. No está orientado a quien busque una historia ambientada en el presente o alejada de las luchas dinásticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Tirano desarrolla una intriga histórica sobre la sucesión imperial romana en el año 50 d. C. Claudio contrae matrimonio con Agripina y designa heredero a Nerón, lo que altera las relaciones de poder dentro de la familia gobernante. La ambición política y las tensiones entre madre e hijo sostienen un conflicto en el que las alianzas familiares pueden convertirse en amenazas.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tirano se presenta en tapa blanda, con 448 páginas en castellano publicadas por Duomo Ediciones. Este formato permite recorrer una narración histórica extensa en papel, consultar pasajes anteriores y conservar el ejemplar en la biblioteca. La extensión también conviene tenerla en cuenta si se prefiere transportar libros ligeros durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "37b501db507051af",
+  "origen": "chatgpt-web"
+}

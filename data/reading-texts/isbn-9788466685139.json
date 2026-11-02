@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788466685139",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El efecto creativo se dirige a adultos interesados en aplicar la creatividad a la resolución de problemas, la comunicación, el liderazgo y las decisiones cotidianas. Su planteamiento se centra en desarrollar una forma de pensar, por lo que no responde a quien busque exclusivamente un manual de técnicas artísticas o de dibujo.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El efecto creativo reúne experiencias profesionales y personales de Iván Jiménez junto con técnicas, herramientas y recursos para ejercitar la creatividad. Su contenido aborda cómo comunicar mejor, buscar soluciones alternativas, aprender de los errores y gestionar el estrés, además de examinar el papel de la creatividad humana ante la inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El efecto creativo se publica en tapa blanda con solapas, con una extensión de 208 páginas. El volumen físico permite señalar las técnicas que se quieran probar y anotar aplicaciones personales junto a los contenidos, para volver a consultarlos tanto en el ámbito profesional como en la vida diaria.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El efecto creativo y Cariño, ¿y este recibo? se ocupan de decisiones prácticas, aunque el segundo aborda la gestión de las cuentas en pareja y el primero trabaja la creatividad personal y profesional. Cómo ganar una guerra comercial se centra en las transformaciones del comercio global, mientras Iván Jiménez propone herramientas aplicables al trabajo y a situaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431332",
+        "isbn-9788423441051"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "08faad453541c824",
+  "origen": "chatgpt-web"
+}
