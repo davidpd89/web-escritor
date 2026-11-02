@@ -24,6 +24,14 @@ class PlanetaSourceTests(unittest.TestCase):
         self.assertEqual(record['fuentes_autores']['Alana S. Portero'], 'https://www.planetadelibros.com/autor/alana-s-portero/000059415')
         self.assertLessEqual(len(record['sinopsis_breve'].split()), 25, 'Solo un extracto breve, nunca la sinopsis completa')
 
+    def test_age_band_comes_from_the_topics_row_and_is_not_a_subject(self):
+        self.assertEqual(planeta_edition(PAGE, URL)['edad_recomendada'], '')
+        kids = PAGE.replace('<li><a href="https://www.planetadelibros.com/libros/novela-literaria/00012">Novela literaria</a></li>',
+                            '<li><a href="https://www.planetadelibros.com/libros/de-9-a-12-anos/00099">De 9 a 12 años</a></li>'
+                            '<li><a href="https://www.planetadelibros.com/libros/novela-literaria/00012">Novela literaria</a></li>')
+        record = planeta_edition(kids, URL)
+        self.assertEqual((record['edad_recomendada'], record['materias']), ('De 9 a 12 años', ['Novela literaria']))
+
     def test_rejects_other_hosts_and_changed_canonical(self):
         with self.assertRaises(SourceError):
             planeta_edition(PAGE, 'https://evil.example/libro-cosamala/458658')

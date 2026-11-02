@@ -37,7 +37,8 @@ class PlainParagraphs(HTMLParser):
         self.paragraphs, self.parts, self.ignored = [], [], 0
 
     def flush(self):
-        text = ' '.join(' '.join(self.parts).split())
+        # Las etiquetas en línea (<em>, <b>) no separan palabras: «<em>Título</em>, de» queda «Título, de».
+        text = ' '.join(''.join(self.parts).split())
         if text:
             self.paragraphs.append(text)
         self.parts = []
@@ -114,7 +115,8 @@ def editorial_synopsis(value):
             continue
         kept.append(text)
     full = PARAGRAPH_BREAK.join(dict.fromkeys(kept))
-    if len(full.split()) < 10:
+    # Una página con bytes UTF-8 rotos (Penguin corta «está» en un byte) no deja una sinopsis con U+FFFD.
+    if len(full.split()) < 10 or '\ufffd' in full:
         return ''
     if len(full) > SYNOPSIS_MAX:
         cut = full[:SYNOPSIS_MAX]

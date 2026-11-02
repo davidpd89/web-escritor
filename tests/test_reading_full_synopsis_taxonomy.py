@@ -1,5 +1,7 @@
 """Sinopsis completa en la ficha y taxonomía canónica de las materias editoriales."""
 import importlib.util
+import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -35,6 +37,25 @@ class FullSynopsisTests(unittest.TestCase):
         self.assertNotIn('extraordinaria', full)
         self.assertEqual(full.count('\n\n'), 1)
         self.assertFalse(editorial_excerpt(HTML).endswith('margen.'))
+
+    def test_broken_utf8_never_becomes_a_full_synopsis(self):
+        # Penguin sirve a veces un byte UTF-8 cortado («estÃ</BR>»): decodificado con replace deja U+FFFD.
+        page = '<p>' + 'En este libro aprenderás a detectar si alguno de tus órganos est' + '�' + ' sufriendo y cómo cuidarlo.</p>'
+        self.assertEqual(editorial_synopsis(page), '')
+
+    def test_inline_tags_do_not_add_spaces_before_punctuation_or_inside_words(self):
+        html = '<p>En <em>El paraíso perdido</em>, de Milton, el arcángel revela una histo<b>ria</b> futura que Eva no debe escuchar nunca.</p>'
+        self.assertEqual(editorial_synopsis(html), 'En El paraíso perdido, de Milton, el arcángel revela una historia futura que Eva no debe escuchar nunca.')
+        self.assertIn('perdido, de', editorial_excerpt(html))
+
+    def test_published_synopses_have_no_space_before_punctuation(self):
+        data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+        bad = [b['id'] for b in data['libros'] for k in ('sinopsis_completa', 'sinopsis_breve') if re.search(r'\w [,.;:)]', b.get(k) or '')]
+        self.assertEqual(bad, [])
+
+    def test_month_only_publication_date_still_reaches_the_book_schema(self):
+        page = (ROOT / 'recomendaciones/libros/eva-esta-dormida-9788410171817/index.html').read_text(encoding='utf-8')
+        self.assertIn('"datePublished": "2026-04"', page)
 
     def test_too_short_text_is_not_a_synopsis(self):
         self.assertEqual(editorial_synopsis('<p>Novela negra.</p>'), '')
@@ -132,7 +153,7 @@ class TaxonomyTests(unittest.TestCase):
         for duplicate in ('tema-narrativa', 'tema-novela-literaria', 'tema-tematicas', 'tema-salud', 'tema-manga'):
             self.assertNotIn(duplicate, ids)
         edad = sorted((c for c in data['categorias'] if c['id'].startswith('edad-')), key=lambda c: c['orden'])
-        ages = [int(''.join(ch for ch in c['id'].split('-a-')[0] if ch.isdigit()) or 0) for c in edad]
+        ages = [int(next(iter(re.findall(r'\d+', c['id'])), 0)) for c in edad]
         self.assertEqual(ages, sorted(ages))
 
 

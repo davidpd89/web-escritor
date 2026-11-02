@@ -62,6 +62,17 @@ class EnrichmentTests(unittest.TestCase):
         with self.assertRaises(SourceError):
             classify({'materias': [''], 'edad_recomendada': 'Adultos'}, {'categorias': []})
 
+    def test_age_band_from_the_age_field_gets_the_same_filter_as_a_penguin_age_subject(self):
+        data = {'categorias': [{'id': 'infantil', 'tipo': 'genero'}, {'id': 'juvenil', 'tipo': 'edad'}]}
+        kids = classify({'materias': ['Fantasía'], 'edad_recomendada': 'De 9 a 12 años'}, data)
+        self.assertIn('edad-de-9-a-12-anos', kids)
+        self.assertIn('infantil', kids)
+        self.assertEqual(next(c for c in data['categorias'] if c['id'] == 'edad-de-9-a-12-anos')['tipo'], 'edad')
+        teen = classify({'materias': ['Fantasía'], 'edad_recomendada': 'A partir de 16 años'}, data)
+        self.assertIn('juvenil', teen)
+        self.assertNotIn('infantil', teen)
+        self.assertEqual(classify({'materias': ['A partir de 7 años'], 'edad_recomendada': ''}, data)[:2], ['edad-a-partir-de-7-anos', 'infantil'])
+
     def test_publisher_selection_does_not_restrict_genres(self):
         for genre in ['Cocina', 'Poesía', 'Ciencia', 'Infantil', 'Fantasía']:
             self.assertTrue(relevant_publisher({'slug':'editorial', 'name':'Editorial',
