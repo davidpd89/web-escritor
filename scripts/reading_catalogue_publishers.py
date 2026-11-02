@@ -14,6 +14,8 @@ from reading_intake_core import normalize_text
 
 SMALL_WORDS = {'de', 'del', 'la', 'las', 'el', 'los', 'y', 'e', 'en', 'para', 'a'}
 GROUPS = {'www.penguinlibros.com': 'Penguin Random House Grupo Editorial', 'www.planetadelibros.com': 'Grupo Planeta'}
+# Fuentes que no son de una editorial: el grupo lo da la propia ficha (datos del fabricante).
+SOURCE_TITLES = {'www.todostuslibros.com': 'Ficha del libro en todostuslibros.com (CEGAL)'}
 _VALID_NAME = re.compile(r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9][A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9 &.,'’·-]{1,58}\Z")
 _GENERIC = {'editorial', 'varios', 'sin editorial', 'desconocida', 'n/a'}
 
@@ -41,7 +43,7 @@ class PublisherError(ValueError):
 
 
 def catalogue_publisher(raw_name: str, store: dict, source_url: str, today: str, *,
-                        directory_names: set[str], directory_slugs: set[str]) -> dict:
+                        directory_names: set[str], directory_slugs: set[str], group: str = '') -> dict:
     """Devuelve (y registra si falta) el sello del catálogo para `raw_name`.
 
     `directory_names` son los nombres/alias normalizados de TODO el directorio: si el nombre ya
@@ -54,8 +56,10 @@ def catalogue_publisher(raw_name: str, store: dict, source_url: str, today: str,
     if key in directory_names:
         raise PublisherError('El sello ya existe en el directorio: añadir un alias en la configuración')
     host = urlsplit(source_url).hostname
-    if host not in GROUPS:
+    group = GROUPS.get(host) or (group if host in SOURCE_TITLES else '')
+    if not group or not 2 <= len(group) <= 80:
         raise PublisherError('Fuente de sello no revisada')
+    title = SOURCE_TITLES.get(host, 'Ficha oficial de un libro del sello')
     slug = slugify(name)
     if not slug or slug in directory_slugs:
         raise PublisherError('Identificador de sello ambiguo con el directorio')
@@ -64,10 +68,10 @@ def catalogue_publisher(raw_name: str, store: dict, source_url: str, today: str,
             if normalize_text(item['nombre']) != key:
                 raise PublisherError('Dos sellos distintos comparten identificador')
             if source_url not in {s['url'] for s in item['fuentes']} and len(item['fuentes']) < 5:
-                item['fuentes'].append({'titulo': 'Ficha oficial de un libro del sello', 'url': source_url})
+                item['fuentes'].append({'titulo': title, 'url': source_url})
             return item
-    item = {'slug': slug, 'nombre': name, 'grupo': GROUPS[host],
-            'fuentes': [{'titulo': 'Ficha oficial de un libro del sello', 'url': source_url}],
+    item = {'slug': slug, 'nombre': name, 'grupo': group,
+            'fuentes': [{'titulo': title, 'url': source_url}],
             'fecha_verificacion': today}
     store['editoriales'].append(item)
     store['editoriales'].sort(key=lambda p: p['slug'])
