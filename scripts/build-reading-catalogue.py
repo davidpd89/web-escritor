@@ -365,16 +365,18 @@ def own_meta_description(b):
     t = OWN_TEXTS.get(b['id'])
     if not t:
         return None
-    facts = [b.get('formato_edicion', '').replace('-', ' '), f"{b['numero_paginas']} páginas" if b.get('numero_paginas') else '',
-             age_phrase(b.get('edad_recomendada', ''))]
-    facts = ', '.join(f for f in facts if f)
-    # Cabe en 160 sin cortar frases: primero cae el segundo tema y después la nota de edición o la serie del título.
-    for name in short_titles(b['titulo']):
-        for n in (2, 1):
-            topics = ' y '.join(MODULE_TITLES[x['modulo']].lower() for x in t['bloques'][:n])
-            text = f"{name}, de {', '.join(b['autores'])}" + (': ' + facts if facts else '') + '. Antes de elegirlo: ' + topics + '.'
-            if len(text) <= 160:
-                return text
+    fmt, pages, age = (b.get('formato_edicion', '').replace('-', ' '), f"{b['numero_paginas']} páginas" if b.get('numero_paginas') else '',
+                       age_phrase(b.get('edad_recomendada', '')))
+    # Cabe en 160 sin cortar frases: primero cae el segundo tema y después la nota de edición o la serie del título;
+    # si aún no cabe (autorías largas), los datos de la edición se recortan: páginas, formato y por último la edad.
+    for parts in ((fmt, pages, age), (fmt, age), (age,), ()):
+        facts = ', '.join(f for f in parts if f)
+        for name in short_titles(b['titulo']):
+            for n in (2, 1):
+                topics = ' y '.join(MODULE_TITLES[x['modulo']].lower() for x in t['bloques'][:n])
+                text = f"{name}, de {', '.join(b['autores'])}" + (': ' + facts if facts else '') + '. Antes de elegirlo: ' + topics + '.'
+                if len(text) <= 160:
+                    return text
     return text
 
 
@@ -729,8 +731,11 @@ def render_llms_index(data, books, authors, publishers):
                   if (names := [c['nombre'] for c in cats if c['tipo'] == tipo])]
         age = b.get('edad_recomendada') or ', '.join(c['nombre'] for c in cats if c['tipo'] == 'edad')
         who = own_summary(b)
-        facts += [age and 'Edad: ' + age, who and 'Para quién es: ' + who]
-        head = f"- [{b['titulo']}]({SITE}{url(b)}): " + '. '.join(f.rstrip('.') for f in facts if f) + '. Sinopsis de la editorial: '
+        facts += [age and 'Edad: ' + age]
+        head = f"- [{b['titulo']}]({SITE}{url(b)}): " + '. '.join(f.rstrip('.') for f in facts if f) + '. '
+        # El «Para quién es» cede espacio para que la sinopsis conserve al menos 60 caracteres sin pasar de 690.
+        who = who and clip(who, max(40, 690 - 60 - len(head) - len('Para quién es: . Sinopsis de la editorial: ')))
+        head += (who and 'Para quién es: ' + who.rstrip('.') + '. ') + 'Sinopsis de la editorial: '
         # Cada línea cabe en 700 caracteres: la sinopsis de la editorial se queda con el espacio que deja lo propio.
         synopsis = clip(b['sinopsis_breve'], max(60, min(300, 690 - len(head))))
         lines.append(head + synopsis.rstrip('.') + ('' if synopsis.endswith('…') else '.'))
