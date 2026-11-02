@@ -31,6 +31,12 @@ for local_date in [(2026,1,15),(2026,7,15),(2026,3,29),(2026,10,25)]:
     midnight=datetime(*local_date,0,0,tzinfo=SITE)
     assert scheduled_near(midnight), f'no radar refresh within 30 min after Madrid midnight: {midnight.isoformat()}'
 
+# A failed or delayed midnight run is retried later the same Madrid morning.
+for local_date in [(2026,1,15),(2026,7,15)]:
+    midnight=datetime(*local_date,0,0,tzinfo=SITE)
+    backups=[h*60+m for h,m in crons if 120<=((h*60+m)-(midnight.astimezone(timezone.utc).hour*60))%1440<=420]
+    assert len(backups)>=2, f'radar refresh needs two backup runs 2-7 h after Madrid midnight: {midnight.isoformat()}'
+
 assert "from site_clock import site_today" in WORKFLOW, 'workflow must reuse canonical site_clock instead of duplicating timezone logic'
 assert "paths:\n      - '.github/workflows/radar-clock-refresh.yml'" in WORKFLOW, 'workflow change must self-trigger one immediate refresh on main'
 print(f'PASS radar refresh schedule: {len(crons)} UTC crons cover Madrid midnight in CET/CEST within 30 minutes')

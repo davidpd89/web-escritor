@@ -6,6 +6,11 @@ on:
     # The earlier run is a no-op in winter; the later run is a no-op in summer.
     - cron: '20 22 * * *'
     - cron: '20 23 * * *'
+    # Backups: GitHub delays nightly crons by hours and a failed run (one
+    # external link timeout) must not leave main stale until the next day.
+    # They are no-ops while the radar is current.
+    - cron: '50 1 * * *'
+    - cron: '20 4 * * *'
   push:
     branches: [main]
     paths:
@@ -139,9 +144,10 @@ jobs:
             exit 0
           fi
 
-          # A previous clock refresh may still have an open PR. Each run uses
-          # a new GITHUB_RUN_ID branch; refuse duplicate PRs before writing.
-          python scripts/radar_pr_guard.py --today "${{ steps.clock.outputs.today }}"
+          # A previous clock refresh may still have an open PR. Runs are
+          # serialized (no cancellation), so a same-day PR here belongs to a
+          # finished, failed run: close it before writing a fresh one.
+          python scripts/radar_pr_guard.py --supersede-stale --today "${{ steps.clock.outputs.today }}"
 
           today="${{ steps.clock.outputs.today }}"
           branch="automation/radar-clock-${today}-${GITHUB_RUN_ID}"
