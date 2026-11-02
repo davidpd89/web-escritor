@@ -3,11 +3,11 @@
   "enabled": true,
   "autopublish": true,
   "generate_audio": false,
-  "max_new_books": 60,
-  "max_requests": 400,
+  "max_new_books": 100,
+  "max_requests": 800,
   "request_delay_seconds": 1.5,
   "lookback_days": 365,
-  "preorder_days": 30,
+  "preorder_days": 180,
   "amazon_partner_tag": "davidporto-21",
   "sources": [
     {
@@ -18,6 +18,10 @@
       ],
       "index_urls": [
         "https://www.penguinlibros.com/es/content/113-novedades-en-libros",
+        "https://www.penguinlibros.com/es/content/113-novedades-en-libros?page=2",
+        "https://www.penguinlibros.com/es/content/113-novedades-en-libros?page=3",
+        "https://www.penguinlibros.com/es/content/113-novedades-en-libros?page=4",
+        "https://www.penguinlibros.com/es/content/113-novedades-en-libros?page=5",
         "https://www.penguinlibros.com/es/"
       ],
       "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
@@ -30,7 +34,20 @@
         "www.planetadelibros.com"
       ],
       "index_urls": [
-        "https://www.planetadelibros.com/libros-novedades/p/1"
+        "https://www.planetadelibros.com/libros-proximamente/p/1",
+        "https://www.planetadelibros.com/libros-proximamente/p/2",
+        "https://www.planetadelibros.com/libros-proximamente/p/3",
+        "https://www.planetadelibros.com/libros-proximamente/p/4",
+        "https://www.planetadelibros.com/libros-proximamente/p/5",
+        "https://www.planetadelibros.com/libros-proximamente/p/6",
+        "https://www.planetadelibros.com/libros-novedades/p/1",
+        "https://www.planetadelibros.com/libros-novedades/p/2",
+        "https://www.planetadelibros.com/libros-novedades/p/3",
+        "https://www.planetadelibros.com/libros-novedades/p/4",
+        "https://www.planetadelibros.com/libros-novedades/p/5",
+        "https://www.planetadelibros.com/libros-novedades/p/6",
+        "https://www.planetadelibros.com/libros-novedades/p/7",
+        "https://www.planetadelibros.com/libros-novedades/p/8"
       ],
       "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
       "enabled": true
