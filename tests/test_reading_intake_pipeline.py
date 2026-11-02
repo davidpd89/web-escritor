@@ -326,5 +326,42 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(final['libros'][1], refreshed['libros'][1])
 
 
+    def test_thin_candidate_waits_instead_of_breaking_the_batch(self):
+        """Sinopsis corta y sin páginas: solo admite «para quién»; queda pendiente y no tumba la puerta de tests."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'data').mkdir()
+            source = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+            source['libros'], source['libro_categorias'] = [], []
+            (root / 'data/reading-catalogue.json').write_text(json.dumps(source), encoding='utf-8')
+            (root / 'data/reading-authors.json').write_text(json.dumps({'schema_version': 1, 'autores': []}), encoding='utf-8')
+            shutil.copy(ROOT / 'data/editoriales.json', root / 'data/editoriales.json')
+            (root / 'editoriales/salamandra').mkdir(parents=True); (root / 'editoriales/salamandra/index.html').touch()
+            index = 'https://www.penguinlibros.com/es/'
+            thin = document(description='<p>Una viajera sigue una carta olvidada hasta una ciudad sin nombre.</p>', features=[f for f in json.loads(html.unescape(re.search(r'data-product="([^"]+)"', document()).group(1)))['features']
+                                      if f['name'] != 'Páginas'])
+            image = io.BytesIO(); Image.new('RGB', (600, 900), 'green').save(image, 'PNG')
+            responses = {index: ('<a href="' + URL + '">book</a>').encode(), URL: thin.encode(),
+                         'https://www.penguinlibros.com/es/123-cover/prueba.jpg': image.getvalue()}
+            class FakeHTTP:
+                def __init__(self, *args, **kwargs):
+                    self.requests = self.hits = 0; self.budget = 80
+                def get(self, url, **kwargs):
+                    self.requests += 1
+                    return responses[url]
+            config = json.loads((ROOT / 'data/reading-intake-config.json').read_text(encoding='utf-8'))
+            config['sources'][0]['index_urls'] = [index]
+            config['sources'] = config['sources'][:1]
+            config['generate_audio'] = False
+            config['author_wikipedia']['enabled'] = False
+            with patch.object(pipeline, 'CachedHTTP', FakeHTTP):
+                result = pipeline.ingest(config, root, root / '.cache', apply=True, today='2026-10-20')
+            self.assertEqual((result['stats']['accepted'], result['stats']['pending']), (0, 1))
+            item = result['state']['items']['isbn13:9780140328721']
+            self.assertEqual(item['estado_ingesta'], 'pendiente_datos')
+            self.assertIn('Datos insuficientes para orientar', item['motivo'])
+            self.assertEqual(json.loads((root / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros'], [])
+
+
 if __name__ == '__main__':
     unittest.main()
