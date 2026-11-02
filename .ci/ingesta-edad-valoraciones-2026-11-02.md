@@ -10,9 +10,19 @@
 - **PR #1057** (`wt-ingesta`): hasta 60 fichas nuevas por noche y un motivo para cada `sin_oferta` en `prices-report.json`.
 - **PR #1052**: regenerados `assets/page-order.generated.js` y `editoriales/duomo-ediciones/index.html`. Estaban desfasados tras normalizar los autores en mayúsculas (`JØRN LIER HORST`).
 
+- **PR #1058, commits posteriores:**
+  - Las sinopsis ya no dejan espacios antes de la puntuación cuando el original lleva `<em>`. Corregidas 26 fichas.
+  - `datePublished` admite fechas de solo mes (las 9 de Periférica).
+  - QA de navegador `qa/catalogue-facet-count-parity.mjs`, conectado a `recommendations-browser-qa.yml`. Recorre las 70 opciones de filtro con libros y comprueba el recuento de la etiqueta, el contador, las tarjetas visibles, el enlace con `#faceta=valor` y la búsqueda sin resultados. Detecta un filtro de grupo roto a propósito.
+  - `backfill-reading-metadata.py`:
+    - rellena `sinopsis_completa` cuando falta, pero respeta `resumen_propio`, igual que la ingesta;
+    - decodifica con `errors='replace'`.
+  - `editorial_synopsis` descarta el texto si contiene U+FFFD: Penguin sirve «Sana tus células» con un byte UTF-8 cortado.
+  - `lib-0001` (Coraline) no tiene sinopsis completa a propósito: es un resumen propio.
+
 ## Verificado
 - `wt-edad`:
-  - `pytest tests/test_reading*.py`: 237 tests OK;
+  - `pytest tests/test_reading*.py`: 244 tests OK (último commit);
   - `--check` del catálogo, el shell, el sitemap y pagefind, más los presupuestos y las versiones de assets: OK.
 - `wt-fichas-ui`:
   - `test-editoriales-builder-parity-v1`: OK;

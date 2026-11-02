@@ -38,6 +38,11 @@ class FullSynopsisTests(unittest.TestCase):
         self.assertEqual(full.count('\n\n'), 1)
         self.assertFalse(editorial_excerpt(HTML).endswith('margen.'))
 
+    def test_broken_utf8_never_becomes_a_full_synopsis(self):
+        # Penguin sirve a veces un byte UTF-8 cortado («estÃ</BR>»): decodificado con replace deja U+FFFD.
+        page = '<p>' + 'En este libro aprenderás a detectar si alguno de tus órganos est' + '�' + ' sufriendo y cómo cuidarlo.</p>'
+        self.assertEqual(editorial_synopsis(page), '')
+
     def test_inline_tags_do_not_add_spaces_before_punctuation_or_inside_words(self):
         html = '<p>En <em>El paraíso perdido</em>, de Milton, el arcángel revela una histo<b>ria</b> futura que Eva no debe escuchar nunca.</p>'
         self.assertEqual(editorial_synopsis(html), 'En El paraíso perdido, de Milton, el arcángel revela una historia futura que Eva no debe escuchar nunca.')
