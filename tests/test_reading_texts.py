@@ -6,6 +6,7 @@ import copy
 import os
 import importlib.util
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -73,6 +74,18 @@ class ReadingTextsTest(unittest.TestCase):
     def test_git_output_is_read_as_utf8_whatever_the_console_codepage(self):
         data = json.loads(texts.git('show', 'HEAD:data/reading-catalogue.json', capture=True))
         self.assertTrue(any('ñ' in json.dumps(b, ensure_ascii=False) or 'á' in json.dumps(b, ensure_ascii=False) for b in data['libros']))
+
+    def test_publish_stages_thousands_of_long_paths_without_hitting_the_command_line_limit(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            texts.git('init', '-q', cwd=repo)
+            paths = [f'recomendaciones/libros/{"una-ficha-con-un-titulo-muy-largo-" * 2}{i:04d}/index.html' for i in range(500)]
+            for rel in paths:
+                (repo / rel).parent.mkdir(parents=True)
+                (repo / rel).write_text('x', encoding='utf-8')
+            self.assertGreater(sum(len(p) + 1 for p in paths), 32767)
+            texts.git_add(paths, cwd=repo)
+            self.assertEqual(len(texts.git('diff', '--cached', '--name-only', cwd=repo, capture=True).splitlines()), len(paths))
 
     def test_generic_format_names_are_not_unbacked_entities(self):
         errors = self.check(texto='Propone una historia con un conflicto central claro; el ISBN identifica esta edición y existe versión Kindle aparte.')[1]
