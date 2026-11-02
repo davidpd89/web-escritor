@@ -282,6 +282,7 @@ TEXTS_DIR = 'data/reading-texts'
 OWN_TEXTS = {}
 # Títulos visibles de cada módulo de orientación (scripts/reading-texts.py decide cuáles admite cada familia).
 MODULE_TITLES = {
+    'para_quien': 'Para quién es',
     'edad_y_sensibilidad': 'Edad recomendada y contenido',
     'encaje_documentado': 'Qué tipo de lectura propone',
     'esta_edicion': 'Qué distingue esta edición',
@@ -289,6 +290,8 @@ MODULE_TITLES = {
     'contenido_y_uso': 'Qué incluye y cómo está organizado',
     'como_se_utiliza': 'Cómo se juega con este libro',
     'edad_y_formato': 'Edad y características del libro',
+    'que_formato_elegir': 'Qué formato elegir',
+    'lecturas_afines': 'Con qué otros libros compararlo',
 }
 
 
@@ -304,18 +307,30 @@ def load_own_texts(root):
     return texts
 
 
-def own_text_section(b):
+def own_block_html(x, live):
+    """Un módulo; las comparaciones enlazan cada título a su ficha y desaparecen si un afín ya no está publicado."""
+    text = esc(x['texto'])
+    for i in x.get('enlaces', []):
+        if i not in live:
+            return ''
+        title = esc(live[i]['titulo'])
+        text = text.replace(title, '<a href="' + url(live[i]) + '">' + title + '</a>', 1)
+    return '<h3>' + MODULE_TITLES[x['modulo']] + '</h3><p>' + text + '</p>'
+
+
+def own_text_section(b, data=None):
     """«Antes de elegir este libro»: solo aparece si el libro tiene módulos validados."""
     t = OWN_TEXTS.get(b['id'])
-    if not t:
+    live = {x['id']: x for x in (data or {}).get('libros', []) if x['estado'] == 'publicado'}
+    blocks = ''.join(own_block_html(x, live) for x in t['bloques']) if t else ''
+    if not blocks:
         return ''
-    return ('<section class="catalogue-own-text"><h2>Antes de elegir este libro</h2>' + ''.join(
-        '<h3>' + MODULE_TITLES[x['modulo']] + '</h3><p>' + esc(x['texto']) + '</p>' for x in t['bloques'])
-        + '</section><h2 class="catalogue-synopsis-heading">Sinopsis de la editorial</h2>')
+    return ('<section class="catalogue-own-text"><h2>Antes de elegir este libro</h2>' + blocks
+            + '</section><h2 class="catalogue-synopsis-heading">Sinopsis de la editorial</h2>')
 
 
 def age_phrase(age):
-    return '' if not age else age[0].lower() + age[1:] if age.startswith('A partir') else 'para ' + age.lower()
+    return '' if not age else age[0].lower() + age[1:] if age.startswith(('A partir', 'De ', 'Desde ')) else 'para ' + age.lower()
 
 
 def own_meta_description(b):
@@ -718,7 +733,7 @@ def render_book(data,b,template):
     canonical=SITE+url(b)
     title=book_title(b,data)
     description=own_meta_description(b) or book_meta_description(data,b)
-    own_before=own_text_section(b)
+    own_before=own_text_section(b,data)
     cats=categories(data,b)
     upcoming=b in upcoming_books([book for book in data['libros'] if book['estado'] == 'publicado'])
     rows=[('Edición',b['edicion'].split(' · ')[0]),('ISBN-13',b.get('isbn13')),('Idioma',LANGUAGES.get(b.get('idioma'),b.get('idioma')))]
@@ -743,7 +758,7 @@ def render_book(data,b,template):
         main+='<p><strong>Sobre el contenido:</strong> '+esc(b['avisos_contenido'])+'</p>'
     main+=buy+details+extra+'</div></article>'+related_books(data,b)+'<div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Volver al catálogo</a></div></main>'
     authors=author_records()
-    schema={'@context':'https://schema.org','@graph':[{'@type':'Book','@id':canonical+'#book','url':canonical,'name':b['titulo'],'author':[{'@type':'Person','name':name,**({'@id':SITE+author_url(a)+'#person','url':SITE+author_url(a)} if (a:=next((a for a in authors if a['nombre']==name),None)) else {})} for name in b['autores']],'description':description,'image':SITE+b['portada_local'],'bookEdition':b['edicion'],**({'publisher':{'@type':'Organization','name':b['editorial'],**({'url':SITE+'/editoriales/'+b['editorial_slug']+'/'} if b.get('editorial_slug') else {})}} if b.get('editorial') else {}),**({'inLanguage':b['idioma']} if b.get('idioma') else {}),**({'numberOfPages':b['numero_paginas']} if b.get('numero_paginas') else {}),**({'bookFormat':'https://schema.org/'+{'tapa-dura':'Hardcover','tapa-blanda':'Paperback','ebook':'EBook','audiolibro':'AudiobookFormat'}[b['formato_edicion']]} if b.get('formato_edicion') else {}),**({'genre':g} if (g:=[c['nombre'] for c in cats if c['tipo']=='genero']) else {}),**({'keywords':', '.join(k)} if (k:=[c['nombre'] for c in cats if c['tipo'] in ('tematica','epoca','temporada')]) else {}),**({'audience':{'@type':'PeopleAudience','audienceType':e[0]}} if (e:=[c['nombre'] for c in cats if c['tipo']=='edad']) else {}),**({'sameAs':[b['fuente_bibliografica_url']]} if b.get('fuente_bibliografica_url','').startswith('https://') else {}),**({'isbn':b['isbn13']} if b.get('isbn13') else {}),**({'datePublished':b['fecha_publicacion']} if b.get('fecha_publicacion') and b['fecha_publicacion']<=b['fecha_actualizacion'] else {})},{'@type':'WebPage','@id':canonical+'#page','url':canonical,'name':title,'dateModified':b['fecha_actualizacion'],'mainEntity':{'@id':canonical+'#book'}},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':label,'item':SITE+href} for i,(label,href) in enumerate([('Inicio','/'),('Libros recomendados','/recomendaciones/'),(b['titulo'],url(b))])]}]}
+    schema={'@context':'https://schema.org','@graph':[{'@type':'Book','@id':canonical+'#book','url':canonical,'name':b['titulo'],'author':[{'@type':'Person','name':name,**({'@id':SITE+author_url(a)+'#person','url':SITE+author_url(a)} if (a:=next((a for a in authors if a['nombre']==name),None)) else {})} for name in b['autores']],'description':description,'image':SITE+b['portada_local'],'bookEdition':b['edicion'],**({'publisher':{'@type':'Organization','name':b['editorial'],**({'url':SITE+'/editoriales/'+b['editorial_slug']+'/'} if b.get('editorial_slug') else {})}} if b.get('editorial') else {}),**({'inLanguage':b['idioma']} if b.get('idioma') else {}),**({'numberOfPages':b['numero_paginas']} if b.get('numero_paginas') else {}),**({'bookFormat':'https://schema.org/'+{'tapa-dura':'Hardcover','tapa-blanda':'Paperback','ebook':'EBook','audiolibro':'AudiobookFormat'}[b['formato_edicion']]} if b.get('formato_edicion') else {}),**({'genre':g} if (g:=[c['nombre'] for c in cats if c['tipo']=='genero']) else {}),**({'keywords':', '.join(k)} if (k:=[c['nombre'] for c in cats if c['tipo'] in ('tematica','epoca','temporada')]) else {}),**({'audience':{'@type':'PeopleAudience','audienceType':e[0]}} if (e:=[c['nombre'] for c in cats if c['tipo']=='edad']) else {}),**({'sameAs':[b['fuente_bibliografica_url']]} if b.get('fuente_bibliografica_url','').startswith('https://') else {}),**({'isbn':b['isbn13']} if b.get('isbn13') else {}),**({'datePublished':d} if (d:=b.get('fecha_publicacion') or b.get('fecha_publicacion_parcial')) and d<=b['fecha_actualizacion'] else {})},{'@type':'WebPage','@id':canonical+'#page','url':canonical,'name':title,'dateModified':b['fecha_actualizacion'],'mainEntity':{'@id':canonical+'#book'}},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':label,'item':SITE+href} for i,(label,href) in enumerate([('Inicio','/'),('Libros recomendados','/recomendaciones/'),(b['titulo'],url(b))])]}]}
     if reviews:
         schema['@graph'][0]['review']=[{'@type':'Review','author':{'@type':'Person','name':r['nombre_publico']},'datePublished':r['fecha_envio'],'name':r['titulo_resena'],'reviewBody':r['texto_resena'],'reviewRating':{'@type':'Rating','ratingValue':r['puntuacion'],'bestRating':5,'worstRating':1}} for r in reviews]
         schema['@graph'][0]['aggregateRating']={'@type':'AggregateRating','ratingValue':round(sum(r['puntuacion'] for r in reviews)/len(reviews),2),'ratingCount':len(reviews),'bestRating':5,'worstRating':1}

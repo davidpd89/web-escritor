@@ -69,8 +69,24 @@ except subprocess.CalledProcessError:
 else:
     raise AssertionError("GitHub listing failure must stop publication")
 
+rows = [
+    {"number": 730, "headRefName": "automation/radar-clock-2026-10-23-manual"},
+    {"number": 689, "headRefName": "automation/radar-clock-2026-10-22-39701259246"},
+]
+run, calls = fake_run(rows)
+guard.check_no_open_radar_pr('2026-10-23', run=run, supersede=True)
+closes = [argv for argv, _ in calls if argv[:3] == ["gh", "pr", "close"]]
+assert [argv[3] for argv in closes] == ["730"], closes  # Only today's PR; other days are never touched.
+assert all("--delete-branch" in argv and "--comment" in argv for argv in closes)
+assert all(options["check"] for _, options in calls)
+run, calls = fake_run([])
+guard.check_no_open_radar_pr('2026-10-23', run=run, supersede=True)
+assert len(calls) == 1
+
 workflow = (ROOT / ".github/workflows/radar-clock-refresh.yml").read_text(encoding="utf-8")
-assert 'python scripts/radar_pr_guard.py --today "${{ steps.clock.outputs.today }}"' in workflow
+assert 'python scripts/radar_pr_guard.py --supersede-stale --today "${{ steps.clock.outputs.today }}"' in workflow
 assert workflow.index("python scripts/radar_pr_guard.py") < workflow.index('git switch -c "$branch"')
 assert "GITHUB_RUN_ID" in workflow  # Serialized runs still use independent branches.
-print("PASS radar same-day PR guard: 5 scenarios, malformed input, API failure, guard before branch creation")
+# Superseding is only safe while no other run can be in flight.
+assert "group: refresh-radar-clock" in workflow and "cancel-in-progress: false" in workflow
+print("PASS radar same-day PR guard: 5 scenarios, stale same-day PR superseded, malformed input, API failure, guard before branch creation")
