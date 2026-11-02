@@ -24,6 +24,29 @@ def command(*args):
     subprocess.run(args, cwd=ROOT, check=True)
 
 
+def radar_isbns(config):
+    """Novedades y próximos lanzamientos de Amazon que faltan en el catálogo, más nuevos primero.
+
+    De Amazon solo se usa el ISBN, en esta misma ejecución (su licencia no permite guardar más);
+    la ficha la lee la ingesta en todostuslibros. El informe va a la CI solo con cifras agregadas.
+    """
+    amazon_id = os.getenv('AMAZON_CREATORS_CLIENT_ID', '').strip()
+    amazon_secret = os.getenv('AMAZON_CREATORS_CLIENT_SECRET', '').strip()
+    if not (config.get('amazon_radar', {}).get('enabled') and amazon_id and amazon_secret):
+        return []
+    from reading_amazon_market import CreatorsPrices
+    from reading_amazon_radar import run as amazon_radar
+    isbns, tag = [], config['amazon_partner_tag']
+    try:
+        radar = amazon_radar(CreatorsPrices(amazon_id, amazon_secret, tag), read_json(ROOT / 'data/reading-catalogue.json'),
+                             config.get('publisher_aliases', []), tag, pages=int(config['amazon_radar'].get('pages', 10)), collect=isbns)
+    except (RuntimeError, ValueError, OSError) as exc:  # sin radar, la ingesta sigue con las editoriales
+        radar = {'error': str(exc)[:300]}
+    write_if_changed(ROOT / '.ci/reading-intake/amazon-radar.json', {**radar, 'isbn_a_ingesta': len(isbns)})
+    print('Radar Amazon: ' + json.dumps({**radar, 'isbn_a_ingesta': len(isbns)}, ensure_ascii=True), flush=True)
+    return isbns
+
+
 def refresh(*, publish=False):
     config = read_json(ROOT / 'data/reading-intake-config.json')
     if publish and subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=all'], cwd=ROOT, text=True).strip():
@@ -39,7 +62,7 @@ def refresh(*, publish=False):
         if not publish or publisher.resume_pending(pending[0]):
             print('Carga pendiente conservada: ' + pending[0])
             return
-    report = ingest(config, ROOT, ROOT / '.ci/reading-editorial-cache', apply=publish)
+    report = ingest(config, ROOT, ROOT / '.ci/reading-editorial-cache', apply=publish, isbns=radar_isbns(config))
     write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json', report)
     print(json.dumps(report['stats'], ensure_ascii=True), flush=True)
     if not publish:
