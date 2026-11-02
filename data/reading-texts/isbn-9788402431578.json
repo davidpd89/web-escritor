@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9788402431578",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Resuelve el caso con Mortadelo y Filemón encaja con lectores juveniles que disfrutan resolviendo acertijos y juegos de lógica acompañados de humor gráfico. No responde a quien busque únicamente una historieta para leer de principio a fin sin detenerse a completar actividades.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Resuelve el caso con Mortadelo y Filemón está catalogado como juvenil, aunque sus actividades están planteadas para hacerse individualmente o en familia. El argumento gira en torno al robo de unos diamantes y presenta los conflictos mediante humor, misterios, laberintos y juegos de lógica.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un libro interactivo de misterio y humor que combina viñetas de Mortadelo y Filemón con pasatiempos para resolver un robo. Incluye mortadokus, laberintos, enigmas y otros retos de lógica, organizados alrededor de la recuperación de 10 diamantes escondidos en distintos lugares.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Resuelve el caso con Mortadelo y Filemón se presenta en tapa blanda con solapas y tiene 208 páginas. El formato en papel permite consultar las viñetas y volver a los pasatiempos mientras se resuelven los acertijos, ya sea a solas o compartiendo los retos en familia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Resuelve el caso con Mortadelo y Filemón comparte con Ibáñez Mítico 2 - El preboste de seguridad la autoría de Francisco Ibáñez y el vínculo con la historieta, pero incorpora acertijos que requieren la participación del lector. Atlas de la mitología ilustrado también recurre a contenidos visuales, aunque se centra en la mitología y la cultura en lugar de resolver un misterio humorístico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431936",
+        "isbn-9791388220104"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2b4dcf7a4252e677",
+  "origen": "chatgpt-web"
+}

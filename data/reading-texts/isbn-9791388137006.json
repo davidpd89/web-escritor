@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tor se dirige a lectores adultos interesados en el crimen real y el periodismo narrativo. Su reconstrucción de tres muertes en un conflicto vecinal, con violencia y miedo, lo aleja de quienes buscan una lectura ligera o alejada de sucesos violentos.",
+      "texto": "Tor está orientado a lectores adultos interesados en el periodismo narrativo, las investigaciones de crímenes reales y los conflictos entre comunidades pequeñas. No encaja con quien busque una novela de ficción o prefiera evitar relatos relacionados con muertes, violencia y miedo.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,19 +14,18 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición de Tor publicada por Reservoir Books es la primera en castellano y presenta un texto revisado, acompañado de imágenes y comentarios adicionales. Se publica en tapa blanda con solapas y reúne 408 páginas, con materiales que amplían el contenido respecto a versiones anteriores.",
+      "texto": "Reservoir Books publica Tor por primera vez en castellano en una edición revisada que incorpora imágenes y comentarios. El volumen tiene 408 páginas y se presenta en tapa blanda con solapas, con material añadido a la reconstrucción periodística original.",
       "evidencias": [
-        "titulo",
         "editorial",
-        "edicion",
+        "titulo",
+        "sinopsis_editorial",
         "numero_paginas",
-        "idioma",
-        "sinopsis_editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Tor aborda las disputas por una montaña del Pirineo y las tres muertes relacionadas con sus trece propietarios. Carles Porta reconstruye los hechos mediante el periodismo narrativo y una investigación prolongada sobre la violencia, el miedo y los secretos que rodean el caso.",
+      "texto": "Tor examina un conflicto de propiedad compartida entre trece vecinos de una montaña del Pirineo y las tres muertes asociadas a su historia. Carles Porta aborda los acontecimientos desde el periodismo narrativo y el true crime, mediante una investigación prolongada sobre un territorio marcado por los silencios y la violencia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -35,18 +34,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las 408 páginas de Tor se ofrecen en tapa blanda con solapas, una encuadernación flexible para leer en papel y volver a consultar sus pasajes. Esta presentación también permite hojear directamente las imágenes y los comentarios incorporados a la edición revisada.",
+      "texto": "Tor está disponible en Tapa blanda, con solapas y una extensión de 408 páginas para leer en papel. Este formato permite consultar las imágenes y los comentarios de la edición directamente en el ejemplar físico, aunque requiere llevar el libro en lugar de utilizar un móvil.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion",
         "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tor puede compararse con Clue. El misterio del reloj por el interés que ambos títulos muestran hacia el misterio. Carles Porta reconstruye un caso de tres muertes reales mediante el periodismo narrativo, mientras que Clue. El misterio del reloj anuncia desde su título un enigma relacionado con un reloj.",
+      "texto": "Tor y El canto del cisne abordan hechos vinculados a la muerte, aunque desde perspectivas distintas. Carles Porta reconstruye tres muertes relacionadas con una montaña del Pirineo, mientras que Charles Spencer comparte el dolor por la pérdida de su hermana Diana durante una intervención en la abadía de Westminster.",
       "evidencias": [
         "titulo",
         "autores",
@@ -54,7 +53,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388042416"
+        "isbn-9788401039928"
       ]
     }
   ],

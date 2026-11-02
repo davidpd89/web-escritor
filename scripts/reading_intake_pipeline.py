@@ -385,10 +385,51 @@ def read_edition(source, document, url):
     return planeta_edition(document, url) if source['provider'] == 'planeta' else penguin_edition(document, url)
 
 
-# Techos de una ejecución: 60 fichas nuevas como máximo (cada una pasa las mismas validaciones)
-# y 400 peticiones públicas a las editoriales, a 1,5 s entre peticiones (unos 10 min).
-MAX_NEW_CEILING = 60
-MAX_REQUESTS_CEILING = 400
+# Techos de una ejecución: 120 fichas nuevas como máximo (cada una pasa las mismas validaciones)
+# y 900 peticiones públicas a las editoriales, a 1,5 s entre peticiones (unos 23 min).
+MAX_NEW_CEILING = 120
+MAX_REQUESTS_CEILING = 900
+
+
+def candidate_isbn(url, source, known_urls):
+    # Penguin lleva el ISBN en la URL; Planeta no: se conoce por una ficha ya publicada o se lee de la propia ficha.
+    return url.rsplit('-', 1)[-1].rstrip('/') if source['provider'] == 'penguin' else known_urls.get(url)
+
+
+def read_candidates(queue, refresh_urls, http, limit, existing, known_urls, state, today):
+    """Lee las fichas candidatas para conocer su fecha antes de elegir.
+
+    Van primero las revisiones y después el orden de los índices (próximamente y novedades, de lo
+    nuevo a lo antiguo), por turnos entre fuentes para que una editorial grande no deje sin sitio a
+    las pequeñas. Se reserva presupuesto para cubiertas, sinopsis y biografías.
+    """
+    turns = {}
+    for url, source in queue.items():
+        turns.setdefault(source['id'], []).append(url)
+    rank = {url: (url not in refresh_urls, position) for urls in turns.values() for position, url in enumerate(urls)}
+    reserve = min(http.budget // 4, limit + 20)
+    documents = {}
+    for url, source in sorted(queue.items(), key=lambda item: rank[item[0]]):
+        if http.requests >= http.budget - reserve:
+            break
+        isbn = candidate_isbn(url, source, known_urls)
+        key = 'isbn13:' + isbn if isbn else 'url:' + url
+        if (isbn in existing and url not in refresh_urls) or state['items'].get(key, {}).get('retry_after', '') > today:
+            continue
+        try:
+            documents[url] = read_edition(source, http.get(url, ttl=7 * 86400).decode('utf-8', errors='replace'), url)
+        except (OSError, ValueError, KeyError, TypeError, TimeoutError) as exc:
+            documents[url] = exc
+    return documents
+
+
+def by_date(queue, refresh_urls, documents):
+    """Revisiones primero; después lo que sale antes de lo ya publicado, de la fecha más reciente a la más antigua."""
+    def published(item):
+        record = documents.get(item[0])
+        return record.get('fecha_publicacion_edicion', '') if isinstance(record, dict) else ''
+    ordered = sorted(queue.items(), key=published, reverse=True)
+    return sorted(ordered, key=lambda item: item[0] not in refresh_urls)
 
 
 def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False, today=None):
@@ -462,20 +503,11 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
             source_dir = root / 'assets' / folder
             if source_dir.exists():
                 shutil.copytree(source_dir, validation_root / 'assets' / folder)
-        # Primero las revisiones; después, por turnos entre fuentes (el índice de una editorial grande
-        # no deja sin sitio a las pequeñas) y, dentro de cada fuente, en un orden fijo por día.
-        by_source = {}
-        for url, source in sorted(queue.items(), key=lambda item: hashlib.sha256((today + item[0]).encode()).hexdigest()):
-            by_source.setdefault(source['id'], []).append((url, source))
-        rank = {url: position for entries in by_source.values() for position, (url, _) in enumerate(entries)}
-        ordered = sorted(queue.items(), key=lambda item: (
-            item[0] not in refresh_urls, rank[item[0]],
-            hashlib.sha256((today + item[0]).encode()).hexdigest()))
-        for url, source in ordered:
+        documents = read_candidates(queue, refresh_urls, http, limit, existing, known_urls, state, today)
+        for url, source in by_date(queue, refresh_urls, documents):
             if len(new_books) >= limit or http.requests >= http.budget:
                 break
-            # Penguin lleva el ISBN en la URL; Planeta no: se conoce por una ficha ya publicada o se lee de la propia ficha.
-            isbn = url.rsplit('-', 1)[-1].rstrip('/') if source['provider'] == 'penguin' else known_urls.get(url)
+            isbn = candidate_isbn(url, source, known_urls)
             old_book = by_isbn.get(isbn)
             refresh = bool(old_book and url in refresh_urls)
             if isbn in existing and not refresh:
@@ -483,14 +515,16 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 continue
             key = 'isbn13:' + isbn if isbn else 'url:' + url
             previous = state['items'].get(key, {})
-            if previous.get('retry_after', '') > today:
+            if previous.get('retry_after', '') > today or url not in documents:
                 continue
             stats['examined'] += 1
             if stats['examined'] % 10 == 0:
                 print(f'Ingesta: {stats["examined"]} candidatos revisados; {len(new_books)} aceptados', file=sys.stderr, flush=True)
             record = None
             try:
-                record = read_edition(source, http.get(url, ttl=7 * 86400).decode('utf-8', errors='replace'), url)
+                if isinstance(documents[url], Exception):
+                    raise documents[url]
+                record = documents[url]
                 if not isbn:
                     isbn = record['isbn13']
                     known_urls[url] = isbn

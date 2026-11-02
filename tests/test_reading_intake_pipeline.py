@@ -34,6 +34,45 @@ def document(**changes):
     return '<link rel="canonical" href="' + URL + '"><div data-product="' + html.escape(json.dumps(product), quote=True) + '"></div>'
 
 
+class DateOrderTests(unittest.TestCase):
+    def test_upcoming_and_new_books_go_first_then_back_in_time(self):
+        src = {'id': 'planeta-es', 'provider': 'planeta'}
+        other = {'id': 'penguin-es', 'provider': 'penguin'}
+        queue = {'https://a/old': src, 'https://a/soon': src, 'https://a/refresh': src,
+                 'https://b/new-9788400000001': other, 'https://a/broken': src, 'https://a/month': src}
+        dates = {'https://a/old': '2025-03-01', 'https://a/soon': '2027-01-15', 'https://a/refresh': '2024-01-01',
+                 'https://b/new-9788400000001': '2026-10-30', 'https://a/month': '2026-11'}
+        class FakeHTTP:
+            requests = hits = 0; budget = 400
+            def get(self, url, **kwargs):
+                self.requests += 1
+                if url not in dates:
+                    raise OSError('sin respuesta')
+                return url.encode()
+        with patch.object(pipeline, 'read_edition', lambda source, doc, url: {'fecha_publicacion_edicion': dates[url]}):
+            documents = pipeline.read_candidates(queue, {'https://a/refresh'}, FakeHTTP(), 60, set(), {}, {'items': {}}, '2026-11-02')
+        self.assertIsInstance(documents['https://a/broken'], OSError)
+        order = [url for url, _ in pipeline.by_date(queue, {'https://a/refresh'}, documents)]
+        self.assertEqual(order, ['https://a/refresh', 'https://a/soon', 'https://a/month', 'https://b/new-9788400000001',
+                                 'https://a/old', 'https://a/broken'])
+
+    def test_reading_leaves_budget_for_covers_and_skips_published_or_waiting(self):
+        src = {'id': 'penguin-es', 'provider': 'penguin'}
+        queue = {f'https://b/l-97884{i:08d}': src for i in range(100)}
+        class FakeHTTP:
+            requests = hits = 0; budget = 100
+            def get(self, url, **kwargs):
+                self.requests += 1
+                return b''
+        http = FakeHTTP()
+        state = {'items': {'isbn13:9788400000001': {'retry_after': '2026-11-05'}}}
+        with patch.object(pipeline, 'read_edition', lambda source, doc, url: {'fecha_publicacion_edicion': '2026-11-01'}):
+            documents = pipeline.read_candidates(queue, set(), http, 10, {'9788400000000'}, {}, state, '2026-11-02')
+        self.assertEqual(http.requests, 75)
+        self.assertNotIn('https://b/l-9788400000000', documents)
+        self.assertNotIn('https://b/l-9788400000001', documents)
+
+
 class SourceTests(unittest.TestCase):
     def test_redirects_consume_physical_budget_and_cannot_leave_source(self):
         with tempfile.TemporaryDirectory() as tmp:
