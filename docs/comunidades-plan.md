@@ -645,7 +645,18 @@ Banner horizontal 960×540 para el servidor de Discord «Club de lectura · Davi
 - **Modo Comunidad activado** (directrices aceptadas con autorización de David): correo verificado obligatorio, notificaciones «Solo menciones», permisos arriesgados quitados a @everyone, canal de normas #normas y canal de avisos de Discord #moderator-only (creado por el asistente).
 - **Canales de anuncios:** #anuncios y los 5 de AL DÍA (#novedades, #todos-los-libros, #ofertas, #proximos-lanzamientos y #mas-votados). Se pueden seguir desde otros servidores.
 - #normas y #bienvenida vuelven a estar publicados desde David Porto. Los 2 mensajes antiguos de la cuenta anterior los borra David a mano.
-- **Pendiente opcional:** Onboarding (4.4).
+- **Roles (todos autoasignables en el onboarding salvo staff y niveles):**
+  - Staff: Administración, Moderación, Bots, Lector.
+  - Géneros (12): Thriller, Romántica, Fantasía, Terror, Ciencia ficción, Histórica, Infantil-juvenil, Ensayo, Cocina, Cómic, Poesía, Espiritualidad.
+  - Avisos con campana: 🔔 Novedades, 🔔 Ofertas, 🔔 Lanzamientos, 🔔 Club de lectura. Son los únicos que hacen sonar el móvil (los publica el bot mencionando el rol).
+  - Niveles (separados en la lista de miembros): Lector/a novel → Lector/a habitual → Ratón de biblioteca → Bibliófilo/a → Leyenda de la biblioteca. Los asigna el bot de niveles (10.5).
+- **Onboarding activado** (2 de noviembre de 2026):
+  - 9 canales por defecto (INICIO, AL DÍA y CHARLA); los 12 de género se abren al elegirlos.
+  - P1 (antes de entrar, múltiple): «¿Qué géneros te gustan?» → canal + rol de cada género.
+  - P2 (antes de entrar, múltiple): «¿De qué quieres enterarte con aviso? (Lo demás llega en silencio)» → roles 🔔, o «🤫 Prefiero silencio».
+  - P3 (después de entrar): «¿Quieres ver algo más del catálogo?» → #todos-los-libros, #mas-votados.
+  - Guía: cartel de bienvenida (menciona `/libro`), 5 tareas (contar qué lees, pedir recomendación, votar, mirar novedades, leer normas). Sin páginas de recursos: Discord no ofrece ningún canal elegible.
+  - **Sonido:** el onboarding no puede silenciar canales; por eso el servidor está en «Solo @mentions» y solo suenan las menciones a los roles 🔔 que cada uno eligió.
 - **Webhooks:** no se crean desde aquí. David los crea, uno por canal de avisos, y los guarda en el secreto `READING_DISCORD_WEBHOOKS_JSON` (mapa `id → URL`). Nunca se guardan en el repositorio.
 
 ### 10.3 Publicación (worker, siguiente PR)
@@ -658,9 +669,44 @@ Banner horizontal 960×540 para el servidor de Discord «Club de lectura · Davi
 - **Ofertas:** a partir de `reading-market.json → offers`. Solo bajadas reales (antes → ahora).
 - **Pie común:** «Más canales: davidportodiaz.com/comunidad · Enlaces de afiliado».
 
+### 10.4 Bot buscador `/libro` (Discord) y `@DavidPortoLibrosBot` (Telegram)
+
+Código listo y probado en local; **no desplegado** (GitHub Actions está parado, así que se despliega a mano desde el PC de David).
+
+- `scripts/build-bot-index.py` genera `data/bot-books.json` desde el catálogo de /lecturas/ (título, autores, sinopsis, categorías, edad, fecha, formatos con precio y enlace de Amazon con afiliado). Se publica con la web; el bot lo lee cada 10 min, así que **siempre está sincronizado con la web** sin redesplegar.
+- `bots/book-finder.mjs` interpreta frases libres («fantasía para mi hijo de 11 años», «thriller de menos de 10 €», «algo de Neil Gaiman», «audiolibro de terror») y devuelve 3 libros variados con enlace de afiliado y enlace a la ficha.
+- `bots/community-bot-worker.mjs` (Cloudflare Worker gratuito): `POST /discord` (verifica firma Ed25519, comando `/libro busco:`) y `POST /telegram` (privado, `/buscar` en grupos y modo inline `@bot texto` en cualquier chat).
+- IA opcional: con `BOT_AI=true`, Workers AI (Llama 3.1 8B, cuota gratuita) solo reescribe la petición en palabras clave cuando la búsqueda directa no encuentra nada. Los libros siempre salen del catálogo real (sin inventar).
+- Tests: `node tests/test-book-finder.mjs` y `node tests/test-community-bot-worker.mjs`.
+
+**Despliegue (David, una vez, ~15 min):**
+1. Discord Developer Portal → aplicación del servidor (o nueva «Libros David Porto») → copiar Application ID y Public Key; pestaña Bot → Reset Token (no pegarlo en ningún chat).
+2. `cp wrangler.community-bot.example.jsonc wrangler.community-bot.jsonc` y `npx wrangler deploy -c wrangler.community-bot.jsonc`.
+3. `npx wrangler secret put DISCORD_PUBLIC_KEY -c wrangler.community-bot.jsonc`; igual con `TELEGRAM_BOT_TOKEN` y `TELEGRAM_WEBHOOK_SECRET` (cadena aleatoria larga).
+4. En el portal: Interactions Endpoint URL = `https://david-porto-community-bot.<subdominio>.workers.dev/discord` (Discord hace PING y debe guardar sin error).
+5. Registrar el comando en el servidor: `DISCORD_APP_ID=… DISCORD_BOT_TOKEN=… DISCORD_GUILD_ID=1566732369656946738 node bots/register-discord-commands.mjs` → debe imprimir `200 /libro`.
+6. Invitar la aplicación al servidor con el scope `applications.commands` (OAuth2 → URL Generator).
+7. Telegram: `setWebhook` con `url=…/telegram`, `secret_token=<TELEGRAM_WEBHOOK_SECRET>` y `allowed_updates=["message","inline_query"]`; en @BotFather → `/setinline` (marcador «qué te apetece leer…») y `/setcommands` (`buscar - Busca libros del catálogo`).
+8. Probar: `/libro busco: fantasía para 11 años` en Discord, `/buscar thriller` al bot y `@DavidPortoLibrosBot terror` en cualquier chat.
+
+### 10.5 Bots externos recomendados (requieren el OK de David para añadirlos por OAuth)
+
+- **Niveles: Lurkr** (gratis: XP por mensaje y voz, tabla web, tarjetas de rango y recompensas de rol ilimitadas; importa tablas de MEE6). Alternativa: Arcane (10 recompensas de rol gratis). MEE6 cobra las recompensas de rol.
+  - Configuración propuesta: XP solo en CHARLA y géneros (sin XP en AL DÍA ni #off-topic), recompensas → nivel 1 Lector/a novel, 5 habitual, 10 Ratón de biblioteca, 20 Bibliófilo/a, 35 Leyenda; avisos de subida en #off-topic sin mención.
+  - Mover el rol del bot por encima de los 5 roles de nivel.
+- **Moderación:** AutoMod nativo (ya activo) basta al tamaño actual; no se añade bot extra.
+- **Club de lectura:** las votaciones usan las encuestas nativas de Discord en #votaciones y los Eventos del servidor para las quedadas; no hace falta bot.
+
+### 10.6 Telegram: mejoras paralelas
+
+- Mismo buscador: `@DavidPortoLibrosBot` responde en privado, con `/buscar` en grupos y en modo inline (se despliega con el paso 7 de 10.4).
+- Grupo de comentarios: crear un grupo «Club de lectura · David Porto (charla)» y vincularlo como grupo de debate de @novedades_libros_dp (Ajustes del canal → Debate). Activar en el grupo los Temas (Topics) con los mismos nombres que CHARLA en Discord y añadir el bot como admin para `/buscar`.
+- Silencio: los canales ya publican un solo envío al día; en la descripción se indica que se pueden silenciar y que el aviso con sonido es solo el de Novedades.
+
 ## 11. Pendiente de confirmar con David
 
-- Borrar los 2 mensajes antiguos de #normas y #bienvenida (los de la cuenta anterior) y, si se quiere, configurar el Onboarding.
+- Borrar los 2 mensajes antiguos de #normas y #bienvenida (los de la cuenta anterior).
+- Desplegar el bot buscador (10.4) y dar el OK a Lurkr (10.5).
+- Crear el grupo de comentarios de Telegram (10.6).
 - Crear los webhooks de Discord y los dos secretos (`READING_TELEGRAM_CHANNELS_JSON` y `READING_DISCORD_WEBHOOKS_JSON`).
 - Quién modera Discord, además de David.
-- Si se quiere el bot conserje (necesita un Cloudflare Worker gratuito).
