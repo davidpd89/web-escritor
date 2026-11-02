@@ -4,44 +4,52 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de fantasía juvenil interesados en academias, dragones y conflictos donde el linaje determina quién tiene poder. La amenaza de muerte y la dificultad de sobrevivir al entorno académico lo alejan de las historias escolares centradas en la convivencia y las aventuras sin grandes peligros.",
+      "texto": "Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados encaja con lectores desde los 16 años que busquen fantasía juvenil sobre dragones, herencias de poder y supervivencia. No responde a una lectura de conflictos cotidianos o de escaso peligro: despertar a un dragón desencadena consecuencias que amenazan vidas y una dinastía.",
       "evidencias": [
+        "titulo",
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "encaje_documentado",
-      "texto": "Propone una fantasía de academia donde la herencia familiar y el vínculo con los dragones pueden determinar la supervivencia. El despertar de una de estas criaturas altera el equilibrio de poder y convierte un entorno de aprendizaje en un escenario de amenazas relacionadas con el linaje y la caída de una dinastía.",
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Está recomendado a partir de 16 años y pertenece a la fantasía juvenil. El conflicto incluye amenazas de muerte, una academia donde sobrevivir resulta difícil y las consecuencias peligrosas de despertar a un dragón; son elementos que pueden inquietar a lectores sensibles a la violencia y al riesgo de perder la vida.",
       "evidencias": [
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición limitada se distingue por la tapa dura con sobrecubierta, los cantos tintados, las guardas con acabados metalizados y un mapa desplegable. Editorial Planeta reúne estos elementos en un volumen de 640 páginas en español, con una presentación física que incorpora materiales adicionales al texto.",
+      "texto": "La edición especial incorpora cantos tintados, guardas con acabados metalizados y un mapa desplegable. Editorial Planeta la publica en tapa dura con sobrecubierta y una extensión de 640 páginas, de modo que los elementos diferenciadores incluyen tanto la decoración del volumen como un complemento para consultar durante la lectura.",
       "evidencias": [
-        "edicion",
+        "titulo",
         "editorial",
+        "edicion",
         "numero_paginas",
-        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible, con 640 páginas y una sobrecubierta exterior. Su extensión exige tener en cuenta el volumen físico durante la lectura, mientras que los cantos tintados, las guardas metalizadas y el mapa desplegable son características que cobran especial importancia al conservar el ejemplar o entregarlo como regalo.",
+      "texto": "Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados está disponible en tapa dura con sobrecubierta. Sus 640 páginas forman un volumen físico que permite consultar el mapa desplegable; los cantos tintados y las guardas metalizadas también forman parte de esta presentación para conservar o regalar.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "encaje_documentado: afirmaciones sin respaldo: premi",
+    "que_formato_elegir: repite otro bloque",
+    "faltan módulos: encaje_documentado, que_formato_elegir"
+  ],
   "version": 3,
-  "fuente_hash": "07edd3d0c733a430",
+  "fuente_hash": "d392995198e3e7ff",
   "origen": "chatgpt-web"
 }

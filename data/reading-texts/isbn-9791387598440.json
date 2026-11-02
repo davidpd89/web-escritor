@@ -4,17 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando fuimos todo se dirige a lectores de romance juvenil interesados en las rupturas, la reconstrucción personal y las dificultades para comenzar una nueva relación. El peso de la historia recae en las decisiones sentimentales de Emma, por lo que encaja menos con quienes buscan una trama de acción o una lectura alejada de los conflictos amorosos.",
+      "texto": "Cuando fuimos todo se dirige a lectores de romance juvenil interesados en rupturas sentimentales, reconstrucción personal y nuevas relaciones. Encaja menos con quienes busquen una historia centrada en aventuras o alejada de los conflictos emocionales y el miedo a volver a enamorarse.",
       "evidencias": [
         "titulo",
-        "edad_recomendada",
         "categorias",
+        "edad_recomendada",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Cuando fuimos todo se clasifica como novela juvenil y aborda el dolor de una separación, la pérdida de confianza y el miedo a volver a enamorarse. También introduce la atracción de Emma por Adrián, uno de los profesores de la Academia de Artes, una circunstancia relevante para quienes prestan atención a las relaciones entre personas con posiciones diferentes dentro de un centro educativo.",
+      "texto": "Cuando fuimos todo está clasificado como lectura juvenil. Su conflicto parte de una separación dolorosa y aborda el miedo a implicarse sentimentalmente de nuevo, además de la atracción hacia un profesor de una academia de artes. Estos elementos sitúan el peso emocional en las relaciones y sus consecuencias.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,42 +24,42 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Cuando fuimos todo propone un romance juvenil centrado en reconstruir la identidad personal después de una relación que parecía definitiva. La llegada de Emma a la Academia de Artes abre una etapa distinta, mientras su acercamiento a Adrián plantea un conflicto entre protegerse emocionalmente y aceptar nuevos sentimientos.",
+      "texto": "Es una novela romántica juvenil de 256 páginas en la que el conflicto principal es emocional. Tras una ruptura, Emma empieza a reconstruir su vida en la Academia de Artes, mientras la aparición de Adrián plantea una nueva decisión sentimental marcada por el miedo a sufrir.",
       "evidencias": [
-        "titulo",
         "categorias",
-        "edad_recomendada",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuando fuimos todo está publicado en tapa blanda con solapas y reúne 256 páginas en castellano. Las solapas pueden utilizarse para marcar el avance entre sesiones, mientras que el volumen físico permite seguir la historia sin recurrir a un dispositivo de lectura.",
+      "texto": "Cuando fuimos todo se ofrece en tapa blanda con solapas, una edición física de 256 páginas publicada por Montena. Permite leer en papel, transportarla y prestarla sin depender de un dispositivo electrónico; las solapas forman parte de la presentación de esta edición.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando fuimos todo y Solo un juego más (CAR HOCKEY 1), de Susanna Herrero, comparten el interés por los vínculos amorosos y los conflictos entre personajes. La novela de Noelia Dopazo sitúa el cambio sentimental después de una ruptura y en una Academia de Artes, mientras que el título de Susanna Herrero introduce expresamente el hockey como elemento diferenciador.",
+      "texto": "Cuando fuimos todo y Amor en pole position (Dirty Air 3) comparten el eje romántico, pero Lauren Asher sitúa su historia en la Fórmula 1 y Noelia Dopazo en una academia de artes tras una ruptura. Frente a Duelo, que aborda el duelo desde el ensayo filosófico, Cuando fuimos todo utiliza personajes y relaciones sentimentales para tratar la pérdida de una relación.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388222801"
+        "isbn-9788427055674",
+        "isbn-9788449344626"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7bdfb1ccd89f2823",
+  "fuente_hash": "986a22e0910af9d6",
   "origen": "chatgpt-web"
 }
