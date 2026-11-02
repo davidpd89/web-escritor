@@ -176,3 +176,26 @@ Rama local `feat/comunidades-telegram-discord` en el worktree `C:\GIT\wt-comunid
 - Bots externos (Apollo, Fumiko/Marginalia, Carl-bot…) **no instalados**: requieren el OAuth de David.
 - Requisitos de Discovery y lista de redes admitidas por Amazon.es: tomados de la investigación y marcados «comprobar» al ejecutar la PR.
 - Sin push ni PR, según lo pedido. Hay que ejecutar la PR cuando David lo diga.
+
+## Tramo 5: enlaces directos a Amazon, decisión de bots y fotos
+
+### Hecho
+- **Enlaces de compra:** directos a Amazon con el tag `davidporto-21` en Discord y Telegram.
+  - `scripts/reading_telegram.py` cierra cada envío con «Ver en Amazon · #publicidad».
+  - Plan §12.3, §12.7 y §12.10 actualizados.
+  - `tests/test_reading_telegram.py` pasa.
+  - Commit 5085c0f71.
+- **Bots:** no se instalan más bots externos, por simplicidad y porque dependen de que la gente participe (plan §10.5 y cuerpo del PR).
+  - El bot propio (`/libro`, `@DavidPortoLibrosBot`) es el que trae clics a Amazon.
+  - Lurkr se queda.
+- **Fotos de Telegram:** avatares de solo texto en los 17 canales. Cada uno verificado con captura en el panel de información o en la lista.
+- **Discord:** icono nuevo ya verificado; canales sin cambios.
+
+### Notas técnicas (Telegram Web K, Edge por CDP 9221)
+- Ahora la lista y el panel de información se ven a la vez. El lápiz de editar está en (799,44); el resto de coordenadas no cambia.
+- Cambiar fotos seguidas da `FLOOD_WAIT`: hay que dejar unos 50 s entre canales.
+
+### No comprobado / pendiente
+- Desplegar el bot (`bots/deploy-community-bot.ps1`). Lo hace David.
+- Dar de alta Discord y Telegram en Amazon Afiliados antes de promocionar.
+- Push y PR cuando GitHub Actions esté libre.

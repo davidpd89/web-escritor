@@ -74,13 +74,10 @@ Sin workflows nuevos. Ningún secreto, token ni `chat_id` en el repositorio.
 ## Interacción y crecimiento (investigación, `docs/comunidades-plan.md` §12)
 
 - **Hecho en Discord:** foro **#sugerencias** con etiquetas de tipo (💡 Idea, 📚 Libro para el club, 🛠️ Mejora del servidor) y de estado solo para moderación (👀 En estudio, ✅ Aceptada, 🚀 Hecha, ❌ Descartada). Etiqueta obligatoria, reacción 👍 por defecto y publicación semilla. Es el «voz y voto» de los miembros.
-- **Bots gratuitos propuestos, uno por función:**
-  - Apollo para los eventos;
-  - Fumiko o Marginalia para el seguimiento de lecturas;
-  - Carl-bot solo para el starboard;
-  - más adelante, pregunta del día, cumpleaños y sorteos;
-  - Suggestions solo si el foro se queda corto;
-  - sin MEE6.
+- **Bots (decisión del 2 de noviembre, §10.5): de momento, ninguno externo más.**
+  - El único bot que trae clics a Amazon es el propio: `/libro` en Discord y `@DavidPortoLibrosBot` en Telegram, con enlace directo y el tag `davidporto-21`.
+  - Lurkr se queda: ya está configurado y no publica nada.
+  - Apollo, Fumiko o Marginalia, Carl-bot (starboard) y Suggestions se revisan cuando haya conversación diaria. Sin MEE6.
 - **Rituales semanales:** se empieza por martes, jueves y domingo; libro del mes votado y revisión mensual «Lo que habéis cambiado».
 - **Diferenciales:**
   - perfil lector en `/libro`;
@@ -110,7 +107,7 @@ Sin workflows nuevos. Ningún secreto, token ni `chat_id` en el repositorio.
    - grupo de debate de Telegram con Temas (plan §10.6);
    - mensaje índice fijado;
    - reacciones limitadas (§12.7).
-10. [ ] Instalar Apollo y crear dos eventos recurrentes (tertulia mensual y lectura silenciosa semanal). El resto de bots de §12.2, cuando toque.
+10. [ ] Eventos recurrentes con los Eventos nativos de Discord (tertulia mensual y lectura silenciosa semanal). Bots externos de §12.2 solo cuando haya conversación diaria.
 11. [ ] Alta en directorios y anuncios: lista en `docs/comunidades-directorios.md` → «Dónde anunciarse».
 12. [ ] Amazon Afiliados: dar de alta Discord y Telegram como sitios (§12.10). Todos los enlaces de compra ya van directos a Amazon con el tag `davidporto-21`, así que este paso va antes de promocionar.
 

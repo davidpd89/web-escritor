@@ -701,6 +701,10 @@ Código listo y probado en local; **no desplegado** (GitHub Actions está parado
 - **Directorios (DISBOARD, Top.gg, Discadia) y Telegram:** guía en `docs/comunidades-directorios.md`.
 - **Moderación:** AutoMod nativo (ya activo) basta al tamaño actual; no se añade bot extra.
 - **Club de lectura:** las votaciones usan las encuestas nativas de Discord en #votaciones y los Eventos del servidor para las quedadas; no hace falta bot.
+- **Decisión del 2 de noviembre de 2026 (simplicidad):** no se instalan más bots externos. Apollo, Carl-bot, Fumiko y los de §12.2 dependen de que la gente participe y añaden menús que confunden en un servidor que empieza.
+  - El único bot que trae clics a Amazon es el propio (`/libro` y `@DavidPortoLibrosBot`): responde con 3 libros y enlace directo con el tag `davidporto-21`. Lo despliega David con `bots/deploy-community-bot.ps1`.
+  - Lurkr se queda porque ya está configurado y no publica nada (sin avisos de nivel).
+  - Los bots de §12.2 se revisan cuando haya conversación diaria.
 
 ### 10.6 Telegram: mejoras paralelas
 
