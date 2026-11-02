@@ -21,7 +21,7 @@ on:
       - '.lycheeignore'
       - '.github/workflows/broken-links.yml'
   schedule:
-    - cron: '0 6 * * 1'  # Every Monday at 06:00 UTC
+    - cron: '0 2 * * 1'  # Lunes, 03:00 en Madrid (CET): de madrugada
   workflow_dispatch:
     inputs:
       full_scan:

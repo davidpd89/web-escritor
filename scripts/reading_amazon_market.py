@@ -316,7 +316,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
     if hasattr(provider,'discover'):
         # A missing Kindle or audiobook is looked for the first night, not when the price turn comes.
         due+=[b for b in books[share:] if needs_discovery(b,now)]
-    stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[],'sin_oferta':[]}
+    stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[],'sin_oferta':[],'errores_amazon':{}}
     answers={}
 
     def ask(call,*args):
@@ -325,7 +325,12 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
         stats['requests']+=1
         payload=call(*args)
         if payload.get('errors') and not any(payload.get(key) for key in ['searchResult','itemsResult','itemResults']):
-            raise RuntimeError('Amazon returned only errors')
+            # HTTP 200 with only errors (NoResults, an ISBN Amazon does not list) is
+            # this book's miss, not an outage: count the code and keep sweeping.
+            for error in amazon_list(payload.get('errors')):
+                code=str(amazon_dict(error).get('code') or 'desconocido')[:60]
+                stats['errores_amazon'][code]=stats['errores_amazon'].get(code,0)+1
+            return {}
         return payload
 
     def keep(found,book,payload):

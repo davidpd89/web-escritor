@@ -252,5 +252,17 @@ class AmazonFormatDiscoveryTests(unittest.TestCase):
         self.assertEqual({b['id'] for b in many['libros'] if b.get('precios_amazon_revision')=='2026-10-22'},
                          {f'lib-{i}' for i in range(5,10)},'la noche siguiente sigue por los pendientes')
 
+    def test_a_book_amazon_does_not_list_does_not_stop_the_sweep(self):
+        # HTTP 200 with only errors cut the whole night after five books.
+        many={'libros':[dict(BOOK,id=f'lib-{i}',formatos_compra=[]) for i in range(12)]}
+        def provider(book):
+            return {'errors':[{'code':'NoResults','message':'No results'}]} if book['id']=='lib-0' else response()
+        _,stats=refresh_offers(many,{'offers':[]},provider,'contrato-21',NOW)
+        self.assertNotIn('status',stats)
+        self.assertEqual(stats['updated'],12)
+        self.assertEqual(stats['errores_amazon'],{'NoResults':1})
+        self.assertEqual([m['book_id'] for m in stats['sin_oferta']],['lib-0'])
+        self.assertTrue(all(b.get('formatos_compra') for b in many['libros'][1:]))
+
 if __name__=='__main__':
     unittest.main()

@@ -20,7 +20,7 @@ on:
       - 'qa/reading-failure-resilience-browser.mjs'
       - '.github/workflows/reading-failure-resilience.yml'
   schedule:
-    - cron: '41 7 * * 3'
+    - cron: '41 4 * * 3'
   workflow_dispatch:
 
 permissions:

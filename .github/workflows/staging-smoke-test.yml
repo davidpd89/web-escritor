@@ -3,7 +3,7 @@ name: Staging smoke test
 on:
   workflow_dispatch:
   schedule:
-    - cron: '25 6 * * *'
+    - cron: '25 1 * * *'
 
 permissions:
   contents: read

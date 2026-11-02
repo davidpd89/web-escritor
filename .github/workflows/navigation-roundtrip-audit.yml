@@ -23,7 +23,7 @@ on:
       - 'qa/reading-navigation-roundtrips.mjs'
       - '.github/workflows/navigation-roundtrip-audit.yml'
   schedule:
-    - cron: '23 7 * * 5'
+    - cron: '23 4 * * 5'
   workflow_dispatch:
 
 permissions:

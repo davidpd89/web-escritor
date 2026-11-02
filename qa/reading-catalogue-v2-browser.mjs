@@ -204,15 +204,16 @@ try {
   await staticContext.close();
   const cold=await catalogueContext({viewport:{width:390,height:900}});
   const coldPage=await cold.newPage();
-  // Reloj derivado del primer libro con fecha del listado (3 días antes = «Próximamente»): una fecha fija
-  // deja de cubrir la primera página cuando el catálogo crece con novedades más recientes.
+  // Reloj derivado del primer libro con fecha del listado (60 días antes: «Próximamente» vale para cualquier
+  // fecha futura, no solo el mes siguiente). Una fecha fija dejaría fuera la primera página al crecer el catálogo.
   const firstRelease=(await fs.readFile('recomendaciones/index.html','utf8')).match(/data-release-label="(\d{4}-\d{2}-\d{2})"/)[1];
-  await coldPage.clock.setFixedTime(new Date(Date.parse(firstRelease+'T10:00:00Z')-3*86400000));
+  await coldPage.clock.setFixedTime(new Date(Date.parse(firstRelease+'T10:00:00Z')-60*86400000));
   const noveltyFont=(await fs.readFile('assets/reading-catalogue.css','utf8')).match(/font-family:CatalogueNovelty;src:url\('([^']+)'/)[1];
   await cold.route('**'+noveltyFont,route=>route.abort());
   await coldPage.goto(base+'/recomendaciones/',{waitUntil:'networkidle'});
   assert(await coldPage.locator('main').evaluate(el=>el.classList.contains('catalogue-fonts-failed')),'Font failure must preserve a stable visible badge');
   assert(await coldPage.locator('[data-release-label]:not([hidden])').first().isVisible());
+  assert.equal(await coldPage.locator('[data-release-label]').first().textContent(),'Próximamente');
   await cold.close();
   await fs.writeFile(`${out}/results.json`,JSON.stringify(results,null,2));
   console.log('PASS catalogue v2: 100/200 books, pagination, page ranges, adaptive quiz, Madrid expiry, 5 viewports, new tabs, fonts and no-JS.');
