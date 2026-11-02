@@ -41,9 +41,9 @@ Sin workflows nuevos. Ningún secreto, token ni `chat_id` en el repositorio.
   - 10 canales públicos (`t.me/<usuario>`), que es el límite sin Premium, y 7 por invitación (`t.me/+…`). Los 17 tienen foto.
 - **Discord: «Club de lectura · David Porto»**
   - Categorías: Inicio, Al día, Por género (12), Charla (2 foros) y Moderación.
-  - Icono y banner, roles, 3 reglas de AutoMod con alertas al canal de registro, modo lento, temas de los canales, mensajes de #normas y #bienvenida.
+  - Icono nuevo (el banner personalizado exige nivel de boost; queda generado en `assets/community-avatars/discord-banner.jpg`), roles, 3 reglas de AutoMod con alertas al canal de registro, modo lento, temas de los canales, mensajes de #normas y #bienvenida.
   - Invitación permanente: <https://discord.gg/g7dEWxj3F>.
-- **Imágenes:** 18 avatares en WebP (`assets/community-avatars/`, 292 KB en total), legibles a 48 px, más el banner de Discord. En la página se muestran en cada tarjeta.
+- **Imágenes:** 18 avatares en WebP (`assets/community-avatars/`, 380 KB en total), solo tipografía: el género en grande, un color por canal de la misma gama (OKLCH) y «davidportodiaz.com» abajo; legibles a 48 px. Se regeneran con `python scripts/build-community-avatars.py [--preview hoja.png]`, que también crea el banner de Discord. En la página se muestran en cada tarjeta.
 - **Horario de publicación:**
   - de lunes a viernes a las 11:30 y los fines de semana a las 18:30 (Madrid);
   - Próximos, los lunes;
@@ -112,7 +112,7 @@ Sin workflows nuevos. Ningún secreto, token ni `chat_id` en el repositorio.
    - reacciones limitadas (§12.7).
 10. [ ] Instalar Apollo y crear dos eventos recurrentes (tertulia mensual y lectura silenciosa semanal). El resto de bots de §12.2, cuando toque.
 11. [ ] Alta en directorios y anuncios: lista en `docs/comunidades-directorios.md` → «Dónde anunciarse».
-12. [ ] Amazon Afiliados: dar de alta Discord y Telegram como sitios antes de poner enlaces directos (§12.10).
+12. [ ] Amazon Afiliados: dar de alta Discord y Telegram como sitios (§12.10). Todos los enlaces de compra ya van directos a Amazon con el tag `davidporto-21`, así que este paso va antes de promocionar.
 
 ## Pendiente fuera de esta PR
 

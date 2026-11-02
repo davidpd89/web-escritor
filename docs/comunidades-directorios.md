@@ -102,8 +102,8 @@ Se usa una invitación de Discord distinta para cada sitio, para medir de dónde
 
 ## Amazon Afiliados en Discord y Telegram
 
-Antes de poner enlaces de afiliado directamente en Discord o Telegram:
-- [ ] Dar de alta los dos como sitios en la cuenta de Afiliados. Amazon.es solo nombra Instagram, Facebook, X, YouTube, TikTok y Twitch. Mientras no esté confirmado, los envíos enlazan a la ficha de la web.
+Todos los enlaces de compra de Discord y Telegram van directos a Amazon con el tag `davidporto-21`. Para que cuenten y cumplan:
+- [ ] Dar de alta los dos como sitios en la cuenta de Afiliados. Amazon.es solo nombra Instagram, Facebook, X, YouTube, TikTok y Twitch. Mientras tanto ya se enlaza directo a Amazon con el tag `davidporto-21` (decisión de David): el alta es lo primero que hay que hacer, antes de promocionar.
 - [ ] Nada de acortadores ni redirecciones que oculten Amazon.
 - [ ] «#publicidad» o un aviso claro junto al enlace, más la declaración de afiliado fijada en cada canal.
 - [ ] Precio solo con la hora de consulta y la nota de que puede cambiar.

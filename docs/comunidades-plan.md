@@ -749,7 +749,7 @@ Instalar cada bot requiere OAuth con la cuenta de David: se hace al ejecutar la 
 Se empieza con tres (martes, jueves y domingo) y se añaden más cuando haya habituales:
 
 - **Lunes · ¿Qué estás leyendo?** Empezando, a medias o terminado, con foto de la portada. Sin enlaces.
-- **Martes · Tres libros para un mismo gusto.** Selección temática del catálogo con enlace a la ficha de la web.
+- **Martes · Tres libros para un mismo gusto.** Selección temática del catálogo con enlace directo a Amazon con el tag `davidporto-21`.
 - **Miércoles · Batalla de portadas.** Encuesta nativa entre dos libros.
 - **Jueves · Consultorio lector.** Un miembro pide algo, la gente responde y `/libro` propone tres.
 - **Viernes · Descubrimiento de la semana.** Reseña de un miembro, con su permiso.
@@ -801,7 +801,7 @@ Además:
 - **Reacciones limitadas:** 👀 me interesa, 📖 leído, ❤️ recomendado y 👎 no me convence.
 - **Un único grupo de debate** con Temas (General, Pide un libro, Leyendo ahora, Club de lectura, Sugerencias), vinculado a los canales generales (§10.6). Nunca 17 chats.
 - **Encuesta nativa semanal** en Novedades o en el grupo, sin duplicarla en los 17 canales.
-- **Formato de envío:** portada, título, autor, gancho de una línea, «para quien le gustó…» y un solo enlace a la ficha. Sin muchos hashtags.
+- **Formato de envío:** portada, título, autor, gancho de una línea, «para quien le gustó…» y un solo enlace: el directo a Amazon con el tag `davidporto-21`, sin acortador. Sin muchos hashtags.
 - **Boosts e Historias:** las Historias de canal requieren nivel de boost. Se piden boosts a los suscriptores Premium una vez, sin insistir. Uso previsto: preguntas rápidas y recordatorios, no repetir novedades.
 - **Mensajes directos al canal y publicaciones sugeridas** (Telegram, 2025): sirven para recibir propuestas de lectores.
 - **Métricas:**
@@ -825,7 +825,7 @@ Además:
 
 ### 12.10 Amazon Afiliados (comprobar antes de difundir enlaces fuera de la web)
 
-- Amazon.es enumera como redes sociales admitidas Instagram, Facebook, X, YouTube, TikTok y Twitch. **Discord y Telegram no figuran:** hay que darlos de alta como sitios en la cuenta de Afiliados (Central → Información de la cuenta → sitios web y apps) o, mientras tanto, enlazar a la ficha de la web, que es la que lleva el enlace de afiliado.
+- Amazon.es enumera como redes sociales admitidas Instagram, Facebook, X, YouTube, TikTok y Twitch. **Discord y Telegram no figuran:** hay que darlos de alta como sitios en la cuenta de Afiliados (Central → Información de la cuenta → sitios web y apps). Decisión de David (2 de noviembre de 2026): **todo lo que se pulse en Discord y Telegram es un enlace directo a Amazon con el tag `davidporto-21`**. Los bots (`/libro`, modo inline y envíos de canal) ya lo generan así; la ficha de la web queda como enlace secundario, nunca como intermediario.
 - Sin acortadores ni redirecciones que oculten el destino.
 - «#publicidad» o un aviso equivalente junto a cada enlace comercial, más la declaración de afiliado en la web.
 - No publicar precios ni descuentos sin la hora de consulta y la nota «el precio puede cambiar». Nada de alertas de precio automáticas.
