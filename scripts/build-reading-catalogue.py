@@ -253,6 +253,23 @@ def synopsis(b):
     return strip_shouting(b.get('sinopsis_breve') or b['descripcion_breve'])
 
 
+def clip(text, limit):
+    text = ' '.join(text.split())
+    return text if len(text) <= limit else text[:limit].rsplit(' ', 1)[0].rstrip(' ,;:.') + '…'
+
+
+def schema_synopsis(b):
+    """Descripción del libro para el JSON-LD: la sinopsis, no la meta de la ficha (que describe la página)."""
+    return clip(synopsis(b), 500)
+
+
+def own_summary(b):
+    """«Para quién es» validado, en una línea para índices de texto (llms.txt)."""
+    t = OWN_TEXTS.get(b['id'])
+    block = next((x for x in t['bloques'] if x['modulo'] == 'para_quien'), None) if t else None
+    return clip(block['texto'], 300) if block else ''
+
+
 def synopsis_paragraphs(b):
     """Sinopsis entera para la ficha; el extracto breve si la fuente aún no se ha releído.
     Sin titulares en mayúsculas ni citas de prensa pegados al texto (ficha, tarjeta y meta)."""
@@ -350,10 +367,15 @@ def own_meta_description(b):
         return None
     facts = [b.get('formato_edicion', '').replace('-', ' '), f"{b['numero_paginas']} páginas" if b.get('numero_paginas') else '',
              age_phrase(b.get('edad_recomendada', ''))]
-    lead = f"{b['titulo']}, de {', '.join(b['autores'])}"
     facts = ', '.join(f for f in facts if f)
-    topics = ' y '.join(MODULE_TITLES[x['modulo']].lower() for x in t['bloques'][:2])
-    return (lead + (': ' + facts if facts else '') + '. Antes de elegirlo: ' + topics + '.')
+    # Cabe en 160 sin cortar frases: primero cae el segundo tema y después la nota de edición o la serie del título.
+    for name in short_titles(b['titulo']):
+        for n in (2, 1):
+            topics = ' y '.join(MODULE_TITLES[x['modulo']].lower() for x in t['bloques'][:n])
+            text = f"{name}, de {', '.join(b['autores'])}" + (': ' + facts if facts else '') + '. Antes de elegirlo: ' + topics + '.'
+            if len(text) <= 160:
+                return text
+    return text
 
 
 
@@ -692,7 +714,7 @@ def render_llms_index(data, books, authors, publishers):
     formats = {'tapa-dura': 'tapa dura', 'tapa-blanda': 'tapa blanda', 'ebook': 'ebook', 'audiolibro': 'audiolibro'}
     lines = ['# Libros recomendados de otros autores · davidportodiaz.com', '',
              '> Catálogo de lecturas seleccionadas por David Porto Díaz. Cada obra tiene una ficha con URL estable, autoría, '
-             'datos de la edición (editorial, ISBN, formato, páginas), sinopsis propia y fuentes editoriales. '
+             'datos de la edición (editorial, ISBN, formato, páginas), orientación propia («Para quién es»), sinopsis de la editorial y fuentes. '
              'Estas obras son de sus autores: no atribuirlas a David Porto Díaz.', '',
              f'- Catálogo con filtros: {SITE}/recomendaciones/',
              f'- Autores del catálogo ({len(authors)}): {SITE}/recomendaciones/autores/',
@@ -706,10 +728,8 @@ def render_llms_index(data, books, authors, publishers):
         facts += [label + ': ' + ', '.join(names) for label, tipo in (('Género', 'genero'), ('Temas', 'tematica'))
                   if (names := [c['nombre'] for c in cats if c['tipo'] == tipo])]
         age = b.get('edad_recomendada') or ', '.join(c['nombre'] for c in cats if c['tipo'] == 'edad')
-        synopsis = ' '.join(b['sinopsis_breve'].split())
-        if len(synopsis) > 300:
-            synopsis = synopsis[:300].rsplit(' ', 1)[0].rstrip(' ,;:.') + '…'
-        facts += [age and 'Edad: ' + age, 'Sinopsis de la editorial: ' + synopsis]
+        who = own_summary(b)
+        facts += [age and 'Edad: ' + age, who and 'Para quién es: ' + who, 'Sinopsis de la editorial: ' + clip(b['sinopsis_breve'], 300)]
         text = '. '.join(f.rstrip('.') for f in facts if f)
         lines.append(f"- [{b['titulo']}]({SITE}{url(b)}): " + text + ('' if text.endswith('…') else '.'))
     return '\n'.join(lines) + '\n'
@@ -852,7 +872,7 @@ def render_book(data,b,template):
         main+='<p><strong>Sobre el contenido:</strong> '+esc(b['avisos_contenido'])+'</p>'
     main+=buy+details+extra+'</div></article>'+related_books(data,b)+'<div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Volver al catálogo</a></div></main>'
     authors=author_records()
-    schema={'@context':'https://schema.org','@graph':[{'@type':'Book','@id':canonical+'#book','url':canonical,'name':b['titulo'],'author':[{'@type':'Person','name':name,**({'@id':SITE+author_url(a)+'#person','url':SITE+author_url(a)} if (a:=next((a for a in authors if a['nombre']==name),None)) else {})} for name in b['autores']],'description':description,'image':SITE+b['portada_local'],'bookEdition':b['edicion'],**({'publisher':{'@type':'Organization','name':b['editorial'],**({'url':SITE+'/editoriales/'+b['editorial_slug']+'/'} if b.get('editorial_slug') else {})}} if b.get('editorial') else {}),**({'inLanguage':b['idioma']} if b.get('idioma') else {}),**({'numberOfPages':b['numero_paginas']} if b.get('numero_paginas') else {}),**({'bookFormat':'https://schema.org/'+{'tapa-dura':'Hardcover','tapa-blanda':'Paperback','ebook':'EBook','audiolibro':'AudiobookFormat'}[b['formato_edicion']]} if b.get('formato_edicion') else {}),**({'genre':g} if (g:=[c['nombre'] for c in cats if c['tipo']=='genero']) else {}),**({'keywords':', '.join(k)} if (k:=[c['nombre'] for c in cats if c['tipo'] in ('tematica','epoca','temporada')]) else {}),**({'audience':{'@type':'PeopleAudience','audienceType':e[0]}} if (e:=[c['nombre'] for c in cats if c['tipo']=='edad']) else {}),**({'sameAs':[b['fuente_bibliografica_url']]} if b.get('fuente_bibliografica_url','').startswith('https://') else {}),**({'isbn':b['isbn13']} if b.get('isbn13') else {}),**({'datePublished':d} if (d:=b.get('fecha_publicacion') or b.get('fecha_publicacion_parcial')) and d<=b['fecha_actualizacion'] else {})},{'@type':'WebPage','@id':canonical+'#page','url':canonical,'name':title,'dateModified':b['fecha_actualizacion'],'mainEntity':{'@id':canonical+'#book'}},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':label,'item':SITE+href} for i,(label,href) in enumerate([('Inicio','/'),('Libros recomendados','/recomendaciones/'),(b['titulo'],url(b))])]}]}
+    schema={'@context':'https://schema.org','@graph':[{'@type':'Book','@id':canonical+'#book','url':canonical,'name':b['titulo'],'description':schema_synopsis(b),'author':[{'@type':'Person','name':name,**({'@id':SITE+author_url(a)+'#person','url':SITE+author_url(a)} if (a:=next((a for a in authors if a['nombre']==name),None)) else {})} for name in b['autores']],'image':SITE+b['portada_local'],'bookEdition':b['edicion'],**({'publisher':{'@type':'Organization','name':b['editorial'],**({'url':SITE+'/editoriales/'+b['editorial_slug']+'/'} if b.get('editorial_slug') else {})}} if b.get('editorial') else {}),**({'inLanguage':b['idioma']} if b.get('idioma') else {}),**({'numberOfPages':b['numero_paginas']} if b.get('numero_paginas') else {}),**({'bookFormat':'https://schema.org/'+{'tapa-dura':'Hardcover','tapa-blanda':'Paperback','ebook':'EBook','audiolibro':'AudiobookFormat'}[b['formato_edicion']]} if b.get('formato_edicion') else {}),**({'genre':g} if (g:=[c['nombre'] for c in cats if c['tipo']=='genero']) else {}),**({'keywords':', '.join(k)} if (k:=[c['nombre'] for c in cats if c['tipo'] in ('tematica','epoca','temporada')]) else {}),**({'audience':{'@type':'PeopleAudience','audienceType':e[0]}} if (e:=[c['nombre'] for c in cats if c['tipo']=='edad']) else {}),**({'sameAs':[b['fuente_bibliografica_url']]} if b.get('fuente_bibliografica_url','').startswith('https://') else {}),**({'isbn':b['isbn13']} if b.get('isbn13') else {}),**({'datePublished':d} if (d:=b.get('fecha_publicacion') or b.get('fecha_publicacion_parcial')) and d<=b['fecha_actualizacion'] else {})},{'@type':'WebPage','@id':canonical+'#page','url':canonical,'name':title,'description':description,'dateModified':b['fecha_actualizacion'],'mainEntity':{'@id':canonical+'#book'}},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':label,'item':SITE+href} for i,(label,href) in enumerate([('Inicio','/'),('Libros recomendados','/recomendaciones/'),(b['titulo'],url(b))])]}]}
     if reviews:
         schema['@graph'][0]['review']=[{'@type':'Review','author':{'@type':'Person','name':r['nombre_publico']},'datePublished':r['fecha_envio'],'name':r['titulo_resena'],'reviewBody':r['texto_resena'],'reviewRating':{'@type':'Rating','ratingValue':r['puntuacion'],'bestRating':5,'worstRating':1}} for r in reviews]
         schema['@graph'][0]['aggregateRating']={'@type':'AggregateRating','ratingValue':round(sum(r['puntuacion'] for r in reviews)/len(reviews),2),'ratingCount':len(reviews),'bestRating':5,'worstRating':1}
