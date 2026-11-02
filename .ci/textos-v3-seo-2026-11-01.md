@@ -60,6 +60,13 @@
   - `publish()` solo copia los bloques que pasan el validador vigente.
   - Test nuevo: `test_catalogue_taxonomy_is_rejected_and_stale_saved_blocks_are_repaired`. `test_reading*.py`: 242 OK.
   - Bucle relanzado (run3, `.local/reading-texts-run3.log`); hay 154 pendientes, incluidos los 34 que hay que reparar.
+- **Afines mejor elegidos (02/11, de noche):**
+  - `affine_books` pondera cada categoría compartida por lo rara que es (suma de log N/df ≥ 2,5), así que basta una sola si es poco común.
+  - Descarta los pares con distinto público (infantil, juvenil, adultos) o con más de 4 años de diferencia en la edad mínima.
+  - `afines_catalogo` describe el afín con la primera frase de su sinopsis, en vez de «(comparte: etiquetas)».
+  - Fichas con afines: de 72 a 129 de 181. Desaparecen emparejamientos como el pop-up de Cenicienta de 4 años con Riordan.
+  - Test: `test_affines_share_audience_and_are_described_by_content_not_labels`. `test_reading*.py`: 243 OK.
+  - Bucle run4 (`.local/reading-texts-run4.log`). Los textos guardados que nombran un afín que ya no está se reparan solos (validador vigente + `pending`).
 
 ## Pendientes
 1. Muestra del bucle v3 → publicar (`reading-texts.py publish`) → PR con los textos.

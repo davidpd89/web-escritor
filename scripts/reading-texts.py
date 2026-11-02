@@ -14,6 +14,7 @@ import argparse
 import hashlib
 import importlib.util
 import json
+import math
 import os
 import re
 import shutil
@@ -36,6 +37,8 @@ MAX_BLOCKS = 5
 MIN_BLOCKS = 2
 COPY_WORDS = 8
 AFFINES = 5
+AUDIENCES = (('infantil', {'infantil'}), ('juvenil', {'juvenil', 'fantasia-juvenil'}), ('adultos', {'adultos'}))
+MIN_AFFINITY = 2.5  # suma de log(N/df): dos etiquetas muy comunes no bastan
 # Siglas y nombres genéricos de formato o tienda: no son entidades que deban venir de las evidencias.
 GENERIC_NAMES = {'isbn', 'kindle', 'amazon', 'ebook', 'pdf', 'epub', 'audible'}
 # Afirmaciones que el modelo no puede sostener con los datos de entrada salvo que la sinopsis las traiga.
@@ -139,7 +142,8 @@ def payload(data, b):
         evidence['formatos_disponibles'] = [FORMAT_LABELS[f] for f in formats]
     affines = affine_books(data, b, {c['id'] for c in cats})
     if affines:
-        evidence['afines_catalogo'] = [f"«{x['titulo']}», de {', '.join(x['autores'])} (comparte: {', '.join(shared)})" for x, shared in affines]
+        # De qué va cada afín, no sus etiquetas: el modelo compara contenido y no el menú de la web.
+        evidence['afines_catalogo'] = [f"«{x['titulo']}», de {', '.join(x['autores'])}: {gist(x)}" for x, _ in affines]
     fam = family({c['id'] for c in cats}, evidence['sinopsis_editorial'])
     modules = [{'modulo': m, 'titulo': catalogue.MODULE_TITLES[m], 'necesidad': need}
                for m, (fams, need, ok) in MODULES.items() if fam in fams and ok(evidence)]
@@ -147,18 +151,51 @@ def payload(data, b):
             'afines_ids': {x['titulo']: x['id'] for x, _ in affines}}
 
 
+def gist(b, limit=200):
+    """Primera frase de la sinopsis, cortada en palabra: basta para saber de qué va un libro afín."""
+    text = ' '.join(source_text(b).split())
+    first = re.split(r'(?<=[.!?])\s', text, maxsplit=1)[0]
+    return first if len(first) <= limit else first[:limit].rsplit(' ', 1)[0] + '…'
+
+
+def min_age(b):
+    """Edad mínima de lectura declarada (Adultos = 18) o None si la editorial no la da."""
+    age = b.get('edad_recomendada') or ''
+    if age.casefold().startswith('adult'):
+        return 18
+    m = re.search(r'\d+', age)
+    return int(m.group(0)) if m else None
+
+
+def audience(cat_ids):
+    """Público declarado por el catálogo (infantil, juvenil, adultos) o None si no consta."""
+    return next((name for name, ids in AUDIENCES if cat_ids & ids), None)
+
+
 def affine_books(data, b, cat_ids):
-    """Libros publicados del catálogo con más géneros o temas en común (o del mismo autor), para comparar y enlazar."""
+    """Libros publicados del catálogo más parecidos (o del mismo autor), para comparar y enlazar.
+
+    Cada categoría compartida pesa según lo rara que es: compartir «Fantasía» dice poco y compartir «Hockey», mucho.
+    Un álbum de 4 años y una novela de 12, o una juvenil y una de adultos, no se comparan aunque coincidan las etiquetas.
+    """
     names = {c['id']: c['nombre'] for c in data['categorias'] if c['tipo'] in ('genero', 'tematica')}
     wanted = cat_ids & set(names)
+    books = [x for x in published(data) if x['id'] != b['id']]
+    cats = {x['id']: {c['id'] for c in catalogue.categories(data, x)} for x in books}
+    df = {c: sum(c in v for v in cats.values()) + 1 for c in wanted}
+    total = len(books) + 1
+    age, public = min_age(b), audience(cat_ids)
     rows = []
-    for x in published(data):
-        if x['id'] == b['id']:
-            continue
-        shared = wanted & {c['id'] for c in catalogue.categories(data, x)}
+    for x in books:
+        shared = wanted & cats[x['id']]
         author = bool(set(x['autores']) & set(b['autores']))
-        if len(shared) >= 2 or author:
-            rows.append((author, len(shared), x['titulo'].casefold(), x, sorted(names[c] for c in shared) or ['autor']))
+        other, other_public = min_age(x), audience(cats[x['id']])
+        if not author and ((age is not None and other is not None and abs(age - other) > 4)
+                           or (public and other_public and public != other_public)):
+            continue
+        score = sum(math.log(total / df[c]) for c in shared)
+        if author or (shared and score >= MIN_AFFINITY):
+            rows.append((author, score, x['titulo'].casefold(), x, sorted(names[c] for c in shared) or ['autor']))
     rows.sort(key=lambda r: (-r[0], -r[1], r[2]))
     return [(r[3], r[4]) for r in rows[:AFFINES]]
 

@@ -172,6 +172,27 @@ class ReadingTextsTest(unittest.TestCase):
                              ['encaje_documentado', 'lecturas_afines', 'para_quien', 'que_formato_elegir'])
             self.assertNotIn('categorías', json.dumps(saved, ensure_ascii=False))
 
+    def test_affines_share_audience_and_are_described_by_content_not_labels(self):
+        """Afines del mismo público y descritos por su sinopsis: así el texto compara libros, no etiquetas del menú."""
+        compared = 0
+        for b in texts.published(self.data):
+            cats = {c['id'] for c in builder.categories(self.data, b)}
+            for x, _ in texts.affine_books(self.data, b, cats):
+                if set(x['autores']) & set(b['autores']):
+                    continue
+                compared += 1
+                other = {c['id'] for c in builder.categories(self.data, x)}
+                self.assertFalse(texts.audience(cats) and texts.audience(other) and texts.audience(cats) != texts.audience(other), (b['id'], x['id']))
+                ages = texts.min_age(b), texts.min_age(x)
+                self.assertFalse(None not in ages and abs(ages[0] - ages[1]) > 4, (b['id'], x['id']))
+            for line in texts.payload(self.data, b)['evidencias'].get('afines_catalogo', []):
+                self.assertNotIn('comparte:', line)
+                self.assertRegex(line, r'^«.+», de .+: \S')
+        self.assertGreater(compared, 100)
+        self.assertEqual(texts.min_age({'edad_recomendada': 'Adultos'}), 18)
+        self.assertEqual(texts.min_age({'edad_recomendada': 'De 9 a 12 años'}), 9)
+        self.assertEqual(texts.gist({'sinopsis_breve': 'Una frase. Otra frase.'}), 'Una frase.')
+
     def test_answer_parsing_requires_every_id(self):
         answer = 'Aquí está:\n```json\n' + json.dumps({'fichas': [self.good]}, ensure_ascii=False) + '\n```'
         self.assertEqual(texts.answer_label([self.book['id']])(answer), 'JSON_VALIDO')
