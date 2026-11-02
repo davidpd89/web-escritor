@@ -47,6 +47,7 @@ PUBLIC_DIR_PREFIXES = (
     "assets/",
     "atlas-literario/",
     "clubes-de-lectura/",
+    "comunidad/",
     "convocatorias-escritores/",
     "cuaderno/",
     "editoriales/",
@@ -301,6 +302,9 @@ def is_publishable(rel_path: str, root: Path = ROOT) -> bool:
     if rel_path.startswith("apoyar/"):
         if rel_path != "apoyar/index.html" or not support_page_authorized(root):
             return False
+    # /comunidad/ es una sola página generada por build-community-page.py.
+    if rel_path.startswith("comunidad/") and rel_path != "comunidad/index.html":
+        return False
     if rel_path in PUBLIC_EXCLUDED_FILES:
         return False
     if any(rel_path.startswith(prefix) for prefix in PUBLIC_EXCLUDED_DIR_PREFIXES):
@@ -457,6 +461,12 @@ def assetsignore_lines(root: Path = ROOT) -> list[str]:
             "/apoyar/*",
             "!/apoyar/index.html",
         ]
+    lines += [
+        "",
+        "# /comunidad/: solo la página generada, nunca otros archivos.",
+        "/comunidad/*",
+        "!/comunidad/index.html",
+    ]
     gated = gated_prefixes_from_registry(root)
     if gated:
         lines += [

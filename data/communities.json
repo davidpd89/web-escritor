@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "_comment": "Grupos públicos de la página /comunidad/. Solo enlaces de invitación públicos; nunca tokens, chat_id privados ni enlaces personales. status: active (con invite muestra botón; sin invite, 'Enlace muy pronto') o planned ('Próximamente'). categories reutiliza los slugs de data/reading-catalogue.json, igual que la configuración del bot.",
+  "platforms": {
+    "telegram": {
+      "name": "Telegram",
+      "kind": "Canales de avisos",
+      "summary": "Canales de solo lectura: recibes las publicaciones, nadie más ve tu número y puedes silenciarlos o salir cuando quieras.",
+      "invite": ""
+    },
+    "discord": {
+      "name": "Discord",
+      "kind": "Servidor de conversación",
+      "summary": "Un servidor para hablar de libros: los mismos avisos que en Telegram, más canales para recomendar, preguntar y comentar lecturas.",
+      "invite": ""
+    }
+  },
+  "groups": [
+    {"id": "novedades", "platform": "telegram", "section": "al-dia", "name": "Novedades del día", "description": "Los libros que salen hoy a la venta en España, con autor, fecha editorial y géneros.", "cadence": "Cada mañana", "status": "active", "invite": "", "categories": []},
+    {"id": "ofertas-hoy", "platform": "telegram", "section": "al-dia", "name": "Ofertas de hoy", "description": "Libros del catálogo que acaban de bajar de precio cuando se revisan las tarifas.", "cadence": "Cuando hay bajadas", "status": "planned", "invite": "", "categories": []},
+    {"id": "mas-votados", "platform": "telegram", "section": "al-dia", "name": "Los más votados", "description": "Los libros mejor valorados por la comunidad lectora de Goodreads, actualizados de forma periódica.", "cadence": "Semanal", "status": "planned", "invite": "", "categories": []},
+    {"id": "thriller", "platform": "telegram", "section": "temas", "name": "Thriller y novela negra", "description": "Misterio, intriga y novela negra.", "cadence": "Con cada novedad", "status": "planned", "invite": "", "categories": ["misterio-y-thriller", "misterio", "tema-novela-negra"]},
+    {"id": "fantasia", "platform": "telegram", "section": "temas", "name": "Fantasía y romantasy", "description": "Fantasía épica, oscura, juvenil y romantasy.", "cadence": "Con cada novedad", "status": "planned", "invite": "", "categories": ["fantasia", "fantasia-juvenil", "fantasia-oscura", "romantasy"]},
+    {"id": "romantica", "platform": "telegram", "section": "temas", "name": "Romántica", "description": "Novela romántica y historias de amor.", "cadence": "Con cada novedad", "status": "planned", "invite": "", "categories": ["romance", "tema-amor-y-pareja"]},
+    {"id": "ciencia-ficcion", "platform": "telegram", "section": "temas", "name": "Ciencia ficción", "description": "Futuros posibles, distopías y viajes espaciales.", "cadence": "Con cada novedad", "status": "planned", "invite": "", "categories": ["ciencia-ficcion"]},
+    {"id": "terror", "platform": "telegram", "section": "temas", "name": "Terror", "description": "Miedo, horror y lo sobrenatural.", "cadence": "Con cada novedad", "status": "planned", "invite": "", "categories": ["terror"]},
+    {"id": "historica", "platform": "telegram", "section": "temas", "name": "Novela histórica e historia", "description": "Novela histórica y ensayos de historia.", "cadence": "Con cada novedad", "status": "planned", "invite": "", "categories": ["novela-historica", "historia"]},
+    {"id": "poesia", "platform": "telegram", "section": "temas", "name": "Poesía", "description": "Poemarios y antologías.", "cadence": "Con cada novedad", "status": "planned", "invite": "", "categories": ["poesia"]},
+    {"id": "cocina", "platform": "telegram", "section": "temas", "name": "Cocina y bienestar", "description": "Recetarios, nutrición y vida sana.", "cadence": "Con cada novedad", "status": "planned", "invite": "", "categories": ["cocina", "nutricion-y-bienestar"]},
+    {"id": "religion", "platform": "telegram", "section": "temas", "name": "Religión y espiritualidad", "description": "Fe, espiritualidad y pensamiento religioso.", "cadence": "Con cada novedad", "status": "planned", "invite": "", "categories": ["tema-religion-y-espiritualidad"]},
+    {"id": "ensayo", "platform": "telegram", "section": "temas", "name": "Ensayo y divulgación", "description": "Ensayo, filosofía y divulgación científica.", "cadence": "Con cada novedad", "status": "planned", "invite": "", "categories": ["ensayo", "filosofia", "divulgacion-cientifica"]},
+    {"id": "infantil-juvenil", "platform": "telegram", "section": "temas", "name": "Infantil y juvenil", "description": "Lecturas por edades, de primeros lectores a juvenil.", "cadence": "Con cada novedad", "status": "planned", "invite": "", "categories": ["infantil", "juvenil", "fantasia-juvenil"]},
+    {"id": "comic", "platform": "telegram", "section": "temas", "name": "Cómic y novela gráfica", "description": "Cómic, manga y novela gráfica.", "cadence": "Con cada novedad", "status": "planned", "invite": "", "categories": ["comic-y-novela-grafica"]},
+    {"id": "discord-avisos", "platform": "discord", "section": "discord", "name": "Avisos", "description": "Novedades del día, ofertas de hoy y los más votados, en canales de solo lectura.", "cadence": "Automático", "status": "planned", "invite": "", "categories": []},
+    {"id": "discord-generos", "platform": "discord", "section": "discord", "name": "Canales por género", "description": "Un canal por género, con los mismos temas que Telegram, para avisos y conversación.", "cadence": "Automático", "status": "planned", "invite": "", "categories": []},
+    {"id": "discord-que-lees", "platform": "discord", "section": "discord", "name": "¿Qué estás leyendo?", "description": "Comparte tu lectura actual y descubre la de otras personas.", "cadence": "Conversación", "status": "planned", "invite": "", "categories": []},
+    {"id": "discord-recomendaciones", "platform": "discord", "section": "discord", "name": "Pide una recomendación", "description": "Cuéntanos qué te gustó y te sugerimos tu próximo libro.", "cadence": "Conversación", "status": "planned", "invite": "", "categories": []}
+  ]
+}

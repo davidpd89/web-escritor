@@ -250,14 +250,22 @@ FOOTER_SOCIAL: list[tuple[str, str, str]] = [
     ('Mastodon', 'https://mastodon.social/@davidportodiaz',
      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.052c1.517.362 3.076.545 4.641.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.014.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.36V9.058c0-1.148-.484-1.73-1.452-1.73-1.07 0-1.61.694-1.61 2.06v2.98h-2.346v-2.98c0-1.366-.54-2.06-1.61-2.06-.968 0-1.452.583-1.452 1.73v5.45H6.33V8.874c0-1.148.293-2.06.878-2.734.603-.674 1.393-1.02 2.375-1.02 1.135 0 1.995.436 2.55 1.31l.55.923.55-.922c.555-.875 1.415-1.31 2.55-1.31.982 0 1.772.345 2.375 1.02.585.673.878 1.585.878 2.733v5.634z"/></svg>'),
     ('Goodreads', 'https://www.goodreads.com/author/show/66843136.David_Porto_D_az',
-     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11.5" cy="9.5" r="4.5"/><path d="M16 5v10a5 5 0 0 1-9.2 2.7"/></svg>'),
+     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11.5" cy="9.5" r="4.5"/><path d="M16 5v10a5 5 0 0 1-9.2 2.7"/></svg>'),    # Comunidades: enlazan a la página propia, no al servicio (sin target ni rel=me).
+    ('Telegram', '/comunidad/#telegram',
+     '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.4 3.6 2.9 10.8c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.8-1.4-1.5zM9.6 14.4l-.4 4.1-1.4-4.6 10.4-6.6-8.6 7.1z"/></svg>'),
+    ('Discord', '/comunidad/#discord',
+     '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M19.3 5.3A16.6 16.6 0 0 0 15.2 4l-.5 1a15.4 15.4 0 0 0-5.4 0L8.8 4a16.6 16.6 0 0 0-4.1 1.3C2.1 9.2 1.4 13 1.7 16.7a16.7 16.7 0 0 0 5.1 2.6l1.1-1.8c-.6-.2-1.2-.5-1.7-.9l.4-.3a11.9 11.9 0 0 0 10.8 0l.4.3c-.5.4-1.1.7-1.7.9l1.1 1.8a16.6 16.6 0 0 0 5.1-2.6c.4-4.3-.7-8-3-11.4zM8.7 14.4c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.6 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>'),
 ]
 
 
 def render_footer_social() -> str:
+    def attrs(name: str, url: str) -> str:
+        if url.startswith("/"):
+            return f'aria-label="Comunidad de {name}" title="Comunidad de {name}"'
+        return f'target="_blank" rel="noopener noreferrer me" aria-label="{name}" title="{name}"'
+
     items = "".join(
-        f'<li><a class="ft-social" href="{url}" target="_blank" rel="noopener noreferrer me" '
-        f'aria-label="{name}" title="{name}">{svg}</a></li>'
+        f'<li><a class="ft-social" href="{url}" {attrs(name, url)}>{svg}</a></li>'
         for name, url, svg in FOOTER_SOCIAL
     )
     return f'<ul class="ft__social" aria-label="Redes sociales">{items}</ul>'

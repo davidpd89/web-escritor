@@ -69,6 +69,8 @@ No programar envíos reales desde Actions con una base efímera o un caché como
 
 Decisión del propietario (1 de noviembre de 2026): una página propia de Telegram dentro de redes sociales, propuesta `/redes-sociales/telegram/`. Enlazarla desde `/redes-sociales/` y el apartado de libros/recomendaciones. Reservar la posibilidad de otras páginas como Discord, sin presentar comunidades aún inexistentes como disponibles. El texto promocional se definirá después de validar el canal.
 
+Actualización (2 de noviembre de 2026): la página se publica como `/comunidad/` (Telegram y Discord juntos), generada desde `data/communities.json`. Detalle en `docs/comunidades-telegram-discord.md`.
+
 Antes de publicar la página: disponer del enlace real del canal, probar unirse desde móvil y escritorio, explicar si es un canal de avisos o un grupo de conversación y comprobar las publicaciones. El bot publica; las personas se unen al canal, no necesitan abrir una conversación con el bot para recibir las publicaciones del canal. La URL y los enlaces se integrarán con los generadores de navegación, registro, sitemap y contratos existentes. Evitar una página pública vacía o botones ficticios mientras falta el destino.
 
 ### Orden de activación
