@@ -23,3 +23,9 @@ PR #1052 (`feat/fichas-formatos-ui`): https://github.com/davidpd89/web-escritor/
 - Que la CI de la #1052 confirme los commits 5da68543a y bd8a3013f.
 - `newtab()` sigue con un backspace literal en su regex, así que no marca los enlaces internos. Se deja así a propósito: forzar pestañas nuevas en los enlaces internos iría contra G201.
 - La primera regeneración reescribió `?v=` dentro de `.ci/2026-10-31-catalogo-duomo-periferica-141.md`, quizá al subir la versión del JS. Revertido a mano; no se reproduce al repetir la cadena. Si vuelve a pasar, excluir `.ci/` de la herramienta que sube versiones.
+
+## Arreglo pa11y (contraste del ✕)
+- Fallo CI pa11y-baseline: 549 errores, todos el `✕` de formato no disponible (#8a8580 sobre #f4f4f2 = 3,32:1).
+- `.catalogue-format.is-missing strong` pasa a #67635e (AA); CSS ?v=23 (bump-asset-version).
+- Test nuevo `tests/test_reading_missing_format_contrast.py` (calcula el contraste WCAG desde el CSS).
+- Verificado local: pytest test_reading* OK, catálogo/shell/sitemap/pagefind/page-order --check, budgets, asset-versions OK. Pendiente: CI pa11y en la PR.
