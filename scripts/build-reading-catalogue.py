@@ -436,6 +436,11 @@ def publisher_records(root=ROOT):
     return payload['editoriales']
 
 
+def collection_modified(record, books):
+    """Fecha de la página de autor o editorial: su última verificación o la última actualización de sus libros."""
+    return max([record.get('fecha_verificacion', ''), *(b['fecha_actualizacion'] for b in books)])
+
+
 def publisher_url(p):
     return '/recomendaciones/editoriales/' + p['slug'] + '/'
 
@@ -839,7 +844,7 @@ def render_author(a,data,books,template,all_authors=()):
         person['sameAs']=[a['biografia_fuente_url']]
     elif a.get('tipo') != 'bibliografico':
         person['sameAs']=[source['url'] for source in a['fuentes']]
-    schema={'@context':'https://schema.org','@graph':[person,{'@type':'CollectionPage','@id':canonical,'url':canonical,'name':a['nombre']+' · Información y libros','mainEntity':{'@id':canonical+'#person'},'hasPart':[{'@id':SITE+url(b)+'#book'} for b in selected]},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':label,'item':SITE+href} for i,(label,href) in enumerate([('Inicio','/'),('Libros recomendados','/recomendaciones/'),(a['nombre'],author_url(a))])]}]}
+    schema={'@context':'https://schema.org','@graph':[person,{'@type':'CollectionPage','@id':canonical,'url':canonical,'name':a['nombre']+' · Información y libros','dateModified':collection_modified(a,selected),'mainEntity':{'@id':canonical+'#person'},'hasPart':[{'@id':SITE+url(b)+'#book'} for b in selected]},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':label,'item':SITE+href} for i,(label,href) in enumerate([('Inicio','/'),('Libros recomendados','/recomendaciones/'),(a['nombre'],author_url(a))])]}]}
     titles=', '.join(b['titulo'] for b in selected[:2])
     meta=a['nombre']+': '+(str(count)+(' libro recomendado' if count==1 else ' libros recomendados')+(' ('+titles+')' if titles else '')+', ' if count else '')+'biografía, géneros y editoriales.'
     if len(meta)>160: meta=a['nombre']+': '+str(count)+(' libro recomendado' if count==1 else ' libros recomendados')+', biografía, géneros y editoriales.'
@@ -886,7 +891,7 @@ def render_publisher(p, data, books, template, author_names=(), authors=()):
     # Un sello que comparte nombre con un autor (p. ej. «DK») se distingue para no mezclar entidades.
     org_name = p['nombre'] + ' (editorial)' if p['nombre'] in author_names else p['nombre']
     org = {'@type': 'Organization', '@id': canonical + '#org', 'name': org_name, 'url': canonical, 'parentOrganization': {'@type': 'Organization', 'name': p['grupo']}}
-    schema = {'@context': 'https://schema.org', '@graph': [org, {'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': p['nombre'] + ' · Libros del catálogo', 'mainEntity': {'@id': canonical + '#org'}, 'hasPart': [{'@id': SITE + url(b) + '#book'} for b in selected]},
+    schema = {'@context': 'https://schema.org', '@graph': [org, {'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': p['nombre'] + ' · Libros del catálogo', 'dateModified': collection_modified(p, selected), 'mainEntity': {'@id': canonical + '#org'}, 'hasPart': [{'@id': SITE + url(b) + '#book'} for b in selected]},
                                                   _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Editoriales del catálogo', '/recomendaciones/editoriales/'), (p['nombre'], publisher_url(p))])]}
     return render_detail_page(template, main, canonical, p['nombre'] + ' · Libros del catálogo | David Porto Díaz', summary, schema, selected[0] if selected else None)
 
@@ -906,7 +911,7 @@ def render_authors_index(authors, books, template):
             '<header class="catalogue-author-hero"><p class="eyebrow">Libros recomendados</p><h1>Autores</h1><p>' + esc(summary) + '</p></header>'
             '<section aria-labelledby="authors-list"><h2 id="authors-list">Todos los autores</h2><ul class="catalogue-author-books">' + items + '</ul></section>'
             '<div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
-    schema = {'@context': 'https://schema.org', '@graph': [{'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Autores de los libros recomendados', 'hasPart': [{'@id': SITE + author_url(a) + '#person'} for a, _ in rows]},
+    schema = {'@context': 'https://schema.org', '@graph': [{'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Autores de los libros recomendados', 'dateModified': collection_modified({}, books), 'hasPart': [{'@id': SITE + author_url(a) + '#person'} for a, _ in rows]},
                                                   _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Autores', '/recomendaciones/autores/')])]}
     return render_detail_page(template, main, canonical, 'Autores de los libros recomendados | David Porto Díaz', summary, schema, None)
 
@@ -928,7 +933,7 @@ def render_publishers_index(catalogue_publishers, books, template):
             '<header class="catalogue-author-hero"><p class="eyebrow">Libros recomendados</p><h1>Editoriales del catálogo</h1><p>' + esc(summary) + '</p></header>'
             '<section aria-labelledby="publishers-list"><h2 id="publishers-list">Todos los sellos</h2><ul class="catalogue-author-books">' + items + '</ul></section>'
             '<div class="catalogue-end"><a class="text-action" href="/editoriales/">Directorio de editoriales que aceptan manuscritos</a> · <a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
-    schema = {'@context': 'https://schema.org', '@graph': [{'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Editoriales del catálogo'},
+    schema = {'@context': 'https://schema.org', '@graph': [{'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Editoriales del catálogo', 'dateModified': collection_modified({}, books)},
                                                   _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Editoriales del catálogo', '/recomendaciones/editoriales/')])]}
     return render_detail_page(template, main, canonical, 'Editoriales de los libros recomendados | David Porto Díaz', summary, schema, None)
 

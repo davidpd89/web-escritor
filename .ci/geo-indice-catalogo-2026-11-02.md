@@ -29,3 +29,9 @@ Rama `feat/geo-indice-catalogo`, a partir de main c036bb6e4.
 - Confirmar la CI.
 - Cuando se publiquen los textos propios (#1053), valorar si el índice debe incluir también el resumen «Antes de elegir».
 - `llms.txt` queda a 2 caracteres del límite de concisión: la próxima línea que se añada obligará a recortar otra.
+
+## Añadido: dateModified y lastmod en autores y editoriales
+- `collection_modified()` en `build-reading-catalogue.py`: la CollectionPage de autor, editorial y sus índices declara `dateModified` = máx(fecha_verificacion, fecha_actualizacion de sus libros).
+- Efecto en sitemap: lastmod pasa de 0/182 autores y 0/26 editoriales a todas (índices 2026-11-01).
+- Test nuevo `tests/test_reading_collection_lastmod.py` (todas las URL de libros/autores/editoriales con lastmod; fecha de autor ≥ la de sus libros).
+- Verificado: pytest test_reading* 242 OK; catálogo/sitemap/shell/pagefind --check, machine-authority, discoverability, reading-catalogue, publication, internal-graph, encoding, budgets, assets, orphan, assetsignore, editoriales-parity: OK.
