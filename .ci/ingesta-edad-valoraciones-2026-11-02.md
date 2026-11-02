@@ -8,6 +8,8 @@
   - Backfill de 9 fichas de Planeta con `fuente_edad_url`. Franjas nuevas: 6–8 y 9–12.
   - El test de orden de franjas lee el primer número del id: antes, «a-partir-de-N» contaba como 0.
 - **PR #1057** (`wt-ingesta`): hasta 60 fichas nuevas por noche y un motivo para cada `sin_oferta` en `prices-report.json`.
+  - Commit aad6feb92: los libros sin ninguna oferta repiten la búsqueda por título en cada barrido (`needs_discovery`), en vez de esperar 7 días. Test `test_books_without_any_offer_search_formats_every_sweep`.
+- **PR #1053** (`wt-textos2`), commit d0a87a891: citar un título de 8 o más palabras (24 fichas) o el autor ya no cuenta como copiar la sinopsis. Tres fichas agotaban intentos por eso. Bucle relanzado como run5.
 - **PR #1052**: regenerados `assets/page-order.generated.js` y `editoriales/duomo-ediciones/index.html`. Estaban desfasados tras normalizar los autores en mayúsculas (`JØRN LIER HORST`).
 
 - **PR #1058, commits posteriores:**
