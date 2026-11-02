@@ -1,4 +1,4 @@
-<#
+﻿<#
   Despliega el bot buscador de la comunidad (/libro en Discord y @DavidPortoLibrosBot en Telegram).
   Lo ejecuta David desde la raíz del repositorio: powershell -ExecutionPolicy Bypass -File bots/deploy-community-bot.ps1
   Pide los secretos por teclado (ocultos); no se guardan en el repositorio ni en el historial.
