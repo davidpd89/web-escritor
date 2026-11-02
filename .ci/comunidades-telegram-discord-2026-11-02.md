@@ -134,3 +134,19 @@ Rama local `feat/comunidades-telegram-discord` en el worktree `C:\GIT\wt-comunid
 - https://peakbot.pro/blog/lurkr-vs-arcane-discord-leveling-bot-2026
 - https://peakbot.pro/blog/best-discord-leveling-bots-2026
 - https://guide-how-to-use-discord.pages.dev/guides/how-to-use-discord-server-setup-bots-roles-community-management
+
+## Tramo 3 (2 de noviembre de 2026): Lurkr, script de despliegue y directorios
+
+### Hecho y comprobado
+- Guía del servidor: título duplicado de la tarea `/libro` corregido (verificado tras recargar).
+- Lurkr presente en el servidor y configurado (verificado tras recargar el panel): niveles activos; XP solo en 18 canales (12 géneros + CHARLA + #recomendador-ia); XP en hilos sí, por comandos no; **sin anuncios de subida**; recompensas acumulables 1/5/10/20/35 → Lector/a novel, habitual, Ratón de biblioteca, Bibliófilo/a, Leyenda.
+- Discord: rol de Lurkr movido justo encima de «Leyenda de la biblioteca» (guardado y verificado) y con «Gestionar roles». Onboarding sigue ACTIVADO.
+- `bots/deploy-community-bot.ps1`: sintaxis PowerShell validada (0 errores de parser). Despliega worker, sube secretos con `wrangler secret bulk` (fichero temporal borrado), guía el Interactions Endpoint, invita la app, registra `/libro`, configura webhook y comandos de Telegram.
+- `.gitignore`: `/wrangler.community-bot.jsonc`.
+- `docs/comunidades-directorios.md`: textos, etiquetas y rutina para DISBOARD, Top.gg, Discadia, Descubrimiento de Discord y Telegram (TGStat, Telemetr, grupo de debate).
+- `docs/comunidades-plan.md` §10.4, §10.5 y §11 actualizados.
+
+### No comprobado / pendiente
+- El script **no se ha ejecutado** (pide secretos de David): worker sin desplegar, `/libro` sin registrar, webhook de Telegram sin poner.
+- `/setinline` en @BotFather, alta en directorios, grupo de debate de Telegram, borrar 2 mensajes antiguos, webhooks/secretos de avisos.
+- Commit local sin push; sin PR.

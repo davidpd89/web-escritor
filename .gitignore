@@ -79,3 +79,6 @@ qa-artifacts/
 
 # Preview local de /apoyar/ (generada; nunca se versiona)
 /lab/donaciones-preview/
+
+# Config local del bot de comunidad (copia de wrangler.community-bot.example.jsonc)
+/wrangler.community-bot.jsonc

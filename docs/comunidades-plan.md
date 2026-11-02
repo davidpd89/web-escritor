@@ -679,21 +679,26 @@ Código listo y probado en local; **no desplegado** (GitHub Actions está parado
 - IA opcional: con `BOT_AI=true`, Workers AI (Llama 3.1 8B, cuota gratuita) solo reescribe la petición en palabras clave cuando la búsqueda directa no encuentra nada. Los libros siempre salen del catálogo real (sin inventar).
 - Tests: `node tests/test-book-finder.mjs` y `node tests/test-community-bot-worker.mjs`.
 
-**Despliegue (David, una vez, ~15 min):**
-1. Discord Developer Portal → aplicación del servidor (o nueva «Libros David Porto») → copiar Application ID y Public Key; pestaña Bot → Reset Token (no pegarlo en ningún chat).
-2. `cp wrangler.community-bot.example.jsonc wrangler.community-bot.jsonc` y `npx wrangler deploy -c wrangler.community-bot.jsonc`.
-3. `npx wrangler secret put DISCORD_PUBLIC_KEY -c wrangler.community-bot.jsonc`; igual con `TELEGRAM_BOT_TOKEN` y `TELEGRAM_WEBHOOK_SECRET` (cadena aleatoria larga).
-4. En el portal: Interactions Endpoint URL = `https://david-porto-community-bot.<subdominio>.workers.dev/discord` (Discord hace PING y debe guardar sin error).
-5. Registrar el comando en el servidor: `DISCORD_APP_ID=… DISCORD_BOT_TOKEN=… DISCORD_GUILD_ID=1566732369656946738 node bots/register-discord-commands.mjs` → debe imprimir `200 /libro`.
-6. Invitar la aplicación al servidor con el scope `applications.commands` (OAuth2 → URL Generator).
-7. Telegram: `setWebhook` con `url=…/telegram`, `secret_token=<TELEGRAM_WEBHOOK_SECRET>` y `allowed_updates=["message","inline_query"]`; en @BotFather → `/setinline` (marcador «qué te apetece leer…») y `/setcommands` (`buscar - Busca libros del catálogo`).
-8. Probar: `/libro busco: fantasía para 11 años` en Discord, `/buscar thriller` al bot y `@DavidPortoLibrosBot terror` en cualquier chat.
+**Despliegue (David, una vez, ~15 min):** desde la raíz del repo, `powershell -ExecutionPolicy Bypass -File bots/deploy-community-bot.ps1`. El script:
+1. Comprueba Node, crea `wrangler.community-bot.jsonc` desde el ejemplo (ignorado en git) y despliega el worker con `wrangler deploy`.
+2. Pide de forma oculta la Public Key de Discord y el token de Telegram, genera `TELEGRAM_WEBHOOK_SECRET` aleatorio y los sube con `wrangler secret bulk` (fichero temporal que se borra al terminar).
+3. Indica la Interactions Endpoint URL (`…/discord`) para pegarla en el Developer Portal y espera.
+4. Abre la invitación de la app al servidor (`applications.commands`), pide el Bot Token y registra `/libro` (debe imprimir `200 /libro`).
+5. Configura en Telegram `setWebhook` (`…/telegram`, `secret_token`, `message` + `inline_query`) y `setMyCommands` (`buscar`).
+6. Queda a mano en @BotFather: `/setinline` (marcador «qué te apetece leer…»).
+7. Probar: `/libro busco: fantasía para 11 años` en Discord, `/buscar thriller` al bot y `@DavidPortoLibrosBot terror` en cualquier chat.
 
-### 10.5 Bots externos recomendados (requieren el OK de David para añadirlos por OAuth)
+`-SoloDiscord` o `-SoloTelegram` repiten solo esa parte.
 
-- **Niveles: Lurkr** (gratis: XP por mensaje y voz, tabla web, tarjetas de rango y recompensas de rol ilimitadas; importa tablas de MEE6). Alternativa: Arcane (10 recompensas de rol gratis). MEE6 cobra las recompensas de rol.
-  - Configuración propuesta: XP solo en CHARLA y géneros (sin XP en AL DÍA ni #off-topic), recompensas → nivel 1 Lector/a novel, 5 habitual, 10 Ratón de biblioteca, 20 Bibliófilo/a, 35 Leyenda; avisos de subida en #off-topic sin mención.
-  - Mover el rol del bot por encima de los 5 roles de nivel.
+### 10.5 Bots externos
+
+- **Niveles: Lurkr — instalado y configurado** (2 de noviembre de 2026, verificado tras recargar el panel):
+  - XP solo en 18 canales (whitelist): los 12 de género, #pide-recomendacion, #club-de-lectura, #que-estas-leyendo, #votaciones, #off-topic y #recomendador-ia. Sin XP en INICIO ni AL DÍA.
+  - XP en hilos sí; XP por comandos no; reinicio de nivel al banear.
+  - **Sin anuncios de subida de nivel** (canal de avisos: ninguno).
+  - Recompensas (acumulables): 1 Lector/a novel, 5 Lector/a habitual, 10 Ratón de biblioteca, 20 Bibliófilo/a, 35 Leyenda de la biblioteca.
+  - El rol de Lurkr está justo encima de «Leyenda de la biblioteca» (debajo de 🔔 Club de lectura) y tiene «Gestionar roles».
+- **Directorios (DISBOARD, Top.gg, Discadia) y Telegram:** guía en `docs/comunidades-directorios.md`.
 - **Moderación:** AutoMod nativo (ya activo) basta al tamaño actual; no se añade bot extra.
 - **Club de lectura:** las votaciones usan las encuestas nativas de Discord en #votaciones y los Eventos del servidor para las quedadas; no hace falta bot.
 
@@ -706,7 +711,8 @@ Código listo y probado en local; **no desplegado** (GitHub Actions está parado
 ## 11. Pendiente de confirmar con David
 
 - Borrar los 2 mensajes antiguos de #normas y #bienvenida (los de la cuenta anterior).
-- Desplegar el bot buscador (10.4) y dar el OK a Lurkr (10.5).
+- Ejecutar `bots/deploy-community-bot.ps1` (10.4) y `/setinline` en @BotFather.
+- Dar de alta el servidor en DISBOARD, Top.gg y Discadia y los canales en TGStat (`docs/comunidades-directorios.md`).
 - Crear el grupo de comentarios de Telegram (10.6).
 - Crear los webhooks de Discord y los dos secretos (`READING_TELEGRAM_CHANNELS_JSON` y `READING_DISCORD_WEBHOOKS_JSON`).
 - Quién modera Discord, además de David.
