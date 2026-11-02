@@ -100,6 +100,16 @@ class ReadingTextsTest(unittest.TestCase):
         self.assertEqual(self.check(modulo='como_se_utiliza')[1], ['como_se_utiliza: módulo no permitido', 'faltan módulos: encaje_documentado'])
         self.assertEqual(self.check(evidencias=['traductor'])[1], ['encaje_documentado: evidencias inexistentes', 'faltan módulos: encaje_documentado'])
 
+    def test_citing_a_long_title_or_author_is_not_copying(self):
+        title = 'La ciencia del horneado (La ciencia de la cocina)'
+        source = f'En {title}, Matt Adlard explica la química del horno paso a paso para cocineros caseros.'
+        names = [title, 'Matt Adlard']
+        cited = f'{title}, de Matt Adlard, interesa a quien quiere entender por qué falla un bizcocho.'
+        self.assertFalse(texts.ngrams(cited, names=names) & texts.ngrams(source, names=names))
+        self.assertTrue(texts.ngrams(cited) & texts.ngrams(source))
+        copied = 'Aquí Matt Adlard explica la química del horno paso a paso para todos.'
+        self.assertTrue(texts.ngrams(copied, names=names) & texts.ngrams(source, names=names))
+
     def test_threshold_and_no_abstention(self):
         only = {**self.block, 'evidencias': ['titulo']}
         blocks, errors = texts.validate_text(self.payload, {'id': self.book['id'], 'bloques': [only]})

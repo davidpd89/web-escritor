@@ -249,8 +249,15 @@ def words(text):
     return re.findall(r'\w+', unicodedata.normalize('NFKC', text).lower())
 
 
-def ngrams(text, n=COPY_WORDS):
+def ngrams(text, n=COPY_WORDS, names=()):
+    """Secuencias de n palabras; cada nombre (título, autores) cuenta como una sola, porque citarlo no es copiar."""
     w = words(text)
+    for name in sorted((words(x) for x in names), key=len, reverse=True):
+        k, i = len(name), 0
+        while k > 1 and i <= len(w) - k:
+            if w[i:i + k] == name:
+                w[i:i + k] = ['\x00']
+            i += 1
     return {tuple(w[i:i + n]) for i in range(len(w) - n + 1)}
 
 
@@ -278,7 +285,8 @@ def validate_block(p, x):
         errors.append('no nombra ningún título de afines_catalogo')
     cited = ' '.join(as_text(p['evidencias'][k]) for k in keys)
     source = p['evidencias']['sinopsis_editorial']
-    if ngrams(text) & ngrams(source):
+    names = [p['evidencias'].get('titulo', ''), *p['evidencias'].get('autores', [])]
+    if ngrams(text, names=names) & ngrams(source, names=names):
         errors.append(f'copia {COPY_WORDS} palabras seguidas de la sinopsis')
     numbers = set(re.findall(r'\d+', text)) - set(re.findall(r'\d+', cited))
     if numbers:
