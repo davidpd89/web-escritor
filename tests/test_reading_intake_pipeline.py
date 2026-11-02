@@ -113,9 +113,32 @@ class ContractTests(unittest.TestCase):
         self.book['titulo'] = 'Un título muy largo ' * 12
         title = builder.book_title(self.book)
         self.assertLessEqual(len(title), 75)
-        self.assertIn(self.book['isbn13'], title)
-        other = {**self.book, 'isbn13': '9780140449136'}
-        self.assertNotEqual(title, builder.book_title(other))
+        self.assertIn(', '.join(self.book['autores']), title)
+        other = {**self.book, 'id': 'otro', 'isbn13': '9780140449136'}
+        pair = [self.book, other]
+        self.assertNotEqual(builder.book_title(self.book, pair), builder.book_title(other, pair))
+
+    def test_seo_title_drops_edition_note_and_series_before_the_author(self):
+        b = {**self.book, 'titulo': 'Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados', 'autores': ['Briar Boleyn']}
+        self.assertEqual(builder.book_title(b), 'Lazos de fuego (Academia Bloodwing 2) · Briar Boleyn | Libros recomendados')
+        b['titulo'] = 'Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?)'
+        self.assertEqual(builder.book_title(b), 'Familia, ¿contamos nuestra historia? · Briar Boleyn | Libros recomendados')
+
+    def test_special_edition_title_never_collides_with_the_plain_edition(self):
+        plain = {**self.book, 'id': 'a', 'titulo': 'La señora Dalloway', 'autores': ['Virginia Woolf']}
+        special = {**plain, 'id': 'b', 'titulo': 'La señora Dalloway (edición especial limitada con cantos tintados)'}
+        books = [plain, special]
+        self.assertNotEqual(builder.book_title(plain, books), builder.book_title(special, books))
+        self.assertLessEqual(len(builder.book_title(special, books)), 75)
+
+    def test_catalogue_titles_are_bounded_distinct_and_name_the_author(self):
+        data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+        books = [b for b in data['libros'] if b['estado'] == 'publicado']
+        titles = {b['id']: builder.book_title(b, books) for b in books}
+        self.assertEqual(len(set(titles.values())), len(titles))
+        self.assertTrue(all(len(t) <= 75 for t in titles.values()))
+        anonymous = [t for b in books if b['autores'][0] not in (t := titles[b['id']])]
+        self.assertLessEqual(len(anonymous), 2, anonymous)
 
     def test_partial_publication_never_gets_fake_day(self):
         self.record.update(precision_fecha='mes', fecha_publicacion_edicion='2026-10')

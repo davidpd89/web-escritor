@@ -383,13 +383,31 @@ def novelty(b, fallback):
     return '<span class="catalogue-novelty" data-release-label="' + esc(b.get('fecha_publicacion', '')) + '" hidden>Novedad</span>'
 
 
-def book_title(b):
-    base = b['titulo'] + ' · ' + ', '.join(b['autores'])
-    full = base + ' | Libros recomendados'
-    if len(full) <= 75:
-        return full
-    if len(base) <= 75:
-        return base
+def short_titles(title):
+    """Versiones cada vez más cortas del título: sin la nota de edición, sin la serie entre paréntesis y sin subtítulo."""
+    out = [title]
+    for pattern in (r'\s*[(\[]?\s*\bedici[oó]n\s+(?:especial|limitada|coleccionista|ilustrada|exclusiva|aniversario|conmemorativa|deluxe|serie)\b.*$', r'\s*\([^()]*\)\s*$', r'\s*:[^:]*$'):
+        t = re.sub(pattern, '', out[-1], flags=re.I).strip(' -–—:.,')
+        if t and t != out[-1]:
+            out.append(t)
+    return out
+
+
+def book_title(b, books=()):
+    """Título SEO de hasta 75 caracteres que conserva el autor; el ISBN solo entra si el título corto choca con otra ficha."""
+    authors = ', '.join(b['autores'])
+    clash = {x['titulo'].casefold() for x in books if x['id'] != b['id'] and x['autores'] == b['autores']}
+    clash |= {t.casefold() for x in books if x['id'] != b['id'] and x['autores'] == b['autores'] for t in short_titles(x['titulo'])}
+    for i, name in enumerate(short_titles(b['titulo'])):
+        if i and name.casefold() in clash:
+            break
+        for title in (f'{name} · {authors} | Libros recomendados', f'{name} · {authors}'):
+            if len(title) <= 75:
+                return title
+    tail = ' · ' + authors
+    cut = b['titulo'][:74-len(tail)].rsplit(' ', 1)[0].rstrip(' -–—:.,')
+    if len(cut) >= 20 and not any(t.startswith(cut.casefold()) for t in clash):
+        return cut + '…' + tail
     suffix = ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8])
     return b['titulo'][:74-len(suffix)].rsplit(' ', 1)[0] + '…' + suffix
 
@@ -704,7 +722,7 @@ def render_hub(data, books, template):
 
 def render_book(data,b,template):
     canonical=SITE+url(b)
-    title=book_title(b)
+    title=book_title(b,[x for x in data['libros'] if x['estado']=='publicado'])
     description=own_meta_description(b) or book_meta_description(data,b)
     own_before=own_text_section(b)
     cats=categories(data,b)
@@ -765,8 +783,15 @@ def render_detail_page(template,main,canonical,title,description,schema,b=None):
     values={'description':description,'og:title':title,'og:description':description,'og:url':canonical,'twitter:title':title,'twitter:description':description}
     if b:
         values.update({'og:image':SITE+b['portada_local'],'og:image:alt':'Portada de '+b['titulo'],'og:image:width':b['portada_ancho'],'og:image:height':b['portada_alto'],'twitter:image':SITE+b['portada_local'],'twitter:image:alt':'Portada de '+b['titulo']})
+    book=next((n for n in schema.get('@graph',[]) if n.get('@type')=='Book'),None)
+    if book:
+        values['og:type']='book'
     for key,value in values.items():
         page=re.sub(r'(<meta (?:name|property)="'+re.escape(key)+r'" content=")[^"]*',lambda m:m[1]+esc(value),page)
+    if book:
+        # Open Graph de libro: ISBN, páginas de autor y fecha de la edición.
+        book_meta=[('book:isbn',book.get('isbn'))]+[('book:author',p.get('url')) for p in book['author']]+[('book:release_date',book.get('datePublished'))]
+        page=re.sub(r'<meta property="og:type" content="book">',lambda m:m[0]+''.join(f'\n  <meta property="{k}" content="{esc(v)}">' for k,v in book_meta if v),page,count=1)
     page=page.replace('href="'+SITE+'/recomendaciones/"','href="'+canonical+'"')
     page=re.sub(r'<script type="application/ld\+json">[\s\S]*?</script>',lambda _:'<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')+'</script>',page,count=1)
     return inject_shell_auto(page)
