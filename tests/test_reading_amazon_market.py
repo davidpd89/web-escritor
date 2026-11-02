@@ -217,6 +217,18 @@ class AmazonFormatDiscoveryTests(unittest.TestCase):
         refresh_offers({'libros':books},{'offers':[]},provider,'contrato-21',NOW+timedelta(days=91),sweep_days=1)
         self.assertEqual(provider.calls.count('discover'),10,'se vuelve a buscar a los 90 días')
 
+    def test_books_without_any_offer_search_formats_every_sweep(self):
+        class Provider:
+            def __init__(self): self.calls=[]
+            def __call__(self,book): self.calls.append('isbn'); return {'searchResult':{'items':[]}}
+            def discover(self,book): self.calls.append('discover'); return {'searchResult':{'items':[]}}
+        books=[dict(BOOK,id='lib-sin',formatos_compra=[])]
+        provider=Provider()
+        refresh_offers({'libros':books},{'offers':[]},provider,'contrato-21',NOW)
+        provider.calls.clear()
+        refresh_offers({'libros':books},{'offers':[]},provider,'contrato-21',NOW+timedelta(days=7),sweep_days=1)
+        self.assertEqual(provider.calls,['isbn','discover'],'sin ninguna oferta no se esperan 90 días para buscar por título')
+
     def test_a_cut_off_night_still_moves_the_sweep_forward(self):
         many={'libros':[dict(BOOK,id=f'lib-{i}',formatos_compra=[]) for i in range(20)]}
         _,stats=refresh_offers(many,{'offers':[]},lambda b:response(),'contrato-21',NOW,budget=7)

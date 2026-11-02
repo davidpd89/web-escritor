@@ -269,8 +269,13 @@ REDISCOVER_AFTER=timedelta(days=90)
 
 
 def needs_discovery(book,now):
-    if {'ebook','audiolibro'}<={o['formato'] for o in book.get('formatos_compra',[])}:
+    formats={o['formato'] for o in book.get('formatos_compra',[])}
+    if {'ebook','audiolibro'}<=formats:
         return False
+    if not formats:
+        # Nothing to buy yet (new release, ISBN Amazon does not list): search by
+        # title on every sweep; it is a handful of requests against 8640 a day.
+        return True
     searched=book.get('formatos_amazon_buscados')
     return not searched or now.date()-date.fromisoformat(searched)>=REDISCOVER_AFTER
 
