@@ -4,53 +4,66 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Guinness World Records 2027 está dirigido al público infantil y juvenil con curiosidad por los récords en deportes, naturaleza, ciencia y cultura. No desarrolla una aventura con personajes y argumento: reúne marcas y logros de distintos ámbitos, desde fenómenos naturales hasta habilidades humanas, para una lectura centrada en datos y curiosidades.",
+      "texto": "Guinness World Records 2027 se dirige a lectores de 9 a 12 años interesados en los récords de naturaleza, deporte, ciencia y cultura. No está orientado a quienes busquen una novela con protagonistas y un argumento continuado, porque su contenido gira alrededor de logros, marcas y curiosidades de distintas disciplinas.",
       "evidencias": [
         "titulo",
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Guinness World Records 2027 es una edición en castellano de Planeta Junior, publicada en 2026 y compuesta por 256 páginas. Se presenta en encuadernación cartoné sin sobrecubierta y reúne récords relacionados con la naturaleza, los avances científicos, las hazañas deportivas, el entretenimiento y la cultura.",
+      "texto": "Guinness World Records 2027 es la edición de Planeta Junior publicada el 2026-10-07, con 256 páginas en tapa dura de cartoné sin sobrecubierta. Esta entrega reúne récords de múltiples ámbitos, desde fenómenos naturales hasta logros deportivos y avances científicos, en lugar de concentrarse en una única disciplina.",
       "evidencias": [
         "titulo",
         "editorial",
-        "edicion",
         "fecha_publicacion",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada es de 9 a 12 años, y Guinness World Records 2027 cuenta con 256 páginas en castellano. Su presentación es de tapa dura de cartoné sin sobrecubierta, con contenidos sobre récords que permiten consultar temas diferentes sin seguir una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
         "numero_paginas",
         "idioma",
+        "edicion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Guinness World Records 2027 se ofrece en tapa dura sin sobrecubierta, con 256 páginas de contenido. La encuadernación cartoné proporciona una cubierta rígida para un libro que puede abrirse repetidamente en busca de distintos récords y conservarse como volumen de consulta o regalarse a lectores interesados en las curiosidades del mundo.",
+      "texto": "La tapa dura es el formato disponible para Guinness World Records 2027, con 256 páginas y encuadernación de cartoné sin sobrecubierta. El volumen físico permite consultar y volver a revisar récords de ciencia, deporte, naturaleza y entretenimiento, tanto de forma individual como compartiendo sus contenidos.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Guinness World Records 2027 y Pipoka y la Fábrica del Desastre comparten el interés por explorar lugares y aspectos sorprendentes del mundo, aunque ofrecen lecturas distintas. Guinness World Records reúne marcas de ciencia, naturaleza y deporte; Jose Such sigue las peripecias de un cuentacuentos y una marioneta por paisajes y criaturas legendarias de la Península.",
+      "texto": "Guinness World Records 2027. Fútbol, también de Guinness World Records, se concentra en el fútbol masculino y femenino, mientras Guinness World Records 2027 abarca además naturaleza, ciencia y cultura. Pipoka y la Fábrica del Desastre se diferencia por su carácter narrativo, con un cuentacuentos y una marioneta mágica que recorren paisajes y encuentran criaturas legendarias.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
+        "isbn-9788408324379",
         "isbn-9791388277085"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8242af4316aa6d38",
+  "fuente_hash": "37a71b161220281d",
   "origen": "chatgpt-web"
 }
