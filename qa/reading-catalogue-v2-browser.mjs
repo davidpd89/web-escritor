@@ -33,6 +33,10 @@ try {
     assert.equal(await page.locator('[data-catalogue-book]:visible').count(),24);
     await page.locator('.catalogue-pagination').getByRole('button',{name:'Siguiente →'}).click();
     assert.equal(new URLSearchParams(new URL(page.url()).hash.slice(1)).get('pagina'),'2');
+    assert.equal(await page.locator('.catalogue-pagination [aria-current="page"]').innerText(),'2');
+    await page.locator('.catalogue-pagination').getByRole('button',{name:'Página 1',exact:true}).click();
+    assert.equal(await page.locator('.catalogue-pagination [aria-current="page"]').innerText(),'1');
+    await page.locator('.catalogue-pagination').getByRole('button',{name:'Página 2',exact:true}).click();
     await page.reload({waitUntil:'networkidle'});
     assert.match(await page.locator('[data-catalogue-count]').innerText(),/página 2/);
     await openFilters(page);
@@ -53,6 +57,10 @@ try {
     assert((await page.locator('[data-catalogue-book]:visible').evaluateAll(es=>es.map(e=>e.dataset.pages))).every(s=>!s));
     await page.getByRole('button',{name:'Restablecer',exact:true}).click();
     await page.locator('.catalogue-quiz>summary').click();
+    // Sin contador de progreso y con salida directa a los resultados desde la primera pregunta.
+    assert.equal(await page.locator('.catalogue-quiz__progress:visible').count(),0);
+    assert.match(await page.locator('.catalogue-quiz__now').innerText(),/^Mostrar ya los resultados \(\d+ libros?\)$/);
+    if(/tipo de libro/.test(await page.locator('.catalogue-quiz__panel h2').innerText())) await page.getByRole('button',{name:'Me da igual, continuar',exact:true}).click();
     await page.getByRole('button',{name:'Sí, una novedad',exact:true}).click();
     await page.getByRole('button',{name:'Halloween',exact:true}).click();
     assert.equal(await page.locator('.catalogue-quiz__choices').getByRole('button',{name:'Cocina',exact:true}).count(),0,'Halloween must not offer unrelated cuisine');
