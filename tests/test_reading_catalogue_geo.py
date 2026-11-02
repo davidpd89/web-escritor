@@ -46,7 +46,10 @@ class CatalogueGEO(unittest.TestCase):
         self.assertGreater(len(with_audience), 100)
         for b in with_audience:
             line = next(l for l in text.splitlines() if f"{builder.url(b)})" in l)
-            self.assertIn('Para quién es: ' + builder.own_summary(b), line, b['id'])
+            who = builder.own_summary(b)
+            # Entero, salvo cuando la línea llega al tope de 700: entonces cede espacio, pero empieza igual.
+            self.assertIn('Para quién es: ' + (who if len(line) < 640 else who[:40]), line, b['id'])
+            self.assertLessEqual(len(line), 700, b['id'])
             self.assertLess(line.index('Para quién es:'), line.index('Sinopsis de la editorial:'), b['id'])
         self.assertNotIn('sinopsis propia', text)
 
