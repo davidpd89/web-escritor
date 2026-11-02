@@ -14,6 +14,7 @@ import argparse
 import hashlib
 import importlib.util
 import json
+import math
 import os
 import re
 import shutil
@@ -30,11 +31,16 @@ OUT = ROOT / '.local/reading-texts/out'
 STATE = ROOT / '.local/reading-texts/state.json'
 PROMPT = ROOT / 'scripts/templates/reading-texts-prompt.md'
 RRSS_TOOLS = Path(os.environ.get('RRSS_TOOLS', r'C:\GIT\RRSS_DavidPorto\tools'))
-VERSION = 2
-MAX_ATTEMPTS = 2
-MAX_BLOCKS = 3
+VERSION = 3
+MAX_ATTEMPTS = 4
+MAX_BLOCKS = 5
+MIN_BLOCKS = 2
 COPY_WORDS = 8
-ABSTENTIONS = {'SIN_APORTE_INCREMENTAL', 'DATOS_INSUFICIENTES', 'SERIE_NO_VERIFICADA', 'FUENTES_CONFLICTIVAS'}
+AFFINES = 5
+AUDIENCES = (('infantil', {'infantil'}), ('juvenil', {'juvenil', 'fantasia-juvenil'}), ('adultos', {'adultos'}))
+MIN_AFFINITY = 2.5  # suma de log(N/df): dos etiquetas muy comunes no bastan
+# Siglas y nombres genéricos de formato o tienda: no son entidades que deban venir de las evidencias.
+GENERIC_NAMES = {'isbn', 'kindle', 'amazon', 'ebook', 'pdf', 'epub', 'audible'}
 # Afirmaciones que el modelo no puede sostener con los datos de entrada salvo que la sinopsis las traiga.
 CLAIMS = re.compile(r'premi|galard|best ?seller|superventas|millones de|ejemplares vendidos|adaptaci|netflix|película|serie de televisi|'
                     r'la crítica|aclamad|traducid[oa] a|obra maestra|he leído|me encant|nuestra opinión|mi opinión|lo recomiendo', re.I)
@@ -42,6 +48,16 @@ CLAIMS = re.compile(r'premi|galard|best ?seller|superventas|millones de|ejemplar
 OPINION = re.compile(r'\britmo|trepidante|adictiv|apasionant|imprescindible|magistral|brillante|cautivador|emocionante|fascinante|inolvidable|'
                      r'absorbente|conmovedor|impresionante|maravillos|increíble|engancha|no te (puedes|puedas) perder|perfect[oa] para|'
                      r'ideal para|recomendamos|te encantar|una joya|bien escrit|prosa (cuidada|exquisita)', re.I)
+# El lector no tiene que ver el proceso: dudas sobre las fuentes o referencias a «la sinopsis» delatan una ficha hueca.
+META = re.compile(r'informaci[oó]n disponible|no se (detalla|especifica|indica|menciona|concreta|precisa|aclara|confirma)|'
+                  r'no (existe|hay|consta) (una |ninguna )?(confirmaci|informaci|dato)|sin (una )?confirmaci|no (concreta|precisa|aclara|detalla|confirma)n?\b|'
+                  r'\b(la|las|esta|estas) (sinopsis|evidencias?|fuentes?|datos disponibles)\b|seg[uú]n (la|los) (sinopsis|datos)', re.I)
+# Muletillas de texto generado en español: suenan a plantilla y no informan.
+# «Comparte las categorías Infancia e Infantil y juvenil» describe el menú de la web, no el libro.
+TAXONOMY = re.compile(r'\bcategor[ií]as?\b', re.I)
+AI_TELLS = re.compile(r'\ben definitiva\b|\bsin duda\b|sum[eé]rg|\bun viaje (a|por|hacia)\b|en un mundo (donde|en el que)|'
+                      r'\bno solo\b[^.]{0,80}\bsino (también|que)\b|\bse erige\b|\bpromete\b|\bdescubre\b|a medida que avanza|'
+                      r'\buna (lectura|obra|historia) que (nos )?invita|\bal fin y al cabo\b|\bcabe destacar\b|\bvale la pena\b', re.I)
 FAMILIES = (  # Precedencia: lo infantil y lo práctico se reconocen antes que la no ficción y la narrativa.
     ('infantil', {'infantil', 'edad-de-0-a-3-anos', 'edad-a-partir-de-4-anos', 'edad-a-partir-de-7-anos'}),
     ('practico', {'cocina', 'desarrollo-personal', 'familia-y-crianza', 'nutricion-y-bienestar'}),
@@ -51,7 +67,10 @@ EDITION = re.compile(r'traduc|prólogo|epílogo|introducción de|edición (espec
                      r'ilustrad[oa] por|ilustraciones de|cantos|notas de|apéndice|texto íntegro|edición bilingüe', re.I)
 INTERACTIVE = re.compile(r'solapa|rueda|cartón|pegatina|texturas|pop-up|desplegable|sonido|actividades|colorear|juego|busca y encuentra|troquel', re.I)
 CONTENTS = re.compile(r'recetas|ejercicios|índice|secciones|apartados|capítulos|pasos|técnicas|menús|planes', re.I)
+ALL = {'narrativa', 'no_ficcion', 'practico', 'infantil', 'residual'}
 MODULES = {  # módulo: (familias, necesidad del lector, condición sobre las evidencias)
+    'para_quien': (ALL, 'saber en dos frases si encaja con lo que busca y con quién no encaja',
+                   lambda e: e['categorias']),
     'edad_y_sensibilidad': ({'narrativa'}, 'saber si encaja por edad y contenido sensible',
                             lambda e: e.get('avisos_contenido') or e.get('edad_recomendada', 'Adultos') != 'Adultos'),
     'encaje_documentado': ({'narrativa'}, 'saber qué tipo de lectura propone según su género y premisa',
@@ -66,7 +85,12 @@ MODULES = {  # módulo: (familias, necesidad del lector, condición sobre las ev
                         lambda e: INTERACTIVE.search(e['sinopsis_editorial'])),
     'edad_y_formato': ({'infantil'}, 'saber si encaja por edad, formato y extensión',
                        lambda e: e.get('edad_recomendada')),
+    'que_formato_elegir': (ALL, 'decidir entre tapa dura, tapa blanda, Kindle o audiolibro según el uso',
+                           lambda e: len(e.get('formatos_disponibles', ())) >= 2 or (e.get('formato_edicion') and e.get('numero_paginas'))),
+    'lecturas_afines': (ALL, 'saber con qué otros libros de este catálogo se compara y en qué se diferencia',
+                        lambda e: e.get('afines_catalogo')),
 }
+FORMAT_LABELS = {'tapa-dura': 'Tapa dura', 'tapa-blanda': 'Tapa blanda', 'ebook': 'Kindle', 'audiolibro': 'Audiolibro'}
 BASIC = {'titulo', 'autores', 'editorial', 'edicion', 'fecha_publicacion', 'numero_paginas', 'formato_edicion', 'idioma', 'isbn13'}
 
 
@@ -112,19 +136,80 @@ def payload(data, b):
     evidence = {k: b[k] for k in fields if b.get(k)}
     evidence['categorias'] = [c['nombre'] for c in cats if c['tipo'] in ('genero', 'tematica', 'epoca', 'edad')]
     evidence['sinopsis_editorial'] = source_text(b)
+    formats = sorted({o['formato'] for o in catalogue.purchase_formats(b)} | ({b['formato_edicion']} if b.get('formato_edicion') else set()),
+                     key=list(FORMAT_LABELS).index)
+    if formats:
+        evidence['formatos_disponibles'] = [FORMAT_LABELS[f] for f in formats]
+    affines = affine_books(data, b, {c['id'] for c in cats})
+    if affines:
+        # De qué va cada afín, no sus etiquetas: el modelo compara contenido y no el menú de la web.
+        evidence['afines_catalogo'] = [f"«{x['titulo']}», de {', '.join(x['autores'])}: {gist(x)}" for x, _ in affines]
     fam = family({c['id'] for c in cats}, evidence['sinopsis_editorial'])
     modules = [{'modulo': m, 'titulo': catalogue.MODULE_TITLES[m], 'necesidad': need}
                for m, (fams, need, ok) in MODULES.items() if fam in fams and ok(evidence)]
-    return {'id': b['id'], 'familia': fam, 'modulos_permitidos': modules, 'evidencias': evidence}
+    return {'id': b['id'], 'familia': fam, 'modulos_permitidos': modules, 'evidencias': evidence,
+            'afines_ids': {x['titulo']: x['id'] for x, _ in affines}}
+
+
+def gist(b, limit=200):
+    """Primera frase de la sinopsis, cortada en palabra: basta para saber de qué va un libro afín."""
+    text = ' '.join(source_text(b).split())
+    first = re.split(r'(?<=[.!?])\s', text, maxsplit=1)[0]
+    return first if len(first) <= limit else first[:limit].rsplit(' ', 1)[0] + '…'
+
+
+def min_age(b):
+    """Edad mínima de lectura declarada (Adultos = 18) o None si la editorial no la da."""
+    age = b.get('edad_recomendada') or ''
+    if age.casefold().startswith('adult'):
+        return 18
+    m = re.search(r'\d+', age)
+    return int(m.group(0)) if m else None
+
+
+def audience(cat_ids):
+    """Público declarado por el catálogo (infantil, juvenil, adultos) o None si no consta."""
+    return next((name for name, ids in AUDIENCES if cat_ids & ids), None)
+
+
+def affine_books(data, b, cat_ids):
+    """Libros publicados del catálogo más parecidos (o del mismo autor), para comparar y enlazar.
+
+    Cada categoría compartida pesa según lo rara que es: compartir «Fantasía» dice poco y compartir «Hockey», mucho.
+    Un álbum de 4 años y una novela de 12, o una juvenil y una de adultos, no se comparan aunque coincidan las etiquetas.
+    """
+    names = {c['id']: c['nombre'] for c in data['categorias'] if c['tipo'] in ('genero', 'tematica')}
+    wanted = cat_ids & set(names)
+    books = [x for x in published(data) if x['id'] != b['id']]
+    cats = {x['id']: {c['id'] for c in catalogue.categories(data, x)} for x in books}
+    df = {c: sum(c in v for v in cats.values()) + 1 for c in wanted}
+    total = len(books) + 1
+    age, public = min_age(b), audience(cat_ids)
+    rows = []
+    for x in books:
+        shared = wanted & cats[x['id']]
+        author = bool(set(x['autores']) & set(b['autores']))
+        other, other_public = min_age(x), audience(cats[x['id']])
+        if not author and ((age is not None and other is not None and abs(age - other) > 4)
+                           or (public and other_public and public != other_public)):
+            continue
+        score = sum(math.log(total / df[c]) for c in shared)
+        if author or (shared and score >= MIN_AFFINITY):
+            rows.append((author, score, x['titulo'].casefold(), x, sorted(names[c] for c in shared) or ['autor']))
+    rows.sort(key=lambda r: (-r[0], -r[1], r[2]))
+    return [(r[3], r[4]) for r in rows[:AFFINES]]
 
 
 def source_hash(p):
-    """Cambia si cambian los datos que sostienen el texto; no por precios ni enlaces."""
-    return hashlib.sha256(json.dumps(p, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
+    """Cambia si cambian los datos que sostienen el texto o el contrato; no por precios ni por los libros afines,
+    que crecen con el catálogo (el constructor oculta la comparación si un afín deja de estar publicado)."""
+    stable = {**p, 'evidencias': {k: v for k, v in p['evidencias'].items() if k != 'afines_catalogo'}, 'afines_ids': None,
+              'modulos_permitidos': [m['modulo'] for m in p['modulos_permitidos'] if m['modulo'] != 'lecturas_afines'], 'version': VERSION}
+    return hashlib.sha256(json.dumps(stable, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
 
 
 def pending(data, out=OUT, state=None):
-    state = state or {}
+    state = {} if state is None else state
     rows = []
     for b in published(data):
         p = payload(data, b)
@@ -132,25 +217,47 @@ def pending(data, out=OUT, state=None):
             continue
         h = source_hash(p)
         saved = read_json(out / (b['id'] + '.json'))
-        if saved and saved.get('fuente_hash') == h and saved.get('version') == VERSION:
+        entry = state.get(b['id'], {})
+        if entry.get('hash') == h and entry.get('intentos', 0) >= MAX_ATTEMPTS:
             continue
-        if state.get(b['id'], {}).get('hash') == h and state[b['id']].get('intentos', 0) >= MAX_ATTEMPTS:
+        # Un texto vigente vuelve a la cola mientras le falten bloques que se descartaron o que el validador ya no acepta.
+        stale = [f"{x.get('modulo')}: " + '; '.join(validate_block(p, x)) for x in (saved or {}).get('bloques', []) if validate_block(p, x)]
+        if saved and saved.get('fuente_hash') == h and saved.get('version') == VERSION and not saved.get('descartados') and not stale:
             continue
+        if stale:  # el motivo llega al prompt como «corregir»
+            base = entry if entry.get('hash') == h else {'hash': h, 'intentos': 0}
+            state[b['id']] = {**base, 'errores': list(dict.fromkeys([*base.get('errores', []), *stale]))}
         rows.append((bool(catalogue.amazon_destination(b)), len(p['modulos_permitidos']), b.get('fecha_publicacion') or '', b))
     # Primero lo que se puede comprar, con más evidencia aprovechable y más reciente.
     return [r[-1] for r in sorted(rows, key=lambda r: r[:3], reverse=True)]
 
 
-def build_prompt(payloads):
-    return PROMPT.read_text(encoding='utf-8').replace('{{LIBROS}}', json.dumps(payloads, ensure_ascii=False))
+def build_prompt(payloads, state=None):
+    """Cada libro va con los motivos del rechazo anterior: se repara en vez de abstenerse."""
+    state = state or {}
+    books = []
+    for p in payloads:
+        row = {k: v for k, v in p.items() if k != 'afines_ids'}
+        entry = state.get(p['id'], {})
+        if entry.get('errores') and entry.get('hash') == source_hash(p):
+            row['corregir'] = entry['errores']
+        books.append(row)
+    return PROMPT.read_text(encoding='utf-8').replace('{{LIBROS}}', json.dumps(books, ensure_ascii=False))
 
 
 def words(text):
     return re.findall(r'\w+', unicodedata.normalize('NFKC', text).lower())
 
 
-def ngrams(text, n=COPY_WORDS):
+def ngrams(text, n=COPY_WORDS, names=()):
+    """Secuencias de n palabras; cada nombre (título, autores) cuenta como una sola, porque citarlo no es copiar."""
     w = words(text)
+    for name in sorted((words(x) for x in names), key=len, reverse=True):
+        k, i = len(name), 0
+        while k > 1 and i <= len(w) - k:
+            if w[i:i + k] == name:
+                w[i:i + k] = ['\x00']
+            i += 1
     return {tuple(w[i:i + n]) for i in range(len(w) - n + 1)}
 
 
@@ -163,14 +270,23 @@ def validate_block(p, x):
     if not isinstance(x, dict) or x.get('modulo') not in {m['modulo'] for m in p['modulos_permitidos']}:
         return ['módulo no permitido']
     text, keys = x.get('texto'), x.get('evidencias')
-    if not isinstance(text, str) or not 60 <= len(text.strip()) <= 420 or '\n' in text.strip():
-        return ['texto: longitud o formato']
+    if not isinstance(text, str) or not 80 <= len(text.strip()) <= 650 or '\n' in text.strip():
+        return ['texto: entre 80 y 650 caracteres, sin saltos de línea']
     if not isinstance(keys, list) or not keys or any(k not in p['evidencias'] for k in keys):
         return ['evidencias inexistentes']
-    errors = ['más de tres frases'] if len(re.findall(r'[.!?](?:\s|$)', text.strip())) > 3 else []
+    errors = ['más de cuatro frases'] if len(re.findall(r'[.!?](?:\s|$)', text.strip())) > 4 else []
+    if meta := META.search(text):
+        errors.append('habla de las fuentes en vez de informar: ' + meta.group(0).lower())
+    if tell := AI_TELLS.search(text):
+        errors.append('muletilla: ' + tell.group(0).lower())
+    if TAXONOMY.search(text):
+        errors.append('nombra las categorías del catálogo: explica el parecido para el lector (tema, tono, público, autoría)')
+    if x['modulo'] == 'lecturas_afines' and not linked(p, text):
+        errors.append('no nombra ningún título de afines_catalogo')
     cited = ' '.join(as_text(p['evidencias'][k]) for k in keys)
     source = p['evidencias']['sinopsis_editorial']
-    if ngrams(text) & ngrams(source):
+    names = [p['evidencias'].get('titulo', ''), *p['evidencias'].get('autores', [])]
+    if ngrams(text, names=names) & ngrams(source, names=names):
         errors.append(f'copia {COPY_WORDS} palabras seguidas de la sinopsis')
     numbers = set(re.findall(r'\d+', text)) - set(re.findall(r'\d+', cited))
     if numbers:
@@ -184,23 +300,32 @@ def validate_block(p, x):
     # Mayúscula a mitad de frase = nombre propio: tiene que venir de las evidencias citadas.
     names = {m.group(0) for m in re.finditer(r'[A-ZÁÉÍÓÚÑ][\wáéíóúñü]+', text)
              if (before := text[:m.start()].rstrip()) and before[-1] not in '.!?¿¡«"(:\n'}
-    unknown = sorted(n for n in names if n.lower() not in known)
+    unknown = sorted(n for n in names if n.lower() not in known | GENERIC_NAMES)
     if unknown:
         errors.append('nombres sin respaldo: ' + ', '.join(unknown[:5]))
     return errors
 
 
+def valid_blocks(p, blocks):
+    """Bloques guardados que siguen pasando el validador vigente: endurecerlo retira lo que ya no cumple."""
+    return [x for x in blocks or [] if not validate_block(p, x)]
+
+
+def linked(p, text):
+    """Ids de los libros afines que el texto nombra por su título."""
+    folded = text.casefold()
+    return [i for title, i in p.get('afines_ids', {}).items() if title.casefold() in folded]
+
+
 def validate_text(p, t):
-    """Devuelve (bloques aceptados, errores). Un bloque malo se descarta; la ficha se pinta si supera el umbral."""
+    """Devuelve (bloques aceptados, errores). Un bloque malo se descarta y su motivo vuelve al prompt para repararlo."""
     if not isinstance(t, dict) or t.get('id') != p['id']:
         return [], ['id distinto']
     blocks = t.get('bloques')
     if not isinstance(blocks, list) or len(blocks) > MAX_BLOCKS:
         return [], ['bloques: lista inválida']
-    if t.get('abstencion') is not None:
-        return [], [] if not blocks and t['abstencion'] in ABSTENTIONS else ['abstención inválida']
     if not blocks:
-        return [], ['sin bloques ni abstención']
+        return [], ['sin bloques: no se admite abstenerse, escribe los módulos permitidos con lo que sí dicen las evidencias']
     accepted, errors = [], []
     for x in blocks:
         problems = validate_block(p, x)
@@ -212,11 +337,17 @@ def validate_text(p, t):
         if problems:
             errors.append(f"{x.get('modulo') if isinstance(x, dict) else '?'}: " + '; '.join(problems))
             continue
-        accepted.append({'modulo': x['modulo'], 'texto': x['texto'].strip(), 'evidencias': x['evidencias']})
+        accepted.append({'modulo': x['modulo'], 'texto': x['texto'].strip(), 'evidencias': x['evidencias'],
+                         **({'enlaces': linked(p, x['texto'])} if x['modulo'] == 'lecturas_afines' else {})})
+    missing = sorted({m['modulo'] for m in p['modulos_permitidos']} - {x['modulo'] for x in accepted})
+    if missing:
+        errors.append('faltan módulos: ' + ', '.join(missing))
     # Umbral: al menos dos evidencias distintas y una que no sea un dato bibliográfico básico.
     keys = {k for x in accepted for k in x['evidencias']}
     if accepted and (len(keys) < 2 or not keys - BASIC):
         return [], errors + ['por debajo del umbral: solo datos básicos']
+    if len(accepted) < min(MIN_BLOCKS, len(p['modulos_permitidos'])):
+        return [], errors + [f'menos de {MIN_BLOCKS} bloques válidos']
     return accepted, errors
 
 
@@ -253,10 +384,15 @@ def save_results(payloads, rows, state, out=OUT):
         t = by_id.get(p['id'])
         blocks, errors = ([], ['sin respuesta']) if t is None else validate_text(p, t)
         entry['errores'] = errors
-        if not blocks and errors:  # sin nada aprovechable: se reintenta hasta MAX_ATTEMPTS
+        old = read_json(out / (p['id'] + '.json'))
+        kept = valid_blocks(p, old.get('bloques')) if old and old.get('fuente_hash') == h else []
+        # Una reparación completa lo guardado (puede traer solo el módulo que faltaba); una peor no lo sustituye.
+        merged = blocks + [x for x in kept if x['modulo'] not in {y['modulo'] for y in blocks}]
+        blocks = merged if blocks and len(merged) > len(kept) else []
+        if not blocks:  # se reintenta con los motivos hasta MAX_ATTEMPTS
             rejected += 1
             continue
-        record = {'id': p['id'], 'familia': p['familia'], 'bloques': blocks, 'abstencion': t.get('abstencion'),
+        record = {'id': p['id'], 'familia': p['familia'], 'bloques': blocks,
                   'descartados': errors, 'version': VERSION, 'fuente_hash': h, 'origen': 'chatgpt-web'}
         write_json(out / (p['id'] + '.json'), record)
         saved += 1
@@ -265,6 +401,9 @@ def save_results(payloads, rows, state, out=OUT):
 
 def consult(question, ids, port, wait_min):
     os.environ['RRSS_CHATGPT_CDP_PORT'] = str(port)
+    # El horario de descanso 00-07 h es de las redes sociales (parecer uso humano); los textos de la
+    # web trabajan toda la noche (David, 02/11/2026), así que este proceso queda fuera de esa regla.
+    os.environ['RRSS_NIGHT_OK'] = '1'
     sys.path.insert(0, str(RRSS_TOOLS))
     import chatgpt_consult
     repair = 'Devuelve otra vez la respuesta completa: un único bloque ```json con {"fichas": [...]} y exactamente estos id: ' + ', '.join(ids)
@@ -272,9 +411,30 @@ def consult(question, ids, port, wait_min):
     return answer
 
 
+def idle_seconds(exc):
+    """Pausa tras un fallo de la consulta: hasta el fin del horario de descanso de RRSS o un minuto ante otros errores."""
+    if type(exc).__name__ == 'QuietHoursError':
+        sys.path.insert(0, str(RRSS_TOOLS))
+        import quiet_hours
+        return max(60, quiet_hours.seconds_until_active())
+    return 60
+
+
+def consult_batch(payloads, state, args):
+    """Respuesta del lote, o None si falló la consulta: un fallo de infraestructura no gasta intentos de los libros."""
+    ids = [p['id'] for p in payloads]
+    try:
+        return extract_json(consult(build_prompt(payloads, state), ids, args.port, args.wait_min)) or []
+    except Exception as exc:  # noqa: BLE001 - un lote fallido no para el bucle
+        wait = idle_seconds(exc)
+        print(f'Lote {ids[0]}…: {type(exc).__name__}; espera {wait // 60:.0f} min', flush=True)
+        time.sleep(wait)
+        return None
+
+
 def git(*args, cwd=ROOT, capture=False):
     if capture:
-        return subprocess.check_output(['git', *args], cwd=cwd, text=True)
+        return subprocess.check_output(['git', *args], cwd=cwd, text=True, encoding='utf-8')
     subprocess.run(['git', *args], cwd=cwd, check=True)
 
 
@@ -295,8 +455,12 @@ def publish(out=OUT):
     target = tree / 'data/reading-texts'
     target.mkdir(exist_ok=True)
     for path in texts:
-        if path.stem in ids and read_json(path).get('bloques'):  # las abstenciones solo cuentan en .local
-            shutil.copyfile(path, target / path.name)
+        record = read_json(path)
+        if path.stem in ids:
+            # Se publica solo lo que pasa el validador vigente, aunque se guardara con uno más permisivo.
+            blocks = valid_blocks(payload(data, next(b for b in published(data) if b['id'] == path.stem)), record.get('bloques'))
+            if len(blocks) >= MIN_BLOCKS:
+                write_json(target / path.name, {**record, 'bloques': blocks})
     run = lambda *cmd: subprocess.run([sys.executable, *cmd], cwd=tree, check=True)
     for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         run('scripts/' + script)
@@ -344,13 +508,9 @@ def loop(args):
             print('Sin pendientes', flush=True)
             break
         payloads = [payload(data, b) for b in books]
-        ids = [p['id'] for p in payloads]
-        try:
-            answer = consult(build_prompt(payloads), ids, args.port, args.wait_min)
-            rows = extract_json(answer) or []
-        except Exception as exc:  # noqa: BLE001 - un lote fallido no para el bucle
-            print(f'Lote {ids[0]}…: {type(exc).__name__}', flush=True)
-            rows = []
+        rows = consult_batch(payloads, state, args)
+        if rows is None:
+            continue
         saved, rejected = save_results(payloads, rows, state)
         write_json(STATE, state)
         done += len(books)
