@@ -242,6 +242,31 @@ class ReadingTextsTest(unittest.TestCase):
         self.assertIn('<h3>Para quién es</h3>', without)
         self.assertNotIn('Preguntas frecuentes', page)
 
+    def test_instant_power_moves_selector_to_minimum_and_closes_menu(self):
+        class Locator:
+            def __init__(self, page, found=True):
+                self.page, self.found = page, found
+            first = property(lambda self: self)
+            def count(self): return int(self.found)
+            def wait_for(self, **_):
+                if not self.found:
+                    raise TimeoutError
+            def click(self): self.page.keys.append('click')
+            def focus(self): self.page.keys.append('focus')
+
+        class Page:
+            def __init__(self, found=True):
+                self.keys, self.found = [], found
+                self.keyboard = self
+            def locator(self, _selector): return Locator(self, self.found)
+            def press(self, key): self.keys.append(key)
+            def wait_for_timeout(self, _ms): pass
+
+        page = Page()
+        self.assertTrue(texts.instant_power(page, 'Alta'))
+        self.assertEqual(page.keys, ['click', 'focus'] + ['ArrowLeft'] * 4 + ['Escape'])
+        self.assertFalse(texts.instant_power(Page(found=False)))
+
 
 if __name__ == '__main__':
     unittest.main()
