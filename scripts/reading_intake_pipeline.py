@@ -30,6 +30,7 @@ from reading_taxonomy import extra_categories
 from reading_catalogue_publishers import catalogue_publisher, PublisherError
 from reading_generic_source import generic_edition, generic_links, reviewed_hosts
 from reading_planeta_source import COVER_HOSTS as PLANETA_COVER_HOSTS, planeta_edition, planeta_links
+from reading_ttl_source import ttl_edition, ttl_url, typographic_cover, url_isbn
 from urllib.parse import urlsplit
 from reading_author_wikipedia import WikipediaSummaries, fill_missing_bios
 
@@ -357,7 +358,8 @@ def author_identity_conflicts(record,state):
             if profile.fullmatch(source) and name in known and source not in known[name]]
 
 
-REVIEWED_PROVIDERS = {'penguin': ['www.penguinlibros.com'], 'planeta': ['www.planetadelibros.com']}
+REVIEWED_PROVIDERS = {'penguin': ['www.penguinlibros.com'], 'planeta': ['www.planetadelibros.com'],
+                      'todostuslibros': ['www.todostuslibros.com']}
 
 
 def provider_of(url, providers):
@@ -374,12 +376,16 @@ def reviewed_source(source):
 
 
 def discover_links(source, document, index):
+    if source['provider'] == 'todostuslibros':
+        return []  # Sin índices: los ISBN llegan del radar de Amazon.
     if source['provider'] == 'generic':
         return generic_links(source, document, index)
     return planeta_links(document, index) if source['provider'] == 'planeta' else product_links(document, index)
 
 
 def read_edition(source, document, url):
+    if source['provider'] == 'todostuslibros':
+        return ttl_edition(document, url)
     if source['provider'] == 'generic':
         return generic_edition(source, document, url)
     return planeta_edition(document, url) if source['provider'] == 'planeta' else penguin_edition(document, url)
@@ -393,6 +399,8 @@ MAX_REQUESTS_CEILING = 900
 
 def candidate_isbn(url, source, known_urls):
     # Penguin lleva el ISBN en la URL; Planeta no: se conoce por una ficha ya publicada o se lee de la propia ficha.
+    if source['provider'] == 'todostuslibros':
+        return url_isbn(url)
     return url.rsplit('-', 1)[-1].rstrip('/') if source['provider'] == 'penguin' else known_urls.get(url)
 
 
@@ -432,7 +440,9 @@ def by_date(queue, refresh_urls, documents):
     return sorted(ordered, key=lambda item: item[0] not in refresh_urls)
 
 
-def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False, today=None):
+def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False, today=None, isbns=()):
+    """`isbns`: novedades y próximos lanzamientos que faltan según el radar de Amazon, de lo más
+    nuevo a lo más antiguo. Solo se usan en esta ejecución; la ficha sale de todostuslibros."""
     if not 1 <= (max_new or config['max_new_books']) <= MAX_NEW_CEILING or not 1 <= config['max_requests'] <= MAX_REQUESTS_CEILING:
         raise ValueError('max_new_books o max_requests fuera de los techos de una ejecución')
     today = today or datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
@@ -481,6 +491,13 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                     queue.setdefault(url, source)
             except (OSError, ValueError, TimeoutError) as exc:
                 stats['errors'].append({'source': source['id'], 'error': str(exc)[:180]})
+    radar = next((p for p in providers if p['provider'] == 'todostuslibros'), None)
+    if radar:
+        for isbn in isbns:
+            try:
+                queue.setdefault(ttl_url(isbn), radar)
+            except SourceError:
+                continue
     stats['discovered'] = len(queue)
     if not queue:
         # Leave book data untouched; independent providers still refresh daily.
@@ -541,13 +558,15 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 if author_identity_conflicts(record,state):
                     raise SourceError('Autor homónimo o perfil editorial distinto; requiere desambiguación')
                 record['cover_use_basis'] = source['cover_use_basis']
-                canonical_publisher = publisher_slug(record['editorial'], allowed)
+                canonical_publisher = publisher_slug(record['editorial'], allowed) or publisher_slug(
+                    re.sub(r'^(?:Editorial|Ediciones)\s+(?=\S{4})', '', record['editorial'], flags=re.I), allowed)
                 catalogue_only = None
                 if not canonical_publisher:
                     # Sello fuera del directorio de manuscritos: ficha propia del catálogo, con fuente.
                     try:
                         catalogue_only = catalogue_publisher(record['editorial'], catalogue_publishers, url, today,
-                                                             directory_names=directory_names, directory_slugs=directory_slugs)
+                                                             directory_names=directory_names, directory_slugs=directory_slugs,
+                                                             group=record.get('grupo_editorial', ''))
                     except PublisherError as exc:
                         raise SourceError('Sello no presente en el registro editorial de la web: ' + str(exc))
                     canonical_publisher = catalogue_only['slug']
@@ -574,6 +593,8 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                     preview_path = root / old_book['portada_local'].lstrip('/').replace('.webp', '-320.webp')
                     small = preview_path.read_bytes()
                     dimensions = (old_book['portada_ancho'], old_book['portada_alto'])
+                elif source['provider'] == 'todostuslibros':
+                    image, small, dimensions = typographic_cover(record)
                 else:
                     image, small, dimensions = cover_bytes(http.get(record['portada_fuente_url'], ttl=30 * 86400))
                 path = '/assets/reading-covers/isbn-' + isbn + '.webp'

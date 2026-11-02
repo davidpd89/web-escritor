@@ -61,8 +61,19 @@ def coverage(rows, catalogue, connected, today):
             'editoriales_sin_conector': dict(uncovered.most_common(20))}
 
 
-def run(provider, catalogue, aliases, tag, today=None, pages=10, node=BOOKS_NODE):
-    """`provider` es un CreatorsPrices: una petición por página, al ritmo de 1 por segundo."""
+def missing_isbns(rows, catalogue):
+    """ISBN españoles (978-84, 979-13) que faltan, de la fecha más reciente a la más antigua."""
+    known = {b.get('isbn13') for b in catalogue.get('libros', [])}
+    unique = {r['isbn13']: r for r in rows if r['isbn13'].startswith(('97884', '97913')) and r['isbn13'] not in known}
+    return [r['isbn13'] for r in sorted(unique.values(), key=lambda r: r['fecha'], reverse=True)]
+
+
+def run(provider, catalogue, aliases, tag, today=None, pages=10, node=BOOKS_NODE, collect=None):
+    """`provider` es un CreatorsPrices: una petición por página, al ritmo de 1 por segundo.
+
+    Si se pasa `collect` (una lista), recibe los ISBN que faltan para la ingesta de esta misma
+    ejecución; no van al informe ni se guardan.
+    """
     rows, requests = [], 0
     for page in range(1, pages + 1):
         payload = provider.post('https://creatorsapi.amazon/catalog/v1/searchItems', radar_request(tag, page, node), provider.headers())
@@ -70,5 +81,7 @@ def run(provider, catalogue, aliases, tag, today=None, pages=10, node=BOOKS_NODE
         rows += radar_rows(payload)
         if len(amazon_list(amazon_dict(payload.get('searchResult')).get('items'))) < 10:
             break
+    if collect is not None:
+        collect.extend(missing_isbns(rows, catalogue))
     report = coverage(rows, catalogue, connected_publishers(catalogue, aliases), today or date.today())
     return {**report, 'peticiones': requests}

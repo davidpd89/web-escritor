@@ -14,7 +14,8 @@ DIRECTORY = {'alfaguara', 'grijalbo'}
 def make(name, store=None, **kw):
     store = store if store is not None else {'schema_version': 1, 'editoriales': []}
     return catalogue_publisher(name, store, kw.get('source', SOURCE), '2026-10-22',
-                               directory_names=kw.get('names', DIRECTORY), directory_slugs=kw.get('slugs', {'alfaguara'})), store
+                               directory_names=kw.get('names', DIRECTORY), directory_slugs=kw.get('slugs', {'alfaguara'}),
+                               group=kw.get('group', '')), store
 
 
 class CataloguePublisherTests(unittest.TestCase):
@@ -41,6 +42,16 @@ class CataloguePublisherTests(unittest.TestCase):
                 make(bad)
         with self.assertRaises(PublisherError):
             make('Debate', source='https://example.com/libro')
+
+    def test_bookshop_source_needs_the_maker_as_group(self):
+        ttl = 'https://www.todostuslibros.com/libros/obra_978-84-00-00001-1'
+        item, _ = make('SELLO NUEVO', source=ttl, group='Editorial Prueba Grupo')
+        self.assertEqual(item['grupo'], 'Editorial Prueba Grupo')
+        self.assertIn('todostuslibros', item['fuentes'][0]['titulo'])
+        for group in ('', 'x'):
+            with self.subTest(group=group), self.assertRaises(PublisherError):
+                make('SELLO NUEVO', source=ttl, group=group)
+        self.assertEqual(make('DEBATE', group='Otro')[0]['grupo'], make('DEBATE')[0]['grupo'])
 
     def test_slug_collision_with_directory_is_refused(self):
         with self.assertRaises(PublisherError):

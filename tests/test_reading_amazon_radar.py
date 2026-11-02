@@ -5,7 +5,7 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from reading_amazon_radar import connected_publishers, coverage, radar_request, radar_rows, run
+from reading_amazon_radar import connected_publishers, coverage, missing_isbns, radar_request, radar_rows, run
 
 TODAY = date(2026, 11, 2)
 CATALOGUE = {'libros': [{'isbn13': '9788439741008', 'editorial': 'Lumen', 'editorial_slug': 'penguin-es'}]}
@@ -69,6 +69,13 @@ class RadarTest(unittest.TestCase):
         self.assertEqual(report['faltan_con_conector'], 1)
         self.assertEqual(report['editoriales_sin_conector'], {'Destino': 1, 'Anagrama': 1})
         self.assertNotIn('No debe salir', str(report))
+
+    def test_missing_isbns_are_spanish_newest_first_and_collected(self):
+        rows = radar_rows(PAGE)
+        self.assertEqual(missing_isbns(rows, CATALOGUE), ['9788423300006', '9788420000008', '9788433900005'])
+        collected = []
+        run(Provider([PAGE]), CATALOGUE, ALIASES, 'tag-21', today=TODAY, pages=1, collect=collected)
+        self.assertEqual(collected, missing_isbns(rows, CATALOGUE))
 
     def test_run_stops_on_short_page(self):
         provider = Provider([{'searchResult': {'items': [item('9788420000008', 'Alfaguara', '2026-12-01')] * 10}}, PAGE, PAGE])

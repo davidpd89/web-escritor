@@ -279,6 +279,36 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(second['stats']['accepted'], 0)
             self.assertEqual(second['stats']['already_published'], 1)
 
+    def test_amazon_isbns_enter_through_bookshop_sheet_with_own_cover(self):
+        from test_reading_ttl_source import ISBN, PAGE, document as ttl_document
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'data').mkdir()
+            source = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+            source['libros'], source['libro_categorias'] = [], []
+            (root / 'data/reading-catalogue.json').write_text(json.dumps(source), encoding='utf-8')
+            (root / 'data/reading-authors.json').write_text(json.dumps({'schema_version': 1, 'autores': []}), encoding='utf-8')
+            shutil.copy(ROOT / 'data/editoriales.json', root / 'data/editoriales.json')
+            responses = {'https://www.todostuslibros.com/libros/x_' + ISBN: ttl_document().encode()}
+            class FakeHTTP:
+                def __init__(self, *args, **kwargs):
+                    self.requests = self.hits = 0; self.budget = 80
+                def get(self, url, **kwargs):
+                    self.requests += 1
+                    if url not in responses:
+                        raise OSError('sin respuesta')
+                    return responses[url]
+            config = json.loads((ROOT / 'data/reading-intake-config.json').read_text(encoding='utf-8'))
+            config['sources'] = [src for src in config['sources'] if src['provider'] == 'todostuslibros']
+            config['author_wikipedia']['enabled'] = False
+            with patch.object(pipeline, 'CachedHTTP', FakeHTTP):
+                result = pipeline.ingest(config, root, root / '.cache', apply=True, today='2026-11-02', isbns=[ISBN, '9788433951670'])
+            self.assertEqual(result['stats']['accepted'], 1, result['state'])
+            book = json.loads((root / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros'][0]
+            self.assertEqual((book['isbn13'], book['fuente_bibliografica_url'], book['pvp_centimos']), (ISBN, PAGE, 1990))
+            with Image.open(root / book['portada_local'].lstrip('/')) as cover:
+                self.assertEqual((cover.format, cover.size), ('WEBP', (800, 1200)))
+
     def test_work_dedupe_preserves_series_volume(self):
         self.assertEqual(work_key('Obra (edición especial)', ['Autora']), work_key('Obra', ['Autora']))
         self.assertNotEqual(work_key('Obra 2', ['Autora']), work_key('Obra 3', ['Autora']))

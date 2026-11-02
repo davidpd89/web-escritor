@@ -157,6 +157,17 @@
       },
       "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
       "enabled": true
+    },
+    {
+      "id": "amazon-novedades",
+      "provider": "todostuslibros",
+      "enabled": true,
+      "hosts": [
+        "www.todostuslibros.com"
+      ],
+      "index_urls": [],
+      "cover_use_basis": "Portada tipográfica propia generada con los datos bibliográficos; no reproduce la cubierta editorial",
+      "notes": "Novedades y próximos lanzamientos que el radar de Amazon detecta y faltan en el catálogo. De Amazon solo se usa el ISBN en la misma ejecución; la ficha (título, autoría, sello, fecha, PVP, categorías y descripción editorial) sale de todostuslibros.com (CEGAL)."
     }
   ],
   "publisher_aliases": [
@@ -209,7 +220,7 @@
   "amazon_radar": {
     "enabled": true,
     "pages": 10,
-    "notes": "Informe de cobertura: próximamente y novedades de Amazon (Libros, NewestArrivals) que faltan en el catálogo, por editorial. No crea fichas ni guarda datos de Amazon; 10 peticiones por tanda."
+    "notes": "Próximamente y novedades de Amazon (Libros, NewestArrivals) que faltan en el catálogo: los ISBN españoles pasan a la ingesta de esta misma ejecución (fuente amazon-novedades) y el informe de cobertura va a la CI con cifras agregadas. No guarda datos de Amazon; 10 peticiones por tanda."
   },
   "ratings_refresh": {
     "enabled": true,
