@@ -1,0 +1,67 @@
+{
+  "id": "isbn-9788445023914",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Neuromante (Edición especial) se dirige a lectores de ciencia ficción interesados en el ciberespacio, el robo de información y las consecuencias de la tecnología sobre las personas. Su conflicto parte de un especialista incapacitado para acceder al entorno digital donde trabajaba; encaja menos con quienes buscan una historia cotidiana y realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Neuromante (Edición especial) es una novela de ciencia ficción ciberpunk centrada en Case, un antiguo ladrón de información digital. Tras traicionar a sus empleadores, sufre daños neurológicos que le impiden continuar su actividad en el ciberespacio. El conflicto combina delincuencia informática, castigo físico y pérdida de capacidades.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Neuromante (Edición especial) corresponde a una edición de Minotauro en tapa dura de cartoné, sin sobrecubierta. El volumen de William Gibson tiene 392 páginas en castellano, con ISBN 9788445023914 y fecha de publicación editorial del 27 de enero de 2027.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "autores",
+        "numero_paginas",
+        "idioma",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Neuromante (Edición especial) está disponible en tapa dura, con una cubierta rígida que protege sus 392 páginas durante la conservación y la relectura. Es una opción física para quienes desean guardar esta edición de William Gibson en su biblioteca o entregarla como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Neuromante (Edición especial) y Reconexión comparten el terreno de la ciencia ficción, aunque sus enfoques son distintos. William Gibson plantea un conflicto tecnológico ligado al ciberespacio y al robo de datos; Reconexión, de Neal Shusterman, se presenta como una historia distópica. La diferencia principal está entre el entorno informático y el planteamiento de una distopía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388365027"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5da40b4ded3d4138",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,60 @@
+{
+  "id": "isbn-9788408331162",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Zodiakids 3. El Gran Torneo de Zooikos se dirige a lectores de 9 a 12 años interesados en la fantasía, las criaturas mágicas y las competiciones. Su historia combina un torneo con entrenamientos y secretos cósmicos; encaja menos con quienes prefieren relatos realistas sin elementos sobrenaturales.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Zodiakids 3. El Gran Torneo de Zooikos se publica en cartoné, con cubierta rígida y sin sobrecubierta. Destino Infantil & Juvenil reúne en 160 páginas el texto de Ledicia Costas y las ilustraciones de Guille Rancel; su ISBN es 9788408331162.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "autores",
+        "sinopsis_editorial",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Zodiakids 3. El Gran Torneo de Zooikos está recomendado para edades de 9 a 12 años y tiene 160 páginas. Es un libro infantil y juvenil de fantasía, escrito en castellano y presentado en tapa dura, con ilustraciones de Guille Rancel. El título lo identifica como el n.º 3.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "categorias",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Zodiakids 3. El Gran Torneo de Zooikos está disponible en tapa dura, una encuadernación rígida apropiada para conservar el ejemplar y volver a consultar sus ilustraciones. Sus 160 páginas permiten manejarlo como libro físico de lectura infantil y también regalarlo sin necesidad de una cubierta adicional.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "11849c018e9bcfe0",
+  "origen": "chatgpt-web"
+}

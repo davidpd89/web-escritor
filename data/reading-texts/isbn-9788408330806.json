@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408330806",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Edición especial. Dioses del juego 3. The Keeper se dirige a lectores de romance contemporáneo ambientado en el deporte, con conflictos sentimentales y familiares. La historia de un portero que cría a su hija y evita nuevas relaciones se aleja de las novelas centradas exclusivamente en la competición deportiva.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Edición especial. Dioses del juego 3. The Keeper es una novela de romance deportivo de Ana Huang, situada en el ámbito del fútbol profesional. El conflicto enfrenta las prioridades familiares y profesionales de Noah Wilson con la posibilidad de una relación sentimental, mientras se aproxima el Mundial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Edición especial. Dioses del juego 3. The Keeper se distingue por su presentación en tapa dura con sobrecubierta, publicada por Crossbooks. Contiene 512 páginas en castellano y está fechada para el 27 de enero de 2027; el título identifica la obra como el n.º 3 de Dioses del juego.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Edición especial. Dioses del juego 3. The Keeper se ofrece en tapa dura con sobrecubierta, una presentación rígida que protege sus 512 páginas y puede conservarse como ejemplar de colección. Es una opción física para quienes prefieren leer una novela extensa en papel o regalar una edición con cubierta exterior.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "7f1ae57e0e0f4bd0",
+  "origen": "chatgpt-web"
+}
