@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788433951304",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuerpo, humano se dirige a lectores de ensayo interesados en comprender el cuerpo desde la experiencia clínica, la cultura y la vida emocional. Encaja menos con quien busca un compendio exclusivamente anatómico, porque relaciona los órganos y sus funciones con los recuerdos, la identidad y las relaciones humanas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Vittorio Lingiardi examina el cuerpo como realidad física y como espacio de memoria, identidad y relaciones. Aborda el apego, los cambios de la adolescencia, la enfermedad y el género desde la experiencia clínica, y conecta órganos y síntomas con interpretaciones procedentes de la ciencia, el arte, los mitos y la literatura.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuerpo, humano figura en Tapa blanda, con 328 páginas en la edición de Editorial Anagrama. Esta presentación permite leer el ensayo en papel y regresar a sus apartados sobre anatomía, experiencia clínica y representaciones culturales del cuerpo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dos casos clínicos, de Sigmund Freud, también se acerca al sufrimiento humano mediante experiencias clínicas, pero se concentra en los estudios de Catalina e Isabel de R. Cuerpo, humano, de Vittorio Lingiardi, amplía ese enfoque hacia la anatomía, las transformaciones personales y las representaciones culturales del cuerpo, incorporando perspectivas científicas y artísticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388306259"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dcaf1d864de99aac",
+  "origen": "chatgpt-web"
+}

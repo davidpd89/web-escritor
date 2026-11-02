@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788466685368",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La madre se dirige a lectores adultos de novela histórica interesados en la maternidad, la fe y los conflictos familiares durante el siglo I. Encaja menos con quienes buscan una historia desligada de las figuras cristianas o prefieren evitar relatos que abordan la pérdida de seres queridos y la persecución política.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La madre combina una persecución vinculada al poder de Roma con el retrato íntimo de María de Nazaret desde su experiencia como madre. La amenaza que afrontan Lucio Fedro y Flavia conecta la supervivencia de una familia con una reflexión sobre el sufrimiento, la fe y el perdón.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La madre se ofrece en tapa dura con sobrecubierta y contiene 536 páginas en castellano. Su encuadernación rígida proporciona una estructura firme para un volumen extenso, mientras que la sobrecubierta añade una protección exterior que puede retirarse durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "formato_edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La madre y Los asesinos del emperador. Edición especial con cantos decorados comparten el interés por la novela histórica relacionada con el poder de Roma. La madre sitúa el conflicto familiar en tiempos de Calígula y aborda la figura de María de Nazaret; el otro título inicia la Trilogía de Trajano y se distingue también por su edición limitada con cantos decorados.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788408326779"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7e7a9b7d53f7a4ce",
+  "origen": "chatgpt-web"
+}

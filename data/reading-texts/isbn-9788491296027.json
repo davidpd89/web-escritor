@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788491296027",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Espinas en el aire está dirigido a lectores adultos interesados en el thriller psicológico, los enigmas de origen desconocido y los secretos familiares. La investigación incorpora las consecuencias de un accidente, el duelo y los engaños del pasado, por lo que se aleja de una novela romántica centrada principalmente en la pareja.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Espinas en el aire plantea un thriller psicológico a partir de una señal de radio que reaparece cada noviembre y cuya procedencia debe investigarse. La búsqueda relaciona a una locutora de un pódcast de true crime con una familia influyente, un accidente personal y acontecimientos ocurridos décadas atrás. El misterio combina investigación presente y secretos del pasado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Espinas en el aire es en tapa blanda con solapas, publicada por Suma de Letras. Sus 424 páginas están en castellano y se presentan en un volumen físico para quienes prefieren leer, conservar o prestar sus novelas de misterio en papel.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La casa de los espíritus, de Isabel Allende, tiene como eje la historia de una familia. Espinas en el aire, de Javier Castillo, también concede importancia a las relaciones y los secretos familiares, pero los utiliza para desarrollar una investigación de thriller psicológico alrededor de una transmisión de radio que conecta el presente con acontecimientos del pasado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401042751"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "773019114ab013e2",
+  "origen": "chatgpt-web"
+}

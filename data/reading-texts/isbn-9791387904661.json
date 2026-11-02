@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791387904661",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sapiens. Una historia gráfica 4 - La era de las revoluciones se dirige a lectores adultos interesados en historia, sociedad, ciencia y tecnología explicadas mediante el cómic y el ensayo. No sigue la estructura de una novela de ficción convencional: utiliza una narración gráfica para examinar las transformaciones de la humanidad y sus consecuencias.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro recorre la Revolución Científica, la Revolución Industrial y los comienzos de la inteligencia artificial, relacionándolos con la economía, el poder y la vida cotidiana. También plantea por qué el crecimiento material no garantiza satisfacción y qué consecuencias puede tener el desarrollo de máquinas inteligentes. El título lo identifica como el n.º 4 de Sapiens. Una historia gráfica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En tapa dura, las 248 páginas de Sapiens. Una historia gráfica 4 - La era de las revoluciones quedan reunidas en una edición física para consultar sus escenas ilustradas. Kindle ofrece la alternativa digital para llevar la lectura en un dispositivo compatible, aunque el tamaño de pantalla influye en cómo se visualizan las páginas de una historia gráfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Memoria de las manos, de Virginia Mendoza, también observa la trayectoria humana, pero parte de la evolución del cuerpo y la capacidad de empatizar. Cómo construir la soberanía digital europea, de Francesca Bria, comparte el interés por las consecuencias sociales de la tecnología, aunque se centra en las decisiones de Europa sobre su futuro digital. Sapiens. Una historia gráfica 4 - La era de las revoluciones aborda esos cambios desde una perspectiva histórica y gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387904968",
+        "isbn-9788433951670"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "34ffe67be08667f1",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,61 @@
+{
+  "id": "isbn-9788408326847",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El día de la Trilla (Empíreo) se dirige a lectores a partir de 14 años interesados en fantasía juvenil con dragones, pruebas de supervivencia y formación militar. Su conflicto central implica violencia y peligro de muerte, por lo que se aleja de las aventuras fantásticas de tono tranquilo.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "La edad recomendada es a partir de 14 años. La historia presenta una prueba de vinculación con dragones en la que los cadetes pueden morir, además de enfrentamientos y un escenario sangriento que puede resultar intenso para lectores sensibles a la violencia.",
+      "evidencias": [
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una obra de fantasía juvenil centrada en una prueba de supervivencia dentro de un entorno de formación militar. Trece cadetes del Colegio de Guerra Basgiath afrontan el peligro de intentar establecer un vínculo con un dragón, con consecuencias mortales para quienes fracasen.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura con sobrecubierta presenta las 304 páginas en un volumen físico publicado por Editorial Planeta. Este acabado combina una encuadernación rígida con una cubierta exterior separada, una característica que afecta a la manipulación y conservación del ejemplar.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El día de la Trilla (Empíreo) Edición limitada con cantos tintados es otra presentación asociada al mismo título y a Rebecca Yarros. La diferencia documentada está en el acabado: esa alternativa anuncia cantos tintados y carácter limitado, mientras la edición de Editorial Planeta se presenta en tapa dura con sobrecubierta y 304 páginas.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788408326861"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5e5580df4e7c4035",
+  "origen": "chatgpt-web"
+}

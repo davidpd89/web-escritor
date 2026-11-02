@@ -1,0 +1,61 @@
+{
+  "id": "isbn-9788427055605",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Donde duermen las sombras encaja con lectores a partir de 14 años interesados en el romance y la fantasía juvenil con magia oculta, maldiciones y dimensiones alternativas. Se aleja de las preferencias de quien busque una historia realista o una trama sin conflictos amorosos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Donde duermen las sombras está recomendado a partir de 14 años. Su conflicto incluye una maldición relacionada con las sombras y una unión mágica que condiciona una relación afectiva, por lo que combina tensión romántica con amenazas sobrenaturales.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Donde duermen las sombras combina romantasy contemporáneo y fantasía juvenil, con una relación condicionada por fuerzas mágicas. La capacidad de atravesar dimensiones y una maldición vinculada a las sombras hacen que el conflicto sentimental forme parte del problema fantástico, en lugar de desarrollarse al margen de él.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Donde duermen las sombras se ofrece en tapa blanda, con 368 páginas y una encuadernación rústica con solapas. Esta presentación permite leer la novela completa en papel y transportarla con una cubierta flexible, sin el peso añadido de unas tapas rígidas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde duermen las sombras y Alas de escarcha y oro: El canto del cisne presentan personajes con capacidades extraordinarias que condicionan sus vidas. En la novela de Andrea Ornos aparecen dimensiones, maldiciones y romance; en la de Marta Morillo, Eira mantiene ocultos tanto sus dones como sus debilidades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9c81a8f568846d35",
+  "origen": "chatgpt-web"
+}
