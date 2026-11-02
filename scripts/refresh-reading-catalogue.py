@@ -95,6 +95,16 @@ def refresh(*, publish=False):
         write_if_changed(ROOT/'.ci/reading-intake/prices-report.json',price_stats)
         print('Precios Amazon: '+json.dumps(price_stats,ensure_ascii=True),flush=True)
         changed_ratings=write_changed(ROOT/'data/reading-catalogue.json',books) or changed_ratings
+        if config.get('amazon_radar',{}).get('enabled'):
+            # Coverage only: Amazon's licence keeps its data out of the catalogue.
+            from reading_amazon_radar import run as amazon_radar
+            try:
+                radar=amazon_radar(CreatorsPrices(amazon_id,amazon_secret,tag),books,config.get('publisher_aliases',[]),tag,
+                                   pages=int(config['amazon_radar'].get('pages',10)))
+            except (RuntimeError, ValueError) as exc:  # el radar es informativo: nunca para la tanda
+                radar={'error':str(exc)}
+            write_if_changed(ROOT/'.ci/reading-intake/amazon-radar.json',radar)
+            print('Radar Amazon: '+json.dumps(radar,ensure_ascii=True),flush=True)
     # A scheduled RSS item can become due without a new book or rating. Build
     # current pages first, then advance feeds inside this SAME daily writer.
     command(sys.executable, 'scripts/build-reading-catalogue.py')
