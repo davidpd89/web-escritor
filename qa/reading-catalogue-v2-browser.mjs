@@ -197,7 +197,8 @@ try {
   const cold=await catalogueContext({viewport:{width:390,height:900}});
   const coldPage=await cold.newPage();
   await coldPage.clock.setFixedTime(new Date('2026-10-21T10:00:00Z'));
-  await cold.route('**/yellowtail-normal-400-latin.woff2',route=>route.abort());
+  const noveltyFont=(await fs.readFile('assets/reading-catalogue.css','utf8')).match(/font-family:CatalogueNovelty;src:url\('([^']+)'/)[1];
+  await cold.route('**'+noveltyFont,route=>route.abort());
   await coldPage.goto(base+'/recomendaciones/',{waitUntil:'networkidle'});
   assert(await coldPage.locator('main').evaluate(el=>el.classList.contains('catalogue-fonts-failed')),'Font failure must preserve a stable visible badge');
   assert(await coldPage.locator('[data-release-label]:not([hidden])').first().isVisible());

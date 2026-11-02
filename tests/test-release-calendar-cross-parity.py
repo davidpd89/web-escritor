@@ -95,7 +95,9 @@ class ReleaseCalendarCrossParity(unittest.TestCase):
                 self.assertEqual(str(event.get('SUMMARY')), 'Sale a la venta: ' + book['titulo'])
                 self.assertEqual(
                     str(event.get('DESCRIPTION')),
-                    ', '.join(book['autores']) + ' · ' + (book.get('editorial') or ''),
+                    ', '.join(book['autores']) + ' · ' + (book.get('editorial') or '')
+                    + ('\nComprar en Amazon: ' + builder.amazon_destination(book) if builder.amazon_destination(book) else '')
+                    + '\nFicha: ' + SITE + '/recomendaciones/libros/' + book['slug'] + '/',
                 )
                 self.assertEqual(
                     str(event.get('URL')),

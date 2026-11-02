@@ -65,10 +65,31 @@ def keyword_list(raw: str) -> list[str]:
     return out[:40]
 
 
+def own_keywords(record: dict) -> list[str]:
+    """Palabras clave que hablan de este libro y no de otras obras que la editorial promociona.
+
+    Las editoriales rellenan sus palabras clave con títulos vecinos: «virginia woolf una biografia»
+    en La señora Dalloway o «hachis...salud» (otro tebeo) en Ibáñez Mítico 2. Una palabra clave con
+    el nombre del autor pero sin el título, o con puntos suspensivos de título, no clasifica el libro.
+    """
+    title = normalize_text(record.get('titulo', ''))
+    names = [n for a in record.get('autores', []) for n in [normalize_text(a)] if n]
+    names += [w for n in names for w in n.split() if len(w) >= 5]
+    kept = []
+    for raw in record.get('palabras_clave', []):
+        key = normalize_text(raw)
+        if '...' in str(raw) or '…' in str(raw):
+            continue
+        if any(re.search(r'\b' + re.escape(n) + r'\b', key) for n in names) and not (title and title in key):
+            continue
+        kept.append(raw)
+    return kept
+
+
 def extra_categories(record: dict) -> list[tuple[str, str, str]]:
     """(id, nombre, tipo) para cada regla que coincide con palabras clave, colección o título."""
     haystack = normalize_text(' , '.join([
-        *record.get('palabras_clave', []), record.get('coleccion', ''), record.get('titulo', ''),
+        *own_keywords(record), record.get('coleccion', ''), record.get('titulo', ''),
     ]))
     own = normalize_text(' , '.join([record.get('coleccion', ''), record.get('titulo', '')]))
     found: list[tuple[str, str, str]] = []

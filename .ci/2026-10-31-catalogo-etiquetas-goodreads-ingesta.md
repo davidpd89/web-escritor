@@ -23,7 +23,7 @@ Rama `feat/catalogo-tests-etiquetas-fuentes` (worktree `C:\GIT\web-escritor-cat2
   - Comprueba que no haya scroll horizontal, etiquetas de edad, cajas de nota vacías ni objetivos de menos de 24 px.
   - Comprueba el Book JSON-LD, CLS ≤ 0,1, DCL ≤ 4 s y que no haya errores de consola, tanto en el hub como en la ficha.
   - Queda añadida a `recommendations-browser-qa.yml`.
-- **Assets:** `reading-catalogue.css?v=19` y `reading-catalogue.js?v=25`, con hashes registrados.
+- **Assets:** `reading-catalogue.css?v=21` y `reading-catalogue.js?v=25`, con hashes registrados.
 
 ## Verificado en local (servidor propio 127.0.0.1:4183)
 - **Builders y checks:**

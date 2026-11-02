@@ -84,7 +84,7 @@ async function runCase(width,mode){
         label: box.querySelector('a')?.getAttribute('aria-label'),
         fill: box.querySelector('.catalogue-stars')?.style.getPropertyValue('--rating')
       })));
-      assert(ratings.every(r => !r.text || (r.text === 'Goodreads · consultar ficha' && !r.fill && !r.label)),'Without verified ratings only a neutral Goodreads link may appear, never a 0/5 score');
+      assert(ratings.every(r => !r.text || (r.text === 'Goodreads · ver opiniones' && !r.fill && !r.label)),'Without verified ratings only a neutral Goodreads link may appear, never a 0/5 score');
       assert(await page.locator('[data-filter="valoracion"]').isDisabled(),'No active rating filter without verified ratings');
       assert(await page.locator('[data-filter="precio_max"]').isEnabled(),'Static Amazon price filtering stays available without market data');
       const maximum = Math.ceil(Math.min(...(selected.formatos_compra||[]).map(o=>o.precio_centimos).filter(Boolean)) / 100);
@@ -109,7 +109,7 @@ async function runCase(width,mode){
     // Static price: only Amazon's (one of its formats), never the editorial PVP.
     const prices=(selected.formatos_compra||[]).map(o=>o.precio_centimos).filter(Boolean);
     if(prices.length){
-      const text=(await card.locator('.catalogue-amazon-price').innerText()).replace(/\s/g,' ');
+      const text=(await card.locator('.catalogue-format:not(.is-missing)').allInnerTexts()).join(' ').replace(/\s/g,' ');
       assert(prices.some(c=>text.includes((c/100).toLocaleString('es-ES',{style:'currency',currency:'EUR'}).replace(/\s/g,' '))),'Static Amazon price remains available independently of market data');
     }
     assert.equal(new URL(page.url()).searchParams.get('utm_source'),'resilience-test','Source parameter survives interactions and reload');

@@ -59,8 +59,13 @@ def money_cents(money):
         return None
 
 
+class DailyLimitReached(Exception):
+    """Amazon's 8640 requests a day are spent. Not a LookupError: a KeyError in the
+    data must not pass for the end of the night."""
+
+
 def verified_formats(book):
-    known={asin_from_url(o['url']):o['formato'] for o in book.get('formatos_compra',[])}
+    known={asin_from_url(o.get('url')):o['formato'] for o in book.get('formatos_compra',[])}
     direct=asin_from_url(book.get('url_amazon_afiliada'))
     if direct and book.get('formato_edicion'):
         known.setdefault(direct,book['formato_edicion'])
@@ -233,11 +238,13 @@ class CreatorsPrices:
             'itemIds':list(asins)[:10],'itemIdType':'ASIN'},self.headers())
 
     def discover(self,book):
-        # Title + author across all departments finds the Kindle/Audible editions.
+        # Title + author finds the Kindle/Audible editions. Ten results across all
+        # departments miss the Kindle of a saga's later volumes, so a book without
+        # an ebook is searched in the Kindle store itself.
         return self.post('https://creatorsapi.amazon/catalog/v1/searchItems',{
             'marketplace':'www.amazon.es','partnerTag':self.tag,'condition':'New',
             'currencyOfPreference':'EUR','resources':RESOURCES+['itemInfo.contentInfo'],
-            'keywords':book['titulo']+' '+book['autores'][0],'searchIndex':'All','itemCount':10},
+            'keywords':book['titulo']+' '+book['autores'][0],'searchIndex':discovery_index(book),'itemCount':10},
             self.headers())
 
 
@@ -254,7 +261,7 @@ def store_prices(book,offers,day):
                      'fuente_url':f'https://www.amazon.es/dp/{asin}','fecha_verificacion':day}
             options.append(current); by_format[offer['formato']]=current
             added+=1
-        elif asin_from_url(current['url'])!=asin:
+        elif asin_from_url(current.get('url')) not in (None,asin):
             continue  # An already verified edition is never replaced by another ASIN.
         current.update(url=offer['url'],precio_centimos=offer['precio_centimos'],fecha_verificacion=day)
     order=list(FORMAT_ORDER)
@@ -266,6 +273,10 @@ FORMAT_ORDER=('tapa-blanda','tapa-dura','ebook','audiolibro')
 # Kindle/audiobook editions often appear months after the print one: look again
 # after this long, so books without a digital edition do not spend quota nightly.
 REDISCOVER_AFTER=timedelta(days=90)
+
+
+def discovery_index(book):
+    return 'All' if 'ebook' in {o['formato'] for o in book.get('formatos_compra',[])} else 'KindleStore'
 
 
 def needs_discovery(book,now):
@@ -300,13 +311,17 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
     books=[b for b in catalogue['libros'] if b.get('estado')=='publicado' and isbn13(b.get('isbn13'))]
     books.sort(key=lambda b:b.get('precios_amazon_revision',''))
     unpriced=sum(not b.get('precios_amazon_revision') for b in books)
-    due=books[:max(unpriced,-(-len(books)//max(1,sweep_days)))]
+    share=max(unpriced,-(-len(books)//max(1,sweep_days)))
+    due=books[:share]
+    if hasattr(provider,'discover'):
+        # A missing Kindle or audiobook is looked for the first night, not when the price turn comes.
+        due+=[b for b in books[share:] if needs_discovery(b,now)]
     stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[],'sin_oferta':[]}
     answers={}
 
     def ask(call,*args):
         if stats['requests']>=budget:
-            raise LookupError
+            raise DailyLimitReached
         stats['requests']+=1
         payload=call(*args)
         if payload.get('errors') and not any(payload.get(key) for key in ['searchResult','itemsResult','itemResults']):
@@ -349,7 +364,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
             else:
                 for current in {b['id']:b for b,_ in pending}.values():
                     keep(found[current['id']],current,ask(provider,current))
-        except LookupError:
+        except DailyLimitReached:
             # Only the books that reached Amazon count; the one cut off did not.
             stats['attempted']+=len(group) if priced else group.index(current)
             break  # Daily limit reached: the rest stays due for tomorrow.

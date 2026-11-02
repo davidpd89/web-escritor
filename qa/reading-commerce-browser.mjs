@@ -46,7 +46,7 @@ try {
   await page.goto(`${base}/recomendaciones/?utm_source=prueba`); await page.waitForLoadState('networkidle');
   assert(await field('descuento').isDisabled()); assert(await field('valoracion').isDisabled());
   assert.equal(await page.locator('[data-price-book]:not([hidden])').count(), 0);
-  assert.ok((await page.locator('[data-rating-book] a').evaluateAll(els => els.map(el => el.dataset.ratingState + ' ' + el.textContent))).every(t => /^(unavailable Goodreads · consultar ficha|insufficient .* · menos de 5 valoraciones)$/.test(t)), 'Sin valoraciones válidas no se pinta ninguna nota, solo un enlace neutro');
+  assert.ok((await page.locator('[data-rating-book] a').evaluateAll(els => els.map(el => el.dataset.ratingState + ' ' + el.textContent))).every(t => /^(unavailable Goodreads · ver opiniones|insufficient .* · menos de 5 valoraciones)$/.test(t)), 'Sin valoraciones válidas no se pinta ninguna nota, solo un enlace neutro');
   assert.equal(await page.locator('[data-rating-book] .catalogue-stars').count(), 0, 'Sin valoraciones válidas no hay estrellas');
   assert.deepEqual(errors, []);
   await context.close();

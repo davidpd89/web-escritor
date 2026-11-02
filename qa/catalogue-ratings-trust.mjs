@@ -47,7 +47,7 @@ try {
       unverifiedOk(b, market === 'fail' ? 'proveedor caído' : 'sin dato');
       // Tarjeta y ficha muestran lo mismo: con ISBN, el enlace neutro a Goodreads.
       if (b.isbn.length === 13) {
-        assert.equal(b.text, 'Goodreads · consultar ficha');
+        assert.equal(b.text, 'Goodreads · ver opiniones');
         assert.equal(b.state, 'unavailable');
         assert.equal(b.href, `https://www.goodreads.com/book/isbn/${b.isbn}`);
       } else assert.equal(b.text, '', `${b.id}: sin ISBN no hay enlace que ofrecer`);
@@ -88,7 +88,7 @@ try {
     for (const id of [expired, forged, none]) {
       unverifiedOk(by[id], `${width}px ${id}`);
       assert.equal(by[id].card, true);
-      assert.equal(by[id].text, 'Goodreads · consultar ficha');
+      assert.equal(by[id].text, 'Goodreads · ver opiniones');
       assert.equal(by[id].state, 'unavailable');
     }
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);

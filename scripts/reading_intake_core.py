@@ -39,6 +39,87 @@ def clean_title(value: str) -> str:
     return _SPACE_RUN.sub(" ", str(value)).strip()
 
 
+_NAME_PARTICLES = {"de", "del", "la", "las", "los", "y", "van", "von", "der", "da", "di", "du", "le"}
+
+
+def clean_author(value: str) -> str:
+    """Nombre de autor público: los que llegan enteros en mayúsculas («JØRN LIER HORST») pasan a
+    «Jørn Lier Horst»; las partículas van en minúscula salvo al inicio. Los demás no se tocan."""
+    name = clean_title(value)
+    letters = [ch for ch in name if ch.isalpha()]
+    # Un seudónimo de una palabra en mayúsculas («KKAM») es estilo del autor, no un fallo de la fuente.
+    if " " not in name or not all(ch.isupper() for ch in letters):
+        return name
+    words = []
+    for i, word in enumerate(name.lower().split(" ")):
+        if i and word in _NAME_PARTICLES:
+            words.append(word)
+        else:
+            words.append("-".join(re.sub(r"^(\W*)(\w)", lambda m: m.group(1) + m.group(2).upper(), part)
+                                  for part in word.split("-")))
+    return " ".join(words)
+
+
+_SHOUT_WORD = re.compile(r"^[^\w]*(?:\d+|[^\W\d_]*[^\W\d_a-zà-ÿ]+)[^\w]*$")
+_QUOTE = re.compile(r"^\s*[«“\"][^»”\"]{1,240}[»”\"]\s*")
+
+
+def _is_shout(word: str) -> bool:
+    letters = [ch for ch in word if ch.isalpha()]
+    return bool(_SHOUT_WORD.match(word)) and all(ch.isupper() for ch in letters)
+
+
+def strip_shouting(text: str) -> str:
+    """Quita el marketing editorial pegado al inicio de un párrafo —titulares en mayúsculas
+    de 3+ palabras y citas de prensa con su atribución— y pasa a minúscula los titulares que
+    quedan dentro del texto («criar en EQUIPO DE VERDAD» → «criar en equipo de verdad»).
+    Si limpiar dejara menos de 10 palabras, devuelve el original."""
+    words = clean_title(text).split(" ")
+
+    def run_end(i):
+        j = i
+        while j < len(words) and _is_shout(words[j]) and any(ch.isalpha() or ch.isdigit() for ch in words[j]):
+            j += 1
+        letters = sum(any(ch.isalpha() for ch in w) for w in words[i:j])
+        return j if letters >= 3 else i
+
+    i = 0
+    while i < len(words):
+        end = run_end(i)
+        if end > i:
+            i = end
+            continue
+        quote = _QUOTE.match(" ".join(words[i:]))
+        if not quote:
+            break
+        i += len(quote.group(0).split())
+        # Atribución de la cita: palabras capitalizadas hasta el siguiente titular en mayúsculas.
+        j = i
+        while j < len(words) and words[j][:1].isupper() and not _is_shout(words[j]):
+            j += 1
+        if j > i and (j == len(words) or run_end(j) > j):
+            i = j
+    rest = words[i:]
+    out, k = [], 0
+    while k < len(rest):
+        end = k
+        while end < len(rest) and _is_shout(rest[end]):
+            end += 1
+        if sum(any(ch.isalpha() for ch in w) for w in rest[k:end]) >= 3:
+            chunk = [w.lower() for w in rest[k:end]]
+            if not out or out[-1][-1:] in ".!?»":
+                chunk[0] = re.sub(r"^(\W*)(\w)", lambda m: m.group(1) + m.group(2).upper(), chunk[0])
+            if end < len(rest) and rest[end][:1].isupper() and chunk[-1][-1:].isalnum():
+                chunk[-1] += "."
+            out.extend(chunk)
+            k = end
+        else:
+            out.append(rest[k])
+            k += 1
+    cleaned = " ".join(out)
+    return cleaned if len(out) >= 10 else clean_title(text)
+
+
 def isbn13(value: str) -> str | None:
     """Validar ISBN-13 o convertir ISBN-10 completo con X final si procede."""
     raw = re.sub(r"[\s-]", "", str(value).upper())

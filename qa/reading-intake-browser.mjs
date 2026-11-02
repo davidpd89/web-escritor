@@ -23,7 +23,9 @@ try {
     await page.goto(base + '/recomendaciones/libros/' + b.slug + '/');
     assert.equal(await page.locator('main h1').innerText(), b.titulo);
     await page.locator('.catalogue-book-cover').evaluate(img => img.decode());
-    const search = page.getByRole('link', { name: 'Comprar en Amazon', exact: true });
+    // The main button names the edition it sells: «Comprar en Amazon · Tapa dura».
+    const search = page.locator('a.catalogue-buy-link');
+    assert.match(await search.textContent(), /^Comprar en Amazon(\s|$)/);
     // Straight to the Amazon product when its ASIN is verified; otherwise the ISBN search.
     const buy = new URL(await search.getAttribute('href'));
     if (!buy.pathname.startsWith('/dp/')) assert.equal(buy.searchParams.get('k'), b.isbn13);

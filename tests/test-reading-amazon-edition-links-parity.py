@@ -41,7 +41,8 @@ for book in catalogue['libros']:
         tag = parse_qs(parsed.query).get('tag', [])
         if parsed.hostname not in ('amazon.es', 'www.amazon.es') or not tag or not tag[0]:
             errors.append(f'{relative}: {option["formato"]}: destino sin afiliación válida: {expected}')
-        if expected not in hrefs:
+        # La web añade language=es_ES para que Amazon.es no muestre el recuadro de compra en inglés.
+        if expected not in hrefs and expected + ('&' if '?' in expected else '?') + 'language=es_ES' not in hrefs:
             errors.append(f'{relative}: {option["formato"]}: falta el enlace exacto {expected}')
 
 assert checked > 0, 'No hay formatos de compra declarados para comprobar'
