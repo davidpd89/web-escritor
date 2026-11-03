@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788403527270",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Migraña: Manual para no perder la cabeza está dirigido a personas que conviven con la migraña o desean comprender sus efectos cotidianos desde una perspectiva médica y personal. Su enfoque divulgativo y práctico se aparta de los relatos de ficción y de las propuestas basadas en soluciones milagrosas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Migraña: Manual para no perder la cabeza aborda el diagnóstico, los tratamientos y las consecuencias de la migraña en el trabajo, las relaciones y las actividades diarias. Cristian Morales / Javier González Alcázar combinan la experiencia clínica de un neurólogo con la perspectiva de un paciente para explicar la enfermedad y aportar herramientas de convivencia con ella.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Migraña: Manual para no perder la cabeza está disponible en tapa blanda, en una edición de Aguilar de 240 páginas. El soporte físico permite volver a los apartados sobre diagnóstico, tratamientos y convivencia con la enfermedad, además de conservar el volumen como material de consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Migraña: Manual para no perder la cabeza y Cómo no tener diabetes tratan problemas de salud concretos, pero Cristian Morales / Javier González Alcázar se ocupan de la migraña y Adrián Díaz Alonso de la diabetes. Ansiedad. ¿Cómo se sale de aquí?, de Gemma Correll, también aborda una dificultad relacionada con el bienestar, aunque desde la representación de la ansiedad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431967",
+        "isbn-9788425373152"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f4b387eb755179c",
+  "origen": "chatgpt-web"
+}

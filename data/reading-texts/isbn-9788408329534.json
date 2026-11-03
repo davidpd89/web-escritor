@@ -3,8 +3,18 @@
   "familia": "narrativa",
   "bloques": [
     {
+      "modulo": "para_quien",
+      "texto": "Indonesia 7 está dirigida a quienes preparan una estancia en Indonesia y quieren organizar visitas culturales, recorridos por islas y actividades en la naturaleza. Sus 688 páginas responden a una consulta de planificación turística, no a quien busca una novela ambientada en el país.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
       "modulo": "encaje_documentado",
-      "texto": "Indonesia 7 propone una lectura práctica orientada a preparar desplazamientos y experiencias de viaje por el archipiélago. La guía aborda destinos como Bali, Java y Komodo, combinando patrimonio cultural, templos, volcanes y recorridos entre islas en lugar de desarrollar una historia de ficción.",
+      "texto": "Indonesia 7 es una guía de viajes centrada en la diversidad geográfica y cultural del archipiélago. Reúne propuestas relacionadas con Bali, los templos y volcanes de Java y la navegación por las islas de Komodo, de modo que su contenido sirve para preparar distintas etapas de una estancia.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,19 +23,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Indonesia 7 se ofrece en tapa blanda, con 688 páginas en una edición rústica sin solapas de Geoplaneta. Su extensión permite reunir distintos destinos en un mismo volumen físico para planificar el itinerario antes de salir y consultar la guía durante el viaje, aunque implica transportar un libro extenso.",
+      "texto": "Indonesia 7 está disponible en tapa blanda, con encuadernación rústica sin solapas. Sus 688 páginas permiten consultar distintas zonas y experiencias durante la preparación del itinerario; el volumen físico también puede utilizarse como referencia durante los desplazamientos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "editorial",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Indonesia 7 y Japón 2027-2028 son guías de destinos asiáticos con atención a la cultura y los lugares que visitar; Ray Bartlett participa en ambas. La primera recorre un archipiélago con templos y volcanes, mientras que la segunda presenta Japón mediante sus tradiciones, gastronomía y modernidad. Amsterdam de cerca 2027-2028, de Catherine Le Nevez, concentra el interés en una ciudad europea.",
+      "texto": "Indonesia 7 comparte con Japón 2027-2028 el enfoque de guía turística y la atención a las experiencias culturales; Ray Bartlett participa en ambas obras. Mientras la primera recorre un archipiélago con templos, volcanes e islas, la segunda presenta un país donde conviven tradiciones, cultura popular y modernidad.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,15 +42,11 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408323181",
-        "isbn-9788408320890"
+        "isbn-9788408323181"
       ]
     }
   ],
-  "descartados": [
-    "para_quien: muletilla: un viaje por",
-    "faltan módulos: para_quien"
-  ],
+  "descartados": [],
   "version": 3,
   "fuente_hash": "16ded78ccd946e50",
   "origen": "chatgpt-web"

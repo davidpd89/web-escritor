@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788467084542",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hielo, de José Camacho, encaja con lectores de novela negra que buscan crímenes, sospechas y secretos dentro de una comunidad pequeña. El aislamiento de un pueblo nevado condiciona la investigación y las relaciones entre sus habitantes. No responde a las expectativas de quien prefiere historias sin muertes ni conflictos criminales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Hielo propone un thriller rural español con rasgos del noir nórdico. En Villabismo, una nevada interrumpe las comunicaciones mientras dos muertes y los secretos de sus treinta y nueve vecinos sostienen el misterio. El entorno cerrado convierte la convivencia y la desconfianza en elementos centrales del conflicto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hielo se publica en tapa blanda, con una encuadernación rústica con solapas. Sus 288 páginas permiten leer el thriller en un volumen físico de extensión moderada, que puede transportarse sin recurrir a un dispositivo electrónico. La edición de Editorial Espasa está escrita en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hielo y El asesinato de Roger Ackroyd (Edición especial con cantos tintados) comparten el interés por la investigación de un crimen y la resolución de un enigma. José Camacho sitúa el conflicto en una población aislada por la nieve, mientras que la obra de Agatha Christie se presenta como una investigación detectivesca. En Hielo, el aislamiento de toda una comunidad forma parte del problema.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083934"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a9ba6d575431890b",
+  "origen": "chatgpt-web"
+}

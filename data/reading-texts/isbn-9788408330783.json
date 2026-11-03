@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408330783",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dioses del juego 3. The Keeper se dirige a lectores de romance contemporáneo interesados en relaciones sentimentales vinculadas al deporte y a las responsabilidades familiares. La historia de un portero que prioriza su carrera y su hija encaja menos con quienes buscan una novela deportiva sin conflicto romántico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Dioses del juego 3. The Keeper, de Ana Huang, plantea un romance contemporáneo en el entorno del fútbol profesional. Su protagonista, Noah Wilson, es portero y padre soltero, y afronta posibles cambios sentimentales mientras se aproxima el Mundial. La presentación editorial identifica expresamente la obra como tercera entrega de su serie de romance deportivo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dioses del juego 3. The Keeper se ofrece en tapa blanda, con 512 páginas y encuadernación rústica con solapas. Esta edición de Crossbooks permite leer la historia en papel y conservar el volumen junto a otros títulos de la serie, identificada en la presentación editorial como una tercera entrega.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "75824ae4551b2bb9",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388103711",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yawara! nº 12/20 se dirige a lectores de manga interesados en el judo y en las decisiones personales que llegan al terminar los estudios. El conflicto entre continuar la formación académica y comenzar a trabajar ocupa un lugar central, por lo que no se limita a narrar competiciones deportivas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Yawara! nº 12/20 es un manga de Rumiko Takahashi cuyo título lo identifica como el n.º 12 de 20. La protagonista afronta su futuro después de graduarse y conseguir una medalla de oro, con el judo como escenario de una disputa sobre sus próximos pasos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yawara! nº 12/20 se publica en tapa blanda, en una edición de Planeta Cómic de 320 páginas. Su presentación en rústica sin solapas y con sobrecubierta permite incorporarlo físicamente a una colección de manga y conservar la continuidad de los volúmenes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Yawara! nº 12/20 comparte autoría con Lamu nº 08/17 y MAO nº 11, obras de Rumiko Takahashi. Mientras Yawara! nº 12/20 aborda el judo y las decisiones tras la graduación, Lamu nº 08/17 plantea situaciones caóticas alrededor de Ataru y MAO nº 11 desarrolla la investigación de un asesino misterioso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101700",
+        "isbn-9791388103612"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "84a45210d003556a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788423371181",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando seamos inmortales se dirige a lectores de novela histórica interesados en la pintura, las rivalidades artísticas y la política europea. La relación entre Rubens y Velázquez, situada en 1628, ocupa el centro de una historia que encaja menos con quien busca una ambientación contemporánea o una trama desvinculada de acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Cuando seamos inmortales es una novela histórica de Tony Gratacós ambientada en 1628, durante el esplendor artístico de la corte española. La rivalidad entre Rubens y Velázquez se relaciona con la situación del Imperio español y el futuro de Europa. La pintura funciona como eje de una narración que conecta creación artística y poder político.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuando seamos inmortales está disponible en tapa dura con sobrecubierta, publicada por Ediciones Destino. Sus 528 páginas forman un volumen extenso, cuya cubierta rígida ofrece mayor protección para conservarlo y consultarlo después de la lectura. La sobrecubierta añade una pieza exterior que puede retirarse mientras se lee.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando seamos inmortales y El hombre de Damasco comparten el interés por épocas históricas, aunque Tony Gratacós sitúa su novela en la corte española de 1628 y Alejandro Núñez Alonso remite al Imperio Romano. La hija del joyero, de Inma Aguilera, ofrece otra ambientación histórica, Málaga, 1867. La diferencia principal está en el periodo y el escenario de cada obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387714567",
+        "isbn-9788466685016"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6004782c2db7665e",
+  "origen": "chatgpt-web"
+}

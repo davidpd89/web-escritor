@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788434441330",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Matemagia se dirige a lectores interesados en comprender las matemáticas mediante juegos, desafíos y efectos de magia. Fernando Blasco utiliza la sorpresa como punto de partida para plantear preguntas sobre el funcionamiento de esos efectos. Quien busque exclusivamente una exposición formal de teoría matemática encontrará un enfoque más lúdico y divulgativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Matemagia explora la relación entre las matemáticas y los juegos de magia. Fernando Blasco parte de desafíos e ilusiones para mostrar cómo una situación sorprendente puede despertar preguntas y conducir al razonamiento científico. El libro presenta la curiosidad y la búsqueda de explicaciones como elementos comunes a ambas disciplinas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Matemagia puede leerse en tapa blanda o Kindle. La edición física de Editorial Ariel tiene 288 páginas y encuadernación rústica con solapas, útil para conservar el libro y volver a sus juegos y desafíos. Kindle facilita llevar la lectura en un dispositivo compatible y consultar sus contenidos sin cargar con el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Matemagia y Los límites del infinito, de Ian Stewart, comparten las matemáticas como materia central. Fernando Blasco las relaciona con juegos y efectos de magia, mientras que Ian Stewart se ocupa de sus límites. El primero parte de desafíos que suscitan preguntas; el segundo propone explorar hasta dónde llega esta disciplina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491999386"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea6f591b4208c809",
+  "origen": "chatgpt-web"
+}

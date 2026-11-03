@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788434441316",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un espejo lejano se dirige a lectores interesados en la historia europea del siglo XIV y en las relaciones entre epidemias, guerras, hambre y religión. Sus 656 páginas y su enfoque histórico encajan menos con quien busca una narración breve o una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Un espejo lejano examina la sociedad de Europa Occidental durante el siglo XIV, con atención a la peste negra, los conflictos bélicos, la escasez de alimentos y las tensiones religiosas. Barbara W. Tuchman reúne estos procesos en un retrato histórico de una época marcada por crisis simultáneas, en lugar de limitarse a un único acontecimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un espejo lejano está disponible en tapa blanda y Kindle. La edición impresa de Editorial Ariel reúne 656 páginas en rústica con solapas, una opción para consultar y conservar el volumen físico; Kindle permite llevar esa lectura extensa en un dispositivo compatible sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "0291b68b9d177f04",
+  "origen": "chatgpt-web"
+}

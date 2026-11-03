@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788467085006",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El honor de los espías se dirige a lectores de thriller y novela negra interesados en los servicios de inteligencia y los conflictos internacionales contemporáneos. La investigación arranca con la muerte de una colaboradora rusa del CNI en España; su planteamiento se aleja del misterio doméstico y de las historias centradas exclusivamente en detectives privados.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El honor de los espías es un thriller de espionaje situado en el contexto de las tensiones actuales entre Europa y Rusia. La aparición del cadáver de una colaboradora del CNI que vivía bajo una identidad falsa introduce una investigación vinculada a las operaciones de inteligencia. La intriga combina un crimen concreto con un conflicto internacional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El honor de los espías se ofrece en tapa blanda, con encuadernación rústica y solapas. La edición de Editorial Espasa tiene 424 páginas en castellano y permite seguir la investigación en un único volumen físico, tanto en lecturas prolongadas como en sesiones repartidas a lo largo de varios días.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El honor de los espías puede compararse con Hielo por su pertenencia al thriller y la novela negra, aunque sus escenarios narrativos difieren. Pablo Zarrabeitia aborda el espionaje internacional y los servicios de inteligencia; José Camacho sitúa su propuesta en el thriller rural español con atmósfera de noir nórdico. Uno se articula alrededor de operaciones secretas y el otro destaca por su entorno rural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084542"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "582fb929e8c148a7",
+  "origen": "chatgpt-web"
+}

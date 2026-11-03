@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788423441495",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Trabajos enredados se dirige a lectores interesados en los efectos de la inteligencia artificial sobre el empleo y en el valor de las decisiones humanas dentro del trabajo. Su planteamiento económico se distancia de los manuales técnicos sobre programación y de las predicciones centradas únicamente en la desaparición de profesiones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Trabajos enredados analiza qué tareas laborales puede asumir la inteligencia artificial y cuáles dependen del juicio y la responsabilidad de las personas. Luis Garicano presenta una interpretación económica que distingue la automatización de actividades rutinarias de la sustitución completa de puestos de trabajo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Trabajos enredados está disponible en tapa blanda, con 224 páginas publicadas por Deusto en rústica con solapas. La edición física permite consultar de nuevo sus argumentos sobre automatización, empleo y criterio humano, o conservarla como volumen de divulgación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Trabajos enredados y Los límites del infinito pertenecen al ámbito de la divulgación, pero Luis Garicano examina las consecuencias laborales de la inteligencia artificial e Ian Stewart explora las fronteras de las matemáticas. Matemagia, de Fernando Blasco, también trata cuestiones matemáticas, aunque recurre a juegos y desafíos en lugar de analizar el empleo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491999386",
+        "isbn-9788434441330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d74344ca63d53c08",
+  "origen": "chatgpt-web"
+}

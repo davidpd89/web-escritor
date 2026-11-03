@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788467084986",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La memoria velada, de Luis García Jambrina, se orienta a lectores de novela negra interesados en los crímenes vinculados al pasado y los secretos que reaparecen. Su ambientación en Barcelona durante 1963 incorpora un contexto histórico y literario al misterio. Se distancia de las historias centradas exclusivamente en la acción o desligadas de la memoria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La memoria velada combina una investigación criminal con la recuperación de secretos antiguos y referencias a la literatura popular. La acción se sitúa en la Barcelona del verano de 1963 y presenta a Francisco González Ledesma, que ejerce como abogado durante el día. El misterio conecta el peligro de investigar un crimen real con historias que permanecen abiertas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La memoria velada se ofrece en tapa blanda, en una edición rústica con solapas de Editorial Espasa. Con 392 páginas, constituye una lectura de extensión intermedia dentro de la novela negra y puede llevarse en formato físico sin necesidad de dispositivos. El volumen está publicado en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La memoria velada se aproxima a El asesinato de Roger Ackroyd (Edición especial con cantos tintados) por la investigación criminal y la presencia de un enigma. La novela de Luis García Jambrina incorpora la Barcelona de 1963 y la memoria de secretos antiguos, mientras que la de Agatha Christie destaca por su planteamiento detectivesco. El contexto histórico y literario diferencia la primera lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083934"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2a4e81381c68ed25",
+  "origen": "chatgpt-web"
+}

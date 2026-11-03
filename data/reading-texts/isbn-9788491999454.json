@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788491999454",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bandidos, de Eric Hobsbawm, se dirige a lectores interesados en la historia social y en la relación entre los personajes populares y las sociedades que cuentan sus historias. Examina figuras asociadas al bandolerismo y a la redistribución de riqueza. Su enfoque de estudio histórico se aleja de la novela de aventuras protagonizada por forajidos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Bandidos es un estudio de ciencias humanas y sociales sobre el papel histórico y simbólico de los bandoleros. Eric Hobsbawm investiga la repetición de relatos sobre delincuentes considerados justicieros en distintas partes del mundo. Robin Hood y Salvatore Giuliano aparecen entre las figuras que permiten examinar la relación entre historia, mito y riqueza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bandidos está disponible en tapa blanda, mediante una edición rústica con solapas de Editorial Crítica. Sus 240 páginas reúnen el estudio en un volumen físico de extensión contenida, manejable para consultar y retomar distintos pasajes. La publicación es en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bandidos y Las leyes fundamentales de la estupidez humana se aproximan a las conductas sociales desde el ensayo, pero con objetos de estudio diferentes. Eric Hobsbawm analiza las figuras históricas del bandolerismo y sus mitos, mientras que Carlo M. Cipolla aborda la estupidez humana. En Bandidos, la dimensión histórica de los relatos populares ocupa el centro del análisis.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491995913"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8de5768c90bd7f07",
+  "origen": "chatgpt-web"
+}

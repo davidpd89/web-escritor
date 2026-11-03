@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788427055933",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La platera se dirige a lectores que buscan fantasía con elementos románticos, maldiciones y personajes vinculados a un entorno aristocrático. La protagonista debe abandonar las obligaciones habituales de su oficio para afrontar una amenaza sobrenatural; no es una historia de realismo cotidiano ni un romance desligado de la magia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La platera combina fantasía y romance a partir de una maldición que altera el trabajo de Ezel en el Palacete de Robledales. La búsqueda de Nazael, heredero del lugar, y las indicaciones de un pájaro parlante introducen una investigación ligada a lo sobrenatural. El conflicto nace dentro de un espacio aristocrático y se desplaza hacia sus secretos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La platera está disponible en tapa blanda, mediante una edición rústica con solapas de Ediciones Martínez Roca. Sus 400 páginas constituyen un volumen de extensión media-larga, adecuado para dividir la lectura en varias sesiones y conservar el ejemplar físico en una colección de fantasía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La platera comparte con Donde duermen las sombras la combinación de fantasía y romance, aunque sus conflictos sobrenaturales son diferentes. Alba Real sitúa la historia alrededor de una maldición y un heredero misterioso; Andrea Ornos plantea una relación capaz de atravesar dimensiones y enfrentarse a las sombras. La primera parte de un palacete y la segunda se presenta como romantasy contemporáneo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055605"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc13ff3f8227f904",
+  "origen": "chatgpt-web"
+}

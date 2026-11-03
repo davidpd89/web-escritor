@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408331087",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Six-step hacia ti encaja con lectores de romance que buscan una relación marcada por la rivalidad y la competición. El enfrentamiento entre Kael Holt y Eira Foster nace en un campamento de invierno y condiciona su historia compartida; no responde a quien busca una trama principalmente policial o de fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Six-step hacia ti plantea una historia romántica construida sobre la rivalidad entre dos personajes que compiten por superarse. Kael Holt y Eira Foster se conocen en un campamento de invierno, mantienen una relación competitiva y dejan de coincidir cuando él abandona los campamentos. Esa separación introduce una ruptura en su trayectoria compartida.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Six-step hacia ti se publica en tapa blanda, con encuadernación rústica y solapas. La edición de Esencia reúne 368 páginas en castellano, una extensión que permite leer la historia por sesiones o llevar el ejemplar físico durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Six-step hacia ti y Quemando el hielo son obras de Moruena Estríngana vinculadas al romance y a relaciones condicionadas por conflictos previos. La primera presenta una rivalidad nacida en un campamento de invierno; la segunda parte de una pérdida que precede al encuentro entre sus personajes. El punto de partida emocional es distinto en cada una.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326946"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "058c147d06cd209b",
+  "origen": "chatgpt-web"
+}
