@@ -215,6 +215,7 @@
     const shown = new Set(found.slice((currentPage - 1) * pageSize, currentPage * pageSize));
     for (const card of cards) card.hidden = !shown.has(card);
     renderPagination(pages, visible);
+    grid?.setAttribute('data-ready', '');
     if (form) {
       const refineCount = root.querySelector('[data-catalogue-refine-count]');
       const upcomingLink = root.querySelector('[data-catalogue-upcoming]'); if (upcomingLink) upcomingLink.hidden = v.estado === 'proximos';

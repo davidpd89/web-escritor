@@ -28,6 +28,8 @@ html.v1 .reading-catalogue button:disabled{opacity:.6;cursor:not-allowed;}
 html.v1 .catalogue-results-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(18rem,1fr);align-items:end;gap:.8rem 1.5rem;padding:1rem 0 1.3rem;border-bottom:1px solid var(--catalogue-blue);}
 html.v1 .catalogue-results-head h2{margin:0;color:var(--catalogue-blue);font:400 clamp(1.9rem,3vw,3rem)/1.1 var(--font-display);}
 html.v1 .catalogue-results-head [role="status"]{grid-column:1/-1;margin:0;color:#67635e;font-size:.85rem;}
+/* Oculta (sin quitar su hueco) hasta el primer filtrado del JS: los próximos lanzamientos van arriba en el HTML y se apartan al cargar. */
+html.v1 .catalogue-grid:not([data-ready]){visibility:hidden;}
 html.v1 .catalogue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr));gap:1rem;list-style:none;padding:0;margin:1rem 0 2.5rem;}
 html.v1 .catalogue-card{display:grid;grid-template-rows:auto 1fr;gap:.6rem;min-width:0;padding:.75rem;border:1px solid var(--catalogue-rule);border-top:3px solid var(--catalogue-blue);background:#fff;box-shadow:inset 0 2px 0 var(--catalogue-gold);}
 html.v1 .catalogue-card>div,html.v1 .catalogue-book-layout>div{min-width:0;}
@@ -51,7 +53,7 @@ html.v1 .reading-catalogue [data-catalogue-description]{font-size:1.05rem;line-h
 html.v1 .reading-catalogue audio{display:block;min-width:0;max-width:100%;width:100%;color-scheme:light;}
 html.v1 .catalogue-tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:1rem 0;padding:0;}
 html.v1 .catalogue-tags li{min-width:0;max-width:100%;}
-html.v1 .catalogue-tags a{display:inline-flex;min-height:44px;max-width:100%;align-items:center;padding:.45rem .7rem;border:1px solid var(--catalogue-rule);color:var(--catalogue-blue);background:var(--catalogue-pale);font:600 .76rem/1.5 var(--font-ui);text-decoration:none;overflow-wrap:anywhere;white-space:normal;}
+html.v1 .catalogue-tags a,html.v1 .catalogue-tags span{display:inline-flex;min-height:44px;max-width:100%;align-items:center;padding:.45rem .7rem;border:1px solid var(--catalogue-rule);color:var(--catalogue-blue);background:var(--catalogue-pale);font:600 .76rem/1.5 var(--font-ui);text-decoration:none;overflow-wrap:anywhere;white-space:normal;}
 html.v1 .catalogue-details{margin-top:.8rem;padding-block:.35rem;border-top:1px solid var(--catalogue-rule);}
 html.v1 .catalogue-details summary{min-height:44px;padding-block:.7rem;color:var(--catalogue-deep);font:600 .9rem/1.5 var(--font-ui);cursor:pointer;overflow-wrap:anywhere;}
 html.v1 .catalogue-details summary::marker{color:var(--catalogue-blue);}
@@ -86,6 +88,9 @@ html.v1 .catalogue-more-filters>summary{display:flex;justify-content:space-betwe
 html.v1 .catalogue-more-filters>summary span{font-size:1.6rem;line-height:1;}
 html.v1 .catalogue-more-filters[open]{border-top-color:var(--catalogue-blue);}
 html.v1 .catalogue-results-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;min-width:0;}
+html.v1 .catalogue-results-controls label,html.v1 .catalogue-results-controls select{min-width:0;max-width:100%;}
+html.v1 .catalogue-results-controls select{width:100%;}
+@media(max-width:450px){html.v1 .catalogue-results-controls{grid-template-columns:minmax(0,1fr);}}
 html.v1 .catalogue-upcoming-link{grid-column:1/-1;justify-self:start;color:var(--catalogue-blue);font:600 .9rem/1.5 var(--font-ui);text-decoration-color:var(--catalogue-gold);}
 html.v1 .catalogue-upcoming-link[hidden]{display:none;}
 html.v1 .catalogue-more-filters[open]>summary{background:var(--catalogue-blue);color:white;}
@@ -125,7 +130,7 @@ html.v1 .catalogue-refine-toggle{display:none!important;}
   html.v1 .catalogue-main .catalogue-results-head{padding-top:.75rem;}
 }
 html.v1 .catalogue-tags--compact{gap:.3rem;margin:.5rem 0;}
-html.v1 .catalogue-tags--compact a{min-height:28px;padding:.1rem .5rem;font-size:.75rem;border-radius:999px;}
+html.v1 .catalogue-tags--compact a,html.v1 .catalogue-tags--compact span{min-height:28px;padding:.1rem .5rem;font-size:.75rem;border-radius:999px;}
 html.v1 .catalogue-card__buy{box-sizing:border-box;justify-content:center;margin-top:.5rem;font-size:.78rem;gap:.5rem;}
 html.v1 .catalogue-source{font:400 .75rem/1.5 var(--font-ui);margin-block:.4rem .8rem;}
 html.v1 .catalogue-source a{color:var(--catalogue-blue);display:inline-flex;align-items:center;min-height:44px;}
