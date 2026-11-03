@@ -619,11 +619,11 @@ def amazon_destination(b):
     own = b.get('url_amazon_afiliada')
     # El sync renueva la URL de cada formato (detailPageURL de Amazon); si el enlace propio es el
     # mismo ASIN, se usa esa URL para que portada y botón del formato lleven al mismo sitio.
-    same = next((o['url'] for o in purchase_formats(b) if own and asin_of(o['url']) and asin_of(o['url']) == asin_of(own)), None)
+    same = next((o['url'] for o in purchase_formats(b) if own and amazon_asin(o['url']) and amazon_asin(o['url']) == amazon_asin(own)), None)
     return amazon_es(same or own or edition or b.get('amazon_busqueda_isbn'))
 
 
-def asin_of(link):
+def amazon_asin(link):
     match = re.search(r'amazon\.es/(?:[^?#]*/)?(?:dp|gp/product)/([A-Z0-9]{10})', link or '')
     return match[1] if match else None
 
