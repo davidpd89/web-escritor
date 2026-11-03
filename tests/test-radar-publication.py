@@ -14,6 +14,13 @@ workflow = (ROOT/'.github/workflows/radar-clock-refresh.yml').read_text(encoding
 assert 'actions: write' in workflow
 assert 'python scripts/publish-radar-refresh.py --branch "$branch"' in workflow
 assert 'gh pr merge --auto' not in workflow
+# An expired call must not leave its lychee exception behind to fail the bot's PR:
+# the refresh prunes it, and workflow allowlist, git add and publisher all accept it.
+prune = workflow.index('python tests/test-lychee-ignore-hygiene.py --prune-unused')
+assert workflow.index('python scripts/build-pagefind-index.py') < prune < workflow.index('name: Validate regenerated artifacts')
+assert 'deadlines.ics|.lycheeignore|pagefind/*)' in workflow
+assert '            .lycheeignore \\\n' in workflow
+assert "'.lycheeignore'}" in (ROOT/'scripts/publish-radar-refresh.py').read_text(encoding='utf-8')
 
 def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocked=()):
     calls = []
