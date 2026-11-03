@@ -87,7 +87,8 @@ html.v1 .catalogue-more-filters>summary span{font-size:1.6rem;line-height:1;}
 html.v1 .catalogue-more-filters[open]{border-top-color:var(--catalogue-blue);}
 html.v1 .catalogue-results-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;min-width:0;}
 html.v1 .catalogue-results-controls label,html.v1 .catalogue-results-controls select{min-width:0;max-width:100%;}
-html.v1 .catalogue-results-controls select{width:100%;}
+/* WebKit cuenta como desborde el texto largo de la opción elegida («Publicación · más reciente primero») en móvil. */
+html.v1 .catalogue-results-controls select{width:100%;overflow:hidden;text-overflow:ellipsis;}
 /* En móvil, «Mostrar» y «Ordenar por» van en una fila para no empujar los libros hacia abajo. */
 @media(max-width:450px){html.v1 .catalogue-results-head{gap:.6rem;padding-bottom:.75rem;} html.v1 .catalogue-results-controls{gap:.5rem;font-size:.85rem;} html.v1 .catalogue-results-controls label{gap:.2rem;}}
 html.v1 .catalogue-upcoming-link{grid-column:1/-1;justify-self:start;color:var(--catalogue-blue);font:600 .9rem/1.5 var(--font-ui);text-decoration-color:var(--catalogue-gold);}
