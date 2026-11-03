@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788425369650",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un hombre de ley (Aristócratas de Londres 1) se dirige a lectores adultos de romance con diferencias sociales, atracción entre personalidades opuestas y protagonistas marcados por experiencias difíciles. La violencia familiar del pasado de Clara y el carácter intimidante de Rafe hacen que encaje menos con quienes buscan una relación sin traumas ni conflictos de poder.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela romántica que combina diferencias de posición social, heridas familiares y una relación nacida en el entorno escolar. Susie Tate enfrenta la reserva de Clara, una maestra con un pasado de violencia, con la autoridad de Rafe Sterling, un aristócrata que aspira a ser juez. El título la identifica como el n.º 1 de Aristócratas de Londres.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas permite tener las 344 páginas de Un hombre de ley (Aristócratas de Londres 1) en un ejemplar físico, adecuado para guardar o prestar. La versión Kindle evita transportar el volumen y permite leerlo desde dispositivos compatibles. La diferencia práctica es el soporte, no la temática romántica de la obra.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los finales perfectos no existen y Un hombre de ley (Aristócratas de Londres 1) presentan romances adultos atravesados por experiencias anteriores. La novela de Violeta Reed aborda un matrimonio pendiente de divorcio y utiliza el humor; la de Susie Tate desarrolla la atracción entre una maestra y un aristócrata, con el trauma familiar como parte del conflicto. Cambian tanto la relación inicial como el peso del pasado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788425371745"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a8016c032590a903",
+  "origen": "chatgpt-web"
+}

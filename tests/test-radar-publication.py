@@ -15,7 +15,7 @@ assert 'actions: write' in workflow
 assert 'python scripts/publish-radar-refresh.py --branch "$branch"' in workflow
 assert 'gh pr merge --auto' not in workflow
 
-def scenario(failure=None, skipped_job=False, conflict=False):
+def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocked=()):
     calls = []
     dispatched = set()
     def gh(*args):
@@ -34,6 +34,20 @@ def scenario(failure=None, skipped_job=False, conflict=False):
             return json.dumps({'number':1,'headRefOid':'expected-sha','baseRefName':'main','state':'OPEN'})
         if args[:2] == ('run','list'):
             name = args[3]
+            if args[args.index('--event') + 1] == 'pull_request':
+                if name in blocked:
+                    # Waiting for approval or cancelled: never executes, so it must not be reused.
+                    return json.dumps([
+                        {'databaseId':7,'headSha':'expected-sha','status':'completed','conclusion':'action_required'},
+                        {'databaseId':6,'headSha':'expected-sha','status':'completed','conclusion':'cancelled'},
+                    ])
+                if name not in pr_runs:
+                    return json.dumps([])
+                return json.dumps([
+                    {'databaseId':5,'headSha':'different-sha','status':'completed','conclusion':'success'},
+                    {'databaseId':4,'headSha':'expected-sha','status':'completed','conclusion':
+                        'failure' if name == failure else 'success'},
+                ])
             if name not in dispatched:
                 return json.dumps([{'databaseId':1}])
             return json.dumps([
@@ -77,6 +91,8 @@ def scenario(failure=None, skipped_job=False, conflict=False):
         assert sum(call[:2] == ('run','rerun') for call in calls) == (1 if failure else 0)
     else:
         assert len(merges) == len(deployments) == 1
+        # Workflows already running for the PR's exact commit are reused, never dispatched twice.
+        assert {call[2] for call in calls if call[:2] == ('workflow','run')} == set(module.WORKFLOWS) - set(pr_runs) | {'deploy-pages.yml'}
         assert '--match-head-commit' in merges[0] and 'expected-sha' in merges[0]
         assert '--admin' not in merges[0]
         assert len(successes) == len(module.REQUIRED_JOBS)
@@ -86,5 +102,9 @@ scenario()
 for workflow_name in module.WORKFLOWS:
     scenario(workflow_name)
 scenario(skipped_job=True)
+reused = module.WORKFLOWS[:4]
+scenario(pr_runs=reused)
+scenario(reused[0], pr_runs=reused)
+scenario(pr_runs=reused[2:], blocked=reused[:2])
 scenario(conflict=True)
 print('PASS radar publication: all real workflows required, exact SHA, failed CI never merges/deploys')

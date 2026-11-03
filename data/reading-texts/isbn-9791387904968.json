@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Memoria de las manos encaja con adultos interesados en la evolución humana, el cuidado mutuo y los orígenes de nuestra especie. No responde a la búsqueda de una novela de ficción: Virginia Mendoza aborda estos asuntos desde la paleoantropología, la arqueología y otras disciplinas científicas.",
+      "texto": "Memoria de las manos se dirige a lectores adultos interesados en los orígenes humanos, la evolución y las relaciones de cuidado. Su aproximación combina paleoantropología, arqueología, neurociencia y biología evolutiva, por lo que se distancia de las narraciones de ficción centradas en personajes y conflictos inventados.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Propone una lectura de divulgación sobre el papel del cuidado y la empatía en la historia de nuestra especie. Virginia Mendoza relaciona hallazgos de paleoantropología, arqueología, neurociencia y biología evolutiva con prácticas como compartir alimentos, proteger a los vulnerables y establecer vínculos sociales.",
+      "texto": "Memoria de las manos propone una lectura de divulgación sobre la evolución humana desde la cooperación y el cuidado de los individuos vulnerables. Virginia Mendoza recurre a investigaciones de distintas disciplinas para examinar cómo la empatía y los vínculos sociales contribuyeron a la supervivencia. El recorrido conecta los orígenes de la especie con cuestiones actuales como la soledad y la fractura social.",
       "evidencias": [
         "titulo",
         "autores",
@@ -25,17 +24,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas reúne las 248 páginas de Memoria de las manos en un volumen de papel para consultar y releer. Kindle permite llevar el texto en el móvil o en un lector electrónico, sin cargar con el ejemplar físico.",
+      "texto": "Memoria de las manos está disponible en tapa blanda y Kindle. La edición de Debate consta de 248 páginas con solapas, para quienes prefieren consultar en papel sus referencias a la evolución humana; Kindle permite leer el mismo título en formato digital y transportarlo sin el volumen físico.",
       "evidencias": [
         "titulo",
+        "editorial",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Memoria de las manos y Sapiens. Una historia gráfica 4 - La era de las revoluciones comparten el interés por explicar procesos de la historia humana. Virginia Mendoza examina los orígenes de la cooperación mediante disciplinas científicas, mientras Yuval Noah Harari y David Vandermeulen abordan una etapa relacionada con la conciencia de la ignorancia colectiva. También difieren en su presentación: divulgación escrita frente a historia gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387904661"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c98af0c6f9a08a55",
+  "fuente_hash": "afd51d6a9b57349c",
   "origen": "chatgpt-web"
 }

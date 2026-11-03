@@ -2,6 +2,34 @@ name: Analytics taxonomy QA
 
 on:
   pull_request:
+    # Vía rápida: un PR solo de contenido generado (scripts/ci_content_lane.py CONTENT_GLOBS) no lo dispara; lo cubre weekly-full-audit.yml.
+    paths-ignore:
+      - 'assets/page-order.generated.js'
+      - 'assets/reading-market.json'
+      - 'assets/reading-covers/isbn-*.webp'
+      - 'assets/reading-audio/*.mp3'
+      - 'assets/pinterest/feeds/*.xml'
+      - 'data/reading-catalogue.json'
+      - 'data/reading-authors.json'
+      - 'data/reading-publishers.json'
+      - 'data/reading-intake-state.json'
+      - 'data/reading-pinterest-state.json'
+      - 'data/reading-texts/*.json'
+      - 'data/content-registry.json'
+      - 'recomendaciones/index.html'
+      - 'recomendaciones/autores/index.html'
+      - 'recomendaciones/editoriales/index.html'
+      - 'recomendaciones/libros/*/index.html'
+      - 'recomendaciones/autores/*/index.html'
+      - 'recomendaciones/editoriales/*/index.html'
+      - 'recomendaciones/proximos-lanzamientos.ics'
+      - 'recomendaciones/llms.txt'
+      - 'recomendaciones/ofertas.json'
+      - 'editoriales/*/index.html'
+      - 'editoriales-sitemap.xml'
+      - 'mapa-del-sitio/index.html'
+      - 'sitemap.xml'
+      - 'pagefind/**'
   workflow_dispatch:
 
 permissions:

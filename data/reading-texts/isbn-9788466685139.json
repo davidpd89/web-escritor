@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El efecto creativo se dirige a adultos interesados en aplicar la creatividad a la resolución de problemas, la comunicación, el liderazgo y las decisiones cotidianas. Su planteamiento se centra en desarrollar una forma de pensar, por lo que no responde a quien busque exclusivamente un manual de técnicas artísticas o de dibujo.",
+      "texto": "El efecto creativo está dirigido a adultos interesados en aplicar la creatividad al trabajo, la comunicación y el desarrollo personal. Su enfoque en técnicas para resolver problemas, liderar y gestionar dificultades lo distingue de una novela o de un libro dedicado exclusivamente a la creación artística.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El efecto creativo reúne experiencias profesionales y personales de Iván Jiménez junto con técnicas, herramientas y recursos para ejercitar la creatividad. Su contenido aborda cómo comunicar mejor, buscar soluciones alternativas, aprender de los errores y gestionar el estrés, además de examinar el papel de la creatividad humana ante la inteligencia artificial.",
+      "texto": "El efecto creativo reúne experiencias profesionales y personales de Iván Jiménez junto con técnicas, herramientas y trucos para ejercitar la creatividad. Sus aplicaciones abarcan la búsqueda de soluciones, la comunicación persuasiva, el liderazgo y la gestión del estrés. También aborda el aprendizaje a partir de los fracasos y el papel de la creatividad humana ante la inteligencia artificial.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,9 +23,10 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El efecto creativo se publica en tapa blanda con solapas, con una extensión de 208 páginas. El volumen físico permite señalar las técnicas que se quieran probar y anotar aplicaciones personales junto a los contenidos, para volver a consultarlos tanto en el ámbito profesional como en la vida diaria.",
+      "texto": "El efecto creativo se ofrece en tapa blanda y Kindle. La edición de Ediciones B reúne 208 páginas con solapas, apropiadas para consultar en papel las técnicas y herramientas expuestas; Kindle permite acceder al contenido desde un lector electrónico o una aplicación compatible durante los desplazamientos.",
       "evidencias": [
         "titulo",
+        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
@@ -34,22 +35,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El efecto creativo y Cariño, ¿y este recibo? se ocupan de decisiones prácticas, aunque el segundo aborda la gestión de las cuentas en pareja y el primero trabaja la creatividad personal y profesional. Cómo ganar una guerra comercial se centra en las transformaciones del comercio global, mientras Iván Jiménez propone herramientas aplicables al trabajo y a situaciones cotidianas.",
+      "texto": "El efecto creativo comparte con Domina el arte de los negocios el interés por desarrollar habilidades aplicables al entorno profesional. Iván Jiménez aborda la creatividad, la comunicación y la resolución de problemas, mientras Brian Tracy centra su guía en competencias de negocios y liderazgo. Ambos tienen una orientación práctica, pero parten de capacidades distintas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431332",
-        "isbn-9788423441051"
+        "isbn-9788466390514"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "08faad453541c824",
+  "fuente_hash": "e3894edb3c098b03",
   "origen": "chatgpt-web"
 }

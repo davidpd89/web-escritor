@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788425371745",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los finales perfectos no existen está dirigido a lectores adultos que buscan romance contemporáneo con humor, segundas oportunidades y conflictos de pareja. Su historia parte de un matrimonio roto y un divorcio pendiente, por lo que encaja menos con quienes prefieren romances sin relaciones anteriores ni asuntos familiares que resolver.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una comedia romántica sobre una pareja que vuelve a encontrarse después de años de separación. Violeta Reed enfrenta la intención de Kate Morgan de cerrar definitivamente su matrimonio con el deseo de Ben Sharp de recuperar la relación. El humor convive con el resentimiento, las diferencias familiares y las expectativas sobre el amor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los finales perfectos no existen puede leerse en tapa blanda con solapas o en Kindle. La edición impresa tiene 480 páginas y permite conservar el volumen en una biblioteca o regalarlo; la digital facilita continuar la lectura desde un móvil o lector electrónico compatible. Ambas opciones corresponden a la novela de Violeta Reed.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Quizá sí quiero (edición limitada · Verano) (Quererte 2) y Los finales perfectos no existen comparten autora, Violeta Reed, y personajes masculinos que desconfían del amor. En el primero, Zac Anderson considera el enamoramiento una amenaza; en el segundo, Ben Sharp intenta recuperar un matrimonio que parecía terminado. La diferencia está entre el rechazo inicial al amor y la búsqueda de una segunda oportunidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788466380096"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4d3e15ca1414dbc8",
+  "origen": "chatgpt-web"
+}

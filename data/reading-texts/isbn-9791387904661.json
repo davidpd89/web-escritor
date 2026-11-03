@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sapiens. Una historia gráfica 4 - La era de las revoluciones se dirige a lectores adultos interesados en historia, sociedad, ciencia y tecnología explicadas mediante el cómic y el ensayo. No sigue la estructura de una novela de ficción convencional: utiliza una narración gráfica para examinar las transformaciones de la humanidad y sus consecuencias.",
+      "texto": "Sapiens. Una historia gráfica 4 - La era de las revoluciones está dirigido a adultos interesados en la historia, la ciencia y los cambios sociales contados mediante recursos de novela gráfica. Yuval Noah Harari y David Vandermeulen recorren transformaciones tecnológicas y económicas hasta la inteligencia artificial. No sigue el formato de un ensayo compuesto únicamente por texto.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,23 +15,39 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El libro recorre la Revolución Científica, la Revolución Industrial y los comienzos de la inteligencia artificial, relacionándolos con la economía, el poder y la vida cotidiana. También plantea por qué el crecimiento material no garantiza satisfacción y qué consecuencias puede tener el desarrollo de máquinas inteligentes. El título lo identifica como el n.º 4 de Sapiens. Una historia gráfica.",
+      "texto": "Sapiens. Una historia gráfica 4 - La era de las revoluciones examina cómo la ciencia, la industria y la tecnología han transformado las sociedades humanas. Yuval Noah Harari y David Vandermeulen utilizan personajes y situaciones narrativas para tratar cuestiones como la creación de dinero, la organización del tiempo y la inteligencia artificial. La obra también plantea la relación entre progreso material y satisfacción humana.",
       "evidencias": [
         "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sapiens. Una historia gráfica 4 - La era de las revoluciones se ofrece en tapa dura y Kindle. La edición impresa de Debate reúne 248 páginas y permite recorrer físicamente sus secuencias gráficas; Kindle ofrece una alternativa digital para leerlas en un dispositivo compatible. En una obra ilustrada, el tamaño de la pantalla influye en la comodidad de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "En tapa dura, las 248 páginas de Sapiens. Una historia gráfica 4 - La era de las revoluciones quedan reunidas en una edición física para consultar sus escenas ilustradas. Kindle ofrece la alternativa digital para llevar la lectura en un dispositivo compatible, aunque el tamaño de pantalla influye en cómo se visualizan las páginas de una historia gráfica.",
+      "modulo": "lecturas_afines",
+      "texto": "Sapiens. Una historia gráfica 4 - La era de las revoluciones y Memoria de las manos examinan aspectos de la evolución humana, pero Yuval Noah Harari y David Vandermeulen se centran en las revoluciones científicas y tecnológicas, mientras Virginia Mendoza aborda el cuerpo y la empatía. Antes de perder el juicio, de Mauricio García Villegas, comparte el interés por la sociedad, aunque se ocupa de la propaganda y las cámaras de eco en lugar de la historia del progreso técnico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "numero_paginas",
-        "categorias",
-        "sinopsis_editorial"
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387904968",
+        "isbn-9791388387302"
       ]
     }
   ],

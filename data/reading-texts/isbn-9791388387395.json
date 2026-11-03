@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Franquistas contra franquistas se dirige a lectores adultos interesados en la historia política del siglo XX y las disputas por el poder dentro del franquismo. Su enfoque no responde a quien busque una historia general de la Guerra Civil, ya que se concentra en los enfrentamientos entre los sectores vencedores después de la contienda.",
+      "texto": "Franquistas contra franquistas está dirigido a lectores adultos interesados en la historia política española del siglo XX y las disputas internas del franquismo. Su atención a las organizaciones, los intereses y las luchas por el poder lo aleja de una biografía individual o de una historia centrada exclusivamente en las operaciones militares de la Guerra Civil.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,42 +14,42 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Franquistas contra franquistas examina las pugnas por el poder entre grupos que habían combatido en el mismo bando durante la Guerra Civil. Joan Maria Thomàs analiza las diferencias entre el ejército, la Iglesia, los carlistas y otras familias del régimen, y explica cómo sus rivalidades condicionaron los equilibrios políticos del franquismo durante las décadas posteriores.",
+      "texto": "Joan Maria Thomàs estudia las rivalidades entre los sectores que sostuvieron el régimen franquista después de la Guerra Civil. Examina las tensiones entre militares, falangistas, carlistas, monárquicos y grupos económicos que compartían principios políticos, pero competían por controlar las instituciones. El enfoque relaciona esas disputas iniciales con los equilibrios posteriores del régimen.",
       "evidencias": [
-        "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Franquistas contra franquistas está disponible en tapa blanda con solapas y reúne 320 páginas. Esta edición física permite subrayar, añadir anotaciones y volver a consultar los pasajes dedicados a las distintas facciones del régimen, algo útil cuando se quiere seguir la evolución de sus enfrentamientos políticos.",
+      "texto": "Franquistas contra franquistas puede leerse en tapa blanda o Kindle. La edición física de Debate tiene 320 páginas y solapas, una opción para conservar el volumen y volver a consultar sus apartados históricos. Kindle permite llevar el texto en un dispositivo compatible y continuar la lectura sin cargar con el ejemplar impreso.",
       "evidencias": [
         "titulo",
+        "editorial",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Franquistas contra franquistas y La Guerra Fría contada para escépticos tratan conflictos políticos del siglo XX, pero el primero estudia las luchas internas del franquismo y el segundo aborda la Guerra Fría. Frente a Los pilares de la historia, que plantea la utilidad de la historia para interpretar un mundo en crisis, Joan Maria Thomàs investiga un episodio concreto de las relaciones de poder.",
+      "texto": "Franquistas contra franquistas y Richelieu y Olivares, de John H. Elliot, permiten acercarse a las relaciones de poder desde perspectivas distintas. Joan Maria Thomàs estudia las rivalidades entre grupos del franquismo, mientras el segundo compara dos figuras políticas del siglo XVII. La Guerra Fría contada para escépticos, de Juan Eslava Galán, amplía el marco hacia la historia internacional del siglo XX, frente al foco español del primero.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788430629664",
-        "isbn-9788408326380"
+        "isbn-9788408326380",
+        "isbn-9788408331742"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2bbec900198aff32",
+  "fuente_hash": "0a8fc2e9d773208f",
   "origen": "chatgpt-web"
 }

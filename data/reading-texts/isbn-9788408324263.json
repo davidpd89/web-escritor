@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408324263",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cocina de siempre para disfrutar hoy, de Marcos Serén @chefmspin.recetas, se dirige a quienes buscan preparar platos tradicionales adaptados a la cocina doméstica actual. Su enfoque en recetas de toda la vida lo diferencia de los libros dedicados a técnicas experimentales o a una especialidad culinaria concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Cocina de siempre para disfrutar hoy reúne recetas tradicionales adaptadas a la preparación de comidas en casa. Marcos Serén @chefmspin.recetas trabaja con platos habituales de la cocina familiar y propuestas sencillas. Sus 240 páginas forman un recetario para consultar al elegir qué cocinar y durante la preparación de los platos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cocina de siempre para disfrutar hoy se ofrece en tapa blanda y Kindle. La edición de Zenith tiene 240 páginas y encuadernación rústica con solapas, adecuada para consultar las recetas en papel. Kindle permite acceder al recetario desde un dispositivo compatible y utilizarlo en la cocina sin manejar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cocina de siempre para disfrutar hoy comparte con 20 minutos ¡y listo!, de Jamie Oliver, la atención a la cocina doméstica, aunque el primero recupera recetas tradicionales y el segundo destaca el tiempo de preparación. También puede compararse con Al micro y listo, de Dani García: ambos se ocupan de cocinar en casa, pero este último pone el foco en el uso del microondas. Son enfoques diferentes para elegir recetas según la técnica o el tipo de plato buscado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788467084757"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0030d61a547cd9c2",
+  "origen": "chatgpt-web"
+}

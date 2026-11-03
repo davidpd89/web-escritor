@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788408325048",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "K-Pop Witch Academy 1. El sueño de una aprendiz está dirigido a lectores de 6 a 8 años que buscan fantasía y aventuras relacionadas con la música y el baile. Fiona Scoble combina los ensayos de un grupo de aprendices con poderes mágicos y dificultades para trabajar juntas. No corresponde a una historia realista sobre la industria musical.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "K-Pop Witch Academy 1. El sueño de una aprendiz está recomendado para edades de 6 a 8 años y tiene 176 páginas. Planeta Junior lo publica en tapa dura de cartoné, sin sobrecubierta. El título lo identifica como el n.º 1 y su contenido combina una academia musical con elementos de fantasía.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de K-Pop Witch Academy 1. El sueño de una aprendiz reúne 176 páginas en una encuadernación de cartoné, adecuada para conservar el ejemplar físico o regalarlo. Kindle permite leer la historia en formato digital desde un dispositivo compatible. La elección depende de si se prefiere un libro en papel o una lectura transportable sin volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "K-Pop Witch Academy 1. El sueño de una aprendiz comparte con Pipoka y la Fábrica del Desastre la presencia de magia y aventuras, aunque Fiona Scoble sitúa la acción en los ensayos musicales y Jose Such en un recorrido por paisajes y criaturas legendarias. También se aproxima a Campamento Mestizo 1 - La zona rebelde por su entorno de aprendizaje, pero cambia el campamento por una academia vinculada al K-pop.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419868466",
+        "isbn-9791388277085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "44ee52b3addd4fdc",
+  "origen": "chatgpt-web"
+}

@@ -990,8 +990,8 @@ def related_books(data, book):
         if not same_author and ((public and other and public!=other) or (age is not None and other_age is not None and abs(age-other_age)>4)):
             continue
         if shared or same_author:
-            ranked.append((same_author,sum(math.log(total/df[c]) for c in shared),candidate))
-    ranked.sort(key=lambda row:(-row[0],-row[1],row[2]['titulo'].casefold()))
+            ranked.append((same_author,sum(math.log(total/df[c]) for c in sorted(shared)),candidate))  # orden fijo: el redondeo no depende del hash
+    ranked.sort(key=lambda row:(-row[0],-row[1],row[2]['titulo'].casefold(),row[2]['id']))
     if not ranked:
         return ''
     return '<section class="catalogue-related" aria-labelledby="related-books"><h2 id="related-books">También te puede interesar</h2><ul>'+''.join('<li><a class="catalogue-related__cover" href="'+url(candidate)+'" tabindex="-1" aria-hidden="true">'+image(candidate,True,'120px','catalogue-related__image','')+'</a><a href="'+url(candidate)+'">'+esc(candidate['titulo'])+'</a><p>'+esc(', '.join(candidate['autores']))+'</p></li>' for _,_,candidate in ranked[:6])+'</ul></section>'

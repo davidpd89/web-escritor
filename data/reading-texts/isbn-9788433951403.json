@@ -4,53 +4,53 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pensamientos estériles se dirige a lectores de poesía que buscan textos sobre deseo, sexualidad, miedo y transformación del cuerpo. Encaja menos con quien prefiera una trama narrativa continua o poemas alejados de imágenes de heridas, violencia e intimidad.",
+      "texto": "Pensamientos estériles se dirige a quienes leen poesía sobre el deseo, la identidad y los cambios del cuerpo durante la juventud. Luna Miguel trata la sexualidad, las heridas y el miedo mediante imágenes físicas y situaciones incómodas. No responde a una búsqueda de poesía exclusivamente celebratoria ni de relatos narrados en prosa.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un poemario centrado en el cuerpo como lugar de deseo, memoria y conflicto. Luna Miguel explora la relación entre el amor y la sexualidad, a la vez que plantea cómo se construye una voz propia durante la juventud y cómo el miedo interviene en esa búsqueda.",
+      "texto": "Pensamientos estériles es un poemario de 88 páginas que explora la construcción de una voz propia a través del cuerpo y las relaciones afectivas. Luna Miguel relaciona el amor con la vulnerabilidad física, la memoria y la violencia de crecer. Los poemas presentan una tensión constante entre el deseo de intimidad y el temor a perder la propia identidad.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "En tapa blanda, las 88 páginas de Pensamientos estériles forman un volumen breve para leer poemas por separado o volver a ellos. La edición de Editorial Anagrama en castellano permite una lectura en papel, con la posibilidad de detenerse en textos concretos sin seguir una trama continua.",
+      "texto": "La edición en tapa blanda de Pensamientos estériles reúne 88 páginas y permite volver sobre versos concretos en papel. Kindle ofrece una alternativa digital para llevar el poemario en el móvil y consultar sus textos sin transportar el ejemplar físico. Ambas opciones corresponden a una obra breve de poesía de Luna Miguel.",
       "evidencias": [
         "titulo",
-        "edicion",
+        "autores",
         "numero_paginas",
-        "formatos_disponibles",
-        "idioma",
         "categorias",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pensamientos estériles y El libro de los gatos comparten la escritura poética, pero el centro de sus textos es distinto. Luna Miguel trabaja el cuerpo, el deseo y la violencia; Ursula K. Le Guin reúne poemas, meditaciones y dibujos centrados en los gatos.",
+      "texto": "Pensamientos estériles comparte con La tumba del marinero la autoría de Luna Miguel y la exploración poética del cuerpo, aunque el primero se concentra en la juventud y la sexualidad, mientras el segundo incorpora la enfermedad y el dolor físico. Frente a ambos, El libro de los gatos, de Ursula K. Le Guin, reúne poemas, meditaciones y dibujos centrados en los gatos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788433951397",
         "isbn-9791388306297"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e845303d0f375cc3",
+  "fuente_hash": "46f66c3db910da90",
   "origen": "chatgpt-web"
 }
