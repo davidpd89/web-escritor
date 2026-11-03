@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788425372759",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Turismo de terror se dirige a lectores adultos interesados en los viajes desde una perspectiva social, económica y política. Andy Robinson examina las consecuencias del turismo sobre las comunidades locales mediante crónicas y humor negro; no es una novela de terror sobrenatural ni una guía de destinos y actividades turísticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Turismo de terror propone una lectura de periodismo narrativo y crítica social a través de diez crónicas de viaje por América. Andy Robinson observa el poder de las grandes empresas turísticas, la explotación laboral y el desplazamiento de poblaciones locales, con un tono de humor negro que lo sitúa en la llamada literatura de antiviajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Turismo de terror se ofrece en tapa blanda y Kindle. La edición de Grijalbo tiene 280 páginas y solapas, una presentación física para conservar las diez crónicas y consultar sus destinos; Kindle permite leerlas durante los desplazamientos desde un lector electrónico o un móvil, sin añadir un libro al equipaje.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Turismo de terror y El tiempo que pasa utilizan la mirada sobre lugares y sociedades para abordar realidades colectivas. Andy Robinson investiga las consecuencias del turismo contemporáneo en América, mientras Manuel Medina recupera recuerdos de la España de posguerra. Frente a ambos, Sapiens. Una historia gráfica 4 - La era de las revoluciones estudia transformaciones históricas mediante un formato gráfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040580",
+        "isbn-9791387904661"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2176219496cdfb6e",
+  "origen": "chatgpt-web"
+}

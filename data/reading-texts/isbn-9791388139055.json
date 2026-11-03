@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388139055",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Manifiesto contra la intolerancia se dirige a adultos interesados en el pensamiento político, la filosofía y el análisis de los movimientos autoritarios. Rafael Narbona adopta una posición explícita de defensa de la democracia y crítica de la ultraderecha, por lo que no responde a la búsqueda de una exposición políticamente neutral.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje de Manifiesto contra la intolerancia es el análisis de diez rasgos asociados a los nuevos autoritarismos, desde el nacionalismo identitario y la xenofobia hasta el fundamentalismo religioso y la explotación ambiental. Rafael Narbona los organiza en un decálogo y plantea una respuesta basada en los derechos humanos, el pensamiento crítico y la tradición humanista europea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Manifiesto contra la intolerancia puede leerse en tapa blanda o Kindle. La edición física de Roca Editorial tiene 288 páginas y solapas, apropiadas para mantener el ejemplar en una biblioteca o consultar sus apartados; Kindle permite llevar el texto en un lector electrónico o en el móvil sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manifiesto contra la intolerancia comparte con Antes de perder el juicio la preocupación por el pensamiento crítico ante la propaganda y las posiciones sectarias. También se aproxima a Manifiesto por otra economía y otra política por su dimensión política, aunque Rafael Narbona concentra su análisis en el autoritarismo y Emanuele Felice cuestiona los fines de la economía y la política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387302",
+        "isbn-9788433951267"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "568843c587c66fc8",
+  "origen": "chatgpt-web"
+}

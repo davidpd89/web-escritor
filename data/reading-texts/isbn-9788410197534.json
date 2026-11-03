@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788410197534",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Elogio del amor está dirigido a adultos que buscan reflexiones filosóficas sobre el afecto, los cuidados y las relaciones personales. Rafael Narbona aborda los vínculos familiares, de pareja y de amistad desde su experiencia vital; quienes busquen una novela romántica o una guía de ejercicios para parejas encontrarán un enfoque diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Elogio del amor examina cómo los cuidados y las relaciones afectivas intervienen en el bienestar emocional y en la vida compartida. Rafael Narbona combina reflexión filosófica y experiencia personal para tratar la vulnerabilidad, la soledad, las redes de apoyo y los vínculos con familiares, amistades, parejas y animales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Elogio del amor está disponible en tapa blanda y Kindle. La edición de Roca Bolsillo reúne 384 páginas en papel, una opción para conservar el ensayo y volver a sus reflexiones; Kindle facilita continuar la lectura desde distintos lugares mediante un dispositivo compatible, sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Elogio del amor y Manifiesto contra la intolerancia comparten autor, Rafael Narbona, y una preocupación por la convivencia humana. El primero se ocupa del afecto y los cuidados personales, mientras el segundo examina amenazas políticas a la democracia. Contingencia, ironía y solidaridad, de Richard Rorty, traslada la reflexión sobre la solidaridad al terreno de la filosofía política y cultural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139055",
+        "isbn-9788449345951"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "32c87de57134b243",
+  "origen": "chatgpt-web"
+}
