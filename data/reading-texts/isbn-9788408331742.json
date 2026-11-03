@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788408331742",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Richelieu y Olivares se dirige a lectores interesados en la historia política de la Europa moderna y en la comparación de sus dirigentes. John H. Elliot examina a dos figuras del siglo XVII y sus semejanzas; no responde al planteamiento de una biografía centrada exclusivamente en un personaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Richelieu y Olivares estudia el poder político mediante una comparación histórica de sus protagonistas. John H. Elliot revisa las semejanzas entre ambos y el equilibrio de sus méritos, pero también amplía el análisis más allá de sus trayectorias individuales para situarlos en la Europa moderna.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Richelieu y Olivares está disponible en tapa blanda, en una edición rústica sin solapas de Austral Editorial. Sus 272 páginas permiten consultar y retomar los distintos aspectos del análisis histórico en un volumen físico, sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Richelieu y Olivares y Felipe II. Vida íntima de un rey de España comparten el interés por las figuras políticas de la historia europea. El primero compara a dos dirigentes del siglo XVII, mientras que el libro de Henry Kamen se concentra en un soberano español. Los pilares de la historia, de Javier Fernández Sebastián, cambia el foco hacia la capacidad de la historia para explicar el presente.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083743",
+        "isbn-9788430629664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e2e793a20118874a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791388163661",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Naranja con canela se dirige a quienes buscan romance contemporáneo sobre el espacio que ocupa una relación amorosa en la propia identidad, con una perspectiva vinculada a la generación Z. Encaja menos con lectores que prefieren conflictos de aventura o fantasía antes que cuestiones sentimentales y personales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Naranja con canela se presenta en tapa blanda, con una extensión de 240 páginas. La edición de Suma de Letras ofrece una lectura en papel que puede transportarse sin el volumen de una novela extensa; es el formato recogido para este título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Naranja con canela comparte con A mil por hora, de Hannah Grace, el romance contemporáneo, aunque este último sitúa la relación en el entorno de un piloto de F1. También se aproxima a Amor en pole position (Dirty Air 3), de Lauren Asher, por su temática amorosa, pero Naranja con canela pone el foco en la identidad personal y la generación Z, frente al escenario de la Fórmula 1.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449",
+        "isbn-9788427055674"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Naranja con canela plantea una novela romántica contemporánea centrada en la generación Z. Su punto de partida es el desequilibrio que puede producirse cuando una relación amorosa ocupa demasiado espacio en la identidad personal. El conflicto anunciado es emocional y gira alrededor de cómo situarse frente al amor.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "encaje_documentado: afirmaciones sin respaldo: premi",
+    "faltan módulos: encaje_documentado"
+  ],
+  "version": 3,
+  "fuente_hash": "0e4aa3ee8e40f9a9",
+  "origen": "chatgpt-web"
+}

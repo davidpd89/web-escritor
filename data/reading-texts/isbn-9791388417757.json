@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388417757",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rozando el cielo (edición especial) (Windy City 1) se dirige a lectores de narrativa juvenil interesados en el romance deportivo y las relaciones marcadas por los conflictos personales. Su historia combina hockey profesional, atracción y tensiones laborales; encaja menos con quien busca una aventura infantil o una trama centrada exclusivamente en la competición.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Rozando el cielo (edición especial) (Windy City 1) es una edición en tapa dura publicada por Montena, con 544 páginas en castellano. El título la identifica como una edición especial y como el número 1 de Windy City; su encuadernación rígida la distingue de una presentación en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rozando el cielo (edición especial) (Windy City 1) se presenta en tapa dura, con 544 páginas. La cubierta rígida resulta práctica para conservar un volumen extenso en la biblioteca o entregarlo como regalo, aunque ocupa más espacio que una edición flexible. Es la presentación publicada por Montena.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rozando el cielo (edición especial) (Windy City 1) y Perdiendo el control (edición especial) (Windy City 3) comparten autora, Liz Tomforde, y pertenecen al romance deportivo. El primero sitúa su conflicto entre un jugador de hockey y una auxiliar de vuelo; el segundo se identifica en su título como otra entrega de Windy City, sin que esa coincidencia implique la misma pareja protagonista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388222856"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9c2318a7a1fb3307",
+  "origen": "chatgpt-web"
+}

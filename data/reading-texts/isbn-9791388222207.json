@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388222207",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Villanos 2 - Hunt the villain se dirige a lectores de dark romance MM que buscan relaciones marcadas por la rivalidad, la violencia y las restricciones del entorno mafioso. Su planteamiento autoconclusivo permite abordar este conflicto sentimental, pero sus temas lo alejan de quienes prefieren romances sin amenazas criminales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Villanos 2 - Hunt the villain presenta un romance MM autoconclusivo situado entre organizaciones mafiosas rivales. Rina Kent desarrolla la atracción entre dos hombres enfrentados por sus circunstancias familiares y por las normas de su entorno, dentro del universo de Legacy of Gods.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Villanos 2 - Hunt the villain está disponible en tapa blanda, con 592 páginas en castellano. La edición de Montena reúne la historia autoconclusiva en un volumen físico, una opción para leerla en papel o conservarla junto a otros libros del mismo universo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Villanos 2 - Hunt the villain y Amor en pole position (Dirty Air 3) comparten el romance como eje, pero sus conflictos se desarrollan en entornos distintos. Rina Kent plantea una relación MM entre mafias rivales, mientras que Lauren Asher sitúa su historia sentimental en el mundo de la Fórmula 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5d08f8b9e2f0d758",
+  "origen": "chatgpt-web"
+}

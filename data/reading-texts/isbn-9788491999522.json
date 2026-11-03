@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788491999522",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Revoluciones. Una nueva historia se dirige a lectores interesados en los cambios políticos y sociales desde una perspectiva histórica de largo recorrido. Su atención a procesos que duran décadas encaja menos con quien busca una cronología breve de levantamientos o una historia limitada a sus episodios más conocidos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Revoluciones. Una nueva historia examina cómo se originan, evolucionan y dejan consecuencias los grandes procesos revolucionarios. Donald Sassoon desplaza la atención de acontecimientos puntuales, como la toma de la Bastilla, hacia transformaciones que pueden extenderse durante décadas y continuar después de los episodios iniciales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Revoluciones. Una nueva historia se publica en tapa dura con sobrecubierta y tiene 544 páginas. La edición de Editorial Crítica reúne el estudio histórico en un volumen físico de encuadernación rígida, pensado para la lectura prolongada y la consulta posterior en papel.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Revoluciones. Una nueva historia y Los pilares de la historia comparten el interés por interpretar los procesos históricos, aunque Donald Sassoon estudia las revoluciones y Javier Fernández Sebastián plantea la capacidad explicativa de la historia. Richelieu y Olivares reduce la escala al análisis comparado de dos figuras políticas del siglo XVII.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629664",
+        "isbn-9788408331742"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "515532db8845fbd2",
+  "origen": "chatgpt-web"
+}

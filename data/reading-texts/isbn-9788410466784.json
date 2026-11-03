@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788410466784",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La desgracia inevitable (Carl el Mazmorrero 7) se dirige a lectores de ciencia ficción interesados en conflictos bélicos, alianzas y supervivencia dentro de una competición mortal. Sus 896 páginas y la continuidad de personajes y acontecimientos lo alejan de una lectura breve o de una historia independiente de su universo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La desgracia inevitable (Carl el Mazmorrero 7) combina ciencia ficción y enfrentamientos militares en una competición donde varios ejércitos disputan el control de un castillo. La participación de los mazmorreros y de los PNJ conscientes altera las fuerzas enfrentadas, mientras que las muertes definitivas convierten la supervivencia en el principal conflicto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La desgracia inevitable (Carl el Mazmorrero 7) puede leerse en tapa blanda o Kindle. La edición física de Nova reúne sus 896 páginas en un volumen, mientras que Kindle permite llevar esa misma extensión en un dispositivo compatible sin cargar con el libro de papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El ojo de la novia frenopática (Carl el Mazmorrero 6) comparte autor y universo con La desgracia inevitable (Carl el Mazmorrero 7), pero plantea la captura de un monstruo frente a una guerra entre facciones. Aunque se acabe el mundo, de Clara Duarte, también presenta una amenaza para la supervivencia, aunque su conflicto parte de una transformación de la humanidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410466470",
+        "isbn-9788427255968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc4f8b7f0c72b862",
+  "origen": "chatgpt-web"
+}

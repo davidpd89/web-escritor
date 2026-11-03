@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388222856",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Perdiendo el control (edición especial) (Windy City 3) encaja con lectores de narrativa juvenil interesados en romances relacionados con el deporte y las responsabilidades familiares. Su historia gira en torno a un padre soltero, el cuidado de su hijo y una relación condicionada por una estancia temporal; no responde a la búsqueda de aventuras fantásticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Perdiendo el control (edición especial) (Windy City 3) es una edición especial en tapa dura publicada por Montena. Reúne 480 páginas en castellano y el título la identifica como el n.º 3 de Windy City, por lo que permite distinguirla por su presentación física y su lugar indicado dentro de la serie.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Perdiendo el control (edición especial) (Windy City 3) está disponible en tapa dura. Sus 480 páginas forman un volumen de cubierta rígida, adecuado para quien prefiera conservar los libros en ese formato o regalar una edición especial en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rozando el cielo (edición especial) (Windy City 1) comparte con Perdiendo el control (edición especial) (Windy City 3) la autoría de Liz Tomforde, la presentación como edición especial y el romance deportivo. Los títulos los identifican como entregas distintas de Windy City; Perdiendo el control centra su conflicto en un padre soltero y una cuidadora que planea marcharse al terminar el verano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388417757"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "67a16b9394ecf0e7",
+  "origen": "chatgpt-web"
+}

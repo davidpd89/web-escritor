@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388103612",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MAO nº 11 se dirige a lectores de manga interesados en investigaciones criminales y enfrentamientos con adversarios peligrosos. Mao y Nanoka persiguen a un asesino relacionado con muertes violentas, mientras crece el conflicto con la familia Gokô; encaja menos con quien busca una historia cotidiana sin violencia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "MAO nº 11 combina una investigación sobre asesinatos con un enfrentamiento que implica a varios personajes. Mao y Nanoka siguen una serie de muertes caracterizadas por la ausencia de sangre en las víctimas, mientras Shiranui encabeza otra amenaza vinculada a la familia Gokô. El título lo identifica como el n.º 11.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "MAO nº 11 está disponible en tapa blanda y tiene 192 páginas en castellano. Planeta Cómic lo presenta en rústica sin solapas y con sobrecubierta, una encuadernación flexible que facilita su manejo y permite conservarlo junto a otros volúmenes de manga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MAO nº 11 comparte autora, Rumiko Takahashi, con Lamu nº 08/17 y Yawara! nº 12/20, pero sus conflictos son distintos. MAO nº 11 gira alrededor de asesinatos y una familia enfrentada a sus protagonistas; Lamu nº 08/17 presenta situaciones caóticas asociadas a Ataru, mientras Yawara! nº 12/20 aborda una graduación y el comienzo de otra etapa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101700",
+        "isbn-9791388103711"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "86443bdc32c494ae",
+  "origen": "chatgpt-web"
+}

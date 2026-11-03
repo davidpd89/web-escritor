@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791387714567",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El hombre de Damasco encaja con lectores de novela histórica y aventuras interesados en las intrigas políticas del Imperio Romano. Sus 992 páginas y su conflicto entre poderes, conspiradores y gobernantes lo alejan de las lecturas breves o de las historias centradas exclusivamente en la acción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El hombre de Damasco combina novela histórica y aventuras en el Imperio Romano del siglo I d. C. La trama sigue las maniobras de Benasur de Judea contra Roma, dentro de una red de intereses comerciales y políticos en la que intervienen gobernantes y espías.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El hombre de Damasco está disponible en tapa dura con sobrecubierta, en una edición de Istoría de 992 páginas. Es un volumen extenso para leer y conservar en papel; la encuadernación rígida y la sobrecubierta también condicionan su presentación como regalo y su transporte cotidiano.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El hombre de Damasco y Cuando seamos inmortales sitúan sus conflictos en escenarios históricos relacionados con el poder y los intereses enfrentados. Alejandro Núñez Alonso ambienta su novela en el Imperio Romano, mientras Tony Gratacós plantea una rivalidad artística vinculada al destino de un reino y de Europa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423371181"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0d008c854e4ad345",
+  "origen": "chatgpt-web"
+}

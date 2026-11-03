@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788466683449",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A mil por hora se dirige a lectores de romance contemporáneo interesados en las relaciones sentimentales dentro del automovilismo profesional. Su historia combina una relación pendiente, tensiones laborales y competición deportiva, por lo que se aleja de las novelas centradas exclusivamente en las carreras o en la técnica de los vehículos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "A mil por hora desarrolla un romance contemporáneo ambientado en un equipo de Fórmula 1. Ivy Miller debe trabajar junto a Saint Thompson, un piloto con quien tuvo una relación inconclusa y cuyo pasado deportivo estuvo marcado por un escándalo. La tensión surge del choque entre los límites sentimentales de ella y la intención de él de recuperar aquella oportunidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A mil por hora está disponible en tapa dura, con una extensión de 424 páginas. La edición física de Ediciones B permite conservar el volumen en una encuadernación rígida y entregarlo como regalo. Es una elección en papel para quienes prefieren leer una novela romántica extensa sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A mil por hora comparte con Amor en pole position (Dirty Air 3) el romance ambientado en la Fórmula 1. Hannah Grace centra su historia en el reencuentro de un piloto con una mujer que trabaja para su equipo, mientras que el título de Lauren Asher se presenta como otra relación sentimental dentro del automovilismo. Naranja con canela también aborda el amor, pero desde una perspectiva generacional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674",
+        "isbn-9791388163661"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "93fdc3c88937bba7",
+  "origen": "chatgpt-web"
+}

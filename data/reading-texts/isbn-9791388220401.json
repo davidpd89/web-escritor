@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9791388220401",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "JapanEasy está dirigido a quienes quieren preparar comida japonesa en casa mediante recetas que no siempre exigen ingredientes especializados. Su enfoque de cocina doméstica y preparaciones rápidas encaja menos con lectores que buscan un estudio histórico de la gastronomía japonesa en lugar de un recetario práctico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "JapanEasy reúne recetas de cocina japonesa orientadas a su preparación en el ámbito doméstico. Tim Anderson explica que numerosos platos pueden elaborarse con ingredientes accesibles y sin procedimientos prolongados; sus 224 páginas presentan el contenido en formato de recetario para llevar las preparaciones a la práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "JapanEasy está disponible en tapa dura sin sobrecubierta, con encuadernación en cartoné y 224 páginas. La edición de Lunwerg Editores permite tener el recetario en papel durante la preparación de los platos y conservarlo como libro de consulta de cocina.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "JapanEasy y 20 minutos ¡y listo! comparten la orientación hacia recetas que pueden prepararse sin dedicar demasiado tiempo a la cocina. Tim Anderson se centra en platos japoneses, mientras Jamie Oliver plantea la rapidez como eje general de su propuesta. Al micro y listo también prioriza la sencillez, pero organiza su enfoque alrededor de la cocina con microondas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788467084757"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d35b93f5af003607",
+  "origen": "chatgpt-web"
+}
