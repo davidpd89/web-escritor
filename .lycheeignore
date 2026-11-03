@@ -66,7 +66,6 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # no se excluye el dominio completo, para que futuros enlaces rotos sigan
 # fallando en CI.
 ^https://www\.bibliotecapopular\.org/concurso/2026/index\.shtml$
-^https://www\.hislibris\.com/foro/viewtopic\.php\?f=29&t=705$
 ^https://foem\.edomex\.gob\.mx/publica-foem$
 ^https://foem\.edomex\.gob\.mx/$
 ^https://navonaed\.com/contacto/$
@@ -108,7 +107,6 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # Fuentes verificadas que responden correctamente en navegación normal/buscadores,
 # pero agotan el timeout de Lychee en GitHub Actions. Excepciones URL-específicas:
 # no se silencian los dominios completos y futuros enlaces rotos seguirán fallando.
-^https://volured\.com/voluntsalud/vii-certamen-de-microrrelatos-de-voluntariado/$
 ^https://eltransbordador\.es/$
 ^https://eltransbordador\.es/nueva-web/$
 ^https://oralhistory\.org/principles-and-best-practices-revised-2018/$
