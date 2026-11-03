@@ -28,7 +28,7 @@ async function open(market, { width = 1280, javaScriptEnabled = true } = {}) {
 }
 const boxes = page => page.locator('[data-rating-book]').evaluateAll(list => list.map(box => {
   const a = box.querySelector('a');
-  return { id: box.dataset.ratingBook, card: Boolean(box.closest('.catalogue-card')), hidden: box.hidden, isbn: box.dataset.isbn || '', text: box.textContent.replace(/\s+/g, ' ').trim(), state: a?.dataset.ratingState || '', label: a?.getAttribute('aria-label') ?? null, href: a?.href || '', stars: Boolean(box.querySelector('.catalogue-stars')), fill: box.querySelector('.catalogue-stars')?.style.getPropertyValue('--rating') || '' };
+  return { id: box.dataset.ratingBook, card: Boolean(box.closest('.catalogue-card')), shown: !box.closest('.catalogue-card')?.hidden, hidden: box.hidden, isbn: box.dataset.isbn || '', text: box.textContent.replace(/\s+/g, ' ').trim(), state: a?.dataset.ratingState || '', label: a?.getAttribute('aria-label') ?? null, href: a?.href || '', stars: Boolean(box.querySelector('.catalogue-stars')), fill: box.querySelector('.catalogue-stars')?.style.getPropertyValue('--rating') || '' };
 }));
 const unverifiedOk = (b, where) => {
   assert.doesNotMatch(b.text, /0,0|\(0\)|★/, `${where}: ${b.id} pinta una nota sin verificar: «${b.text}»`);
@@ -57,8 +57,8 @@ try {
     await context.close();
   }
 
-  // 2. Estados mezclados sobre tarjetas reales.
-  const ids = await (async () => { const { context, page } = await open({ schema_version: 1, offers: [], ratings: [] }); const all = await boxes(page); await context.close(); return all.filter(b => b.isbn.length === 13).slice(0, 6).map(b => b.id); })();
+  // 2. Estados mezclados sobre tarjetas reales y visibles (los próximos lanzamientos van ocultos por defecto).
+  const ids = await (async () => { const { context, page } = await open({ schema_version: 1, offers: [], ratings: [] }); const all = await boxes(page); await context.close(); return all.filter(b => b.isbn.length === 13 && b.card && b.shown).slice(0, 6).map(b => b.id); })();
   const [verified, thin, oneVote, expired, forged, none] = ids;
   const market = { schema_version: 1, offers: [], ratings: [
     { ...dated, libro_id: verified, fuente: 'goodreads', puntuacion: 4.2, numero_valoraciones: 12345, url: gr(101) },
@@ -102,7 +102,7 @@ try {
     const { context, page } = await open(market);
     assert.equal(await page.locator('[data-filter="valoracion"]').isEnabled(), true);
     await page.locator('[data-filter="valoracion"]').evaluate(e => { const d = e.closest('details'); if (d) d.open = true; });
-    await page.selectOption('[data-filter="valoracion"]', { index: 1 });
+    await page.selectOption('[data-filter="valoracion"]', '4');
     const shown = await page.locator('.catalogue-card:not([hidden])').evaluateAll(cards => cards.map(c => c.dataset.bookId));
     assert.deepEqual(shown, [verified], 'el filtro de valoración solo deja la valoración verificada');
     await page.selectOption('[data-filter="valoracion"]', '');
