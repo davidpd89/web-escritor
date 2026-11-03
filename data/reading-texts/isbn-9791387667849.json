@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9791387667849",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diálogos sobre lo desconocido se orienta a lectores interesados en el esoterismo y en testimonios personales de figuras públicas. Sus más de 40 participantes proceden de ámbitos como la música, el cine, la justicia y la seguridad, por lo que no plantea una narración de ficción con una trama única.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Diálogos sobre lo desconocido aborda experiencias personales relacionadas con fenómenos o cuestiones difíciles de explicar mediante conversaciones con más de 40 figuras públicas. David Cuevas reúne perfiles como Berto Romero, Santiago Segura y Baltasar Garzón, entre otros. El enfoque combina testimonios individuales y esoterismo a lo largo de 552 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Diálogos sobre lo desconocido puede leerse en tapa blanda o Kindle. La edición de Ediciones Luciérnaga tiene 552 páginas en rústica con solapas, un volumen físico extenso para consultar entrevistas; Kindle facilita llevarlo completo en un dispositivo compatible y alternar entre sus contenidos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diálogos sobre lo desconocido y En la mente de... permiten acercarse a cuestiones públicas desde distintas perspectivas: David Cuevas recoge experiencias personales vinculadas a lo inexplicable, mientras que El Orden Mundial y Franco Delle Donne abordan el deterioro interno de las democracias. El estado del Estado comparte el interés por figuras y asuntos públicos, pero se centra en una reflexión sobre España y su situación política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441013",
+        "isbn-9788434440937"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5460dcd36260eae0",
+  "origen": "chatgpt-web"
+}

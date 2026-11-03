@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788467083743",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Felipe II. Vida íntima de un rey de España se dirige a lectores de historia interesados en la monarquía española y en las tensiones entre el poder político y la vida de sus gobernantes. Su enfoque sobre un soberano concreto se distancia de las panorámicas históricas generales y de las novelas ambientadas en el pasado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Felipe II. Vida íntima de un rey de España estudia a un monarca cuyo gobierno abarcó territorios de alcance mundial y estuvo marcado por conflictos bélicos. Henry Kamen aborda las contradicciones entre la defensa declarada de la paz, el ejercicio del poder y las críticas recibidas por el soberano. La perspectiva histórica se concentra en su figura y su reinado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Felipe II. Vida íntima de un rey de España se publica en tapa blanda y Kindle. La edición de Editorial Espasa tiene 448 páginas en rústica con solapas, adecuada para conservar el volumen físico y volver a sus pasajes; Kindle facilita la lectura de esta obra histórica en un dispositivo compatible sin cargar con el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Felipe II. Vida íntima de un rey de España y Richelieu y Olivares comparten el estudio del poder a través de figuras históricas, aunque Henry Kamen se concentra en un monarca y John H. Elliot compara a dos dirigentes del siglo XVII. Franquistas contra franquistas también examina conflictos políticos, pero los sitúa en el bando vencedor de la Guerra Civil y su permanencia en el poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387395",
+        "isbn-9788408331742"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "807d2a2e27ca6fca",
+  "origen": "chatgpt-web"
+}

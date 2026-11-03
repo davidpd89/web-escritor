@@ -4,34 +4,48 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?) se dirige a adultos que quieran reunir recuerdos mediante preguntas y aportaciones de distintos familiares. Encaja menos con quienes busquen una narración ya escrita, porque sus 208 páginas están pensadas para incorporar experiencias, fotografías y tradiciones propias.",
+      "texto": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?) está dirigido a adultos que quieren reunir recuerdos familiares mediante preguntas y actividades escritas. Su contenido requiere la participación de varios miembros de la familia, por lo que no responde a quien busca una novela con una historia ya desarrollada para leer de principio a fin.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "numero_paginas",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?) es un cuaderno participativo para construir una memoria familiar compartida. Elma van Vliet organiza la actividad mediante preguntas, espacios para presentar a cada miembro y páginas destinadas a fotografías, recetas, tradiciones y un árbol genealógico.",
+      "texto": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?) es un cuaderno participativo de Elma van Vliet dedicado a reconstruir la memoria familiar. Incluye preguntas para responder en grupo y espacios destinados a fotografías, recetas, tradiciones y datos sobre antepasados. También permite elaborar un árbol genealógico y registrar experiencias de distintas generaciones.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura con sobrecubierta es el formato de Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?). Sus 208 páginas permiten escribir respuestas, pegar fotografías y conservar recuerdos familiares en un objeto físico que puede completarse entre varias personas o entregarse como regalo.",
+      "texto": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?) está disponible en tapa dura con sobrecubierta. Sus 208 páginas permiten escribir respuestas, incorporar fotografías y completar el árbol genealógico directamente en el ejemplar. Es un formato físico concebido para rellenarlo entre familiares, conservarlo y entregarlo como regalo.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?) puede compararse con Criar juntos de verdad, de Armando Bastida @armandobastidaep, y El tiempo que pasa, de Manuel Medina, por su relación con la familia y las experiencias personales. El primero aborda la crianza compartida y el segundo recupera recuerdos de infancia en la posguerra española; la obra de Elma van Vliet propone que cada familia escriba y conserve sus propias vivencias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370658",
+        "isbn-9788401040580"
       ]
     }
   ],

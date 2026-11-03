@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791388101670",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Llegando a ti nº 25/30 se dirige a lectores de manga interesados en las relaciones sentimentales y las decisiones sobre el futuro académico. Su atención a Sawako, Kazehaya, Chizuru y Ryu encaja menos con quienes buscan una historia independiente o centrada principalmente en la acción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una entrega de manga centrada en la evolución de varias relaciones personales. Sawako debe afrontar las palabras de Kazehaya, mientras Ryu alcanza una semifinal deportiva que coincide con un momento importante para su relación con Chizuru. El título lo identifica como el n.º 25 de 30.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Llegando a ti nº 25/30 está disponible en tapa blanda, con 160 páginas y encuadernación rústica con sobrecubierta. Esta edición de Planeta Cómic permite conservar el volumen en papel junto a los demás títulos de la colección y consultar sus páginas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Llegando a ti nº 26 comparte con Llegando a ti nº 25/30 la autoría de Karuho Shiina y los conflictos sentimentales de Sawako y Kazehaya. El título de este último lo identifica como el n.º 25 de 30 y aborda también la relación de Chizuru y Ryu, mientras que el n.º 26 incorpora una discusión sobre los planes posteriores a la graduación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388103735"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "64a8123ad64fcce0",
+  "origen": "chatgpt-web"
+}
