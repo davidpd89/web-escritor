@@ -60,6 +60,32 @@ class CardContractTest(unittest.TestCase):
             self.assertEqual(card.count('data-purchase-format=') + card.count('data-missing-format='), 4)
             self.assertIn('>Ver ficha</a>', card)
 
+    def test_published_detail_pages_respect_the_contract(self):
+        # Antes lo hacía el navegador libro a libro (más de 15 min en CI); aquí cubre todas las fichas en segundos.
+        books = [b for b in json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros']
+                 if b['estado'] == 'publicado']
+        self.assertGreater(len(books), 100)
+        for b in books:
+            page = (ROOT / 'recomendaciones/libros' / b['slug'] / 'index.html').read_text(encoding='utf-8')
+            with self.subTest(b['slug']):
+                buy = re.search(r'<a class="catalogue-buy-link" href="([^"]+)"[^>]*rel="([^"]+)"[^>]*>([^<]*)', page)
+                self.assertRegex(buy.group(3), r'^Comprar en Amazon(\s|$)')
+                self.assertIn('sponsored', buy.group(2))
+                href = m.html.unescape(buy.group(1))
+                self.assertIn('tag=davidporto-21', href)
+                if '/dp/' not in href:
+                    self.assertIn('k=' + b['isbn13'], href)
+                cover = re.search(r'class="catalogue-cover-panel"><a href="([^"]+)"', page)
+                self.assertEqual(cover.group(1), buy.group(1), 'portada y botón comparten enlace')
+                authors = re.search(r'<p class="catalogue-author">(.*?)</p>', page, re.S)
+                self.assertEqual(authors.group(1).count('<a '), len(b['autores']))
+                ld = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', page, re.S).group(1))
+                self.assertEqual(next(x for x in ld['@graph'] if x['@type'] == 'Book')['isbn'], b['isbn13'])
+                self.assertNotIn('aggregateRating', json.dumps(ld))
+                publisher = ('/editoriales/' + b['editorial_slug'] if b.get('editorial_slug')
+                             else '/recomendaciones/editoriales/' + b['editorial_catalogo_slug']) + '/'
+                self.assertIn(f'href="{publisher}"', page)
+
 
 if __name__ == '__main__':
     unittest.main()
