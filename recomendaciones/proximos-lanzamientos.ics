@@ -104,7 +104,7 @@ DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: La abadía sin ojos
 DESCRIPTION:Jordi Wild · Ediciones B\nComprar en Amazon: https://www.amazo
- n.es/dp/8466686886?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_E
+ n.es/dp/8466686886?tag=davidporto-21&linkCode=ogi&th=1&psc=1&language=es_E
  S\nFicha: https://davidportodiaz.com/recomendaciones/libros/la-abadia-sin-
  ojos-9788466686884/
 URL:https://davidportodiaz.com/recomendaciones/libros/la-abadia-sin-ojos-97
@@ -117,7 +117,7 @@ DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Los diarios de Emma M. Lion 5
 DESCRIPTION:Beth Brower · Suma de Letras\nComprar en Amazon: https://www.a
- mazon.es/dp/B0HC3GQS6C?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=
+ mazon.es/dp/B0HC3GQS6C?tag=davidporto-21&linkCode=ogi&th=1&psc=1&language=
  es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/los-diario
  s-de-emma-m-lion-5-9791388163258/
 URL:https://davidportodiaz.com/recomendaciones/libros/los-diarios-de-emma-m
@@ -431,7 +431,7 @@ DTEND;VALUE=DATE:20261113
 SUMMARY:Sale a la venta: Sapiens. Una historia gráfica 4 - La era de las r
  evoluciones
 DESCRIPTION:Yuval Noah Harari\, David Vandermeulen · Debate\nComprar en Am
- azon: https://www.amazon.es/dp/B0HC7BMT1Z?tag=davidporto-21&linkCode=osi&t
+ azon: https://www.amazon.es/dp/B0HC7BMT1Z?tag=davidporto-21&linkCode=ogi&t
  h=1&psc=1&language=es_ES\nFicha: https://davidportodiaz.com/recomendacione
  s/libros/sapiens-una-historia-grafica-4-la-era-de-las-revoluciones-9791387
  904661/
@@ -471,7 +471,7 @@ DTSTART;VALUE=DATE:20261118
 DTEND;VALUE=DATE:20261119
 SUMMARY:Sale a la venta: Cómo construir la soberanía digital europea
 DESCRIPTION:Francesca Bria · Editorial Anagrama\nComprar en Amazon: https:
- //www.amazon.es/dp/843395167X?tag=davidporto-21&linkCode=osi&th=1&psc=1&la
+ //www.amazon.es/dp/843395167X?tag=davidporto-21&linkCode=ogi&th=1&psc=1&la
  nguage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/com
  o-construir-la-soberania-digital-europea-9788433951670/
 URL:https://davidportodiaz.com/recomendaciones/libros/como-construir-la-sob
@@ -584,6 +584,19 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-ego-es-tu-enemigo-
  9788418053696/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788466379557@davidportodiaz.com
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20270107
+DTEND;VALUE=DATE:20270108
+SUMMARY:Sale a la venta: La asistenta te vigila (La asistenta 3)
+DESCRIPTION:Freida McFadden · Penguin Bolsillo\nComprar en Amazon: https:/
+ /www.amazon.es/dp/846637955X?tag=davidporto-21&linkCode=osi&th=1&psc=1&lan
+ guage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/la-a
+ sistenta-te-vigila-la-asistenta-3-9788466379557/
+URL:https://davidportodiaz.com/recomendaciones/libros/la-asistenta-te-vigil
+ a-la-asistenta-3-9788466379557/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9791387905620@davidportodiaz.com
 DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270107
@@ -620,6 +633,19 @@ DESCRIPTION:Freida McFadden · Suma de Letras\nComprar en Amazon: https://w
  panera-9791388163555/
 URL:https://davidportodiaz.com/recomendaciones/libros/la-companera-97913881
  63555/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788434441309@davidportodiaz.com
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: 50 cosas que hay que saber sobre IA
+DESCRIPTION:Keith Mansfield · Editorial Ariel\nComprar en Amazon: https://
+ www.amazon.es/s?k=9788434441309&tag=davidporto-21&language=es_ES\nFicha: h
+ ttps://davidportodiaz.com/recomendaciones/libros/50-cosas-que-hay-que-sabe
+ r-sobre-ia-9788434441309/
+URL:https://davidportodiaz.com/recomendaciones/libros/50-cosas-que-hay-que-
+ saber-sobre-ia-9788434441309/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788491999454@davidportodiaz.com
@@ -712,6 +738,20 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-poder-de-la-intenc
  ion-9788408331728/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788411078696@davidportodiaz.com
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: El viaje del profesor Caritat o Las desventuras de
+  la Razón
+DESCRIPTION:Steven Lukes · Tusquets Editores\nComprar en Amazon: https://w
+ ww.amazon.es/s?k=9788411078696&tag=davidporto-21&language=es_ES\nFicha: ht
+ tps://davidportodiaz.com/recomendaciones/libros/el-viaje-del-profesor-cari
+ tat-o-las-desventuras-de-la-razon-9788411078696/
+URL:https://davidportodiaz.com/recomendaciones/libros/el-viaje-del-profesor
+ -caritat-o-las-desventuras-de-la-razon-9788411078696/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9791388414046@davidportodiaz.com
 DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
@@ -801,6 +841,32 @@ URL:https://davidportodiaz.com/recomendaciones/libros/ice-age-donde-esta-sc
  rat-9791387902353/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788411005715@davidportodiaz.com
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Irán. Entre revolución y tradición
+DESCRIPTION:Yann Richard\, Thomas Snégaroff · Ediciones Península\nCompr
+ ar en Amazon: https://www.amazon.es/s?k=9788411005715&tag=davidporto-21&la
+ nguage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/ira
+ n-entre-revolucion-y-tradicion-9788411005715/
+URL:https://davidportodiaz.com/recomendaciones/libros/iran-entre-revolucion
+ -y-tradicion-9788411005715/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788491998969@davidportodiaz.com
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: La creación de un mundo aparte
+DESCRIPTION:Jose Miguel Sanjuan Marroquin · Editorial Crítica\nComprar en
+  Amazon: https://www.amazon.es/s?k=9788491998969&tag=davidporto-21&languag
+ e=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/la-creac
+ ion-de-un-mundo-aparte-9788491998969/
+URL:https://davidportodiaz.com/recomendaciones/libros/la-creacion-de-un-mun
+ do-aparte-9788491998969/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788467084986@davidportodiaz.com
 DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
@@ -840,6 +906,19 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-vida-juntos-978840
  8330813/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788408329336@davidportodiaz.com
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Niño de hojalata
+DESCRIPTION:Andrea Longarela · Destino Infantil & Juvenil\nComprar en Amaz
+ on: https://www.amazon.es/dp/8408329332?tag=davidporto-21&linkCode=osi&th=
+ 1&psc=1&language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/
+ libros/nino-de-hojalata-9788408329336/
+URL:https://davidportodiaz.com/recomendaciones/libros/nino-de-hojalata-9788
+ 408329336/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9791388103803@davidportodiaz.com
 DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
@@ -852,6 +931,18 @@ DESCRIPTION:Masami Kurumada · Planeta Cómic\nComprar en Amazon: https://w
  -del-zodiaco-final-edition-no-9-9791388103803/
 URL:https://davidportodiaz.com/recomendaciones/libros/saint-seiya-los-cabal
  leros-del-zodiaco-final-edition-no-9-9791388103803/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788445021798@davidportodiaz.com
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Super-Cannes
+DESCRIPTION:J. G. Ballard · Minotauro\nComprar en Amazon: https://www.amaz
+ on.es/s?k=9788445021798&tag=davidporto-21&language=es_ES\nFicha: https://d
+ avidportodiaz.com/recomendaciones/libros/super-cannes-9788445021798/
+URL:https://davidportodiaz.com/recomendaciones/libros/super-cannes-97884450
+ 21798/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788423441495@davidportodiaz.com
@@ -890,6 +981,19 @@ DESCRIPTION:Wayne W. Dyer · Booket\nComprar en Amazon: https://www.amazon.
  as-9788408331780/
 URL:https://davidportodiaz.com/recomendaciones/libros/tus-zonas-sagradas-97
  88408331780/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788411078719@davidportodiaz.com
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Un amor sin futuro
+DESCRIPTION:Betina González · Tusquets Editores\nComprar en Amazon: https
+ ://www.amazon.es/s?k=9788411078719&tag=davidporto-21&language=es_ES\nFicha
+ : https://davidportodiaz.com/recomendaciones/libros/un-amor-sin-futuro-978
+ 8411078719/
+URL:https://davidportodiaz.com/recomendaciones/libros/un-amor-sin-futuro-97
+ 88411078719/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388103711@davidportodiaz.com
@@ -1490,6 +1594,32 @@ DESCRIPTION:Rina Kent · Montena\nComprar en Amazon: https://www.amazon.es/
  -villain-9791388222207/
 URL:https://davidportodiaz.com/recomendaciones/libros/villanos-2-hunt-the-v
  illain-9791388222207/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791388139369@davidportodiaz.com
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20270204
+DTEND;VALUE=DATE:20270205
+SUMMARY:Sale a la venta: Los ricos siempre ganan
+DESCRIPTION:Iñaki Arcocha Torres · Roca Editorial\nComprar en Amazon: htt
+ ps://www.amazon.es/dp/B0HNWDYSZG?tag=davidporto-21&linkCode=osi&th=1&psc=1
+ &language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/
+ los-ricos-siempre-ganan-9791388139369/
+URL:https://davidportodiaz.com/recomendaciones/libros/los-ricos-siempre-gan
+ an-9791388139369/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791387962876@davidportodiaz.com
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20270204
+DTEND;VALUE=DATE:20270205
+SUMMARY:Sale a la venta: Märchen Crown 1 (Shônen)
+DESCRIPTION:Aka Akasaka / Aoi Kujira · Distrito Manga\nComprar en Amazon: 
+ https://www.amazon.es/s?k=9791387962876&tag=davidporto-21&language=es_ES\n
+ Ficha: https://davidportodiaz.com/recomendaciones/libros/marchen-crown-1-s
+ honen-9791387962876/
+URL:https://davidportodiaz.com/recomendaciones/libros/marchen-crown-1-shone
+ n-9791387962876/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388163661@davidportodiaz.com
