@@ -78,8 +78,10 @@ const ORIGIN = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 const findings = [];
 
-try {
-  for (const route of routes) {
+// Cuatro páginas a la vez (los vCPU del runner): en serie, con el catálogo entero, pasaba de 15 min.
+const WORKERS = Number(process.env.SITEWIDE_WORKERS || 4);
+
+async function audit(route) {
     const context = await browser.newContext();
     const page = await context.newPage();
     const issues = [];
@@ -125,7 +127,14 @@ try {
 
     if (issues.length) findings.push({ route, issues });
     await context.close();
-  }
+}
+
+try {
+  let next = 0;
+  await Promise.all(Array.from({ length: WORKERS }, async () => {
+    while (next < routes.length) await audit(routes[next++]);
+  }));
+  findings.sort((a, b) => a.route.localeCompare(b.route));
 } finally {
   await browser.close();
   await new Promise((resolve) => server.close(resolve));
