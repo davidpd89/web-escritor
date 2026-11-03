@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788467085068",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "España. 50 años después, de William Chislett, se dirige a lectores interesados en la política española, la Transición y los cambios sociales desde la dictadura franquista. Su enfoque histórico y de actualidad se aparta de la ficción y de los relatos centrados en personajes inventados. El eje de lectura es la evolución de la democracia española.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "España. 50 años después plantea un balance político y social de España desde la Transición hasta la democracia actual. William Chislett toma como referencia las elecciones del 15 de junio de 1977 y aporta su experiencia como antiguo corresponsal de The Times en España. El contenido relaciona los cambios históricos con la situación del país cincuenta años después.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "España. 50 años después tiene una edición en tapa blanda, con solapas, publicada por Editorial Espasa. Sus 304 páginas ofrecen el análisis en un único volumen físico, que permite volver a fechas y pasajes durante la lectura. El texto está en castellano y la encuadernación es rústica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "España. 50 años después puede compararse con El estado del Estado por su atención a la realidad política y social española. William Chislett examina los cambios desde la Transición, mientras que Enrique López López propone una reflexión sobre la polarización y la incertidumbre actuales. Frente a Nada es lo que era, centrado en el orden global, el análisis de William Chislett tiene un ámbito nacional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441013",
+        "isbn-9788467083729"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "11e25d1c4e9c43a7",
+  "origen": "chatgpt-web"
+}

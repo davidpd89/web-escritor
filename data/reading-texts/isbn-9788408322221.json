@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408322221",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Austria 7 se dirige a quienes preparan una visita a Austria y buscan información sobre ciudades históricas, paisajes alpinos, lagos y localidades de montaña. Su orientación hacia los viajes encaja menos con lectores que prefieren una novela ambientada en el país o un estudio dedicado exclusivamente a su historia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Austria 7, de Anthony Haywood, pertenece al ámbito de los libros de viajes y combina referencias culturales con lugares de interés natural. El contenido abarca ciudades como Viena, Salzburgo y Graz, además de castillos, abadías, lagos y recorridos panorámicos. Sus 432 páginas permiten abordar distintos aspectos del destino en un mismo volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Austria 7 se presenta en tapa blanda, con 432 páginas y encuadernación rústica sin solapas. El formato físico permite consultar sus contenidos durante la preparación de una visita o llevar el volumen como referencia sobre ciudades, paisajes y lugares de interés del país.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Austria 7 e Irlanda 7 comparten su orientación hacia los viajes y el interés por el patrimonio histórico y los paisajes naturales. El libro de Anthony Haywood se centra en ciudades monumentales y entornos alpinos, mientras que Irlanda 7 incorpora música tradicional, leyendas y fortalezas. También se distingue de Amsterdam de cerca 2027-2028, cuya propuesta se concentra en una ciudad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408320890",
+        "isbn-9788408319238"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38713a01c909415e",
+  "origen": "chatgpt-web"
+}

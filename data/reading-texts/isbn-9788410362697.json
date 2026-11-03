@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788410362697",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué pasaría si el Doctor Doom dominara el Multiverso?, de Marvel, se dirige a lectores desde los 14 años interesados en la fantasía, las aventuras y la ciencia ficción. Su planteamiento gira alrededor del poder de Doctor Doom sobre el Multiverso, por lo que se aleja de las historias realistas y de los conflictos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "La edad recomendada para ¿Qué pasaría si el Doctor Doom dominara el Multiverso? es a partir de 14 años. La historia pertenece a la narrativa juvenil y plantea un escenario de dominio sobre el Multiverso, con elementos de fantasía, aventura y ciencia ficción. El conflicto central se relaciona con el poder de Doctor Doom y sus posibles consecuencias.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Qué pasaría si el Doctor Doom dominara el Multiverso? está disponible en tapa blanda, concretamente en rústica con solapas. Sus 624 páginas forman un volumen extenso que puede resultar más cómodo para leer apoyado sobre una superficie que para sostenerlo durante mucho tiempo. Es una edición física en castellano publicada por Libros Disney.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Qué pasaría si el Doctor Doom dominara el Multiverso? comparte con Aunque se acabe el mundo el interés por escenarios extraordinarios que afectan a la realidad conocida. La obra de Marvel plantea el dominio del Multiverso, mientras que la de Clara Duarte parte de una transformación de la humanidad. Ambas se alejan del realismo, aunque presentan amenazas de naturaleza diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427255968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cd67310a032935bf",
+  "origen": "chatgpt-web"
+}

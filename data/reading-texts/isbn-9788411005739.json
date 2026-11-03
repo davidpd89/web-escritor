@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788411005739",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Prostibulandia se dirige a lectores de actualidad interesados en las redes criminales, los intereses económicos y las relaciones de poder. Anna Teixidor investiga los ataques contra un prostíbulo de La Jonquera y el entorno que los rodea. No plantea estos hechos como una trama de ficción, sino como una investigación sobre acontecimientos reales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Prostibulandia es una investigación de actualidad sobre criminalidad, dinero y poder en una localidad fronteriza española. Anna Teixidor parte de los ataques sufridos por el Paradise en diciembre de 2012, entre ellos el empleo de explosivos y las amenazas de atentado. El enfoque se sitúa en los hechos y su contexto, no en una narración criminal inventada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Prostibulandia se publica en tapa blanda, con 320 páginas en castellano. La edición de Ediciones Península está encuadernada en rústica con solapas, una presentación que permite consultar el texto en papel y conservarlo físicamente. Su extensión corresponde a un volumen de investigación de tamaño intermedio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Prostibulandia y El estado del Estado, de Enrique López López, comparten la atención a cuestiones de la sociedad española, pero Anna Teixidor investiga hechos criminales concretos mientras el segundo propone una reflexión sobre el país. España. 50 años después, de William Chislett, amplía la perspectiva hacia la transformación política y social de España durante medio siglo, frente al foco local de Prostibulandia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788423441013",
+        "isbn-9788467085068"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "212ea6710f7963c4",
+  "origen": "chatgpt-web"
+}

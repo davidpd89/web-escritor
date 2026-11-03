@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788408331278",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El caos de Beca 4. ¿Y ahora qué hago? se dirige a lectores de 9 a 12 años interesados en historias escolares, amistades, primeros noviazgos y misterios cotidianos. Su combinación de conflictos personales y preguntas sin resolver encaja menos con quienes buscan aventuras alejadas del entorno escolar.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "El caos de Beca 4. ¿Y ahora qué hago?, de Raquel Díaz Reguera, está dirigido a lectores de 9 a 12 años y tiene 224 páginas. La edición de Destino Infantil & Juvenil está encuadernada en tapa dura de cartoné, sin sobrecubierta, y escrita en castellano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El caos de Beca 4. ¿Y ahora qué hago? está disponible en tapa dura, con 224 páginas y encuadernación de cartoné sin sobrecubierta. Es una presentación física que permite conservar el ejemplar en una estantería, prestarlo o regalarlo sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "200938ce6d2555f4",
+  "origen": "chatgpt-web"
+}

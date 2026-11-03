@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408319238",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Irlanda 7 está orientado a lectores que quieren conocer Irlanda a través de su patrimonio, sus tradiciones musicales y sus paisajes naturales. Sus contenidos de viajes encajan menos con quien busca una historia de ficción o una lectura dedicada únicamente a las leyendas irlandesas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Irlanda 7 reúne contenidos de viajes centrados en la cultura, la historia y el entorno natural de Irlanda. Entre sus referencias aparecen la música de los pubs, las fortalezas, los monasterios y las huellas del pasado presentes en la vida cotidiana. La edición en castellano cuenta con 656 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Irlanda 7 está disponible en tapa blanda, con 656 páginas encuadernadas en rústica sin solapas. Esta edición física permite consultar sus contenidos sobre patrimonio, tradiciones y naturaleza antes de desplazarse o durante la estancia, aunque su extensión supone llevar un volumen considerable.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Irlanda 7 y Austria 7 abordan destinos europeos desde su patrimonio cultural y natural, aunque el primero presta atención a la música tradicional y las leyendas, y el segundo a ciudades monumentales y paisajes alpinos. Frente a Amsterdam de cerca 2027-2028, centrado en una ciudad, Irlanda 7 presenta un país con distintos escenarios históricos y naturales.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408320890",
+        "isbn-9788408322221"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "266d244895c2d6e7",
+  "origen": "chatgpt-web"
+}
