@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788467084443",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El último crimen del año. Un nuevo caso de Hércules Poirot encaja con lectores de novela negra que buscan investigaciones, amenazas anunciadas y enigmas criminales. Sophie Hannah sitúa el conflicto en una celebración de fin de año; no responde a quien prefiera una narración sin delitos ni investigación detectivesca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La novela plantea una investigación detectivesca con un posible asesinato anunciado antes de medianoche. En la Nochevieja de 1932, Hércules Poirot y Edward Catchpool se encuentran en una mansión de la isla griega de Lamperos, donde la amenaza introduce un plazo concreto para resolver el conflicto.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El último crimen del año. Un nuevo caso de Hércules Poirot puede leerse en tapa blanda o Kindle. La edición física reúne 384 páginas en rústica con solapas, mientras que Kindle permite llevar la novela en un lector electrónico o en el móvil sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El último crimen del año. Un nuevo caso de Hércules Poirot comparte con El asesinato de Roger Ackroyd (Edición especial con cantos tintados) el protagonismo de la investigación detectivesca, aunque Sophie Hannah plantea una amenaza ligada a Nochevieja y Agatha Christie centra su propuesta en la resolución de un enigma. Frente a Los crímenes del sanatorio (Serie Comisario Reykdal 1), de Ragnar Jónasson, cambia el escenario de un sanatorio con sospechosos por una mansión en una isla griega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083934",
+        "isbn-9788432251399"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "728c96ffad51977a",
+  "origen": "chatgpt-web"
+}

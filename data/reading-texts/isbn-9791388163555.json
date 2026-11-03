@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388163555",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La compañera, de Freida McFadden, encaja con lectores de thriller psicológico interesados en las rivalidades laborales, los secretos y las identidades engañosas. Su trama gira alrededor de una desaparición, una posible víctima de acoso y un crimen, por lo que se aleja de las historias de oficina centradas únicamente en las relaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La compañera desarrolla un thriller psicológico en un entorno laboral donde la percepción que los demás tienen de una persona condiciona lo que sucede después de su desaparición. El relato conecta la conducta de dos trabajadoras con una llamada anónima y la sospecha de un asesinato. La incertidumbre sobre quién ejerce el daño y quién lo sufre forma parte del conflicto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La compañera puede leerse en tapa blanda o en Kindle. La edición física de Suma de Letras reúne 352 páginas y permite conservar el thriller en papel; Kindle facilita llevar la lectura en el móvil o en un dispositivo compatible sin transportar el volumen. La elección depende de si se prefiere un ejemplar físico o la comodidad del formato digital.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La compañera y La inquilina son novelas de Freida McFadden, por lo que permiten seguir a la misma autora en historias distintas. La compañera construye su intriga alrededor de una desaparición en el trabajo, mientras que La inquilina presenta a Blake Porter en una situación inicial de éxito personal. En la primera, las relaciones entre compañeras y la sospecha de un crimen son el centro del conflicto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387512446"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cdad7d40bd351045",
+  "origen": "chatgpt-web"
+}

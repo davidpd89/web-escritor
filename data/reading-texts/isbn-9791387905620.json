@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791387905620",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La botica natural, de Juan Carlos Pastor / Zaira Vidal, está dirigida a lectores interesados en las plantas medicinales y en aprender a elaborar preparados herbales domésticos. Su enfoque práctico incluye recolección, conservación y transformación de plantas; no responde al propósito de quien busca una novela o un ensayo exclusivamente teórico sobre botánica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La botica natural explica cómo reunir y preparar recursos herbales para cuidados cotidianos mediante técnicas tradicionales. Aborda la recolección y conservación de plantas y su transformación en infusiones, ungüentos, aceites y jarabes. También trata aplicaciones relacionadas con el estrés, la ansiedad, las cefaleas y las migrañas, desde una perspectiva de elaboración doméstica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La botica natural está disponible en tapa blanda, con una edición de Roca Editorial de 480 páginas. El formato físico permite consultar sus explicaciones sobre recolección, conservación y elaboración de preparados mientras se trabaja con las plantas. Por su extensión, conviene tener en cuenta el volumen de páginas si se pretende transportarlo habitualmente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La botica natural y Matemagia, de Fernando Blasco, comparten una orientación divulgativa que incorpora actividades prácticas. Juan Carlos Pastor / Zaira Vidal se centran en preparar productos con plantas medicinales, mientras que Matemagia trabaja con juegos y desafíos matemáticos. Los límites del infinito, de Ian Stewart, también aborda conocimiento científico, pero desde los problemas y fronteras de las matemáticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491999386",
+        "isbn-9788434441330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa66c337d0151890",
+  "origen": "chatgpt-web"
+}

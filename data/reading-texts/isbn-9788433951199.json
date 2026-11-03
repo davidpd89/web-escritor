@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este deseo no es el mío se dirige a quienes buscan un ensayo sobre la influencia de la tecnología en la intimidad, las relaciones personales y las desigualdades. No encaja con quien espere un manual de aplicaciones o una defensa incondicional del progreso digital: Andrea Proenza plantea una lectura crítica desde el feminismo.",
+      "texto": "Este deseo no es el mío se dirige a quienes buscan un ensayo sobre la influencia de la tecnología en las relaciones personales, el cuerpo y el deseo. Su enfoque feminista aborda las desigualdades asociadas al entorno digital, por lo que no responde a quien busque una guía técnica sobre aplicaciones o inteligencia artificial.",
       "evidencias": [
         "titulo",
         "categorias",
-        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Analiza cómo las redes sociales, las aplicaciones de citas y la inteligencia artificial intervienen en las relaciones, la percepción del cuerpo y el deseo. Andrea Proenza aborda estos cambios desde una perspectiva feminista que cuestiona la reproducción de desigualdades y formas de dominación, sin presentar la tecnología como una solución universal ni como una amenaza absoluta.",
+      "texto": "Andrea Proenza examina cómo las redes sociales, las aplicaciones de citas y las herramientas de seguimiento corporal intervienen en la intimidad. También analiza la inteligencia artificial desde una perspectiva feminista que cuestiona las relaciones de poder y las desigualdades tecnológicas. Su planteamiento evita tanto el rechazo general de la tecnología como su aceptación incondicional.",
       "evidencias": [
         "autores",
         "sinopsis_editorial"
@@ -22,32 +21,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Este deseo no es el mío está disponible en tapa blanda, con 328 páginas editadas por Editorial Anagrama. La presentación en papel permite subrayar argumentos y volver a pasajes sobre redes sociales, vínculos afectivos e inteligencia artificial sin necesidad de utilizar un dispositivo digital durante la lectura.",
+      "texto": "Este deseo no es el mío está disponible en tapa blanda y Kindle. La edición impresa de Editorial Anagrama tiene 328 páginas y permite consultar y marcar pasajes sobre tecnología y feminismo en papel. Kindle ofrece el mismo tipo de lectura en formato digital, con acceso desde dispositivos compatibles sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "numero_paginas",
         "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cómo construir la soberanía digital europea, de Francesca Bria, y Este deseo no es el mío examinan las relaciones entre tecnología y poder. La primera aborda la autonomía digital de Europa frente a decisiones externas; el ensayo de Andrea Proenza se concentra en la intimidad, el cuerpo y los vínculos personales desde una perspectiva feminista.",
+      "texto": "Cómo construir la soberanía digital europea, de Francesca Bria, comparte con Este deseo no es el mío el interés por las decisiones que condicionan el futuro tecnológico. El primero plantea la autonomía digital europea, mientras Andrea Proenza examina sus consecuencias sobre los vínculos y el deseo. Antes de perder el juicio, de Mauricio García Villegas, se aproxima desde otro ángulo: la verdad, la propaganda y las cámaras de eco.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
+        "afines_catalogo",
         "sinopsis_editorial"
       ],
       "enlaces": [
+        "isbn-9791388387302",
         "isbn-9788433951670"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d380f8bbb50d2ee7",
+  "fuente_hash": "c1c4875504c0aa84",
   "origen": "chatgpt-web"
 }

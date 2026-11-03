@@ -4,28 +4,44 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El caos de Beca 3. Vale, este no era el plan se dirige al público infantil y juvenil interesado en las amistades, los secretos y la vida en el instituto. Beca tiene doce años y afronta el robo de un cuaderno, los exámenes y un campamento; no encaja tanto con quien busque una historia adulta alejada de los problemas escolares.",
+      "texto": "El caos de Beca 3. Vale, este no era el plan está dirigido a lectores de 9 a 12 años interesados en historias escolares, amistades y secretos compartidos. Raquel Díaz Reguera sitúa el conflicto entre un cuaderno robado, los exámenes y un campamento. No está planteado como una aventura fantástica ni como una lectura ajena a las preocupaciones del instituto.",
       "evidencias": [
         "titulo",
+        "autores",
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "El caos de Beca 3. Vale, este no era el plan se edita en tapa dura de cartoné, con 224 páginas. La edición de Destino Infantil & Juvenil lleva cubierta rígida sin sobrecubierta, una presentación en papel que permite conservar el libro, prestarlo o entregarlo como regalo.",
+      "modulo": "edad_y_formato",
+      "texto": "El caos de Beca 3. Vale, este no era el plan tiene una edad recomendada de 9 a 12 años y una extensión de 224 páginas. La edición de Destino Infantil & Juvenil está encuadernada en tapa dura de cartoné, sin sobrecubierta. El título lo identifica como el n.º 3 y presenta una historia ambientada en la vida escolar.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
+        "edad_recomendada",
         "numero_paginas",
-        "formato_edicion",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de El caos de Beca 3. Vale, este no era el plan ofrece un ejemplar físico de 224 páginas, con encuadernación de cartoné para conservarlo o regalarlo. Kindle permite llevar la historia en formato digital y leerla en un dispositivo compatible. Las dos opciones mantienen el contenido de una lectura dirigida a edades de 9 a 12 años.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edad_recomendada",
+        "edicion",
         "formatos_disponibles"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
   "version": 3,
-  "fuente_hash": "9e2b676679a206bf",
+  "fuente_hash": "5d56ba65a1330c7c",
   "origen": "chatgpt-web"
 }

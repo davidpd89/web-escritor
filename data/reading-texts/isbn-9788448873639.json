@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788448873639",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Brigada Felina 2 - El secreto de Zarpafilada está dirigido a lectores a partir de 7 años que disfrutan de los cómics, los animales y las aventuras con humor. Sus protagonistas afrontan un rescate peligroso, por lo que puede encajar menos con niños que prefieren historias cotidianas sin enfrentamientos ni amenazas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Brigada Felina 2 - El secreto de Zarpafilada está recomendado a partir de 7 años y tiene 80 páginas en tapa dura. Combina viñetas con textos accesibles y una sección narrativa final para practicar una lectura más continuada. El título lo identifica como el n.º 2 de Brigada Felina.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Brigada Felina 2 - El secreto de Zarpafilada está disponible en tapa dura y Kindle. La edición física de Beascoa reúne 80 páginas y permite seguir las viñetas y los textos en papel; Kindle ofrece una alternativa digital para leerlo en dispositivos compatibles, con la visualización de las páginas condicionada por el tamaño de la pantalla.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Brigada Felina 2 - El secreto de Zarpafilada y Magic Animals. Misiones especiales 2. El templo escondido comparten la autoría de Susanna Isern y las aventuras con elementos extraordinarios. El primero presenta un rescate protagonizado por felinos con poderes y formato de cómic; el segundo, firmado también por Carles Dalmau, parte de la aparición de plantas extrañas en un valle.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326427"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc438aff261683a7",
+  "origen": "chatgpt-web"
+}

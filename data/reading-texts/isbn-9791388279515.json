@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791388279515",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pequeños detectives: retos para resolver mientras hacen caca está dirigido a quienes disfrutan resolviendo acertijos, buscando pistas y descifrando mensajes en ratos breves de ocio. Su propuesta consiste en participar activamente en desafíos; no encaja con quien busque una novela detectivesca de lectura seguida.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Pequeños detectives: retos para resolver mientras hacen caca propone resolver misterios mediante actividades de ingenio. Ottilie Bracken reúne 100 retos distribuidos en 10 niveles, con situaciones que incluyen objetos robados, animales desaparecidos y mensajes cifrados, dentro de un libro de ocio y entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pequeños detectives: retos para resolver mientras hacen caca se publica en tapa blanda, en una edición de 160 páginas con solapas. El formato físico permite abrir el libro por sus actividades y consultarlas durante las pausas a las que alude el título, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pequeños detectives: retos para resolver mientras hacen caca y El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados comparten el uso de misterios como punto de partida para actividades. Ottilie Bracken organiza 100 retos en 10 niveles, mientras que Modesto García sitúa su propuesta en un crimen navideño dentro de un centro comercial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040740"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d04e1fb88bba979c",
+  "origen": "chatgpt-web"
+}

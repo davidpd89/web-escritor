@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788466390514",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Domina el arte de los negocios se dirige a adultos interesados en mejorar sus habilidades profesionales, gestionar dinero o explorar el emprendimiento. Brian Tracy aborda situaciones prácticas de comunicación, negociación y ventas; encaja menos con quienes buscan teoría económica académica o un análisis histórico de los mercados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Domina el arte de los negocios reúne orientaciones sobre comunicación interpersonal, negociación, ventas, productividad, emprendimiento y gestión financiera. Brian Tracy también trata la creatividad y la inversión inmobiliaria, con un enfoque basado en definir objetivos por escrito y establecer acciones concretas para alcanzarlos. Su contenido permite identificar habilidades que aplicar en distintas situaciones laborales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Domina el arte de los negocios está disponible en tapa blanda y Kindle. La edición de Penguin Bolsillo tiene 280 páginas en formato bolsillo, pensado para transportar el libro físico y consultar sus consejos; Kindle permite llevar el contenido en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Domina el arte de los negocios comparte con El efecto creativo el interés por desarrollar capacidades personales, aunque Brian Tracy abarca negociación, ventas y gestión empresarial, mientras Iván Jiménez se centra en la creatividad. Frente a Cariño, ¿y este recibo?, de Angie Gil Ribera, ofrece una perspectiva más amplia del trabajo y los negocios, en lugar de concentrarse en decisiones financieras compartidas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466685139",
+        "isbn-9788402431332"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ddb4dc59be7f5446",
+  "origen": "chatgpt-web"
+}

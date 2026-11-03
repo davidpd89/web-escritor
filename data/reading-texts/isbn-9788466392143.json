@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788466392143",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El mundo perdido se dirige a lectores adultos de ciencia ficción, aventuras y suspense relacionados con los dinosaurios y los riesgos de la experimentación. La expedición a una isla peligrosa y la amenaza de animales violentos lo alejan de quienes buscan ciencia ficción centrada en sociedades futuras o tecnología informática.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una aventura de ciencia ficción construida alrededor de una expedición paleontológica y las consecuencias de manipular organismos vivos. Michael Crichton reúne investigación científica, intereses empresariales y supervivencia en una isla donde los dinosaurios representan una amenaza. El conflicto trasciende la expedición al plantear el peligro de que los animales se extiendan fuera de ella.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El mundo perdido está disponible en tapa dura y Kindle. La edición física de Penguin Bolsillo reúne 480 páginas con una encuadernación rígida, apropiada para conservar el ejemplar y regalarlo. Kindle permite llevar la novela en formato digital y leerla en dispositivos compatibles sin cargar con el volumen.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Neuromante (Edición especial) y El mundo perdido pertenecen al ámbito de la ciencia ficción, pero exploran riesgos tecnológicos distintos. William Gibson sitúa el conflicto en el ciberespacio y el robo de información; Michael Crichton lo desarrolla mediante dinosaurios creados en un entorno de experimentación biológica. Una lectura gira alrededor de sistemas digitales y la otra de una amenaza física.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788445023914"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df9b921b3a4b2053",
+  "origen": "chatgpt-web"
+}
