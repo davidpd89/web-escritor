@@ -25,10 +25,15 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  pa11y-baseline:
+  pa11y-shard:
+    name: pa11y shard ${{ matrix.shard }}/4
     runs-on: ubuntu-latest
-    # El sitemap completo (~1140 URL) rozaba los 30 min a 2 páginas a la vez; a 4 (los vCPU del runner) baja a la mitad.
-    timeout-minutes: 45
+    # El sitemap completo (~1140 URL) tardaba 33 min en un solo job; repartido en 4, cada shard audita ~285.
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
     steps:
       - uses: actions/checkout@v5
         with:
@@ -72,17 +77,28 @@ jobs:
         if: steps.changes.outputs.relevant != 'true'
         run: echo "Esta PR no toca nada que Pa11y mida. Pasa sin ejecutarlo."
 
-      - uses: actions/setup-node@v5
+      # La muestra de la vía de contenido es pequeña: la audita entera el shard 0 y los demás pasan.
+      - name: Decide this shard's work
+        id: scope
         if: steps.changes.outputs.relevant == 'true'
+        run: |
+          if [ "${{ steps.lane.outputs.lane }}" = "content" ] && [ "${{ matrix.shard }}" != "0" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-node@v5
+        if: steps.scope.outputs.run == 'true'
         with:
           node-version: '22'
 
       - name: Install Pa11y CI
-        if: steps.changes.outputs.relevant == 'true'
+        if: steps.scope.outputs.run == 'true'
         run: npm install --global pa11y-ci@5.0.0
 
       - name: Start local static server
-        if: steps.changes.outputs.relevant == 'true'
+        if: steps.scope.outputs.run == 'true'
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/web-escritor-http.log 2>&1 &
           echo $! > /tmp/web-escritor-http.pid
@@ -96,7 +112,7 @@ jobs:
           exit 1
 
       - name: Audit every URL in the sitemap
-        if: steps.changes.outputs.relevant == 'true'
+        if: steps.scope.outputs.run == 'true'
         id: pa11y
         shell: bash
         run: |
@@ -106,28 +122,24 @@ jobs:
             ROUTES='${{ steps.lane.outputs.routes }}' python3 -c "import json, os; c = json.load(open('.pa11yci')); c['urls'] = ['http://127.0.0.1:4173' + r for r in os.environ['ROUTES'].split(',') if r]; json.dump(c, open('/tmp/pa11y-content.json', 'w'))"
             pa11y-ci --config /tmp/pa11y-content.json 2>&1 | tee pa11y-baseline.txt
           else
-            python3 -c "import json; c = json.load(open('.pa11yci')); c['concurrency'] = 4; json.dump(c, open('/tmp/pa11y-full.json', 'w'))"
-            pa11y-ci \
-              --config /tmp/pa11y-full.json \
-              --sitemap http://127.0.0.1:4173/sitemap.xml \
-              --sitemap-find 'https://davidportodiaz.com' \
-              --sitemap-replace 'http://127.0.0.1:4173' \
-              2>&1 | tee pa11y-baseline.txt
+            # Una de cada 4 URL del sitemap, a 4 páginas a la vez (los vCPU del runner).
+            SHARD=${{ matrix.shard }} python3 -c "import json, os, re; c = json.load(open('.pa11yci')); urls = re.findall(r'<loc>https://davidportodiaz\.com([^<]*)</loc>', open('sitemap.xml', encoding='utf-8').read()); c['concurrency'] = 4; c['urls'] = ['http://127.0.0.1:4173' + u for i, u in enumerate(urls) if i % 4 == int(os.environ['SHARD'])]; json.dump(c, open('/tmp/pa11y-full.json', 'w')); print(len(c['urls']), 'URL en este shard')"
+            pa11y-ci --config /tmp/pa11y-full.json 2>&1 | tee pa11y-baseline.txt
           fi
           status=${PIPESTATUS[0]}
           echo "exit_code=$status" >> "$GITHUB_OUTPUT"
           exit 0
 
       - name: Upload baseline report
-        if: always() && steps.changes.outputs.relevant == 'true'
+        if: always() && steps.scope.outputs.run == 'true'
         uses: actions/upload-artifact@v6
         with:
-          name: pa11y-baseline
+          name: pa11y-baseline-${{ matrix.shard }}
           path: pa11y-baseline.txt
           retention-days: 14
 
       - name: Mark baseline result
-        if: always() && steps.changes.outputs.relevant == 'true'
+        if: always() && steps.scope.outputs.run == 'true'
         run: |
           status='${{ steps.pa11y.outputs.exit_code }}'
           if [ "$status" = "0" ]; then
@@ -136,3 +148,17 @@ jobs:
           fi
           echo "Pa11y found WCAG2AA errors (or a runner error). Review the artifact before promoting this to a PR gate."
           exit "$status"
+
+  # Nombre del check obligatorio del ruleset: resume los shards.
+  pa11y-baseline:
+    needs: pa11y-shard
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Aggregate shard results
+        env:
+          RESULT: ${{ needs.pa11y-shard.result }}
+        run: |
+          echo "pa11y-shard: $RESULT"
+          [ "$RESULT" = "success" ]
