@@ -4,35 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores jóvenes que disfruten investigando pistas, sospechosos e identidades ocultas en historias de misterio. No encaja tanto con quienes busquen fantasía o una aventura sin crímenes, porque el argumento incluye una explosión y un hallazgo inquietante en el mar.",
+      "texto": "Clue. El misterio bajo el agua se dirige a lectores jóvenes interesados en las investigaciones detectivescas y el suspense. La historia combina identidades sospechosas, una explosión marina y un hallazgo inquietante; quien busque una narración sin enigmas ni elementos criminales encontrará aquí un planteamiento diferente.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El libro plantea un misterio juvenil que conecta un rodaje, personas que ocultan su identidad y un objeto perturbador aparecido en el océano. Cecilia, Leo, Une y el perro Egon investigan si los sucesos de la pensión La Perla guardan relación con lo ocurrido en el mar.",
+      "texto": "Es un thriller juvenil de investigación que relaciona sucesos ocurridos durante un rodaje con un descubrimiento en el mar. Jørn Lier Horst organiza el misterio alrededor de Cecilia, Leo, Une y Egon, con sospechas sobre los huéspedes de una pensión y una posible conexión entre acontecimientos aparentemente separados.",
       "evidencias": [
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición de Duomo Ediciones reúne 176 páginas en tapa dura e incorpora ilustraciones de David G. Forés. Se publica en castellano y combina el relato detectivesco con imágenes que acompañan la investigación de los protagonistas.",
+      "texto": "Esta edición de Clue. El misterio bajo el agua, publicada por Duomo Ediciones, se presenta en tapa dura y contiene 176 páginas en castellano. Incorpora ilustraciones de David G. Forés, un elemento material que acompaña la investigación detectivesca y distingue la presentación del texto de una edición exclusivamente tipográfica.",
       "evidencias": [
+        "titulo",
         "editorial",
         "edicion",
         "numero_paginas",
+        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La opción disponible es Tapa dura, con una extensión de 176 páginas que permite leer la historia en un solo volumen. El formato físico mantiene las ilustraciones de David G. Forés junto al texto y permite consultar sus imágenes mientras se siguen las pistas del misterio.",
+      "texto": "Clue. El misterio bajo el agua está disponible en tapa dura y Kindle. La edición física reúne 176 páginas e ilustraciones de David G. Forés en un volumen rígido, apropiado para conservar o regalar; Kindle permite llevar la lectura en formato digital desde un dispositivo compatible.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
+        "edicion",
         "numero_paginas",
         "sinopsis_editorial"
       ]
@@ -43,6 +49,6 @@
     "faltan módulos: lecturas_afines"
   ],
   "version": 3,
-  "fuente_hash": "c9f99ad49bbf13b2",
+  "fuente_hash": "e90394357511bdc5",
   "origen": "chatgpt-web"
 }

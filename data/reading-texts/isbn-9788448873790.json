@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Superthings. Libro juguete - Súper busca y encuentra se dirige al público infantil interesado en localizar personajes y resolver retos de observación. La clasificación por edad lo sitúa a partir de 4 años, mientras que la descripción editorial propone su uso desde los 6. No está planteado como una narración convencional, sino como un juego de búsqueda visual.",
+      "texto": "Superthings. Libro juguete - Súper busca y encuentra está dirigido a niños y niñas que disfrutan localizando personajes y objetos ocultos en ilustraciones. Su clasificación comienza a partir de 4 años, aunque la descripción editorial presenta el juego para mayores de 6; no responde a quien busque una narración infantil convencional.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Superthings. Libro juguete - Súper busca y encuentra consiste en examinar escenarios de Kaboom City y localizar más de 130 elementos ocultos. Las actividades incluyen identificar héroes, villanos y objetos relacionados con las misiones de los personajes. Puede utilizarse en familia, alternando la búsqueda individual con la observación compartida de las páginas.",
+      "texto": "Se juega examinando los escenarios de Kaboom City para localizar personajes, objetos escondidos y resolver retos visuales. Los niños deben encontrar más de 130 elementos, entre ellos los relacionados con Enigma, los Kazoom Kids y los Superthings, mediante la observación de las escenas; también permite participar en familia.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial"
@@ -22,33 +22,41 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Superthings. Libro juguete - Súper busca y encuentra tiene 48 páginas y se publica en tapa dura por Beascoa. Su clasificación indica a partir de 4 años, aunque el texto editorial presenta las actividades para niños y niñas desde los 6. El contenido se basa en retos visuales que requieren atención y reconocimiento de detalles.",
+      "texto": "Superthings. Libro juguete - Súper busca y encuentra tiene 48 páginas y se presenta en tapa dura, dentro de la clasificación infantil a partir de 4 años. La descripción editorial sitúa las actividades a partir de 6 años, por lo que conviene distinguir la edad general de la ficha de la orientación específica del juego.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "edicion",
-        "editorial",
         "edad_recomendada",
+        "edicion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Superthings. Libro juguete - Súper busca y encuentra está disponible en tapa dura, con 48 páginas de actividades visuales. Este formato permite consultar los escenarios repetidamente y compartir el libro durante las búsquedas. La edición física de Beascoa reúne los retos de observación y los elementos escondidos en un mismo volumen.",
+      "texto": "La edición disponible de Superthings. Libro juguete - Súper busca y encuentra es de tapa dura y contiene 48 páginas. La encuadernación rígida resulta práctica para apoyar el libro mientras se buscan los elementos ocultos y para utilizarlo repetidamente en actividades compartidas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "editorial",
+        "numero_paginas",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Superthings. Libro juguete - Súper busca y encuentra y Piratix. Primeras lecturas 2 - El banquete del Kraken comparten la autoría de Magicbox y las aventuras infantiles con elementos fantásticos. El primero propone localizar más de 130 elementos mediante retos visuales; el segundo desarrolla una historia de piratas alrededor de una moneda de poder y el Kraken Ship.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874834"
       ]
     }
   ],
-  "descartados": [
-    "lecturas_afines: más de cuatro frases",
-    "faltan módulos: lecturas_afines"
-  ],
+  "descartados": [],
   "version": 3,
   "fuente_hash": "48f6badae43a1199",
   "origen": "chatgpt-web"
