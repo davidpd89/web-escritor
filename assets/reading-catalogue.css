@@ -25,7 +25,7 @@ html.v1 .reading-catalogue button,html.v1 .catalogue-buy-link{display:inline-fle
 html.v1 .reading-catalogue button[type="reset"],html.v1 .reading-catalogue [data-catalogue-stop]{color:var(--catalogue-blue);background:transparent;}
 html.v1 .reading-catalogue button:hover,html.v1 .catalogue-buy-link:hover{color:#fff;background:var(--catalogue-deep);border-color:var(--catalogue-deep);}
 html.v1 .reading-catalogue button:disabled{opacity:.6;cursor:not-allowed;}
-html.v1 .catalogue-results-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(13rem,.5fr);align-items:end;gap:.8rem 1.5rem;padding:1rem 0 1.3rem;border-bottom:1px solid var(--catalogue-blue);}
+html.v1 .catalogue-results-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(18rem,1fr);align-items:end;gap:.8rem 1.5rem;padding:1rem 0 1.3rem;border-bottom:1px solid var(--catalogue-blue);}
 html.v1 .catalogue-results-head h2{margin:0;color:var(--catalogue-blue);font:400 clamp(1.9rem,3vw,3rem)/1.1 var(--font-display);}
 html.v1 .catalogue-results-head [role="status"]{grid-column:1/-1;margin:0;color:#67635e;font-size:.85rem;}
 html.v1 .catalogue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr));gap:1rem;list-style:none;padding:0;margin:1rem 0 2.5rem;}
@@ -79,11 +79,15 @@ html.v1 .catalogue-author-books a{max-width:100%;overflow-wrap:anywhere;color:va
 html.v1 .catalogue-author-books img,html.v1 .catalogue-index__image{width:auto;max-width:120px;max-height:180px;object-fit:contain;margin:0;}
 @media(max-width:1000px){html.v1 .catalogue-grid{grid-template-columns:repeat(auto-fill,minmax(min(180px,100%),1fr));}}
 @media(max-width:700px){html.v1 .catalogue-filter-grid{grid-template-columns:repeat(2,minmax(0,1fr));} html.v1 .catalogue-book-layout{grid-template-columns:minmax(0,1fr);} html.v1 .catalogue-cover-panel{position:static;width:100%;max-width:300px;margin-inline:auto;}}
-@media(max-width:450px){html.v1 .catalogue-filter-grid,html.v1 .catalogue-results-head{grid-template-columns:minmax(0,1fr);} html.v1 .catalogue-filters{padding:1rem;} html.v1 .catalogue-buy ul{grid-template-columns:minmax(0,1fr);} html.v1 .catalogue-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;} html.v1 .catalogue-card{gap:.4rem;padding:.5rem;} html.v1 .catalogue-card__cover{max-height:190px;} html.v1 .catalogue-author-books{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;}}
+@media(max-width:450px){html.v1 .catalogue-filter-grid,html.v1 .catalogue-results-head,html.v1 .catalogue-results-controls{grid-template-columns:minmax(0,1fr);} html.v1 .catalogue-filters{padding:1rem;} html.v1 .catalogue-buy ul{grid-template-columns:minmax(0,1fr);} html.v1 .catalogue-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;} html.v1 .catalogue-card{gap:.4rem;padding:.5rem;} html.v1 .catalogue-card__cover{max-height:190px;} html.v1 .catalogue-author-books{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;}}
 @media print{html.v1 .catalogue-filters,html.v1 .catalogue-results-head label{display:none!important;} html.v1 .catalogue-grid{display:block;} html.v1 .catalogue-card{break-inside:avoid;} html.v1 .catalogue-cover-panel{position:static;}}
 html.v1 .catalogue-more-filters{margin-top:1.5rem;border:1px solid var(--catalogue-blue);background:#fff;}
 html.v1 .catalogue-more-filters>summary{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:52px;padding:.8rem 1rem;color:var(--catalogue-blue);font:700 .9rem/1.5 var(--font-ui);cursor:pointer;}
 html.v1 .catalogue-more-filters>summary span{font-size:1.6rem;line-height:1;}
+html.v1 .catalogue-more-filters[open]{border-top-color:var(--catalogue-blue);}
+html.v1 .catalogue-results-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;min-width:0;}
+html.v1 .catalogue-upcoming-link{grid-column:1/-1;justify-self:start;color:var(--catalogue-blue);font:600 .9rem/1.5 var(--font-ui);text-decoration-color:var(--catalogue-gold);}
+html.v1 .catalogue-upcoming-link[hidden]{display:none;}
 html.v1 .catalogue-more-filters[open]>summary{background:var(--catalogue-blue);color:white;}
 html.v1 .catalogue-more-filters[open]>summary span{transform:rotate(45deg);}
 html.v1 .catalogue-more-filters>.catalogue-filter-grid{padding:1rem;}

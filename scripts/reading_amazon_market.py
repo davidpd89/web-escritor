@@ -1,4 +1,5 @@
 """Bounded Creators API prices; no browser session or invented ASINs."""
+import gzip
 import json
 import re
 import time
@@ -266,10 +267,26 @@ def store_prices(book,offers,day):
             added+=1
         elif asin_from_url(current.get('url')) not in (None,asin):
             continue  # An already verified edition is never replaced by another ASIN.
+        price_drop(current,offer,day)
         current.update(url=offer['url'],precio_centimos=offer['precio_centimos'],fecha_verificacion=day)
     order=list(FORMAT_ORDER)
     book['formatos_compra']=sorted(options,key=lambda o:order.index(o['formato']))
     return added
+
+
+def price_drop(current,offer,day):
+    """Keep the list price (savingBasis) and the last drop so the site and a deals feed can show offers."""
+    price=offer['precio_centimos']
+    reference=offer.get('precio_referencia_centimos')
+    if reference and reference>price:
+        current['precio_referencia_centimos']=reference
+    else:
+        current.pop('precio_referencia_centimos',None)
+    previous=current.get('precio_centimos')
+    if previous and price<previous:
+        current.update(precio_anterior_centimos=previous,bajada_fecha=day)
+    elif previous and price>previous or current.get('precio_anterior_centimos',0)<=price:
+        current.pop('precio_anterior_centimos',None); current.pop('bajada_fecha',None)
 
 
 FORMAT_ORDER=('tapa-blanda','tapa-dura','ebook','audiolibro')
@@ -292,6 +309,149 @@ def needs_discovery(book,now):
         return True
     searched=book.get('formatos_amazon_buscados')
     return not searched or now.date()-date.fromisoformat(searched)>=REDISCOVER_AFTER
+
+
+# Format selector (twister) of an Amazon product page. Creators search hardly ever
+# returns Audible audiobooks and misses many Kindle/hardcover siblings; the page of
+# an ASIN already verified for the book lists them all with their own ASIN.
+SWATCHES={'KINDLE':'ebook','AUDIO_DOWNLOAD':'audiolibro','AUDIOBOOK':'audiolibro',
+          'HARDCOVER':'tapa-dura','PAPERBACK':'tapa-blanda','MASS_MARKET_PAPERBACK':'tapa-blanda'}
+PAGE_REDISCOVER_AFTER=timedelta(days=30)
+
+
+def swatch_formats(document,asin):
+    """{formato: ASIN} from a product page; the selected swatch is the page's own ASIN."""
+    found={}
+    for m in re.finditer(r'id="tmm-grid-swatch-([A-Z_]+)"(.*?)(?=id="tmm-grid-swatch-|</ul>)',document,re.S):
+        fmt=SWATCHES.get(m.group(1))
+        if not fmt or fmt in found:
+            continue
+        block=m.group(2)[:4000]
+        if re.match(r'[^>]*\bselected\b',block):
+            found[fmt]=asin
+        elif (link:=re.search(r'/dp/([A-Z0-9]{10})',block)):
+            found[fmt]=link.group(1)
+    return found
+
+
+def needs_page_formats(book,now):
+    formats={o['formato'] for o in book.get('formatos_compra',[])}
+    if not verified_formats(book) or {'ebook','audiolibro'}<=formats:
+        return False
+    searched=book.get('formatos_pagina_buscados')
+    return not searched or now.date()-date.fromisoformat(searched)>=PAGE_REDISCOVER_AFTER
+
+
+def discover_page_formats(catalogue,fetch,tag,now,limit=60):
+    """Adds the missing formats a product page offers. Prices come later from the API sweep,
+    which prices every verified ASIN; the page itself is only read for the ASINs."""
+    day=now.astimezone(timezone.utc).date().isoformat()
+    books=[b for b in catalogue['libros'] if b.get('estado')=='publicado' and needs_page_formats(b,now)]
+    books.sort(key=lambda b:b.get('formatos_pagina_buscados',''))
+    stats={'checked':0,'formats_added':0,'blocked':0,'errors':0}
+    for book in books[:limit]:
+        asin=next(iter(verified_formats(book)))
+        try:
+            document=fetch(f'https://www.amazon.es/dp/{asin}')
+        except (OSError,ValueError):
+            stats['errors']+=1
+            continue
+        if 'tmm-grid-swatch' not in document:
+            stats['blocked']+=1
+            if 'captcha' in document.lower():
+                break  # Amazon is asking for a captcha: try again on the next run.
+            continue
+        stats['checked']+=1
+        book['formatos_pagina_buscados']=day
+        options=book.setdefault('formatos_compra',[])
+        have={o['formato'] for o in options}
+        known=set(verified_formats(book))
+        for fmt,found in swatch_formats(document,asin).items():
+            if fmt in have or found in known:
+                continue
+            options.append({'formato':fmt,'url':f'https://www.amazon.es/dp/{found}?tag={tag}',
+                            'fuente_url':f'https://www.amazon.es/dp/{found}','fecha_verificacion':day})
+            stats['formats_added']+=1
+        options.sort(key=lambda o:FORMAT_ORDER.index(o['formato']))
+    return stats
+
+
+COVER_HOSTS=('www.todostuslibros.com',)
+
+
+def page_cover_url(document):
+    """Full-size cover of a product page: the largest image of `landingImage`, without size suffix."""
+    tag=re.search(r'<img[^>]*id="landingImage"[^>]*>',document) or re.search(r'<img[^>]*id="(?:ebooksImgBlkFront|imgBlkFront)"[^>]*>',document)
+    found=re.findall(r'https://m\.media-amazon\.com/images/I/([A-Za-z0-9+%-]+)\.[^&"]*?(jpg|png)',tag.group(0).replace('&quot;','"')) if tag else []
+    return f'https://m.media-amazon.com/images/I/{found[0][0]}.{found[0][1]}' if found else None
+
+
+def isbn10(value):
+    if not str(value).startswith('978'):
+        return None
+    body=str(value)[3:12]
+    check=(11-sum((10-i)*int(d) for i,d in enumerate(body))%11)%11
+    return body+('X' if check==10 else str(check))
+
+
+def discover_real_covers(catalogue,root,fetch,fetch_bytes,convert,now,limit=20):
+    """Swaps generated typographic covers for the edition's real cover from its Amazon page.
+    `convert` validates and resizes the image (same rules as editorial covers)."""
+    day=now.astimezone(timezone.utc).date().isoformat()
+    books=[b for b in catalogue['libros'] if urlsplit(b.get('portada_fuente_url') or '').hostname in COVER_HOSTS
+           and b.get('portadas_amazon_buscadas','')<(now-PAGE_REDISCOVER_AFTER).date().isoformat()]
+    books.sort(key=lambda b:b.get('portadas_amazon_buscadas',''))
+    stats={'checked':0,'covers_replaced':0,'blocked':0,'errors':0}
+    for book in books[:limit]:
+        formats=verified_formats(book)
+        asin=next((a for a,f in formats.items() if f!='ebook'),None) or isbn10(book.get('isbn13')) or next(iter(formats),None)
+        if not asin:
+            continue
+        try:
+            document=fetch(f'https://www.amazon.es/dp/{asin}')
+        except (OSError,ValueError):
+            stats['errors']+=1
+            continue
+        if 'captcha' in document.lower() and 'landingImage' not in document:
+            stats['blocked']+=1
+            break
+        stats['checked']+=1
+        book['portadas_amazon_buscadas']=day
+        image_url=page_cover_url(document)
+        if not image_url:
+            continue
+        try:
+            image,small,dimensions=convert(fetch_bytes(image_url))
+        except Exception:  # Placeholder, tiny or odd-shaped image: keep the typographic cover.
+            stats['errors']+=1
+            continue
+        path=root/book['portada_local'].lstrip('/')
+        path.write_bytes(image)
+        path.with_name(path.name.replace('.webp','-320.webp')).write_bytes(small)
+        book.update(portada_fuente_url=image_url,portada_ancho=dimensions[0],portada_alto=dimensions[1],
+                    portada_fecha_revision=day,portada_sustituida=True)
+        stats['covers_replaced']+=1
+    return stats
+
+
+def fetch_amazon_image(url):
+    request=Request(url,headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36'})
+    if urlsplit(url).hostname!='m.media-amazon.com':
+        raise ValueError('Imagen fuera del CDN de Amazon')
+    with urlopen(request,timeout=30) as response:
+        return response.read(10_000_000)
+
+
+def fetch_amazon_page(url):
+    # Without gzip, or with an Accept-Language header, Amazon answers a short bot-check page.
+    request=Request(url,headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36',
+                                 'Accept-Encoding':'gzip','Accept':'*/*'})
+    time.sleep(2)
+    with urlopen(request,timeout=30) as response:
+        body=response.read(8_000_000)
+        if response.headers.get('Content-Encoding')=='gzip':
+            body=gzip.decompress(body)
+    return body.decode('utf-8','replace')
 
 
 def only_items(payload,asins):

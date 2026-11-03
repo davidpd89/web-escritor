@@ -30,8 +30,9 @@ class RatingWorkflowContract(unittest.TestCase):
 
     def test_daily_sync_has_optional_credentials_and_no_extra_workflow(self):
         yaml = (ROOT / ".github/workflows/reading-catalogue-sync.yml").read_text(encoding="utf-8")
-        self.assertIn("cron: '0 0 * * *'", yaml)
-        self.assertIn("cron: '0 1 * * *'", yaml)
+        # Noche de carga: una tanda por hora; cada una espera a que se fusione la anterior.
+        self.assertIn("cron: '0 0-5 * * *'", yaml)
+        self.assertIn("schedule:'0 0-5 * * *':*", yaml)
         # Tandas de día para que las novedades no esperen a la noche.
         self.assertIn("schedule:'0 11 * * *':*", yaml)
         self.assertIn("TZ=Europe/Madrid", yaml)
