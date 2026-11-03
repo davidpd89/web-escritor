@@ -580,7 +580,15 @@ def amazon_destination(b):
     """Verified product page (the edition's own format first), otherwise tagged ISBN search."""
     printed = {o['formato']: o['url'] for o in purchase_formats(b)}
     edition = next((printed[f] for f in (b.get('formato_edicion'), 'tapa-blanda', 'tapa-dura') if f in printed), None)
-    return amazon_es(b.get('url_amazon_afiliada') or edition or b.get('amazon_busqueda_isbn'))
+    chosen = b.get('url_amazon_afiliada')
+    # Same product, one link: the price sweep refreshes the format's URL (Amazon's detailPageURL), not this field.
+    same = next((o['url'] for o in purchase_formats(b) if chosen and amazon_asin(o['url']) == amazon_asin(chosen)), None)
+    return amazon_es(same or chosen or edition or b.get('amazon_busqueda_isbn'))
+
+
+def amazon_asin(link):
+    m = re.search(r'/dp/([A-Z0-9]{10})', link or '')
+    return m and m.group(1)
 
 
 def amazon_action_label(b):
