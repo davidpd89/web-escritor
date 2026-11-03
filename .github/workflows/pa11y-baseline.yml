@@ -49,6 +49,15 @@ jobs:
             echo "relevant=false" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Content lane (solo contenido generado => muestra de páginas)
+        id: lane
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          HEAD_REF: ${{ github.head_ref || github.ref_name }}
+        run: python3 scripts/ci_content_lane.py
+
       - name: No HTML/CSS/JS changes -- skipping Pa11y
         if: steps.changes.outputs.relevant != 'true'
         run: echo "Esta PR no toca nada que Pa11y mida. Pasa sin ejecutarlo."
@@ -82,12 +91,18 @@ jobs:
         shell: bash
         run: |
           set +e
-          pa11y-ci \
-            --config ./.pa11yci \
-            --sitemap http://127.0.0.1:4173/sitemap.xml \
-            --sitemap-find 'https://davidportodiaz.com' \
-            --sitemap-replace 'http://127.0.0.1:4173' \
-            2>&1 | tee pa11y-baseline.txt
+          if [ "${{ steps.lane.outputs.lane }}" = "content" ]; then
+            # Solo contenido generado: mismas reglas, sobre los índices y las páginas cambiadas más pesadas.
+            ROUTES='${{ steps.lane.outputs.routes }}' python3 -c "import json, os; c = json.load(open('.pa11yci')); c['urls'] = ['http://127.0.0.1:4173' + r for r in os.environ['ROUTES'].split(',') if r]; json.dump(c, open('/tmp/pa11y-content.json', 'w'))"
+            pa11y-ci --config /tmp/pa11y-content.json 2>&1 | tee pa11y-baseline.txt
+          else
+            pa11y-ci \
+              --config ./.pa11yci \
+              --sitemap http://127.0.0.1:4173/sitemap.xml \
+              --sitemap-find 'https://davidportodiaz.com' \
+              --sitemap-replace 'http://127.0.0.1:4173' \
+              2>&1 | tee pa11y-baseline.txt
+          fi
           status=${PIPESTATUS[0]}
           echo "exit_code=$status" >> "$GITHUB_OUTPUT"
           exit 0

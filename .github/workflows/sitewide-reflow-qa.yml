@@ -54,6 +54,15 @@ jobs:
           HEAD_SHA: ${{ github.sha }}
         run: python3 scripts/ci-select-reflow.py
 
+      - name: Content lane (solo contenido generado => muestra de páginas)
+        id: lane
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.sha }}
+          HEAD_REF: ${{ github.head_ref || github.ref_name }}
+        run: python3 scripts/ci_content_lane.py
+
       - name: Set up Node
         if: steps.sel.outputs.run == 'true'
         uses: actions/setup-node@v5
@@ -109,7 +118,7 @@ jobs:
           TARGET_SIZE_MODE: enforce
           TEXT_RESILIENCE_MODE: report
           FOCUS_OBSCURED_MODE: enforce
-          QA_ONLY_ROUTES: ${{ steps.sel.outputs.routes }}
+          QA_ONLY_ROUTES: ${{ steps.lane.outputs.lane == 'content' && steps.lane.outputs.routes || steps.sel.outputs.routes }}
           SHARD_TOTAL: '8'
           SHARD_INDEX: ${{ matrix.shard }}
         timeout-minutes: 70

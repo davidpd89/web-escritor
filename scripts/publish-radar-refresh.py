@@ -52,7 +52,7 @@ def gh(*args: str):
     return result.stdout.strip()
 
 
-def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_before=False):
+def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_before=False, pr_wait=120):
     repo = gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner')
     pr = json.loads(gh('pr', 'view', branch, '--json', 'number,headRefOid,baseRefName,baseRefOid,state'))
     if pr['baseRefName'] != 'main' or pr['state'] != 'OPEN':
@@ -62,14 +62,33 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
     paths = [item for page in pages for item in page]
     if not paths or any(not allowed_path(item['filename']) or (item.get('previous_filename') and not allowed_path(item['previous_filename'])) for item in paths):
         raise ValueError('PR contains a path outside the generated-artifact policy')
-    # Validate only runs dispatched by this invocation, never old green runs.
-    previous = {}
+    def runs_on_sha(workflow, event, exclude=frozenset()):
+        runs = json.loads(gh('run', 'list', '--workflow', workflow, '--branch', branch,
+                             '--event', event, '--limit', '100', '--json',
+                             'databaseId,headSha,status,conclusion'))
+        return [item for item in runs if item['databaseId'] not in exclude and item['headSha'] == sha]
+
+    # A PR opened with a user token already starts its pull_request CI on this exact commit; dispatching the same
+    # workflows again doubled the queue (20 concurrent jobs on the free plan). Reuse those runs and dispatch only
+    # what is missing. A PR opened with GITHUB_TOKEN starts nothing, so after a short wait everything is dispatched.
+    source = {}
+    for attempt in range(pr_wait // 30 + 1):
+        for workflow in workflows:
+            if workflow not in source and runs_on_sha(workflow, 'pull_request'):
+                source[workflow] = ('pull_request', frozenset())
+        if len(source) == len(workflows) or attempt == pr_wait // 30:
+            break
+        time.sleep(30)
+    # Dispatched workflows validate only runs started by this invocation, never old green runs.
     for workflow in workflows:
         if workflow in REQUIRED_JOBS:
             report_job(repo, sha, REQUIRED_JOBS[workflow], 'pending', f'https://github.com/{repo}/pull/{pr["number"]}')
+        if workflow in source:
+            print(f'REUSE pull_request run of {workflow} @ {sha}', flush=True)
+            continue
         runs = json.loads(gh('run', 'list', '--workflow', workflow, '--branch', branch,
                              '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId'))
-        previous[workflow] = {item['databaseId'] for item in runs}
+        source[workflow] = ('workflow_dispatch', frozenset(item['databaseId'] for item in runs))
         gh('workflow', 'run', workflow, '--ref', branch)
 
     deadline = time.monotonic() + timeout
@@ -79,11 +98,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         if time.monotonic() >= deadline:
             raise TimeoutError(f'CI timed out; PR left open: {sorted(pending)}')
         for workflow in sorted(pending):
-            runs = json.loads(gh('run', 'list', '--workflow', workflow, '--branch', branch,
-                                 '--event', 'workflow_dispatch', '--limit', '100', '--json',
-                                 'databaseId,headSha,status,conclusion'))
-            current = [item for item in runs if item['databaseId'] not in previous[workflow]
-                       and item['headSha'] == sha]
+            current = runs_on_sha(workflow, *source[workflow])
             if not current:
                 continue
             result = current[0]

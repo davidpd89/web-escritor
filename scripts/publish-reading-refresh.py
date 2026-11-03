@@ -67,6 +67,9 @@ def resume_pending(branch):
     return False
 
 
+UNRELATED_WORKFLOWS = ('pro-resources-qa.yml', 'convocatorias-browser-qa.yml')
+
+
 def run(branch, timeout=5400):
     if not re.fullmatch(r'automation/reading-catalogue-[a-zA-Z0-9-]+', branch):
         raise ValueError('Only generated reading-catalogue branches are accepted')
@@ -75,7 +78,8 @@ def run(branch, timeout=5400):
         repo = publication.gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner')
         publication.gh('api', '--method', 'PUT', f'repos/{repo}/pulls/{pr["number"]}/update-branch',
                        '-f', f'expected_head_sha={pr["headRefOid"]}')
-    workflows = tuple(dict.fromkeys((*publication.WORKFLOWS,
+    # Las fichas no tocan recursos profesionales ni convocatorias: esos navegadores solo alargaban la cola.
+    workflows = tuple(dict.fromkeys((*(w for w in publication.WORKFLOWS if w not in UNRELATED_WORKFLOWS),
                                     'reading-intake-qa.yml', 'recommendations-browser-qa.yml', 'reading-pinterest-rss-qa.yml')))
     publication.publish_generated(branch, allowed_path, workflows, timeout=timeout, deploy_before=True)
 

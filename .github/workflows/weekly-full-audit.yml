@@ -1,0 +1,52 @@
+name: Weekly full audit
+
+# Red de seguridad de la vía rápida de contenido (scripts/ci_content_lane.py): los PR solo de contenido generado
+# no disparan estos workflows, y en los obligatorios (pa11y, reflow, lighthouse) solo auditan una muestra.
+# Una vez por semana se lanzan todos completos sobre main. tests/test-ci-content-lane.py exige que esta lista
+# incluya cada workflow con la exclusión de contenido.
+
+on:
+  schedule:
+    - cron: '23 4 * * 0'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      WORKFLOWS: >-
+        analytics-taxonomy-qa.yml
+        cross-engine-smoke.yml
+        csp-public-shell-qa.yml
+        navigation-roundtrip-audit.yml
+        public-time-semantics-qa.yml
+        runtime-scoping-qa.yml
+        sitewide-console-errors-qa.yml
+        small-ui-audit.yml
+        lighthouse-ci.yml
+        pa11y-baseline.yml
+        sitewide-reflow-qa.yml
+    steps:
+      - name: Lanzar la auditoría completa sobre main
+        run: |
+          failed=0
+          for wf in $WORKFLOWS; do
+            if gh workflow run "$wf" --ref main; then
+              echo "- \`$wf\` lanzado" >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "- \`$wf\` NO se pudo lanzar" >> "$GITHUB_STEP_SUMMARY"
+              failed=1
+            fi
+          done
+          exit $failed
