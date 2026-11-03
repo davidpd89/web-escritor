@@ -157,7 +157,7 @@ def kill_tree(proc):
 
 def run_one(command, env, root, timeout=TIMEOUT):
     start = time.time()
-    proc = subprocess.Popen([BASH, '-c', command], cwd=root, env={**os.environ, **env}, stdout=subprocess.PIPE,
+    proc = subprocess.Popen([BASH, '-c', command], cwd=root, env={**os.environ, 'PYTHONUTF8': '1', **env}, stdout=subprocess.PIPE,
                             stderr=subprocess.STDOUT, text=True, encoding='utf-8', errors='replace',
                             start_new_session=os.name != 'nt')
     try:
