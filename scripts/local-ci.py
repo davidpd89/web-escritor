@@ -9,6 +9,8 @@ allí ya estaba roto y no bloquea este cambio.
   python scripts/local-ci.py                # lo que correría el CI para los cambios de esta rama
   python scripts/local-ci.py --baseline     # y separa los fallos que ya trae main
   python scripts/local-ci.py --all          # todos los pasos, sin mirar las rutas
+
+Salida: 0 sin fallos nuevos, 1 con fallos nuevos, 2 si algo agotó el tiempo y queda sin verificar.
 """
 import argparse
 import os
@@ -230,12 +232,18 @@ def main(argv=None):
         known = [item[0] for (item, res), old in zip(failed, again) if same_failure(res, old)]
     else:
         new, known = failed, []
+    # Agotar el tiempo no es un fallo de la rama ni un aprobado: queda sin verificar (salida 2) y lo decide el CI.
+    slow = [item[0] for item, res in new if res[0] == 124]
+    new = [(item, res) for item, res in new if res[0] != 124]
     for (command, _, flow), (code, output, _) in new:
         print(f'\n## {command}  ({flow}, código {code})\n{failure_line(output)}')
     for command in known:
         print(f'  ya falla igual en main: {command}')
-    print(f'\n{len(items) - len(failed)} bien, {len(new)} fallos nuevos' + (f', {len(known)} ya fallaban en main' if known else ''))
-    return 1 if new else 0
+    for command in slow:
+        print(f'  sin verificar (agotó {args.timeout} s): {command}')
+    print(f'\n{len(items) - len(failed)} bien, {len(new)} fallos nuevos' + (f', {len(known)} ya fallaban en main' if known else '')
+          + (f', {len(slow)} sin verificar' if slow else ''))
+    return 1 if new else 2 if slow else 0
 
 
 if __name__ == '__main__':
