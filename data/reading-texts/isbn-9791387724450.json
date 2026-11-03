@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387724450",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Uñas sucias se dirige a lectores adultos de misterio que buscan una investigación atravesada por cuestiones de poder e impunidad. La desaparición de un juez conduce a una periodista a examinar su pasado y las versiones difundidas por los medios. No se centra en una investigación desligada de los conflictos sociales, pues aborda las agresiones sexuales y el silencio.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Uñas sucias plantea un thriller de investigación periodística alrededor de la desaparición de un juez. La protagonista cuestiona el relato público sobre el desaparecido mientras una forense introduce nuevas perspectivas en el caso. La intriga combina la búsqueda de motivos con asuntos de impunidad, agresiones sexuales y responsabilidad institucional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Uñas sucias está disponible en tapa blanda y Kindle. La edición de Montena tiene solapas y 256 páginas, por lo que permite leer la investigación completa en un volumen físico. Kindle ofrece el mismo título para leerlo en el móvil y continuar la historia sin transportar el ejemplar en papel.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Uñas sucias y El hombre que solo escribía en los aviones son primeras novelas de Júlia Salander y Pedro Almodóvar, respectivamente. La primera investiga una desaparición vinculada a la impunidad y al poder judicial; la segunda se ocupa de la vocación literaria, el deseo y la relación con los libros. Comparten el debut novelístico de sus autores, pero sus conflictos son distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387740566"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6be7b8b8ec813b22",
+  "origen": "chatgpt-web"
+}

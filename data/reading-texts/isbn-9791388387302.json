@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388387302",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Antes de perder el juicio se dirige a lectores adultos interesados en la filosofía y en el papel de la razón dentro del debate público. Mauricio García Villegas examina las tensiones entre verdad, emociones y pensamiento crítico; no responde al planteamiento de una novela de ficción ni al de una guía práctica de ejercicios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Antes de perder el juicio aborda la pérdida de acuerdos compartidos, la influencia de la propaganda y el predominio de las emociones en las discusiones públicas. Mauricio García Villegas recurre a la historia de las ideas, desde la Ilustración hasta la reacción romántica, para defender la racionalidad, la ciencia y la búsqueda de la verdad como fundamentos del juicio crítico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas permite consultar y subrayar físicamente las 432 páginas de Antes de perder el juicio. La edición Kindle reúne el mismo ensayo en un soporte digital, útil para leer en el móvil o llevarlo sin cargar con el volumen impreso. La elección depende de si se prefiere trabajar sobre papel o utilizar un dispositivo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de perder el juicio puede compararse con Manifiesto contra la intolerancia por su atención a los conflictos del debate público, aunque Mauricio García Villegas se centra en la razón y la verdad, mientras Rafael Narbona aborda el fascismo. También dialoga con Contingencia, ironía y solidaridad: Richard Rorty examina la convivencia sin verdades universales, frente a la defensa de la verdad que plantea Mauricio García Villegas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139055",
+        "isbn-9788449345951"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1f4b1168837c5800",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788410466715",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los fuegos de Diciembre, de Brandon Sanderson, encaja con lectores de fantasía interesados en sociedades imaginarias, amenazas colectivas e intrigas políticas. La protagonista intenta impedir una catástrofe mientras se enfrenta a las barreras de su posición social, por lo que no responde a la búsqueda de una historia realista sin magia ni elementos sobrenaturales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Los fuegos de Diciembre es una novela independiente del Cosmere que combina fantasía, conflicto social e intriga cortesana. Su protagonista emprende una misión para alertar a las autoridades de una plaga y encuentra resistencia por su origen humilde. El recorrido incorpora alianzas, obstáculos institucionales y una posible relación sentimental, sin depender de una trama bélica convencional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los fuegos de Diciembre está disponible en tapa dura y Kindle. La edición física de Nova tiene 544 páginas, una extensión que conviene considerar para transportarla o regalarla; Kindle permite llevar la novela en el móvil o en un lector electrónico compatible. La tapa dura ofrece un ejemplar encuadernado para conservar en la biblioteca.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los fuegos de Diciembre e Indomables 1. El despertar de la magia, de Erin Hunter, comparten la fantasía y los personajes que buscan definir su lugar en un mundo dividido. Brandon Sanderson presenta una misión contra una amenaza colectiva, con instituciones y conflictos cortesanos; Erin Hunter centra su historia en dos gatas que intentan encontrar su sitio después de una pérdida familiar. Sus protagonistas y conflictos son diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388042027"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ac84487dafb243f9",
+  "origen": "chatgpt-web"
+}

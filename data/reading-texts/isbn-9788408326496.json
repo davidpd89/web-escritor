@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788408326496",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Flores malditas 2. Flor del infierno se dirige a lectores desde los 16 años interesados en la fantasía juvenil con demonios, magia de sangre y enfrentamientos por el poder. Encaja menos con quienes buscan historias realistas o prefieren evitar escenarios infernales y personajes sometidos a amenazas sobrenaturales.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "La edad recomendada para Flores malditas 2. Flor del infierno es a partir de 16 años. Su contenido incluye magia de sangre, un infierno dividido en círculos y un príncipe demoníaco que impone una misión a la protagonista. Estos elementos pueden resultar inquietantes para lectores sensibles a las amenazas sobrenaturales.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela de fantasía juvenil construida alrededor de una protagonista atrapada en un territorio infernal y sometida a las órdenes de un príncipe demoníaco. El conflicto combina poderes mágicos, una misión de búsqueda y la amenaza de una rebelión. El título identifica Flores malditas 2. Flor del infierno como el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Flores malditas 2. Flor del infierno reúne sus 464 páginas en una edición con sobrecubierta de Crossbooks, apropiada para conservar en una estantería o regalar. Kindle permite llevar la misma lectura en un dispositivo electrónico sin cargar con el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4584e6fcf672cf7d",
+  "origen": "chatgpt-web"
+}

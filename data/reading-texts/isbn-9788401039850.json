@@ -4,42 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La trama francesa se dirige a lectores adultos de misterio y thriller interesados en secuestros, espionaje e investigaciones que implican a distintos servicios de inteligencia. Encaja menos con quienes buscan un misterio sin operaciones encubiertas o prefieren evitar historias donde los protagonistas afrontan amenazas directas.",
+      "texto": "La trama francesa, de John Grisham, se dirige a lectores adultos que buscan misterio, secuestros e investigaciones con participación de servicios de inteligencia. Su conflicto gira alrededor de una operación de alto riesgo, por lo que se aleja de la narrativa centrada en relaciones personales sin intriga criminal.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "edad_recomendada",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un thriller de alcance internacional que comienza con el secuestro de una pareja durante su luna de miel y se desarrolla mediante una investigación entre organismos de inteligencia. La incorporación de un joven abogado como señuelo en una operación de la CIA añade un conflicto de riesgo personal a la búsqueda de los responsables.",
+      "texto": "La trama francesa es un thriller de investigación que combina un secuestro durante una luna de miel con una operación de inteligencia. La búsqueda atraviesa fronteras e implica al FBI, la CIA y los servicios franceses, mientras un abogado participa en una maniobra arriesgada. El conflicto se articula alrededor de averiguar quién está detrás de los hechos y qué relación guardan entre sí.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La trama francesa está disponible en tapa dura con sobrecubierta, en una edición de 416 páginas en castellano. La encuadernación rígida y la cubierta exterior ofrecen una presentación física para conservar el ejemplar o regalarlo, frente a la flexibilidad propia de una edición de bolsillo.",
+      "texto": "La trama francesa puede leerse en tapa dura o en Kindle. La edición física de Plaza & Janés incluye sobrecubierta y reúne 416 páginas, una opción para conservar el libro o regalarlo. Kindle permite llevar la novela en un lector electrónico o dispositivo compatible sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "formato_edicion",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La tapadera (La tapadera 1) y La trama francesa comparten autor, John Grisham, y un vínculo argumental con el mundo del derecho. La tapadera (La tapadera 1) parte de las ofertas profesionales que recibe Mitch McDeere tras sus estudios; La trama francesa introduce a un joven abogado en una operación de inteligencia relacionada con un secuestro.",
+      "texto": "La trama francesa y La tapadera (La tapadera 1) son novelas de John Grisham vinculadas al misterio y al ámbito jurídico. En La trama francesa, un abogado queda implicado en una operación de inteligencia relacionada con un secuestro; La tapadera (La tapadera 1) comienza con las ofertas profesionales que recibe Mitch McDeere tras sus estudios de derecho. Ambas incorporan personajes ligados a la abogacía, pero sus puntos de partida son distintos.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788401042706"
@@ -48,6 +49,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "32994917f095f270",
+  "fuente_hash": "faec563d4456d6d7",
   "origen": "chatgpt-web"
 }

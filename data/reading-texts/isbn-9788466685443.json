@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788466685443",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El diablo viste de Helvetica está dirigido a adultos interesados en el diseño gráfico y su influencia en la vida cotidiana. Elena López recurre a casos históricos y curiosidades sobre objetos, tipografías y señales; encaja menos con quienes buscan una novela o un manual de técnicas profesionales de diseño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El diablo viste de Helvetica propone una lectura divulgativa sobre las consecuencias prácticas del diseño gráfico. Elena López utiliza ejemplos de papeletas electorales, señales de tráfico, envases y tipografías para mostrar cómo las decisiones visuales intervienen en la comunicación, la accesibilidad y el comportamiento cotidiano, sin desarrollar una trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El diablo viste de Helvetica se ofrece en tapa blanda y Kindle. La edición de Ediciones B tiene 216 páginas y solapas, por lo que permite conservar y consultar los ejemplos en papel; Kindle facilita transportar el contenido y leerlo desde el móvil o un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El diablo viste de Helvetica puede compararse con Stranger Things, de Gina McIntyre, por su interés en los procesos creativos y las decisiones que hay detrás de productos culturales. La diferencia está en el objeto de estudio: Elena López analiza el diseño gráfico presente en la vida cotidiana, mientras Gina McIntyre se ocupa de la creación de una producción audiovisual y de sus participantes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425375576"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "20925170275ac6c0",
+  "origen": "chatgpt-web"
+}

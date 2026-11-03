@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408331230",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Clara Nox 4. La última tormenta se dirige a lectores de 9 a 12 años interesados en la fantasía, las aventuras y los misterios. El conflicto enfrenta a su protagonista con una amenaza que afecta a dos mundos, por lo que encaja menos con quienes buscan historias cotidianas sin peligros ni elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Clara Nox 4. La última tormenta está recomendado de 9 a 12 años y tiene 224 páginas. La edición de Destino Infantil & Juvenil está publicada en castellano, en tapa dura con sobrecubierta. El título lo identifica como el n.º 4, aunque esa numeración no determina por sí sola si puede leerse de manera independiente.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Clara Nox 4. La última tormenta está disponible en tapa dura con sobrecubierta, una presentación física que permite conservar sus 224 páginas en un volumen encuadernado. Es la opción para quien quiere tenerlo en papel, colocarlo en una estantería o entregarlo como regalo; la sobrecubierta añade una pieza exterior que conviene cuidar durante el transporte.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "e9e54f3b2722ea51",
+  "origen": "chatgpt-web"
+}

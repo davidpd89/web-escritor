@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Espinas en el aire está dirigido a lectores adultos interesados en el thriller psicológico, los enigmas de origen desconocido y los secretos familiares. La investigación incorpora las consecuencias de un accidente, el duelo y los engaños del pasado, por lo que se aleja de una novela romántica centrada principalmente en la pareja.",
+      "texto": "Espinas en el aire está dirigido a lectores adultos que buscan misterio psicológico, secretos familiares y conflictos relacionados con el amor y el duelo. Su investigación gira alrededor de una señal de radio vinculada a experiencias traumáticas, por lo que se aleja de las historias románticas centradas exclusivamente en la pareja.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,28 +14,43 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Espinas en el aire plantea un thriller psicológico a partir de una señal de radio que reaparece cada noviembre y cuya procedencia debe investigarse. La búsqueda relaciona a una locutora de un pódcast de true crime con una familia influyente, un accidente personal y acontecimientos ocurridos décadas atrás. El misterio combina investigación presente y secretos del pasado.",
+      "texto": "Espinas en el aire plantea un thriller psicológico construido alrededor de una transmisión radiofónica que reaparece periódicamente. Javier Castillo conecta la investigación de una comunicadora especializada en crímenes reales con una familia influyente y acontecimientos del pasado. El duelo, los vínculos afectivos y las consecuencias de descubrir ciertos secretos forman parte del conflicto.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Espinas en el aire es en tapa blanda con solapas, publicada por Suma de Letras. Sus 424 páginas están en castellano y se presentan en un volumen físico para quienes prefieren leer, conservar o prestar sus novelas de misterio en papel.",
+      "texto": "Espinas en el aire puede leerse en tapa blanda con solapas o en Kindle. La edición impresa de Suma de Letras reúne 424 páginas y permite conservar el volumen en papel; Kindle ofrece la alternativa digital para leer desde un dispositivo compatible sin transportar el libro físico.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
         "editorial",
-        "numero_paginas",
-        "idioma",
-        "formatos_disponibles"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Espinas en el aire y Del dolor al amor comparten el interés por las experiencias dolorosas y sus consecuencias emocionales. Javier Castillo desarrolla esas cuestiones mediante un misterio psicológico, mientras que Sarab Rey las aborda desde un testimonio vinculado a la fe. Amor, de Patri Psicóloga y Yolanda Cuevas, también trata los vínculos afectivos, pero propone ejercicios semanales para cuidar la pareja en lugar de una investigación criminal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425373602",
+        "isbn-9788408331353"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "773019114ab013e2",
+  "fuente_hash": "910339d048780069",
   "origen": "chatgpt-web"
 }

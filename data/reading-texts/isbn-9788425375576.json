@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788425375576",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Stranger Things se dirige a lectores adultos interesados en los materiales de creación de una serie audiovisual. Incluye entrevistas, diseños de criaturas, documentos de producción y fotografías de vestuario. Su enfoque documental y visual se aparta de una novela que desarrolla su historia únicamente mediante la narración.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Stranger Things es una publicación sobre la creación y el universo visual de la serie, no una narración convencional de sus acontecimientos. Gina McIntyre reúne intervenciones del equipo, arte conceptual, mapas, planos y materiales de guion. También incorpora un código secreto que conduce a contenido adicional en una web.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Stranger Things se ofrece en tapa dura, con 304 páginas publicadas por Grijalbo. El formato físico permite consultar fotografías, mapas, diseños y documentos de producción en un volumen encuadernado. También reúne materiales visuales y entrevistas que pueden revisarse por separado sin seguir una lectura narrativa continua.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Stranger Things y El diablo viste de Helvetica se relacionan con la creación visual, aunque abordan asuntos diferentes. Gina McIntyre reúne materiales gráficos y testimonios de una producción audiovisual; Elena López plantea las consecuencias que puede tener el diseño de una papeleta electoral. Uno se centra en el universo de una serie y el otro introduce una cuestión de diseño mediante un caso electoral.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466685443"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "12fbe5c3d6b0aa0b",
+  "origen": "chatgpt-web"
+}
