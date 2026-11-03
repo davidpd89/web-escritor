@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788423370504",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todas las noches, todas las ciudades se dirige a lectores de novela negra y thriller interesados en crímenes relacionados con la ficción literaria. La investigación policial, la identidad de un escritor y su relación con unos delitos sostienen el conflicto, por lo que no encaja con quien busque una historia alejada del crimen o de la tensión psicológica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Todas las noches, todas las ciudades combina investigación criminal y un conflicto de identidad alrededor de Benedict Newman, un escritor interrogado por delitos que reproducen los de su libro. Tras sufrir un colapso, su comportamiento cambia, lo que añade incertidumbre a las sospechas policiales. Es una novela negra de Dolores Redondo con 752 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura con sobrecubierta reúne las 752 páginas de Todas las noches, todas las ciudades en una edición física de Ediciones Destino, apropiada para quien quiera conservar el volumen o regalarlo. Kindle evita transportar un libro de esa extensión y permite leerlo en un dispositivo compatible. La diferencia práctica está en el peso del ejemplar frente a la comodidad de la lectura digital.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El asesinato de Roger Ackroyd (Edición especial con cantos tintados) comparte con Todas las noches, todas las ciudades el interés por los crímenes y su investigación, aunque la obra de Dolores Redondo vincula los delitos a la ficción de un escritor. El enigmático míster Quin también aborda el misterio, pero reúne doce relatos de Agatha Christie, frente a una novela de 752 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083934",
+        "isbn-9788408331520"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "090594913189a5bf",
+  "origen": "chatgpt-web"
+}

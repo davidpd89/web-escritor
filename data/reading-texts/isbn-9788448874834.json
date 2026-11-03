@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788448874834",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Piratix. Primeras lecturas 2 - El banquete del Kraken está orientado a niños desde los 4 años que disfrutan de piratas, criaturas fantásticas y aventuras con acción. Su conflicto incluye una amenaza monstruosa y destrucción, por lo que puede resultar menos adecuado para lectores sensibles a las escenas de peligro o que prefieren relatos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Está recomendado a partir de 4 años y consta de 80 páginas en castellano, publicadas en tapa dura. Piratix. Primeras lecturas 2 - El banquete del Kraken combina aventuras piratas, fantasía y trabajo en equipo dentro de una propuesta de primeras lecturas. El título lo identifica como el n.º 2, aunque la historia presenta un conflicto propio relacionado con una criatura marina.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura ofrece una encuadernación resistente para las 80 páginas de Piratix. Primeras lecturas 2 - El banquete del Kraken, especialmente útil cuando el libro pasa por varias manos. Kindle permite llevar la aventura en formato digital y leerla en un dispositivo compatible. Ambas opciones contienen una historia de piratas y fantasía dirigida a primeras edades lectoras.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "3f5c6fc78f6c3267",
+  "origen": "chatgpt-web"
+}

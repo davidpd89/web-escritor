@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791387994600",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tessa Soul 2 - La doncella encantada se dirige a lectores desde los 9 años interesados en misterios sobrenaturales, fantasmas y aventuras ambientadas en una mansión. Sus apariciones inquietantes y sus elementos de suspense pueden encajar menos con quienes prefieren historias realistas o evitan los sustos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La lectura está recomendada a partir de 9 años y tiene 192 páginas en castellano, encuadernadas en tapa dura. Tessa Soul 2 - La doncella encantada pertenece a una serie de misterio infantil con fantasmas, amistad e investigaciones. Es la segunda entrega de la serie de Eva Millet y sitúa sus acontecimientos en una mansión durante los preparativos navideños.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura presenta las 192 páginas de Tessa Soul 2 - La doncella encantada en un volumen físico resistente, adecuado para conservar junto a otras entregas de la serie. Kindle permite leer el mismo título en formato digital sin llevar el libro impreso. La decisión depende de si se quiere una colección física o una lectura en pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tessa Soul 2 - La doncella encantada y Pipoka y la Fábrica del Desastre comparten la presencia de elementos fantásticos y criaturas ajenas a la realidad cotidiana. La novela de Eva Millet se centra en investigar fenómenos relacionados con fantasmas dentro de una mansión; la de Jose Such sigue a un cuentacuentos y una marioneta mágica por distintos paisajes. Una plantea enigmas en un espacio cerrado y la otra desarrolla un recorrido fantástico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "406ee22ccdc93106",
+  "origen": "chatgpt-web"
+}

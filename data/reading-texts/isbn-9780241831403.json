@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9780241831403",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nepal (Sabores del mundo) se dirige a lectores adultos interesados en la cocina nepalí, las recetas familiares y la relación entre gastronomía y cultura. Su enfoque culinario y sus preparaciones sencillas lo alejan de los libros centrados exclusivamente en nutrición, dietas o bienestar.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Reúne una selección de recetas tradicionales y familiares de Nepal, acompañadas de una aproximación a la cultura gastronómica del país. Tiana Salles recurre a sus orígenes para presentar preparaciones sencillas y acercar al lector a los ingredientes, las especias y las costumbres culinarias nepalíes. Sus 192 páginas permiten utilizarlo como recetario y como introducción cultural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nepal (Sabores del mundo) está disponible en tapa dura, una encuadernación apropiada para consultar recetas repetidamente y mantener el volumen en una biblioteca de cocina. Sus 192 páginas también lo convierten en una opción de regalo físico para quienes coleccionan recetarios de distintas tradiciones gastronómicas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nepal (Sabores del mundo) y La revolución de la glucosa: el Método comparten su orientación práctica hacia la preparación de comidas. La obra de Tiana Salles aborda recetas tradicionales nepalíes y su contexto cultural, mientras que la de Jessie Inchauspé organiza 100 recetas dentro de un método de 4 semanas. La primera parte de una tradición culinaria; la segunda, de una pauta alimentaria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411191937"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d30724a2a42b0332",
+  "origen": "chatgpt-web"
+}

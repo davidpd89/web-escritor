@@ -163,12 +163,12 @@ try {
   for(const [time,today] of [['2026-10-21T22:30:00Z','2026-10-22'],['2026-10-25T23:30:00Z','2026-10-26']]) {
     const context=await catalogueContext(); const page=await context.newPage();
     await page.clock.install({time:new Date(time)});
-    const dates=[0,14,15,16,30].map(days=>new Date(Date.parse(today+'T00:00:00Z')-days*86400000).toISOString().slice(0,10));
+    const dates=[0,29,30,31,45].map(days=>new Date(Date.parse(today+'T00:00:00Z')-days*86400000).toISOString().slice(0,10));
     await context.route('**/reading-boundary/',r=>r.fulfill({contentType:'text/html',body:'<main data-reading-catalogue>'+dates.map(date=>'<span class="catalogue-novelty" data-release-label="'+date+'" hidden>Novedad</span>').join('')+'</main><script src="/assets/reading-catalogue.js?v=8"></script>'}));
     await page.goto(base+'/reading-boundary/');
-    assert.deepEqual(await page.locator('[data-release-label]').evaluateAll(es=>es.map(e=>e.hidden)),[false,false,true,true,true]);
+    assert.deepEqual(await page.locator('[data-release-label]').evaluateAll(es=>es.map(e=>e.hidden)),[false,false,false,true,true]);
     await page.clock.fastForward(86400000);
-    assert.deepEqual(await page.locator('[data-release-label]').evaluateAll(es=>es.map(e=>e.hidden)),[false,true,true,true,true]);
+    assert.deepEqual(await page.locator('[data-release-label]').evaluateAll(es=>es.map(e=>e.hidden)),[false,false,true,true,true]);
     await context.close();
   }
   // Actual content: responsive layout, uniform fonts, all cards link externally.

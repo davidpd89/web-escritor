@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Donde Álvaro Pombo se dirige a lectores interesados en las biografías literarias y en la trayectoria personal y creativa de Álvaro Pombo. No responde a la búsqueda de una novela de ficción: Mario Crespo López reconstruye su vida mediante episodios personales, etapas de formación y documentación sobre su carrera.",
+      "texto": "Donde Álvaro Pombo, de Mario Crespo López, se dirige a lectores interesados en biografías literarias, memoria y procesos de escritura. Recorre una trayectoria personal y profesional mediante episodios vitales y documentación, de modo que no responde a la estructura de una novela de ficción centrada en una trama inventada.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,41 +14,43 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Donde Álvaro Pombo es una biografía literaria que relaciona la experiencia personal de Álvaro Pombo con su evolución como escritor. Mario Crespo López recorre su formación, la etapa vinculada al Birkbeck College y su regreso a Madrid, además de explorar sus lecturas iniciales y sus relaciones con el mundo editorial.",
+      "texto": "Donde Álvaro Pombo es un recorrido biográfico por la vida y la obra de Álvaro Pombo, escrito por Mario Crespo López. Examina su formación, sus desplazamientos, sus primeras experiencias literarias y su trayectoria editorial, con documentación inédita y un tono que incorpora ironía. Sus 520 páginas permiten desarrollar tanto los acontecimientos personales como la relación del escritor con la literatura.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Donde Álvaro Pombo está editado en tapa blanda y reúne 520 páginas. Esta edición permite seguir en papel una trayectoria biográfica extensa y regresar a etapas concretas de la vida y la producción literaria de Álvaro Pombo durante consultas posteriores.",
+      "texto": "Donde Álvaro Pombo puede leerse en tapa blanda o Kindle. La edición impresa de Editorial Anagrama tiene 520 páginas y permite conservar el volumen como referencia biográfica; Kindle facilita consultar y transportar una obra de esa extensión sin cargar con el ejemplar físico. La diferencia práctica está en el soporte de lectura.",
       "evidencias": [
         "titulo",
+        "editorial",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Donde Álvaro Pombo y Memoria de las manos comparten la atención a la experiencia humana, aunque el primero reconstruye una vida literaria y el segundo se ocupa del cuerpo y la empatía. Los pilares de la historia también invita a examinar el pasado, pero lo hace desde una pregunta sobre la disciplina histórica, no mediante la biografía de un escritor.",
+      "texto": "El tiempo que pasa y Donde Álvaro Pombo comparten el interés por reconstruir una vida desde la memoria, aunque Manuel Medina aborda la infancia y la España de la posguerra, mientras Mario Crespo López sigue la trayectoria de un escritor. Los pilares de la historia plantea una reflexión sobre la capacidad explicativa de la historia, frente al enfoque biográfico y literario de Donde Álvaro Pombo. Son aproximaciones distintas al pasado: recuerdo personal, reflexión histórica y reconstrucción documental.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788430629664",
-        "isbn-9791387904968"
+        "isbn-9788401040580",
+        "isbn-9788430629664"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "29f839d9493d7101",
+  "fuente_hash": "e5bbbe6e3ddd7002",
   "origen": "chatgpt-web"
 }

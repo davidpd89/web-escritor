@@ -240,18 +240,26 @@ def categories(data, b):
     return sorted((c for c in data["categorias"] if c["id"] in ids and c["activa"]), key=lambda c: (c["orden"], c["id"]))
 
 
-def tags(cats, compact=False):
+# Contrato de la tarjeta y la ficha (docs/contrato-tarjeta-libro.md): todos los límites aquí, en un solo sitio.
+CARD_TAGS = 2           # etiquetas visibles en la tarjeta
+DETAIL_TAGS = 8         # hueco fijo de etiquetas en la ficha (alimentan los filtros)
+CARD_TITLE_CHARS = 44   # dos líneas de la tarjeta (~22 caracteres por línea a 200 px)
+CARD_SYNOPSIS = 200     # descripción sin distintivo
+CARD_SYNOPSIS_BADGE = 150  # con «Novedad» o «Próximamente» la cabecera ocupa más: menos texto, misma altura
+NOVELTY_DAYS = 30       # «Novedad» desde el día de salida hasta un mes después; antes, «Próximamente»
+
+
+def tags(cats, compact=False, limit=None):
     def group(items):
         # La época ya no es filtro del catálogo: se muestra como etiqueta sin enlace.
         return '<ul class="catalogue-tags' + (' catalogue-tags--compact' if compact else '') + '">' + ''.join(f'<li><span>{esc(c["nombre"])}</span></li>' if c['tipo'] == 'epoca' else f'<li><a href="/recomendaciones/#{esc(c["tipo"])}={esc(c["id"])}">{esc(c["nombre"])}</a></li>' for c in items) + '</ul>'
+    priority={'genero':0,'temporada':1,'tematica':2,'epoca':3,'contenido':4,'edad':5}
     if compact:
-        priority={'genero':0,'temporada':1,'tematica':2,'epoca':3,'contenido':4,'edad':5}
         # La edad ya la sugiere la portada: se queda en filtros y ficha, no en la tarjeta.
-        cats=sorted((c for c in cats if c['tipo']!='edad'),key=lambda c:(priority[c['tipo']],c['orden'],c['id']))
-    if compact:
-        # Una sola fila de etiquetas pequeñas (sin desplegable): la tarjeta resume,
-        # el resto de categorías sigue disponible en la ficha y en los filtros.
-        cats = cats[:3]
+        cats = [c for c in cats if c['tipo'] != 'edad']
+    if compact or limit:
+        # Las más informativas primero; la tarjeta resume y la ficha tiene un hueco fijo.
+        cats = sorted(cats, key=lambda c: (priority[c['tipo']], c['orden'], c['id']))[:CARD_TAGS if compact else limit]
     return group(cats)
 
 
@@ -284,12 +292,34 @@ def synopsis_paragraphs(b):
     return [synopsis(b)]
 
 
-def card_synopsis(b, limit=200):
-    """Primer tramo de la sinopsis completa, corto en origen: la tarjeta no recorta texto con CSS (reflujo al 200 %)."""
-    text = ' '.join(synopsis_paragraphs(b))
+def cut(text, limit):
+    """Corte en origen por palabra con «…»: la tarjeta no recorta texto con CSS (reflujo al 200 %)."""
     if len(text) <= limit:
         return text
-    return text[:limit].rsplit(' ', 1)[0].rstrip(' ,;:') + '…'
+    return text[:limit].rsplit(' ', 1)[0].rstrip(' ,;:-–—') + '…'
+
+
+def card_synopsis(b, limit=None, anchor=None):
+    """Primer tramo de la sinopsis completa; más corto si la tarjeta lleva distintivo, para que todas cuadren."""
+    if limit is None:
+        limit = CARD_SYNOPSIS_BADGE if badge(b, anchor) else CARD_SYNOPSIS
+    return cut(' '.join(synopsis_paragraphs(b)), limit)
+
+
+def card_title(b):
+    """Título de la tarjeta en dos líneas: primero la versión sin serie ni subtítulo, y si aún no cabe, «…»."""
+    name = next((t for t in short_titles(b['titulo']) if len(t) <= CARD_TITLE_CHARS), short_titles(b['titulo'])[-1])
+    return cut(name, CARD_TITLE_CHARS)
+
+
+def badge(b, anchor=None):
+    """'proximamente', 'novedad' o '' según la fecha de Amazon frente a hoy (la web lo recalcula cada día en JS)."""
+    stamp = b.get('fecha_publicacion')
+    if not stamp:
+        return ''
+    today = date.fromisoformat(anchor[:10]) if anchor else date.today()
+    days = (today - date.fromisoformat(stamp)).days
+    return 'proximamente' if days < 0 else 'novedad' if days <= NOVELTY_DAYS else ''
 
 
 def meta_synopsis(b):
@@ -883,6 +913,7 @@ def group_options(groups):
 
 
 def render_hub(data, books, template):
+    anchor = data_anchor(books) or None
     cards = []
     groups = {}
     books = sorted(books, key=lambda b: (b.get('fecha_publicacion') or b.get('fecha_publicacion_parcial') or str(b.get('anio_publicacion', '')), b['titulo'].casefold()), reverse=True)
@@ -900,7 +931,7 @@ def render_hub(data, books, template):
         attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-search="{esc(b["titulo"] + " " + " ".join(b["autores"]) + " " + b.get("isbn13", ""))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}" data-pvp="{esc(lowest_price(b) or "")}" data-format-prices="{format_prices(b)}" data-format-discounts="{format_discounts(b)}"'
         affiliate_link = amazon_destination(b)
         affiliate_cta = ('<a class="catalogue-buy-link catalogue-card__buy" href="' + esc(affiliate_link) + '" target="_blank" aria-label="' + esc(amazon_action_label(b)) + ': ' + esc(b["titulo"]) + ' (otra pestaña)" rel="sponsored nofollow noopener noreferrer">' + esc(amazon_action_label(b)) + ' <span aria-hidden="true">↗</span></a>') if affiliate_link else ''
-        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)">{image(b,i>1)}</a><div><p class="eyebrow catalogue-when">{release_line(b)}</p>{tags(cats, compact=True)}<h3><a href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña">{esc(b["titulo"])}</a></h3><p class="catalogue-author">{author_links(b)}</p>{byline(b)}<p class="catalogue-card__description">{esc(card_synopsis(b))}</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}" data-isbn="{esc(b.get("isbn13", ""))}"></div>{format_box(b, compact=True)}<a class="text-action" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha del libro (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
+        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)">{image(b,i>1)}</a><div><p class="eyebrow catalogue-when">{release_line(b)}</p>{tags(cats, compact=True)}<h3><a href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña">{esc(card_title(b))}</a></h3><p class="catalogue-author">{author_links(b)}</p>{byline(b)}<p class="catalogue-card__description">{esc(card_synopsis(b, anchor=anchor))}</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}" data-isbn="{esc(b.get("isbn13", ""))}"></div>{format_box(b, compact=True)}<a class="text-action" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha del libro (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
     sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="titulo">Título · A–Z</option><option value="titulo_desc">Título · Z–A</option><option value="autor">Autor · A–Z</option><option value="fecha_asc">Publicación · más antigua</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option>' + ''.join(f'<option value="precio_{k}">{esc(FORMATS[k])} · del más barato al más caro</option>' for k in BOX_ORDER) + '<option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
     # Lo primero que se ve son los libros ya publicados (los más recientes arriba); los próximos lanzamientos van aparte.
     show = '<label>Mostrar<select name="estado" data-filter="estado" form="catalogue-search-form" disabled><option value="">Ya publicados</option><option value="proximos" id="estado=proximos">Próximos lanzamientos</option><option value="todos">Todos</option></select></label>'
@@ -943,7 +974,7 @@ def render_book(data,b,template):
     if amazon_href:
         cover='<a href="'+esc(amazon_href)+'" aria-label="'+esc(amazon_action_label(b))+': '+esc(b['titulo'])+' (otra pestaña)" target="_blank" rel="sponsored nofollow noopener noreferrer">'+cover+'</a>'
     speech=''
-    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue" data-family="recomendaciones" data-reading-catalogue><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(b['titulo'])+'</li></ol></nav><article class="catalogue-book-layout"><div class="catalogue-cover-panel">'+cover+'</div><div><header class="catalogue-book-heading"><p class="eyebrow catalogue-when">'+release_line(b,upcoming)+'</p><h1>'+esc(b['titulo'])+'</h1><p class="catalogue-author">'+author_links(b)+'</p>'+byline(b)+'<div class="catalogue-rating" data-rating-book="'+esc(b['id'])+'" data-isbn="'+esc(b.get('isbn13',''))+'"></div></header>'+buy+own_before+'<div class="catalogue-synopsis" data-catalogue-description>'+''.join('<p>'+esc(p)+'</p>' for p in synopsis_paragraphs(b))+'</div>'+tags(cats)
+    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue" data-family="recomendaciones" data-reading-catalogue><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(b['titulo'])+'</li></ol></nav><article class="catalogue-book-layout"><div class="catalogue-cover-panel">'+cover+'</div><div><header class="catalogue-book-heading"><p class="eyebrow catalogue-when">'+release_line(b,upcoming)+'</p><h1>'+esc(b['titulo'])+'</h1><p class="catalogue-author">'+author_links(b)+'</p>'+byline(b)+'<div class="catalogue-rating" data-rating-book="'+esc(b['id'])+'" data-isbn="'+esc(b.get('isbn13',''))+'"></div></header>'+buy+own_before+'<div class="catalogue-synopsis" data-catalogue-description>'+''.join('<p>'+esc(p)+'</p>' for p in synopsis_paragraphs(b))+'</div>'+tags(cats, limit=DETAIL_TAGS)
     if b.get('autoria_propia'):
         main+='<p>Obra de David Porto Díaz.</p>'
     if b.get('avisos_contenido'):

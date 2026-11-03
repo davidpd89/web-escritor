@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9788427055582",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La becaria se dirige a lectores de misterio y novela negra interesados en crímenes relacionados con el mundo editorial. Su punto de partida incluye una muerte violenta y unas prácticas profesionales que toman un rumbo inesperado, por lo que se aleja de las historias laborales sin componente criminal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La becaria es una novela negra de Álvaro Jurado que sitúa el conflicto en una editorial. Tessa Hale comienza unas prácticas en Blackpage, donde espera acercarse a su autora favorita, Jane Sterling, pero la muerte de esta altera su experiencia profesional. La combinación de ambiente literario y fallecimiento sospechoso establece el marco de misterio de sus 400 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La becaria está disponible en tapa blanda y Kindle. La edición en papel de Ediciones Martínez Roca contiene 400 páginas y presenta rústica con solapas, adecuada para quien quiera conservar el volumen físico; Kindle facilita continuar la lectura del misterio desde un móvil o lector electrónico compatible.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La becaria y El asesinato de Roger Ackroyd (Edición especial con cantos tintados) comparten el interés por un crimen, aunque Álvaro Jurado sitúa el suyo en una editorial y Agatha Christie desarrolla una investigación detectivesca. También puede compararse con El enigmático míster Quin: este último reúne doce relatos, frente a la novela de 400 páginas de Álvaro Jurado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083934",
+        "isbn-9788408331520"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "539a93db070827d0",
+  "origen": "chatgpt-web"
+}
