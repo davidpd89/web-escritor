@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791388220302",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cine de mi vida está dirigido a lectores interesados en el cine, la ilustración y la relación entre las películas y los recuerdos personales. Esther Gili recorre distintas etapas de su vida mediante obras cinematográficas que influyeron en su sensibilidad artística. No plantea una historia de ficción ni un manual técnico de realización audiovisual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El cine de mi vida aborda el cine desde la memoria personal y la experiencia artística de Esther Gili. Las películas sirven para recorrer su infancia y madurez, además de examinar géneros, personajes e historias que han influido en su imaginario. Se sitúa en el ámbito del arte y combina el interés cinematográfico con una perspectiva autobiográfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cine de mi vida está disponible en Tapa dura y Kindle. La edición de Lunwerg Editores consta de 224 páginas en cartoné, una presentación física para conservar o regalar a alguien interesado en cine e ilustración. Kindle permite leer el recorrido personal de Esther Gili desde el móvil o un lector electrónico, sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cine de mi vida y Sofia Coppola, de Ian Nathan, comparten el cine como asunto central. Esther Gili construye un recorrido por las películas vinculadas a su propia vida, mientras que Sofia Coppola se ocupa del universo cinematográfico de una directora concreta. El primero adopta una perspectiva personal y autobiográfica; el segundo centra la atención en una figura del cine.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049232"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f8a2ba7990a1cf0",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788449345999",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Despierto pero disperso, de Peg Dawson, Richard Guare y Colin Guare, está dirigido a familias y docentes que buscan trabajar las habilidades ejecutivas de niños de entre cuatro y trece años. Trata dificultades habituales como la distracción, la gestión del tiempo y la frustración, por lo que su enfoque práctico difiere del de un ensayo exclusivamente teórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Despierto pero disperso es una guía práctica sobre el desarrollo de las habilidades ejecutivas durante la infancia. Aborda la capacidad para organizarse, mantener la atención y afrontar situaciones frustrantes, con el propósito de favorecer la autonomía y la resolución de problemas. Su público principal son padres y profesores de niños de cuatro a trece años.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Despierto pero disperso está disponible en tapa blanda y Kindle. La edición de Ediciones Paidós consta de 448 páginas en rústica con solapas, que permiten conservar un ejemplar físico para consultar sus orientaciones; Kindle facilita llevar la guía en el móvil o en un lector electrónico y acceder a ella sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Despierto pero disperso puede compararse con Ciencias del comportamiento (Edición especial), de Juan Manuel García Pincho (@cienciasdelcomportamiento), por su interés en comprender y modificar conductas. Peg Dawson, Richard Guare y Colin Guare se centran en habilidades infantiles y orientación para familias y docentes; el otro título aborda la comunicación no consciente y la negociación mediante un método de aplicación cotidiana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388279263"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "685e4b89f8c30350",
+  "origen": "chatgpt-web"
+}

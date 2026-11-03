@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791387901967",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Princesas. Unicorn Wish 1 está dirigido a niños de 3 a 5 años que disfrutan de las princesas, los unicornios y las aventuras mágicas. Sus tres cuentos giran alrededor de la amistad y los desafíos; no está orientado a quienes buscan relatos realistas o lecturas juveniles de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Princesas. Unicorn Wish 1 tiene una edad recomendada de 3 a 5 años y una extensión de 96 páginas. Es un libro infantil de Disney publicado en tapa dura, con tres cuentos protagonizados por Rapunzel, Blancanieves y Bella, acompañadas de unicornios mágicos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "autores",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Princesas. Unicorn Wish 1 permite conservar sus 96 páginas en un volumen de cartón, adecuado para la lectura compartida y para regalar. Kindle ofrece una alternativa digital para acceder a los tres cuentos sin llevar el libro físico, por ejemplo durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "1b946aa07b1bb845",
+  "origen": "chatgpt-web"
+}

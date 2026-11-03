@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408324904",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los secretos de una buena masa está dirigido a quienes quieren preparar pan y otras masas dulces o saladas en casa. Sus recetas explicadas paso a paso y el uso de pocos ingredientes responden a una búsqueda de cocina práctica; no está planteado como una lectura de ficción ni como un libro de gastronomía exclusivamente teórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Los secretos de una buena masa reúne más de 60 recetas de panadería y elaboraciones dulces y saladas. Sus instrucciones paso a paso sirven para practicar la preparación de masas en casa, trabajar con pocos ingredientes y aprender el papel de la fermentación. Las 288 páginas permiten consultar el libro durante distintas preparaciones.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los secretos de una buena masa puede consultarse en Tapa blanda o Kindle. La edición de Zenith tiene 288 páginas en rústica con solapas, útil para mantener el recetario físico a mano mientras se cocina. Kindle permite consultar las instrucciones desde el móvil o un lector electrónico, sin necesidad de llevar el volumen de papel.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los secretos de una buena masa y El acorde secreto, de Daniel J. Levitin, abordan conocimientos especializados, aunque desde ámbitos distintos: la elaboración de masas y la neurociencia. El primero propone recetas e instrucciones para cocinar, mientras que el segundo se vincula al trabajo de un neurocientífico. La diferencia principal está entre la práctica culinaria y la lectura sobre otro campo de conocimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449345975"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d2427e75af95a335",
+  "origen": "chatgpt-web"
+}
