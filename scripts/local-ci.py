@@ -79,6 +79,16 @@ def plain_env(env):
     return {k: str(v) for k, v in (env or {}).items() if '${{' not in str(v)}
 
 
+def loop_lines(run):
+    """`for f in tests/test-*.py; do … python "$f"` (las pruebas de la puerta obligatoria): un comando por fichero."""
+    lines = []
+    for var, pattern, body in re.findall(r'for (\w+) in (\S+); do(.*?)\bdone\b', run, re.S):
+        tool = re.search(r'\b(python3?|node) "?\$' + var + r'\b', body)
+        if tool:
+            lines += [f'{tool[1]} {p.relative_to(ROOT).as_posix()}' for p in sorted(ROOT.glob(pattern))]
+    return lines
+
+
 def collect(changed, everything):
     """Comandos únicos de los workflows activados, con su entorno."""
     commands = {}
@@ -91,7 +101,7 @@ def collect(changed, everything):
             continue
         for job in (flow.get('jobs') or {}).values():
             for step in job.get('steps') or []:
-                for line in (step.get('run') or '').splitlines():
+                for line in loop_lines(step.get('run') or '') + (step.get('run') or '').splitlines():
                     m = COMMAND.match(line.strip())
                     # qa/production-*: miden la web desplegada, no esta rama.
                     if not m or '$' in line or '--update' in line or 'qa/production-' in line \
