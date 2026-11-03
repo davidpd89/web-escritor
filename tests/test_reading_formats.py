@@ -41,6 +41,14 @@ class FormatBoxTest(unittest.TestCase):
         self.assertIsNone(m.primary_format(search))
         self.assertNotIn('is-primary', m.format_box(search))
 
+    def test_cover_buy_button_and_format_share_one_link_after_price_sweep(self):
+        # The sweep rewrites the format URL with Amazon's detailPageURL; the book-level link keeps the old one.
+        swept = URL.replace('B0TEST1234', '8433929000') + '&linkCode=ogi&th=1&psc=1'
+        book = dict(BOOK, url_amazon_afiliada=URL.replace('B0TEST1234', '8433929000'),
+                    formatos_compra=[BOOK['formatos_compra'][0], {'formato': 'tapa-blanda', 'url': swept}])
+        self.assertEqual(m.amazon_destination(book), m.amazon_es(swept))
+        self.assertEqual(m.primary_format(book), 'tapa-blanda')
+
     def test_book_without_amazon_formats_shows_four_crosses(self):
         self.assertEqual(m.format_box({**BOOK, 'formatos_compra': []}).count('is-missing'), 4)
 
