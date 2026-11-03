@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788403526808",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Donde me lleven tus huellas está dirigido a adultos que atraviesan la pérdida de un animal querido, anticipan su despedida o acompañan a alguien en ese proceso. Yhong-Hee Shim centra el libro en el duelo y la memoria afectiva; no está planteado como un manual de cuidados veterinarios ni como una guía general sobre mascotas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Donde me lleven tus huellas propone una lectura centrada en la despedida de los animales de compañía y en la permanencia de su recuerdo. Yhong-Hee Shim aborda tanto el duelo posterior a la pérdida como la preparación emocional ante una separación próxima y el acompañamiento a otras personas que la viven.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Donde me lleven tus huellas está disponible en tapa blanda y Kindle. La edición de Aguilar consta de 232 páginas con solapas, un formato físico para conservar o regalar a alguien que atraviesa una despedida; Kindle permite acceder al texto desde el móvil o un lector electrónico y retomarlo en distintos momentos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde me lleven tus huellas y Duelo, de Michael Cholbi, comparten el interés por la experiencia de la pérdida. Yhong-Hee Shim se centra específicamente en la despedida de animales queridos, mientras Michael Cholbi examina el duelo desde la filosofía de las emociones. El primero también contempla cómo acompañar a otra persona durante ese proceso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449344626"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f68f72d04f4709ee",
+  "origen": "chatgpt-web"
+}

@@ -20,6 +20,10 @@ try {
     await page.locator('[data-filter="q"]').fill(b.isbn13);
     // ISBN is a useful lookup as well as title/author.
     assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
+  }
+  // Ficha a ficha lo cubre tests/test_reading_card_contract.py en todas; aquí basta una muestra fija que se renderiza.
+  const sample = imported.filter((_, i) => i % Math.ceil(imported.length / 12 || 1) === 0);
+  for (const b of sample) {
     await page.goto(base + '/recomendaciones/libros/' + b.slug + '/');
     assert.equal(await page.locator('main h1').innerText(), b.titulo);
     await page.locator('.catalogue-book-cover').evaluate(img => img.decode());
@@ -40,7 +44,6 @@ try {
     const publisherHref = b.editorial_slug ? '/editoriales/' + b.editorial_slug + '/' : '/recomendaciones/editoriales/' + b.editorial_catalogo_slug + '/';
     assert(await page.locator('main a[href="' + publisherHref + '"]').count(), 'La ficha enlaza a la página de su editorial');
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
-    await page.goto(base + '/recomendaciones/');
   }
   await page.goto(base + '/mapa-del-sitio/');
   const accordion = page.locator('details.directory-reading-books').first();
@@ -56,7 +59,7 @@ try {
   }
   // Calendar boundaries use Madrid's civil day, including the DST change.
   for (const [now, today] of [['2026-10-20T22:30:00Z', '2026-10-21'], ['2026-10-25T23:30:00Z', '2026-10-26']]) {
-    const dates = [0, 14, 15, -1].map(n => new Date(Date.parse(today + 'T00:00:00Z') - n * 86400000).toISOString().slice(0, 10));
+    const dates = [0, 30, 31, -1].map(n => new Date(Date.parse(today + 'T00:00:00Z') - n * 86400000).toISOString().slice(0, 10));
     const boundary = await browser.newPage();
     await boundary.clock.setFixedTime(new Date(now));
     await boundary.route('**/novelty-test/', route => route.fulfill({ contentType: 'text/html', body: '<main data-reading-catalogue>' + [...dates, '2026-10', '2026', ''].map(s => '<p><span data-release-label="' + s + '" data-release-fallback="Libros recomendados">Libros recomendados</span></p>').join('') + '</main><script src="/assets/reading-catalogue.js?v=6"></script>' }));
@@ -76,5 +79,5 @@ try {
     assert.equal(await page.locator('h1').count(), 1);
     assert.equal(await page.locator('.catalogue-author-books li').count(), imported.filter(b => b.editorial_catalogo_slug === publisher).length, 'La ficha del sello lista sus libros');
   }
-  console.log(`PASS ${imported.length} imported books, ${new Set(imported.map(b => b.editorial_slug || b.editorial_catalogo_slug)).size} publishers, sitemap disclosure, edition identity, author links, Madrid/DST novelty boundaries`);
+  console.log(`PASS ${imported.length} imported books (${sample.length} detail pages in browser), ${new Set(imported.map(b => b.editorial_slug || b.editorial_catalogo_slug)).size} publishers, sitemap disclosure, edition identity, author links, Madrid/DST novelty boundaries`);
 } finally { await browser.close(); }

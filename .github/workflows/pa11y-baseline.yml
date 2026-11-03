@@ -27,7 +27,8 @@ concurrency:
 jobs:
   pa11y-baseline:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # El sitemap completo (~1140 URL) rozaba los 30 min a 2 páginas a la vez; a 4 (los vCPU del runner) baja a la mitad.
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
         with:
@@ -105,8 +106,9 @@ jobs:
             ROUTES='${{ steps.lane.outputs.routes }}' python3 -c "import json, os; c = json.load(open('.pa11yci')); c['urls'] = ['http://127.0.0.1:4173' + r for r in os.environ['ROUTES'].split(',') if r]; json.dump(c, open('/tmp/pa11y-content.json', 'w'))"
             pa11y-ci --config /tmp/pa11y-content.json 2>&1 | tee pa11y-baseline.txt
           else
+            python3 -c "import json; c = json.load(open('.pa11yci')); c['concurrency'] = 4; json.dump(c, open('/tmp/pa11y-full.json', 'w'))"
             pa11y-ci \
-              --config ./.pa11yci \
+              --config /tmp/pa11y-full.json \
               --sitemap http://127.0.0.1:4173/sitemap.xml \
               --sitemap-find 'https://davidportodiaz.com' \
               --sitemap-replace 'http://127.0.0.1:4173' \
