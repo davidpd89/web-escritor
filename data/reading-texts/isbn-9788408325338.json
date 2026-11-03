@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788408325338",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una corte de armonía rota encaja con lectores de fantasía romántica interesados en territorios fae, amenazas antiguas y conflictos por el poder. Es una entrega de Una corte de rosas y espinas, por lo que resulta menos apropiada para quien busca una historia independiente o una ambientación realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas ofrece las 400 páginas en una edición física de Crossbooks, útil para mantener la colección en papel. Kindle permite llevar esta entrega digitalmente y continuar su lectura desde un dispositivo compatible sin cargar con el volumen impreso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde duermen las sombras comparte con Una corte de armonía rota la combinación de fantasía y romance, pero sitúa el amor en un contexto contemporáneo de dimensiones y sombras. Guerra de dragones (Lengua de dragones 2) se aproxima más por el conflicto colectivo, aunque se centra en una rebelión con dragones frente a la amenaza sobre los territorios fae.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788427055605",
+        "isbn-9788419275776"
+      ]
+    }
+  ],
+  "descartados": [
+    "encaje_documentado: copia 8 palabras seguidas de la sinopsis",
+    "faltan módulos: encaje_documentado"
+  ],
+  "version": 3,
+  "fuente_hash": "c343381740238396",
+  "origen": "chatgpt-web"
+}

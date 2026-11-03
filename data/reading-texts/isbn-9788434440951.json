@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788434440951",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vida de San Francisco de Asís se dirige a lectores de biografías interesados en la historia religiosa y su influencia cultural y política. Álvaro Pombo aborda la figura de Francisco mediante las voces de su primera comunidad, un planteamiento distinto del ensayo dedicado exclusivamente a la actualidad institucional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Vida de San Francisco de Asís examina la trayectoria de Francisco y la permanencia de sus ideas en la religión, la filosofía, la política y la cultura. Álvaro Pombo construye la biografía desde una perspectiva colectiva, utilizando las voces de los primeros franciscanos para presentar tanto la vida del personaje como su legado histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vida de San Francisco de Asís está disponible en tapa blanda y Kindle. La edición de Editorial Ariel contiene 192 páginas en rústica con solapas, una extensión manejable para la lectura en papel; Kindle permite consultar la biografía en un dispositivo compatible sin necesidad de transportar el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vida de San Francisco de Asís y España. 50 años después examinan cambios y continuidades históricos, pero Álvaro Pombo se centra en una figura religiosa y su legado cultural, mientras William Chislett estudia la transformación de España desde el franquismo. El estado del Estado también aborda la dimensión política, aunque desde una reflexión sobre la España contemporánea, no desde una biografía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441013",
+        "isbn-9788467085068"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "95fe75472300ded1",
+  "origen": "chatgpt-web"
+}

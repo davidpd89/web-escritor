@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las Pruebas del Tarot encaja con lectores adultos de fantasía que busquen competiciones mágicas, intrigas entre aliados y una relación que evoluciona del odio al amor. Su conflicto incluye una ejecución familiar, traiciones y amenazas durante un torneo, por lo que se aleja de las historias centradas únicamente en el romance o sin enfrentamientos de poder.",
+      "texto": "Las Pruebas del Tarot está dirigida a lectores adultos de fantasía que buscan torneos mágicos, intrigas políticas y relaciones que evolucionan del odio al amor. La historia combina una competición peligrosa con una investigación familiar; no se orienta a quienes prefieren fantasía sin conflictos sentimentales ni traiciones.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,41 +14,30 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Las Pruebas del Tarot combina fantasía adulta, competición mágica y romance dentro de una disputa por el poder. Kestrel participa como Campeona de la Luna mientras intenta dominar sus habilidades, identificar al responsable de la muerte de su madre y sobrevivir a unas pruebas donde las alianzas pueden convertirse en traiciones.",
+      "texto": "Las Pruebas del Tarot combina fantasía, competición y vínculos sentimentales dentro de un torneo relacionado con el poder político. Kestrel participa como Campeona de la Luna mientras intenta esclarecer la muerte de su madre. Entre sus elementos expresamente identificados figuran un sistema mágico original, la familia elegida y una relación que pasa del odio al amor.",
       "evidencias": [
         "titulo",
         "categorias",
-        "edad_recomendada",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las Pruebas del Tarot se presenta en tapa dura con sobrecubierta, con 496 páginas en castellano. Esta edición permite conservar la novela en papel, prestarla o regalarla, con una cubierta rígida para proteger un volumen de extensión considerable durante su manipulación y almacenamiento.",
+      "texto": "Las Pruebas del Tarot está disponible en tapa dura y Kindle. La edición de Plaza & Janés tiene 496 páginas y sobrecubierta, por lo que ofrece un volumen físico para conservar o regalar. Kindle reúne esa lectura en formato digital y evita transportar un libro de casi quinientas páginas durante los desplazamientos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "idioma"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Las Pruebas del Tarot puede compararse con La hija del veneno por la presencia del temor como elemento del conflicto. Katee Robert concreta las amenazas en un torneo con poderes, alianzas y traiciones, mientras Sheila Masterson introduce una reflexión sobre la necesidad de infundir miedo; Las Pruebas del Tarot incorpora además una relación del odio al amor.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788425375118"
+        "editorial",
+        "numero_paginas"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "lecturas_afines: afirmaciones sin respaldo: premi",
+    "faltan módulos: lecturas_afines"
+  ],
   "version": 3,
-  "fuente_hash": "e6d193ff2eefb6d7",
+  "fuente_hash": "af1c3b99d0707e52",
   "origen": "chatgpt-web"
 }

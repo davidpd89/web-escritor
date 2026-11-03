@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408323181",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Japón 2027-2028 está dirigido a quienes preparan una visita a Japón y quieren combinar grandes ciudades, gastronomía y lugares menos conocidos. Abarca desde Tokio y Kioto hasta Shikoku, Kyūshū y Okinawa; no responde a quien busque una novela ambientada en el país, porque es una guía de viajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Japón 2027-2028 es una guía de viajes centrada en destinos, cultura y gastronomía japonesa. Sus 856 páginas reúnen tanto lugares reconocibles, como el monte Fuji, como regiones menos habituales en los recorridos turísticos, entre ellas Shikoku y Kyūshū.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Japón 2027-2028 reúne sus 856 páginas en una edición rústica sin solapas, apropiada para consultar sobre papel durante la planificación. Kindle permite llevar el mismo título en un dispositivo de lectura o en el móvil, sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Japón 2027-2028 e Indonesia 7 comparten a Ray Bartlett entre sus autores y tratan destinos asiáticos, aunque cada guía se centra en un país distinto. Frente a Amsterdam de cerca 2027-2028, dedicado a una ciudad, Japón 2027-2028 abarca varias regiones y destinos de un territorio nacional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329534",
+        "isbn-9788408320890"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e25030c55b4cbe02",
+  "origen": "chatgpt-web"
+}

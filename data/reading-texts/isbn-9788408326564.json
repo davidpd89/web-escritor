@@ -1,0 +1,59 @@
+{
+  "id": "isbn-9788408326564",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento se dirige a lectores de 6 a 8 años y a familias que quieran compartir textos durante el Adviento. Combina cuentos, poesía y canciones navideñas; no está planteado como una única narración larga ni como una lectura ajena a esta celebración.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento está recomendado de 6 a 8 años y tiene 96 páginas. Mar Benegas reúne 24 textos entre cuentos, poemas y canciones, distribuidos para acompañar los días del Adviento. La edición es de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "autores",
+        "sinopsis_editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En tapa dura, las 96 páginas de Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento forman un volumen físico para conservar y compartir durante las celebraciones familiares. Kindle permite consultar digitalmente sus 24 textos y seguir la lectura diaria sin depender del ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento y El libro de los gatos incluyen poesía, pero Mar Benegas combina cuentos, poemas y canciones navideñas para lectores de 6 a 8 años, mientras Ursula K. Le Guin reúne poemas, meditaciones y dibujos sobre gatos. Las luces, de Ben Lerner, también mezcla versos y prosa, aunque aborda otros motivos y no sigue un calendario de Adviento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306297",
+        "isbn-9788433951151"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a511ab57019a3710",
+  "origen": "chatgpt-web"
+}
