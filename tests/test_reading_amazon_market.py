@@ -56,6 +56,14 @@ class AmazonPriceTests(unittest.TestCase):
         for amount,currency in [('11,35','EUR'),(True,'EUR'),('nan','EUR'),('1.111','EUR'),(5,'USD'),(0,'EUR')]:
             self.assertIsNone(money_cents({'amount':amount,'currency':currency}))
 
+    def test_prices_outside_the_published_range_are_dropped(self):
+        for amount in [0.99,1000.01]:
+            payload=response(); payload['searchResult']['items'][0]['offersV2']['listings'][0]['price']['money']['amount']=amount
+            self.assertEqual(select_offers(BOOK,payload,'contrato-21',NOW),[],amount)
+        for amount,cents in [(1,100),(1000,100000)]:
+            payload=response(); payload['searchResult']['items'][0]['offersV2']['listings'][0]['price']['money']['amount']=amount
+            self.assertEqual(select_offers(BOOK,payload,'contrato-21',NOW)[0]['precio_centimos'],cents)
+
     def test_edition_specific_known_formats_keep_independent_prices(self):
         book=copy.deepcopy(BOOK)
         book['formatos_compra']=[{'formato':'ebook','url':'https://www.amazon.es/dp/B08CYCPBZN?tag=contrato-21'}]
