@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Lamu nº 08/17 encaja con lectores de manga que busquen humor basado en enredos personales, reacciones inesperadas y situaciones disparatadas. Las peripecias de Ataru y Ten-chan se alejan de una narración solemne o centrada exclusivamente en grandes enfrentamientos, ya que los conflictos descritos parten de incidentes cotidianos y familiares.",
+      "texto": "Lamu nº 08/17 se dirige a lectores de cómic interesados en los enredos de Ataru y los conflictos disparatados entre personajes. Su planteamiento, basado en incidentes familiares y comportamientos imprevisibles, encaja menos con quienes buscan una narración realista o una investigación criminal sostenida.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,23 +13,36 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Lamu nº 08/17 es un manga que desarrolla situaciones cómicas alrededor de los percances de Ataru y del comportamiento de Ten-chan. Una disputa familiar en la playa y el contraste entre el carácter habitual de Ten-chan y su reacción ante su madre muestran cómo Rumiko Takahashi construye conflictos a partir de encuentros inesperados.",
+      "texto": "Lamu nº 08/17 presenta una lectura de cómic construida alrededor de situaciones caóticas y relaciones entre personajes. Ataru se ve implicado en una disputa familiar durante una visita a la playa, mientras Ten-chan muestra una conducta distinta cuando aparece su madre. Estos episodios combinan conflictos cotidianos con elementos fantásticos, como la capacidad de escupir fuego.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Lamu nº 08/17 se presenta en tapa blanda, con 360 páginas en castellano y encuadernación rústica sin solapas. El formato flexible facilita transportar el tomo y leerlo en papel, mientras que sus 360 páginas concentran el contenido en un único volumen físico.",
+      "texto": "Lamu nº 08/17 está disponible en tapa blanda, concretamente en una edición rústica sin solapas y con sobrecubierta de Planeta Cómic. Sus 360 páginas forman un volumen físico que puede conservarse junto a los demás números de la colección. Es una opción para quienes prefieren leer las viñetas en papel y reunir la serie en una estantería.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas",
-        "idioma"
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lamu nº 08/17 y MAO nº 11 son obras de Rumiko Takahashi, pero plantean conflictos diferentes. Lamu nº 08/17 presenta los enredos de Ataru y las reacciones de Ten-chan ante su familia, mientras MAO nº 11 sigue una investigación sobre un asesino que deja víctimas sin sangre. Frente al caos de las relaciones personales, MAO nº 11 sitúa el misterio criminal en el centro de la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388103612"
       ]
     }
   ],

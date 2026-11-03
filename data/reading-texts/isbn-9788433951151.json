@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las luces se dirige a lectores de poesía contemporánea interesados en obras que alternan versos, prosa y formas de comunicación cotidiana. No está planteado como una narración de argumento continuo: Ben Lerner utiliza imágenes del espacio, referencias tecnológicas y vínculos humanos para desarrollar sus temas.",
+      "texto": "Las luces, de Ben Lerner, se dirige a lectores de poesía interesados en la relación entre experiencia íntima, tecnología, naturaleza y vida colectiva. Combina versos y prosa con referencias a sonidos y comunicaciones contemporáneas, por lo que se distancia de una narración convencional con una trama continua.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,19 +14,21 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Las luces es un libro de poesía que combina formas versales y prosa para reflexionar sobre la creación artística y las relaciones entre las personas. Ben Lerner incorpora referencias musicales, mensajes de voz e imágenes de la naturaleza y el espacio, con una perspectiva que oscila entre las experiencias individuales y los problemas colectivos.",
+      "texto": "Las luces reúne poesía y prosa elaboradas durante quince años, con atención a la creación artística y a las crisis de la sociedad contemporánea. Ben Lerner alterna escalas personales y colectivas e incorpora elementos como mensajes de voz, canciones y silencios. Sus 168 páginas presentan una composición lírica, no una sucesión de capítulos narrativos convencionales.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las luces está disponible en tapa blanda, con una extensión de 168 páginas. La edición física permite leer consecutivamente los poemas y fragmentos en prosa o regresar a composiciones concretas, además de subrayar y anotar los pasajes que se quieran consultar después.",
+      "texto": "Las luces está disponible en tapa blanda, en una edición de Editorial Anagrama de 168 páginas. El ejemplar físico permite volver a los versos y pasajes en prosa, marcar páginas y conservar el libro en una biblioteca. Es la opción de formato recogida para esta edición.",
       "evidencias": [
         "titulo",
+        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
@@ -35,7 +37,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las luces y El libro de los gatos incluyen poesía, pero Ben Lerner explora cuestiones tecnológicas y sociales, mientras Ursula K. Le Guin reúne textos y dibujos relacionados con los gatos. La llamada de los olores también trabaja con experiencias difíciles de retener mediante la escritura, aunque Las luces amplía esa preocupación hacia la creación artística y las crisis colectivas.",
+      "texto": "El libro de los gatos y Las luces comparten la presencia de poemas y textos reflexivos, pero Ursula K. Le Guin centra su volumen en los gatos y también incorpora dibujos, mientras Ben Lerner aborda tecnología, naturaleza y creación artística. La llamada de los olores, de Ryoko Sekiguchi, también explora sensaciones y recuerdos mediante la escritura. Frente a su atención a olores, sabores y voces ausentes, Las luces amplía la mirada hacia experiencias colectivas y crisis contemporáneas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -51,6 +53,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e727362b54ff4531",
+  "fuente_hash": "bf37813d42e5df84",
   "origen": "chatgpt-web"
 }

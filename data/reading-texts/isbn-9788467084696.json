@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788467084696",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El retorno a la cabaña encaja con lectores de narrativa contemporánea interesados en el duelo, el perdón y las cuestiones espirituales. Su conflicto gira alrededor del sufrimiento y la posibilidad de mantener la esperanza ante experiencias dolorosas, de modo que no responde a la búsqueda de una historia de acción o de misterio policial.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El retorno a la cabaña propone una lectura de narrativa contemporánea centrada en las consecuencias del dolor y la dificultad de perdonar. La dimensión espiritual aparece vinculada a la esperanza y a la relación con lo divino. Wm. Paul Young aborda estos asuntos en una novela de 304 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de El retorno a la cabaña tiene 304 páginas y encuadernación rústica con solapas, una opción para leer en papel y guardar el ejemplar. Kindle ofrece la alternativa digital para consultar la novela desde un dispositivo compatible, sin llevar el volumen físico. Editorial Espasa publica la edición impresa en castellano.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La cabaña y El retorno a la cabaña son novelas de Wm. Paul Young que incorporan una dimensión espiritual. La cabaña parte de la posibilidad de recibir una carta de Dios y aceptar un encuentro, mientras El retorno a la cabaña aborda el duelo y el perdón ante situaciones dolorosas. Comparten autoría, pero presentan preguntas distintas al lector.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084832"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee6e8b9c2c6f03c3",
+  "origen": "chatgpt-web"
+}

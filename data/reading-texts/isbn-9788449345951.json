@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788449345951",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Contingencia, ironía y solidaridad se dirige a lectores de filosofía interesados en la relación entre verdad, historia y convivencia social. Su planteamiento cuestiona los fundamentos universales de las creencias y examina la solidaridad desde la filosofía política y cultural, por lo que no responde al formato de una guía práctica de conducta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Contingencia, ironía y solidaridad estudia cómo pensar una sociedad solidaria sin recurrir a verdades universales. Richard Rorty relaciona esa cuestión con la contingencia histórica y con aportaciones de Nietzsche, Freud y Wittgenstein. Su enfoque pertenece a la filosofía política y cultural, y desarrolla estos problemas a lo largo de 352 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Contingencia, ironía y solidaridad está disponible en tapa blanda y Kindle. Ediciones Paidós publica la edición física en rústica con solapas y 352 páginas, que permiten consultar y releer pasajes en papel; Kindle facilita transportar el ensayo completo y acceder a él desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Contingencia, ironía y solidaridad y Antes de perder el juicio comparten la preocupación por la verdad en la vida colectiva. Richard Rorty cuestiona la necesidad de fundamentos universales para construir una sociedad solidaria, mientras Mauricio García Villegas aborda la propaganda, las consignas sectarias y las cámaras de eco. El primero desarrolla una reflexión filosófica; el segundo parte de problemas del debate público.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6160f530501e54de",
+  "origen": "chatgpt-web"
+}

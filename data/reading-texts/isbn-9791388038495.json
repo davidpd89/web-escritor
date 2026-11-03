@@ -1,0 +1,59 @@
+{
+  "id": "isbn-9791388038495",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores adultos interesados en la espiritualidad, las vidas pasadas y la relación entre psicoterapia y creencias metafísicas. Muchas vidas, muchos maestros (edición especial con cantos tintados) parte de una experiencia clínica narrada por Brian Weiss; no plantea un manual de técnicas terapéuticas ni una investigación experimental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Muchas vidas, muchos maestros (edición especial con cantos tintados) se distingue por sus cantos tintados y su encuadernación en tapa dura. Publicada por Vergara el 22 de octubre de 2026, reúne 224 páginas en castellano y lleva el ISBN 9791388038495, que permite identificarla frente a otras presentaciones del libro.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible de Muchas vidas, muchos maestros (edición especial con cantos tintados). Sus 224 páginas forman un volumen físico con cantos tintados, una característica que puede interesar para conservarlo o regalarlo; la encuadernación rígida también resulta práctica para las consultas y relecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Muchas vidas, muchos maestros (edición especial con cantos tintados) y Uketamo. Abrazar la vida tal cual viene se acercan a cuestiones personales desde perspectivas distintas: Brian Weiss aborda las vidas pasadas y la espiritualidad, mientras Ana Galeote Frontelo se centra en la aceptación. Los genios creen en Dios también relaciona ciencia y creencias, pero desde el debate sobre la fe, no desde una experiencia de psicoterapia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431486",
+        "isbn-9788410096547"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "66be7f7f57dba9ed",
+  "origen": "chatgpt-web"
+}
