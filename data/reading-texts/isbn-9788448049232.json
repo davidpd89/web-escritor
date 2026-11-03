@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788448049232",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sofia Coppola se dirige a lectores interesados en el cine, la dirección cinematográfica y el análisis de una trayectoria artística. Ian Nathan aborda la formación y la visión creativa de la directora; no es una novela de ficción ni un manual de técnicas de rodaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Sofia Coppola es un libro de arte centrado en la obra cinematográfica de la directora y en las experiencias que contribuyeron a formar su mirada. Ian Nathan examina su relación temprana con los rodajes y el desarrollo de una identidad creativa propia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sofia Coppola está disponible en tapa dura, con una edición de 176 páginas que incorpora estuche. Este formato permite conservar el volumen protegido y entregarlo como regalo físico; su extensión también facilita consultar distintos pasajes sin necesidad de seguir una lectura continua.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sofia Coppola y El cine de mi vida comparten el interés por el cine como expresión artística. El libro de Ian Nathan se concentra en una directora y su universo cinematográfico, mientras que el de Esther Gili relaciona el cine con la ilustración y se presenta como una propuesta de regalo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e8ba433d72b2f266",
+  "origen": "chatgpt-web"
+}

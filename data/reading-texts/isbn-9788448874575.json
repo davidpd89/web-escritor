@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi mamá es... - Una unicornia solitaria encaja con lectores a partir de 4 años que disfrutan de criaturas fantásticas y búsquedas familiares. No es una lectura realista: Pepita, una dragona de una sola ala, recorre un bosque con Gruñón para encontrar a su madre.",
+      "texto": "Mi mamá es... - Una unicornia solitaria está dirigido a niños a partir de 4 años que disfrutan de las criaturas fantásticas y las aventuras de búsqueda. La historia gira alrededor de una pequeña dragona que intenta encontrar a su madre, por lo que se aleja de los relatos realistas o centrados en situaciones escolares.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,30 +14,45 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Está recomendado a partir de 4 años y cuenta con 32 páginas en tapa dura. La edición en castellano de Beascoa ofrece una extensión breve para seguir la búsqueda de Pepita y Gruñón en una sesión de lectura compartida o por partes.",
+      "texto": "Mi mamá es... - Una unicornia solitaria está recomendado a partir de 4 años y tiene 32 páginas. La edición de Beascoa es en tapa dura y en castellano, con una extensión que permite abordar la aventura de Pepita y Gruñón en sesiones breves de lectura compartida.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "numero_paginas",
+        "editorial",
         "edicion",
         "idioma",
-        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura protege las 32 páginas de Mi mamá es... - Una unicornia solitaria durante las lecturas repetidas. Es un formato físico que permite pasar las páginas juntos mientras Pepita y Gruñón buscan a su madre, y conservar el ejemplar para volver a leerlo.",
+      "texto": "Mi mamá es... - Una unicornia solitaria se publica en tapa dura y Kindle. La edición física de Beascoa reúne 32 páginas en una encuadernación rígida, adecuada para manipular el libro durante la lectura compartida; Kindle permite llevar la historia en un dispositivo compatible sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
+        "editorial",
         "edicion",
+        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "edad_recomendada"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi mamá es... - Una unicornia solitaria comparte con Capitán Patata 2 - Quietecito o te dejo frito la presencia de personajes fantásticos y aventuras de tono disparatado. Steve Smallman centra su historia en una dragona que busca a su madre, mientras Neil Coslett presenta a un superhéroe y sus amigos en cinco miniaventuras. La primera sigue una búsqueda familiar; la segunda reúne episodios protagonizados por un grupo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427254985"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "911fc30695658e3b",
+  "fuente_hash": "891cc528440e3032",
   "origen": "chatgpt-web"
 }

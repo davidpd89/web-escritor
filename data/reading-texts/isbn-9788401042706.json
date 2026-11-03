@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788401042706",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La tapadera (La tapadera 1) se dirige a lectores adultos interesados en el thriller jurídico, las conspiraciones y los delitos económicos. El conflicto entre la carrera profesional de un abogado y las actividades ilegales de su bufete la aleja de quienes buscan una historia centrada en el romance o la vida cotidiana.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La tapadera (La tapadera 1) plantea un thriller de conspiración ambientado en el mundo de los grandes despachos de abogados. Mitch McDeere acepta una oferta laboral que acaba vinculándolo con archivos confidenciales, vigilancia del FBI y operaciones ilegales. La amenaza procede de la propia organización para la que trabaja y de las consecuencias de intentar abandonarla.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapadera (La tapadera 1) está disponible en tapa blanda y Kindle. La edición física de Plaza & Janés tiene solapas y 536 páginas, una opción para conservar el volumen en papel; Kindle permite llevar esa misma lectura en un dispositivo compatible sin cargar con el libro.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: afirmaciones sin respaldo: premi",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "cac54933cb63e3b3",
+  "origen": "chatgpt-web"
+}

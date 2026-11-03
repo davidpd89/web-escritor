@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788401041723",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hanami, de Patricia Benito, se dirige a quienes buscan reflexiones sobre la belleza cotidiana, los afectos y el carácter pasajero de las experiencias. Su estructura mediante cartas y su enfoque filosófico lo separan de los ensayos académicos centrados en desarrollar una teoría sistemática o de los manuales con instrucciones prácticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Hanami examina la atención a aquello que emociona y la necesidad de apreciar las experiencias mientras suceden. Patricia Benito parte de una costumbre japonesa vinculada a la floración de los cerezos y organiza sus reflexiones en cartas. Los vínculos personales, los recuerdos y los pequeños gestos de cuidado sirven para explorar la belleza y su duración limitada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hanami se ofrece en tapa blanda y Kindle, dos maneras de leer sus reflexiones organizadas en cartas. La edición en papel de Plaza & Janés tiene 176 páginas y permite volver físicamente a cada texto; Kindle facilita consultarlos desde el móvil o un lector electrónico compatible. El contenido puede acompañar tanto una lectura seguida como el regreso a cartas concretas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hanami y Duelo, de Michael Cholbi, abordan experiencias emocionales desde una perspectiva reflexiva. Patricia Benito utiliza cartas para detenerse en la belleza de lo cotidiano y su fugacidad, mientras que Michael Cholbi examina filosóficamente la experiencia de perder a alguien. Contingencia, ironía y solidaridad, de Richard Rorty, desplaza esa reflexión hacia la convivencia social y la ausencia de verdades universales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449345951",
+        "isbn-9788449344626"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "17960e7c7b7bc6d6",
+  "origen": "chatgpt-web"
+}

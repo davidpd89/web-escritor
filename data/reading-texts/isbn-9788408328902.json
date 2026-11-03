@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788408328902",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Triunfa con mis recetas estrella, de Paula Monreal, está pensado para quienes buscan platos sencillos, rápidos y con pocos ingredientes, tanto para cocinar a diario como para recibir invitados. Su orientación práctica encaja menos con lectores interesados en técnicas culinarias complejas o preparaciones que requieren muchos ingredientes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Triunfa con mis recetas estrella reúne 80 recetas de Paula Monreal en un volumen de 192 páginas. Las propuestas se basan en preparaciones rápidas y sencillas con pocos ingredientes, pensadas para comidas cotidianas y ocasiones en las que se cocina para otras personas. Su uso principal es consultar platos concretos y prepararlos en casa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Triunfa con mis recetas estrella está disponible en tapa blanda y Kindle. La edición rústica con solapas de Zenith reúne 192 páginas que pueden consultarse en papel mientras se cocina. Kindle permite acceder a las recetas desde un dispositivo electrónico, sin necesidad de tener el libro físico en la cocina.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Triunfa con mis recetas estrella y 20 minutos ¡y listo! comparten su orientación hacia la cocina rápida y cotidiana. Paula Monreal reúne 80 recetas con pocos ingredientes, mientras que Jamie Oliver plantea su propuesta alrededor de preparaciones de 20 minutos. La diferencia está entre un recetario centrado en la sencillez y otro que destaca un tiempo concreto de preparación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04e7956a261e60d5",
+  "origen": "chatgpt-web"
+}

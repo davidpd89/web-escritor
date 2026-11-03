@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788467083729",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nada es lo que era, de Florentino Portero, se dirige a lectores interesados en la política internacional, la actualidad y los cambios provocados por la tecnología. Su planteamiento examina transformaciones del orden global, por lo que encaja menos con quienes buscan una narración de ficción o una explicación exclusivamente técnica de las nuevas ingenierías.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Nada es lo que era propone una lectura de actualidad centrada en la transición entre un orden global anterior y otro condicionado por los avances tecnológicos. Florentino Portero relaciona las nuevas ingenierías con cambios en prácticas y estructuras consideradas normales durante décadas. El eje del libro es interpretar esa transformación política y social.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nada es lo que era se ofrece en tapa blanda y Kindle. La edición física de Editorial Espasa tiene 328 páginas, encuadernación rústica y solapas, útil para conservar el texto y consultarlo en papel. Kindle permite llevar la lectura en un dispositivo electrónico sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nada es lo que era y El estado del Estado abordan cuestiones políticas en contextos de transformación e incertidumbre. Florentino Portero se ocupa del orden global y del impacto de la tecnología, mientras que Enrique López López centra su reflexión en España. La diferencia principal es el alcance internacional del primero frente al marco nacional del segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441013"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ebe6853504403a46",
+  "origen": "chatgpt-web"
+}

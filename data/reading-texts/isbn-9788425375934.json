@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las recetas de Mamá Atómica se dirige a adultos que buscan preparar comidas caseras, recuperar recetas familiares y organizar la alimentación cotidiana mediante menús semanales. Su enfoque doméstico, con arroces, cenas, postres y platos italianos, se aleja de quien busque exclusivamente técnicas de cocina profesional o preparaciones de restaurante.",
+      "texto": "Las recetas de Mamá Atómica se dirige a adultos que buscan preparar comida familiar, platos tradicionales y cenas para el día a día. Incluye también arroces, recetas italianas y postres, por lo que su contenido se aparta de los manuales centrados exclusivamente en una técnica culinaria o un tipo de plato.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Las recetas de Mamá Atómica reúne preparaciones familiares tradicionales, arroces, recetas italianas, propuestas para cenar y postres. Rocío S. Rosado incorpora también menús semanales, de modo que el recetario sirve tanto para consultar platos concretos como para planificar las comidas de varios días sin tener que decidir cada preparación desde cero.",
+      "texto": "Las recetas de Mamá Atómica reúne preparaciones familiares de Rocío S. Rosado y menús semanales para organizar las comidas. El contenido comprende recetas tradicionales, arroces, cocina italiana, cenas y postres. Está concebido como un recetario de consulta habitual junto a los fogones, tanto para decidir qué cocinar como para planificar la semana.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,9 +23,10 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las recetas de Mamá Atómica se presenta en tapa blanda con solapas y contiene 208 páginas. Su edición física permite tener las recetas junto a los fogones, marcar las preparaciones habituales y consultar los menús semanales mientras se organiza la compra o se decide qué cocinar.",
+      "texto": "Las recetas de Mamá Atómica puede adquirirse en tapa blanda o Kindle. La edición de Grijalbo tiene 208 páginas y solapas, de modo que permite consultar las recetas en papel mientras se cocina; Kindle facilita acceder al recetario y a los menús semanales desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
+        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
@@ -33,8 +34,11 @@
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "lecturas_afines: afirmaciones sin respaldo: adaptaci",
+    "faltan módulos: lecturas_afines"
+  ],
   "version": 3,
-  "fuente_hash": "37cc02f2f87d8370",
+  "fuente_hash": "f1f80019945174c3",
   "origen": "chatgpt-web"
 }
