@@ -102,7 +102,21 @@ def collect(changed, everything):
     return list(commands.values())
 
 
+def busy_ports():
+    """En Windows http.server usa SO_REUSEADDR: un servidor previo en el puerto contestaría por el nuestro."""
+    busy = []
+    for port in PORTS:
+        try:
+            urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=1)
+            busy.append(port)
+        except OSError:
+            pass
+    return busy
+
+
 def serve(root):
+    if busy_ports():
+        raise SystemExit(f'Puertos ocupados por otro servidor: {busy_ports()}; ciérralo antes de la puerta.')
     procs = [subprocess.Popen([sys.executable, '-m', 'http.server', str(port), '--bind', '127.0.0.1'], cwd=root,
                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) for port in PORTS]
     for port in PORTS:
