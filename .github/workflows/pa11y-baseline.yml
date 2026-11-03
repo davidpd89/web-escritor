@@ -37,6 +37,11 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
           fetch-depth: 0
 
       # Check obligatorio del ruleset: debe dar resultado en todas las PR, así que el trigger no
