@@ -85,7 +85,9 @@ def collect(changed, everything):
             for step in job.get('steps') or []:
                 for line in (step.get('run') or '').splitlines():
                     m = COMMAND.match(line.strip())
-                    if m and '$' not in line and '--update' not in line and m.group(2) not in commands:
+                    # qa/production-*: miden la web desplegada, no esta rama.
+                    if m and '$' not in line and '--update' not in line and 'qa/production-' not in line \
+                            and m.group(2) not in commands:
                         env = {**plain_env(flow.get('env')), **plain_env(job.get('env')), **plain_env(step.get('env'))}
                         commands[m.group(2)] = (m.group(1) + m.group(2), env, path.name)
     return list(commands.values())
@@ -110,14 +112,26 @@ def stop(procs):
         proc.wait()
 
 
+def kill_tree(proc):
+    """Mata también node y su navegador: si quedan vivos, mantienen abierta la salida y la espera no acaba nunca."""
+    if os.name == 'nt':
+        subprocess.run(['taskkill', '/PID', str(proc.pid), '/T', '/F'], capture_output=True)
+    else:
+        os.killpg(proc.pid, 9)
+
+
 def run_one(command, env, root):
     start = time.time()
+    proc = subprocess.Popen([BASH, '-c', command], cwd=root, env={**os.environ, **env}, stdout=subprocess.PIPE,
+                            stderr=subprocess.STDOUT, text=True, encoding='utf-8', errors='replace',
+                            start_new_session=os.name != 'nt')
     try:
-        done = subprocess.run([BASH, '-c', command], cwd=root, env={**os.environ, **env}, capture_output=True,
-                              text=True, encoding='utf-8', errors='replace', timeout=TIMEOUT)
-        code, output = done.returncode, done.stdout + done.stderr
+        output, _ = proc.communicate(timeout=TIMEOUT)
+        code = proc.returncode
     except subprocess.TimeoutExpired:
-        code, output = 124, f'sin terminar en {TIMEOUT} s'
+        kill_tree(proc)
+        output, _ = proc.communicate()
+        code, output = 124, f'sin terminar en {TIMEOUT} s\n{output}'
     return code, output, time.time() - start
 
 
