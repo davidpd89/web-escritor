@@ -25,8 +25,14 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 PORTS = (4173, 4175)
-TIMEOUT = 600
-COMMAND = re.compile(r'^((?:[A-Z_][A-Z0-9_]*=\S+\s+)*)(node qa/\S+\.mjs.*|python3? (?:-m unittest.*|tests/\S+.*|scripts/\S+.*--check.*))$')
+TIMEOUT = 900
+# Pruebas y comprobaciones de solo lectura: node qa|tests, node --check|--test, python tests, check-*/audit-* y
+# cualquier `--check`. Los generadores sin --check quedan fuera porque escriben en el árbol.
+COMMAND = re.compile(r'^((?:[A-Z_][A-Z0-9_]*=\S+\s+)*)(node (?:--check \S+|--test \S+|(?:qa|tests)/\S+\.mjs.*'
+                     r'|scripts/test-\S+\.mjs.*|scripts/\S+\.mjs.*--check.*)|python3? (?:-m (?:unittest|py_compile|compileall).*'
+                     r'|tests/\S+.*|scripts/(?:check|audit)[-_]\S+\.py.*|scripts/\S+.*--check.*))$')
+# Dependen de artefactos que en CI crea un paso anterior (dist de vista previa, zip, informe de lychee).
+NEEDS_BUILD = ('.preview-dist', 'qa-artifacts/', 'lychee/')
 BASH = shutil.which('bash') or r'C:\Program Files\Git\bin\bash.exe'
 
 
@@ -86,10 +92,13 @@ def collect(changed, everything):
                 for line in (step.get('run') or '').splitlines():
                     m = COMMAND.match(line.strip())
                     # qa/production-*: miden la web desplegada, no esta rama.
-                    if m and '$' not in line and '--update' not in line and 'qa/production-' not in line \
-                            and m.group(2) not in commands:
+                    if not m or '$' in line or '--update' in line or 'qa/production-' in line \
+                            or any(n in line for n in NEEDS_BUILD):
+                        continue
+                    key = re.sub(r'^python3 ', 'python ', m.group(2))
+                    if key not in commands:
                         env = {**plain_env(flow.get('env')), **plain_env(job.get('env')), **plain_env(step.get('env'))}
-                        commands[m.group(2)] = (m.group(1) + m.group(2), env, path.name)
+                        commands[key] = (m.group(1) + key, env, path.name)
     return list(commands.values())
 
 
@@ -120,26 +129,26 @@ def kill_tree(proc):
         os.killpg(proc.pid, 9)
 
 
-def run_one(command, env, root):
+def run_one(command, env, root, timeout=TIMEOUT):
     start = time.time()
     proc = subprocess.Popen([BASH, '-c', command], cwd=root, env={**os.environ, **env}, stdout=subprocess.PIPE,
                             stderr=subprocess.STDOUT, text=True, encoding='utf-8', errors='replace',
                             start_new_session=os.name != 'nt')
     try:
-        output, _ = proc.communicate(timeout=TIMEOUT)
+        output, _ = proc.communicate(timeout=timeout)
         code = proc.returncode
     except subprocess.TimeoutExpired:
         kill_tree(proc)
         output, _ = proc.communicate()
-        code, output = 124, f'sin terminar en {TIMEOUT} s\n{output}'
+        code, output = 124, f'sin terminar en {timeout} s\n{output}'
     return code, output, time.time() - start
 
 
-def run_all(items, root, jobs):
+def run_all(items, root, jobs, timeout=TIMEOUT):
     procs = serve(root)
     try:
         with ThreadPoolExecutor(jobs) as pool:
-            results = list(pool.map(lambda item: run_one(item[0], item[1], root), items))
+            results = list(pool.map(lambda item: run_one(item[0], item[1], root, timeout), items))
     finally:
         stop(procs)
     return results
@@ -148,6 +157,12 @@ def run_all(items, root, jobs):
 def failure_line(output):
     lines = [l for l in output.splitlines() if re.search(r'Error|FAIL|assert|Traceback', l)]
     return (lines or output.strip().splitlines()[-1:] or [''])[0].strip()[:200]
+
+
+def same_failure(branch, main):
+    """Main falla igual: mismo error, sin contar números ni rutas. Un tiempo agotado no prueba nada."""
+    norm = lambda res: re.sub(r'\d+|/tmp/\S+|[A-Za-z]:[\\/]\S+', '#', failure_line(res[1]))
+    return main[0] != 0 and 124 not in (branch[0], main[0]) and norm(branch) == norm(main)
 
 
 def baseline_tree():
@@ -170,6 +185,7 @@ def main(argv=None):
     parser.add_argument('--all', action='store_true', help='todos los pasos de QA, sin filtrar por rutas')
     parser.add_argument('--baseline', action='store_true', help='repite los fallos sobre origin/main')
     parser.add_argument('--jobs', type=int, default=4)
+    parser.add_argument('--timeout', type=int, default=TIMEOUT, help='segundos por comando')
     parser.add_argument('--only', help='solo los comandos que contengan este texto')
     parser.add_argument('--list', action='store_true', help='enseña qué correría y sale')
     args = parser.parse_args(argv)
@@ -188,20 +204,23 @@ def main(argv=None):
             print(f'  {flow}: {command}')
         return 0
 
-    results = run_all(items, ROOT, args.jobs)
+    results = run_all(items, ROOT, args.jobs, args.timeout)
     failed = [(item, res) for item, res in zip(items, results) if res[0] != 0]
     for (command, _, flow), (code, _, secs) in zip(items, results):
         print(f"{'ok ' if code == 0 else 'MAL'} {secs:5.0f}s {command}")
     if failed and args.baseline:
         print(f'Repitiendo {len(failed)} fallos sobre origin/main…', flush=True)
-        again = run_all([item for item, _ in failed], baseline_tree(), args.jobs)
-        new = [(item, res) for (item, res), old in zip(failed, again) if old[0] == 0]
-        known = len(failed) - len(new)
+        again = run_all([item for item, _ in failed], baseline_tree(), args.jobs, args.timeout)
+        # Si main falla por otro motivo (entorno, puerto), ese fallo tapaba el de la rama: cuenta como nuevo.
+        new = [(item, res) for (item, res), old in zip(failed, again) if not same_failure(res, old)]
+        known = [item[0] for (item, res), old in zip(failed, again) if same_failure(res, old)]
     else:
-        new, known = failed, 0
+        new, known = failed, []
     for (command, _, flow), (code, output, _) in new:
         print(f'\n## {command}  ({flow}, código {code})\n{failure_line(output)}')
-    print(f'\n{len(items) - len(failed)} bien, {len(new)} fallos nuevos' + (f', {known} ya fallaban en main' if known else ''))
+    for command in known:
+        print(f'  ya falla igual en main: {command}')
+    print(f'\n{len(items) - len(failed)} bien, {len(new)} fallos nuevos' + (f', {len(known)} ya fallaban en main' if known else ''))
     return 1 if new else 0
 
 
