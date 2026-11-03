@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788423441075",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Detrás de una Estrella se dirige a lectores interesados en la evolución de las empresas y en las decisiones que acompañan su crecimiento. Fernando Trías de Bes aborda la transformación de un negocio cervecero local en un grupo internacional; no responde a quien busque una novela de ficción o una guía de finanzas personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje de Detrás de una Estrella es el crecimiento empresarial desde una actividad vinculada a un producto y un territorio hasta un negocio internacional de bebidas. Fernando Trías de Bes reconstruye una transformación desarrollada durante 25 años, en los que la empresa multiplicó por diez su tamaño, desde una perspectiva de historia empresarial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Detrás de una Estrella está disponible en tapa blanda y Kindle. La edición física de Deusto tiene 224 páginas y encuadernación rústica con solapas, apropiada para consultar pasajes en papel; Kindle permite llevar la lectura en un dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Detrás de una Estrella y Domina el arte de los negocios comparten el interés por el mundo empresarial. El libro de Fernando Trías de Bes examina el crecimiento de una compañía, mientras que el de Brian Tracy se centra en habilidades de negocios y liderazgo. Cómo ganar una guerra comercial, de Soumaya Keynes y Chad P. Bown, amplía la perspectiva hacia las reglas del comercio internacional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441051",
+        "isbn-9788466390514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c1eedd3c4ff65835",
+  "origen": "chatgpt-web"
+}
