@@ -184,7 +184,7 @@ def same_failure(branch, main):
 def baseline_tree():
     tree = ROOT / '.local/local-ci/main'
     if not tree.exists():
-        git('worktree', 'add', '--detach', str(tree), 'origin/main')
+        git('worktree', 'add', '-q', '--detach', str(tree), 'origin/main')
     git('reset', '-q', '--hard', 'origin/main', cwd=tree)
     modules = tree / 'node_modules'
     if (ROOT / 'node_modules').exists() and not modules.exists():
