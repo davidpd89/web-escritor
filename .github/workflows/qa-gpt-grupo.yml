@@ -38,6 +38,11 @@ jobs:
       - name: Checkout del commit de tests
         uses: actions/checkout@v5
         with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
           ref: ${{ inputs.sha }}
           fetch-depth: 0
 

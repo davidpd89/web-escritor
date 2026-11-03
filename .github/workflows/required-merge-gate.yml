@@ -25,6 +25,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
           fetch-depth: 0
 
       # A [skip ci] marker in any PR commit ends up in the squash commit and

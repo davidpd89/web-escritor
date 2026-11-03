@@ -36,6 +36,11 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
           ref: ${{ inputs.ref }}
           fetch-depth: 1
 

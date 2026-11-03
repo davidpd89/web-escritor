@@ -22,6 +22,11 @@ jobs:
       - name: Checkout deployed main
         uses: actions/checkout@v5
         with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
           ref: main
       - name: Set up Node
         uses: actions/setup-node@v5
