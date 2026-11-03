@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788467083781",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ocho del 50, de Antonio Soler, se dirige a lectores interesados en la historia literaria, la memoria personal y las relaciones entre vida y escritura. Su aproximación a ocho novelistas mediante parejas biográficas encaja con la lectura de ensayo cultural, no con la búsqueda de una novela de ficción o una guía de técnicas narrativas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Ocho del 50 examina la relación entre las experiencias vitales y la obra de ocho novelistas. Antonio Soler los distribuye en cuatro parejas para establecer paralelismos biográficos y observar cómo los recuerdos personales y los acontecimientos de la infancia intervienen en su escritura. El enfoque combina historia literaria y comparación de trayectorias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ocho del 50 puede adquirirse en tapa blanda o Kindle. La edición de Editorial Espasa tiene 264 páginas en rústica con solapas, un formato físico para conservar y consultar los perfiles literarios; Kindle permite leer el ensayo en el móvil o en un dispositivo electrónico compatible sin llevar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ocho del 50 se aproxima a Bandidos, de Eric Hobsbawm, por su interés en estudiar personas dentro de un contexto histórico y social. Antonio Soler analiza ocho novelistas mediante paralelismos entre sus vidas y sus obras, mientras que Eric Hobsbawm estudia el papel de los bandidos en la historia. El primero adopta una perspectiva literaria y biográfica; el segundo, histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491999454"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5eb4a006172a43c",
+  "origen": "chatgpt-web"
+}

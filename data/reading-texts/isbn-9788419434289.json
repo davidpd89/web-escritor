@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788419434289",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Citas conmigo misma se dirige a quienes quieren dedicar tiempo a actividades personales, ocio y autocuidado. Sus propuestas parten de planes cotidianos, como visitar cafeterías, leer o probar recetas, por lo que encaja menos con quien busca una novela o un manual centrado en una única disciplina.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Citas conmigo misma propone convertir planes personales aplazados en actividades concretas de ocio y autocuidado. Entre sus ejemplos aparecen visitas a cafeterías y restaurantes, lecturas pendientes, recetas y escapadas. Sus 256 páginas reúnen esta propuesta alrededor del tiempo dedicado a una misma, en lugar de desarrollar una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Citas conmigo misma se presenta en Tapa dura, con 256 páginas y encuadernación en cartoné de Planeta Gifts. Es una edición física para tener a mano al elegir actividades personales o regalar a alguien interesado en el ocio y el autocuidado. La cubierta rígida también permite conservar el volumen junto a otros libros de consulta personal.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Citas conmigo misma y La vida juntos, de Laia Tinaut, comparten el interés por dedicar espacio a experiencias personales. La diferencia está en el destinatario: Isa Muguruza se centra en planes individuales, mientras que La vida juntos propone crear recuerdos compartidos de una relación. Destroza este diario. Diversión EXTREMA, de Keri Smith, ofrece otra forma de ocio, basada en actividades creativas y experimentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408330813",
+        "isbn-9788449346026"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fb1754786674b3af",
+  "origen": "chatgpt-web"
+}

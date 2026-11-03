@@ -1,41 +1,54 @@
 {
   "id": "isbn-9788491057031",
-  "familia": "no_ficcion",
+  "familia": "narrativa",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores adultos interesados en los clásicos literarios que exploran el pensamiento, la memoria y la experiencia femenina. La presencia del suicidio y las consecuencias psicológicas de la guerra, junto con una narración centrada en la conciencia, lo alejan de quienes buscan una historia ligera o dominada por la acción exterior.",
+      "texto": "La señora Dalloway (edición especial limitada con cantos tintados) está dirigida a lectores adultos interesados en los clásicos y en la exploración de la conciencia de los personajes. La narración se concentra en una jornada y en la vida interior de sus protagonistas; no responde a la búsqueda de una aventura construida alrededor de numerosos acontecimientos externos.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
+      "modulo": "encaje_documentado",
+      "texto": "La señora Dalloway (edición especial limitada con cantos tintados) es un clásico de Virginia Woolf que narra una jornada de 1923 desde la experiencia interior de sus personajes. La vida social de Clarissa y las consecuencias psicológicas de la guerra conviven en una estructura que atiende a los pensamientos y a la percepción del tiempo. También aborda la condición de la mujer.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
       "modulo": "esta_edicion",
-      "texto": "Esta edición especial limitada de Penguin Clásicos se distingue por los cantos tintados y la encuadernación en tapa dura. Contiene 264 páginas en español y se identifica mediante el ISBN 9788491057031, que permite diferenciar esta presentación concreta de otras ediciones de la obra.",
+      "texto": "Esta versión de La señora Dalloway (edición especial limitada con cantos tintados) se distingue por su presentación especial limitada y sus cantos tintados. Penguin Clásicos la publica en castellano, en tapa dura y con 264 páginas, con fecha editorial del 22 de octubre de 2026. Su ISBN es 9788491057031, útil para identificar esta edición concreta frente a otras.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
         "numero_paginas",
         "idioma",
+        "fecha_publicacion",
         "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La opción recogida es la tapa dura de 264 páginas, con los cantos tintados propios de esta edición limitada. Su extensión permite reunir toda la lectura en un volumen físico relativamente contenido, mientras que la encuadernación rígida y el acabado de los cantos tienen especial relevancia para conservarlo en una biblioteca o regalarlo.",
+      "texto": "La señora Dalloway (edición especial limitada con cantos tintados) se ofrece en tapa dura, con 264 páginas. Es una edición física orientada a quien quiere conservar el clásico de Virginia Woolf con sus cantos tintados o entregarlo como regalo. El acabado especial forma parte de esta presentación del libro.",
       "evidencias": [
+        "titulo",
+        "autores",
         "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "titulo"
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e77efb5b7c209972",
+  "fuente_hash": "b5166bdfcc56a553",
   "origen": "chatgpt-web"
 }

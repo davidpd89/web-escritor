@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788408326946",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Quemando el hielo se dirige a lectores de novela romántica interesados en las segundas oportunidades, las dificultades personales y las relaciones vinculadas al deporte. La historia de Ellie y Jace Roy utiliza el hielo como parte de su conflicto; no responde a quien busque una narración deportiva sin componente sentimental.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Quemando el hielo está disponible en tapa blanda y Kindle. La edición rústica sin solapas de Booket contiene 288 páginas para leer y conservar en papel; Kindle permite llevar la novela completa en el móvil o en un lector electrónico sin ocupar espacio en la mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Quemando el hielo y Six-step hacia ti son novelas de Moruena Estríngana que relacionan el romance con una pista deportiva. Six-step hacia ti presenta a dos rivales enfrentados sobre la pista, mientras Quemando el hielo pone el foco en Ellie, sus pérdidas personales y el contraste con Jace Roy. La diferencia está en el conflicto que impulsa cada relación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331087"
+      ]
+    }
+  ],
+  "descartados": [
+    "encaje_documentado: afirmaciones sin respaldo: premi",
+    "faltan módulos: encaje_documentado"
+  ],
+  "version": 3,
+  "fuente_hash": "d132b66dd9d98d9d",
+  "origen": "chatgpt-web"
+}

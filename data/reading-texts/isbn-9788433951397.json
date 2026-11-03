@@ -4,7 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La tumba del marinero se dirige a lectores de poesía interesados en la representación del dolor, la enfermedad y el deseo a través del cuerpo. Luna Miguel emplea imágenes de heridas y cicatrices, con una intensidad cercana al terror corporal. No responde a la búsqueda de poesía ligera ni de una narración convencional en prosa.",
+      "texto": "La tumba del marinero se dirige a lectores de poesía que buscan una exploración del cuerpo, el deseo y las heridas físicas y emocionales. Su tratamiento de la enfermedad, las drogas y el sufrimiento puede resultar poco adecuado para quienes prefieren versos de temática ligera o ajenos al dolor corporal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un poemario de Luna Miguel que utiliza el cuerpo como eje para hablar de identidad, deseo y sufrimiento. Sus diez secciones construyen una progresión desde las marcas iniciales hasta la destrucción, con una dimensión narrativa próxima al terror corporal. También forma parte de la Trilogía del cuerpo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,34 +23,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de La tumba del marinero contiene 136 páginas y permite consultar físicamente sus poemas y sus diez secciones. La edición Kindle facilita llevar el texto en un dispositivo digital y regresar a sus versos sin transportar el libro impreso. El formato físico resulta apropiado para anotaciones sobre papel; el digital, para la lectura portátil.",
+      "texto": "La edición en tapa blanda reúne 136 páginas y permite leer los poemas en papel, volver sobre ellos y consultar distintas secciones. Kindle facilita llevar el poemario en formato digital y ajustar la visualización según las opciones del dispositivo, aunque la presentación de los versos puede variar con la pantalla.",
       "evidencias": [
-        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
         "edicion",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La tumba del marinero y Pensamientos estériles comparten autora, Luna Miguel, y una poesía centrada en el cuerpo. La primera profundiza en las heridas, la enfermedad y el sufrimiento; la segunda aborda la juventud, el deseo y la búsqueda de identidad. El libro de los gatos, de Ursula K. Le Guin, ofrece otro enfoque poético, dedicado a los animales mediante poemas, meditaciones y dibujos.",
+      "texto": "Pensamientos estériles comparte con La tumba del marinero la autoría de Luna Miguel y el interés por el deseo, la sangre y el cuerpo. La tumba del marinero organiza esos motivos alrededor de la herida y la enfermedad, mientras que Pensamientos estériles plantea también el miedo y los cambios asociados al crecimiento.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788433951403",
-        "isbn-9791388306297"
+        "isbn-9788433951403"
       ]
     }
   ],
-  "descartados": [
-    "encaje_documentado: copia 8 palabras seguidas de la sinopsis",
-    "faltan módulos: encaje_documentado"
-  ],
+  "descartados": [],
   "version": 3,
   "fuente_hash": "8555003d1a57aeab",
   "origen": "chatgpt-web"
