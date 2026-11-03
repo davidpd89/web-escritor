@@ -2,6 +2,7 @@
 
 Usa datos/plantillas reales. No hace peticiones HTTP y no modifica `main`.
 """
+import copy
 import importlib.util
 import json
 import unittest
@@ -70,7 +71,14 @@ class AffiliateNavigationTest(unittest.TestCase):
         html = builder.render_book(self.data, b, self.template)
         cover = [x for x in self.links(html) if x["attrs"].get("aria-label", "").startswith("Comprar en Amazon:")]
         self.assertEqual(len(cover), 1)
-        self.assertEqual(cover[0]["attrs"]["href"], builder.amazon_es(b["url_amazon_afiliada"]))
+        href = cover[0]["attrs"]["href"]
+        # Mismo producto que el enlace verificado; el barrido de precios puede traer su detailPageURL (#1101).
+        self.assertEqual(href, builder.amazon_destination(b))
+        self.assertEqual(builder.amazon_asin(href), builder.amazon_asin(b["url_amazon_afiliada"]))
+        self.assertIn("tag=davidporto-21", href)
+        swept = copy.deepcopy(b)
+        swept["formatos_compra"][0]["url"] = b["url_amazon_afiliada"] + "&linkCode=ogi&th=1&psc=1"
+        self.assertEqual(builder.amazon_asin(builder.amazon_destination(swept)), builder.amazon_asin(href))
 
     def test_cards_offer_ficha_and_amazon_separately(self):
         books = [self.coraline, self.imported]
