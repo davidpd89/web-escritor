@@ -15,7 +15,7 @@ assert 'actions: write' in workflow
 assert 'python scripts/publish-radar-refresh.py --branch "$branch"' in workflow
 assert 'gh pr merge --auto' not in workflow
 
-def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=()):
+def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocked=()):
     calls = []
     dispatched = set()
     def gh(*args):
@@ -35,6 +35,12 @@ def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=()):
         if args[:2] == ('run','list'):
             name = args[3]
             if args[args.index('--event') + 1] == 'pull_request':
+                if name in blocked:
+                    # Waiting for approval or cancelled: never executes, so it must not be reused.
+                    return json.dumps([
+                        {'databaseId':7,'headSha':'expected-sha','status':'completed','conclusion':'action_required'},
+                        {'databaseId':6,'headSha':'expected-sha','status':'completed','conclusion':'cancelled'},
+                    ])
                 if name not in pr_runs:
                     return json.dumps([])
                 return json.dumps([
@@ -99,5 +105,6 @@ scenario(skipped_job=True)
 reused = module.WORKFLOWS[:4]
 scenario(pr_runs=reused)
 scenario(reused[0], pr_runs=reused)
+scenario(pr_runs=reused[2:], blocked=reused[:2])
 scenario(conflict=True)
 print('PASS radar publication: all real workflows required, exact SHA, failed CI never merges/deploys')

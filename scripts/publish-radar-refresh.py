@@ -71,11 +71,18 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
     # A PR opened with a user token already starts its pull_request CI on this exact commit; dispatching the same
     # workflows again doubled the queue (20 concurrent jobs on the free plan). Reuse those runs and dispatch only
     # what is missing. A PR opened with GITHUB_TOKEN starts nothing, so after a short wait everything is dispatched.
-    source = {}
+    # Only runs that actually execute: one waiting for approval or cancelled would leave the poll waiting until timeout.
+    def runnable(item):
+        return item['status'] in {'queued', 'in_progress', 'completed'} and item['conclusion'] not in {
+            'action_required', 'cancelled', 'stale', 'skipped', 'startup_failure'}
+
+    source, pinned = {}, {}
     for attempt in range(pr_wait // 30 + 1):
         for workflow in workflows:
-            if workflow not in source and runs_on_sha(workflow, 'pull_request'):
-                source[workflow] = ('pull_request', frozenset())
+            usable = [item for item in runs_on_sha(workflow, 'pull_request') if runnable(item)]
+            if workflow not in source and usable:
+                # The chosen run is pinned: polling never drifts to another run of the same commit.
+                source[workflow], pinned[workflow] = ('pull_request', frozenset()), usable[0]['databaseId']
         if len(source) == len(workflows) or attempt == pr_wait // 30:
             break
         time.sleep(30)
@@ -84,7 +91,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         if workflow in REQUIRED_JOBS:
             report_job(repo, sha, REQUIRED_JOBS[workflow], 'pending', f'https://github.com/{repo}/pull/{pr["number"]}')
         if workflow in source:
-            print(f'REUSE pull_request run of {workflow} @ {sha}', flush=True)
+            print(f'REUSE pull_request run {pinned[workflow]} of {workflow} @ {sha}', flush=True)
             continue
         runs = json.loads(gh('run', 'list', '--workflow', workflow, '--branch', branch,
                              '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId'))
@@ -98,7 +105,8 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         if time.monotonic() >= deadline:
             raise TimeoutError(f'CI timed out; PR left open: {sorted(pending)}')
         for workflow in sorted(pending):
-            current = runs_on_sha(workflow, *source[workflow])
+            current = [item for item in runs_on_sha(workflow, *source[workflow])
+                       if workflow not in pinned or item['databaseId'] == pinned[workflow]]
             if not current:
                 continue
             result = current[0]

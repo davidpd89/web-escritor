@@ -52,12 +52,14 @@ CASOS = [
     (["recomendaciones/libros/x/index.html", "scripts/build-reading-pages.py"], False),
     ([".github/workflows/pa11y-baseline.yml"], False),
     (["index.html"], False),
+    (["assets/page-order.generated.js"], False),  # generado pero ejecutable: vía completa
+    (["pagefind/pagefind-ui.js", "recomendaciones/libros/x/index.html"], True),
 ]
 for files, esperado in CASOS:
     if lane.is_content(files) != esperado:
         falla(f"is_content({files}) != {esperado}")
 
-# 2. Muestra: índices primero, luego más pesadas, sin borradas, con tope.
+# 2. Rutas: índices primero, luego todas las cambiadas de más a menos pesada, sin borradas; demasiadas => full.
 sizes = {"recomendaciones/libros/a/index.html": 10, "recomendaciones/libros/b/index.html": 30,
          "recomendaciones/autores/c/index.html": 20}
 
@@ -74,14 +76,24 @@ esperado = [*lane.HUBS, "/recomendaciones/libros/b/", "/recomendaciones/autores/
 if got != esperado:
     falla(f"sample_routes {got} != {esperado}")
 muchas = [f"recomendaciones/libros/l{i}/index.html" for i in range(40)]
-if len(lane.sample_routes(muchas, size=lambda f: 1)) != lane.MAX_SAMPLE:
-    falla("la muestra debe tener tope MAX_SAMPLE")
+if len(lane.sample_routes(muchas, size=lambda f: 1)) != 40 + len(lane.HUBS):
+    falla("se auditan todas las páginas cambiadas, sin muestreo")
+real_git, real_routes = lane.git, lane.sample_routes
+lane.git = lambda *args: "\n".join(f"recomendaciones/libros/l{i}/index.html" for i in range(lane.MAX_PAGES + 1))
+lane.sample_routes = lambda files: [*lane.HUBS, *files]
+try:
+    if lane.decide("pull_request", "a", "b", "x")[0] != "full":
+        falla("más de MAX_PAGES páginas debe ir por la vía completa")
+finally:
+    lane.git, lane.sample_routes = real_git, real_routes
 
 # 3. Fail-closed.
 if lane.decide("push", "", "", "main")[0] != "full":
     falla("push debe ser full")
 if lane.decide("workflow_dispatch", "", "", "main")[0] != "full":
     falla("dispatch en main debe ser full")
+if lane.diff_range("pull_request", "a", "b", "x") != ("a...b",):
+    falla("pull_request debe comparar con tres puntos (lo que aporta el PR)")
 if lane.decide("pull_request", "0" * 40, "HEAD", "x")[0] != "full":
     falla("diff imposible debe ser full")
 # Sin git real: el runner de python-tests no tiene origin/main (los workflows de la vía sí, con fetch-depth 0).
@@ -125,6 +137,8 @@ for name in ("lighthouse-ci", "pa11y-baseline", "sitewide-reflow-qa"):
     # Sin cron diario propio, lo relanza completo la auditoría nocturna.
     if f"{name}.yml" not in weekly and not re.search(r"cron: '\d+ \d+ \* \* \*'", text):
         falla(f"{name}: ni la auditoría nocturna ni un cron propio lo lanzan completo cada día")
+    if 'git archive "${BASE_SHA:-origin/main}" scripts' not in text:
+        falla(f"{name}: debe decidir la vía con la copia de la rama base")
     if "scripts/ci_content_lane.py" not in text:
         falla(f"{name}: no consulta la vía rápida")
 

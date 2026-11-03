@@ -22,7 +22,7 @@ concurrency:
 jobs:
   dispatch:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 180
     env:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
@@ -38,15 +38,31 @@ jobs:
         lighthouse-ci.yml
         pa11y-baseline.yml
     steps:
-      - name: Lanzar la auditoría completa sobre main
+      # El job no queda en verde por haber lanzado: espera cada ejecución nueva y falla si alguna no termina en success.
+      - name: Lanzar la auditoría completa sobre main y esperar su resultado
         run: |
-          failed=0
+          last() { gh run list --workflow "$1" --branch main --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId // 0'; }
+          failed=0; declare -A before
           for wf in $WORKFLOWS; do
-            if gh workflow run "$wf" --ref main; then
-              echo "- \`$wf\` lanzado" >> "$GITHUB_STEP_SUMMARY"
-            else
-              echo "- \`$wf\` NO se pudo lanzar" >> "$GITHUB_STEP_SUMMARY"
-              failed=1
+            before[$wf]=$(last "$wf")
+            if ! gh workflow run "$wf" --ref main; then
+              echo "- \`$wf\`: NO se pudo lanzar" >> "$GITHUB_STEP_SUMMARY"; failed=1
             fi
+          done
+          deadline=$(( $(date +%s) + 170 * 60 ))
+          pending="$WORKFLOWS"
+          while [ -n "$pending" ] && [ "$(date +%s)" -lt "$deadline" ]; do
+            sleep 60; still=""
+            for wf in $pending; do
+              row=$(gh run list --workflow "$wf" --branch main --event workflow_dispatch --limit 5 --json databaseId,status,conclusion,url --jq "[.[] | select(.databaseId > ${before[$wf]})] | last // empty | [.status, .conclusion, .url] | @tsv" || true)
+              read -r status conclusion url <<< "$row"
+              if [ "$status" != "completed" ]; then still="$still $wf"; continue; fi
+              echo "- \`$wf\`: $conclusion — $url" >> "$GITHUB_STEP_SUMMARY"
+              [ "$conclusion" = "success" ] || failed=1
+            done
+            pending="${still# }"
+          done
+          for wf in $pending; do
+            echo "- \`$wf\`: sin terminar a tiempo" >> "$GITHUB_STEP_SUMMARY"; failed=1
           done
           exit $failed

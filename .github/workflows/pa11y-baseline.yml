@@ -56,7 +56,16 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
           HEAD_REF: ${{ github.head_ref || github.ref_name }}
-        run: python3 scripts/ci_content_lane.py
+        # Decide la copia de la rama base (clasificador y política): un PR no puede cambiar las reglas que lo
+        # evalúan. Si la base aún no tiene vía rápida, auditoría completa.
+        run: |
+          base="$RUNNER_TEMP/lane-base"; mkdir -p "$base"
+          if git archive "${BASE_SHA:-origin/main}" scripts | tar -x -C "$base" && [ -f "$base/scripts/ci_content_lane.py" ]; then
+            LANE_ROOT="$PWD" python3 "$base/scripts/ci_content_lane.py"
+          else
+            echo "lane=full | la base no tiene scripts/ci_content_lane.py"
+            printf 'lane=full\nroutes=\n' >> "$GITHUB_OUTPUT"
+          fi
 
       - name: No HTML/CSS/JS changes -- skipping Pa11y
         if: steps.changes.outputs.relevant != 'true'
