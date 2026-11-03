@@ -20,7 +20,7 @@ jobs:
   required-merge-gate:
     name: Required merge gate
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -56,19 +56,19 @@ jobs:
 
       - name: Run universal Python contracts
         shell: bash
+        # 4 a la vez (los vCPU del runner): en serie pasaban de 6 min y el job rozaba su límite.
         run: |
-          set -e
-          fail=0
+          logs="$RUNNER_TEMP/contracts"; mkdir -p "$logs"
           for f in tests/test-*.py; do
             [ -e "$f" ] || continue
-            echo "::group::$f"
-            if ! python "$f"; then
-              echo "FALLA: $f"
-              fail=1
-            fi
-            echo "::endgroup::"
+            { python "$f" > "$logs/${f##*/}.log" 2>&1 || echo "$f" >> "$logs/failed"; } &
+            while [ "$(jobs -rp | wc -l)" -ge 4 ]; do wait -n; done
           done
-          exit $fail
+          wait
+          for f in tests/test-*.py; do
+            echo "::group::$f"; cat "$logs/${f##*/}.log"; echo "::endgroup::"
+          done
+          if [ -s "$logs/failed" ]; then sed 's/^/FALLA: /' "$logs/failed"; exit 1; fi
 
       - name: Run underscore-named Python contracts
         run: python -m unittest discover -s tests -p 'test_*.py'
