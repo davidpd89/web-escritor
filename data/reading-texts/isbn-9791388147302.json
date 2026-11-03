@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791388147302",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los tres mundos (Serie Julio César 3) encaja con lectores de novela histórica interesados en las campañas militares, las disputas políticas y la trayectoria de Julio César. Sus 1040 páginas y su condición de tercera entrega lo alejan de quienes buscan una narración breve o desligada de los acontecimientos anteriores de la serie.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Los tres mundos (Serie Julio César 3) aborda la conquista de las Galias, los enfrentamientos políticos de Roma y el exilio de Tolomeo XII en Egipto. Santiago Posteguillo relaciona estos escenarios mediante una narración histórica centrada en las decisiones militares y políticas de Julio César, con Cleopatra también presente en los acontecimientos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los tres mundos (Serie Julio César 3) se ofrece en tapa blanda y Kindle. La edición de Penguin Bolsillo contiene 1040 páginas en castellano y permite conservar el volumen físico; Kindle evita transportar ese número de páginas en papel y facilita la lectura en dispositivos compatibles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los asesinos del emperador. Edición especial con cantos decorados comparte con Los tres mundos (Serie Julio César 3) la autoría de Santiago Posteguillo y el interés por la historia de Roma, pero pertenece a la Trilogía de Trajano. Cuando seamos inmortales, de Tony Gratacós, también relaciona personajes históricos y conflictos políticos, aunque se centra en Rubens y Velázquez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326779",
+        "isbn-9788423371181"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf8f14236b5aae31",
+  "origen": "chatgpt-web"
+}

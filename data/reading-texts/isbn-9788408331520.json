@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408331520",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El enigmático míster Quin se dirige a lectores de misterio y novela negra que prefieren relatos independientes a una única trama extensa. Agatha Christie reúne doce historias con situaciones inquietantes, engaños y conflictos personales; su estructura no corresponde a una novela detectivesca de desarrollo continuo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El enigmático míster Quin reúne doce relatos de misterio protagonizados por situaciones que observa el señor Satterthwaite. Agatha Christie utiliza encuentros sociales y conflictos ligados a los celos, la culpa y el engaño para construir enigmas breves, en lugar de mantener una sola investigación a lo largo de todo el volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El enigmático míster Quin está disponible en tapa blanda, en una edición rústica sin solapas de Booket. Sus 304 páginas reúnen doce relatos, de modo que el volumen físico permite alternar lecturas por historias y retomarlas sin tener que seguir una única trama extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El enigmático míster Quin y El asesinato de Roger Ackroyd (Edición especial con cantos tintados) comparten la autoría de Agatha Christie y el interés por los enigmas. El primero reúne doce relatos, mientras que el segundo desarrolla una investigación detectivesca en forma de novela. La edición especial de este último incorpora cantos tintados y una resolución presentada en un sobre sellado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083934"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6178ad008e09ff0b",
+  "origen": "chatgpt-web"
+}

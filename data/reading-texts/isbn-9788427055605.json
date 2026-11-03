@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Donde duermen las sombras encaja con lectores a partir de 14 años interesados en el romance y la fantasía juvenil con magia oculta, maldiciones y dimensiones alternativas. Se aleja de las preferencias de quien busque una historia realista o una trama sin conflictos amorosos.",
+      "texto": "Donde duermen las sombras encaja con lectores desde los 14 años que buscan fantasía romántica contemporánea, magia oculta y relaciones condicionadas por fuerzas sobrenaturales. Su conflicto incluye una maldición y una conexión mágica entre personajes, de modo que se aleja del romance realista sin elementos fantásticos.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,16 +14,17 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Donde duermen las sombras está recomendado a partir de 14 años. Su conflicto incluye una maldición relacionada con las sombras y una unión mágica que condiciona una relación afectiva, por lo que combina tensión romántica con amenazas sobrenaturales.",
+      "texto": "Donde duermen las sombras está recomendado a partir de 14 años. La historia incorpora una maldición vinculada a las sombras, una unión mágica y el peligro asociado al destino de uno de sus protagonistas. Su contenido combina romance y amenazas sobrenaturales dentro de una ambientación contemporánea.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Donde duermen las sombras combina romantasy contemporáneo y fantasía juvenil, con una relación condicionada por fuerzas mágicas. La capacidad de atravesar dimensiones y una maldición vinculada a las sombras hacen que el conflicto sentimental forme parte del problema fantástico, en lugar de desarrollarse al margen de él.",
+      "texto": "Donde duermen las sombras propone una fantasía romántica contemporánea donde la magia permanece escondida y existen conexiones entre dimensiones. Kaylin Aelis puede atravesarlas y queda vinculada mágicamente a un personaje afectado por una maldición. La relación sentimental y las consecuencias de ese vínculo sostienen el conflicto fantástico.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -32,20 +33,22 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Donde duermen las sombras se ofrece en tapa blanda, con 368 páginas y una encuadernación rústica con solapas. Esta presentación permite leer la novela completa en papel y transportarla con una cubierta flexible, sin el peso añadido de unas tapas rígidas.",
+      "texto": "Donde duermen las sombras se ofrece en tapa blanda y Kindle. La edición de Ediciones Martínez Roca contiene 368 páginas en rústica con solapas, una opción para conservar el libro físico. Kindle permite leerlo en un dispositivo compatible sin llevar esas páginas en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Donde duermen las sombras y Alas de escarcha y oro: El canto del cisne presentan personajes con capacidades extraordinarias que condicionan sus vidas. En la novela de Andrea Ornos aparecen dimensiones, maldiciones y romance; en la de Marta Morillo, Eira mantiene ocultos tanto sus dones como sus debilidades.",
+      "texto": "Donde duermen las sombras puede compararse con Alas de escarcha y oro: El canto del cisne por la presencia de dones sobrenaturales que condicionan a sus personajes. Andrea Ornos sitúa el conflicto en una fantasía romántica contemporánea con dimensiones y maldiciones, mientras que la historia de Marta Morillo parte de una protagonista que oculta sus capacidades. En ambas, la magia afecta a la vida personal.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
@@ -56,6 +59,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9c81a8f568846d35",
+  "fuente_hash": "a4ab25e723297ad9",
   "origen": "chatgpt-web"
 }

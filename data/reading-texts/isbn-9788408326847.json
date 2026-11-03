@@ -3,6 +3,49 @@
   "familia": "narrativa",
   "bloques": [
     {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "La edad recomendada para El día de la Trilla (Empíreo) es a partir de 14 años. La historia presenta una prueba violenta en un colegio militar, con enfrentamientos entre aspirantes a jinetes, fuego de dragones y riesgo de muerte. Son elementos que conviene considerar para lectores sensibles a la violencia.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El día de la Trilla (Empíreo) plantea una historia de fantasía juvenil centrada en una prueba de selección de jinetes de dragón. Trece cadetes afrontan una competición en el Colegio de Guerra Basgiath donde conseguir un vínculo con un dragón implica exponerse a la muerte. El conflicto principal combina supervivencia, rivalidad y una decisión de consecuencias irreversibles.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El día de la Trilla (Empíreo) está disponible en tapa dura y Kindle. La edición física de Editorial Planeta tiene 304 páginas y sobrecubierta, características que permiten conservarla en una colección o entregarla como regalo. Kindle permite llevar el mismo título en un lector electrónico o en el móvil sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El día de la Trilla (Empíreo) puede compararse con El día de la Trilla (Empíreo) Edición limitada con cantos tintados, también de Rebecca Yarros. Ambos títulos remiten a la misma historia, mientras que el segundo se identifica expresamente como edición limitada con cantos tintados. La edición aquí descrita es una tapa dura con sobrecubierta de 304 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "edicion",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788408326861"
+      ]
+    },
+    {
       "modulo": "para_quien",
       "texto": "El día de la Trilla (Empíreo) se dirige a lectores desde los 14 años interesados en la fantasía juvenil con dragones, entrenamiento militar y pruebas de supervivencia. El conflicto se desarrolla entre aspirantes a jinetes que deben afrontar un riesgo mortal para establecer su vínculo con un dragón. Encaja menos con quienes buscan fantasía sin combates sangrientos.",
       "evidencias": [
@@ -11,45 +54,11 @@
         "categorias",
         "sinopsis_editorial"
       ]
-    },
-    {
-      "modulo": "edad_y_sensibilidad",
-      "texto": "El día de la Trilla (Empíreo) está recomendado a partir de 14 años. Su contenido incluye enfrentamientos violentos, peligro de muerte y una prueba militar en la que los participantes pueden perder la vida. La presencia de un campo de batalla sangriento es relevante para lectores sensibles a la violencia física.",
-      "evidencias": [
-        "titulo",
-        "edad_recomendada",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "El día de la Trilla (Empíreo) puede elegirse en tapa dura con sobrecubierta o en Kindle. La edición física de Editorial Planeta reúne 304 páginas y permite conservar el volumen en papel, mientras que Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro. La tapa dura resulta más adecuada para quien prioriza una colección física.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El día de la Trilla (Empíreo) puede compararse con El día de la Trilla (Empíreo) Edición limitada con cantos tintados, también de Rebecca Yarros. Ambos títulos identifican la misma obra, pero el segundo anuncia una presentación limitada con cantos tintados. La edición estándar figura en tapa dura con sobrecubierta y también dispone de Kindle.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "edicion",
-        "formatos_disponibles",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788408326861"
-      ]
     }
   ],
   "descartados": [
-    "encaje_documentado: afirmaciones sin respaldo: premi",
-    "faltan módulos: encaje_documentado"
+    "para_quien: afirmaciones sin respaldo: premi",
+    "faltan módulos: para_quien"
   ],
   "version": 3,
   "fuente_hash": "df46790c5aea8887",

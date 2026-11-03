@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788449346262",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Para qué aprender? se dirige a quienes buscan comprender el valor del aprendizaje humano ante la inteligencia artificial. Torkel Klingberg y Asa Wikforss abordan la cuestión desde la neurociencia, la psicología y la historia; no es una lectura centrada en enseñar el manejo técnico de herramientas digitales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "¿Para qué aprender? es un ensayo de ciencias humanas y sociales sobre la importancia de desarrollar la inteligencia propia en una época marcada por la inteligencia artificial. Torkel Klingberg y Asa Wikforss combinan perspectivas de la neurociencia, la psicología y la historia para examinar el sentido de seguir aprendiendo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Para qué aprender? cuenta con una edición en tapa blanda de 112 páginas, publicada por Ediciones Paidós. La encuadernación rústica con solapas ofrece un volumen físico relativamente breve, que puede transportarse y consultarse sin recurrir a una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Para qué aprender? y Despierto pero disperso tratan capacidades relacionadas con el aprendizaje, aunque desde públicos distintos. Torkel Klingberg y Asa Wikforss reflexionan sobre la inteligencia humana ante la inteligencia artificial; Peg Dawson, Richard Guare y Colin Guare ofrecen una guía para familias y docentes centrada en las habilidades ejecutivas infantiles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449345999"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d98cbb1601e3c30",
+  "origen": "chatgpt-web"
+}

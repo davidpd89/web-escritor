@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408331810",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A sangre y fuego se dirige a lectores interesados en relatos sobre la Guerra Civil española y en la mirada periodística de Manuel Chaves Nogales. Su tratamiento del enfrentamiento evita las divisiones simples entre bandos, por lo que encaja menos con quien busca una narración histórica centrada en héroes y villanos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "A sangre y fuego reúne relatos literarios sobre la Guerra Civil española escritos por Manuel Chaves Nogales. El conflicto se aborda desde una perspectiva periodística que cuestiona el maniqueísmo y las interpretaciones propagandísticas, en lugar de organizarse como una exposición histórica convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A sangre y fuego está disponible en tapa blanda y Kindle. La edición física de Austral Editorial tiene 304 páginas y encuadernación rústica sin solapas, mientras que Kindle permite llevar los relatos en un lector electrónico o en el móvil sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A sangre y fuego y La semana de colores y Andamos huyendo Lola comparten la forma narrativa del relato, aunque Manuel Chaves Nogales aborda la Guerra Civil española desde el periodismo y Elena Garro se vincula con una escritura imaginativa. Sherlock también reúne relatos, pero su presentación destaca la participación de diez autores, frente a la autoría única de A sangre y fuego.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084856",
+        "isbn-9791388279379"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fc6f6c4a2f6ecaba",
+  "origen": "chatgpt-web"
+}

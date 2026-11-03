@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Amor en pole position (Dirty Air 3) encaja con lectores a partir de 16 años que buscan romance contemporáneo ambientado en la Fórmula 1. Su conflicto incorpora alcohol, pastillas y decisiones autodestructivas, por lo que se aleja de las historias románticas centradas únicamente en la relación de pareja.",
+      "texto": "Amor en pole position (Dirty Air 3) se dirige a lectores desde los 16 años interesados en el romance contemporáneo ambientado en la Fórmula 1. Su historia incorpora problemas de reputación, conductas autodestructivas y una relación sentimental. No corresponde a quien busque fantasía o una narración deportiva sin conflicto romántico.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La edad recomendada para Amor en pole position (Dirty Air 3) es a partir de 16 años. La historia incluye consumo de pastillas y alcohol, conductas autodestructivas y una crisis de reputación desencadenada por un error grave. Estos elementos pueden resultar incómodos para lectores sensibles a las adicciones y sus consecuencias.",
+      "texto": "Amor en pole position (Dirty Air 3) está recomendado a partir de 16 años. El protagonista menciona el consumo de pastillas y alcohol, además de decisiones autodestructivas relacionadas con su sufrimiento emocional. Estos contenidos, junto con las consecuencias de un error grave, forman parte del conflicto de la novela.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -23,7 +23,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela de romance contemporáneo situada en el entorno de la Fórmula 1, donde una relación amorosa se cruza con las consecuencias de decisiones personales destructivas. El conflicto combina la presión sobre la reputación del protagonista con su comportamiento autodestructivo. El título lo identifica como el n.º 3 de Dirty Air.",
+      "texto": "Amor en pole position (Dirty Air 3) es una novela de romance contemporáneo situada en el entorno profesional de la Fórmula 1. La trama parte de las consecuencias de una conducta destructiva y de los esfuerzos por reparar la imagen pública del protagonista. El conflicto sentimental se desarrolla junto a esa crisis personal y profesional.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -32,17 +32,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Amor en pole position (Dirty Air 3) está disponible en tapa blanda, en una edición de rústica con solapas de Ediciones Martínez Roca. Sus 448 páginas se presentan en un volumen físico que permite leer la novela en papel, conservarla en la estantería o prestarla después.",
+      "texto": "Amor en pole position (Dirty Air 3) está disponible en tapa blanda y Kindle. La edición impresa de Ediciones Martínez Roca consta de 448 páginas en rústica con solapas, para quienes prefieren leer y conservar el volumen físico. Kindle permite transportar la novela digitalmente y leerla también desde el móvil.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un amor de diciembre, también de Lauren Asher, comparte la orientación romántica, pero plantea una lectura ligada a diciembre con un capítulo diario. Solo un juego más (CAR HOCKEY 1), de Susanna Herrero, sitúa su punto de partida en el hockey sobre hielo; Amor en pole position (Dirty Air 3) traslada el conflicto al entorno de la Fórmula 1 y a las consecuencias de las decisiones destructivas.",
+      "texto": "Amor en pole position (Dirty Air 3) puede compararse con Solo un juego más (CAR HOCKEY 1) por la presencia del deporte en historias relacionadas con el romance. Lauren Asher sitúa su novela en la Fórmula 1 y aborda una crisis de reputación; Susanna Herrero presenta a un graduado en Matemáticas cuyo futuro se cruza con un centro de alto rendimiento de hockey. Cambian tanto el deporte como el punto de partida del protagonista.",
       "evidencias": [
         "titulo",
         "autores",
@@ -51,13 +52,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427054479",
         "isbn-9791388222801"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "806615ffd7713ba7",
+  "fuente_hash": "f625dc72d796ee59",
   "origen": "chatgpt-web"
 }

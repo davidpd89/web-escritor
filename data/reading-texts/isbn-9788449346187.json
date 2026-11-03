@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788449346187",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La batalla por la vivienda se dirige a lectores interesados en las causas económicas y políticas de las dificultades de acceso a la vivienda. Michael Byrne analiza la concentración de la propiedad y la financiarización del hogar; no plantea su contenido como una guía de trámites inmobiliarios o de gestión doméstica del dinero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La batalla por la vivienda es un ensayo de economía política que interpreta la crisis habitacional como resultado de un modelo económico. Michael Byrne examina la acumulación de propiedades y el tratamiento de la vivienda como inversión financiera, con atención a los mecanismos estructurales que condicionan el acceso al hogar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La batalla por la vivienda se publica en tapa blanda, con 288 páginas y encuadernación rústica con solapas. Esta edición de Ediciones Paidós permite leer el análisis económico en papel y volver a sus argumentos durante la consulta, sin necesidad de un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La batalla por la vivienda y La economía del cuidado examinan cómo los modelos económicos influyen en las condiciones de vida. Michael Byrne se centra en la propiedad inmobiliaria y su dimensión financiera, mientras que Tim Jackson plantea una concepción de la prosperidad vinculada al cuidado, la sostenibilidad y el poscrecimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449345937"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b89ff268ac88466c",
+  "origen": "chatgpt-web"
+}

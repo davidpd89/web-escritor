@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388103735",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Llegando a ti nº 26 se dirige a lectores de manga interesados en las relaciones personales y las decisiones que acompañan el final de los estudios. El desacuerdo entre Sawako y Kazehaya sobre su futuro sostiene el conflicto, de modo que encaja menos con quien busca combates o aventuras fantásticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Llegando a ti nº 26 continúa una historia de relaciones personales marcada por las decisiones posteriores a la graduación. Sawako y Kazehaya afrontan un desacuerdo mientras comienzan las vacaciones, y la visita de Kurumi introduce otra situación en ese mismo entorno. El título lo identifica como el n.º 26.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Llegando a ti nº 26 está disponible en tapa blanda, con 176 páginas en castellano. Planeta Cómic lo publica en rústica sin solapas y con sobrecubierta, una presentación flexible que permite transportar el volumen y colocarlo junto a otras entregas de manga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Llegando a ti nº 26 puede compararse con Llegando a ti nº 25/30, también de Karuho Shiina, porque ambos tratan las decisiones de Sawako y Kazehaya sobre su futuro académico y personal. En Llegando a ti nº 25/30 aparece la cuestión de la Universidad de Educación; Llegando a ti nº 26 aborda las consecuencias de una discusión sobre los planes posteriores a la graduación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101670"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "175083e93996236c",
+  "origen": "chatgpt-web"
+}
