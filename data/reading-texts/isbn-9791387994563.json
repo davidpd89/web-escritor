@@ -4,40 +4,70 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores a partir de 9 años que buscan humor, amistad y baloncesto en una historia infantil. Quien prefiera aventuras alejadas del deporte encontrará aquí un conflicto centrado en la unión de un equipo y las dificultades para financiar un viaje.",
+      "texto": "Enzo Brown: loco por el basket 5 - La cancha es de todos está dirigido a lectores desde los 9 años que disfrutan del baloncesto, el humor y las historias de amistad. El conflicto combina deporte, dificultades económicas y colaboración entre compañeros. Encaja menos con quienes busquen aventuras desligadas del colegio y de los equipos deportivos.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Enzo Brown: loco por el basket 5 - La cancha es de todos publicada por Ediciones B tiene 192 páginas en castellano y tapa dura. Su fecha de publicación es el 29 de octubre de 2026. Incorpora ilustraciones de David Garrido y el título la identifica como el n.º 5 de la colección de Pablo Lolaso.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "fecha_publicacion",
+        "sinopsis_editorial",
+        "autores"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Está indicado a partir de 9 años y tiene 192 páginas en tapa dura. Pertenece a la literatura infantil y juvenil, con humor y amistad alrededor de un equipo de baloncesto que intenta reunir dinero para viajar junto.",
+      "texto": "La lectura está recomendada a partir de 9 años y se presenta en tapa dura, con 192 páginas. Enzo Brown: loco por el basket 5 - La cancha es de todos combina narración infantil y juvenil con ilustraciones de David Garrido. Sus temas principales son el baloncesto, la amistad, el humor y la colaboración para superar dificultades dentro de un equipo.",
       "evidencias": [
         "edad_recomendada",
-        "numero_paginas",
+        "titulo",
         "edicion",
-        "categorias",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 192 páginas y las ilustraciones de David Garrido en un ejemplar físico que permite hojear las escenas ilustradas. Es el formato de compra recogido para este título y permite conservarlo en papel o entregarlo como regalo.",
+      "texto": "Enzo Brown: loco por el basket 5 - La cancha es de todos está disponible en tapa dura y Kindle. La edición física de 192 páginas incorpora ilustraciones de David Garrido y una encuadernación rígida apropiada para el uso repetido o el regalo. Kindle permite leerlo en un móvil o lector electrónico compatible, con una presentación de las ilustraciones condicionada por la pantalla.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
+        "edicion",
         "numero_paginas",
         "sinopsis_editorial"
       ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amigos de verdad, de Iris Pérez-Bonaventura, comparte con Enzo Brown: loco por el basket 5 - La cancha es de todos el interés por la amistad durante la infancia, aunque el libro de Pablo Lolaso desarrolla ese vínculo mediante un equipo de baloncesto. Me llamo Goa 12 - ¡Eres única, Goa!, de Míriam Tirado, se centra en los retos de la adolescencia, mientras Enzo Brown parte de una aventura deportiva recomendada desde los 9 años.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994303",
+        "isbn-9791387994532"
+      ]
     }
   ],
-  "descartados": [
-    "esta_edicion: nombres sin respaldo: ISBN",
-    "lecturas_afines: copia 8 palabras seguidas de la sinopsis",
-    "faltan módulos: esta_edicion, lecturas_afines"
-  ],
+  "descartados": [],
   "version": 3,
-  "fuente_hash": "dbcd76c5b2eabc66",
+  "fuente_hash": "ed77a87cace31a5c",
   "origen": "chatgpt-web"
 }

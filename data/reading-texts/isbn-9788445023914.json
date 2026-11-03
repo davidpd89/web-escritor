@@ -3,17 +3,8 @@
   "familia": "narrativa",
   "bloques": [
     {
-      "modulo": "para_quien",
-      "texto": "Neuromante (Edición especial) se dirige a lectores de ciencia ficción interesados en el ciberespacio, el robo de información y las consecuencias de la tecnología sobre las personas. Su conflicto parte de un especialista incapacitado para acceder al entorno digital donde trabajaba; encaja menos con quienes buscan una historia cotidiana y realista.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
       "modulo": "encaje_documentado",
-      "texto": "Neuromante (Edición especial) es una novela de ciencia ficción ciberpunk centrada en Case, un antiguo ladrón de información digital. Tras traicionar a sus empleadores, sufre daños neurológicos que le impiden continuar su actividad en el ciberespacio. El conflicto combina delincuencia informática, castigo físico y pérdida de capacidades.",
+      "texto": "Neuromante (Edición especial) plantea una historia de ciencia ficción ciberpunk protagonizada por Case, un especialista en infiltrarse en defensas electrónicas. Tras una traición, una toxina daña su sistema nervioso y le arrebata su capacidad de actuar en el ciberespacio. El conflicto combina delincuencia informática, castigo físico y pérdida de habilidades.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,32 +13,30 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Neuromante (Edición especial) corresponde a una edición de Minotauro en tapa dura de cartoné, sin sobrecubierta. El volumen de William Gibson tiene 392 páginas en castellano, con ISBN 9788445023914 y fecha de publicación editorial del 27 de enero de 2027.",
+      "texto": "Neuromante (Edición especial), de William Gibson, se presenta en tapa dura de cartoné sin sobrecubierta. Minotauro publica esta edición en castellano, con 392 páginas y fecha editorial de 2027-01-27. La denominación «Edición especial» figura en el título y permite identificar esta presentación concreta.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "autores",
-        "numero_paginas",
+        "edicion",
+        "editorial",
         "idioma",
-        "isbn13",
+        "numero_paginas",
         "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Neuromante (Edición especial) está disponible en tapa dura, con una cubierta rígida que protege sus 392 páginas durante la conservación y la relectura. Es una opción física para quienes desean guardar esta edición de William Gibson en su biblioteca o entregarla como regalo.",
+      "texto": "La tapa dura es el formato disponible de Neuromante (Edición especial), con 392 páginas encuadernadas en cartoné sin sobrecubierta. Esta presentación permite conservar el volumen como libro físico y consultarlo sin depender de un dispositivo electrónico. Su denominación de edición especial también permite distinguirlo al buscarlo para regalar.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "autores"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Neuromante (Edición especial) y Reconexión comparten el terreno de la ciencia ficción, aunque sus enfoques son distintos. William Gibson plantea un conflicto tecnológico ligado al ciberespacio y al robo de datos; Reconexión, de Neal Shusterman, se presenta como una historia distópica. La diferencia principal está entre el entorno informático y el planteamiento de una distopía.",
+      "texto": "Aunque se acabe el mundo, de Clara Duarte, comparte con Neuromante (Edición especial) el terreno de la ciencia ficción y la alteración de las condiciones habituales de vida. Clara Duarte parte de una cúpula sobre la Tierra y de cambios en la humanidad; William Gibson se concentra en Case, el ciberespacio y el castigo que destruye sus habilidades tecnológicas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -56,11 +45,23 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388365027"
+        "isbn-9788427255968"
+      ]
+    },
+    {
+      "modulo": "para_quien",
+      "texto": "Neuromante (Edición especial) se dirige a lectores de ciencia ficción interesados en el ciberespacio, el robo de información y las consecuencias de la tecnología sobre las personas. Su conflicto parte de un especialista incapacitado para acceder al entorno digital donde trabajaba; encaja menos con quienes buscan una historia cotidiana y realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "para_quien: afirmaciones sin respaldo: premi",
+    "faltan módulos: para_quien"
+  ],
   "version": 3,
   "fuente_hash": "5da40b4ded3d4138",
   "origen": "chatgpt-web"

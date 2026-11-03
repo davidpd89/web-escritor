@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9788419275776",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guerra de dragones (Lengua de dragones 2), de S.F. Williamson, se dirige a lectores desde los 12 años interesados en fantasía juvenil con rebeliones, dragones y conflictos políticos ficticios. La interpretación de una lengua desconocida tiene un papel decisivo en la guerra. No encaja tanto con quien busque una historia cotidiana sin elementos fantásticos ni enfrentamientos armados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Guerra de dragones (Lengua de dragones 2) está recomendada a partir de 12 años. Incluye una rebelión, persecución de una persona considerada criminal, amenazas de guerra y referencias a bombas y violencia entre dragones. Su contenido combina peligro colectivo y decisiones difíciles dentro de un mundo fantástico.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Esta fantasía juvenil combina dragones, conflicto bélico y desciframiento lingüístico. Vivian Featherswallow ha contribuido involuntariamente a intensificar una guerra y emprende la búsqueda de una especie de dragón considerada extinguida. La resolución del enfrentamiento depende tanto de comprender el lenguaje como de actuar frente a los bandos implicados.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Guerra de dragones (Lengua de dragones 2) se publica en tapa blanda y Kindle. La edición de Salamandra contiene 304 páginas y tiene solapas, una alternativa física para conservar junto a otros volúmenes. Kindle permite llevar la lectura en formato digital sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guerra de dragones (Lengua de dragones 2) y Alas de escarcha y oro: El canto del cisne comparten elementos fantásticos y protagonistas vinculadas a capacidades singulares. En la obra de S.F. Williamson, la comprensión del lenguaje de los dragones interviene en una guerra; en la de Marta Morillo, Eira vive ocultando sus dones y debilidades. La primera sitúa el conflicto en una rebelión colectiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d60729e0145d05ba",
+  "origen": "chatgpt-web"
+}

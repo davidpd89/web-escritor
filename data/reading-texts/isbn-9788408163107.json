@@ -1,0 +1,65 @@
+{
+  "id": "isbn-9788408163107",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Es Navidad, Stilton! está dirigido a lectores de 6 a 8 años que buscan una historia infantil ambientada en las celebraciones navideñas. El humor de los contratiempos familiares y la ayuda entre personajes tienen más presencia que la aventura fantástica, por lo que responde a gustos distintos de los relatos centrados en mundos imaginarios.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "¡Es Navidad, Stilton! se lee como un relato infantil en el que los sucesos de Nochebuena se encadenan hasta alterar una celebración familiar. Puede leerse por tramos y comentar los incidentes que vive el protagonista, así como la ayuda que recibe y el sentido de solidaridad asociado a la Navidad.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada de ¡Es Navidad, Stilton! es de 6 a 8 años. Esta edición de Destino Infantil & Juvenil tiene 128 páginas en castellano y se presenta en rústica con solapas, una extensión que permite repartir la historia en varias sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Es Navidad, Stilton! puede elegirse en tapa blanda o Kindle. La edición impresa ofrece 128 páginas en rústica con solapas para leer y regalar en papel; Kindle permite llevar el mismo título en un dispositivo de lectura compatible, sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El gran libro del Reino de la Fantasía, de Geronimo Stilton, comparte autoría con ¡Es Navidad, Stilton!, pero desarrolla una aventura fantástica con un Fénix y una reina enfrentada al protagonista. Regreso al Reino de la Fantasía, también de Geronimo Stilton, se vincula al mismo universo imaginario, mientras que ¡Es Navidad, Stilton! sitúa su historia en una celebración familiar navideña.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408132004",
+        "isbn-9788408074496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3629b229737a5752",
+  "origen": "chatgpt-web"
+}

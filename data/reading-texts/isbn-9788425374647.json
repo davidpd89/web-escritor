@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Salud sistémica se dirige a lectores interesados en comprender la salud desde el funcionamiento conjunto de los sistemas del organismo. Jesús Álvarez-Herms aborda capacidades físicas y mentales, recuperación, hábitos y potencial biológico, con un enfoque conceptual que puede interesar a profesionales sanitarios, entrenadores y deportistas. Encaja menos con quienes buscan dietas cerradas, recetas universales o soluciones inmediatas para una dolencia concreta.",
+      "texto": "Salud sistémica, de Jesús Álvarez-Herms, se dirige a lectores interesados en comprender el funcionamiento conjunto del organismo, incluidos entrenadores, médicos y atletas. Trata las relaciones entre capacidades físicas, estados fisiológicos, hábitos y potencial biológico. Encaja menos con quien busque recetas universales o soluciones rápidas para problemas de salud.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,42 +14,40 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Salud sistémica se publica en tapa blanda bajo el sello Grijalbo, con 376 páginas en castellano. La edición de Jesús Álvarez-Herms tiene fecha de publicación del 21 de enero de 2027 y está identificada mediante el ISBN 9788425374647. Su presentación es una encuadernación flexible, sin indicación de elementos especiales en la denominación editorial.",
+      "texto": "Salud sistémica se publica en castellano bajo el sello Grijalbo, en una edición de tapa blanda de 376 páginas. Su fecha editorial es 2027-01-21 y el ISBN que identifica esta presentación es 9788425374647. El formato físico permite consultar sus explicaciones sobre los sistemas del organismo y los hábitos cotidianos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "edicion",
         "editorial",
+        "edicion",
         "numero_paginas",
         "idioma",
         "fecha_publicacion",
-        "isbn13"
+        "isbn13",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Salud sistémica desarrolla un marco conceptual para relacionar el funcionamiento del organismo con sus hábitos y su entorno. Jesús Álvarez-Herms explica la coordinación entre sistemas corporales, los procesos de absorción, limpieza y reparación, y la influencia de la genética, la epigenética y la microbiota sobre el potencial biológico. Sus 376 páginas sirven para examinar esas relaciones y comprender la salud como una cuestión de funcionamiento conjunto, no como una colección de recetas universales.",
+      "texto": "Salud sistémica ofrece un marco conceptual para comprender cómo se relacionan los sistemas del organismo con la salud y el potencial biológico. Examina funciones fisiológicas y mentales, mecanismos de absorción, reparación, microbiota, genética y hábitos cotidianos. Su utilidad principal es interpretar estas relaciones, en lugar de seguir recetas universales o atajos.",
       "evidencias": [
         "titulo",
-        "autores",
         "sinopsis_editorial",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Salud sistémica se comercializa en tapa blanda, con 376 páginas dedicadas a conceptos sobre el funcionamiento del cuerpo y la relación entre hábitos y salud. La encuadernación flexible permite consultar el volumen por apartados y volver sobre explicaciones relacionadas, como las dedicadas a la microbiota o los mecanismos de reparación. Es una opción física para quien quiera leer y revisar ese contenido en papel.",
+      "texto": "Salud sistémica está disponible en tapa blanda y Kindle. La tapa blanda reúne sus 376 páginas en un volumen físico que permite consultar los conceptos sobre salud y funcionamiento del organismo; Kindle facilita llevar el texto en un lector electrónico o dispositivo compatible. La elección depende de si se prefiere la consulta en papel o digital.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Salud sistémica y Cómo no tener diabetes abordan cuestiones de salud, pero con alcances distintos: Jesús Álvarez-Herms examina la coordinación general del organismo, mientras Adrián Díaz Alonso centra su libro en la diabetes. También puede compararse con 5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro (@blancanutri), por su relación con el bienestar. Frente a ese planteamiento de transformación personal, Salud sistémica desarrolla conceptos sobre potencial biológico, hábitos y funciones corporales.",
+      "texto": "Cómo no tener diabetes, de Adrián Díaz Alonso, comparte con Salud sistémica, de Jesús Álvarez-Herms, el interés por la salud. El primero aborda específicamente la diabetes, mientras que Salud sistémica examina el funcionamiento coordinado del organismo, el potencial biológico y la influencia de los hábitos. La diferencia principal está en la amplitud del enfoque.",
       "evidencias": [
         "titulo",
         "autores",
@@ -58,13 +56,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466394390",
         "isbn-9788425373152"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a18771ac988d0155",
+  "fuente_hash": "c1d6135e5d201295",
   "origen": "chatgpt-web"
 }

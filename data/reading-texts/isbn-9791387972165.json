@@ -1,0 +1,66 @@
+{
+  "id": "isbn-9791387972165",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Arta Game - Busca y encuentra está dirigido a niños y niñas desde los 7 años que prefieren resolver búsquedas visuales antes que seguir una narración extensa. Sus actividades consisten en localizar personajes y objetos ocultos en escenarios ilustrados. No responde a quien busque una novela de aventuras basada principalmente en texto.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Arta Game - Busca y encuentra se utiliza recorriendo sus 16 escenarios y localizando personajes, objetos y detalles escondidos. Cada página exige examinar las ilustraciones y comprobar qué elementos se han encontrado. Las búsquedas pueden repetirse individualmente o en compañía, con la atención y la observación como habilidades principales.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Arta Game - Busca y encuentra está indicado a partir de 7 años y contiene 48 páginas. Se publica en tapa dura, dentro de la oferta infantil de Montena. Su contenido se organiza alrededor de 16 escenarios de búsqueda visual, por lo que la actividad depende de examinar las imágenes y no de leer capítulos largos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Arta Game - Busca y encuentra se ofrece en tapa dura, con 48 páginas dedicadas a actividades de observación. El soporte físico permite recorrer las ilustraciones, señalar los elementos encontrados y volver a los escenarios anteriores. Esta edición de Montena puede utilizarse tanto para jugar a solas como para compartir las búsquedas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Arta Game - Busca y encuentra y LEGO® Ninjago - La pluma del destino: El ataque del guardián de los pergaminos comparten una orientación infantil hacia la actividad. El primero propone búsquedas de personajes y objetos en ilustraciones; el segundo incluye una minifigura LEGO® y un modelo para construir. Uno se centra en observar y localizar, mientras que el otro incorpora construcción física.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241837979"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a453f77c0b3b2bfb",
+  "origen": "chatgpt-web"
+}

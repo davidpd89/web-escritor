@@ -4,17 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Rinkmates está dirigido a lectores de romance juvenil interesados en las relaciones fingidas, la reputación pública y los deportes sobre hielo. La historia combina la colaboración entre una expatinadora olímpica y un jugador de hockey con secretos personales, por lo que encaja menos con quienes prefieren relaciones sin engaños públicos ni conflictos derivados del pasado.",
+      "texto": "Rinkmates, de Nova Banks, se dirige a lectores juveniles interesados en romances deportivos y relaciones que comienzan como una representación pública. El hockey, el patinaje artístico y la exposición mediática condicionan la relación de sus protagonistas. Encaja menos con quien busque una narración deportiva sin conflicto sentimental.",
       "evidencias": [
         "titulo",
-        "edad_recomendada",
+        "autores",
         "categorias",
+        "edad_recomendada",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Rinkmates está clasificado como juvenil y aborda un pasado personal oscuro, errores anteriores y la presión de mantener una imagen pública favorable. Liora intenta rehacer su trayectoria mientras Riley necesita mejorar su reputación, y ambos aceptan aparentar una relación sentimental por motivos relacionados con sus objetivos profesionales.",
+      "texto": "Rinkmates pertenece a la narrativa romántica juvenil y no establece una edad mínima concreta dentro de esa clasificación. La historia aborda un pasado personal oscuro, errores anteriores, problemas de reputación y la presión de mantener una relación fingida. Estos elementos introducen conflictos emocionales junto a la trama deportiva.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,34 +25,32 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Rinkmates propone un romance juvenil deportivo construido alrededor de una relación fingida y la exposición mediática. Riley, jugador de hockey, y Liora, antigua patinadora olímpica, participan en una estrategia para mejorar sus posibilidades dentro de un concurso televisivo, mientras sus sentimientos y sus problemas personales complican el acuerdo.",
+      "texto": "El romance se desarrolla alrededor de un acuerdo de conveniencia entre una antigua patinadora olímpica y una figura del hockey. Liora James busca recuperar oportunidades mediante un concurso televisivo, mientras Riley Huntington necesita cambiar la percepción pública sobre él. La pareja simulada conecta sus objetivos profesionales con una atracción que complica el acuerdo.",
       "evidencias": [
-        "titulo",
         "categorias",
-        "edad_recomendada",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Rinkmates se publica en tapa blanda con solapas y tiene una extensión de 448 páginas en castellano. La edición permite seguir la historia en papel a lo largo de distintas sesiones, utilizando las solapas para marcar el punto de lectura entre capítulos.",
+      "texto": "Rinkmates está disponible en tapa blanda y Kindle. La edición impresa de Montena reúne 448 páginas y lleva solapas, por lo que permite tener un ejemplar físico para la estantería o para regalar. La versión Kindle facilita leer la novela en formato digital, también desde un móvil compatible.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "edicion",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Rinkmates comparte con Solo un juego más (CAR HOCKEY 1), de Susanna Herrero, la combinación de romance y deporte, con el hockey señalado expresamente en el título de esta última. En la novela de Nova Banks, el elemento distintivo es el acuerdo entre Liora y Riley para aparentar una relación ante el público mientras participan en un proyecto televisivo relacionado con el patinaje.",
+      "texto": "Rinkmates se aproxima a Solo un juego más (CAR HOCKEY 1) por el romance juvenil y el hockey sobre hielo. Nova Banks plantea una pareja fingida entre deportistas que persiguen objetivos públicos, mientras Susanna Herrero sitúa el conflicto en el trabajo de una posible entrenadora con un jugador al que detesta. En ambos casos, la relación personal altera una situación vinculada al deporte.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791388222801"
@@ -60,6 +59,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dacad8b4ce29bf42",
+  "fuente_hash": "f130d572c8bef120",
   "origen": "chatgpt-web"
 }

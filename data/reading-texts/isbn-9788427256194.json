@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9788427256194",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Drácula (edición coleccionista) está orientado a lectores a partir de 12 años interesados en el terror y las novelas juveniles de atmósfera inquietante. La historia de Bram Stoker incluye ataques, una enfermedad misteriosa y una persecución contra una amenaza nocturna; encaja menos con quienes prefieren evitar situaciones de miedo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Drácula (edición coleccionista) tiene una edad recomendada a partir de 12 años. Su argumento incorpora ataques inexplicables, una enfermedad que provoca temor y una amenaza vinculada a la noche. Estos elementos de terror pueden resultar intensos para lectores especialmente sensibles a las situaciones de peligro y persecución.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Drácula (edición coleccionista) presenta una historia de terror construida alrededor de una amenaza que conecta Transilvania con Inglaterra. El relato combina sucesos difíciles de explicar, una enfermedad inquietante y la actuación de un grupo encabezado por Van Helsing. La investigación y el enfrentamiento con esa presencia organizan el conflicto principal.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Drácula (edición coleccionista) es una edición en castellano de Molino, publicada en tapa dura y con 472 páginas. Se distingue por las ilustraciones de Adara Sánchez y los cantos tintados, elementos específicos de su presentación coleccionista. Su fecha de publicación editorial es el 29 de octubre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Drácula (edición coleccionista) puede adquirirse en tapa dura o Kindle. La edición física de Molino reúne 472 páginas, ilustraciones de Adara Sánchez y cantos tintados, por lo que permite conservar esos detalles materiales como parte del ejemplar. Kindle ofrece la alternativa de lectura digital en un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0c1166189d76b0bf",
+  "origen": "chatgpt-web"
+}

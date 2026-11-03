@@ -1,0 +1,65 @@
+{
+  "id": "isbn-9791388279379",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sherlock se dirige a lectores de misterio y thriller que prefieren los relatos a una novela de trama continua. Sus diez historias giran alrededor de Sherlock Holmes, con enigmas y crímenes; encaja menos con quien busca una única investigación desarrollada durante todo el libro.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Sherlock propone una antología de diez relatos de misterio escritos como homenaje a Sherlock Holmes. Participan autores del thriller actual y cada historia recupera al detective mediante nuevos casos, de modo que la lectura se organiza en narraciones independientes en lugar de una sola trama extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Sherlock está publicada por Temas de Hoy en castellano, con encuadernación de tapa dura sin sobrecubierta. Reúne 416 páginas y tiene como fecha editorial el 11 de noviembre de 2026. El volumen incorpora una introducción de Stephen Fry y relatos de distintos autores.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "fecha_publicacion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sherlock está disponible en tapa dura, con 416 páginas reunidas en un volumen de cartoné sin sobrecubierta. Esta presentación permite conservar juntos los diez relatos y facilita su consulta o relectura por separado. Es una opción física para quien prefiere tener la antología en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sherlock puede compararse con Merry Murdle, de G. T. Karber, porque ambos utilizan asesinatos y enigmas como punto de partida. La diferencia está en la estructura: Sherlock reúne relatos de varios autores alrededor de Sherlock Holmes, mientras Merry Murdle presenta una investigación del Detective Lógico durante unas fiestas interrumpidas por crímenes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388279324"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db1326bcaac195d2",
+  "origen": "chatgpt-web"
+}

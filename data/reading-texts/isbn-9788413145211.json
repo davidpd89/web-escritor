@@ -4,17 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) está dirigido al público juvenil que busca romance, rivalidades y secretos en un ambiente universitario. Su conflicto gira alrededor de las relaciones sociales y de una protagonista decidida a desenmascarar a un grupo de estudiantes, por lo que se aleja de las historias centradas en la fantasía o la aventura.",
+      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) encaja con lectores de romance juvenil interesados en rivalidades universitarias, relaciones de poder y secretos familiares. Su trama de fiestas, ligues y maniobras para desenmascarar a otros personajes encaja menos con quienes buscan una historia romántica sin intrigas ni enfrentamientos.",
       "evidencias": [
         "titulo",
-        "edad_recomendada",
         "categorias",
+        "edad_recomendada",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) está clasificada como lectura juvenil, aunque sus personajes se desenvuelven en un entorno universitario. La historia incluye fiestas, relaciones sentimentales, juegos de poder y secretos personales que los protagonistas pretenden ocultar o revelar. Estos elementos permiten valorar su adecuación a la sensibilidad de cada lector.",
+      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) está clasificado como juvenil y combina romance con secretos en un entorno universitario. Aparecen fiestas estudiantiles, ligues, diferencias de poder y comportamientos manipuladores asociados a los hermanos Cash. Estos elementos orientan sobre el contenido emocional y los conflictos de la historia.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,28 +24,41 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela romántica juvenil ambientada en una universidad donde las apariencias, los rumores y la posición social condicionan las relaciones. Jude pretende revelar los secretos que esconden los hermanos Cash, enfrentándose a su influencia dentro del campus. El título identifica Mentiras y secretos (Perfectos Mentirosos 1) como el n.º 1 de Perfectos Mentirosos.",
+      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) es una novela romántica juvenil de Alex Mírez construida alrededor de una confrontación en el campus. Jude pretende revelar aquello que los hermanos Cash ocultan tras su posición privilegiada. El título lo identifica como el n.º 1 de Perfectos Mentirosos, con secretos y relaciones personales como motores del conflicto.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) se presenta en tapa blanda de bolsillo, con 336 páginas y el sello Penguin Bolsillo. El formato de bolsillo facilita llevar el volumen en un bolso o mochila y leerlo durante desplazamientos, sin necesidad de utilizar un dispositivo electrónico.",
+      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) está disponible en tapa blanda y Kindle. La edición de bolsillo de Penguin Bolsillo tiene 336 páginas y ofrece un ejemplar físico de tamaño reducido para transportar. Kindle permite leer la novela en un dispositivo electrónico o en el móvil sin llevar el libro impreso.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "formatos_disponibles",
         "edicion",
-        "formato_edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) y Peligros y verdades (Perfectos Mentirosos 2) son títulos de Alex Mírez ambientados en el entorno universitario de los hermanos Cash. El primero presenta a Jude y su intención de sacar a la luz secretos familiares; el segundo vuelve a situar el foco en los hermanos Cash dentro de Tangus. Sus títulos los identifican respectivamente como el n.º 1 y el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413145228"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "23442a3d7cfc644d",
+  "fuente_hash": "377e1f4487f58655",
   "origen": "chatgpt-web"
 }

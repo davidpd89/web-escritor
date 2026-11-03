@@ -4,51 +4,64 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "5 semanas para desinflamarte (edición limitada) se dirige a lectores interesados en la nutrición, los hábitos alimentarios y el bienestar cotidiano. Propone trabajar durante cinco semanas con consejos, menús y recetas orientados a reducir la inflamación. Encaja menos con quienes buscan exclusivamente un recetario sin pautas sobre hábitos de vida.",
+      "texto": "5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro (@blancanutri), está dirigido a lectores interesados en modificar sus hábitos alimentarios mediante un programa de duración definida. Combina nutrición, menús y recetas con consejos sobre inflamación y bienestar. No responde al planteamiento de un libro dedicado exclusivamente a recetas de cocina.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "5 semanas para desinflamarte (edición limitada) es una presentación de Penguin Bolsillo en tapa blanda y castellano. Tiene 368 páginas, fecha editorial de 2027-01-07 e ISBN 9788466394390. La identificación «edición limitada» forma parte del título, mientras que su contenido combina un programa de hábitos con menús y recetas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "fecha_publicacion",
+        "isbn13",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "5 semanas para desinflamarte (edición limitada) incluye un programa de cinco semanas con pautas para incorporar hábitos, consejos prácticos, menús y recetas. Su uso consiste en aplicar esas propuestas a la alimentación cotidiana e identificar posibles desencadenantes de inflamación. Combina explicaciones sobre bienestar con recursos culinarios para organizar cambios en la dieta.",
+      "texto": "El libro contiene un programa de 5 semanas orientado a reducir la inflamación mediante cambios en los hábitos. Incluye consejos prácticos, propuestas de menús y recetas, además de pautas para reconocer posibles desencadenantes de la inflamación. Su estructura temporal permite utilizarlo como guía de alimentación y bienestar durante el periodo indicado.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "5 semanas para desinflamarte (edición limitada) está disponible en tapa blanda, con 368 páginas. Este formato permite consultar físicamente sus menús, recetas y consejos mientras se organiza la alimentación. La encuadernación flexible facilita manejar el volumen durante las consultas, aunque sus páginas requieren espacio para mantenerlo abierto.",
+      "texto": "5 semanas para desinflamarte (edición limitada) se ofrece en tapa blanda, con 368 páginas. El papel permite consultar los menús y las recetas mientras se organiza el programa de 5 semanas, sin utilizar una pantalla. Es una presentación física de Penguin Bolsillo que puede mantenerse a mano durante la preparación de las comidas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
+        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro (@blancanutri), comparte con La fibra es la solución, de Kristen Stavridis, el interés por la alimentación y su relación con la inflamación. El primero propone un programa de cinco semanas con menús, recetas y cambios de hábitos. El segundo centra su planteamiento en consumir 30 gramos diarios de fibra y sus posibles beneficios a largo plazo.",
+      "texto": "La revolución de la glucosa: el Método, de Jessie Inchauspé, comparte con 5 semanas para desinflamarte (edición limitada) el enfoque práctico sobre alimentación. El primero plantea 4 semanas y 100 recetas centradas en la glucosa; Blanca García-Orea Haro (@blancanutri) propone 5 semanas con menús, recetas y hábitos relacionados con la inflamación.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425374869"
+        "isbn-9788411191937"
       ]
     }
   ],
-  "descartados": [
-    "esta_edicion: cifras sin respaldo: 7",
-    "faltan módulos: esta_edicion"
-  ],
+  "descartados": [],
   "version": 3,
   "fuente_hash": "01e80c6c1c8b3dee",
   "origen": "chatgpt-web"

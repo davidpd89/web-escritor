@@ -4,47 +4,52 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tres cuentos encaja con quien busque relatos sobre la infancia, las reuniones familiares y la memoria de lo perdido. Sus 112 páginas se apoyan en celebraciones y en una perspectiva infantil; se aleja de las lecturas centradas en una acción prolongada.",
+      "texto": "Tres cuentos se dirige a lectores interesados en recuerdos de infancia, reuniones familiares y narraciones breves acompañadas de ilustraciones. Truman Capote aborda las celebraciones y la memoria desde la perspectiva de un niño, con imágenes de Fede Yankelevich. Encaja menos con quienes buscan una exposición argumentativa sobre cuestiones sociales o políticas.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
-      "modulo": "esta_edicion",
-      "texto": "Esta edición de Tres cuentos es una tapa blanda en castellano de Editorial Anagrama, con 112 páginas. Las ilustraciones de Fede Yankelevich acompañan los tres relatos de Truman Capote y dan presencia visual a objetos y gestos asociados al recuerdo.",
+      "modulo": "temas_y_enfoque",
+      "texto": "Tres cuentos aborda la memoria infantil, las celebraciones familiares y la relación entre los recuerdos y las pérdidas. Truman Capote utiliza la mirada de Buddy para reconstruir experiencias vinculadas a la Navidad y al día de Acción de Gracias. Las ilustraciones de Fede Yankelevich añaden una dimensión visual mediante objetos, texturas y detalles cotidianos.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "idioma",
-        "numero_paginas",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "temas_y_enfoque",
-      "texto": "Tres cuentos aborda el recuerdo de la infancia a través de tres encuentros familiares durante celebraciones. La mirada de Buddy vincula la Navidad y el Día de Acción de Gracias con la pérdida y la nostalgia, mientras las ilustraciones de Fede Yankelevich recuperan detalles cotidianos.",
-      "evidencias": [
-        "titulo",
-        "sinopsis_editorial",
-        "autores"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "Tres cuentos está disponible en tapa blanda y tapa dura. La edición de Editorial Anagrama en tapa blanda tiene 112 páginas y una cubierta flexible para llevarla; la tapa dura ofrece una encuadernación rígida para quien dé prioridad a conservar el volumen o regalarlo.",
+      "texto": "Tres cuentos está disponible en tapa dura, tapa blanda y Kindle. La tapa dura permite conservar sus 112 páginas en una encuadernación rígida, mientras que la tapa blanda ofrece una alternativa física flexible y ligera. Kindle permite llevar los tres relatos en un lector electrónico o dispositivo compatible, sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuerpo, humano y Tres cuentos comparten una aproximación a las experiencias humanas que combina aspectos físicos y expresivos. Vittorio Lingiardi se centra en el cuerpo y su dimensión poética, mientras que Truman Capote y Fede Yankelevich trabajan con recuerdos familiares, infancia e ilustraciones. Uno parte del cuerpo como tema; el otro, de escenas del pasado.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788433951304"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "esta_edicion: cifras sin respaldo: 4",
+    "faltan módulos: esta_edicion"
+  ],
   "version": 3,
-  "fuente_hash": "e7541194404a2e91",
+  "fuente_hash": "fdce453bf69b34ea",
   "origen": "chatgpt-web"
 }

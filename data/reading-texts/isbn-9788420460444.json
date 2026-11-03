@@ -1,0 +1,66 @@
+{
+  "id": "isbn-9788420460444",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los desafíos de la sociedad abierta: La libertad y sus enemigos (Obra periodística Vargas Llosa IV), de Mario Vargas Llosa, se dirige a adultos interesados en el pensamiento político, el liberalismo y el debate sobre las libertades individuales. No responde a la búsqueda de una novela con personajes y una trama continua: reúne artículos de reflexión y argumentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una recopilación de periodismo político y reflexión sobre la democracia liberal, el individualismo y las ideologías colectivistas. Los textos examinan las tensiones entre libertad personal, nacionalismo, religión y poder estatal desde la posición liberal de Mario Vargas Llosa. La lectura avanza mediante argumentos y artículos, no mediante una trama de ficción.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Alfaguara reúne 768 páginas en castellano, encuadernadas en tapa blanda con solapas, y tiene fecha de publicación del 29 de octubre de 2026. El título la identifica como el volumen IV de Obra periodística Vargas Llosa. Incluye un prólogo de Carlos Granés y textos periodísticos sobre la defensa de la sociedad abierta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los desafíos de la sociedad abierta: La libertad y sus enemigos (Obra periodística Vargas Llosa IV) está disponible en tapa blanda y Kindle. Sus 768 páginas en papel permiten consultar y marcar artículos en un volumen físico; Kindle facilita transportar la recopilación completa y alternar entre textos desde un dispositivo digital.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cosamala, de Alana S. Portero, y Cuando seamos inmortales, de Tony Gratacós, también abordan conflictos vinculados a la historia y la sociedad. Sin embargo, ambas presentan historias narrativas, una alrededor de un crimen de la guerra civil y otra sobre rivalidades artísticas y políticas, mientras Mario Vargas Llosa desarrolla argumentos sobre libertad e ideología mediante artículos periodísticos.",
+      "evidencias": [
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788432251436",
+        "isbn-9788423371181"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "95ffda90c489cbce",
+  "origen": "chatgpt-web"
+}

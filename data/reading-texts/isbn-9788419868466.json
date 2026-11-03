@@ -4,46 +4,51 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Campamento Mestizo 1 - La zona rebelde está dirigido a lectores a partir de 9 años que busquen aventuras con semidioses, criaturas míticas y peligros. La desaparición de un novato marca el conflicto, por lo que se aparta de los relatos escolares cotidianos sin elementos fantásticos.",
+      "texto": "Campamento Mestizo 1 - La zona rebelde está dirigido a lectores a partir de 9 años que buscan aventuras fantásticas con mitología y personajes jóvenes. También se relaciona con el universo Percy Jackson; sus peligros, desapariciones y criaturas amenazantes pueden encajar menos con quienes prefieren historias infantiles sin situaciones de riesgo.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Campamento Mestizo 1 - La zona rebelde se utiliza como libro de lectura: se sigue a Katie Kim y otros héroes mientras intentan encontrar a un novato desaparecido. A lo largo de 256 páginas, el campamento y el entrenamiento de sus habitantes dan contexto a esa búsqueda.",
+      "texto": "Campamento Mestizo 1 - La zona rebelde se lee como una aventura narrativa, no como un libro de actividades. La historia sigue a Katie Kim y a otros héroes en la búsqueda de un compañero desaparecido, con entrenamientos y encuentros mitológicos como parte del entorno. El título lo identifica como el n.º 1 de la saga.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Campamento Mestizo 1 - La zona rebelde se dirige a lectores a partir de 9 años y tiene 256 páginas. Salamandra lo publica en castellano en tapa blanda con solapas, una presentación flexible para una lectura continuada.",
+      "texto": "Campamento Mestizo 1 - La zona rebelde está recomendado a partir de 9 años. Esta edición de Salamandra contiene 256 páginas en castellano y se presenta en tapa blanda con solapas. Su contenido combina fantasía, mitología y aventuras juveniles relacionadas con el mundo de Percy Jackson.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
+        "editorial",
         "numero_paginas",
+        "idioma",
         "edicion",
-        "idioma"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible para Campamento Mestizo 1 - La zona rebelde. Sus 256 páginas se presentan con solapas, que pueden utilizarse para señalar por dónde va la lectura sin doblar las hojas.",
+      "texto": "Campamento Mestizo 1 - La zona rebelde se ofrece en tapa blanda y Kindle. La edición impresa de Salamandra tiene 256 páginas y solapas, por lo que permite conservar el volumen físicamente o regalarlo. Kindle facilita llevar la aventura en un lector electrónico o consultarla desde el móvil.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Campamento Mestizo 1 - La zona rebelde comparte con Pipoka y la Fábrica del Desastre el contacto con criaturas extraordinarias. Rick Riordan y Annabelle Oh sitúan la acción en un campamento de semidioses marcado por una desaparición; Jose Such sigue a un cuentacuentos y una marioneta mágica que recorren la Península.",
+      "texto": "Campamento Mestizo 1 - La zona rebelde y Pipoka y la Fábrica del Desastre comparten la fantasía y la presencia de criaturas legendarias. El primero, de Rick Riordan y Annabelle Oh, plantea una búsqueda entre semidioses vinculados al universo Percy Jackson; el segundo, de Jose Such, sigue a un cuentacuentos y una marioneta mágica por la Península. Cambian tanto el escenario como los protagonistas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -57,6 +62,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1fe9c2fa2485e7fc",
+  "fuente_hash": "a907f2a5ad3a9f8c",
   "origen": "chatgpt-web"
 }

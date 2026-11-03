@@ -4,50 +4,54 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Vals de Mefisto se dirige a lectores de narrativa contemporánea interesados en relatos donde lo cotidiano se transforma en situaciones extrañas y difíciles de interpretar. Su estructura de cuatro historias, con cambios de registro y escenarios poco convencionales, puede no encajar con quienes prefieran una única trama lineal de desarrollo realista.",
+      "texto": "Vals de Mefisto se dirige a lectores de narrativa contemporánea interesados en relatos donde lo cotidiano puede adquirir rasgos extraños. Sergio Pitol construye historias con cambios de escenario, recuerdos y situaciones que alteran la percepción de los personajes. Encaja menos con quienes prefieren una narración lineal de conflicto único y desarrollo previsible.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Vals de Mefisto reúne cuatro relatos que exploran las alteraciones de la percepción mediante escenarios familiares y acontecimientos insólitos. La narración enlaza episodios y cambia de tono, con situaciones ambientadas en Venecia, Samarcanda y Varsovia que desplazan progresivamente el relato hacia la extrañeza.",
+      "texto": "Vals de Mefisto reúne cuatro relatos de narrativa contemporánea que alternan escenarios familiares con situaciones desconcertantes. Sergio Pitol enlaza anécdotas, recuerdos y episodios inesperados, con cambios de registro que modifican el sentido de lo narrado. La estructura se apoya en esas conexiones y desviaciones entre historias.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "esta_edicion",
-      "texto": "Esta edición de Vals de Mefisto, publicada por Editorial Anagrama el 2026-11-04, tiene 144 páginas en castellano y encuadernación en tapa blanda. Además de los cuatro relatos de Sergio Pitol, incluye un prólogo de Enrique Vila-Matas, un contenido introductorio que forma parte de esta publicación.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "editorial",
-        "edicion",
-        "fecha_publicacion",
-        "numero_paginas",
-        "idioma",
-        "sinopsis_editorial"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "Vals de Mefisto está disponible en tapa blanda, con 144 páginas que reúnen cuatro relatos y un prólogo. El formato permite llevar el volumen para leer cada historia en sesiones independientes y consultar sobre papel la introducción de Enrique Vila-Matas antes de abordar los textos de Sergio Pitol.",
+      "texto": "Vals de Mefisto está disponible en tapa blanda y Kindle. La edición de papel reúne sus 144 páginas en un volumen flexible que puede transportarse para leer sus cuatro relatos por separado. Kindle ofrece el mismo tipo de lectura en formato digital, con acceso al libro desde un lector electrónico o dispositivo compatible.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "sinopsis_editorial",
-        "autores"
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mago de Viena y Vals de Mefisto comparten la autoría de Sergio Pitol y la presencia de un prólogo firmado por otro escritor. El mago de Viena incorpora uno de Daniel Saldaña París; Vals de Mefisto lleva uno de Enrique Vila-Matas y reúne cuatro relatos con escenarios cambiantes. La comparación permite distinguir ambos títulos por sus textos introductorios y el contenido descrito de Vals de Mefisto.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788433951113"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "esta_edicion: cifras sin respaldo: 4",
+    "faltan módulos: esta_edicion"
+  ],
   "version": 3,
-  "fuente_hash": "82af6f8805da3434",
+  "fuente_hash": "a86f230d26f6f7b1",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,65 @@
+{
+  "id": "isbn-9791388279409",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Murdoku 2 (edición especial SORTEO) se dirige a quienes disfrutan resolviendo crímenes mediante acertijos y razonamiento lógico. Su propuesta de ocio interactivo se aleja de la novela detectivesca convencional: aquí el lector participa en la resolución de los casos en lugar de limitarse a seguir una investigación narrada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un libro de pasatiempos detectivescos que combina desafíos mentales con crímenes situados en distintas épocas. La actividad consiste en aplicar la lógica a los casos planteados, dentro de una propuesta de ocio que exige la intervención del lector.",
+      "evidencias": [
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Murdoku 2 (edición especial SORTEO) es una edición de Temas de Hoy publicada el 28 de octubre de 2026, identificada por el ISBN 9791388279409. Tiene 224 páginas en castellano y encuadernación rústica con solapas; su denominación incorpora expresamente la referencia al sorteo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de Murdoku 2 (edición especial SORTEO), con 224 páginas y solapas. Permite consultar los acertijos sobre papel y volver a las páginas anteriores durante la resolución de los casos, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Murdoku (edición especial SORTEO), también de Manuel Garand, comparte los crímenes y los retos de lógica, pero incorpora expresamente sudokus a su planteamiento. El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados, de Modesto García, sitúa su misterio en un centro comercial durante las fiestas, frente a los crímenes a través del tiempo de Murdoku 2 (edición especial SORTEO).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388279386",
+        "isbn-9788401040740"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5e2e936a2203c614",
+  "origen": "chatgpt-web"
+}
