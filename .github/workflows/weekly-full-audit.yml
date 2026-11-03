@@ -1,13 +1,14 @@
-name: Weekly full audit
+name: Nightly full audit
 
 # Red de seguridad de la vía rápida de contenido (scripts/ci_content_lane.py): los PR solo de contenido generado
 # no disparan estos workflows, y en los obligatorios (pa11y, reflow, lighthouse) solo auditan una muestra.
-# Una vez por semana se lanzan todos completos sobre main. tests/test-ci-content-lane.py exige que esta lista
+# Cada madrugada (03:23 hora de Madrid en invierno, 04:23 en verano) se lanzan todos completos sobre main;
+# sitewide-reflow-qa no está porque su propio cron nocturno ya lo audita completo. tests/test-ci-content-lane.py exige que esta lista
 # incluya cada workflow con la exclusión de contenido.
 
 on:
   schedule:
-    - cron: '23 4 * * 0'
+    - cron: '23 2 * * *'
   workflow_dispatch:
 
 permissions:
@@ -36,7 +37,6 @@ jobs:
         small-ui-audit.yml
         lighthouse-ci.yml
         pa11y-baseline.yml
-        sitewide-reflow-qa.yml
     steps:
       - name: Lanzar la auditoría completa sobre main
         run: |

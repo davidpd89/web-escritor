@@ -84,8 +84,13 @@ if lane.decide("workflow_dispatch", "", "", "main")[0] != "full":
     falla("dispatch en main debe ser full")
 if lane.decide("pull_request", "0" * 40, "HEAD", "x")[0] != "full":
     falla("diff imposible debe ser full")
-if lane.diff_range("workflow_dispatch", "", "", "automation/reading-catalogue-textos-2026-11-03-1") is None:
-    falla("dispatch en rama del bot debe calcular diff")
+# Sin git real: el runner de python-tests no tiene origin/main (los workflows de la vía sí, con fetch-depth 0).
+real_git, lane.git = lane.git, lambda *args: "base\n"
+try:
+    if lane.diff_range("workflow_dispatch", "", "", "automation/reading-catalogue-textos-2026-11-03-1") != ("base", "HEAD"):
+        falla("dispatch en rama del bot debe calcular diff")
+finally:
+    lane.git = real_git
 
 # 4. Los globs equivalen a la política, sobre todos los ficheros del repo.
 tracked = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True).stdout.splitlines()
@@ -96,7 +101,7 @@ for f in tracked:
     if cubierto and not permitido:
         falla(f"{f} lo excluye un glob pero el publicador no lo admite")
 
-# 5. Cada workflow excluido usa exactamente CONTENT_GLOBS y la auditoría semanal lo relanza.
+# 5. Cada workflow excluido usa exactamente CONTENT_GLOBS y la auditoría nocturna lo relanza.
 weekly = (ROOT / ".github/workflows/weekly-full-audit.yml").read_text(encoding="utf-8")
 for name in EXCLUDED:
     text = (ROOT / f".github/workflows/{name}.yml").read_text(encoding="utf-8")
@@ -113,10 +118,14 @@ for name in EXCLUDED:
         falla(f"{name}: la exclusión no coincide con CONTENT_GLOBS")
     if f"{name}.yml" not in weekly:
         falla(f"{name}: no está en weekly-full-audit.yml")
+if not re.search(r"cron: '\d+ \d+ \* \* \*'", weekly):
+    falla("weekly-full-audit.yml: la auditoría completa debe ser diaria (de madrugada)")
 for name in ("lighthouse-ci", "pa11y-baseline", "sitewide-reflow-qa"):
-    if f"{name}.yml" not in weekly:
-        falla(f"{name}: la auditoría semanal debe lanzarlo completo")
-    if "scripts/ci_content_lane.py" not in (ROOT / f".github/workflows/{name}.yml").read_text(encoding="utf-8"):
+    text = (ROOT / f".github/workflows/{name}.yml").read_text(encoding="utf-8")
+    # Sin cron diario propio, lo relanza completo la auditoría nocturna.
+    if f"{name}.yml" not in weekly and not re.search(r"cron: '\d+ \d+ \* \* \*'", text):
+        falla(f"{name}: ni la auditoría nocturna ni un cron propio lo lanzan completo cada día")
+    if "scripts/ci_content_lane.py" not in text:
         falla(f"{name}: no consulta la vía rápida")
 
 if fallos:
