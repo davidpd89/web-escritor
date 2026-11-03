@@ -1,0 +1,68 @@
+name: Nightly full audit
+
+# Red de seguridad de la vía rápida de contenido (scripts/ci_content_lane.py): los PR solo de contenido generado
+# no disparan estos workflows, y en los obligatorios (pa11y, reflow, lighthouse) solo auditan una muestra.
+# Cada madrugada (03:23 hora de Madrid en invierno, 04:23 en verano) se lanzan todos completos sobre main;
+# sitewide-reflow-qa no está porque su propio cron nocturno ya lo audita completo. tests/test-ci-content-lane.py exige que esta lista
+# incluya cada workflow con la exclusión de contenido.
+
+on:
+  schedule:
+    - cron: '23 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      WORKFLOWS: >-
+        analytics-taxonomy-qa.yml
+        cross-engine-smoke.yml
+        csp-public-shell-qa.yml
+        navigation-roundtrip-audit.yml
+        public-time-semantics-qa.yml
+        runtime-scoping-qa.yml
+        sitewide-console-errors-qa.yml
+        small-ui-audit.yml
+        lighthouse-ci.yml
+        pa11y-baseline.yml
+    steps:
+      # El job no queda en verde por haber lanzado: espera cada ejecución nueva y falla si alguna no termina en success.
+      - name: Lanzar la auditoría completa sobre main y esperar su resultado
+        run: |
+          last() { gh run list --workflow "$1" --branch main --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId // 0'; }
+          failed=0; declare -A before
+          for wf in $WORKFLOWS; do
+            before[$wf]=$(last "$wf")
+            if ! gh workflow run "$wf" --ref main; then
+              echo "- \`$wf\`: NO se pudo lanzar" >> "$GITHUB_STEP_SUMMARY"; failed=1
+            fi
+          done
+          deadline=$(( $(date +%s) + 170 * 60 ))
+          pending="$WORKFLOWS"
+          while [ -n "$pending" ] && [ "$(date +%s)" -lt "$deadline" ]; do
+            sleep 60; still=""
+            for wf in $pending; do
+              row=$(gh run list --workflow "$wf" --branch main --event workflow_dispatch --limit 5 --json databaseId,status,conclusion,url --jq "[.[] | select(.databaseId > ${before[$wf]})] | last // empty | [.status, .conclusion, .url] | @tsv" || true)
+              read -r status conclusion url <<< "$row"
+              if [ "$status" != "completed" ]; then still="$still $wf"; continue; fi
+              echo "- \`$wf\`: $conclusion — $url" >> "$GITHUB_STEP_SUMMARY"
+              [ "$conclusion" = "success" ] || failed=1
+            done
+            pending="${still# }"
+          done
+          for wf in $pending; do
+            echo "- \`$wf\`: sin terminar a tiempo" >> "$GITHUB_STEP_SUMMARY"; failed=1
+          done
+          exit $failed

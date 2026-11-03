@@ -124,7 +124,8 @@ def main() -> int:
     print(line, "|", reason)
     if os.environ.get("GITHUB_OUTPUT"):
         with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
-            fh.write(line + "\n")
+            # routes= es lo que el workflow pasa como QA_ONLY_ROUTES; vacío = todas las rutas.
+            fh.write(f"{line}\nroutes={','.join(routes)}\n")
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as fh:
             fh.write(f"### Sitewide Reflow: {'EJECUTADO' if run else 'OMITIDO (no aplicable)'}\n{reason}\n")
