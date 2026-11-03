@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788427055643",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todas las vidas hasta ti encaja con lectores desde los 16 años interesados en la fantasía juvenil, los misterios familiares y los desplazamientos a otras épocas. La historia de Alicia Martínez gira alrededor de recuerdos, sueños y un regreso al pasado; no responde a quien prefiera una narración realista sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Todas las vidas hasta ti está recomendado a partir de 16 años. Entre sus elementos narrativos figuran la muerte de una abuela, el temor al fuego y recuerdos dolorosos, además del desconcierto de despertar en otra época. Estos asuntos pueden resultar sensibles para lectores afectados por el duelo o las situaciones de miedo.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Todas las vidas hasta ti plantea una fantasía juvenil que combina secretos personales y desplazamiento temporal. Alicia Martínez sitúa parte del conflicto en la Galicia del siglo XV, donde Estela debe afrontar una realidad ajena mientras intenta volver a su época. El misterio nace de sus experiencias personales y de su relación con el pasado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todas las vidas hasta ti puede leerse en tapa blanda o Kindle. La edición en rústica con solapas de Ediciones Martínez Roca reúne 448 páginas para quienes prefieren el papel; Kindle facilita continuar una lectura de esa extensión desde un móvil o lector electrónico compatible, sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dd79d17b2716cfc1",
+  "origen": "chatgpt-web"
+}
