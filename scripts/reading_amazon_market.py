@@ -17,6 +17,9 @@ RESOURCES=['itemInfo.title','itemInfo.byLineInfo','itemInfo.externalIds',
 # Amazon's own cap for a new Creators API account (api-rates): 1 request per
 # second and 8640 per day. Not a choice of ours, just the ceiling.
 AMAZON_DAILY_LIMIT=8640
+# Same bounds build-reading-catalogue.py enforces on formatos_compra: an offer outside
+# them is dropped here, so one odd Amazon price cannot fail the whole publication.
+PRICE_MIN_CENTS,PRICE_MAX_CENTS=100,100000
 BINDINGS={'paperback':'tapa-blanda','tapa blanda':'tapa-blanda','mass market paperback':'tapa-blanda',
           'libro de bolsillo':'tapa-blanda','hardcover':'tapa-dura','tapa dura':'tapa-dura',
           'kindle':'ebook','formato kindle':'ebook','kindle edition':'ebook','version kindle':'ebook',
@@ -157,7 +160,7 @@ def select_offers(book,payload,tag,now):
                 continue
             price=amazon_dict(listing.get('price'))
             cents=money_cents(price.get('money'))
-            if cents is None:
+            if cents is None or not PRICE_MIN_CENTS<=cents<=PRICE_MAX_CENTS:
                 continue
             offer={'libro_id':book['id'],'formato':fmt,'tipo':'compra','moneda':'EUR',
                    'precio_centimos':cents,'url':offer_url(item,asin,tag),
