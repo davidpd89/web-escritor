@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788466394390",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "5 semanas para desinflamarte (edición limitada) se dirige a lectores interesados en la nutrición, los hábitos alimentarios y el bienestar cotidiano. Propone trabajar durante cinco semanas con consejos, menús y recetas orientados a reducir la inflamación. Encaja menos con quienes buscan exclusivamente un recetario sin pautas sobre hábitos de vida.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "5 semanas para desinflamarte (edición limitada) incluye un programa de cinco semanas con pautas para incorporar hábitos, consejos prácticos, menús y recetas. Su uso consiste en aplicar esas propuestas a la alimentación cotidiana e identificar posibles desencadenantes de inflamación. Combina explicaciones sobre bienestar con recursos culinarios para organizar cambios en la dieta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "5 semanas para desinflamarte (edición limitada) está disponible en tapa blanda, con 368 páginas. Este formato permite consultar físicamente sus menús, recetas y consejos mientras se organiza la alimentación. La encuadernación flexible facilita manejar el volumen durante las consultas, aunque sus páginas requieren espacio para mantenerlo abierto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro (@blancanutri), comparte con La fibra es la solución, de Kristen Stavridis, el interés por la alimentación y su relación con la inflamación. El primero propone un programa de cinco semanas con menús, recetas y cambios de hábitos. El segundo centra su planteamiento en consumir 30 gramos diarios de fibra y sus posibles beneficios a largo plazo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374869"
+      ]
+    }
+  ],
+  "descartados": [
+    "esta_edicion: cifras sin respaldo: 7",
+    "faltan módulos: esta_edicion"
+  ],
+  "version": 3,
+  "fuente_hash": "01e80c6c1c8b3dee",
+  "origen": "chatgpt-web"
+}

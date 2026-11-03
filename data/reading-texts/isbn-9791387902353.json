@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791387902353",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ice Age. ¿Dónde está Scrat? está dirigido a niños de 3 a 5 años que disfrutan buscando personajes y objetos en aventuras de animales. La persecución de una bellota por parte de Scrat propone una participación visual, distinta de la lectura infantil centrada únicamente en seguir un relato.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Ice Age. ¿Dónde está Scrat? invita a seguir el recorrido de Scrat por el valle y localizar la bellota que persigue. El lector participa observando las escenas y buscando el objeto, con una dinámica de exploración visual ligada a los obstáculos que encuentra el personaje.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Ice Age. ¿Dónde está Scrat? está recomendado para niños de 3 a 5 años y tiene 48 páginas. Esta edición de Libros Disney está escrita en castellano y encuadernada en tapa dura de cartoné, sin sobrecubierta, para su manejo como libro físico.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ice Age. ¿Dónde está Scrat? se encuentra disponible en tapa dura, con una cubierta rígida que facilita conservar el libro después de varias sesiones de búsqueda. Sus 48 páginas permiten recorrer físicamente las escenas y volver a ellas para seguir el rastro de Scrat y su bellota.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "e6cee6423f6a3238",
+  "origen": "chatgpt-web"
+}
