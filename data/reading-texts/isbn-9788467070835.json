@@ -1,0 +1,69 @@
+{
+  "id": "isbn-9788467070835",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orgullo y prejuicio. Edición ilustrada, de Jane Austen, encaja con lectores de narrativa interesados en las relaciones sociales, los prejuicios y los conflictos sentimentales. La historia sitúa a los Bennet y al señor Darcy ante diferencias de posición social, malentendidos y juicios precipitados. Se aleja de una lectura centrada en aventuras o acción física.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Orgullo y prejuicio. Edición ilustrada desarrolla una narración sobre las consecuencias del orgullo, las apariencias y las diferencias sociales. La llegada del señor Darcy altera las relaciones de la familia Bennet y genera conflictos ligados a las expectativas y a la reputación. El interés narrativo recae en los vínculos personales y las interpretaciones equivocadas.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Orgullo y prejuicio. Edición ilustrada se distingue por incorporar ilustraciones y presentarse en tapa dura de cartoné sin sobrecubierta. Austral Editorial publica esta versión en castellano, con 384 páginas y fecha editorial de 2026-11-25. El título identifica expresamente su carácter ilustrado frente a otras presentaciones de la obra.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "fecha_publicacion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Orgullo y prejuicio. Edición ilustrada puede elegirse en tapa dura o Kindle. La tapa dura reúne 384 páginas en cartoné sin sobrecubierta y responde al interés por conservar o regalar una edición ilustrada. Kindle permite leer la obra en formato digital y transportarla sin llevar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Orgullo y prejuicio, de Jane Austen y Nuria Riaza, es la comparación más directa para Orgullo y prejuicio. Edición ilustrada, de Jane Austen, porque ambas fichas remiten a la misma obra. La diferencia documentada está en la autoría indicada y en la presentación: la edición de Austral Editorial se identifica como ilustrada y se ofrece en tapa dura de 384 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388220203"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "24ab6913cc0e8afe",
+  "origen": "chatgpt-web"
+}

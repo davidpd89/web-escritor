@@ -1,0 +1,63 @@
+{
+  "id": "isbn-9788413145228",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Peligros y verdades (Perfectos Mentirosos 2), de Alex Mírez, se dirige al público juvenil que busca romance, secretos y enfrentamientos entre estudiantes de una universidad elitista. Encaja menos con quienes prefieren relaciones sin engaños ni conflictos relacionados con el poder y la reputación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Peligros y verdades (Perfectos Mentirosos 2) está clasificada como novela romántica juvenil, sin una edad mínima concreta. La historia aborda secretos personales, mentiras deliberadas y relaciones marcadas por el poder; estos conflictos pueden resultar incómodos para lectores sensibles a la manipulación entre personajes.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela romántica juvenil que combina atracción, rivalidad y revelación de secretos en un entorno universitario privilegiado. El conflicto enfrenta el propósito de Jude de desenmascarar a los hermanos Cash con las mentiras que ella misma mantiene, de modo que la confianza ocupa un lugar central.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Peligros y verdades (Perfectos Mentirosos 2) está disponible en tapa blanda y Kindle. La edición física de Penguin Bolsillo reúne 384 páginas y permite conservar el volumen en papel; Kindle ofrece la misma lectura en formato digital para llevarla en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mentiras y secretos (Perfectos Mentirosos 1), de Alex Mírez, comparte con Peligros y verdades (Perfectos Mentirosos 2) el ambiente universitario y los conflictos personales de Jude. El primero presenta su llegada y las relaciones entre estudiantes; el segundo concentra el conflicto en los secretos de los Cash y las mentiras de Jude.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788413145211"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d1f5df01fef2a8cd",
+  "origen": "chatgpt-web"
+}

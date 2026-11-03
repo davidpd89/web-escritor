@@ -4,17 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando fuimos todo se dirige a lectores de romance juvenil interesados en rupturas sentimentales, reconstrucción personal y nuevas relaciones. Encaja menos con quienes busquen una historia centrada en aventuras o alejada de los conflictos emocionales y el miedo a volver a enamorarse.",
+      "texto": "Cuando fuimos todo está dirigido al público juvenil que lee romance sobre rupturas, nuevos vínculos y reconstrucción personal. La historia de Noelia Dopazo combina el duelo amoroso con decisiones afectivas en un entorno artístico; encaja menos con quien busca una relación sin conflictos emocionales o una trama centrada en la aventura.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "edad_recomendada",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Cuando fuimos todo está clasificado como lectura juvenil. Su conflicto parte de una separación dolorosa y aborda el miedo a implicarse sentimentalmente de nuevo, además de la atracción hacia un profesor de una academia de artes. Estos elementos sitúan el peso emocional en las relaciones y sus consecuencias.",
+      "texto": "Cuando fuimos todo está clasificado como lectura juvenil y trata una ruptura sentimental que altera la vida de su protagonista. Incluye dolor por la separación, dificultades para recuperar la confianza y una nueva atracción entre una alumna y un profesor de la Academia de Artes. Son aspectos que conviene considerar por su carga emocional y la relación entre ambos personajes.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,42 +25,42 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela romántica juvenil de 256 páginas en la que el conflicto principal es emocional. Tras una ruptura, Emma empieza a reconstruir su vida en la Academia de Artes, mientras la aparición de Adrián plantea una nueva decisión sentimental marcada por el miedo a sufrir.",
+      "texto": "Cuando fuimos todo es una novela romántica juvenil de Noelia Dopazo centrada en las consecuencias de una separación y la posibilidad de establecer otro vínculo. La Academia de Artes funciona como espacio de reconstrucción para Emma, mientras su relación con Adrián introduce un conflicto entre el deseo de acercarse y el temor a sufrir de nuevo.",
       "evidencias": [
+        "titulo",
+        "autores",
         "categorias",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuando fuimos todo se ofrece en tapa blanda con solapas, una edición física de 256 páginas publicada por Montena. Permite leer en papel, transportarla y prestarla sin depender de un dispositivo electrónico; las solapas forman parte de la presentación de esta edición.",
+      "texto": "Cuando fuimos todo está disponible en tapa blanda y Kindle. La edición de Montena tiene 256 páginas y solapas, para quien prefiere leer y conservar el ejemplar físico; Kindle permite continuar la lectura desde un dispositivo compatible sin transportar el volumen. Ambas opciones corresponden a la misma obra de Noelia Dopazo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas",
-        "editorial"
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando fuimos todo y Amor en pole position (Dirty Air 3) comparten el eje romántico, pero Lauren Asher sitúa su historia en la Fórmula 1 y Noelia Dopazo en una academia de artes tras una ruptura. Frente a Duelo, que aborda el duelo desde el ensayo filosófico, Cuando fuimos todo utiliza personajes y relaciones sentimentales para tratar la pérdida de una relación.",
+      "texto": "Cuando fuimos todo se aproxima a Una vez y para siempre, de Amanda Gayle, por situar una relación afectiva ante una ruptura de la continuidad personal. En la novela de Noelia Dopazo, Emma afronta una separación y una nueva atracción; en Una vez y para siempre, Molly despierta en un hospital sin recordar los últimos seis años. El conflicto emocional parte de circunstancias distintas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055674",
-        "isbn-9788449344626"
+        "isbn-9791387949891"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "986a22e0910af9d6",
+  "fuente_hash": "8c609aad85bbdd5a",
   "origen": "chatgpt-web"
 }

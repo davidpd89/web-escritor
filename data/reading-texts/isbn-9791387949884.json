@@ -4,8 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado al público juvenil interesado en comprender cómo el poder, la política y las estructuras sociales influyen en las decisiones cotidianas. Su combinación de ensayo y narración divulgativa encaja con la curiosidad por la sociología, pero se aleja de quienes buscan una novela de aventuras con un conflicto principalmente ficticio.",
+      "texto": "No eres tú, es el sistema se dirige a lectores juveniles interesados en comprender cómo la sociedad influye en sus decisiones cotidianas. Su enfoque de sociología crítica, apoyado en ejemplos culturales y tecnológicos, encaja menos con quien busca una novela de ficción centrada en personajes y acontecimientos inventados.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -13,8 +14,9 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La clasificación editorial es juvenil y el contenido aborda cuestiones de poder, política, capitalismo y meritocracia desde una perspectiva de sociología crítica. Su enfoque exige interés por los debates sociales y por la influencia del entorno en la conducta individual, con ejemplos tomados del consumo, las marcas y el entretenimiento digital.",
+      "texto": "No eres tú, es el sistema está clasificado como juvenil y aborda cuestiones sociales desde una perspectiva crítica. Examina la meritocracia individualista, el capitalismo de plataformas y la influencia de las estructuras colectivas en la vida cotidiana, con un tono divulgativo que combina ensayo y narrativa.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -22,26 +24,41 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Combina ensayo y narración para explicar cómo los sistemas sociales condicionan comportamientos que suelen parecer decisiones estrictamente personales. El enfoque divulgativo utiliza referencias al consumo, las plataformas digitales y la cultura popular para relacionar conceptos sociológicos con situaciones reconocibles de la vida cotidiana.",
+      "texto": "La obra combina ensayo y narrativa para explicar conceptos de sociología mediante situaciones reconocibles de la vida diaria. No eres tú, es el sistema relaciona el consumo, la tecnología y las decisiones individuales con estructuras sociales más amplias, desde una perspectiva de divulgación crítica.",
       "evidencias": [
-        "sinopsis_editorial"
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "No eres tú, es el sistema está disponible en tapa blanda con solapas, en un volumen de 192 páginas publicado por Alfaguara. La extensión y la encuadernación flexible facilitan transportarlo y consultar de nuevo sus ejemplos de sociología durante la lectura, sin necesidad de utilizar una pantalla.",
+      "texto": "No eres tú, es el sistema se ofrece en tapa blanda y Kindle. La edición física de Alfaguara tiene 192 páginas y solapas, mientras que la versión Kindle permite consultar el texto en un dispositivo compatible y alternar la lectura con otras actividades sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
-        "editorial",
-        "sinopsis_editorial"
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Qué pensará tu hija de ti?, de Diana López Varela, comparte con No eres tú, es el sistema el interés por las decisiones personales, pero se centra en la maternidad y las dudas de su autora. Citas conmigo misma, de Isa Muguruza, también parte de experiencias cotidianas, aunque propone actividades de autocuidado en lugar de analizar las estructuras sociales desde la sociología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388279300",
+        "isbn-9788419434289"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8f66cce512c8efa4",
+  "fuente_hash": "eca9ae3e395b3974",
   "origen": "chatgpt-web"
 }

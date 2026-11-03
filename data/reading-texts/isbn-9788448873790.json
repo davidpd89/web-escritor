@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788448873790",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Superthings. Libro juguete - Súper busca y encuentra se dirige al público infantil interesado en localizar personajes y resolver retos de observación. La clasificación por edad lo sitúa a partir de 4 años, mientras que la descripción editorial propone su uso desde los 6. No está planteado como una narración convencional, sino como un juego de búsqueda visual.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Superthings. Libro juguete - Súper busca y encuentra consiste en examinar escenarios de Kaboom City y localizar más de 130 elementos ocultos. Las actividades incluyen identificar héroes, villanos y objetos relacionados con las misiones de los personajes. Puede utilizarse en familia, alternando la búsqueda individual con la observación compartida de las páginas.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Superthings. Libro juguete - Súper busca y encuentra tiene 48 páginas y se publica en tapa dura por Beascoa. Su clasificación indica a partir de 4 años, aunque el texto editorial presenta las actividades para niños y niñas desde los 6. El contenido se basa en retos visuales que requieren atención y reconocimiento de detalles.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Superthings. Libro juguete - Súper busca y encuentra está disponible en tapa dura, con 48 páginas de actividades visuales. Este formato permite consultar los escenarios repetidamente y compartir el libro durante las búsquedas. La edición física de Beascoa reúne los retos de observación y los elementos escondidos en un mismo volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "48f6badae43a1199",
+  "origen": "chatgpt-web"
+}

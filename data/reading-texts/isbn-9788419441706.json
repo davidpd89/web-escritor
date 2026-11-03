@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9788419441706",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una magia imperfecta, de María Dresden, encaja con lectores a partir de 12 años interesados en la fantasía romántica, las amistades que cambian y las segundas oportunidades. Su combinación de hechizos fallidos, conflictos sentimentales y búsqueda de identidad encaja menos con quienes buscan una historia centrada en combates mágicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Una magia imperfecta está recomendada a partir de 12 años y combina fantasía juvenil con romance. Trata el rechazo escolar, la pérdida de confianza en las propias capacidades, los sentimientos no correspondidos y las dificultades para encontrar un lugar al que pertenecer. Son conflictos emocionales relevantes para valorar la sensibilidad del lector.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La lectura combina fantasía cotidiana y romance de desarrollo gradual, con una protagonista cuya relación con la magia cambia tras su expulsión escolar. El regreso a su pueblo introduce amistades antiguas, un triángulo sentimental y un hechizo amoroso de consecuencias imprevisibles. La identidad personal pesa tanto como las relaciones románticas.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una magia imperfecta puede leerse en tapa blanda o Kindle. La edición de Random Comics tiene 256 páginas y solapas, una opción física para conservar o regalar; Kindle permite llevar la novela en el móvil o en un lector electrónico sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde duermen las sombras, de Andrea Ornos, comparte con Una magia imperfecta la mezcla de fantasía y romance, pero plantea un amor entre dimensiones frente a los vínculos sentimentales de un pueblo costero. Alas de escarcha y oro: El canto del cisne, de Marta Morillo, también aborda dones personales, aunque su protagonista los oculta mientras Tesa afronta el fracaso de su magia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9788427055605"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "55140881bf968634",
+  "origen": "chatgpt-web"
+}

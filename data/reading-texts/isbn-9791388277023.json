@@ -1,0 +1,66 @@
+{
+  "id": "isbn-9791388277023",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El diario de Wiska 2 - Un secreto entre amigas, de Harriet Muncaster, está dirigido a lectores a partir de 7 años que disfrutan de la fantasía, las excursiones escolares y los misterios entre amigos. Sus capítulos breves e ilustraciones a color responden a las primeras etapas lectoras; encaja menos con quienes buscan aventuras extensas sin apoyo visual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El diario de Wiska 2 - Un secreto entre amigas se lee como un diario de aventuras, con capítulos cortos y dibujos a todo color que acompañan el texto. La excursión escolar introduce actividades como orientarse con un mapa, preparar un campamento y conseguir comida, mientras un secreto entre compañeras sostiene el misterio. Es una lectura narrativa, no un cuaderno de ejercicios.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "El diario de Wiska 2 - Un secreto entre amigas está recomendado a partir de 7 años y tiene 208 páginas. La edición en castellano de Alfaguara es de tapa blanda con solapas; sus capítulos cortos, lenguaje sencillo e ilustraciones en color permiten avanzar por tramos de lectura breves.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El diario de Wiska 2 - Un secreto entre amigas se ofrece en tapa blanda y Kindle. La edición física de 208 páginas permite recorrer sus ilustraciones a color directamente sobre papel; Kindle ofrece una alternativa digital para leer durante los desplazamientos, con una visualización de las imágenes que dependerá del dispositivo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Piratix. Primeras lecturas 2 - El banquete del Kraken, de Magicbox, comparte con El diario de Wiska 2 - Un secreto entre amigas la orientación hacia las primeras lecturas y una aventura con misterio, pero traslada el conflicto a un barco legendario. Pipoka y la Fábrica del Desastre, de Jose Such, también incorpora magia, aunque sigue a viajeros que recorren paisajes y encuentran criaturas legendarias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388277085",
+        "isbn-9788448874834"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "97559a55a63929bd",
+  "origen": "chatgpt-web"
+}
