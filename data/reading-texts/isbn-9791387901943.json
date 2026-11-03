@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Agente Stitch 5. Los roedores de Roswell está dirigido a lectores de 6 a 8 años interesados en aventuras con misterios y elementos extraterrestres. La historia combina amenazas para la Tierra, trabajo en equipo y tecnología. No se orienta a quienes prefieran relatos cotidianos sin componentes de ciencia ficción.",
+      "texto": "Agente Stitch 5. Los roedores de Roswell se orienta a lectores de 6 a 8 años interesados en misterios, aventuras y personajes extraterrestres. La amenaza sobre la Tierra y la investigación de un ovni sitúan el conflicto en la ciencia ficción infantil; quien prefiera historias cotidianas encontrará una propuesta distinta.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,45 +14,51 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Agente Stitch 5. Los roedores de Roswell se lee como una aventura narrativa, no como un libro de actividades. El lector sigue una investigación relacionada con una amenaza extraterrestre y con los personajes que intentan proteger la Tierra. Sus 224 páginas permiten avanzar por la historia en varias sesiones de lectura.",
+      "texto": "Agente Stitch 5. Los roedores de Roswell se lee como una aventura narrativa de misterio, siguiendo las pistas de Stitch y sus compañeros. La aparición de un ovni y la desaparición de Yelkaelp plantean las incógnitas de la historia, mientras que el trabajo en equipo y los artilugios forman parte de la investigación.",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial",
-        "numero_paginas",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "edad_y_formato",
-      "texto": "Agente Stitch 5. Los roedores de Roswell está recomendado de 6 a 8 años y tiene 224 páginas. La edición física de Libros Disney es una rústica sin solapas, publicada en castellano. El título lo identifica como el n.º 5 y su contenido combina aventura infantil y misterio intergaláctico.",
-      "evidencias": [
-        "titulo",
-        "edad_recomendada",
-        "numero_paginas",
-        "edicion",
-        "editorial",
-        "idioma",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
+      "modulo": "edad_y_formato",
+      "texto": "La franja recomendada para Agente Stitch 5. Los roedores de Roswell es de 6 a 8 años. Tiene 224 páginas en castellano y su edición impresa es rústica sin solapas, con una extensión que permite desarrollar una aventura de misterio más allá de los cuentos infantiles breves.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
       "modulo": "que_formato_elegir",
-      "texto": "Agente Stitch 5. Los roedores de Roswell puede leerse en tapa blanda o en Kindle. La edición de papel, de 224 páginas y sin solapas, permite conservar y prestar el volumen; Kindle facilita llevar la historia en un dispositivo de lectura o móvil compatible. Ambas opciones corresponden a la misma aventura de Disney.",
+      "texto": "Agente Stitch 5. Los roedores de Roswell puede elegirse en tapa blanda o Kindle. La edición física de 224 páginas, en rústica sin solapas, permite conservar el libro en papel; Kindle ofrece la misma obra en formato digital para leerla desde un dispositivo compatible sin transportar el volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agente Stitch 5. Los roedores de Roswell y Stitch. Calendario de Adviento son obras de Disney que incluyen a Stitch y sus amigos. La primera desarrolla un misterio extraterrestre de 224 páginas; la segunda reúne 24 historias relacionadas con la cuenta atrás hasta Navidad, por lo que cambia tanto la estructura como el contexto de lectura.",
+      "evidencias": [
+        "titulo",
         "autores",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387526863"
       ]
     }
   ],
-  "descartados": [
-    "lecturas_afines: más de cuatro frases",
-    "faltan módulos: lecturas_afines"
-  ],
+  "descartados": [],
   "version": 3,
   "fuente_hash": "4a2ad5aa0c74f734",
   "origen": "chatgpt-web"

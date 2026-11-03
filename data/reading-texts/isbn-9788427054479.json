@@ -4,8 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores a partir de 16 años interesados en romances juveniles, conflictos familiares y lecturas organizadas para diciembre. No se orienta a quienes busquen fantasía o una trama alejada de las relaciones sentimentales.",
+      "texto": "Un amor de diciembre está dirigido a lectores a partir de 16 años interesados en romances juveniles con conflictos familiares y sentimentales. Su planteamiento de novela de adviento propone avanzar un capítulo diario durante diciembre. Encaja menos con quien busca una historia ajena a las relaciones de pareja o al entorno de una boda.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -13,41 +14,44 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La edad recomendada es a partir de 16 años. El conflicto romántico incluye una boda familiar en la que la hermana de la narradora se casa con su expareja, una situación centrada en las relaciones personales y las tensiones sentimentales.",
+      "texto": "La edad recomendada para Un amor de diciembre es a partir de 16 años. Su conflicto parte de una situación sentimental incómoda: una mujer participa como dama de honor en la boda de su hermana con su expareja. El tema central documentado es el romance juvenil atravesado por vínculos familiares y relaciones anteriores.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela romántica juvenil planteada como lectura de adviento, con la propuesta de avanzar un capítulo al día durante diciembre. El conflicto parte de una dama de honor que debe participar en la boda de su hermana con su propia expareja.",
+      "texto": "Un amor de diciembre es una novela romántica juvenil estructurada como lectura de adviento, con un capítulo previsto para cada día hasta el desenlace. La situación inicial reúne a una dama de honor, su hermana y una expareja que va a casarse. El interés narrativo surge de esa convivencia entre obligaciones familiares y pasado sentimental.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un amor de diciembre se ofrece en tapa blanda, con encuadernación rústica con solapas y 384 páginas. El volumen permite seguir en papel la lectura de un capítulo diario durante diciembre y conservar el punto de lectura entre sesiones.",
+      "texto": "La tapa blanda de Un amor de diciembre contiene 384 páginas en una edición rústica con solapas de Ediciones Martínez Roca. Es la opción física para seguir el capítulo diario de su estructura de adviento. Kindle permite mantener esa misma pauta de lectura desde un dispositivo digital sin llevar el volumen en papel.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
         "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amor en pole position (Dirty Air 3), también de Lauren Asher, comparte con Un amor de diciembre el interés por las relaciones románticas. Mientras el primero sitúa su historia de amor en el mundo de la Fórmula 1, Un amor de diciembre desarrolla un conflicto alrededor de una boda familiar y propone una lectura diaria durante diciembre.",
+      "texto": "Un amor de diciembre y Amor en pole position (Dirty Air 3) comparten la autoría de Lauren Asher y el protagonismo de las relaciones amorosas. La primera sitúa el conflicto alrededor de una boda familiar y propone una lectura de adviento; la segunda traslada su historia romántica al entorno de la Fórmula 1.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788427055674"
@@ -56,6 +60,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dfab718ddd490174",
+  "fuente_hash": "d4220a419552dc97",
   "origen": "chatgpt-web"
 }

@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tor está orientado a lectores adultos interesados en el periodismo narrativo, las investigaciones de crímenes reales y los conflictos entre comunidades pequeñas. No encaja con quien busque una novela de ficción o prefiera evitar relatos relacionados con muertes, violencia y miedo.",
+      "texto": "Tor está dirigido a adultos interesados en el periodismo narrativo, los crímenes reales y la reconstrucción de conflictos entre personas. Carles Porta investiga una disputa por una montaña marcada por varias muertes; no responde a las expectativas de quien busca un thriller enteramente ficticio o una lectura alejada de la violencia.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,18 +15,19 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Reservoir Books publica Tor por primera vez en castellano en una edición revisada que incorpora imágenes y comentarios. El volumen tiene 408 páginas y se presenta en tapa blanda con solapas, con material añadido a la reconstrucción periodística original.",
+      "texto": "Reservoir Books publica Tor por primera vez en castellano en una edición revisada que incorpora imágenes y comentarios. El volumen tiene 408 páginas y se presenta en tapa blanda con solapas. Esta combinación de revisión y materiales añadidos es la diferencia editorial expresamente señalada frente a versiones anteriores.",
       "evidencias": [
-        "editorial",
         "titulo",
-        "sinopsis_editorial",
+        "editorial",
+        "edicion",
         "numero_paginas",
-        "edicion"
+        "idioma",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Tor examina un conflicto de propiedad compartida entre trece vecinos de una montaña del Pirineo y las tres muertes asociadas a su historia. Carles Porta aborda los acontecimientos desde el periodismo narrativo y el true crime, mediante una investigación prolongada sobre un territorio marcado por los silencios y la violencia.",
+      "texto": "Tor examina la propiedad compartida de una montaña del Pirineo, las tensiones entre sus trece vecinos y las tres muertes relacionadas con esa historia. Carles Porta aborda los hechos mediante una investigación periodística prolongada, centrada en reconstruir testimonios y acontecimientos en un entorno atravesado por el miedo y los silencios.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,31 +36,34 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tor está disponible en Tapa blanda, con solapas y una extensión de 408 páginas para leer en papel. Este formato permite consultar las imágenes y los comentarios de la edición directamente en el ejemplar físico, aunque requiere llevar el libro en lugar de utilizar un móvil.",
+      "texto": "La tapa blanda con solapas permite leer las 408 páginas de Tor en papel, con las imágenes y comentarios incorporados a esta edición de Reservoir Books. Kindle es la opción para consultar el texto en un dispositivo y evitar transportar el volumen físico. La elección depende de si se prefiere conservar el ejemplar impreso o leer digitalmente.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
         "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tor y El canto del cisne abordan hechos vinculados a la muerte, aunque desde perspectivas distintas. Carles Porta reconstruye tres muertes relacionadas con una montaña del Pirineo, mientras que Charles Spencer comparte el dolor por la pérdida de su hermana Diana durante una intervención en la abadía de Westminster.",
+      "texto": "Tor puede compararse con El canto del cisne por su relación con hechos reales, pérdidas personales y memoria, aunque Carles Porta investiga muertes ligadas a una disputa territorial y Charles Spencer aborda el fallecimiento de su hermana. Detrás de una Estrella también reconstruye acontecimientos reales, pero Fernando Trías de Bes se ocupa de una trayectoria empresarial, no de una investigación criminal.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788423441075",
         "isbn-9788401039928"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "512a95294a12d478",
+  "fuente_hash": "7a6a3ac605760999",
   "origen": "chatgpt-web"
 }

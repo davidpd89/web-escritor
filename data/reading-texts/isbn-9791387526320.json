@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Disney. Alas de estrella se dirige a lectores de fantasía juvenil a partir de 14 años que buscan historias de hadas, deberes y decisiones afectivas. Por su escenario mágico y las leyendas inquietantes del Bosque del Invierno, encaja menos con quien prefiera una trama realista sin amenazas sobrenaturales.",
+      "texto": "Disney. Alas de estrella se dirige a lectores a partir de 14 años interesados en la fantasía juvenil, las hadas y los conflictos entre sentimientos y obligaciones. La historia gira alrededor de Clarion y su atracción por un territorio invernal rodeado de leyendas inquietantes. Encaja menos con quienes prefieren relatos realistas o aventuras sin elementos mágicos.",
       "evidencias": [
         "titulo",
-        "categorias",
         "edad_recomendada",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La edad recomendada para Disney. Alas de estrella es a partir de 14 años. La historia incorpora leyendas sobre monstruos que acechan en el Bosque del Invierno y un conflicto entre las obligaciones y los sentimientos; estos elementos pueden inquietar a lectores sensibles a las amenazas fantásticas.",
+      "texto": "Disney. Alas de estrella está recomendado a partir de 14 años y se clasifica como fantasía juvenil. Su planteamiento incluye leyendas sobre monstruos, temor a territorios desconocidos y una protagonista enfrentada a sus responsabilidades y sentimientos. Estos elementos introducen inquietud y tensión emocional dentro de un entorno fantástico.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Disney. Alas de estrella propone fantasía juvenil centrada en una joven hada antes de convertirse en reina de la Hondonada de las Hadas. La atracción de Clarion por el Bosque del Invierno introduce un conflicto entre las responsabilidades que debe asumir y aquello que desea personalmente.",
+      "texto": "Disney. Alas de estrella propone una fantasía juvenil centrada en el pasado de Clarion, antes de convertirse en reina de la Hondonada de las Hadas. La atracción de la protagonista por el Bosque del Invierno contrasta con el temor que despiertan sus leyendas. El eje de la historia es la tensión entre sus deberes y sus deseos personales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -32,30 +33,21 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Disney. Alas de estrella está disponible en tapa blanda, en una edición rústica con solapas de 424 páginas. Su cubierta flexible permite llevar la novela en una bolsa y leerla en papel sin la rigidez de una encuadernación de tapa dura.",
+      "texto": "Disney. Alas de estrella está disponible en tapa blanda y Kindle. La edición impresa de Libros Disney tiene 424 páginas y se presenta en rústica con solapas, apropiada para conservar el volumen en papel. Kindle permite llevar la lectura en un dispositivo compatible y cambiar de lugar sin cargar con el ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Disney. Alas de estrella y Agente Stitch 5. Los roedores de Roswell comparten la autoría de Disney y presentan aventuras alejadas de lo cotidiano. El primero aborda un conflicto entre hadas, obligaciones y sentimientos; el segundo desarrolla un misterio intergaláctico en el que Stitch y sus amigos trabajan en equipo.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791387901943"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
   "version": 3,
-  "fuente_hash": "e4b4f5d78f92f7ff",
+  "fuente_hash": "7a376869324012d4",
   "origen": "chatgpt-web"
 }

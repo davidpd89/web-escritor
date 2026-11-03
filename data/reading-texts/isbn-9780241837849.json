@@ -4,12 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a adultos que quieran comprender las técnicas de repostería y panadería, desde principiantes hasta aficionados con experiencia. Matt Adlard combina recetas con explicaciones sobre ingredientes, temperatura y errores habituales, por lo que su enfoque se aleja de los recetarios centrados únicamente en platos rápidos.",
+      "texto": "La ciencia del horneado (La ciencia de la cocina) está dirigido a adultos que quieren comprender los procesos de la panadería y la repostería mientras preparan recetas. Abarca desde técnicas iniciales hasta problemas más avanzados, pero no está planteado como un recetario de cocina general ajeno al horno.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
-        "autores",
         "categorias",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La ciencia del horneado (La ciencia de la cocina) se ofrece en tapa dura, con 224 páginas destinadas a combinar consulta técnica y elaboración de recetas. El volumen físico permite mantener abiertas las instrucciones junto a los ingredientes y volver a las ilustraciones durante el trabajo en la cocina.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La ciencia del horneado (La ciencia de la cocina) y 20 minutos ¡y listo! son libros de cocina, pero Matt Adlard se concentra en explicar la técnica del horneado y Jamie Oliver plantea preparaciones para quienes disponen de poco tiempo. Al micro y listo, de Dani García, también se orienta a facilitar la cocina doméstica, aunque su propuesta gira alrededor del microondas y no de la panadería o la repostería.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788467084757"
       ]
     },
     {
@@ -30,19 +56,13 @@
       "evidencias": [
         "sinopsis_editorial"
       ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 224 páginas en un volumen que puede consultarse directamente sobre una superficie de trabajo. Permite seguir en papel las ilustraciones, las recetas y las explicaciones sobre temperaturas y técnicas de horneado, tanto durante la preparación como al revisar un procedimiento.",
-      "evidencias": [
-        "formatos_disponibles",
-        "numero_paginas",
-        "edicion",
-        "sinopsis_editorial"
-      ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "esta_edicion: cifras sin respaldo: 1",
+    "contenido_y_uso: copia 8 palabras seguidas de la sinopsis",
+    "faltan módulos: contenido_y_uso, esta_edicion"
+  ],
   "version": 3,
   "fuente_hash": "0e712ecf68c10afc",
   "origen": "chatgpt-web"

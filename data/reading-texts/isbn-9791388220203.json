@@ -1,0 +1,73 @@
+{
+  "id": "isbn-9791388220203",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orgullo y prejuicio se dirige a lectores de narrativa romántica interesados en una edición ilustrada de una obra de Jane Austen. La participación de Nuria Riaza y la presentación en tapa dura aportan un componente visual y material; encaja menos con quien busque un romance contemporáneo de ambientación deportiva o una edición de bolsillo sencilla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Orgullo y prejuicio propone una lectura de narrativa romántica y literaria de Jane Austen con acompañamiento gráfico de Nuria Riaza. Esta edición incorpora ilustraciones y cantos tintados, de modo que el texto se presenta también como un objeto visual. El interés de la propuesta combina la obra literaria y su tratamiento editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Orgullo y prejuicio se distingue por las ilustraciones de Nuria Riaza y los cantos tintados. Lunwerg Editores la publica en castellano, en cartoné sin sobrecubierta, con 336 páginas y fecha de publicación del 2026-10-07. Su presentación reúne elementos gráficos y una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "fecha_publicacion",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Orgullo y prejuicio está disponible en tapa dura y Kindle. La edición física de Lunwerg Editores tiene 336 páginas, ilustraciones de Nuria Riaza y cantos tintados, elementos que favorecen su conservación como libro ilustrado o regalo. Kindle permite optar por la lectura digital sin transportar el volumen de cartoné.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Orgullo y prejuicio puede compararse directamente con Orgullo y prejuicio. Edición ilustrada, de Jane Austen, porque ambas presentan la misma novela con un tratamiento gráfico. La edición de Lunwerg Editores incorpora ilustraciones de Nuria Riaza y cantos tintados, mientras que el otro título se identifica como edición ilustrada. La diferencia documentada está en esos detalles de presentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467070835"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a06c051decfc4eb",
+  "origen": "chatgpt-web"
+}

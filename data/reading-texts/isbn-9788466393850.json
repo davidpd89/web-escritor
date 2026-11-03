@@ -1,0 +1,68 @@
+{
+  "id": "isbn-9788466393850",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ya tengo mi airfryer, ¿y ahora qué? (edición limitada · Black Friday) está dirigido a adultos que quieren utilizar una freidora de aire para preparar comidas cotidianas. Se centra en recetas prácticas y consejos de uso, por lo que encaja menos con quienes buscan cocina tradicional sin este electrodoméstico o explicaciones extensas de técnicas culinarias generales.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Ya tengo mi airfryer, ¿y ahora qué? (edición limitada · Black Friday), de Sabina Banzo, se presenta como una edición limitada identificada con Black Friday. Penguin Bolsillo la publica en castellano, en formato de bolsillo y tapa blanda, con 320 páginas dedicadas al uso culinario de la freidora de aire.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "formato_edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Ya tengo mi airfryer, ¿y ahora qué? (edición limitada · Black Friday) reúne recetas para freidora de aire junto con trucos y consejos destinados a aprovechar el aparato. Sabina Banzo plantea preparaciones de uso diario con atención al tiempo, el coste y la sencillez. Su contenido sirve para pasar de tener el electrodoméstico a incorporarlo a la cocina habitual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ya tengo mi airfryer, ¿y ahora qué? (edición limitada · Black Friday) está disponible en tapa blanda, concretamente en una edición de bolsillo de 320 páginas. Su presentación facilita trasladar el recetario y tenerlo cerca de la freidora de aire para consultar instrucciones y consejos durante la preparación de los platos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al micro y listo y Ya tengo mi airfryer, ¿y ahora qué? (edición limitada · Black Friday) se centran en cocinar mediante un electrodoméstico concreto, pero el primero utiliza el microondas y el segundo la freidora de aire. 20 minutos ¡y listo! también atiende a la falta de tiempo, aunque organiza su propuesta alrededor de la rapidez y no de un aparato determinado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788467084757"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3fed97dc876f6545",
+  "origen": "chatgpt-web"
+}

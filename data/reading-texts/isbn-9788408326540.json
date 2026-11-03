@@ -1,0 +1,66 @@
+{
+  "id": "isbn-9788408326540",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los Once 12. El partido decisivo: rumbo al Himalaya está dirigido a lectores de 9 a 12 años interesados en el deporte y las aventuras con elementos fantásticos. El fútbol se combina con una amenaza relacionada con mutantes y poderes extraordinarios, de modo que no es una lectura centrada exclusivamente en la competición deportiva.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se lee como una aventura infantil en la que un partido de fútbol sirve de eje para un conflicto más amplio. Los Once 12. El partido decisivo: rumbo al Himalaya combina la competición entre equipos con la intervención de una organización secreta, por lo que la lectura sigue tanto el desafío deportivo como la amenaza fantástica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Los Once 12. El partido decisivo: rumbo al Himalaya está recomendado para edades de 9 a 12 años y tiene 304 páginas. La edición de Destino Infantil & Juvenil se publica en castellano, en rústica con solapas, y presenta una extensión propia de una narración infantil larga.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los Once 12. El partido decisivo: rumbo al Himalaya está disponible en tapa blanda, concretamente en rústica con solapas. Sus 304 páginas forman un volumen flexible que puede transportarse para leer fuera de casa y conservarse después junto a otros libros de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los Once 12. El partido decisivo: rumbo al Himalaya y Guinness World Records 2027. Fútbol comparten el fútbol como tema, pero ofrecen lecturas diferentes. Roberto Santiago construye una aventura ficticia alrededor de un partido y una amenaza fantástica, mientras que Guinness World Records presenta contenidos sobre el fútbol masculino y femenino desde el enfoque de los récords deportivos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324362",
+        "isbn-9788408324379"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "44d3a21528d58d33",
+  "origen": "chatgpt-web"
+}
