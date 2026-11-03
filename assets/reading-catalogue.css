@@ -186,6 +186,7 @@ html.v1 .catalogue-facet__more:hover{background:none;color:var(--catalogue-deep)
 /* Ficha: sinopsis completa en párrafos y lecturas relacionadas con cubierta. */
 html.v1 .catalogue-synopsis p{margin:0 0 1rem;line-height:1.7;}
 html.v1 .catalogue-synopsis p:last-child{margin-bottom:0;}
+html.v1 a.catalogue-buy-link + .catalogue-synopsis{margin-top:1.75rem;}
 html.v1 .catalogue-related a.catalogue-related__cover{display:flex;justify-content:center;min-height:0;aspect-ratio:2/3;max-height:200px;background:var(--catalogue-pale);}
 html.v1 .catalogue-related__image{width:auto;max-width:100%;max-height:100%;object-fit:contain;}
 html.v1 .catalogue-related li>a:not(.catalogue-related__cover){font-size:1.1rem;min-height:44px;}

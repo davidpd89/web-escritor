@@ -52,7 +52,7 @@
     return dateValue;
   };
   const ageDays = s => /^\d{4}-\d{2}-\d{2}$/.test(s || '') ? (Date.parse(today() + 'T00:00:00Z') - Date.parse(s + 'T00:00:00Z')) / 86400000 : NaN;
-  const isNew = (s, window) => { const days = ageDays(s); return window === 'proximamente' ? days < 0 && days >= -30 : days >= 0 && (window === '15' ? days < 15 : days <= Number(window)); };
+  const isNew = (s, window) => { const days = ageDays(s); return window === 'proximamente' ? days < 0 : days >= 0 && (window === '15' ? days < 15 : days <= Number(window)); };
   function renderNovelty() {
     for (const label of root.querySelectorAll('[data-release-label]')) {
       const fresh = isNew(label.dataset.releaseLabel, '15'), upcoming = !fresh && isNew(label.dataset.releaseLabel, 'proximamente');
@@ -282,7 +282,11 @@
       // El presupuesto se aplica al formato elegido antes (si lo hay), nunca mezclando Kindle y papel en silencio.
       {key: 'precio_max', question: () => criteria.formato ? '¿Qué presupuesto prefieres en ' + optionsFrom('formato').find(o => o.values.formato === criteria.formato).label.toLocaleLowerCase('es') + '?' : '¿Qué presupuesto prefieres (en cualquier formato)?', options: () => [10, 20, 30].map(price => ({label: 'Hasta ' + price + ' €', values: {precio_max: String(price)}}))}
     ];
-    const usable = step => step.options().filter(o => cards.some(card => matches(card, {...criteria, ...o.values})));
+    // Adaptativo: solo opciones que acotan lo que queda; una pregunta que no cambia nada se salta.
+    const usable = step => {
+      const left = cards.filter(card => matches(card, criteria)).length;
+      return step.options().filter(o => { const n = cards.filter(card => matches(card, {...criteria, ...o.values})).length; return n > 0 && n < left; });
+    };
     const button = (label, action) => {
       const element = document.createElement('button'); element.type = 'button'; element.textContent = label;
       element.addEventListener('click', action); return element;
@@ -296,8 +300,10 @@
     };
     function render() {
       panel.replaceChildren();
-      while (index < steps.length && !usable(steps[index]).length) index++;
       const count = cards.filter(card => matches(card, criteria)).length;
+      // Con tres libros o menos no tiene sentido seguir preguntando.
+      if (count <= 3) index = steps.length;
+      while (index < steps.length && !usable(steps[index]).length) index++;
       const status = document.createElement('p'); status.className = 'catalogue-quiz__progress'; status.setAttribute('role', 'status');
       const heading = document.createElement('h2'); heading.tabIndex = -1;
       const choices = document.createElement('div'); choices.className = 'catalogue-quiz__choices';

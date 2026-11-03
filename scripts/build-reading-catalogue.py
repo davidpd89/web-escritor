@@ -454,8 +454,9 @@ def book_title(b, books=()):
     for i, name in enumerate(short_titles(b['titulo'])):
         if i and name.casefold() in clash:
             break
-        for title in (f'{name} · {authors} | Libros recomendados', f'{name} · {authors}'):
-            if len(title) <= 75:
+        # El sufijo de marca solo si todo cabe en los ~60 caracteres que Google muestra sin cortar.
+        for title, limit in ((f'{name} · {authors} | Libros recomendados', 60), (f'{name} · {authors}', 75)):
+            if len(title) <= limit:
                 return title
     # Con muchas firmas (guías, obras colectivas) cabe «primer autor y otros»: el autor no se pierde nunca.
     lead = ' · ' + b['autores'][0] + (' y otros' if len(b['autores']) > 1 else '')
@@ -791,7 +792,7 @@ def render_filters(data, type_options):
     facets += facet_group('formato', 'Formato', list(FORMATS.items()))
     price_format = '<label class="catalogue-price-range__format">Formato<select name="precio_formato" data-filter="precio_formato">' + '<option value="">Cualquier formato</option>' + ''.join(f'<option value="{k}">{esc(FORMATS[k])}</option>' for k in BOX_ORDER) + '</select></label>'
     facets += '<div class="catalogue-facet catalogue-price-range"><p class="catalogue-facet__title">Precio (€)</p><p class="catalogue-price-range__hint">Elige el formato para no mezclar precios de Kindle y de papel.</p>' + price_format + '<div class="catalogue-price-range__fields">' + ''.join(f'<label>{t}<input type="number" min="0" max="100000" step="0.01" inputmode="decimal" name="{k}" data-filter="{k}" placeholder="{ph}"></label>' for k, t, ph in (('precio_min', 'Desde', '0'), ('precio_max', 'Hasta', '100'))) + '</div></div>'
-    controls = select('novedad', 'Novedades', [('', 'Cualquier fecha'), ('15', 'Novedad · menos de 15 días'), ('30', 'Últimos 30 días'), ('90', 'Últimos 90 días'), ('180', 'Últimos 180 días'), ('proximamente', 'Próximos 30 días')])
+    controls = select('novedad', 'Novedades', [('', 'Cualquier fecha'), ('15', 'Novedad · menos de 15 días'), ('30', 'Últimos 30 días'), ('90', 'Últimos 90 días'), ('180', 'Últimos 180 días'), ('proximamente', 'Próximamente')])
     controls += select('paginas', 'Extensión', [('', 'Cualquier extensión'), ('breve', 'Menos de 200 páginas'), ('media', 'De 200 a 399 páginas'), ('larga', 'De 400 a 599 páginas'), ('muy-larga', '600 páginas o más'), ('sin-dato', 'Páginas sin confirmar')])
     advanced = '<div class="catalogue-filter-grid">'
     for key,label in [('desde', 'Publicado desde'), ('hasta', 'Publicado hasta')]:

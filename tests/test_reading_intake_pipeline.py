@@ -175,9 +175,18 @@ class ContractTests(unittest.TestCase):
 
     def test_seo_title_drops_edition_note_and_series_before_the_author(self):
         b = {**self.book, 'titulo': 'Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados', 'autores': ['Briar Boleyn']}
-        self.assertEqual(builder.book_title(b), 'Lazos de fuego (Academia Bloodwing 2) · Briar Boleyn | Libros recomendados')
+        self.assertEqual(builder.book_title(b), 'Lazos de fuego (Academia Bloodwing 2) · Briar Boleyn')
         b['titulo'] = 'Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?)'
-        self.assertEqual(builder.book_title(b), 'Familia, ¿contamos nuestra historia? · Briar Boleyn | Libros recomendados')
+        self.assertEqual(builder.book_title(b), 'Familia, ¿contamos nuestra historia? · Briar Boleyn')
+
+    def test_seo_title_keeps_the_brand_suffix_only_within_sixty_characters(self):
+        # Google corta hacia los 60 caracteres: el sufijo no puede empujar fuera al autor.
+        b = {**self.book, 'titulo': 'Lazos de fuego', 'autores': ['Briar Boleyn']}
+        self.assertEqual(builder.book_title(b), 'Lazos de fuego · Briar Boleyn | Libros recomendados')
+        b['titulo'] = 'Lazos de fuego y sangre en la academia'
+        title = builder.book_title(b)
+        self.assertEqual(title, 'Lazos de fuego y sangre en la academia · Briar Boleyn')
+        self.assertLessEqual(len(title + ' | Libros recomendados'), 75)
 
     def test_long_author_list_keeps_the_first_author(self):
         b = {**self.book, 'titulo': 'Indonesia 2 (Guías de País Lonely Planet) Actualizada con mapas desplegables',
