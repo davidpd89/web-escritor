@@ -5,21 +5,8 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Próximos lanzamientos de libros recomendados
 BEGIN:VEVENT
-UID:isbn-9788401042751@davidportodiaz.com
-DTSTAMP:20261102T000000Z
-DTSTART;VALUE=DATE:20261103
-DTEND;VALUE=DATE:20261104
-SUMMARY:Sale a la venta: La casa de los espíritus
-DESCRIPTION:Isabel Allende · Plaza & Janés\nComprar en Amazon: https://ww
- w.amazon.es/dp/8401042755?tag=davidporto-21&linkCode=osi&th=1&psc=1&langua
- ge=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/la-casa
- -de-los-espiritus-9788401042751/
-URL:https://davidportodiaz.com/recomendaciones/libros/la-casa-de-los-espiri
- tus-9788401042751/
-END:VEVENT
-BEGIN:VEVENT
 UID:isbn-9788433951199@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Sale a la venta: Este deseo no es el mío
@@ -32,7 +19,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/este-deseo-no-es-el-m
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951182@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Sale a la venta: Los perplejos
@@ -45,7 +32,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-perplejos-9788433
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951168@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Sale a la venta: Tres cuentos
@@ -58,7 +45,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/tres-cuentos-97884339
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951212@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Sale a la venta: Una casa en Brandemburgo
@@ -71,7 +58,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/una-casa-en-brandembu
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951229@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Sale a la venta: Vals de Mefisto
@@ -84,7 +71,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/vals-de-mefisto-97884
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388038426@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Cómo darle la vuelta a tu felicidad
@@ -97,7 +84,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/como-darle-la-vuelta-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788401040740@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: El crimen de la Navidad. El cuaderno de pasatiempo
@@ -111,7 +98,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-crimen-de-la-navid
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788466686884@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: La abadía sin ojos
@@ -124,7 +111,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-abadia-sin-ojos-97
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388163258@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Los diarios de Emma M. Lion 5
@@ -137,7 +124,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-diarios-de-emma-m
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388092268@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Ponte fino
@@ -150,7 +137,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/ponte-fino-9791388092
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788403526877@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Rosalía\, universo creador
@@ -163,7 +150,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/rosalia-universo-crea
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387740382@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Sin piedad (Harry Hole 14)
@@ -176,7 +163,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/sin-piedad-harry-hole
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788466685368@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261110
 DTEND;VALUE=DATE:20261111
 SUMMARY:Sale a la venta: La madre
@@ -188,7 +175,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-madre-978846668536
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408324263@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Cocina de siempre para disfrutar hoy
@@ -201,7 +188,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/cocina-de-siempre-par
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788449345975@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: El acorde secreto
@@ -214,7 +201,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-acorde-secreto-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084443@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: El último crimen del año. Un nuevo caso de Hérc
@@ -228,7 +215,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-ultimo-crimen-del-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408326496@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Flores malditas 2. Flor del infierno
@@ -241,7 +228,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/flores-malditas-2-flo
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788491995913@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Las leyes fundamentales de la estupidez humana
@@ -254,7 +241,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/las-leyes-fundamental
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788411193832@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Los cinco acuerdos de la pareja
@@ -267,7 +254,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-cinco-acuerdos-de
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788491999386@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Los límites del infinito
@@ -280,7 +267,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-limites-del-infin
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951267@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Manifiesto por otra economía y otra política
@@ -293,7 +280,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/manifiesto-por-otra-e
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788449346057@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Mira el lado bueno de las cosas
@@ -306,7 +293,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/mira-el-lado-bueno-de
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467083729@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Nada es lo que era
@@ -319,7 +306,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/nada-es-lo-que-era-97
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388279515@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Pequeños detectives: retos para resolver mientras
@@ -333,7 +320,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/pequenos-detectives-r
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951298@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Perder la guerra
@@ -346,7 +333,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/perder-la-guerra-9788
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388279379@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Sherlock
@@ -359,7 +346,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/sherlock-979138827937
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788448049232@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Sofia Coppola
@@ -371,7 +358,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/sofia-coppola-9788448
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408328902@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Triunfa con mis recetas estrella
@@ -384,7 +371,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/triunfa-con-mis-recet
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467083637@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Yo solo quería escribir algunos domingos
@@ -397,7 +384,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/yo-solo-queria-escrib
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951205@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: ¿Nos quedamos o nos vamos?
@@ -410,7 +397,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/nos-quedamos-o-nos-va
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951281@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: ¿Yo?
@@ -422,7 +409,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/yo-9788433951281/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788401039850@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261112
 DTEND;VALUE=DATE:20261113
 SUMMARY:Sale a la venta: La trama francesa
@@ -435,7 +422,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-trama-francesa-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387904661@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261112
 DTEND;VALUE=DATE:20261113
 SUMMARY:Sale a la venta: Sapiens. Una historia gráfica 4 - La era de las r
@@ -450,7 +437,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/sapiens-una-historia-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788401037894@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261112
 DTEND;VALUE=DATE:20261113
 SUMMARY:Sale a la venta: Un baile en Versalles
@@ -463,7 +450,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/un-baile-en-versalles
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951304@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261118
 DTEND;VALUE=DATE:20261119
 SUMMARY:Sale a la venta: Cuerpo\, humano
@@ -476,7 +463,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/cuerpo-humano-9788433
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951670@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261118
 DTEND;VALUE=DATE:20261119
 SUMMARY:Sale a la venta: Cómo construir la soberanía digital europea
@@ -489,7 +476,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/como-construir-la-sob
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951250@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261118
 DTEND;VALUE=DATE:20261119
 SUMMARY:Sale a la venta: El volumen del tiempo IV
@@ -502,7 +489,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-volumen-del-tiempo
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788491296027@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261124
 DTEND;VALUE=DATE:20261125
 SUMMARY:Sale a la venta: Espinas en el aire
@@ -515,7 +502,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/espinas-en-el-aire-97
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467070835@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261125
 DTEND;VALUE=DATE:20261126
 SUMMARY:Sale a la venta: Orgullo y prejuicio. Edición ilustrada
@@ -528,7 +515,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/orgullo-y-prejuicio-e
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388222276@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261203
 DTEND;VALUE=DATE:20261204
 SUMMARY:Sale a la venta: Pokécology (Guía Pokémon)
@@ -541,7 +528,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/pokecology-guia-pokem
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788410466715@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20261210
 DTEND;VALUE=DATE:20261211
 SUMMARY:Sale a la venta: Los fuegos de Diciembre
@@ -554,7 +541,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-fuegos-de-diciemb
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788466394390@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270107
 DTEND;VALUE=DATE:20270108
 SUMMARY:Sale a la venta: 5 semanas para desinflamarte (edición limitada)
@@ -567,7 +554,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/5-semanas-para-desinf
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388222412@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270107
 DTEND;VALUE=DATE:20270108
 SUMMARY:Sale a la venta: Aprender a leer en la Escuela de Monstruos 27 - Un
@@ -581,7 +568,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/aprender-a-leer-en-la
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788418053696@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270107
 DTEND;VALUE=DATE:20270108
 SUMMARY:Sale a la venta: El ego es tu enemigo
@@ -593,7 +580,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-ego-es-tu-enemigo-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387905620@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270107
 DTEND;VALUE=DATE:20270108
 SUMMARY:Sale a la venta: La botica natural
@@ -606,7 +593,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-botica-natural-979
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788401041723@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270114
 DTEND;VALUE=DATE:20270115
 SUMMARY:Sale a la venta: Hanami
@@ -617,7 +604,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/hanami-9788401041723/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388163555@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270114
 DTEND;VALUE=DATE:20270115
 SUMMARY:Sale a la venta: La compañera
@@ -630,7 +617,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-companera-97913881
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788491999454@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Bandidos
@@ -642,7 +629,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/bandidos-978849199945
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331230@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Clara Nox 4. La última tormenta
@@ -655,7 +642,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/clara-nox-4-la-ultima
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788423371181@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Cuando seamos inmortales
@@ -668,7 +655,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/cuando-seamos-inmorta
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788449346446@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Cómo crecer entre pantallas
@@ -681,7 +668,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/como-crecer-entre-pan
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084924@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Cómo la vida supera a la muerte
@@ -694,7 +681,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/como-la-vida-supera-a
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084566@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: El pacto
@@ -706,7 +693,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-pacto-978846708456
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331728@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: El poder de la intención
@@ -719,7 +706,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-poder-de-la-intenc
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388414046@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Encuentra la armonía
@@ -732,7 +719,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/encuentra-la-armonia-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408330936@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Eoghan Kavanagh. El Lobo
@@ -745,7 +732,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/eoghan-kavanagh-el-lo
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467085068@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: España. 50 años después
@@ -758,7 +745,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/espana-50-anos-despue
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788427055896@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Hasta su último latido
@@ -771,7 +758,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/hasta-su-ultimo-latid
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084542@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Hielo
@@ -782,7 +769,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/hielo-9788467084542/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408330424@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Hombres en terapia
@@ -795,7 +782,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/hombres-en-terapia-97
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387902353@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Ice Age. ¿Dónde está Scrat?
@@ -808,7 +795,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/ice-age-donde-esta-sc
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084986@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: La memoria velada
@@ -821,7 +808,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-memoria-velada-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084856@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: La semana de colores y Andamos huyendo Lola
@@ -834,7 +821,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-semana-de-colores-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408330813@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: La vida juntos
@@ -846,7 +833,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-vida-juntos-978840
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388103803@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Saint Seiya. Los caballeros del Zodíaco (Final Ed
@@ -860,7 +847,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/saint-seiya-los-cabal
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788423441495@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Trabajos enredados
@@ -872,7 +859,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/trabajos-enredados-97
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331834@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Tus zonas mágicas
@@ -884,7 +871,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/tus-zonas-magicas-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331780@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Tus zonas sagradas
@@ -896,7 +883,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/tus-zonas-sagradas-97
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388103711@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Yawara! nº 12/20
@@ -909,7 +896,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/yawara-no-12-20-97913
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788410362697@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: ¿Qué pasaría si el Doctor Doom dominara el Mult
@@ -923,7 +910,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/que-pasaria-si-el-doc
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388139567@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270121
 DTEND;VALUE=DATE:20270122
 SUMMARY:Sale a la venta: Deja de regalar tu dinero
@@ -936,7 +923,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/deja-de-regalar-tu-di
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788403527270@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270121
 DTEND;VALUE=DATE:20270122
 SUMMARY:Sale a la venta: Migraña: Manual para no perder la cabeza
@@ -949,7 +936,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/migrana-manual-para-n
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388365027@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270121
 DTEND;VALUE=DATE:20270122
 SUMMARY:Sale a la venta: Reconexión
@@ -961,7 +948,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/reconexion-9791388365
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788425374647@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270121
 DTEND;VALUE=DATE:20270122
 SUMMARY:Sale a la venta: Salud sistémica
@@ -974,7 +961,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/salud-sistemica-97884
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331810@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: A sangre y fuego
@@ -987,7 +974,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/a-sangre-y-fuego-9788
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084757@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Al micro y listo
@@ -1000,7 +987,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/al-micro-y-listo-9788
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408322221@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Austria 7
@@ -1012,7 +999,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/austria-7-97884083222
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331353@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Del dolor al amor
@@ -1025,7 +1012,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/del-dolor-al-amor-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408330783@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Dioses del juego 3. The Keeper
@@ -1038,7 +1025,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/dioses-del-juego-3-th
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387920852@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Dragon Quest: The Adventure of Dai nº 12/25
@@ -1051,7 +1038,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/dragon-quest-the-adve
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408330806@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Edición especial. Dioses del juego 3. The Keeper
@@ -1064,7 +1051,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/edicion-especial-dios
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331278@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: El caos de Beca 4. ¿Y ahora qué hago?
@@ -1077,7 +1064,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-caos-de-beca-4-y-a
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331520@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: El enigmático míster Quin
@@ -1090,7 +1077,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-enigmatico-mister-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387714567@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: El hombre de Damasco
@@ -1103,7 +1090,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-hombre-de-damasco-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467085006@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: El honor de los espías
@@ -1116,7 +1103,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-honor-de-los-espia
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408330950@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Experto en carnes en 24 horas
@@ -1129,7 +1116,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/experto-en-carnes-en-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388103599@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Héroe Fugitivo nº 17
@@ -1142,7 +1129,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/heroe-fugitivo-no-17-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408329534@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Indonesia 7
@@ -1155,7 +1142,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/indonesia-7-978840832
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408319238@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Irlanda 7
@@ -1168,7 +1155,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/irlanda-7-97884083192
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388220401@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: JapanEasy
@@ -1180,7 +1167,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/japaneasy-97913882204
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788413445793@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Keto mediterránea
@@ -1193,7 +1180,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/keto-mediterranea-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788449346187@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: La batalla por la vivienda
@@ -1206,7 +1193,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-batalla-por-la-viv
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788427055933@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: La platera
@@ -1219,7 +1206,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-platera-9788427055
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388103735@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Llegando a ti nº 26
@@ -1232,7 +1219,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/llegando-a-ti-no-26-9
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084894@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Los hijos del médico
@@ -1245,7 +1232,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-hijos-del-medico-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388103612@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: MAO nº 11
@@ -1257,7 +1244,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/mao-no-11-97913881036
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788434441330@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Matemagia
@@ -1269,7 +1256,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/matemagia-97884344413
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084580@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Mesa para uno
@@ -1281,7 +1268,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/mesa-para-uno-9788467
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387902001@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Mickey. Días de amor. Libro para colorear con cer
@@ -1295,7 +1282,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/mickey-dias-de-amor-l
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408330387@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Mientras pueda recordarte
@@ -1308,7 +1295,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/mientras-pueda-record
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788445023914@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Neuromante (Edición especial)
@@ -1321,7 +1308,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/neuromante-edicion-es
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788411005739@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Prostibulandia
@@ -1334,7 +1321,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/prostibulandia-978841
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788491999522@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Revoluciones. Una nueva historia
@@ -1347,7 +1334,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/revoluciones-una-nuev
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331742@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Richelieu y Olivares
@@ -1360,7 +1347,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/richelieu-y-olivares-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788445023105@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Seis grullas nº 00 La maldición radiante (Precue
@@ -1374,7 +1361,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/seis-grullas-no-00-la
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331087@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Six-step hacia ti
@@ -1387,7 +1374,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/six-step-hacia-ti-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788434441316@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Un espejo lejano
@@ -1400,7 +1387,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/un-espejo-lejano-9788
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331162@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Zodiakids 3. El Gran Torneo de Zooikos
@@ -1413,7 +1400,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/zodiakids-3-el-gran-t
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788449346262@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: ¿Para qué aprender?
@@ -1426,7 +1413,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/para-que-aprender-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788410466784@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270129
 SUMMARY:Sale a la venta: La desgracia inevitable (Carl el Mazmorrero 7)
@@ -1439,7 +1426,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-desgracia-inevitab
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388147302@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270129
 SUMMARY:Sale a la venta: Los tres mundos (Serie Julio César 3)
@@ -1452,7 +1439,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-tres-mundos-serie
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388222856@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270129
 SUMMARY:Sale a la venta: Perdiendo el control (edición especial) (Windy Ci
@@ -1466,7 +1453,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/perdiendo-el-control-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388417757@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270129
 SUMMARY:Sale a la venta: Rozando el cielo (edición especial) (Windy City 1
@@ -1480,7 +1467,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/rozando-el-cielo-edic
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388222207@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270129
 SUMMARY:Sale a la venta: Villanos 2 - Hunt the villain
@@ -1493,7 +1480,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/villanos-2-hunt-the-v
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388163661@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270204
 DTEND;VALUE=DATE:20270205
 SUMMARY:Sale a la venta: Naranja con canela
@@ -1506,7 +1493,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/naranja-con-canela-97
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387949778@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270211
 DTEND;VALUE=DATE:20270212
 SUMMARY:Sale a la venta: Los cazamisterios 12 - El caso de la misión en la
@@ -1520,7 +1507,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-cazamisterios-12-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788466683449@davidportodiaz.com
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261103T000000Z
 DTSTART;VALUE=DATE:20270225
 DTEND;VALUE=DATE:20270226
 SUMMARY:Sale a la venta: A mil por hora
