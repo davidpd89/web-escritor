@@ -271,8 +271,10 @@ try {
     assert.ok(response?.ok(), 'interaction: radar no carga');
     await stabilizeTypography(interactionPage);
 
-    await interactionPage.locator('[data-radar-search]').fill('ALFAGUARA');
-    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, 'interaction: búsqueda Alfaguara no devuelve una oportunidad');
+    // Título de la primera convocatoria a la vista: una fija («Alfaguara») caduca y dejaba la prueba en rojo.
+    const probe = await interactionPage.locator('[data-radar-item]:visible').first().getAttribute('data-title');
+    await interactionPage.locator('[data-radar-search]').fill(probe.toLocaleUpperCase('es'));
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, `interaction: la búsqueda «${probe}» no devuelve una oportunidad`);
     assert.equal((await interactionPage.locator('[data-radar-count]').textContent()).trim(), '1 convocatoria visible', 'interaction: singular del contador no corregido');
     await interactionPage.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
     await interactionPage.waitForTimeout(50);
