@@ -3,39 +3,46 @@
   "familia": "narrativa",
   "bloques": [
     {
-      "modulo": "para_quien",
-      "texto": "La cabaña encaja con lectores de narrativa contemporánea interesados en cuestiones espirituales y en las decisiones que plantea la posibilidad de encontrarse con Dios. No se orienta a quienes buscan una historia desligada de la religión, puesto que una invitación divina constituye el interrogante que pone en marcha la novela.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
       "modulo": "encaje_documentado",
-      "texto": "La cabaña parte de una situación hipotética: recibir una carta de Dios y tener que decidir si acudir a la cita. Wm. Paul Young utiliza ese planteamiento religioso como punto de entrada a una novela contemporánea en la que la aceptación o el rechazo de ese encuentro constituye la primera cuestión para el lector.",
+      "texto": "La cabaña plantea una situación de narrativa contemporánea en la que una comunicación atribuida a Dios desencadena una decisión personal. La pregunta central es si el destinatario aceptaría ese encuentro, lo que introduce una dimensión espiritual en el conflicto. Wm. Paul Young desarrolla esta propuesta en una novela de 272 páginas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La cabaña se ofrece en tapa blanda, concretamente en rústica con solapas. La edición de Editorial Espasa reúne 272 páginas en castellano, con una encuadernación flexible que facilita sostener el libro y guardarlo sin la rigidez de unas tapas duras. Las solapas también pueden utilizarse para señalar el punto de lectura.",
+      "texto": "La tapa blanda ofrece las 272 páginas de La cabaña en una edición rústica con solapas de Editorial Espasa, pensada para quien prefiere leer y conservar un ejemplar físico. Kindle permite llevar la novela en formato digital y continuar la lectura desde un dispositivo compatible. Ambas opciones mantienen la elección entre papel y pantalla.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "numero_paginas",
         "edicion",
         "editorial",
-        "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El retorno a la cabaña comparte autor, Wm. Paul Young, y el interés por la relación con lo divino. Mientras La cabaña plantea la posibilidad de recibir una invitación de Dios, El retorno a la cabaña se centra en el duelo, el perdón y la esperanza. La diferencia principal está en el conflicto que presenta cada novela, más que en su orientación espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084696"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "para_quien: afirmaciones sin respaldo: premi",
+    "faltan módulos: para_quien"
+  ],
   "version": 3,
-  "fuente_hash": "764a80aac78db906",
+  "fuente_hash": "b4eeda8b148b7c11",
   "origen": "chatgpt-web"
 }

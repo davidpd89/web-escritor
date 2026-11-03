@@ -4,29 +4,58 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores infantiles y juveniles que buscan fantasía de aventuras, misiones colectivas y amenazas relacionadas con la naturaleza. No encaja tanto con quienes prefieren historias realistas, pues el conflicto surge de una vegetación anómala y de los animales afectados en Narúa. El título lo identifica como el n.º 2 de Misiones especiales.",
+      "texto": "Magic Animals. Misiones especiales 2. El templo escondido se dirige a lectores de 9 a 12 años interesados en la fantasía, los animales y las misiones de exploración. El conflicto combina alteraciones de la naturaleza, animales heridos y la búsqueda de un templo, por lo que se aleja de las historias infantiles centradas exclusivamente en situaciones cotidianas.",
       "evidencias": [
         "titulo",
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa dura sin sobrecubierta es el formato de esta edición, que reúne 192 páginas en castellano y utiliza una encuadernación de cartoné. Su cubierta rígida resulta práctica para conservar el ejemplar y volver a leer la misión de Yuna, Abi, Éric, Cloe y Nico. También permite mantener el volumen en papel junto a otras aventuras infantiles.",
+      "modulo": "edad_y_formato",
+      "texto": "Es un libro infantil de fantasía recomendado de 9 a 12 años, con 192 páginas en castellano. La edición de Destino Infantil & Juvenil está encuadernada en tapa dura de cartoné, sin sobrecubierta, y se publicó el 21 de octubre de 2026. El título lo identifica como el n.º 2 de Misiones especiales.",
       "evidencias": [
-        "edicion",
-        "formato_edicion",
+        "titulo",
+        "edad_recomendada",
         "numero_paginas",
         "idioma",
-        "formatos_disponibles",
+        "editorial",
+        "edicion",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Brigada Felina 2 - El secreto de Zarpafilada comparte con Magic Animals. Misiones especiales 2. El templo escondido la autoría de Susanna Isern y el enfoque de aventuras, aunque este último incorpora una misión relacionada con animales heridos y vegetación descontrolada. Campamento Mestizo 1 - La zona rebelde también sitúa su propuesta en un entorno de aventuras, pero parte de la vida en un campamento, frente a la exploración de un valle y un templo.",
+      "evidencias": [
+        "titulo",
+        "autores",
         "sinopsis_editorial",
-        "categorias"
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873639",
+        "isbn-9788419868466"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 192 páginas en una encuadernación de cartoné sin sobrecubierta, apropiada para conservar el ejemplar físico. Kindle permite llevar la historia en formato digital y leerla desde un móvil o dispositivo compatible. Las dos opciones contienen una aventura fantástica ambientada en valles y una selva.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "categorias",
+        "sinopsis_editorial"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "que_formato_elegir: más de cuatro frases",
+    "faltan módulos: que_formato_elegir"
+  ],
   "version": 3,
-  "fuente_hash": "8d9bc4d74fe1819a",
+  "fuente_hash": "cc1f7540e8dfd482",
   "origen": "chatgpt-web"
 }

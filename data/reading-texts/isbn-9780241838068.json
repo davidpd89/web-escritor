@@ -4,44 +4,47 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores a partir de 7 años interesados en conocer las máquinas y los vehículos del universo Star Wars. No está dirigido a quienes busquen una novela con una trama continuada: su contenido se centra en clasificar vehículos y explicar sus características, modelos y dimensiones.",
+      "texto": "Star Wars Enciclopedia de naves, cazas estelares y otros vehículos está dirigida a lectores a partir de 7 años interesados en los vehículos del universo Star Wars. Su contenido se centra en modelos, dimensiones y características técnicas, por lo que encaja menos con quienes buscan una novela de aventuras protagonizada por personajes.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Está indicado para lectores a partir de 7 años y reúne 256 páginas en castellano. La edición de DK tiene encuadernación de tapa dura y organiza los vehículos según su ámbito de circulación: tierra, mar, aire y espacio, con información técnica sobre cada uno.",
+      "texto": "Star Wars Enciclopedia de naves, cazas estelares y otros vehículos está recomendada a partir de 7 años y tiene 256 páginas. Publicada por DK en castellano y tapa dura, reúne información sobre más de 230 vehículos y los organiza según su ámbito de desplazamiento: tierra, mar, aire y espacio.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "numero_paginas",
-        "idioma",
         "editorial",
         "edicion",
+        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible para esta enciclopedia de 256 páginas. Su organización por clases de vehículos permite consultar un apartado concreto y volver a él cuando interese revisar modelos o dimensiones; la encuadernación rígida también resulta práctica para conservar el volumen o regalarlo.",
+      "texto": "Star Wars Enciclopedia de naves, cazas estelares y otros vehículos se presenta en tapa dura, con 256 páginas dedicadas a consultar modelos y características técnicas. El volumen físico permite recorrer sus apartados por tipos de vehículos y volver a las fichas de las naves cuando se quiera comprobar un dato.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
+        "edicion",
         "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Este volumen y Antigua Roma (Civilizaciones antiguas para niños) son publicaciones de DK clasificadas como literatura infantil y juvenil. La diferencia está en el objeto de consulta: aquí se examinan vehículos del universo Star Wars, mientras que el otro título se ocupa de una civilización histórica.",
+      "texto": "Antigua Roma (Civilizaciones antiguas para niños) y Star Wars Enciclopedia de naves, cazas estelares y otros vehículos son obras de DK orientadas a conocer un tema concreto. Antigua Roma (Civilizaciones antiguas para niños) aborda la vida en un imperio histórico, mientras que Star Wars Enciclopedia de naves, cazas estelares y otros vehículos describe máquinas de un universo ficticio, con datos sobre sus modelos y dimensiones.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "editorial",
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
         "isbn-9780241839362"
@@ -50,6 +53,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e069b8845eca4390",
+  "fuente_hash": "de74dfda1ad36568",
   "origen": "chatgpt-web"
 }
