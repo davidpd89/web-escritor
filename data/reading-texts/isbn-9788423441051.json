@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo ganar una guerra comercial se dirige a lectores interesados en la economía internacional y las consecuencias políticas de los aranceles. Su enfoque sobre el comercio global lo aleja de la narrativa bélica: trata los conflictos económicos entre países, no una guerra contada como ficción.",
+      "texto": "Cómo ganar una guerra comercial se dirige a lectores interesados en economía internacional, política y conflictos entre países. Su atención a los aranceles y las tensiones geopolíticas lo sitúa lejos de los manuales de finanzas domésticas o de las narraciones de ficción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,28 +13,43 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un libro de análisis económico y político sobre las disputas comerciales y sus consecuencias internacionales. Soumaya Keynes y Chad P. Bown examinan el retorno de los aranceles y sitúan las relaciones comerciales en un contexto de conflictos armados y rivalidades geopolíticas.",
+      "texto": "Cómo ganar una guerra comercial aborda las disputas económicas entre países y los cambios en las reglas del intercambio internacional. Soumaya Keynes y Chad P. Bown examinan un contexto de aranceles, conflictos bélicos y tensiones geopolíticas para explicar los desafíos del comercio global. Es una obra de economía y política de 424 páginas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cómo ganar una guerra comercial se publica en tapa blanda, con una encuadernación rústica con solapas. Sus 424 páginas permiten abordar el análisis en papel y regresar a los apartados sobre comercio internacional y política arancelaria para consultar cuestiones concretas.",
+      "texto": "Cómo ganar una guerra comercial está disponible en tapa blanda y Kindle. La edición física de Deusto presenta 424 páginas en rústica con solapas, adecuada para consultar y marcar pasajes en papel; Kindle permite transportar y consultar digitalmente una obra de esta extensión.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo ganar una guerra comercial y La batalla por la vivienda examinan problemas económicos vinculados a decisiones políticas. El primero se ocupa de los aranceles y las relaciones comerciales internacionales, mientras Michael Byrne analiza las causas políticas y económicas de la crisis de la vivienda. La economía del cuidado también cuestiona enfoques económicos establecidos, pero Tim Jackson centra su propuesta en la prosperidad, la sostenibilidad y el poscrecimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346187",
+        "isbn-9788449345937"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "58fe581fb5b70f87",
+  "fuente_hash": "6e3f8d5a167896de",
   "origen": "chatgpt-web"
 }
