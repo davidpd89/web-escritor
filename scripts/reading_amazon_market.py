@@ -1,5 +1,6 @@
 """Bounded Creators API prices; no browser session or invented ASINs."""
 import gzip
+import html
 import json
 import re
 import time
@@ -432,6 +433,70 @@ def discover_real_covers(catalogue,root,fetch,fetch_bytes,convert,now,limit=20):
                     portada_fecha_revision=day,portada_sustituida=True)
         stats['covers_replaced']+=1
     return stats
+
+
+def page_title(document):
+    m=re.search(r'id="productTitle"[^>]*>(.*?)<',document,re.S)
+    return html.unescape(' '.join(m.group(1).split())) if m else ''
+
+
+def cover_kind(book):
+    if book.get('portada_sustituida'):
+        return 'amazon'
+    return 'generada' if urlsplit(book.get('portada_fuente_url') or '').hostname in COVER_HOSTS else 'editorial'
+
+
+def audit_asin(book):
+    """Ficha que se audita: un ASIN ya verificado del libro (mejor el impreso) o, sin ninguno, el ISBN-10 de su ISBN."""
+    formats=verified_formats(book)
+    return next((a for a,f in formats.items() if f!='ebook'),None) or next(iter(formats),None) or isbn10(book.get('isbn13'))
+
+
+def audit_book(book,fetch,day):
+    """Registro de un libro: formatos que vende Amazon (con su ASIN) frente a los que mostramos, y su portada.
+    None si Amazon pide captcha: eso no dice nada del libro y se reintenta después."""
+    asin=audit_asin(book)
+    shown=[f for f in FORMAT_ORDER if f in {o['formato'] for o in book.get('formatos_compra',[])}]
+    record={'fecha':day,'asin':asin,'amazon':{},'mostrados':shown,'faltan':[],'sin_confirmar':[],'portada':cover_kind(book)}
+    if not asin:
+        return {**record,'estado':'sin_asin'}
+    try:
+        document=fetch(f'https://www.amazon.es/dp/{asin}')
+    except HTTPError as exc:
+        return {**record,'estado':'sin_ficha' if exc.code==404 else f'http_{exc.code}'}
+    except (OSError,ValueError):
+        return {**record,'estado':'error'}
+    if ('captcha' in document.lower() or 'bm-verify' in document) and 'tmm-grid-swatch' not in document and 'landingImage' not in document:
+        return None
+    if not verified_formats(book) and not title_matches(re.sub(r'\s*[\(\[].*?[\)\]]','',page_title(document)),book.get('titulo','')):
+        # El ISBN-10 no siempre lleva a la misma obra: sin título coincidente no se añade nada.
+        return {**record,'estado':'otra_obra','titulo_amazon':page_title(document)}
+    amazon=swatch_formats(document,asin)
+    if not amazon and book.get('formato_edicion') in FORMAT_ORDER:
+        amazon={book['formato_edicion']:asin}  # ficha de un solo formato, sin selector
+    record['amazon']={f:amazon[f] for f in FORMAT_ORDER if f in amazon}
+    record['faltan']=[f for f in record['amazon'] if f not in shown]
+    record['sin_confirmar']=[f for f in shown if f not in record['amazon']]
+    return {**record,'estado':'ok','portada_amazon':page_cover_url(document)}
+
+
+def apply_audit(book,record,tag):
+    """Añade al libro los formatos que Amazon vende y no mostramos; el barrido de la API les pone precio."""
+    if record.get('estado')!='ok':
+        return 0
+    options=book.setdefault('formatos_compra',[])
+    have={o['formato'] for o in options}
+    known=set(verified_formats(book))
+    added=0
+    for fmt,found in record['amazon'].items():
+        if fmt in have or found in known:
+            continue
+        options.append({'formato':fmt,'url':f'https://www.amazon.es/dp/{found}?tag={tag}',
+                        'fuente_url':f'https://www.amazon.es/dp/{found}','fecha_verificacion':record['fecha']})
+        added+=1
+    options.sort(key=lambda o:FORMAT_ORDER.index(o['formato']))
+    book['formatos_pagina_buscados']=record['fecha']
+    return added
 
 
 def fetch_amazon_image(url):

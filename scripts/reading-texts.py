@@ -4,7 +4,7 @@
   pending   lista los libros publicados sin texto vigente
   prompt    imprime la consulta de un lote (--ids o los primeros pendientes)
   validate  valida ficheros de salida contra los datos actuales
-  run       bucle: consulta por lotes, valida, guarda y publica cada --publish-every textos
+  run       bucle: consulta por lotes en un chat con correcciones, valida, guarda y publica en segundo plano
   publish   lleva los textos guardados a main con la misma cadena que el barrido
 
 Los textos se guardan primero en .local/reading-texts/out (ignorado por git), para que el bucle
@@ -36,6 +36,8 @@ MAX_ATTEMPTS = 4
 MAX_BLOCKS = 5
 MIN_BLOCKS = 2
 COPY_WORDS = 8
+REPAIR_TURNS = 3  # correcciones dentro del mismo chat tras la primera respuesta
+SHORT_BLOCK = 180  # un bloque válido más corto se pide más concreto en el turno de mejora
 AFFINES = 5
 AUDIENCES = (('infantil', {'infantil'}), ('juvenil', {'juvenil', 'fantasia-juvenil'}), ('adultos', {'adultos'}))
 MIN_AFFINITY = 2.5  # suma de log(N/df): dos etiquetas muy comunes no bastan
@@ -109,8 +111,11 @@ def read_json(path, default=None):
 
 
 def write_json(path, value):
+    """Escritura atómica: la publicación en segundo plano lee las fichas mientras el bucle escribe otras."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    tmp = path.with_name(path.name + '.tmp')
+    tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    os.replace(tmp, path)
 
 
 def published(data):
@@ -284,11 +289,14 @@ def validate_block(p, x):
     if x['modulo'] == 'lecturas_afines' and not linked(p, text):
         errors.append('no nombra ningún título de afines_catalogo')
     cited = ' '.join(as_text(p['evidencias'][k]) for k in keys)
+    if x['modulo'] == 'lecturas_afines':  # nombrar un afín trae su título y su autoría aunque no cite afines_catalogo
+        cited += ' ' + as_text(p['evidencias'].get('afines_catalogo', []))
+    own = p['evidencias'].get('titulo', '') + ' ' + as_text(p['evidencias'].get('autores', ''))
     source = p['evidencias']['sinopsis_editorial']
     names = [p['evidencias'].get('titulo', ''), *p['evidencias'].get('autores', [])]
     if ngrams(text, names=names) & ngrams(source, names=names):
         errors.append(f'copia {COPY_WORDS} palabras seguidas de la sinopsis')
-    numbers = set(re.findall(r'\d+', text)) - set(re.findall(r'\d+', cited))
+    numbers = set(re.findall(r'\d+', text)) - set(re.findall(r'\d+', cited + ' ' + own))
     if numbers:
         errors.append('cifras sin respaldo: ' + ', '.join(sorted(numbers)))
     claims = {m.group(0).lower() for m in CLAIMS.finditer(text)} - {m.group(0).lower() for m in CLAIMS.finditer(source)}
@@ -296,7 +304,7 @@ def validate_block(p, x):
         errors.append('afirmaciones sin respaldo: ' + ', '.join(sorted(claims)))
     if opinion := OPINION.search(text):
         errors.append('valoración: ' + opinion.group(0).lower())
-    known = set(words(cited + ' ' + p['evidencias'].get('titulo', '') + ' ' + as_text(p['evidencias'].get('autores', ''))))
+    known = set(words(cited + ' ' + own))
     # Mayúscula a mitad de frase = nombre propio: tiene que venir de las evidencias citadas.
     names = {m.group(0) for m in re.finditer(r'[A-ZÁÉÍÓÚÑ][\wáéíóúñü]+', text)
              if (before := text[:m.start()].rstrip()) and before[-1] not in '.!?¿¡«"(:\n'}
@@ -311,10 +319,16 @@ def valid_blocks(p, blocks):
     return [x for x in blocks or [] if not validate_block(p, x)]
 
 
+def title_forms(title):
+    """El título completo y su forma corta: sin paréntesis de edición o colección ni subtítulo tras «:» o « - »."""
+    short = re.split(r'\s+[-–—]\s+|:\s', re.sub(r'\s*\([^)]*\)', '', title))[0].strip(' .,;')
+    return {f for f in (title.strip(), short) if len(f) >= 8 or f == title.strip()}
+
+
 def linked(p, text):
-    """Ids de los libros afines que el texto nombra por su título."""
+    """Ids de los libros afines que el texto nombra por su título (completo o en su forma corta)."""
     folded = text.casefold()
-    return [i for title, i in p.get('afines_ids', {}).items() if title.casefold() in folded]
+    return [i for title, i in p.get('afines_ids', {}).items() if any(f.casefold() in folded for f in title_forms(title))]
 
 
 def validate_text(p, t):
@@ -424,17 +438,161 @@ def instant_power(pg, _level=None):
         return False
 
 
-def consult(question, ids, port, wait_min):
-    os.environ['RRSS_CHATGPT_CDP_PORT'] = str(port)
+def rrss():
+    """Navegador y proyecto de ChatGPT de RRSS, solo importados: sus ficheros no cambian."""
     # El horario de descanso 00-07 h es de las redes sociales (parecer uso humano); los textos de la
     # web trabajan toda la noche (David, 02/11/2026), así que este proceso queda fuera de esa regla.
     os.environ['RRSS_NIGHT_OK'] = '1'
     sys.path.insert(0, str(RRSS_TOOLS))
     import chatgpt_consult
-    chatgpt_consult.set_power = instant_power  # solo en este proceso; los ficheros de RRSS no cambian
-    repair = 'Devuelve otra vez la respuesta completa: un único bloque ```json con {"fichas": [...]} y exactamente estos id: ' + ', '.join(ids)
-    answer, _ = chatgpt_consult.consult(question, (), wait_min, validate=answer_label(ids), repair=repair)
-    return answer
+    return chatgpt_consult
+
+
+def json_label(answer):
+    return 'JSON_VALIDO' if extract_json(answer or '') is not None else 'JSON_TRUNCADO'
+
+
+def chat(question, port, wait_min, follow_up):
+    """Un chat nuevo con varios turnos: tras cada respuesta, `follow_up(respuesta, turno)` da el siguiente mensaje
+    o None. El turno del navegador se toma solo para escribir; la espera de cada respuesta va sin él."""
+    os.environ['RRSS_CHATGPT_CDP_PORT'] = str(port)
+    cc = rrss()
+    import action_ledger as al
+    import browser_common as bc
+    from playwright.sync_api import sync_playwright
+    p = sync_playwright().start()
+    pg = None
+    try:
+        target, turn = cc.browser_target()
+        message, n = question, 0
+        while message:
+            with al.browser_session(wait_minutes=40, name=turn):
+                if pg is None:
+                    browser = bc.connect_cdp(p.chromium, f'http://127.0.0.1:{target}')
+                    if not browser.contexts:
+                        raise RuntimeError('CDP sin contexto ChatGPT')
+                    pg = browser.contexts[0].new_page()
+                    pg.goto(cc.PROJECT_URL, wait_until='domcontentloaded', timeout=40000)
+                    pg.wait_for_timeout(6000)
+                    if 'auth' in pg.url or 'login' in pg.url or cc._login_button_visible(pg):
+                        cc.notify_login_needed(target)
+                        raise cc.ChatGPTLoginRequired('ChatGPT pide iniciar sesión: lo hace David')
+                    cc.assert_expected_project(pg.url)
+                    instant_power(pg)
+                pg.locator('[contenteditable="true"]').first.fill(message)
+                pg.wait_for_timeout(2000)
+                pg.locator(cc.SEND_BUTTON).first.click()
+                pg.wait_for_timeout(6000)
+            answer, _ = cc._wait_answer(pg, wait_min if n == 0 else max(3, min(wait_min, 10)), json_label)
+            n += 1
+            if n == 1 and not answer:
+                raise RuntimeError('respuesta no confirmada de ChatGPT: fin de plazo')
+            message = follow_up(answer, n)
+    finally:
+        try:
+            if pg is not None:
+                pg.close()
+        finally:
+            p.stop()
+        cc._close_dedicated_if_idle()
+
+
+HINTS = (  # motivo del validador -> instrucción concreta para la corrección
+    ('cifras sin respaldo', 'cada cifra tiene que estar literalmente en las evidencias que cita el bloque (o en el título); si no, quítala'),
+    ('nombres sin respaldo', 'quita los nombres propios que no estén en las evidencias citadas: nada de autores, obras ni lugares traídos de fuera'),
+    ('no nombra ningún título', 'nombra uno o dos títulos de afines_catalogo tal como aparecen, sin comillas'),
+    ('más de cuatro frases', 'máximo cuatro frases (cuenta cada punto, exclamación o interrogación final)'),
+    ('copia', 'reformula con palabras propias: no repitas ocho palabras seguidas de la sinopsis'),
+    ('valoración', 'describe sin valorar ni recomendar'),
+    ('muletilla', 'quita la muletilla y di el dato concreto'),
+    ('habla de las fuentes', 'no menciones fuentes ni datos ausentes: escribe con lo que sí hay'),
+    ('categorías', 'explica el parecido por tema, tono, público o autoría, sin decir «categoría»'),
+    ('entre 80 y 650', 'el texto va de 80 a 650 caracteres en un solo párrafo'),
+    ('repite otro bloque', 'que no repita lo que dice otro bloque de la ficha'),
+)
+
+
+def absorb(payloads, fichas, rows, improving=False):
+    """Funde un turno en las fichas: el bloque nuevo sustituye al del mismo módulo si el anterior no pasaba el
+    control o, en el turno de mejora, si el nuevo también pasa y es más completo."""
+    for r in rows:
+        p = payloads.get(r.get('id')) if isinstance(r, dict) else None
+        if not p or not isinstance(r.get('bloques'), list):
+            continue
+        blocks = fichas.setdefault(p['id'], {'id': p['id'], 'bloques': []})['bloques']
+        for x in r['bloques']:
+            if not isinstance(x, dict):
+                continue
+            i = next((k for k, y in enumerate(blocks) if y.get('modulo') == x.get('modulo')), None)
+            if i is None:
+                blocks.append(x)
+            elif improving:
+                if not validate_block(p, x) and len(str(x.get('texto', ''))) > len(str(blocks[i].get('texto', ''))):
+                    blocks[i] = x
+            elif validate_block(p, blocks[i]):
+                blocks[i] = x
+
+
+def repair_message(payloads, fichas):
+    """Mensaje de corrección en el mismo chat con los motivos de cada ficha, o None si todas pasan."""
+    lines, hints = [], []
+    for p in payloads.values():
+        if p['id'] not in fichas:
+            lines.append(f"- {p['id']}: falta la ficha completa")
+            continue
+        _, errors = validate_text(p, fichas[p['id']])
+        if 'módulo no permitido' in ' '.join(errors):
+            errors.append('módulos permitidos: ' + ', '.join(m['modulo'] for m in p['modulos_permitidos']))
+        lines += [f"- {p['id']}: {e}" for e in errors]
+        hints += [h for key, h in HINTS for e in errors if key in e]
+    if not lines:
+        return None
+    return ('Algunos bloques no pasan el control de calidad. Corrige solo estos, con las mismas reglas y las mismas evidencias de cada libro:\n'
+            + '\n'.join(lines) + '\n\nCómo corregirlos:\n' + '\n'.join('- ' + h for h in dict.fromkeys(hints))
+            + '\n\nResponde con un único bloque ```json {"fichas": [{"id": "...", "bloques": [...]}]} que traiga solo esas fichas, '
+              'con los bloques corregidos y los módulos que faltan; los demás bloques ya están aceptados.')
+
+
+def improve_message(payloads, fichas):
+    """Turno de mejora: los bloques válidos pero escuetos se piden más concretos; None si no hay ninguno."""
+    lines = []
+    for p in payloads.values():
+        blocks, _ = validate_text(p, fichas.get(p['id'], {'id': p['id'], 'bloques': []}))
+        lines += [f"- {p['id']} / {x['modulo']}: «{x['texto']}»" for x in blocks if len(x['texto']) < SHORT_BLOCK]
+    if not lines:
+        return None
+    return ('Estos bloques pasan el control pero son escuetos. Reescríbelos más concretos y útiles para decidir, con datos de las '
+            'evidencias de su libro (puedes citar más claves de evidencias), de 2 a 4 frases y con las mismas reglas:\n' + '\n'.join(lines)
+            + '\n\nResponde con un único bloque ```json {"fichas": [...]} que traiga solo esas fichas y esos bloques.')
+
+
+def converse(payloads, state, port, wait_min, send=chat):
+    """Consulta de un lote en un único chat: respuesta, hasta REPAIR_TURNS correcciones con los motivos del
+    validador y un turno final de mejora. Devuelve las fichas fundidas; validate_text decide al guardar."""
+    by_id = {p['id']: p for p in payloads}
+    fichas, phase = {}, {'mejora': False}
+    ids = ', '.join(by_id)
+
+    def follow_up(answer, n):
+        rows = extract_json(answer or '')
+        if rows is None:
+            return None if n > REPAIR_TURNS else (
+                'Devuelve otra vez la respuesta completa: un único bloque ```json con {"fichas": [...]} y estos id: ' + ids)
+        absorb(by_id, fichas, rows, improving=phase['mejora'])
+        if phase['mejora']:
+            return None
+        message = repair_message(by_id, fichas) if n <= REPAIR_TURNS else None
+        if message:
+            print(f'  turno {n + 1}: corrección', flush=True)
+            return message
+        phase['mejora'] = True
+        message = improve_message(by_id, fichas)
+        if message:
+            print(f'  turno {n + 1}: mejora de bloques escuetos', flush=True)
+        return message
+
+    send(build_prompt(payloads, state), port, wait_min, follow_up)
+    return list(fichas.values())
 
 
 def idle_seconds(exc):
@@ -450,7 +608,7 @@ def consult_batch(payloads, state, args):
     """Respuesta del lote, o None si falló la consulta: un fallo de infraestructura no gasta intentos de los libros."""
     ids = [p['id'] for p in payloads]
     try:
-        return extract_json(consult(build_prompt(payloads, state), ids, args.port, args.wait_min)) or []
+        return converse(payloads, state, args.port, args.wait_min)
     except Exception as exc:  # noqa: BLE001 - un lote fallido no para el bucle
         wait = idle_seconds(exc)
         print(f'Lote {ids[0]}…: {type(exc).__name__}; espera {wait // 60:.0f} min', flush=True)
@@ -529,35 +687,62 @@ def publish(out=OUT):
     return True
 
 
+def publish_due(args, now, last):
+    """Toca publicar: a una de las horas de --publish-at (Madrid), una vez por hora y día, o al llegar a --publish-every."""
+    if args.publish_at:
+        return now.hour in args.publish_at and now.strftime('%Y-%m-%d %H') != last
+    return bool(args.publish_every)
+
+
+def start_publish():
+    """Publicación en segundo plano: el bucle sigue generando mientras corren las pruebas locales y el CI de la PR."""
+    log = open(ROOT / '.local/reading-texts/publish.log', 'a', encoding='utf-8')
+    log.write(f'--- {datetime.now(ZoneInfo("Europe/Madrid")):%Y-%m-%d %H:%M} publicación\n')
+    log.flush()
+    return subprocess.Popen([sys.executable, '-u', str(Path(__file__).resolve()), 'publish'], cwd=ROOT, stdout=log, stderr=log,
+                            creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+
+
 def loop(args):
     state = read_json(STATE, {})
     data = read_json(ROOT / 'data/reading-catalogue.json')
     deadline = time.time() + args.hours * 3600
     done = since_publish = 0
+    publishing, last = None, ''
     while time.time() < deadline and done < args.max_books:
+        now = datetime.now(ZoneInfo('Europe/Madrid'))
+        if publishing is not None and publishing.poll() is not None:
+            print(f'Publicación terminada ({publishing.returncode})', flush=True)
+            publishing = None
+        if publishing is None and since_publish and publish_due(args, now, last) and \
+                (args.publish_at or since_publish >= args.publish_every):
+            publishing, last, since_publish = start_publish(), now.strftime('%Y-%m-%d %H'), 0
+            print('Publicación lanzada en segundo plano', flush=True)
         books = pending(data, state=state)[:args.batch]
-        if not books:
+        if books:
+            payloads = [payload(data, b) for b in books]
+            rows = consult_batch(payloads, state, args)
+            if rows is None:
+                continue
+            saved, rejected = save_results(payloads, rows, state)
+            write_json(STATE, state)
+            done += len(books)
+            since_publish += saved
+            print(f'Lote de {len(books)}: {saved} guardados, {rejected} rechazados', flush=True)
+        elif not args.refresh_data:
             print('Sin pendientes', flush=True)
             break
-        payloads = [payload(data, b) for b in books]
-        rows = consult_batch(payloads, state, args)
-        if rows is None:
-            continue
-        saved, rejected = save_results(payloads, rows, state)
-        write_json(STATE, state)
-        done += len(books)
-        since_publish += saved
-        print(f'Lote de {len(books)}: {saved} guardados, {rejected} rechazados', flush=True)
-        if args.publish_every and since_publish >= args.publish_every:
-            try:
-                publish()
-                since_publish = 0
-            except Exception as exc:  # noqa: BLE001 - se reintenta en la siguiente tanda
-                print(f'Publicación fallida: {exc}', flush=True)
+        else:  # sin pendientes se esperan los libros nuevos que traiga la ingesta
+            time.sleep(600)
         if args.refresh_data:
-            git('fetch', '-q', 'origin', 'main')
-            data = json.loads(git('show', 'origin/main:data/reading-catalogue.json', capture=True))
-    if args.publish_every and since_publish:
+            try:
+                git('fetch', '-q', 'origin', 'main')
+                data = json.loads(git('show', 'origin/main:data/reading-catalogue.json', capture=True))
+            except (subprocess.CalledProcessError, ValueError) as exc:  # p. ej. la publicación tiene la referencia bloqueada
+                print(f'Catálogo sin refrescar: {exc}', flush=True)
+    if publishing is not None:
+        publishing.wait()
+    elif since_publish and not args.publish_at and args.publish_every:
         publish()
 
 
@@ -578,6 +763,8 @@ def main(argv=None):
     ru.add_argument('--hours', type=float, default=24)
     ru.add_argument('--wait-min', type=int, default=20)
     ru.add_argument('--publish-every', type=int, default=0, help='0 = solo guardar en .local')
+    ru.add_argument('--publish-at', type=int, nargs='*', default=[],
+                    help='horas de Madrid a las que publicar en segundo plano (p. ej. 21); sustituye a --publish-every')
     ru.add_argument('--refresh-data', action='store_true', help='releer el catálogo de origin/main tras cada lote')
     sub.add_parser('publish')
     args = parser.parse_args(argv)

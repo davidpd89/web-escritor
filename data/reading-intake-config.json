@@ -215,9 +215,9 @@
   "amazon_price_refresh": {
     "enabled": true,
     "sweep_days": 7,
-    "page_formats_per_run": 60,
-    "real_covers_per_run": 20,
-    "notes": "Solo Creators API, ISBN o ASIN verificado, EUR y compra nueva. Cada noche se revisan los libros consultados hace más tiempo, de modo que todo el catálogo se recorre cada sweep_days. El precio de cada formato se guarda en formatos_compra y sigue publicado hasta que llega uno nuevo. La búsqueda por título y autor añade las ediciones Kindle y audiolibro en español. Sin más límite que el de Amazon (8640 peticiones al día); una denegación detiene el lote."
+    "page_formats_per_run": 0,
+    "real_covers_per_run": 0,
+    "notes": "page_formats_per_run y real_covers_per_run a 0: las fichas de Amazon (formatos y portadas) las audita sin cupo scripts/reading-amazon-audit.py desde el equipo local, con registro por libro en data/reading-amazon-audit.json. Solo Creators API, ISBN o ASIN verificado, EUR y compra nueva. Cada noche se revisan los libros consultados hace más tiempo, de modo que todo el catálogo se recorre cada sweep_days. El precio de cada formato se guarda en formatos_compra y sigue publicado hasta que llega uno nuevo. La búsqueda por título y autor añade las ediciones Kindle y audiolibro en español. Sin más límite que el de Amazon (8640 peticiones al día); una denegación detiene el lote."
   },
   "amazon_radar": {
     "enabled": true,
