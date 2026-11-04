@@ -959,7 +959,7 @@ def render_hub(data, books, template):
         if affiliate_link:
             amazon_attrs = f'href="{esc(affiliate_link)}" target="_blank" rel="sponsored nofollow noopener noreferrer"'
             cover_link = amazon_attrs + f' aria-label="{esc(b["titulo"])} en Amazon (otra pestaña)"'
-            title_link = amazon_attrs + f' aria-label="{esc(card_title(b))} en Amazon (otra pestaña)"'
+            title_link = amazon_attrs + f' aria-label="{esc(b["titulo"])} en Amazon (otra pestaña)"'
         else:
             cover_link = f'href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)"'
             title_link = f'href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña"'
