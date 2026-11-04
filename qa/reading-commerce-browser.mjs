@@ -112,7 +112,8 @@ try {
   await live.goto(`${base}/recomendaciones/autores/neil-gaiman/`);
   assert.equal(await live.locator('main h1').innerText(), 'Neil Gaiman');
   assert.equal(await live.locator('.catalogue-author-books > li').count(), 1);
-  assert.equal(await live.locator('a[href="https://es.wikipedia.org/wiki/Neil_Gaiman"]').count(), 1);
+  // Sin el bloque «Fuentes y ediciones», Wikipedia queda como identidad del autor en sameAs (JSON-LD).
+  assert.match(await live.locator('script[type="application/ld+json"]').allInnerTexts().then(t => t.join(' ')), /"sameAs": \[[^\]]*es\.wikipedia\.org\/wiki\/Neil_Gaiman/);
   assert(!/aggregateRating/.test(await live.content()));
   for (const width of [390, 768, 1280]) {
     await live.setViewportSize({ width, height: 900 });
