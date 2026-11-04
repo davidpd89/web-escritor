@@ -404,6 +404,21 @@ def candidate_isbn(url, source, known_urls):
     return url.rsplit('-', 1)[-1].rstrip('/') if source['provider'] == 'penguin' else known_urls.get(url)
 
 
+RETRY_PENDING = 4  # libros pendientes que ya no salen en los índices y se reintentan por su ficha en cada carga
+FINAL_REASONS = ('fuera de la ventana', 'no bibliográfico', 'no identificada como castellano')
+
+
+def retry_pending(state, queue, today):
+    """Pendientes vencidos cuya ficha ya no aparece en los índices: sin esto solo se reintentaban si la editorial
+    los volvía a listar, y un fallo de lectura ya corregido (p. ej. el UTF-8 de Penguin del 20/10) no se recuperaba.
+    Se eligen los de reintento más antiguo, con tope fijo por carga, y se omiten los motivos definitivos."""
+    due = sorted((v.get('retry_after', ''), v['fuente']) for v in state['items'].values()
+                 if v.get('estado_ingesta') == 'pendiente_datos' and v.get('fuente', '').startswith('https://')
+                 and v.get('retry_after', '') <= today and v['fuente'] not in queue
+                 and not any(r in v.get('motivo', '').lower() for r in FINAL_REASONS))
+    return [url for _, url in due[:RETRY_PENDING]]
+
+
 def read_candidates(queue, refresh_urls, http, limit, existing, known_urls, state, today):
     """Lee las fichas candidatas para conocer su fecha antes de elegir.
 
@@ -491,6 +506,9 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                     queue.setdefault(url, source)
             except (OSError, ValueError, TimeoutError) as exc:
                 stats['errors'].append({'source': source['id'], 'error': str(exc)[:180]})
+    for url in retry_pending(state, queue, today):
+        if provider_of(url, providers):
+            queue[url] = provider_of(url, providers)
     radar = next((p for p in providers if p['provider'] == 'todostuslibros'), None)
     if radar:
         for isbn in isbns:
@@ -653,12 +671,15 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 works.add(work)
                 state['items'][key] = {'isbn13': isbn, 'estado_ingesta': 'publicado', 'primera_deteccion': previous.get('primera_deteccion', today), 'publicado_en': previous.get('publicado_en', today), 'libro_id': book['id'], 'datos': record}
                 stats['publishers'][canonical_publisher] = stats['publishers'].get(canonical_publisher, 0) + 1
-            except (OSError, ValueError, KeyError, TypeError, TimeoutError) as exc:
-                reason = str(exc)[:220]
+            except Exception as exc:  # noqa: BLE001 - cualquier fallo de UN libro lo aparta; el lote sigue
+                # Las excepciones inesperadas (AttributeError, IndexError…) llevan su tipo para agruparlas después.
+                expected = isinstance(exc, (OSError, ValueError, KeyError, TypeError, TimeoutError))
+                reason = (str(exc) if expected else f'{type(exc).__name__}: {exc}')[:220]
+                attempts = int(previous.get('intentos', 0)) + 1
                 if refresh:
-                    state['items'][key] = {**previous, 'retry_after': (day + timedelta(days=3)).isoformat(), 'ultima_revision_error': reason}
+                    state['items'][key] = {**previous, 'retry_after': (day + timedelta(days=3)).isoformat(), 'ultima_revision_error': reason, 'intentos': attempts}
                 else:
-                    state['items'][key] = {'isbn13': isbn, 'estado_ingesta': 'pendiente_datos', 'primera_deteccion': previous.get('primera_deteccion', today), 'retry_after': (day + timedelta(days=3)).isoformat(), 'motivo': reason, 'fuente': url, **({'datos': record} if record else {})}
+                    state['items'][key] = {'isbn13': isbn, 'estado_ingesta': 'pendiente_datos', 'primera_deteccion': previous.get('primera_deteccion', today), 'retry_after': (day + timedelta(days=3)).isoformat(), 'motivo': reason, 'fuente': url, 'intentos': attempts, **({'datos': record} if record else {})}
                 stats['pending'] += 1
         update_authors(authors, catalogue, new_books + updated_books, today)
         stats['synopses_completed'] = fill_full_synopses(catalogue, providers, http, int(config.get('max_synopsis_backfill', 6)))
