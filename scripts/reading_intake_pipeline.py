@@ -23,7 +23,7 @@ from zoneinfo import ZoneInfo
 
 from PIL import Image, ImageOps
 from reading_editorial_sources import CachedHTTP, SourceError, penguin_edition, product_links, publisher_author_bio
-from reading_intake_core import affiliate_destination, clean_author, clean_title, normalize_text, publisher_slug
+from reading_intake_core import affiliate_destination, clean_author, clean_title, normalize_text, publisher_slug, tidy_prose
 from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
 from reading_taxonomy import extra_categories
@@ -709,6 +709,10 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 except Exception as exc:
                     stats['errors'].append({'book': book['id'], 'optional_audio': type(exc).__name__})
                     break  # An unavailable optional provider is tried only once per batch.
+        for book in catalogue['libros']:  # también cubre sinopsis completadas o heredadas de rondas previas
+            for field in ('sinopsis_breve', 'sinopsis_completa'):
+                if book.get(field):
+                    book[field] = tidy_prose(book[field])
         builder.validate(catalogue, root)
         write_if_changed(root / 'data/reading-catalogue.json', catalogue)
         write_if_changed(root / 'data/reading-authors.json', authors)
