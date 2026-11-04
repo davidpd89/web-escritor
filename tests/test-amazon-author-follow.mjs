@@ -16,13 +16,13 @@ const canonical = 'https://www.amazon.es/stores/author/B0GZFP1JV3';
 const read = path => readFileSync(resolve(root, path), 'utf8');
 
 for (const file of files) {
-  test('CTA visible correcto y no afiliado: ' + file, () => {
+  test('CTA visible correcto y con tag de afiliado: ' + file, () => {
     const html = read(file);
     const anchors = [...html.matchAll(/<a\s+[^>]*class="[^"]*amazon-author-follow-link[^"]*"[^>]*>/g)].map(m => m[0]);
     assert.equal(anchors.length, 1, 'Debe haber solo un CTA en la página');
-    assert.match(anchors[0], /href="https:\/\/www\.amazon\.es\/stores\/author\/B0GZFP1JV3"/);
-    assert.match(anchors[0], /rel="noopener noreferrer"/);
-    assert.doesNotMatch(anchors[0], /tag=|sponsored/);
+    // Todo enlace a Amazon lleva el tag (2026-11-04); con tag es afiliado y va marcado como sponsored.
+    assert.match(anchors[0], /href="https:\/\/www\.amazon\.es\/stores\/author\/B0GZFP1JV3\?tag=davidporto-21"/);
+    assert.match(anchors[0], /rel="sponsored nofollow noopener noreferrer"/);
     assert.match(html, />Seguir al autor en Amazon<\/a>/);
     assert.ok(html.includes(canonical), 'No cambiar destino oficial');
   });

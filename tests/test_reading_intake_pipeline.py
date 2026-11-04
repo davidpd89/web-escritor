@@ -452,5 +452,27 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(json.loads((root / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros'], [])
 
 
+class PendingRetryTests(unittest.TestCase):
+    def test_due_pending_books_are_retried_even_if_indexes_no_longer_list_them(self):
+        # Regresión: 3 fichas de Penguin con el UTF-8 roto del 20/10 seguían pendientes semanas después del arreglo.
+        item = lambda url, retry, motivo='utf-8 codec cannot decode': {
+            'estado_ingesta': 'pendiente_datos', 'fuente': url, 'retry_after': retry, 'motivo': motivo}
+        state = {'items': {
+            'a': item('https://www.penguinlibros.com/es/a-1', '2026-10-23'),
+            'b': item('https://www.penguinlibros.com/es/b-2', '2026-11-09'),
+            'c': item('https://www.penguinlibros.com/es/c-3', '2026-10-01', 'Edición fuera de la ventana de selección'),
+            'd': item('https://www.penguinlibros.com/es/d-4', '2026-10-20'),
+            'e': {'estado_ingesta': 'publicado', 'fuente': 'https://www.penguinlibros.com/es/e-5', 'retry_after': ''},
+        }}
+        due = pipeline.retry_pending(state, {'https://www.penguinlibros.com/es/d-4': {}}, '2026-11-04')
+        self.assertEqual(due, ['https://www.penguinlibros.com/es/a-1'])  # d ya está en cola, b no ha vencido, c es definitivo
+
+    def test_retries_are_capped_per_run(self):
+        state = {'items': {str(i): {'estado_ingesta': 'pendiente_datos', 'fuente': f'https://x.test/{i}',
+                                    'retry_after': f'2026-10-{10 + i}', 'motivo': 'timeout'} for i in range(9)}}
+        due = pipeline.retry_pending(state, {}, '2026-11-04')
+        self.assertEqual(due, [f'https://x.test/{i}' for i in range(pipeline.RETRY_PENDING)])
+
+
 if __name__ == '__main__':
     unittest.main()

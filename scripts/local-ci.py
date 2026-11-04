@@ -170,8 +170,13 @@ def run_one(command, env, root, timeout=TIMEOUT):
     return code, output, time.time() - start
 
 
+def needs_server(items):
+    """Solo la QA de navegador (node) o lo que cite los puertos usa los servidores: el resto corre sin ellos."""
+    return any(re.search(r'(^|[\s/])node|417[35]', command) for command, *_ in items)
+
+
 def run_all(items, root, jobs, timeout=TIMEOUT):
-    procs = serve(root)
+    procs = serve(root) if needs_server(items) else []
     try:
         with ThreadPoolExecutor(jobs) as pool:
             results = list(pool.map(lambda item: run_one(item[0], item[1], root, timeout), items))
