@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788408331780",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tus zonas sagradas está dirigido a quienes buscan desarrollo personal desde una perspectiva espiritual, con atención al ego y al conocimiento interior. Wayne W. Dyer aborda la conexión con uno mismo y la transformación de la vida cotidiana; su planteamiento se aleja de los manuales centrados exclusivamente en hábitos físicos, alimentación o ejercicio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tus zonas sagradas puede leerse en tapa blanda o Kindle. La edición de Booket reúne 368 páginas en rústica sin solapas, una opción para leer en papel y conservar el volumen; Kindle permite llevar el texto en un lector electrónico o en el móvil sin cargar con el libro físico. La elección depende de si se prefiere consultar sus reflexiones en papel o en pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tus zonas sagradas comparte autor y reflexión sobre el ego con El poder de la intención, de Wayne W. Dyer, pero se centra en el espacio espiritual interior, mientras que el segundo relaciona la intención con el propósito personal. Frente a Tus zonas mágicas, también de Wayne W. Dyer, desplaza el interés desde los milagros y la magia verdadera hacia la conexión con uno mismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331834",
+        "isbn-9788408331728"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6021b1e118c29e1b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788466686006",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La travesía hacia el sentido, de Ignacio Trillo Arespacochaga, se dirige a adultos interesados en el desarrollo personal aplicado al liderazgo y la acción colectiva. Relaciona la preparación individual con experiencias de emergencias, rescates y organización de voluntarios. Su enfoque práctico y social se aparta de los libros de crecimiento personal centrados únicamente en el bienestar privado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La travesía hacia el sentido está disponible en tapa blanda y Kindle. La edición de Ediciones B tiene 288 páginas y solapas, un formato físico que permite volver a los ejemplos de liderazgo y respuesta ante emergencias. Kindle facilita consultar sus planteamientos desde el móvil o un lector electrónico sin transportar el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La travesía hacia el sentido y Domina el arte de los negocios relacionan el desarrollo de habilidades con la consecución de objetivos. Ignacio Trillo Arespacochaga aborda la preparación personal y la movilización ciudadana ante emergencias; Brian Tracy se centra en competencias empresariales y liderazgo profesional. La diferencia está en aplicar esas capacidades a la respuesta social o al ámbito de los negocios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c0b998afb9b76f91",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788467083637",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yo solo quería escribir algunos domingos, de Marco Junca, se orienta a lectores interesados en las experiencias personales, la escritura cotidiana y las reflexiones sobre la vida diaria. Su combinación de memorias y relatos se distancia de los manuales con métodos estructurados y de las narraciones de ficción con una trama central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yo solo quería escribir algunos domingos puede leerse en tapa dura o en Kindle. La edición física de Editorial Espasa reúne 240 páginas en cartoné, una opción para conservar el volumen o regalarlo; Kindle permite llevar esos textos en un dispositivo compatible sin cargar con el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Yo solo quería escribir algunos domingos y Mentalidad ganadora, de Juan Carlos Ferrero, parten de experiencias personales narradas por sus protagonistas. Marco Junca se centra en la escritura y las observaciones cotidianas, mientras que Juan Carlos Ferrero reconstruye su trayectoria en el tenis, primero como jugador y después en otra etapa profesional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005463"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3db3d629694d29cb",
+  "origen": "chatgpt-web"
+}

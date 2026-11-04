@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388103803",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Saint Seiya. Los caballeros del Zodíaco (Final Edition) nº 9, de Masami Kurumada, se dirige a lectores de manga interesados en enfrentamientos entre caballeros, poderes extraordinarios y conflictos por el control del Santuario. Al abordar revelaciones y combates ya iniciados, encaja menos con quien busca una historia autónoma sin conocer los acontecimientos previos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Saint Seiya. Los caballeros del Zodíaco (Final Edition) nº 9 presenta un conflicto de manga centrado en el enfrentamiento entre Seiya y el caballero de oro de Géminis, cuya identidad queda vinculada al Sumo Sacerdote. La pérdida progresiva de los sentidos de Seiya añade una limitación física al combate. El título identifica este volumen como el n.º 9 de Final Edition.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Saint Seiya. Los caballeros del Zodíaco (Final Edition) nº 9 se ofrece en tapa blanda, con 224 páginas y una edición rústica sin solapas con sobrecubierta de Planeta Cómic. Su presentación física permite incorporarlo a una colección de manga y consultar sus páginas directamente, sin pantalla ni dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "18181fa5278487fc",
+  "origen": "chatgpt-web"
+}

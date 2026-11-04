@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788418053696",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El ego es tu enemigo se dirige a lectores interesados en filosofía y desarrollo personal que quieran examinar cómo influye el ego en la ambición, los logros y las dificultades. Ryan Holiday recurre a reflexiones y figuras históricas para abordar sus consecuencias; no es un tratado centrado exclusivamente en teoría filosófica abstracta ni una guía de bienestar físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El ego es tu enemigo está disponible en tapa blanda, en una edición de Conecta de 264 páginas. El volumen físico permite consultar los ejemplos históricos y las reflexiones sobre el ego sin utilizar una pantalla, además de conservarlo o prestarlo. Su extensión es menor que la de un manual de gran formato, aunque la comodidad de transporte dependerá de las preferencias de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El ego es tu enemigo y Duelo, de Michael Cholbi, utilizan la reflexión filosófica para examinar experiencias humanas, pero Ryan Holiday se ocupa del ego ante el éxito y el fracaso, mientras que Michael Cholbi estudia la pérdida. Antes de perder el juicio, de Mauricio García Villegas, desplaza la atención hacia la verdad, la propaganda y las cámaras de eco, frente al enfoque individual de El ego es tu enemigo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449344626",
+        "isbn-9791388387302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2f13c45daaefa73c",
+  "origen": "chatgpt-web"
+}
