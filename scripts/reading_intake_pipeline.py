@@ -26,7 +26,7 @@ from reading_editorial_sources import CachedHTTP, SourceError, penguin_edition, 
 from reading_intake_core import affiliate_destination, clean_author, clean_title, normalize_text, publisher_slug
 from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
-from reading_taxonomy import extra_categories
+from reading_taxonomy import apply_derived, extra_categories
 from reading_catalogue_publishers import catalogue_publisher, PublisherError
 from reading_generic_source import generic_edition, generic_links, reviewed_hosts
 from reading_planeta_source import COVER_HOSTS as PLANETA_COVER_HOSTS, planeta_edition, planeta_links
@@ -644,6 +644,8 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 modules = {m['modulo'] for m in texts.payload(trial, book)['modulos_permitidos']}
                 if len(modules) < texts.MIN_BLOCKS or 'para_quien' not in modules:
                     raise SourceError('Datos insuficientes para orientar al lector: ' + (', '.join(sorted(modules)) or 'ningún bloque'))
+                # Clasificación propia (Romantasy, temporadas, ediciones especiales) para el libro nuevo.
+                apply_derived(trial)
                 builder.validate(trial, validation_root)
                 catalogue = trial
                 assets[path] = image
