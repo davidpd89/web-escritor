@@ -29,10 +29,12 @@ def allowed_path(path):
 
 
 def resume_pending(branch):
-    """Resume current generated work; regenerate stale bot work from main.
+    """Resume current generated work; otherwise say how to rebuild it from main.
 
-    Old HTML/indices may conflict with a newer renderer or lack new workflows.
-    Keep the old PR and branch for inspection instead of merging stale output.
+    Returns 'resumed' (published as is), 'carry' (green but behind main: the caller moves its source data onto
+    current main and rebuilds pages and indices, without querying the sources again; the PR stays open until the
+    replacement exists) or 'regenerate' (red after its rerun: closed, the caller runs the full intake).
+    Old HTML/indices may conflict with a newer renderer or lack new workflows, so stale output is never merged.
     Never close a human PR or a proposal containing non-generated changes.
     """
     if not re.fullmatch(r'automation/reading-catalogue-[a-zA-Z0-9-]+', branch):
@@ -49,7 +51,7 @@ def resume_pending(branch):
     failed = failed_checks(repo, pr['headRefOid'])
     if not comparison['behind_by'] and not failed:
         run(branch)
-        return True
+        return 'resumed'
     if not pr['author'].get('is_bot') or pr['author']['login'] != 'app/github-actions':
         raise ValueError('Refusing to replace a stale proposal not authored by the catalogue bot')
     pages = json.loads(publication.gh('api', '--paginate', '--slurp',
@@ -62,13 +64,18 @@ def resume_pending(branch):
     current = json.loads(publication.gh('pr', 'view', branch, '--json', 'headRefOid'))
     if current['headRefOid'] != pr['headRefOid']:
         raise ValueError('Pending proposal changed during validation')
-    reason = ('Falló la verificación (' + ', '.join(failed) + ') tras su reintento.' if failed
-              else 'La rama quedó detrás de main.')
-    publication.gh('pr', 'close', str(pr['number']), '--comment', reason + ' Se conserva esta propuesta y su rama como referencia; '
-        'el escritor diario vuelve a consultar las fuentes y regenera los artefactos con el código actual. '
-        'No se fusionan páginas ni índices obsoletos.')
-    print(f'Regenerating stale bot proposal #{pr["number"]} from current main', flush=True)
-    return False
+    if not failed:
+        return 'carry'
+    close_proposal(pr['number'], 'Falló la verificación (' + ', '.join(failed) + ') tras su reintento. Se conserva esta propuesta y su rama '
+                   'como referencia; el escritor diario vuelve a consultar las fuentes y regenera los artefactos con el código actual. '
+                   'No se fusionan páginas ni índices obsoletos.')
+    return 'regenerate'
+
+
+def close_proposal(number, comment):
+    """Close a bot proposal, keeping its branch: it is the evidence and the source of a later carry."""
+    publication.gh('pr', 'close', str(number), '--comment', comment)
+    print(f'Closed stale bot proposal #{number}', flush=True)
 
 
 UNRELATED_WORKFLOWS = ('pro-resources-qa.yml', 'convocatorias-browser-qa.yml')

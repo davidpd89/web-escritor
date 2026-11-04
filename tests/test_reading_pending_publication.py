@@ -42,25 +42,26 @@ class PendingPublicationTests(unittest.TestCase):
     def test_current_batch_resumes_without_closing_or_regenerating(self):
         calls, gh = self.check_case(behind=0)
         with patch.object(publisher.publication, 'gh', side_effect=gh), patch.object(publisher, 'run') as run:
-            self.assertTrue(publisher.resume_pending(BRANCH))
+            self.assertEqual(publisher.resume_pending(BRANCH), 'resumed')
         run.assert_called_once_with(BRANCH)
         self.assertFalse(any(c[:2] == ('pr', 'close') for c in calls))
 
-    def test_stale_generated_batch_is_preserved_and_regenerated(self):
+    def test_stale_green_batch_is_carried_and_stays_open_until_replaced(self):
+        # Run 41797609876: closing first and querying every source again lost the 100-book batch on a collision.
         calls, gh = self.check_case()
         with patch.object(publisher.publication, 'gh', side_effect=gh), patch.object(publisher, 'run') as run:
-            self.assertFalse(publisher.resume_pending(BRANCH))
+            self.assertEqual(publisher.resume_pending(BRANCH), 'carry')
         run.assert_not_called()
-        self.assertEqual(sum(c[:2] == ('pr', 'close') for c in calls), 1)
-        self.assertFalse(any('--delete-branch' in c for c in calls))
+        self.assertFalse(any(c[:2] == ('pr', 'close') for c in calls))
 
     def test_red_batch_is_regenerated_instead_of_retested(self):
         calls, gh = self.check_case(behind=0, failed=True)
         with patch.object(publisher.publication, 'gh', side_effect=gh), patch.object(publisher, 'run') as run:
-            self.assertFalse(publisher.resume_pending(BRANCH))
+            self.assertEqual(publisher.resume_pending(BRANCH), 'regenerate')
         run.assert_not_called()
         close = [c for c in calls if c[:2] == ('pr', 'close')]
         self.assertEqual(len(close), 1)
+        self.assertFalse(any('--delete-branch' in c for c in calls))
         self.assertIn('reflow-sitewide', close[0][-1])
 
     def test_failed_publication_is_marked_on_its_commit(self):

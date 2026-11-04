@@ -22,8 +22,74 @@ publisher = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(publisher)
 
 
+# Lo que la ingesta consulta fuera (fichas, pendientes, valoraciones, precios, portadas, audio). Todo lo demás
+# (fichas HTML, pagefind, mapas, registro) se reconstruye con el código actual y nunca se arrastra.
+SOURCE_PATHS = ('data/reading-catalogue.json', 'assets/reading-market.json', 'data/reading-authors.json',
+                'data/reading-intake-state.json', 'data/reading-quarantine.json', 'assets/reading-covers', 'assets/reading-audio')
+
+
 def command(*args):
     subprocess.run(args, cwd=ROOT, check=True)
+
+
+def git(*args, root=ROOT, data=None):
+    return subprocess.run(['git', *args], cwd=root, check=True, capture_output=True, input=data).stdout
+
+
+def replay(patch, onto, root=ROOT):
+    """Checkout limpio en `onto` con `patch` aplicado a tres vías. Si choca, deja `onto` limpio y devuelve False."""
+    git('reset', '--quiet', '--hard', root=root)
+    git('clean', '--quiet', '-fd', root=root)
+    git('switch', '--quiet', '--detach', onto, root=root)
+    if not patch:
+        return True
+    if subprocess.run(['git', 'apply', '--3way', '--binary', '--whitespace=nowarn', '-'], cwd=root, input=patch,
+                      capture_output=True).returncode == 0:
+        return True
+    git('reset', '--quiet', '--hard', root=root)
+    git('clean', '--quiet', '-fd', root=root)
+    return False
+
+
+def catalogue_ids(raw):
+    return {book['id'] for book in json.loads(raw)['libros']}
+
+
+def follow_main(root=ROOT):
+    """Lleva lo recién consultado al main más reciente antes de abrir la PR.
+
+    La ingesta tarda ~25 min; lo que otro escritor fusiona en ese rato ya no deja la PR en conflicto al nacer.
+    Si main cambió los mismos datos, la PR sale de la base de la ingesta y la CI de main decide.
+    """
+    git('fetch', '--quiet', 'origin', 'main', root=root)
+    head, latest = (git('rev-parse', ref, root=root).decode().strip() for ref in ('HEAD', 'origin/main'))
+    if head == latest:
+        return head
+    git('add', '--all', root=root)
+    patch = git('diff', '--cached', '--binary', 'HEAD', root=root)
+    if replay(patch, latest, root):
+        print(f'Ingesta trasladada al main actual {latest[:12]}', flush=True)
+        return latest
+    if not replay(patch, head, root):
+        raise RuntimeError('No se pudo restaurar la ingesta sobre su base')
+    print('main cambió los mismos datos fuente: la PR sale de la base de la ingesta', flush=True)
+    return head
+
+
+def carry(branch, root=ROOT):
+    """Datos fuente de una PR verde pero obsoleta, sobre el main actual y sin volver a consultar las fuentes.
+
+    Devuelve los id de libro nuevos frente a main, o None si sus datos fuente chocan con main (entonces se
+    regenera desde las fuentes). Libros válidos, pendientes, precios y cuarentena viajan juntos en SOURCE_PATHS.
+    """
+    git('fetch', '--quiet', 'origin', 'main', f'+refs/heads/{branch}:refs/remotes/origin/{branch}', root=root)
+    head, latest = (git('rev-parse', ref, root=root).decode().strip() for ref in ('origin/' + branch, 'origin/main'))
+    base = git('merge-base', latest, head, root=root).decode().strip()
+    patch = git('diff', '--binary', base, head, '--', *SOURCE_PATHS, root=root)
+    before = catalogue_ids(git('show', latest + ':data/reading-catalogue.json', root=root))
+    if not patch or not replay(patch, latest, root):
+        return None
+    return sorted(catalogue_ids((root / 'data/reading-catalogue.json').read_bytes()) - before)
 
 
 def radar_isbns(config):
@@ -67,15 +133,31 @@ def refresh(*, publish=False):
     if pending:
         if len(pending) != 1:
             raise ValueError('Hay varias cargas pendientes; revisar antes de continuar')
-        if not publish or publisher.resume_pending(pending[0]):
+        action = publisher.resume_pending(pending[0]) if publish else 'resumed'
+        if action == 'resumed':
             print('Carga pendiente conservada: ' + pending[0])
             return
+        if action == 'carry':
+            replaced = json.loads(publisher.publication.gh('pr', 'view', pending[0], '--json', 'number'))['number']
+            carried = carry(pending[0])
+            if carried is not None:
+                print(f'Datos de #{replaced} trasladados a main sin nueva consulta: {len(carried)} libros nuevos', flush=True)
+                return assemble({'new_books': carried, 'updated_books': [], 'stats': {}}, changed=True,
+                                replaced=replaced, source=pending[0])
+            publisher.close_proposal(replaced, 'Sus datos fuente chocan con cambios nuevos de main. Se conserva esta propuesta y su rama '
+                                     'como referencia; el escritor vuelve a consultar las fuentes y regenera el lote desde main.')
     report = ingest(config, ROOT, ROOT / '.ci/reading-editorial-cache', apply=publish, isbns=radar_isbns(config))
     write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json', report)
     print(json.dumps(report['stats'], ensure_ascii=True), flush=True)
     if not publish:
         return
+    changed = market_refresh(config)
+    follow_main()
+    return assemble(report, changed=changed)
 
+
+def market_refresh(config):
+    """Valoraciones, formatos, portadas y precios: devuelve si cambió algún dato publicado."""
     # This runs DAILY, even when publishers have no new ISBNs.
     # Single writer and ONE generated PR for publisher + rating changes.
     market_path = ROOT / 'assets/reading-market.json'
@@ -143,6 +225,12 @@ def refresh(*, publish=False):
         write_if_changed(ROOT/'.ci/reading-intake/prices-report.json',price_stats)
         print('Precios Amazon: '+json.dumps(price_stats,ensure_ascii=True),flush=True)
         changed_ratings=write_changed(ROOT/'data/reading-catalogue.json',books) or changed_ratings
+    return changed_ratings
+
+
+def assemble(report, *, changed, replaced=None, source=None):
+    """Reconstruye todo lo derivado sobre el checkout actual, abre la PR y la publica por main protegido."""
+    changed_ratings = changed
     # Un libro que incumple el contrato sale del lote (o vuelve a su versión publicada) en vez de pararlo.
     quarantined = reading_quarantine.apply(ROOT)
     # A scheduled RSS item can become due without a new book or rating. Build
@@ -176,14 +264,20 @@ def refresh(*, publish=False):
         raise ValueError('Cambios fuera de los artefactos permitidos: ' + str([p for p in paths if not publisher.allowed_path(p)]))
     command('git', 'add', '--', *paths)
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
-    branch = 'automation/reading-catalogue-' + day + '-' + os.environ.get('GITHUB_RUN_ID', datetime.now().strftime('%H%M%S'))
+    branch = publisher.publication.fresh_branch('automation/reading-catalogue-' + day + '-', cwd=ROOT)
     command('git', 'config', 'user.name', 'github-actions[bot]')
     command('git', 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com')
     command('git', 'switch', '-c', branch)
     command('git', 'commit', '-m', 'Actualizar catálogo de lectura ' + day)
     command('git', 'push', 'origin', 'HEAD:refs/heads/' + branch)
+    if replaced:
+        # Antes de abrir la nueva: nunca quedan dos cargas abiertas. Si algo falla después, las dos ramas siguen en origin.
+        publisher.close_proposal(replaced, f'main avanzó durante su CI. Sus datos fuente (libros, pendientes, precios y cuarentena) '
+                                 f'pasan sin nueva consulta a `{branch}`, reconstruida sobre el main actual. Se conserva la rama `{source}`.')
     body = ROOT / '.ci/reading-intake/pr-body.md'
-    body.write_text('Incorpora ' + str(len(report['new_books'])) + ' ediciones verificadas en sus fichas editoriales oficiales.\n\n'
+    body.parent.mkdir(parents=True, exist_ok=True)
+    body.write_text((f'Sustituye a #{replaced}: mismos datos consultados, trasladados al main actual y con páginas e índices regenerados.\n\n'
+                     if replaced else '') + 'Incorpora ' + str(len(report['new_books'])) + ' ediciones verificadas en sus fichas editoriales oficiales.\n\n'
                     'Carga sin LLM ni API de pago; portadas optimizadas, ISBN comprobados, autores y enlaces internos generados. '
                     'No importa precios ni valoraciones sin un proveedor autorizado. Los candidatos incompletos quedan pendientes.\n\n'
                     + ''.join(f"- En cuarentena: `{h['libro']['id']}` — {h['motivo']}\n" for h in quarantined) + ('\n' if quarantined else '') +
