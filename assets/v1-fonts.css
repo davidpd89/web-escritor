@@ -101,11 +101,30 @@
    line-box height no matter which local() resolves, so chaining
    Liberation Serif (fonts-liberation, on virtually every Linux distro
    incl. GH Actions' ubuntu-latest image) and DejaVu Serif keeps the
-   height guarantee cross-platform; only size-adjust's glyph-width match
-   stays Georgia-specific when a different font resolves, a much smaller
-   residual effect than the reflow this exists to prevent. */
-@font-face{font-family:'Newsreader Fallback';src:local('Georgia'),local('Liberation Serif'),local('DejaVu Serif');size-adjust:123.53%;ascent-override:59.51%;descent-override:21.45%;line-gap-override:0%}
-@font-face{font-family:'Instrument Serif Fallback';src:local('Georgia'),local('Liberation Serif'),local('DejaVu Serif');size-adjust:95.91%;ascent-override:103.23%;descent-override:32.32%;line-gap-override:0%}
+   height guarantee cross-platform.
+   size-adjust is NOT portable across those sources, though: a single face
+   chaining local('Georgia'),local('Liberation Serif') applied Georgia's
+   number to Liberation too, and the original number matched neither (the
+   fallback set prose ~36% wider than Newsreader on Windows/macOS, ~24% on
+   Linux, which is why /fragmento/'s reading measure overflowed whenever
+   font-display:optional kept the fallback). So each real local font now
+   has its own face -- '<X> Fallback' (Georgia / Arial), '<X> Fallback
+   Liberation' (Liberation Serif = Times New Roman = Tinos metrics) and
+   '<X> Fallback DejaVu' -- listed in that order in the --font-* stacks.
+   Every number comes from fontTools: size-adjust = webfont advance width /
+   reference advance width summed over real /fragmento/ prose, and each
+   *-override = webfont hhea metric / size-adjust (size-adjust scales the
+   overrides too, so the line box is identical across all three faces).
+   Italic faces name the italic font (local() matches the full font name;
+   local('Georgia') in an italic face loads the upright and synthesizes a
+   slant with the wrong widths). Re-derive with the same method if a
+   webfont file in assets/fonts/ changes. */
+@font-face{font-family:'Newsreader Fallback';src:local('Georgia');size-adjust:90.67%;ascent-override:81.06%;descent-override:29.23%;line-gap-override:0%}
+@font-face{font-family:'Newsreader Fallback Liberation';src:local('Liberation Serif'),local('LiberationSerif'),local('Times New Roman'),local('TimesNewRomanPSMT'),local('Tinos');size-adjust:99.39%;ascent-override:73.95%;descent-override:26.66%;line-gap-override:0%}
+@font-face{font-family:'Newsreader Fallback DejaVu';src:local('DejaVu Serif'),local('DejaVuSerif');size-adjust:77.75%;ascent-override:94.53%;descent-override:34.08%;line-gap-override:0%}
+@font-face{font-family:'Instrument Serif Fallback';src:local('Georgia');size-adjust:76.41%;ascent-override:129.56%;descent-override:40.57%;line-gap-override:0%}
+@font-face{font-family:'Instrument Serif Fallback Liberation';src:local('Liberation Serif'),local('LiberationSerif'),local('Times New Roman'),local('TimesNewRomanPSMT'),local('Tinos');size-adjust:83.75%;ascent-override:118.20%;descent-override:37.01%;line-gap-override:0%}
+@font-face{font-family:'Instrument Serif Fallback DejaVu';src:local('DejaVu Serif'),local('DejaVuSerif');size-adjust:65.52%;ascent-override:151.10%;descent-override:47.31%;line-gap-override:0%}
 
 /* The two faces above only cover font-style:normal. An unmatched *italic*
    entry in the same family isn't synthesized against these metrics -- the
@@ -116,8 +135,12 @@
    this; que-es-el-portal-fantasy does, feria-libro-madrid mostly doesn't,
    which is why fixing only the normal faces above closed CLS on one
    article page but not the other. */
-@font-face{font-family:'Newsreader Fallback';font-style:italic;src:local('Georgia'),local('Liberation Serif'),local('DejaVu Serif');size-adjust:111.95%;ascent-override:65.66%;descent-override:23.67%;line-gap-override:0%}
-@font-face{font-family:'Instrument Serif Fallback';font-style:italic;src:local('Georgia'),local('Liberation Serif'),local('DejaVu Serif');size-adjust:98.88%;ascent-override:100.12%;descent-override:31.35%;line-gap-override:0%}
+@font-face{font-family:'Newsreader Fallback';font-style:italic;src:local('Georgia Italic'),local('Georgia-Italic');size-adjust:82.66%;ascent-override:88.92%;descent-override:32.06%;line-gap-override:0%}
+@font-face{font-family:'Newsreader Fallback Liberation';font-style:italic;src:local('Liberation Serif Italic'),local('LiberationSerif-Italic'),local('Times New Roman Italic'),local('TimesNewRomanPS-ItalicMT'),local('Tinos Italic');size-adjust:91.28%;ascent-override:80.52%;descent-override:29.03%;line-gap-override:0%}
+@font-face{font-family:'Newsreader Fallback DejaVu';font-style:italic;src:local('DejaVu Serif Italic'),local('DejaVuSerif-Italic');size-adjust:72.61%;ascent-override:101.23%;descent-override:36.50%;line-gap-override:0%}
+@font-face{font-family:'Instrument Serif Fallback';font-style:italic;src:local('Georgia Italic'),local('Georgia-Italic');size-adjust:79.64%;ascent-override:124.31%;descent-override:38.93%;line-gap-override:0%}
+@font-face{font-family:'Instrument Serif Fallback Liberation';font-style:italic;src:local('Liberation Serif Italic'),local('LiberationSerif-Italic'),local('Times New Roman Italic'),local('TimesNewRomanPS-ItalicMT'),local('Tinos Italic');size-adjust:87.94%;ascent-override:112.57%;descent-override:35.25%;line-gap-override:0%}
+@font-face{font-family:'Instrument Serif Fallback DejaVu';font-style:italic;src:local('DejaVu Serif Italic'),local('DejaVuSerif-Italic');size-adjust:69.95%;ascent-override:141.52%;descent-override:44.32%;line-gap-override:0%}
 
 /* Same technique, Arial as the width reference instead of Georgia (Manrope
    and Allura's own stacks are sans/cursive, not serif) -- Manrope backs
@@ -131,5 +154,7 @@
    floated into the paragraph, so even a modest metric gap moves a lot of
    text. Liberation Sans/DejaVu Sans are the ubuntu-latest-safe pair here,
    same role Liberation/DejaVu Serif play above. */
-@font-face{font-family:'Manrope Fallback';src:local('Arial'),local('Liberation Sans'),local('DejaVu Sans'),local('Helvetica');size-adjust:128.11%;ascent-override:83.21%;descent-override:23.42%;line-gap-override:0%}
-@font-face{font-family:'Allura Fallback';src:local('Arial'),local('Liberation Sans'),local('DejaVu Sans'),local('Helvetica');size-adjust:130.27%;ascent-override:61.41%;descent-override:34.54%;line-gap-override:0%}
+@font-face{font-family:'Manrope Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans'),local('LiberationSans'),local('Arimo'),local('Helvetica');size-adjust:101.84%;ascent-override:104.68%;descent-override:29.46%;line-gap-override:0%}
+@font-face{font-family:'Manrope Fallback DejaVu';src:local('DejaVu Sans'),local('DejaVuSans');size-adjust:90.05%;ascent-override:118.38%;descent-override:33.32%;line-gap-override:0%}
+@font-face{font-family:'Allura Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans'),local('LiberationSans'),local('Arimo'),local('Helvetica');size-adjust:73.60%;ascent-override:108.69%;descent-override:61.14%;line-gap-override:0%}
+@font-face{font-family:'Allura Fallback DejaVu';src:local('DejaVu Sans'),local('DejaVuSans');size-adjust:65.08%;ascent-override:122.92%;descent-override:69.14%;line-gap-override:0%}
