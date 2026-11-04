@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791387724184",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aprender a leer en la Escuela de Monstruos 24 - Dos artistas muy solistas, de Sally Rippin, está pensado para niños a partir de 4 años que empiezan a leer y disfrutan de historias con monstruos, canciones y situaciones entre compañeros. Su letra mayúscula, las rimas y las ilustraciones responden a la lectura inicial, por lo que encaja menos con lectores que buscan narraciones extensas y textos más complejos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada comienza a los 4 años y el libro tiene 48 páginas en tapa blanda. Combina letra mayúscula, frases rimadas e ilustraciones a todo color para acompañar los primeros pasos en la lectura. El título identifica Aprender a leer en la Escuela de Monstruos 24 - Dos artistas muy solistas como el n.º 24 de la colección.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aprender a leer en la Escuela de Monstruos 24 - Dos artistas muy solistas se publica en tapa blanda y Kindle. La edición impresa permite recorrer sus 48 páginas y observar las ilustraciones a todo color en papel, mientras que Kindle ofrece una alternativa digital para dispositivos compatibles. La tapa blanda resulta útil para practicar la lectura con un ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprender a leer en la Escuela de Monstruos 24 - Dos artistas muy solistas y Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico pertenecen a la misma colección de Sally Rippin. El primero plantea un desacuerdo musical entre Nacho y Lucho, mientras que el segundo presenta una Casa del Terror ideada por Tato. Para quien sigue las historias de estos monstruos, cambia la situación que deben afrontar los personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387809829"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ff6925a5b21821c1",
+  "origen": "chatgpt-web"
+}

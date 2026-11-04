@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788467084894",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los hijos del médico se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares, el duelo y los recuerdos que dejan los padres. Su conflicto se centra en dos hermanos que intentan comprender una herencia desconcertante, más que en una aventura o una investigación criminal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Los hijos del médico, de Itziar Miranda y Jorge Miranda, aborda las consecuencias de la muerte de un padre a través de la herencia que reciben sus dos hijos. Los silencios, los indicios engañosos y la personalidad del fallecido articulan una historia sobre memoria familiar y vínculos entre generaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los hijos del médico se publica en tapa blanda, con 304 páginas en castellano. La edición de Editorial Espasa utiliza encuadernación rústica con solapas, por lo que la lectura se realiza en un volumen físico de cubierta flexible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "189633497db748cf",
+  "origen": "chatgpt-web"
+}

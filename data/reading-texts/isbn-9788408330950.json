@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408330950",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Experto en carnes en 24 horas se dirige a lectores interesados en reconocer cortes, distinguir calidades y elegir métodos de cocción según el producto. Su contenido combina cocina y explicación técnica, por lo que encaja menos con quienes buscan únicamente recetas generales o preparaciones sin carne.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Experto en carnes en 24 horas está disponible en tapa blanda, con encuadernación rústica y solapas de Planeta Gastro. Sus 240 páginas pueden consultarse en papel al comparar cortes y técnicas de cocción; el formato flexible facilita llevar el manual al hacer la compra o tenerlo cerca mientras se cocina.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Experto en carnes en 24 horas y ¿Qué vino con este pato? Edición especial con cantos tintados comparten el interés por comprender decisiones relacionadas con la gastronomía. Elisabeth G. Iborra aborda la selección de carnes y sus cocciones, mientras que Ferran Centelles estudia las teorías del maridaje y la relación entre alimentos y vino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408327363"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb052a233a852936",
+  "origen": "chatgpt-web"
+}

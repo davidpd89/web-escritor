@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "20 minutos ¡y listo!, de Jamie Oliver, se orienta a adultos que cocinan a diario y necesitan preparar comidas en poco tiempo. También contempla opciones con menos carne o sin ella. No está concebido para quienes buscan elaboraciones largas: sus recetas se ajustan a 20 minutos o menos y utilizan diez ingredientes como máximo.",
+      "texto": "20 minutos ¡y listo!, de Jamie Oliver, está dirigido a adultos que buscan cocinar a diario con poco tiempo y un máximo de diez ingredientes por receta. Su enfoque de platos rápidos, con alternativas de menor consumo de carne o sin ella, encaja menos con quien busca preparaciones largas o técnicas de cocina complejas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,20 +15,35 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Reúne 120 recetas que se preparan en 20 minutos como máximo, con hasta diez ingredientes cada una. Los capítulos agrupan propuestas de pollo, pasta y ñoquis, legumbres, arroz, pescado, verduras, huevos, carne y sopas. Esta distribución permite buscar una preparación según el ingrediente principal o el tipo de comida que se quiera cocinar.",
+      "texto": "Reúne 120 recetas que pueden prepararse en 20 minutos o menos, con un límite de diez ingredientes por elaboración. Sus capítulos organizan propuestas de pollo, pasta, legumbres, arroz, ensaladas, pescado, verduras, huevos, carne y sopas. Sirve para escoger comidas cotidianas según el ingrediente principal y el tiempo disponible.",
       "evidencias": [
+        "titulo",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura reúne las 320 páginas de 20 minutos ¡y listo! en un recetario físico para consultar mientras se cocina. Permite regresar a una preparación y comprobar sus ingredientes sobre el papel, sin utilizar un móvil. La encuadernación rígida ofrece un volumen que puede conservarse para consultas posteriores.",
+      "texto": "20 minutos ¡y listo! está disponible en tapa dura, con 320 páginas publicadas por Grijalbo. Esta edición permite consultar las recetas en papel, volver a sus distintos capítulos y mantener el volumen junto a los utensilios de cocina. También puede entregarse como regalo a quien prefiera utilizar recetarios físicos.",
       "evidencias": [
         "titulo",
-        "edicion",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "20 minutos ¡y listo! y Barbacoa comparten autor, Jamie Oliver, pero el primero reúne recetas cotidianas de preparación breve y el segundo se centra en cocinar a la barbacoa. También puede compararse con Al micro y listo, de Dani García, por su atención a la cocina sencilla. La diferencia está en el planteamiento: Jamie Oliver establece un límite de 20 minutos y diez ingredientes, mientras que Al micro y listo sitúa el microondas en el centro de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374012",
+        "isbn-9788467084757"
       ]
     }
   ],
