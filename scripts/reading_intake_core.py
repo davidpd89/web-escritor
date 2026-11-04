@@ -30,6 +30,16 @@ def normalize_text(value: str) -> str:
 
 
 _SPACE_RUN = re.compile(r"\s{2,}")
+_SPACE_BEFORE_PUNCT = re.compile(r"(?<=\w)[ \t\u00a0]+(?=[,.;:)!?])")  # mismo criterio que test_reading_full_synopsis_taxonomy
+
+
+def tidy_prose(value: str) -> str:
+    """Quita el espacio tipográfico ante signos de puntuación («palabra ,» → «palabra,»).
+
+    2026-11-04: una sinopsis de Penguin con «… vida .» tumbó en la puerta de tests una ronda de
+    ingesta entera (22 libros aceptados). Se corrige al escribir, no ficha a ficha.
+    """
+    return _SPACE_BEFORE_PUNCT.sub("", value) if isinstance(value, str) else value
 
 
 def clean_title(value: str) -> str:
