@@ -15,6 +15,44 @@ const fixture = JSON.parse(await fs.readFile(fixturePath, 'utf8'));
 const openFilters = async page => { const toggle = page.locator('[data-catalogue-refine-toggle]'); if (await toggle.isVisible() && await toggle.getAttribute('aria-expanded') === 'false') await toggle.click(); };
 const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 try {
+  // Full static discovery and a failed enhancement must never hide books or
+  // present a page-sized subset as global search results.
+  {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const page = await context.newPage();
+    await page.goto(`${BASE}/recomendaciones/`);
+    const urls = await page.locator('a[data-catalogue-page]').evaluateAll(xs => xs.map(a => a.href));
+    const seen = [];
+    for (const url of [`${BASE}/recomendaciones/`, ...urls]) {
+      await page.goto(url);
+      seen.push(...await page.locator('[data-catalogue-book]').evaluateAll(xs => xs.map(x => x.dataset.bookId)));
+      assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'), 'https://davidportodiaz.com' + new URL(url).pathname);
+    }
+    assert.equal(seen.length, realCount);
+    assert.equal(new Set(seen).size, realCount);
+    await context.close();
+  }
+  for (const fault of ['unavailable', 'stale']) {
+    const context = await browser.newContext();
+    await context.addInitScript(() => { localStorage.setItem('nl-popup-ts', String(Date.now())); });
+    const page = await context.newPage();
+    await page.route('**/recomendaciones/pagina/2/', async route => {
+      if (route.request().resourceType() === 'document') return route.continue();
+      if (fault === 'unavailable') return route.fulfill({status:503,contentType:'text/html',body:'Unavailable'});
+      const response = await route.fetch();
+      return route.fulfill({response,body:(await response.text()).replace(/data-catalogue-version="[^"]+"/, 'data-catalogue-version="old"')});
+    });
+    await page.goto(`${BASE}/recomendaciones/`);
+    await page.waitForFunction(() => document.querySelector('[data-catalogue-count]').textContent.includes('No se pudo'));
+    assert(await page.locator('[data-catalogue-filters] fieldset').evaluate(el => el.disabled));
+    assert(await page.locator('[data-catalogue-static-pagination]').isVisible());
+    assert.equal(await page.locator('[data-catalogue-book]:visible').count(), Math.min(realCount,96));
+    await page.locator('a[data-catalogue-page]').first().click();
+    assert.equal(new URL(page.url()).pathname, '/recomendaciones/pagina/2/');
+    assert.equal(await page.locator('[data-reading-catalogue]').count(), 0);
+    assert.equal(await page.locator('[data-catalogue-book]').count(), Math.min(realCount - 96,96));
+    await context.close();
+  }
   for (const width of [320, 390, 768, 1024, 1440]) {
     const context = await browser.newContext({ viewport: { width, height: 1000 }, reducedMotion: 'reduce' });
     // El popup de newsletter se abre por temporizador en /cuaderno/ y tapa el clic en runners lentos.
@@ -23,7 +61,7 @@ try {
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
     await page.goto(`${BASE}/recomendaciones/`);
-    await page.waitForSelector('[data-catalogue-filters]:visible');
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     await openFilters(page);
     assert.match(await page.locator('h1').innerText(), /Libros recomendados/);
     assert.equal(await page.locator('[data-catalogue-book]').count(), realCount);
@@ -45,7 +83,7 @@ try {
     await page.getByRole('button', { name: 'Buscar libros', exact: true }).focus();
     await page.keyboard.press('Enter');
     assert.equal(await page.locator('[data-catalogue-book]:visible').count(), Math.min(realCount,24));
-    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+    await page.waitForFunction(() => document.documentElement.scrollWidth <= innerWidth + 1);
     await page.evaluate(() => { document.activeElement?.blur(); window.scrollTo({ top: 0, behavior: 'instant' }); });
     await page.waitForFunction(() => window.scrollY === 0);
     await page.screenshot({ path: `${OUT}/catalogue-${width}.png`, fullPage: true });
@@ -63,6 +101,7 @@ try {
     const context = await browser.newContext({ viewport: { width: 390, height: 900 } });
     const page = await context.newPage();
     await page.goto(`${BASE}/recomendaciones/`);
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     const query = page.locator('[data-filter="q"]');
     const setQuery = async value => {
       await query.fill(value);
@@ -80,6 +119,7 @@ try {
     await setQuery(persisted);
     assert.equal(new URLSearchParams(new URL(page.url()).hash.slice(1)).get('q'), persisted);
     await page.reload();
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     assert.equal(await query.inputValue(), persisted);
     assert.deepEqual(await visibleIds(), expected);
     await setQuery('9790000000000');
@@ -191,7 +231,7 @@ try {
   const nojs = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 900 } });
   const staticPage = await nojs.newPage();
   await staticPage.goto(`${BASE}/recomendaciones/`);
-  assert(await staticPage.locator('a[href="/recomendaciones/libros/coraline/"]').first().isVisible());
+  assert(await staticPage.locator('[data-catalogue-book] h3 a').first().isVisible());
   assert(await staticPage.locator('input[data-facet="genero"]').first().isDisabled());
   await nojs.route('**/recomendaciones/', route => route.fulfill({ contentType: 'text/html; charset=utf-8', body: fixture.hub }));
   await staticPage.reload();

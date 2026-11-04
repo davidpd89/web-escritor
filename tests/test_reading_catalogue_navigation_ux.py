@@ -22,7 +22,8 @@ class CatalogueNavigationUX(unittest.TestCase):
         builder.OWN_TEXTS.clear()
         builder.OWN_TEXTS.update(builder.load_own_texts(ROOT))
         cls.books = builder.validate(cls.data, ROOT)
-        cls.hub = builder.render_hub(cls.data, cls.books, cls.template)
+        cls.hub = '\n'.join(builder.render_hub(cls.data, cls.books, cls.template, n)
+                            for n in range(1, max(1, builder.math.ceil(len(cls.books) / builder.CATALOGUE_PAGE_SIZE)) + 1))
 
     def test_amazon_box_follows_the_heading_before_the_orientation_texts(self):
         priced = [b for b in self.books if builder.amazon_prices(b) and builder.own_text_section(b, self.data)]

@@ -1,8 +1,41 @@
 /* Static books and purchase links work without JS; optional market data expires. */
-(() => {
+(async () => {
   'use strict';
   const root = document.querySelector('[data-reading-catalogue]');
   if (!root) return;
+  // Small, linked static pages remain usable without JS. Enhance the hub only
+  // after every page of this exact catalogue snapshot has been loaded.
+  const staticNav = root.querySelector('[data-catalogue-static-pagination]');
+  const continuation = [...(staticNav?.querySelectorAll('a[data-catalogue-page]') || [])];
+  if (continuation.length) {
+    const localCards = [...root.querySelectorAll('[data-catalogue-book]')];
+    localCards.slice(24).forEach(card => { card.hidden = true; });
+    try {
+      const parts = [];
+      for (const link of continuation) {
+        const url = new URL(link.href, location.href);
+        if (url.origin !== location.origin || !/^\/recomendaciones\/pagina\/[1-9]\d*\/$/.test(url.pathname) || url.search || url.hash) throw new Error('Invalid catalogue page');
+        const response = await fetch(url.href, { cache: 'no-cache', signal: AbortSignal.timeout(15000) });
+        if (!response.ok || !response.headers.get('content-type')?.includes('text/html')) throw new Error('Catalogue unavailable');
+        const page = new DOMParser().parseFromString(await response.text(), 'text/html');
+        const canonical = new URL(url.pathname, document.querySelector('link[rel=canonical]').href).href;
+        if (page.querySelector('[data-catalogue-version]')?.dataset.catalogueVersion !== root.dataset.catalogueVersion || page.querySelector('link[rel=canonical]')?.href !== canonical) throw new Error('Catalogue changed');
+        parts.push(...page.querySelectorAll('.catalogue-grid > [data-catalogue-book]'));
+      }
+      const original = [...root.querySelectorAll('[data-catalogue-book]')];
+      const ids = new Set([...original, ...parts].map(card => card.dataset.bookId));
+      if (ids.has(undefined) || ids.size !== original.length + parts.length || ids.size !== Number(root.dataset.catalogueTotal)) throw new Error('Incomplete catalogue');
+      const fragment = document.createDocumentFragment();
+      for (const card of parts) { card.hidden = true; fragment.append(card); }
+      root.querySelector('.catalogue-grid').append(fragment);
+    } catch {
+      localCards.forEach(card => { card.hidden = false; });
+      const count = root.querySelector('[data-catalogue-count]');
+      if (count) count.textContent = 'No se pudo preparar la búsqueda completa. Puedes recorrer las páginas del catálogo.';
+      return;
+    }
+  }
+  if (staticNav) staticNav.hidden = true;
   const normalize = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').replace(/,/g, ' ').replace(/\s+/g, ' ').trim();
   // Solo los ISBN-13 completos admiten separadores y prefijos de presentación.
   const searchQuery = s => {

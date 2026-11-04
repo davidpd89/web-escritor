@@ -132,14 +132,14 @@
         "recomendaciones/index.html"
       ],
       "baseline": {
-        "total_bytes": 1984248,
+        "total_bytes": 478389,
         "request_count": 1
       },
       "limits": {
         "total_bytes": 1990000,
         "request_count": 1
       },
-      "note": "Tope conservador del HTML sin comprimir, por debajo de 2 MB decimales y reservando margen para cabeceras HTTP. No ampliar: al agotar el margen, paginar el HTML estático o reducir duplicación, conservando descubrimiento sin JS."
+      "note": "Tope conservador del HTML sin comprimir, reservando margen para cabeceras HTTP. El hub y las páginas estáticas mantienen como máximo 96 fichas por documento; la búsqueda global carga y valida los demás lotes. Las pruebas aplican este mismo límite también a cada continuación."
     }
   ]
 }

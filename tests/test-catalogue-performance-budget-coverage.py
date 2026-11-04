@@ -18,7 +18,8 @@ class CataloguePerformanceCoverage(unittest.TestCase):
         budget = next(b for b in manifest['budgets'] if b['id'] == 'catalogue-html')
         self.assertEqual(budget['entrypoints'], ['recomendaciones/index.html'])
         self.assertLessEqual(budget['limits']['total_bytes'], 1990000)
-        self.assertLessEqual(MODULE.served_size(ROOT / 'recomendaciones/index.html'), budget['limits']['total_bytes'])
+        for page in [ROOT / 'recomendaciones/index.html', *ROOT.glob('recomendaciones/pagina/*/index.html')]:
+            self.assertLessEqual(MODULE.served_size(page), budget['limits']['total_bytes'], str(page))
         # A real oversized document must fail the production budget checker.
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
