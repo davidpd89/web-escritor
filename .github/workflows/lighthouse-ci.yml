@@ -117,9 +117,9 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install Lighthouse CI
+      - name: Use lockfile-pinned Lighthouse CI
         if: steps.changes.outputs.relevant == 'true'
-        run: npm install --global @lhci/cli@0.15.1
+        run: echo "$PWD/node_modules/.bin" >> "$GITHUB_PATH"
 
       # collect y assert van separados a proposito: con `lhci autorun`, un fallo
       # de assertions terminaba el proceso antes de los pasos siguientes.

@@ -34,7 +34,7 @@ concurrency:
 
 jobs:
   contract-and-security:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
@@ -72,7 +72,7 @@ jobs:
           ! grep -RIn 'ASSISTANT_QA_SECRET_582931' asistente assets/assistant* data/assistant-source-registry.json cloudflare-worker-assistant.js
 
   browser-qa:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5

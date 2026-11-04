@@ -64,9 +64,9 @@ def validate_baseline_structure(baseline_data: dict) -> list[str]:
         except ValueError:
             errors.append(f"Invalid lastReviewed date format: {last_reviewed_str}")
 
-    advisories = baseline_data.get("advisories", [])
-    if not isinstance(advisories, list) or not advisories:
-        errors.append("Missing or empty advisories[] array in baseline")
+    advisories = baseline_data.get("advisories")
+    if not isinstance(advisories, list):
+        errors.append("Missing or invalid advisories[] array in baseline")
         return errors
 
     seen_ids = set()

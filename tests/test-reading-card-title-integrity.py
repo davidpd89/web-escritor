@@ -52,7 +52,7 @@ class CardParser(HTMLParser):
 class CardTitleIntegrityTest(unittest.TestCase):
     def test_long_titles_are_not_shortened(self):
         data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
-        html = (ROOT / 'recomendaciones/index.html').read_text(encoding='utf-8')
+        html = ''.join(page.read_text(encoding='utf-8') for page in [ROOT / 'recomendaciones/index.html', *ROOT.glob('recomendaciones/pagina/*/index.html')])
         parser = CardParser()
         parser.feed(html)
         cards = {href: (title, label) for href, title, label in parser.cards}

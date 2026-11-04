@@ -107,9 +107,9 @@ jobs:
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-pagination-shareable-url.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-device-matrix.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-facet-count-parity.mjs
-      - name: Install Lighthouse CI
+      - name: Use lockfile-pinned Lighthouse CI
         if: always()
-        run: npm install --global @lhci/cli@0.15.1
+        run: echo "$PWD/node_modules/.bin" >> "$GITHUB_PATH"
       - name: Configure recommendations Lighthouse
         if: always()
         shell: bash

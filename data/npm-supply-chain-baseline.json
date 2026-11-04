@@ -1,15 +1,17 @@
 {
   "schemaVersion": 1,
-  "lastReviewed": "2026-10-31",
+  "lastReviewed": "2026-11-04",
   "reviewer": "David Porto Díaz / QA Automation",
-  "reviewedAt": "2026-10-31",
+  "reviewedAt": "2026-11-04",
   "reviewBy": "2026-12-29",
   "policy": {
     "productionVulnerabilitiesAllowed": 0,
     "directDependenciesAllowed": 0,
-    "auditScope": "devDependencies (CI tools @lhci/cli 0.15.1 and pa11y-ci 5.0.0 only)"
+    "auditScope": "Complete production and development tree from package-lock.json; Lighthouse CI 0.16.0, pa11y-ci 5.0.0"
   },
-  "advisories": [
+  "advisories": [],
+  "notReportedAdvisories": [],
+  "resolvedAdvisories": [
     {
       "id": "GHSA-jmr9-qjv8-65gv",
       "package": "extract-zip",
@@ -21,15 +23,16 @@
       "production": false,
       "reachability": "Reached only through puppeteer-core 24.43.1 (pinned by lighthouse 12.6.1) when it unpacks a browser archive; exploiting it needs a malicious zip, and CI does not feed it archives other than official browser downloads.",
       "fixAvailable": true,
-      "decision": "accept-temporarily",
+      "decision": "resolved",
       "owner": "CI-Tooling",
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-jmr9-qjv8-65gv",
       "installedVersion": "2.0.1",
       "lockfileNode": "node_modules/extract-zip",
       "reviewer": "David Porto Díaz / QA Automation",
-      "reviewedAt": "2026-10-24",
-      "fixedVersion": null
+      "reviewedAt": "2026-11-04",
+      "fixedVersion": "removed-from-tree",
+      "note": "Resolved by Lighthouse CI 0.16.0 migration and compatible glob/minimatch overrides; exact npm audit is empty."
     },
     {
       "id": "GHSA-7pqw-9j4j-h8q3",
@@ -42,15 +45,16 @@
       "production": false,
       "reachability": "Reached only through puppeteer-core 24.43.1 (pinned by lighthouse 12.6.1) when it unpacks a browser archive; exploiting it needs a malicious zip, and CI does not feed it archives other than official browser downloads.",
       "fixAvailable": true,
-      "decision": "accept-temporarily",
+      "decision": "resolved",
       "owner": "CI-Tooling",
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-7pqw-9j4j-h8q3",
       "installedVersion": "2.0.1",
       "lockfileNode": "node_modules/extract-zip",
       "reviewer": "David Porto Díaz / QA Automation",
-      "reviewedAt": "2026-10-24",
-      "fixedVersion": null
+      "reviewedAt": "2026-11-04",
+      "fixedVersion": "removed-from-tree",
+      "note": "Resolved by Lighthouse CI 0.16.0 migration and compatible glob/minimatch overrides; exact npm audit is empty."
     },
     {
       "id": "GHSA-52f5-9888-hmc6",
@@ -63,15 +67,16 @@
       "production": false,
       "reachability": "Reached through the interactive editor prompt of inquirer 6 (nested tmp 0.0.33) and through tmp 0.1.0 used directly by @lhci/cli; attacker-controlled dir/prefix values are required and the CI commands pass none.",
       "fixAvailable": true,
-      "decision": "accept-temporarily",
+      "decision": "resolved",
       "owner": "CI-Tooling",
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-52f5-9888-hmc6",
       "installedVersion": "0.0.33",
       "lockfileNode": "node_modules/external-editor/node_modules/tmp",
       "reviewer": "David Porto Díaz / QA Automation",
-      "reviewedAt": "2026-10-24",
-      "fixedVersion": null
+      "reviewedAt": "2026-11-04",
+      "fixedVersion": "removed-from-tree",
+      "note": "Resolved by Lighthouse CI 0.16.0 migration and compatible glob/minimatch overrides; exact npm audit is empty."
     },
     {
       "id": "GHSA-ph9p-34f9-6g65",
@@ -84,15 +89,16 @@
       "production": false,
       "reachability": "Reached through the interactive editor prompt of inquirer 6 (nested tmp 0.0.33) and through tmp 0.1.0 used directly by @lhci/cli; attacker-controlled dir/prefix values are required and the CI commands pass none.",
       "fixAvailable": true,
-      "decision": "accept-temporarily",
+      "decision": "resolved",
       "owner": "CI-Tooling",
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-ph9p-34f9-6g65",
       "installedVersion": "0.0.33",
       "lockfileNode": "node_modules/external-editor/node_modules/tmp",
       "reviewer": "David Porto Díaz / QA Automation",
-      "reviewedAt": "2026-10-24",
-      "fixedVersion": null
+      "reviewedAt": "2026-11-04",
+      "fixedVersion": "removed-from-tree",
+      "note": "Resolved by Lighthouse CI 0.16.0 migration and compatible glob/minimatch overrides; exact npm audit is empty."
     },
     {
       "id": "GHSA-w5hq-g745-h8pq",
@@ -105,15 +111,16 @@
       "production": false,
       "reachability": "uuid 8.3.2 is used by the LHCI server component for ids; the buffer-bounds flaw needs a caller-supplied buf with v3/v5/v6 and the server is not started in client CLI audits.",
       "fixAvailable": true,
-      "decision": "accept-temporarily",
+      "decision": "resolved",
       "owner": "CI-Tooling",
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-w5hq-g745-h8pq",
       "installedVersion": "8.3.2",
       "lockfileNode": "node_modules/uuid",
       "reviewer": "David Porto Díaz / QA Automation",
-      "reviewedAt": "2026-10-24",
-      "fixedVersion": null
+      "reviewedAt": "2026-11-04",
+      "fixedVersion": "14.0.3",
+      "note": "Resolved by Lighthouse CI 0.16.0 migration and compatible glob/minimatch overrides; exact npm audit is empty."
     },
     {
       "id": "GHSA-mrhx-c7xc-m3w5",
@@ -126,39 +133,17 @@
       "production": false,
       "reachability": "zod 3.25.76 validates DevTools/BiDi protocol messages from the local CI browser (puppeteer-core 24.43.1 via lighthouse 12.6.1); no untrusted input.",
       "fixAvailable": true,
-      "decision": "accept-temporarily",
+      "decision": "resolved",
       "owner": "CI-Tooling",
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-mrhx-c7xc-m3w5",
       "installedVersion": "3.25.76",
       "lockfileNode": "node_modules/zod",
       "reviewer": "David Porto Díaz / QA Automation",
-      "reviewedAt": "2026-10-24",
-      "fixedVersion": null
+      "reviewedAt": "2026-11-04",
+      "fixedVersion": "4.6.7",
+      "note": "Resolved by Lighthouse CI 0.16.0 migration and compatible glob/minimatch overrides; exact npm audit is empty."
     },
-    {
-      "id": "GHSA-g3hv-75wg-m249",
-      "package": "minimatch",
-      "severity": "moderate",
-      "title": "minimatch has potential denial of service via globparts amplification",
-      "affectedRange": "<11.0.1",
-      "dependencyType": "transitive-dev",
-      "path": "pa11y-ci > globby > glob > minimatch",
-      "production": false,
-      "reachability": "Reached only through pa11y-ci 5.0.0 (globby 7.1.1 > glob 7.2.3) when it expands the fixed URL/config globs committed in the repo; it never receives untrusted patterns, so the amplification cannot be triggered in CI.",
-      "fixAvailable": true,
-      "decision": "accept-temporarily",
-      "owner": "CI-Tooling",
-      "reviewBy": "2026-12-29",
-      "sourceUrl": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
-      "installedVersion": "3.1.5",
-      "lockfileNode": "node_modules/minimatch",
-      "reviewer": "David Porto Díaz / QA Automation",
-      "reviewedAt": "2026-10-31",
-      "fixedVersion": null
-    }
-  ],
-  "notReportedAdvisories": [
     {
       "id": "GHSA-hp3w-g68c-fv3c",
       "package": "sprintf-js",
@@ -170,18 +155,18 @@
       "production": false,
       "reachability": "Only reached through argparse's own usage/help formatting inside the LHCI CLI; the format strings come from the library itself, never from audited pages or from any CI input.",
       "fixAvailable": true,
-      "decision": "accept-temporarily",
+      "decision": "resolved",
       "owner": "CI-Tooling",
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-hp3w-g68c-fv3c",
       "installedVersion": "1.0.3",
       "lockfileNode": "node_modules/sprintf-js",
       "reviewer": "David Porto Díaz / QA Automation",
-      "reviewedAt": "2026-10-06",
-      "fixedVersion": null,
+      "reviewedAt": "2026-11-04",
+      "fixedVersion": "removed-from-tree",
       "npmObservedAt": "2026-10-22",
       "npmStatus": "not-reported",
-      "note": "Absent from npm audit locally and in GitHub Actions. Still published by GitHub; no fixed version. Retained here for review, outside the exact live npm baseline."
+      "note": "Resolved by Lighthouse CI 0.16.0 migration and compatible glob/minimatch overrides; exact npm audit is empty."
     }
   ]
 }

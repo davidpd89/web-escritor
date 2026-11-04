@@ -48,6 +48,7 @@ try {
     assert(await page.locator('[data-catalogue-static-pagination]').isVisible());
     assert.equal(await page.locator('[data-catalogue-book]:visible').count(), Math.min(realCount,96));
     await page.locator('a[data-catalogue-page]').first().click();
+    await page.waitForLoadState('domcontentloaded');
     assert.equal(new URL(page.url()).pathname, '/recomendaciones/pagina/2/');
     assert.equal(await page.locator('[data-reading-catalogue]').count(), 0);
     assert.equal(await page.locator('[data-catalogue-book]').count(), Math.min(realCount - 96,96));
