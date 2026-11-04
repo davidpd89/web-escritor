@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788467084566",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El pacto se dirige a lectores de narrativa contemporánea que buscan conflictos sobre la autonomía personal, las relaciones y las decisiones que cambian una vida. Sonia Rayos parte de un acuerdo entre dos vecinos para abordar esas cuestiones; no plantea una historia centrada en mundos fantásticos ni en aventuras alejadas de la vida cotidiana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El pacto es una novela contemporánea de carácter emocional sobre las consecuencias de permitir que otra persona tome decisiones propias. Lucas e Inés, vecinos en el centro de Valencia, establecen un acuerdo que pone en juego sus elecciones sobre vivienda, amor e independencia. El conflicto nace de una decisión compartida que afecta a sus vidas individuales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El pacto se publica en tapa blanda, con 312 páginas y encuadernación rústica con solapas de Editorial Espasa. Esta presentación permite llevar la novela en papel sin el peso añadido de unas cubiertas rígidas; las solapas aportan protección a los bordes y pueden utilizarse para señalar el punto de lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "459b062bf541934f",
+  "origen": "chatgpt-web"
+}
