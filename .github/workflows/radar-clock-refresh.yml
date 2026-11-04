@@ -35,6 +35,11 @@ jobs:
       - name: Checkout latest main
         uses: actions/checkout@v5
         with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
           ref: main
           fetch-depth: 0
 

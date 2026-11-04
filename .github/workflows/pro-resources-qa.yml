@@ -70,6 +70,12 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
       - uses: actions/setup-python@v6
         with: {python-version: '3.13'}
       - name: Validate publisher source
@@ -131,6 +137,12 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
       - uses: actions/setup-node@v5
         with: {node-version: '22'}
       - name: Install Lighthouse CI
