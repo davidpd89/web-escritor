@@ -234,7 +234,18 @@ async function main() {
           continue;
         }
 
-        const { diffRatio, dimensionMismatch, diffImage } = diffPngs(fs.readFileSync(baselinePath), currentBuffer);
+        let { diffRatio, dimensionMismatch, diffImage } = diffPngs(fs.readFileSync(baselinePath), currentBuffer);
+        if (dimensionMismatch || diffRatio > MAX_DIFF_RATIO) {
+          // A full-page shot sometimes lands before the layout settles: one random desktop page per run came out
+          // with a different height. A real regression fails both captures; a timing flake passes the second.
+          const retryBuffer = await capture(browser, routePath, viewport);
+          const retry = diffPngs(fs.readFileSync(baselinePath), retryBuffer);
+          if (!retry.dimensionMismatch && retry.diffRatio <= MAX_DIFF_RATIO) {
+            console.log(`recaptura [${fileName}] diff=${(diffRatio * 100).toFixed(3)}%${dimensionMismatch ? ' (dimensiones distintas)' : ''} -> ${(retry.diffRatio * 100).toFixed(3)}%`);
+            fs.writeFileSync(path.join(OUTPUT_DIR, fileName), retryBuffer);
+            ({ diffRatio, dimensionMismatch, diffImage } = retry);
+          }
+        }
         const softGated = SOFT_GATED_ROUTES.has(routePath);
         const failed = dimensionMismatch || diffRatio > MAX_DIFF_RATIO;
         if (failed && diffImage) {
