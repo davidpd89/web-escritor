@@ -46,6 +46,11 @@ jobs:
       - name: Checkout full history for authoritative tracked inventory
         uses: actions/checkout@v5
         with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
           fetch-depth: 0
 
       - name: Set up Python
@@ -114,6 +119,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
 
       - name: Set up Node
         uses: actions/setup-node@v5
