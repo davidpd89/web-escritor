@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408132004",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gran libro del Reino de la Fantasía está dirigido a lectores de 9 a 12 años interesados en aventuras fantásticas, objetos mágicos y misiones con obstáculos. Sus 720 páginas lo alejan de las lecturas infantiles breves; tampoco responde a quien busque una historia realista sin elementos sobrenaturales.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "El gran libro del Reino de la Fantasía tiene una edad recomendada de 9 a 12 años y una extensión de 720 páginas. Destino Infantil & Juvenil lo publica en tapa dura con sobrecubierta, una presentación pensada para conservar un volumen extenso. Su contenido pertenece a la fantasía infantil y juvenil.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El gran libro del Reino de la Fantasía se ofrece en tapa dura con sobrecubierta. Esta encuadernación aporta rigidez a sus 720 páginas y permite mantener protegido el volumen durante su almacenamiento o al regalarlo. Por su extensión, conviene contar con un lugar donde apoyarlo durante las sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El gran libro del Reino de la Fantasía y Regreso al Reino de la Fantasía comparten autor, Geronimo Stilton, y un escenario fantástico. El primero propone recuperar objetos mágicos para una reina hostil y se dirige a lectores de 9 a 12 años; el segundo gira alrededor de una búsqueda relacionada con la felicidad. La diferencia principal está en el objetivo de cada aventura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408074496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c9798592460180c4",
+  "origen": "chatgpt-web"
+}

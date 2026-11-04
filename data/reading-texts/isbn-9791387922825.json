@@ -4,39 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una Woolf propia encaja con lectores interesados en Virginia Woolf, la escritura y el lugar de las mujeres en la literatura. No responde a quien busque una novela extensa o una trama de aventuras: es un texto de homenaje de 64 páginas que parte de una reflexión sobre el lenguaje.",
+      "texto": "Una Woolf propia se dirige a lectores interesados en Virginia Woolf, la escritura de mujeres y la reflexión sobre la literatura. Ali Smith construye un homenaje a partir de Una habitación propia y de las posibilidades de su primera palabra. No encaja con quien busque una novela extensa de acción o una historia centrada en aventuras.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "autores",
+        "numero_paginas",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Una Woolf propia propone una lectura de narrativa contemporánea centrada en cómo empieza un texto: Ali Smith se detiene en el «Pero» inicial de Una habitación propia. A partir de esa palabra, construye un homenaje a Virginia Woolf que relaciona las decisiones del lenguaje con la escritura y la presencia de las mujeres en la literatura.",
+      "texto": "Una Woolf propia propone una lectura literaria y reflexiva alrededor de la obra de Virginia Woolf. Ali Smith toma el comienzo de Una habitación propia como punto de partida para abordar la relación entre mujeres, lenguaje y literatura. El planteamiento se desarrolla como un homenaje y una exploración de la escritura, más que como una narración de acontecimientos encadenados.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Una Woolf propia reúne 64 páginas en castellano, una extensión manejable para llevar el libro a diario y leerlo en sesiones breves. Esta edición de Nórdica Libros permite subrayar las reflexiones sobre Virginia Woolf y regresar a los pasajes que analizan el comienzo de Una habitación propia.",
+      "texto": "Una Woolf propia está disponible en tapa blanda y Kindle. La edición en papel de Nórdica Libros consta de 64 páginas, una extensión que permite leer el texto en pocas sesiones y conservarlo como volumen independiente. Kindle ofrece la misma obra en formato digital para consultarla o leerla desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
         "editorial",
-        "sinopsis_editorial"
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La referencia de comparación es Glifo, de Ali Smith: ¿Puede una historia impedir que el mundo se vuelva insoportable? Ambos títulos comparten autoría e interés por el alcance de las palabras, pero Una Woolf propia examina la escritura desde un homenaje a Virginia Woolf, mientras Glifo plantea una pregunta sobre la capacidad de las historias para enfrentarse a una realidad difícil.",
+      "texto": "Una Woolf propia y Glifo comparten la autoría de Ali Smith y una preocupación por el papel de las palabras y la literatura. Una Woolf propia aborda esa cuestión mediante un homenaje a Virginia Woolf y una reflexión sobre Una habitación propia. Glifo plantea, en cambio, una pregunta sobre la capacidad de las historias para intervenir en nuestra percepción del mundo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -50,6 +48,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "abb4fc68f9c9264e",
+  "fuente_hash": "6826f4085054ee91",
   "origen": "chatgpt-web"
 }

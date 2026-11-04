@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791388042485",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La mentira de la orquídea encaja con lectores que buscan suspense criminal, secretos familiares e investigaciones donde las primeras conclusiones pueden resultar engañosas. Donato Carrisi plantea una tragedia doméstica con un superviviente señalado por los indicios. No está orientada a quien prefiera conflictos cotidianos sin violencia ni incertidumbre sobre los hechos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La mentira de la orquídea propone un thriller construido alrededor de una tragedia familiar y la interpretación de sus pruebas. Una vivienda aislada concentra el misterio, mientras la aparente claridad de los indicios conduce a una explicación que el relato pone en cuestión. La tensión procede de la distancia entre lo que parece demostrado y aquello que todavía puede alterar la reconstrucción de los hechos.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La mentira de la orquídea se ofrece en tapa blanda y Kindle. La edición de Duomo Ediciones cuenta con 396 páginas; el formato impreso permite conservar el thriller como volumen físico y regresar a detalles de la investigación. Kindle facilita continuar la lectura desde el móvil o un dispositivo compatible sin llevar el libro en papel.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "97e80bb080adf1e7",
+  "origen": "chatgpt-web"
+}

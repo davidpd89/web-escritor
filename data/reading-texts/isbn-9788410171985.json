@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Munda encaja con lectores de narrativa contemporánea interesados en la experimentación literaria, la poesía y los libros que reflexionan sobre su propia creación. Resulta menos afín a quien prefiera una trama lineal de un solo género, porque Juan Cárdenas combina procedimientos de la novela epistolar, la traducción y la escritura poética.",
+      "texto": "Munda encaja con lectores interesados en la experimentación literaria, la poesía y las novelas que reflexionan sobre su propia escritura. Quien busque una narración convencional y exclusivamente argumental encontrará una estructura que combina cartas, traducciones y procedimientos poéticos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Munda es una novela epistolar que incorpora poesía, traducciones y una reflexión sobre los mecanismos de la creación literaria. Juan Cárdenas desarrolló el libro mientras revisaba la versión inglesa de El diablo de las provincias, reorganizando fragmentos hasta dar forma a otra obra. Su estructura también utiliza la adivinación y recursos narrativos próximos al videojuego.",
+      "texto": "Munda, de Juan Cárdenas, plantea una lectura híbrida entre novela epistolar, poesía y reflexión sobre la traducción. Su construcción procede de la reelaboración de otro texto del autor y convierte la revisión literaria en parte de la propia obra, con componentes autobiográficos e históricos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,31 +22,30 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Munda corresponde a Editorial Periférica y se presenta en castellano, en tapa blanda, con 224 páginas. El ISBN 9788410171985 identifica esta presentación concreta de la obra de Juan Cárdenas y permite distinguirla al consultar catálogos o buscar ejemplares.",
+      "texto": "Editorial Periférica presenta Munda en castellano, con 224 páginas y encuadernación de tapa blanda. La obra nace de la transformación de El diablo de las provincias, mediante recortes y reorganización del texto, hasta adquirir una identidad literaria distinta de la novela de origen.",
       "evidencias": [
         "titulo",
-        "autores",
         "editorial",
         "edicion",
         "numero_paginas",
         "idioma",
-        "isbn13",
-        "formato_edicion"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Munda está disponible en tapa blanda, con 224 páginas que permiten alternar la lectura por sesiones y volver a fragmentos anteriores. El papel resulta útil para subrayar sus pasajes poéticos y seguir las conexiones entre cartas, traducciones y reflexiones sobre la escritura, elementos que conviven dentro de la obra.",
+      "texto": "Munda puede leerse en tapa blanda o en Kindle. La edición impresa de Editorial Periférica reúne sus 224 páginas en un volumen físico, mientras que Kindle permite consultar sus pasajes poéticos, cartas y reflexiones desde un lector electrónico o una aplicación compatible.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d70a676488b463dd",
+  "fuente_hash": "b5f4bae4b052f598",
   "origen": "chatgpt-web"
 }

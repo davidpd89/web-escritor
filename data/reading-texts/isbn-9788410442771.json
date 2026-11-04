@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cocina para cara almendras está dirigido a adultos que buscan recetas ilustradas, desde platos sencillos hasta preparaciones más elaboradas, con especial protagonismo de la carne. No encaja con quien prefiera un recetario centrado en cocina vegetariana o un enfoque estrictamente formal, porque Bosco Castro emplea un tono irreverente.",
+      "texto": "Cocina para cara almendras se dirige a adultos interesados en recetas de carne y en una forma de explicar la cocina que incorpora humor. Bosco Castro combina preparaciones sencillas con otras más elaboradas y da protagonismo a filetes, hamburguesas y guisos. No encaja con quien busque un recetario centrado en platos vegetarianos o una exposición culinaria de tono formal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,27 +15,44 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Cocina para cara almendras contiene más de 100 recetas ilustradas que abarcan preparaciones sencillas y otras de mayor elaboración. Incluye filetes, hamburguesas y guisos, con la carne como elemento principal de su propuesta y el humor presente en la manera de explicar la cocina.",
+      "texto": "Cocina para cara almendras contiene más de 100 recetas ilustradas distribuidas entre preparaciones sencillas y elaboraciones de mayor complejidad. Bosco Castro dedica una parte destacada de su propuesta a la carne, con ejemplos como filetes, hamburguesas y guisos. El recetario combina instrucciones culinarias con un tono humorístico e irreverente, y permite escoger platos según la preparación que se quiera realizar.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cocina para cara almendras está disponible en tapa blanda con solapas y tiene 208 páginas. Esta presentación permite consultar las recetas ilustradas directamente en papel y utilizar las solapas como marcadores para localizar una preparación durante su elaboración.",
+      "texto": "Cocina para cara almendras está disponible en tapa blanda y Kindle. La edición de Roca Editorial tiene 208 páginas, encuadernación con solapas y más de 100 recetas ilustradas, por lo que permite consultar las preparaciones en papel. Kindle ofrece la posibilidad de acceder al recetario desde el móvil o un lector electrónico mientras se cocina, sin utilizar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "edicion",
         "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cocina para cara almendras puede compararse con La Risa de mi vida, de Jorge Bolaños, por la presencia del humor en sus propuestas. Bosco Castro lo aplica a un recetario ilustrado donde predominan los platos de carne, mientras que Jorge Bolaños parte de la experiencia de adoptar una perra. También comparte el componente humorístico con El día que lo fuimos todo, de Ángel Martín, aunque esta última obra se presenta como una historia sobre experiencias que transforman la vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408327134",
+        "isbn-9788466684606"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d14c1347c64bdb8e",
+  "fuente_hash": "714f02d3d125c165",
   "origen": "chatgpt-web"
 }

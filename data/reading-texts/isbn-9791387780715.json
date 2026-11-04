@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387780715",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Planeta Manga: Flashlight nº 02, de Sara Lozoya, se dirige a lectores de cómic interesados en el romance BL y las relaciones entre personajes masculinos. El conflicto combina sentimientos no confesados, música y una separación inminente relacionada con la carrera de un futuro idol. No se centra en aventuras de acción ni en un romance heterosexual, y el título lo identifica como el n.º 02.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Planeta Manga: Flashlight nº 02 desarrolla un conflicto romántico BL marcado por un plazo de un día. Jongsu quiere expresar lo que siente por Haejin antes de que este se marche para iniciar su trayectoria como idol. Una última actuación musical compartida concentra la tensión entre ambos. El título lo identifica como el n.º 02, dentro de una propuesta de cómic y romance LGTBIQ+.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Planeta Manga: Flashlight nº 02 está disponible en tapa blanda y Kindle. La edición física de Planeta Cómic reúne 224 páginas en rústica sin solapas, apropiada para quien prefiera leer las viñetas sobre papel y conservar el volumen. Kindle permite llevar el cómic en formato digital, aunque la comodidad para apreciar las páginas dependerá del tamaño de la pantalla.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "534134515188a1be",
+  "origen": "chatgpt-web"
+}

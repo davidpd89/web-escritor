@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La hija del joyero se dirige a lectores adultos de novela histórica interesados en los secretos familiares y los obstáculos que afrontaban las mujeres en el siglo XIX. No encaja con quien busque fantasía o una historia ambientada en la actualidad, ya que sus conflictos están ligados a la sociedad de su época.",
+      "texto": "La hija del joyero está dirigida a lectores adultos de novela histórica interesados en los conflictos familiares, los secretos y las restricciones sociales del siglo XIX. Su combinación de oficio artesanal, desigualdad y misterio se aleja de la narrativa contemporánea y de las historias centradas exclusivamente en el romance.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La hija del joyero es una novela histórica que combina conflictos familiares, desigualdades sociales y una investigación relacionada con la familia real. Ágata Guirado desafía las restricciones de su oficio y sigue la pista de un anillo robado entre Málaga y Madrid, en una trama situada en el siglo XIX.",
+      "texto": "La hija del joyero es una novela histórica ambientada en Málaga en 1867 y Madrid en 1878. Ágata Guirado intenta abrirse camino en la joyería pese a las limitaciones impuestas a las mujeres, mientras el robo de un anillo la conduce a investigar posibles vínculos con muertes de la familia real. El conflicto combina aspiraciones personales, secretos familiares y diferencias sociales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,18 +23,34 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La hija del joyero se ofrece en tapa dura con sobrecubierta, una presentación que permite conservar el volumen protegido en la estantería o entregarlo como regalo. Sus 560 páginas se reúnen en una edición física de Ediciones B, por lo que la elección se centra en la lectura en papel.",
+      "texto": "La hija del joyero se publica en tapa dura con sobrecubierta y en Kindle. La edición de Ediciones B reúne 560 páginas en un volumen físico apropiado para conservar o regalar; Kindle permite leer esta novela histórica extensa en el móvil o en un lector electrónico sin transportar el libro.",
       "evidencias": [
         "titulo",
-        "edicion",
         "editorial",
+        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El tiempo que pasa y La hija del joyero comparten el interés por reconstruir épocas anteriores de España, aunque el primero aborda la posguerra desde los recuerdos de infancia y la novela de Inma Aguilera transcurre en el siglo XIX. El secreto mejor guardado del gran Museo del Prado también utiliza un referente cultural español, pero se orienta hacia los cuentos de Andersen en lugar del misterio histórico familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306181",
+        "isbn-9788401040580"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "43a604cbb856a537",
+  "fuente_hash": "003a0fb839c919f2",
   "origen": "chatgpt-web"
 }

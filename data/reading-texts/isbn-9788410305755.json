@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788410305755",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cross Game 7 (Shônen) se orienta a lectores juveniles de manga que siguen historias deportivas con conflictos personales. El béisbol competitivo, los recuerdos de una pérdida y la aparición de una nueva vecina forman parte de esta entrega. Se aleja de quienes buscan una historia deportiva independiente, ya que el título la identifica como el n.º 7.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Cross Game 7 (Shônen) continúa una historia de manga juvenil donde la competición deportiva convive con el duelo y las relaciones personales. Un encuentro que llega a la prórroga plantea un problema inesperado para Kô, mientras la llegada de una vecina remueve recuerdos relacionados con Wakaba. El título identifica esta entrega como el n.º 7, sin presentarla como una historia independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cross Game 7 (Shônen) se ofrece en tapa blanda, con 296 páginas y sobrecubierta en la edición de Distrito Manga. Es un volumen físico para leer las secuencias deportivas y conservarlo junto a otras entregas de la colección. La encuadernación flexible facilita manejarlo durante la lectura sin el peso de una tapa rígida.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cross Game 7 (Shônen) comparte con Rinkmates, de Nova Banks, la presencia del deporte y los vínculos personales, pero Mitsuru Adachi sitúa la competición en el béisbol juvenil y Nova Banks en el hockey sobre hielo de Nueva York. Dragon Quest: The Adventure of Dai nº 12/25, de Koji Inada, también presenta una historia de manga con entregas numeradas, aunque su conflicto gira alrededor de un ataque a la Tierra de Muerte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387920852",
+        "isbn-9791387598815"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ec0ab1d13bccfe77",
+  "origen": "chatgpt-web"
+}

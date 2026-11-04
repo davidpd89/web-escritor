@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387574536",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Necronomicón se dirige a lectores de H. P. Lovecraft interesados en el terror cósmico, los rituales oscuros y los conocimientos prohibidos de su universo literario. Su temática sobrenatural y sus imágenes inquietantes se alejan de las narraciones realistas y de quienes buscan una lectura sin elementos de horror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Necronomicón está publicada en castellano por Duomo Ediciones, en tapa dura y con 648 páginas. Cuenta con la edición a cargo de Giuseppe Lippi y las ilustraciones de Greta Grendel, dos características que permiten distinguir este volumen por su trabajo editorial y su componente gráfico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Necronomicón puede elegirse en tapa dura o Kindle. El volumen físico de Duomo Ediciones reúne 648 páginas e ilustraciones de Greta Grendel, por lo que permite conservar una edición ilustrada en papel; Kindle facilita transportar y consultar una obra de esta extensión desde un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "encaje_documentado: más de cuatro frases",
+    "faltan módulos: encaje_documentado"
+  ],
+  "version": 3,
+  "fuente_hash": "6b2db141ab039dfb",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788445019672",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Señores del Olimpo encaja con lectores de fantasía interesados en la mitología griega, las guerras entre seres poderosos y los conflictos que amenazan el orden del mundo. Javier Negrete sitúa a dioses, monstruos y humanos ante una crisis de gran escala, lejos de la fantasía centrada principalmente en la vida cotidiana o las relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Señores del Olimpo, de Javier Negrete, propone una reinterpretación fantástica de la mitología griega. El conflicto combina alteraciones del clima, expansión humana y una amenaza militar procedente de los gigantes del norte. La supervivencia de las criaturas antiguas y el equilibrio del mundo forman parte de una trama de aventuras y guerra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Señores del Olimpo está disponible en tapa blanda y Kindle. La edición de Minotauro consta de 416 páginas en rústica con solapas, para quienes prefieran leer esta novela de fantasía en papel y conservarla en su biblioteca. Kindle permite transportar el texto completo sin cargar con el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "378374c5bade2490",
+  "origen": "chatgpt-web"
+}

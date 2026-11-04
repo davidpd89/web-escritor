@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388279300",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué pensará tu hija de ti? se dirige a lectores interesados en las experiencias personales de maternidad, las dudas sobre tener hijos y los cambios en las relaciones. Su enfoque autobiográfico, vinculado a las vivencias de Diana López Varela, lo distancia de una guía práctica de crianza o de una ficción familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "¿Qué pensará tu hija de ti? aborda el deseo de ser madre desde la experiencia personal de Diana López Varela. La decisión de tener un hijo aparece vinculada a las relaciones sentimentales, la pandemia, el confinamiento y las preocupaciones hipocondríacas. El enfoque se sitúa entre las memorias personales y las cuestiones relacionadas con las mujeres.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Qué pensará tu hija de ti? puede leerse en tapa blanda o en Kindle. La edición física tiene 224 páginas y encuadernación rústica con solapas, mientras que Kindle permite llevar el texto en un lector electrónico o en el móvil sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Qué pensará tu hija de ti? y Fuera de mí comparten el interés por experiencias y cuestiones relacionadas con las mujeres. Diana López Varela aborda la maternidad desde sus vivencias, mientras que Violeta Gil y Ana Jarén plantean quién tiene autoridad para determinar el estado mental femenino. Esas muchachas que escriben poemas, de Alba Donati, desplaza la atención hacia mujeres vinculadas a la poesía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220173",
+        "isbn-9788426434272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a3a10e55f686a59",
+  "origen": "chatgpt-web"
+}

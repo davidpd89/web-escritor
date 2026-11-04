@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408325284",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los capullos regalan flores está orientado a lectores de cómic que buscan humor y una mirada crítica sobre el paso del tiempo y la percepción de uno mismo. Moderna de Pueblo plantea una revisión personal desde la distancia de diez años, en lugar de una historia de aventuras o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Los capullos regalan flores es un cómic de Moderna de Pueblo construido alrededor de una mirada retrospectiva. La autora examina cómo se percibe a sí misma diez años después y utiliza el humor para introducir una perspectiva crítica. Su punto de partida es la evolución de la propia identidad con el paso del tiempo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los capullos regalan flores está disponible en tapa dura. La edición de Zenith reúne 272 páginas en encuadernación cartoné sin sobrecubierta, una presentación rígida para leer y conservar el cómic en papel. También puede entregarse como regalo en ese mismo formato físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e158f17852519a6",
+  "origen": "chatgpt-web"
+}

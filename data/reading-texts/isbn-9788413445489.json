@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788413445489",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Suplementación inteligente para hombres ocupados se dirige a lectores interesados en el uso de suplementos, la energía diaria y las decisiones de consumo relacionadas con la salud. Su enfoque sobre productos y hábitos concretos se aleja de las obras de nutrición centradas únicamente en recetas o planes de alimentación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Suplementación inteligente para hombres ocupados reúne 224 páginas en una edición rústica con solapas, práctica para consultar y señalar apartados. Kindle permite llevar el contenido en el móvil o en un lector electrónico y revisarlo sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Suplementación inteligente para hombres ocupados y Cómo no tener diabetes abordan cuestiones de salud, pero el primero se centra en suplementos y energía cotidiana, mientras que el segundo pone el foco en la diabetes. También comparte el interés por el bienestar con 5 semanas para desinflamarte (edición limitada), aunque este último plantea la desinflamación como eje principal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390",
+        "isbn-9788425373152"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "93bfc1c110fe3af3",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388222276",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pokécology (Guía Pokémon), de The Pokemon Company, se dirige a lectores infantiles y juveniles interesados en la ecología de los Pokémon, sus hábitats y sus relaciones con otras especies. Su enfoque de guía ilustrada sobre comportamiento animal se aleja de las novelas centradas en aventuras y conflictos entre personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato de Pokécology (Guía Pokémon), con 208 páginas e ilustraciones a todo color. Permite consultar las explicaciones sobre ecosistemas y comportamientos de los Pokémon y volver a las imágenes sin seguir un orden narrativo; también ofrece una presentación física para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprender a leer en la Escuela de Monstruos 27 - Un regalo bien guardado, de Sally Rippin, comparte con Pokécology (Guía Pokémon) la presencia de criaturas imaginarias en una lectura vinculada al público infantil. La diferencia está en el contenido: Sally Rippin presenta una historia escolar con monstruos, mientras que The Pokemon Company organiza una guía sobre hábitats, alimentación y comportamiento de los Pokémon.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388222412"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e509a216dde6dc2f",
+  "origen": "chatgpt-web"
+}

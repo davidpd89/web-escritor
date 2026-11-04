@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ciencias del comportamiento (Edición especial) se dirige a quien busca aplicar un método sobre comportamiento, comunicación no consciente y negociación en situaciones cotidianas. Quien prefiera una historia de ficción encontrará aquí un libro de desarrollo personal y ciencias humanas y sociales.",
+      "texto": "Ciencias del comportamiento (Edición especial) se orienta a lectores interesados en comprender la conducta humana y aplicar técnicas de comunicación y negociación a situaciones cotidianas. Su enfoque práctico se relaciona con el desarrollo personal y las ciencias sociales, más que con una narración de ficción o un estudio exclusivamente histórico.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,31 +13,42 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Ciencias del comportamiento (Edición especial) se presenta en cartoné sin sobrecubierta, publicado por Temas de Hoy. Esta edición en castellano contiene 512 páginas y se identifica con el ISBN 9791388279263, que permite distinguirla de otras presentaciones del título.",
+      "texto": "Ciencias del comportamiento (Edición especial), de Juan Manuel García Pincho (@cienciasdelcomportamiento), es una edición en tapa dura de 512 páginas publicada por Temas de Hoy. Su encuadernación es de cartoné sin sobrecubierta, una característica física que la distingue de presentaciones con cubierta flexible o sobrecubierta independiente. El contenido aborda comportamiento, comunicación no consciente y negociación.",
       "evidencias": [
         "titulo",
+        "autores",
         "edicion",
         "editorial",
-        "idioma",
         "numero_paginas",
-        "isbn13"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ciencias del comportamiento (Edición especial) se ofrece en tapa dura, en un volumen de 512 páginas sin sobrecubierta. El soporte físico permite leer y volver a consultar en papel el método que propone Juan Manuel García Pincho (@cienciasdelcomportamiento), sin necesitar un dispositivo electrónico.",
+      "texto": "Ciencias del comportamiento (Edición especial) puede leerse en tapa dura o Kindle. La edición física reúne 512 páginas en cartoné, adecuada para mantener el volumen en una estantería y consultarlo sobre una mesa. Kindle permite acceder al texto desde dispositivos compatibles y evita transportar un libro de esa extensión.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "autores",
-        "sinopsis_editorial"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ciencias del comportamiento (Edición especial) puede compararse con Despierto pero disperso, de Peg Dawson, Richard Guare y Colin Guare, porque ambos presentan conocimientos sobre la conducta con una aplicación práctica. Despierto pero disperso se centra en habilidades ejecutivas infantiles y se dirige a familias y docentes; Ciencias del comportamiento (Edición especial) aborda comunicación y negociación en situaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449345999"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c43047cd13605c5d",
+  "fuente_hash": "3506469953985dc8",
   "origen": "chatgpt-web"
 }

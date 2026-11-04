@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387949778",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los cazamisterios 12 - El caso de la misión en la Luna está orientado a niños que comienzan a leer de manera autónoma y disfrutan resolviendo enigmas con humor y aventuras espaciales. Sus capítulos breves, ilustraciones en color y argumentos sencillos lo alejan de los misterios juveniles de mayor complejidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los cazamisterios 12 - El caso de la misión en la Luna se ofrece en tapa blanda, con 128 páginas. Este formato reúne en papel las ilustraciones a todo color y los capítulos cortos, de modo que permite alternar la lectura del texto con la observación de las pistas visuales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los cazamisterios 12 - El caso de la misión en la Luna comparte con Agente Stitch 5. Los roedores de Roswell los enigmas relacionados con extraterrestres y la cooperación entre personajes. La diferencia está en sus protagonistas: Patricia García-Rojo presenta a los hermanos Misterio y su perro parlante, mientras que la otra historia sigue a Stitch y sus amigos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387901943"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dde1d8f87f97a728",
+  "origen": "chatgpt-web"
+}

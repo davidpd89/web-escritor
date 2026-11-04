@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466685344",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La buena muerte, de Pedro Feijoo, se dirige a lectores adultos de misterio y thriller interesados en investigaciones criminales con conflictos familiares. Dos muertes aparentemente accidentales abren una trama marcada por secretos locales y heridas personales. Su presencia de violencia y dolor puede alejar a quienes buscan una lectura ligera o ajena al crimen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La buena muerte combina investigación policial, secretos del pasado y leyendas locales en la Ribeira Sacra. El inspector Mateo Romano debe esclarecer dos fallecimientos mientras su regreso lo enfrenta a una relación difícil con su padre y a un antiguo amor. La sospecha de que los accidentes ocultan otra causa conecta el misterio criminal con los conflictos personales del investigador.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La buena muerte puede leerse en tapa blanda o Kindle. La edición de Ediciones B reúne 512 páginas en un volumen con solapas, adecuado para quienes prefieren seguir una investigación extensa sobre papel. Kindle permite transportar la novela completa en el móvil o un lector electrónico sin llevar el peso del libro físico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b83301527609581c",
+  "origen": "chatgpt-web"
+}

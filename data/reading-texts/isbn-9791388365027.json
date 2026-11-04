@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388365027",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Reconexión, de Neal Shusterman, se orienta a lectores juveniles de ciencia ficción interesados en sociedades distópicas, traiciones y situaciones que desafían lo que parece posible. Sus conflictos y las referencias a acontecimientos anteriores encajan menos con quienes buscan una historia independiente o una lectura ajena a escenarios inquietantes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Reconexión puede leerse en tapa blanda o en Kindle, con una edición física de 496 páginas publicada por Fandom Books. La tapa blanda permite conservar el volumen y leerlo sin dispositivos; Kindle facilita llevar esta historia extensa en un lector electrónico o en el móvil sin cargar con el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Reconexión y Superdónuts 3 - El destino de los dónuts comparten la ciencia ficción y la presencia de acontecimientos inquietantes, aunque Neal Shusterman plantea una distopía y Neill Cameron introduce un viaje al futuro. Neuromante (Edición especial), de William Gibson, también explora realidades tecnológicas, pero desde el ciberpunk y el robo de información, frente a los conflictos personales de Reconexión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873479",
+        "isbn-9788445023914"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "537ac64fd022f4b7",
+  "origen": "chatgpt-web"
+}

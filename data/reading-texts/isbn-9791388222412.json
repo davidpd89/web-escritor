@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388222412",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aprender a leer en la Escuela de Monstruos 27 - Un regalo bien guardado se orienta a lectores infantiles que están practicando la lectura con letra mayúscula, rimas e ilustraciones. Sally Rippin presenta una situación de vergüenza al participar en una actividad escolar, por lo que el tema se acerca a las primeras experiencias de convivencia y expresión ante los compañeros. No plantea una narración juvenil extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aprender a leer en la Escuela de Monstruos 27 - Un regalo bien guardado se ofrece en tapa blanda y Kindle. La edición de Montena tiene 48 páginas, con letra mayúscula, frases rimadas e ilustraciones a todo color; el papel permite seguirlas directamente en el libro. Kindle facilita llevar la lectura en un dispositivo compatible, aunque la visualización de las ilustraciones depende de su pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprender a leer en la Escuela de Monstruos 27 - Un regalo bien guardado comparte autoría y universo escolar con Aprender a leer en la Escuela de Monstruos 24 - Dos artistas muy solistas y Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico, de Sally Rippin. Mientras el primero gira en torno al canto y la actuación y el segundo a una Casa del Terror, este título aborda la vergüenza de participar en una actividad con los compañeros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387724184",
+        "isbn-9791387809829"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e8ebf38cfe2da874",
+  "origen": "chatgpt-web"
+}

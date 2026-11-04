@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El volumen del tiempo IV encaja con lectores interesados en los bucles temporales, las realidades alteradas y las preguntas que surgen cuando varias personas experimentan un mismo fenómeno inexplicable. No es la entrada más directa para quien busque una historia independiente, porque recupera el conflicto temporal de Tara y desarrolla una situación que ya estaba en marcha.",
+      "texto": "El volumen del tiempo IV, de Solvej Balle, encaja con lectores de narrativa contemporánea interesados en los bucles temporales, la convivencia entre desconocidos y las preguntas sobre la percepción del tiempo. Su continuidad dentro de una heptalogía y su atención a los dilemas de los personajes lo alejan de una aventura temporal independiente centrada en la acción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El volumen del tiempo IV plantea una narración contemporánea sobre personas atrapadas en una anomalía temporal que comenzó un 18 de noviembre. Tara y otros afectados se reúnen en una casa de Bremen para investigar su situación y buscar una manera común de explicarla. El título lo identifica como el n.º IV de una heptalogía de Solvej Balle.",
+      "texto": "Es una novela de narrativa contemporánea que utiliza un bucle temporal para examinar cómo varias personas interpretan una realidad compartida. Tara y otros personajes atrapados se reúnen en Bremen para buscar respuestas y construir una forma común de explicar su situación. La obra pertenece a una heptalogía de Solvej Balle y el título identifica esta entrega como IV.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,19 +24,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de El volumen del tiempo IV en tapa blanda contiene 192 páginas en castellano y está publicada por Editorial Anagrama. Su extensión facilita transportarla y retomar la lectura por sesiones, mientras que el soporte en papel permite regresar a los encuentros y preguntas que se acumulan alrededor del bucle temporal.",
+      "texto": "El volumen del tiempo IV está disponible en tapa blanda y Kindle, con 192 páginas en su edición impresa de Editorial Anagrama. La tapa blanda permite conservar físicamente esta entrega de la heptalogía; Kindle facilita llevarla en un lector electrónico o consultarla desde el móvil sin transportar el ejemplar.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
         "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5f5905855819601e",
+  "fuente_hash": "941560b15cbd9f4b",
   "origen": "chatgpt-web"
 }

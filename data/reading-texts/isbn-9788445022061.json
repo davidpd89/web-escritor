@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788445022061",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Héroes de ceniza encaja con lectores de fantasía interesados en guerras imperiales y protagonistas que se ven arrastrados a conflictos ajenos a sus deseos. Su punto de partida, centrado en un campesino y un recuerdo inexplicable, se aleja de las historias cotidianas y realistas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Héroes de ceniza plantea una fantasía de alcance imperial en la que una guerra persistente se cruza con el despertar de recuerdos ajenos. Fernando J. Múñez sitúa el conflicto en torno a Drislán Delós, cuya aspiración a una vida tranquila queda alterada durante una visita de la corte imperial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Héroes de ceniza reúne sus 712 páginas en un volumen con sobrecubierta, apropiado para conservar en la biblioteca o regalar. Kindle permite llevar esa misma lectura en un dispositivo electrónico sin cargar con el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "de25106b7e340d25",
+  "origen": "chatgpt-web"
+}

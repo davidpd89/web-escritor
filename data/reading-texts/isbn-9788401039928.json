@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El canto del cisne, de Charles Spencer, se dirige a adultos interesados en memorias personales sobre Diana y su entorno familiar. La infancia compartida, el matrimonio real, la presión de la prensa y la muerte de su hermana atraviesan el relato. Encaja menos con quien busca una novela de ficción o una aproximación impersonal a la historia de la monarquía.",
+      "texto": "El canto del cisne, de Charles Spencer, está dirigido a adultos interesados en las memorias familiares y en la vida de Diana desde la perspectiva de su hermano. Su atención a la infancia compartida, las relaciones familiares y la muerte de Diana encaja menos con quien busca una biografía desligada de experiencias personales y del duelo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,8 +15,9 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El eje es el vínculo entre hermanos, desde la infancia y el divorcio de sus padres hasta la muerte de Diana. Charles Spencer incorpora recuerdos de la vida familiar, el paso de su hermana a la esfera pública y el deterioro del matrimonio real. La persecución de la prensa y el duelo aportan una perspectiva personal a acontecimientos conocidos públicamente.",
+      "texto": "El canto del cisne aborda la relación entre Charles Spencer y Diana desde la infancia hasta la semana de su muerte en 1997. Trata la separación de sus padres, los internados, el matrimonio de Diana, su exposición pública y el acoso de la prensa. El enfoque es autobiográfico: Charles Spencer reconstruye los acontecimientos desde su posición de hermano y testigo cercano.",
       "evidencias": [
+        "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial"
@@ -24,19 +25,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "En tapa dura con sobrecubierta, El canto del cisne ofrece 376 páginas en papel para recorrer los recuerdos de Charles Spencer. Esta presentación permite volver a episodios familiares concretos y conservar el volumen en una estantería. La lectura se realiza directamente sobre las páginas, sin depender de una pantalla o de la reproducción de audio.",
+      "texto": "El canto del cisne se ofrece en tapa dura y Kindle. La edición física de Plaza & Janés tiene 376 páginas y sobrecubierta, características que permiten conservarla como volumen de memorias o regalarla. Kindle facilita leer el mismo título en formato digital y continuar sus capítulos desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El canto del cisne y El tiempo que pasa, de Manuel Medina, recuperan experiencias del pasado mediante una mirada personal. Charles Spencer se centra en su relación con Diana y los acontecimientos familiares que rodearon su muerte, mientras que Manuel Medina evoca la infancia en la España de la posguerra. Ambos tratan los recuerdos, pero sus escenarios y conflictos son distintos.",
       "evidencias": [
         "titulo",
         "autores",
-        "edicion",
-        "formatos_disponibles",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040580"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "64cb5965ef57cecf",
+  "fuente_hash": "6dcf06c764f311e7",
   "origen": "chatgpt-web"
 }

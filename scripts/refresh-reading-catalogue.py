@@ -157,8 +157,10 @@ def refresh(*, publish=False):
     command(sys.executable, 'scripts/build-reading-catalogue.py')
     command(sys.executable, 'scripts/build-editoriales.py', '--data', 'data/editoriales.json', '--output', '.')
     command(sys.executable, 'scripts/build-page-order.py')
-    command('git', 'add', '--', 'assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-intake-state.json',
-            'data/reading-quarantine.json', 'data/content-registry.json', 'assets/reading-covers', 'assets/reading-audio', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio/index.html')
+    # La cuarentena solo existe si alguna vez apartó un libro: git add falla con una ruta que no existe.
+    staged = ('assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-intake-state.json',
+              'data/reading-quarantine.json', 'data/content-registry.json', 'assets/reading-covers', 'assets/reading-audio', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio/index.html')
+    command('git', 'add', '--', *[p for p in staged if (ROOT / p).exists()])
     command('git','add','--','assets/pinterest/feeds')
     for script in ('build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         command(sys.executable, 'scripts/' + script)

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La inquilina se dirige a lectores adultos de misterio y thriller que buscan conflictos relacionados con la convivencia, los problemas económicos y los secretos personales. No encaja con quienes prefieren historias alejadas de la tensión doméstica, ya que la amenaza surge dentro de la propia vivienda.",
+      "texto": "La inquilina está dirigida a lectores adultos de misterio y thriller que buscan una historia de secretos y amenazas dentro del hogar. Su conflicto parte de una convivencia aparentemente conveniente que se vuelve inquietante, por lo que encaja menos con quienes prefieren narraciones familiares sin suspense ni peligro.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La inquilina plantea un thriller doméstico en el que una decisión económica termina convirtiendo el hogar en un lugar amenazante. Blake Porter alquila una habitación a Whitney y empieza a relacionar comportamientos extraños, ruidos y olores con la posibilidad de que alguien conozca sus secretos.",
+      "texto": "La inquilina desarrolla un thriller doméstico a partir de los problemas económicos de Blake Porter y su decisión de alquilar una habitación a Whitney. La tensión procede de cambios inexplicables en su entorno, sucesos perturbadores dentro de la vivienda y la sospecha de que alguien conoce aspectos ocultos de su pasado.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,31 +23,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La inquilina está editada en tapa blanda con solapas y tiene 344 páginas. Su encuadernación flexible permite transportarla sin la rigidez de una tapa dura, mientras que las solapas forman parte del acabado físico de esta edición de Suma de Letras.",
+      "texto": "La inquilina está disponible en tapa blanda con solapas y Kindle. La edición física de Suma de Letras tiene 344 páginas y permite conservar la novela en papel; Kindle ofrece la misma historia en un dispositivo de lectura o en el móvil, sin necesidad de transportar el volumen.",
       "evidencias": [
         "titulo",
-        "edicion",
         "editorial",
+        "edicion",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La inquilina y Los doce secretos utilizan los secretos como punto de partida para generar sospechas. La primera concentra la amenaza en una vivienda compartida, mientras que Los doce secretos presenta un pueblo pequeño como escenario de su intriga, desplazando el conflicto del espacio doméstico al entorno de una comunidad.",
+      "texto": "La compañera y La inquilina son thrillers de Freida McFadden construidos alrededor de secretos y situaciones peligrosas. La compañera relaciona su amenaza con las consecuencias del pasado, mientras La inquilina sitúa el conflicto en el alquiler de una habitación y la creciente desconfianza dentro de una casa.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387574598"
+        "isbn-9791388163555"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5c807c2721b48d99",
+  "fuente_hash": "6320716aae9fccf8",
   "origen": "chatgpt-web"
 }

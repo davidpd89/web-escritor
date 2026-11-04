@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788423370443",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El don de la terapia (Edición especial) está dirigido a quienes buscan reflexiones y orientaciones sobre la práctica de la psicoterapia, especialmente desde la relación entre terapeuta y paciente. Su enfoque profesional y práctico lo diferencia de una novela o de un manual centrado exclusivamente en hábitos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "El don de la terapia (Edición especial), de Irvin D. Yalom, se presenta en tapa dura con sobrecubierta, publicada por Ediciones Destino. Esta edición en castellano contiene 304 páginas y tiene fecha de publicación del 2026-10-28; su presentación física permite distinguirla al buscar una edición concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El don de la terapia (Edición especial) se ofrece en tapa dura, con 304 páginas y sobrecubierta. Es una presentación física que permite consultar de nuevo sus consejos sobre psicoterapia, marcar pasajes con separadores y conservar el ejemplar en una biblioteca profesional o personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cce35ed6e3766f44",
+  "origen": "chatgpt-web"
+}
