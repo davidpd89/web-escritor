@@ -43,14 +43,16 @@ if ($version -and $version.Browser -notmatch 'Edg') {
 }
 if (-not $version) {
   $socket = New-Object System.Net.Sockets.TcpClient
+  $ocupado = $false
   try {
     $socket.Connect('127.0.0.1', $puerto)
-    throw "El puerto $puerto está ocupado por otro programa. Libéralo antes de continuar."
-  } catch [System.Net.Sockets.SocketException] {
-    # Puerto libre: se puede iniciar el Edge del observatorio.
+    $ocupado = $true
+  } catch {
+    # No hay servicio escuchando en el puerto: Edge lo utilizará.
   } finally {
     $socket.Dispose()
   }
+  if ($ocupado) { throw "El puerto $puerto está ocupado por otro programa. Libéralo antes de continuar." }
 }
 if (-not (Test-Path -LiteralPath $perfil)) { New-Item -ItemType Directory -Path $perfil -Force | Out-Null }
 $argsEdge = @(
