@@ -63,14 +63,48 @@ class StaleMerge(RuntimeError):
     """The PR could not merge because main moved while its CI was running."""
 
 
+# Fallos de GitHub que no dicen nada del comando: repetirlo es seguro y casi siempre funciona.
+# Run 41818107338: un «GraphQL: Something went wrong» en `gh pr create` tiró una carga ya trasladada y empujada.
+TRANSIENT_GH = ('Something went wrong', 'HTTP 500', 'HTTP 502', 'HTTP 503', 'HTTP 504', 'Bad Gateway',
+                'Service Unavailable', 'Gateway Timeout', 'timed out', 'connection reset', 'TLS handshake timeout')
+GH_ATTEMPTS = 4
+# Solo lecturas y `pr create` (que antes de repetir busca la PR): repetir un `workflow run`, `pr merge` o
+# `pr close` cuyo primer intento sí llegó a GitHub duplicaría ejecuciones o fallaría tras haber funcionado.
+READ_ONLY_GH = {('pr', 'view'), ('pr', 'list'), ('pr', 'checks'), ('pr', 'diff'), ('run', 'list'), ('run', 'view'),
+                ('repo', 'view'), ('workflow', 'view'), ('pr', 'create')}
+
+
+def _retryable(args):
+    if tuple(args[:2]) in READ_ONLY_GH:
+        return True
+    return args[:1] == ('api',) and not any(a in ('--method', '-X', '-f', '-F', '--field', '--raw-field', '--input') for a in args)
+
+
+def _existing_pr(args):
+    """URL de la PR que un `gh pr create` fallido pudo llegar a crear, para no duplicarla al repetir."""
+    if args[:2] != ('pr', 'create') or '--head' not in args:
+        return None
+    head = args[args.index('--head') + 1]
+    found = subprocess.run(['gh', 'pr', 'list', '--head', head, '--state', 'open', '--json', 'url', '--jq', '.[0].url'],
+                           capture_output=True, text=True, encoding='utf-8', errors='replace')
+    return found.stdout.strip() or None if found.returncode == 0 else None
+
+
 def gh(*args: str):
-    try:
-        result = subprocess.run(['gh', *args], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
-    except subprocess.CalledProcessError as exc:
-        # capture_output hides gh's own explanation; surface it in the job log.
-        print(f'gh {" ".join(args[:3])} failed: {(exc.stderr or "").strip()}', file=sys.stderr, flush=True)
-        raise
-    return result.stdout.strip()
+    for attempt in range(1, GH_ATTEMPTS + 1):
+        try:
+            result = subprocess.run(['gh', *args], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
+            return result.stdout.strip()
+        except subprocess.CalledProcessError as exc:
+            # capture_output hides gh's own explanation; surface it in the job log.
+            stderr = (exc.stderr or '').strip()
+            print(f'gh {" ".join(args[:3])} failed: {stderr}', file=sys.stderr, flush=True)
+            if attempt == GH_ATTEMPTS or not _retryable(args) or not any(m.lower() in stderr.lower() for m in TRANSIENT_GH):
+                raise
+            time.sleep(5 * attempt)
+            created = _existing_pr(args)
+            if created:
+                return created
 
 
 def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_before=False, pr_wait=120):
