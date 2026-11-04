@@ -109,6 +109,12 @@ jobs:
         if: steps.html.outputs.changed == 'true'
         run: python scripts/build-pagefind-index.py
 
+      # An expired call leaves the HTML; its exact lychee exception would then
+      # fail the hygiene gate on this very PR (2026-11-04, Madrid microrrelatos).
+      - name: Prune lychee exceptions the radar no longer publishes
+        if: steps.html.outputs.changed == 'true'
+        run: python tests/test-lychee-ignore-hygiene.py --prune-unused
+
       - name: Validate regenerated artifacts
         if: steps.clock.outputs.refresh == 'true'
         shell: bash
@@ -127,7 +133,7 @@ jobs:
           bad=0
           while IFS= read -r path; do
             case "$path" in
-              convocatorias-escritores/index.html|convocatorias-escritores/opportunities.json|convocatorias-escritores/deadlines.ics|pagefind/*)
+              convocatorias-escritores/index.html|convocatorias-escritores/opportunities.json|convocatorias-escritores/deadlines.ics|.lycheeignore|pagefind/*)
                 ;;
               *)
                 echo "Unexpected generated change: $path"
@@ -164,6 +170,7 @@ jobs:
             convocatorias-escritores/index.html \
             convocatorias-escritores/opportunities.json \
             convocatorias-escritores/deadlines.ics \
+            .lycheeignore \
             pagefind/
           git commit -m "chore(resources): refresh radar clock ${today}"
           git push origin "HEAD:refs/heads/$branch"
