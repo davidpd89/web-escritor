@@ -92,6 +92,33 @@ def navigation_refs(nav: dict) -> list[tuple[str, str]]:
     return refs
 
 
+
+FORBIDDEN_UI_WORD = re.compile(r"(?<![\w])piel(?![\w])", re.I)
+UI_LABEL_KEYS = {"label", "shortLabel", "navLabel", "title", "heading", "text"}
+
+
+def forbidden_ui_labels(*docs) -> list[str]:
+    """Visible labels equal to/containing the discarded project name as a whole word."""
+    hits: list[str] = []
+
+    def walk(node):
+        if isinstance(node, dict):
+            if str(node.get("id", "")).startswith(("reading-", "editorial-")):
+                return  # third-party catalogue names
+            for key, value in node.items():
+                if key in UI_LABEL_KEYS and isinstance(value, str) and FORBIDDEN_UI_WORD.search(value):
+                    hits.append(value)
+                else:
+                    walk(value)
+        elif isinstance(node, list):
+            for value in node:
+                walk(value)
+
+    for doc in docs:
+        walk(doc)
+    return hits
+
+
 def main() -> int:
     errors: list[str] = []
     registry_raw = load_json(REGISTRY_PATH)
@@ -320,16 +347,12 @@ def main() -> int:
         if item and item.get("discoverability") != "primary":
             errors.append(f"header item is not primary: {ref}")
 
-    # Guard against reintroducing the discarded project name into canonical UI data.
-    # Catalogue books, authors and publishers are third-party names ("Andrés Trapiello"), not project UI.
-    own = {**registry_raw, "entries": [item for item in raw_entries
-                                       if not str(item.get("id", "")).startswith(("reading-", "editorial-"))]}
-    serialized = (
-        json.dumps(own, ensure_ascii=False) + "\n" +
-        json.dumps(nav, ensure_ascii=False)
-    ).casefold()
-    if "piel" in serialized:
-        errors.append("canonical navigation data contains forbidden public token 'PIEL'")
+    # Guard against reintroducing the discarded project name as a visible UI label.
+    # Only label-like fields and the whole word count: «Andrés Trapiello» or a post
+    # quoting «la piel» in a URL/slug must never trip it (sync 41785513767, #1140).
+    if forbidden_ui_labels(registry_raw, nav):
+        errors.append("canonical navigation data contains forbidden public token 'PIEL': "
+                      + ", ".join(forbidden_ui_labels(registry_raw, nav)[:5]))
 
     if errors:
         print(f"FAIL: navigation coverage has {len(errors)} issue(s)")

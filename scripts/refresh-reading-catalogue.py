@@ -25,7 +25,7 @@ spec.loader.exec_module(publisher)
 # Lo que la ingesta consulta fuera (fichas, pendientes, valoraciones, precios, portadas, audio). Todo lo demás
 # (fichas HTML, pagefind, mapas, registro) se reconstruye con el código actual y nunca se arrastra.
 SOURCE_PATHS = ('data/reading-catalogue.json', 'assets/reading-market.json', 'data/reading-authors.json',
-                'data/reading-intake-state.json', 'data/reading-quarantine.json', 'assets/reading-covers', 'assets/reading-audio')
+                'data/reading-publishers.json', 'data/reading-intake-state.json', 'data/reading-quarantine.json', 'assets/reading-covers', 'assets/reading-audio')
 
 
 def command(*args):
@@ -228,25 +228,41 @@ def market_refresh(config):
     return changed_ratings
 
 
+def quarantine_summary(quarantined, released):
+    """Cuarentena agrupada por causa (la unidad de corrección) y libros que una regla corregida ha liberado."""
+    groups = {}
+    for h in quarantined:
+        groups.setdefault(h.get('causa') or reading_quarantine.cause(h['motivo']), []).append(h['libro']['id'])
+    lines = [f"- En cuarentena ({len(ids)}): {why} — " + ', '.join(f'`{i}`' for i in ids[:8]) + (' …' if len(ids) > 8 else '') + '\n'
+             for why, ids in sorted(groups.items(), key=lambda kv: -len(kv[1]))]
+    if released:
+        lines.append('- Liberados de la cuarentena: ' + ', '.join(f'`{i}`' for i in sorted(released)) + '\n')
+    return ''.join(lines) + ('\n' if lines else '')
+
+
 def assemble(report, *, changed, replaced=None, source=None):
     """Reconstruye todo lo derivado sobre el checkout actual, abre la PR y la publica por main protegido."""
     changed_ratings = changed
     # Un libro que incumple el contrato sale del lote (o vuelve a su versión publicada) en vez de pararlo.
+    held_path = ROOT / reading_quarantine.QUARANTINE
+    held_before = {h['libro']['id'] for h in read_json(held_path)['libros']} if held_path.exists() else set()
     quarantined = reading_quarantine.apply(ROOT)
+    # Una regla corregida libera libros apartados: eso también se publica, aunque no haya novedades.
+    released = held_before - {h['libro']['id'] for h in quarantined}
     # A scheduled RSS item can become due without a new book or rating. Build
     # current pages first, then advance feeds inside this SAME daily writer.
     command(sys.executable, 'scripts/build-reading-catalogue.py')
     rss_config=read_json(ROOT / 'data/reading-pinterest-boards.json')
     command(sys.executable, 'scripts/build-reading-pinterest-rss.py', *(['--assign'] if rss_config.get('rss_enabled') else []))
     rss_changed=bool(subprocess.check_output(['git','status','--porcelain','--untracked-files=all','--','assets/pinterest/feeds','data/reading-pinterest-state.json'],cwd=ROOT,text=True).strip())
-    if not (report['new_books'] or report['updated_books'] or changed_ratings or report['stats'].get('author_profiles_updated') or rss_changed):
+    if not (report['new_books'] or report['updated_books'] or released or changed_ratings or report['stats'].get('author_profiles_updated') or rss_changed):
         return
     # Register new routes before builders that deliberately consume git ls-files.
     command(sys.executable, 'scripts/build-reading-catalogue.py')
     command(sys.executable, 'scripts/build-editoriales.py', '--data', 'data/editoriales.json', '--output', '.')
     command(sys.executable, 'scripts/build-page-order.py')
     # La cuarentena solo existe si alguna vez apartó un libro: git add falla con una ruta que no existe.
-    staged = ('assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-intake-state.json',
+    staged = ('assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-publishers.json', 'data/reading-intake-state.json',
               'data/reading-quarantine.json', 'data/content-registry.json', 'assets/reading-covers', 'assets/reading-audio', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio/index.html')
     command('git', 'add', '--', *[p for p in staged if (ROOT / p).exists()])
     command('git','add','--','assets/pinterest/feeds')
@@ -280,7 +296,7 @@ def assemble(report, *, changed, replaced=None, source=None):
                      if replaced else '') + 'Incorpora ' + str(len(report['new_books'])) + ' ediciones verificadas en sus fichas editoriales oficiales.\n\n'
                     'Carga sin LLM ni API de pago; portadas optimizadas, ISBN comprobados, autores y enlaces internos generados. '
                     'No importa precios ni valoraciones sin un proveedor autorizado. Los candidatos incompletos quedan pendientes.\n\n'
-                    + ''.join(f"- En cuarentena: `{h['libro']['id']}` — {h['motivo']}\n" for h in quarantined) + ('\n' if quarantined else '') +
+                    + quarantine_summary(quarantined, released) +
                     'Se ejecutan las pruebas reales del commit y las reglas de main antes de fusionar. Después se despliega y se comprueba producción.\n', encoding='utf-8')
     publisher.publication.gh('pr', 'create', '--base', 'main', '--head', branch,
                              '--title', 'Actualizar catálogo de lectura ' + day, '--body-file', str(body))
