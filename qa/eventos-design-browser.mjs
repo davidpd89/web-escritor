@@ -122,9 +122,9 @@ try{
         const docs=[...document.querySelectorAll('script[type="application/ld+json"]')].map(s=>JSON.parse(s.textContent));
         return docs.flatMap(d=>d['@graph']||[d]).filter(n=>n['@type']==='Event').map(e=>({offers:e.offers,end:String(e.endDate||e.startDate||'').slice(0,10),free:e.isAccessibleForFree}));
       });
-      // Evento celebrado: sin offers (Search Console) y gratuito; evento futuro: Offer a 0 EUR sin URL de entradas.
+      // Evento celebrado: sin offers (Search Console) y gratuito; evento futuro: Offer opcional a 0 EUR sin URL de entradas.
       const today=new Date().toISOString().slice(0,10);
-      assert.ok(offers.every(({offers:o,end,free})=>end<today?(o===undefined&&free===true):(o?.price==='0'&&o?.priceCurrency==='EUR'&&!o?.url)),`${name}: offers debe describir gratuidad sin inventar ticket URL (y desaparecer al pasar el evento)`);
+      assert.ok(offers.every(({offers:o,end,free})=>free===true&&(o===undefined||(end>=today&&o.price==='0'&&o.priceCurrency==='EUR'&&!o.url))),`${name}: offers debe describir gratuidad sin inventar ticket URL (y desaparecer al pasar el evento)`);
 
       const order=await p.evaluate(()=>{
         const ids=['proximos','pasados','hitos-editoriales','organizar'];

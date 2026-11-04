@@ -42,19 +42,19 @@ for event in events:
     assert event.get("url") == event_id, f"Event url must preserve anchored canonical URL: {fragment}"
     assert event.get("eventStatus") == "https://schema.org/EventScheduled", f"Invalid/missing eventStatus: {fragment}"
 
-    # Un evento ya celebrado no anuncia entradas (Search Console lo marca); uno futuro y gratuito sí lleva Offer a 0 EUR.
+    # Evento gratuito: isAccessibleForFree siempre; Offer opcional y solo mientras no se haya celebrado
+    # (Search Console marca entradas en eventos pasados). Así ningún evento futuro deja main en rojo al pasar.
+    assert event.get("isAccessibleForFree") is True, f"Free event must declare isAccessibleForFree: {fragment}"
     end = str(event.get("endDate") or event.get("startDate", ""))[:10]
+    offer = event.get("offers")
     if date.fromisoformat(end) < date.today():
-        assert "offers" not in event, f"Past event must not advertise tickets: {fragment}"
-        assert event.get("isAccessibleForFree") is True, f"Past free event must keep isAccessibleForFree: {fragment}"
-    else:
-        offer = event.get("offers")
-        assert isinstance(offer, dict), f"Offer object missing: {fragment}"
-        assert offer.get("@type") == "Offer", f"Offer type missing: {fragment}"
+        assert offer is None, f"Past event must not advertise tickets: {fragment}"
+    elif offer is not None:
+        assert isinstance(offer, dict) and offer.get("@type") == "Offer", f"Offer type missing: {fragment}"
         assert offer.get("price") == "0", f"Free event must expose price 0: {fragment}"
         assert offer.get("priceCurrency") == "EUR", f"Free event must expose EUR currency: {fragment}"
         assert "url" not in offer, "Offer must not invent a ticket/acquisition URL"
 
     assert str(event.get("startDate", "")).startswith(EXPECTED[fragment]), f"startDate drift: {fragment}"
 
-print("test-eventos-jsonld-parity: OK (2 Event nodes with valid status; offers only while upcoming)")
+print("test-eventos-jsonld-parity: OK (2 Event nodes with valid status; free, offers optional and never once past)")

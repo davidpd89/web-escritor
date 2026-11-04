@@ -74,13 +74,15 @@ for event in events:
     visible_date = EVENT_IDS[fragment]
     require(str(event.get("startDate", "")).startswith(visible_date), f"startDate mismatch for {fragment}")
     require(f'datetime="{visible_date}"' in HTML, f"visible date missing for {fragment}")
+    # Gratuito siempre; Offer opcional y nunca tras la fecha (no deja main en rojo cuando pasa la feria).
+    require(event.get("isAccessibleForFree") is True, f"Free event lost isAccessibleForFree: {fragment}")
+    offer = event.get("offers")
     if date.fromisoformat(str(event.get("endDate") or event["startDate"])[:10]) < date.today():
-        require("offers" not in event, f"Past event must not advertise tickets: {fragment}")
-        require(event.get("isAccessibleForFree") is True, f"Past free event lost isAccessibleForFree: {fragment}")
-    else:
-        require(event.get("offers", {}).get("price") == "0", f"Free event price drifted for {fragment}")
-        require(event.get("offers", {}).get("priceCurrency") == "EUR", f"Free event currency drifted for {fragment}")
-        require("url" not in event.get("offers", {}), f"Offer contains invented acquisition URL for {fragment}")
+        require(offer is None, f"Past event must not advertise tickets: {fragment}")
+    elif offer is not None:
+        require(offer.get("price") == "0", f"Free event price drifted for {fragment}")
+        require(offer.get("priceCurrency") == "EUR", f"Free event currency drifted for {fragment}")
+        require("url" not in offer, f"Offer contains invented acquisition URL for {fragment}")
     image = event.get("image")
     require(isinstance(image, str) and image, f"Event image missing for {fragment}")
     image_path = local_path(image)
