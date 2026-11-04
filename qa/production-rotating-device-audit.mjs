@@ -56,6 +56,7 @@ const scenarios=[
 await assertProductionRelease({origin:O,sha:S,label:'rotating-device'});
 const browser=await chromium.launch({headless:true});
 const failures=[];
+const transient=[];
 const report=[];
 fs.mkdirSync('artifacts/rotating-device',{recursive:true});
 
@@ -194,93 +195,104 @@ async function keyboardProbe(page,route){
 try{
   for(const scenario of scenarios){
     for(const route of routes){
-      const context=await browser.newContext({
-        viewport:scenario.viewport,
-        isMobile:scenario.isMobile,
-        hasTouch:scenario.hasTouch,
-        deviceScaleFactor:scenario.deviceScaleFactor,
-        colorScheme:scenario.colorScheme,
-        reducedMotion:'reduce',
-      });
-      const page=await context.newPage();
-      const pageErrors=[];
-      const badResponses=[];
-      page.on('pageerror',e=>pageErrors.push(String(e)));
-      page.on('response',r=>{
-        try{
-          const u=new URL(r.url());
-          const t=r.request().resourceType();
-          if(u.origin===O&&r.status()>=400&&['document','script','stylesheet','image','font'].includes(t)){
-            badResponses.push(`${r.status()} ${t} ${u.pathname}`);
-          }
-        }catch{}
-      });
-      await page.route(/(?:gc\.zgo\.at|goatcounter\.com|metricool\.com|clarity\.ms|c\.bing\.com)/,r=>r.abort());
-      try{
-        const nav=await gotoRetry(page,route,scenario.label);
-        assert.equal(nav?.status(),200,`${scenario.label} ${route}: HTTP ${nav?.status()}`);
-        await dismissIntro(page);
-        await page.waitForTimeout(180);
-
-        const state=await page.evaluate(()=>{
-          const rendered=(el)=>{
-            if(!(el instanceof Element)) return false;
-            if(el.closest('[hidden],[aria-hidden="true"],[inert]')) return false;
-            for(let node=el;node instanceof Element;node=node.parentElement){
-              const s=getComputedStyle(node);
-              if(s.display==='none'||s.visibility==='hidden'||Number.parseFloat(s.opacity||'1')===0) return false;
+      for(let attempt=0,retry=true;retry&&attempt<2;attempt++){
+        retry=false;
+        const context=await browser.newContext({
+          viewport:scenario.viewport,
+          isMobile:scenario.isMobile,
+          hasTouch:scenario.hasTouch,
+          deviceScaleFactor:scenario.deviceScaleFactor,
+          colorScheme:scenario.colorScheme,
+          reducedMotion:'reduce',
+        });
+        const page=await context.newPage();
+        const pageErrors=[];
+        const badResponses=[];
+        page.on('pageerror',e=>pageErrors.push(String(e)));
+        page.on('response',r=>{
+          try{
+            const u=new URL(r.url());
+            const t=r.request().resourceType();
+            if(u.origin===O&&r.status()>=400&&['document','script','stylesheet','image','font'].includes(t)){
+              badResponses.push(`${r.status()} ${t} ${u.pathname}`);
             }
-            const r=el.getBoundingClientRect();
-            return r.width>0&&r.height>0;
-          };
-          return {
-            h1:[...document.querySelectorAll('h1')].filter(rendered).length,
-            mainText:(document.querySelector('main')?.innerText||'').replace(/\s+/g,' ').trim().length,
-            overflow:Math.max(document.documentElement.scrollWidth,document.body?.scrollWidth||0)-document.documentElement.clientWidth,
-            giant:[...document.querySelectorAll('body *')].filter(el=>{
-              if(!rendered(el)) return false;
-              const s=getComputedStyle(el),r=el.getBoundingClientRect();
-              return ['fixed','sticky'].includes(s.position)&&r.width>innerWidth*.9&&r.height>innerHeight*.86;
-            }).map(el=>el.id||String(el.className||'').slice(0,80)||el.tagName),
-            collapsed:[...document.querySelectorAll('main a[href],main button,main input:not([type="hidden"]),main select,main textarea')].filter(el=>{
+          }catch{}
+        });
+        await page.route(/(?:gc\.zgo\.at|goatcounter\.com|metricool\.com|clarity\.ms|c\.bing\.com)/,r=>r.abort());
+        try{
+          const nav=await gotoRetry(page,route,scenario.label);
+          assert.equal(nav?.status(),200,`${scenario.label} ${route}: HTTP ${nav?.status()}`);
+          await dismissIntro(page);
+          await page.waitForTimeout(180);
+
+          const state=await page.evaluate(()=>{
+            const rendered=(el)=>{
+              if(!(el instanceof Element)) return false;
               if(el.closest('[hidden],[aria-hidden="true"],[inert]')) return false;
-              let visuallySuppressed=false;
               for(let node=el;node instanceof Element;node=node.parentElement){
                 const s=getComputedStyle(node);
-                if(s.display==='none'||s.visibility==='hidden'||Number.parseFloat(s.opacity||'1')===0){
-                  visuallySuppressed=true; break;
-                }
+                if(s.display==='none'||s.visibility==='hidden'||Number.parseFloat(s.opacity||'1')===0) return false;
               }
-              if(visuallySuppressed) return false;
-              // display:contents elements (the masthead brand link) have no box of
-              // their own by definition; what the user sees is their children.
-              const box=getComputedStyle(el).display==='contents'?(el.firstElementChild||el):el;
-              const r=box.getBoundingClientRect();
-              return r.width<=0||r.height<=0;
-            }).slice(0,8).map(el=>el.outerHTML.slice(0,180)),
-          };
-        });
-        assert.equal(state.h1,1,`${scenario.label} ${route}: expected one visible H1, got ${state.h1}`);
-        assert.ok(state.mainText>80,`${scenario.label} ${route}: critical main content too small (${state.mainText})`);
-        assert.ok(state.overflow<=1,`${scenario.label} ${route}: horizontal overflow ${state.overflow}px`);
-        assert.deepEqual(state.giant,[],`${scenario.label} ${route}: giant fixed/sticky overlay ${JSON.stringify(state.giant)}`);
-        assert.deepEqual(state.collapsed,[],`${scenario.label} ${route}: collapsed visible controls ${JSON.stringify(state.collapsed)}`);
+              const r=el.getBoundingClientRect();
+              return r.width>0&&r.height>0;
+            };
+            return {
+              h1:[...document.querySelectorAll('h1')].filter(rendered).length,
+              mainText:(document.querySelector('main')?.innerText||'').replace(/\s+/g,' ').trim().length,
+              overflow:Math.max(document.documentElement.scrollWidth,document.body?.scrollWidth||0)-document.documentElement.clientWidth,
+              giant:[...document.querySelectorAll('body *')].filter(el=>{
+                if(!rendered(el)) return false;
+                const s=getComputedStyle(el),r=el.getBoundingClientRect();
+                return ['fixed','sticky'].includes(s.position)&&r.width>innerWidth*.9&&r.height>innerHeight*.86;
+              }).map(el=>el.id||String(el.className||'').slice(0,80)||el.tagName),
+              collapsed:[...document.querySelectorAll('main a[href],main button,main input:not([type="hidden"]),main select,main textarea')].filter(el=>{
+                if(el.closest('[hidden],[aria-hidden="true"],[inert]')) return false;
+                let visuallySuppressed=false;
+                for(let node=el;node instanceof Element;node=node.parentElement){
+                  const s=getComputedStyle(node);
+                  if(s.display==='none'||s.visibility==='hidden'||Number.parseFloat(s.opacity||'1')===0){
+                    visuallySuppressed=true; break;
+                  }
+                }
+                if(visuallySuppressed) return false;
+                // display:contents elements (the masthead brand link) have no box of
+                // their own by definition; what the user sees is their children.
+                const box=getComputedStyle(el).display==='contents'?(el.firstElementChild||el):el;
+                const r=box.getBoundingClientRect();
+                return r.width<=0||r.height<=0;
+              }).slice(0,8).map(el=>el.outerHTML.slice(0,180)),
+            };
+          });
+          assert.equal(state.h1,1,`${scenario.label} ${route}: expected one visible H1, got ${state.h1}`);
+          assert.ok(state.mainText>80,`${scenario.label} ${route}: critical main content too small (${state.mainText})`);
+          assert.ok(state.overflow<=1,`${scenario.label} ${route}: horizontal overflow ${state.overflow}px`);
+          assert.deepEqual(state.giant,[],`${scenario.label} ${route}: giant fixed/sticky overlay ${JSON.stringify(state.giant)}`);
+          assert.deepEqual(state.collapsed,[],`${scenario.label} ${route}: collapsed visible controls ${JSON.stringify(state.collapsed)}`);
 
-        const header=await headerCollisionProbe(page,route);
-        let keyboard=null,skipLink=null;
-        if(scenario.keyboard){
-          skipLink=await skipLinkProbe(page,route);
-          keyboard=await keyboardProbe(page,route);
+          const header=await headerCollisionProbe(page,route);
+          let keyboard=null,skipLink=null;
+          if(scenario.keyboard){
+            skipLink=await skipLinkProbe(page,route);
+            keyboard=await keyboardProbe(page,route);
+          }
+          assert.deepEqual(pageErrors,[],`${scenario.label} ${route}: page errors ${pageErrors.join(' | ')}`);
+          // A CDN 5xx/429 on a subresource (GitHub Pages during an incident) leaves the page untested, not broken:
+          // run the whole scenario once more in a fresh context; the same failure twice, or any 4xx, still fails.
+          const unique=[...new Set(badResponses)];
+          if(attempt===0&&unique.length&&unique.every(x=>/^(?:5\d\d|429) /.test(x))){
+            transient.push(`${scenario.label} ${route}: ${unique.join(' | ')}`);
+            retry=true;
+            continue;
+          }
+          assert.deepEqual(unique,[],`${scenario.label} ${route}: same-origin resource failures ${unique.join(' | ')}`);
+          report.push({route,scenario:scenario.label,header,keyboard,skipLink});
+        }catch(e){
+          const safe=(scenario.label+'-'+route).replace(/[^a-z0-9_-]+/gi,'-').replace(/^-+|-+$/g,'').slice(0,140);
+          await page.screenshot({path:`artifacts/rotating-device/${safe||'failure'}.png`,fullPage:true}).catch(()=>{});
+          failures.push(String(e?.message||e));
+        }finally{
+          await context.close();
         }
-        assert.deepEqual(pageErrors,[],`${scenario.label} ${route}: page errors ${pageErrors.join(' | ')}`);
-        assert.deepEqual([...new Set(badResponses)],[],`${scenario.label} ${route}: same-origin resource failures ${[...new Set(badResponses)].join(' | ')}`);
-        report.push({route,scenario:scenario.label,header,keyboard,skipLink});
-      }catch(e){
-        const safe=(scenario.label+'-'+route).replace(/[^a-z0-9_-]+/gi,'-').replace(/^-+|-+$/g,'').slice(0,140);
-        await page.screenshot({path:`artifacts/rotating-device/${safe||'failure'}.png`,fullPage:true}).catch(()=>{});
-        failures.push(String(e?.message||e));
-      }finally{
-        await context.close();
       }
     }
   }
@@ -288,6 +300,7 @@ try{
   await browser.close();
 }
 
+if(transient.length) console.log('RERUN after CDN 5xx/429: '+transient.join(' || '));
 console.log('ROTATING SAMPLE',JSON.stringify({seed,day,routes},null,2));
 assert.deepEqual(failures,[],failures.slice(0,80).join('\n'));
 console.log(`PASS rotating production device audit: ${routes.length} routes x ${scenarios.length} scenarios (${report.length} checks)`);

@@ -5,73 +5,8 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Próximos lanzamientos de libros recomendados
 BEGIN:VEVENT
-UID:isbn-9788433951199@davidportodiaz.com
-DTSTAMP:20261103T000000Z
-DTSTART;VALUE=DATE:20261104
-DTEND;VALUE=DATE:20261105
-SUMMARY:Sale a la venta: Este deseo no es el mío
-DESCRIPTION:Andrea Proenza · Editorial Anagrama\nComprar en Amazon: https:
- //www.amazon.es/dp/843395119X?tag=davidporto-21&linkCode=ogi&th=1&psc=1&la
- nguage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/est
- e-deseo-no-es-el-mio-9788433951199/
-URL:https://davidportodiaz.com/recomendaciones/libros/este-deseo-no-es-el-m
- io-9788433951199/
-END:VEVENT
-BEGIN:VEVENT
-UID:isbn-9788433951182@davidportodiaz.com
-DTSTAMP:20261103T000000Z
-DTSTART;VALUE=DATE:20261104
-DTEND;VALUE=DATE:20261105
-SUMMARY:Sale a la venta: Los perplejos
-DESCRIPTION:Cynthia Rimsky · Editorial Anagrama\nComprar en Amazon: https:
- //www.amazon.es/dp/8433951181?tag=davidporto-21&linkCode=ogi&th=1&psc=1&la
- nguage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/los
- -perplejos-9788433951182/
-URL:https://davidportodiaz.com/recomendaciones/libros/los-perplejos-9788433
- 951182/
-END:VEVENT
-BEGIN:VEVENT
-UID:isbn-9788433951168@davidportodiaz.com
-DTSTAMP:20261103T000000Z
-DTSTART;VALUE=DATE:20261104
-DTEND;VALUE=DATE:20261105
-SUMMARY:Sale a la venta: Tres cuentos
-DESCRIPTION:Truman Capote\, Fede Yankelevich · Editorial Anagrama\nComprar
-  en Amazon: https://www.amazon.es/dp/8433951165?tag=davidporto-21&linkCode
- =ogi&th=1&psc=1&language=es_ES\nFicha: https://davidportodiaz.com/recomend
- aciones/libros/tres-cuentos-9788433951168/
-URL:https://davidportodiaz.com/recomendaciones/libros/tres-cuentos-97884339
- 51168/
-END:VEVENT
-BEGIN:VEVENT
-UID:isbn-9788433951212@davidportodiaz.com
-DTSTAMP:20261103T000000Z
-DTSTART;VALUE=DATE:20261104
-DTEND;VALUE=DATE:20261105
-SUMMARY:Sale a la venta: Una casa en Brandemburgo
-DESCRIPTION:Jenny Erpenbeck · Editorial Anagrama\nComprar en Amazon: https
- ://www.amazon.es/dp/8433951211?tag=davidporto-21&linkCode=ogi&th=1&psc=1&l
- anguage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/un
- a-casa-en-brandemburgo-9788433951212/
-URL:https://davidportodiaz.com/recomendaciones/libros/una-casa-en-brandembu
- rgo-9788433951212/
-END:VEVENT
-BEGIN:VEVENT
-UID:isbn-9788433951229@davidportodiaz.com
-DTSTAMP:20261103T000000Z
-DTSTART;VALUE=DATE:20261104
-DTEND;VALUE=DATE:20261105
-SUMMARY:Sale a la venta: Vals de Mefisto
-DESCRIPTION:Sergio Pitol · Editorial Anagrama\nComprar en Amazon: https://
- www.amazon.es/dp/843395122X?tag=davidporto-21&linkCode=ogi&th=1&psc=1&lang
- uage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/vals-
- de-mefisto-9788433951229/
-URL:https://davidportodiaz.com/recomendaciones/libros/vals-de-mefisto-97884
- 33951229/
-END:VEVENT
-BEGIN:VEVENT
 UID:isbn-9791388038426@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Cómo darle la vuelta a tu felicidad
@@ -83,8 +18,22 @@ URL:https://davidportodiaz.com/recomendaciones/libros/como-darle-la-vuelta-
  a-tu-felicidad-9791388038426/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9791388322440@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:Sale a la venta: Cómo derrotar a un rey demonio en diez sencillos 
+ pasos
+DESCRIPTION:Andrew Rowe · Montena\nComprar en Amazon: https://www.amazon.e
+ s/dp/B0HC75CY79?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_ES\n
+ Ficha: https://davidportodiaz.com/recomendaciones/libros/como-derrotar-a-u
+ n-rey-demonio-en-diez-sencillos-pasos-9791388322440/
+URL:https://davidportodiaz.com/recomendaciones/libros/como-derrotar-a-un-re
+ y-demonio-en-diez-sencillos-pasos-9791388322440/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788401040740@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: El crimen de la Navidad. El cuaderno de pasatiempo
@@ -99,7 +48,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-crimen-de-la-navid
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788466686884@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: La abadía sin ojos
@@ -112,7 +61,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-abadia-sin-ojos-97
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388163258@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Los diarios de Emma M. Lion 5
@@ -125,7 +74,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-diarios-de-emma-m
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388092268@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Ponte fino
@@ -138,7 +87,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/ponte-fino-9791388092
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788403526877@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Rosalía\, universo creador
@@ -151,7 +100,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/rosalia-universo-crea
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387740382@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Sin piedad (Harry Hole 14)
@@ -164,7 +113,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/sin-piedad-harry-hole
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788466685368@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261110
 DTEND;VALUE=DATE:20261111
 SUMMARY:Sale a la venta: La madre
@@ -177,7 +126,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-madre-978846668536
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408324263@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Cocina de siempre para disfrutar hoy
@@ -190,7 +139,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/cocina-de-siempre-par
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788449345975@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: El acorde secreto
@@ -203,7 +152,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-acorde-secreto-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084443@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: El último crimen del año. Un nuevo caso de Hérc
@@ -217,7 +166,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-ultimo-crimen-del-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408326496@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Flores malditas 2. Flor del infierno
@@ -230,7 +179,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/flores-malditas-2-flo
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788491995913@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Las leyes fundamentales de la estupidez humana
@@ -243,7 +192,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/las-leyes-fundamental
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788411193832@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Los cinco acuerdos de la pareja
@@ -256,7 +205,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-cinco-acuerdos-de
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788491999386@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Los límites del infinito
@@ -269,7 +218,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-limites-del-infin
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951267@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Manifiesto por otra economía y otra política
@@ -282,7 +231,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/manifiesto-por-otra-e
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788449346057@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Mira el lado bueno de las cosas
@@ -295,7 +244,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/mira-el-lado-bueno-de
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467083729@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Nada es lo que era
@@ -308,7 +257,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/nada-es-lo-que-era-97
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388279515@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Pequeños detectives: retos para resolver mientras
@@ -322,7 +271,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/pequenos-detectives-r
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951298@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Perder la guerra
@@ -335,7 +284,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/perder-la-guerra-9788
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388279379@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Sherlock
@@ -348,7 +297,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/sherlock-979138827937
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788448049232@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Sofia Coppola
@@ -361,7 +310,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/sofia-coppola-9788448
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408328902@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Triunfa con mis recetas estrella
@@ -374,7 +323,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/triunfa-con-mis-recet
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467083637@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: Yo solo quería escribir algunos domingos
@@ -387,7 +336,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/yo-solo-queria-escrib
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951205@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: ¿Nos quedamos o nos vamos?
@@ -400,7 +349,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/nos-quedamos-o-nos-va
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951281@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Sale a la venta: ¿Yo?
@@ -411,8 +360,21 @@ DESCRIPTION:Peter Flamm · Editorial Anagrama\nComprar en Amazon: https://w
 URL:https://davidportodiaz.com/recomendaciones/libros/yo-9788433951281/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9791388387524@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+SUMMARY:Sale a la venta: Atención y esfuerzo
+DESCRIPTION:Daniel Kahneman · Debate\nComprar en Amazon: https://www.amazo
+ n.es/dp/B0HC7F7FYR?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_E
+ S\nFicha: https://davidportodiaz.com/recomendaciones/libros/atencion-y-esf
+ uerzo-9791388387524/
+URL:https://davidportodiaz.com/recomendaciones/libros/atencion-y-esfuerzo-9
+ 791388387524/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788401039850@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261112
 DTEND;VALUE=DATE:20261113
 SUMMARY:Sale a la venta: La trama francesa
@@ -425,7 +387,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-trama-francesa-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387904661@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261112
 DTEND;VALUE=DATE:20261113
 SUMMARY:Sale a la venta: Sapiens. Una historia gráfica 4 - La era de las r
@@ -440,7 +402,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/sapiens-una-historia-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788401037894@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261112
 DTEND;VALUE=DATE:20261113
 SUMMARY:Sale a la venta: Un baile en Versalles
@@ -452,8 +414,113 @@ URL:https://davidportodiaz.com/recomendaciones/libros/un-baile-en-versalles
  -9788401037894/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788434441057@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: A la sombra del Estado
+DESCRIPTION:Luis de la Corte Ibáñez · Editorial Ariel\nComprar en Amazon
+ : https://www.amazon.es/dp/8434441055?tag=davidporto-21&linkCode=osi&th=1&
+ psc=1&language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/li
+ bros/a-la-sombra-del-estado-9788434441057/
+URL:https://davidportodiaz.com/recomendaciones/libros/a-la-sombra-del-estad
+ o-9788434441057/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788411193887@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Amiga\, sepárate ya
+DESCRIPTION:Coral Herrera · Diana\nComprar en Amazon: https://www.amazon.e
+ s/dp/8411193888?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_ES\n
+ Ficha: https://davidportodiaz.com/recomendaciones/libros/amiga-separate-ya
+ -9788411193887/
+URL:https://davidportodiaz.com/recomendaciones/libros/amiga-separate-ya-978
+ 8411193887/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788427055803@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Amor sin frenos (Dirty Air 4)
+DESCRIPTION:Lauren Asher · Ediciones Martínez Roca\nComprar en Amazon: ht
+ tps://www.amazon.es/dp/8427055803?tag=davidporto-21&linkCode=osi&th=1&psc=
+ 1&language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros
+ /amor-sin-frenos-dirty-air-4-9788427055803/
+URL:https://davidportodiaz.com/recomendaciones/libros/amor-sin-frenos-dirty
+ -air-4-9788427055803/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788467084221@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Aprendiendo de las drogas
+DESCRIPTION:Antonio Escohotado · Editorial Espasa\nComprar en Amazon: http
+ s://www.amazon.es/dp/8467084227?tag=davidporto-21&linkCode=osi&th=1&psc=1&
+ language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/a
+ prendiendo-de-las-drogas-9788467084221/
+URL:https://davidportodiaz.com/recomendaciones/libros/aprendiendo-de-las-dr
+ ogas-9788467084221/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788411005555@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Auge y caída del Tercer Reich (edición especial)
+DESCRIPTION:William L. Shirer · Ediciones Península\nComprar en Amazon: h
+ ttps://www.amazon.es/dp/8411005550?tag=davidporto-21&linkCode=osi&th=1&psc
+ =1&language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libro
+ s/auge-y-caida-del-tercer-reich-edicion-especial-9788411005555/
+URL:https://davidportodiaz.com/recomendaciones/libros/auge-y-caida-del-terc
+ er-reich-edicion-especial-9788411005555/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788408328889@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Café para tomar aquí
+DESCRIPTION:Morgan Eckroth · Planeta Gastro\nComprar en Amazon: https://ww
+ w.amazon.es/dp/8408328883?tag=davidporto-21&linkCode=osi&th=1&psc=1&langua
+ ge=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/cafe-pa
+ ra-tomar-aqui-9788408328889/
+URL:https://davidportodiaz.com/recomendaciones/libros/cafe-para-tomar-aqui-
+ 9788408328889/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788467084320@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Catulo / Marcial
+DESCRIPTION:Ernesto Cardenal · Editorial Espasa\nComprar en Amazon: https:
+ //www.amazon.es/dp/8467084324?tag=davidporto-21&linkCode=osi&th=1&psc=1&la
+ nguage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/cat
+ ulo-marcial-9788467084320/
+URL:https://davidportodiaz.com/recomendaciones/libros/catulo-marcial-978846
+ 7084320/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788408317869@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Chile y la Isla de Pascua 9
+DESCRIPTION:Mark Johanson\, Isabel Albiston\, Kevin Raub\, Wendy Yanagihara
+  · Geoplaneta\nComprar en Amazon: https://www.amazon.es/dp/8408317865?tag
+ =davidporto-21&linkCode=osi&th=1&psc=1&language=es_ES\nFicha: https://davi
+ dportodiaz.com/recomendaciones/libros/chile-y-la-isla-de-pascua-9-97884083
+ 17869/
+URL:https://davidportodiaz.com/recomendaciones/libros/chile-y-la-isla-de-pa
+ scua-9-9788408317869/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788433951304@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261118
 DTEND;VALUE=DATE:20261119
 SUMMARY:Sale a la venta: Cuerpo\, humano
@@ -466,7 +533,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/cuerpo-humano-9788433
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788433951670@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261118
 DTEND;VALUE=DATE:20261119
 SUMMARY:Sale a la venta: Cómo construir la soberanía digital europea
@@ -478,8 +545,73 @@ URL:https://davidportodiaz.com/recomendaciones/libros/como-construir-la-sob
  erania-digital-europea-9788433951670/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788448049379@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: David Summers: en persona
+DESCRIPTION:Javier Menéndez Flores · Libros Cúpula\nComprar en Amazon: h
+ ttps://www.amazon.es/dp/8448049373?tag=davidporto-21&linkCode=osi&th=1&psc
+ =1&language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libro
+ s/david-summers-en-persona-9788448049379/
+URL:https://davidportodiaz.com/recomendaciones/libros/david-summers-en-pers
+ ona-9788448049379/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788408328773@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: De la discusión a la conexión
+DESCRIPTION:Gabrielle Rifkind · Zenith\nComprar en Amazon: https://www.ama
+ zon.es/dp/8408328778?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es
+ _ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/de-la-discus
+ ion-a-la-conexion-9788408328773/
+URL:https://davidportodiaz.com/recomendaciones/libros/de-la-discusion-a-la-
+ conexion-9788408328773/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791388414084@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Devocionario
+DESCRIPTION:Inma Grass · Ediciones Luciérnaga\nComprar en Amazon: https:/
+ /www.amazon.es/dp/B0HH5BZRB2?tag=davidporto-21&linkCode=osi&th=1&psc=1&lan
+ guage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/devo
+ cionario-9791388414084/
+URL:https://davidportodiaz.com/recomendaciones/libros/devocionario-97913884
+ 14084/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788467084481@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: El arte de la guerra
+DESCRIPTION:Sun Tzu · Editorial Espasa\nComprar en Amazon: https://www.ama
+ zon.es/dp/8467084480?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es
+ _ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/el-arte-de-l
+ a-guerra-9788467084481/
+URL:https://davidportodiaz.com/recomendaciones/libros/el-arte-de-la-guerra-
+ 9788467084481/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788408327349@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: El gran libro de Karlos Arguiñano
+DESCRIPTION:Karlos Arguiñano · Editorial Planeta\nComprar en Amazon: http
+ s://www.amazon.es/dp/8408327348?tag=davidporto-21&linkCode=osi&th=1&psc=1&
+ language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/e
+ l-gran-libro-de-karlos-arguinano-9788408327349/
+URL:https://davidportodiaz.com/recomendaciones/libros/el-gran-libro-de-karl
+ os-arguinano-9788408327349/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788433951250@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261118
 DTEND;VALUE=DATE:20261119
 SUMMARY:Sale a la venta: El volumen del tiempo IV
@@ -491,8 +623,242 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-volumen-del-tiempo
  -iv-9788433951250/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788427055780@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: En ese silencio
+DESCRIPTION:Carmen Amoraga · Ediciones Martínez Roca\nComprar en Amazon: 
+ https://www.amazon.es/dp/8427055781?tag=davidporto-21&linkCode=osi&th=1&ps
+ c=1&language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libr
+ os/en-ese-silencio-9788427055780/
+URL:https://davidportodiaz.com/recomendaciones/libros/en-ese-silencio-97884
+ 27055780/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788423441105@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Falaz
+DESCRIPTION:Jaime Rubio Hancock · Deusto\nComprar en Amazon: https://www.a
+ mazon.es/dp/8423441105?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=
+ es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/falaz-9788
+ 423441105/
+URL:https://davidportodiaz.com/recomendaciones/libros/falaz-9788423441105/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788448049140@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Frutos secos
+DESCRIPTION:Clémence Catz · Libros Cúpula\nComprar en Amazon: https://ww
+ w.amazon.es/dp/8448049144?tag=davidporto-21&linkCode=osi&th=1&psc=1&langua
+ ge=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/frutos-
+ secos-9788448049140/
+URL:https://davidportodiaz.com/recomendaciones/libros/frutos-secos-97884480
+ 49140/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788408327431@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Hasta que el calendario nos separe
+DESCRIPTION:Nerea Pascual · Esencia\nComprar en Amazon: https://www.amazon
+ .es/dp/8408327437?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_ES
+ \nFicha: https://davidportodiaz.com/recomendaciones/libros/hasta-que-el-ca
+ lendario-nos-separe-9788408327431/
+URL:https://davidportodiaz.com/recomendaciones/libros/hasta-que-el-calendar
+ io-nos-separe-9788408327431/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788423441174@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: La economía del cambio climático
+DESCRIPTION:Rafael Doménech Vilariño\, Javier Angel Andrés Domingo · De
+ usto\nComprar en Amazon: https://www.amazon.es/dp/8423441172?tag=davidport
+ o-21&linkCode=osi&th=1&psc=1&language=es_ES\nFicha: https://davidportodiaz
+ .com/recomendaciones/libros/la-economia-del-cambio-climatico-9788423441174
+ /
+URL:https://davidportodiaz.com/recomendaciones/libros/la-economia-del-cambi
+ o-climatico-9788423441174/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788411004954@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: La galaxia ultra
+DESCRIPTION:Miguel González · Ediciones Península\nComprar en Amazon: ht
+ tps://www.amazon.es/dp/8411004953?tag=davidporto-21&linkCode=osi&th=1&psc=
+ 1&language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros
+ /la-galaxia-ultra-9788411004954/
+URL:https://davidportodiaz.com/recomendaciones/libros/la-galaxia-ultra-9788
+ 411004954/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788411078597@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: La tía Harry y la señora Klein
+DESCRIPTION:Henry Van Dyke · Tusquets Editores\nComprar en Amazon: https:/
+ /www.amazon.es/dp/8411078590?tag=davidporto-21&linkCode=osi&th=1&psc=1&lan
+ guage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/la-t
+ ia-harry-y-la-senora-klein-9788411078597/
+URL:https://davidportodiaz.com/recomendaciones/libros/la-tia-harry-y-la-sen
+ ora-klein-9788411078597/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791388220098@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Los mundos de Dune
+DESCRIPTION:Tom Huddleston · Lunwerg Editores\nComprar en Amazon: https://
+ www.amazon.es/dp/B0HH5H3XXD?tag=davidporto-21&linkCode=osi&th=1&psc=1&lang
+ uage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/los-m
+ undos-de-dune-9791388220098/
+URL:https://davidportodiaz.com/recomendaciones/libros/los-mundos-de-dune-97
+ 91388220098/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791388220029@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Monstruos Yokai
+DESCRIPTION:Philippe Charlier · Lunwerg Editores\nComprar en Amazon: https
+ ://www.amazon.es/dp/B0HH5JR1K9?tag=davidporto-21&linkCode=osi&th=1&psc=1&l
+ anguage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/mo
+ nstruos-yokai-9791388220029/
+URL:https://davidportodiaz.com/recomendaciones/libros/monstruos-yokai-97913
+ 88220029/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791387714529@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Por la gracia de Dios
+DESCRIPTION:José Antonio Fortea · Istoría\nComprar en Amazon: https://ww
+ w.amazon.es/dp/B0HH5HC2FR?tag=davidporto-21&linkCode=osi&th=1&psc=1&langua
+ ge=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/por-la-
+ gracia-de-dios-9791387714529/
+URL:https://davidportodiaz.com/recomendaciones/libros/por-la-gracia-de-dios
+ -9791387714529/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788467084245@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Sesenta semanas en el trópico
+DESCRIPTION:Antonio Escohotado · Editorial Espasa\nComprar en Amazon: http
+ s://www.amazon.es/dp/8467084243?tag=davidporto-21&linkCode=osi&th=1&psc=1&
+ language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/s
+ esenta-semanas-en-el-tropico-9788467084245/
+URL:https://davidportodiaz.com/recomendaciones/libros/sesenta-semanas-en-el
+ -tropico-9788467084245/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788408325185@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Sinners consumed
+DESCRIPTION:Somme Sketcher · Crossbooks\nComprar en Amazon: https://www.am
+ azon.es/dp/8408325183?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=e
+ s_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/sinners-con
+ sumed-9788408325185/
+URL:https://davidportodiaz.com/recomendaciones/libros/sinners-consumed-9788
+ 408325185/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788448049409@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Stop cortisol e inflamación
+DESCRIPTION:Maria de Lluc Martorell · Libros Cúpula\nComprar en Amazon: h
+ ttps://www.amazon.es/dp/8448049403?tag=davidporto-21&linkCode=osi&th=1&psc
+ =1&language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libro
+ s/stop-cortisol-e-inflamacion-9788448049409/
+URL:https://davidportodiaz.com/recomendaciones/libros/stop-cortisol-e-infla
+ macion-9788448049409/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788467084498@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Tao Te Ching
+DESCRIPTION:Lao-Tse · Editorial Espasa\nComprar en Amazon: https://www.ama
+ zon.es/dp/8467084499?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es
+ _ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/tao-te-ching
+ -9788467084498/
+URL:https://davidportodiaz.com/recomendaciones/libros/tao-te-ching-97884670
+ 84498/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791387667924@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Tras la pista del mal
+DESCRIPTION:Cristian Puig · Ediciones Luciérnaga\nComprar en Amazon: http
+ s://www.amazon.es/dp/B0HH5MBP74?tag=davidporto-21&linkCode=osi&th=1&psc=1&
+ language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/t
+ ras-la-pista-del-mal-9791387667924/
+URL:https://davidportodiaz.com/recomendaciones/libros/tras-la-pista-del-mal
+ -9791387667924/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788423370931@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Un crimen dialéctico
+DESCRIPTION:Guillermo Martínez · Ediciones Destino\nComprar en Amazon: ht
+ tps://www.amazon.es/dp/8423370933?tag=davidporto-21&linkCode=osi&th=1&psc=
+ 1&language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros
+ /un-crimen-dialectico-9788423370931/
+URL:https://davidportodiaz.com/recomendaciones/libros/un-crimen-dialectico-
+ 9788423370931/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788423440801@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Un mundo dislocado
+DESCRIPTION:Ana Palacio Vallelersundi · Deusto\nComprar en Amazon: https:/
+ /www.amazon.es/dp/842344080X?tag=davidporto-21&linkCode=osi&th=1&psc=1&lan
+ guage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/un-m
+ undo-dislocado-9788423440801/
+URL:https://davidportodiaz.com/recomendaciones/libros/un-mundo-dislocado-97
+ 88423440801/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788434441033@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Sale a la venta: Ya están aquí
+DESCRIPTION:Idoia Salazar · Editorial Ariel\nComprar en Amazon: https://ww
+ w.amazon.es/dp/8434441039?tag=davidporto-21&linkCode=osi&th=1&psc=1&langua
+ ge=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/ya-esta
+ n-aqui-9788434441033/
+URL:https://davidportodiaz.com/recomendaciones/libros/ya-estan-aqui-9788434
+ 441033/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788491296027@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261124
 DTEND;VALUE=DATE:20261125
 SUMMARY:Sale a la venta: Espinas en el aire
@@ -505,7 +871,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/espinas-en-el-aire-97
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467070835@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261125
 DTEND;VALUE=DATE:20261126
 SUMMARY:Sale a la venta: Orgullo y prejuicio. Edición ilustrada
@@ -518,7 +884,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/orgullo-y-prejuicio-e
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388222276@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261203
 DTEND;VALUE=DATE:20261204
 SUMMARY:Sale a la venta: Pokécology (Guía Pokémon)
@@ -531,7 +897,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/pokecology-guia-pokem
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788410466715@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261210
 DTEND;VALUE=DATE:20261211
 SUMMARY:Sale a la venta: Los fuegos de Diciembre
@@ -544,7 +910,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-fuegos-de-diciemb
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788466394390@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270107
 DTEND;VALUE=DATE:20270108
 SUMMARY:Sale a la venta: 5 semanas para desinflamarte (edición limitada)
@@ -558,7 +924,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/5-semanas-para-desinf
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388222412@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270107
 DTEND;VALUE=DATE:20270108
 SUMMARY:Sale a la venta: Aprender a leer en la Escuela de Monstruos 27 - Un
@@ -572,7 +938,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/aprender-a-leer-en-la
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788418053696@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270107
 DTEND;VALUE=DATE:20270108
 SUMMARY:Sale a la venta: El ego es tu enemigo
@@ -585,7 +951,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-ego-es-tu-enemigo-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387905620@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270107
 DTEND;VALUE=DATE:20270108
 SUMMARY:Sale a la venta: La botica natural
@@ -597,8 +963,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-botica-natural-979
  1387905620/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9791388347016@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270107
+DTEND;VALUE=DATE:20270108
+SUMMARY:Sale a la venta: Los diarios de la boticaria (la novela original) 3
+DESCRIPTION:Hyūga Natsu Hyuganatsu / Touko Shino · Distrito Manga\nCompra
+ r en Amazon: https://www.amazon.es/s?k=9791388347016&tag=davidporto-21&lan
+ guage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/los-
+ diarios-de-la-boticaria-la-novela-original-3-9791388347016/
+URL:https://davidportodiaz.com/recomendaciones/libros/los-diarios-de-la-bot
+ icaria-la-novela-original-3-9791388347016/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788401041723@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270114
 DTEND;VALUE=DATE:20270115
 SUMMARY:Sale a la venta: Hanami
@@ -610,7 +989,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/hanami-9788401041723/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388163555@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270114
 DTEND;VALUE=DATE:20270115
 SUMMARY:Sale a la venta: La compañera
@@ -622,8 +1001,47 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-companera-97913881
  63555/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788434441309@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: 50 cosas que hay que saber sobre IA
+DESCRIPTION:Keith Mansfield · Editorial Ariel\nComprar en Amazon: https://
+ www.amazon.es/s?k=9788434441309&tag=davidporto-21&language=es_ES\nFicha: h
+ ttps://davidportodiaz.com/recomendaciones/libros/50-cosas-que-hay-que-sabe
+ r-sobre-ia-9788434441309/
+URL:https://davidportodiaz.com/recomendaciones/libros/50-cosas-que-hay-que-
+ saber-sobre-ia-9788434441309/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791388103537@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Animales humanos nº 03
+DESCRIPTION:Takuya Okada · Planeta Cómic\nComprar en Amazon: https://www.
+ amazon.es/s?k=9791388103537&tag=davidporto-21&language=es_ES\nFicha: https
+ ://davidportodiaz.com/recomendaciones/libros/animales-humanos-no-03-979138
+ 8103537/
+URL:https://davidportodiaz.com/recomendaciones/libros/animales-humanos-no-0
+ 3-9791388103537/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788433952066@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Atlas de Xochimilco
+DESCRIPTION:Jazmina Barrera · Editorial Anagrama\nComprar en Amazon: https
+ ://www.amazon.es/s?k=9788433952066&tag=davidporto-21&language=es_ES\nFicha
+ : https://davidportodiaz.com/recomendaciones/libros/atlas-de-xochimilco-97
+ 88433952066/
+URL:https://davidportodiaz.com/recomendaciones/libros/atlas-de-xochimilco-9
+ 788433952066/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788491999454@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Bandidos
@@ -636,7 +1054,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/bandidos-978849199945
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331230@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Clara Nox 4. La última tormenta
@@ -648,8 +1066,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/clara-nox-4-la-ultima
  -tormenta-9788408331230/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9791388279614@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Comilona
+DESCRIPTION:Melissa Broder · Temas de Hoy\nComprar en Amazon: https://www.
+ amazon.es/dp/B0HPPHLRNQ?tag=davidporto-21&linkCode=osi&th=1&psc=1&language
+ =es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/comilona-
+ 9791388279614/
+URL:https://davidportodiaz.com/recomendaciones/libros/comilona-979138827961
+ 4/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788423371181@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Cuando seamos inmortales
@@ -662,7 +1093,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/cuando-seamos-inmorta
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788449346446@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Cómo crecer entre pantallas
@@ -675,7 +1106,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/como-crecer-entre-pan
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084924@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Cómo la vida supera a la muerte
@@ -687,8 +1118,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/como-la-vida-supera-a
  -la-muerte-9788467084924/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788448049843@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Dustin Hoffman: look at me
+DESCRIPTION:Dustin Hoffman\, Ariel Levy · Libros Cúpula\nComprar en Amazo
+ n: https://www.amazon.es/dp/8448049845?tag=davidporto-21&linkCode=osi&th=1
+ &psc=1&language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/l
+ ibros/dustin-hoffman-look-at-me-9788448049843/
+URL:https://davidportodiaz.com/recomendaciones/libros/dustin-hoffman-look-a
+ t-me-9788448049843/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788467084566@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: El pacto
@@ -700,7 +1144,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-pacto-978846708456
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331728@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: El poder de la intención
@@ -712,7 +1156,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-poder-de-la-intenc
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388414046@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Encuentra la armonía
@@ -725,33 +1169,46 @@ URL:https://davidportodiaz.com/recomendaciones/libros/encuentra-la-armonia-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408330936@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Eoghan Kavanagh. El Lobo
 DESCRIPTION:Elizabeth Sea · Esencia\nComprar en Amazon: https://www.amazon
- .es/s?k=9788408330936&tag=davidporto-21&language=es_ES\nFicha: https://dav
- idportodiaz.com/recomendaciones/libros/eoghan-kavanagh-el-lobo-97884083309
- 36/
+ .es/dp/8408330934?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_ES
+ \nFicha: https://davidportodiaz.com/recomendaciones/libros/eoghan-kavanagh
+ -el-lobo-9788408330936/
 URL:https://davidportodiaz.com/recomendaciones/libros/eoghan-kavanagh-el-lo
  bo-9788408330936/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467085068@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: España. 50 años después
 DESCRIPTION:William Chislett · Editorial Espasa\nComprar en Amazon: https:
- //www.amazon.es/s?k=9788467085068&tag=davidporto-21&language=es_ES\nFicha:
-  https://davidportodiaz.com/recomendaciones/libros/espana-50-anos-despues-
- 9788467085068/
+ //www.amazon.es/dp/8467085061?tag=davidporto-21&linkCode=osi&th=1&psc=1&la
+ nguage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/esp
+ ana-50-anos-despues-9788467085068/
 URL:https://davidportodiaz.com/recomendaciones/libros/espana-50-anos-despue
  s-9788467085068/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9791388103667@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Haikyû!! nº 44
+DESCRIPTION:Haruichi Furudate · Planeta Cómic\nComprar en Amazon: https:/
+ /www.amazon.es/dp/B0HPPCWNH3?tag=davidporto-21&linkCode=osi&th=1&psc=1&lan
+ guage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/haik
+ yu-no-44-9791388103667/
+URL:https://davidportodiaz.com/recomendaciones/libros/haikyu-no-44-97913881
+ 03667/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788427055896@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Hasta su último latido
@@ -764,7 +1221,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/hasta-su-ultimo-latid
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084542@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Hielo
@@ -775,7 +1232,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/hielo-9788467084542/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408330424@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Hombres en terapia
@@ -787,8 +1244,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/hombres-en-terapia-97
  88408330424/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788448049928@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: I Love Cake
+DESCRIPTION:Trish Deseine · Libros Cúpula\nComprar en Amazon: https://www
+ .amazon.es/dp/8448049926?tag=davidporto-21&linkCode=osi&th=1&psc=1&languag
+ e=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/i-love-c
+ ake-9788448049928/
+URL:https://davidportodiaz.com/recomendaciones/libros/i-love-cake-978844804
+ 9928/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9791387902353@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Ice Age. ¿Dónde está Scrat?
@@ -800,8 +1270,34 @@ URL:https://davidportodiaz.com/recomendaciones/libros/ice-age-donde-esta-sc
  rat-9791387902353/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788411005715@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Irán. Entre revolución y tradición
+DESCRIPTION:Yann Richard\, Thomas Snégaroff · Ediciones Península\nCompr
+ ar en Amazon: https://www.amazon.es/s?k=9788411005715&tag=davidporto-21&la
+ nguage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/ira
+ n-entre-revolucion-y-tradicion-9788411005715/
+URL:https://davidportodiaz.com/recomendaciones/libros/iran-entre-revolucion
+ -y-tradicion-9788411005715/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788491998969@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: La creación de un mundo aparte
+DESCRIPTION:Jose Miguel Sanjuan Marroquin · Editorial Crítica\nComprar en
+  Amazon: https://www.amazon.es/s?k=9788491998969&tag=davidporto-21&languag
+ e=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/la-creac
+ ion-de-un-mundo-aparte-9788491998969/
+URL:https://davidportodiaz.com/recomendaciones/libros/la-creacion-de-un-mun
+ do-aparte-9788491998969/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788467084986@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: La memoria velada
@@ -814,7 +1310,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-memoria-velada-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084856@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: La semana de colores y Andamos huyendo Lola
@@ -827,7 +1323,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-semana-de-colores-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408330813@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: La vida juntos
@@ -839,22 +1335,164 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-vida-juntos-978840
  8330813/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788408329831@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Mañana volverás a perder
+DESCRIPTION:Dara Kelton · Crossbooks\nComprar en Amazon: https://www.amazo
+ n.es/s?k=9788408329831&tag=davidporto-21&language=es_ES\nFicha: https://da
+ vidportodiaz.com/recomendaciones/libros/manana-volveras-a-perder-978840832
+ 9831/
+URL:https://davidportodiaz.com/recomendaciones/libros/manana-volveras-a-per
+ der-9788408329831/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788411193894@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Mentes diferentes
+DESCRIPTION:Chloé Hayden · Diana\nComprar en Amazon: https://www.amazon.e
+ s/dp/8411193896?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_ES\n
+ Ficha: https://davidportodiaz.com/recomendaciones/libros/mentes-diferentes
+ -9788411193894/
+URL:https://davidportodiaz.com/recomendaciones/libros/mentes-diferentes-978
+ 8411193894/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788445022481@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Morvenn Vahl: Lanza de la Fe
+DESCRIPTION:Jude Reid · Minotauro\nComprar en Amazon: https://www.amazon.e
+ s/dp/8445022482?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_ES\n
+ Ficha: https://davidportodiaz.com/recomendaciones/libros/morvenn-vahl-lanz
+ a-de-la-fe-9788445022481/
+URL:https://davidportodiaz.com/recomendaciones/libros/morvenn-vahl-lanza-de
+ -la-fe-9788445022481/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788408329336@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Niño de hojalata
+DESCRIPTION:Andrea Longarela · Destino Infantil & Juvenil\nComprar en Amaz
+ on: https://www.amazon.es/dp/8408329332?tag=davidporto-21&linkCode=osi&th=
+ 1&psc=1&language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/
+ libros/nino-de-hojalata-9788408329336/
+URL:https://davidportodiaz.com/recomendaciones/libros/nino-de-hojalata-9788
+ 408329336/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9791388103803@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Saint Seiya. Los caballeros del Zodíaco (Final Ed
  ition) nº 9
 DESCRIPTION:Masami Kurumada · Planeta Cómic\nComprar en Amazon: https://w
- ww.amazon.es/s?k=9791388103803&tag=davidporto-21&language=es_ES\nFicha: ht
- tps://davidportodiaz.com/recomendaciones/libros/saint-seiya-los-caballeros
- -del-zodiaco-final-edition-no-9-9791388103803/
+ ww.amazon.es/dp/B0HPPLCZKQ?tag=davidporto-21&linkCode=osi&th=1&psc=1&langu
+ age=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/saint-
+ seiya-los-caballeros-del-zodiaco-final-edition-no-9-9791388103803/
 URL:https://davidportodiaz.com/recomendaciones/libros/saint-seiya-los-cabal
  leros-del-zodiaco-final-edition-no-9-9791388103803/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9791388102660@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Spawn: Siniestros Relatos de Gunslinger nº 01
+DESCRIPTION:Jimmy Palmiotti · Planeta Cómic\nComprar en Amazon: https://w
+ ww.amazon.es/s?k=9791388102660&tag=davidporto-21&language=es_ES\nFicha: ht
+ tps://davidportodiaz.com/recomendaciones/libros/spawn-siniestros-relatos-d
+ e-gunslinger-no-01-9791388102660/
+URL:https://davidportodiaz.com/recomendaciones/libros/spawn-siniestros-rela
+ tos-de-gunslinger-no-01-9791388102660/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791388100314@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Star Wars: Caballeros Jedi nº 02
+DESCRIPTION:Marc Guggenheim · Planeta Cómic\nComprar en Amazon: https://w
+ ww.amazon.es/dp/B0HPP9175B?tag=davidporto-21&linkCode=osi&th=1&psc=1&langu
+ age=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/star-w
+ ars-caballeros-jedi-no-02-9791388100314/
+URL:https://davidportodiaz.com/recomendaciones/libros/star-wars-caballeros-
+ jedi-no-02-9791388100314/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788445021798@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Super-Cannes
+DESCRIPTION:J. G. Ballard · Minotauro\nComprar en Amazon: https://www.amaz
+ on.es/s?k=9788445021798&tag=davidporto-21&language=es_ES\nFicha: https://d
+ avidportodiaz.com/recomendaciones/libros/super-cannes-9788445021798/
+URL:https://davidportodiaz.com/recomendaciones/libros/super-cannes-97884450
+ 21798/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788408330547@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Superar el abuso emocional
+DESCRIPTION:Dra. Daksha Hirani · Zenith\nComprar en Amazon: https://www.am
+ azon.es/dp/8408330543?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=e
+ s_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/superar-el-
+ abuso-emocional-9788408330547/
+URL:https://davidportodiaz.com/recomendaciones/libros/superar-el-abuso-emoc
+ ional-9788408330547/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791388103445@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: That Texas Blood nº 02
+DESCRIPTION:Chris Condon\, Jacob Phillips · Planeta Cómic\nComprar en Ama
+ zon: https://www.amazon.es/dp/B0HPP9TB91?tag=davidporto-21&linkCode=osi&th
+ =1&psc=1&language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones
+ /libros/that-texas-blood-no-02-9791388103445/
+URL:https://davidportodiaz.com/recomendaciones/libros/that-texas-blood-no-0
+ 2-9791388103445/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791388102394@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: The World After the Fall nº 05
+DESCRIPTION:singNsong · Planeta Cómic\nComprar en Amazon: https://www.ama
+ zon.es/s?k=9791388102394&tag=davidporto-21&language=es_ES\nFicha: https://
+ davidportodiaz.com/recomendaciones/libros/the-world-after-the-fall-no-05-9
+ 791388102394/
+URL:https://davidportodiaz.com/recomendaciones/libros/the-world-after-the-f
+ all-no-05-9791388102394/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791388220517@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Sale a la venta: Todo lo que aprendí en terapia
+DESCRIPTION:Pablo R. Coca (@occimorons) · Lunwerg Editores\nComprar en Ama
+ zon: https://www.amazon.es/s?k=9791388220517&tag=davidporto-21&language=es
+ _ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/todo-lo-que-
+ aprendi-en-terapia-9791388220517/
+URL:https://davidportodiaz.com/recomendaciones/libros/todo-lo-que-aprendi-e
+ n-terapia-9791388220517/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788423441495@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Trabajos enredados
@@ -866,7 +1504,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/trabajos-enredados-97
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331834@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Tus zonas mágicas
@@ -879,7 +1517,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/tus-zonas-magicas-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331780@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Tus zonas sagradas
@@ -892,7 +1530,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/tus-zonas-sagradas-97
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388103711@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: Yawara! nº 12/20
@@ -905,7 +1543,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/yawara-no-12-20-97913
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788410362697@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Sale a la venta: ¿Qué pasaría si el Doctor Doom dominara el Mult
@@ -918,8 +1556,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/que-pasaria-si-el-doc
  tor-doom-dominara-el-multiverso-9788410362697/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788466396080@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270121
+DTEND;VALUE=DATE:20270122
+SUMMARY:Sale a la venta: Casa de cielo y aliento (Ciudad Medialuna 2)
+DESCRIPTION:Sarah J. Maas · Penguin Bolsillo\nComprar en Amazon: https://w
+ ww.amazon.es/dp/846639608X?tag=davidporto-21&linkCode=osi&th=1&psc=1&langu
+ age=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/casa-d
+ e-cielo-y-aliento-ciudad-medialuna-2-9788466396080/
+URL:https://davidportodiaz.com/recomendaciones/libros/casa-de-cielo-y-alien
+ to-ciudad-medialuna-2-9788466396080/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9791388139567@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270121
 DTEND;VALUE=DATE:20270122
 SUMMARY:Sale a la venta: Deja de regalar tu dinero
@@ -932,7 +1583,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/deja-de-regalar-tu-di
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788403527270@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270121
 DTEND;VALUE=DATE:20270122
 SUMMARY:Sale a la venta: Migraña: Manual para no perder la cabeza
@@ -945,7 +1596,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/migrana-manual-para-n
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388365027@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270121
 DTEND;VALUE=DATE:20270122
 SUMMARY:Sale a la venta: Reconexión
@@ -958,7 +1609,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/reconexion-9791388365
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788425374647@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270121
 DTEND;VALUE=DATE:20270122
 SUMMARY:Sale a la venta: Salud sistémica
@@ -971,7 +1622,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/salud-sistemica-97884
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331810@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: A sangre y fuego
@@ -984,7 +1635,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/a-sangre-y-fuego-9788
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084757@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Al micro y listo
@@ -997,7 +1648,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/al-micro-y-listo-9788
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408322221@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Austria 7
@@ -1008,8 +1659,34 @@ URL:https://davidportodiaz.com/recomendaciones/libros/austria-7-97884083222
  21/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9791388220210@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: Cinco maneras de volver a casa
+DESCRIPTION:Maiko Seo · Lunwerg Editores\nComprar en Amazon: https://www.a
+ mazon.es/dp/B0HPP3NCBB?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=
+ es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/cinco-mane
+ ras-de-volver-a-casa-9791388220210/
+URL:https://davidportodiaz.com/recomendaciones/libros/cinco-maneras-de-volv
+ er-a-casa-9791388220210/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788423441303@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: Crónica de un desafío al Estado
+DESCRIPTION:Javier Alberto Zaragoza Aguado · Deusto\nComprar en Amazon: ht
+ tps://www.amazon.es/s?k=9788423441303&tag=davidporto-21&language=es_ES\nFi
+ cha: https://davidportodiaz.com/recomendaciones/libros/cronica-de-un-desaf
+ io-al-estado-9788423441303/
+URL:https://davidportodiaz.com/recomendaciones/libros/cronica-de-un-desafio
+ -al-estado-9788423441303/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788408331353@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Del dolor al amor
@@ -1022,7 +1699,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/del-dolor-al-amor-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408330783@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Dioses del juego 3. The Keeper
@@ -1035,7 +1712,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/dioses-del-juego-3-th
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387920852@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Dragon Quest: The Adventure of Dai nº 12/25
@@ -1048,7 +1725,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/dragon-quest-the-adve
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408330806@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Edición especial. Dioses del juego 3. The Keeper
@@ -1060,8 +1737,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/edicion-especial-dios
  es-del-juego-3-the-keeper-9788408330806/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788411406529@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: Eerie nº 21/27
+DESCRIPTION:Varios Autores · Planeta Cómic\nComprar en Amazon: https://ww
+ w.amazon.es/s?k=9788411406529&tag=davidporto-21&language=es_ES\nFicha: htt
+ ps://davidportodiaz.com/recomendaciones/libros/eerie-no-21-27-978841140652
+ 9/
+URL:https://davidportodiaz.com/recomendaciones/libros/eerie-no-21-27-978841
+ 1406529/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788408331278@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: El caos de Beca 4. ¿Y ahora qué hago?
@@ -1073,8 +1763,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-caos-de-beca-4-y-a
  hora-que-hago-9788408331278/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788408330561@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: El dinero explicado a Blanca
+DESCRIPTION:Montse Cespedosa · Zenith\nComprar en Amazon: https://www.amaz
+ on.es/s?k=9788408330561&tag=davidporto-21&language=es_ES\nFicha: https://d
+ avidportodiaz.com/recomendaciones/libros/el-dinero-explicado-a-blanca-9788
+ 408330561/
+URL:https://davidportodiaz.com/recomendaciones/libros/el-dinero-explicado-a
+ -blanca-9788408330561/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788408331520@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: El enigmático míster Quin
@@ -1087,7 +1790,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-enigmatico-mister-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387714567@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: El hombre de Damasco
@@ -1100,7 +1803,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-hombre-de-damasco-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467085006@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: El honor de los espías
@@ -1112,8 +1815,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/el-honor-de-los-espia
  s-9788467085006/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9791388103544@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: Entrelazadas nº 02
+DESCRIPTION:Yuriko Hara · Planeta Cómic\nComprar en Amazon: https://www.a
+ mazon.es/s?k=9791388103544&tag=davidporto-21&language=es_ES\nFicha: https:
+ //davidportodiaz.com/recomendaciones/libros/entrelazadas-no-02-97913881035
+ 44/
+URL:https://davidportodiaz.com/recomendaciones/libros/entrelazadas-no-02-97
+ 91388103544/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788408330950@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Experto en carnes en 24 horas
@@ -1125,8 +1841,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/experto-en-carnes-en-
  24-horas-9788408330950/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9791388103759@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: Grand Blue Dreaming nº 17
+DESCRIPTION:Kenji Inoue\, Kimitake Yoshioka · Planeta Cómic\nComprar en A
+ mazon: https://www.amazon.es/s?k=9791388103759&tag=davidporto-21&language=
+ es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/grand-blue
+ -dreaming-no-17-9791388103759/
+URL:https://davidportodiaz.com/recomendaciones/libros/grand-blue-dreaming-n
+ o-17-9791388103759/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9791388103599@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Héroe Fugitivo nº 17
@@ -1139,7 +1868,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/heroe-fugitivo-no-17-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408329534@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Indonesia 7
@@ -1152,20 +1881,20 @@ URL:https://davidportodiaz.com/recomendaciones/libros/indonesia-7-978840832
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408319238@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Irlanda 7
 DESCRIPTION:Catherine Le Nevez\, Isabel Albiston\, Fionn Davenport\, Neil W
- ilson · Geoplaneta\nComprar en Amazon: https://www.amazon.es/s?k=97884083
- 19238&tag=davidporto-21&language=es_ES\nFicha: https://davidportodiaz.com/
- recomendaciones/libros/irlanda-7-9788408319238/
+ ilson · Geoplaneta\nComprar en Amazon: https://www.amazon.es/dp/840831923
+ X?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_ES\nFicha: https:/
+ /davidportodiaz.com/recomendaciones/libros/irlanda-7-9788408319238/
 URL:https://davidportodiaz.com/recomendaciones/libros/irlanda-7-97884083192
  38/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388220401@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: JapanEasy
@@ -1178,7 +1907,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/japaneasy-97913882204
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788413445793@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Keto mediterránea
@@ -1191,20 +1920,20 @@ URL:https://davidportodiaz.com/recomendaciones/libros/keto-mediterranea-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788449346187@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: La batalla por la vivienda
 DESCRIPTION:Michael Byrne · Ediciones Paidós\nComprar en Amazon: https://
- www.amazon.es/s?k=9788449346187&tag=davidporto-21&language=es_ES\nFicha: h
- ttps://davidportodiaz.com/recomendaciones/libros/la-batalla-por-la-viviend
- a-9788449346187/
+ www.amazon.es/dp/8449346185?tag=davidporto-21&linkCode=osi&th=1&psc=1&lang
+ uage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/la-ba
+ talla-por-la-vivienda-9788449346187/
 URL:https://davidportodiaz.com/recomendaciones/libros/la-batalla-por-la-viv
  ienda-9788449346187/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788427055933@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: La platera
@@ -1217,7 +1946,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-platera-9788427055
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388103735@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Llegando a ti nº 26
@@ -1229,8 +1958,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/llegando-a-ti-no-26-9
  791388103735/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9791388100963@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: Los gatos del Louvre nº 01
+DESCRIPTION:Taiyo Matsumoto · Planeta Cómic\nComprar en Amazon: https://w
+ ww.amazon.es/dp/B0H513F5Y4?tag=davidporto-21&linkCode=osi&th=1&psc=1&langu
+ age=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/los-ga
+ tos-del-louvre-no-01-9791388100963/
+URL:https://davidportodiaz.com/recomendaciones/libros/los-gatos-del-louvre-
+ no-01-9791388100963/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788467084894@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Los hijos del médico
@@ -1242,8 +1984,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-hijos-del-medico-
  9788467084894/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788408331506@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: Los misterios de Eversand 1. La doncella
+DESCRIPTION:Victor Dixen · Editorial Planeta\nComprar en Amazon: https://w
+ ww.amazon.es/dp/8408331507?tag=davidporto-21&linkCode=osi&th=1&psc=1&langu
+ age=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/los-mi
+ sterios-de-eversand-1-la-doncella-9788408331506/
+URL:https://davidportodiaz.com/recomendaciones/libros/los-misterios-de-ever
+ sand-1-la-doncella-9788408331506/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9791388103612@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: MAO nº 11
@@ -1254,8 +2009,22 @@ URL:https://davidportodiaz.com/recomendaciones/libros/mao-no-11-97913881036
  12/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788408329978@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: MOBS: La vida secreta de los monstruos de Minecraf
+ t. Cómic 1
+DESCRIPTION:Frigiel · Planeta Junior\nComprar en Amazon: https://www.amazo
+ n.es/s?k=9788408329978&tag=davidporto-21&language=es_ES\nFicha: https://da
+ vidportodiaz.com/recomendaciones/libros/mobs-la-vida-secreta-de-los-monstr
+ uos-de-minecraft-comic-1-9788408329978/
+URL:https://davidportodiaz.com/recomendaciones/libros/mobs-la-vida-secreta-
+ de-los-monstruos-de-minecraft-comic-1-9788408329978/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788434441330@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Matemagia
@@ -1267,7 +2036,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/matemagia-97884344413
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788467084580@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Mesa para uno
@@ -1280,7 +2049,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/mesa-para-uno-9788467
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387902001@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Mickey. Días de amor. Libro para colorear con cer
@@ -1294,7 +2063,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/mickey-dias-de-amor-l
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408330387@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Mientras pueda recordarte
@@ -1306,8 +2075,46 @@ URL:https://davidportodiaz.com/recomendaciones/libros/mientras-pueda-record
  arte-9788408330387/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9791388103780@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: Mirror Game nº 02
+DESCRIPTION:Sunny · Planeta Cómic\nComprar en Amazon: https://www.amazon.
+ es/s?k=9791388103780&tag=davidporto-21&language=es_ES\nFicha: https://davi
+ dportodiaz.com/recomendaciones/libros/mirror-game-no-02-9791388103780/
+URL:https://davidportodiaz.com/recomendaciones/libros/mirror-game-no-02-979
+ 1388103780/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9788423441327@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: Morir es gratis. Heredar\, un atraco
+DESCRIPTION:Iñaki Barredo · Deusto\nComprar en Amazon: https://www.amazon
+ .es/s?k=9788423441327&tag=davidporto-21&language=es_ES\nFicha: https://dav
+ idportodiaz.com/recomendaciones/libros/morir-es-gratis-heredar-un-atraco-9
+ 788423441327/
+URL:https://davidportodiaz.com/recomendaciones/libros/morir-es-gratis-hered
+ ar-un-atraco-9788423441327/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791388279652@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: Nadie se viste como quiere
+DESCRIPTION:Leticia García · Temas de Hoy\nComprar en Amazon: https://www
+ .amazon.es/s?k=9791388279652&tag=davidporto-21&language=es_ES\nFicha: http
+ s://davidportodiaz.com/recomendaciones/libros/nadie-se-viste-como-quiere-9
+ 791388279652/
+URL:https://davidportodiaz.com/recomendaciones/libros/nadie-se-viste-como-q
+ uiere-9791388279652/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788445023914@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Neuromante (Edición especial)
@@ -1320,7 +2127,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/neuromante-edicion-es
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788411005739@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Prostibulandia
@@ -1333,7 +2140,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/prostibulandia-978841
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788491999522@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Revoluciones. Una nueva historia
@@ -1346,34 +2153,34 @@ URL:https://davidportodiaz.com/recomendaciones/libros/revoluciones-una-nuev
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331742@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Richelieu y Olivares
 DESCRIPTION:John H. Elliot · Austral Editorial\nComprar en Amazon: https:/
- /www.amazon.es/s?k=9788408331742&tag=davidporto-21&language=es_ES\nFicha: 
- https://davidportodiaz.com/recomendaciones/libros/richelieu-y-olivares-978
- 8408331742/
+ /www.amazon.es/dp/8408331744?tag=davidporto-21&linkCode=osi&th=1&psc=1&lan
+ guage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/rich
+ elieu-y-olivares-9788408331742/
 URL:https://davidportodiaz.com/recomendaciones/libros/richelieu-y-olivares-
  9788408331742/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788445023105@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Seis grullas nº 00 La maldición radiante (Precue
  la)
 DESCRIPTION:Elizabeth Lim · Minotauro\nComprar en Amazon: https://www.amaz
- on.es/s?k=9788445023105&tag=davidporto-21&language=es_ES\nFicha: https://d
- avidportodiaz.com/recomendaciones/libros/seis-grullas-no-00-la-maldicion-r
- adiante-precuela-9788445023105/
+ on.es/dp/8445023101?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_
+ ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/seis-grullas-
+ no-00-la-maldicion-radiante-precuela-9788445023105/
 URL:https://davidportodiaz.com/recomendaciones/libros/seis-grullas-no-00-la
  -maldicion-radiante-precuela-9788445023105/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788408331087@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Six-step hacia ti
@@ -1386,7 +2193,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/six-step-hacia-ti-978
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9788434441316@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Un espejo lejano
@@ -1398,8 +2205,47 @@ URL:https://davidportodiaz.com/recomendaciones/libros/un-espejo-lejano-9788
  434441316/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788408331292@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: Ver de oídas
+DESCRIPTION:Carlos de Hita · Geoplaneta\nComprar en Amazon: https://www.am
+ azon.es/dp/8408331299?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=e
+ s_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/ver-de-oida
+ s-9788408331292/
+URL:https://davidportodiaz.com/recomendaciones/libros/ver-de-oidas-97884083
+ 31292/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791388103797@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: Wandance nº 08
+DESCRIPTION:Coffee · Planeta Cómic\nComprar en Amazon: https://www.amazon
+ .es/dp/B0HPPCC66B?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_ES
+ \nFicha: https://davidportodiaz.com/recomendaciones/libros/wandance-no-08-
+ 9791388103797/
+URL:https://davidportodiaz.com/recomendaciones/libros/wandance-no-08-979138
+ 8103797/
+END:VEVENT
+BEGIN:VEVENT
+UID:isbn-9791388279553@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: Wordle in crime: La palabra asesina del día
+DESCRIPTION:Cocoludic · Temas de Hoy\nComprar en Amazon: https://www.amazo
+ n.es/dp/B0HPPGYCWW?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_E
+ S\nFicha: https://davidportodiaz.com/recomendaciones/libros/wordle-in-crim
+ e-la-palabra-asesina-del-dia-9791388279553/
+URL:https://davidportodiaz.com/recomendaciones/libros/wordle-in-crime-la-pa
+ labra-asesina-del-dia-9791388279553/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788408331162@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: Zodiakids 3. El Gran Torneo de Zooikos
@@ -1411,8 +2257,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/zodiakids-3-el-gran-t
  orneo-de-zooikos-9788408331162/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788408323006@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: ¿Dónde está la caca?
+DESCRIPTION:Varios Autores · Planeta Junior\nComprar en Amazon: https://ww
+ w.amazon.es/dp/8408323008?tag=davidporto-21&linkCode=osi&th=1&psc=1&langua
+ ge=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/donde-e
+ sta-la-caca-9788408323006/
+URL:https://davidportodiaz.com/recomendaciones/libros/donde-esta-la-caca-97
+ 88408323006/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788449346262@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:Sale a la venta: ¿Para qué aprender?
@@ -1424,8 +2283,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/para-que-aprender-978
  8449346262/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788448050108@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Sale a la venta: ¿Y si desaparece Cupido?
+DESCRIPTION:Sion Serra Lopes · Libros Cúpula\nComprar en Amazon: https://
+ www.amazon.es/dp/844805010X?tag=davidporto-21&linkCode=osi&th=1&psc=1&lang
+ uage=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/y-si-
+ desaparece-cupido-9788448050108/
+URL:https://davidportodiaz.com/recomendaciones/libros/y-si-desaparece-cupid
+ o-9788448050108/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788410466784@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270129
 SUMMARY:Sale a la venta: La desgracia inevitable (Carl el Mazmorrero 7)
@@ -1438,7 +2310,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/la-desgracia-inevitab
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388147302@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270129
 SUMMARY:Sale a la venta: Los tres mundos (Serie Julio César 3)
@@ -1450,8 +2322,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-tres-mundos-serie
  -julio-cesar-3-9791388147302/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9791388038440@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270128
+DTEND;VALUE=DATE:20270129
+SUMMARY:Sale a la venta: Minikit para dejar de sobrepensar
+DESCRIPTION:Marina Muñoz · Vergara\nComprar en Amazon: https://www.amazon
+ .es/dp/B0HJZVKKXM?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_ES
+ \nFicha: https://davidportodiaz.com/recomendaciones/libros/minikit-para-de
+ jar-de-sobrepensar-9791388038440/
+URL:https://davidportodiaz.com/recomendaciones/libros/minikit-para-dejar-de
+ -sobrepensar-9791388038440/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9791388222856@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270129
 SUMMARY:Sale a la venta: Perdiendo el control (edición especial) (Windy Ci
@@ -1465,7 +2350,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/perdiendo-el-control-
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388417757@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270129
 SUMMARY:Sale a la venta: Rozando el cielo (edición especial) (Windy City 1
@@ -1479,7 +2364,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/rozando-el-cielo-edic
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388222207@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270129
 SUMMARY:Sale a la venta: Villanos 2 - Hunt the villain
@@ -1491,8 +2376,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/villanos-2-hunt-the-v
  illain-9791388222207/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9791388139369@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270204
+DTEND;VALUE=DATE:20270205
+SUMMARY:Sale a la venta: Los ricos siempre ganan
+DESCRIPTION:Iñaki Arcocha Torres · Roca Editorial\nComprar en Amazon: htt
+ ps://www.amazon.es/dp/B0HNWDYSZG?tag=davidporto-21&linkCode=osi&th=1&psc=1
+ &language=es_ES\nFicha: https://davidportodiaz.com/recomendaciones/libros/
+ los-ricos-siempre-ganan-9791388139369/
+URL:https://davidportodiaz.com/recomendaciones/libros/los-ricos-siempre-gan
+ an-9791388139369/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9791388163661@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270204
 DTEND;VALUE=DATE:20270205
 SUMMARY:Sale a la venta: Naranja con canela
@@ -1505,7 +2403,7 @@ URL:https://davidportodiaz.com/recomendaciones/libros/naranja-con-canela-97
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791387949778@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270211
 DTEND;VALUE=DATE:20270212
 SUMMARY:Sale a la venta: Los cazamisterios 12 - El caso de la misión en la
@@ -1518,8 +2416,21 @@ URL:https://davidportodiaz.com/recomendaciones/libros/los-cazamisterios-12-
  el-caso-de-la-mision-en-la-luna-9791387949778/
 END:VEVENT
 BEGIN:VEVENT
+UID:isbn-9788427258280@davidportodiaz.com
+DTSTAMP:20261104T000000Z
+DTSTART;VALUE=DATE:20270218
+DTEND;VALUE=DATE:20270219
+SUMMARY:Sale a la venta: El ocaso del rey (Dioses y monstruos 5)
+DESCRIPTION:Amber V. Nicole · Molino\nComprar en Amazon: https://www.amazo
+ n.es/dp/8427258283?tag=davidporto-21&linkCode=osi&th=1&psc=1&language=es_E
+ S\nFicha: https://davidportodiaz.com/recomendaciones/libros/el-ocaso-del-r
+ ey-dioses-y-monstruos-5-9788427258280/
+URL:https://davidportodiaz.com/recomendaciones/libros/el-ocaso-del-rey-dios
+ es-y-monstruos-5-9788427258280/
+END:VEVENT
+BEGIN:VEVENT
 UID:isbn-9788466683449@davidportodiaz.com
-DTSTAMP:20261103T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270225
 DTEND;VALUE=DATE:20270226
 SUMMARY:Sale a la venta: A mil por hora

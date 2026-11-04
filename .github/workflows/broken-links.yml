@@ -6,6 +6,7 @@ on:
       - '**/*.html'
       - 'scripts/recheck-link-timeouts.py'
       - 'tests/test-link-timeout-recheck.py'
+      - 'tests/test-link-check-budget.py'
       - 'scripts/select-link-check-inputs.py'
       - 'tests/test-link-input-selection.py'
       - '.lycheeignore'
@@ -16,6 +17,7 @@ on:
       - '**/*.html'
       - 'scripts/recheck-link-timeouts.py'
       - 'tests/test-link-timeout-recheck.py'
+      - 'tests/test-link-check-budget.py'
       - 'scripts/select-link-check-inputs.py'
       - 'tests/test-link-input-selection.py'
       - '.lycheeignore'
@@ -64,6 +66,13 @@ jobs:
       # happening at all; accepting 429 covers the rest, because a rate-limit
       # answer still proves the host resolved and served this path. Broken links
       # (404/410/DNS) are untouched and still fail the job.
+      #
+      # Retry budget (2026-11-04): a dead host costs --timeout x (1 + retries).
+      # With 5 retries each of the ~32 weekly timeouts burned ~4.5 min of a
+      # worker, pushing the full scan to 36-40+ min against the 40 min job
+      # limit (PR scans got cancelled). Timeouts/5xx/transport errors are
+      # rechecked with curl in the next step, which still demands a 2xx, so
+      # 2 retries here lose no coverage. tests/test-link-check-budget.py.
       - name: Check links with Lychee
         id: lychee
         continue-on-error: true
@@ -83,7 +92,7 @@ jobs:
             --root-dir "$(pwd)"
             --index-files 'index.html,.'
             --cache-exclude-status '429,500..=599'
-            --max-retries 5
+            --max-retries 2
             --retry-wait-time 4
             --timeout 45
             --host-concurrency 1
