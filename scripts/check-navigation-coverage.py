@@ -321,8 +321,11 @@ def main() -> int:
             errors.append(f"header item is not primary: {ref}")
 
     # Guard against reintroducing the discarded project name into canonical UI data.
+    # Catalogue books, authors and publishers are third-party names ("Andrés Trapiello"), not project UI.
+    own = {**registry_raw, "entries": [item for item in raw_entries
+                                       if not str(item.get("id", "")).startswith(("reading-", "editorial-"))]}
     serialized = (
-        json.dumps(registry_raw, ensure_ascii=False) + "\n" +
+        json.dumps(own, ensure_ascii=False) + "\n" +
         json.dumps(nav, ensure_ascii=False)
     ).casefold()
     if "piel" in serialized:
