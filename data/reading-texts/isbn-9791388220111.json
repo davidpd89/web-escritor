@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388220111",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Atlas de la Biblia ilustrado se dirige a lectores interesados en los relatos bíblicos, sus personajes y sus conexiones con el arte y la cultura popular. Su presentación ilustrada y accesible lo diferencia de una lectura centrada exclusivamente en el estudio doctrinal o en el texto religioso original.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Atlas de la Biblia ilustrado presenta contenidos del Antiguo y el Nuevo Testamento mediante un atlas ilustrado de divulgación cultural. Sophie Caux-Lourié y Anne-Laure Varoutsikos relacionan los personajes y relatos bíblicos con referencias artísticas y culturales, mediante un tratamiento accesible que incorpora el entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Atlas de la Biblia ilustrado se publica en tapa dura, con encuadernación en cartoné y sin sobrecubierta. Sus 160 páginas forman un volumen físico pensado para recorrer sus ilustraciones y referencias culturales en papel, tanto en una lectura continuada como en consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas de la Biblia ilustrado y Atlas de la mitología ilustrado pertenecen a una misma propuesta de atlas culturales ilustrados. El primero trata los relatos bíblicos y sus vínculos con el arte y la cultura popular; el segundo se centra en la mitología. Anne-Laure Varoutsikos participa en ambos, acompañada respectivamente por Sophie Caux-Lourié y Aude Goeminne.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220104"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ec02a95f0d0e93e4",
+  "origen": "chatgpt-web"
+}

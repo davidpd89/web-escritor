@@ -4,35 +4,47 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores adultos de novela histórica interesados en la memoria, el amor y las consecuencias de la guerra en el siglo XX. No responde a quien busque una trama ajena al trauma histórico: aparecen la represión estalinista, el Holodomor y el Holocausto.",
+      "texto": "La historia de Romana y Uliana (Amadoca 1), de Sofía Andrujóvich, está dirigida a adultos que buscan novela histórica sobre memoria, relaciones afectivas y conflictos del siglo XX. Su tratamiento de la guerra, la represión y el trauma encaja menos con quienes prefieren una historia romántica desligada de acontecimientos políticos y colectivos.",
       "evidencias": [
+        "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "encaje_documentado",
-      "texto": "La historia de Romana y Uliana (Amadoca 1) plantea una novela histórica donde una identidad perdida obliga a reconstruir una vida. El relato parte de un soldado con amnesia en Kiev y conecta las relaciones personales con episodios de la historia de Ucrania. Es el primer tomo del ciclo Amadoca.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "La historia de Romana y Uliana (Amadoca 1) está disponible en tapa blanda con solapas. Sus 544 páginas componen un volumen largo para leer en papel, y las solapas pueden utilizarse como señalador para retomar la lectura.",
+      "texto": "La historia de Romana y Uliana (Amadoca 1) está disponible en tapa blanda y Kindle. La edición de Salamandra tiene 544 páginas y solapas, por lo que el formato digital evita transportar un volumen extenso; el impreso permite conservarlo físicamente y leerlo sin dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La historia de Romana y Uliana (Amadoca 1) comparte con La memoria velada el interés por los recuerdos y los secretos del pasado, aunque Sofía Andrujóvich vincula la memoria a la historia de Ucrania y Luis García Jambrina a la Barcelona literaria. El tiempo que pasa también mira hacia el pasado, pero Manuel Medina parte de recuerdos infantiles de la posguerra española.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040580",
+        "isbn-9788467084986"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "encaje_documentado: copia 8 palabras seguidas de la sinopsis",
+    "faltan módulos: encaje_documentado"
+  ],
   "version": 3,
-  "fuente_hash": "7198d0a822d2ba6a",
+  "fuente_hash": "a3114a5c271b16fa",
   "origen": "chatgpt-web"
 }

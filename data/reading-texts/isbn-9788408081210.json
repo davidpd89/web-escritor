@@ -1,0 +1,59 @@
+{
+  "id": "isbn-9788408081210",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tercer viaje al Reino de la Fantasía está dirigido a lectores de 9 a 12 años interesados en aventuras fantásticas, criaturas mágicas y misiones de rescate. Los peligros que afrontan sus personajes y sus 390 páginas lo alejan de quienes prefieren relatos breves sin conflictos ni amenazas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Tercer viaje al Reino de la Fantasía tiene una edad recomendada de 9 a 12 años y una extensión de 390 páginas. Se presenta en tapa dura, con encuadernación en cartoné, e incorpora 8 olores que añaden una experiencia sensorial a la lectura de aventuras fantásticas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tercer viaje al Reino de la Fantasía está disponible en tapa dura sin sobrecubierta, con 390 páginas. Esta edición física permite experimentar los 8 olores que acompañan el relato, una característica vinculada al ejemplar impreso y que también puede tenerse en cuenta al elegirlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tercer viaje al Reino de la Fantasía y El gran libro del Reino de la Fantasía comparten autor, escenario fantástico y la presencia de Floridiana. En el primero, Geronimo Stilton participa en una misión para liberarla; en el segundo, regresa y encuentra a una reina que se comporta como enemiga. Regreso al Reino de la Fantasía, también de Geronimo Stilton, incorpora como rasgo distintivo el perfume de chocolate.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408132004",
+        "isbn-9788408074496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e156f6729841a8e",
+  "origen": "chatgpt-web"
+}

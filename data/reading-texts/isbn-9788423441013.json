@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788423441013",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El estado del Estado se dirige a lectores interesados en la política española, el funcionamiento democrático y los desafíos de la convivencia. Su enfoque de análisis institucional y actualidad lo aleja de quienes buscan una trama de ficción o una narración centrada en personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El estado del Estado propone un ensayo de reflexión política sobre la democracia y la situación de España. Enrique López López examina los logros del país, sus problemas actuales y las condiciones que afectan a la libertad, la convivencia y la cohesión social, en un contexto de polarización e incertidumbre.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estado del Estado está disponible en tapa blanda y Kindle. La edición impresa reúne 400 páginas en rústica con solapas, una opción para consultar y releer pasajes en papel; Kindle permite acceder al mismo libro desde un dispositivo electrónico sin cargar con el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El estado del Estado y España. 50 años después examinan la realidad española desde una perspectiva política y social. Enrique López López se concentra en los retos de la democracia y la convivencia; William Chislett recorre la transformación del país desde el franquismo. Nada es lo que era, de Florentino Portero, amplía el foco hacia los cambios del orden mundial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467085068",
+        "isbn-9788467083729"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e419bbde326ab32",
+  "origen": "chatgpt-web"
+}

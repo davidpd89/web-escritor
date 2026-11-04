@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791387962272",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tomogui: que comience la caza 1 (Seinen) está dirigido a lectores adultos de terror y misterio interesados en conflictos escolares violentos. La historia incorpora un suicidio, una muerte por ahorcamiento y una trama de venganza entre compañeros, por lo que no encaja con quienes buscan un relato escolar sin violencia ni situaciones perturbadoras.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Tomogui: que comience la caza 1 (Seinen) combina terror y thriller en una historia de sospechas dentro de un aula. Un plan contra una profesora se complica cuando aparece muerto uno de los alumnos implicados, lo que introduce la posibilidad de una manipulación oculta. El conflicto enfrenta a estudiantes que comparten un espacio escolar convertido en escenario de amenaza.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tomogui: que comience la caza 1 (Seinen) ofrece tapa blanda y Kindle. La edición física de Distrito Manga tiene 192 páginas y sobrecubierta, mientras que Kindle permite llevar la lectura en un dispositivo compatible sin transportar el volumen. La tapa blanda conserva el objeto impreso y su cubierta para quienes prefieren leer en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tomogui: que comience la caza 1 (Seinen) comparte con Carrie (edición serie), de Stephen King, el acoso y la violencia vinculados al entorno escolar. En Carrie (edición serie), el conflicto presentado se centra en una joven acosada; en Tomogui: que comience la caza 1 (Seinen), una muerte desencadena sospechas entre alumnos involucrados en una venganza.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396806"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4cd4885d2c089c67",
+  "origen": "chatgpt-web"
+}
