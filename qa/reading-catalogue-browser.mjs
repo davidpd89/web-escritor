@@ -148,9 +148,9 @@ try {
   await page.locator('details[data-facet-group="genero"]').evaluate(d => { d.open = true; }); await page.locator('details[data-facet-group="temporada"]').evaluate(d => { d.open = true; }); await page.locator('input[data-facet="genero"][value="romantasy"]').check();
   await page.locator('input[data-facet="temporada"][value="halloween"]').check();
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
-  const href = await page.locator('[data-catalogue-book]:visible h3 a').getAttribute('href');
+  const href = await page.locator('[data-catalogue-book]:visible .catalogue-card__ficha').getAttribute('href');
   await page.locator('input[data-facet="genero"][value="romantasy"]').uncheck(); await page.locator('input[data-facet="genero"][value="fantasia"]').check();
-  assert.equal(await page.locator('[data-catalogue-book]:visible h3 a').getAttribute('href'), href);
+  assert.equal(await page.locator('[data-catalogue-book]:visible .catalogue-card__ficha').getAttribute('href'), href);
   await page.locator('[data-filter="q"]').fill('TITULO');
   await page.locator('[data-filter="q"]').press('Enter');
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
@@ -186,7 +186,7 @@ try {
   await nojs.route('**/recomendaciones/', route => route.fulfill({ contentType: 'text/html; charset=utf-8', body: fixture.hub }));
   await staticPage.reload();
   assert.equal(await staticPage.locator('[data-catalogue-book]').count(), 2);
-  assert.equal(await staticPage.locator('[data-catalogue-book] h3 a').first().getAttribute('href'), href);
+  assert.equal(await staticPage.locator('[data-catalogue-book] .catalogue-card__ficha').first().getAttribute('href'), href);
   await nojs.close();
   console.log('PASS catálogo navegador: 5 tamaños, vacío real, filtros combinados, URL única, teclado, novedades, fichas y sin JS.');
 } finally {
