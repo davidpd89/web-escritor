@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Barbacoa está dirigido a lectores adultos interesados en preparar recetas a la parrilla, tanto con carbón como con gas, y mejorar el control de las brasas y la temperatura. No encaja con quienes buscan exclusivamente cocina sin barbacoa, porque sus preparaciones y consejos giran alrededor de esta técnica.",
+      "texto": "Barbacoa está dirigido a adultos que quieren cocinar a la parrilla y ampliar su repertorio más allá de las preparaciones habituales de carne. Jamie Oliver aborda tanto el uso de barbacoas de carbón y gas como la preparación de verduras, panes y otros platos. No está planteado para quien busque exclusivamente recetas de cocina sin parrilla.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,23 +15,37 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Barbacoa combina 90 recetas con consejos prácticos para preparar brasas, regular la temperatura y marinar alimentos en parrillas de carbón o gas. Las preparaciones incluyen brochetas, verduras, ensaladas, hamburguesas, panes planos y tacos, y están planteadas para cocinar a la parrilla durante distintas estaciones del año.",
+      "texto": "Barbacoa reúne 90 recetas para preparar alimentos a la parrilla durante distintas épocas del año. Jamie Oliver incluye elaboraciones como brochetas, ensaladas, hamburguesas, tacos y panes planos, además de consejos para marinar, preparar las brasas y regular el calor. Sus instrucciones contemplan barbacoas de carbón y gas, por lo que sirve tanto para consultar técnicas como para elegir platos concretos.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Barbacoa se presenta en tapa dura y reúne 256 páginas para consultar recetas y técnicas de cocina en papel. La encuadernación rígida permite conservar el recetario como libro de consulta y utilizarlo durante la preparación de los platos sin depender de una pantalla.",
+      "texto": "Barbacoa se ofrece en tapa dura, en una edición de Grijalbo de 256 páginas. El volumen físico permite consultar sus 90 recetas y las indicaciones sobre brasas, marinados y temperaturas mientras se prepara la comida. La cubierta rígida también facilita conservar el recetario para consultas posteriores o entregarlo como regalo.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
-        "categorias",
+        "edicion",
+        "editorial",
+        "numero_paginas",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Barbacoa y 20 minutos ¡y listo!, ambos de Jamie Oliver, se relacionan por su enfoque práctico de la cocina. Barbacoa se concentra en recetas a la parrilla y técnicas para controlar el fuego, mientras que 20 minutos ¡y listo! plantea la preparación de comida desde la necesidad de ahorrar tiempo. También puede compararse con Al micro y listo, de Dani García, aunque este último sitúa el microondas en el centro de su propuesta culinaria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788467084757"
       ]
     }
   ],

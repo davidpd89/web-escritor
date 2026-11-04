@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Me llamo Goa 12 - ¡Eres única, Goa! está recomendado a partir de 9 años y trata la amistad, los primeros amores y los cambios de la adolescencia. Sus situaciones familiares y escolares se relacionan con la búsqueda de identidad de Goa, que tiene trece años. Se aleja de las lecturas centradas en aventuras fantásticas o conflictos ajenos a la vida cotidiana.",
+      "texto": "Me llamo Goa 12 - ¡Eres única, Goa! se dirige a lectores a partir de 9 años interesados en la amistad, los cambios de la adolescencia y las relaciones familiares. Míriam Tirado aborda las dudas de una protagonista de trece años ante el instituto y los primeros amores; se aleja de las historias centradas en aventuras fantásticas.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,34 +15,42 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Me llamo Goa 12 - ¡Eres única, Goa! está indicado para lectores a partir de 9 años. Tiene 248 páginas y se publica en castellano, en tapa dura, bajo el sello Ediciones B. El título lo identifica como el n.º 12 y su historia aborda experiencias adolescentes relacionadas con la amistad, la familia y la vida escolar.",
+      "texto": "Me llamo Goa 12 - ¡Eres única, Goa! está recomendado a partir de 9 años y tiene 248 páginas. La edición de Ediciones B está publicada en castellano y encuadernada en tapa dura. Aunque su protagonista tiene trece años, la edad de lectura indicada comienza antes de esa etapa.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "numero_paginas",
-        "idioma",
-        "edicion",
         "editorial",
+        "edicion",
+        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Me llamo Goa 12 - ¡Eres única, Goa! está disponible en tapa dura y Kindle. La edición impresa de Ediciones B tiene 248 páginas y una cubierta rígida que facilita conservar el libro entre otras entregas de la serie. Kindle permite leerlo en un dispositivo compatible sin llevar el ejemplar físico, una alternativa para desplazamientos y lectura fuera de casa.",
+      "texto": "La tapa dura de Me llamo Goa 12 - ¡Eres única, Goa! reúne sus 248 páginas en un volumen físico que puede conservarse y regalarse. Kindle permite leer la misma obra en un dispositivo compatible, sin transportar el ejemplar impreso. La elección depende de si se prefiere tener el libro en papel o llevarlo en formato digital.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
         "numero_paginas",
-        "sinopsis_editorial"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rita Bumbum 4 - ¡Rita Bumbum cumple años! comparte autoría con Me llamo Goa 12 - ¡Eres única, Goa!: ambos son de Míriam Tirado, pero el primero gira alrededor de un cumpleaños y el segundo aborda la adolescencia. Amigos de verdad, de Iris Pérez-Bonaventura, también trata la amistad, aunque pone el foco en su importancia para la construcción de la personalidad infantil y adolescente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994402",
+        "isbn-9791387994532"
       ]
     }
   ],
-  "descartados": [
-    "lecturas_afines: más de cuatro frases",
-    "faltan módulos: lecturas_afines"
-  ],
+  "descartados": [],
   "version": 3,
   "fuente_hash": "643698980308af76",
   "origen": "chatgpt-web"

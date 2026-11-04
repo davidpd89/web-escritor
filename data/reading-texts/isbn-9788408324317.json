@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408324317",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Zodiac Academy 1. El despertar encaja con lectores de fantasía juvenil que buscan romance, herencias inesperadas y protagonistas enfrentadas a un origen desconocido. La historia de Darcy y Tory Vega parte de una vida de precariedad y un descubrimiento que altera su identidad; no responde a quien prefiera una novela realista sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Zodiac Academy 1. El despertar combina fantasía y romance alrededor de dos hermanas que descubren su condición de herederas. Darcy y Tory Vega proceden del mundo mortal y conocen su vínculo con otra realidad cuando interviene un profesor desconocido. El título lo identifica como el n.º 1, y esta entrega de Caroline Peckham y Susanne Valenti tiene 480 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Zodiac Academy 1. El despertar está disponible en Tapa blanda y Kindle. La edición física de Crossbooks reúne sus 480 páginas en rústica con solapas, apropiada para conservar en la estantería o regalar. Kindle permite llevar la misma lectura en un dispositivo electrónico o en el móvil sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Zodiac Academy 1. El despertar y Alas de escarcha y oro: El canto del cisne comparten una fantasía construida alrededor de capacidades u orígenes que sus protagonistas desconocen u ocultan. En la novela de Caroline Peckham y Susanne Valenti, Darcy y Tory Vega descubren una herencia; en la de Marta Morillo, Eira mantiene escondidos sus dones. Donde duermen las sombras incorpora también romance fantástico, pero plantea un amor entre dimensiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9788427055605"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b78df62c65c244f0",
+  "origen": "chatgpt-web"
+}
