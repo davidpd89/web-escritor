@@ -276,7 +276,11 @@ for (const viewport of viewports) {
   check(state.emptyText.includes('Solicitar presentación'), 'eventos: empty state lacks presentation action');
   check(state.events.length === 2, `eventos: expected 2 Event schemas, got ${state.events.length}`);
   check(state.events.every((e) => e.eventStatus === 'https://schema.org/EventScheduled'), 'eventos: historical scheduled events must retain EventScheduled');
-  check(state.events.every((e) => e.offers?.price === '0' && e.offers?.priceCurrency === 'EUR' && !e.offers?.url), 'eventos: free offers must not invent ticket URLs');
+  const today = new Date().toISOString().slice(0, 10);
+  // Past events drop offers (Search Console flags tickets for finished events); upcoming free events keep a 0 EUR Offer.
+  check(state.events.every((e) => (String(e.endDate || e.startDate || '').slice(0, 10) < today
+    ? e.offers === undefined && e.isAccessibleForFree === true
+    : e.offers?.price === '0' && e.offers?.priceCurrency === 'EUR' && !e.offers?.url)), 'eventos: free offers must not invent ticket URLs nor survive the event date');
   check(state.aranjuezImage === 'https://davidportodiaz.com/assets/feria-aranjuez-2026-david-porto-diaz-colocando-samuel.webp', 'eventos: Aranjuez documentary image missing or replaced by a generic asset');
   check(state.aranjuezOrganizerUrl === 'https://www.aranjuez.es/eres-autor-libreria-o-editorial-inscribete-en-la-feria-del-libro-de-aranjuez-2026/', 'eventos: Aranjuez organizer URL is not the official municipal source');
   await page.locator('#proximos').screenshot({ path: path.join(OUT, 'eventos-empty-1440.png') });
