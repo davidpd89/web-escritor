@@ -1252,6 +1252,7 @@ def render_map(original, books, authors=(), publishers=()):
     if not books:
         return original
     links = ''.join(f'<li><a href="{url(b)}">{esc(b["titulo"])} — {esc(", ".join(b["autores"]))}</a></li>' for b in books)
+    links = ''.join(f'<li><a href="{catalogue_page_url(n)}">Catálogo: página {n}</a></li>' for n in range(2, math.ceil(len(books) / CATALOGUE_PAGE_SIZE) + 1)) + links
     author_links = ''.join(f'<li><a href="{author_url(a)}">{esc(a["nombre"])}</a></li>' for a in authors if any(a['nombre'] in b['autores'] for b in books))
     block = start + '<section class="directory-section"><h2>Libros recomendados</h2><p><a href="/recomendaciones/">Explorar el catálogo de lectura</a> · <a href="/recomendaciones/autores/">Autores</a> · <a href="/recomendaciones/editoriales/">Editoriales del catálogo</a></p><details class="directory-reading-books"><summary>Ver las fichas de lectura</summary><ul class="directory-list">' + links + '</ul></details></section>' + end + '\n'
     if author_links:

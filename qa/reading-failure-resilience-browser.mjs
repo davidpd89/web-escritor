@@ -8,11 +8,12 @@ const origin=(process.env.QA_BASE_URL||'http://127.0.0.1:4175').replace(/\/$/,''
 const out=process.env.QA_ARTIFACT_DIR||'.ci/reading-resilience';
 const catalogue=JSON.parse(await fs.readFile('data/reading-catalogue.json','utf8'));
 const books=catalogue.libros.filter(b=>b.estado==='publicado');
-const selected=books.find(b=>b.isbn13);
+const staticIds=new Set([...((await fs.readFile('recomendaciones/index.html','utf8')).matchAll(/data-book-id="([^"]+)"/g))].map(m=>m[1]));
+const selected=books.find(b=>b.isbn13&&staticIds.has(b.id));
 assert(selected,'The real catalogue must contain an ISBN to exercise search.');
 const sha=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
 await fs.mkdir(out,{recursive:true});
-const browser=await chromium.launch({headless:true});
+const browser=await chromium.launch({headless:true,...(process.env.QA_CHROMIUM_EXECUTABLE_PATH?{executablePath:process.env.QA_CHROMIUM_EXECUTABLE_PATH}:{})});
 const results=[];
 const visible=page=>page.locator('[data-catalogue-book]:visible').evaluateAll(es=>es.map(e=>e.dataset.bookId));
 // En móvil (≤900 px) los filtros se pliegan tras «Filtros» (#1004): abrirlos como haría el lector.
@@ -53,15 +54,16 @@ async function runCase(width,mode){
     }
     const response=await page.goto(origin+'/recomendaciones/?utm_source=resilience-test',{waitUntil:'domcontentloaded'});
     assert.equal(response.status(),200,'Local catalogue response');
-    assert.equal(await page.locator('[data-catalogue-book]').count(),books.length,'Use the complete real catalogue');
     if(mode==='script-unavailable'){
       await page.waitForLoadState('networkidle');
       assert(intercepted>0,'The intended script failure must actually be injected');
-      assert.equal((await visible(page)).length,books.length,'Every static card remains available when JS delivery fails');
+      assert.equal((await visible(page)).length,staticIds.size,'Every card in the static page remains available when JS delivery fails');
+      assert(await page.locator('[data-catalogue-static-pagination]').isVisible(),'Static continuation stays available');
       assert(await page.locator('[data-catalogue-filters] fieldset').evaluate(n=>n.disabled),'Fallback fieldset must declare disabled');
       assert(await page.locator('[data-filter="q"]').isDisabled(),'Unavailable search must not pretend to work');
     }else{
       await page.waitForFunction(()=>document.querySelector('[data-catalogue-filters] fieldset')?.disabled===false);
+      assert.equal(await page.locator('[data-catalogue-book]').count(),books.length,'Enhanced search uses the complete real catalogue');
       await page.waitForFunction(()=>document.querySelector('[data-filter="q"]'));
       // The request remains pending until the user has changed both controls.
       await page.locator('[data-filter="q"]').fill(selected.isbn13);

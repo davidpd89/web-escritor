@@ -10,7 +10,7 @@ Estado: **OWNERSHIP_VERIFIED · SITE_AUDIT_BASELINE_REVIEWED · SCHEMA_BUGS_FIXE
 dominios de referencia y keywords, y preparado correcciones de tamaño del HTML,
 schema y entidades importadas. El [informe actualizado](../observatorio/ahrefs-2026-11-04.md)
 detalla evidencia y límites: quedan publicación/nuevo rastreo, historial Lost
-no disponible y la evaluación independiente de menciones en asistentes. Las
+no disponible y Brand Radar bloqueado por el plan (informe de marca configurado; métricas AI sin acceso). Las
 notas de septiembre siguientes son históricas, no el estado vigente.
 
 Corrección sobre el estado anterior (`OWNERSHIP_VERIFICATION_PENDING_DEPLOY`, que quedó desactualizado sin que nadie lo revisara después del deploy): entrando en vivo a `app.ahrefs.com`, el proyecto **"David Porto Díaz · *.davidportodiaz.com/*"** ya está verificado y con datos reales — Health Score 100, 79 URLs rastreadas en el último crawl (211 en un crawl más amplio anterior), 0 errores internos, Domain Rating 2, 355 dominios de referencia.

@@ -7,6 +7,7 @@ const browser=await chromium.launch({headless:true});
 const snapshot=page=>page.evaluate(()=>[...document.querySelectorAll('[data-catalogue-book]')].filter(c=>!c.hidden).map(c=>({id:c.dataset.bookId,cover:c.querySelector('img')?.getAttribute('src')||''})));
 try {
   const context=await browser.newContext();
+  await context.addInitScript(()=>localStorage.setItem('nl-popup-ts',String(Date.now())));
   const first=await context.newPage();
   await first.goto(BASE+route,{waitUntil:'domcontentloaded'});
   await first.waitForFunction(()=>document.querySelector('[data-catalogue-pagination] button:not([disabled])'));

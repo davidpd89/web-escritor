@@ -8,7 +8,7 @@ const base = process.env.RECOMMENDATIONS_BASE_URL || 'http://127.0.0.1:4173';
 await fs.mkdir('.ci/reading-commerce', { recursive: true });
 execFileSync(process.env.PYTHON || 'python', ['tests/test-reading-catalogue.py', '--browser-fixture', '.ci/reading-commerce/fixture.json']);
 const fixture = JSON.parse(await fs.readFile('.ci/reading-commerce/fixture.json', 'utf8'));
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? {executablePath:process.env.QA_CHROMIUM_EXECUTABLE_PATH} : {}) });
 const now = new Date('2026-10-20T16:00:00Z');
 const dated = { actualizado_en: '2026-10-20T15:00:00Z', caduca_en: '2026-10-21T15:00:00Z' };
 const offer = (id, formato, price, extra = {}) => ({ ...dated, libro_id: id, formato, precio_centimos: price, moneda: 'EUR', tipo: 'compra', url: 'https://www.amazon.es/dp/B000000001?tag=contrato-21', ...extra });
@@ -80,7 +80,7 @@ try {
   await sourceContext.close();
   const monthContext = await browser.newContext();
   const monthPage = await monthContext.newPage();
-  await monthPage.route('**/recomendaciones/', route => route.fulfill({ contentType: 'text/html', body: fixture.hub.replace('data-published="1990-01-01" data-published-month=""', 'data-published="" data-published-month="1990-06"') }));
+  await monthPage.route('**/recomendaciones/', route => route.fulfill({ contentType: 'text/html', body: fixture.hub.replace('data-published="1990-01-01"', 'data-published-month="1990-06"') }));
   await monthPage.route('**/assets/reading-market.json', route => route.fulfill({ json: { schema_version: 1, offers: [], ratings: [] } }));
   await monthPage.goto(`${base}/recomendaciones/`);
   await monthPage.locator('.catalogue-more-filters summary').click();
