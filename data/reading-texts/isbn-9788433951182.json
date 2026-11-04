@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los perplejos se dirige a lectores de narrativa contemporánea interesados en obras que cruzan novela, diario de viaje, ensayo y crónica. No responde a quien busque un relato centrado únicamente en la acción: aquí pesan las preguntas sobre religión, filosofía, memoria y fronteras.",
+      "texto": "Los perplejos se dirige a lectores interesados en la filosofía, la religión y los viajes como formas de cuestionar las certezas personales. Cynthia Rimsky combina la búsqueda intelectual con desplazamientos por distintos territorios europeos. No sigue el esquema de una novela de aventuras con itinerario fijo y resolución de un único conflicto.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Los perplejos combina la indagación filosófica con un recorrido geográfico que parte de Córdoba y se desvía ante las dificultades para atravesar fronteras. La búsqueda vinculada a Maimónides entrelaza historia religiosa, lecturas y encuentros contemporáneos, mientras el viaje modifica las preguntas de la narradora.",
+      "texto": "Los perplejos cruza novela, diario de viaje, ensayo y crónica para explorar las relaciones entre pensamiento, creencias y fronteras. La lectura de Maimónides impulsa una investigación que lleva a la narradora a recorrer distintos lugares y reconsiderar sus propias preguntas. Los cambios de ruta, los recuerdos y los encuentros desplazan el centro del relato desde la búsqueda histórica hacia la incertidumbre contemporánea.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial"
@@ -21,20 +22,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los perplejos está disponible en tapa blanda, en una edición en castellano de 216 páginas publicada por Editorial Anagrama. El formato en papel reúne en un solo volumen los pasajes de viaje, reflexión y relato, que pueden retomarse durante la lectura sin utilizar una pantalla.",
+      "texto": "Los perplejos está disponible en tapa blanda y Kindle. La edición en papel de Editorial Anagrama suma 216 páginas y permite volver físicamente a los pasajes filosóficos y a las etapas del recorrido. Kindle facilita llevar el texto completo en el móvil o en un lector electrónico, especialmente durante desplazamientos.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "edicion",
         "numero_paginas",
-        "idioma",
-        "editorial",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fbd9de916f1077e9",
+  "fuente_hash": "aecd1c9bf9f39d34",
   "origen": "chatgpt-web"
 }

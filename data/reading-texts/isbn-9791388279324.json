@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Merry Murdle encaja con lectores que disfrutan resolviendo enigmas criminales mediante pistas y deducciones, especialmente en un ambiente de fiestas navideñas. Su planteamiento gira alrededor de asesinatos y una desaparición, por lo que se aleja de los pasatiempos puramente creativos o de las lecturas festivas sin delitos.",
+      "texto": "Merry Murdle encaja con quienes disfrutan resolviendo crímenes mediante pistas y deducciones, especialmente si buscan una actividad ambientada en las fiestas navideñas. Su combinación de asesinatos e investigación policial se aleja de los pasatiempos creativos sin componente criminal.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Merry Murdle plantea una investigación detectivesca vinculada a las fiestas navideñas y al razonamiento lógico. El Detective Lógico debe abandonar sus planes de descanso para enfrentarse a varios asesinatos y una desaparición, con la deducción como herramienta central de la investigación.",
+      "texto": "Merry Murdle plantea una investigación criminal dentro de una propuesta de ocio y entretenimiento. El Detective Lógico debe esclarecer varios asesinatos que alteran sus planes festivos, con la deducción como herramienta central. El conflicto combina una celebración navideña con delitos que requieren reconstruir lo sucedido.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,21 +22,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Merry Murdle está disponible en tapa blanda, concretamente en rústica sin solapas. Esta edición de 256 páginas publicada por Temas de Hoy permite tener el libro físico a mano para seguir la investigación y consultar las pistas durante la lectura, sin depender de una pantalla.",
+      "texto": "Merry Murdle está disponible en tapa blanda, en una edición rústica sin solapas de Temas de Hoy. Sus 256 páginas permiten consultar y retomar los enigmas en papel, con espacio físico para avanzar y retroceder durante la investigación. Es una opción para quienes prefieren tener el libro a mano mientras resuelven los casos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "editorial",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Merry Murdle comparte con El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados la mezcla de ambiente navideño y delitos por investigar. El primero sigue al Detective Lógico ante varios asesinatos; el segundo sitúa un crimen inesperado en un centro comercial. Ambos se relacionan con el entretenimiento criminal, aunque sus escenarios y planteamientos son distintos.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040740"
       ]
     }
   ],
-  "descartados": [
-    "lecturas_afines: más de cuatro frases",
-    "faltan módulos: lecturas_afines"
-  ],
+  "descartados": [],
   "version": 3,
   "fuente_hash": "516929db7076e294",
   "origen": "chatgpt-web"

@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La fibra es la solución se dirige a adultos que quieren aumentar su consumo de fibra mediante cambios cotidianos, recetas y planes de comidas. No está planteado como un recetario general: se organiza alrededor del objetivo de consumir 30 gramos de fibra al día.",
+      "texto": "La fibra es la solución se dirige a lectores adultos interesados en mejorar su alimentación mediante un mayor consumo de fibra. Su enfoque práctico, centrado en hábitos alimentarios y recetas, encaja menos con quien busca una novela o un tratado exclusivamente teórico sobre nutrición.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "La fibra es la solución incluye un método de seis pasos, 30 recetas y cuatro planes semanales para incorporar fibra a la dieta. Alterna explicaciones sobre salud intestinal con consejos para distintas necesidades, desde dietas altas en proteínas hasta pérdida de peso, y recetas de desayunos, platos principales y dulces.",
+      "texto": "La fibra es la solución plantea un método de seis pasos para alcanzar un consumo diario de 30 gramos de fibra. Incluye explicaciones sobre salud intestinal, consejos para distintas necesidades alimentarias, 30 recetas de desayunos, platos principales, tentempiés y dulces, además de cuatro planes semanales para organizar su aplicación.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial"
@@ -21,18 +22,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La fibra es la solución está disponible en tapa blanda con solapas y contiene 264 páginas. En papel pueden consultarse los planes semanales y las recetas durante la preparación de las comidas; las solapas sirven para señalar un apartado y retomarlo después.",
+      "texto": "La edición en tapa blanda con solapas de La fibra es la solución reúne 264 páginas y permite consultar las recetas y los planes semanales en papel mientras se cocina. La versión Kindle facilita llevar las indicaciones de Kristen Stavridis en el móvil y consultar ingredientes o propuestas de alimentación fuera de casa.",
       "evidencias": [
         "titulo",
+        "autores",
         "edicion",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La revolución de la glucosa: el Método comparte con La fibra es la solución el enfoque práctico de la alimentación y el uso de recetas, pero organiza su propuesta en torno a la glucosa, mientras Kristen Stavridis se centra en aumentar la fibra mediante seis pasos. 5 semanas para desinflamarte (edición limitada) también aborda el bienestar alimentario, aunque su título plantea un objetivo distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788466394390",
+        "isbn-9788411191937"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a1eb4b177a8a52e1",
+  "fuente_hash": "17ca26a39d472e4a",
   "origen": "chatgpt-web"
 }

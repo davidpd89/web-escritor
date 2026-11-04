@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo no tener diabetes está dirigido a adultos que quieren comprender los factores relacionados con la diabetes y los hábitos de prevención. Se centra en alimentación, estrés, peso y sedentarismo, por lo que no encaja con quien busque una historia de ficción o una lectura ajena a la salud metabólica.",
+      "texto": "Cómo no tener diabetes está dirigido a adultos interesados en la prevención de la diabetes y en comprender la relación entre alimentación, hábitos y salud metabólica. Adrián Díaz Alonso aborda factores como el consumo de azúcar, la actividad física y el estrés desde una perspectiva divulgativa. No es una novela ni una lectura centrada exclusivamente en recetas o planes de alimentación.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,19 +15,34 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cómo no tener diabetes se ofrece en tapa blanda con solapas, en una edición de 256 páginas de Grijalbo. El papel permite volver a las explicaciones sobre azúcar, ultraprocesados y salud metabólica, y consultar cuestiones concretas sin necesidad de mantener abierto un dispositivo electrónico.",
+      "texto": "Cómo no tener diabetes se publica en tapa blanda y Kindle. La edición de Grijalbo tiene 256 páginas y solapas, un formato físico que permite consultar en papel las explicaciones sobre hábitos y prevención. Kindle ofrece acceso al contenido desde el móvil o un lector electrónico compatible, útil para recuperar apartados concretos sin llevar el volumen.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "edicion",
         "numero_paginas",
-        "editorial",
+        "formatos_disponibles",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo no tener diabetes y La fibra es la solución comparten el interés por la alimentación y la prevención de problemas de salud. Adrián Díaz Alonso se centra en la diabetes y los factores que afectan al metabolismo, mientras Kristen Stavridis aborda los beneficios de consumir fibra. Frente a Protocolos, de Andrew Huberman, que reúne pautas de salud de alcance general, el libro de Adrián Díaz Alonso delimita su atención a una enfermedad concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374869",
+        "isbn-9788408327370"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a7be6def320b340e",
+  "fuente_hash": "13e3b4ebea19ef3a",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788449346446",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo crecer entre pantallas se dirige a familias y personas interesadas en la crianza que buscan orientación sobre el uso de dispositivos digitales durante la infancia. Alberto Soler Sarrió y Concepción Roger Sánchez abordan sus posibles consecuencias sin presentar la tecnología como algo que deba rechazarse por completo; no es un manual de informática ni una guía de aplicaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo crecer entre pantallas está disponible en tapa blanda, en una edición de Ediciones Paidós de 272 páginas. La encuadernación rústica con solapas permite manejarlo como libro de consulta en papel y regresar a sus apartados sobre crianza y dispositivos digitales cuando surjan dudas familiares.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo crecer entre pantallas comparte el interés por la educación familiar con Criar juntos de verdad, de Armando Bastida @armandobastidaep, y Cuando tu hijo te habla peor que a nadie, de Carlos Rodríguez Lorenzo. El primero aborda la crianza en equipo y el segundo los conflictos de comunicación entre padres e hijos; Alberto Soler Sarrió y Concepción Roger Sánchez concentran su libro en la convivencia infantil con las pantallas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370658",
+        "isbn-9791388038280"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4cad5e8e2ad0577a",
+  "origen": "chatgpt-web"
+}

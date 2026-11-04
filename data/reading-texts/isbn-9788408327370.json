@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788408327370",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Protocolos, de Andrew Huberman, se dirige a lectores de desarrollo personal y bienestar interesados en la relación entre el sistema nervioso, la mente y el cuerpo. Sus 640 páginas permiten abordar estos asuntos en una obra extensa, centrada en procedimientos relacionados con la salud. No responde al planteamiento de una novela ni al de un manual dedicado exclusivamente a la alimentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Protocolos puede leerse en tapa blanda o Kindle, dos opciones con diferencias prácticas por su extensión de 640 páginas. La edición física de Editorial Planeta es rústica con solapas y permite consultar el contenido en papel. Kindle evita transportar un volumen de esa longitud y facilita tenerlo disponible en el móvil para consultas durante el día.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Protocolos comparte con La fibra es la solución el interés por mejorar la salud mediante hábitos concretos, pero Andrew Huberman aborda la relación entre el sistema nervioso, la mente y el cuerpo, mientras que Kristen Stavridis se centra en el consumo de fibra. Frente a Cómo no tener diabetes, orientado a una enfermedad específica, Protocolos plantea un campo de bienestar más amplio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425373152",
+        "isbn-9788425374869"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "06f0fe12968a0dca",
+  "origen": "chatgpt-web"
+}

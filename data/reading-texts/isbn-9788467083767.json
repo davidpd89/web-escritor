@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788467083767",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Club de las Dos Páginas se dirige a lectores de narrativa contemporánea interesados en el duelo, las librerías y las relaciones que nacen alrededor de los libros. Su historia de pérdida y reconstrucción personal se distancia de la fantasía y de las novelas centradas en la acción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El Club de las Dos Páginas propone una historia contemporánea sobre el duelo y la búsqueda de una nueva rutina después de una pérdida. Ángeles Doñate utiliza una librería de Teruel y un club de lectura como espacios donde la vida de Ángel empieza a relacionarse de nuevo con otras personas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de El Club de las Dos Páginas tiene 432 páginas y sobrecubierta, una presentación física para guardar o regalar. La versión Kindle permite leer la novela en formato digital y transportarla sin ocupar espacio en la mochila.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "505cc65f5b6498c4",
+  "origen": "chatgpt-web"
+}

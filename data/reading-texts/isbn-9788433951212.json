@@ -4,36 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una casa en Brandemburgo encaja con lectores de narrativa contemporánea interesados en la memoria, el desarraigo y los cambios políticos del siglo XX. Quien busque una única historia protagonizada siempre por la misma persona encontrará aquí una estructura coral que reúne doce vidas.",
+      "texto": "Una casa en Brandemburgo encaja con lectores de narrativa contemporánea interesados en la memoria histórica, los cambios políticos y las historias de varias generaciones. Jenny Erpenbeck construye el relato alrededor de doce vidas vinculadas a una misma propiedad. Su estructura coral se aleja de las novelas que siguen a un único protagonista durante toda la narración.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela sigue la transformación de una casa junto a un lago de Brandemburgo a través de doce vidas de distintos habitantes. El mismo lugar permite observar las consecuencias de guerras, desplazamientos y cambios de fronteras sobre la idea de hogar, con el paso del tiempo como eje narrativo.",
+      "texto": "Una casa en Brandemburgo es una novela coral sobre la relación entre los espacios, sus habitantes y la historia europea. Una vivienda junto a un lago sirve de punto común a doce trayectorias atravesadas por guerras, desplazamientos y transformaciones territoriales. El paso del tiempo y la pérdida del hogar articulan una narración que alterna experiencias individuales y acontecimientos colectivos.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Una casa en Brandemburgo se presenta en tapa blanda, con 208 páginas en castellano, en la edición de Editorial Anagrama. Su extensión y encuadernación permiten leerla en papel y transportarla en un bolso o una mochila, sin necesidad de un dispositivo electrónico.",
+      "texto": "Una casa en Brandemburgo puede leerse en tapa blanda o Kindle. La edición de Editorial Anagrama tiene 208 páginas, una extensión que facilita transportar el ejemplar físico y consultar distintos pasajes de sus historias entrelazadas. La versión Kindle permite leerlo en el móvil o en un lector electrónico compatible, sin ocupar espacio en la estantería.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "edicion",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles",
+        "sinopsis_editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dcca160365402819",
+  "fuente_hash": "c86eb3ce65db3bf5",
   "origen": "chatgpt-web"
 }

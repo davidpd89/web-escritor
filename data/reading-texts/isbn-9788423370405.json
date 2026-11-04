@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788423370405",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las golondrinas no regresarán se dirige a lectores de narrativa contemporánea interesados en los conflictos de clase, las desigualdades de género y las relaciones de poder. La maternidad subrogada y la precariedad económica ocupan un lugar central, por lo que no responde a la búsqueda de una historia ligera o desligada de cuestiones sociales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Las golondrinas no regresarán, de Natsuo Kirino, es una novela de narrativa contemporánea ambientada en Japón. Su conflicto parte de la situación económica de Riki y de una propuesta de maternidad subrogada que vincula dinero, autonomía personal y desigualdad social. El relato aborda las tensiones entre clase, género y poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las golondrinas no regresarán se ofrece en tapa blanda y Kindle. La edición impresa de Ediciones Destino tiene 440 páginas y encuadernación rústica con solapas, apropiada para quien prefiera leer y conservar un ejemplar físico. Kindle permite llevar esta novela extensa en un lector electrónico o dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b38106b28d6cf44c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388042027",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Indomables 1. El despertar de la magia, de Erin Hunter, se dirige a quienes buscan fantasía protagonizada por animales, supervivencia y conflictos de lealtad. Sus dos protagonistas felinas afrontan caminos diferentes tras perder a su madre, por lo que se aleja de la fantasía centrada en héroes humanos o en conflictos exclusivamente políticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Indomables 1. El despertar de la magia combina fantasía animal con una historia de supervivencia y separación familiar. Dos hermanas gatas entran en contacto con una energía mágica y toman caminos distintos en una ciudad donde conviven animales parlantes y humanos. El título identifica esta entrega con el número 1, mientras la identidad, la pertenencia y la confianza sostienen el conflicto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Indomables 1. El despertar de la magia se ofrece en tapa blanda, con 240 páginas en castellano publicadas por Duomo Ediciones. Esta encuadernación permite leer y transportar el volumen físico sin el peso habitual de una tapa dura. También permite conservar en papel el comienzo de la historia identificada con el número 1 en su título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los fuegos de Diciembre, de Brandon Sanderson, comparte con Indomables 1. El despertar de la magia su componente fantástico. La diferencia está en la propuesta: Los fuegos de Diciembre presenta una historia independiente del Cosmere narrada por Hoid, mientras la obra de Erin Hunter sigue a dos gatas hermanas en un mundo de magia animal. El título de esta última la identifica con el número 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410466715"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "da02411bf0452eeb",
+  "origen": "chatgpt-web"
+}

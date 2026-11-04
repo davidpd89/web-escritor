@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791388103599",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Héroe Fugitivo nº 17 se dirige a lectores de cómic interesados en enfrentamientos militares, estrategias de evasión y conflictos entre personajes. Su argumento continúa una situación de combate con Tokiyuki y Akiie, por lo que no plantea una historia independiente para quien busque una trama desligada de acontecimientos anteriores.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Héroe Fugitivo nº 17, de Yusei Matsui, desarrolla un enfrentamiento en el que las maniobras de huida dejan de resultar eficaces ante un adversario superior. La reaparición de Akiie altera la situación del ejército en pleno combate, de modo que el conflicto gira alrededor de la resistencia y los cambios tácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Héroe Fugitivo nº 17 está disponible en tapa blanda, en una edición de Planeta Cómic de 200 páginas. Su presentación física es rústica sin solapas y con sobrecubierta, una opción para leer y conservar las páginas del cómic en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f2ae3717950d9411",
+  "origen": "chatgpt-web"
+}

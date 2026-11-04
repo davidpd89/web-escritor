@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788411191937",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La revolución de la glucosa: el Método, de Jessie Inchauspé, está dirigido a quienes buscan aplicar pautas de alimentación mediante recetas y un programa de duración definida. Su propuesta combina nutrición y cocina durante 4 semanas. No está enfocado en la lectura narrativa ni en un recetario sin planificación temporal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "La revolución de la glucosa: el Método contiene un programa práctico de 4 semanas y 100 recetas para desayunos, comidas y cenas. Jessie Inchauspé traslada a una guía de uso cotidiano el planteamiento de La revolución de la glucosa. Sus 288 páginas permiten consultar preparaciones y seguir la propuesta alimentaria durante el periodo establecido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La revolución de la glucosa: el Método está disponible en tapa blanda y Kindle. La edición de Diana tiene solapas y 288 páginas, de modo que el papel permite mantener abiertas las recetas durante su preparación. Kindle ofrece la posibilidad de consultar las 100 recetas desde el móvil o un lector electrónico, sin transportar el libro físico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La revolución de la glucosa: el Método comparte con La fibra es la solución, de Kristen Stavridis, el interés por la alimentación y sus efectos sobre el bienestar. Jessie Inchauspé propone 4 semanas de aplicación práctica con 100 recetas, mientras que Kristen Stavridis centra su planteamiento en el consumo diario de fibra. Frente a 5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro (@blancanutri), la diferencia explícita es el periodo de trabajo indicado en cada título y el enfoque de la glucosa frente a la inflamación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390",
+        "isbn-9788425374869"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fb602c09b7f607e8",
+  "origen": "chatgpt-web"
+}

@@ -4,34 +4,45 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El secreto mejor guardado del gran Museo del Prado encaja con lectores que buscan una historia breve donde la visita a un museo desemboca en un misterio fantástico. No es una guía de arte ni un ensayo sobre pintura: Diego Arboleda desarrolla una aventura con reglas insólitas, secretos y referencias a los cuentos de Andersen.",
+      "texto": "El secreto mejor guardado del gran Museo del Prado encaja con lectores interesados en aventuras con magia, cuentos de hadas y secretos escondidos en espacios culturales. La historia de Prisca combina normas de museo con situaciones fantásticas, por lo que se aleja de una guía artística convencional o de una narración estrictamente realista.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El secreto mejor guardado del gran Museo del Prado combina una aventura de misterio con elementos de cuento de hadas en un espacio museístico. Prisca conoce unas prohibiciones extraordinarias relacionadas con las salas antiguas y su cierre al público; esas reglas introducen el peligro y conectan los secretos del museo con la magia y los relatos de Andersen.",
+      "texto": "El secreto mejor guardado del gran Museo del Prado plantea una aventura fantástica dentro de un museo, donde ciertas reglas extraordinarias condicionan lo que puede ocurrir después del cierre. Diego Arboleda incorpora referencias a los cuentos de Andersen y convierte las prohibiciones relacionadas con los visitantes y las rimas en el punto de partida del misterio.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El secreto mejor guardado del gran Museo del Prado tiene 88 páginas y se publica en tapa dura por Nórdica Libros. Su extensión permite recorrer la aventura en pocas sesiones, mientras que la cubierta rígida facilita conservar el volumen o presentarlo como regalo a alguien interesado en historias de museos y misterios.",
+      "texto": "El secreto mejor guardado del gran Museo del Prado está disponible en tapa dura, con 88 páginas publicadas por Nórdica Libros. Es una edición física de extensión breve que puede conservarse en una estantería o entregarse como regalo, sin necesidad de dedicar espacio a un volumen largo.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
-        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El secreto mejor guardado del gran Museo del Prado comparte con Brigada Felina 2 - El secreto de Zarpafilada la combinación de aventura y misterio, aunque Diego Arboleda sitúa la acción en un museo y Susanna Isern propone una aventura felina. El diario de Wiska 2 - Un secreto entre amigas también gira alrededor de un secreto, pero su título orienta el conflicto hacia la amistad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873639",
+        "isbn-9791388277023"
       ]
     }
   ],

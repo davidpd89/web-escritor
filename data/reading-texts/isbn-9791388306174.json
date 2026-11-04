@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Glifo se dirige a lectores de ensayo interesados en la imaginación, la memoria y la solidaridad ante las divisiones sociales. No responde a quien busque exclusivamente una argumentación abstracta sin personajes: las preguntas se desarrollan mediante dos hermanas y un fantasma.",
+      "texto": "Glifo, de Ali Smith, encaja con lectores interesados en la imaginación, la memoria y las relaciones familiares como formas de examinar los conflictos sociales. Su combinación de fantasmas, distanciamiento entre hermanas y reflexión sobre el presente se aparta de un ensayo puramente expositivo o de una historia de terror centrada únicamente en el miedo.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Glifo examina qué papel pueden cumplir las historias ante una sociedad dividida y cómo se relacionan con el cuidado, la resistencia y la memoria. Ali Smith plantea esas cuestiones a través de Petra y Patch, dos hermanas cuya relación vuelve a cruzarse con un fantasma años después.",
+      "texto": "Glifo examina cómo las historias que se cuentan influyen en la memoria, la convivencia y la respuesta ante una sociedad dividida. Ali Smith utiliza el vínculo entre dos hermanas y la aparición de un caballo fantasmal para relacionar imaginación y realidad. El cuidado mutuo, la solidaridad y la resistencia forman parte de esa reflexión.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,18 +23,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Glifo se publica en tapa blanda, con 240 páginas en la edición de Nórdica Libros. Este formato permite subrayar en papel los pasajes sobre imaginación y solidaridad, y volver a ellos sin necesidad de una pantalla.",
+      "texto": "Glifo está disponible en tapa blanda y Kindle. La edición impresa de Nórdica Libros tiene 240 páginas y permite conservar un ejemplar físico para volver a sus pasajes; Kindle facilita llevar el texto en un lector electrónico o dispositivo compatible. Ambas opciones ofrecen distintas maneras de acceder a la obra de Ali Smith.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "autores",
+        "editorial",
         "numero_paginas",
-        "edicion",
-        "sinopsis_editorial"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una Woolf propia comparte con Glifo la autoría de Ali Smith, aunque su descripción se centra en la relación de la escritora con Sant Jordi. Antes de perder el juicio, de Mauricio García Villegas, también plantea una reflexión sobre el presente: aborda la verdad frente a la propaganda y las cámaras de eco, mientras Glifo recurre a la imaginación y los vínculos familiares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387922825",
+        "isbn-9791388387302"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a7fcf866534c682f",
+  "fuente_hash": "b4d52d1c1e82ee4c",
   "origen": "chatgpt-web"
 }

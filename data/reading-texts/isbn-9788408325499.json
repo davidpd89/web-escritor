@@ -4,16 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un otoño para enamorarnos se dirige a quien busca romance juvenil con una herencia, una mansión y un misterio. Quien prefiera historias sentimentales sin intriga encontrará aquí una carta enigmática y un secreto ligado al pasado.",
+      "texto": "Un otoño para enamorarnos, de Sophie Jomain, encaja con lectores a partir de 16 años que buscan romance juvenil con una mansión de apariencia sobrenatural y un misterio familiar. Su combinación de herencia, reencuentro y elementos asociados a Halloween se aleja del romance estrictamente cotidiano y de las historias centradas únicamente en la relación sentimental.",
       "evidencias": [
         "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Un otoño para enamorarnos está recomendado a partir de 16 años y combina una historia romántica con una casa embrujada y secretos relacionados con una herencia. El ambiente de Halloween y la presencia de una mansión misteriosa introducen elementos de inquietud. Estos aspectos pueden influir en la elección de lectores sensibles a los escenarios de terror.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Un otoño para enamorarnos combina una trama romántica con el misterio de una propiedad heredada en Francia. La carta, el reencuentro y la ambientación de Halloween sitúan la intriga junto a la relación sentimental, sin convertirla en una historia exclusivamente amorosa.",
+      "texto": "Un otoño para enamorarnos propone un romance juvenil atravesado por una herencia inesperada y un misterio vinculado a una antigua mansión. La historia conecta Quebec y Francia mediante el traslado de Fedra Demay a una propiedad familiar, con una carta y un reencuentro como elementos de la trama. Incluye además una lupa mágica destinada a descifrar un secreto de la historia amorosa.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,17 +34,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un otoño para enamorarnos se ofrece en tapa blanda, en una edición rústica con solapas de 320 páginas. Es un volumen para leer en papel; las solapas pueden utilizarse para señalar el punto de lectura sin añadir un marcapáginas.",
+      "texto": "Un otoño para enamorarnos está disponible en tapa blanda y Kindle. La edición impresa de Editorial Planeta reúne 320 páginas en rústica con solapas, mientras que Kindle permite llevar la novela en formato digital y leerla en un dispositivo compatible. La primera opción ofrece un ejemplar físico para guardar o regalar; la segunda evita transportar el volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7c7248734fc4412f",
+  "fuente_hash": "7a8077ff3894535d",
   "origen": "chatgpt-web"
 }

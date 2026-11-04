@@ -1,0 +1,35 @@
+{
+  "id": "isbn-9791388163258",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los diarios de Emma M. Lion 5, de Beth Brower, se dirige a lectores adultos de romance interesados en el duelo, los vínculos personales y las relaciones que cambian durante una crisis. Su conflicto emocional, ambientado en un barrio lleno de rituales y rumores, se distancia de las historias centradas exclusivamente en el cortejo; el título lo identifica como el n.º 5.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los diarios de Emma M. Lion 5 está disponible en tapa blanda y Kindle. La edición de Suma de Letras contiene 320 páginas y lleva solapas, mientras que la versión Kindle permite seguir la historia en un dispositivo compatible sin necesidad de llevar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [
+    "encaje_documentado: más de cuatro frases",
+    "faltan módulos: encaje_documentado"
+  ],
+  "version": 3,
+  "fuente_hash": "35f5efa59fc1cb93",
+  "origen": "chatgpt-web"
+}

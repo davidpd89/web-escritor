@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La luz y el hilo (Láurea) está orientado a lectores adultos interesados en poesía, escritura autobiográfica y reflexiones sobre el lenguaje y los vínculos humanos. No sigue una trama de ficción convencional: Han Kang reúne ensayos, poemas, fotografías y diarios que relacionan experiencias personales con preguntas sobre el amor y la comunicación.",
+      "texto": "La luz y el hilo (Láurea) se dirige a lectores adultos interesados en la poesía, la escritura autobiográfica y las reflexiones sobre el lenguaje y los vínculos humanos. Su combinación de ensayos, poemas, fotografías y diarios se aparta de la novela convencional con una trama continua.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La luz y el hilo (Láurea) propone una lectura que alterna ensayo, poesía, fotografía y escritura diarística. Han Kang examina la relación entre la experiencia íntima y el acto de comunicarse mediante palabras, con motivos recurrentes como el cuidado de un jardín y la posibilidad de establecer vínculos entre quien escribe y quien lee.",
+      "texto": "La luz y el hilo (Láurea) reúne escritura reflexiva y materiales personales de Han Kang en lugar de desarrollar una única historia de ficción. Los ensayos, poemas, fotografías y diarios exploran las relaciones entre la experiencia íntima, la naturaleza y el lenguaje. El jardín doméstico de la autora funciona como uno de los espacios recurrentes de esas observaciones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -25,33 +24,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La luz y el hilo (Láurea) está disponible en tapa dura, en la edición de Random House de 176 páginas. La encuadernación rígida permite conservar y consultar en papel un volumen que combina ensayos, poemas, fotografías y diarios, con distintas formas de escritura a las que regresar durante la relectura.",
+      "texto": "La edición en tapa dura de La luz y el hilo (Láurea) contiene 176 páginas y permite consultar sus textos y fotografías en un volumen físico. Kindle ofrece una alternativa para leer los ensayos, poemas y diarios desde un dispositivo electrónico o el móvil, sin llevar el libro impreso.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La luz y el hilo (Láurea) se acerca a El libro de los gatos por combinar poesía con otras formas de reflexión personal. En el volumen de Han Kang aparecen ensayos, fotografías y diarios sobre el lenguaje y los vínculos humanos; Ursula K. Le Guin reúne poemas, meditaciones y dibujos centrados en los gatos, con un asunto más delimitado.",
+      "texto": "La luz y el hilo (Láurea) se aproxima a El libro de los gatos por reunir poemas y reflexiones de una misma autora, aunque Ursula K. Le Guin incorpora dibujos y centra su volumen en los gatos. La llamada de los olores también utiliza la escritura para explorar experiencias difíciles de retener, pero Ryoko Sekiguchi se concentra en las sensaciones y los recuerdos sensoriales.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388306297"
+        "isbn-9791388306297",
+        "isbn-9788410171916"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2fe4182c3230de04",
+  "fuente_hash": "faf65b50a2525b39",
   "origen": "chatgpt-web"
 }
