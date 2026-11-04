@@ -304,8 +304,11 @@ def generic_edition(source: dict, document: str, url: str) -> dict:
     subjects = [s for s in ([subject] if subject else _names(genre) if genre else []) if s] or _infer_subject(title, synopsis)
     keywords = book.get('keywords')
     keywords = ', '.join(keywords) if isinstance(keywords, list) else str(keywords or '')
+    # Un perfil puede fijar el PVP del papel: en Nórdica el Product de WooCommerce vende el ebook y su
+    # offers.price es el del ebook (2026-11-04: 10 fichas con PVP de ebook y Amazon al doble).
+    price = _euros(extra) if (extra := _regex(source, 'pvp', document)) and '€' in extra else None
     offers = book.get('offers')
-    price = next((_euros(o['price']) for o in (offers if isinstance(offers, list) else [offers])
+    price = price if price is not None else next((_euros(o['price']) for o in (offers if isinstance(offers, list) else [offers])
                   if isinstance(o, dict) and str(o.get('priceCurrency', 'EUR')).upper() == 'EUR' and o.get('price') not in (None, '')), None)
     if price is None:
         price = _euros(ficha['pvp']) if ficha.get('pvp') and '€' in ficha['pvp'] else None

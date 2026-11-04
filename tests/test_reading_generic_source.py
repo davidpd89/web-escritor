@@ -46,7 +46,8 @@ class GenericSourceTests(unittest.TestCase):
         record = generic_edition(NORDICA, N_PAGE, N_URL)
         self.assertEqual((record['isbn13'], record['titulo'], record['autores']), ('9791388306174', 'Glifo', ['Ali Smith']))
         self.assertEqual((record['fecha_publicacion_edicion'], record['formato_edicion'], record['numero_paginas']), ('2026-09-21', 'tapa-blanda', 240))
-        self.assertEqual(record['pvp_centimos'], 1099)
+        # PVP del papel (20,95 €), no el del ebook que vende su tienda (10,99 €).
+        self.assertEqual(record['pvp_centimos'], 2095)
         self.assertEqual(record['materias'], ['Narrativa'], 'La materia sale del código Thema FBA de la ficha, no de «historia» en la sinopsis')
 
     def test_periferica_month_date_profile_synopsis_and_default_binding(self):
