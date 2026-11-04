@@ -44,7 +44,10 @@ def resume_pending(branch):
         raise ValueError('Expected an open PR targeting main')
     comparison = json.loads(publication.gh('api',
         f'repos/{repo}/compare/main...{pr["headRefOid"]}'))
-    if not comparison['behind_by']:
+    # A commit that already failed after the publisher's rerun fails again: regenerate it from main
+    # (newer code and data) instead of blocking every later batch on the same red commit.
+    failed = failed_checks(repo, pr['headRefOid'])
+    if not comparison['behind_by'] and not failed:
         run(branch)
         return True
     if not pr['author'].get('is_bot') or pr['author']['login'] != 'app/github-actions':
@@ -59,8 +62,9 @@ def resume_pending(branch):
     current = json.loads(publication.gh('pr', 'view', branch, '--json', 'headRefOid'))
     if current['headRefOid'] != pr['headRefOid']:
         raise ValueError('Pending proposal changed during validation')
-    publication.gh('pr', 'close', str(pr['number']), '--comment',
-        'La rama quedó detrás de main. Se conserva esta propuesta y su rama como referencia; '
+    reason = ('Falló la verificación (' + ', '.join(failed) + ') tras su reintento.' if failed
+              else 'La rama quedó detrás de main.')
+    publication.gh('pr', 'close', str(pr['number']), '--comment', reason + ' Se conserva esta propuesta y su rama como referencia; '
         'el escritor diario vuelve a consultar las fuentes y regenera los artefactos con el código actual. '
         'No se fusionan páginas ni índices obsoletos.')
     print(f'Regenerating stale bot proposal #{pr["number"]} from current main', flush=True)
@@ -68,6 +72,12 @@ def resume_pending(branch):
 
 
 UNRELATED_WORKFLOWS = ('pro-resources-qa.yml', 'convocatorias-browser-qa.yml')
+
+
+def failed_checks(repo, sha):
+    """Required jobs the publisher already reported as failed on this exact commit."""
+    status = json.loads(publication.gh('api', f'repos/{repo}/commits/{sha}/status'))
+    return sorted({s['context'] for s in status.get('statuses', []) if s['state'] in ('failure', 'error')})
 
 
 def run(branch, timeout=5400):
@@ -81,7 +91,16 @@ def run(branch, timeout=5400):
     # Las fichas no tocan recursos profesionales ni convocatorias: esos navegadores solo alargaban la cola.
     workflows = tuple(dict.fromkeys((*(w for w in publication.WORKFLOWS if w not in UNRELATED_WORKFLOWS),
                                     'reading-intake-qa.yml', 'recommendations-browser-qa.yml', 'reading-pinterest-rss-qa.yml')))
-    publication.publish_generated(branch, allowed_path, workflows, timeout=timeout, deploy_before=True)
+    try:
+        publication.publish_generated(branch, allowed_path, workflows, timeout=timeout, deploy_before=True)
+    except publication.StaleMerge:
+        raise
+    except RuntimeError as exc:
+        # Leave the failure on the commit so the next batch regenerates instead of retesting it.
+        repo = publication.gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner')
+        publication.report_job(repo, pr['headRefOid'], 'reading-catalogue-publication', 'failure',
+                               f'https://github.com/{repo}/pull/{pr["number"]}')
+        raise
 
 
 if __name__ == '__main__':
