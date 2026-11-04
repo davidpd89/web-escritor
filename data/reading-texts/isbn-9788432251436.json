@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cosamala se dirige a quienes leen terror gótico y ficción histórica ambientada en la guerra civil. Su combinación de violencia política y brujería queda lejos de quien busque una recreación histórica sin episodios sangrientos ni elementos de terror.",
+      "texto": "Cosamala se dirige a lectores de terror gótico y novela histórica interesados en relatos que combinan violencia política y elementos de brujería. Alana S. Portero sitúa la historia durante la guerra civil, por lo que encaja menos con quien busca una narración histórica alejada del horror o de los conflictos violentos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Cosamala mezcla terror e historia en Andalucía, en 1937, a partir de un crimen vinculado a la guerra civil y una historia de brujas. El avance de la columna Carranza por la sierra norte de Sevilla establece el contexto de violencia y sometimiento.",
+      "texto": "Cosamala combina terror, narrativa contemporánea y novela histórica mediante una interpretación gótica de un crimen real de la guerra civil. La acción se sitúa en Andalucía, en 1937, con el avance de la columna Carranza por la sierra norte de Sevilla y una historia de brujas ligada a ese contexto de violencia.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,18 +23,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cosamala se ofrece en tapa blanda, en rústica con solapas, y tiene 272 páginas. Esta edición sirve para leer en papel su relato histórico de terror, y las solapas permiten marcar el punto de lectura sin añadir otro objeto.",
+      "texto": "Cosamala se publica en tapa blanda y Kindle. La edición de Seix Barral presenta 272 páginas en rústica con solapas, una opción para conservar el ejemplar físico o regalarlo; Kindle permite leer la novela en formato digital desde un dispositivo compatible, sin necesidad de llevar el libro en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
-        "categorias"
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cosamala y La abadía sin ojos comparten una aproximación al terror vinculada a escenarios marcados por amenazas, pero Alana S. Portero sitúa su novela en la guerra civil y Jordi Wild parte del exilio de un sacerdote a un monasterio. Carrie (edición serie), de Stephen King, también trabaja el horror, aunque desde el acoso escolar y el fanatismo religioso, frente al conflicto histórico y la brujería de Cosamala.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396806",
+        "isbn-9788466686884"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cf40c9eeed4322ba",
+  "fuente_hash": "8711532c2982ab6c",
   "origen": "chatgpt-web"
 }

@@ -4,38 +4,50 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico se dirige a niños a partir de 4 años que están empezando a leer y se interesan por los monstruos. Las frases rimadas y las ilustraciones en color lo sitúan lejos de las lecturas extensas sin apoyo visual.",
+      "texto": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico se dirige a lectores a partir de 4 años que empiezan a leer y disfrutan con monstruos, rimas y pequeños sustos. La Casa del Terror que prepara Tato introduce una situación de miedo en clave infantil, menos apropiada para quienes prefieren historias sin sobresaltos.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico se recomienda a partir de 4 años y contiene 48 páginas en tapa blanda. Emplea mayúsculas, rimas e ilustraciones a todo color; el título lo identifica como el n.º 25.",
+      "texto": "Está recomendado a partir de 4 años y tiene 48 páginas en castellano. Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico combina letras mayúsculas, frases rimadas e ilustraciones a todo color, recursos que permiten seguir la lectura mediante el texto y las imágenes.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite manejar y hojear las 48 páginas ilustradas durante las primeras lecturas, mientras que Kindle facilita llevar el libro en un dispositivo compatible. En Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico, la visualización de las ilustraciones y las letras mayúsculas es un aspecto práctico al elegir entre papel y pantalla.",
+      "evidencias": [
+        "titulo",
         "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico se ofrece en tapa blanda de 48 páginas. La edición en papel permite seguir el texto en mayúsculas y observar las ilustraciones a color durante una lectura compartida o los primeros ejercicios de lectura.",
+      "modulo": "lecturas_afines",
+      "texto": "Aprender a leer en la Escuela de Monstruos 24 - Dos artistas muy solistas y Aprender a leer en la Escuela de Monstruos 25 - Magnífico y terrorífico comparten autora, Sally Rippin, y personajes monstruosos. El primero gira alrededor del canto y una actuación entre amigos; el segundo cambia la actividad musical por una Casa del Terror y la posibilidad de llevarse un susto.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
+        "autores",
+        "afines_catalogo",
         "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387724184"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8b65436c2ad4a1b1",
+  "fuente_hash": "b1b4610e90884305",
   "origen": "chatgpt-web"
 }

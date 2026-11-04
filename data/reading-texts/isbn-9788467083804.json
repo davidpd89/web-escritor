@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788467083804",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Millennial cantabile se dirige a lectores de poesía interesados en la experiencia de una generación marcada por internet, el trabajo precario y los cambios en las relaciones personales. Martín Rodríguez-Gaona emplea una escritura fragmentaria e irónica, distante de quien busca una narración lineal o poesía de estructura necesariamente tradicional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Millennial cantabile propone una lectura poética sobre la identidad millennial y la influencia de la vida digital en el deseo, la cultura, el trabajo y el amor. Martín Rodríguez-Gaona utiliza fragmentación, ironía y musicalidad para abordar esas experiencias, en lugar de desarrollar una trama narrativa convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Millennial cantabile está disponible en tapa blanda y Kindle. La edición en papel de Editorial Espasa tiene 224 páginas, encuadernación rústica y solapas, mientras que Kindle permite llevar los poemas en formato digital y alternar su lectura con otras obras sin cargar con el libro físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Millennial cantabile y El libro de los gatos comparten la escritura poética, aunque se ocupan de asuntos diferentes. Martín Rodríguez-Gaona explora la identidad de una generación atravesada por internet y la precariedad; Ursula K. Le Guin reúne poemas, meditaciones y dibujos sobre gatos, con un foco temático distinto del retrato generacional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3ea0b48e11321f84",
+  "origen": "chatgpt-web"
+}

@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El linaje de Pierre se dirige a lectores adultos interesados en la memoria familiar, las relaciones entre padres e hijos y la historia europea del siglo XX. Su investigación sobre varias generaciones y los acontecimientos históricos que atravesaron sus vidas encaja menos con quienes buscan una narración desligada del pasado o centrada exclusivamente en una historia individual.",
+      "texto": "El linaje de Pierre se dirige a lectores adultos interesados en la memoria familiar, las biografías y la historia europea contemporánea. Anne Berest investiga su ascendencia paterna a través de documentos familiares y acontecimientos colectivos; su enfoque se distancia de la novela histórica centrada en una única aventura o conflicto militar.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,30 +15,43 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El linaje de Pierre aborda la memoria heredada, la relación entre una hija y su padre y la influencia de los acontecimientos históricos en una familia. Anne Berest reconstruye tres generaciones de su linaje bretón a partir de cuatro cuadernos de memorias, enlazando las luchas campesinas, la ocupación alemana, la reconstrucción de Brest y mayo del 68.",
+      "texto": "El linaje de Pierre examina la transmisión de la memoria entre generaciones y las dificultades de comprender la figura paterna. Anne Berest parte de los cuadernos de su abuelo para recorrer la historia familiar bretona, desde las luchas campesinas hasta la ocupación alemana y los cambios sociales del siglo XX.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El linaje de Pierre se publica en tapa blanda con solapas y reúne 448 páginas en castellano. Esta edición de Lumen permite seguir en papel la investigación de Anne Berest y conservar el volumen con una cubierta flexible, sin recurrir a una encuadernación rígida.",
+      "texto": "El linaje de Pierre está disponible en tapa blanda y Kindle. La edición de Lumen contiene 448 páginas con solapas, apropiadas para conservar el relato familiar en papel; Kindle facilita la lectura de esta extensión en un dispositivo electrónico compatible, sin necesidad de transportar el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El linaje de Pierre y Cosamala relacionan el pasado con sus consecuencias personales, aunque Anne Berest investiga varias generaciones de su familia y Alana S. Portero utiliza elementos góticos y brujería alrededor de un crimen histórico. Frente a La hija del joyero, de Inma Aguilera, situada en Málaga en 1867, El linaje de Pierre recorre acontecimientos del siglo XX desde una investigación familiar.",
       "evidencias": [
         "titulo",
         "autores",
-        "editorial",
-        "edicion",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788432251436",
+        "isbn-9788466685016"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e94a3842f01a1862",
+  "fuente_hash": "e7166674ae1571f7",
   "origen": "chatgpt-web"
 }

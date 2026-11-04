@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788432251399",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los crímenes del sanatorio (Serie Comisario Reykdal 1) se dirige a lectores de novela negra que buscan una investigación criminal con un escenario delimitado y varios sospechosos. Su planteamiento de misterio en un sanatorio encaja menos con quien prefiere relatos sin delitos ni investigaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Los crímenes del sanatorio (Serie Comisario Reykdal 1) es una novela de misterio de Ragnar Jónasson construida alrededor de un asesinato y cinco posibles responsables. El sanatorio sirve de escenario al conflicto, y el título identifica la obra como el n.º 1 de la Serie Comisario Reykdal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los crímenes del sanatorio (Serie Comisario Reykdal 1) está disponible en tapa blanda y Kindle. La edición física de Seix Barral reúne 336 páginas en rústica con solapas; la digital permite seguir la investigación y consultar los detalles del caso desde un lector electrónico o un móvil compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El asesinato de Roger Ackroyd (Edición especial con cantos tintados) comparte con Los crímenes del sanatorio (Serie Comisario Reykdal 1) la investigación detectivesca, pero Agatha Christie presenta una obra independiente frente al título que identifica el inicio de la serie de Ragnar Jónasson. El enigmático míster Quin también gira en torno al misterio, aunque reúne doce relatos en lugar de una novela centrada en un crimen y cinco sospechosos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083934",
+        "isbn-9788408331520"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fcb65d669c128588",
+  "origen": "chatgpt-web"
+}
