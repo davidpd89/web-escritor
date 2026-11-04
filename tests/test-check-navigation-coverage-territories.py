@@ -161,6 +161,18 @@ def run() -> None:
     tool["label"] = "PIEL"
     code, out = run_with_state(registry=own_ui)
     check(code != 0 and "forbidden public token 'PIEL'" in out, "PIEL en la UI propia sigue fallando", out)
+    # Un texto propio que cita a Trapiello o un slug con «piel» no es el nombre retirado.
+    own_text = load_json(REGISTRY_PATH)
+    post = next(item for item in own_text["entries"] if not item["id"].startswith(("reading-", "editorial-")))
+    post["label"] = "Leer a Andrés Trapiello en invierno"
+    post["jobs"] = ["leer la piel del texto"]
+    code, out = run_with_state(registry=own_text)
+    check(code == 0 and out.startswith("PASS"), "Trapiello o «piel» en ruta de contenido propio no falla", out)
+    own_word = load_json(REGISTRY_PATH)
+    tool = next(item for item in own_word["entries"] if item["id"].startswith("tool-"))
+    tool["shortLabel"] = "Proyecto Piel"
+    code, out = run_with_state(registry=own_word)
+    check(code != 0 and "forbidden public token 'PIEL'" in out, "«Piel» como palabra en etiqueta propia falla", out)
 
     if failures:
         print(f"\n{len(failures)} FALLO(S)")

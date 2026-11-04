@@ -1,7 +1,10 @@
 """Cuarentena por libro: un dato malo aparta su libro y el resto del lote sigue validando."""
 import copy
 import json
+import re
+import shutil
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -77,6 +80,86 @@ class QuarantineTest(unittest.TestCase):
         self.assertEqual(q.culprit(f'{first}: falta edicion', DATA), first)
         self.assertEqual(q.culprit(f'{first}.mes: fecha inválida', DATA), first)
         self.assertIsNone(q.culprit('Relación duplicada o referencia inexistente', DATA))
+
+
+    def test_100_books_20_bad_the_80_good_continue(self):
+        """Llegan 100 libros, 20 traen datos rotos: los 80 válidos siguen y los 20 quedan trazados."""
+        incoming = DATA['libros'][:100]
+        ids = {b['id'] for b in incoming}
+        before = copy.deepcopy(DATA)
+        before['libros'] = [b for b in before['libros'] if b['id'] not in ids]
+        before['libro_categorias'] = [r for r in before['libro_categorias'] if r['libro_id'] not in ids]
+        data = copy.deepcopy(DATA)
+        bad = {b['id'] for b in data['libros'][:100:5]}
+        for b in data['libros'][:100:5]:
+            b['autores'] = []
+        clean, out = q.isolate(data, ROOT, before, today='2026-11-04')
+        self.assertEqual({h['libro']['id'] for h in out}, bad)
+        self.assertEqual(len(out), 20)
+        published = {b['id'] for b in clean['libros']}
+        self.assertEqual(len(ids & published), 80)
+        self.assertFalse(bad & published)
+        for h in out:
+            self.assertEqual(h['isbn'], h['libro'].get('isbn13', ''))
+            self.assertEqual(h['intentos'], 1)
+            self.assertTrue(h['causa'] and h['libro']['id'] not in h['causa'])
+        self.assertEqual(len({h['causa'] for h in out}), 1, 'los 20 comparten causa y se agrupan')
+
+    def test_more_than_half_the_batch_is_global(self):
+        incoming = DATA['libros'][:30]
+        ids = {b['id'] for b in incoming}
+        before = copy.deepcopy(DATA)
+        before['libros'] = [b for b in before['libros'] if b['id'] not in ids]
+        before['libro_categorias'] = [r for r in before['libro_categorias'] if r['libro_id'] not in ids]
+        data = copy.deepcopy(DATA)
+        for b in data['libros'][:16]:
+            b['autores'] = []
+        with self.assertRaisesRegex(q.build.ValidationError, 'Error global'):
+            q.isolate(data, ROOT, before)
+
+    def test_attempts_accumulate_and_pending_recover_after_fix(self):
+        data, book, cats = without(4)
+        broken = copy.deepcopy(book)
+        broken['autores'] = []
+        held = [{'libro': broken, 'categorias': cats, 'motivo': 'x', 'desde': '2026-10-01', 'intentos': 2}]
+        _, out = q.isolate(data, ROOT, data, held, today='2026-11-04')
+        self.assertEqual((out[0]['intentos'], out[0]['desde']), (3, '2026-10-01'))
+        # La regla (o el dato de origen) se corrige: el pendiente vuelve al catálogo sin tocarlo a mano.
+        held[0]['libro'] = book
+        clean, out = q.isolate(data, ROOT, data, held)
+        self.assertEqual(out, [])
+        self.assertIn(book, clean['libros'])
+
+    def test_cause_is_groupable(self):
+        self.assertEqual(q.cause('isbn-9788410427709: sello del catálogo inexistente'), 'sello del catálogo inexistente')
+        self.assertEqual(q.cause('lib-0042.mes: fecha inválida 13'), 'mes: fecha inválida N')
+        self.assertEqual(q.cause('AttributeError: x'), 'AttributeError: x')
+
+    def test_missing_catalogue_publisher_is_repaired_for_every_book(self):
+        """Regresión #1152: el sello perdido se registra desde la ficha oficial y el libro deja de estar apartado."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'data').mkdir()
+            for name in ('reading-publishers.json', 'editoriales.json', 'reading-intake-config.json'):
+                shutil.copy(ROOT / 'data' / name, root / 'data' / name)
+            store = json.loads((root / q.PUBLISHERS).read_text(encoding='utf-8'))
+            store['editoriales'] = [p for p in store['editoriales'] if p['slug'] != 'neko-books']
+            (root / q.PUBLISHERS).write_text(json.dumps(store, ensure_ascii=False), encoding='utf-8')
+            books = [{'id': f'isbn-97884104277{i:02d}', 'editorial': 'Neko Books', 'editorial_catalogo_slug': 'neko-books',
+                      'fuente_publicacion_url': f'https://www.planetadelibros.com/libro-x/{i}'} for i in range(3)]
+            self.assertEqual(q.repair_catalogue_publishers(books, root, '2026-11-04'), 3)
+            slugs = {p['slug'] for p in json.loads((root / q.PUBLISHERS).read_text(encoding='utf-8'))['editoriales']}
+            self.assertIn('neko-books', slugs)
+            self.assertEqual(q.repair_catalogue_publishers(books, root, '2026-11-04'), 0, 'idempotente')
+
+    def test_carry_moves_every_file_the_intake_writes(self):
+        """Regresión #1152: todo lo que la ingesta escribe en data/ viaja con el carry de una PR obsoleta."""
+        intake = (ROOT / 'scripts/reading_intake_pipeline.py').read_text(encoding='utf-8')
+        refresh = (ROOT / 'scripts/refresh-reading-catalogue.py').read_text(encoding='utf-8')
+        written = set(re.findall(r"write_if_changed\(root / '(data/[^']+)'", intake))
+        carried = set(re.findall(r"'([^']+)'", re.search(r'SOURCE_PATHS = \(([^)]*)\)', refresh)[1]))
+        self.assertTrue(written)
+        self.assertLessEqual(written, carried)
 
 
 if __name__ == '__main__':

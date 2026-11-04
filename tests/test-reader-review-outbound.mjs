@@ -77,8 +77,11 @@ test('HTML: cada enlace marcado corresponde a un destino y libro real', () => {
       const href = html.match(/\bhref="([^"]+)"/)?.[1];
       assert.ok(href);
       assert.ok(review(href, platform, book), 'URL incorrecta en ' + file);
-      assert.match(html, /rel="noopener noreferrer"/);
-      assert.doesNotMatch(html, /tag=|sponsored/);
+      assert.match(html, /rel="[^"]*noopener noreferrer"/);
+      // Todo enlace a Amazon lleva el tag de afiliado (test-amazon-affiliate-tag-everywhere.py);
+      // el resto de plataformas de opiniones no son enlaces comerciales.
+      if (platform === 'amazon') assert.match(html, /tag=davidporto-21[^"]*" [^>]*rel="sponsored/);
+      else assert.doesNotMatch(html, /tag=|sponsored/);
     }
   }
 });
