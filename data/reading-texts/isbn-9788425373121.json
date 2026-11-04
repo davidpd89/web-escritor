@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sácate a esa persona de la cabeza se dirige a adultos interesados en comprender por qué alguien puede ocupar sus pensamientos de forma persistente cuando provoca ansiedad, ira o miedo. Su enfoque de desarrollo personal se centra en la atención y el funcionamiento del cerebro, por lo que se aleja de quienes prefieran una historia de ficción sobre las relaciones personales.",
+      "texto": "Sácate a esa persona de la cabeza está dirigido a adultos que buscan comprender por qué una relación conflictiva o una persona asociada al malestar ocupa repetidamente sus pensamientos. Michihito Sugawara aborda la ansiedad, el miedo y la ira desde el funcionamiento cerebral y el desarrollo personal. No es una novela de relaciones ni una historia de ficción sobre una ruptura.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,18 +15,20 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Sácate a esa persona de la cabeza incluye técnicas sencillas y ejemplos cotidianos para trabajar la atención cuando los pensamientos sobre alguien resultan difíciles de apartar. Michihito Sugawara explica esa fijación mediante los mecanismos de supervivencia del cerebro y plantea entrenar la respuesta mental para dirigir el pensamiento hacia otras prioridades personales.",
+      "texto": "Sácate a esa persona de la cabeza incluye explicaciones sobre la respuesta cerebral ante personas percibidas como amenazantes, técnicas para modificar el foco de atención y ejemplos cotidianos. Michihito Sugawara propone trabajar sobre los patrones de pensamiento en lugar de intentar suprimirlos directamente. Su aplicación se orienta a reducir la atención persistente hacia personas que provocan malestar y recuperar espacio para otras actividades.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sácate a esa persona de la cabeza está disponible en tapa blanda con solapas y tiene 232 páginas. Esta presentación permite consultar los ejemplos prácticos, marcar las técnicas que se quieran recuperar y añadir notas personales durante la lectura en papel.",
+      "texto": "Sácate a esa persona de la cabeza se publica en tapa blanda y Kindle. La edición de Grijalbo tiene 232 páginas y solapas, un formato físico que permite volver a las técnicas y los ejemplos durante su aplicación cotidiana. En Kindle, esas mismas explicaciones pueden consultarse desde el móvil o un lector electrónico, sin llevar el libro impreso.",
       "evidencias": [
         "titulo",
+        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
@@ -35,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5861734e833f9ac0",
+  "fuente_hash": "9016414c19201d0b",
   "origen": "chatgpt-web"
 }

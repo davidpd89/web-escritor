@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788467083941",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diario del hortelano 2027 está dirigido a quienes cultivan un huerto o quieren iniciarse en esa actividad con una referencia vinculada al calendario. La Huertina de Toni aborda el cultivo desde la observación, la paciencia y la respuesta a los contratiempos cotidianos. No responde a la búsqueda de una novela ni de una lectura centrada en personajes y conflictos ficticios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Diario del hortelano 2027 propone una lectura práctica sobre el cuidado del huerto, asociada al seguimiento del año agrícola. Su planteamiento combina el trabajo cotidiano, la atención a los cambios y la necesidad de perseverar cuando el cultivo presenta dificultades. La autoría de La Huertina de Toni sitúa el contenido en el ámbito de la divulgación hortícola.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Diario del hortelano 2027 se ofrece en tapa blanda, con una extensión de 224 páginas. La edición de Editorial Espasa utiliza encuadernación rústica sin solapas, adecuada para consultar el volumen en papel mientras se planifican las tareas del huerto. Es un formato físico que puede mantenerse a mano durante el año al que hace referencia el título.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8f0f9b56147a0ba9",
+  "origen": "chatgpt-web"
+}

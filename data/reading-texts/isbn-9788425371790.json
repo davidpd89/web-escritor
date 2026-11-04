@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Resistencia biológica se dirige a lectores adultos interesados en cómo la alimentación, la exposición a la luz y los hábitos cotidianos se relacionan con la salud. Quien busque un libro dedicado exclusivamente a un nutriente encontrará aquí un planteamiento más amplio sobre el funcionamiento del cuerpo.",
+      "texto": "Resistencia biológica se dirige a adultos interesados en el desarrollo personal, la alimentación y los hábitos que influyen en el bienestar físico. José Manuel Ruiz Lorenzo plantea una revisión crítica de determinadas costumbres modernas, desde la exposición a la luz hasta las elecciones alimentarias. No está orientado a quienes buscan ficción ni a lectores que prefieren un enfoque exclusivamente culinario.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,17 +15,34 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Resistencia biológica está disponible en tapa blanda y Kindle. La edición física reúne sus 304 páginas en un volumen con solapas que se puede consultar y prestar; Kindle permite llevar el texto en un lector electrónico o leerlo desde el móvil.",
+      "texto": "Resistencia biológica está disponible en tapa blanda y Kindle. La edición de Grijalbo consta de 304 páginas y lleva solapas, por lo que permite conservar en papel una lectura sobre hábitos de salud y bienestar. Kindle ofrece la alternativa de consultar el contenido desde el móvil o un lector electrónico, sin necesidad de transportar el volumen.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Resistencia biológica puede compararse con Cómo no tener diabetes, de Adrián Díaz Alonso, y La fibra es la solución, de Kristen Stavridis. Los tres abordan cuestiones de salud relacionadas con los hábitos, pero José Manuel Ruiz Lorenzo plantea una revisión general del estilo de vida moderno. Los otros títulos delimitan asuntos más concretos: la diabetes y el consumo de fibra, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425373152",
+        "isbn-9788425374869"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d6c8721dc17eecd9",
+  "fuente_hash": "ee22a2ab0ab0fe39",
   "origen": "chatgpt-web"
 }
