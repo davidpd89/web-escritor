@@ -3,28 +3,8 @@
   "familia": "no_ficcion",
   "bloques": [
     {
-      "modulo": "para_quien",
-      "texto": "Un espejo lejano se dirige a lectores interesados en la historia europea del siglo XIV y en las relaciones entre epidemias, guerras, hambre y religión. Sus 656 páginas y su enfoque histórico encajan menos con quien busca una narración breve o una novela de ficción.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "temas_y_enfoque",
-      "texto": "Un espejo lejano examina la sociedad de Europa Occidental durante el siglo XIV, con atención a la peste negra, los conflictos bélicos, la escasez de alimentos y las tensiones religiosas. Barbara W. Tuchman reúne estos procesos en un retrato histórico de una época marcada por crisis simultáneas, en lugar de limitarse a un único acontecimiento.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "categorias"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "Un espejo lejano está disponible en tapa blanda y Kindle. La edición impresa de Editorial Ariel reúne 656 páginas en rústica con solapas, una opción para consultar y conservar el volumen físico; Kindle permite llevar esa lectura extensa en un dispositivo compatible sin transportar el libro.",
+      "texto": "Un espejo lejano puede leerse en tapa dura, tapa blanda o Kindle, según se prefiera un volumen físico o lectura digital. La edición de Editorial Ariel es una rústica con solapas de 656 páginas; Kindle permite llevar esa extensión en un dispositivo compatible sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -32,13 +12,39 @@
         "editorial",
         "numero_paginas"
       ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un espejo lejano y Revoluciones. Una nueva historia estudian transformaciones históricas, pero Barbara W. Tuchman se concentra en las crisis de la Europa del siglo XIV y Donald Sassoon en cómo surgen y evolucionan las revoluciones. Los pilares de la historia, de Javier Fernández Sebastián, plantea en cambio una reflexión sobre la capacidad de la historia para interpretar un mundo en crisis.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629664",
+        "isbn-9788491999522"
+      ]
+    },
+    {
+      "modulo": "para_quien",
+      "texto": "Un espejo lejano se dirige a lectores interesados en comprender las crisis sociales, políticas y religiosas de Europa Occidental durante el siglo XIV. Barbara W. Tuchman examina acontecimientos históricos como las epidemias, las guerras y la escasez de alimentos. Sus 656 páginas encajan menos con quien busca una novela de ficción o una introducción muy breve al periodo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
     }
   ],
   "descartados": [
-    "lecturas_afines: más de cuatro frases",
-    "faltan módulos: lecturas_afines"
+    "para_quien: nombres sin respaldo: Edad, Media",
+    "temas_y_enfoque: copia 8 palabras seguidas de la sinopsis",
+    "faltan módulos: para_quien, temas_y_enfoque"
   ],
   "version": 3,
-  "fuente_hash": "0291b68b9d177f04",
+  "fuente_hash": "ffe7c65f30eeefb1",
   "origen": "chatgpt-web"
 }

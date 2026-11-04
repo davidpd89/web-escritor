@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "5 semanas para desinflamarte (edición limitada) se dirige a quienes buscan incorporar hábitos alimentarios, menús y recetas a una rutina orientada al bienestar. Su enfoque práctico encaja menos con lectores que prefieren un libro dedicado exclusivamente a recetas, sin pautas sobre nutrición e inflamación.",
+      "texto": "5 semanas para desinflamarte (edición limitada) se dirige a quienes buscan introducir cambios en su alimentación y sus hábitos para abordar la inflamación corporal. Su enfoque combina nutrición, menús y recetas, por lo que encaja menos con quien busca un recetario desvinculado de objetivos de bienestar.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -12,41 +12,49 @@
       ]
     },
     {
-      "modulo": "contenido_y_uso",
-      "texto": "El libro propone un programa de cinco semanas que combina cambios de hábitos, consejos prácticos, menús y recetas. Su contenido permite trasladar las pautas de alimentación al día a día y trabajar sobre los factores relacionados con la inflamación que aborda Blanca García-Orea Haro (@blancanutri).",
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de 5 semanas para desinflamarte (edición limitada) se publica en tapa blanda bajo el sello Penguin Bolsillo. Reúne 368 páginas en castellano y lleva el ISBN 9788466394390, que permite identificar esta publicación frente a otras versiones del libro.",
       "evidencias": [
         "titulo",
-        "autores",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El contenido se articula alrededor de un programa de 5 semanas orientado a modificar hábitos relacionados con la inflamación. Incluye consejos prácticos, menús y recetas que permiten trasladar las pautas alimentarias a la planificación de comidas y a la rutina cotidiana.",
+      "evidencias": [
+        "titulo",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar las 368 páginas mientras se preparan los menús y las recetas del programa. Kindle facilita acceder a las indicaciones desde el móvil o un lector electrónico, mientras que el audiolibro permite escuchar los consejos y hábitos propuestos durante otras actividades.",
+      "texto": "La tapa blanda permite consultar y volver a utilizar las recetas y los menús de sus 368 páginas en papel. Kindle facilita llevar las indicaciones en el móvil, mientras que el audiolibro permite escuchar los consejos durante otras actividades, aunque resulta menos directo para consultar recetas concretas.",
       "evidencias": [
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La revolución de la glucosa: el Método comparte con 5 semanas para desinflamarte (edición limitada) el enfoque práctico sobre alimentación, con recetas y un programa de varias semanas. Jessie Inchauspé centra su propuesta en la glucosa y cuatro semanas de aplicación; Blanca García-Orea Haro (@blancanutri) aborda la inflamación mediante hábitos, menús y recetas durante cinco semanas.",
+      "texto": "La fibra es la solución comparte el interés por la alimentación y la inflamación, pero se centra en el consumo diario de fibra. La revolución de la glucosa: el Método también plantea cambios alimentarios mediante recetas, aunque organiza su propuesta en torno a la glucosa y un programa de 4 semanas, frente a las 5 semanas de 5 semanas para desinflamarte (edición limitada).",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
+        "isbn-9788425374869",
         "isbn-9788411191937"
       ]
     }
   ],
-  "descartados": [
-    "esta_edicion: cifras sin respaldo: 7",
-    "faltan módulos: esta_edicion"
-  ],
+  "descartados": [],
   "version": 3,
   "fuente_hash": "2f99cbd1902eeaba",
   "origen": "chatgpt-web"

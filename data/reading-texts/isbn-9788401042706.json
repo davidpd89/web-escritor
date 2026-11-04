@@ -3,8 +3,18 @@
   "familia": "narrativa",
   "bloques": [
     {
+      "modulo": "para_quien",
+      "texto": "La tapadera (La tapadera 1) está dirigida a lectores adultos que buscan un thriller de conspiraciones, secretos empresariales e investigaciones policiales. Su conflicto gira alrededor de un bufete de abogados y sus actividades ilegales, por lo que se aleja de una novela jurídica centrada únicamente en los tribunales.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
       "modulo": "encaje_documentado",
-      "texto": "Es un thriller de intriga jurídica y empresarial, construido alrededor de una oferta laboral que oculta una conspiración. En La tapadera (La tapadera 1), el protagonista debe afrontar los secretos de su bufete, la vigilancia clandestina y una investigación del FBI. El peligro procede de una organización de la que nadie consigue salir indemne.",
+      "texto": "La tapadera (La tapadera 1) plantea un thriller en el que una oportunidad profesional se convierte en una amenaza para quien la acepta. Mitch McDeere entra en un despacho de abogados relacionado con operaciones ilegales, vigilancia clandestina e investigaciones del FBI; el peligro aumenta cuando comprende las consecuencias de intentar marcharse.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,18 +23,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapadera (La tapadera 1) puede leerse en tapa blanda o Kindle. La edición física de Plaza & Janés tiene solapas y 536 páginas, una opción para conservar el volumen en papel. Kindle permite llevar esa misma lectura en el móvil sin cargar con el libro físico.",
+      "texto": "La tapadera (La tapadera 1) se ofrece en tapa dura, tapa blanda, Kindle y audiolibro. La edición de Plaza & Janés es una tapa blanda con solapas de 536 páginas; Kindle permite leerla en formato digital, mientras que el audiolibro ofrece la posibilidad de seguir la historia mediante la escucha.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
         "editorial",
-        "numero_paginas",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La tapadera (La tapadera 1) y La trama francesa son obras de John Grisham, aunque sus planteamientos son distintos. La primera desarrolla una conspiración alrededor de un bufete y una investigación del FBI; la segunda presenta a Paul y Chelsea Tanner después de su boda. Comparten autoría, pero parten de situaciones personales diferentes.",
+      "texto": "La tapadera (La tapadera 1) y La trama francesa comparten autor, John Grisham, pero presentan situaciones iniciales distintas. La primera desarrolla una conspiración ligada a un despacho de abogados y una investigación del FBI; la segunda parte del matrimonio de Paul y Chelsea Tanner y de sus expectativas de futuro.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,23 +44,10 @@
       "enlaces": [
         "isbn-9788401039850"
       ]
-    },
-    {
-      "modulo": "para_quien",
-      "texto": "La tapadera (La tapadera 1) se dirige a lectores adultos interesados en el thriller jurídico, las conspiraciones y los delitos económicos. El conflicto entre la carrera profesional de un abogado y las actividades ilegales de su bufete la aleja de quienes buscan una historia centrada en el romance o la vida cotidiana.",
-      "evidencias": [
-        "titulo",
-        "edad_recomendada",
-        "categorias",
-        "sinopsis_editorial"
-      ]
     }
   ],
-  "descartados": [
-    "para_quien: muletilla: descubre",
-    "faltan módulos: para_quien"
-  ],
+  "descartados": [],
   "version": 3,
-  "fuente_hash": "cac54933cb63e3b3",
+  "fuente_hash": "2f526bea6aed1d22",
   "origen": "chatgpt-web"
 }

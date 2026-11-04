@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los tres mundos (Serie Julio César 3) encaja con lectores de novela histórica interesados en las campañas militares, las disputas políticas y la trayectoria de Julio César. Sus 1040 páginas y su condición de tercera entrega lo alejan de quienes buscan una narración breve o desligada de los acontecimientos anteriores de la serie.",
+      "texto": "Los tres mundos (Serie Julio César 3), de Santiago Posteguillo, encaja con lectores de novela histórica interesados en campañas militares, rivalidades políticas y personajes de la historia romana. Sus 1040 páginas permiten seguir conflictos desarrollados en varios territorios. No responde a la búsqueda de una biografía breve ni de una exposición histórica exclusivamente documental.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas",
         "sinopsis_editorial"
@@ -14,7 +15,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Los tres mundos (Serie Julio César 3) aborda la conquista de las Galias, los enfrentamientos políticos de Roma y el exilio de Tolomeo XII en Egipto. Santiago Posteguillo relaciona estos escenarios mediante una narración histórica centrada en las decisiones militares y políticas de Julio César, con Cleopatra también presente en los acontecimientos.",
+      "texto": "Los tres mundos (Serie Julio César 3) aborda la conquista de las Galias, las disputas de poder en Roma y la situación política de Egipto. Santiago Posteguillo articula estos acontecimientos mediante una novela histórica que sigue a Julio César y también incorpora el destierro de Tolomeo XII junto a Cleopatra. La narración conecta decisiones militares y conflictos políticos de distintos territorios.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,33 +25,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los tres mundos (Serie Julio César 3) se ofrece en tapa blanda y Kindle. La edición de Penguin Bolsillo contiene 1040 páginas en castellano y permite conservar el volumen físico; Kindle evita transportar ese número de páginas en papel y facilita la lectura en dispositivos compatibles.",
+      "texto": "Los tres mundos (Serie Julio César 3) cuenta con tapa dura, tapa blanda, Kindle y audiolibro. La edición de Penguin Bolsillo es de tapa blanda y tiene 1040 páginas; la tapa dura ofrece una encuadernación rígida para conservar el volumen, mientras que Kindle evita transportar un libro de esa extensión. El audiolibro permite seguir la narración mediante escucha.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
         "editorial",
-        "idioma"
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los asesinos del emperador. Edición especial con cantos decorados comparte con Los tres mundos (Serie Julio César 3) la autoría de Santiago Posteguillo y el interés por la historia de Roma, pero pertenece a la Trilogía de Trajano. Cuando seamos inmortales, de Tony Gratacós, también relaciona personajes históricos y conflictos políticos, aunque se centra en Rubens y Velázquez.",
+      "texto": "Los tres mundos (Serie Julio César 3) comparte con Los asesinos del emperador. Edición especial con cantos decorados la autoría de Santiago Posteguillo y el interés por la historia romana. El primero sigue las campañas de Julio César y las tensiones entre Roma, la Galia y Egipto; el segundo inicia la Trilogía de Trajano y se presenta en una edición especial con cantos decorados.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408326779",
-        "isbn-9788423371181"
+        "isbn-9788408326779"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bf8f14236b5aae31",
+  "fuente_hash": "892b96e2e1590ba0",
   "origen": "chatgpt-web"
 }
