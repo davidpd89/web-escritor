@@ -19,10 +19,11 @@ def timeout_urls(report: str) -> list[str]:
     retryable = {'TIMEOUT', '500', '502', '503', '504'}
     # Lychee reports transport failures as [ERROR] with no HTTP status. Only
     # these are as transient as a timeout (a refused/reset connection, or the
-    # cached copy of an earlier one); the recheck still demands a real 2xx, so
-    # a host that stays down keeps failing. Other [ERROR]s (DNS, TLS, invalid
-    # URL) are not retried.
-    transport = re.compile(r'\|\s*(?:Connection (?:refused|reset|closed)\b|Error \(cached\)\s*$)', re.I)
+    # cached copy of an earlier one; lychee's generic "Connection failed" is the
+    # connect error unesco.org gave on 2026-11-04 while serving 200 to curl);
+    # the recheck still demands a real 2xx, so a host that stays down keeps
+    # failing. Other [ERROR]s (DNS, TLS, invalid URL) are not retried.
+    transport = re.compile(r'\|\s*(?:Connection (?:refused|reset|closed|failed)\b|Error \(cached\)\s*$)', re.I)
     failures = [(status, url) for status, url, _ in lines]
     if not lines or any(
         not url.startswith(('https://', 'http://'))

@@ -24,9 +24,13 @@ refused = ('| Errors | 2 |\n'
            '* [ERROR] <https://example.org/originales/> (at 200:100) | Error (cached)\n')
 assert module.timeout_urls(refused) == ['https://example.org/bases/', 'https://example.org/originales/']
 assert module.timeout_urls(refused.replace('\n', '\r\n')) == ['https://example.org/bases/', 'https://example.org/originales/']
+# lychee's generic connect error (unesco.org, 2026-11-04 full scan).
+failed = '| Errors | 1 |\n* [ERROR] <https://www.unesco.org/en/creative-cities> (at 132:3253) | Connection failed. Check network connectivity and firewall settings\n'
+assert module.timeout_urls(failed) == ['https://www.unesco.org/en/creative-cities']
 for invalid in ['| Errors | 1 |\n* [ERROR] <https://example.org/x> | Failed to resolve DNS name',
                 '| Errors | 1 |\n* [ERROR] <https://example.org/x> | TLS handshake failed',
                 '| Errors | 1 |\n* [ERROR] <https://example.org/x> | Connection refusedness',
+                '| Errors | 1 |\n* [ERROR] <https://example.org/x> | Connection failedover',
                 '| Errors | 1 |\n* [ERROR] <https://example.org/x>',
                 '| Errors | 1 |\n* [ERROR] <file:///x> | Connection refused',
                 refused.replace('Errors | 2', 'Errors | 3')]:
