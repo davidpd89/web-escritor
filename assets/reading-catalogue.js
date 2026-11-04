@@ -35,7 +35,7 @@
       return;
     }
   }
-  if (staticNav) staticNav.hidden = true;
+  if (staticNav) { staticNav.hidden = true; staticNav.classList.remove('catalogue-pagination'); }
   const normalize = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').replace(/,/g, ' ').replace(/\s+/g, ' ').trim();
   // Solo los ISBN-13 completos admiten separadores y prefijos de presentación.
   const searchQuery = s => {

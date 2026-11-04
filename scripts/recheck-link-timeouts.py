@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recheck Lychee timeouts/transient 5xx independently; require actual HTTP 2xx."""
+"""Recheck Lychee timeouts/transient 5xx/transport errors independently; require actual HTTP 2xx."""
 from __future__ import annotations
 
 import argparse
@@ -14,11 +14,23 @@ UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 
 
 def timeout_urls(report: str) -> list[str]:
-    failures = re.findall(r'^\* \[([^\]]+)\] <([^>]+)>', report, re.M)
+    lines = re.findall(r'^\* \[([^\]]+)\] <([^>]+)>(.*)$', report, re.M)
     # Never hide HTTP errors, unsupported URLs or an unexpected report format.
     retryable = {'TIMEOUT', '500', '502', '503', '504'}
-    if not failures or any(status not in retryable or not url.startswith(('https://', 'http://')) for status, url in failures):
-        raise ValueError('Only timeout/transient 5xx failures can be rechecked')
+    # Lychee reports transport failures as [ERROR] with no HTTP status. Only
+    # these are as transient as a timeout (a refused/reset connection, or the
+    # cached copy of an earlier one; lychee's generic "Connection failed" is the
+    # connect error unesco.org gave on 2026-11-04 while serving 200 to curl);
+    # the recheck still demands a real 2xx, so a host that stays down keeps
+    # failing. Other [ERROR]s (DNS, TLS, invalid URL) are not retried.
+    transport = re.compile(r'\|\s*(?:Connection (?:refused|reset|closed|failed)\b|Error \(cached\)\s*$)', re.I)
+    failures = [(status, url) for status, url, _ in lines]
+    if not lines or any(
+        not url.startswith(('https://', 'http://'))
+        or (status not in retryable and not (status == 'ERROR' and transport.search(detail)))
+        for status, url, detail in lines
+    ):
+        raise ValueError('Only timeout, transient 5xx or transport failures can be rechecked')
     for line in report.splitlines():
         if line.lstrip().startswith('|') and re.search(r'\b(?:Errors|Unknown|Unsupported)\b', line):
             cells = line.split('|')

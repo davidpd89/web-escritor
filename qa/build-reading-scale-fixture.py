@@ -56,7 +56,7 @@ with tempfile.TemporaryDirectory(prefix='reading-scale-') as directory:
         selected_ids={b['id'] for b in selected['libros']}
         selected['libro_categorias']=[r for r in selected['libro_categorias'] if r['libro_id'] in selected_ids]
         builder.validate(selected,root)
-        output['catalogues'][str(count)]={'html':builder.render_hub(selected,selected['libros'],template),'books':selected['libros']}
+        output['catalogues'][str(count)]={'html':builder.render_hub(selected,selected['libros'],template),'books':selected['libros'], 'pages':{builder.catalogue_page_url(n):builder.render_hub(selected,selected['libros'],template,page_number=n) for n in range(2,(count+builder.CATALOGUE_PAGE_SIZE-1)//builder.CATALOGUE_PAGE_SIZE+1)}}
     output['cover']=base64.b64encode((covers/'qa-reading-0.png').read_bytes()).decode()
 destination=Path(sys.argv[1])
 destination.parent.mkdir(parents=True,exist_ok=True)

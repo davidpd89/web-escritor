@@ -94,6 +94,9 @@ jobs:
           RECOMMENDATIONS_ARTIFACT_DIR: artifacts/recommendations/catalogue
         run: |
           python scripts/build-reading-catalogue.py --check
+          python tests/test-reading-static-pagination.py
+          python tests/test-catalogue-performance-budget-coverage.py
+          python tests/test-ahrefs-schema-regressions.py
           node qa/reading-catalogue-browser.mjs
           node qa/reading-commerce-browser.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-ratings-trust.mjs

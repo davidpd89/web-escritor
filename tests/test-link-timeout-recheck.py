@@ -18,10 +18,31 @@ for invalid in ['', '* [404] <https://example.org/missing>', '* [301] <https://e
         raise AssertionError('must not accept non-timeout failures or unknown output')
     except ValueError:
         pass
+# Transport [ERROR]s from the 2026-11-02 weekly scan: retried, still need 2xx.
+refused = ('| Errors | 2 |\n'
+           '* [ERROR] <https://example.org/bases/> (at 924:88) | Connection refused - server may be down or port blocked\n'
+           '* [ERROR] <https://example.org/originales/> (at 200:100) | Error (cached)\n')
+assert module.timeout_urls(refused) == ['https://example.org/bases/', 'https://example.org/originales/']
+assert module.timeout_urls(refused.replace('\n', '\r\n')) == ['https://example.org/bases/', 'https://example.org/originales/']
+# lychee's generic connect error (unesco.org, 2026-11-04 full scan).
+failed = '| Errors | 1 |\n* [ERROR] <https://www.unesco.org/en/creative-cities> (at 132:3253) | Connection failed. Check network connectivity and firewall settings\n'
+assert module.timeout_urls(failed) == ['https://www.unesco.org/en/creative-cities']
+for invalid in ['| Errors | 1 |\n* [ERROR] <https://example.org/x> | Failed to resolve DNS name',
+                '| Errors | 1 |\n* [ERROR] <https://example.org/x> | TLS handshake failed',
+                '| Errors | 1 |\n* [ERROR] <https://example.org/x> | Connection refusedness',
+                '| Errors | 1 |\n* [ERROR] <https://example.org/x> | Connection failedover',
+                '| Errors | 1 |\n* [ERROR] <https://example.org/x>',
+                '| Errors | 1 |\n* [ERROR] <file:///x> | Connection refused',
+                refused.replace('Errors | 2', 'Errors | 3')]:
+    try:
+        module.timeout_urls(invalid)
+        raise AssertionError('only transport [ERROR]s may be rechecked')
+    except ValueError:
+        pass
 for code, status, expected in [(0,'200',True),(0,'204',True),(22,'404',False),(0,'301',False),(28,'000',False),(1,'200',False)]:
     with patch.object(module.subprocess, 'run', return_value=SimpleNamespace(returncode=code,stdout=status,stderr='')) as execute:
         assert module.check_url(url)['ok'] is expected
         args = execute.call_args.args[0]
         assert '--fail' in args and '--location' in args and '--ipv4' in args
         assert args[-2:] == ['--url',url]
-print('PASS link timeout recheck: only actual 2xx clears timeout; HTTP errors, loops and unknown reports stay fatal')
+print('PASS link timeout recheck: only actual 2xx clears timeout/transport errors; HTTP errors, loops and unknown reports stay fatal')
