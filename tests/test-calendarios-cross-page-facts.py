@@ -29,7 +29,8 @@ for key in sorted(shared):
     assert a['about']['isbn'] == b['about']['isbn'], f'{key}: ISBN diferente'
     assert a['about']['name'] == b['about']['name'], f'{key}: obra diferente'
     assert a['performer']['@id'] == b['performer']['@id'], f'{key}: autor diferente'
-    assert a['offers']['price'] == b['offers']['price'], f'{key}: precio diferente'
-    assert a['offers']['priceCurrency'] == b['offers']['priceCurrency'], f'{key}: moneda diferente'
+    assert a.get('offers') == b.get('offers'), f'{key}: ofertas diferentes'
+    if 'offers' not in a:
+        assert a.get('isAccessibleForFree') is True, f'{key}: se perdió la gratuidad histórica'
 
 print(f'OK: paridad factual de {len(shared)} eventos compartidos')
