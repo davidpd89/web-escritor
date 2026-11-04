@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los doce secretos encaja con lectores de narrativa contemporánea interesados en crímenes, investigaciones periodísticas y acontecimientos del pasado que vuelven a tener consecuencias. No se orienta a quienes buscan historias sin violencia criminal, porque dos asesinatos conectados por el tiempo sostienen el conflicto.",
+      "texto": "Los doce secretos encaja con lectores de intriga criminal interesados en asesinatos, investigaciones periodísticas y secretos familiares. La historia relaciona un crimen reciente con otro ocurrido veinte años antes, de modo que el pasado tiene un papel central. No es una lectura orientada a quien busque una trama cotidiana sin violencia ni investigaciones de delitos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,21 +13,34 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Los doce secretos construye una intriga criminal alrededor de dos asesinatos separados por veinte años y relacionados con una misma familia. Ben Harper, periodista especializado en sucesos, debe revisar la muerte de su hermano cuando aparecen nuevas pruebas y secretos entre los habitantes de Haddley.",
+      "texto": "Los doce secretos plantea una investigación criminal en la que un asesinato obliga a revisar otro sucedido veinte años atrás. Ben Harper, periodista especializado en sucesos, debe enfrentarse a la muerte de su hermano y a nuevas pruebas relacionadas con aquel crimen. La intriga se desarrolla en torno a los secretos de una comunidad pequeña y a las consecuencias de descubrir hechos del pasado.",
       "evidencias": [
         "titulo",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los doce secretos puede leerse en tapa blanda o en Kindle. La edición en papel reúne 416 páginas y permite conservar un ejemplar físico; Kindle facilita llevar la lectura en un dispositivo electrónico o en el móvil sin transportar el volumen impreso.",
+      "texto": "Los doce secretos está disponible en tapa blanda y Kindle. La edición física de Duomo Ediciones tiene 416 páginas, una extensión que permite leer la investigación en un único volumen y conservarlo después. Kindle ofrece la alternativa de llevar la novela en el móvil o en un lector electrónico, sin cargar con el ejemplar impreso.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los doce secretos y El secreto mejor guardado del gran Museo del Prado, de Diego Arboleda, comparten el interés por aquello que permanece oculto. La novela de Robert Gold aborda asesinatos y revelaciones familiares mediante una investigación periodística, mientras que la obra de Diego Arboleda introduce al lector en el Museo del Prado y en los cuentos de Andersen con un enfoque humorístico. La diferencia principal está en el conflicto criminal frente a la exploración cultural y literaria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306181"
       ]
     }
   ],

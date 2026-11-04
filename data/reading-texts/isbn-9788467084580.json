@@ -1,0 +1,37 @@
+{
+  "id": "isbn-9788467084580",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mesa para uno se dirige a lectores de narrativa contemporánea que buscan conflictos sobre el aislamiento, los vínculos personales y el final de la vida. La presencia de la muerte asistida y de personajes enfrentados a la soledad puede resultar difícil para quienes prefieren asuntos cotidianos menos ligados a la pérdida.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Rafa Russo construye una novela literaria alrededor de Iñaki, un hombre reservado que participa en el acompañamiento de personas próximas a morir. El contraste entre su propia desconexión emocional y las relaciones que establece permite abordar distintas formas de soledad y la recuperación del contacto humano.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mesa para uno se ofrece en tapa blanda, concretamente en rústica con solapas de Editorial Espasa. Sus 208 páginas forman un volumen de extensión contenida que puede transportarse para leer fuera de casa; las solapas permiten proteger parcialmente los bordes de la cubierta y marcar el punto de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "59fe27b8b186e75c",
+  "origen": "chatgpt-web"
+}

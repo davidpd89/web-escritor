@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788408330387",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mientras pueda recordarte se orienta a lectores de narrativa contemporánea interesados en las relaciones familiares, la enfermedad y los conflictos entre generaciones. Su tratamiento del abandono y las dificultades entre madres e hijas puede no encajar con quienes prefieren historias alejadas del sufrimiento personal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Rosa Sánchez de la Vega plantea un drama familiar alrededor del regreso de Ana a su localidad de infancia, en la costa asturiana, después de enfermar. La distancia emocional entre generaciones, el cuidado de los hijos y la posibilidad del perdón sostienen el conflicto de esta novela contemporánea.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mientras pueda recordarte está disponible en tapa dura, con sobrecubierta, en la edición de Editorial Planeta. Sus 352 páginas forman un volumen físico con cubierta rígida, apropiado para conservar en la biblioteca o entregar como regalo; la sobrecubierta añade una protección exterior que puede retirarse durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6aad023866fa8d11",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9788401033797",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una familia moderna, de Julia Navarro, está dirigida a adultos interesados en las relaciones entre generaciones y los cambios de valores dentro de una familia. La historia reúne a abuelos, hija y nieta con distintas maneras de entender la vida; no responde al planteamiento de una novela de aventuras ni al de un manual de crianza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Una familia moderna es una novela contemporánea sobre las diferencias generacionales y la transformación de las relaciones familiares. Julia Navarro sitúa el conflicto entre una pareja vinculada al mundo cultural, su hija dedicada a un canal digital y una nieta adolescente que cuestiona las convenciones. La tensión procede del contraste entre sus experiencias y su manera de interpretar el presente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una familia moderna puede leerse en tapa dura o Kindle. La edición física de Plaza & Janés tiene 400 páginas y sobrecubierta, una presentación apropiada para conservar el ejemplar o entregarlo como regalo. Kindle permite llevar la novela de Julia Navarro en formato digital y continuar la lectura desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El tiempo que pasa, de Manuel Medina, comparte con Una familia moderna la atención al paso del tiempo y a las experiencias de distintas generaciones. La primera obra recupera la infancia en la España de la posguerra, mientras Julia Navarro aborda los cambios culturales desde una familia contemporánea. Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?), de Elma van Vliet, propone en cambio un libro para construir memoria familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040580",
+        "isbn-9788401039836"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0b893722ad9f41fb",
+  "origen": "chatgpt-web"
+}
