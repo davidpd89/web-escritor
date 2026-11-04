@@ -3,53 +3,54 @@
   "familia": "narrativa",
   "bloques": [
     {
-      "modulo": "para_quien",
-      "texto": "Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados encaja con lectores desde los 16 años que busquen fantasía juvenil sobre dragones, herencias de poder y supervivencia. No responde a una lectura de conflictos cotidianos o de escaso peligro: despertar a un dragón desencadena consecuencias que amenazan vidas y una dinastía.",
+      "modulo": "edad_y_sensibilidad",
+      "texto": "La edad recomendada es a partir de 16 años y la historia presenta un entorno académico donde la supervivencia está amenazada. El despertar de un dragón y las consecuencias de su poder introducen peligro de muerte y conflictos relacionados con la sangre y el legado familiar. El título identifica este volumen como el n.º 2.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "edad_y_sensibilidad",
-      "texto": "Está recomendado a partir de 16 años y pertenece a la fantasía juvenil. El conflicto incluye amenazas de muerte, una academia donde sobrevivir resulta difícil y las consecuencias peligrosas de despertar a un dragón; son elementos que pueden inquietar a lectores sensibles a la violencia y al riesgo de perder la vida.",
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela de fantasía juvenil ambientada en la Academia Bloodwing, donde la ascendencia y los dragones están vinculados al poder. Briar Boleyn plantea las consecuencias de despertar a un dragón después de un primer año marcado por la dificultad de sobrevivir, con una dinastía amenazada por ese acontecimiento.",
       "evidencias": [
-        "edad_recomendada",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición especial incorpora cantos tintados, guardas con acabados metalizados y un mapa desplegable. Editorial Planeta la publica en tapa dura con sobrecubierta y una extensión de 640 páginas, de modo que los elementos diferenciadores incluyen tanto la decoración del volumen como un complemento para consultar durante la lectura.",
+      "texto": "La edición especial limitada de Editorial Planeta se publica en tapa dura con sobrecubierta, cantos tintados, guardas con acabados metalizados y un mapa desplegable. Contiene 640 páginas en castellano, tiene el ISBN 9788408327271 y fecha editorial del 28 de octubre de 2026. Estos elementos físicos distinguen el volumen de la opción Kindle.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
+        "sinopsis_editorial",
         "numero_paginas",
-        "sinopsis_editorial"
+        "idioma",
+        "isbn13",
+        "fecha_publicacion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados está disponible en tapa dura con sobrecubierta. Sus 640 páginas forman un volumen físico que permite consultar el mapa desplegable; los cantos tintados y las guardas metalizadas también forman parte de esta presentación para conservar o regalar.",
+      "texto": "La tapa dura reúne las 640 páginas e incorpora sobrecubierta, cantos tintados, guardas metalizadas y mapa desplegable, elementos que también cuentan al elegirla como regalo. Kindle permite leer la novela en formato electrónico y transportarla sin el peso del volumen físico, aunque la edición especial se distingue precisamente por sus acabados materiales.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "edicion",
         "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     }
   ],
   "descartados": [
-    "encaje_documentado: afirmaciones sin respaldo: premi",
-    "que_formato_elegir: repite otro bloque",
-    "faltan módulos: encaje_documentado, que_formato_elegir"
+    "para_quien: afirmaciones sin respaldo: premi",
+    "faltan módulos: para_quien"
   ],
   "version": 3,
-  "fuente_hash": "d392995198e3e7ff",
+  "fuente_hash": "5ab277d3659c5574",
   "origen": "chatgpt-web"
 }

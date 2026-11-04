@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando tu hijo te habla peor que a nadie está dirigido a personas adultas que afrontan discusiones, distancia o malas contestaciones de sus hijos. Aborda esas tensiones mediante la neurociencia y la inteligencia emocional, no mediante una historia de ficción.",
+      "texto": "Cuando tu hijo te habla peor que a nadie se dirige a adultos interesados en comprender los conflictos de comunicación entre madres e hijos. Carlos Rodríguez Lorenzo aborda las discusiones familiares mediante la neurociencia, la inteligencia emocional y herramientas prácticas. No está planteado como una guía de crianza centrada en los cuidados físicos o las primeras etapas del desarrollo infantil.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,20 +15,22 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuando tu hijo te habla peor que a nadie se presenta en tapa blanda con solapas y tiene 288 páginas. El papel permite retomar sus herramientas prácticas y revisar las situaciones familiares descritas, mientras las solapas facilitan señalar dónde continuar.",
+      "texto": "Cuando tu hijo te habla peor que a nadie se publica en tapa blanda y Kindle. La edición de Vergara tiene 288 páginas, tapa blanda con solapas y permite consultar en papel las reflexiones y herramientas sobre conflictos familiares. Kindle facilita llevar el contenido en formato digital y volver a sus apartados desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando tu hijo te habla peor que a nadie y Criar juntos de verdad abordan la crianza, pero el primero se centra en los conflictos entre madres e hijos, mientras que el segundo trata la crianza en equipo. Mamá necesita un respiro se aproxima a la experiencia de la maternidad, más que a las discusiones familiares concretas.",
+      "texto": "Cuando tu hijo te habla peor que a nadie y Criar juntos de verdad comparten el interés por mejorar las relaciones familiares, pero el libro de Carlos Rodríguez Lorenzo se concentra en las respuestas hostiles y la comunicación entre madres e hijos, mientras que el de Armando Bastida @armandobastidaep aborda la crianza en equipo. Mamá necesita un respiro, de Inma Sáenz, también trata experiencias de maternidad, aunque desde el desgaste y las expectativas asociadas a ella.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
@@ -39,6 +42,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ccd06d2c920ec013",
+  "fuente_hash": "6e6dc8b5419abdc7",
   "origen": "chatgpt-web"
 }

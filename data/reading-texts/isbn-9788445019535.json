@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788445019535",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El pájaro que bebe lágrimas nº 02/04 El sueño del lekon se dirige a lectores de fantasía interesados en criaturas de la mitología coreana, profecías y amenazas que afectan a todo un mundo. Su planteamiento se aleja de las historias realistas y de quienes buscan una aventura independiente: el título lo identifica como el n.º 02/04 y la acción continúa un recorrido ya iniciado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela de fantasía épica construida alrededor de una profecía antigua y un peligro colectivo. Lee Young-do reúne a personajes de distintas especies, entre ellas naga, lekon, dokebi y humanos, en un templo donde deben afrontar una amenaza que supera sus conflictos individuales. La mitología coreana aporta el marco de sus criaturas y su mundo ficticio.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El pájaro que bebe lágrimas nº 02/04 El sueño del lekon está disponible en tapa blanda y Kindle. La edición física de Minotauro tiene 488 páginas y encuadernación rústica con solapas, una opción para conservar el volumen en papel. Kindle permite llevar la misma lectura en un dispositivo electrónico o en el móvil sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "008868ca717747b0",
+  "origen": "chatgpt-web"
+}

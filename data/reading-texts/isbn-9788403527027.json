@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788403527027",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Extraños se dirige a lectores adultos de memorias personales interesados en las rupturas matrimoniales, la identidad y las expectativas familiares. Belle Burden reconstruye su matrimonio después de que su marido la abandone y examina cómo esa experiencia modifica su percepción de sí misma. No es una novela de ficción ni una guía práctica de ejercicios para superar una separación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Extraños puede leerse en tapa blanda o Kindle. La edición de Aguilar consta de 256 páginas y se presenta en tapa blanda con solapas, una opción para conservar en papel el relato autobiográfico de Belle Burden. Kindle permite llevar estas memorias en formato digital y continuar la lectura desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Extraños y Mentalidad ganadora, de Juan Carlos Ferrero, comparten el relato de experiencias personales que transforman la trayectoria de sus protagonistas. Belle Burden se centra en una ruptura matrimonial y la revisión de su identidad, mientras que Juan Carlos Ferrero reconstruye su recorrido deportivo. Canción de amor definitiva, de Jorge Martí Aguas, también presenta cambios vitales, aunque su planteamiento parte de variaciones de ánimo, país y profesión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005463",
+        "isbn-9788401042119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "44f34ac1c17b29ee",
+  "origen": "chatgpt-web"
+}

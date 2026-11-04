@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Campamento Mestizo 1 - La zona rebelde está dirigido a lectores a partir de 9 años que buscan aventuras fantásticas con mitología y personajes jóvenes. También se relaciona con el universo Percy Jackson; sus peligros, desapariciones y criaturas amenazantes pueden encajar menos con quienes prefieren historias infantiles sin situaciones de riesgo.",
+      "texto": "Campamento Mestizo 1 - La zona rebelde está dirigido a lectores a partir de 9 años interesados en fantasía, mitología y aventuras con jóvenes héroes. Su trama incluye una desaparición, criaturas peligrosas y amenazas de muerte, por lo que puede encajar menos con niños que prefieren conflictos cotidianos sin peligro físico.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,18 +14,17 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Campamento Mestizo 1 - La zona rebelde se lee como una aventura narrativa, no como un libro de actividades. La historia sigue a Katie Kim y a otros héroes en la búsqueda de un compañero desaparecido, con entrenamientos y encuentros mitológicos como parte del entorno. El título lo identifica como el n.º 1 de la saga.",
+      "texto": "Se utiliza como una novela de aventuras, siguiendo la búsqueda de un novato desaparecido dentro del Campamento Mestizo. La lectura introduce cabañas vinculadas a progenitores divinos, entrenamiento y encuentros con criaturas míticas; no plantea actividades de juego independientes, sino una historia ambientada en el universo Percy Jackson.",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Campamento Mestizo 1 - La zona rebelde está recomendado a partir de 9 años. Esta edición de Salamandra contiene 256 páginas en castellano y se presenta en tapa blanda con solapas. Su contenido combina fantasía, mitología y aventuras juveniles relacionadas con el mundo de Percy Jackson.",
+      "texto": "La edad recomendada es a partir de 9 años y la edición de Salamandra tiene 256 páginas en castellano. Se presenta en tapa blanda con solapas y desarrolla una aventura de fantasía juvenil relacionada con la mitología, las criaturas míticas y los peligros del Campamento Mestizo.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
         "editorial",
         "numero_paginas",
@@ -37,21 +36,20 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Campamento Mestizo 1 - La zona rebelde se ofrece en tapa blanda y Kindle. La edición impresa de Salamandra tiene 256 páginas y solapas, por lo que permite conservar el volumen físicamente o regalarlo. Kindle facilita llevar la aventura en un lector electrónico o consultarla desde el móvil.",
+      "texto": "La tapa blanda con solapas ofrece las 256 páginas en un ejemplar físico que puede prestarse o regalarse. Kindle permite leer la aventura en dispositivos electrónicos sin transportar el volumen, mientras que el audiolibro ofrece una alternativa para seguir la historia mediante la escucha.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "edicion",
-        "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Campamento Mestizo 1 - La zona rebelde y Pipoka y la Fábrica del Desastre comparten la fantasía y la presencia de criaturas legendarias. El primero, de Rick Riordan y Annabelle Oh, plantea una búsqueda entre semidioses vinculados al universo Percy Jackson; el segundo, de Jose Such, sigue a un cuentacuentos y una marioneta mágica por la Península. Cambian tanto el escenario como los protagonistas.",
+      "texto": "Pipoka y la Fábrica del Desastre comparte con Campamento Mestizo 1 - La zona rebelde la fantasía y la presencia de criaturas legendarias. Jose Such plantea un recorrido por la Península con un cuentacuentos y una marioneta mágica; Rick Riordan y Annabelle Oh sitúan su aventura en un campamento de semidioses, con una desaparición que deben resolver varios héroes.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
@@ -62,6 +60,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a907f2a5ad3a9f8c",
+  "fuente_hash": "9a0b359cad813b21",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un gramo de felicidad al día encaja con lectores que buscan una historia ambientada en diciembre, organizada en capítulos diarios y centrada en los cambios personales después de una separación. No responde a quien prefiera grandes aventuras o conflictos de acción, porque la atención recae en la rutina de Fie, sus relaciones familiares y su acercamiento a otras personas.",
+      "texto": "Un gramo de felicidad al día encaja con lectores de narrativa contemporánea interesados en las relaciones familiares, las separaciones y la reconstrucción de la vida cotidiana. La historia de Fie gira alrededor de pequeños cambios impulsados por un calendario de Adviento, por lo que se aleja de las novelas centradas en grandes acontecimientos o conflictos de acción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,28 +13,28 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Un gramo de felicidad al día propone una lectura de Adviento con un capítulo por jornada durante diciembre. Su protagonista, Fie, recibe tareas ideadas por su hermana Sara para modificar una rutina marcada por la marcha de su marido y la distancia con su hijo. La estructura relaciona cada mensaje con decisiones cotidianas que introducen cambios en su entorno y sus relaciones.",
+      "texto": "Un gramo de felicidad al día es una novela contemporánea organizada como una lectura de Adviento, con un capítulo para cada día de diciembre. Østli Siri plantea una historia de recuperación personal mediante tareas cotidianas que Fie recibe después de una ruptura matrimonial. La relación con su hermana, su hijo y sus vecinos forma parte de ese proceso.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un gramo de felicidad al día está disponible en tapa blanda y reúne 432 páginas en la edición de Duomo Ediciones. El ejemplar permite seguir en papel su estructura de capítulos diarios, avanzando a razón de uno por día durante diciembre. La encuadernación flexible facilita manejar el volumen y las pausas forman parte de esa propuesta de lectura.",
+      "texto": "Un gramo de felicidad al día está disponible en tapa blanda y Kindle. La edición física de Duomo Ediciones reúne 432 páginas y permite conservar el volumen para seguir sus capítulos de diciembre sobre papel. Kindle ofrece el mismo título en formato digital para leer desde un dispositivo compatible sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
-        "numero_paginas",
         "editorial",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ab699d4a23d5bd96",
+  "fuente_hash": "72c96a1b23da9db3",
   "origen": "chatgpt-web"
 }

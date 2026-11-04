@@ -4,55 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro (@blancanutri), está dirigido a lectores interesados en modificar sus hábitos alimentarios mediante un programa de duración definida. Combina nutrición, menús y recetas con consejos sobre inflamación y bienestar. No responde al planteamiento de un libro dedicado exclusivamente a recetas de cocina.",
+      "texto": "5 semanas para desinflamarte (edición limitada) se dirige a quienes buscan incorporar hábitos alimentarios, menús y recetas a una rutina orientada al bienestar. Su enfoque práctico encaja menos con lectores que prefieren un libro dedicado exclusivamente a recetas, sin pautas sobre nutrición e inflamación.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "esta_edicion",
-      "texto": "5 semanas para desinflamarte (edición limitada) es una presentación de Penguin Bolsillo en tapa blanda y castellano. Tiene 368 páginas, fecha editorial de 2027-01-07 e ISBN 9788466394390. La identificación «edición limitada» forma parte del título, mientras que su contenido combina un programa de hábitos con menús y recetas.",
-      "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
-        "idioma",
-        "numero_paginas",
-        "fecha_publicacion",
-        "isbn13",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El libro contiene un programa de 5 semanas orientado a reducir la inflamación mediante cambios en los hábitos. Incluye consejos prácticos, propuestas de menús y recetas, además de pautas para reconocer posibles desencadenantes de la inflamación. Su estructura temporal permite utilizarlo como guía de alimentación y bienestar durante el periodo indicado.",
+      "texto": "El libro propone un programa de cinco semanas que combina cambios de hábitos, consejos prácticos, menús y recetas. Su contenido permite trasladar las pautas de alimentación al día a día y trabajar sobre los factores relacionados con la inflamación que aborda Blanca García-Orea Haro (@blancanutri).",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial",
-        "categorias"
+        "autores",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "5 semanas para desinflamarte (edición limitada) se ofrece en tapa blanda, con 368 páginas. El papel permite consultar los menús y las recetas mientras se organiza el programa de 5 semanas, sin utilizar una pantalla. Es una presentación física de Penguin Bolsillo que puede mantenerse a mano durante la preparación de las comidas.",
+      "texto": "La tapa blanda permite consultar las 368 páginas mientras se preparan los menús y las recetas del programa. Kindle facilita acceder a las indicaciones desde el móvil o un lector electrónico, mientras que el audiolibro permite escuchar los consejos y hábitos propuestos durante otras actividades.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La revolución de la glucosa: el Método, de Jessie Inchauspé, comparte con 5 semanas para desinflamarte (edición limitada) el enfoque práctico sobre alimentación. El primero plantea 4 semanas y 100 recetas centradas en la glucosa; Blanca García-Orea Haro (@blancanutri) propone 5 semanas con menús, recetas y hábitos relacionados con la inflamación.",
+      "texto": "La revolución de la glucosa: el Método comparte con 5 semanas para desinflamarte (edición limitada) el enfoque práctico sobre alimentación, con recetas y un programa de varias semanas. Jessie Inchauspé centra su propuesta en la glucosa y cuatro semanas de aplicación; Blanca García-Orea Haro (@blancanutri) aborda la inflamación mediante hábitos, menús y recetas durante cinco semanas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
@@ -61,8 +43,11 @@
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "esta_edicion: cifras sin respaldo: 7",
+    "faltan módulos: esta_edicion"
+  ],
   "version": 3,
-  "fuente_hash": "01e80c6c1c8b3dee",
+  "fuente_hash": "2f99cbd1902eeaba",
   "origen": "chatgpt-web"
 }
