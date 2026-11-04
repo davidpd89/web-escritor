@@ -81,8 +81,8 @@ def render(channels: list[dict]) -> str:
   <meta name="twitter:image:alt" content="Apoya este proyecto | David Porto Díaz" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="stylesheet" href="/assets/v1-fonts.css?v=2" />
-  <link rel="stylesheet" href="/assets/v1-tokens.css?v=2" />
+  <link rel="stylesheet" href="/assets/v1-fonts.css?v=3" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-shell.css?v=21" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
