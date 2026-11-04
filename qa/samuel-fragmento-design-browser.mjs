@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright';
+import { readKeyboardFocusState } from './keyboard-focus-state.mjs';
 
 const ORIGIN = process.env.QA_ORIGIN || 'http://127.0.0.1:4173';
 const OUT = process.env.QA_OUT || 'artifacts/sitewide-reflow';
@@ -153,6 +154,30 @@ try {
       const launcher = page.locator('.assistant-widget__launcher');
       if (await launcher.count()) {
         assert.equal((await computed(launcher)).display, 'none', `${name}: launcher flotante invade la lectura`);
+      }
+
+      // Tab cuyo propio scroll nativo muestra el sticky: el foco aterriza en el
+      // borde inferior con la barra aún oculta y la barra entra encima
+      // (auditoría post-deploy 2026-11-04, tarjeta Noveris a 1440x900).
+      await page.keyboard.press('Shift');
+      const raced = await page.evaluate(() => {
+        scrollTo(0, 0);
+        const total = document.body.scrollHeight - innerHeight;
+        const target = [...document.querySelectorAll('main a[href]')].find((a) => {
+          const r = a.getBoundingClientRect();
+          const y = r.bottom + scrollY - innerHeight;
+          return r.height > 0 && y >= total * .67 && y < total * .85;
+        });
+        if (!target) return false;
+        target.focus({ preventScroll: true });
+        scrollTo(0, target.getBoundingClientRect().bottom + scrollY - innerHeight);
+        return true;
+      });
+      if (raced) {
+        await page.waitForFunction(() => document.querySelector('#sticky-cta')?.classList.contains('visible'), null, { timeout: 3000 });
+        await page.waitForTimeout(400);
+        const focus = await page.evaluate(readKeyboardFocusState, false);
+        assert.equal(focus.ok, true, `${name}: el sticky tapa el foco de teclado (${focus.key}; ${focus.reason})`);
       }
 
       // El sticky real se activa al 65% del documento; se prueba el comportamiento,
