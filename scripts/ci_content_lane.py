@@ -51,6 +51,7 @@ CONTENT_GLOBS = (
     'data/reading-publishers.json',
     'data/reading-intake-state.json',
     'data/reading-pinterest-state.json',
+    'data/reading-quarantine.json',
     'data/reading-texts/*.json',
     'data/content-registry.json',
     'recomendaciones/index.html',
