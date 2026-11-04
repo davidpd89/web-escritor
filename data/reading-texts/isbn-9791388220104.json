@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791388220104",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Atlas de la mitología ilustrado se dirige a lectores interesados en la mitología grecorromana, sus personajes y sus conexiones con el arte y la cultura popular. Su combinación de ilustraciones, referencias culturales y humor encaja menos con quien busca una novela de ficción con una trama única.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Atlas de la mitología ilustrado presenta relatos y figuras de la mitología grecorromana mediante un enfoque ilustrado que incorpora humor y referencias culturales. Aude Goeminne y Anne-Laure Varoutsikos relacionan esos contenidos con el arte y la cultura popular en un volumen de 160 páginas, más cercano a la divulgación temática que a una narración continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas de la Biblia ilustrado es la comparación más directa con Atlas de la mitología ilustrado: ambos pertenecen a una colección de atlas culturales ilustrados y comparten la autoría de Anne-Laure Varoutsikos. La diferencia está en el ámbito anunciado por cada título: la Biblia en uno y la mitología grecorromana en el otro, que además incorpora humor y referencias a la cultura popular.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220111"
+      ]
+    }
+  ],
+  "descartados": [
+    "que_formato_elegir: copia 8 palabras seguidas de la sinopsis",
+    "faltan módulos: que_formato_elegir"
+  ],
+  "version": 3,
+  "fuente_hash": "90b9b055cd3dedd5",
+  "origen": "chatgpt-web"
+}

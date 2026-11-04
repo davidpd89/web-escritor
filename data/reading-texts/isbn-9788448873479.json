@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Superdónuts 3 - El destino de los dónuts encaja con lectores a partir de 7 años que disfrutan del humor, las peripecias disparatadas y los conflictos de ciencia ficción contados mediante viñetas. No está orientado a quienes prefieren historias realistas y cotidianas, sin robots, persecuciones ni viajes temporales.",
+      "texto": "Superdónuts 3 - El destino de los dónuts está orientado a lectores a partir de 7 años que disfrutan de los cómics de aventuras, el humor absurdo y la ciencia ficción. Neill Cameron combina robots, viajes temporales y situaciones disparatadas; encaja menos con quienes prefieran historias realistas, sin acción ni elementos fantásticos.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,32 +15,45 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Superdónuts 3 - El destino de los dónuts está recomendado a partir de 7 años y consta de 208 páginas. Es un cómic de Neill Cameron publicado en castellano, con ilustraciones a todo color y encuadernación de tapa dura. El título lo identifica como el n.º 3, y la descripción editorial confirma que pertenece a la tercera entrega de la serie.",
+      "texto": "Superdónuts 3 - El destino de los dónuts está recomendado a partir de 7 años y pertenece al ámbito del cómic y la novela gráfica infantil. Tiene 208 páginas a todo color y se publica en tapa dura; el título lo identifica como el n.º 3 de una serie de aventuras humorísticas con elementos de ciencia ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "numero_paginas",
-        "categorias",
-        "idioma",
         "edicion",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Superdónuts 3 - El destino de los dónuts se ofrece en tapa dura, con 208 páginas a todo color. El volumen físico permite seguir las escenas de acción y los chistes en sus páginas ilustradas, además de conservarlo para volver a leer las peripecias de sus personajes.",
+      "texto": "Superdónuts 3 - El destino de los dónuts se encuentra en tapa dura y Kindle. La edición física de Beascoa reúne 208 páginas a todo color, con una encuadernación adecuada para conservar el cómic y releer sus viñetas; Kindle permite llevar la aventura en formato digital, donde la visualización de las páginas dependerá de la pantalla utilizada.",
       "evidencias": [
         "titulo",
+        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
       ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Superdónuts 3 - El destino de los dónuts se parece a Capitán Patata 2 - Quietecito o te dejo frito por el humor absurdo y los protagonistas poco convencionales, aunque Neill Cameron desarrolla una aventura temporal y Neil Coslett presenta cinco miniaventuras. También comparte con Piratix. Primeras lecturas 2 - El banquete del Kraken el conflicto fantástico y la acción, pero Magicbox utiliza una amenaza marítima en lugar de robots y viajes al futuro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427254985",
+        "isbn-9788448874834"
+      ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "033a07e9d7c7d467",
+  "fuente_hash": "924436d586136632",
   "origen": "chatgpt-web"
 }

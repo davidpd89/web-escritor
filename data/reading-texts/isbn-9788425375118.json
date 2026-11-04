@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La hija del veneno se dirige a lectores adultos de fantasía romántica oscura que busquen relaciones conflictivas, matrimonios de conveniencia y elementos sobrenaturales. La presencia de asesinatos, hombres abusivos y vampiros la aleja de quienes prefieren romances cotidianos sin violencia ni amenazas para sus protagonistas.",
+      "texto": "La hija del veneno se dirige a lectores adultos de fantasía romántica oscura, especialmente interesados en matrimonios impuestos y relaciones que evolucionan desde la hostilidad. Sheila Masterson incorpora asesinatos, hombres abusivos y vampiros; no encaja con quien busque un romance cotidiano sin violencia ni elementos sobrenaturales.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,27 +15,42 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La hija del veneno combina el romance de enemigos a amantes con una lucha por sobrevivir dentro de un matrimonio de inconveniencia. Sheila Masterson construye el conflicto alrededor de Harlow, cuyos besos matan a cualquier persona excepto a su prometido, y de una convivencia en una fortaleza rodeada de bosques habitados por vampiros.",
+      "texto": "La hija del veneno combina fantasía romántica oscura con un matrimonio de inconveniencia y una relación que parte del enfrentamiento. Harlow posee un beso mortal, pero su futuro esposo sobrevive a él, lo que altera su capacidad de controlar la situación. La convivencia forzada, los secretos y la presencia de vampiros sostienen el conflicto.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La hija del veneno está disponible en tapa dura con sobrecubierta, con una extensión de 792 páginas. Esta presentación reúne toda la lectura en un volumen de cubierta rígida, adecuado para conservar en la biblioteca personal, consultar de nuevo o entregar como regalo.",
+      "texto": "La hija del veneno puede adquirirse en tapa dura o Kindle. La edición de Grijalbo suma 792 páginas y lleva sobrecubierta, por lo que ocupa un espacio considerable en papel y puede destinarse a regalo; Kindle permite leer esta novela extensa en un dispositivo compatible sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "numero_paginas",
         "edicion",
-        "numero_paginas"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La hija del veneno y Un hombre de ley (Aristócratas de Londres 1) comparten conflictos relacionados con la violencia y las relaciones personales. Sheila Masterson incorpora asesinatos, vampiros y un matrimonio forzado en una fantasía romántica; la obra de Susie Tate parte de una infancia marcada por la violencia doméstica. Los finales perfectos no existen, de Violeta Reed, se aproxima al romance desde las comedias románticas, sin el componente fantástico que define La hija del veneno.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425371745",
+        "isbn-9788425369650"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fc6ae1fdfccc2092",
+  "fuente_hash": "57dbdcc1e6952e81",
   "origen": "chatgpt-web"
 }

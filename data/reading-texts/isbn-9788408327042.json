@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408327042",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados encaja con lectores de romance interesados en conflictos personales relacionados con el ballet, las decisiones vitales y los secretos. Su enfoque sentimental y la trayectoria de Maya como bailarina la alejan de una novela centrada exclusivamente en la acción o la aventura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados es una novela romántica de María Martínez que vincula las relaciones personales con las consecuencias de una vida dedicada al ballet. Maya afronta un conflicto relacionado con su trayectoria y una mentira, mientras esta edición incorpora capítulos adicionales narrados desde la perspectiva de Lucas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible de Cuando no queden más estrellas que contar. Edición especial con cantos decorados. Sus 512 páginas incluyen material narrativo adicional desde la perspectiva de Lucas, y la encuadernación de cartoné con cantos decorados aporta una presentación física diferenciada para conservar o regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "esta_edicion: copia 8 palabras seguidas de la sinopsis",
+    "faltan módulos: esta_edicion"
+  ],
+  "version": 3,
+  "fuente_hash": "af23645a47867e85",
+  "origen": "chatgpt-web"
+}
