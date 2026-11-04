@@ -19,12 +19,17 @@ Scope note: this walks `git ls-files`, excluding scripts/ and tests/, because
 that is exactly what the workflow feeds lychee (`./**/*.html` on a clean
 checkout, with those two paths excluded). Using the filesystem instead would
 make the result depend on whatever untracked HTML a given working copy has.
+
+`--prune-unused` deletes the exceptions that fail rule 4 before checking. The
+radar refresh runs it: an expired call drops its URL from the HTML, and its
+exception would otherwise block the bot's own PR.
 """
 from __future__ import annotations
 
 import html
 import re
 import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -57,7 +62,26 @@ def public_urls() -> set[str]:
     return urls
 
 
+def prune_unused() -> list[str]:
+    urls = public_urls()
+    keep, removed = [], []
+    for line in IGNORE.read_bytes().decode("utf-8").splitlines(keepends=True):
+        pattern = line.strip()
+        try:
+            unused = (pattern.startswith("^") and pattern.endswith("$")
+                      and not any(re.fullmatch(pattern, url) for url in urls))
+        except re.error:
+            unused = False
+        (removed if unused else keep).append(line)
+    if removed:
+        IGNORE.write_bytes("".join(keep).encode("utf-8"))
+    return [line.strip() for line in removed]
+
+
 def main() -> int:
+    if "--prune-unused" in sys.argv[1:]:
+        for pattern in prune_unused():
+            print(f"pruned: {pattern}")
     lines = IGNORE.read_text(encoding="utf-8").splitlines()
     exact: list[tuple[int, str]] = []
     seen: dict[str, int] = {}

@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El vuelo de los gansos está dirigido a lectores adultos interesados en los thrillers sobre poder político, intereses empresariales y conflictos económicos contemporáneos. Su enfrentamiento entre energías renovables y combustibles fósiles encaja menos con quienes buscan un misterio policial convencional o una historia ajena a las disputas por el dinero y la influencia.",
+      "texto": "El vuelo de los gansos está dirigido a lectores adultos de thrillers sobre poder económico, conspiraciones y conflictos políticos contemporáneos. Ángel Boixadós plantea una confrontación entre una empresa de energías renovables y los intereses de los combustibles fósiles; no responde al modelo de misterio detectivesco centrado en resolver un asesinato.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,28 +15,42 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El vuelo de los gansos es un thriller contemporáneo de Ángel Boixadós cuyo conflicto nace de una innovación en energías renovables que amenaza intereses económicos establecidos. La oposición al proyecto reúne a gobernantes de petroestados, magnates de los combustibles fósiles y un mercenario, mientras la desinformación convierte la supervivencia de la empresa en una batalla pública y personal.",
+      "texto": "El vuelo de los gansos combina el thriller empresarial con la intriga política y la disputa por el control energético. La propuesta de una empresa de renovables desencadena una operación de descrédito y violencia impulsada por intereses económicos, de modo que el conflicto se desarrolla tanto en los medios como en el terreno de la seguridad personal.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El vuelo de los gansos se presenta en tapa blanda con solapas y tiene 400 páginas. La cubierta flexible permite llevar el libro para leer fuera de casa sin el peso añadido de unas tapas rígidas, mientras las solapas forman parte de la presentación física de esta edición de Grijalbo.",
+      "texto": "El vuelo de los gansos puede leerse en tapa blanda o Kindle. La edición de Grijalbo reúne 400 páginas con solapas, adecuadas para quien prefiera consultar y conservar el ejemplar físico; Kindle permite continuar la lectura desde el móvil o un lector electrónico compatible.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
         "editorial",
-        "numero_paginas"
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El vuelo de los gansos y Corazón de sílex comparten el terreno del misterio, pero Ángel Boixadós desarrolla una conspiración empresarial y política, mientras Emilia Landaluce y Rosa Belmonte parten de una joven que ha perdido el recuerdo de una noche. Frente a Los crímenes del sanatorio (Serie Comisario Reykdal 1), de Ragnar Jónasson, sustituye la investigación de un crimen con sospechosos por una amenaza contra una empresa energética.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083330",
+        "isbn-9788432251399"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7107fed698ee6bb6",
+  "fuente_hash": "a9ab643b34bd109c",
   "origen": "chatgpt-web"
 }

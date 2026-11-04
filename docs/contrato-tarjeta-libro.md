@@ -39,11 +39,20 @@ Comprar y la casilla del formato principal usan el mismo enlace de Amazon (`amaz
 
 ## Comprobación y cuarentena
 
-`tests/test_reading_card_contract.py` comprueba dos cosas:
+`tests/test_reading_card_contract.py` comprueba tres cosas:
 
 - las reglas, sobre casos límite;
-- todas las tarjetas publicadas: título, dos etiquetas como máximo, cuatro casillas de formato y «Ver ficha».
+- todas las tarjetas publicadas: título, dos etiquetas como máximo, cuatro casillas de formato y «Ver ficha»;
+- todas las fichas publicadas: enlace de compra, portada, autores, ISBN en los datos estructurados y editorial.
 
-Si un libro incumple el contrato, la prueba falla y nombra el libro, y hay que corregir su dato. (Pendiente: apartar ese libro automáticamente en cuarentena para que el resto del lote se publique igualmente.) Las fichas usan las mismas reglas, con `DETAIL_TAGS` en lugar de `CARD_TAGS`.
+Las fichas usan las mismas reglas, con `DETAIL_TAGS` en lugar de `CARD_TAGS`.
+
+Antes de construir, la carga diaria aparta los libros con datos malos (`scripts/reading_quarantine.py`). Así un libro malo no frena el lote:
+
+- un libro nuevo que no valida sale del lote;
+- un libro ya publicado que llega con una actualización mala sigue en línea con su versión de `HEAD`;
+- lo apartado queda en `data/reading-quarantine.json` con su motivo y su fecha, se reintenta en la carga siguiente y aparece en el cuerpo del PR.
+
+La carga sigue parando cuando el problema es de reglas y no de datos: un error que no nombra un libro, un libro publicado que falla sin haber cambiado o más de `MAX_BOOKS` libros apartados.
 
 Las páginas de autor y de editorial también llaman a `tags()`, pero sin tope: ahí se listan todos los temas del autor o de la editorial.

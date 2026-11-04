@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791388092039",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Confitería cantábrica (Mesa y mantel), de María Mieres, está dirigido a adultos interesados en la repostería tradicional del norte de España. Combina recetas con la historia de obradores y confiterías, por lo que se aleja de los manuales centrados exclusivamente en cocinar platos rápidos o salados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Reúne recetas de dulces tradicionales investigadas mediante visitas a obradores, conventos y confiterías históricas. Incluye especialidades como la larpeira gallega, las marañuelas de Avilés, la quesada pasiega, la pantxineta vasca y la costrada de Aoiz. También aborda el trabajo de las mujeres en la conservación de estos oficios.",
+      "evidencias": [
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Confitería cantábrica (Mesa y mantel) puede leerse en tapa dura o Kindle. La edición física reúne 184 páginas y resulta práctica para consultar recetas en la cocina o conservar el volumen; Kindle permite llevar el contenido en un lector electrónico o dispositivo compatible sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Confitería cantábrica (Mesa y mantel) comparte con Cocina de siempre para disfrutar hoy el interés por las recetas tradicionales, aunque María Mieres investiga la repostería del norte de España y Marcos Serén @chefmspin.recetas adapta platos caseros. En cambio, 20 minutos ¡y listo!, de Jamie Oliver, pone el acento en el tiempo de preparación, no en la historia de los oficios reposteros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788408324263"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "292a8df0cf1b1790",
+  "origen": "chatgpt-web"
+}
