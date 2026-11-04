@@ -10,7 +10,29 @@
     "auditScope": "Complete production and development tree from package-lock.json; Lighthouse CI 0.16.0, pa11y-ci 5.0.0"
   },
   "advisories": [],
-  "notReportedAdvisories": [],
+  "notReportedAdvisories": [
+    {
+      "id": "GHSA-g3hv-75wg-m249",
+      "package": "minimatch",
+      "severity": "moderate",
+      "title": "minimatch has potential denial of service via globparts amplification",
+      "affectedRange": "<11.0.1",
+      "dependencyType": "transitive-dev",
+      "path": "pa11y-ci > globby > glob > minimatch",
+      "production": false,
+      "reachability": "Reached only through pa11y-ci 5.0.0 (globby 7.1.1 > glob 7.2.3) when it expands the fixed URL/config globs committed in the repo; it never receives untrusted patterns, so the amplification cannot be triggered in CI.",
+      "fixAvailable": true,
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling",
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+      "installedVersion": "3.1.5",
+      "lockfileNode": "node_modules/minimatch",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-10-31",
+      "fixedVersion": null
+    }
+  ],
   "resolvedAdvisories": [
     {
       "id": "GHSA-jmr9-qjv8-65gv",
