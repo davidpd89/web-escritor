@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La Risa de mi vida está dirigido a lectores adultos interesados en relatos personales sobre animales de compañía, afectos familiares y humor cotidiano. El vínculo entre Jorge Bolaños y una perra adoptada ocupa el centro del libro, por lo que su enfoque autobiográfico se aleja del que tendría un manual de adiestramiento canino.",
+      "texto": "La Risa de mi vida, de Jorge Bolaños, se dirige a lectores adultos interesados en las memorias personales, la convivencia con animales y el humor cotidiano. Su atención a los vínculos familiares y de pareja lo aleja de quienes buscan un manual de educación canina o una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,39 +15,43 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Jorge Bolaños relata cómo la llegada de Risa, una perra que inicialmente no quería adoptar, cambió su relación con los animales y su vida familiar. A través de esa convivencia trata el amor, el humor, las aspiraciones personales y los momentos difíciles. También incorpora experiencias relacionadas con Laura, su hijo, Londres y su actividad sobre los escenarios.",
+      "texto": "La Risa de mi vida aborda cómo la adopción de una perra modifica las relaciones familiares y la manera de afrontar los cambios personales. Jorge Bolaños combina recuerdos de pareja, paternidad y trabajo con episodios humorísticos, desde una perspectiva autobiográfica centrada en el afecto hacia los animales.",
       "evidencias": [
+        "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La Risa de mi vida se publica en tapa blanda con solapas y consta de 184 páginas. Su edición en papel reúne el relato autobiográfico en un solo volumen, adecuado para una lectura seguida o para retomar episodios concretos de la convivencia familiar con Risa.",
+      "texto": "La Risa de mi vida está disponible en tapa blanda y Kindle. La edición física de Ediciones B tiene 184 páginas y solapas, una extensión manejable para transportar o regalar; Kindle permite llevar la misma lectura en un dispositivo compatible sin ocupar espacio en la estantería.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La Risa de mi vida y Canción de amor definitiva parten de vivencias personales y tratan el lugar del afecto en la vida familiar. Jorge Bolaños construye su relato alrededor de la adopción de una perra, mientras Jorge Martí Aguas aborda las exigencias de su actividad musical y su trabajo sanitario. El vínculo con un animal centra el primero; la convivencia entre profesión, enfermedad y hogar marca el segundo.",
+      "texto": "La Risa de mi vida comparte con Los finales perfectos no existen el interés por las relaciones afectivas y el humor, aunque Jorge Bolaños escribe desde su experiencia con una mascota y Violeta Reed presenta una historia vinculada a las comedias románticas. También se aproxima a Canción de amor definitiva por los cambios vitales, pero aquí el eje es la familia y el vínculo con un animal.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788425371745",
         "isbn-9788401042119"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2b2fc95d5bbc8052",
+  "fuente_hash": "9187b1e1431c7cc4",
   "origen": "chatgpt-web"
 }

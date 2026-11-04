@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788408326083",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los ocho velos, de Ale Lugilde, está dirigido a lectores a partir de 16 años interesados en la fantasía juvenil con brujería, persecuciones y enfrentamientos personales. Sus 528 páginas desarrollan un conflicto en el que la supervivencia depende de desafiar las normas de un reino. No encaja con quien busca fantasía infantil o una historia sin violencia contra personas acusadas de practicar magia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Los ocho velos tiene una edad recomendada a partir de 16 años. La protagonista tiene diecisiete años y vive en un reino donde las acusaciones de brujería pueden terminar en condenas a la hoguera. La persecución, la amenaza de muerte y el peligro que afronta su hermana son elementos que conviene considerar ante lectores sensibles a la violencia.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Los ocho velos es una novela de fantasía juvenil construida alrededor de la persecución de la magia y el enfrentamiento entre una bruja y un cazador. Ale Lugilde sitúa el conflicto en Valcam, un reino cuyas leyes amenazan a quienes son señalados por brujería. La acusación contra la hermana de la protagonista convierte la supervivencia familiar en el motor de la historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los ocho velos puede elegirse en tapa dura o Kindle. La edición de Esencia es en cartoné, sin sobrecubierta, y contiene 528 páginas, por lo que el formato físico ofrece una encuadernación rígida para conservar el volumen. Kindle permite llevar esta novela extensa en el móvil o en un lector electrónico sin cargar con el peso del ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9948c605acb3044f",
+  "origen": "chatgpt-web"
+}

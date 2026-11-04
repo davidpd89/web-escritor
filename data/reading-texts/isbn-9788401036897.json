@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los escalones se dirige a lectores adultos interesados en memorias personales sobre el esfuerzo, las decisiones y la trayectoria profesional. Sylvester Stallone repasa su infancia, las dificultades de sus comienzos y el trabajo que desembocó en Rocky; no es una novela de ficción ni un manual de ejercicios.",
+      "texto": "Los escalones, de Sylvester Stallone, está dirigido a adultos interesados en las autobiografías y en los obstáculos que preceden a una carrera cinematográfica. Su enfoque en la perseverancia, las decisiones profesionales y la experiencia personal encaja menos con quien busca una guía técnica de interpretación o una historia de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,7 +15,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Los escalones aborda la resiliencia y la fuerza de voluntad desde la experiencia autobiográfica de Sylvester Stallone. El relato sitúa sus inicios en Nueva York en 1969, llega al reconocimiento de Rocky en 1977 y también examina los años posteriores de su carrera profesional.",
+      "texto": "Los escalones examina la relación entre las dificultades personales, la ambición artística y la construcción de una trayectoria profesional. Sylvester Stallone utiliza sus recuerdos de infancia, sus primeros años en Nueva York y la creación de Rocky para reflexionar sobre la voluntad, el trabajo y la capacidad de superar obstáculos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,19 +24,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los escalones se presenta en tapa dura con sobrecubierta, una encuadernación rígida pensada para conservar el ejemplar y facilitar su relectura. Son 352 páginas en castellano publicadas por Plaza & Janés; esta presentación también permite regalar una edición física protegida por su cubierta exterior.",
+      "texto": "Los escalones puede leerse en tapa dura o Kindle. La edición de Plaza & Janés reúne 352 páginas con sobrecubierta, una presentación física apropiada para conservar o regalar; Kindle facilita consultar y continuar las memorias en el móvil o en un lector electrónico compatible.",
       "evidencias": [
         "titulo",
-        "edicion",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial"
+        "edicion",
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los escalones se aproxima a El canto del cisne por el relato de experiencias personales marcadas por circunstancias difíciles. Mientras Sylvester Stallone reconstruye su trayectoria de trabajo y perseverancia, Charles Spencer parte del dolor por la muerte de su hermana Diana; uno sigue una carrera profesional y el otro aborda una pérdida familiar.",
+      "texto": "Los escalones y El canto del cisne parten de experiencias personales de figuras públicas, pero Sylvester Stallone se concentra en la perseverancia profesional mientras Charles Spencer aborda una pérdida familiar. Frente a Detrás de una Estrella, centrado en la transformación de una empresa cervecera, Los escalones examina el esfuerzo individual en una carrera artística.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,12 +43,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788423441075",
         "isbn-9788401039928"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0239a996e0fcc5ad",
+  "fuente_hash": "54b0fb81570c3408",
   "origen": "chatgpt-web"
 }
