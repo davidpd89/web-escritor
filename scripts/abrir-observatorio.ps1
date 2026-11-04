@@ -1,6 +1,6 @@
 #requires -Version 5.1
 <#
-  Un solo navegador Edge para el observatorio: perfil persistente + CDP local :9222.
+  Un solo navegador Edge para el observatorio: perfil persistente + CDP local :9221.
   Uso: .\scripts\abrir-observatorio.ps1 [-Grupo todo|seo|...]
   Cierra esta ventana de Edge al terminar: mientras el puerto está abierto
   cualquier proceso local podría controlar las cuentas iniciadas en este perfil.
@@ -11,7 +11,7 @@ param(
   [string]$Grupo = 'todo'
 )
 $ErrorActionPreference = 'Stop'
-$puerto = 9222
+$puerto = 9221
 $perfil = Join-Path $env:LOCALAPPDATA 'web-escritor\edge-observatorio'
 $catalogo = Get-Content -LiteralPath (Join-Path (Split-Path -Parent $PSScriptRoot) 'docs\observatorio\fuentes.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 $servicios = @($catalogo.servicios | Where-Object {
