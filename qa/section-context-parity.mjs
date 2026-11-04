@@ -95,7 +95,13 @@ function urlPathFor(rel) {
 
 const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 
-for (const rel of PAGES) {
+// One page at a time took ~0.7 s per page, so the check grew linearly with
+// the book catalogue and crossed the job timeout once it reached ~1300 pages.
+// A bounded pool keeps full coverage; each page still gets its own browser
+// context, and strippedByPath is keyed by url so workers never collide.
+const CONCURRENCY = Math.max(1, Number(process.env.QA_PARITY_CONCURRENCY) || 6);
+
+async function checkPage(rel) {
   const original = fs.readFileSync(path.join(ROOT, rel), 'utf8');
   const committedNavMatch = original.match(NAV_RE);
   assert.ok(committedNavMatch, `${rel}: no pre-rendered <nav class="section-context"> found`);
@@ -107,8 +113,8 @@ for (const rel of PAGES) {
   const urlPath = urlPathFor(rel);
   strippedByPath.set(urlPath, stripped);
 
+  const page = await browser.newPage();
   try {
-    const page = await browser.newPage();
     await page.goto(`${ORIGIN}${urlPath}?parityStripped=1`, { waitUntil: 'networkidle' });
     const generatedOuter = await page.locator('.section-context').first().evaluate(el => el.outerHTML).catch(() => null);
     assert.ok(generatedOuter, `${rel}: v1-editorial-interior-v4.js did not generate a .section-context when none was pre-rendered`);
@@ -119,12 +125,25 @@ for (const rel of PAGES) {
       `${rel}: pre-rendered .section-context__links drifted from what buildContextNav() generates.\n` +
       `committed: ${JSON.stringify(committedLinks)}\ngenerated: ${JSON.stringify(generatedLinks)}`
     );
-    await page.close();
   } finally {
+    await page.close().catch(() => {});
     strippedByPath.delete(urlPath);
   }
 }
 
+const failures = [];
+let next = 0;
+let done = 0;
+const started = Date.now();
+await Promise.all(Array.from({ length: Math.min(CONCURRENCY, PAGES.length) }, async () => {
+  while (next < PAGES.length) {
+    const rel = PAGES[next++];
+    try { await checkPage(rel); } catch (error) { failures.push(error.message); }
+    if (++done % 200 === 0) console.log(`  ${done}/${PAGES.length} pages (${Math.round((Date.now() - started) / 1000)} s)`);
+  }
+}));
+
 await browser.close();
 server.close();
+assert.equal(failures.length, 0, `${failures.length} page(s) failed section-context parity:\n${failures.slice(0, 20).join('\n\n')}`);
 console.log(`PASS section-context parity (${PAGES.length} pre-rendered pages match buildContextNav() output)`);
