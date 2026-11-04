@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a familias que afrontan el embarazo o la crianza temprana y buscan orientación pediátrica sobre sueño, lactancia, alimentación y desarrollo infantil. También aborda las rabietas y las enfermedades, por lo que su alcance va más allá del cuidado del recién nacido. No encaja con quien busque una lectura de ficción o un libro centrado exclusivamente en el embarazo.",
+      "texto": "Preparados, listos, ¡llegó el bebé!, de Laura Álvarez (La pediatra Laura), se dirige a familias que buscan orientación sobre el embarazo, el recién nacido y los primeros años de crianza. Trata cuestiones cotidianas de sueño, lactancia, alimentación, desarrollo infantil y enfermedades. Su enfoque práctico queda lejos de una lectura de entretenimiento o de un libro dedicado únicamente a la educación de adolescentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,9 +14,10 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Preparados, listos, ¡llegó el bebé! se presenta en tapa blanda, con 272 páginas y encuadernación rústica con solapas. El formato físico permite volver a las explicaciones sobre sueño, alimentación o enfermedades cuando surgen dudas durante la crianza. Las solapas sirven también para señalar una página que se quiera consultar de nuevo.",
+      "texto": "Preparados, listos, ¡llegó el bebé! puede consultarse en tapa blanda o Kindle. La edición de Editorial Espasa reúne 272 páginas en rústica con solapas, útil para tener la guía en casa y volver a capítulos concretos. Kindle facilita consultar cuestiones de crianza desde el móvil cuando no se tiene el ejemplar de papel a mano.",
       "evidencias": [
         "titulo",
+        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
@@ -25,7 +26,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Preparados, listos, ¡llegó el bebé! comparte con Niños ancestrales el interés por la salud infantil desde el embarazo, pero extiende su atención a cuestiones como el sueño, las rabietas y las enfermedades. Frente a Criar juntos de verdad, centrado en la colaboración durante la crianza, Laura Álvarez (La pediatra Laura) aborda dudas pediátricas y cuidados concretos de los primeros años.",
+      "texto": "Preparados, listos, ¡llegó el bebé! comparte con Niños ancestrales el interés por la salud infantil desde el embarazo y la lactancia, aunque el libro de Laura Álvarez (La pediatra Laura) también aborda sueño, rabietas y enfermedades. Frente a Criar juntos de verdad, centrado en la crianza en equipo, ofrece un recorrido más amplio por los cuidados y el desarrollo durante la primera infancia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -40,6 +41,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1586cf08dfc1c3f9",
+  "fuente_hash": "2804355e1b0af820",
   "origen": "chatgpt-web"
 }

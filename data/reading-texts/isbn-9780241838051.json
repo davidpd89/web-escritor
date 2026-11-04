@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9780241838051",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Marvel Studios desde dentro se dirige a lectores adultos interesados en conocer la construcción visual y técnica del Universo Cinematográfico de Marvel. Sus explicaciones sobre escenarios, vehículos y tecnología, acompañadas de ilustraciones en sección, lo alejan de una narración convencional de aventuras.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Marvel Studios desde dentro plantea una exploración ilustrada de los espacios y dispositivos del Universo Cinematográfico de Marvel. Liz Marsham aborda la organización interior de edificios, el diseño de vehículos y los mecanismos de distintas tecnologías mediante imágenes en sección, con un enfoque explicativo más que narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Marvel Studios desde dentro está disponible en tapa dura, con 200 páginas dedicadas a explicaciones e ilustraciones de estructuras y mecanismos. Esta encuadernación permite consultar sus imágenes en papel y conservar el volumen para revisitar los detalles visuales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc9b8f103fd2d6e0",
+  "origen": "chatgpt-web"
+}

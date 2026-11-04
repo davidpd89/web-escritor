@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "En Alejandría, los árboles caminan se dirige a lectores interesados en los cambios políticos, la convivencia entre comunidades y la desaparición de una sociedad cosmopolita. Su conflicto combina historias personales con las consecuencias del colonialismo y el nacionalismo, por lo que encaja menos con quienes busquen una trama desligada de los procesos históricos y sociales.",
+      "texto": "En Alejandría, los árboles caminan se dirige a lectores de narrativa contemporánea interesados en los cambios políticos, la convivencia cultural y sus consecuencias sobre la vida cotidiana. Su atención al colonialismo, el nacionalismo y la deriva autoritaria lo aleja de quien busca una historia desligada de los conflictos históricos y sociales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,28 +13,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "En Alejandría, los árboles caminan es una novela ambientada en Alejandría durante las transformaciones políticas iniciadas con la revolución egipcia de julio de 1952. Las vidas de varios personajes vinculados a un mismo bar muestran cómo el nacionalismo y el autoritarismo alteran la convivencia, las oportunidades y el futuro de una ciudad antes caracterizada por su diversidad.",
+      "texto": "En Alejandría, los árboles caminan, de Alaa al Aswani, aborda la transformación de Alejandría tras la revolución egipcia de 1952 y el ascenso de Abdul Náser. A través de personajes de distintas profesiones y posiciones sociales, examina la pérdida de pluralidad cultural, las tensiones políticas y el avance del autoritarismo.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "En Alejandría, los árboles caminan se ofrece en tapa blanda, con 448 páginas en castellano. Esta edición de Editorial Anagrama permite consultar y recuperar pasajes en papel, utilizar marcadores durante la lectura y conservar o prestar el volumen una vez terminado.",
+      "texto": "En Alejandría, los árboles caminan está disponible en tapa blanda y Kindle. La edición impresa de Editorial Anagrama tiene 448 páginas y permite conservar el volumen en papel; Kindle facilita llevar una narración de esa extensión en el móvil o en un lector electrónico compatible.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
-        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "edicion",
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dc9fc070dfbb6bb5",
+  "fuente_hash": "df33a1946597d0aa",
   "origen": "chatgpt-web"
 }

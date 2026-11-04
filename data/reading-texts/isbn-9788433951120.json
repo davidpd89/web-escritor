@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788433951120",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los páramos, de Carlota Gurt, encaja con lectores de narrativa contemporánea interesados en los conflictos personales, el trabajo y las relaciones familiares. Su punto de partida es el encuentro entre dos personas insatisfechas con distintos aspectos de sus vidas. No responde a las expectativas de quien busque una historia de amor convencional: la atracción entre sus protagonistas no se plantea desde el romance ni el deseo sexual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Los páramos plantea una novela contemporánea sobre las decisiones aplazadas y las vidas que sus protagonistas imaginan frente a las que llevan. Ramona y Faust coinciden en el parador de Sau durante un 24 de diciembre, con la sequía como trasfondo. El conflicto gira alrededor de la rutina laboral, las relaciones y los pensamientos obsesivos. La narración incorpora crítica y humor para examinar esas contradicciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los páramos se ofrece en tapa blanda y Kindle. La edición en papel de Editorial Anagrama consta de 248 páginas y permite conservar el ejemplar físico o prestarlo. La versión Kindle evita cargar con el volumen y permite continuar la lectura en el móvil, una diferencia práctica para quien lee durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6a7e7993d18159f0",
+  "origen": "chatgpt-web"
+}

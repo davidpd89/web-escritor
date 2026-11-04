@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tinderella se dirige a quienes buscan narrativa contemporánea sobre relaciones familiares, citas e identidad pública. El conflicto de Ella Tacón de Aguja nace en un entorno aristocrático marcado por la belleza y el lujo, no en un mundo fantástico.",
+      "texto": "Tinderella encaja con lectores de narrativa contemporánea interesados en las relaciones familiares, las diferencias entre hermanas y el peso de las apariencias sociales. La historia de Ella Tacón de Aguja dentro de una familia aristocrática centrada en la imagen se aleja de las lecturas que buscan mundos fantásticos o aventuras sobrenaturales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,26 +13,29 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Tinderella propone una lectura de narrativa contemporánea centrada en la apariencia social y la identidad. Ella Tacón de Aguja vive a la sombra de Marlene y Olivia, cuyas posiciones dentro de una familia aristocrática muestran el peso de la imagen pública.",
+      "texto": "Tinderella propone una novela contemporánea sobre identidad, relaciones familiares y expectativas sociales. Inés DMiguel sitúa a Ella Tacón de Aguja en una familia aristocrática donde la belleza, el lujo y la notoriedad de sus hermanas condicionan su posición. Las citas y las mentiras forman parte del conflicto anunciado.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tinderella está disponible en tapa blanda con solapas y tiene 608 páginas. Esta edición reúne toda la novela en papel; las solapas pueden servir para marcar la página durante la lectura y el volumen puede conservarse o regalarse.",
+      "texto": "Tinderella está disponible en tapa blanda, en una edición rústica con solapas de NdeNovela. Sus 608 páginas forman un volumen extenso de narrativa contemporánea; el formato físico permite mantener toda la novela reunida en papel, aunque exige transportar un libro de considerable extensión.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "numero_paginas"
+        "editorial",
+        "numero_paginas",
+        "categorias"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d0b5b5da22ac8d9a",
+  "fuente_hash": "b80b2de569b37cd1",
   "origen": "chatgpt-web"
 }

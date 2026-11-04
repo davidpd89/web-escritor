@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788445019610",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "París celestial, de A.Y. Chao, se dirige a lectores de fantasía interesados en las relaciones entre deidades, seres del Infierno y mortales. El conflicto combina una misión de sanación con el deseo de Lady Jing de abandonar sus obligaciones y reunirse con Tony Lee; no responde a una búsqueda de narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "París celestial plantea una fantasía sobrenatural con elementos de distintas tradiciones mitológicas. Lady Jing, ministra del Infierno, emprende una misión relacionada con una deidad irlandesa que ha perdido sus huesos y su energía vital, mientras su relación con Tony Lee introduce un conflicto personal. La acción conecta Shanghái yin con París.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "París celestial está disponible en tapa blanda y Kindle, dos opciones para leer sus 400 páginas en castellano. La edición física de Minotauro es rústica con solapas, apropiada para quien prefiere conservar el volumen en papel; Kindle permite llevar la misma lectura en un dispositivo compatible sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "afcc3c2700074ee0",
+  "origen": "chatgpt-web"
+}

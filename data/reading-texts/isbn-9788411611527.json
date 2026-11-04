@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788411611527",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Leyenda del Samurái: el libro del viento, de Jiro Taniguchi, encaja con lectores de cómic histórico interesados en los samuráis y los enfrentamientos políticos del Japón del período Edo. Su trama gira alrededor de un espadachín y unos documentos robados cuya recuperación podría impedir una guerra civil; no está planteada como una historia contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La Leyenda del Samurái: el libro del viento es un cómic de ambientación histórica construido alrededor de una misión de recuperación y una amenaza política. Jubei Yagyu debe encontrar las Crónicas Secretas Yagyu, mientras el enfrentamiento entre el Shogun y el antiguo Emperador pone en riesgo la estabilidad de Japón. La lealtad a los Tokugawa condiciona su cometido.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Leyenda del Samurái: el libro del viento se ofrece en tapa blanda, con 232 páginas en castellano. La edición de Planeta Cómic es rústica sin solapas y con sobrecubierta, por lo que reúne la lectura y su presentación física en un único volumen. Es la opción indicada para quien quiera conservar este cómic en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8f55717269f6e2a2",
+  "origen": "chatgpt-web"
+}

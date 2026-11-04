@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788467083590",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El toque Delirium se dirige a lectores interesados en cocinar para otras personas y prestar atención a la presentación y al cuidado de los invitados. Su planteamiento gastronómico y social encaja menos con quienes buscan una novela o una lectura centrada en conflictos de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El toque Delirium está disponible en tapa dura y Kindle. La edición de Editorial Espasa reúne 288 páginas en cartoné, una opción para conservar y consultar el libro en papel o regalarlo; Kindle permite acceder al contenido desde un dispositivo compatible y consultarlo sin ocupar espacio físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El toque Delirium y Cocina de siempre para disfrutar hoy comparten el interés por preparar comida para disfrutar en casa, aunque el primero pone el acento en recibir y cuidar a los invitados y el segundo en adaptar recetas tradicionales. Frente a 20 minutos ¡y listo!, centrado en cocinar con poco tiempo, El toque Delirium prioriza la experiencia de compartir la mesa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788408324263"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e2d21d400720cdc0",
+  "origen": "chatgpt-web"
+}

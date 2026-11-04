@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788408326823",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La noche que encendimos Nueva York, de Cristina Prada, está dirigida a lectores de romance que buscan sentimientos prolongados, vínculos desiguales y cambios en una relación cercana. Eden Lockhart está enamorada de Alexander Vandervilt, pero él no corresponde inicialmente a esa percepción del vínculo. No se centra en una aventura fantástica ni en un conflicto bélico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La noche que encendimos Nueva York desarrolla un romance marcado por la diferencia entre lo que sienten sus protagonistas y cómo interpretan su relación. Un desplazamiento nocturno entre locales altera la dinámica entre Eden Lockhart y Alexander Vandervilt, hasta entonces condicionada por la actitud protectora de él. El eje narrativo es la evolución del vínculo sentimental.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La noche que encendimos Nueva York puede leerse en tapa blanda o Kindle y tiene 592 páginas. La edición física de Booket es rústica sin solapas, para quien prefiera una novela extensa en papel; Kindle permite continuar la lectura en el móvil o en un lector electrónico compatible sin cargar con el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5db110d0a894bae3",
+  "origen": "chatgpt-web"
+}
