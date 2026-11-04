@@ -150,6 +150,18 @@ def run() -> None:
             out,
         )
 
+    # Sync 41785513767: «Andrés Trapiello» contiene «piel» y tumbaba la carga del catálogo.
+    third_party = load_json(REGISTRY_PATH)
+    author = next(item for item in third_party["entries"] if item["id"].startswith("reading-"))
+    author["label"] = author["shortLabel"] = "Andrés Trapiello"
+    code, out = run_with_state(registry=third_party)
+    check(code == 0 and out.startswith("PASS"), "nombre de terceros del catálogo con «piel» no falla", out)
+    own_ui = load_json(REGISTRY_PATH)
+    tool = next(item for item in own_ui["entries"] if item["id"].startswith("tool-"))
+    tool["label"] = "PIEL"
+    code, out = run_with_state(registry=own_ui)
+    check(code != 0 and "forbidden public token 'PIEL'" in out, "PIEL en la UI propia sigue fallando", out)
+
     if failures:
         print(f"\n{len(failures)} FALLO(S)")
         raise SystemExit(1)
