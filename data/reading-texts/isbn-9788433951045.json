@@ -4,37 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Plastificados está dirigido a lectores interesados en los efectos de los plásticos sobre la vida cotidiana y la salud. Sus 96 páginas de ensayo se centran en el problema de los microplásticos y en las decisiones individuales, no en una trama de ficción.",
+      "texto": "Plastificados está orientado a lectores de ensayo interesados en la contaminación por plásticos, los microplásticos y las decisiones individuales ante un problema ambiental. Sabrina Duque plantea preguntas sobre el consumo y sus consecuencias; no responde al enfoque de quien busca ficción o una guía dedicada exclusivamente a técnicas de reciclaje.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Plastificados aborda la exposición a los microplásticos, el reciclaje y la reducción del consumo de plástico. Sabrina Duque plantea estas prácticas frente al crecimiento previsto de la producción mundial y pregunta qué margen de acción tienen las personas.",
+      "texto": "Plastificados aborda la presencia del plástico en la vida cotidiana, la ingestión de microplásticos y las posibles respuestas individuales ante su expansión. Sabrina Duque contrapone los esfuerzos de reciclaje y reducción del consumo con las previsiones de crecimiento de la producción mundial, mediante un ensayo que plantea la necesidad de tomar conciencia y actuar.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Plastificados se publica en tapa blanda y tiene 96 páginas. Esta edición permite leer en papel un ensayo breve y volver a sus preguntas sobre microplásticos, reciclaje y consumo sin recurrir a un dispositivo.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Plastificados está disponible en tapa blanda y Kindle. La edición impresa de Editorial Anagrama consta de 96 páginas, una extensión que facilita transportarla y consultar sus argumentos en papel; la versión Kindle permite leer el ensayo desde un dispositivo compatible y prescindir del volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Plastificados y Cómo construir la soberanía digital europea examinan decisiones ante problemas que afectan a la sociedad. Sabrina Duque se centra en el plástico y las acciones individuales; Francesca Bria plantea la elección de Europa entre construir su autonomía digital o depender de decisiones ajenas.",
+      "texto": "Plastificados y Cómo construir la soberanía digital europea examinan problemas colectivos que exigen decisiones sobre el futuro, pero Sabrina Duque se ocupa del plástico y Francesca Bria de la autonomía tecnológica de Europa. Este deseo no es el mío también cuestiona aspectos de la sociedad contemporánea, aunque Andrea Proenza se centra en cómo la tecnología atraviesa las relaciones afectivas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,12 +43,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788433951670"
+        "isbn-9788433951670",
+        "isbn-9788433951199"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b246d99fa3728d5d",
+  "fuente_hash": "147ffaec02488281",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788449345937",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La economía del cuidado se dirige a lectores interesados en la economía, la sostenibilidad y las decisiones políticas que determinan cómo se valora el trabajo de cuidar. Su enfoque sobre el poscrecimiento y la organización económica encaja menos con quien busca consejos de finanzas personales o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La economía del cuidado es un ensayo de Tim Jackson que examina la posición del trabajo de cuidados dentro del sistema económico. Desde la economía ecológica y el debate sobre el poscrecimiento, plantea revisar la idea de prosperidad y el papel que desempeñan las actividades esenciales para sostener la vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La economía del cuidado puede leerse en tapa blanda o en Kindle. La edición impresa de Ediciones Paidós tiene 416 páginas, encuadernación rústica y solapas, mientras que Kindle permite llevar el ensayo en un dispositivo compatible y consultar sus argumentos sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La batalla por la vivienda comparte con La economía del cuidado el interés por las estructuras económicas y sus consecuencias sociales, pero Michael Byrne se centra en la crisis habitacional y Tim Jackson en el valor de los cuidados. Cómo ganar una guerra comercial también examina decisiones económicas de alcance colectivo, aunque Soumaya Keynes y Chad P. Bown abordan el comercio internacional en vez del poscrecimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441051",
+        "isbn-9788449346187"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1c3327c466d73c4c",
+  "origen": "chatgpt-web"
+}

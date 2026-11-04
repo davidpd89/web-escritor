@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788408327363",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué vino con este pato? Edición especial con cantos tintados se dirige a quienes quieren comprender el maridaje desde la cocina, la ciencia y la teoría. El enfoque de Ferran Centelles se centra en las relaciones entre vino y comida, por lo que encaja menos con lectores que buscan una novela o un recetario dedicado exclusivamente a preparar platos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "¿Qué vino con este pato? Edición especial con cantos tintados se presenta con cantos tintados y tapa dura con sobrecubierta. Planeta Gastro publica esta edición de Ferran Centelles en castellano, con 320 páginas y fecha de publicación del 14 de octubre de 2026. El contenido aborda la ciencia y las teorías del maridaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de ¿Qué vino con este pato? Edición especial con cantos tintados ofrece una encuadernación rígida con sobrecubierta para consultar sus explicaciones sobre maridaje. Sus 320 páginas permiten conservar en un solo volumen el tratamiento científico y teórico de la relación entre vino y comida; la presentación también resulta apropiada para un regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "8e6dd220907cc2b6",
+  "origen": "chatgpt-web"
+}

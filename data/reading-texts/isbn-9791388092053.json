@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Menú del día (Mesa y mantel) se dirige a adultos interesados en la cocina popular y en las costumbres del almuerzo fuera de casa. Su enfoque en recetas tradicionales y en el origen social del menú de mediodía se aparta de un manual dedicado exclusivamente a técnicas culinarias.",
+      "texto": "Menú del día (Mesa y mantel) se dirige a lectores adultos interesados en la cocina popular y en las costumbres gastronómicas vinculadas al trabajo y la vida cotidiana. Lakshmi Aguirre combina recetas con una mirada cultural sobre la comida fuera de casa; encaja menos con quien busque únicamente técnicas culinarias sin contexto histórico o social.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,26 +15,42 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Reúne preparaciones como croquetas, flan, pollo al ajillo y arroz a la cubana. A lo largo de 224 páginas, Lakshmi Aguirre relaciona estos platos con la estructura de primeros, segundos y postres y con los hábitos de comida ligados al trabajo.",
+      "texto": "Menú del día (Mesa y mantel) reúne recetas de platos habituales en los almuerzos populares, entre ellos arroz a la cubana, croquetas, pollo al ajillo y flan. Lakshmi Aguirre aborda también la estructura de primeros, segundos y postres, y explica su relación con la jornada laboral, la economía doméstica y la evolución de los hábitos alimentarios.",
       "evidencias": [
-        "sinopsis_editorial",
-        "numero_paginas",
-        "autores"
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Menú del día (Mesa y mantel) se publica en tapa dura y consta de 224 páginas en castellano. El volumen físico permite consultar las recetas en la cocina y ofrece una encuadernación rígida para quien quiera conservarlo o regalarlo.",
+      "texto": "Menú del día (Mesa y mantel) puede elegirse en tapa dura o Kindle. La edición de Debate tiene 224 páginas: el volumen encuadernado resulta práctico para conservar y consultar las recetas en casa, mientras que Kindle facilita acceder al contenido desde un dispositivo compatible cuando se cocina fuera de la cocina habitual.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
+        "edicion",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Menú del día (Mesa y mantel) se aproxima a Cocina de siempre para disfrutar hoy por su atención a los platos tradicionales, aunque Lakshmi Aguirre estudia además el menú como costumbre social y Marcos Serén @chefmspin.recetas se centra en adaptar recetas. Frente a Al micro y listo, de Dani García, su enfoque está menos ligado a un método de preparación y más a la cultura del almuerzo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084757",
+        "isbn-9788408324263"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5eb6147eb1c57d44",
+  "fuente_hash": "8d179da6e38d1711",
   "origen": "chatgpt-web"
 }

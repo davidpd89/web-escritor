@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788434440937",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En la mente de... se dirige a lectores interesados en la política contemporánea, las democracias y las formas de acceder al poder. El Orden Mundial y Franco Delle Donne examinan las trayectorias e ideologías de distintos gobernantes, por lo que encaja menos con quien busca ficción política o una narración centrada en un único protagonista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "En la mente de... es un ensayo político de El Orden Mundial y Franco Delle Donne sobre el ascenso de gobernantes contemporáneos y el debilitamiento interno de las democracias. Examina cómo figuras como Trump, Milei, Putin, Meloni y Bukele alcanzaron el poder y qué ideas orientan sus actuaciones. El enfoque combina preguntas sobre ideología, oportunismo y ejercicio del gobierno.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En la mente de... puede leerse en tapa blanda o en Kindle, según se prefiera consultar el ensayo en papel o llevarlo en un dispositivo digital. La edición impresa de Editorial Ariel tiene 320 páginas, encuadernación rústica con solapas y permite volver físicamente a los distintos análisis políticos. Kindle facilita transportarlo sin cargar con el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "716288a2d5fef2ed",
+  "origen": "chatgpt-web"
+}
