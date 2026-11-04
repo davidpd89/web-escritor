@@ -73,9 +73,8 @@ for event in events:
     visible_date = EVENT_IDS[fragment]
     require(str(event.get("startDate", "")).startswith(visible_date), f"startDate mismatch for {fragment}")
     require(f'datetime="{visible_date}"' in HTML, f"visible date missing for {fragment}")
-    require(event.get("offers", {}).get("price") == "0", f"Free event price drifted for {fragment}")
-    require(event.get("offers", {}).get("priceCurrency") == "EUR", f"Free event currency drifted for {fragment}")
-    require("url" not in event.get("offers", {}), f"Offer contains invented acquisition URL for {fragment}")
+    require(event.get("isAccessibleForFree") is True, f"Free attendance lost for {fragment}")
+    require("offers" not in event, f"Historical event contains an unsupported ticket offer for {fragment}")
     image = event.get("image")
     require(isinstance(image, str) and image, f"Event image missing for {fragment}")
     image_path = local_path(image)
