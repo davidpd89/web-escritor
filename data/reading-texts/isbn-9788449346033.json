@@ -4,35 +4,46 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La eternidad y un día más se dirige a lectores interesados en la divulgación científica y las experiencias humanas relacionadas con la enfermedad y la duración de la vida. Quien busque una exposición exclusivamente técnica encontrará una obra de no ficción novelada centrada en la historia de Sammy Basso.",
+      "texto": "La eternidad y un día más se dirige a lectores interesados en la divulgación científica vinculada a experiencias humanas y preguntas sobre la mortalidad. Carlos López-Otín aborda la vida de Sammy Basso, una persona con progeria, desde una narración de no ficción novelada; encaja menos con quien busca un manual médico o una exposición exclusivamente técnica.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "temas_y_enfoque",
-      "texto": "La eternidad y un día más aborda la experiencia de Sammy Basso, paciente de progeria, y las preguntas sobre cómo afrontar una vida marcada por la posibilidad de morir prematuramente. Carlos López-Otín emplea la no ficción novelada para relacionar una historia personal con la reflexión sobre el sentido de la existencia.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "La eternidad y un día más está disponible en tapa blanda, en una edición rústica con solapas de 224 páginas. El soporte físico permite leerla sin pantalla, señalar pasajes sobre los que volver y conservar el volumen para futuras consultas.",
+      "texto": "La eternidad y un día más puede leerse en tapa blanda o en Kindle. La edición física de Ediciones Paidós tiene 224 páginas y encuadernación rústica con solapas, apropiada para conservar o regalar el volumen; Kindle permite llevar el mismo título en un lector electrónico o dispositivo compatible sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "numero_paginas",
         "edicion",
-        "numero_paginas"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La eternidad y un día más y El acorde secreto se aproximan a cuestiones humanas desde autores vinculados a la ciencia, aunque Carlos López-Otín recurre a la historia de una persona con progeria y Daniel J. Levitin aparece identificado como neurocientífico. La botica natural adopta un enfoque más práctico, centrado en elaborar un botiquín con plantas medicinales, frente a la reflexión sobre la vida y la mortalidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449345975",
+        "isbn-9791387905620"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "temas_y_enfoque: copia 8 palabras seguidas de la sinopsis",
+    "faltan módulos: temas_y_enfoque"
+  ],
   "version": 3,
-  "fuente_hash": "0634d48aa4457035",
+  "fuente_hash": "0f43e3deb3ba18ce",
   "origen": "chatgpt-web"
 }

@@ -3,8 +3,18 @@
   "familia": "narrativa",
   "bloques": [
     {
+      "modulo": "para_quien",
+      "texto": "Corazón de sílex, de Emilia Landaluce y Rosa Belmonte, se dirige a lectores de misterio y narrativa contemporánea interesados en secretos del pasado y conflictos relacionados con el poder. Su punto de partida incluye una pérdida de memoria y experiencias silenciadas durante años, por lo que se aleja de las historias de investigación puramente detectivesca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela de intriga contemporánea en la que una laguna de memoria se relaciona con hechos que otras mujeres ocultaron años atrás. La historia sitúa a Arri Martín en un ambiente de desfiles, fiestas y personas influyentes, donde el poder forma parte del conflicto.",
+      "texto": "Es una novela de misterio contemporáneo que relaciona un episodio de memoria perdida con acontecimientos ocultados durante años. Arri Martín trabaja como modelo en un entorno de fiestas exclusivas, fotógrafos influyentes y personas poderosas. La tensión parte de reconstruir lo sucedido y de las consecuencias de revelar hechos del pasado.",
       "evidencias": [
         "categorias",
         "sinopsis_editorial"
@@ -12,44 +22,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Corazón de sílex se publica en tapa blanda, en una edición rústica con solapas de 296 páginas en castellano. Es la opción en papel para quien quiera llevar consigo la novela y leerla por etapas sin recurrir a un volumen de cubierta rígida.",
+      "texto": "Corazón de sílex está disponible en tapa blanda y Kindle. La edición impresa de Editorial Espasa consta de 296 páginas y lleva solapas, mientras que Kindle permite continuar la lectura en un dispositivo compatible sin transportar el volumen físico. Ambas opciones corresponden a una obra publicada en castellano.",
       "evidencias": [
         "titulo",
-        "edicion",
         "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Corazón de sílex y El vuelo de los gansos exploran conflictos en los que el poder condiciona a los personajes. Emilia Landaluce y Rosa Belmonte lo abordan mediante un misterio ligado a mujeres y al entorno de la moda; Ángel Boixadós plantea enfrentarse al poder como un asunto de principios.",
+      "texto": "Corazón de sílex comparte con El vuelo de los gansos el interés por los conflictos relacionados con el poder, aunque Emilia Landaluce y Rosa Belmonte parten de una pérdida de memoria y de secretos antiguos. Frente a Los crímenes del sanatorio (Serie Comisario Reykdal 1), de Ragnar Jónasson, el misterio se sitúa en un entorno contemporáneo de moda y relaciones influyentes, no en un sanatorio con varios sospechosos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425375040"
-      ]
-    },
-    {
-      "modulo": "para_quien",
-      "texto": "Corazón de sílex encaja con lectores de misterio y narrativa contemporánea que buscan conflictos relacionados con la memoria, los secretos y las relaciones de poder. Su escenario de modelos, fiestas y figuras influyentes lo aleja de las aventuras ambientadas en mundos fantásticos.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "isbn-9788425375040",
+        "isbn-9788432251399"
       ]
     }
   ],
-  "descartados": [
-    "para_quien: afirmaciones sin respaldo: premi",
-    "faltan módulos: para_quien"
-  ],
+  "descartados": [],
   "version": 3,
-  "fuente_hash": "e384a1ac8f789ffa",
+  "fuente_hash": "a9f7e9d82629080a",
   "origen": "chatgpt-web"
 }
