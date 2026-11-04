@@ -82,7 +82,13 @@ try{
       // The closed section ships in the HTML (SEO) but is hidden until the checkbox
       // is ticked, so the default corpus excludes it.
       const total=await page.locator('[data-radar-item]:not([data-radar-kind="expired"])').count();
-      assert.ok(total>20,'radar fuzz: unexpectedly small corpus '+total);
+      // The open corpus shrinks for legitimate reasons: a call older than STALE_DAYS without re-verification
+      // leaves the page (2026-11-03: 36 -> 9 open). A fixed floor failed on correct data; the page must
+      // instead render exactly what its published data says is open or watched, and never be empty.
+      const feed=await (await page.request.get(O+'/convocatorias-escritores/opportunities.json')).json();
+      const expected=feed.items.length+feed.watchlist.length;
+      assert.equal(total,expected,'radar fuzz: rendered corpus '+total+' differs from opportunities.json '+expected);
+      assert.ok(total>0,'radar fuzz: empty corpus, nothing open or watched');
       for(const [i,value] of FUZZ.entries()){
         await page.locator('[data-radar-search]').fill(value);
         await page.waitForTimeout(30);
