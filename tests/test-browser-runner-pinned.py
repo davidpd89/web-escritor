@@ -9,6 +9,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BROWSER = re.compile(r'playwright install|install-deps|setup-chrome|browser-actions|puppeteer|pa11y-ci|npx pa11y|lhci (autorun|collect|assert)', re.I)
+LHCI = re.compile(r'^\s*(?:- )?run:\s*lhci\b', re.M)
+NPM = re.compile(r'npm (?:ci|install)')
 JOB = re.compile(r'^  ([\w-]+):[ \t]*$', re.M)
 
 
@@ -22,6 +24,9 @@ def offenders(text: str, name: str) -> list[str]:
         runner = re.search(r'^    runs-on:\s*(.+)$', block, re.M)
         if runner and 'latest' in runner.group(1) and BROWSER.search(block):
             out.append(f'{name}:{mark.group(1)} ({runner.group(1).strip()})')
+        # lhci sale del lockfile (node_modules/.bin): sin npm ci en el mismo trabajo el comando no existe (exit 127).
+        if LHCI.search(block) and not NPM.search(block):
+            out.append(f'{name}:{mark.group(1)} (lhci sin npm ci)')
     return out
 
 
@@ -30,10 +35,11 @@ SAMPLE = ('on: push\njobs:\n  a:\n    runs-on: {}\n    steps:\n      - run: {}\n
 assert offenders(SAMPLE.format('ubuntu-latest', 'npx playwright install --with-deps'), 'x') == ['x:a (ubuntu-latest)']
 assert not offenders(SAMPLE.format('ubuntu-24.04', 'npx playwright install'), 'x')
 assert not offenders(SAMPLE.format('ubuntu-latest', 'python tests/x.py'), 'x')
+assert offenders(SAMPLE.format('ubuntu-24.04', 'lhci collect'), 'x') == ['x:a (lhci sin npm ci)']
 
 bad, checked = [], 0
 for path in sorted((ROOT / '.github' / 'workflows').glob('*.y*ml')):
     checked += 1
     bad += offenders(path.read_text(encoding='utf-8'), path.name)
-assert not bad, 'Trabajos con navegador en ubuntu-latest (usa ubuntu-24.04):\n' + '\n'.join(bad)
+assert not bad, 'Trabajos con navegador en ubuntu-latest (usa ubuntu-24.04) o con lhci sin npm ci:\n' + '\n'.join(bad)
 print(f'PASS todos los trabajos con navegador usan una imagen de Ubuntu fijada ({checked} workflows)')

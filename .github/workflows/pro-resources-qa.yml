@@ -145,6 +145,8 @@ jobs:
             !/assets/no usadas/
       - uses: actions/setup-node@v5
         with: {node-version: '22'}
+      - name: Install lockfile-pinned Lighthouse CI
+        run: npm ci
       - name: Use lockfile-pinned Lighthouse CI
         run: echo "$PWD/node_modules/.bin" >> "$GITHUB_PATH"
       - name: Collect Lighthouse reports
