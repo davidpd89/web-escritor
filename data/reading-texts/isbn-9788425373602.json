@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788425373602",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amor, de Patri Psicóloga y Yolanda Cuevas, está dirigido a adultos que quieren trabajar el cuidado de su relación mediante una práctica semanal. Aborda la comunicación, la escucha y la convivencia cotidiana, por lo que se aleja de los libros centrados en encontrar pareja o superar una ruptura. Su planteamiento requiere participación, no únicamente lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amor se publica en tapa dura y Kindle, con 224 páginas en la edición física de Grijalbo. La tapa dura permite mantener el libro a mano para consultar las propuestas semanales y también regalarlo. Kindle facilita acceder a esas prácticas desde el móvil o un lector electrónico, especialmente cuando se realizan fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amor y Los cinco acuerdos de la pareja comparten el interés por cuidar las relaciones mediante acciones concretas. El primero, de Patri Psicóloga y Yolanda Cuevas, organiza una práctica por semana; el segundo, de Nilda Chiaraviglio, se centra en establecer acuerdos sobre la relación y la comunicación. Frente a ambos, Nadie duele para siempre, de Marcelo Júnior, aborda la pérdida que sigue a una ruptura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411193832",
+        "isbn-9791387724139"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5f5a9f8c9febce3",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788408330936",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Eoghan Kavanagh. El Lobo se dirige a lectores de romance que buscan una reinterpretación oscura de Caperucita Roja en un entorno criminal. El conflicto combina la posición de poder de un jefe de una organización irlandesa con la búsqueda de una mujer que le salvó la vida; no responde a una historia romántica ambientada en un mundo cotidiano ajeno al crimen.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Elizabeth Sea plantea en Eoghan Kavanagh. El Lobo un romance que transforma elementos de Caperucita Roja en una trama de poder criminal. La figura del lobo se vincula al jefe de una organización de Irlanda, mientras que la mujer del abrigo rojo introduce un conflicto personal que escapa a su control. El punto de partida une una reinterpretación de cuento tradicional con una relación marcada por un encuentro anterior.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Eoghan Kavanagh. El Lobo está disponible en tapa blanda, en una edición rústica con solapas de Esencia. Sus 608 páginas hacen que el volumen tenga una extensión considerable para transportarlo a diario; el formato físico permite conservarlo y prestarlo sin depender de un dispositivo. Es la presentación indicada para quien busca esta novela en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "84a20f0fea4e006c",
+  "origen": "chatgpt-web"
+}

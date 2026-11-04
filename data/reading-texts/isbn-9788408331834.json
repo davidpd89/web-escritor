@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408331834",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tus zonas mágicas se dirige a lectores de desarrollo personal interesados en la relación entre las creencias, la espiritualidad y los cambios en la vida cotidiana. Wayne W. Dyer aborda los milagros y la «magia verdadera» como posibilidades que pueden cultivarse, por lo que se aleja de los manuales centrados en técnicas de bienestar físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tus zonas mágicas puede leerse en tapa blanda o en Kindle. La edición física de Booket tiene 352 páginas, encuadernación rústica sin solapas y permite consultar pasajes en papel; Kindle reúne el mismo título en un dispositivo de lectura o en el móvil, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tus zonas mágicas comparte autor y orientación espiritual con Tus zonas sagradas y El poder de la intención, ambos de Wayne W. Dyer. Mientras Tus zonas sagradas se centra en desprenderse del ego y El poder de la intención relaciona el propósito personal con una fuerza orientadora, Tus zonas mágicas explora la posibilidad de provocar cambios mediante lo que denomina «magia verdadera».",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331780",
+        "isbn-9788408331728"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5d74609d13cbd118",
+  "origen": "chatgpt-web"
+}
