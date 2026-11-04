@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Franquistas contra franquistas está dirigido a lectores adultos interesados en la historia política española del siglo XX y las disputas internas del franquismo. Su atención a las organizaciones, los intereses y las luchas por el poder lo aleja de una biografía individual o de una historia centrada exclusivamente en las operaciones militares de la Guerra Civil.",
+      "texto": "Franquistas contra franquistas está dirigido a lectores adultos interesados en la historia política española del siglo XX y las disputas internas del franquismo. Joan Maria Thomàs examina las relaciones de poder entre los sectores del régimen, por lo que encaja menos con quienes buscan una narración de ficción o una historia militar centrada en los combates de la Guerra Civil.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,42 +15,41 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Joan Maria Thomàs estudia las rivalidades entre los sectores que sostuvieron el régimen franquista después de la Guerra Civil. Examina las tensiones entre militares, falangistas, carlistas, monárquicos y grupos económicos que compartían principios políticos, pero competían por controlar las instituciones. El enfoque relaciona esas disputas iniciales con los equilibrios posteriores del régimen.",
+      "texto": "Franquistas contra franquistas estudia las rivalidades políticas dentro del bloque que sostuvo la dictadura después de la Guerra Civil. Joan Maria Thomàs examina la competencia entre militares, sectores religiosos, carlistas, monárquicos y otros grupos vinculados al régimen. Su enfoque distingue los principios ideológicos compartidos de las luchas por controlar las instituciones y distribuir el poder.",
       "evidencias": [
+        "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Franquistas contra franquistas puede leerse en tapa blanda o Kindle. La edición física de Debate tiene 320 páginas y solapas, una opción para conservar el volumen y volver a consultar sus apartados históricos. Kindle permite llevar el texto en un dispositivo compatible y continuar la lectura sin cargar con el ejemplar impreso.",
+      "texto": "Franquistas contra franquistas se encuentra en tapa dura, tapa blanda y Kindle, con 320 páginas. La edición de Debate en tapa blanda incorpora solapas y una cubierta flexible; la tapa dura proporciona una encuadernación rígida para conservar el ejemplar y Kindle permite consultar el texto desde un dispositivo electrónico sin llevar el volumen físico.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Franquistas contra franquistas y Richelieu y Olivares, de John H. Elliot, permiten acercarse a las relaciones de poder desde perspectivas distintas. Joan Maria Thomàs estudia las rivalidades entre grupos del franquismo, mientras el segundo compara dos figuras políticas del siglo XVII. La Guerra Fría contada para escépticos, de Juan Eslava Galán, amplía el marco hacia la historia internacional del siglo XX, frente al foco español del primero.",
+      "texto": "Franquistas contra franquistas y Felipe II. Vida íntima de un rey de España estudian el ejercicio del poder en la historia española. Joan Maria Thomàs analiza las disputas entre las distintas familias políticas del franquismo, mientras Henry Kamen se centra en la figura de un monarca y ofrece una mirada a su dimensión personal. Uno aborda las tensiones internas de un régimen; el otro, la trayectoria de un soberano.",
       "evidencias": [
         "titulo",
         "autores",
         "sinopsis_editorial",
-        "afines_catalogo",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408326380",
-        "isbn-9788408331742"
+        "isbn-9788467083743"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0a8fc2e9d773208f",
+  "fuente_hash": "243b4fb8de528d96",
   "origen": "chatgpt-web"
 }

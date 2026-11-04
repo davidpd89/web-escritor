@@ -4,41 +4,58 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) encaja con lectores de romance juvenil interesados en rivalidades universitarias, relaciones de poder y secretos familiares. Su conflicto gira alrededor de Jude y los hermanos Cash, por lo que se aleja de las historias románticas centradas exclusivamente en la convivencia cotidiana.",
+      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) se dirige al público juvenil interesado en el romance, las rivalidades y los secretos dentro de un entorno universitario privilegiado. Encaja menos con lectores que prefieren historias alejadas de las relaciones sentimentales, las intrigas personales y los conflictos de poder entre estudiantes.",
       "evidencias": [
         "titulo",
-        "categorias",
         "edad_recomendada",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Está clasificada como lectura juvenil y aborda relaciones sentimentales, cotilleos, privilegios económicos y secretos dentro de una universidad elitista. La intención de Jude de desenmascarar a los hermanos Cash introduce un conflicto de manipulación social y enfrentamiento personal que conviene tener en cuenta al elegirla.",
+      "texto": "La clasificación editorial de Mentiras y secretos (Perfectos Mentirosos 1) es juvenil. Su argumento incorpora relaciones sentimentales, enfrentamientos personales y secretos que una estudiante pretende revelar, elementos que conviene considerar para lectores sensibles a los conflictos emocionales y las dinámicas de poder.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) combina romance juvenil e intriga en una universidad marcada por las diferencias de poder entre estudiantes. La protagonista, Jude, pretende desenmascarar a los hermanos Cash, de modo que el conflicto se construye alrededor de sus intenciones, las relaciones personales y aquello que los personajes ocultan.",
+      "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de bolsillo de Penguin Bolsillo reúne 336 páginas en tapa blanda, una opción física para transportar y prestar. Kindle permite leer la novela desde el móvil o un lector electrónico, mientras que el audiolibro ofrece la posibilidad de seguir los conflictos entre estudiantes mediante la escucha.",
+      "texto": "La tapa blanda de bolsillo reúne las 336 páginas de Mentiras y secretos (Perfectos Mentirosos 1) en una edición pensada para transportar y leer en papel. Kindle permite continuar la novela desde el móvil o un lector electrónico, mientras que el audiolibro ofrece la alternativa de seguir la historia mediante escucha.",
       "evidencias": [
+        "titulo",
         "edicion",
-        "editorial",
         "numero_paginas",
-        "formato_edicion",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Peligros y verdades (Perfectos Mentirosos 2) es la comparación más directa: comparte autora, Alex Mírez, y el entorno universitario dominado por los hermanos Cash. Frente a Mentiras y secretos (Perfectos Mentirosos 1), cuyo argumento presenta el plan de Jude para revelar secretos, el otro título vuelve a situar a esos hermanos en el centro de la historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413145228"
       ]
     }
   ],
-  "descartados": [
-    "encaje_documentado: afirmaciones sin respaldo: premi",
-    "lecturas_afines: afirmaciones sin respaldo: premi",
-    "faltan módulos: encaje_documentado, lecturas_afines"
-  ],
+  "descartados": [],
   "version": 3,
   "fuente_hash": "77adac5a7ca80233",
   "origen": "chatgpt-web"

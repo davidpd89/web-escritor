@@ -4,54 +4,52 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "JapanEasy está dirigido a quienes quieren preparar comida japonesa en casa mediante recetas que no siempre exigen ingredientes especializados. Su enfoque de cocina doméstica y preparaciones rápidas encaja menos con lectores que buscan un estudio histórico de la gastronomía japonesa en lugar de un recetario práctico.",
+      "texto": "JapanEasy, de Tim Anderson, está dirigido a quienes quieren preparar comida japonesa en casa sin depender siempre de ingredientes especializados. Su enfoque se centra en recetas que pueden elaborarse con procedimientos rápidos y productos accesibles. No está planteado como una obra de historia gastronómica ni como un manual dedicado exclusivamente a técnicas profesionales.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "JapanEasy reúne recetas de cocina japonesa orientadas a su preparación en el ámbito doméstico. Tim Anderson explica que numerosos platos pueden elaborarse con ingredientes accesibles y sin procedimientos prolongados; sus 224 páginas presentan el contenido en formato de recetario para llevar las preparaciones a la práctica.",
+      "texto": "JapanEasy reúne recetas de cocina japonesa orientadas a la preparación doméstica. Tim Anderson muestra que distintos platos pueden elaborarse sin recurrir necesariamente a ingredientes específicos difíciles de conseguir y que algunas preparaciones requieren poco tiempo. Sus 224 páginas constituyen un recetario para consultar al organizar comidas y cocinar en casa.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "JapanEasy está disponible en tapa dura sin sobrecubierta, con encuadernación en cartoné y 224 páginas. La edición de Lunwerg Editores permite tener el recetario en papel durante la preparación de los platos y conservarlo como libro de consulta de cocina.",
+      "texto": "JapanEasy está disponible en tapa dura y tapa blanda. La edición de Lunwerg Editores tiene 224 páginas y presenta una encuadernación de cartón rígido sin sobrecubierta, adecuada para mantener el recetario como volumen de consulta. La tapa blanda ofrece una alternativa de cubierta flexible para manejarlo y guardarlo junto a otros libros de cocina.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "JapanEasy y 20 minutos ¡y listo! comparten la orientación hacia recetas que pueden prepararse sin dedicar demasiado tiempo a la cocina. Tim Anderson se centra en platos japoneses, mientras Jamie Oliver plantea la rapidez como eje general de su propuesta. Al micro y listo también prioriza la sencillez, pero organiza su enfoque alrededor de la cocina con microondas.",
+      "texto": "JapanEasy comparte con 20 minutos ¡y listo!, de Jamie Oliver, el interés por cocinar sin dedicar demasiado tiempo a la preparación. Tim Anderson centra su recetario en platos japoneses y en reducir la necesidad de ingredientes especializados. Frente a ese enfoque gastronómico concreto, 20 minutos ¡y listo! destaca desde su propio título el tiempo destinado a cocinar.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425374074",
-        "isbn-9788467084757"
+        "isbn-9788425374074"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d35b93f5af003607",
+  "fuente_hash": "2b105ce7216cb3ea",
   "origen": "chatgpt-web"
 }

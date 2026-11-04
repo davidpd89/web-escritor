@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Uñas sucias se dirige a lectores adultos de misterio que buscan una investigación atravesada por cuestiones de poder e impunidad. La desaparición de un juez conduce a una periodista a examinar su pasado y las versiones difundidas por los medios. No se centra en una investigación desligada de los conflictos sociales, pues aborda las agresiones sexuales y el silencio.",
+      "texto": "Uñas sucias se dirige a lectores adultos de misterio y thriller interesados en investigaciones periodísticas y conflictos relacionados con la impunidad. La desaparición de un juez permite abordar las agresiones sexuales, el tratamiento mediático de los casos y las relaciones de poder. Encaja menos con quienes buscan una lectura ajena a la violencia sexual o a las controversias judiciales.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Uñas sucias plantea un thriller de investigación periodística alrededor de la desaparición de un juez. La protagonista cuestiona el relato público sobre el desaparecido mientras una forense introduce nuevas perspectivas en el caso. La intriga combina la búsqueda de motivos con asuntos de impunidad, agresiones sexuales y responsabilidad institucional.",
+      "texto": "Uñas sucias es una novela de misterio construida alrededor de una desaparición y de las preguntas que provoca una investigación periodística. Ariadna examina la trayectoria de Ricardo Solana, un juez asociado a resoluciones controvertidas, mientras una forense interviene en el caso. El conflicto conecta la búsqueda de respuestas con el silencio público y la responsabilidad de quienes ejercen poder.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,31 +23,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Uñas sucias está disponible en tapa blanda y Kindle. La edición de Montena tiene solapas y 256 páginas, por lo que permite leer la investigación completa en un volumen físico. Kindle ofrece el mismo título para leerlo en el móvil y continuar la historia sin transportar el ejemplar en papel.",
+      "texto": "Uñas sucias puede elegirse en tapa blanda, Kindle o audiolibro, tres maneras de acceder a sus 256 páginas de narración. La edición física de Montena incorpora solapas y permite conservar el libro en papel. Kindle facilita la lectura digital en desplazamientos, mientras que el audiolibro permite seguir la investigación mediante escucha.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Uñas sucias y El hombre que solo escribía en los aviones son primeras novelas de Júlia Salander y Pedro Almodóvar, respectivamente. La primera investiga una desaparición vinculada a la impunidad y al poder judicial; la segunda se ocupa de la vocación literaria, el deseo y la relación con los libros. Comparten el debut novelístico de sus autores, pero sus conflictos son distintos.",
+      "texto": "Uñas sucias y Mi amor no muere presentan historias vinculadas a personajes concretos, aunque sus puntos de partida son distintos. Júlia Salander desarrolla una investigación sobre un juez desaparecido, mientras Roberto Saviano sitúa a Rossella Casini, una joven de poco más de veinte años, en el centro de su propuesta. La primera se identifica expresamente como misterio y thriller, con el periodismo como motor del conflicto.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387740566"
+        "isbn-9791387846794"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6be7b8b8ec813b22",
+  "fuente_hash": "c084760494b97fea",
   "origen": "chatgpt-web"
 }

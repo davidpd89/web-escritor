@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los finales perfectos no existen está dirigido a lectores adultos que buscan romance contemporáneo con humor, segundas oportunidades y conflictos de pareja. Su historia parte de un matrimonio roto y un divorcio pendiente, por lo que encaja menos con quienes prefieren romances sin relaciones anteriores ni asuntos familiares que resolver.",
+      "texto": "Los finales perfectos no existen se dirige a lectores adultos de comedia romántica interesados en las segundas oportunidades y las relaciones marcadas por asuntos pendientes. La historia combina humor, divorcio y reconciliación, de modo que no responde a la búsqueda de un romance entre desconocidos que empiezan una relación desde cero.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,33 +14,32 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una comedia romántica sobre una pareja que vuelve a encontrarse después de años de separación. Violeta Reed enfrenta la intención de Kate Morgan de cerrar definitivamente su matrimonio con el deseo de Ben Sharp de recuperar la relación. El humor convive con el resentimiento, las diferencias familiares y las expectativas sobre el amor.",
+      "texto": "Los finales perfectos no existen desarrolla una comedia romántica sobre un matrimonio que nunca llegó a resolverse emocionalmente. Ben Sharp y Kate Morgan vuelven a encontrarse después de trece años, cuando ella solicita el divorcio y él interpreta ese trámite como una posibilidad de recuperar su relación.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los finales perfectos no existen puede leerse en tapa blanda con solapas o en Kindle. La edición impresa tiene 480 páginas y permite conservar el volumen en una biblioteca o regalarlo; la digital facilita continuar la lectura desde un móvil o lector electrónico compatible. Ambas opciones corresponden a la novela de Violeta Reed.",
+      "texto": "Los finales perfectos no existen está disponible en tapa blanda, Kindle y audiolibro. La edición de Grijalbo tiene 480 páginas y solapas para la lectura en papel; Kindle facilita llevar la novela en formato digital y el audiolibro permite escuchar la historia en lugar de leerla.",
       "evidencias": [
         "titulo",
-        "autores",
+        "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Quizá sí quiero (edición limitada · Verano) (Quererte 2) y Los finales perfectos no existen comparten autora, Violeta Reed, y personajes masculinos que desconfían del amor. En el primero, Zac Anderson considera el enamoramiento una amenaza; en el segundo, Ben Sharp intenta recuperar un matrimonio que parecía terminado. La diferencia está entre el rechazo inicial al amor y la búsqueda de una segunda oportunidad.",
+      "texto": "Los finales perfectos no existen y Quizá sí quiero (edición limitada · Verano) (Quererte 2) son novelas de Violeta Reed que presentan personajes masculinos con una relación conflictiva con el amor. En la primera, Ben Sharp intenta recuperar un matrimonio pendiente de divorcio; en la segunda, Zac Anderson considera el amor una experiencia de la que prefiere mantenerse alejado.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788466380096"
@@ -49,6 +48,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4d3e15ca1414dbc8",
+  "fuente_hash": "79cdfde1ee235516",
   "origen": "chatgpt-web"
 }

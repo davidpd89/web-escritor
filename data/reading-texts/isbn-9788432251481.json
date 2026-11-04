@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Manolito Gafotas (edición especial) encaja con lectores de 9 a 12 años que busquen humor infantil contado desde la perspectiva de un niño y su entorno familiar. Se aleja de las historias centradas en magia o aventuras fantásticas: aquí predominan la convivencia, las amistades y las situaciones cotidianas del barrio.",
+      "texto": "Manolito Gafotas (edición especial) está dirigido a lectores de 9 a 12 años que disfrutan del humor infantil y las historias sobre la familia, el barrio y las amistades. Su enfoque cotidiano y la voz de un niño que cuenta lo que sucede a su alrededor encajan menos con quienes buscan aventuras fantásticas o tramas de acción.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,49 +14,45 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Manolito Gafotas (edición especial) presenta el primer libro del personaje creado por Elvira Lindo en una edición de tapa dura con sobrecubierta. Seix Barral la publica en castellano con 192 páginas y fecha de publicación 2026-10-28, dentro de su catálogo infantil.",
+      "texto": "Manolito Gafotas (edición especial) recupera el primer libro del personaje creado por Elvira Lindo en una edición de tapa dura con sobrecubierta. Seix Barral publica este volumen de 192 páginas en castellano, identificado mediante el ISBN 9788432251481, frente a las alternativas de lectura en otros formatos.",
       "evidencias": [
         "titulo",
         "autores",
-        "editorial",
+        "sinopsis_editorial",
         "edicion",
-        "fecha_publicacion",
+        "editorial",
         "numero_paginas",
         "idioma",
-        "categorias",
-        "sinopsis_editorial"
+        "isbn13",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Manolito Gafotas (edición especial) está indicado para lectores de 9 a 12 años. Tiene 192 páginas en castellano y se presenta en tapa dura con sobrecubierta, con una narración infantil de humor centrada en la familia, los amigos y la perspectiva del protagonista sobre su entorno.",
+      "texto": "La franja recomendada de Manolito Gafotas (edición especial) es de 9 a 12 años. Esta edición tiene 192 páginas y se presenta en tapa dura con sobrecubierta, una combinación que permite leer la historia en papel y conservar el volumen protegido por una cubierta exterior.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "numero_paginas",
-        "idioma",
-        "edicion",
-        "categorias",
-        "sinopsis_editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La opción de Manolito Gafotas (edición especial) es la tapa dura con sobrecubierta, con 192 páginas. Es una edición en papel que puede utilizarse para leer en casa, compartir o regalar, especialmente cuando se busca conservar la presentación especial del primer libro del personaje.",
+      "texto": "La tapa dura con sobrecubierta de Manolito Gafotas (edición especial) ofrece una presentación física para conservar o regalar sus 192 páginas; la tapa blanda es otra opción para leerlo en papel. Kindle facilita llevarlo en el móvil o lector electrónico, mientras que el audiolibro permite seguir las peripecias del personaje mediante escucha.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
         "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Manolito Gafotas (edición especial) y Enzo Brown: loco por el basket 5 - La cancha es de todos se centran en personajes infantiles, pero el segundo gira alrededor del baloncesto y el primero de la vida familiar y del barrio. Superdónuts 3 - El destino de los dónuts plantea un futuro inquietante, frente al humor cotidiano de la obra de Elvira Lindo.",
+      "texto": "Enzo Brown: loco por el basket 5 - La cancha es de todos comparte con Manolito Gafotas (edición especial) el protagonismo infantil y las experiencias de personajes jóvenes, aunque sitúa sus acontecimientos alrededor del baloncesto. Superdónuts 3 - El destino de los dónuts se distancia más del entorno familiar y vecinal de Manolito al introducir viajes al futuro y situaciones amenazantes.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
@@ -69,6 +65,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4c07a88970068890",
+  "fuente_hash": "a4795dd64cf6c5c8",
   "origen": "chatgpt-web"
 }
