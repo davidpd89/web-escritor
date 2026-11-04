@@ -12,10 +12,10 @@ Sin app adicional: un catálogo de paneles y una rutina para que Claude revise t
 
 Se abren todas las webs de `fuentes.json`. Inicia sesión en cada una; Edge conserva el acceso en `%LOCALAPPDATA%\web-escritor\edge-observatorio`, mientras el proveedor lo permita. Es un perfil independiente del Edge normal. Para abrir menos páginas: `-Grupo seo`, `-Grupo comportamiento`, `-Grupo social`, `-Grupo ventas`, `-Grupo operaciones` o `-Grupo inicio`.
 
-**2. Conecta Claude Code una vez al mismo puerto** (en terminal, no dentro de Claude):
+**2. Conecta Claude Code una vez al mismo puerto, solo en este proyecto** (en terminal, no dentro de Claude):
 
 ```powershell
-claude mcp add --scope user observatorio-edge -- npx -y chrome-devtools-mcp@latest --browser-url=http://127.0.0.1:9222
+claude mcp add --scope local observatorio-edge -- npx -y chrome-devtools-mcp@latest --browser-url=http://127.0.0.1:9222
 ```
 
 Comprueba `claude mcp list` y `/mcp`. Si ya tienes configurado Chrome DevTools MCP para **este mismo puerto**, reutilízalo en lugar de duplicarlo.
