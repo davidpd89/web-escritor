@@ -54,7 +54,8 @@ class CatalogueNavigationUX(unittest.TestCase):
             expected = ' '.join(f"{o['formato']}:{o['precio_centimos']}" for o in builder.amazon_prices(b))
             self.assertIn(f'data-book-id="{b["id"]}"', self.hub)
             card = re.search(r'data-book-id="' + re.escape(b['id']) + r'"[^>]*', self.hub).group(0)
-            self.assertIn(f'data-format-prices="{expected}"', card, b['id'])
+            actual = re.search(r'data-format-prices="([^"]*)"', card)
+            self.assertEqual(actual.group(1) if actual else '', expected, b['id'])
 
 
 if __name__ == "__main__":

@@ -124,6 +124,22 @@
         "total_bytes": 15360,
         "request_count": 3
       }
+    },
+    {
+      "id": "catalogue-html",
+      "label": "HTML del catálogo: límite de rastreo sin comprimir",
+      "entrypoints": [
+        "recomendaciones/index.html"
+      ],
+      "baseline": {
+        "total_bytes": 1984248,
+        "request_count": 1
+      },
+      "limits": {
+        "total_bytes": 1990000,
+        "request_count": 1
+      },
+      "note": "Tope conservador del HTML sin comprimir, por debajo de 2 MB decimales y reservando margen para cabeceras HTTP. No ampliar: al agotar el margen, paginar el HTML estático o reducir duplicación, conservando descubrimiento sin JS."
     }
   ]
 }

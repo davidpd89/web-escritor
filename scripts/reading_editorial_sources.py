@@ -20,7 +20,7 @@ from urllib.robotparser import RobotFileParser
 
 from decimal import Decimal, InvalidOperation
 
-from reading_intake_core import clean_title, edition_date, isbn13, normalize_text, strip_shouting
+from reading_intake_core import clean_title, edition_date, isbn13, normalize_text, strip_shouting, decode_text_entities
 from reading_taxonomy import keyword_list
 
 AGENT = 'DavidPortoReadingCatalogue/1.0 (+https://davidportodiaz.com)'
@@ -57,7 +57,7 @@ class PlainParagraphs(HTMLParser):
 
     def handle_data(self, text):
         if not self.ignored:
-            self.parts.append(text)
+            self.parts.append(decode_text_entities(text))
 
 
 SYNOPSIS_STOP = ('resenas', 'la critica', 'criticas', 'sobre el autor', 'sobre la autora')
@@ -275,7 +275,7 @@ def publisher_author_bio(document, source, name):
     expected = normalize_text(name)
     if not title.startswith(expected):
         raise SourceError('La ficha de autor no coincide con el nombre de la edición')
-    raw = parser.meta.get('description') or parser.meta.get('og:description') or ''
+    raw = decode_text_entities(parser.meta.get('description') or parser.meta.get('og:description') or '')
     if '\ufffd' in raw or len(raw.split()) < 12:
         raise SourceError('Biografía editorial ausente o dañada')
     text = ' '.join(raw.split())
