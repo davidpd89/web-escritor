@@ -59,7 +59,8 @@ jobs:
           if [ "$DRY_RUN" = 'true' ]; then
             python scripts/refresh-atlas-directory.py
           else
-            # Exit 75: main moved while the bot PR was in CI. Regenerate once from the new main.
+            # Exit 75: main moved while the bot PR was in CI. Regenerate once from the new main
+            # (Wikidata is cheap) on a fresh_branch name, never attempt 1's.
             for attempt in 1 2; do
               rc=0
               python scripts/refresh-atlas-directory.py --publish || rc=$?

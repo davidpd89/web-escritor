@@ -96,8 +96,11 @@ jobs:
           if [ "$DRY_RUN" = 'true' ]; then
             python scripts/refresh-reading-catalogue.py
           else
-            # Exit 75: main moved while the bot PR was in CI. Regenerate once
-            # from the new main instead of losing the day's books.
+            # Exit 75: main moved while the bot PR was in CI. The second attempt
+            # finds that green PR still open and carries its source data (books,
+            # pending candidates, prices) onto the new main without querying the
+            # sources again; only pages and indices are rebuilt. Branch names
+            # come from fresh_branch, so the retry never reuses attempt 1's.
             for attempt in 1 2; do
               rc=0
               python scripts/refresh-reading-catalogue.py --publish || rc=$?

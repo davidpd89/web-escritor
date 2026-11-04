@@ -22,7 +22,7 @@ import subprocess
 import sys
 import time
 import unicodedata
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -628,11 +628,36 @@ def git_add(paths, cwd=ROOT):
                    input='\0'.join(paths).encode('utf-8'))
 
 
+CATALOGUE_YIELD = timedelta(hours=2)
+
+
+def catalogue_in_ci(opened, now=None):
+    """Rama de una carga de libros abierta hace menos de CATALOGUE_YIELD, o None.
+
+    Los textos regeneran fichas y pagefind igual que la carga: fusionar durante sus ~35 min de CI la dejaba en
+    conflicto (PR #1145, 100 libros, por #1144). Los textos esperan en su estado local; una carga roja olvidada
+    deja de frenarlos al cabo de CATALOGUE_YIELD.
+    """
+    now = now or datetime.now(timezone.utc)
+    for pr in opened:
+        name = pr['headRefName']
+        if name.startswith('automation/reading-catalogue-') and not name.startswith('automation/reading-catalogue-textos-') and \
+                now - datetime.fromisoformat(pr['createdAt'].replace('Z', '+00:00')) < CATALOGUE_YIELD:
+            return name
+    return None
+
+
 def publish(out=OUT):
     """Copia los textos a un árbol limpio de origin/main y publica con el flujo protegido del barrido."""
     texts = sorted(out.glob('*.json'))
     if not texts:
         print('Sin textos que publicar')
+        return False
+    publisher = load_module('publish_reading_refresh', 'scripts/publish-reading-refresh.py')
+    batch = catalogue_in_ci(json.loads(publisher.publication.gh(
+        'pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName,createdAt')))
+    if batch:
+        print(f'Carga del catálogo en CI ({batch}): los textos esperan a la siguiente publicación', flush=True)
         return False
     tree = ROOT / '.local/reading-texts/main'
     git('fetch', '-q', 'origin', 'main')

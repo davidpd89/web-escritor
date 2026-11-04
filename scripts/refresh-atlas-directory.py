@@ -3,7 +3,6 @@
 import argparse
 import importlib.util
 import json
-import os
 import re
 import subprocess
 import sys
@@ -71,7 +70,7 @@ def refresh(*, publish=False):
         raise ValueError('Cambios fuera de los artefactos permitidos: ' + str(outside))
     command('git', 'add', '--', *paths)
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
-    branch = 'automation/atlas-directory-' + day + '-' + os.environ.get('GITHUB_RUN_ID', datetime.now().strftime('%H%M%S'))
+    branch = publication.fresh_branch('automation/atlas-directory-' + day + '-', cwd=ROOT)
     command('git', 'config', 'user.name', 'github-actions[bot]')
     command('git', 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com')
     command('git', 'switch', '-c', branch)

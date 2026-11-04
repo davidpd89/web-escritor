@@ -8,11 +8,32 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 import time
+from datetime import datetime
 
 STALE_EXIT_CODE = 75  # EX_TEMPFAIL: main avanzó durante la CI; regenerar desde main
+
+
+def fresh_branch(prefix, cwd=None):
+    """Nombre de rama que no existe ni en local ni en origin.
+
+    Run 41797609876: el reintento por código 75 repetía GITHUB_RUN_ID y `git switch -c` abortaba con la rama
+    del primer intento. El intento de Actions (re-run) y un sufijo creciente hacen cada nombre único.
+    """
+    run_id = os.environ.get('GITHUB_RUN_ID') or datetime.now().strftime('%H%M%S')
+    attempt = os.environ.get('GITHUB_RUN_ATTEMPT', '1')
+    base = prefix + run_id + ('' if attempt in ('', '1') else '-a' + attempt)
+    out = lambda *a: subprocess.check_output(['git', *a], cwd=cwd, text=True)
+    taken = set(out('for-each-ref', '--format=%(refname:short)', 'refs/heads/').split())
+    taken |= {line.split('refs/heads/', 1)[1] for line in
+              out('ls-remote', '--heads', 'origin', prefix + '*').splitlines() if 'refs/heads/' in line}
+    name, n = base, 2
+    while name in taken:
+        name, n = f'{base}-r{n}', n + 1
+    return name
 
 WORKFLOWS = (
     'required-merge-gate.yml', 'public-artifact-contract.yml',
