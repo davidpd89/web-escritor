@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Más Simple está pensado para lectores adultos que cocinan en casa y buscan recetas rápidas, con ingredientes de despensa y opciones de verduras, carne y pescado. Su variedad de desayunos, entrantes y platos principales lo aleja de quienes necesitan un recetario dedicado exclusivamente a la repostería o a una única clase de preparación.",
+      "texto": "Más Simple está pensado para lectores adultos que buscan ampliar su cocina cotidiana con recetas rápidas, platos vegetales y propuestas de carne o pescado. Yotam Ottolenghi trabaja con ingredientes de despensa y preparaciones para distintas ocasiones; su contenido no se limita a la cocina vegetariana ni a una única clase de comida.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,7 +15,7 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Más Simple incluye 130 recetas que abarcan desayunos, entrantes, verduras, platos vegetarianos, carnes y pescados, con preparaciones como granola, cremas de legumbres y salmón al horno. Yotam Ottolenghi añade tres secciones de consulta dedicadas a los fundamentos de cocina, los ingredientes básicos de despensa y la planificación de comidas para organizar tanto el día a día como las reuniones.",
+      "texto": "Más Simple reúne 130 recetas para desayunos, entrantes, verduras y platos principales, además de preparaciones vegetarianas. Yotam Ottolenghi añade tres apartados de consulta sobre fundamentos culinarios, ingredientes básicos de despensa y planificación de comidas, de manera que el libro sirve tanto para cocinar como para organizar menús.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,18 +24,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Más Simple se ofrece en tapa dura, con 304 páginas que reúnen 130 recetas y tres secciones complementarias de consulta. La encuadernación rígida permite mantener el recetario como volumen físico de uso repetido en la cocina y también facilita su presentación como regalo.",
+      "texto": "Más Simple se publica en tapa dura y Kindle. La edición de Salamandra tiene 304 páginas y permite consultar las recetas en un volumen físico que también puede regalarse; Kindle ofrece una alternativa para revisar ingredientes y preparaciones desde el móvil o un dispositivo compatible mientras se cocina.",
       "evidencias": [
         "titulo",
+        "editorial",
         "edicion",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Más Simple y 20 minutos ¡y listo!, de Jamie Oliver, comparten el interés por cocinar con poco tiempo, aunque Yotam Ottolenghi incorpora también recursos para organizar la despensa y las comidas. Frente a Barbacoa, también de Jamie Oliver, que se centra en esa técnica de cocción, Más Simple abarca desayunos, verduras, entrantes y platos principales preparados de distintas maneras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788425374012"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "993160736515960a",
+  "fuente_hash": "14d36bbaf272f045",
   "origen": "chatgpt-web"
 }

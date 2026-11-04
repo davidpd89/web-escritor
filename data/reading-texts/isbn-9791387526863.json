@@ -4,39 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Stitch. Calendario de Adviento se dirige al público infantil que disfruta de las aventuras de Stitch, Ángel y sus amigos y de los cuentos relacionados con la Navidad. No responde a quien busque una sola aventura continua: reúne 24 historias para acompañar los días de la cuenta atrás navideña.",
+      "texto": "Stitch. Calendario de Adviento está dirigido a niños de 6 a 8 años que disfrutan de las aventuras de Stitch y sus amigos y de los cuentos relacionados con la Navidad. Su estructura de 24 historias, pensadas para descubrir una cada día, encaja menos con quien busca una única aventura continuada.",
       "evidencias": [
         "titulo",
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "Stitch. Calendario de Adviento está disponible en tapa dura, con 576 páginas encuadernadas en cartoné. El formato permite conservar juntos los 24 cuentos, abrir el volumen cada día de la cuenta atrás hasta Navidad y guardarlo para volver a utilizarlo en otra ocasión.",
+      "modulo": "edad_y_formato",
+      "texto": "Stitch. Calendario de Adviento está recomendado de 6 a 8 años y reúne 576 páginas en una edición de tapa dura. Publicado por Libros Disney, contiene 24 cuentos protagonizados por Stitch y sus amigos, organizados alrededor de la cuenta atrás hasta Navidad.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
+        "edad_recomendada",
         "numero_paginas",
+        "edicion",
+        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Stitch. Calendario de Adviento y Agente Stitch 5. Los roedores de Roswell comparten a Stitch y sus amigos, pero organizan sus aventuras de manera diferente. El primero reúne 24 cuentos vinculados a la Navidad; el segundo presenta un misterio intergaláctico relacionado con la protección de la Tierra frente a los alienígenas.",
+      "modulo": "que_formato_elegir",
+      "texto": "Stitch. Calendario de Adviento se ofrece en tapa dura, una presentación física que permite conservar juntos sus 24 cuentos navideños. Sus 576 páginas pueden consultarse por historias, de modo que no es necesario leer todo el volumen seguido; también puede utilizarse como regalo para acompañar los días previos a Navidad.",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791387901943"
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
   "version": 3,
-  "fuente_hash": "36b0caa0eb6f0dee",
+  "fuente_hash": "90324f9983f5e7c7",
   "origen": "chatgpt-web"
 }

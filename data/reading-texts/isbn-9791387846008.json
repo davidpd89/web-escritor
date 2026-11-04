@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La hipótesis más peligrosa se dirige a lectores adultos interesados en las aventuras marítimas, los enigmas históricos y las relaciones familiares difíciles. Aunque su protagonista tiene dieciséis años, el conflicto entre padre e hijo y la trama policíaca la alejan de una aventura infantil; tampoco está centrada en el romance.",
+      "texto": "La hipótesis más peligrosa está dirigida al público adulto que busca aventuras marítimas con enigmas históricos y conflictos familiares. Arturo Pérez-Reverte combina navegación, investigación y una relación difícil entre padre e hijo; se aleja de las historias centradas exclusivamente en la acción, sin trasfondo personal.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,28 +15,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La hipótesis más peligrosa, de Arturo Pérez-Reverte, combina la aventura marítima con una historia de iniciación y una intriga policíaca. La búsqueda de un padre ausente conduce a una travesía en velero donde el tráfico de arte robado, la navegación y el pasado del Mediterráneo forman parte del conflicto.",
+      "texto": "La hipótesis más peligrosa es una novela de aventuras e iniciación ambientada en el Mediterráneo. El encuentro de un adolescente con su padre da paso a una travesía en velero donde intervienen el tráfico de arte robado, una investigación histórica y elementos policíacos. La navegación también funciona como aprendizaje ante situaciones de riesgo.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La hipótesis más peligrosa está disponible en tapa dura con sobrecubierta, en una edición de Alfaguara de 392 páginas. La encuadernación rígida resulta práctica para conservar el ejemplar o regalarlo; por su extensión y presentación, es un volumen más apropiado para leer en casa que para llevar en un bolsillo.",
+      "texto": "La hipótesis más peligrosa se ofrece en tapa dura y Kindle. La edición de Alfaguara cuenta con 392 páginas y sobrecubierta, una presentación física para conservar en la biblioteca o regalar; Kindle permite leerla en un dispositivo compatible y prescindir del peso del volumen durante los desplazamientos.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La hipótesis más peligrosa y El ojo de la novia frenopática (Carl el Mazmorrero 6) comparten el peligro como motor de la acción, aunque plantean conflictos diferentes. Arturo Pérez-Reverte desarrolla una aventura marítima con un enigma histórico y familiar; Matt Dinniman presenta una situación centrada en la captura de un monstruo.",
+      "texto": "La hipótesis más peligrosa y El hombre de Damasco comparten el interés por la historia, aunque Arturo Pérez-Reverte sitúa su aventura en el Mediterráneo y Alejandro Núñez Alonso remite al Imperio Romano. El mundo perdido, de Michael Crichton, también parte de una situación de peligro, pero desplaza el conflicto hacia una isla con dinosaurios.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,12 +43,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410466470"
+        "isbn-9791387714567",
+        "isbn-9788466392143"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d1180286f55aafe5",
+  "fuente_hash": "afba20e0150f00c1",
   "origen": "chatgpt-web"
 }

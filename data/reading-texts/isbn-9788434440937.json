@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788434440937",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En la mente de... se dirige a lectores interesados en el poder político, las ideologías y el funcionamiento de las democracias contemporáneas. El Orden Mundial y Franco Delle Donne examinan el ascenso de distintos gobernantes desde una perspectiva de análisis político; no es una novela ni un manual de participación electoral.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "En la mente de... es un ensayo de política y ciencias sociales centrado en el acceso al poder y las ideas de dirigentes contemporáneos. Examina figuras como Trump, Milei, Putin, Meloni y Bukele, y plantea hasta qué punto sus decisiones responden a convicciones ideológicas, oportunismo o pragmatismo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En la mente de... puede leerse en tapa blanda o en Kindle. La edición física de Editorial Ariel tiene 320 páginas y encuadernación rústica con solapas, apropiada para consultar y marcar pasajes en papel; Kindle permite llevar el ensayo en un lector electrónico o dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "En la mente de... y ¿Qué pasó con la democracia liberal? coinciden en el análisis de los problemas de las democracias actuales. El Orden Mundial y Franco Delle Donne estudian las trayectorias e ideologías de gobernantes concretos, mientras que Daron Acemoglu aborda cómo las democracias pueden recuperar la relación con sus ciudadanos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423440207"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "716288a2d5fef2ed",
+  "origen": "chatgpt-web"
+}

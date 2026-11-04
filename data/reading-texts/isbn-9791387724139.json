@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387724139",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nadie duele para siempre está dirigido a adultos que atraviesan una ruptura sentimental y buscan herramientas para gestionar el dolor, la culpa y los pensamientos repetitivos. Su enfoque de desarrollo personal parte de la terapia de aceptación y compromiso, por lo que encaja menos con quienes buscan una novela romántica o consejos para mantener una relación de pareja.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Nadie duele para siempre aborda el duelo tras una ruptura mediante principios de la terapia de aceptación y compromiso (ACT). Marcelo Júnior trata la rumiación, la culpa, la reconstrucción de la identidad y el regreso al presente. También plantea acciones para recuperar actividades personales, practicar el autocuidado y establecer nuevas relaciones sin depender de la desaparición del dolor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas de Nadie duele para siempre reúne 176 páginas que pueden subrayarse y consultarse al trabajar sus propuestas sobre las rupturas. Kindle permite leerlo en un dispositivo compatible y retomar sus contenidos fuera de casa. El papel favorece las anotaciones manuscritas; la edición digital facilita el transporte y la consulta.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amor, de Patri Psicóloga y Yolanda Cuevas, y Nadie duele para siempre, de Marcelo Júnior, tratan las relaciones afectivas desde una perspectiva práctica. Amor propone actividades semanales para cuidar una relación existente, mientras que Nadie duele para siempre se centra en afrontar su ruptura mediante la aceptación del dolor y la recuperación de la autonomía personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788425373602"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df56c93929be7b94",
+  "origen": "chatgpt-web"
+}

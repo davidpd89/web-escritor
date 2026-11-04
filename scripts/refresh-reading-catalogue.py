@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+import reading_quarantine
 from reading_intake_pipeline import ingest
 from reading_intake_fetch import read_json, write_if_changed
 from reading_ratings_refresh import refresh as refresh_ratings, google_response, hardcover_response, write_changed
@@ -142,6 +143,8 @@ def refresh(*, publish=False):
         write_if_changed(ROOT/'.ci/reading-intake/prices-report.json',price_stats)
         print('Precios Amazon: '+json.dumps(price_stats,ensure_ascii=True),flush=True)
         changed_ratings=write_changed(ROOT/'data/reading-catalogue.json',books) or changed_ratings
+    # Un libro que incumple el contrato sale del lote (o vuelve a su versión publicada) en vez de pararlo.
+    quarantined = reading_quarantine.apply(ROOT)
     # A scheduled RSS item can become due without a new book or rating. Build
     # current pages first, then advance feeds inside this SAME daily writer.
     command(sys.executable, 'scripts/build-reading-catalogue.py')
@@ -155,7 +158,7 @@ def refresh(*, publish=False):
     command(sys.executable, 'scripts/build-editoriales.py', '--data', 'data/editoriales.json', '--output', '.')
     command(sys.executable, 'scripts/build-page-order.py')
     command('git', 'add', '--', 'assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-intake-state.json',
-            'data/content-registry.json', 'assets/reading-covers', 'assets/reading-audio', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio/index.html')
+            'data/reading-quarantine.json', 'data/content-registry.json', 'assets/reading-covers', 'assets/reading-audio', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio/index.html')
     command('git','add','--','assets/pinterest/feeds')
     for script in ('build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         command(sys.executable, 'scripts/' + script)
@@ -181,6 +184,7 @@ def refresh(*, publish=False):
     body.write_text('Incorpora ' + str(len(report['new_books'])) + ' ediciones verificadas en sus fichas editoriales oficiales.\n\n'
                     'Carga sin LLM ni API de pago; portadas optimizadas, ISBN comprobados, autores y enlaces internos generados. '
                     'No importa precios ni valoraciones sin un proveedor autorizado. Los candidatos incompletos quedan pendientes.\n\n'
+                    + ''.join(f"- En cuarentena: `{h['libro']['id']}` — {h['motivo']}\n" for h in quarantined) + ('\n' if quarantined else '') +
                     'Se ejecutan las pruebas reales del commit y las reglas de main antes de fusionar. Después se despliega y se comprueba producción.\n', encoding='utf-8')
     publisher.publication.gh('pr', 'create', '--base', 'main', '--head', branch,
                              '--title', 'Actualizar catálogo de lectura ' + day, '--body-file', str(body))

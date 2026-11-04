@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788408327363",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué vino con este pato? Edición especial con cantos tintados se dirige a quienes quieren comprender el maridaje desde la cocina y sus fundamentos teóricos. Ferran Centelles aborda la relación entre vino y comida desde su experiencia como sumiller; no es una obra narrativa ni un recetario centrado en preparar platos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de ¿Qué vino con este pato? Edición especial con cantos tintados se distingue por el acabado de sus cantos y su encuadernación en tapa dura con sobrecubierta. Planeta Gastro la publica el 14 de octubre de 2026 con 320 páginas en castellano, características que permiten identificar esta presentación física.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura con sobrecubierta es el formato disponible de ¿Qué vino con este pato? Edición especial con cantos tintados. Sus 320 páginas reúnen una exposición sobre la ciencia y las teorías del maridaje; la encuadernación rígida y los cantos tintados favorecen su conservación como libro de consulta o regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Qué vino con este pato? Edición especial con cantos tintados y Experto en carnes en 24 horas comparten el interés por comprender mejor los alimentos y su preparación o acompañamiento. Ferran Centelles estudia los fundamentos del maridaje entre vino y comida, mientras que Elisabeth G. Iborra se centra en las clases de carne, sus cortes y las técnicas de cocción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408330950"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e6dd220907cc2b6",
+  "origen": "chatgpt-web"
+}
