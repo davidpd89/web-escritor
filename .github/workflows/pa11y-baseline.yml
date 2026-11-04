@@ -27,7 +27,7 @@ concurrency:
 jobs:
   pa11y-shard:
     name: pa11y shard ${{ matrix.shard }}/4
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # El sitemap completo (~1140 URL) tardaba 33 min en un solo job; repartido en 4, cada shard audita ~285.
     timeout-minutes: 30
     strategy:
@@ -158,7 +158,7 @@ jobs:
   pa11y-baseline:
     needs: pa11y-shard
     if: ${{ always() && !cancelled() }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - name: Aggregate shard results
