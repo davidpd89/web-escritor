@@ -59,3 +59,24 @@ class CatalogueNavigationUX(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CatalogueDealsAndFilters(unittest.TestCase):
+    def test_deals_feed_and_card_discounts(self):
+        option = {'formato': 'ebook', 'url': 'https://www.amazon.es/dp/B000000001?tag=x', 'fuente_url': 'https://www.amazon.es/dp/B000000001',
+                  'fecha_verificacion': '2026-11-03', 'precio_centimos': 750, 'precio_anterior_centimos': 1000, 'bajada_fecha': '2026-11-03'}
+        book = {'id': 'lib-1', 'slug': 'libro', 'titulo': 'Libro', 'autores': ['A'], 'portada_local': '/assets/reading-covers/x.webp', 'formatos_compra': [option]}
+        self.assertEqual(builder.format_discounts(book), 'ebook:25')
+        deals = json.loads(builder.render_deals([book]))['ofertas']
+        self.assertEqual([(d['descuento_pct'], d['tipo'], d['precio_antes_centimos']) for d in deals], [(25, 'bajada', 1000)])
+        book['formatos_compra'] = [{k: v for k, v in option.items() if k not in ('precio_anterior_centimos', 'bajada_fecha')}]
+        self.assertEqual(builder.format_discounts(book), '')
+        self.assertEqual(json.loads(builder.render_deals([book]))['ofertas'], [])
+
+    def test_filters_drop_epoch_and_unknown_pages(self):
+        html = (ROOT / 'recomendaciones/index.html').read_text(encoding='utf-8')
+        self.assertNotIn('data-facet-group="epoca"', html)
+        self.assertNotIn('Páginas sin confirmar', html)
+        self.assertIn('data-filter="estado"', html)
+        self.assertIn('value="menos-3"', html)
+        self.assertIn('value="5"', html)

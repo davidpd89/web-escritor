@@ -53,8 +53,10 @@ try {
     await page.locator('[data-filter="paginas"]').selectOption('breve');
     const pageCounts=await page.locator('[data-catalogue-book]:visible').evaluateAll(es=>es.map(e=>Number(e.dataset.pages)));
     assert(pageCounts.every(n=>n>0&&n<200));
-    await page.locator('[data-filter="paginas"]').selectOption('sin-dato');
-    assert((await page.locator('[data-catalogue-book]:visible').evaluateAll(es=>es.map(e=>e.dataset.pages))).every(s=>!s));
+    // Sin opción «sin dato»: los libros sin páginas solo salen con «Cualquier extensión».
+    assert.equal(await page.locator('[data-filter="paginas"] option[value="sin-dato"]').count(),0);
+    await page.locator('[data-filter="paginas"]').selectOption('larga');
+    assert((await page.locator('[data-catalogue-book]:visible').evaluateAll(es=>es.map(e=>Number(e.dataset.pages)))).every(n=>n>=400&&n<600));
     await page.getByRole('button',{name:'Restablecer',exact:true}).click();
     await page.locator('.catalogue-quiz>summary').click();
     // Sin contador de progreso y con salida directa a los resultados desde la primera pregunta.
@@ -211,7 +213,7 @@ try {
   await coldPage.clock.setFixedTime(new Date(Date.parse(firstRelease+'T10:00:00Z')-60*86400000));
   const noveltyFont=(await fs.readFile('assets/reading-catalogue.css','utf8')).match(/font-family:CatalogueNovelty;src:url\('([^']+)'/)[1];
   await cold.route('**'+noveltyFont,route=>route.abort());
-  await coldPage.goto(base+'/recomendaciones/',{waitUntil:'networkidle'});
+  await coldPage.goto(base+'/recomendaciones/#estado=todos',{waitUntil:'networkidle'});
   assert(await coldPage.locator('main').evaluate(el=>el.classList.contains('catalogue-fonts-failed')),'Font failure must preserve a stable visible badge');
   assert(await coldPage.locator('[data-release-label]:not([hidden])').first().isVisible());
   assert.equal(await coldPage.locator('[data-release-label]').first().textContent(),'Próximamente');

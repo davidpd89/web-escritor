@@ -8,6 +8,7 @@ import importlib.util
 import json
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -70,6 +71,15 @@ class ReadingTextsTest(unittest.TestCase):
         self.assertEqual(errors, [])
         self.assertEqual([x['modulo'] for x in blocks], ['encaje_documentado', 'para_quien', 'que_formato_elegir', 'lecturas_afines'])
         self.assertEqual(blocks[-1]['enlaces'], [self.payload['afines_ids'][self.affine]])
+
+    def test_affines_are_recognised_by_short_title_and_bring_their_names_and_numbers(self):
+        p = {**self.payload, 'afines_ids': {'Diario de Greg 21 - Montando un pollo': 'greg', 'Alchemised (edición coleccionista limitada)': 'alc', 'Amor': 'amor'},
+             'evidencias': {**self.payload['evidencias'], 'afines_catalogo': ['«Diario de Greg 21 - Montando un pollo», de Jeff Kinney: Greg vuelve al instituto.']}}
+        self.assertEqual(texts.linked(p, 'Quien disfrutó de Diario de Greg 21 o de Alchemised encontrará aquí otro diario.'), ['greg', 'alc'])
+        self.assertEqual(texts.linked(p, 'Un libro de humor.'), [])
+        block = {'modulo': 'lecturas_afines', 'evidencias': ['categorias'],
+                 'texto': 'Quien haya seguido Diario de Greg 21, de Jeff Kinney, encontrará aquí otro diario escolar con humor y torpezas cotidianas.'}
+        self.assertEqual(texts.validate_block(p, block), [])
 
     def test_git_output_is_read_as_utf8_whatever_the_console_codepage(self):
         data = json.loads(texts.git('show', 'HEAD:data/reading-catalogue.json', capture=True))
@@ -141,7 +151,7 @@ class ReadingTextsTest(unittest.TestCase):
         state, waits = {}, []
         args = SimpleNamespace(port=0, wait_min=1)
         for exc, expected in ((QuietHoursError('descanso'), 3600), (OSError('cdp'), 60)):
-            with mock.patch.object(texts, 'consult', side_effect=exc), mock.patch.object(texts.time, 'sleep', waits.append),                     mock.patch.dict('sys.modules', {'quiet_hours': SimpleNamespace(seconds_until_active=lambda: 3600)}):
+            with mock.patch.object(texts, 'converse', side_effect=exc), mock.patch.object(texts.time, 'sleep', waits.append),                     mock.patch.dict('sys.modules', {'quiet_hours': SimpleNamespace(seconds_until_active=lambda: 3600)}):
                 self.assertIsNone(texts.consult_batch([self.payload], state, args))
             self.assertEqual(waits[-1], expected)
         self.assertEqual(state, {})
@@ -150,11 +160,45 @@ class ReadingTextsTest(unittest.TestCase):
         from types import SimpleNamespace
         from unittest import mock
         seen = {}
-        fake = SimpleNamespace(consult=lambda *a, **k: (seen.setdefault('night', os.environ.get('RRSS_NIGHT_OK')), '')[1:] + (None,))
-        with mock.patch.dict('sys.modules', {'chatgpt_consult': fake}), mock.patch.dict(os.environ, {}, clear=False):
+        with mock.patch.dict('sys.modules', {'chatgpt_consult': SimpleNamespace()}), mock.patch.dict(os.environ, {}, clear=False):
             os.environ.pop('RRSS_NIGHT_OK', None)
-            texts.consult('pregunta', ['a'], 9240, 1)
+            texts.rrss()
+            seen['night'] = os.environ.get('RRSS_NIGHT_OK')
         self.assertEqual(seen['night'], '1')
+
+    def test_publication_runs_once_at_its_hour_without_stopping_the_loop(self):
+        from datetime import datetime
+        from types import SimpleNamespace
+        args = SimpleNamespace(publish_at=[21], publish_every=25)
+        at = datetime(2026, 11, 3, 21, 5)
+        self.assertTrue(texts.publish_due(args, at, ''))
+        self.assertFalse(texts.publish_due(args, at, '2026-11-03 21'))
+        self.assertFalse(texts.publish_due(args, datetime(2026, 11, 3, 10), ''))
+
+    def test_same_chat_repairs_failing_blocks_then_improves_short_ones(self):
+        wrong = {**self.others[2], 'texto': self.others[2]['texto'] + ' Se publicó en 1987.'}
+        first = {'id': self.book['id'], 'bloques': [self.block, self.others[0], self.others[1], wrong]}
+        fixed = {'id': self.book['id'], 'bloques': [self.others[2]]}
+        longer = {**self.others[1], 'texto': self.others[1]['texto'] + ' En tapa blanda pesa menos y se lleva mejor de viaje; en Kindle se ajusta la letra.'}
+        answers = iter([first, fixed, {'id': self.book['id'], 'bloques': [longer]}])
+        sent = []
+
+        def send(question, port, wait_min, follow_up):
+            n, message = 0, question
+            while message:
+                sent.append(message)
+                n += 1
+                message = follow_up('```json\n' + json.dumps({'fichas': [next(answers)]}, ensure_ascii=False) + '\n```', n)
+
+        with mock.patch.object(texts, 'SHORT_BLOCK', len(self.others[1]['texto']) + 1):
+            fichas = texts.converse([self.payload], {}, 0, 1, send=send)
+        self.assertIn('cifras sin respaldo: 1987', sent[1])
+        self.assertIn('cada cifra', sent[1])
+        self.assertIn('escuetos', sent[2])
+        blocks, errors = texts.validate_text(self.payload, fichas[0])
+        self.assertEqual(errors, [])
+        self.assertEqual(next(x for x in blocks if x['modulo'] == 'que_formato_elegir')['texto'], longer['texto'])
+        self.assertNotIn('1987', ' '.join(x['texto'] for x in blocks))
 
     def test_rejection_reasons_go_back_into_the_next_prompt_and_worse_repairs_never_replace(self):
         import tempfile

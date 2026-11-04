@@ -62,6 +62,7 @@ CONTENT_GLOBS = (
     'recomendaciones/editoriales/*/index.html',
     'recomendaciones/proximos-lanzamientos.ics',
     'recomendaciones/llms.txt',
+    'recomendaciones/ofertas.json',
     'editoriales/*/index.html',
     'editoriales-sitemap.xml',
     'mapa-del-sitio/index.html',

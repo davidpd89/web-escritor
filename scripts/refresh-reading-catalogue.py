@@ -113,6 +113,23 @@ def refresh(*, publish=False):
     # Recheck existing free API access once each day. While Amazon refuses
     # eligibility the provider stops at its first error and prices stay absent.
     amazon_config=config.get('amazon_price_refresh',{})
+    if amazon_config.get('page_formats_per_run',0):
+        # Audible and many Kindle/hardcover editions never show up in Creators search: the format
+        # selector of the book's own Amazon page lists them. The API sweep below prices them.
+        from reading_amazon_market import discover_page_formats, fetch_amazon_page
+        books=read_json(ROOT/'data/reading-catalogue.json')
+        format_stats=discover_page_formats(books,fetch_amazon_page,config['amazon_partner_tag'],
+                                           datetime.now(timezone.utc),limit=int(amazon_config['page_formats_per_run']))
+        print('Formatos Amazon (ficha): '+json.dumps(format_stats,ensure_ascii=True),flush=True)
+        changed_ratings=write_changed(ROOT/'data/reading-catalogue.json',books) or changed_ratings
+    if amazon_config.get('real_covers_per_run'):
+        from reading_amazon_market import discover_real_covers, fetch_amazon_image, fetch_amazon_page
+        from reading_intake_pipeline import cover_bytes
+        books=read_json(ROOT/'data/reading-catalogue.json')
+        cover_stats=discover_real_covers(books,ROOT,fetch_amazon_page,fetch_amazon_image,cover_bytes,
+                                         datetime.now(timezone.utc),limit=int(amazon_config['real_covers_per_run']))
+        print('Portadas Amazon: '+json.dumps(cover_stats,ensure_ascii=True),flush=True)
+        changed_ratings=write_changed(ROOT/'data/reading-catalogue.json',books) or changed_ratings
     amazon_id=os.getenv('AMAZON_CREATORS_CLIENT_ID','').strip()
     amazon_secret=os.getenv('AMAZON_CREATORS_CLIENT_SECRET','').strip()
     if amazon_config.get('enabled') and amazon_id and amazon_secret:

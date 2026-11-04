@@ -587,6 +587,9 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 trial = copy.deepcopy(catalogue)
                 categories = classify(record, trial)
                 if refresh:
+                    if old_book.get('portada_sustituida'):
+                        # The generated cover was replaced by the edition's real one: keep it.
+                        record['portada_fuente_url'] = old_book['portada_fuente_url']
                     if record['autores'] != old_book['autores'] or record['portada_fuente_url'] != old_book['portada_fuente_url']:
                         raise SourceError('Cambio de autoría o cubierta: requiere revisión editorial')
                     image = (root / old_book['portada_local'].lstrip('/')).read_bytes()
@@ -608,7 +611,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 book = make_book(record, publishers[canonical_publisher], config['amazon_partner_tag'], today, path, dimensions)
                 if refresh:
                     book['id'], book['slug'] = old_book['id'], old_book['slug']
-                    for field in ('resenas', 'formatos_compra', 'precios_amazon_revision', 'formatos_amazon_buscados', 'url_amazon_afiliada', 'fragmento_url', 'fragmento_texto', 'fragmento_uso_autorizado', 'fragmento_base_uso', 'audio_fragmento', 'avisos_contenido', 'lectura_personal_confirmada', 'evidencia_lectura', 'autoria_propia', 'categorias_excluidas'):
+                    for field in ('resenas', 'formatos_compra', 'precios_amazon_revision', 'formatos_amazon_buscados', 'formatos_pagina_buscados', 'portadas_amazon_buscadas', 'portada_sustituida', 'url_amazon_afiliada', 'fragmento_url', 'fragmento_texto', 'fragmento_uso_autorizado', 'fragmento_base_uso', 'audio_fragmento', 'avisos_contenido', 'lectura_personal_confirmada', 'evidencia_lectura', 'autoria_propia', 'categorias_excluidas'):
                         if field in old_book:
                             book[field] = old_book[field]
                     changed = any(book.get(k) != old_book.get(k) for k in set(book) - {'fecha_verificacion', 'portada_fecha_revision', 'fecha_actualizacion'})

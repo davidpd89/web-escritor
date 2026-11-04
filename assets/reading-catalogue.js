@@ -14,7 +14,7 @@
   const originalOrder = new Map(cards.map((card, i) => [card, i]));
   const fields = form ? [...form.elements].filter(f => f.dataset.filter) : [];
   // Filtros con varias opciones a la vez (OR dentro de cada uno, AND entre ellos), como casillas.
-  const FACETS = ['grupo', 'genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca', 'formato'];
+  const FACETS = ['grupo', 'genero', 'tematica', 'temporada', 'edad', 'contenido', 'formato'];
   const boxes = form ? [...form.querySelectorAll('input[data-facet]')] : [];
   const FIXED_ORDER = ['grupo', 'edad', 'formato'];
   const pick = x => Array.isArray(x) ? x : x ? [x] : [];
@@ -65,7 +65,13 @@
     }
   }
   const values = () => ({...Object.fromEntries(fields.map(f => [f.dataset.filter, f.disabled ? '' : f.value])), ...Object.fromEntries(FACETS.map(k => [k, boxes.filter(b => b.dataset.facet === k && b.checked).map(b => b.value)]))});
-  const matchingOffers = (card, v) => offersFor(card.dataset.bookId).filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.descuento || discount(o) >= Number(v.descuento)));
+  // Descuento por formato guardado al refrescar precios («ebook:20»): precio de referencia de Amazon o última bajada.
+  const formatDiscounts = card => (card.dataset.formatDiscounts || '').split(' ').filter(Boolean).map(x => x.split(':')).map(([formato, pct]) => ({formato, pct: Number(pct)}));
+  const matchingOffers = (card, v) => [...offersFor(card.dataset.bookId).map(o => ({formato: o.formato, pct: discount(o)})), ...formatDiscounts(card)].filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.descuento || o.pct >= Number(v.descuento)));
+  const hasDiscounts = cards.some(card => card.dataset.formatDiscounts);
+  // Lanzamiento: sin elegir nada se ven los ya publicados; los próximos se piden a propósito o se buscan por texto.
+  const released = (lower) => !lower || lower <= today();
+  const ratingOk = (card, v) => { if (!v.valoracion) return true; const r = ratingFor(card.dataset.bookId)?.puntuacion; return r != null && (v.valoracion === 'menos-3' ? r < 3 : r >= Number(v.valoracion)); };
   // Precio de Amazon por formato («tapa-dura:1700 ebook:999»): se filtra y ordena dentro de un mismo formato
   // para no mezclar un Kindle con una tapa dura.
   const formatPrices = card => new Map((card.dataset.formatPrices || '').split(' ').filter(Boolean).map(x => x.split(':')).map(([f, c]) => [f, Number(c)]));
@@ -110,7 +116,7 @@
       link.append(ratingLabel(r) + ' ', stars, ' ' + r.puntuacion.toLocaleString('es-ES', {minimumFractionDigits: 1}) + ' (' + r.numero_valoraciones.toLocaleString('es-ES') + ')'); link.title = 'Consultado el ' + new Date(r.actualizado_en).toLocaleDateString('es-ES'); box.append(link);
     }
     for (const f of root.querySelectorAll('[data-market-control]')) {
-      f.disabled = !market[f.dataset.marketControl].some(f.dataset.marketControl === 'offers' ? validOffer : validRating);
+      f.disabled = !(f.dataset.marketControl === 'offers' && hasDiscounts) && !market[f.dataset.marketControl].some(f.dataset.marketControl === 'offers' ? validOffer : validRating);
       f.closest('label').hidden = f.disabled;
     }
     for (const o of root.querySelectorAll('[data-sort-market]')) o.disabled = !market[o.dataset.sortMarket].some(o.dataset.sortMarket === 'offers' ? validOffer : validRating);
@@ -122,8 +128,8 @@
       const formats = new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)]);
       const lower = published || (month ? month + '-01' : year ? year + '-01-01' : '');
       const upper = published || (month ? new Date(Date.UTC(Number(month.slice(0, 4)), Number(month.slice(5)), 0)).toISOString().slice(0, 10) : year ? year + '-12-31' : '');
-      const pages = Number(card.dataset.pages), range = !pages ? 'sin-dato' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga';
-      return normalize(card.dataset.search).includes(searchQuery(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !pick(v[k]).length || pick(v[k]).some(x => cats.includes(x))) && (!pick(v.grupo).length || pick(v.grupo).includes(card.dataset.group)) && (!pick(v.formato).length || pick(v.formato).some(x => formats.has(x))) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
+      const pages = Number(card.dataset.pages), range = !pages ? '' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga';
+      return normalize(card.dataset.search).includes(searchQuery(v.q || '')) && (v.estado === 'todos' || (!v.estado && v.q) || (v.estado === 'proximos' ? !released(lower) : released(lower))) && ['genero', 'tematica', 'temporada', 'edad', 'contenido'].every(k => !pick(v[k]).length || pick(v[k]).some(x => cats.includes(x))) && (!pick(v.grupo).length || pick(v.grupo).includes(card.dataset.group)) && (!pick(v.formato).length || pick(v.formato).some(x => formats.has(x))) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && ratingOk(card, v) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
   }
   // Cada filtro cuenta sus opciones con el resto de filtros aplicados (sin el suyo): una opcion sin libros se atenua y nunca se oculta si esta marcada.
   const cardFacets = new Map(cards.map(card => [card, {}]));
@@ -184,7 +190,12 @@
     const v = values();
     const nullable = (x, y, desc = false) => x == null ? (y == null ? 0 : 1) : y == null ? -1 : desc ? y - x : x - y;
     const dateOf = card => card.dataset.published || card.dataset.publishedMonth || card.dataset.year ? Date.parse(card.dataset.published || (card.dataset.publishedMonth ? card.dataset.publishedMonth + '-01' : card.dataset.year + '-01-01')) : null;
+    const rating = card => ratingFor(card.dataset.bookId)?.puntuacion ?? null;
     const compare = (a, b) => {
+      // Orden por defecto adaptado: con un filtro de valoración, de menos a más estrellas (3, 3,5, 4…);
+      // en próximos lanzamientos, el más cercano primero.
+      if (v.orden === 'editorial' && v.valoracion) return nullable(rating(a), rating(b)) || nullable(dateOf(a), dateOf(b), true);
+      if (v.orden === 'editorial' && v.estado === 'proximos') return nullable(dateOf(a), dateOf(b));
       switch (v.orden) {
         case 'titulo': return collator.compare(a.dataset.title, b.dataset.title);
         case 'titulo_desc': return collator.compare(b.dataset.title, a.dataset.title);
@@ -207,7 +218,8 @@
     renderPagination(pages, visible);
     if (form) {
       const refineCount = root.querySelector('[data-catalogue-refine-count]');
-      if (refineCount) { const active = fields.filter(f => !['q', 'orden'].includes(f.dataset.filter) && f.value && !f.disabled).length + boxes.filter(b => b.checked).length; refineCount.textContent = active ? '· ' + active + (active === 1 ? ' activo' : ' activos') : ''; }
+      const upcomingLink = root.querySelector('[data-catalogue-upcoming]'); if (upcomingLink) upcomingLink.hidden = v.estado === 'proximos';
+      if (refineCount) { const active = fields.filter(f => !['q', 'orden', 'estado'].includes(f.dataset.filter) && f.value && !f.disabled).length + boxes.filter(b => b.checked).length; refineCount.textContent = active ? '· ' + active + (active === 1 ? ' activo' : ' activos') : ''; }
       root.querySelector('[data-catalogue-count]').textContent = visible + (visible === 1 ? ' libro' : ' libros') + (pages > 1 ? ' · página ' + currentPage + ' de ' + pages : ''); root.querySelector('[data-catalogue-empty]').hidden = visible !== 0;
       if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => !FACETS.includes(k) && value && !(k === 'orden' && value === 'editorial'))); for (const k of FACETS) for (const x of v[k]) hash.append(k, x); if (currentPage > 1) hash.set('pagina', String(currentPage)); history.replaceState(null, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
       else {
@@ -271,8 +283,7 @@
       {key: 'grupo', question: '¿Qué tipo de libro buscas?', options: () => optionsFrom('grupo')},
       {key: 'novedad', question: '¿Buscas algo recién publicado?', options: () => [
         {label: 'Sí, una novedad', values: {novedad: '15'}},
-        {label: 'Un próximo lanzamiento', values: {novedad: 'proximamente'}},
-        {label: 'Un clásico', values: {epoca: 'clasicos'}}]},
+        {label: 'Un próximo lanzamiento', values: {estado: 'proximos'}}]},
       {key: 'temporada', question: '¿Te apetece una lectura de temporada?', options: () => optionsFrom('temporada')},
       {key: 'genero', question: '¿Qué género te apetece?', options: () => optionsFrom('genero')},
       {key: 'tematica', question: '¿Hay algún tema que te interese?', options: () => optionsFrom('tematica')},
@@ -338,7 +349,7 @@
   }
   if (form) {
     form.querySelector('fieldset').disabled = false; form.querySelector('[type="reset"]').disabled = false;
-    const sort = root.querySelector('[data-filter="orden"]'); if (sort) sort.disabled = false;
+    for (const select of root.querySelectorAll('[data-filter="orden"], [data-filter="estado"]')) select.disabled = false;
     const refineToggle = form.querySelector('[data-catalogue-refine-toggle]'), refine = form.querySelector('[data-catalogue-refine]');
     if (refineToggle && refine) {
       const setRefine = open => { refine.toggleAttribute('data-open', open); refineToggle.setAttribute('aria-expanded', String(open)); };
@@ -346,7 +357,10 @@
       // Escape cierra el panel móvil y devuelve el foco al botón (el <details> de «Más filtros» tiene prioridad).
       refine.addEventListener('keydown', event => { if (event.key === 'Escape' && getComputedStyle(refineToggle).display !== 'none') { event.preventDefault(); setRefine(false); refineToggle.focus(); } });
     }
-    fields.forEach(f => f.addEventListener('input', () => { currentPage = 1; apply(); }));
+    // Las fechas se aplican al confirmarlas (change), no en cada tecla, y «hasta» nunca queda antes de «desde».
+    const from = form.querySelector('[data-filter="desde"]'), to = form.querySelector('[data-filter="hasta"]');
+    const linkDates = () => { if (!from || !to) return; if (from.value && to.value && to.value < from.value) to.value = from.value; to.min = from.value || '1000-01-01'; from.max = to.value || '2100-12-31'; };
+    fields.forEach(f => f.addEventListener(f.type === 'date' ? 'change' : 'input', () => { linkDates(); currentPage = 1; apply(); }));
     boxes.forEach(b => b.addEventListener('change', () => {
       currentPage = 1; apply();
       // Al elegir el tipo se abre solo «Género»; el resto de grupos se pliega para no abrumar.

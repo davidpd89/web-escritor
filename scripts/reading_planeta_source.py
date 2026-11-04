@@ -125,6 +125,11 @@ def planeta_edition(document: str, source: str) -> dict:
             and author_url.username is None
             and author_url.password is None
             and AUTHOR_PATH.fullmatch(author_url.path))))
+    if not authors:
+        # Autores sin página propia en Planeta: la lista tras el título trae solo el nombre, sin enlace.
+        names = re.match(r'\s*(?:<div[^>]*>.*?</div>)?\s*<ul[^>]*>(.*?)</ul>', block, re.S)
+        items = re.findall(r'<li[^>]*>(.*?)</li>', names.group(1), re.S) if names else []
+        authors = list(dict.fromkeys(n for li in items if '<a' not in li and (n := _text(li)) and len(n) <= 80))
     fields = _ficha(document)
     expected = isbn13(fields.get('isbn', ''))
     publisher = fields.get('editorial', '')
@@ -162,8 +167,6 @@ def planeta_edition(document: str, source: str) -> dict:
         url = urljoin(source, html.unescape(m.group(1)))
         if urlsplit(url).hostname == HOST and AUTHOR_PATH.fullmatch(urlsplit(url).path) and _text(m.group(2)) in authors:
             author_sources.setdefault(_text(m.group(2)), 'https://' + HOST + urlsplit(url).path)
-    if any(author not in author_sources for author in authors):
-        raise SourceError('Falta perfil oficial de Planeta para la autoría')
     return {'isbn13': expected, 'titulo': clean_title(title), 'autores': authors, 'editorial': publisher,
             'fecha_publicacion_edicion': published, 'precision_fecha': 'dia',
             'idioma': 'es', 'formato_edicion': format_id, 'encuadernacion': binding,
@@ -171,7 +174,7 @@ def planeta_edition(document: str, source: str) -> dict:
             'materias': [t for t in topic_names if not AGE_TOPIC.fullmatch(t)][:1],
             'edad_recomendada': next((t for t in topic_names if AGE_TOPIC.fullmatch(t)), ''),
             'portada_fuente_url': image, 'fuente_bibliografica_url': source,
-            'fuentes_autores': {a: author_sources[a] for a in authors},
+            'fuentes_autores': {a: author_sources[a] for a in authors if a in author_sources},
             'coleccion': fields.get('coleccion', ''),
             'sinopsis_breve': editorial_excerpt(synopsis_html),
             'sinopsis_completa': editorial_synopsis(synopsis_html),

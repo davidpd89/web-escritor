@@ -40,7 +40,7 @@ def read_live(spreadsheet, token):
     return {tab: item.get('values', []) for tab, item in zip(TABS, payload['valueRanges'])}
 
 
-AMAZON_FIELDS = ('formatos_compra', 'precios_amazon_revision', 'formatos_amazon_buscados')
+AMAZON_FIELDS = ('formatos_compra', 'precios_amazon_revision', 'formatos_amazon_buscados', 'formatos_pagina_buscados', 'portadas_amazon_buscadas', 'portada_sustituida')
 
 
 def convert(snapshot, review, existing, root):

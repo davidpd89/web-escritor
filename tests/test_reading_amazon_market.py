@@ -9,7 +9,8 @@ from unittest.mock import patch
 from urllib.error import HTTPError
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents,discovery_index,miss_reason
+from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents,discovery_index,miss_reason,discover_page_formats,swatch_formats,discover_real_covers,page_cover_url,isbn10,store_prices
+import tempfile
 
 NOW=datetime(2026,10,21,10,tzinfo=timezone.utc)
 BOOK={'id':'lib-1','titulo':'Coraline','autores':['Neil Gaiman'],
@@ -272,5 +273,94 @@ class AmazonFormatDiscoveryTests(unittest.TestCase):
         self.assertEqual([m['book_id'] for m in stats['sin_oferta']],['lib-0'])
         self.assertTrue(all(b.get('formatos_compra') for b in many['libros'][1:]))
 
+
+SWATCH_PAGE=('<ul><li id="tmm-grid-swatch-KINDLE" class="a-column swatchElement unselected"><a href="/Coraline/dp/B00EBOOK01/ref=tmm">Kindle</a></li>'
+             '<li id="tmm-grid-swatch-AUDIO_DOWNLOAD" class="a-column swatchElement unselected"><a href="/dp/B0AUDIO001?ref=tmm">Audiolibro</a></li>'
+             '<li id="tmm-grid-swatch-PAPERBACK" class="a-column swatchElement selected"><a href="javascript:void(0)">Tapa blanda</a></li></ul>')
+
+
+class AmazonPageFormatTests(unittest.TestCase):
+    def test_swatches_map_to_formats_and_selected_is_own_asin(self):
+        self.assertEqual(swatch_formats(SWATCH_PAGE,'8498382378'),
+                         {'ebook':'B00EBOOK01','audiolibro':'B0AUDIO001','tapa-blanda':'8498382378'})
+
+    def test_missing_formats_are_added_without_price(self):
+        book={**BOOK,'formatos_compra':[{'formato':'tapa-blanda','url':'https://www.amazon.es/dp/8498382378?tag=davidporto-21'}]}
+        stats=discover_page_formats({'libros':[book]},lambda url:SWATCH_PAGE,'davidporto-21',NOW)
+        self.assertEqual(stats['formats_added'],2)
+        self.assertEqual([o['formato'] for o in book['formatos_compra']],['tapa-blanda','ebook','audiolibro'])
+        self.assertNotIn('precio_centimos',book['formatos_compra'][2])
+        self.assertEqual(book['formatos_pagina_buscados'],'2026-10-21')
+        # Not asked again until the rediscovery window passes.
+        self.assertEqual(discover_page_formats({'libros':[book]},lambda url:SWATCH_PAGE,'davidporto-21',NOW)['checked'],0)
+
+    def test_bot_check_page_stops_the_run(self):
+        books=[{**BOOK,'id':f'lib-{i}','formatos_compra':[{'formato':'tapa-blanda','url':'https://www.amazon.es/dp/8498382378'}]} for i in range(3)]
+        calls=[]
+        stats=discover_page_formats({'libros':books},lambda url:calls.append(url) or '<form action="/errors/validateCaptcha">',
+                                    'davidporto-21',NOW)
+        self.assertEqual((stats['blocked'],len(calls)),(1,1))
+        self.assertNotIn('formatos_pagina_buscados',books[0])
+
+COVER_PAGE=('<img alt="x" src="https://m.media-amazon.com/images/I/51qFSR41gJL._SY342_.jpg" '
+            'data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/I/51qFSR41gJL._SY342_.jpg&quot;:[342,225]}" id="landingImage">')
+
+
+class AmazonRealCoverTests(unittest.TestCase):
+    def test_cover_url_drops_size_suffix(self):
+        self.assertEqual(page_cover_url(COVER_PAGE),'https://m.media-amazon.com/images/I/51qFSR41gJL.jpg')
+        self.assertIsNone(page_cover_url('<html></html>'))
+        self.assertEqual(isbn10('9788498382372'),'8498382378')
+        self.assertIsNone(isbn10('9791388147302'))
+
+    def test_typographic_cover_is_replaced_once(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            (root/'assets').mkdir()
+            book={**BOOK,'portada_local':'/assets/isbn-9788498382372.webp',
+                  'portada_fuente_url':'https://www.todostuslibros.com/libros/coraline_978-84-9838-237-2'}
+            pages=[]
+            stats=discover_real_covers({'libros':[book,{**BOOK,'id':'lib-2','portada_fuente_url':'https://editorial.example/c.jpg'}]},
+                                       root,lambda url:pages.append(url) or COVER_PAGE,lambda url:b'raw',
+                                       lambda raw:(b'big',b'small',(650,988)),NOW)
+            self.assertEqual((stats['covers_replaced'],pages),(1,['https://www.amazon.es/dp/8498382378']))
+            self.assertEqual((root/'assets/isbn-9788498382372-320.webp').read_bytes(),b'small')
+            self.assertEqual((book['portada_ancho'],book['portada_sustituida']),(650,True))
+            self.assertEqual(discover_real_covers({'libros':[book]},root,lambda url:COVER_PAGE,lambda url:b'',
+                                                  lambda raw:(b'',b'',(1,1)),NOW)['checked'],0)
+
+    def test_rejected_image_keeps_generated_cover(self):
+        book={**BOOK,'portada_local':'/assets/x.webp','portada_fuente_url':'https://www.todostuslibros.com/libros/x'}
+        def reject(raw):
+            raise ValueError('pequeña')
+        stats=discover_real_covers({'libros':[book]},Path('.'),lambda url:COVER_PAGE,lambda url:b'',reject,NOW)
+        self.assertEqual((stats['covers_replaced'],stats['errors']),(0,1))
+        self.assertNotIn('portada_sustituida',book)
+
 if __name__=='__main__':
     unittest.main()
+
+
+class AmazonPriceDropTests(unittest.TestCase):
+    URL='https://www.amazon.es/dp/B000000001?tag=davidporto-21'
+    def option(self,**extra):
+        return {'formato':'ebook','url':self.URL,'fuente_url':'https://www.amazon.es/dp/B000000001','fecha_verificacion':'2026-11-01','precio_centimos':1000,**extra}
+    def offer(self,price,reference=None):
+        return {'formato':'ebook','url':self.URL,'precio_centimos':price,**({'precio_referencia_centimos':reference} if reference else {})}
+
+    def test_drop_is_kept_until_price_recovers(self):
+        book={'formatos_compra':[self.option()]}
+        store_prices(book,[self.offer(799)],'2026-11-03')
+        self.assertEqual(book['formatos_compra'][0]|{},self.option(precio_centimos=799,precio_anterior_centimos=1000,bajada_fecha='2026-11-03',fecha_verificacion='2026-11-03'))
+        store_prices(book,[self.offer(799)],'2026-11-04')
+        self.assertEqual(book['formatos_compra'][0]['bajada_fecha'],'2026-11-03')
+        store_prices(book,[self.offer(1000)],'2026-11-05')
+        self.assertNotIn('precio_anterior_centimos',book['formatos_compra'][0])
+        self.assertNotIn('bajada_fecha',book['formatos_compra'][0])
+
+    def test_reference_price_only_when_higher(self):
+        book={'formatos_compra':[self.option()]}
+        store_prices(book,[self.offer(1000,1500)],'2026-11-03')
+        self.assertEqual(book['formatos_compra'][0]['precio_referencia_centimos'],1500)
+        store_prices(book,[self.offer(1000,1000)],'2026-11-04')
+        self.assertNotIn('precio_referencia_centimos',book['formatos_compra'][0])

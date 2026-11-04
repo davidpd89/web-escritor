@@ -19,7 +19,8 @@ try {
     const visibleBooks = () => page.locator('[data-catalogue-book]:not([hidden])');
     await page.locator('input[data-facet="grupo"]').first().waitFor({ state: 'attached' });
     await page.waitForFunction(() => !document.querySelector('input[data-facet="grupo"]').disabled || document.querySelector('[data-facet-count]').textContent.includes('('));
-    const total = await page.locator('[data-catalogue-book]').count();
+    // Por defecto se ven los ya publicados: el total es el del contador, no el de todas las fichas del HTML.
+    const total = Number((await page.locator('[data-catalogue-count]').textContent()).match(/\d+/)[0]);
     const types = await page.locator('input[data-facet="grupo"]').evaluateAll(list => list.map(r => ({ value: r.value, count: Number(r.parentElement.querySelector('small').textContent.replace(/\D/g, '')), checked: r.checked })));
     assert.ok(types.length >= 2 && types.every(t => !t.checked), 'Ningún tipo marcado: se ven todos los libros');
     assert.equal(types[0].value, 'novela', '«Novela» es la primera categoría');
@@ -28,7 +29,7 @@ try {
     const layout = await page.evaluate(() => { const side = document.querySelector('.catalogue-sidebar').getBoundingClientRect(), grid = document.querySelector('.catalogue-grid').getBoundingClientRect(); return { sideRight: side.right, gridLeft: grid.left, sideBottom: side.bottom, gridTop: grid.top }; });
     if (viewport.width > 900) assert.ok(layout.sideRight <= layout.gridLeft + 1, 'En escritorio los filtros quedan al lado del catálogo');
 
-    const dates = await page.locator('[data-catalogue-book]').evaluateAll(cards => cards.map(c => c.dataset.published || (c.dataset.publishedMonth ? c.dataset.publishedMonth + '-01' : c.dataset.year ? c.dataset.year + '-01-01' : '')));
+    const dates = await visibleBooks().evaluateAll(cards => cards.map(c => c.dataset.published || (c.dataset.publishedMonth ? c.dataset.publishedMonth + '-01' : c.dataset.year ? c.dataset.year + '-01-01' : '')));
     const dated = dates.filter(Boolean);
     assert.deepEqual(dated, [...dated].sort().reverse(), 'Orden por defecto: publicación más reciente primero');
 
@@ -74,7 +75,9 @@ try {
     }
     await box('grupo', 'cocina').uncheck();
     const stillDisabled = await page.locator('input[data-facet="genero"]:disabled').evaluateAll(list => list.map(o => o.value));
-    for (const value of stillDisabled) assert.equal(await page.locator(`[data-catalogue-book][data-categories~="${value}"]`).count(), 0, `Sin tipo elegido solo queda desactivado lo que no tiene ningún libro (${value})`);
+    // Cuentan los ya publicados (vista por defecto); una categoría con solo próximos lanzamientos también se desactiva.
+    const releasedWith = value => page.locator(`[data-catalogue-book][data-categories~="${value}"]`).evaluateAll(cards => cards.filter(c => { const d = c.dataset.published || c.dataset.publishedMonth || c.dataset.year || ''; return !d || d <= new Date().toISOString().slice(0, 10); }).length);
+    for (const value of stillDisabled) assert.equal(await releasedWith(value), 0, `Sin tipo elegido solo queda desactivado lo que no tiene ningún libro publicado (${value})`);
     assert.ok(stillDisabled.length < disabledNow.length, 'Quitar el tipo vuelve a activar opciones');
     assert.deepEqual(errors, [], 'Sin errores de JavaScript');
     await page.close();
