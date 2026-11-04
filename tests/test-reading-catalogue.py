@@ -102,7 +102,8 @@ with tempfile.TemporaryDirectory() as tmp:
     assert 'data-catalogue-speak' not in book and '<audio' not in book and 'Referencia técnica externa' in book
     assert 'Fixture aislada de QA' not in book
     assert hub.count('data-catalogue-book ') == 1
-    assert hub.count('href="' + m.url(b) + '"') == 3
+    # Con enlace de Amazon, portada y título van a Amazon y solo «Ver ficha» apunta a la ficha.
+    assert hub.count('href="' + m.url(b) + '"') == (1 if m.amazon_destination(b) else 3)
     assert all(c in hub for c in ('fantasia', 'romantasy', 'halloween', 'juvenil'))
     assert len(m.registry_entries([b])) == 1
     human_map = m.render_map('<main><a href="/cuaderno/">Cuaderno</a></main>', [b])
