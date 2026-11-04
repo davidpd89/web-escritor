@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388220104",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Atlas de la mitología ilustrado se orienta a lectores interesados en la mitología grecorromana, el arte y las conexiones entre los relatos antiguos y la cultura popular. Su enfoque divulgativo, con ilustraciones y referencias culturales, encaja menos con quien busca una novela de ficción o un estudio exclusivamente académico.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Atlas de la mitología ilustrado propone una aproximación divulgativa a los personajes y relatos de la tradición grecorromana. Aude Goeminne y Anne-Laure Varoutsikos combinan narraciones accesibles con referencias artísticas y culturales, dentro de un volumen ilustrado de 160 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Atlas de la mitología ilustrado se publica en tapa dura de cartoné, con 160 páginas en castellano. El volumen físico reúne ilustraciones y contenidos sobre mitología grecorromana, por lo que permite consultar las referencias artísticas y culturales y regresar a distintos personajes sin seguir necesariamente una lectura lineal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas de la Biblia ilustrado comparte con Atlas de la mitología ilustrado la participación de Anne-Laure Varoutsikos y el planteamiento de atlas ilustrado para explorar la cultura. La diferencia está en el ámbito anunciado por cada título: uno se ocupa de la Biblia y el otro desarrolla la mitología grecorromana mediante personajes, relatos y referencias al arte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388220111"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "90b9b055cd3dedd5",
+  "origen": "chatgpt-web"
+}

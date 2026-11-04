@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408327042",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados se dirige a lectores de romance interesados en conflictos personales vinculados al sacrificio, las mentiras y la reconstrucción de una vida. Encaja menos con quienes buscan una historia centrada en la acción o desligada de las relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Cuando no queden más estrellas que contar. Edición especial con cantos decorados incorpora capítulos adicionales narrados desde la perspectiva de Lucas y presenta los cantos decorados anunciados en el título. Booket la publica en castellano, con 512 páginas y encuadernación de tapa dura en cartoné.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados es una novela romántica de María Martínez que vincula las relaciones personales con las consecuencias de una vida dedicada al ballet. Maya afronta un conflicto relacionado con su trayectoria y una mentira, mientras esta edición incorpora capítulos adicionales narrados desde la perspectiva de Lucas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible de Cuando no queden más estrellas que contar. Edición especial con cantos decorados. Sus 512 páginas incluyen material narrativo adicional desde la perspectiva de Lucas, y la encuadernación de cartoné con cantos decorados aporta una presentación física diferenciada para conservar o regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "encaje_documentado: afirmaciones sin respaldo: premi",
+    "que_formato_elegir: repite otro bloque",
+    "faltan módulos: encaje_documentado, que_formato_elegir"
+  ],
+  "version": 3,
+  "fuente_hash": "af23645a47867e85",
+  "origen": "chatgpt-web"
+}

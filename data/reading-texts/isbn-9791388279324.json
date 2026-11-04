@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388279324",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Merry Murdle encaja con lectores que disfrutan resolviendo enigmas criminales mediante pistas y deducciones, especialmente en un ambiente de fiestas navideñas. Su planteamiento gira alrededor de asesinatos y una desaparición, por lo que se aleja de los pasatiempos puramente creativos o de las lecturas festivas sin delitos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Merry Murdle plantea una investigación detectivesca vinculada a las fiestas navideñas y al razonamiento lógico. El Detective Lógico debe abandonar sus planes de descanso para enfrentarse a varios asesinatos y una desaparición, con la deducción como herramienta central de la investigación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Merry Murdle está disponible en tapa blanda, concretamente en rústica sin solapas. Esta edición de 256 páginas publicada por Temas de Hoy permite tener el libro físico a mano para seguir la investigación y consultar las pistas durante la lectura, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
+  "version": 3,
+  "fuente_hash": "516929db7076e294",
+  "origen": "chatgpt-web"
+}

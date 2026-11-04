@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788411005357",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Métricas está dirigido a lectores de filosofía interesados en cómo los sistemas de puntuación influyen en la conducta y en las prioridades personales. C. Thi Nguyen examina la ludificación de la vida cotidiana, desde los dispositivos inteligentes hasta las valoraciones sociales; encaja menos con quien busca un manual práctico para analizar datos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Métricas estudia cómo las puntuaciones y las calificaciones condicionan aquello que las personas consideran importante. C. Thi Nguyen aborda esta cuestión desde la filosofía contemporánea, utilizando ejemplos como los relojes inteligentes y los «me gusta» de las redes sociales para examinar la transformación de la experiencia cotidiana en resultados medibles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Métricas está disponible en tapa blanda, con una edición de 416 páginas publicada por Ediciones Península. Su encuadernación rústica con solapas permite conservar el ensayo en papel y volver a consultar sus reflexiones sobre los sistemas de puntuación, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Métricas y Contingencia, ironía y solidaridad comparten el enfoque filosófico, pero C. Thi Nguyen estudia la influencia de las puntuaciones cotidianas y Richard Rorty reflexiona sobre la sociedad y las verdades universales. Antes de perder el juicio también cuestiona cómo se forman los juicios personales, aunque Mauricio García Villegas se centra en la propaganda, las consignas y las cámaras de eco.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387302",
+        "isbn-9788449345951"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a168946a66216aa6",
+  "origen": "chatgpt-web"
+}

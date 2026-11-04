@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788427254985",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Capitán Patata 2 - Quietecito o te dejo frito, de Neil Coslett, está dirigido a lectores a partir de 7 años que buscan aventuras humorísticas con abundantes ilustraciones. Sus historias incluyen robots, monstruos y clones malvados; no está planteado como un relato realista ni como una novela extensa sin apoyo visual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada para Capitán Patata 2 - Quietecito o te dejo frito es a partir de 7 años. Tiene 224 páginas, se publica en castellano y combina cinco miniaventuras con ilustraciones en cada página. La edición impresa es de tapa dura, y el título lo identifica como el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Capitán Patata 2 - Quietecito o te dejo frito se ofrece en tapa dura y Kindle. La edición física tiene 224 páginas y permite recorrer sus ilustraciones en papel, mientras que Kindle facilita llevar las cinco miniaventuras en formato digital. Para consultar los dibujos, conviene tener en cuenta el tamaño de la pantalla utilizada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Capitán Patata 2 - Quietecito o te dejo frito y Superdónuts 3 - El destino de los dónuts comparten protagonistas de nombre humorístico y situaciones extraordinarias. Neil Coslett reúne cinco miniaventuras con robots y monstruos, mientras que Neill Cameron plantea un viaje al futuro. Frente a Piratix. Primeras lecturas 2 - El banquete del Kraken, el primero destaca por sus episodios breves y sus ilustraciones continuas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874834",
+        "isbn-9788448873479"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "64028d24c544a7a1",
+  "origen": "chatgpt-web"
+}
