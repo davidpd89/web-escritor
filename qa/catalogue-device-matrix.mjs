@@ -37,7 +37,7 @@ async function open(profile, path) {
   page.on('console', m => { if (m.type() === 'error' && !/net::ERR_FAILED|ERR_BLOCKED/.test(m.text())) errors.push(m.text()); });
   page.on('pageerror', e => errors.push(String(e)));
   await page.goto(origin + path, { waitUntil: 'load', timeout: 30000 });
-  if (path === '/recomendaciones/') await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+  if (path === '/recomendaciones/') await page.waitForFunction(() => document.querySelector('[data-catalogue-filters] fieldset')?.disabled === false);
   await page.waitForTimeout(600);
   return { context, page, errors };
 }
