@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408331728",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El poder de la intención se dirige a lectores de desarrollo personal interesados en revisar la influencia del ego y la relación entre identidad y propósito. Wayne W. Dyer plantea la intención como una fuerza vinculada al individuo y al universo, por lo que su enfoque se distancia de los manuales que tratan el cambio personal únicamente mediante técnicas de organización o productividad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El poder de la intención está disponible en tapa blanda y Kindle. La edición física de Booket tiene 336 páginas y encuadernación rústica sin solapas, mientras que Kindle permite leerlo desde un dispositivo compatible y consultar sus contenidos sin llevar el volumen. El papel ofrece una copia física para conservar o regalar; la versión digital facilita la lectura durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El poder de la intención y Tus zonas sagradas son obras de Wayne W. Dyer que examinan el ego, aunque la primera relaciona la intención con el propósito y la segunda profundiza en la conexión espiritual interior. Tus zonas mágicas, del mismo autor, aborda los milagros y la magia verdadera, frente al interés de El poder de la intención por la identidad personal y la fuerza de la intención.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331834",
+        "isbn-9788408331780"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f11fd31b0d9d5841",
+  "origen": "chatgpt-web"
+}

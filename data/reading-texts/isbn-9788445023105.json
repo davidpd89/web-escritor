@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788445023105",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Seis grullas nº 00 La maldición radiante (Precuela), de Elizabeth Lim, se dirige a lectores de fantasía interesados en maldiciones, vínculos familiares y conflictos marcados por el rechazo. El sacrificio de una hija por su padre y la transformación física de la protagonista introducen elementos oscuros que pueden alejar a quienes prefieren relatos sin violencia familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Seis grullas nº 00 La maldición radiante (Precuela) propone una historia fantástica articulada alrededor de una maldición y de la relación entre dos hermanas. Channi queda marcada por una apariencia de serpiente y encuentra en Vanna su principal vínculo afectivo frente al rechazo de su entorno. El título la identifica como el n.º 00 y como precuela.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Seis grullas nº 00 La maldición radiante (Precuela) cuenta con una edición en tapa blanda de 416 páginas, publicada por Minotauro en rústica con solapas. Es un volumen físico de extensión considerable que permite conservar la precuela junto a otros libros de fantasía y retomarla sin utilizar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d2addbf4a610e698",
+  "origen": "chatgpt-web"
+}
