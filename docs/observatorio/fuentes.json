@@ -155,6 +155,68 @@
       "estado": "herramienta pública; sin cuenta requerida",
       "evidencia": "lighthouserc.json",
       "mirar": "LCP, CLS, INP, datos de campo si existen; diferenciar de Lighthouse CI"
+    },
+    {
+      "id": "webpagetest",
+      "nombre": "WebPageTest",
+      "grupos": [
+        "seo",
+        "operaciones"
+      ],
+      "url": "https://www.webpagetest.org/",
+      "inicio": false,
+      "estado": "herramienta pública o diagnóstico adicional; disponibilidad y límites por verificar",
+      "evidencia": "lighthouserc.json",
+      "mirar": "Waterfall y velocidad de carga, primera visita, TTFB, LCP, dependencias lentas"
+    },
+    {
+      "id": "gtmetrix",
+      "nombre": "GTmetrix",
+      "grupos": [
+        "seo",
+        "operaciones"
+      ],
+      "url": "https://gtmetrix.com/",
+      "inicio": false,
+      "estado": "herramienta pública o diagnóstico adicional; disponibilidad y límites por verificar",
+      "evidencia": "lighthouserc.json",
+      "mirar": "Análisis de carga y filmstrip; comparar solo hallazgos reales con Lighthouse"
+    },
+    {
+      "id": "rich-results",
+      "nombre": "Google Rich Results Test",
+      "grupos": [
+        "seo"
+      ],
+      "url": "https://search.google.com/test/rich-results",
+      "inicio": false,
+      "estado": "herramienta pública o diagnóstico adicional; disponibilidad y límites por verificar",
+      "evidencia": "docs/search-console/README.md",
+      "mirar": "Elegibilidad y errores en resultados enriquecidos para URLs concretas"
+    },
+    {
+      "id": "schema-validator",
+      "nombre": "Schema.org Validator",
+      "grupos": [
+        "seo"
+      ],
+      "url": "https://validator.schema.org/",
+      "inicio": false,
+      "estado": "herramienta pública o diagnóstico adicional; disponibilidad y límites por verificar",
+      "evidencia": "schemas",
+      "mirar": "Validar JSON-LD y estructuras; no confundir con elegibilidad Google"
+    },
+    {
+      "id": "google-trends",
+      "nombre": "Google Trends",
+      "grupos": [
+        "seo"
+      ],
+      "url": "https://trends.google.com/trends/",
+      "inicio": false,
+      "estado": "herramienta pública o diagnóstico adicional; disponibilidad y límites por verificar",
+      "evidencia": "docs/search-console/README.md",
+      "mirar": "Demanda y estacionalidad de temas del Cuaderno y libros; no equivale a tráfico de la web"
     }
   ]
 }
