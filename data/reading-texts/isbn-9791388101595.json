@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388101595",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Planeta Manga: Aten encaja con lectores de manga shonen interesados en la mitología egipcia, los enfrentamientos contra gobernantes tiránicos y los relatos de acción. Su conflicto gira alrededor de héroes y faraones, de modo que se distancia de los cómics cotidianos o centrados en relaciones realistas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Planeta Manga: Aten es un manga shonen de Drawill que combina mitología egipcia y enfrentamientos por el poder. La historia contrapone una antigua liberación del imperio a una nueva etapa de opresión bajo otro faraón. La serie de Planeta Manga se reúne en un solo tomo, con páginas adicionales y a color.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Planeta Manga: Aten puede leerse en tapa blanda o en Kindle. La edición física de Planeta Cómic reúne 216 páginas en rústica sin solapas, con sobrecubierta, y permite conservar el tomo completo en papel; Kindle facilita llevar la lectura en un dispositivo compatible. El contenido incluye páginas extras y a color.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fad7c9af07c31a8e",
+  "origen": "chatgpt-web"
+}

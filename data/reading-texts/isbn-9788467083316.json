@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las Mitford encaja con lectores de narrativa contemporánea interesados en las relaciones familiares, las memorias personales y las distintas trayectorias de unas hermanas. No responde a quien busque una aventura centrada en la acción, porque su punto de partida es la decisión de Pamela Mitford de reconstruir la historia de su familia.",
+      "texto": "Las Mitford, de Carmen Posadas, encaja con lectores de narrativa contemporánea interesados en las relaciones familiares, los recuerdos personales y las diferencias ideológicas entre hermanas. La historia parte de la perspectiva de Pamela Mitford sobre su familia, por lo que se aleja de las lecturas centradas en la acción o en conflictos fantásticos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Las Mitford propone una narración familiar articulada alrededor de los recuerdos de Pamela Mitford. La novela contrapone su perspectiva a las vidas de Nancy, Diana, Unity y Jessica, entre las que aparecen vínculos con posiciones políticas enfrentadas. El conflicto nace de contar una historia compartida desde una voz que hasta entonces no ocupaba el centro del relato.",
+      "texto": "Las Mitford plantea una novela familiar construida alrededor de los recuerdos que Pamela Mitford decide escribir sobre sus hermanas. Carmen Posadas sitúa en el centro las distintas personalidades y posiciones políticas de las mujeres de la familia, desde la rebeldía comunista hasta la vinculación con Hitler. El conflicto nace de esas diferencias y de la perspectiva elegida para contar su historia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,18 +24,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las Mitford está disponible en tapa dura con sobrecubierta, en una edición de 536 páginas de Editorial Espasa. Es un volumen físico que permite conservar la novela en una biblioteca o entregarla como regalo; la sobrecubierta añade una protección exterior que puede retirarse durante la lectura.",
+      "texto": "Las Mitford puede leerse en tapa dura con sobrecubierta o en Kindle. La edición física de Editorial Espasa reúne 536 páginas y ofrece una encuadernación rígida para conservar el volumen o regalarlo. Kindle permite llevar la novela en un dispositivo compatible sin cargar con el libro impreso, una diferencia práctica en una lectura de esta extensión.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "edicion",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "41524925f2f3d92d",
+  "fuente_hash": "f73ba2fccb417cc4",
   "origen": "chatgpt-web"
 }

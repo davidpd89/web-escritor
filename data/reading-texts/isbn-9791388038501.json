@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388038501",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El poder de los hábitos (edición especial con cantos tintados), de Charles Duhigg, está dirigido a adultos interesados en comprender cómo se forman las conductas repetidas y cómo modificarlas. Aborda aplicaciones relacionadas con el ejercicio, la productividad y la vida cotidiana mediante explicaciones científicas y propuestas prácticas; no es una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "El poder de los hábitos (edición especial con cantos tintados) se distingue por sus cantos tintados y por incorporar cuatro apéndices inéditos orientados a aplicar las ideas del libro. Vergara publica esta edición en castellano, en tapa dura y con 440 páginas, con fecha de publicación del 2026-10-22. Combina una presentación física especial con contenido práctico añadido.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "fecha_publicacion",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El poder de los hábitos (edición especial con cantos tintados) está disponible en tapa dura, con 440 páginas. Esta presentación de Vergara permite conservar en papel tanto el contenido principal como los cuatro apéndices prácticos añadidos. Los cantos tintados aportan un rasgo físico distintivo para quien busca una edición de regalo o de biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "83bbe702451e6bf7",
+  "origen": "chatgpt-web"
+}
