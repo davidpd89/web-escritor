@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788419819840",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Barreras del corazón 10 (BL), de Mika, se dirige a lectores de cómic juvenil interesados en las relaciones de amistad y los vínculos entre estudiantes. La historia transcurre durante el último año de bachillerato y no responde a la búsqueda de una aventura de acción centrada en enfrentamientos físicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un manga juvenil centrado en las relaciones entre compañeros de bachillerato y las situaciones que surgen durante una excursión escolar. Kakeru y Yamato comparten tiempo en Kamakura mientras Fujiwara y Mizukawa atraviesan un incidente inesperado. El título lo identifica como el n.º 10.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Barreras del corazón 10 (BL) está disponible en tapa blanda y Kindle. La edición impresa tiene 192 páginas y sobrecubierta, una característica relevante para quien conserva los tomos físicos; Kindle permite leerlo en formato digital sin ocupar espacio en la estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Barreras del corazón 10 (BL) y El guardaespaldas de Honeko Akabane 7 (Shônen) son mangas ambientados en entornos estudiantiles. El de Mika se ocupa de las relaciones personales durante una excursión, mientras que el de Masamitsu Nigatsu presenta enfrentamientos con organizaciones criminales y una trama de conspiración. La diferencia principal está en el tipo de conflicto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c38fdd318395243",
+  "origen": "chatgpt-web"
+}

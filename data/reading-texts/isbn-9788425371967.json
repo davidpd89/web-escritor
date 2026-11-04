@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Muérdelo se dirige a lectores adultos interesados en preparar guisos y aprovechar lo que queda para elaborar bocadillos. No encaja tanto con quien busque un recetario centrado exclusivamente en postres, ya que su propuesta gira en torno a platos salados, panes, guarniciones y salsas.",
+      "texto": "Muérdelo está dirigido a lectores adultos que buscan recetas de cocina casera y formas de reutilizar alimentos preparados. María Lo propone trabajar con guisos, bocadillos y sus combinaciones; encaja menos con quien prefiera un recetario centrado exclusivamente en platos nuevos que no aprovechen elaboraciones anteriores.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,7 +15,7 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Muérdelo reúne recetas de guisos y bocadillos que permiten dar una segunda utilidad a las preparaciones ya cocinadas. María Lo incorpora también panes caseros, guarniciones y salsas que pueden emplearse en los bocadillos o combinarse con otros platos. El aprovechamiento de los restos conecta las distintas elaboraciones.",
+      "texto": "Muérdelo reúne recetas de guisos, bocadillos elaborados con parte de esos guisos y preparaciones complementarias para combinarlos. María Lo incluye también panes caseros, guarniciones y salsas, de modo que el lector puede preparar un plato inicial y transformar lo que quede en otra comida, especialmente entre panes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,18 +24,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Muérdelo está disponible en tapa blanda con solapas y tiene 256 páginas. Esta edición física permite consultar las recetas durante la preparación de guisos, panes y bocadillos, además de volver a las indicaciones cuando se quiera aprovechar lo cocinado anteriormente.",
+      "texto": "Muérdelo se ofrece en tapa blanda con solapas, con 256 páginas publicadas por Grijalbo. Es una edición física que permite consultar las recetas mientras se cocina y volver a las preparaciones de panes, salsas o guisos cuando se necesiten; también puede utilizarse como libro de cocina para regalar.",
       "evidencias": [
         "titulo",
         "edicion",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Muérdelo y Cocina de siempre para disfrutar hoy comparten el interés por preparar comida casera, pero María Lo se concentra en guisos que pueden convertirse en bocadillos, mientras Marcos Serén @chefmspin.recetas adapta recetas tradicionales. Frente a 20 minutos ¡y listo!, de Jamie Oliver, que pone el acento en cocinar con poco tiempo, Muérdelo organiza su propuesta alrededor del aprovechamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788408324263"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b3e300bb5d3e40a8",
+  "fuente_hash": "ddd56e364933083b",
   "origen": "chatgpt-web"
 }

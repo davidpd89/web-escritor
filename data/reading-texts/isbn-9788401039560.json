@@ -4,52 +4,54 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Otros mundos (El Talismán 3) se dirige a lectores adultos interesados en la fantasía, el terror y los conflictos que atraviesan distintas realidades. Sus 920 páginas y su amenaza de alcance sobrenatural lo alejan de las novelas breves y de las historias estrictamente realistas.",
+      "texto": "Otros mundos (El Talismán 3) está dirigido a lectores adultos de fantasía, terror y misterio que acepten una historia extensa con amenazas sobrenaturales. Stephen King y Peter Straub recuperan a Jack Sawyer y los Territorios; no encaja con quien busque una narración realista o una lectura breve.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
-        "numero_paginas",
         "categorias",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Otros mundos (El Talismán 3), de Stephen King y Peter Straub, combina fantasía y terror en una amenaza que afecta a varios mundos. Jack Sawyer debe enfrentarse a adolescentes infectados y a las fuerzas de Gullet; el título lo identifica como el n.º 3 de El Talismán. La edición incluye ilustraciones en blanco y negro de Gabriel Rodríguez.",
+      "texto": "Otros mundos (El Talismán 3) combina fantasía oscura, terror y una amenaza que alcanza distintos mundos. Jack Sawyer debe enfrentarse a adolescentes infectados y a fuerzas relacionadas con Gullet y el Mundo Medio. El título lo identifica como el n.º 3 de El Talismán, y la edición incluye ilustraciones en blanco y negro de Gabriel Rodríguez.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Otros mundos (El Talismán 3) es una tapa dura con sobrecubierta de Plaza & Janés y alcanza las 920 páginas. Por su extensión, resulta más manejable como lectura prolongada en casa que en desplazamientos con poco espacio; la cubierta rígida permite conservar el volumen junto a otros libros.",
+      "texto": "Otros mundos (El Talismán 3) está disponible en tapa dura y Kindle. Sus 920 páginas hacen de la edición física con sobrecubierta de Plaza & Janés un volumen considerable para conservar o regalar; Kindle permite llevar una obra de esta extensión sin cargar con el libro durante los desplazamientos.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Otros mundos (El Talismán 3) y Carrie (edición serie) comparten la autoría de Stephen King y presentan conflictos que afectan a personajes jóvenes. La primera, escrita también por Peter Straub, enfrenta a Jack Sawyer con una amenaza entre mundos; Carrie (edición serie) concentra la atención en una adolescente acosada en el instituto.",
+      "texto": "Otros mundos (El Talismán 3) y Carrie (edición serie) comparten la autoría de Stephen King y elementos de terror. La primera, escrita con Peter Straub, desarrolla una amenaza entre mundos, mientras Carrie (edición serie) parte del acoso escolar y una convivencia familiar marcada por la religión. La abadía sin ojos, de Jordi Wild, propone otro misterio inquietante, situado en un monasterio.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396806"
+        "isbn-9788466396806",
+        "isbn-9788466686884"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0ee9740db144d7e0",
+  "fuente_hash": "37bcc87b22f11536",
   "origen": "chatgpt-web"
 }

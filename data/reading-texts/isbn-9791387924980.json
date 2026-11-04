@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791387924980",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Hay conciencia en tu cerebro? se dirige a lectores adultos interesados en la filosofía de la mente y en la relación entre cerebro y experiencia subjetiva. Su enfoque examina distintas posiciones filosóficas y cuestiona el materialismo, por lo que encaja menos con quienes buscan exclusivamente una explicación neurológica o un manual de ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "¿Hay conciencia en tu cerebro? aborda cómo se relacionan los procesos físicos del cerebro con la experiencia consciente y qué lugar ocupa la subjetividad en la comprensión del mundo. Enric F. Gel contrasta posiciones filosóficas sobre la conciencia desde una perspectiva crítica con el materialismo, sin presentar esa crítica como una conclusión dogmática.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas de ¿Hay conciencia en tu cerebro? ofrece sus 384 páginas en papel, útil para subrayar y volver a los argumentos filosóficos. Kindle permite consultar el mismo título en un dispositivo compatible, con las ventajas de transporte y ajuste de lectura propias del formato digital. La elección depende de cómo se prefiera trabajar con un ensayo extenso.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Contingencia, ironía y solidaridad, de Richard Rorty, y ¿Hay conciencia en tu cerebro?, de Enric F. Gel, comparten el interés por los fundamentos filosóficos de nuestra visión del mundo. El primero se ocupa de la sociedad, la solidaridad y las verdades universales; el segundo examina la conciencia y cuestiona las explicaciones materialistas de la experiencia subjetiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788449345951"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1c4ab53a1ea28e6c",
+  "origen": "chatgpt-web"
+}
