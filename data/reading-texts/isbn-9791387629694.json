@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómete la vida a bocados con Pausa y Plato se dirige a personas adultas que quieren cocinar platos cotidianos, desde tapeos hasta postres, con explicaciones directas. No está planteado para quien busque una novela o un tratado teórico: su contenido gira en torno a recetas que se preparan en casa.",
+      "texto": "Cómete la vida a bocados con Pausa y Plato está dirigido a adultos que buscan recetas para cocinar en casa, preparar aperitivos o compartir tapeos sin elaboraciones complicadas. Su enfoque práctico y cotidiano se aleja de los manuales centrados en técnicas profesionales o en explicaciones teóricas de gastronomía.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,28 +14,43 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Reúne recetas de aperitivos, tapeos, salsas, cocina de tradición familiar y postres. Juan Sánchez plantea instrucciones claras y un tono de humor para pasar de guardar ideas de platos a prepararlos; el recetario tiene 224 páginas.",
+      "texto": "Cómete la vida a bocados con Pausa y Plato reúne recetas de aperitivos, tapeos, salsas, platos tradicionales y postres. Juan Sánchez plantea preparaciones para distintas situaciones domésticas, desde una reunión informal hasta una comida basada en recetas familiares. Las instrucciones buscan facilitar la preparación de los platos sin depender de conocimientos culinarios avanzados.",
       "evidencias": [
+        "titulo",
         "autores",
-        "numero_paginas",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas es el formato disponible de Cómete la vida a bocados con Pausa y Plato. Sus 224 páginas permiten mantener las recetas a mano junto a la zona de trabajo y consultar de nuevo las instrucciones mientras se cocina.",
+      "texto": "La tapa blanda con solapas permite tener las 224 páginas de Cómete la vida a bocados con Pausa y Plato a mano mientras se cocina y consultar las recetas sobre papel. La edición Kindle facilita acceder al contenido desde el móvil o un lector electrónico, especialmente cuando se quiere evitar colocar un libro físico junto a los ingredientes.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
         "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "categorias",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómete la vida a bocados con Pausa y Plato comparte con Cocina de siempre para disfrutar hoy el interés por preparar platos tradicionales en casa, aunque Juan Sánchez también dedica espacio a aperitivos, salsas y postres. Al micro y listo coincide en buscar una cocina accesible, pero Dani García orienta su propuesta hacia el uso del microondas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084757",
+        "isbn-9788408324263"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "169d0c17b5713a09",
+  "fuente_hash": "5ac49af871c70e9c",
   "origen": "chatgpt-web"
 }

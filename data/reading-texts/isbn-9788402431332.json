@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cariño, ¿y este recibo? está orientado a adultos que necesitan hablar sobre gastos, cuentas y acuerdos económicos dentro de una relación de pareja. Angie Gil Ribera plantea ejercicios y hábitos financieros compartidos, con atención a las diferencias de ingresos y al presupuesto doméstico más que a la teoría económica general.",
+      "texto": "Cariño, ¿y este recibo?, de Angie Gil Ribera, se dirige a adultos que quieren organizar sus finanzas personales o compartir gastos con su pareja. Aborda decisiones sobre cuentas, deudas, ahorro y presupuestos mediante ejercicios prácticos. No está centrado en inversiones financieras ni en la gestión de una empresa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,41 +15,44 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Cariño, ¿y este recibo? reúne herramientas prácticas, ejercicios y estrategias para gestionar conversaciones económicas en pareja. Trata las cuentas compartidas o separadas, el reparto de gastos cuando los ingresos difieren, las vacaciones, las deudas y los hábitos de ahorro, con el objetivo de facilitar acuerdos sobre el dinero cotidiano.",
+      "texto": "Cariño, ¿y este recibo? incluye herramientas, ejercicios y estrategias para conversar sobre dinero y establecer hábitos financieros personales y de pareja. Angie Gil Ribera aborda el reparto de gastos cuando los ingresos son diferentes, las cuentas compartidas, las vacaciones y las deudas. Sus 192 páginas sirven para trabajar decisiones económicas cotidianas y preparar presupuestos conjuntos.",
       "evidencias": [
         "titulo",
+        "autores",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cariño, ¿y este recibo? se ofrece en tapa blanda con solapas, un formato físico que permite consultar y revisar sus ejercicios sobre papel. La edición de Bruguera contiene 192 páginas en castellano y facilita volver a las propuestas relacionadas con presupuestos, comunicación y decisiones económicas compartidas.",
+      "texto": "Cariño, ¿y este recibo? puede leerse en tapa blanda o Kindle. La edición física de Bruguera tiene solapas y 192 páginas, y permite consultar los ejercicios mientras se trabaja con las cuentas domésticas. Kindle facilita recuperar las explicaciones desde el móvil o un lector electrónico cuando surge una decisión económica en pareja.",
       "evidencias": [
         "titulo",
         "edicion",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
         "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cariño, ¿y este recibo? y Cómo ganar una guerra comercial se ocupan de decisiones económicas, pero trabajan a escalas distintas. Angie Gil Ribera aborda cuentas, gastos y hábitos financieros dentro de la pareja; Soumaya Keynes y Chad P. Bown examinan las reglas del comercio global y el escenario de una guerra comercial a gran escala.",
+      "texto": "Cariño, ¿y este recibo? y Deja de regalar tu dinero, de David Jiménez, comparten una orientación práctica hacia las decisiones económicas cotidianas. Angie Gil Ribera se concentra en la comunicación y la organización financiera dentro de la pareja, mientras que David Jiménez aborda contratos, trámites y ahorro. También se diferencia de Domina el arte de los negocios, de Brian Tracy, cuyo enfoque está en las habilidades empresariales y de liderazgo, no en las cuentas compartidas.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423441051"
+        "isbn-9791388139567",
+        "isbn-9788466390514"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4d622b800e912bff",
+  "fuente_hash": "58ef94ff8f2f2219",
   "origen": "chatgpt-web"
 }

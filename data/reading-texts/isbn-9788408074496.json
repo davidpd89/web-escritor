@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408074496",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Regreso al Reino de la Fantasía se dirige a niños de 6 a 8 años que disfrutan de aventuras imaginarias, territorios extraordinarios y búsquedas con una meta concreta. Su recorrido por lugares fantásticos se distancia de los relatos cotidianos o realistas. Con 384 páginas, exige más continuidad lectora que un cuento corto.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Regreso al Reino de la Fantasía está recomendado de 6 a 8 años y contiene 384 páginas. La edición de Destino Infantil & Juvenil utiliza tapa dura sin sobrecubierta, en encuadernación cartoné. Es un libro infantil de fantasía cuya extensión permite repartir la aventura entre varias sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Regreso al Reino de la Fantasía está disponible en tapa dura, sin sobrecubierta. Su encuadernación cartoné protege las 384 páginas durante el manejo frecuente y facilita guardarlo junto a otros libros infantiles. El formato físico permite volver a los distintos territorios del recorrido sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Regreso al Reino de la Fantasía comparte con El gran libro del Reino de la Fantasía el universo fantástico y la autoría de Geronimo Stilton. Aquí la aventura atraviesa distintos países imaginarios en busca de la felicidad, mientras que el otro título plantea una misión relacionada con objetos mágicos y una reina enemiga. Cambian tanto el propósito del recorrido como los obstáculos descritos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408132004"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8823a1484259843e",
+  "origen": "chatgpt-web"
+}
