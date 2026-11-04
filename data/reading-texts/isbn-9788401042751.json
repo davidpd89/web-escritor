@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La casa de los espíritus se dirige a lectores adultos de sagas familiares que buscan conflictos amorosos, memoria generacional y tensiones políticas. Isabel Allende incorpora acontecimientos sobrenaturales y desigualdades sociales a la historia de una familia, por lo que se aleja tanto del romance centrado exclusivamente en una pareja como de la narrativa estrictamente realista.",
+      "texto": "La casa de los espíritus está orientada a lectores adultos interesados en las sagas familiares, las relaciones amorosas y los conflictos sociales que atraviesan varias generaciones. Isabel Allende incorpora presencias sobrenaturales y violencia política, elementos que la alejan de quienes buscan una historia estrictamente realista o centrada únicamente en el romance.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,32 +15,33 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La casa de los espíritus combina saga familiar, novela histórica y realismo mágico a través de varias generaciones. Isabel Allende utiliza las relaciones de la familia Trueba para examinar cómo el poder, las diferencias de clase y la violencia política condicionan la vida privada. La presencia de espíritus y facultades sobrenaturales forma parte del mismo relato que los conflictos sociales.",
+      "texto": "La casa de los espíritus es una novela de saga familiar que combina narrativa contemporánea, historia y realismo mágico. Isabel Allende sigue a distintas generaciones de los Trueba y relaciona sus vínculos personales con las desigualdades sociales y los cambios políticos. Las capacidades sobrenaturales de Clara del Valle conviven con conflictos de clase, herencias familiares y consecuencias de la violencia.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La casa de los espíritus está disponible en tapa dura y Kindle. Esta edición de Plaza & Janés reúne 560 páginas en un volumen con sobrecubierta, una opción física para conservar o regalar; Kindle permite leer una obra de esa extensión sin transportar el libro impreso.",
+      "texto": "La casa de los espíritus está disponible en tapa dura, Kindle y audiolibro. La edición de Plaza & Janés reúne 560 páginas en tapa dura con sobrecubierta, una opción para conservar el ejemplar físico; Kindle permite leerlo sin transportar ese volumen y el audiolibro ofrece una alternativa de escucha durante desplazamientos o actividades cotidianas.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un baile en Versalles, de Danielle Steel, y La casa de los espíritus, de Isabel Allende, sitúan sus historias en contextos históricos reconocibles. La primera presenta una gala en el Palacio de Versalles durante el verano de 1959; la segunda desarrolla una saga familiar de varias generaciones atravesada por conflictos políticos y elementos sobrenaturales. Cambian tanto la amplitud temporal como el papel de lo fantástico.",
+      "texto": "La casa de los espíritus y Un baile en Versalles relacionan las experiencias personales con un contexto histórico y social. Isabel Allende desarrolla una historia familiar de varias generaciones atravesada por conflictos políticos y elementos sobrenaturales, mientras Danielle Steel sitúa su narración alrededor de una gala en el Palacio de Versalles durante el verano de 1959. Difieren en la amplitud temporal y en el peso de lo fantástico.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788401037894"
@@ -49,6 +50,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "440d0ab1e2391a3f",
+  "fuente_hash": "86c2240f689f4422",
   "origen": "chatgpt-web"
 }

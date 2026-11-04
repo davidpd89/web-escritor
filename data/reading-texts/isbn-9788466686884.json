@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La abadía sin ojos se dirige a lectores adultos interesados en el terror y los misterios ambientados en comunidades religiosas aisladas. No encaja con quien busque una intriga realista sin sucesos extraños: la hostilidad de los monjes, las figuras vendadas y los fenómenos nocturnos forman parte del conflicto.",
+      "texto": "La abadía sin ojos está dirigida a lectores adultos que buscan terror, fantasía y misterio en un entorno religioso cerrado. La novela de Jordi Wild combina un sacerdote amenazado, monjes hostiles y sucesos inexplicables, por lo que encaja menos con quienes prefieren relatos realistas o alejados de las situaciones inquietantes.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,31 +15,34 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La abadía sin ojos combina terror, fantasía y misterio alrededor de una comunidad religiosa hermética. El traslado forzoso de Lorenzo a Saint Ophiel lo enfrenta a normas desconocidas y secretos peligrosos, mientras la conducta de sus habitantes y los sucesos nocturnos dificultan distinguir las amenazas humanas de los fenómenos extraños.",
+      "texto": "La abadía sin ojos combina terror y misterio con elementos fantásticos dentro de un monasterio aislado. Jordi Wild plantea la llegada forzosa de Lorenzo a Saint Ophiel, donde las prácticas de los religiosos y los fenómenos nocturnos convierten su estancia en una investigación peligrosa. El conflicto enfrenta la necesidad de conocer la verdad con las amenazas que rodean al protagonista.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La abadía sin ojos puede leerse en tapa dura con sobrecubierta o en Kindle. La edición física de Ediciones B suma 568 páginas y permite conservar el libro en papel; la digital ofrece la posibilidad de continuar la lectura desde un móvil o un lector electrónico sin transportar ese volumen.",
+      "texto": "La abadía sin ojos se ofrece en tapa dura, tapa blanda y Kindle, con 568 páginas. La edición de Ediciones B en tapa dura incorpora sobrecubierta y una encuadernación rígida; la tapa blanda permite manejar el volumen con mayor flexibilidad y Kindle facilita continuar la lectura en un dispositivo electrónico sin cargar con el libro impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "numero_paginas",
         "edicion",
-        "editorial",
-        "numero_paginas"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Carrie (edición serie), de Stephen King, y La abadía sin ojos utilizan las creencias religiosas como parte de sus conflictos inquietantes. Carrie (edición serie) relaciona ese elemento con el acoso escolar y una madre fanática, mientras que La abadía sin ojos sitúa la amenaza en un monasterio que recibe con hostilidad a un sacerdote.",
+      "texto": "La abadía sin ojos y Carrie (edición serie) comparten el terror vinculado a entornos donde la religión condiciona la vida de los personajes. Jordi Wild sitúa su historia en un monasterio marcado por secretos y fenómenos extraños, mientras Stephen King presenta a una joven acosada que convive con una madre de extremismo religioso. La primera se articula alrededor de una investigación; la segunda parte del acoso y la convivencia familiar.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "sinopsis_editorial"
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788466396806"
@@ -47,6 +51,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "22a3f3d4e86bb826",
+  "fuente_hash": "5e758762f0b96b83",
   "origen": "chatgpt-web"
 }

@@ -3,8 +3,18 @@
   "familia": "narrativa",
   "bloques": [
     {
+      "modulo": "para_quien",
+      "texto": "Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados está dirigido a lectores a partir de 16 años interesados en la fantasía juvenil con dragones, academias y luchas por el poder. Encaja menos con quienes buscan historias realistas o prefieren evitar conflictos en los que la supervivencia de los personajes está amenazada.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La edad recomendada es a partir de 16 años y la historia presenta un entorno académico donde la supervivencia está amenazada. El despertar de un dragón y las consecuencias de su poder introducen peligro de muerte y conflictos relacionados con la sangre y el legado familiar. El título identifica este volumen como el n.º 2.",
+      "texto": "La edad recomendada para Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados es a partir de 16 años. La historia plantea amenazas mortales, una academia donde el linaje determina el poder y las consecuencias de despertar a un dragón, aspectos relevantes para valorar su intensidad.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -13,31 +23,29 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela de fantasía juvenil ambientada en la Academia Bloodwing, donde la ascendencia y los dragones están vinculados al poder. Briar Boleyn plantea las consecuencias de despertar a un dragón después de un primer año marcado por la dificultad de sobrevivir, con una dinastía amenazada por ese acontecimiento.",
+      "texto": "Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados propone fantasía juvenil ambientada en una academia donde la herencia y los dragones condicionan la posición de sus personajes. El despertar de una criatura altera el equilibrio existente y sitúa el peligro personal junto a las consecuencias para una dinastía.",
       "evidencias": [
-        "autores",
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición especial limitada de Editorial Planeta se publica en tapa dura con sobrecubierta, cantos tintados, guardas con acabados metalizados y un mapa desplegable. Contiene 640 páginas en castellano, tiene el ISBN 9788408327271 y fecha editorial del 28 de octubre de 2026. Estos elementos físicos distinguen el volumen de la opción Kindle.",
+      "texto": "Esta edición especial de Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados incorpora tapa dura con sobrecubierta, cantos tintados, guardas con acabados metalizados y un mapa desplegable. Editorial Planeta la publica en castellano con 640 páginas, por lo que reúne elementos físicos y complementos que no forman parte de la lectura digital.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
-        "sinopsis_editorial",
-        "numero_paginas",
+        "editorial",
         "idioma",
-        "isbn13",
-        "fecha_publicacion",
+        "numero_paginas",
+        "sinopsis_editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 640 páginas e incorpora sobrecubierta, cantos tintados, guardas metalizadas y mapa desplegable, elementos que también cuentan al elegirla como regalo. Kindle permite leer la novela en formato electrónico y transportarla sin el peso del volumen físico, aunque la edición especial se distingue precisamente por sus acabados materiales.",
+      "texto": "La tapa dura reúne las 640 páginas junto con los cantos tintados, las guardas metalizadas y el mapa desplegable, elementos que también cuentan al elegir un ejemplar para regalar o conservar. Kindle permite leer la novela en formato digital sin transportar el volumen físico, aunque no reproduce esos acabados materiales.",
       "evidencias": [
         "numero_paginas",
         "edicion",
@@ -46,10 +54,7 @@
       ]
     }
   ],
-  "descartados": [
-    "para_quien: afirmaciones sin respaldo: premi",
-    "faltan módulos: para_quien"
-  ],
+  "descartados": [],
   "version": 3,
   "fuente_hash": "5ab277d3659c5574",
   "origen": "chatgpt-web"

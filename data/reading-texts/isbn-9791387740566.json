@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El hombre que solo escribía en los aviones se dirige a lectores adultos interesados en la narrativa contemporánea sobre el deseo y la creación literaria. Su protagonista es un lector que transforma su relación con los libros en una actividad de escritura y apropiación de textos. No plantea una investigación criminal ni una historia centrada en resolver un misterio.",
+      "texto": "El hombre que solo escribía en los aviones se dirige a lectores adultos de narrativa contemporánea interesados en la creación literaria, el deseo y las relaciones amorosas. Su protagonista convierte la lectura y la escritura en preocupaciones centrales de su vida. Encaja menos con quienes buscan una trama policial o una historia centrada en aventuras físicas.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El hombre que solo escribía en los aviones es una novela contemporánea sobre la vocación de escribir y la experiencia de leer. Pedro Almodóvar sitúa a Flavio Guijarro ante una relación obsesiva con los libros, que le lleva a modificar y apropiarse de textos ajenos. El relato también incorpora el deseo y dos relaciones amorosas como parte de su desarrollo.",
+      "texto": "El hombre que solo escribía en los aviones es una novela contemporánea sobre la relación entre leer, escribir y apropiarse de historias ajenas. Flavio Guijarro, lector especialmente entregado, modifica textos que le han marcado y convierte su relación con los libros en parte del conflicto narrativo. Pedro Almodóvar incorpora también el deseo amoroso y la dificultad de separar la experiencia personal de la creación literaria.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,21 +24,22 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El hombre que solo escribía en los aviones puede leerse en tapa blanda o Kindle. La edición de Reservoir Books tiene solapas y 256 páginas, reunidas en un único volumen físico. Kindle permite llevar la novela en el móvil y retomar la lectura sin transportar el libro de papel.",
+      "texto": "El hombre que solo escribía en los aviones está disponible en tapa blanda, Kindle y audiolibro. La edición de Reservoir Books consta de 256 páginas y tiene solapas, por lo que permite leer y conservar el texto en papel. Kindle ofrece una alternativa digital para llevar la novela en un dispositivo compatible; el audiolibro permite escucharla sin seguir el texto impreso.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
         "editorial",
-        "numero_paginas",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El hombre que solo escribía en los aviones y Esas muchachas que escriben poemas comparten una relación temática con la escritura. La novela de Pedro Almodóvar sigue a un lector cuya pasión literaria le lleva a intervenir textos ajenos; la propuesta de Alba Donati presenta distintas personalidades vinculadas a la poesía. La primera desarrolla el conflicto de un protagonista concreto, mientras que la segunda apunta a una pluralidad de figuras.",
+      "texto": "El hombre que solo escribía en los aviones puede compararse con Esas muchachas que escriben poemas por su relación con la expresión literaria. Pedro Almodóvar centra su novela en un lector que altera los textos que admira, mientras que la propuesta de Alba Donati presenta distintas personalidades vinculadas a la poesía. La diferencia principal está en el protagonismo de la lectura y la reescritura frente a la diversidad de figuras poéticas.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
@@ -49,6 +50,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1cf224183ab8fafc",
+  "fuente_hash": "82296a3f9d51e04d",
   "origen": "chatgpt-web"
 }

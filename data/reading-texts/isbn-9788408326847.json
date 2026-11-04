@@ -3,8 +3,19 @@
   "familia": "narrativa",
   "bloques": [
     {
+      "modulo": "para_quien",
+      "texto": "El día de la Trilla (Empíreo), de Rebecca Yarros, se dirige a lectores de fantasía juvenil desde los 14 años que buscan dragones, pruebas de supervivencia y conflictos entre cadetes. Su escenario militar y la posibilidad de morir durante la prueba lo alejan de las historias escolares de tono cotidiano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La edad recomendada para El día de la Trilla (Empíreo) es a partir de 14 años. La historia presenta una prueba violenta en un colegio militar, con enfrentamientos entre aspirantes a jinetes, fuego de dragones y riesgo de muerte. Son elementos que conviene considerar para lectores sensibles a la violencia.",
+      "texto": "La edad recomendada para El día de la Trilla (Empíreo) es a partir de 14 años. La historia presenta una prueba de vinculación con dragones en la que los cadetes afrontan combates, fuego y riesgo de muerte. La violencia del enfrentamiento y la amenaza constante sobre los participantes son aspectos que conviene considerar para lectores sensibles.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -13,7 +24,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El día de la Trilla (Empíreo) plantea una historia de fantasía juvenil centrada en una prueba de selección de jinetes de dragón. Trece cadetes afrontan una competición en el Colegio de Guerra Basgiath donde conseguir un vínculo con un dragón implica exponerse a la muerte. El conflicto principal combina supervivencia, rivalidad y una decisión de consecuencias irreversibles.",
+      "texto": "El día de la Trilla (Empíreo) plantea una fantasía juvenil centrada en una prueba decisiva para futuros jinetes de dragón. Trece cadetes deben atravesar un enfrentamiento mortal para conseguir su vínculo con estas criaturas. El conflicto combina competición, supervivencia y peligro dentro del Colegio de Guerra Basgiath.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,10 +33,9 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El día de la Trilla (Empíreo) está disponible en tapa dura y Kindle. La edición física de Editorial Planeta tiene 304 páginas y sobrecubierta, características que permiten conservarla en una colección o entregarla como regalo. Kindle permite llevar el mismo título en un lector electrónico o en el móvil sin transportar el volumen.",
+      "texto": "El día de la Trilla (Empíreo) está disponible en tapa dura, Kindle y audiolibro. La edición de tapa dura con sobrecubierta reúne sus 304 páginas en un volumen físico que puede conservarse o regalarse; Kindle permite llevar la lectura en un dispositivo compatible. El audiolibro ofrece la alternativa de escuchar la historia durante desplazamientos o actividades cotidianas.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles"
@@ -33,34 +43,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El día de la Trilla (Empíreo) puede compararse con El día de la Trilla (Empíreo) Edición limitada con cantos tintados, también de Rebecca Yarros. Ambos títulos remiten a la misma historia, mientras que el segundo se identifica expresamente como edición limitada con cantos tintados. La edición aquí descrita es una tapa dura con sobrecubierta de 304 páginas.",
+      "texto": "El día de la Trilla (Empíreo) puede compararse con El día de la Trilla (Empíreo) Edición limitada con cantos tintados, también de Rebecca Yarros. Ambos títulos remiten a la misma obra y autoría, pero el segundo identifica expresamente una presentación limitada con cantos tintados. La edición de El día de la Trilla (Empíreo) se presenta en tapa dura con sobrecubierta.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo",
-        "edicion",
-        "numero_paginas"
+        "edicion"
       ],
       "enlaces": [
         "isbn-9788408326861"
       ]
-    },
-    {
-      "modulo": "para_quien",
-      "texto": "El día de la Trilla (Empíreo) se dirige a lectores desde los 14 años interesados en la fantasía juvenil con dragones, entrenamiento militar y pruebas de supervivencia. El conflicto se desarrolla entre aspirantes a jinetes que deben afrontar un riesgo mortal para establecer su vínculo con un dragón. Encaja menos con quienes buscan fantasía sin combates sangrientos.",
-      "evidencias": [
-        "titulo",
-        "edad_recomendada",
-        "categorias",
-        "sinopsis_editorial"
-      ]
     }
   ],
-  "descartados": [
-    "para_quien: afirmaciones sin respaldo: premi",
-    "faltan módulos: para_quien"
-  ],
+  "descartados": [],
   "version": 3,
-  "fuente_hash": "df46790c5aea8887",
+  "fuente_hash": "a6cf15159554aa53",
   "origen": "chatgpt-web"
 }
