@@ -271,6 +271,23 @@ for path in sorted(public_html()):
             continue
 
         for node in walk_nodes(doc):
+            types = node.get("@type", [])
+            if isinstance(types, str):
+                types = [types]
+            # Google ProfilePage accepts DateTime, unlike WebPage's Date or
+            # DateTime. Omit optional profile dates when only the day is known;
+            # never manufacture a time just to satisfy the rich-result parser.
+            if "ProfilePage" in types:
+                for key in ("dateCreated", "dateModified"):
+                    if key not in node:
+                        continue
+                    value = node[key]
+                    try:
+                        kind, _ = parse_temporal(value)
+                        if kind != "datetime":
+                            raise ValueError("ProfilePage requires DateTime precision")
+                    except (ValueError, TypeError, AttributeError) as exc:
+                        errors.append(f"{rel}:{line}: {key} {exc}")
             parsed = {}
             for key in ("datePublished", "dateModified", "uploadDate", "startDate", "endDate"):
                 if key not in node or not isinstance(node[key], str):
