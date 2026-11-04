@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) encaja con lectores de romance juvenil interesados en rivalidades universitarias, relaciones de poder y secretos familiares. Su trama de fiestas, ligues y maniobras para desenmascarar a otros personajes encaja menos con quienes buscan una historia romántica sin intrigas ni enfrentamientos.",
+      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) encaja con lectores de romance juvenil interesados en rivalidades universitarias, relaciones de poder y secretos familiares. Su conflicto gira alrededor de Jude y los hermanos Cash, por lo que se aleja de las historias románticas centradas exclusivamente en la convivencia cotidiana.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -14,51 +14,32 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) está clasificado como juvenil y combina romance con secretos en un entorno universitario. Aparecen fiestas estudiantiles, ligues, diferencias de poder y comportamientos manipuladores asociados a los hermanos Cash. Estos elementos orientan sobre el contenido emocional y los conflictos de la historia.",
+      "texto": "Está clasificada como lectura juvenil y aborda relaciones sentimentales, cotilleos, privilegios económicos y secretos dentro de una universidad elitista. La intención de Jude de desenmascarar a los hermanos Cash introduce un conflicto de manipulación social y enfrentamiento personal que conviene tener en cuenta al elegirla.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "encaje_documentado",
-      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) es una novela romántica juvenil de Alex Mírez construida alrededor de una confrontación en el campus. Jude pretende revelar aquello que los hermanos Cash ocultan tras su posición privilegiada. El título lo identifica como el n.º 1 de Perfectos Mentirosos, con secretos y relaciones personales como motores del conflicto.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) está disponible en tapa blanda y Kindle. La edición de bolsillo de Penguin Bolsillo tiene 336 páginas y ofrece un ejemplar físico de tamaño reducido para transportar. Kindle permite leer la novela en un dispositivo electrónico o en el móvil sin llevar el libro impreso.",
+      "texto": "La edición de bolsillo de Penguin Bolsillo reúne 336 páginas en tapa blanda, una opción física para transportar y prestar. Kindle permite leer la novela desde el móvil o un lector electrónico, mientras que el audiolibro ofrece la posibilidad de seguir los conflictos entre estudiantes mediante la escucha.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "edicion",
         "editorial",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) y Peligros y verdades (Perfectos Mentirosos 2) son títulos de Alex Mírez ambientados en el entorno universitario de los hermanos Cash. El primero presenta a Jude y su intención de sacar a la luz secretos familiares; el segundo vuelve a situar el foco en los hermanos Cash dentro de Tangus. Sus títulos los identifican respectivamente como el n.º 1 y el n.º 2.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788413145228"
+        "numero_paginas",
+        "formato_edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "encaje_documentado: afirmaciones sin respaldo: premi",
+    "lecturas_afines: afirmaciones sin respaldo: premi",
+    "faltan módulos: encaje_documentado, lecturas_afines"
+  ],
   "version": 3,
-  "fuente_hash": "377e1f4487f58655",
+  "fuente_hash": "77adac5a7ca80233",
   "origen": "chatgpt-web"
 }
