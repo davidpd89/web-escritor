@@ -4,7 +4,7 @@ Sin app adicional: un catálogo de paneles y una rutina para que Claude revise t
 
 ## Preparación en Windows (una sola vez)
 
-**1. Abre Edge con el puerto fijo 9222.** Desde PowerShell en `C:\GIT\web-escritor`:
+**1. Abre Edge con el puerto fijo 9221.** Desde PowerShell en `C:\GIT\web-escritor`:
 
 ```powershell
 .\scripts\abrir-observatorio.ps1
@@ -15,7 +15,7 @@ Se abren todas las webs de `fuentes.json`. Inicia sesión en cada una; Edge cons
 **2. Conecta Claude Code una vez al mismo puerto, solo en este proyecto** (en terminal, no dentro de Claude):
 
 ```powershell
-claude mcp add --scope local observatorio-edge -- npx -y chrome-devtools-mcp@latest --browser-url=http://127.0.0.1:9222
+claude mcp add --scope local observatorio-edge -- npx -y chrome-devtools-mcp@latest --browser-url=http://127.0.0.1:9221
 ```
 
 Comprueba `claude mcp list` y `/mcp`. Si ya tienes configurado Chrome DevTools MCP para **este mismo puerto**, reutilízalo en lugar de duplicarlo.
@@ -31,6 +31,6 @@ Comprueba `claude mcp list` y `/mcp`. Si ya tienes configurado Chrome DevTools M
 
 ## Precaución
 
-`127.0.0.1:9222` da a cualquier proceso local acceso de control a ese perfil Edge **y sus sesiones**. Utiliza un ordenador de confianza y cierra la ventana del observatorio al acabar. Nunca expongas ese puerto en red ni introduzcas el perfil personal, cookies o claves en el repo. Los nuevos logins, CAPTCHA y expiraciones requieren al usuario.
+`127.0.0.1:9221` da a cualquier proceso local acceso de control a ese perfil Edge **y sus sesiones**. Utiliza un ordenador de confianza y cierra la ventana del observatorio al acabar. Nunca expongas ese puerto en red ni introduzcas el perfil personal, cookies o claves en el repo. Los nuevos logins, CAPTCHA y expiraciones requieren al usuario.
 
 Esta PR prepara archivos, **no verifica las sesiones ni instala MCP en tu ordenador**. Hay que hacer un smoke real en Windows antes de darla por probada. Documentación: https://learn.microsoft.com/en-us/microsoft-edge/web-platform/devtools-mcp-server · https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/docs/advanced-usage.md · https://code.claude.com/docs/en/mcp.
