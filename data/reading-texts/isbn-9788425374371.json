@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sana tus células está dirigido a lectores adultos interesados en nutrición, bienestar y envejecimiento celular. Sus protocolos, evaluaciones y pautas de alimentación y ejercicio lo sitúan en la lectura práctica, no en la ficción.",
+      "texto": "Sana tus células está dirigido a adultos interesados en nutrición, bienestar y hábitos relacionados con el envejecimiento. Dr. Will Cole reúne propuestas sobre alimentación, ayuno, ejercicio y gestión del estrés desde una perspectiva centrada en la salud celular. No es un recetario exclusivamente gastronómico ni un manual dedicado a una única enfermedad.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,30 +15,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sana tus células está disponible en tapa blanda con solapas y consta de 432 páginas. La edición en papel facilita volver a sus protocolos prácticos, evaluaciones personalizadas y propuestas de hábitos cotidianos, con las solapas como apoyo para localizar el punto de lectura.",
+      "texto": "Sana tus células está disponible en tapa blanda y Kindle. La edición de Grijalbo tiene 432 páginas, tapa blanda con solapas y reúne protocolos, evaluaciones personalizadas y propuestas de hábitos que pueden consultarse en papel. Kindle permite acceder al contenido digitalmente y revisar sus apartados desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sana tus células y La fibra es la solución vinculan alimentación y salud, pero se fijan en aspectos distintos. La fibra es la solución aborda el consumo de 30 gramos de fibra al día, mientras Sana tus células se ocupa del envejecimiento celular e incorpora ayuno y cronutrición.",
+      "texto": "Sana tus células y Cómo no tener diabetes, de Adrián Díaz Alonso, coinciden en su interés por la salud y los procesos metabólicos, aunque Dr. Will Cole amplía el enfoque al envejecimiento celular y distintos hábitos cotidianos. La fibra es la solución, de Kristen Stavridis, también relaciona alimentación y prevención, pero concentra su propuesta en el consumo de fibra, frente al conjunto de estrategias nutricionales y de bienestar de Sana tus células.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788425373152",
         "isbn-9788425374869"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "08086db8c310e850",
+  "fuente_hash": "5c7e8b7b02069658",
   "origen": "chatgpt-web"
 }
