@@ -98,7 +98,7 @@ def amazon_list(value):
     return value if isinstance(value,list) else []
 
 
-def select_offers(book,payload,tag,now):
+def select_offers(book,payload,tag,now,mismatches=None):
     if not re.fullmatch(r'[A-Za-z0-9-]+',tag):
         raise ValueError('Invalid partner tag')
     now=now.astimezone(timezone.utc)
@@ -133,6 +133,11 @@ def select_offers(book,payload,tag,now):
         binding_value=amazon_dict(amazon_dict(info.get('classifications')).get('binding')).get('displayValue','')
         binding=key(binding_value) if isinstance(binding_value,str) else ''
         fmt=known.get(asin) or BINDINGS.get(binding)
+        if asin in known and BINDINGS.get(binding,fmt)!=fmt:
+            # Amazon manda sobre el formato de su ASIN: un precio de tapa dura no se publica como tapa blanda.
+            if mismatches is not None:
+                mismatches.append({'libro_id':book['id'],'asin':asin,'guardado':fmt,'amazon':BINDINGS[binding]})
+            continue
         digital=fmt in {'ebook','audiolibro'} and same_title(title,book['titulo']) and in_spanish(info)
         if not fmt or (asin not in known and not isbn_match and not digital):
             continue
@@ -544,7 +549,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
     if hasattr(provider,'discover'):
         # A missing Kindle or audiobook is looked for the first night, not when the price turn comes.
         due+=[b for b in books[share:] if needs_discovery(b,now)]
-    stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[],'sin_oferta':[],'errores_amazon':{}}
+    stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[],'sin_oferta':[],'errores_amazon':{},'formato_discrepante':[]}
     answers={}
 
     def ask(call,*args):
@@ -563,7 +568,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
 
     def keep(found,book,payload):
         answers.setdefault(book['id'],[]).append(payload)
-        for offer in select_offers(book,payload,tag,now):
+        for offer in select_offers(book,payload,tag,now,stats['formato_discrepante']):
             best=found.get(offer['formato'])
             if not best or best['precio_centimos']>offer['precio_centimos']:
                 found[offer['formato']]=offer
