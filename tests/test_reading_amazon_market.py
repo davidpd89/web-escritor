@@ -70,6 +70,7 @@ class AmazonPriceTests(unittest.TestCase):
         book['formatos_compra']=[{'formato':'ebook','url':'https://www.amazon.es/dp/B08CYCPBZN?tag=contrato-21'}]
         payload=response(); item=payload['searchResult']['items'][0]
         item['asin']='B08CYCPBZN'; item['itemInfo']['externalIds']={}
+        item['itemInfo']['classifications']['binding']['displayValue']='Versión Kindle'
         self.assertEqual(select_offers(book,payload,'contrato-21',NOW)[0]['formato'],'ebook')
 
     def test_deal_never_outlives_its_actual_end(self):
@@ -223,7 +224,11 @@ class AmazonFormatDiscoveryTests(unittest.TestCase):
             def items(self,asins):
                 self.calls.append(len(asins))
                 payload=response(); item=payload['searchResult']['items'][0]
-                return {'itemsResult':{'items':[dict(item,asin=a) for a in asins]}}
+                def priced(a):
+                    clone=copy.deepcopy(item); clone['asin']=a
+                    clone['itemInfo']['classifications']['binding']['displayValue']='Hardcover' if a.startswith('84983824') else 'Paperback'
+                    return clone
+                return {'itemsResult':{'items':[priced(a) for a in asins]}}
         books=[dict(BOOK,id=f'lib-{i}',isbn13='9788498382372',formatos_compra=[
             {'formato':'tapa-blanda','url':f'https://www.amazon.es/dp/84983823{i:02d}?tag=contrato-21'},
             {'formato':'tapa-dura','url':f'https://www.amazon.es/dp/84983824{i:02d}?tag=contrato-21'}]) for i in range(10)]
