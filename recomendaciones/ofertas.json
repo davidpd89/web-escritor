@@ -2,183 +2,6 @@
   "schema_version": 1,
   "ofertas": [
     {
-      "libro_id": "isbn-9791387574871",
-      "titulo": "La lista",
-      "autores": [
-        "Steve Berry"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/la-lista-9791387574871/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791387574871.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0HJ6Y6YSC?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 999,
-      "precio_antes_centimos": 2200,
-      "descuento_pct": 54,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9791387714529",
-      "titulo": "Por la gracia de Dios",
-      "autores": [
-        "José Antonio Fortea"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/por-la-gracia-de-dios-9791387714529/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791387714529.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0HKPVYT4G?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1139,
-      "precio_antes_centimos": 2495,
-      "descuento_pct": 54,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788408325260",
-      "titulo": "Los dones de los niños altamente sensibles",
-      "autores": [
-        "Úrsula Perona @ursulaperonapsicologa"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/los-dones-de-los-ninos-altamente-sensibles-9788408325260/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788408325260.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0H9XF87RQ?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 949,
-      "precio_antes_centimos": 1995,
-      "descuento_pct": 52,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788432251467",
-      "titulo": "Recuerdos. Breve historia de un amor",
-      "autores": [
-        "Juan Ramírez de Lucas"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/recuerdos-breve-historia-de-un-amor-9788432251467/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788432251467.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0H9XNBSF9?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1044,
-      "precio_antes_centimos": 2190,
-      "descuento_pct": 52,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788408323099",
-      "titulo": "Amor en plena guerra",
-      "autores": [
-        "Natalia Jiménez"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/amor-en-plena-guerra-9788408323099/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788408323099.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0HCW43N7S?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 949,
-      "precio_antes_centimos": 1895,
-      "descuento_pct": 49,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788408327196",
-      "titulo": "No metas la pata en Japón",
-      "autores": [
-        "Andreas Fels",
-        "Kerstin Fels"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/no-metas-la-pata-en-japon-9788408327196/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788408327196.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0HMW32DFD?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 854,
-      "precio_antes_centimos": 1690,
-      "descuento_pct": 49,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788408328858",
-      "titulo": "La añoranza",
-      "autores": [
-        "Sergio Hernández"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/la-anoranza-9788408328858/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788408328858.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0HN7WRRNB?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1234,
-      "precio_antes_centimos": 2390,
-      "descuento_pct": 48,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788408328834",
-      "titulo": "La hora antes del alba",
-      "autores": [
-        "Isabel Allende"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/la-hora-antes-del-alba-9788408328834/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788408328834.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0HN795W63?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1234,
-      "precio_antes_centimos": 2390,
-      "descuento_pct": 48,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788408325291",
-      "titulo": "Neurocambios",
-      "autores": [
-        "Begoña del Campo"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/neurocambios-9788408325291/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788408325291.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0H9XJH48M?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1139,
-      "precio_antes_centimos": 2195,
-      "descuento_pct": 48,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788411005555",
-      "titulo": "Auge y caída del Tercer Reich (edición especial)",
-      "autores": [
-        "William L. Shirer"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/auge-y-caida-del-tercer-reich-edicion-especial-9788411005555/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788411005555.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0HKPZLBTF?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 2374,
-      "precio_antes_centimos": 4290,
-      "descuento_pct": 44,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788411406277",
-      "titulo": "Creepy nº 25/29",
-      "autores": [
-        "Varios Autores"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/creepy-no-25-29-9788411406277/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788411406277.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0H9R94DQ2?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 2279,
-      "precio_antes_centimos": 4000,
-      "descuento_pct": 43,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
       "libro_id": "isbn-9788467084245",
       "titulo": "Sesenta semanas en el trópico",
       "autores": [
@@ -190,7 +13,7 @@
       "url": "https://www.amazon.es/dp/B0786KW76W?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 712,
       "precio_antes_centimos": 999,
-      "descuento_pct": 28,
+      "descuento_pct": 29,
       "tipo": "descuento",
       "comprobado": "2026-11-04"
     },
@@ -206,6 +29,22 @@
       "url": "https://www.amazon.es/dp/8434441055?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 2365,
       "precio_antes_centimos": 2490,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
+      "libro_id": "isbn-9788411193887",
+      "titulo": "Amiga, sepárate ya",
+      "autores": [
+        "Coral Herrera"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/amiga-separate-ya-9788411193887/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788411193887.webp",
+      "formato": "tapa-blanda",
+      "url": "https://www.amazon.es/dp/8411193888?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 1986,
+      "precio_antes_centimos": 2090,
       "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-04"
@@ -243,6 +82,22 @@
       "comprobado": "2026-11-04"
     },
     {
+      "libro_id": "isbn-9788467084221",
+      "titulo": "Aprendiendo de las drogas",
+      "autores": [
+        "Antonio Escohotado"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/aprendiendo-de-las-drogas-9788467084221/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788467084221.webp",
+      "formato": "tapa-blanda",
+      "url": "https://www.amazon.es/dp/8467084227?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 1986,
+      "precio_antes_centimos": 2090,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
       "libro_id": "isbn-9791388387524",
       "titulo": "Atención y esfuerzo",
       "autores": [
@@ -270,6 +125,22 @@
       "url": "https://www.amazon.es/dp/B0HC7F7FYR?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 2270,
       "precio_antes_centimos": 2390,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
+      "libro_id": "isbn-9788411005555",
+      "titulo": "Auge y caída del Tercer Reich (edición especial)",
+      "autores": [
+        "William L. Shirer"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/auge-y-caida-del-tercer-reich-edicion-especial-9788411005555/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788411005555.webp",
+      "formato": "tapa-dura",
+      "url": "https://www.amazon.es/dp/8411005550?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 4076,
+      "precio_antes_centimos": 4290,
       "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-04"
@@ -318,6 +189,22 @@
       "url": "https://www.amazon.es/dp/846639608X?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 1230,
       "precio_antes_centimos": 1295,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
+      "libro_id": "isbn-9788467084320",
+      "titulo": "Catulo / Marcial",
+      "autores": [
+        "Ernesto Cardenal"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/catulo-marcial-9788467084320/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788467084320.webp",
+      "formato": "tapa-blanda",
+      "url": "https://www.amazon.es/dp/8467084324?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 1606,
+      "precio_antes_centimos": 1690,
       "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-04"
@@ -422,6 +309,22 @@
       "comprobado": "2026-11-04"
     },
     {
+      "libro_id": "isbn-9788408328773",
+      "titulo": "De la discusión a la conexión",
+      "autores": [
+        "Gabrielle Rifkind"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/de-la-discusion-a-la-conexion-9788408328773/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788408328773.webp",
+      "formato": "tapa-blanda",
+      "url": "https://www.amazon.es/dp/8408328778?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 2176,
+      "precio_antes_centimos": 2290,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
       "libro_id": "isbn-9791388414084",
       "titulo": "Devocionario",
       "autores": [
@@ -433,6 +336,22 @@
       "url": "https://www.amazon.es/dp/B0HH5BZRB2?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 2460,
       "precio_antes_centimos": 2590,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
+      "libro_id": "isbn-9788467084481",
+      "titulo": "El arte de la guerra",
+      "autores": [
+        "Sun Tzu"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/el-arte-de-la-guerra-9788467084481/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788467084481.webp",
+      "formato": "tapa-dura",
+      "url": "https://www.amazon.es/dp/8467084480?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 1416,
+      "precio_antes_centimos": 1490,
       "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-04"
@@ -481,6 +400,22 @@
       "url": "https://www.amazon.es/dp/8427258283?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 2560,
       "precio_antes_centimos": 2695,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
+      "libro_id": "isbn-9788427055780",
+      "titulo": "En ese silencio",
+      "autores": [
+        "Carmen Amoraga"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/en-ese-silencio-9788427055780/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788427055780.webp",
+      "formato": "tapa-dura",
+      "url": "https://www.amazon.es/dp/8427055781?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 2176,
+      "precio_antes_centimos": 2290,
       "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-04"
@@ -567,6 +502,22 @@
       "comprobado": "2026-11-04"
     },
     {
+      "libro_id": "isbn-9788408327431",
+      "titulo": "Hasta que el calendario nos separe",
+      "autores": [
+        "Nerea Pascual"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/hasta-que-el-calendario-nos-separe-9788408327431/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788408327431.webp",
+      "formato": "tapa-blanda",
+      "url": "https://www.amazon.es/dp/8408327437?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 1986,
+      "precio_antes_centimos": 2090,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
       "libro_id": "isbn-9791388220296",
       "titulo": "Karateka",
       "autores": [
@@ -647,6 +598,23 @@
       "comprobado": "2026-11-04"
     },
     {
+      "libro_id": "isbn-9788423441174",
+      "titulo": "La economía del cambio climático",
+      "autores": [
+        "Rafael Doménech Vilariño",
+        "Javier Angel Andrés Domingo"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/la-economia-del-cambio-climatico-9788423441174/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788423441174.webp",
+      "formato": "tapa-blanda",
+      "url": "https://www.amazon.es/dp/8423441172?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 2086,
+      "precio_antes_centimos": 2195,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
       "libro_id": "isbn-9788408328834",
       "titulo": "La hora antes del alba",
       "autores": [
@@ -674,6 +642,22 @@
       "url": "https://www.amazon.es/dp/B0HHNF7ZCT?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 2089,
       "precio_antes_centimos": 2200,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
+      "libro_id": "isbn-9788411078597",
+      "titulo": "La tía Harry y la señora Klein",
+      "autores": [
+        "Henry Van Dyke"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/la-tia-harry-y-la-senora-klein-9788411078597/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788411078597.webp",
+      "formato": "tapa-blanda",
+      "url": "https://www.amazon.es/dp/8411078590?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 1986,
+      "precio_antes_centimos": 2090,
       "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-04"
@@ -727,6 +711,38 @@
       "comprobado": "2026-11-04"
     },
     {
+      "libro_id": "isbn-9791388220098",
+      "titulo": "Los mundos de Dune",
+      "autores": [
+        "Tom Huddleston"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/los-mundos-de-dune-9791388220098/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791388220098.webp",
+      "formato": "tapa-dura",
+      "url": "https://www.amazon.es/dp/B0HH5H3XXD?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 2841,
+      "precio_antes_centimos": 2990,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
+      "libro_id": "isbn-9791388139369",
+      "titulo": "Los ricos siempre ganan",
+      "autores": [
+        "Iñaki Arcocha Torres"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/los-ricos-siempre-ganan-9791388139369/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791388139369.webp",
+      "formato": "tapa-blanda",
+      "url": "https://www.amazon.es/dp/B0HNWDYSZG?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 2081,
+      "precio_antes_centimos": 2190,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
       "libro_id": "isbn-9791388038440",
       "titulo": "Minikit para dejar de sobrepensar",
       "autores": [
@@ -738,6 +754,38 @@
       "url": "https://www.amazon.es/dp/B0HNWV6CQM?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 949,
       "precio_antes_centimos": 999,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
+      "libro_id": "isbn-9791388038440",
+      "titulo": "Minikit para dejar de sobrepensar",
+      "autores": [
+        "Marina Muñoz"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/minikit-para-dejar-de-sobrepensar-9791388038440/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791388038440.webp",
+      "formato": "tapa-blanda",
+      "url": "https://www.amazon.es/dp/B0HJZVKKXM?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 2081,
+      "precio_antes_centimos": 2190,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
+      "libro_id": "isbn-9791388220029",
+      "titulo": "Monstruos Yokai",
+      "autores": [
+        "Philippe Charlier"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/monstruos-yokai-9791388220029/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791388220029.webp",
+      "formato": "tapa-dura",
+      "url": "https://www.amazon.es/dp/B0HH5JR1K9?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 2841,
+      "precio_antes_centimos": 2990,
       "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-04"
@@ -808,6 +856,22 @@
       "comprobado": "2026-11-04"
     },
     {
+      "libro_id": "isbn-9788467084245",
+      "titulo": "Sesenta semanas en el trópico",
+      "autores": [
+        "Antonio Escohotado"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/sesenta-semanas-en-el-tropico-9788467084245/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788467084245.webp",
+      "formato": "tapa-blanda",
+      "url": "https://www.amazon.es/dp/8467084243?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 2176,
+      "precio_antes_centimos": 2290,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
       "libro_id": "isbn-9788408325185",
       "titulo": "Sinners consumed",
       "autores": [
@@ -819,6 +883,38 @@
       "url": "https://www.amazon.es/dp/8408325183?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 1990,
       "precio_antes_centimos": 2095,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
+      "libro_id": "isbn-9788448049409",
+      "titulo": "Stop cortisol e inflamación",
+      "autores": [
+        "Maria de Lluc Martorell"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/stop-cortisol-e-inflamacion-9788448049409/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788448049409.webp",
+      "formato": "tapa-blanda",
+      "url": "https://www.amazon.es/dp/8448049403?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 1986,
+      "precio_antes_centimos": 2090,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
+      "libro_id": "isbn-9788467084498",
+      "titulo": "Tao Te Ching",
+      "autores": [
+        "Lao-Tse"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/tao-te-ching-9788467084498/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788467084498.webp",
+      "formato": "tapa-dura",
+      "url": "https://www.amazon.es/dp/8467084499?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 1416,
+      "precio_antes_centimos": 1490,
       "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-04"
@@ -872,295 +968,6 @@
       "comprobado": "2026-11-04"
     },
     {
-      "libro_id": "isbn-9791388101304",
-      "titulo": "Yuru Camp nº 12",
-      "autores": [
-        "Afro"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/yuru-camp-no-12-9791388101304/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791388101304.webp",
-      "formato": "tapa-blanda",
-      "url": "https://www.amazon.es/dp/B0H7JTSKGY?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 850,
-      "precio_antes_centimos": 895,
-      "descuento_pct": 5,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788411193887",
-      "titulo": "Amiga, sepárate ya",
-      "autores": [
-        "Coral Herrera"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/amiga-separate-ya-9788411193887/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788411193887.webp",
-      "formato": "tapa-blanda",
-      "url": "https://www.amazon.es/dp/8411193888?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1986,
-      "precio_antes_centimos": 2090,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788467084221",
-      "titulo": "Aprendiendo de las drogas",
-      "autores": [
-        "Antonio Escohotado"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/aprendiendo-de-las-drogas-9788467084221/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788467084221.webp",
-      "formato": "tapa-blanda",
-      "url": "https://www.amazon.es/dp/8467084227?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1986,
-      "precio_antes_centimos": 2090,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788411005555",
-      "titulo": "Auge y caída del Tercer Reich (edición especial)",
-      "autores": [
-        "William L. Shirer"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/auge-y-caida-del-tercer-reich-edicion-especial-9788411005555/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788411005555.webp",
-      "formato": "tapa-dura",
-      "url": "https://www.amazon.es/dp/8411005550?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 4076,
-      "precio_antes_centimos": 4290,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788467084320",
-      "titulo": "Catulo / Marcial",
-      "autores": [
-        "Ernesto Cardenal"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/catulo-marcial-9788467084320/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788467084320.webp",
-      "formato": "tapa-blanda",
-      "url": "https://www.amazon.es/dp/8467084324?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1606,
-      "precio_antes_centimos": 1690,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788408328773",
-      "titulo": "De la discusión a la conexión",
-      "autores": [
-        "Gabrielle Rifkind"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/de-la-discusion-a-la-conexion-9788408328773/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788408328773.webp",
-      "formato": "tapa-blanda",
-      "url": "https://www.amazon.es/dp/8408328778?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 2176,
-      "precio_antes_centimos": 2290,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788467084481",
-      "titulo": "El arte de la guerra",
-      "autores": [
-        "Sun Tzu"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/el-arte-de-la-guerra-9788467084481/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788467084481.webp",
-      "formato": "tapa-dura",
-      "url": "https://www.amazon.es/dp/8467084480?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1416,
-      "precio_antes_centimos": 1490,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788427055780",
-      "titulo": "En ese silencio",
-      "autores": [
-        "Carmen Amoraga"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/en-ese-silencio-9788427055780/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788427055780.webp",
-      "formato": "tapa-dura",
-      "url": "https://www.amazon.es/dp/8427055781?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 2176,
-      "precio_antes_centimos": 2290,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788408327431",
-      "titulo": "Hasta que el calendario nos separe",
-      "autores": [
-        "Nerea Pascual"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/hasta-que-el-calendario-nos-separe-9788408327431/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788408327431.webp",
-      "formato": "tapa-blanda",
-      "url": "https://www.amazon.es/dp/8408327437?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1986,
-      "precio_antes_centimos": 2090,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788423441174",
-      "titulo": "La economía del cambio climático",
-      "autores": [
-        "Rafael Doménech Vilariño",
-        "Javier Angel Andrés Domingo"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/la-economia-del-cambio-climatico-9788423441174/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788423441174.webp",
-      "formato": "tapa-blanda",
-      "url": "https://www.amazon.es/dp/8423441172?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 2086,
-      "precio_antes_centimos": 2195,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788411078597",
-      "titulo": "La tía Harry y la señora Klein",
-      "autores": [
-        "Henry Van Dyke"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/la-tia-harry-y-la-senora-klein-9788411078597/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788411078597.webp",
-      "formato": "tapa-blanda",
-      "url": "https://www.amazon.es/dp/8411078590?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1986,
-      "precio_antes_centimos": 2090,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9791388220098",
-      "titulo": "Los mundos de Dune",
-      "autores": [
-        "Tom Huddleston"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/los-mundos-de-dune-9791388220098/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791388220098.webp",
-      "formato": "tapa-dura",
-      "url": "https://www.amazon.es/dp/B0HH5H3XXD?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 2841,
-      "precio_antes_centimos": 2990,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9791388139369",
-      "titulo": "Los ricos siempre ganan",
-      "autores": [
-        "Iñaki Arcocha Torres"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/los-ricos-siempre-ganan-9791388139369/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791388139369.webp",
-      "formato": "tapa-blanda",
-      "url": "https://www.amazon.es/dp/B0HNWDYSZG?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 2081,
-      "precio_antes_centimos": 2190,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9791388038440",
-      "titulo": "Minikit para dejar de sobrepensar",
-      "autores": [
-        "Marina Muñoz"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/minikit-para-dejar-de-sobrepensar-9791388038440/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791388038440.webp",
-      "formato": "tapa-blanda",
-      "url": "https://www.amazon.es/dp/B0HJZVKKXM?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 2081,
-      "precio_antes_centimos": 2190,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9791388220029",
-      "titulo": "Monstruos Yokai",
-      "autores": [
-        "Philippe Charlier"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/monstruos-yokai-9791388220029/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791388220029.webp",
-      "formato": "tapa-dura",
-      "url": "https://www.amazon.es/dp/B0HH5JR1K9?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 2841,
-      "precio_antes_centimos": 2990,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788467084245",
-      "titulo": "Sesenta semanas en el trópico",
-      "autores": [
-        "Antonio Escohotado"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/sesenta-semanas-en-el-tropico-9788467084245/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788467084245.webp",
-      "formato": "tapa-blanda",
-      "url": "https://www.amazon.es/dp/8467084243?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 2176,
-      "precio_antes_centimos": 2290,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788448049409",
-      "titulo": "Stop cortisol e inflamación",
-      "autores": [
-        "Maria de Lluc Martorell"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/stop-cortisol-e-inflamacion-9788448049409/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788448049409.webp",
-      "formato": "tapa-blanda",
-      "url": "https://www.amazon.es/dp/8448049403?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1986,
-      "precio_antes_centimos": 2090,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788467084498",
-      "titulo": "Tao Te Ching",
-      "autores": [
-        "Lao-Tse"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/tao-te-ching-9788467084498/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788467084498.webp",
-      "formato": "tapa-dura",
-      "url": "https://www.amazon.es/dp/8467084499?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1416,
-      "precio_antes_centimos": 1490,
-      "descuento_pct": 4,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
       "libro_id": "isbn-9788423440801",
       "titulo": "Un mundo dislocado",
       "autores": [
@@ -1172,7 +979,7 @@
       "url": "https://www.amazon.es/dp/842344080X?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 2181,
       "precio_antes_centimos": 2295,
-      "descuento_pct": 4,
+      "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-04"
     },
@@ -1188,7 +995,23 @@
       "url": "https://www.amazon.es/dp/8434441039?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 1986,
       "precio_antes_centimos": 2090,
-      "descuento_pct": 4,
+      "descuento_pct": 5,
+      "tipo": "descuento",
+      "comprobado": "2026-11-04"
+    },
+    {
+      "libro_id": "isbn-9791388101304",
+      "titulo": "Yuru Camp nº 12",
+      "autores": [
+        "Afro"
+      ],
+      "ficha": "https://davidportodiaz.com/recomendaciones/libros/yuru-camp-no-12-9791388101304/",
+      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791388101304.webp",
+      "formato": "tapa-blanda",
+      "url": "https://www.amazon.es/dp/B0H7JTSKGY?tag=davidporto-21&linkCode=osi&th=1&psc=1",
+      "precio_centimos": 850,
+      "precio_antes_centimos": 895,
+      "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-04"
     }

@@ -597,6 +597,30 @@ def amazon_prices(b):
     return [o for o in sorted(purchase_formats(b), key=lambda o: list(FORMATS).index(o['formato'])) if o.get('precio_centimos')]
 
 
+DIGITAL_FORMATS = ('ebook', 'audiolibro')
+
+
+def print_list_prices(b):
+    """PVP y precios de las ediciones en papel: en un ebook no son un «precio antes», sino otro formato."""
+    out = {b.get('pvp_centimos')}
+    for o in purchase_formats(b):
+        if o['formato'] not in DIGITAL_FORMATS:
+            out |= {o.get('precio_centimos'), o.get('precio_referencia_centimos')}
+    return out - {None}
+
+
+def price_discount(b, o):
+    """(precio antes, % redondeado como Amazon) o None. En digital se ignora la referencia que es el precio
+    de la versión impresa (2026-11-04: 12 ebooks salían al 50 % por eso; no era una oferta)."""
+    reference = o.get('precio_referencia_centimos', 0)
+    if o['formato'] in DIGITAL_FORMATS and reference in print_list_prices(b):
+        reference = 0
+    base = max(reference, o.get('precio_anterior_centimos', 0))
+    if base <= o['precio_centimos']:
+        return None
+    return base, ((base - o['precio_centimos']) * 200 + base) // (2 * base)
+
+
 def lowest_price(b):
     prices = [o['precio_centimos'] for o in amazon_prices(b)]
     return min(prices) if prices else None
@@ -717,12 +741,12 @@ def render_deals(books):
     deals = []
     for b in books:
         for o in amazon_prices(b):
-            base = max(o.get('precio_referencia_centimos', 0), o.get('precio_anterior_centimos', 0))
-            if base > o['precio_centimos']:
+            if found := price_discount(b, o):
+                base, pct = found
                 deals.append({'libro_id': b['id'], 'titulo': b['titulo'], 'autores': b['autores'], 'ficha': SITE + url(b),
                               'portada': SITE + b['portada_local'], 'formato': o['formato'], 'url': o['url'],
                               'precio_centimos': o['precio_centimos'], 'precio_antes_centimos': base,
-                              'descuento_pct': (base - o['precio_centimos']) * 100 // base,
+                              'descuento_pct': pct,
                               'tipo': 'bajada' if o.get('precio_anterior_centimos') == base else 'descuento',
                               **({'bajada_fecha': o['bajada_fecha']} if o.get('bajada_fecha') else {}),
                               'comprobado': o['fecha_verificacion']})
@@ -835,9 +859,8 @@ def format_discounts(b):
     """«formato:%» del mayor ahorro comprobado por formato (precio de referencia de Amazon o última bajada)."""
     out = []
     for o in amazon_prices(b):
-        base = max(o.get('precio_referencia_centimos', 0), o.get('precio_anterior_centimos', 0))
-        if base > o['precio_centimos']:
-            out.append(f"{o['formato']}:{(base - o['precio_centimos']) * 100 // base}")
+        if found := price_discount(b, o):
+            out.append(f"{o['formato']}:{found[1]}")
     return ' '.join(out)
 
 
@@ -873,7 +896,7 @@ def render_filters(data, type_options):
     advanced = '<div class="catalogue-filter-grid">'
     for key,label in [('desde', 'Publicado desde'), ('hasta', 'Publicado hasta')]:
         advanced += f'<label>{label}<input type="date" name="{key}" data-filter="{key}" min="1000-01-01" max="2100-12-31"></label>'
-    advanced += select('descuento', 'Ofertas', [('', 'Todos los precios'), ('1', 'Con descuento o bajada de precio'), ('10', '10 % o más'), ('25', '25 % o más'), ('50', '50 % o más')], 'data-market-control="offers" disabled')
+    advanced += select('descuento', 'Ofertas', [('', 'Todos los precios'), ('1', 'Con descuento o bajada de precio'), ('5', '5 % o más'), ('10', '10 % o más'), ('25', '25 % o más'), ('50', '50 % o más')], 'data-market-control="offers" disabled')
     advanced += select('valoracion', 'Valoración de lectores', [('', 'Todas las valoraciones'), ('menos-3', 'Menos de 3 estrellas'), ('3', '3 estrellas o más'), ('4', '4 estrellas o más'), ('4.5', '4,5 estrellas o más'), ('5', '5 estrellas')], 'data-market-control="ratings" disabled')
     advanced += '</div>'
     # En móvil (≤900 px) solo la búsqueda queda a la vista; el resto de filtros se pliega tras

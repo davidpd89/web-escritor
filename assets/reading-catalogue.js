@@ -39,7 +39,7 @@
   };
   // Muestra de 1–4 valoraciones con fuente y vigencia válidas: existe, pero no es una nota fiable.
   const thinRating = r => Number.isSafeInteger(r.numero_valoraciones) && r.numero_valoraciones >= 1 && r.numero_valoraciones < 5 && validRating({...r, numero_valoraciones: 5});
-  const discount = o => Number.isSafeInteger(o.precio_referencia_centimos) && o.precio_referencia_centimos > o.precio_centimos ? Math.floor((o.precio_referencia_centimos - o.precio_centimos) / o.precio_referencia_centimos * 100) : 0;
+  const discount = o => Number.isSafeInteger(o.precio_referencia_centimos) && o.precio_referencia_centimos > o.precio_centimos ? Math.round((o.precio_referencia_centimos - o.precio_centimos) / o.precio_referencia_centimos * 100) : 0;
   // Index entries are validated by renderMarket. Recheck expiry on interaction,
   // without reparsing the same URLs for every card and quiz option.
   const offersFor = id => (offersIndex.get(id) || []).filter(o => fresh(o, 24));

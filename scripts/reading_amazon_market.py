@@ -268,11 +268,22 @@ def store_prices(book,offers,day):
             added+=1
         elif asin_from_url(current.get('url')) not in (None,asin):
             continue  # An already verified edition is never replaced by another ASIN.
+        if offer['formato'] in ('ebook','audiolibro') and offer.get('precio_referencia_centimos') in print_prices(book):
+            offer={k:v for k,v in offer.items() if k!='precio_referencia_centimos'}  # Kindle «versión impresa», no descuento
         price_drop(current,offer,day)
         current.update(url=offer['url'],precio_centimos=offer['precio_centimos'],fecha_verificacion=day)
     order=list(FORMAT_ORDER)
     book['formatos_compra']=sorted(options,key=lambda o:order.index(o['formato']))
     return added
+
+
+def print_prices(book):
+    """PVP y precios en papel: Amazon da el de la versión impresa como savingBasis de los ebooks."""
+    out={book.get('pvp_centimos')}
+    for o in book.get('formatos_compra',[]):
+        if o.get('formato') not in ('ebook','audiolibro'):
+            out|={o.get('precio_centimos'),o.get('precio_referencia_centimos')}
+    return out-{None}
 
 
 def price_drop(current,offer,day):
