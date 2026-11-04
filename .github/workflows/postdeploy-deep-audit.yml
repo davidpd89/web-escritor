@@ -119,6 +119,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -242,6 +248,12 @@ jobs:
     steps:
       - name: Checkout audit code
         uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
 
       - name: Set up Node
         uses: actions/setup-node@v5
@@ -303,6 +315,11 @@ jobs:
       - name: Checkout audited release
         uses: actions/checkout@v5
         with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - name: Set up Node
@@ -376,6 +393,11 @@ jobs:
       - name: Checkout audited release
         uses: actions/checkout@v5
         with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
           ref: ${{ env.EXPECTED_RELEASE_SHA }}
 
       - name: Set up Node
@@ -426,6 +448,11 @@ jobs:
       - name: Checkout audited release
         uses: actions/checkout@v5
         with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - name: Set up Node
@@ -519,6 +546,11 @@ jobs:
       - name: Checkout audited release
         uses: actions/checkout@v5
         with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - name: Set up Node
@@ -573,6 +605,11 @@ jobs:
       - name: Checkout audited release
         uses: actions/checkout@v5
         with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - name: Set up Node
