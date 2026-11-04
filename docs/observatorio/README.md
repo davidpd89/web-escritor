@@ -1,40 +1,36 @@
-# Observatorio de la web — punto de entrada para revisión integral
+# Observatorio web — una ventana Edge y una orden a Claude
 
-**Estado (04-11-2026):** acceso y procedimiento preparados; **las cuentas autenticadas no están verificadas desde esta PR**. No existe todavía un almacén agregado de datos ni un sistema que extraiga métricas por API de todos los proveedores.
+Sin app adicional: un catálogo de paneles y una rutina para que Claude revise toda la web, encuentre oportunidades y corrija problemas demostrados mediante las PR y pruebas habituales.
 
-## Qué es (y qué no)
+## Preparación en Windows (una sola vez)
 
-Un inventario versionado y una rutina **de solo lectura** para Claude Code: revisar SEO, tráfico, UX, afiliación, redes y salud técnica en sus fuentes originales, producir un diagnóstico con evidencias y recomendar tareas con impacto. Reutiliza `docs/search-console/`, `docs/pending/ahrefs-free.md`, la analítica de GoatCounter/Clarity/Metricool y GitHub Actions. No instala otro tracker ni crea un panel público con métricas privadas.
+**1. Abre Edge con el puerto fijo 9222.** Desde PowerShell en `C:\GIT\web-escritor`:
 
-- Inventario legible por máquinas: [fuentes.json](./fuentes.json). **Estado documentado ≠ sesión activa.** Claude actualizará los estados solo con una verificación real y fechada, nunca con suposiciones.
-- Entrada de Claude: skill **`/observatorio-web`** en `.claude/skills/observatorio-web/SKILL.md`, disponible al abrir el proyecto en Claude Code.
-- Atajo para abrir los paneles en Edge: desde PowerShell, en la raíz, `./scripts/abrir-observatorio.ps1`; `-Grupo seo`, `-Grupo social`, `-Grupo ventas`, `-Grupo comportamiento`, `-Grupo operaciones` o `-Grupo todo`. Por defecto abre solo seis paneles prioritarios. No hace falta servidor local ni puerto.
+```powershell
+.\scripts\abrir-observatorio.ps1
+```
 
-## Primer uso (una sola vez por equipo/perfil)
+Se abren todas las webs de `fuentes.json`. Inicia sesión en cada una; Edge conserva el acceso en `%LOCALAPPDATA%\web-escritor\edge-observatorio`, mientras el proveedor lo permita. Es un perfil independiente del Edge normal. Para abrir menos páginas: `-Grupo seo`, `-Grupo comportamiento`, `-Grupo social`, `-Grupo ventas`, `-Grupo operaciones` o `-Grupo inicio`.
 
-1. En **Microsoft Edge**, instala y autoriza la extensión **Claude in Chrome** en el perfil que usarás para los paneles; accede a los servicios con sus métodos oficiales. Las sesiones las conserva Edge, nunca el repositorio. Cualquier nueva autenticación, CAPTCHA o expiración de sesión requiere intervención humana.
-2. Abre Claude Code desde la raíz del repo con `claude --chrome`. Usa `/chrome` para comprobar conexión, elegir **Edge** y conceder los permisos por sitio. La primera instalación requiere autorización. **No se puede activar esa conexión desde una configuración Git versionada.**
-3. Pídele `/observatorio-web` o «revisa cómo va la web con el observatorio». Leerá el catálogo, visitará los paneles accesibles con sus herramientas de navegador y redactará un único informe; distinguirá «sin acceso» de «cero».
-4. Si quieres evitar cargar las herramientas del navegador en sesiones de programación normales, mantenlo desactivado por defecto y usa `--chrome` solo para la revisión. No necesita `--remote-debugging-port` ni cookies exportadas.
+**2. Conecta Claude Code una vez al mismo puerto** (en terminal, no dentro de Claude):
 
-Documentación oficial de la integración de Claude Code con Edge: https://code.claude.com/docs/en/chrome
+```powershell
+claude mcp add --scope user observatorio-edge -- npx -y chrome-devtools-mcp@latest --browser-url=http://127.0.0.1:9222
+```
 
-## Qué medir y decidir
+Comprueba `claude mcp list` y `/mcp`. Si ya tienes configurado Chrome DevTools MCP para **este mismo puerto**, reutilízalo en lugar de duplicarlo.
 
-Comparar periodos **7 contra 7 días** y **28 contra 28 días** donde el proveedor los ofrezca, anotando fecha de actualización del dato. El objetivo no es copiar 40 cifras, sino descubrir problemas y oportunidades:
+**3. Uso habitual:** abre Claude Code en el repo y di `/observatorio-web` o «Revisa cómo va toda la web, analiza oportunidades y corrige los problemas reales». El puerto y las fuentes ya están en la skill. El Edge del observatorio debe seguir abierto durante la revisión.
 
-- **SEO y visibilidad:** consultas con impresiones y CTR bajo, páginas con caída sostenida, URLs excluidas, errores de sitemap, enlazado interno, backlinks útiles, presencia en Bing e IA (cuando haya informe).
-- **Tráfico y comportamiento:** visitas reales, fuentes, rutas de salida, interacciones y fricciones confirmadas. Separar clic a Amazon de venta atribuida; filtrar bots cuando el servicio lo permita.
-- **Conversión y comunidad:** Amazon Afiliados, altas efectivamente confirmadas en Brevo, actividad social y clics de Pinterest; medir resultados, no solo impresiones.
-- **Calidad operativa:** despliegue publicado, PR abiertas, fallos de CI repetidos, Core Web Vitals de campo si están disponibles, Clarity con consentimiento.
-- **Prioridad:** P0 incidencia real de seguridad, indisponibilidad o pérdida crítica; P1 caída contrastada o conversión rota; P2 oportunidad editorial/comercial medida. Toda propuesta debe incluir página/consulta afectada, dato, fecha, impacto estimado y prueba siguiente.
+## Alcance
 
-Formato de entrega: `Fecha/fuentes realmente consultadas`, `Resumen de 3 hallazgos`, `P0/P1/P2 con evidencia y decisión`, `Datos inaccesibles o anticuados`, `Siguientes PR sugeridas (sin crearlas salvo petición)`. Se puede guardar **un informe local** en `.local/observatorio/` (ignorado por Git); no subir capturas de cuentas, datos de clientes, tokens ni ingresos individualizados.
+- `fuentes.json` recoge los paneles ya usados/documentados (Search Console, Bing, Ahrefs, GoatCounter, Clarity, Amazon, Pinterest, Metricool, Brevo, Cloudflare, GitHub) y otras herramientas públicas de diagnóstico (PageSpeed, WebPageTest, GTmetrix, Rich Results, Schema.org, Google Trends).
+- Claude recorre los paneles pertinentes **uno por uno y en profundidad**, cruzando datos con la web y CI. También puede investigar nuevas fuentes útiles y proponer incorporarlas al catálogo, sin instalar rastreadores o suscripciones inútiles.
+- Si detecta un defecto verificable de la web, lo corrige en el repo, añade pruebas y utiliza PR/CI. Si es una oportunidad editorial o requiere tocar cuentas externas, documenta la evidencia y la acción recomendada.
+- No todas las cuentas tienen API. Se usa la sesión de Edge cuando existe; los estados en el catálogo **no significan que estén logueadas ahora**.
 
-## Límites técnicos y próximos pasos opcionales
+## Precaución
 
-La extensión de Claude requiere instalación, login y permisos del usuario; el script de PowerShell **solo abre pestañas** y no comprueba que Claude pueda controlarlas. Ningún PR puede iniciar sesión por ti ni garantizar las sesiones futuras.
+`127.0.0.1:9222` da a cualquier proceso local acceso de control a ese perfil Edge **y sus sesiones**. Utiliza un ordenador de confianza y cierra la ventana del observatorio al acabar. Nunca expongas ese puerto en red ni introduzcas el perfil personal, cookies o claves en el repo. Los nuevos logins, CAPTCHA y expiraciones requieren al usuario.
 
-Cuando la revisión manual justifique una fuente recurrente, priorizar **conector/API de lectura oficial** y almacenamiento privado de métricas agregadas. Añadirlos **uno a uno**, con autorización y costes contrastados: antes de eso, este observatorio ofrece un único procedimiento y evita automatizaciones duplicadas. No generar PR por cada fluctuación de datos.
-
-Referencias internas: `docs/search-console/README.md`, `docs/claude-toolbox/07-RESEARCH-SEO-CONTENIDO-Y-ANALITICA.md`, `docs/claude-toolbox/09-MCP-API-KEYS-OAUTH-Y-SECRETOS.md`, `docs/pending/ahrefs-free.md`, `data/analytics-events.json`.
+Esta PR prepara archivos, **no verifica las sesiones ni instala MCP en tu ordenador**. Hay que hacer un smoke real en Windows antes de darla por probada. Documentación: https://learn.microsoft.com/en-us/microsoft-edge/web-platform/devtools-mcp-server · https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/docs/advanced-usage.md · https://code.claude.com/docs/en/mcp.
