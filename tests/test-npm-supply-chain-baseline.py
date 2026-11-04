@@ -193,7 +193,9 @@ def check_supply_chain(npm_cmd: str, baseline_data: dict) -> list[str]:
     # Detect phantom advisories in baseline (advisories that were fixed/removed from tree)
     for adv_id in baseline_advisories:
         if adv_id not in live_advisories:
-            errors.append(f"Phantom advisory in baseline (no longer reported by npm audit): {adv_id} - clean up baseline.")
+            # Un aviso que npm deja de reportar es una mejora externa: avisa para limpiar la base, pero no bloquea
+            # todas las PR a la vez (pasó el 2026-11-04 con GHSA-g3hv-75wg-m249). Los avisos nuevos sí bloquean.
+            print(f"WARN: aviso fantasma en la base (npm audit ya no lo reporta): {adv_id}; muévelo a notReportedAdvisories.")
 
     return errors
 
