@@ -7,6 +7,13 @@
 // /fragmento/ ~36% wider on Windows (the reading measure overflowed); this
 // measures it instead of trusting it.
 //
+// Widths are compared at 200px: headless Chromium on Linux rounds each glyph
+// advance to whole pixels, which at 20px moved narrow faces (Instrument Serif
+// on Liberation) by up to 9% in CI while the same fonts measured <1% on
+// Windows. size-adjust is a per-font ratio, so the large size checks the
+// calibration itself (opsz pinned to 20 so Newsreader keeps its reading cut);
+// the 20px ratio is still logged for diagnosis.
+//
 // The webfont is loaded from an ArrayBuffer under a private family name so
 // that font-display:optional cannot silently swap the fallback in for it.
 import assert from 'node:assert/strict';
@@ -33,10 +40,10 @@ try {
         if (url && !family.includes(' Fallback')) webSources.set(`${family}|${style}`, new URL(url[1], sheet.href || location.href).href);
       }
     }
-    const width = (family, style) => {
+    const width = (family, style, size = 200) => {
       const span = document.createElement('span');
       span.textContent = text;
-      span.style.cssText = `position:absolute;white-space:nowrap;font-size:20px;font-weight:400;font-style:${style};font-family:"${family}",monospace;font-synthesis:none`;
+      span.style.cssText = `position:absolute;white-space:nowrap;font-size:${size}px;font-weight:400;font-style:${style};font-family:"${family}",monospace;font-synthesis:none;font-variation-settings:"opsz" 20`;
       document.body.append(span);
       const w = span.getBoundingClientRect().width;
       span.remove();
@@ -54,7 +61,8 @@ try {
       const web = new FontFace(`QA web ${base}`, await (await fetch(url)).arrayBuffer(), { style: face.style, weight: '100 900' });
       await web.load();
       document.fonts.add(web);
-      out.push({ family, style: face.style, resolved: true, ratio: width(family, face.style) / width(`QA web ${base}`, face.style) });
+      out.push({ family, style: face.style, resolved: true, ratio: width(family, face.style) / width(`QA web ${base}`, face.style),
+        ratio20: width(family, face.style, 20) / width(`QA web ${base}`, face.style, 20) });
       document.fonts.delete(web);
     }
     return { chars: text.length, out };
@@ -63,7 +71,7 @@ try {
   assert.ok(rows.chars > 500, `/fragmento/ prose sample too short (${rows.chars})`);
   const resolved = rows.out.filter((row) => row.resolved);
   for (const row of rows.out) {
-    console.log(`${row.family} (${row.style}): ${row.resolved ? `${((row.ratio - 1) * 100).toFixed(1)}%` : 'local font not installed'}`);
+    console.log(`${row.family} (${row.style}): ${row.resolved ? `${((row.ratio - 1) * 100).toFixed(1)}% (20px: ${((row.ratio20 - 1) * 100).toFixed(1)}%)` : 'local font not installed'}`);
   }
   assert.ok(resolved.some((row) => /^(Newsreader|Instrument Serif) Fallback/.test(row.family)),
     'no serif fallback face resolved on this machine: the check would prove nothing');
