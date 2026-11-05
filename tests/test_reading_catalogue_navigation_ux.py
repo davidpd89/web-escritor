@@ -75,6 +75,19 @@ class CatalogueDealsAndFilters(unittest.TestCase):
         self.assertEqual(builder.format_discounts(book), '')
         self.assertEqual(json.loads(builder.render_deals([book]))['ofertas'], [])
 
+    def test_discount_rounds_like_amazon_and_ignores_kindle_print_price(self):
+        # 2026-11-04: «-4 %» where Amazon shows the legal 5 %, and ebooks at «-50 %» against the print price.
+        paper = {'formato': 'tapa-dura', 'url': 'https://www.amazon.es/dp/8400000001?tag=x', 'fuente_url': 'https://www.amazon.es/dp/8400000001',
+                 'fecha_verificacion': '2026-11-04', 'precio_centimos': 2081, 'precio_referencia_centimos': 2190}
+        ebook = {'formato': 'ebook', 'url': 'https://www.amazon.es/dp/B000000001?tag=x', 'fuente_url': 'https://www.amazon.es/dp/B000000001',
+                 'fecha_verificacion': '2026-11-04', 'precio_centimos': 1139, 'precio_referencia_centimos': 2190}
+        book = {'id': 'lib-1', 'slug': 'libro', 'titulo': 'Libro', 'autores': ['A'], 'portada_local': '/assets/reading-covers/x.webp',
+                'pvp_centimos': 2190, 'formatos_compra': [paper, ebook]}
+        self.assertEqual(builder.format_discounts(book), 'tapa-dura:5')
+        self.assertEqual([d['formato'] for d in json.loads(builder.render_deals([book]))['ofertas']], ['tapa-dura'])
+        ebook['precio_referencia_centimos'] = 1199  # real Kindle list price
+        self.assertEqual(builder.format_discounts(book), 'tapa-dura:5 ebook:5')
+
     def test_filters_drop_epoch_and_unknown_pages(self):
         html = (ROOT / 'recomendaciones/index.html').read_text(encoding='utf-8')
         self.assertNotIn('data-facet-group="epoca"', html)

@@ -165,6 +165,26 @@ class GoogleRatingsTests(unittest.TestCase):
                 now=datetime(2026, 10, day, tzinfo=timezone.utc), budget=1)
             self.assertEqual(calls, ["9788425371967"])
 
+    def test_ratings_about_to_expire_are_renewed_before_filling_gaps(self):
+        # 2026-11-04: Goodreads' WAF allowed 3 requests per run and all went to ISBNs it answers as
+        # unrated, so the 100 visible ratings would all expire together on 30/11.
+        rated = {"libro_id": "lib-0001", "fuente": "goodreads", "puntuacion": 4.2,
+                 "numero_valoraciones": 16, "url": "https://www.goodreads.com/book/show/1-coraline",
+                 "actualizado_en": "2026-10-31T10:00:00Z", "caduca_en": "2026-11-30T10:00:00Z"}
+        calls = []
+        def provider(isbn):
+            calls.append(isbn)
+            raise RuntimeError("Goodreads AWS WAF challenge")
+        ratings.refresh({"libros": BOOKS}, {"ratings": [rated]}, provider,
+            now=datetime(2026, 11, 25, tzinfo=timezone.utc), budget=5, source="goodreads")
+        self.assertEqual(calls, ["9788498382372"])
+        calls.clear()
+        # With a month to go the gap goes first, as before.
+        result, _ = ratings.refresh({"libros": BOOKS}, {"ratings": [rated]}, provider,
+            now=datetime(2026, 11, 1, tzinfo=timezone.utc), budget=5, source="goodreads")
+        self.assertEqual(calls, ["9788425371967"])
+        self.assertEqual(result["ratings"], [rated])
+
     def test_no_network_is_required_for_fixture_and_changed_writes_only(self):
         with tempfile.TemporaryDirectory() as root:
             p = Path(root) / "ratings.json"

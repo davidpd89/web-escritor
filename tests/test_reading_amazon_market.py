@@ -70,6 +70,7 @@ class AmazonPriceTests(unittest.TestCase):
         book['formatos_compra']=[{'formato':'ebook','url':'https://www.amazon.es/dp/B08CYCPBZN?tag=contrato-21'}]
         payload=response(); item=payload['searchResult']['items'][0]
         item['asin']='B08CYCPBZN'; item['itemInfo']['externalIds']={}
+        item['itemInfo']['classifications']['binding']['displayValue']='Versión Kindle'
         self.assertEqual(select_offers(book,payload,'contrato-21',NOW)[0]['formato'],'ebook')
 
     def test_deal_never_outlives_its_actual_end(self):
@@ -223,7 +224,11 @@ class AmazonFormatDiscoveryTests(unittest.TestCase):
             def items(self,asins):
                 self.calls.append(len(asins))
                 payload=response(); item=payload['searchResult']['items'][0]
-                return {'itemsResult':{'items':[dict(item,asin=a) for a in asins]}}
+                def priced(a):
+                    clone=copy.deepcopy(item); clone['asin']=a
+                    clone['itemInfo']['classifications']['binding']['displayValue']='Hardcover' if a.startswith('84983824') else 'Paperback'
+                    return clone
+                return {'itemsResult':{'items':[priced(a) for a in asins]}}
         books=[dict(BOOK,id=f'lib-{i}',isbn13='9788498382372',formatos_compra=[
             {'formato':'tapa-blanda','url':f'https://www.amazon.es/dp/84983823{i:02d}?tag=contrato-21'},
             {'formato':'tapa-dura','url':f'https://www.amazon.es/dp/84983824{i:02d}?tag=contrato-21'}]) for i in range(10)]
@@ -337,8 +342,6 @@ class AmazonRealCoverTests(unittest.TestCase):
         self.assertEqual((stats['covers_replaced'],stats['errors']),(0,1))
         self.assertNotIn('portada_sustituida',book)
 
-if __name__=='__main__':
-    unittest.main()
 
 
 class AmazonPriceDropTests(unittest.TestCase):
@@ -364,3 +367,17 @@ class AmazonPriceDropTests(unittest.TestCase):
         self.assertEqual(book['formatos_compra'][0]['precio_referencia_centimos'],1500)
         store_prices(book,[self.offer(1000,1000)],'2026-11-04')
         self.assertNotIn('precio_referencia_centimos',book['formatos_compra'][0])
+
+    def test_kindle_print_price_is_not_a_discount(self):
+        # 2026-11-04: Amazon gives the print edition price as the ebook savingBasis; 12 ebooks showed -50 %.
+        book={'pvp_centimos':2390,'formatos_compra':[
+            {'formato':'tapa-dura','url':'https://www.amazon.es/dp/8400000001?tag=davidporto-21','precio_centimos':2270,'precio_referencia_centimos':2390},
+            self.option()]}
+        store_prices(book,[self.offer(1234,2390)],'2026-11-04')
+        self.assertNotIn('precio_referencia_centimos',book['formatos_compra'][1])
+        store_prices(book,[self.offer(950,1000)],'2026-11-05')  # a real ebook list price still counts
+        self.assertEqual(book['formatos_compra'][1]['precio_referencia_centimos'],1000)
+
+
+if __name__=='__main__':
+    unittest.main()

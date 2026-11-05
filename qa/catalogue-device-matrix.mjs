@@ -66,7 +66,7 @@ try {
         firstTop: first ? Math.round(first.getBoundingClientRect().top + scrollY) : -1,
         smallTargets: small.length,
         bookNodes: [...document.querySelectorAll('script[type="application/ld+json"]')].reduce((n, s) => n + (s.textContent.match(/"@type":\s*"Book"/g) || []).length, 0),
-        firstHref: first?.querySelector('h3 a')?.getAttribute('href') || '',
+        firstHref: first?.querySelector('.catalogue-card__ficha')?.getAttribute('href') || '',
       };
     });
     check(state.ageTags === 0, `${state.ageTags} etiquetas de edad en tarjetas`);

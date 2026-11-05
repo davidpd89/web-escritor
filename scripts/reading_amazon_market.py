@@ -98,7 +98,7 @@ def amazon_list(value):
     return value if isinstance(value,list) else []
 
 
-def select_offers(book,payload,tag,now):
+def select_offers(book,payload,tag,now,mismatches=None):
     if not re.fullmatch(r'[A-Za-z0-9-]+',tag):
         raise ValueError('Invalid partner tag')
     now=now.astimezone(timezone.utc)
@@ -133,6 +133,11 @@ def select_offers(book,payload,tag,now):
         binding_value=amazon_dict(amazon_dict(info.get('classifications')).get('binding')).get('displayValue','')
         binding=key(binding_value) if isinstance(binding_value,str) else ''
         fmt=known.get(asin) or BINDINGS.get(binding)
+        if asin in known and BINDINGS.get(binding,fmt)!=fmt:
+            # Amazon manda sobre el formato de su ASIN: un precio de tapa dura no se publica como tapa blanda.
+            if mismatches is not None:
+                mismatches.append({'libro_id':book['id'],'asin':asin,'guardado':fmt,'amazon':BINDINGS[binding]})
+            continue
         digital=fmt in {'ebook','audiolibro'} and same_title(title,book['titulo']) and in_spanish(info)
         if not fmt or (asin not in known and not isbn_match and not digital):
             continue
@@ -268,11 +273,22 @@ def store_prices(book,offers,day):
             added+=1
         elif asin_from_url(current.get('url')) not in (None,asin):
             continue  # An already verified edition is never replaced by another ASIN.
+        if offer['formato'] in ('ebook','audiolibro') and offer.get('precio_referencia_centimos') in print_prices(book):
+            offer={k:v for k,v in offer.items() if k!='precio_referencia_centimos'}  # Kindle «versión impresa», no descuento
         price_drop(current,offer,day)
         current.update(url=offer['url'],precio_centimos=offer['precio_centimos'],fecha_verificacion=day)
     order=list(FORMAT_ORDER)
     book['formatos_compra']=sorted(options,key=lambda o:order.index(o['formato']))
     return added
+
+
+def print_prices(book):
+    """PVP y precios en papel: Amazon da el de la versión impresa como savingBasis de los ebooks."""
+    out={book.get('pvp_centimos')}
+    for o in book.get('formatos_compra',[]):
+        if o.get('formato') not in ('ebook','audiolibro'):
+            out|={o.get('precio_centimos'),o.get('precio_referencia_centimos')}
+    return out-{None}
 
 
 def price_drop(current,offer,day):
@@ -544,7 +560,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
     if hasattr(provider,'discover'):
         # A missing Kindle or audiobook is looked for the first night, not when the price turn comes.
         due+=[b for b in books[share:] if needs_discovery(b,now)]
-    stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[],'sin_oferta':[],'errores_amazon':{}}
+    stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[],'sin_oferta':[],'errores_amazon':{},'formato_discrepante':[]}
     answers={}
 
     def ask(call,*args):
@@ -563,7 +579,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
 
     def keep(found,book,payload):
         answers.setdefault(book['id'],[]).append(payload)
-        for offer in select_offers(book,payload,tag,now):
+        for offer in select_offers(book,payload,tag,now,stats['formato_discrepante']):
             best=found.get(offer['formato'])
             if not best or best['precio_centimos']>offer['precio_centimos']:
                 found[offer['formato']]=offer

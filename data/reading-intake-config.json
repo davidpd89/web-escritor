@@ -110,6 +110,9 @@
       "product_path": "/product/[a-z0-9-]+/",
       "default_publisher": "Nórdica Libros",
       "author_link": "/autor/",
+      "regex": {
+        "pvp": "Comprar libro en papel[^<]*<span[^>]*>([^<]*€)"
+      },
       "author_order": "last_first",
       "cover_order": [
         "og",

@@ -87,12 +87,13 @@ class AffiliateNavigationTest(unittest.TestCase):
         for b in books:
             page = builder.url(b)
             ficha = [x for x in links if x["attrs"].get("href") == page]
-            self.assertGreaterEqual(len(ficha), 2, b["titulo"])
+            # «Ver ficha» lleva a la ficha; portada y título van a Amazon (contrato del punto 15).
+            self.assertGreaterEqual(len(ficha), 1, b["titulo"])
             self.assertTrue(all(x["attrs"].get("target") == "_blank" for x in ficha))
             self.assertTrue(all("noopener" in x["attrs"].get("rel", "") for x in ficha))
             buying = [x for x in links if x["attrs"].get("href") == builder.amazon_destination(b)]
             # El botón de compra y la casilla de su formato en la caja de precios llevan al mismo destino.
-            self.assertGreaterEqual(len(buying), 1)
+            self.assertGreaterEqual(len(buying), 3 if b.get("url_amazon_afiliada") else 1, b["titulo"])
             self.assertTrue(all("sponsored" in x["attrs"].get("rel", "") for x in buying))
             self.assertTrue(all(x["attrs"].get("target") == "_blank" for x in buying))
 

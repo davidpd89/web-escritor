@@ -434,11 +434,10 @@ jobs:
 
   adaptive-formats:
     needs: production-parity
+    # Auditoría pesada de formatos: solo nocturna o manual, no tras cada deploy.
     if: >-
       always() && needs.production-parity.result == 'success' &&
-      (github.event_name == 'schedule' ||
-       github.event_name == 'workflow_dispatch' ||
-       (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'))
+      (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     env:
@@ -532,11 +531,10 @@ jobs:
   rotating-production-sample:
     name: rotating-production-sample
     needs: production-parity
+    # Muestra rotativa: solo nocturna o manual; tras cada deploy repetía la muestra sin libros nuevos.
     if: >-
       always() && needs.production-parity.result == 'success' &&
-      (github.event_name == 'schedule' ||
-       github.event_name == 'workflow_dispatch' ||
-       (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'))
+      (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
@@ -591,11 +589,10 @@ jobs:
   rotating-cross-engine-production:
     name: rotating-cross-engine-production
     needs: production-parity
+    # Muestra rotativa: solo nocturna o manual; tras cada deploy repetía la muestra sin libros nuevos.
     if: >-
       always() && needs.production-parity.result == 'success' &&
-      (github.event_name == 'schedule' ||
-       github.event_name == 'workflow_dispatch' ||
-       (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'))
+      (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:

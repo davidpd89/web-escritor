@@ -18,6 +18,7 @@ class CardParser(HTMLParser):
         self.heading = 0
         self.parts = []
         self.href = None
+        self.book_id = None
         self.label = ""
 
     def handle_starttag(self, tag, attrs):
@@ -32,6 +33,7 @@ class CardParser(HTMLParser):
                 self.label = attrs.get('aria-label', '')
         elif 'data-catalogue-book' in attrs:
             self.depth = 1
+            self.book_id = attrs.get('data-book-id')
             self.heading = 0
             self.parts = []
             self.href = None
@@ -43,7 +45,7 @@ class CardParser(HTMLParser):
                 self.heading = 0
             self.depth -= 1
             if not self.depth:
-                self.cards.append((self.href, ''.join(self.parts).strip(), self.label))
+                self.cards.append((self.book_id, ''.join(self.parts).strip(), self.label))
 
     def handle_data(self, data):
         if self.heading:
@@ -55,14 +57,15 @@ class CardTitleIntegrityTest(unittest.TestCase):
         html = ''.join(page.read_text(encoding='utf-8') for page in [ROOT / 'recomendaciones/index.html', *ROOT.glob('recomendaciones/pagina/*/index.html')])
         parser = CardParser()
         parser.feed(html)
-        cards = {href: (title, label) for href, title, label in parser.cards}
+        # La tarjeta se identifica por su id: el título puede enlazar a Amazon o a la ficha según haya oferta.
+        cards = {book_id: (title, label) for book_id, title, label in parser.cards}
         books = [b for b in data['libros'] if b['estado'] == 'publicado']
         selected = [b for b in books if len(b['titulo']) >= 45 or re.search(r'[¿?():]', b['titulo'])]
         self.assertTrue(selected, 'No se encontraron títulos largos o con puntuación editorial')
         for book in selected:
             with self.subTest(book=book['id']):
                 full = book['titulo'].strip()
-                title, label = cards[builder.url(book)]
+                title, label = cards[book['id']]
                 # Contrato de tarjeta (docs/contrato-tarjeta-libro.md): dos líneas visibles y el título entero en aria-label.
                 self.assertEqual(title, builder.card_title(book), f'título de tarjeta alterado: {full!r}')
                 self.assertTrue(full.startswith(title.rstrip('…').rstrip()), f'la tarjeta no empieza por el título: {title!r}')

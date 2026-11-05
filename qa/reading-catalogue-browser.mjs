@@ -69,8 +69,12 @@ try {
     assert(await page.locator('[data-catalogue-empty]').isHidden());
     assert.deepEqual(await page.locator('.section-context__links a').allInnerTexts(), ['Catálogo', 'Autores', 'Editoriales', 'Atlas literario', 'Concursos']);
     await page.locator('details[data-facet-group="genero"]').evaluate(d => { d.open = true; });
-    // Una categoría sin ningún libro publicado no se ofrece: sería una casilla muerta.
-    assert.equal(await page.locator('input[data-facet="genero"][value="romantasy"]').count(), 0);
+    // Solo se ofrecen categorías con libros publicados: ninguna casilla muerta.
+    const offered = await page.locator('input[data-facet="genero"]').evaluateAll(xs => xs.map(x => x.value));
+    const counts = await page.locator('[data-catalogue-book]').evaluateAll(xs => xs.map(x => x.dataset.categories || '').join(' ').split(/\s+/));
+    assert.deepEqual(offered.filter(v => !counts.includes(v)), [], 'Categorías ofrecidas sin libros');
+    // Romantasy (romance + fantasía) se deriva y aparece en cuanto hay libros de ambos géneros.
+    assert.equal(await page.locator('input[data-facet="genero"][value="romantasy"]').count(), counts.includes('romantasy') ? 1 : 0);
     // Con un tipo de libro elegido, los géneros sin resultados bajan al final y quedan desactivados.
     await page.locator('input[data-facet="grupo"][value="novela"]').check();
     const genreState = await page.locator('details[data-facet-group="genero"] input[data-facet]').evaluateAll(xs => xs.map(x => x.disabled));
@@ -199,9 +203,9 @@ try {
   await page.locator('details[data-facet-group="genero"]').evaluate(d => { d.open = true; }); await page.locator('details[data-facet-group="temporada"]').evaluate(d => { d.open = true; }); await page.locator('input[data-facet="genero"][value="romantasy"]').check();
   await page.locator('input[data-facet="temporada"][value="halloween"]').check();
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
-  const href = await page.locator('[data-catalogue-book]:visible h3 a').getAttribute('href');
+  const href = await page.locator('[data-catalogue-book]:visible .catalogue-card__ficha').getAttribute('href');
   await page.locator('input[data-facet="genero"][value="romantasy"]').uncheck(); await page.locator('input[data-facet="genero"][value="fantasia"]').check();
-  assert.equal(await page.locator('[data-catalogue-book]:visible h3 a').getAttribute('href'), href);
+  assert.equal(await page.locator('[data-catalogue-book]:visible .catalogue-card__ficha').getAttribute('href'), href);
   await page.locator('[data-filter="q"]').fill('TITULO');
   await page.locator('[data-filter="q"]').press('Enter');
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
@@ -237,7 +241,7 @@ try {
   await nojs.route('**/recomendaciones/', route => route.fulfill({ contentType: 'text/html; charset=utf-8', body: fixture.hub }));
   await staticPage.reload();
   assert.equal(await staticPage.locator('[data-catalogue-book]').count(), 2);
-  assert.equal(await staticPage.locator('[data-catalogue-book] h3 a').first().getAttribute('href'), href);
+  assert.equal(await staticPage.locator('[data-catalogue-book] .catalogue-card__ficha').first().getAttribute('href'), href);
   await nojs.close();
   console.log('PASS catálogo navegador: 5 tamaños, vacío real, filtros combinados, URL única, teclado, novedades, fichas y sin JS.');
 } finally {

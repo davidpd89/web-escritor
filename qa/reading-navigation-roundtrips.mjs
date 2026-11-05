@@ -83,7 +83,7 @@ async function journey(width,source,target){
     if(source==='/recomendaciones/'){
       await page.waitForFunction(()=>document.querySelector('[data-catalogue-filters] fieldset')?.disabled===false);
       await page.locator('[data-filter="q"]').fill(book.isbn13);
-      await page.locator('[data-filter="orden"]').selectOption('titulo_desc');
+      await page.locator('[data-filter="orden"]').selectOption('fecha_asc');
       selectedState=await catalogueState(page);
       assert.deepEqual(selectedState.visible,[book.id],'Initial search is exercised on a real book');
     }

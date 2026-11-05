@@ -104,3 +104,71 @@ def extra_categories(record: dict) -> list[tuple[str, str, str]]:
     if 'tema-cocina-vegetal' in {f[0] for f in found} and 'cocina' not in {f[0] for f in found}:
         found = [f for f in found if f[0] != 'tema-cocina-vegetal']
     return found[:MAX_EXTRA]
+
+
+# Clasificación propia: categorías que se deducen de las ya asignadas y del título, sin fuentes externas.
+# (id, nombre, tipo, descripción, categorías que la activan, patrón sobre el título normalizado).
+# Romantasy es la excepción: exige romance y algún género de fantasía a la vez.
+DERIVED = (
+    ('romantasy', 'Romantasy', 'genero', 'Fantasía con la historia de amor en el centro.',
+     set(), None),
+    ('halloween', 'Halloween', 'temporada', 'Terror, fantasía oscura y lecturas de miedo para Halloween.',
+     {'terror', 'fantasia-oscura'}, r'\bbrujas?\b|\bfantasmas?\b|\bvampir|\bzombi|\bhalloween\b|\bmiedo\b'),
+    ('navidad', 'Navidad', 'temporada', 'Lecturas y regalos para Navidad.',
+     set(), r'\bnavid|\badviento\b|\breyes magos\b|\bpapa noel\b'),
+    ('san-valentin', 'San Valentín', 'temporada', 'Romance y romantasy para San Valentín.',
+     {'romance', 'romantasy', 'tema-amor-y-pareja'}, None),
+    ('dia-de-la-madre', 'Día de la Madre', 'temporada', 'Maternidad, crianza y libros para regalar a una madre.',
+     {'familia-y-crianza'}, r'\bmadres?\b|\bmama\b|\bmaternidad\b'),
+    ('dia-del-padre', 'Día del Padre', 'temporada', 'Paternidad, crianza y libros para regalar a un padre.',
+     {'familia-y-crianza'}, r'\bpadres?\b|\bpapa\b|\bpaternidad\b'),
+    ('edicion-especial', 'Ediciones especiales', 'contenido',
+     'Ediciones especiales, limitadas, de coleccionista, ilustradas o conmemorativas.',
+     set(), r'\bedicion (especial|limitada|coleccionista|de coleccionista|ilustrada|conmemorativa|aniversario|de lujo)\b'
+     r'|\bcantos (tintados|decorados)\b|\baniversario\b|\breedicion\b'),
+)
+FANTASY = {'fantasia', 'fantasia-juvenil', 'fantasia-oscura'}
+# Un libro de crianza vale para ambos días salvo que el título hable solo del otro progenitor.
+OTHER_PARENT = {'dia-de-la-madre': r'\bpadres?\b|\bpapa\b|\bpaternidad\b',
+                'dia-del-padre': r'\bmadres?\b|\bmama\b|\bmaternidad\b'}
+
+
+def derived_categories(assigned: set[str], title: str) -> list[str]:
+    """Ids de la clasificación propia que corresponden a un libro con esas categorías y ese título."""
+    title = normalize_text(title)
+    out = []
+    current = set(assigned)
+    for ident, _name, _kind, _desc, triggers, pattern in DERIVED:
+        if ident == 'romantasy':
+            hit = 'romance' in current and bool(current & FANTASY)
+        else:
+            own = bool(pattern and re.search(pattern, title))
+            hit = own or bool(current & triggers)
+            if ident in OTHER_PARENT and not own and re.search(OTHER_PARENT[ident], title):
+                hit = False
+        if hit and ident not in current:
+            out.append(ident)
+            current.add(ident)
+    return out
+
+
+def apply_derived(catalogue: dict) -> dict[str, list[str]]:
+    """Añade en el catálogo la clasificación propia que falte (idempotente; respeta categorias_excluidas)."""
+    known = {c['id']: c for c in catalogue['categorias']}
+    for order, (ident, name, kind, desc, *_rest) in enumerate(DERIVED):
+        if ident not in known:
+            known[ident] = {'id': ident, 'slug': ident, 'nombre': name, 'tipo': kind, 'descripcion': desc,
+                            'orden': 140 + order, 'activa': True}
+            catalogue['categorias'].append(known[ident])
+    by_book: dict[str, set[str]] = {}
+    for rel in catalogue['libro_categorias']:
+        by_book.setdefault(rel['libro_id'], set()).add(rel['categoria_id'])
+    added: dict[str, list[str]] = {}
+    for book in catalogue['libros']:
+        blocked = set(book.get('categorias_excluidas', []))
+        new = [c for c in derived_categories(by_book.get(book['id'], set()), book.get('titulo', ''))
+               if c not in blocked]
+        if new:
+            catalogue['libro_categorias'] += [{'libro_id': book['id'], 'categoria_id': c} for c in new]
+            added[book['id']] = new
+    return added

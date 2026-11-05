@@ -32,8 +32,9 @@ try {
   await page.getByRole('button', { name: 'Restablecer' }).click();
   await page.waitForFunction(() => document.querySelector('[data-catalogue-count]').textContent === '2 libros');
   assert.equal(new URL(page.url()).searchParams.get('utm_source'), 'prueba');
-  await field('orden').selectOption('titulo'); assert.deepEqual(await ids(), ['contrato-dos', 'contrato-uno']);
-  await field('orden').selectOption('titulo_desc'); assert.deepEqual(await ids(), ['contrato-uno', 'contrato-dos']);
+  await field('orden').selectOption('fecha_asc'); assert.deepEqual(await ids(), ['contrato-dos', 'contrato-uno']);
+  await field('orden').selectOption('editorial'); assert.deepEqual(await ids(), ['contrato-uno', 'contrato-dos']);
+  assert.equal(await field('orden').locator('option[value="titulo"], option[value="titulo_desc"], option[value="autor"]').count(), 0, 'Sin ordenaciones por título o autor');
   await field('valoracion').selectOption('4'); assert.deepEqual(await ids(), ['contrato-uno']);
   await field('valoracion').selectOption('4.5'); assert.deepEqual(await ids(), []);
   await field('valoracion').selectOption(''); await field('hasta').fill('1990-12-31'); assert.deepEqual(await ids(), ['contrato-dos']);
@@ -111,7 +112,8 @@ try {
   await live.goto(`${base}/recomendaciones/autores/neil-gaiman/`);
   assert.equal(await live.locator('main h1').innerText(), 'Neil Gaiman');
   assert.equal(await live.locator('.catalogue-author-books > li').count(), 1);
-  assert.equal(await live.locator('a[href="https://es.wikipedia.org/wiki/Neil_Gaiman"]').count(), 1);
+  // Sin el bloque «Fuentes y ediciones», Wikipedia queda como identidad del autor en sameAs (JSON-LD).
+  assert.match(await live.locator('script[type="application/ld+json"]').allInnerTexts().then(t => t.join(' ')), /"sameAs": \[[^\]]*es\.wikipedia\.org\/wiki\/Neil_Gaiman/);
   assert(!/aggregateRating/.test(await live.content()));
   for (const width of [390, 768, 1280]) {
     await live.setViewportSize({ width, height: 900 });

@@ -107,6 +107,19 @@ def gh(*args: str):
                 return created
 
 
+def superseding_pages(repo, merged_sha, after_id):
+    """Primer deploy de Pages posterior a `after_id` cuyo commit contiene `merged_sha` (cualquier evento)."""
+    runs = json.loads(gh('run', 'list', '--workflow', 'deploy-pages.yml', '--branch', 'main', '--limit', '50',
+                         '--json', 'databaseId,headSha,status,conclusion'))
+    for item in sorted((r for r in runs if r['databaseId'] > after_id), key=lambda r: r['databaseId']):
+        if item['headSha'] == merged_sha or gh('api', f'repos/{repo}/compare/{merged_sha}...{item["headSha"]}',
+                                               '--jq', '.status') in ('ahead', 'identical'):
+            if item['status'] == 'completed' and item['conclusion'] == 'cancelled':
+                continue
+            return item
+    return None
+
+
 def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_before=False, pr_wait=120):
     repo = gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner')
     pr = json.loads(gh('pr', 'view', branch, '--json', 'number,headRefOid,baseRefName,baseRefOid,state'))
@@ -218,13 +231,27 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
     print(f'Dispatched Pages after validated merge {merged_sha}', flush=True)
     if deploy_before:
         deadline = time.monotonic() + 1800
+        followed = None  # deploy posterior que contiene merged_sha, tras cancelarse el nuestro por concurrencia
         while time.monotonic() < deadline:
-            runs = json.loads(gh('run', 'list', '--workflow', 'deploy-pages.yml', '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId,headSha,status,conclusion'))
-            exact = [r for r in runs if r['databaseId'] not in before_ids and r['headSha'] == merged_sha]
-            if exact and exact[0]['status'] == 'completed':
-                if exact[0]['conclusion'] != 'success':
-                    raise RuntimeError(f'Pages failed for {merged_sha}: {exact[0]["databaseId"]}')
-                print(f'PASS Pages and production smoke @ {merged_sha}: {exact[0]["databaseId"]}', flush=True)
+            if followed is None:
+                runs = json.loads(gh('run', 'list', '--workflow', 'deploy-pages.yml', '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId,headSha,status,conclusion'))
+                exact = [r for r in runs if r['databaseId'] not in before_ids and r['headSha'] == merged_sha]
+                current = exact[0] if exact else None
+            else:
+                current = superseding_pages(repo, merged_sha, followed)
+            if current and current['status'] == 'completed':
+                if current['conclusion'] == 'cancelled':
+                    # deploy-pages tiene concurrency cancel-in-progress: un push posterior a main cancela este deploy
+                    # y publica también nuestro commit. 2026-11-04: la ingesta 41906759739 fallaba por eso tras mergear.
+                    nxt = superseding_pages(repo, merged_sha, current['databaseId'])
+                    if nxt:
+                        print(f'Pages {current["databaseId"]} cancelled; following {nxt["databaseId"]} @ {nxt["headSha"]}', flush=True)
+                        followed = current['databaseId']
+                    time.sleep(30)
+                    continue
+                if current['conclusion'] != 'success':
+                    raise RuntimeError(f'Pages failed for {merged_sha}: {current["databaseId"]}')
+                print(f'PASS Pages and production smoke @ {merged_sha}: {current["databaseId"]} @ {current["headSha"]}', flush=True)
                 return
             time.sleep(30)
         raise TimeoutError(f'Pages did not complete for exact merged commit {merged_sha}')

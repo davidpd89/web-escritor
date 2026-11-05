@@ -214,6 +214,7 @@ def google_response(isbn: str, key_env: str, timeout=18) -> dict:
 # Aggregates on thousands of votes move slowly; a short TTL only made them vanish
 # whenever a provider throttled CI for a few days.
 RATING_TTL_DAYS = 30
+RENEW_BEFORE_DAYS = 7  # a rating this close to expiry is renewed before filling gaps
 
 
 def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
@@ -241,9 +242,19 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
     # Rotate fair slices to cover the entire growing catalogue.
     offset = (now.astimezone(timezone.utc).date().toordinal() * max(budget, 1)) % len(published) if published else 0
     rotated = published[offset:] + published[:offset]
-    # Books without a rating from this source go first, then the ones expiring
-    # soonest: a provider that blocks after a few requests still fills gaps.
-    queued = sorted(rotated, key=lambda b: (b["id"] in after, str(after.get(b["id"], {}).get("caduca_en", ""))))
+    # Goodreads' WAF often allows only ~3 requests per run. First the ratings about to
+    # expire (so visible ratings don't all vanish at once), then books without a rating,
+    # then the rest from soonest expiry. Gap-filling alone used to spend every request
+    # on ISBNs the source keeps answering as unrated.
+    soon = (now + timedelta(days=RENEW_BEFORE_DAYS)).astimezone(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+
+    def priority(book):
+        expires = str(after.get(book["id"], {}).get("caduca_en", ""))
+        if book["id"] not in after:
+            return (1, "")
+        return (0 if expires <= soon else 2, expires)
+
+    queued = sorted(rotated, key=priority)
     for book in queued:
         if stats["attempted"] >= budget:
             break

@@ -69,9 +69,9 @@ try {
     assert.doesNotMatch(await toggle.innerText(), /activo/, 'Restablecer no limpia el resumen');
     assert.equal(await count.innerText(), total, 'Restablecer no recupera el recuento');
     // El orden sigue en la cabecera de resultados y abrir ficha no depende de los filtros.
-    await page.selectOption('[data-filter="orden"]', 'titulo');
-    assert.match(page.url(), /orden=titulo/);
-    assert.ok(await page.locator('.catalogue-card:not([hidden]) h3 a').first().getAttribute('href'));
+    await page.selectOption('[data-filter="orden"]', 'fecha_asc');
+    assert.match(page.url(), /orden=fecha_asc/);
+    assert.ok(await page.locator('.catalogue-card:not([hidden]) .catalogue-card__ficha').first().getAttribute('href'));
     await context.close();
   }
 
@@ -96,7 +96,7 @@ try {
   // Sin JS: libros y enlaces disponibles; Filtros no es una acción falsa.
   {
     const { context, page } = await open(390, { javaScriptEnabled: false });
-    assert.ok(await page.locator('.catalogue-card h3 a[href]').count() > 0, 'sin JS no hay fichas enlazadas');
+    assert.ok(await page.locator('.catalogue-card .catalogue-card__ficha[href]').count() > 0, 'sin JS no hay fichas enlazadas');
     // La cabecera sin JS del sitio añade ~64 px; lo que importa es que los filtros (inútiles sin JS) no se interpongan.
     assert.equal(await page.locator('[data-catalogue-refine]').isVisible(), false, 'sin JS los filtros deshabilitados ocupan la pantalla');
     assert.ok(await top(page, '.catalogue-card') <= CARD_BUDGET + 100, 'sin JS la primera tarjeta queda lejos');
