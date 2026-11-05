@@ -287,7 +287,8 @@
     const found = sorted.filter(card => matches(card, v)), visible = found.length;
     // Primero se pintan los resultados; los recuentos de las facetas llegan justo después del pintado (INP).
     const job = ++facetJob;
-    requestAnimationFrame(() => setTimeout(() => { if (job === facetJob) renderFacets(values()); }, 0));
+    root.dataset.facetsPending = 'true';
+    requestAnimationFrame(() => setTimeout(() => { if (job === facetJob) { renderFacets(values()); delete root.dataset.facetsPending; } }, 0));
     const pages = Math.max(1, Math.ceil(visible / pageSize));
     currentPage = Math.min(currentPage, pages);
     const shown = new Set(found.slice((currentPage - 1) * pageSize, currentPage * pageSize));

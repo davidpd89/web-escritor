@@ -116,6 +116,8 @@ try {
     assert.equal(await page.locator('input[data-facet="genero"][value="romantasy"]').count(), counts.includes('romantasy') ? 1 : 0);
     // Con un tipo de libro elegido, los géneros sin resultados bajan al final y quedan desactivados.
     await page.locator('input[data-facet="grupo"][value="novela"]').check();
+    // Los recuentos de facetas se pintan un frame después de los resultados (INP): esperar a que terminen.
+    await page.waitForFunction(() => !document.querySelector('[data-facets-pending]'));
     const genreState = await page.locator('details[data-facet-group="genero"] input[data-facet]').evaluateAll(xs => xs.map(x => x.disabled));
     assert(genreState.includes(true) && genreState.indexOf(true) > 0 && genreState.slice(genreState.indexOf(true)).every(Boolean), 'Las opciones vacías van al final');
     await page.locator('input[data-facet="grupo"][value="novela"]').uncheck();
