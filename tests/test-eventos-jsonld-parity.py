@@ -2,7 +2,7 @@
 """Contract for the Event JSON-LD shown in eventos.html.
 
 The Google Search Console Event enhancement requires each event to expose a
-valid status and an Offer. Offers intentionally contain only the canonical URL:
+valid status; upcoming events also expose an Offer, past events do not. Offers intentionally contain only the canonical URL:
 the site has no verified ticket price or commerce endpoint for these past public
 signings, so the test must not force invented price data.
 """
@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import re
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,13 +42,19 @@ for event in events:
     assert event.get("url") == event_id, f"Event url must preserve anchored canonical URL: {fragment}"
     assert event.get("eventStatus") == "https://schema.org/EventScheduled", f"Invalid/missing eventStatus: {fragment}"
 
+    # Evento gratuito: isAccessibleForFree siempre; Offer opcional y solo mientras no se haya celebrado
+    # (Search Console marca entradas en eventos pasados). Así ningún evento futuro deja main en rojo al pasar.
+    assert event.get("isAccessibleForFree") is True, f"Free event must declare isAccessibleForFree: {fragment}"
+    end = str(event.get("endDate") or event.get("startDate", ""))[:10]
     offer = event.get("offers")
-    assert isinstance(offer, dict), f"Offer object missing: {fragment}"
-    assert offer.get("@type") == "Offer", f"Offer type missing: {fragment}"
-    assert offer.get("price") == "0", f"Free event must expose price 0: {fragment}"
-    assert offer.get("priceCurrency") == "EUR", f"Free event must expose EUR currency: {fragment}"
-    assert "url" not in offer, "Offer must not invent a ticket/acquisition URL"
+    if date.fromisoformat(end) < date.today():
+        assert offer is None, f"Past event must not advertise tickets: {fragment}"
+    elif offer is not None:
+        assert isinstance(offer, dict) and offer.get("@type") == "Offer", f"Offer type missing: {fragment}"
+        assert offer.get("price") == "0", f"Free event must expose price 0: {fragment}"
+        assert offer.get("priceCurrency") == "EUR", f"Free event must expose EUR currency: {fragment}"
+        assert "url" not in offer, "Offer must not invent a ticket/acquisition URL"
 
     assert str(event.get("startDate", "")).startswith(EXPECTED[fragment]), f"startDate drift: {fragment}"
 
-print("test-eventos-jsonld-parity: OK (2 Event nodes with valid status and anchored offers)")
+print("test-eventos-jsonld-parity: OK (2 Event nodes with valid status; free, offers optional and never once past)")

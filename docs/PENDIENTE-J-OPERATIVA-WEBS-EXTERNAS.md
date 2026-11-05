@@ -92,6 +92,11 @@ Las acciones en paneles externos deben ser pausadas y verificables:
 
 ## 6. Google Search Console — ejemplo principal de esta operativa
 
+Revisión ejecutada el 4/11/2026: [resultados, correcciones y cierre tras
+publicación](observatorio/search-console-2026-11-04.md). La inspección individual
+ya confirma indexación en URLs que el resumen antiguo aún marca excluidas;
+contrastar siempre ambos antes de corregir o solicitar validaciones.
+
 Usar navegador **solo mientras no dispongamos en el flujo actual de credenciales/conector/API autorizada que permita realizar la operación concreta**.
 
 Cuando se haga esta ronda, abrir Search Console con la propiedad de `davidportodiaz.com` y comprobar al menos:
