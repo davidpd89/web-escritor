@@ -42,6 +42,11 @@ class RatingWorkflowContract(unittest.TestCase):
         # Tandas de día para que las novedades no esperen a la noche.
         self.assertIn("schedule:'0 11 * * *':*", yaml)
         self.assertIn("TZ=Europe/Madrid", yaml)
+        # GitHub drops crons: a night batch that published books dispatches the next one.
+        self.assertIn("name: Chain the next night batch", yaml)
+        self.assertIn("gh workflow run reading-catalogue-sync.yml", yaml)
+        self.assertIn('[ "$hour" -lt 8 ] && [ "$accepted" -gt 0 ]', yaml)
+        self.assertIn("!inputs.dry_run", yaml)
         self.assertIn("secrets.GOOGLE_BOOKS_API_KEY", yaml)
         self.assertIn("secrets.HARDCOVER_API_KEY", yaml)
         config = json.loads((ROOT / "data/reading-intake-config.json").read_text(encoding="utf-8"))

@@ -114,6 +114,24 @@ jobs:
               git clean --quiet -fd
             done
           fi
+      - name: Chain the next night batch
+        # GitHub drops most hourly crons under load (2026-11-04: one scheduled run all night), so a
+        # batch that published new books dispatches the next one itself. Night only (00-08 Madrid),
+        # so daytime merges from other work never wait behind a load. A batch with nothing new, a
+        # resumed PR or a failure stops the chain; the next cron picks up again.
+        if: success() && !inputs.dry_run
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          hour=$(TZ=Europe/Madrid date +%-H)
+          accepted=$(python -c "import json,pathlib;p=pathlib.Path('.ci/reading-intake/publisher-report.json');print(json.loads(p.read_text(encoding='utf-8')).get('accepted',0) if p.exists() else 0)")
+          echo "Madrid hour $hour, accepted $accepted"
+          if [ "$hour" -lt 8 ] && [ "$accepted" -gt 0 ]; then
+            gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main
+            echo "Next night batch dispatched (accepted $accepted at $hour h Madrid)." >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Read-only live provider pilot
         if: inputs.dry_run && inputs.live_provider_pilot
         env:
