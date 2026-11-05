@@ -42,6 +42,13 @@ class GenericSourceTests(unittest.TestCase):
         self.assertTrue(record['portada_fuente_url'].startswith('https://cms.anagrama-ed.es/'))
         self.assertLessEqual(len(record['sinopsis_breve'].split()), 25, 'Solo un extracto breve')
 
+    def test_title_naming_its_form_outranks_collection_subject(self):
+        # «Intervenciones» maps to Ensayo, but Capote's «Tres cuentos» is published there too.
+        page = A_PAGE.replace('Perder la guerra', 'Tres cuentos').replace('/libro/cronicas/perder-la-guerra/', '/libro/intervenciones/tres-cuentos/')
+        url = A_URL.replace('/libro/cronicas/perder-la-guerra/', '/libro/intervenciones/tres-cuentos/')
+        record = generic_edition(ANAGRAMA, page, url)
+        self.assertEqual((record['titulo'], record['materias']), ('Tres cuentos', ['Narrativa']))
+
     def test_nordica_reads_technical_sheet_and_flips_author_name(self):
         record = generic_edition(NORDICA, N_PAGE, N_URL)
         self.assertEqual((record['isbn13'], record['titulo'], record['autores']), ('9791388306174', 'Glifo', ['Ali Smith']))
