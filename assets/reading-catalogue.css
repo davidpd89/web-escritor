@@ -171,7 +171,7 @@ html.v1 .catalogue-date{color:#5a5650;font:600 .78rem/1.4 var(--font-ui);letter-
 html.v1 .catalogue-novelty:not([hidden])+.catalogue-date::before{content:'·';margin-right:.5rem;color:#926600;}
 html.v1 .catalogue-calendar{display:inline-flex;align-items:center;min-height:24px;color:var(--catalogue-blue);font:600 .75rem/1.4 var(--font-ui);letter-spacing:0;text-transform:none;text-decoration-color:var(--catalogue-gold);text-underline-offset:3px;}
 html.v1 .catalogue-byline{margin:0 0 .6rem;color:#5a5650;font:500 .85rem/1.45 var(--font-ui);overflow-wrap:anywhere;}
-html.v1 .catalogue-byline a{display:inline-flex;align-items:center;min-height:24px;color:inherit;text-decoration-color:var(--catalogue-gold);text-underline-offset:3px;}
+html.v1 .catalogue-byline a{display:inline-flex;align-items:center;min-height:24px;min-width:24px;color:inherit;text-decoration-color:var(--catalogue-gold);text-underline-offset:3px;}
 html.v1 .catalogue-card .catalogue-rating{min-height:0;}
 html.v1 .catalogue-card .catalogue-rating a{min-height:24px;font-size:.76rem;}
 /* Comprar en Amazon: botón llamativo */
