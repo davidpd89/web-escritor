@@ -21,7 +21,9 @@ try {
     await page.goto(BASE+route+'#'+option.facet+'='+encodeURIComponent(option.value),{waitUntil:'networkidle'});
     const result=await page.evaluate(({facet,value})=>{
       const visible=[...document.querySelectorAll('[data-catalogue-book]')].filter(c=>!c.hidden);
-      const has=card=>facet==='grupo'?card.dataset.group===value:facet==='formato'?true:card.dataset.categories.split(' ').includes(value);
+      // «ofertas-amazon» se calcula en el navegador: descuento vigente (reconfirmado hace ≤3 días) de 10 % o más.
+      const deal=card=>(card.dataset.formatDiscounts||'').split(' ').filter(Boolean).map(x=>x.split(':')).some(([,pct,checked])=>Number(pct)>=10&&/^\d{4}-\d{2}-\d{2}$/.test(checked||'')&&(Date.now()-Date.parse(checked))/864e5<=4);
+      const has=card=>facet==='grupo'?card.dataset.group===value:facet==='formato'?true:value==='ofertas-amazon'?deal(card):card.dataset.categories.split(' ').includes(value);
       const box=document.querySelector(`input[data-facet="${facet}"][value="${CSS.escape(value)}"]`);
       return {status:document.querySelector('[data-catalogue-count]').textContent,visible:visible.length,wrong:visible.filter(c=>!has(c)).map(c=>c.dataset.title),checked:box.checked};
     },option);
