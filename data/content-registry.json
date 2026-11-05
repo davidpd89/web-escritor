@@ -16447,6 +16447,42 @@
       "sourceFile": "recomendaciones/libros/el-club-de-los-sonadores-9791387574581/index.html"
     },
     {
+      "id": "reading-book-isbn-9788430628940",
+      "url": "/recomendaciones/libros/marco-aurelio-el-emperador-estoico-9788430628940/",
+      "label": "Marco Aurelio: El emperador estoico",
+      "shortLabel": "Marco Aurelio: El emperador estoico",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/marco-aurelio-el-emperador-estoico-9788430628940/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791388038372",
+      "url": "/recomendaciones/libros/el-origen-la-raiz-invisible-de-lo-que-dirige-tu-vida-9791388038372/",
+      "label": "El origen. La raíz invisible de lo que dirige tu vida",
+      "shortLabel": "El origen. La raíz invisible de lo que dirige tu vida",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/el-origen-la-raiz-invisible-de-lo-que-dirige-tu-vida-9791388038372/index.html"
+    },
+    {
       "id": "reading-author-neil-gaiman",
       "url": "/recomendaciones/autores/neil-gaiman/",
       "label": "Neil Gaiman",
@@ -27803,6 +27839,42 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/autores/kim-ho-yeon/index.html"
+    },
+    {
+      "id": "reading-author-donald-j-robertson",
+      "url": "/recomendaciones/autores/donald-j-robertson/",
+      "label": "Donald J. Robertson",
+      "shortLabel": "Donald J. Robertson",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/donald-j-robertson/index.html"
+    },
+    {
+      "id": "reading-author-graciela-del-campo-vara",
+      "url": "/recomendaciones/autores/graciela-del-campo-vara/",
+      "label": "Graciela del Campo Vara",
+      "shortLabel": "Graciela del Campo Vara",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/graciela-del-campo-vara/index.html"
     },
     {
       "id": "reading-publisher-aguilar",
