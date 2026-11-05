@@ -140,6 +140,8 @@ html.v1 .catalogue-pagination__pages{display:flex;flex-wrap:wrap;align-items:cen
 html.v1 .catalogue-pagination__pages button{min-width:44px;min-height:44px;padding:.4rem .6rem;}
 html.v1 .catalogue-pagination__pages button[aria-current="page"]{background:var(--catalogue-blue);color:#fff;border-color:var(--catalogue-blue);}
 html.v1 .catalogue-pagination__position{flex-basis:100%;text-align:center;}
+html.v1 .catalogue-static-pagination a,html.v1 .catalogue-static-pagination [aria-current]{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.4rem .6rem;}
+html.v1 .catalogue-static-pagination [aria-current]{background:var(--catalogue-blue);color:#fff;border-radius:.25rem;}
 html.v1 .catalogue-quiz{margin-block:1.5rem 0;border:1px solid var(--catalogue-rule);border-top:3px solid var(--catalogue-blue);box-shadow:inset 0 2px 0 var(--catalogue-gold);background:var(--catalogue-pale);}
 html.v1 .catalogue-quiz>summary{padding:1.2rem 1.5rem;color:var(--catalogue-blue);font:600 1rem/1.5 var(--font-ui);min-height:56px;cursor:pointer;}
 html.v1 .catalogue-quiz__panel{padding:0 1.5rem 1.5rem;}

@@ -69,8 +69,26 @@ class DailyLimitReached(Exception):
     data must not pass for the end of the night."""
 
 
+def foreign_edition(book,fmt,asin):
+    """A paper ASIN in the book's own binding that is another ISBN-10 is another edition
+    (bolsillo vs. rústica, otra editorial): its price is not this edition's price."""
+    own=isbn10(isbn13(book.get('isbn13')) or '')
+    return (fmt in ('tapa-blanda','tapa-dura') and fmt==book.get('formato_edicion') and bool(own)
+            and isinstance(asin,str) and bool(re.fullmatch(r'\d{9}[\dX]',asin)) and asin!=own)
+
+
+def prune_foreign_editions(book):
+    """Drops stored offers of another edition in the book's own binding; returns how many."""
+    options=book.get('formatos_compra') or []
+    kept=[o for o in options if not foreign_edition(book,o.get('formato'),asin_from_url(o.get('url')))]
+    if len(kept)!=len(options):
+        book['formatos_compra']=kept
+    return len(options)-len(kept)
+
+
 def verified_formats(book):
-    known={asin_from_url(o.get('url')):o['formato'] for o in book.get('formatos_compra',[])}
+    known={asin:fmt for o in book.get('formatos_compra',[])
+           if not foreign_edition(book,(fmt:=o['formato']),(asin:=asin_from_url(o.get('url'))))}
     direct=asin_from_url(book.get('url_amazon_afiliada'))
     if direct and book.get('formato_edicion'):
         known.setdefault(direct,book['formato_edicion'])
@@ -82,6 +100,55 @@ def same_title(title,canonical):
     # only subtitles in brackets or after a colon may differ.
     bare=lambda t: key(re.sub(r'\s*[\(\[].*?[\)\]]','',t).split(':')[0])
     return bool(bare(canonical)) and bare(title)==bare(canonical)
+
+
+# Con el EAN exacto la edición ya está identificada; título y autor solo descartan un EAN mal
+# asignado. Por eso se toleran el orden de serie («El despertar de la magia (Indomables 1)»),
+# el sufijo de idioma y un nombre más largo («Diego Arboleda Rodríguez»), pero no otro libro
+# ni otra persona.
+_TITLE_NOISE={'spanish','edition','edicion','espanol','espanola','castellano','version'}
+
+
+def _title_words(value):
+    return {w for w in key(value).split() if w not in _TITLE_NOISE}
+
+
+def isbn_title_matches(title,canonical):
+    a,b=_title_words(title),_title_words(canonical)
+    short,long_=sorted((a,b),key=len)
+    return len(short)>=2 and short<=long_
+
+
+def isbn_author_matches(source,catalogued):
+    a,b=key(source).split(),key(catalogued).split()
+    if len(a)<2 or len(b)<2:
+        return False
+    short,long_=sorted((a,b),key=len)
+    return set(short)<=set(long_)
+
+
+def edition_matches(info,book,isbn_match):
+    """Título y autor de un resultado de Amazon frente al libro: estricto sin ISBN,
+    tolerante con el EAN exacto. Lo comparten select_offers y miss_reason."""
+    title=amazon_dict(info.get('title')).get('displayValue','')
+    if not isinstance(title,str):
+        return False,False
+    title_ok=title_matches(title,book['titulo']) or (isbn_match and isbn_title_matches(title,book['titulo']))
+    contributors=[c for c in amazon_list(amazon_dict(info.get('byLineInfo')).get('contributors'))
+                  if isinstance(c,dict) and isinstance(c.get('name'),str)]
+    # Sin ISBN solo cuentan los autores; con el EAN exacto vale cualquier rol (ilustrador,
+    # editor) para no perder ediciones en las que Amazon reparte los créditos de otro modo.
+    authors=[c['name'] for c in contributors if isinstance(c.get('role'),str) and key(c['role']) in {'author','autor'}]
+    author_ok=any(author_matches(a,n) for a in authors for n in book['autores'])
+    if isbn_match and not author_ok:
+        author_ok=any(author_matches(c['name'],n) or isbn_author_matches(c['name'],n)
+                      for c in contributors for n in book['autores'])
+    return title_ok,author_ok
+
+
+def item_isbn_match(info,wanted):
+    eans=amazon_list(amazon_dict(amazon_dict(info.get('externalIds')).get('eans')).get('displayValues'))
+    return bool(wanted) and wanted in {isbn13(v) for v in eans if isinstance(v,str)}
 
 
 def in_spanish(info):
@@ -118,21 +185,15 @@ def select_offers(book,payload,tag,now,mismatches=None):
             continue
         info=amazon_dict(item.get('itemInfo'))
         title=amazon_dict(info.get('title')).get('displayValue','')
-        if not isinstance(title,str) or not title_matches(title,book['titulo']):
+        isbn_match=item_isbn_match(info,wanted)
+        title_ok,author_ok=edition_matches(info,book,isbn_match)
+        if not (title_ok and author_ok):
             continue
-        contributors=amazon_list(amazon_dict(info.get('byLineInfo')).get('contributors'))
-        authors=[c.get('name','') for c in contributors
-                 if isinstance(c,dict) and isinstance(c.get('name'),str)
-                 and isinstance(c.get('role'),str)
-                 and key(c['role']) in {'author','autor'}]
-        if not any(author_matches(author,name) for author in authors for name in book['autores']):
-            continue
-        identifiers=amazon_dict(amazon_dict(info.get('externalIds')).get('eans'))
-        isbn_match=wanted in {isbn13(value) for value in amazon_list(identifiers.get('displayValues'))
-                              if isinstance(value,str)}
         binding_value=amazon_dict(amazon_dict(info.get('classifications')).get('binding')).get('displayValue','')
         binding=key(binding_value) if isinstance(binding_value,str) else ''
         fmt=known.get(asin) or BINDINGS.get(binding)
+        if fmt and foreign_edition(book,fmt,asin) and not isbn_match:
+            continue  # Otra edición en la misma encuadernación: su precio no es el de esta.
         if asin in known and BINDINGS.get(binding,fmt)!=fmt:
             # Amazon manda sobre el formato de su ASIN: un precio de tapa dura no se publica como tapa blanda.
             if mismatches is not None:
@@ -260,6 +321,7 @@ class CreatorsPrices:
 
 def store_prices(book,offers,day):
     """Prices live in formatos_compra and stay on the page until a newer one arrives."""
+    prune_foreign_editions(book)
     options=[dict(o) for o in book.get('formatos_compra',[])]
     by_format={o['formato']:o for o in options}
     added=0
@@ -384,7 +446,7 @@ def discover_page_formats(catalogue,fetch,tag,now,limit=60):
         have={o['formato'] for o in options}
         known=set(verified_formats(book))
         for fmt,found in swatch_formats(document,asin).items():
-            if fmt in have or found in known:
+            if fmt in have or found in known or foreign_edition(book,fmt,found):
                 continue
             options.append({'formato':fmt,'url':f'https://www.amazon.es/dp/{found}?tag={tag}',
                             'fuente_url':f'https://www.amazon.es/dp/{found}','fecha_verificacion':day})
@@ -505,7 +567,7 @@ def apply_audit(book,record,tag):
     known=set(verified_formats(book))
     added=0
     for fmt,found in record['amazon'].items():
-        if fmt in have or found in known:
+        if fmt in have or found in known or foreign_edition(book,fmt,found):
             continue
         options.append({'formato':fmt,'url':f'https://www.amazon.es/dp/{found}?tag={tag}',
                         'fuente_url':f'https://www.amazon.es/dp/{found}','fecha_verificacion':record['fecha']})
@@ -645,16 +707,14 @@ def miss_reason(book,payloads):
                         if isinstance((v:=amazon_dict(payload).get(f)),dict)),{})
         for item in amazon_list(container.get('items')):
             info=amazon_dict(amazon_dict(item).get('itemInfo'))
-            title=amazon_dict(info.get('title')).get('displayValue','')
+            isbn_match=item_isbn_match(info,wanted)
+            title_ok,author_ok=edition_matches(info,book,isbn_match)
             stage=1
-            if isinstance(title,str) and title_matches(title,book['titulo']):
+            if title_ok:
                 stage=2
-                names=[c.get('name','') for c in amazon_list(amazon_dict(info.get('byLineInfo')).get('contributors'))
-                       if isinstance(c,dict) and isinstance(c.get('name'),str)]
-                if any(author_matches(n,a) for n in names for a in book['autores']):
+                if author_ok:
                     stage=3
-                    eans=amazon_list(amazon_dict(amazon_dict(info.get('externalIds')).get('eans')).get('displayValues'))
-                    if wanted in {isbn13(v) for v in eans if isinstance(v,str)} or in_spanish(info):
+                    if isbn_match or in_spanish(info):
                         stage=4
             best=max(best,stage)
     return MISS_STAGES[best]

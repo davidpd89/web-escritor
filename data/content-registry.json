@@ -26041,6 +26041,84 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/editoriales/index.html"
+    },
+    {
+      "id": "reading-page-2",
+      "url": "/recomendaciones/pagina/2/",
+      "label": "Libros recomendados: página 2",
+      "shortLabel": "Página 2",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "searchIndex": false,
+      "sourceFile": "recomendaciones/pagina/2/index.html"
+    },
+    {
+      "id": "reading-page-3",
+      "url": "/recomendaciones/pagina/3/",
+      "label": "Libros recomendados: página 3",
+      "shortLabel": "Página 3",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "searchIndex": false,
+      "sourceFile": "recomendaciones/pagina/3/index.html"
+    },
+    {
+      "id": "reading-page-4",
+      "url": "/recomendaciones/pagina/4/",
+      "label": "Libros recomendados: página 4",
+      "shortLabel": "Página 4",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "searchIndex": false,
+      "sourceFile": "recomendaciones/pagina/4/index.html"
+    },
+    {
+      "id": "reading-page-5",
+      "url": "/recomendaciones/pagina/5/",
+      "label": "Libros recomendados: página 5",
+      "shortLabel": "Página 5",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "searchIndex": false,
+      "sourceFile": "recomendaciones/pagina/5/index.html"
+    },
+    {
+      "id": "reading-page-6",
+      "url": "/recomendaciones/pagina/6/",
+      "label": "Libros recomendados: página 6",
+      "shortLabel": "Página 6",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "searchIndex": false,
+      "sourceFile": "recomendaciones/pagina/6/index.html"
+    },
+    {
+      "id": "reading-page-7",
+      "url": "/recomendaciones/pagina/7/",
+      "label": "Libros recomendados: página 7",
+      "shortLabel": "Página 7",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "searchIndex": false,
+      "sourceFile": "recomendaciones/pagina/7/index.html"
     }
   ]
 }

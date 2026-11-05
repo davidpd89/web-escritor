@@ -49,7 +49,8 @@ class CardContractTest(unittest.TestCase):
         self.assertIn(f"isNew(label.dataset.releaseLabel, '{m.NOVELTY_DAYS}')", js)
 
     def test_published_cards_respect_the_contract(self):
-        html = (ROOT / 'recomendaciones/index.html').read_text(encoding='utf-8')
+        pages = [ROOT / 'recomendaciones/index.html', *sorted(ROOT.glob('recomendaciones/pagina/*/index.html'))]
+        html = '\n'.join(page.read_text(encoding='utf-8') for page in pages)
         cards = html.split('<li class="catalogue-card"')[1:]  # cada tarjeta lleva listas anidadas: se corta por la siguiente
         self.assertGreater(len(cards), 100)
         for card in cards:

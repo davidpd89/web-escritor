@@ -398,14 +398,14 @@ def render_index(site: str, records: list[dict], today: date) -> str:
     genre_options = genre_select_options([r["genres"] for r in records], families)
     country_options = ''.join(f'<option value="{esc(c)}">{esc(c)}</option>' for c in countries)
     canonical = f"{site}/editoriales/"
-    description = "Directorio verificado de editoriales: recepción de manuscritos, requisitos, canal oficial, fecha de comprobación e historial de cambios."
+    description = "Directorio de editoriales: recepción de manuscritos, requisitos, canal oficial, fecha de comprobación e historial de cambios."
     main = f'''
 <main id="contenido" tabindex="-1" class="v1-main" data-family="tool" data-editoriales-directory>
   {breadcrumbs([('Inicio', '/'), ('Editoriales', None)])}
   <noscript><p class="tool-note" role="status"><strong>Búsqueda y filtros:</strong> necesitas activar JavaScript para buscar editoriales o filtrar los resultados por género y otros criterios. Sin JavaScript puedes seguir consultando las fichas publicadas en esta página.</p></noscript>
     <header class="tool-hero">
         <p class="eyebrow">Recurso para escritores</p>
-        <h1>Editoriales y recepción de manuscritos, verificadas.</h1>
+        <h1>Editoriales y recepción de manuscritos, con fuentes.</h1>
         <p class="tool-hero__lead">No es una lista copiada de contactos. Cada ficha separa hechos públicos, fecha de comprobación y fuente oficial para que puedas saber qué acepta una editorial y qué pide antes de enviar.</p>
         <p class="tool-note"><strong>Importante:</strong> davidportodiaz.com no representa a estas editoriales ni garantiza que una convocatoria siga abierta después de la fecha indicada. Comprueba siempre la fuente oficial antes de enviar. <a href="/metodologia-editorial/">Cómo se verifica y se corrige esta información</a>.</p>
     </header>
@@ -434,7 +434,7 @@ def render_index(site: str, records: list[dict], today: date) -> str:
                 "@type": "CollectionPage",
                 "@id": canonical,
                 "url": canonical,
-                "name": "Editoriales y recepción de manuscritos, verificadas",
+                "name": "Editoriales y recepción de manuscritos, con fuentes",
                 "description": description,
                 "dateModified": directory_date_modified(records),
                 "inLanguage": "es",
@@ -514,7 +514,7 @@ def render_detail(site: str, record: dict, today: date) -> str:
     main = f'''
 <main id="contenido" tabindex="-1" class="v1-main" data-family="tool">
   {breadcrumbs([('Inicio', '/'), ('Editoriales', '/editoriales/'), (record['name'], None)])}
-    <header class="tool-hero"><p class="eyebrow">Ficha editorial verificada</p><h1>{esc(record['name'])}</h1><div class="editorial-genres editorial-genres--spaced">{status_badge(record)}<span class="editorial-badge">{esc(record['publisher_type'])}</span></div><p class="tool-hero__lead">{esc(record['summary'])}</p><div class="editorial-genres">{genre_tags}</div></header>
+    <header class="tool-hero"><p class="eyebrow">Ficha editorial · fuentes y fechas</p><h1>{esc(record['name'])}</h1><div class="editorial-genres editorial-genres--spaced">{status_badge(record)}<span class="editorial-badge">{esc(record['publisher_type'])}</span></div><p class="tool-hero__lead">{esc(record['summary'])}</p><div class="editorial-genres">{genre_tags}</div></header>
     <section class="v1-section">
         {stale_html}
         <dl class="spec-ledger"><div class="editorial-fact"><dt>Estado de originales</dt> <dd>{esc(status)}</dd></div><div class="editorial-fact"><dt>Última comprobación</dt> <dd><time datetime="{esc(record['verified_at'])}">{esc(record['verified_at'])}</time></dd></div><div class="editorial-fact"><dt>Canal</dt> <dd>{esc(record['submission_channel'])}</dd></div><div class="editorial-fact"><dt>Correo de envío</dt> <dd>{email_html}</dd></div><div class="editorial-fact"><dt>Grupo / tipo</dt> <dd>{esc(record['group'])}</dd></div><div class="editorial-fact"><dt>País</dt> <dd>{esc(record['country'])}</dd></div></dl>

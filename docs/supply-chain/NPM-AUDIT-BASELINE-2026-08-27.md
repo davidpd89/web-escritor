@@ -1,5 +1,11 @@
 # npm supply-chain baseline · 27/08/2026
 
+## Corte vigente: 4/11/2026
+
+Lighthouse CI 0.16.0 (Lighthouse 13.6.0, Node 22+) y overrides acotados a glob >=9 y minimatch >=7 eliminan los avisos actuales. `npm audit` y `npm audit --omit=dev` reportan cero vulnerabilidades con el lockfile revisado. La recogida y las aserciones Lighthouse pasan sin rebajar los umbrales. Los workflows usan el ejecutable del lockfile en lugar de instalaciones globales independientes. Los avisos antiguos se conservan como resueltos en el JSON; las notas siguientes son históricas.
+
+[Release oficial 0.16.0](https://github.com/GoogleChrome/lighthouse-ci/releases/tag/v0.16.0).
+
 **Estado:** baseline de continuidad creado a partir de la auditoría realizada durante PR #127 y de la revalidación posterior.  
 **No es una certificación de seguridad.** Su función es evitar que las conclusiones queden solo en el cuerpo de una PR y se pierdan cuando cambie el árbol.
 

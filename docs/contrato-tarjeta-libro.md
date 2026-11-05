@@ -1,5 +1,7 @@
 # Contrato de la tarjeta y la ficha de libro
 
+Cada página estática del catálogo contiene como máximo 96 libros, con canónica propia y enlaces de continuación. El hub activa búsqueda y filtros globales tras validar todos los lotes de la misma versión. Si falla la carga, conserva las tarjetas locales y los enlaces estáticos sin ofrecer una búsqueda parcial.
+
 Todas las tarjetas del catálogo (`/recomendaciones/`) y todas las fichas (`/recomendaciones/libros/<slug>/`) se generan con la misma plantilla a partir de los datos de Amazon y del catálogo. No hay ajustes a mano por libro: si un libro no encaja, se corrige el dato o la regla, nunca la página.
 
 Los límites están en un único sitio, `scripts/build-reading-catalogue.py`, junto a `tags()`:

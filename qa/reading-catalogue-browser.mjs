@@ -15,6 +15,45 @@ const fixture = JSON.parse(await fs.readFile(fixturePath, 'utf8'));
 const openFilters = async page => { const toggle = page.locator('[data-catalogue-refine-toggle]'); if (await toggle.isVisible() && await toggle.getAttribute('aria-expanded') === 'false') await toggle.click(); };
 const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 try {
+  // Full static discovery and a failed enhancement must never hide books or
+  // present a page-sized subset as global search results.
+  {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const page = await context.newPage();
+    await page.goto(`${BASE}/recomendaciones/`);
+    const urls = await page.locator('a[data-catalogue-page]').evaluateAll(xs => xs.map(a => a.href));
+    const seen = [];
+    for (const url of [`${BASE}/recomendaciones/`, ...urls]) {
+      await page.goto(url);
+      seen.push(...await page.locator('[data-catalogue-book]').evaluateAll(xs => xs.map(x => x.dataset.bookId)));
+      assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'), 'https://davidportodiaz.com' + new URL(url).pathname);
+    }
+    assert.equal(seen.length, realCount);
+    assert.equal(new Set(seen).size, realCount);
+    await context.close();
+  }
+  for (const fault of ['unavailable', 'stale']) {
+    const context = await browser.newContext();
+    await context.addInitScript(() => { localStorage.setItem('nl-popup-ts', String(Date.now())); });
+    const page = await context.newPage();
+    await page.route('**/recomendaciones/pagina/2/', async route => {
+      if (route.request().resourceType() === 'document') return route.continue();
+      if (fault === 'unavailable') return route.fulfill({status:503,contentType:'text/html',body:'Unavailable'});
+      const response = await route.fetch();
+      return route.fulfill({response,body:(await response.text()).replace(/data-catalogue-version="[^"]+"/, 'data-catalogue-version="old"')});
+    });
+    await page.goto(`${BASE}/recomendaciones/`);
+    await page.waitForFunction(() => document.querySelector('[data-catalogue-count]').textContent.includes('No se pudo'));
+    assert(await page.locator('[data-catalogue-filters] fieldset').evaluate(el => el.disabled));
+    assert(await page.locator('[data-catalogue-static-pagination]').isVisible());
+    assert.equal(await page.locator('[data-catalogue-book]:visible').count(), Math.min(realCount,96));
+    await page.locator('a[data-catalogue-page]').first().click();
+    await page.waitForLoadState('domcontentloaded');
+    assert.equal(new URL(page.url()).pathname, '/recomendaciones/pagina/2/');
+    assert.equal(await page.locator('[data-reading-catalogue]').count(), 0);
+    assert.equal(await page.locator('[data-catalogue-book]').count(), Math.min(realCount - 96,96));
+    await context.close();
+  }
   for (const width of [320, 390, 768, 1024, 1440]) {
     const context = await browser.newContext({ viewport: { width, height: 1000 }, reducedMotion: 'reduce' });
     // El popup de newsletter se abre por temporizador en /cuaderno/ y tapa el clic en runners lentos.
@@ -23,7 +62,7 @@ try {
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
     await page.goto(`${BASE}/recomendaciones/`);
-    await page.waitForSelector('[data-catalogue-filters]:visible');
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     await openFilters(page);
     assert.match(await page.locator('h1').innerText(), /Libros recomendados/);
     assert.equal(await page.locator('[data-catalogue-book]').count(), realCount);
@@ -49,7 +88,7 @@ try {
     await page.getByRole('button', { name: 'Buscar libros', exact: true }).focus();
     await page.keyboard.press('Enter');
     assert.equal(await page.locator('[data-catalogue-book]:visible').count(), Math.min(realCount,24));
-    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+    await page.waitForFunction(() => document.documentElement.scrollWidth <= innerWidth + 1);
     await page.evaluate(() => { document.activeElement?.blur(); window.scrollTo({ top: 0, behavior: 'instant' }); });
     await page.waitForFunction(() => window.scrollY === 0);
     await page.screenshot({ path: `${OUT}/catalogue-${width}.png`, fullPage: true });
@@ -67,36 +106,48 @@ try {
     const context = await browser.newContext({ viewport: { width: 390, height: 900 } });
     const page = await context.newPage();
     await page.goto(`${BASE}/recomendaciones/`);
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     const query = page.locator('[data-filter="q"]');
+    const setQuery = async value => {
+      await query.fill(value);
+      await page.waitForFunction(q => new URLSearchParams(location.hash.slice(1)).get('q') === q, value);
+    };
     const visibleIds = () => page.locator('[data-catalogue-book]:visible').evaluateAll(nodes => nodes.map(node => node.dataset.bookId).sort());
-    await query.fill('9791388092268');
+    await setQuery('9791388092268');
     const expected = await visibleIds();
     assert(expected.includes('isbn-9791388092268'), 'El ISBN original debe encontrar Ponte fino');
     for (const value of ['979-13-8809-226-8', '979 13 8809 226 8', 'ISBN 979-13-8809-226-8', 'ISBN-13: 979-13-8809-226-8']) {
-      await query.fill(value);
+      await setQuery(value);
       assert.deepEqual(await visibleIds(), expected, `Resultados distintos para ${value}`);
     }
     const persisted = 'ISBN 979-13-8809-226-8';
-    await query.fill(persisted);
+    await setQuery(persisted);
     assert.equal(new URLSearchParams(new URL(page.url()).hash.slice(1)).get('q'), persisted);
     await page.reload();
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     assert.equal(await query.inputValue(), persisted);
     assert.deepEqual(await visibleIds(), expected);
-    await query.fill('9790000000000');
+    await setQuery('9790000000000');
     assert.deepEqual(await visibleIds(), []);
     assert(await page.locator('[data-catalogue-empty]').isVisible());
-    await query.fill('1984');
+    await setQuery('1984');
     assert((await visibleIds()).includes('isbn-9788491058298'));
-    await query.fill('La hipótesis más peligrosa');
+    await setQuery('La hipótesis más peligrosa');
     const accented = await visibleIds();
     assert(accented.includes('isbn-9791387846008'));
-    await query.fill('La hipotesis mas peligrosa');
+    await setQuery('La hipotesis mas peligrosa');
     assert.deepEqual(await visibleIds(), accented);
-    await query.fill('Martín Berasategui');
+    await setQuery('Martín Berasategui');
     const author = await visibleIds();
     assert(author.includes('isbn-9791388092268'));
-    await query.fill('Martin Berasategui');
+    await setQuery('Martin Berasategui');
     assert.deepEqual(await visibleIds(), author);
+    const multipleAuthors = publicData.libros.find(b => b.estado === 'publicado' && b.autores.length > 1);
+    assert(multipleAuthors, 'Debe probarse una ficha con varios autores');
+    await setQuery(multipleAuthors.autores.join(' '));
+    assert((await visibleIds()).includes(multipleAuthors.id), 'La búsqueda debe conservar todos los autores sin duplicarlos en data-search');
+    await setQuery(multipleAuthors.autores.join(', '));
+    assert((await visibleIds()).includes(multipleAuthors.id), 'Las comas entre autores no deben impedir la búsqueda');
     await context.close();
   }
   // Real pilot: same purchase component and optional sections as other books.
@@ -185,7 +236,7 @@ try {
   const nojs = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 900 } });
   const staticPage = await nojs.newPage();
   await staticPage.goto(`${BASE}/recomendaciones/`);
-  assert(await staticPage.locator('a[href="/recomendaciones/libros/coraline/"]').first().isVisible());
+  assert(await staticPage.locator('[data-catalogue-book] h3 a').first().isVisible());
   assert(await staticPage.locator('input[data-facet="genero"]').first().isDisabled());
   await nojs.route('**/recomendaciones/', route => route.fulfill({ contentType: 'text/html; charset=utf-8', body: fixture.hub }));
   await staticPage.reload();

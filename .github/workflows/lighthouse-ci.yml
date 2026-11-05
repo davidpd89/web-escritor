@@ -49,7 +49,7 @@ concurrency:
 
 jobs:
   lighthouse:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
 
     steps:
@@ -117,9 +117,13 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install Lighthouse CI
+      - name: Install lockfile-pinned QA dependencies
         if: steps.changes.outputs.relevant == 'true'
-        run: npm install --global @lhci/cli@0.15.1
+        run: npm ci
+
+      - name: Use lockfile-pinned Lighthouse CI
+        if: steps.changes.outputs.relevant == 'true'
+        run: echo "$PWD/node_modules/.bin" >> "$GITHUB_PATH"
 
       # collect y assert van separados a proposito: con `lhci autorun`, un fallo
       # de assertions terminaba el proceso antes de los pasos siguientes.

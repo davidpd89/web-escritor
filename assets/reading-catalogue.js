@@ -1,10 +1,43 @@
 /* Static books and purchase links work without JS; optional market data expires. */
-(() => {
+(async () => {
   'use strict';
   const root = document.querySelector('[data-reading-catalogue]');
   if (!root) return;
+  // Small, linked static pages remain usable without JS. Enhance the hub only
+  // after every page of this exact catalogue snapshot has been loaded.
+  const staticNav = root.querySelector('[data-catalogue-static-pagination]');
+  const continuation = [...(staticNav?.querySelectorAll('a[data-catalogue-page]') || [])];
+  if (continuation.length) {
+    const localCards = [...root.querySelectorAll('[data-catalogue-book]')];
+    localCards.slice(24).forEach(card => { card.hidden = true; });
+    try {
+      const parts = [];
+      for (const link of continuation) {
+        const url = new URL(link.href, location.href);
+        if (url.origin !== location.origin || !/^\/recomendaciones\/pagina\/[1-9]\d*\/$/.test(url.pathname) || url.search || url.hash) throw new Error('Invalid catalogue page');
+        const response = await fetch(url.href, { cache: 'no-cache', signal: AbortSignal.timeout(15000) });
+        if (!response.ok || !response.headers.get('content-type')?.includes('text/html')) throw new Error('Catalogue unavailable');
+        const page = new DOMParser().parseFromString(await response.text(), 'text/html');
+        const canonical = new URL(url.pathname, document.querySelector('link[rel=canonical]').href).href;
+        if (page.querySelector('[data-catalogue-version]')?.dataset.catalogueVersion !== root.dataset.catalogueVersion || page.querySelector('link[rel=canonical]')?.href !== canonical) throw new Error('Catalogue changed');
+        parts.push(...page.querySelectorAll('.catalogue-grid > [data-catalogue-book]'));
+      }
+      const original = [...root.querySelectorAll('[data-catalogue-book]')];
+      const ids = new Set([...original, ...parts].map(card => card.dataset.bookId));
+      if (ids.has(undefined) || ids.size !== original.length + parts.length || ids.size !== Number(root.dataset.catalogueTotal)) throw new Error('Incomplete catalogue');
+      const fragment = document.createDocumentFragment();
+      for (const card of parts) { card.hidden = true; fragment.append(card); }
+      root.querySelector('.catalogue-grid').append(fragment);
+    } catch {
+      localCards.forEach(card => { card.hidden = false; });
+      const count = root.querySelector('[data-catalogue-count]');
+      if (count) count.textContent = 'No se pudo preparar la búsqueda completa. Puedes recorrer las páginas del catálogo.';
+      return;
+    }
+  }
+  if (staticNav) { staticNav.hidden = true; staticNav.classList.remove('catalogue-pagination'); }
   const FACET_SEARCH_FROM = 8; // opciones a partir de las cuales el filtro lleva buscador propio
-  const normalize = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').trim();
+  const normalize = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').replace(/,/g, ' ').replace(/\s+/g, ' ').trim();
   // Solo los ISBN-13 completos admiten separadores y prefijos de presentación.
   const searchQuery = s => {
     const candidate = s.trim().replace(/^ISBN(?:-13)?\s*:?\s*/i, '');
@@ -12,6 +45,8 @@
   };
   const form = root.querySelector('[data-catalogue-filters]');
   const cards = [...root.querySelectorAll('[data-catalogue-book]')];
+  // Reuse full title, authors and ISBN. Support cached HTML with data-search.
+  const searchIndex = new Map(cards.map(card => [card, normalize(card.dataset.search || `${card.dataset.title} ${card.dataset.author} ${card.querySelector('[data-isbn]')?.dataset.isbn || ''}`)]));
   const originalOrder = new Map(cards.map((card, i) => [card, i]));
   const fields = form ? [...form.elements].filter(f => f.dataset.filter) : [];
   // Filtros con varias opciones a la vez (OR dentro de cada uno, AND entre ellos), como casillas.
@@ -129,7 +164,7 @@
       const lower = published || (month ? month + '-01' : year ? year + '-01-01' : '');
       const upper = published || (month ? new Date(Date.UTC(Number(month.slice(0, 4)), Number(month.slice(5)), 0)).toISOString().slice(0, 10) : year ? year + '-12-31' : '');
       const pages = Number(card.dataset.pages), range = !pages ? '' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga';
-      return normalize(card.dataset.search).includes(searchQuery(v.q || '')) && (v.estado === 'todos' || (!v.estado && v.q) || (v.estado === 'proximos' ? !released(lower) : released(lower))) && ['genero', 'tematica', 'temporada', 'edad', 'contenido'].every(k => !pick(v[k]).length || pick(v[k]).some(x => cats.includes(x))) && (!pick(v.grupo).length || pick(v.grupo).includes(card.dataset.group)) && (!pick(v.formato).length || pick(v.formato).some(x => formats.has(x))) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && ratingOk(card, v) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
+      return searchIndex.get(card).includes(searchQuery(v.q || '')) && (v.estado === 'todos' || (!v.estado && v.q) || (v.estado === 'proximos' ? !released(lower) : released(lower))) && ['genero', 'tematica', 'temporada', 'edad', 'contenido'].every(k => !pick(v[k]).length || pick(v[k]).some(x => cats.includes(x))) && (!pick(v.grupo).length || pick(v.grupo).includes(card.dataset.group)) && (!pick(v.formato).length || pick(v.formato).some(x => formats.has(x))) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && ratingOk(card, v) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
   }
   // Cada filtro cuenta sus opciones con el resto de filtros aplicados (sin el suyo): una opcion sin libros se atenua y nunca se oculta si esta marcada.
   const cardFacets = new Map(cards.map(card => [card, {}]));

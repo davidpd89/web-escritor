@@ -232,7 +232,9 @@ jobs:
   # si TODOS los fragmentos terminaron en verde (omitidos por el selector = verde).
   reflow-sitewide:
     needs: reflow-shard
-    if: always()
+    # Aggregate failed shards, but do not retain the concurrency slot after
+    # the entire obsolete workflow has been cancelled by a newer candidate.
+    if: ${{ always() && !cancelled() }}
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:

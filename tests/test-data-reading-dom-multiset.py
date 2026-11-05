@@ -20,7 +20,8 @@ class Cards(HTMLParser):
             self.ids.append(a['data-book-id'])
 
 parser = Cards()
-parser.feed((ROOT / 'recomendaciones/index.html').read_text(encoding='utf-8'))
+for page in [ROOT / 'recomendaciones/index.html', *ROOT.glob('recomendaciones/pagina/*/index.html')]:
+    parser.feed(page.read_text(encoding='utf-8'))
 actual = Counter(parser.ids)
 missing = expected - actual
 extra = actual - expected
