@@ -64,6 +64,7 @@ GENRES = {
     'novela romantica': ('romance', 'Romance'),
     'libros de amor': ('romance', 'Romance'),
     'romance': ('romance', 'Romance'),
+    'romantica': ('romance', 'Romance'),  # Planeta juvenil: «Juvenil» › «Romántica»
     'novela historica': ('novela-historica', 'Novela histórica'),
     'libros de aventura': ('aventuras', 'Aventuras'),
     'terror': ('terror', 'Terror'),
@@ -181,6 +182,9 @@ def classify(record, catalogue):
         found.append(ident)
     if not found:
         raise SourceError('Materia editorial no clasificada; queda pendiente')
+    if 'juvenil' in cats and any(normalize_text(s) == 'juvenil' for s in record['materias']):
+        # La sección «Juvenil» no es materia, pero sí el público cuando la ficha no trae edad.
+        found.append('juvenil')
     age = normalize_text(record.get('edad_recomendada', ''))
     youngest = re.fullmatch(r'(?:de|a partir de) (\d+)(?: a \d+)? anos', age)
     if age == 'adultos':
