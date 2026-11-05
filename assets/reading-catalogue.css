@@ -29,7 +29,7 @@ html.v1 .catalogue-results-head{display:grid;grid-template-columns:minmax(0,1fr)
 html.v1 .catalogue-results-head h2{margin:0;color:var(--catalogue-blue);font:400 clamp(1.9rem,3vw,3rem)/1.1 var(--font-display);}
 html.v1 .catalogue-results-head [role="status"]{grid-column:1/-1;margin:0;color:#67635e;font-size:.85rem;}
 html.v1 .catalogue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr));gap:1rem;list-style:none;padding:0;margin:1rem 0 2.5rem;}
-html.v1 .catalogue-card{display:grid;grid-template-rows:auto 1fr;gap:.6rem;min-width:0;padding:.75rem;border:1px solid var(--catalogue-rule);border-top:3px solid var(--catalogue-blue);background:#fff;box-shadow:inset 0 2px 0 var(--catalogue-gold);}
+html.v1 .catalogue-card{content-visibility:auto;contain-intrinsic-size:auto 420px;display:grid;grid-template-rows:auto 1fr;gap:.6rem;min-width:0;padding:.75rem;border:1px solid var(--catalogue-rule);border-top:3px solid var(--catalogue-blue);background:#fff;box-shadow:inset 0 2px 0 var(--catalogue-gold);}
 html.v1 .catalogue-card>div,html.v1 .catalogue-book-layout>div{min-width:0;}
 html.v1 .catalogue-card>div{display:flex;flex-direction:column;}
 html.v1 .catalogue-card__cover{display:flex;justify-content:center;align-items:flex-end;aspect-ratio:2/3;max-height:260px;}

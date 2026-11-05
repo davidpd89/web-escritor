@@ -124,7 +124,12 @@
   const offerCurrent = checked => /^\d{4}-\d{2}-\d{2}$/.test(checked || '') && (Date.parse(madridDate.format(new Date())) - Date.parse(checked)) / 864e5 <= OFFER_MAX_DAYS;
   const formatDiscounts = card => (card.dataset.formatDiscounts || '').split(' ').filter(Boolean).map(x => x.split(':')).filter(([, , checked]) => offerCurrent(checked)).map(([formato, pct]) => ({formato, pct: Number(pct)}));
   // «Prime Day y Black Friday» (Temporada): libros con una oferta vigente de Amazon de 10 % o más.
-  const cardCategories = card => [...card.dataset.categories.split(' '), ...(formatDiscounts(card).some(o => o.pct >= 10) ? ['ofertas-amazon'] : [])];
+  // Categorías y formatos por libro se calculan una vez por versión de datos de mercado (renderMarket las invalida):
+  // filtrar recorre 642 fichas por cada grupo de facetas y recalcularlas en cada clic disparaba el INP.
+  let memo = new Map();
+  const memoFor = card => { let m = memo.get(card); if (!m) memo.set(card, m = {}); return m; };
+  const cardCategories = card => { const m = memoFor(card); return m.cats || (m.cats = [...card.dataset.categories.split(' '), ...(formatDiscounts(card).some(o => o.pct >= 10) ? ['ofertas-amazon'] : [])]); };
+  const cardFormats = card => { const m = memoFor(card); return m.formats || (m.formats = new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)])); };
   for (const badge of root.querySelectorAll('[data-offer-checked]')) if (!offerCurrent(badge.dataset.offerChecked)) badge.remove();
   const matchingOffers = (card, v) => [...offersFor(card.dataset.bookId).map(o => ({formato: o.formato, pct: discount(o)})), ...formatDiscounts(card)].filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.descuento || o.pct >= Number(v.descuento)));
   const hasDiscounts = cards.some(card => card.dataset.formatDiscounts);
@@ -143,7 +148,7 @@
     return [...formatPrices(card)].some(([f, c]) => (!formats.length || formats.includes(f)) && c >= min && c <= max);
   };
   function renderMarket() {
-    offersIndex = new Map(); ratingsIndex = new Map();
+    offersIndex = new Map(); ratingsIndex = new Map(); memo = new Map();
     for (const offer of market.offers.filter(validOffer)) {
       if (!offersIndex.has(offer.libro_id)) offersIndex.set(offer.libro_id, []);
       offersIndex.get(offer.libro_id).push(offer);
@@ -184,18 +189,17 @@
   }
   function matches(card, v) {
       const cats = cardCategories(card), published = card.dataset.published, month = card.dataset.publishedMonth, year = card.dataset.year;
-      const formats = new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)]);
+      const formats = cardFormats(card);
       const lower = published || (month ? month + '-01' : year ? year + '-01-01' : '');
       const upper = published || (month ? new Date(Date.UTC(Number(month.slice(0, 4)), Number(month.slice(5)), 0)).toISOString().slice(0, 10) : year ? year + '-12-31' : '');
       const pages = Number(card.dataset.pages), range = !pages ? '' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga';
       return searchIndex.get(card).includes(searchQuery(v.q || '')) && (v.estado === 'todos' || (!v.estado && v.q) || (v.estado === 'proximos' ? !released(lower) : released(lower))) && ['genero', 'tematica', 'temporada', 'edad', 'contenido'].every(k => !pick(v[k]).length || pick(v[k]).some(x => cats.includes(x))) && (!pick(v.grupo).length || pick(v.grupo).includes(card.dataset.group)) && (!pick(v.formato).length || pick(v.formato).some(x => formats.has(x))) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && ratingOk(card, v) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
   }
   // Cada filtro cuenta sus opciones con el resto de filtros aplicados (sin el suyo): una opcion sin libros se atenua y nunca se oculta si esta marcada.
-  const cardFacets = new Map(cards.map(card => [card, {}]));
   function facetValues(card, k) {
-    const cached = cardFacets.get(card);
-    if (k === 'formato') return new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)]);
-    return cached[k] || (cached[k] = new Set(k === 'grupo' ? [card.dataset.group] : cardCategories(card)));
+    if (k === 'formato') return cardFormats(card);
+    const m = memoFor(card), key = k === 'grupo' ? 'groupSet' : 'catSet';
+    return m[key] || (m[key] = new Set(k === 'grupo' ? [card.dataset.group] : cardCategories(card)));
   }
   function renderFacets(v) {
     if (!form) return;
@@ -217,10 +221,13 @@
       }
       const query = finder ? normalize(finder.value) : '';
       const candidates = cards.filter(card => matches(card, {...v, [k]: []}));
-      const sets = candidates.map(card => facetValues(card, k));
+      // Una pasada por ficha para totales y recuentos (antes: opciones × fichas).
+      const totals = new Set(), counts = new Map();
+      for (const card of cards) for (const x of facetValues(card, k)) totals.add(x);
+      for (const card of candidates) for (const x of facetValues(card, k)) counts.set(x, (counts.get(x) || 0) + 1);
       for (const box of own) {
-        const total = cards.some(card => facetValues(card, k).has(box.value));
-        const count = sets.filter(set => set.has(box.value)).length, label = box.closest('label');
+        const total = totals.has(box.value);
+        const count = counts.get(box.value) || 0, label = box.closest('label');
         // Con un tipo de libro elegido solo quedan las opciones de ese tipo (Novela → sus géneros).
         label.hidden = (!total || (typed && k !== 'grupo' && !count) || (query && !normalize(label.textContent).includes(query))) && !box.checked;
         label.querySelector('[data-facet-count]').textContent = '(' + count + ')';
@@ -256,6 +263,7 @@
       if (chosen) group.open = true;
     }
   }
+  let facetJob = 0;
   function apply(save = true) {
     const v = values();
     const nullable = (x, y, desc = false) => x == null ? (y == null ? 0 : 1) : y == null ? -1 : desc ? y - x : x - y;
@@ -277,7 +285,9 @@
     const grid = root.querySelector('.catalogue-grid'), sorted = [...cards].sort((a, b) => compare(a, b) || originalOrder.get(a) - originalOrder.get(b));
     if (grid && sorted.some((card, i) => grid.children[i] !== card)) { const fragment = document.createDocumentFragment(); sorted.forEach(card => fragment.append(card)); grid.replaceChildren(fragment); }
     const found = sorted.filter(card => matches(card, v)), visible = found.length;
-    renderFacets(v);
+    // Primero se pintan los resultados; los recuentos de las facetas llegan justo después del pintado (INP).
+    const job = ++facetJob;
+    requestAnimationFrame(() => setTimeout(() => { if (job === facetJob) renderFacets(values()); }, 0));
     const pages = Math.max(1, Math.ceil(visible / pageSize));
     currentPage = Math.min(currentPage, pages);
     const shown = new Set(found.slice((currentPage - 1) * pageSize, currentPage * pageSize));

@@ -177,6 +177,22 @@ def kindle(title='Coraline',language='Español',asin='B08CYCPBZN',amount=6.64):
     return payload
 
 
+    def test_own_isbn10_binding_from_amazon_overrides_publisher_template(self):
+        # Anagrama declares Paperback in every JSON-LD: «Tres cuentos» is a hardcover on Amazon.
+        book={'id':'isbn-9788433951168','isbn13':'9788433951168','formato_edicion':'tapa-blanda',
+              'edicion':'Tapa blanda · Editorial Anagrama',
+              'descripcion_breve':'Tres cuentos, de Truman Capote. Edición de Editorial Anagrama en castellano, en tapa blanda. Consta de 112 páginas.',
+              'formatos_compra':[{'formato':'tapa-dura','url':'https://www.amazon.es/dp/8433951165?tag=x'},
+                                 {'formato':'ebook','url':'https://www.amazon.es/dp/B0BDT8LG7S?tag=x'}]}
+        self.assertTrue(market.reconcile_edition_binding(book))
+        self.assertEqual(book['formato_edicion'],'tapa-dura')
+        self.assertEqual(book['edicion'],'Tapa dura · Editorial Anagrama')
+        self.assertIn('en tapa dura.',book['descripcion_breve'])
+        self.assertFalse(market.reconcile_edition_binding(book))
+        # Another ISBN-10 in the other binding is another edition: it never rewrites this one.
+        other={**book,'formato_edicion':'tapa-blanda','formatos_compra':[{'formato':'tapa-dura','url':'https://www.amazon.es/dp/847888579X'}]}
+        self.assertFalse(market.reconcile_edition_binding(other))
+
 class AmazonFormatDiscoveryTests(unittest.TestCase):
     def test_report_says_why_a_book_still_has_no_offer(self):
         empty={'searchResult':{'items':[]}}

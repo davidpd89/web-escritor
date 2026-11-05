@@ -77,6 +77,33 @@ def foreign_edition(book,fmt,asin):
             and isinstance(asin,str) and bool(re.fullmatch(r'\d{9}[\dX]',asin)) and asin!=own)
 
 
+BINDING_LABELS={'tapa-dura':'Tapa dura','tapa-blanda':'Tapa blanda'}
+
+
+def reconcile_edition_binding(book):
+    """Amazon's binding for the edition's own ISBN-10 overrides the publisher's when they differ.
+
+    Some publisher pages declare one bookFormat for every title (Anagrama's JSON-LD says
+    Paperback even for hardcovers, «Tres cuentos» 2026-11), so the card offered «tapa blanda»
+    beside Amazon's «tapa dura» for the very same EAN. Returns True when it corrected the book."""
+    own=isbn10(isbn13(book.get('isbn13')) or '')
+    found={o.get('formato') for o in book.get('formatos_compra') or []
+           if own and asin_from_url(o.get('url'))==own and o.get('formato') in BINDING_LABELS}
+    current=book.get('formato_edicion')
+    if len(found)!=1 or current not in BINDING_LABELS or current in found:
+        return False
+    fmt=found.pop()
+    label,_,publisher=(book.get('edicion') or '').partition(' · ')
+    book['formato_edicion']=fmt
+    if publisher:
+        book['edicion']=BINDING_LABELS[fmt]+' · '+publisher
+    if label and isinstance(book.get('descripcion_breve'),str):
+        book['descripcion_breve']=book['descripcion_breve'].replace(f'en {label.lower()}.',f'en {BINDING_LABELS[fmt].lower()}.')
+    if book.get('encuadernacion'):
+        book['encuadernacion']=BINDING_LABELS[fmt]
+    return True
+
+
 def prune_foreign_editions(book):
     """Drops stored offers of another edition in the book's own binding; returns how many."""
     options=book.get('formatos_compra') or []
@@ -321,6 +348,7 @@ class CreatorsPrices:
 
 def store_prices(book,offers,day):
     """Prices live in formatos_compra and stay on the page until a newer one arrives."""
+    reconcile_edition_binding(book)
     prune_foreign_editions(book)
     options=[dict(o) for o in book.get('formatos_compra',[])]
     by_format={o['formato']:o for o in options}
@@ -341,6 +369,7 @@ def store_prices(book,offers,day):
         current.update(url=offer['url'],precio_centimos=offer['precio_centimos'],fecha_verificacion=day)
     order=list(FORMAT_ORDER)
     book['formatos_compra']=sorted(options,key=lambda o:order.index(o['formato']))
+    reconcile_edition_binding(book)  # The own ASIN may have just been priced for the first time.
     return added
 
 
