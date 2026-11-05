@@ -60,6 +60,12 @@ class AuditAmazonLinksTest(unittest.TestCase):
                         "estado": "publicado",
                         "isbn13": "9788498382372",
                         "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788498382372&tag=davidporto-21",
+                        # Read from the edition's own page selector (ISBN-10 8498382378): not a mismatch.
+                        "formatos_compra": [{
+                            "formato": "tapa-dura",
+                            "url": "https://www.amazon.es/dp/847888579X?tag=davidporto-21",
+                            "fuente_url": "https://www.amazon.es/dp/8498382378",
+                        }],
                     },
                 ]
             }
