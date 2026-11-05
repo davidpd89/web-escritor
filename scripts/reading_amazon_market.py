@@ -354,18 +354,14 @@ def print_prices(book):
 
 
 def price_drop(current,offer,day):
-    """Keep the list price (savingBasis) and the last drop so the site and a deals feed can show offers."""
+    """Keep only Amazon's list price (savingBasis): a drop against our own earlier price is not shown as an offer."""
     price=offer['precio_centimos']
     reference=offer.get('precio_referencia_centimos')
     if reference and reference>price:
         current['precio_referencia_centimos']=reference
     else:
         current.pop('precio_referencia_centimos',None)
-    previous=current.get('precio_centimos')
-    if previous and price<previous:
-        current.update(precio_anterior_centimos=previous,bajada_fecha=day)
-    elif previous and price>previous or current.get('precio_anterior_centimos',0)<=price:
-        current.pop('precio_anterior_centimos',None); current.pop('bajada_fecha',None)
+    current.pop('precio_anterior_centimos',None); current.pop('bajada_fecha',None)  # legacy fields
 
 
 FORMAT_ORDER=('tapa-blanda','tapa-dura','ebook','audiolibro')

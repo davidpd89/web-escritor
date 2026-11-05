@@ -65,15 +65,42 @@ if __name__ == "__main__":
 
 class CatalogueDealsAndFilters(unittest.TestCase):
     def test_deals_feed_and_card_discounts(self):
-        option = {'formato': 'ebook', 'url': 'https://www.amazon.es/dp/B000000001?tag=x', 'fuente_url': 'https://www.amazon.es/dp/B000000001',
-                  'fecha_verificacion': '2026-11-03', 'precio_centimos': 750, 'precio_anterior_centimos': 1000, 'bajada_fecha': '2026-11-03'}
-        book = {'id': 'lib-1', 'slug': 'libro', 'titulo': 'Libro', 'autores': ['A'], 'portada_local': '/assets/reading-covers/x.webp', 'formatos_compra': [option]}
-        self.assertEqual(builder.format_discounts(book), 'ebook:25')
+        option = {'formato': 'audiolibro', 'url': 'https://www.amazon.es/dp/B000000001?tag=x', 'fuente_url': 'https://www.amazon.es/dp/B000000001',
+                  'fecha_verificacion': '2026-11-04', 'precio_centimos': 1329, 'precio_referencia_centimos': 1899}
+        book = {'id': 'lib-1', 'slug': 'libro', 'titulo': 'Libro', 'autores': ['A'], 'portada_local': '/assets/reading-covers/x.webp',
+                'fecha_actualizacion': '2026-11-05', 'formatos_compra': [option]}
+        self.assertEqual(builder.format_discounts(book, '2026-11-05'), 'audiolibro:30:2026-11-04')
         deals = json.loads(builder.render_deals([book]))['ofertas']
-        self.assertEqual([(d['descuento_pct'], d['tipo'], d['precio_antes_centimos']) for d in deals], [(25, 'bajada', 1000)])
-        book['formatos_compra'] = [{k: v for k, v in option.items() if k not in ('precio_anterior_centimos', 'bajada_fecha')}]
-        self.assertEqual(builder.format_discounts(book), '')
+        self.assertEqual([(d['descuento_pct'], d['tipo'], d['precio_antes_centimos']) for d in deals], [(30, 'descuento', 1899)])
+        # Red percentage next to the price, with the check date the browser uses to expire it.
+        box = builder.format_box(book, compact=True, anchor='2026-11-05')
+        self.assertIn('13,29 € <em class="catalogue-format__off" data-offer-checked="2026-11-04">-30 %</em>', box)
+        # Expired check: no badge, no filter entry, no deal.
+        self.assertEqual(builder.format_discounts(book, '2026-11-09'), '')
+        self.assertNotIn('catalogue-format__off', builder.format_box(book, anchor='2026-11-09'))
+        book['fecha_actualizacion'] = '2026-11-09'
         self.assertEqual(json.loads(builder.render_deals([book]))['ofertas'], [])
+        # A drop against an earlier price of ours is not an offer.
+        book['formatos_compra'] = [{k: v for k, v in option.items() if k != 'precio_referencia_centimos'} | {'precio_anterior_centimos': 2000}]
+        self.assertEqual(builder.format_discounts(book), '')
+
+    def test_published_cards_show_every_current_discount(self):
+        data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+        books = [b for b in data['libros'] if b['estado'] == 'publicado']
+        anchor = builder.data_anchor(books)
+        pages = [ROOT / 'recomendaciones/index.html', *sorted((ROOT / 'recomendaciones/pagina').glob('*/index.html'))]
+        html = ''.join(p.read_text(encoding='utf-8') for p in pages)
+        expected = sum(1 for b in books for o in builder.amazon_prices(b) if builder.price_discount(b, o, anchor))
+        self.assertGreater(expected, 0)
+        self.assertEqual(html.count('class="catalogue-format__off"'), expected)
+
+    def test_prime_day_season_is_live_amazon_offers(self):
+        # GPT 2026-11-05: «Temporadas: falta Prime Day». It is the current Amazon offers (≥10 %), computed in the browser.
+        hub = (ROOT / 'recomendaciones/index.html').read_text(encoding='utf-8')
+        self.assertIn(f'value="{builder.DEALS_SEASON}" data-facet="temporada"', hub)
+        script = (ROOT / 'assets/reading-catalogue.js').read_text(encoding='utf-8')
+        self.assertIn("o.pct >= 10) ? ['ofertas-amazon']", script)
+        self.assertEqual(script.count('cardCategories(card)'), 2)
 
     def test_discount_rounds_like_amazon_and_ignores_kindle_print_price(self):
         # 2026-11-04: «-4 %» where Amazon shows the legal 5 %, and ebooks at «-50 %» against the print price.
@@ -83,10 +110,12 @@ class CatalogueDealsAndFilters(unittest.TestCase):
                  'fecha_verificacion': '2026-11-04', 'precio_centimos': 1139, 'precio_referencia_centimos': 2190}
         book = {'id': 'lib-1', 'slug': 'libro', 'titulo': 'Libro', 'autores': ['A'], 'portada_local': '/assets/reading-covers/x.webp',
                 'pvp_centimos': 2190, 'formatos_compra': [paper, ebook]}
-        self.assertEqual(builder.format_discounts(book), 'tapa-dura:5')
+        self.assertEqual(builder.format_discounts(book), 'tapa-dura:5:2026-11-04')
         self.assertEqual([d['formato'] for d in json.loads(builder.render_deals([book]))['ofertas']], ['tapa-dura'])
         ebook['precio_referencia_centimos'] = 1199  # real Kindle list price
-        self.assertEqual(builder.format_discounts(book), 'tapa-dura:5 ebook:5')
+        self.assertEqual(builder.format_discounts(book), 'tapa-dura:5:2026-11-04 ebook:5:2026-11-04')
+        ebook['precio_referencia_centimos'] = 1990  # print price of another edition (El portero, 2026-11-05)
+        self.assertEqual(builder.format_discounts(book), 'tapa-dura:5:2026-11-04')
 
     def test_filters_drop_epoch_and_unknown_pages(self):
         html = (ROOT / 'recomendaciones/index.html').read_text(encoding='utf-8')

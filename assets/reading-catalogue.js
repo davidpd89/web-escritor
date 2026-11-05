@@ -10,18 +10,36 @@
   if (continuation.length) {
     const localCards = [...root.querySelectorAll('[data-catalogue-book]')];
     localCards.slice(24).forEach(card => { card.hidden = true; });
-    try {
-      const parts = [];
-      for (const link of continuation) {
-        const url = new URL(link.href, location.href);
-        if (url.origin !== location.origin || !/^\/recomendaciones\/pagina\/[1-9]\d*\/$/.test(url.pathname) || url.search || url.hash) throw new Error('Invalid catalogue page');
-        const response = await fetch(url.href, { cache: 'no-cache', signal: AbortSignal.timeout(15000) });
+    // Páginas en paralelo y con un reintento: en serie, un móvil tardaba ~10 s en poder filtrar.
+    const readPage = async (link, attempt = 0) => {
+      const url = new URL(link.href, location.href);
+      if (url.origin !== location.origin || !/^\/recomendaciones\/pagina\/[1-9]\d*\/$/.test(url.pathname) || url.search || url.hash) throw new Error('Invalid catalogue page');
+      try {
+        const response = await fetch(url.href, { cache: 'no-cache', signal: AbortSignal.timeout(30000) });
         if (!response.ok || !response.headers.get('content-type')?.includes('text/html')) throw new Error('Catalogue unavailable');
         const page = new DOMParser().parseFromString(await response.text(), 'text/html');
         const canonical = new URL(url.pathname, document.querySelector('link[rel=canonical]').href).href;
-        if (page.querySelector('[data-catalogue-version]')?.dataset.catalogueVersion !== root.dataset.catalogueVersion || page.querySelector('link[rel=canonical]')?.href !== canonical) throw new Error('Catalogue changed');
-        parts.push(...page.querySelectorAll('.catalogue-grid > [data-catalogue-book]'));
+        const version = page.querySelector('[data-catalogue-version]')?.dataset.catalogueVersion;
+        if (page.querySelector('link[rel=canonical]')?.href !== canonical) throw new Error('Invalid catalogue page');
+        return { version, cards: [...page.querySelectorAll('.catalogue-grid > [data-catalogue-book]')] };
+      } catch (error) {
+        if (attempt || error.message === 'Invalid catalogue page') throw error;
+        return readPage(link, 1);
       }
+    };
+    try {
+      const pages = await Promise.all(continuation.map(link => readPage(link)));
+      if (pages.some(page => page.version !== root.dataset.catalogueVersion)) {
+        // Tras cada publicación, el navegador puede servir esta página desde su caché (10 min en Pages)
+        // y las demás ya nuevas: se recarga una vez, revalidando, en vez de dejar el catálogo sin filtros.
+        const target = String(pages.find(page => page.version !== root.dataset.catalogueVersion).version);
+        let retry = false;
+        try { retry = sessionStorage.getItem('catalogue-reload') !== target; sessionStorage.setItem('catalogue-reload', target); } catch { /* sin almacenamiento: no se recarga */ }
+        if (retry) { location.reload(); return; }
+        throw new Error('Catalogue changed');
+      }
+      try { sessionStorage.removeItem('catalogue-reload'); } catch { /* opcional */ }
+      const parts = pages.flatMap(page => page.cards);
       const original = [...root.querySelectorAll('[data-catalogue-book]')];
       const ids = new Set([...original, ...parts].map(card => card.dataset.bookId));
       if (ids.has(undefined) || ids.size !== original.length + parts.length || ids.size !== Number(root.dataset.catalogueTotal)) throw new Error('Incomplete catalogue');
@@ -101,7 +119,13 @@
   }
   const values = () => ({...Object.fromEntries(fields.map(f => [f.dataset.filter, f.disabled ? '' : f.value])), ...Object.fromEntries(FACETS.map(k => [k, boxes.filter(b => b.dataset.facet === k && b.checked).map(b => b.value)]))});
   // Descuento por formato guardado al refrescar precios («ebook:20»): precio de referencia de Amazon o última bajada.
-  const formatDiscounts = card => (card.dataset.formatDiscounts || '').split(' ').filter(Boolean).map(x => x.split(':')).map(([formato, pct]) => ({formato, pct: Number(pct)}));
+  // «formato:%:fecha»: an offer Amazon has not reconfirmed for OFFER_MAX_DAYS disappears by itself (badge and filter).
+  const OFFER_MAX_DAYS = 3;
+  const offerCurrent = checked => /^\d{4}-\d{2}-\d{2}$/.test(checked || '') && (Date.parse(madridDate.format(new Date())) - Date.parse(checked)) / 864e5 <= OFFER_MAX_DAYS;
+  const formatDiscounts = card => (card.dataset.formatDiscounts || '').split(' ').filter(Boolean).map(x => x.split(':')).filter(([, , checked]) => offerCurrent(checked)).map(([formato, pct]) => ({formato, pct: Number(pct)}));
+  // «Prime Day y Black Friday» (Temporada): libros con una oferta vigente de Amazon de 10 % o más.
+  const cardCategories = card => [...card.dataset.categories.split(' '), ...(formatDiscounts(card).some(o => o.pct >= 10) ? ['ofertas-amazon'] : [])];
+  for (const badge of root.querySelectorAll('[data-offer-checked]')) if (!offerCurrent(badge.dataset.offerChecked)) badge.remove();
   const matchingOffers = (card, v) => [...offersFor(card.dataset.bookId).map(o => ({formato: o.formato, pct: discount(o)})), ...formatDiscounts(card)].filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.descuento || o.pct >= Number(v.descuento)));
   const hasDiscounts = cards.some(card => card.dataset.formatDiscounts);
   // Lanzamiento: sin elegir nada se ven los ya publicados; los próximos se piden a propósito o se buscan por texto.
@@ -159,7 +183,7 @@
 
   }
   function matches(card, v) {
-      const cats = card.dataset.categories.split(' '), published = card.dataset.published, month = card.dataset.publishedMonth, year = card.dataset.year;
+      const cats = cardCategories(card), published = card.dataset.published, month = card.dataset.publishedMonth, year = card.dataset.year;
       const formats = new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)]);
       const lower = published || (month ? month + '-01' : year ? year + '-01-01' : '');
       const upper = published || (month ? new Date(Date.UTC(Number(month.slice(0, 4)), Number(month.slice(5)), 0)).toISOString().slice(0, 10) : year ? year + '-12-31' : '');
@@ -171,7 +195,7 @@
   function facetValues(card, k) {
     const cached = cardFacets.get(card);
     if (k === 'formato') return new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)]);
-    return cached[k] || (cached[k] = new Set(k === 'grupo' ? [card.dataset.group] : card.dataset.categories.split(' ')));
+    return cached[k] || (cached[k] = new Set(k === 'grupo' ? [card.dataset.group] : cardCategories(card)));
   }
   function renderFacets(v) {
     if (!form) return;

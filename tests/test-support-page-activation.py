@@ -65,8 +65,10 @@ with tempfile.TemporaryDirectory() as td:
     assert "support-free" not in main and "Todo es gratis" not in main
     assert "support-trust" not in main and "esta web no ve" not in main
     other = main.split('class="support-other__list"', 1)[1].split("</ul>", 1)[0]
-    assert re.findall(r'<a href="([^"]+)">([^<]+)</a>', other) == [
-        ("/libros/", "Recomienda mis novelas"), ("/redes-sociales/", "Sígueme en redes")], other
+    # «Recomienda mis novelas» lleva al perfil de autor en Amazon con el tag de afiliado.
+    assert re.findall(r'<a href="([^"]+)"[^>]*>([^<]+)</a>', other) == [
+        ("https://www.amazon.es/stores/author/B0GZFP1JV3?tag=davidporto-21", "Recomienda mis novelas"), ("/redes-sociales/", "Sígueme en redes")], other
+    assert 'rel="sponsored nofollow noopener noreferrer"' in other
     registry = json.loads((root / "data/content-registry.json").read_text(encoding="utf-8"))
     assert sum(e["id"] == "support-project" for e in registry["entries"]) == 1
 print("PASS: /apoyar/ multicanal solo existe con canales válidos y cumple el gate")

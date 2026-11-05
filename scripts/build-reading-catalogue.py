@@ -26,7 +26,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://davidportodiaz.com"
 SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 TYPES = {"genero": "Género", "tematica": "Temática", "temporada": "Temporada", "edad": "Edad", "contenido": "Contenido", "epoca": "Época"}
-PRICE_FIELDS = {'precio_centimos', 'precio_referencia_centimos', 'precio_anterior_centimos', 'bajada_fecha'}
+PRICE_FIELDS = {'precio_centimos', 'precio_referencia_centimos'}
+# Una oferta solo se muestra si Amazon la confirmó hace como mucho estos días; después desaparece sola.
+OFFER_MAX_DAYS = 3
 BOOK_FIELDS = set("id slug titulo autores descripcion_breve estado portada_local portada_fuente_url portada_edicion_verificada autorizacion_o_base_uso portada_fecha_revision portada_ancho portada_alto fuente_bibliografica_url fecha_verificacion descripcion_original_confirmada url_amazon_afiliada isbn13 edicion editorial fecha_publicacion anio_publicacion numero_paginas fuente_publicacion_url idioma edad_recomendada fuente_edad_url avisos_contenido lectura_personal_confirmada evidencia_lectura autoria_propia resenas fragmento_url fecha_actualizacion editorial_catalogo_slug pvp_centimos pvp_fecha_verificacion audio_descripcion audio_voz formatos_compra fragmento_texto fragmento_uso_autorizado fragmento_base_uso audio_fragmento".split())
 FORMATS = {"tapa-blanda": "Tapa blanda", "tapa-dura": "Tapa dura", "ebook": "Kindle", "audiolibro": "Audiolibro"}
 BOOK_FIELDS.update({'editorial_slug', 'formato_edicion', 'amazon_busqueda_isbn', 'fecha_publicacion_parcial', 'precios_amazon_revision', 'formatos_amazon_buscados', 'formatos_pagina_buscados', 'portadas_amazon_buscadas', 'portada_sustituida'})
@@ -182,11 +184,8 @@ def validate(data, root):
         seen_formats = set()
         for option in formats:
             require(isinstance(option, dict) and set(option) - PRICE_FIELDS == {'formato', 'url', 'fuente_url', 'fecha_verificacion'}, f'{name}: formato de compra inválido')
-            for key in PRICE_FIELDS - {'bajada_fecha'}:
+            for key in PRICE_FIELDS:
                 require(key not in option or (type(option[key]) is int and 100 <= option[key] <= 100000), f'{name}: precio de formato fuera de rango')
-            require(('precio_anterior_centimos' in option) == ('bajada_fecha' in option), f'{name}: bajada de precio sin fecha')
-            if 'bajada_fecha' in option:
-                day(option['bajada_fecha'], f'{name}: bajada_fecha')
             require(option['formato'] in FORMATS and option['formato'] not in seen_formats, f'{name}: formato duplicado o desconocido')
             seen_formats.add(option['formato'])
             p = urlparse(option['url'])
@@ -610,14 +609,29 @@ def print_list_prices(b):
     return out - {None}
 
 
-def price_discount(b, o):
-    """(precio antes, % redondeado como Amazon) o None. En digital se ignora la referencia que es el precio
-    de la versión impresa (2026-11-04: 12 ebooks salían al 50 % por eso; no era una oferta)."""
-    reference = o.get('precio_referencia_centimos', 0)
-    if o['formato'] in DIGITAL_FORMATS and reference in print_list_prices(b):
-        reference = 0
-    base = max(reference, o.get('precio_anterior_centimos', 0))
-    if base <= o['precio_centimos']:
+def offer_is_current(o, anchor):
+    """Comprobada por Amazon en los últimos OFFER_MAX_DAYS días respecto a la fecha de los datos."""
+    try:
+        return (date.fromisoformat(anchor) - date.fromisoformat(o.get('fecha_verificacion', ''))).days <= OFFER_MAX_DAYS
+    except ValueError:
+        return False
+
+
+def price_discount(b, o, anchor=None):
+    """(precio de referencia de Amazon, % redondeado como Amazon) o None. Solo cuenta el precio de referencia
+    (savingBasis) que da Amazon: no una bajada respecto a un precio nuestro anterior (petición de David, 2026-11-05).
+    En digital se ignora la referencia que es el precio de la versión impresa (2026-11-04: 12 ebooks salían al 50 %)."""
+    if anchor and not offer_is_current(o, anchor):
+        return None
+    base = o.get('precio_referencia_centimos', 0)
+    paper = print_list_prices(b)
+    if o['formato'] in DIGITAL_FORMATS and base in paper:
+        return None
+    # 2026-11-05: ebooks «-70 %» contra 22,39 € (papel de otra edición). Un Kindle no cuesta el 80 % del papel:
+    # esa referencia es la «versión impresa», no un descuento.
+    if o['formato'] == 'ebook' and paper and base * 5 >= min(paper) * 4:
+        return None
+    if not o.get('precio_centimos') or base <= o['precio_centimos']:
         return None
     return base, ((base - o['precio_centimos']) * 200 + base) // (2 * base)
 
@@ -714,7 +728,7 @@ def amazon_es(link):
     return link + ('&' if '?' in link else '?') + 'language=es_ES'
 
 
-def format_box(b, compact=False):
+def format_box(b, compact=False, anchor=None):
     """Los cuatro formatos siempre en el mismo orden: precio de Amazon o ✕ si Amazon no tiene esa edición."""
     by_format = {o['formato']: o for o in purchase_formats(b)}
     main = None if compact else primary_format(b)
@@ -723,7 +737,11 @@ def format_box(b, compact=False):
         o = by_format.get(f)
         if o:
             price = money(o['precio_centimos']) if o.get('precio_centimos') else 'Ver precio'
-            cells.append(f'<li><a class="catalogue-format{" is-primary" if f == main else ""}" data-purchase-format="{f}" href="{esc(amazon_es(o["url"]))}" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="{FORMATS[f]}: {price} en Amazon (otra pestaña)"><span>{FORMATS[f]}</span><strong>{price}</strong></a></li>')
+            found = price_discount(b, o, anchor) if anchor else None
+            # Porcentaje rojo junto al precio; el navegador lo quita si la comprobación caduca (data-offer-checked).
+            badge = f' <em class="catalogue-format__off" data-offer-checked="{esc(o["fecha_verificacion"])}">-{found[1]} %</em>' if found else ''
+            said = f', {found[1]} % de descuento sobre {money(found[0])}' if found else ''
+            cells.append(f'<li><a class="catalogue-format{" is-primary" if f == main else ""}" data-purchase-format="{f}" href="{esc(amazon_es(o["url"]))}" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="{FORMATS[f]}: {price}{said} en Amazon (otra pestaña)"><span>{FORMATS[f]}</span><strong>{price}{badge}</strong></a></li>')
         else:
             cells.append(f'<li><span class="catalogue-format is-missing" data-missing-format="{f}" aria-label="{FORMATS[f]}: no disponible en Amazon"><span>{FORMATS[f]}</span><strong aria-hidden="true">✕</strong></span></li>')
     if compact:
@@ -738,21 +756,21 @@ MONTHS_ES = ('', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio',
 
 ICS_PATH = 'recomendaciones/proximos-lanzamientos.ics'
 DEALS_PATH = 'recomendaciones/ofertas.json'
+DEALS_SEASON = 'ofertas-amazon'  # opción de «Temporada» calculada en el navegador (assets/reading-catalogue.js)
 
 
 def render_deals(books):
     """Ofertas comprobadas en Amazon (precio de referencia o bajada reciente), para un canal de avisos como Telegram."""
-    deals = []
+    deals, anchor = [], data_anchor(books)
     for b in books:
         for o in amazon_prices(b):
-            if found := price_discount(b, o):
+            if found := price_discount(b, o, anchor):
                 base, pct = found
                 deals.append({'libro_id': b['id'], 'titulo': b['titulo'], 'autores': b['autores'], 'ficha': SITE + url(b),
                               'portada': SITE + b['portada_local'], 'formato': o['formato'], 'url': o['url'],
                               'precio_centimos': o['precio_centimos'], 'precio_antes_centimos': base,
                               'descuento_pct': pct,
-                              'tipo': 'bajada' if o.get('precio_anterior_centimos') == base else 'descuento',
-                              **({'bajada_fecha': o['bajada_fecha']} if o.get('bajada_fecha') else {}),
+                              'tipo': 'descuento',
                               'comprobado': o['fecha_verificacion']})
     deals.sort(key=lambda d: (-d['descuento_pct'], d['titulo'].casefold(), d['formato']))
     return json.dumps({'schema_version': 1, 'ofertas': deals}, ensure_ascii=False, indent=2) + '\n'
@@ -859,12 +877,12 @@ def age_order(c):
     return (2, ages[0], ages[-1] if len(ages) > 1 else 99)
 
 
-def format_discounts(b):
-    """«formato:%» del mayor ahorro comprobado por formato (precio de referencia de Amazon o última bajada)."""
+def format_discounts(b, anchor=None):
+    """«formato:%:fecha» del descuento sobre el precio de referencia de Amazon; el navegador lo retira al caducar."""
     out = []
     for o in amazon_prices(b):
-        if found := price_discount(b, o):
-            out.append(f"{o['formato']}:{found[1]}")
+        if found := price_discount(b, o, anchor):
+            out.append(f"{o['formato']}:{found[1]}:{o['fecha_verificacion']}")
     return ' '.join(out)
 
 
@@ -891,7 +909,12 @@ def render_filters(data, type_options):
         choices = sorted((c for c in data['categorias'] if c['tipo'] == kind and c['activa'] and c['id'] in used), key=age_order if kind == 'edad' else lambda c: (c['orden'], c['id']))
         if not choices:
             continue
-        facets += facet_group(kind, label, [(c['id'], c['nombre']) for c in choices])
+        options = [(c['id'], c['nombre']) for c in choices]
+        if kind == 'temporada':
+            # Prime Day y Black Friday no son un tema: son los libros con una oferta vigente de Amazon (≥10 %),
+            # que el navegador calcula con las fechas de comprobación; aparece y desaparece sola con las ofertas.
+            options.append((DEALS_SEASON, 'Prime Day y Black Friday'))
+        facets += facet_group(kind, label, options)
     facets += facet_group('formato', 'Formato', list(FORMATS.items()))
     price_format = '<label class="catalogue-price-range__format">Formato<select name="precio_formato" data-filter="precio_formato">' + '<option value="">Cualquier formato</option>' + ''.join(f'<option value="{k}">{esc(FORMATS[k])}</option>' for k in BOX_ORDER) + '</select></label>'
     facets += '<div class="catalogue-facet catalogue-price-range"><p class="catalogue-facet__title">Precio (€)</p><p class="catalogue-price-range__hint">Elige el formato para no mezclar precios de Kindle y de papel.</p>' + price_format + '<div class="catalogue-price-range__fields">' + ''.join(f'<label>{t}<input type="number" min="0" max="100000" step="0.01" inputmode="decimal" name="{k}" data-filter="{k}" placeholder="{ph}"></label>' for k, t, ph in (('precio_min', 'Desde', '0'), ('precio_max', 'Hasta', '100'))) + '</div></div>'
@@ -979,7 +1002,7 @@ def render_hub(data, books, template, page_number=1):
         formats = ' '.join(sorted(set([o['formato'] for o in purchase_formats(b)] + ([b['formato_edicion']] if b.get('formato_edicion') else []))))
         published = b.get('fecha_publicacion', '')
         year = '' if published or b.get('fecha_publicacion_parcial') else b.get('anio_publicacion', '')
-        attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}" data-format-prices="{format_prices(b)}" data-format-discounts="{format_discounts(b)}"'
+        attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}" data-format-prices="{format_prices(b)}" data-format-discounts="{format_discounts(b, anchor)}"'
         # Missing optional values have the same runtime meaning as empty ones.
         attrs = re.sub(r' data-(?:published|published-month|year|pages|format-prices|format-discounts)=""', '', attrs)
         affiliate_link = amazon_destination(b)
@@ -993,7 +1016,7 @@ def render_hub(data, books, template, page_number=1):
         else:
             cover_link = f'href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)"'
             title_link = f'href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña"'
-        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" {cover_link}>{image(b,i>1)}</a><div><p class="eyebrow catalogue-when">{release_line(b)}</p>{tags(cats, compact=True)}<h3><a {title_link}>{esc(card_title(b))}</a></h3><p class="catalogue-author">{author_links(b, compact=True)}</p>{byline(b)}<p class="catalogue-card__description">{esc(card_synopsis(b, anchor=anchor))}</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}" data-isbn="{esc(b.get("isbn13", ""))}"></div>{format_box(b, compact=True)}<a class="text-action catalogue-card__ficha" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
+        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" {cover_link}>{image(b,i>1)}</a><div><p class="eyebrow catalogue-when">{release_line(b)}</p>{tags(cats, compact=True)}<h3><a {title_link}>{esc(card_title(b))}</a></h3><p class="catalogue-author">{author_links(b, compact=True)}</p>{byline(b)}<p class="catalogue-card__description">{esc(card_synopsis(b, anchor=anchor))}</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}" data-isbn="{esc(b.get("isbn13", ""))}"></div>{format_box(b, compact=True, anchor=anchor)}<a class="text-action catalogue-card__ficha" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
     sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="fecha_asc">Publicación · más antigua primero</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option>' + ''.join(f'<option value="precio_{k}">{esc(FORMATS[k])} · del más barato al más caro</option>' for k in BOX_ORDER) + '<option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
     # Lo primero que se ve son los libros ya publicados (los más recientes arriba); los próximos lanzamientos van aparte.
     show = '<label>Mostrar<select name="estado" data-filter="estado" form="catalogue-search-form" disabled><option value="">Ya publicados</option><option value="proximos" id="estado=proximos">Próximos lanzamientos</option><option value="todos">Todos</option></select></label>'
@@ -1052,7 +1075,7 @@ def render_book(data,b,template):
     destination=amazon_destination(b)
     main_format=primary_format(b)
     buy_label=amazon_action_label(b)+(' · '+FORMATS[main_format] if main_format else '')
-    buy=format_box(b)+(('<a class="catalogue-buy-link" href="'+esc(destination)+'" target="_blank" aria-label="'+esc(buy_label)+' (otra pestaña)" rel="sponsored nofollow noopener noreferrer">'+esc(buy_label)+' <span aria-hidden="true">↗</span></a>') if destination else '')
+    buy=format_box(b, anchor=data_anchor([x for x in data['libros'] if x['estado']=='publicado']))+(('<a class="catalogue-buy-link" href="'+esc(destination)+'" target="_blank" aria-label="'+esc(buy_label)+' (otra pestaña)" rel="sponsored nofollow noopener noreferrer">'+esc(buy_label)+' <span aria-hidden="true">↗</span></a>') if destination else '')
     cover=image(b, sizes='(max-width: 600px) 65vw, 400px')
     amazon_href = amazon_destination(b)
     if amazon_href:

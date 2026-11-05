@@ -393,15 +393,11 @@ class AmazonPriceDropTests(unittest.TestCase):
     def offer(self,price,reference=None):
         return {'formato':'ebook','url':self.URL,'precio_centimos':price,**({'precio_referencia_centimos':reference} if reference else {})}
 
-    def test_drop_is_kept_until_price_recovers(self):
-        book={'formatos_compra':[self.option()]}
+    def test_drop_against_our_old_price_is_not_an_offer(self):
+        # 2026-11-05: 17,96 -> 17,95 € appeared as an offer; only Amazon's own reference price counts.
+        book={'formatos_compra':[self.option(precio_anterior_centimos=1200,bajada_fecha='2026-11-01')]}
         store_prices(book,[self.offer(799)],'2026-11-03')
-        self.assertEqual(book['formatos_compra'][0]|{},self.option(precio_centimos=799,precio_anterior_centimos=1000,bajada_fecha='2026-11-03',fecha_verificacion='2026-11-03'))
-        store_prices(book,[self.offer(799)],'2026-11-04')
-        self.assertEqual(book['formatos_compra'][0]['bajada_fecha'],'2026-11-03')
-        store_prices(book,[self.offer(1000)],'2026-11-05')
-        self.assertNotIn('precio_anterior_centimos',book['formatos_compra'][0])
-        self.assertNotIn('bajada_fecha',book['formatos_compra'][0])
+        self.assertEqual(book['formatos_compra'][0]|{},self.option(precio_centimos=799,fecha_verificacion='2026-11-03'))
 
     def test_reference_price_only_when_higher(self):
         book={'formatos_compra':[self.option()]}

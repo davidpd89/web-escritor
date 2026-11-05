@@ -2,54 +2,6 @@
   "schema_version": 1,
   "ofertas": [
     {
-      "libro_id": "isbn-9788411078399",
-      "titulo": "El portero",
-      "autores": [
-        "Reinaldo Arenas"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/el-portero-9788411078399/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788411078399.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B07PNWMHPB?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-      "precio_centimos": 664,
-      "precio_antes_centimos": 2239,
-      "descuento_pct": 70,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788408325222",
-      "titulo": "Tu mejor medicina eres tú",
-      "autores": [
-        "Javier Dols Juste"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/tu-mejor-medicina-eres-tu-9788408325222/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788408325222.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B07G525GX4?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-      "precio_centimos": 854,
-      "precio_antes_centimos": 1895,
-      "descuento_pct": 55,
-      "tipo": "descuento",
-      "comprobado": "2026-11-05"
-    },
-    {
-      "libro_id": "isbn-9791387922429",
-      "titulo": "Atlas de islas remotas (ed. actualizada)",
-      "autores": [
-        "Judith Schalansky"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/atlas-de-islas-remotas-ed-actualizada-9791387922429/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791387922429.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0GX2QFKZF?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-      "precio_centimos": 1234,
-      "precio_antes_centimos": 2500,
-      "descuento_pct": 51,
-      "tipo": "descuento",
-      "comprobado": "2026-11-05"
-    },
-    {
       "libro_id": "isbn-9788425373602",
       "titulo": "Amor",
       "autores": [
@@ -1363,22 +1315,6 @@
       ],
       "ficha": "https://davidportodiaz.com/recomendaciones/libros/casa-de-cielo-y-aliento-ciudad-medialuna-2-9788466396080/",
       "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788466396080.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0D3NKL5B4?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 949,
-      "precio_antes_centimos": 999,
-      "descuento_pct": 5,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788466396080",
-      "titulo": "Casa de cielo y aliento (Ciudad Medialuna 2)",
-      "autores": [
-        "Sarah J. Maas"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/casa-de-cielo-y-aliento-ciudad-medialuna-2-9788466396080/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788466396080.webp",
       "formato": "tapa-blanda",
       "url": "https://www.amazon.es/dp/846639608X?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 1230,
@@ -1644,8 +1580,7 @@
       "precio_centimos": 1986,
       "precio_antes_centimos": 2090,
       "descuento_pct": 5,
-      "tipo": "bajada",
-      "bajada_fecha": "2026-11-05",
+      "tipo": "descuento",
       "comprobado": "2026-11-05"
     },
     {
@@ -2897,22 +2832,6 @@
       "url": "https://www.amazon.es/dp/B0H73SXCDK?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 1757,
       "precio_antes_centimos": 1850,
-      "descuento_pct": 5,
-      "tipo": "descuento",
-      "comprobado": "2026-11-05"
-    },
-    {
-      "libro_id": "isbn-9788466390217",
-      "titulo": "El susurro del fuego",
-      "autores": [
-        "Javier Castillo"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/el-susurro-del-fuego-9788466390217/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788466390217.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0FBKCBTR5?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1044,
-      "precio_antes_centimos": 1099,
       "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-05"
@@ -4648,7 +4567,6 @@
       "precio_antes_centimos": 2190,
       "descuento_pct": 5,
       "tipo": "descuento",
-      "bajada_fecha": "2026-11-04",
       "comprobado": "2026-11-04"
     },
     {
@@ -4858,22 +4776,6 @@
       "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9788408326656",
-      "titulo": "Las aventuras de Tom Sawyer",
-      "autores": [
-        "Mark Twain"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/las-aventuras-de-tom-sawyer-9788408326656/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788408326656.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B01AIRWK52?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-      "precio_centimos": 664,
-      "precio_antes_centimos": 699,
-      "descuento_pct": 5,
-      "tipo": "descuento",
-      "comprobado": "2026-11-05"
     },
     {
       "libro_id": "isbn-9788408326656",
@@ -5452,7 +5354,6 @@
       "precio_antes_centimos": 1890,
       "descuento_pct": 5,
       "tipo": "descuento",
-      "bajada_fecha": "2026-11-05",
       "comprobado": "2026-11-05"
     },
     {
@@ -5501,7 +5402,6 @@
       "precio_antes_centimos": 1890,
       "descuento_pct": 5,
       "tipo": "descuento",
-      "bajada_fecha": "2026-11-05",
       "comprobado": "2026-11-05"
     },
     {
@@ -5519,22 +5419,6 @@
       "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-04"
-    },
-    {
-      "libro_id": "isbn-9791388147302",
-      "titulo": "Los tres mundos (Serie Julio César 3)",
-      "autores": [
-        "Santiago Posteguillo"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/los-tres-mundos-serie-julio-cesar-3-9791388147302/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9791388147302.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0FCG23JM7?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-      "precio_centimos": 1139,
-      "precio_antes_centimos": 1199,
-      "descuento_pct": 5,
-      "tipo": "descuento",
-      "comprobado": "2026-11-05"
     },
     {
       "libro_id": "isbn-9791388147302",
@@ -6240,22 +6124,6 @@
       "url": "https://www.amazon.es/dp/8427257376?tag=davidporto-21&linkCode=osi&th=1&psc=1",
       "precio_centimos": 1990,
       "precio_antes_centimos": 2095,
-      "descuento_pct": 5,
-      "tipo": "descuento",
-      "comprobado": "2026-11-05"
-    },
-    {
-      "libro_id": "isbn-9788466393829",
-      "titulo": "Nuevas evidencias científicas de la existencia de Dios",
-      "autores": [
-        "José Carlos González-Hurtado"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/nuevas-evidencias-cientificas-de-la-existencia-de-dios-9788466393829/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788466393829.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0CM3LRN4N?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 1140,
-      "precio_antes_centimos": 1200,
       "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-05"
@@ -7150,22 +7018,6 @@
       "descuento_pct": 5,
       "tipo": "descuento",
       "comprobado": "2026-11-05"
-    },
-    {
-      "libro_id": "isbn-9788466378048",
-      "titulo": "Soy como como",
-      "autores": [
-        "Núria Coll"
-      ],
-      "ficha": "https://davidportodiaz.com/recomendaciones/libros/soy-como-como-9788466378048/",
-      "portada": "https://davidportodiaz.com/assets/reading-covers/isbn-9788466378048.webp",
-      "formato": "ebook",
-      "url": "https://www.amazon.es/dp/B0BSP4Y4Z1?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-      "precio_centimos": 949,
-      "precio_antes_centimos": 999,
-      "descuento_pct": 5,
-      "tipo": "descuento",
-      "comprobado": "2026-11-04"
     },
     {
       "libro_id": "isbn-9788408323938",
