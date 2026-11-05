@@ -61,14 +61,26 @@ class AuditAmazonLinksTest(unittest.TestCase):
                         "isbn13": "9788498382372",
                         "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788498382372&tag=davidporto-21",
                     },
+                    {
+                        "slug": "tres",
+                        "titulo": "Formatos desde la ficha propia",
+                        "estado": "publicado",
+                        "isbn13": "9788498382372",
+                        # Read from the edition's own page selector (ISBN-10 8498382378): not a mismatch.
+                        "formatos_compra": [{
+                            "formato": "tapa-dura",
+                            "url": "https://www.amazon.es/dp/847888579X?tag=davidporto-21",
+                            "fuente_url": "https://www.amazon.es/dp/8498382378",
+                        }],
+                    },
                 ]
             }
             (root / "data/reading-catalogue.json").write_text(
                 json.dumps(catalogue), encoding="utf-8"
             )
             result = audit_module.audit(root, "davidporto-21")
-            self.assertEqual(result["counts"]["published_books"], 2)
-            self.assertEqual(result["counts"]["book_only_search"], 1)
+            self.assertEqual(result["counts"]["published_books"], 3)
+            self.assertEqual(result["counts"]["book_only_search"], 1, "formatos_compra with a /dp/ link is a direct product")
             self.assertEqual(result["product_verification_queue"][0]["slug"], "dos")
             self.assertEqual(len(result["errors"]), 0)
             self.assertEqual(len([

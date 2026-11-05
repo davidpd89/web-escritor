@@ -54,6 +54,45 @@ try {
     assert.equal(await page.locator('[data-catalogue-book]').count(), Math.min(realCount - 96,96));
     await context.close();
   }
+  // Tras publicar, el navegador puede servir el índice desde caché con la versión anterior y las páginas
+  // ya nuevas: se recarga una vez y el catálogo queda completo y filtrable.
+  {
+    const context = await browser.newContext();
+    await context.addInitScript(() => { localStorage.setItem('nl-popup-ts', String(Date.now())); });
+    const page = await context.newPage();
+    let served = 0;
+    await page.route('**/assets/reading-market.json', route => route.fulfill({ status: 404, body: '' }));
+    await page.route('**/recomendaciones/', async route => {
+      const response = await route.fetch();
+      if (served++) return route.fulfill({ response });
+      return route.fulfill({ response, body: (await response.text()).replace(/data-catalogue-version="[^"]+"/, 'data-catalogue-version="cached"') });
+    });
+    await page.goto(`${BASE}/recomendaciones/`);
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+    assert.equal(served, 2);
+    assert.equal(await page.locator('[data-catalogue-book]').count(), realCount);
+    assert.doesNotMatch(await page.locator('[data-catalogue-count]').innerText(), /No se pudo/);
+    // Discount filter over the whole catalogue: 5/10/25/50 % must match the red badges Amazon confirmed (static data only).
+    const madrid = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Madrid' }).format(new Date());
+    const best = await page.locator('[data-catalogue-book]').evaluateAll(cards => cards.map(card => Math.max(0, ...[...card.querySelectorAll('[data-offer-checked]')].map(e => Number(e.textContent.replace(/\D/g, ''))))));
+    const badges = await page.locator('[data-catalogue-book] [data-offer-checked]').count();
+    assert.ok(badges > 0, 'no discount badges rendered');
+    for (const checked of await page.locator('[data-offer-checked]').evaluateAll(els => els.map(e => e.dataset.offerChecked))) assert.ok((Date.parse(madrid) - Date.parse(checked)) / 864e5 <= 3, `expired badge ${checked}`);
+    await page.locator('[data-filter="estado"]').evaluate(el => { el.value = 'todos'; for (const t of ['input', 'change']) el.dispatchEvent(new Event(t, { bubbles: true })); });
+    for (const threshold of [5, 10, 25, 50]) {
+      await page.locator('[data-filter="descuento"]').evaluate((el, v) => { el.value = v; for (const t of ['input', 'change']) el.dispatchEvent(new Event(t, { bubbles: true })); }, String(threshold));
+      const expected = best.filter(pct => pct >= threshold).length;
+      await page.waitForFunction(n => new RegExp('^' + n + ' libros?(?: |$)').test(document.querySelector('[data-catalogue-count]').textContent) || (n === 0 && !document.querySelector('[data-catalogue-empty]').hidden), expected);
+      console.log(`descuento >= ${threshold} %: ${expected} libros`);
+    }
+    // «Prime Day y Black Friday» (Temporada) = current Amazon offers of 10 % or more.
+    await page.locator('[data-filter="descuento"]').evaluate(el => { el.value = ''; for (const t of ['input', 'change']) el.dispatchEvent(new Event(t, { bubbles: true })); });
+    await page.locator('[data-facet="temporada"][value="ofertas-amazon"]').evaluate(el => { el.checked = true; for (const t of ['input', 'change']) el.dispatchEvent(new Event(t, { bubbles: true })); });
+    const primeDay = best.filter(pct => pct >= 10).length;
+    await page.waitForFunction(n => new RegExp('^' + n + ' libros?(?: |$)').test(document.querySelector('[data-catalogue-count]').textContent), primeDay);
+    console.log(`temporada Prime Day: ${primeDay} libros`);
+    await context.close();
+  }
   for (const width of [320, 390, 768, 1024, 1440]) {
     const context = await browser.newContext({ viewport: { width, height: 1000 }, reducedMotion: 'reduce' });
     // El popup de newsletter se abre por temporizador en /cuaderno/ y tapa el clic en runners lentos.
@@ -77,6 +116,8 @@ try {
     assert.equal(await page.locator('input[data-facet="genero"][value="romantasy"]').count(), counts.includes('romantasy') ? 1 : 0);
     // Con un tipo de libro elegido, los géneros sin resultados bajan al final y quedan desactivados.
     await page.locator('input[data-facet="grupo"][value="novela"]').check();
+    // Los recuentos de facetas se pintan un frame después de los resultados (INP): esperar a que terminen.
+    await page.waitForFunction(() => !document.querySelector('[data-facets-pending]'));
     const genreState = await page.locator('details[data-facet-group="genero"] input[data-facet]').evaluateAll(xs => xs.map(x => x.disabled));
     assert(genreState.includes(true) && genreState.indexOf(true) > 0 && genreState.slice(genreState.indexOf(true)).every(Boolean), 'Las opciones vacías van al final');
     await page.locator('input[data-facet="grupo"][value="novela"]').uncheck();

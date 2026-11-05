@@ -115,7 +115,7 @@ def render(channels: list[dict]) -> str:
     <section class="support-other" aria-labelledby="support-other-title">
       <h2 id="support-other-title">¿Ahora no puedes? También ayudas así</h2>
       <ul class="support-other__list">
-        <li><a href="/libros/">Recomienda mis novelas</a></li>
+        <li><a href="https://www.amazon.es/stores/author/B0GZFP1JV3?tag=davidporto-21" target="_blank" rel="sponsored nofollow noopener noreferrer">Recomienda mis novelas</a></li>
         <li><a href="/redes-sociales/">Sígueme en redes</a></li>
       </ul>
     </section>

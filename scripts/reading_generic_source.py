@@ -302,6 +302,11 @@ def generic_edition(source: dict, document: str, url: str) -> dict:
     thema = (ficha.get('thema') or '').strip().upper()
     subject = subject or next((name for prefix, name in THEMA_SUBJECTS if thema.startswith(prefix)), None)
     subjects = [s for s in ([subject] if subject else _names(genre) if genre else []) if s] or _infer_subject(title, synopsis)
+    # A title that names its own form («Tres cuentos», «Poemas…») outranks a collection-wide guess:
+    # Anagrama's «Intervenciones» is mostly essay but also publishes Capote's stories (2026-11-05).
+    named = _infer_subject(title)
+    if named and subjects[:1] != named:
+        subjects = named
     keywords = book.get('keywords')
     keywords = ', '.join(keywords) if isinstance(keywords, list) else str(keywords or '')
     # Un perfil puede fijar el PVP del papel: en Nórdica el Product de WooCommerce vende el ebook y su

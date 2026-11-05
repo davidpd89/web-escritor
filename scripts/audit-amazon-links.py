@@ -45,6 +45,16 @@ class Anchors(HTMLParser):
                 self.links.append(href)
 
 
+def isbn10_of(isbn13: str) -> str:
+    """ISBN-10 (the paper ASIN on Amazon.es) of a 978 ISBN-13; '' otherwise."""
+    digits = re.sub(r"\D", "", str(isbn13 or ""))
+    if len(digits) != 13 or not digits.startswith("978"):
+        return ""
+    core = digits[3:12]
+    check = (11 - sum((10 - i) * int(d) for i, d in enumerate(core)) % 11) % 11
+    return core + ("X" if check == 10 else str(check))
+
+
 def asin_of(value: str) -> str | None:
     match = ASIN_RE.search(urlparse(value).path)
     return match.group(1).upper() if match else None
@@ -141,7 +151,8 @@ def audit(root: Path, expected: str) -> dict:
         counts["published_books"] = len(books)
         for b in books:
             source = "data/reading-catalogue.json:" + b.get("slug", b.get("id", "?"))
-            direct = b.get("url_amazon_afiliada")
+            # The buy buttons come from formatos_compra; url_amazon_afiliada is the legacy single link.
+            direct = b.get("url_amazon_afiliada") or any(asin_of(o.get("url", "")) for o in b.get("formatos_compra") or [])
             counts["book_product_direct"] += bool(direct)
             counts["book_only_search"] += not bool(direct)
             if not direct:
@@ -165,7 +176,9 @@ def audit(root: Path, expected: str) -> dict:
                     counts["format_options"] += 1
                     check(source + ".formatos_compra:" + option.get("formato", "?"), url)
                     verification = option.get("fuente_url", "")
-                    if asin_of(url) and asin_of(verification) and asin_of(url) != asin_of(verification):
+                    # Formats read from the edition's own page selector cite that page: not a mismatch.
+                    own_page = asin_of(verification) == isbn10_of(b.get("isbn13", ""))
+                    if asin_of(url) and asin_of(verification) and asin_of(url) != asin_of(verification) and not own_page:
                         reviews.append({
                             "source": source, "type": "fuente_ASIN_diferente",
                             "formato": option.get("formato", "?"),

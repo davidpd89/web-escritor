@@ -50,7 +50,7 @@ try {
     });
     assert(ms<500,`filter ${count} books took ${ms}ms`);
     assert.equal(await page.locator('[data-catalogue-book]:visible').count(),1);
-    assert.match(await page.locator('[data-catalogue-book]:visible h3').innerText(),/099/);
+    assert.match(await page.locator('[data-catalogue-book]:visible h3').textContent(),/099/);
     await page.getByRole('button',{name:'Restablecer',exact:true}).click();
     await page.waitForFunction(()=>document.querySelector('[data-filter="q"]').value==='');
     await page.locator('[data-filter="paginas"]').selectOption('breve');
@@ -130,6 +130,7 @@ try {
     const set=async (key,value,checked)=>{
       await page.locator(`details[data-facet-group="${key}"]`).evaluate(e=>e.open=true);
       await page.locator(`input[data-facet="${key}"][value="${value}"]`).setChecked(checked);
+      await page.waitForFunction(()=>!document.querySelector('[data-facets-pending]'));
     };
     assert.equal(await verify(),100);
     await set('grupo','cocina',true); assert.equal(await verify(['cocina']),50);
@@ -139,6 +140,7 @@ try {
     assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isDisabled());
     await page.goto(base+'/recomendaciones/#grupo=cocina&temporada=halloween',{waitUntil:'networkidle'});
     await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+    await page.waitForFunction(()=>!document.querySelector('[data-facets-pending]'));
     assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
     assert.equal(await verify(['cocina'],['halloween']),0);
     const cooking=page.locator('input[data-facet="grupo"][value="cocina"]');

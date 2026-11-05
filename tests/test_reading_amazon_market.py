@@ -9,7 +9,7 @@ from unittest.mock import patch
 from urllib.error import HTTPError
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents,discovery_index,miss_reason,discover_page_formats,swatch_formats,discover_real_covers,page_cover_url,isbn10,store_prices,prune_foreign_editions
+from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents,discovery_index,miss_reason,discover_page_formats,swatch_formats,discover_real_covers,page_cover_url,isbn10,store_prices,prune_foreign_editions,reconcile_edition_binding
 import tempfile
 
 NOW=datetime(2026,10,21,10,tzinfo=timezone.utc)
@@ -178,6 +178,22 @@ def kindle(title='Coraline',language='Español',asin='B08CYCPBZN',amount=6.64):
 
 
 class AmazonFormatDiscoveryTests(unittest.TestCase):
+    def test_own_isbn10_binding_from_amazon_overrides_publisher_template(self):
+        # Anagrama declares Paperback in every JSON-LD: «Tres cuentos» is a hardcover on Amazon.
+        book={'id':'isbn-9788433951168','isbn13':'9788433951168','formato_edicion':'tapa-blanda',
+              'edicion':'Tapa blanda · Editorial Anagrama',
+              'descripcion_breve':'Tres cuentos, de Truman Capote. Edición de Editorial Anagrama en castellano, en tapa blanda. Consta de 112 páginas.',
+              'formatos_compra':[{'formato':'tapa-dura','url':'https://www.amazon.es/dp/8433951165?tag=x'},
+                                 {'formato':'ebook','url':'https://www.amazon.es/dp/B0BDT8LG7S?tag=x'}]}
+        self.assertTrue(reconcile_edition_binding(book))
+        self.assertEqual(book['formato_edicion'],'tapa-dura')
+        self.assertEqual(book['edicion'],'Tapa dura · Editorial Anagrama')
+        self.assertIn('en tapa dura.',book['descripcion_breve'])
+        self.assertFalse(reconcile_edition_binding(book))
+        # Another ISBN-10 in the other binding is another edition: it never rewrites this one.
+        other={**book,'formato_edicion':'tapa-blanda','formatos_compra':[{'formato':'tapa-dura','url':'https://www.amazon.es/dp/847888579X'}]}
+        self.assertFalse(reconcile_edition_binding(other))
+
     def test_report_says_why_a_book_still_has_no_offer(self):
         empty={'searchResult':{'items':[]}}
         self.assertEqual(miss_reason(BOOK,[empty]),'sin_resultados')
@@ -393,15 +409,11 @@ class AmazonPriceDropTests(unittest.TestCase):
     def offer(self,price,reference=None):
         return {'formato':'ebook','url':self.URL,'precio_centimos':price,**({'precio_referencia_centimos':reference} if reference else {})}
 
-    def test_drop_is_kept_until_price_recovers(self):
-        book={'formatos_compra':[self.option()]}
+    def test_drop_against_our_old_price_is_not_an_offer(self):
+        # 2026-11-05: 17,96 -> 17,95 € appeared as an offer; only Amazon's own reference price counts.
+        book={'formatos_compra':[self.option(precio_anterior_centimos=1200,bajada_fecha='2026-11-01')]}
         store_prices(book,[self.offer(799)],'2026-11-03')
-        self.assertEqual(book['formatos_compra'][0]|{},self.option(precio_centimos=799,precio_anterior_centimos=1000,bajada_fecha='2026-11-03',fecha_verificacion='2026-11-03'))
-        store_prices(book,[self.offer(799)],'2026-11-04')
-        self.assertEqual(book['formatos_compra'][0]['bajada_fecha'],'2026-11-03')
-        store_prices(book,[self.offer(1000)],'2026-11-05')
-        self.assertNotIn('precio_anterior_centimos',book['formatos_compra'][0])
-        self.assertNotIn('bajada_fecha',book['formatos_compra'][0])
+        self.assertEqual(book['formatos_compra'][0]|{},self.option(precio_centimos=799,fecha_verificacion='2026-11-03'))
 
     def test_reference_price_only_when_higher(self):
         book={'formatos_compra':[self.option()]}
