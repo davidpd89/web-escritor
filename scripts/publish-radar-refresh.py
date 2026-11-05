@@ -196,6 +196,11 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
             if context:
                 jobs = json.loads(gh('api', f'repos/{repo}/actions/runs/{result["databaseId"]}/jobs'))['jobs']
                 matching = [job for job in jobs if job['name'] == context]
+                # GitHub can report the run as completed while its job record still reads in_progress
+                # (lighthouse 42011162941: every step green, job closed minutes later). Keep polling
+                # until the job itself closes; the deadline still bounds the wait.
+                if len(matching) == 1 and matching[0].get('status') != 'completed':
+                    continue
                 if len(matching) != 1 or matching[0]['conclusion'] != 'success':
                     report_job(repo, sha, context, 'failure', url)
                     raise RuntimeError(f'{workflow}: required job missing, skipped or unsuccessful')
