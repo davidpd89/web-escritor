@@ -15943,6 +15943,78 @@
       "sourceFile": "recomendaciones/libros/la-biblia-una-enciclopedia-ilustrada-9780241837702/index.html"
     },
     {
+      "id": "reading-book-isbn-9788430629138",
+      "url": "/recomendaciones/libros/esenciales-9788430629138/",
+      "label": "Esenciales",
+      "shortLabel": "Esenciales",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/esenciales-9788430629138/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788466379021",
+      "url": "/recomendaciones/libros/la-curacion-por-el-espiritu-9788466379021/",
+      "label": "La curación por el espíritu",
+      "shortLabel": "La curación por el espíritu",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-curacion-por-el-espiritu-9788466379021/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791388038037",
+      "url": "/recomendaciones/libros/nadie-te-cuidara-tanto-como-tu-9791388038037/",
+      "label": "Nadie te cuidará tanto como tú",
+      "shortLabel": "Nadie te cuidará tanto como tú",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/nadie-te-cuidara-tanto-como-tu-9791388038037/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788466392259",
+      "url": "/recomendaciones/libros/el-pistolero-edicion-cantos-tintados-la-torre-oscura-1-9788466392259/",
+      "label": "El pistolero (edición cantos tintados) (La Torre Oscura 1)",
+      "shortLabel": "El pistolero (edición cantos tintados) (La Torre Oscura 1)",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/el-pistolero-edicion-cantos-tintados-la-torre-oscura-1-9788466392259/index.html"
+    },
+    {
       "id": "reading-author-neil-gaiman",
       "url": "/recomendaciones/autores/neil-gaiman/",
       "label": "Neil Gaiman",
@@ -26885,6 +26957,60 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/autores/dra-sasha-hamdani/index.html"
+    },
+    {
+      "id": "reading-author-simone-weil",
+      "url": "/recomendaciones/autores/simone-weil/",
+      "label": "Simone Weil",
+      "shortLabel": "Simone Weil",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/simone-weil/index.html"
+    },
+    {
+      "id": "reading-author-stefan-zweig",
+      "url": "/recomendaciones/autores/stefan-zweig/",
+      "label": "Stefan Zweig",
+      "shortLabel": "Stefan Zweig",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/stefan-zweig/index.html"
+    },
+    {
+      "id": "reading-author-dr-karmelo-bizkarra",
+      "url": "/recomendaciones/autores/dr-karmelo-bizkarra/",
+      "label": "Dr. Karmelo Bizkarra",
+      "shortLabel": "Dr. Karmelo Bizkarra",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/dr-karmelo-bizkarra/index.html"
     },
     {
       "id": "reading-publisher-aguilar",
