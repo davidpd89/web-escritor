@@ -151,7 +151,8 @@ def audit(root: Path, expected: str) -> dict:
         counts["published_books"] = len(books)
         for b in books:
             source = "data/reading-catalogue.json:" + b.get("slug", b.get("id", "?"))
-            direct = b.get("url_amazon_afiliada")
+            # The buy buttons come from formatos_compra; url_amazon_afiliada is the legacy single link.
+            direct = b.get("url_amazon_afiliada") or any(asin_of(o.get("url", "")) for o in b.get("formatos_compra") or [])
             counts["book_product_direct"] += bool(direct)
             counts["book_only_search"] += not bool(direct)
             if not direct:
