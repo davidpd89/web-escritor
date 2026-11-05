@@ -75,6 +75,30 @@ def url_isbn(url: str) -> str | None:
     return isbn13(url.rsplit('_', 1)[-1].replace('-', '')) if urlsplit(url).hostname == HOST else None
 
 
+SITEMAP_INDEX = f'https://{HOST}/sitemap.xml'
+SITEMAP_CHILD = re.compile(r'<loc>\s*(https://www\.todostuslibros\.com/sitemap/(\d+)\.xml)\s*</loc>')
+LOC = re.compile(r'<loc>\s*(https://www\.todostuslibros\.com/libros/[^<\s]+)\s*</loc>')
+# 978-84-09: la Agencia del ISBN lo asigna a autores-editores (autoedición), sin sello que respalde la ficha.
+SELF_PUBLISHED = ('9788409',)
+
+
+def sitemap_children(document: str, newest: int) -> list[str]:
+    """Hojas del índice de mapas del sitio, de la más reciente a la más antigua. La web numera las hojas
+    por orden de alta y la última recoge los ISBN dados de alta hace menos tiempo: novedades y preventas."""
+    children = sorted(((int(n), url) for url, n in SITEMAP_CHILD.findall(document)), reverse=True)
+    return [url for _, url in children[:newest]]
+
+
+def sitemap_products(document: str) -> list[str]:
+    """Fichas de una hoja del mapa del sitio, de la última dada de alta a la primera, sin autoediciones."""
+    urls = []
+    for url in reversed(LOC.findall(document)):
+        isbn = url_isbn(url)
+        if isbn and PRODUCT_PATH.fullmatch(urlsplit(url).path) and not isbn.startswith(SELF_PUBLISHED):
+            urls.append(url)
+    return urls
+
+
 def _dd(document: str, label: str) -> str:
     match = re.search(r'<dt>\s*' + label + r'\s*:?\s*</dt>\s*<dd>(.*?)</dd>', document, re.S | re.I)
     return _text(match.group(1)) if match else ''

@@ -325,6 +325,40 @@ class ContractTests(unittest.TestCase):
             with Image.open(root / book['portada_local'].lstrip('/')) as cover:
                 self.assertEqual((cover.format, cover.size), ('WEBP', (800, 1200)))
 
+    def test_bookshop_sitemap_discovers_new_isbns_and_defers_out_of_window_without_rereading(self):
+        from test_reading_ttl_source import ISBN, PAGE, document as ttl_document
+        index = 'https://www.todostuslibros.com/sitemap.xml'
+        sheet = 'https://www.todostuslibros.com/sitemap/7.xml'
+        for today, accepted in (('2026-11-02', 1), ('2028-01-01', 0)):
+            with self.subTest(today), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                (root / 'data').mkdir()
+                source = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+                source['libros'], source['libro_categorias'] = [], []
+                (root / 'data/reading-catalogue.json').write_text(json.dumps(source), encoding='utf-8')
+                (root / 'data/reading-authors.json').write_text(json.dumps({'schema_version': 1, 'autores': []}), encoding='utf-8')
+                shutil.copy(ROOT / 'data/editoriales.json', root / 'data/editoriales.json')
+                responses = {index: f'<?xml version="1.0"?><sitemapindex><sitemap><loc>{sheet}</loc></sitemap></sitemapindex>'.encode(),
+                             sheet: f'<?xml version="1.0"?><urlset><url><loc>{PAGE}</loc></url></urlset>'.encode(),
+                             PAGE: ttl_document().encode()}
+                calls = []
+                class FakeHTTP:
+                    def __init__(self, *args, **kwargs):
+                        self.requests = self.hits = 0; self.budget = 80
+                    def get(self, url, **kwargs):
+                        self.requests += 1; calls.append(url)
+                        return responses[url]
+                config = json.loads((ROOT / 'data/reading-intake-config.json').read_text(encoding='utf-8'))
+                config['sources'] = [src for src in config['sources'] if src['id'] == 'todostuslibros-altas']
+                config['author_wikipedia']['enabled'] = False
+                with patch.object(pipeline, 'CachedHTTP', FakeHTTP):
+                    result = pipeline.ingest(config, root, root / '.cache', apply=True, today=today)
+                self.assertEqual(calls, [index, sheet, PAGE])
+                self.assertEqual(result['stats']['accepted'], accepted, result['state'])
+                if not accepted:
+                    item = result['state']['items']['isbn13:' + ISBN]
+                    self.assertEqual((item['retry_after'], 'datos' in item), ('2028-12-31', False))
+
     def test_work_dedupe_preserves_series_volume(self):
         self.assertEqual(work_key('Obra (edición especial)', ['Autora']), work_key('Obra', ['Autora']))
         self.assertNotEqual(work_key('Obra 2', ['Autora']), work_key('Obra 3', ['Autora']))

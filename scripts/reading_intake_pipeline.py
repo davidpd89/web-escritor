@@ -30,7 +30,7 @@ from reading_taxonomy import apply_derived, extra_categories
 from reading_catalogue_publishers import catalogue_publisher, PublisherError
 from reading_generic_source import generic_edition, generic_links, reviewed_hosts
 from reading_planeta_source import COVER_HOSTS as PLANETA_COVER_HOSTS, planeta_edition, planeta_links
-from reading_ttl_source import ttl_edition, ttl_url, typographic_cover, url_isbn
+from reading_ttl_source import sitemap_children, sitemap_products, ttl_edition, ttl_url, typographic_cover, url_isbn
 from urllib.parse import urlsplit
 from reading_author_wikipedia import WikipediaSummaries, fill_missing_bios
 
@@ -366,6 +366,13 @@ REVIEWED_PROVIDERS = {'penguin': ['www.penguinlibros.com'], 'planeta': ['www.pla
                       'todostuslibros': ['www.todostuslibros.com']}
 
 
+class DeferredError(SourceError):
+    """Rechazo con fecha conocida de nueva lectura (p. ej. una preventa aún lejana)."""
+    def __init__(self, message, until):
+        super().__init__(message)
+        self.until = until
+
+
 def provider_of(url, providers):
     host = urlsplit(url).hostname
     return next((s for s in providers if host in s['hosts']), None)
@@ -381,7 +388,8 @@ def reviewed_source(source):
 
 def discover_links(source, document, index):
     if source['provider'] == 'todostuslibros':
-        return []  # Sin índices: los ISBN llegan del radar de Amazon.
+        # Hojas del mapa del sitio (altas recientes); la fuente sin índices recibe los ISBN del radar de Amazon.
+        return sitemap_products(document) if '<urlset' in document[:400] else []
     if source['provider'] == 'generic':
         return generic_links(source, document, index)
     return planeta_links(document, index) if source['provider'] == 'planeta' else product_links(document, index)
@@ -395,10 +403,11 @@ def read_edition(source, document, url):
     return planeta_edition(document, url) if source['provider'] == 'planeta' else penguin_edition(document, url)
 
 
-# Techos de una ejecución: 120 fichas nuevas como máximo (cada una pasa las mismas validaciones)
-# y 900 peticiones públicas a las editoriales, a 1,5 s entre peticiones (unos 23 min).
-MAX_NEW_CEILING = 120
-MAX_REQUESTS_CEILING = 900
+# Techos de una ejecución: 250 fichas nuevas (cada una pasa las mismas validaciones, unos 6 s) y
+# 1500 peticiones públicas, a 1,5 s entre peticiones (unos 38 min). El coste fijo de una carga (PR y CI,
+# ~60 min) no depende del número de libros: cuantos más entran por carga, menos cargas hacen falta.
+MAX_NEW_CEILING = 250
+MAX_REQUESTS_CEILING = 1500
 
 
 def candidate_isbn(url, source, known_urls):
@@ -421,6 +430,12 @@ def newer_pending(current, cached):
 
 RETRY_PENDING = 4  # libros pendientes que ya no salen en los índices y se reintentan por su ficha en cada carga
 FINAL_REASONS = ('fuera de la ventana', 'no bibliográfico', 'no identificada como castellano')
+# Rechazos que no cambian con el tiempo: con el mapa del sitio vuelven a listarse en cada carga y se releían
+# cada tres días (en la prueba del 05/11, la mitad eran ediciones en catalán, gallego o euskera).
+LASTING_REASONS = FINAL_REASONS + ('encuadernación desconocida', 'isbn fuera del registro', 'autoedición')
+LASTING_DAYS = 180
+# Sellos de autoedición de pago: la ficha no la respalda una editorial.
+SELF_PUBLISHING = ('letrame', 'universo de letras', 'circulo rojo', 'caligrama', 'bubok', 'tregolam')
 
 
 def retry_pending(state, queue, today):
@@ -517,8 +532,14 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
         for index in source['index_urls']:
             try:
                 document = http.get(index, ttl=12 * 3600).decode('utf-8', errors='replace')
-                for url in discover_links(source, document, index):
-                    queue.setdefault(url, source)
+                pages = [document]
+                if source['provider'] == 'todostuslibros' and '<sitemapindex' in document[:400]:
+                    # Unas pocas peticiones descubren miles de altas; cada ficha se lee después una sola vez.
+                    pages = [http.get(u, ttl=12 * 3600).decode('utf-8', errors='replace')
+                             for u in sitemap_children(document, int(source.get('sitemap_files', 2)))]
+                for page in pages:
+                    for url in discover_links(source, page, index):
+                        queue.setdefault(url, source)
             except (OSError, ValueError, TimeoutError) as exc:
                 stats['errors'].append({'source': source['id'], 'error': str(exc)[:180]})
     for url in retry_pending(state, queue, today):
@@ -586,6 +607,8 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                         stats['already_published'] += 1
                         stats['examined'] -= 1
                         continue
+                if any(name in normalize_text(record.get('editorial', '')) for name in SELF_PUBLISHING):
+                    raise SourceError('Sello de autoedición: sin respaldo editorial')
                 if not record.get('sinopsis_breve'):
                     raise SourceError('Sinopsis editorial ausente; se conserva la ficha anterior o queda pendiente')
                 if author_identity_conflicts(record,state):
@@ -609,7 +632,9 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 if record['precision_fecha'] == 'dia':
                     delta = (day - date.fromisoformat(record['fecha_publicacion_edicion'])).days
                     if delta > config['lookback_days'] or delta < -config['preorder_days']:
-                        raise SourceError('Edición fuera de la ventana de selección configurada')
+                        # No se vuelve a leer cada tres días: la antigua no entra nunca y la lejana, al acercarse.
+                        wait = (day + timedelta(days=365)) if delta > 0 else date.fromisoformat(record['fecha_publicacion_edicion']) - timedelta(days=config['preorder_days'])
+                        raise DeferredError('Edición fuera de la ventana de selección configurada', wait.isoformat())
                 if normalize_text(record['titulo']).startswith(('estuche ', 'pack ', 'caja ')):
                     raise SourceError('Estuche o pack: requiere relación de obras comprobada')
                 record['autores'] = split_authors(record['autores'])
@@ -695,6 +720,10 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 attempts = int(previous.get('intentos', 0)) + 1
                 if refresh:
                     state['items'][key] = {**previous, 'retry_after': (day + timedelta(days=3)).isoformat(), 'ultima_revision_error': reason, 'intentos': attempts}
+                elif isinstance(exc, DeferredError) or any(r in reason.lower() for r in LASTING_REASONS):
+                    until = exc.until if isinstance(exc, DeferredError) else (day + timedelta(days=LASTING_DAYS)).isoformat()
+                    # Sin la ficha guardada: con miles de altas por carga, el estado crecería sin aportar nada.
+                    state['items'][key] = {'isbn13': isbn, 'estado_ingesta': 'pendiente_datos', 'primera_deteccion': previous.get('primera_deteccion', today), 'retry_after': until, 'motivo': reason, 'fuente': url, 'intentos': attempts}
                 else:
                     state['items'][key] = {'isbn13': isbn, 'estado_ingesta': 'pendiente_datos', 'primera_deteccion': previous.get('primera_deteccion', today), 'retry_after': (day + timedelta(days=3)).isoformat(), 'motivo': reason, 'fuente': url, 'intentos': attempts, **({'datos': record} if record else {})}
                 stats['pending'] += 1
