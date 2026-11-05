@@ -89,9 +89,9 @@ jobs:
           IDENTITY_ARTIFACT_DIR: artifacts/identity-public
         run: node qa/awards-evidence-browser.mjs
 
-      - name: Install Lighthouse CI
+      - name: Use lockfile-pinned Lighthouse CI
         if: always()
-        run: npm install --global @lhci/cli@0.15.1
+        run: echo "$PWD/node_modules/.bin" >> "$GITHUB_PATH"
 
       - name: Configure Identity Lighthouse
         if: always()

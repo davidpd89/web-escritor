@@ -7,6 +7,7 @@ const browser=await chromium.launch({headless:true});
 const snapshot=page=>page.evaluate(()=>[...document.querySelectorAll('[data-catalogue-book]')].filter(c=>!c.hidden).map(c=>({id:c.dataset.bookId,cover:c.querySelector('img')?.getAttribute('src')||''})));
 try {
   const context=await browser.newContext();
+  await context.addInitScript(()=>localStorage.setItem('nl-popup-ts',String(Date.now())));
   const first=await context.newPage();
   await first.goto(BASE+route,{waitUntil:'domcontentloaded'});
   await first.waitForFunction(()=>document.querySelector('[data-catalogue-pagination] button:not([disabled])'));
@@ -27,7 +28,7 @@ try {
   // Páginas fuera de rango: la URL debe quedar igual que la vista (página limitada), sin historial nuevo.
   const state=page=>page.evaluate(()=>({pagina:new URLSearchParams(location.hash.slice(1)).get('pagina'),hash:location.hash,count:document.querySelector('[data-catalogue-count]')?.textContent||'',nav:document.querySelector('[data-catalogue-pagination]')?.textContent||'',length:history.length}));
   const pageCount=async page=>{const m=(await state(page)).count.match(/página (\d+) de (\d+)/);return m?Number(m[2]):1;};
-  const open=async hash=>{const page=await context.newPage();await page.goto(BASE+route+hash,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>/libros?/.test(document.querySelector('[data-catalogue-count]')?.textContent||''));return page;};
+  const open=async hash=>{const page=await context.newPage();await page.goto(BASE+route+hash,{waitUntil:'domcontentloaded'});await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');return page;};
   const total=await pageCount(second);
   assert.ok(total>=3,`${route}: se esperaban al menos 3 páginas para probar la normalización (hay ${total})`);
   for (const [hash,expected] of [['#pagina=99',String(total)],['#pagina=100000',String(total)],[`#pagina=${total}`,String(total)],['#pagina=2','2'],['#pagina=1',null],['#pagina=0',null],['#pagina=-3',null],['#pagina=abc',null],['#pagina=',null]]) {
@@ -37,7 +38,7 @@ try {
     assert.ok(s.nav.includes(`Página ${expected||1} de ${total}`),`${route}${hash}: paginación «${s.nav}» no coincide con la URL`);
     const before=await snapshot(page);
     await page.reload({waitUntil:'domcontentloaded'});
-    await page.waitForFunction(()=>/libros?/.test(document.querySelector('[data-catalogue-count]')?.textContent||''));
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     assert.deepEqual(await snapshot(page),before,`${route}${hash}: recargar la URL normalizada no reproduce la vista`);
     await page.close();
   }

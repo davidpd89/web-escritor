@@ -9,6 +9,7 @@ const browser=await chromium.launch({headless:true,...(process.env.QA_CHROMIUM_E
 const errors=[];
 try {
   const page=await browser.newPage();
+  await page.addInitScript(()=>localStorage.setItem('nl-popup-ts',String(Date.now())));
   page.on('pageerror',e=>errors.push(e.message));
   const response=await page.goto(BASE+route,{waitUntil:'networkidle'});
   assert.equal(response?.status(),200,`${route}: HTTP incorrecto`);
@@ -34,7 +35,7 @@ try {
   const first=options.find(o=>o.facet==='edad')||options[0];
   const box=page.locator(`[data-catalogue-filters] input[data-facet="${first.facet}"][value="${first.value}"]`);
   await box.evaluate(b=>{const d=b.closest('details'); if (d) d.open=true;});
-  await box.check({force:true});
+  await box.check();
   await page.waitForFunction(({facet,value})=>new URLSearchParams(location.hash.slice(1)).getAll(facet).includes(value),first);
   await page.fill('[data-catalogue-filters] [data-filter="q"]','zzqxwyv');
   await page.waitForFunction(()=>!document.querySelector('[data-catalogue-empty]').hidden&&document.querySelector('[data-catalogue-count]').textContent.startsWith('0'));

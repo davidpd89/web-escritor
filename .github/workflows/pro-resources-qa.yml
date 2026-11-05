@@ -66,7 +66,7 @@ concurrency:
 
 jobs:
   data-and-browser:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
@@ -133,7 +133,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with: {name: pro-resources-browser-qa, path: 'qa-artifacts/browser/', if-no-files-found: error, retention-days: 14}
   lighthouse:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
@@ -145,8 +145,10 @@ jobs:
             !/assets/no usadas/
       - uses: actions/setup-node@v5
         with: {node-version: '22'}
-      - name: Install Lighthouse CI
-        run: npm install --global @lhci/cli@0.15.1
+      - name: Install lockfile-pinned Lighthouse CI
+        run: npm ci
+      - name: Use lockfile-pinned Lighthouse CI
+        run: echo "$PWD/node_modules/.bin" >> "$GITHUB_PATH"
       - name: Collect Lighthouse reports
         run: lhci collect --config=./lighthouserc-pro-resources.json
       - name: Assert Lighthouse budgets
