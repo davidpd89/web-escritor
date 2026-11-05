@@ -365,12 +365,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "DK",
+        "editorial_slug": "dk",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-dura",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/ciencia-y-tecnologia/634723-libro-la-luna-una-historia-ilustrada-la-guia-visual-definitiva-9780241837597",
         "fuentes_autores": {
-          "DK": "https://www.penguinlibros.com/es/ciencia-y-tecnologia/634723-libro-la-luna-una-historia-ilustrada-la-guia-visual-definitiva-9780241837597"
+          "DK": "https://www.penguinlibros.com/es/11805-dk"
         },
         "idioma": "es",
         "isbn13": "9780241837597",
@@ -378,15 +379,44 @@
           "Ciencia y tecnología"
         ],
         "numero_paginas": 256,
+        "palabras_clave": [
+          "luna",
+          "la luna",
+          "universo",
+          "cosmos",
+          "libros ilustrados",
+          "mejores libros",
+          "libros mas vendidos",
+          "coffe table",
+          "gran formato",
+          "ciencia",
+          "astronomia",
+          "libros educativos",
+          "tierra",
+          "sol",
+          "misiones",
+          "artemis",
+          "nasa",
+          "fases",
+          "ciclo",
+          "libros sobre la luna",
+          "aurora boreal",
+          "mareas",
+          "naturaleza",
+          "libros para"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8019038-thickbox_default/la-luna-una-historia-ilustrada-la-guia-visual-definitiva.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 3200,
+        "sinopsis_breve": "Con preciosas ilustraciones, este libro explora la Luna en todas sus facetas: como luz en la noche, como fuerza que regula las mareas y…",
+        "sinopsis_completa": "Un fascinante recorrido por nuestro satélite natural y por la profunda huella que ha dejado en la ciencia, la cultura y la historia del mundo.\n\nCon preciosas ilustraciones, este libro explora la Luna en todas sus facetas: como luz en la noche, como fuerza que regula las mareas y los ciclos naturales, como objeto de estudio científico y como fuente inagotable de inspiración artística y literaria.\n\nDescubre las teorías sobre su formación hace más de 4.500 millones de años, su influencia en las antiguas mitologías y calendarios y su papel en grandes avances, como la invención del telescopio o el nacimiento de la ciencia ficción.\n\nRevive la apasionante carrera espacial y las históricas misiones que llevaron al ser humano a pisar la superficie lunar.\n\nCon impresionantes ilustraciones, fotografías y documentos históricos, el libro ofrece además una mirada al futuro de la exploración espacial, incluyendo las misiones Artemis de la NASA, los nuevos proyectos y los futuros viajes a Marte.\n\nIncluye mapas detallados y una guía para observar la Luna, con información sobre sus cráteres, mares y principales características geológicas.\n\nUna obra cautivadora que une ciencia, historia y cultura en una extraordinaria celebración de nuestro eterno compañero celeste.",
         "titulo": "La luna: Una historia ilustrada (La guía visual definitiva)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/ciencia-y-tecnologia/634723-libro-la-luna-una-historia-ilustrada-la-guia-visual-definitiva-9780241837597",
+      "estado_ingesta": "publicado",
       "isbn13": "9780241837597",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20"
+      "libro_id": "isbn-9780241837597",
+      "primera_deteccion": "2026-10-20",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9780241837702": {
       "datos": {
@@ -1131,10 +1161,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/x_9788401038204",
+      "intentos": 1,
       "isbn13": "9788401038204",
       "motivo": "Sinopsis editorial ausente; se conserva la ficha anterior o queda pendiente",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788401039560": {
       "datos": {
@@ -2119,12 +2150,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "AGUILAR",
+        "editorial_slug": "aguilar",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-10-01",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-biografias/634611-libro-como-me-gustaria-contarte-9788403526723",
         "fuentes_autores": {
-          "Ángel Gómez Merino": "https://www.penguinlibros.com/es/libro-de-biografias/634611-libro-como-me-gustaria-contarte-9788403526723"
+          "Ángel Gómez Merino": "https://www.penguinlibros.com/es/1019900-angel-gomez-merino"
         },
         "idioma": "es",
         "isbn13": "9788403526723",
@@ -2132,15 +2164,38 @@
           "Biografías y memorias"
         ],
         "numero_paginas": 272,
+        "palabras_clave": [
+          "libros recomendados",
+          "duelo",
+          "superación",
+          "pérdida de un ser querido",
+          "memoria",
+          "homenaje",
+          "proyecto de vida",
+          "lista de sueños",
+          "bucket list",
+          "crecimi ento personal",
+          "resiliencia",
+          "amor fraternal",
+          "aventuras",
+          "sentido de la vida",
+          "propósito",
+          "legado emocional",
+          "desarrollo personal",
+          "espir"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/7890511-thickbox_default/como-me-gustaria-contarte.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "En estas páginas, Ángel se dirige a su hermana para contarle sus experiencias desde que ella se fue. Las aventuras. Los miedos. Las dudas.…",
+        "sinopsis_completa": "Durante años, Ángel hizo lo que se esperaba de él. Estudió, empezó a trabajar en un fondo de inversión y siguió el camino seguro. Una vida estable. Correcta. Sin demasiadas sorpresas.\n\nPero el 5 de octubre de 2021 todo se desmoronó.\n\n¿Qué sentido tiene todo cuando pierdes a tu hermana pequeña?\n\nMeses de dolor, silencio, ausencia. Una herida que parecía no sanar nunca.\n\nY entonces llegó una idea.\n\nLo único que podía hacer era honrar su memoria. Honrar a Paloma.\n\nDejar el trabajo, Madrid, todo. Empezar un proyecto de cero, un objetivo para toda su vida.\n\nLa Lista: 510 sueños para seguir viviendo por los dos.\n\nDesde la cumbre del Kilimanjaro hasta el desierto de Mongolia, pasando por selvas, templos, minas, volcanes y encuentros que le cambiarían para siempre, Ángel comenzó a perseguir cada punto de La Lista con una misión clara: convertir el dolor en propósito.\n\nEn estas páginas, Ángel se dirige a su hermana para contarle sus experiencias desde que ella se fue. Las aventuras. Los miedos. Las dudas. Las personas que encontró por el camino. Las heridas que siguen ahí, aunque hayan cambiado de forma. Y cómo, gracias a ella, siempre es capaz de superarlos .\n\nPorque no hay mejor homenaje que una vida bien vivida, y cada sueño cumplido puede ser una forma de decirle a quien ya no está: \"Sigues conmigo\".",
         "titulo": "Cómo me gustaría contarte"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libro-de-biografias/634611-libro-como-me-gustaria-contarte-9788403526723",
+      "estado_ingesta": "publicado",
       "isbn13": "9788403526723",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20"
+      "libro_id": "isbn-9788403526723",
+      "primera_deteccion": "2026-10-20",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788403526761": {
       "datos": {
@@ -2943,6 +2998,48 @@
       "primera_deteccion": "2026-11-01",
       "publicado_en": "2026-11-01"
     },
+    "isbn13:9788408321361": {
+      "datos": {
+        "autores": [
+          "Kate Baker",
+          "Teresa Bellón"
+        ],
+        "coleccion": "Lonely Planet Junior",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "De 3 a 5 años",
+        "editorial": "GeoPlaneta",
+        "editorial_slug": "geoplaneta",
+        "encuadernacion": "Tapa dura sin s/cub. (cartoné)",
+        "fecha_publicacion_edicion": "2026-10-28",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-mi-primer-atlas-del-mundo/449758",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788408321361",
+        "materias": [
+          "Infantil"
+        ],
+        "numero_paginas": 16,
+        "palabras_clave": [
+          "Infantil",
+          "Aprendizaje",
+          "De 3 a 5 años"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/dd6585e0-09aa-47d2-942f-fe8c6587b9ca/d_360_620/portada_mi-primer-atlas-del-mundo_aa-vv_202604211159.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1490,
+        "sinopsis_breve": "Desde animales fascinantes y monumentos increíbles hasta paisajes extraordinarios y culturas sorprendentes, este atlas interactivo invita a los más pequeños a explorar los seis…",
+        "sinopsis_completa": "Desde animales fascinantes y monumentos increíbles hasta paisajes extraordinarios y culturas sorprendentes, este atlas interactivo invita a los más pequeños a explorar los seis continentes y los cinco océanos a través de ilustraciones llenas de color y descubrimientos en cada página.\n\nCon más de 40 solapas y un gran mapa desplegable, viajarán por ciudades fascinantes, conocerán especies...",
+        "titulo": "Mi primer atlas del mundo"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-mi-primer-atlas-del-mundo/449758",
+      "intentos": 1,
+      "isbn13": "9788408321361",
+      "motivo": "Cubierta ausente, pequeña o proporción incompatible",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788408321538": {
       "datos": {
         "autores": [
@@ -2979,10 +3076,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-liberty-haven-2-los-siete-propositos-de-oliver-grayson/450188",
+      "intentos": 1,
       "isbn13": "9788408321538",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-01",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788408321620": {
       "datos": {
@@ -3446,6 +3544,44 @@
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
     },
+    "isbn13:9788408324331": {
+      "datos": {
+        "autores": [
+          "Patrick Kinsella"
+        ],
+        "coleccion": "Ilustrados",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "GeoPlaneta",
+        "editorial_slug": "geoplaneta",
+        "encuadernacion": "Tapa dura sin s/cub. (cartoné)",
+        "fecha_publicacion_edicion": "2026-10-07",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-alli-donde-fueres/454773",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788408324331",
+        "materias": [
+          "Viajes"
+        ],
+        "numero_paginas": 144,
+        "palabras_clave": [
+          "Viajes",
+          "Ilustrados"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/1d4a8041-790b-4cb0-b5da-969907dfb293/d_360_620/portada_alli-donde-fueres_patrick-kinsella_202607060838.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1590,
+        "sinopsis_breve": "Allí donde fueres... 102 consejos para no meter la pata cuando viajas...",
+        "sinopsis_completa": "¿Sabes cómo saludar correctamente en Japón? ¿Qué gestos conviene evitar en determinados países? ¿O qué normas de cortesía debes tener en cuenta al sentarte a la mesa en el extranjero? No vuelvas a cometer un error cultural en tus viajes con esta divertida —y completamente real— guía de etiqueta para viajeros.\n\nAllí donde fueres... 102 consejos para no meter la pata cuando viajas...",
+        "titulo": "Allí donde fueres..."
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788408324331",
+      "libro_id": "isbn-9788408324331",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9788408324362": {
       "datos": {
         "autores": [
@@ -3573,10 +3709,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-en-el-corazon-del-monstruo/455199",
+      "intentos": 1,
       "isbn13": "9788408324461",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-26",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788408324485": {
       "datos": {
@@ -3619,6 +3756,47 @@
       "libro_id": "isbn-9788408324485",
       "primera_deteccion": "2026-11-04",
       "publicado_en": "2026-11-04"
+    },
+    "isbn13:9788408324683": {
+      "datos": {
+        "autores": [
+          "Ally Carter"
+        ],
+        "coleccion": "Ficción",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 16 años",
+        "editorial": "Crossbooks",
+        "editorial_slug": "crossbooks",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-14",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-crimen-antes-de-navidad/456038",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788408324683",
+        "materias": [
+          "Juvenil"
+        ],
+        "numero_paginas": 480,
+        "palabras_clave": [
+          "Juvenil",
+          "A partir de 16 años",
+          "Misterio",
+          "Romántica",
+          "Erótica"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/ebaee1b3-713d-4628-91b8-5621beec1b66/d_360_620/portada_crimen-antes-de-navidad_ally-carter_202606120824.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2095,
+        "sinopsis_breve": "Maggie Chase es la nueva reina de la novela de misterio. Ethan Wyatt, el autor de thrillers más exitoso del momento. Ella no lo…",
+        "sinopsis_completa": "La lectura perfecta para el mes de diciembre: ¡abre una ventana cada día para reconstruir la historia y resuelve el crimen antes de Navidad!\n\nMaggie Chase es la nueva reina de la novela de misterio. Ethan Wyatt, el autor de thrillers más exitoso del momento. Ella no lo soporta. Él ni siquiera recuerda su nombre.\n\nCuando ambos reciben una inesperada invitación para pasar las fiestas de Navidad...",
+        "titulo": "Crimen antes de Navidad"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788408324683",
+      "libro_id": "isbn-9788408324683",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788408324874": {
       "datos": {
@@ -3744,6 +3922,48 @@
       "libro_id": "isbn-9788408324904",
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
+    },
+    "isbn13:9788408325024": {
+      "datos": {
+        "autores": [
+          "Tim Collins"
+        ],
+        "coleccion": "Varios",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "De 9 a 12 años",
+        "editorial": "Planeta Junior",
+        "editorial_slug": "planeta-junior",
+        "encuadernacion": "Rústica sin solapas",
+        "fecha_publicacion_edicion": "2026-10-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-detectograms-el-topo-que-se-infiltro/456585",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788408325024",
+        "materias": [
+          "Infantil"
+        ],
+        "numero_paginas": 224,
+        "palabras_clave": [
+          "Infantil",
+          "Misterio",
+          "Interactivos",
+          "Actividades y manualidades",
+          "Acción y aventuras",
+          "De 9 a 12 años"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/8364f4f6-00db-4813-9a75-ac2e6087577c/d_360_620/portada_detectograms-el-topo-que-se-infiltro_tim-collins_202606120844.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1295,
+        "sinopsis_breve": "Combina una emocionante historia de misterio con minicapítulos con acertijos que el lector debe resolver a medida que aumenta el suspense.",
+        "sinopsis_completa": "Un libro ideal para los fans de la intriga y para jóvenes superdetectives expertos en descifrar códigos.\n\nCombina una emocionante historia de misterio con minicapítulos con acertijos que el lector debe resolver a medida que aumenta el suspense.\n\nEl genio del crimen Silas Ridley está planeando robar una obra de arte de valor incalculable. La inspectora...",
+        "titulo": "Detectograms: El topo que se infiltró"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788408325024",
+      "libro_id": "isbn-9788408325024",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788408325048": {
       "datos": {
@@ -4243,10 +4463,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-te-recojo-a-las-seis/457392",
+      "intentos": 1,
       "isbn13": "9788408326052",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788408326083": {
       "datos": {
@@ -4372,10 +4593,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-campus-drivers-2-novio-perfecto/457667",
+      "intentos": 1,
       "isbn13": "9788408326144",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788408326342": {
       "datos": {
@@ -4702,10 +4924,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-hasta-que-nos-quedemos-sin-estrellas-edicion-especial/458229",
+      "intentos": 1,
       "isbn13": "9788408326632",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788408326656": {
       "datos": {
@@ -4746,6 +4969,47 @@
       "libro_id": "isbn-9788408326656",
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9788408326731": {
+      "datos": {
+        "autores": [
+          "Kibara"
+        ],
+        "coleccion": "Varios",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "GeoPlaneta",
+        "editorial_slug": "geoplaneta",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-28",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-cuando-todos-se-van/458265",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788408326731",
+        "materias": [
+          "Actualidad"
+        ],
+        "numero_paginas": 264,
+        "palabras_clave": [
+          "Actualidad",
+          "Famosos",
+          "Viajes",
+          "Ilustrados",
+          "Terror"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/d30beb68-b19d-45b4-885e-1cb34eecc77b/d_360_620/portada_cuando-todos-se-van_kibara_202606091635.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2490,
+        "sinopsis_breve": "Desde los búnkeres que marcaron su infancia hasta la zona de exclusión de Fukushima, pasando por bases secretas de la OTAN, pueblos radiactivos, hoteles…",
+        "sinopsis_completa": "La exploradora más influyente de habla hispana revela la aventura real de adentrarse en los lugares que el mundo olvidó.\n\nLos lugares abandonados no están tan vacíos como parecen.\n\nDesde los búnkeres que marcaron su infancia hasta la zona de exclusión de Fukushima, pasando por bases secretas de la OTAN, pueblos radiactivos, hoteles intactos congelados en el tiempo y mansiones que parecen...",
+        "titulo": "Cuando todos se van"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788408326731",
+      "libro_id": "isbn-9788408326731",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788408326779": {
       "datos": {
@@ -5475,10 +5739,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-trilogia-berlin/459624",
+      "intentos": 1,
       "isbn13": "9788408327509",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-10-27",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788408327516": {
       "datos": {
@@ -5517,10 +5782,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-todos-los-lugares-nuestro-lugar-en-el-mundo/459625",
+      "intentos": 1,
       "isbn13": "9788408327516",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-03",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788408327523": {
       "datos": {
@@ -5560,10 +5826,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-todo-lo-que-nunca-fuimos-todo-lo-que-somos-juntos/459626",
+      "intentos": 1,
       "isbn13": "9788408327523",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-03",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788408327547": {
       "datos": {
@@ -5973,10 +6240,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-teo-se-disfraza/462671",
+      "intentos": 1,
       "isbn13": "9788408329657",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788408329831": {
       "datos": {
@@ -6256,10 +6524,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-tiendas-cuquis-para-colorear/464639",
+      "intentos": 1,
       "isbn13": "9788408330585",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788408330783": {
       "datos": {
@@ -6502,10 +6771,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-la-promesa-de-gideon/465333",
+      "intentos": 1,
       "isbn13": "9788408330974",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788408331087": {
       "datos": {
@@ -6582,10 +6852,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-te-querre-para-siempre/465492",
+      "intentos": 1,
       "isbn13": "9788408331100",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788408331162": {
       "datos": {
@@ -7126,10 +7397,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-los-misterios-de-eversand-3-la-esposa/466988",
+      "intentos": 1,
       "isbn13": "9788408332886",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788408332909": {
       "datos": {
@@ -7167,10 +7439,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-los-misterios-de-eversand-4-la-hereje/467000",
+      "intentos": 1,
       "isbn13": "9788408332909",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788410096547": {
       "datos": {
@@ -7361,10 +7634,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.editorialperiferica.com/libros/los-trillizos/",
+      "intentos": 1,
       "isbn13": "9788410171794",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788410171817": {
       "datos": {
@@ -7430,10 +7704,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.editorialperiferica.com/libros/guerra-y-lluvia/",
+      "intentos": 1,
       "isbn13": "9788410171831",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788410171855": {
       "datos": {
@@ -7605,10 +7880,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.editorialperiferica.com/libros/europeana/",
+      "intentos": 1,
       "isbn13": "9788410171947",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788410171961": {
       "datos": {
@@ -7912,10 +8188,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/literatura-contemporanea/354980-libro-han-cantado-bingo-9788410352018",
+      "intentos": 1,
       "isbn13": "9788410352018",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788410362697": {
       "datos": {
@@ -7959,6 +8236,48 @@
       "libro_id": "isbn-9788410362697",
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9788410427594": {
+      "datos": {
+        "autores": [
+          "Shoukei Matsumoto"
+        ],
+        "coleccion": "SABIDURIA ASIÁTICA",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "NEKO Books",
+        "editorial_slug": "neko-books",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-07",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-trabaja-como-un-monje-budista/456071",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788410427594",
+        "materias": [
+          "Estilo de vida"
+        ],
+        "numero_paginas": 184,
+        "palabras_clave": [
+          "Estilo de vida",
+          "Mindfulness",
+          "Empresa",
+          "Desarrollo personal / Coaching",
+          "Autoayuda",
+          "Crecimiento personal"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/c40ee798-7706-41e3-ac08-7b785fa240dc/d_360_620/portada_trabaja-como-un-monje-budista_shoukei-matsumoto_202607301158.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1895,
+        "sinopsis_breve": "Sumidos en jornadas interminables, correos sin fin y reuniones virtuales agotadoras, resulta cada vez más difícil detenerse a reflexionar sobre el verdadero significado de…",
+        "sinopsis_completa": "Una exploración estimulante y reveladora sobre lo que da sentido al trabajo, de la mano de un popular monje budista y comentarista cultural.\n\n¿Qué buscamos realmente a través de nuestro trabajo?\n\nSumidos en jornadas interminables, correos sin fin y reuniones virtuales agotadoras, resulta cada vez más difícil detenerse a reflexionar sobre el verdadero significado de nuestro trabajo y el lugar...",
+        "titulo": "Trabaja como un monje budista"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788410427594",
+      "libro_id": "isbn-9788410427594",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788410427709": {
       "datos": {
@@ -8667,10 +8986,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-mas-alla-mas-aca/461131",
+      "intentos": 1,
       "isbn13": "9788411078559",
       "motivo": "Sinopsis editorial ausente; se conserva la ficha anterior o queda pendiente",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788411078597": {
       "datos": {
@@ -8753,6 +9073,43 @@
       "libro_id": "isbn-9788411191937",
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
+    },
+    "isbn13:9788411193733": {
+      "datos": {
+        "autores": [
+          "Eli Susman"
+        ],
+        "coleccion": "Autoconocimiento",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Diana",
+        "editorial_slug": "diana",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-14",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-micropracticas/458072",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788411193733",
+        "materias": [
+          "Autoayuda"
+        ],
+        "numero_paginas": 336,
+        "palabras_clave": [
+          "Autoayuda"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/4ac36faf-64ec-4d6e-b45c-a02855e1d824/d_360_620/portada_micropracticas_eli-susman_202609021339.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2295,
+        "sinopsis_breve": "Vivimos convencidos de que para cambiar nuestra vida necesitamos grandes dosis de tiempo, disciplina y motivación. Sin embargo, la realidad demuestra que muchas de…",
+        "sinopsis_completa": "Pequeñas acciones de menos de un minuto, basadas en la ciencia, capaces de generar cambios duraderos en el bienestar, la energía y la calidad de vida.\n\nVivimos convencidos de que para cambiar nuestra vida necesitamos grandes dosis de tiempo, disciplina y motivación. Sin embargo, la realidad demuestra que muchas de las transformaciones más profundas comienzan con gestos mínimos, casi...",
+        "titulo": "Microprácticas"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788411193733",
+      "libro_id": "isbn-9788411193733",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788411193818": {
       "datos": {
@@ -9150,10 +9507,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-el-arte-de-haikyu/408046",
+      "intentos": 1,
       "isbn13": "9788411617765",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788413145211": {
       "datos": {
@@ -9377,10 +9735,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-reset-alimentario/458559",
+      "intentos": 1,
       "isbn13": "9788413445625",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-10-22",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788413445717": {
       "datos": {
@@ -9508,10 +9867,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/novelas-juveniles/32944-libro-invisible-9788416588435",
+      "intentos": 1,
       "isbn13": "9788416588435",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788416634286": {
       "datos": {
@@ -9544,10 +9904,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/el-atlas-de-las-nubes/",
+      "intentos": 1,
       "isbn13": "9788416634286",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788416634361": {
       "datos": {
@@ -9580,10 +9941,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/open-edicion-bestseller/",
+      "intentos": 1,
       "isbn13": "9788416634361",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-04"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788416634620": {
       "datos": {
@@ -9616,10 +9978,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/la-dependienta/",
+      "intentos": 1,
       "isbn13": "9788416634620",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788417128203": {
       "datos": {
@@ -9652,10 +10015,48 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/el-bar-de-las-grandes-esperanzas-edicion-bestseller/",
+      "intentos": 1,
       "isbn13": "9788417128203",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
+    },
+    "isbn13:9788417128531": {
+      "datos": {
+        "autores": [
+          "G. L. MARVEL"
+        ],
+        "coleccion": "Infantil Juvenil",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2018-05-15",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/cuentos-para-ninos-que-suenan-con-cambiar-el-mundo/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788417128531",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 160,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2021/08/ALTACuentosparaninosquesuenan72.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1850,
+        "sinopsis_breve": "EN LA ESTELA DEL FENÓMENO DE LIBROS DE BIOGRAFÍAS INSPIRADORAS, LLEGA EL LIBRO PARA NIÑOS. La inspiradora vida de 50 niños que se han…",
+        "sinopsis_completa": "La inspiradora vida de 50 niños que se han convertido en superhéroes sin necesidad de capa ni espada. Con Alan Turing, Albert Einstein, Andre Agassi, Antoine de Saint-Exupéry, Charles Darwin, Dalái Lama, Félix Rodríguez de la Fuente, Haile Gebrselassie, Harvey Milk, Iqbal Masih, Jacques-Yves Cousteau, Jamie Oliver, John Lennon, Julio Verne, Kilian Jornet, Leonardo da Vinci, Louis Braille, Mahatma Gandhi, Pedro Duque, Roald Amundsen, Sebastião Salgado, Stephen Hawking, entre otros. Albert Einstein Harvey Milk Martin Luther King Vicente Ferrer Mujer Hoy Ok Diario Leer",
+        "titulo": "Cuentos para niños que sueñan con cambiar el mundo"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/cuentos-para-ninos-que-suenan-con-cambiar-el-mundo/",
+      "intentos": 1,
+      "isbn13": "9788417128531",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788417128715": {
       "datos": {
@@ -9688,10 +10089,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/el-gran-libro-de-las-emociones/",
+      "intentos": 1,
       "isbn13": "9788417128715",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-01",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788417761769": {
       "datos": {
@@ -9724,10 +10126,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/los-goonies-2/",
+      "intentos": 1,
       "isbn13": "9788417761769",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788417761943": {
       "datos": {
@@ -9760,10 +10163,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/olive-kitteridge-edicion-bestseller/",
+      "intentos": 1,
       "isbn13": "9788417761943",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788418053696": {
       "datos": {
@@ -9924,6 +10328,43 @@
       "primera_deteccion": "2026-11-02",
       "retry_after": "2026-11-07"
     },
+    "isbn13:9788418128721": {
+      "datos": {
+        "autores": [
+          "Nita Prose"
+        ],
+        "coleccion": "Nefelibata",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2023-02-13",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/la-camarera/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788418128721",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 384,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2022/12/LA_CAMARERA_frontal_397x609.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1980,
+        "sinopsis_breve": "★ Ganadora del premio Goodreads al Mejor Libro de Misterio ★ ★ Bestseller de The Sunday Times y de The New York Times ★…",
+        "sinopsis_completa": "★ Ganadora del premio Goodreads al Mejor Libro de Misterio ★ ★ Bestseller de The Sunday Times y de The New York Times ★ ★ Publicada en más de 40 países. ★ «Una heroína inolvidable, la más interesante y adorable que me he encontrado en mucho tiempo.» Stephen King Un cadáver sobre la cama. Esta vez no será tan fácil dejarlo todo impoluto. Bienvenidos al hotel Regency Grand, donde nada es lo que parece. Molly es una joven camarera en un hotel de lujo. Es tímida y torpe en el trato social. Es también aplicada, comprometida, profesional. Una perfeccionista. En su trabajo, mulle almohadones y arregla los desastres que ocasionan los huéspedes, barriendo sus secretos. Es solo una camarera, y nadie repara en ella. Pero un asombroso hallazgo en una de las suites hace que su vida dé un vuelco, y la obliga a convertirse en detective para limpiar su propio nombre, a adentrarse en un mundo que va más allá de lo aparente. &amp;nbsp; » Mira el booktrailer aquí &amp;nbsp; &amp;nbsp;",
+        "titulo": "La camarera"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/la-camarera/",
+      "intentos": 1,
+      "isbn13": "9788418128721",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788418128950": {
       "datos": {
         "autores": [
@@ -9955,10 +10396,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/ana-la-de-tejas-verdes/",
+      "intentos": 1,
       "isbn13": "9788418128950",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788418538254": {
       "datos": {
@@ -9989,10 +10431,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/los-goonies-la-historia-ilustrada/",
+      "intentos": 1,
       "isbn13": "9788418538254",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788418538261": {
       "datos": {
@@ -10025,10 +10468,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/ana-la-de-tejas-verdes-2-ana-la-de-avonlea/",
+      "intentos": 1,
       "isbn13": "9788418538261",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788418538476": {
       "datos": {
@@ -10061,10 +10505,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/ana-la-de-tejas-verdes-3-ana-la-de-la-isla/",
+      "intentos": 1,
       "isbn13": "9788418538476",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788418538506": {
       "datos": {
@@ -10097,10 +10542,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/arsene-lupin-caballero-ladron/",
+      "intentos": 1,
       "isbn13": "9788418538506",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788418538599": {
       "datos": {
@@ -10131,10 +10577,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/arsene-lupin-y-la-aguja-hueca/",
+      "intentos": 1,
       "isbn13": "9788418538599",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788418538742": {
       "datos": {
@@ -10165,10 +10612,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/west-side-story/",
+      "intentos": 1,
       "isbn13": "9788418538742",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-01",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788418538858": {
       "datos": {
@@ -10269,10 +10717,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/arsene-lupin-caballero-ladron-edicion-ilustrada/",
+      "intentos": 1,
       "isbn13": "9788418538902",
       "motivo": "Sinopsis editorial ausente; se conserva la ficha anterior o queda pendiente",
       "primera_deteccion": "2026-11-01",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788418967566": {
       "datos": {
@@ -10361,10 +10810,46 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/4573/",
+      "intentos": 1,
       "isbn13": "9788419004079",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-01",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
+    },
+    "isbn13:9788419004130": {
+      "datos": {
+        "autores": [
+          "Stefan Zweig"
+        ],
+        "coleccion": "Infantil Juvenil",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2023-10-16",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/momentos-estelares-de-la-humanidad/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788419004130",
+        "materias": [],
+        "numero_paginas": 256,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2023/08/Momentos-estelares-de-la-humanidad-WEB-Publisher-770x1024.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2290,
+        "sinopsis_breve": "La obra maestra de Stefan Zweig cobra vida en esta edición ilustrada por Kim Amate. Stefan Zweig, una de las mejores plumas de la…",
+        "sinopsis_completa": "La obra maestra de Stefan Zweig cobra vida en esta edición ilustrada por Kim Amate. Stefan Zweig, una de las mejores plumas de la literatura europea, heredera de la prosa depurada y elegante del siglo XIX, nos brinda sus Momentos estelares de la humanidad, un libro para todo tipo de lectores que instruye y deleita a partes iguales. Gran observador, relata con maestría en esta crónica catorce momentos que han supuesto un punto de inflexión en la Historia: el ocaso del imperio de Occidente, la derrota de Napoleón, la conquista del Polo Sur, el primer cable de telégrafo en cruzar el océano atlántico, entre otros. Todos ellos, en palabras de Zweig, «momentos preñados de fatalidad, en los que una decisión destinada a persistir a lo largo de los tiempos se comprime en una única fecha». Una obra clásica que cerca de un siglo después sigue siendo un bestseller. «Uno de los libros que más me han gustado en mi vida es Momentos estelares de la humanidad, de Stefan Zweig.» Javier Cercas «Una joya que hace 20 años los cretinos de la literatura despreciaban, que les ha sobrevivido y ahora todos aplauden.» Arturo Pérez-Reverte &amp;nbsp;",
+        "titulo": "Momentos estelares de la humanidad"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/momentos-estelares-de-la-humanidad/",
+      "intentos": 1,
+      "isbn13": "9788419004130",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788419004161": {
       "datos": {
@@ -10397,10 +10882,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/arsene-lupin-contra-herlock-sholmes/",
+      "intentos": 1,
       "isbn13": "9788419004161",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788419004178": {
       "datos": {
@@ -10431,10 +10917,48 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/dentro-del-juego-del-calamar-luz-verde-a-los-secretos-de-la-serie-manual-de-instrucciones-no-oficial/",
+      "intentos": 1,
       "isbn13": "9788419004178",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
+    },
+    "isbn13:9788419004826": {
+      "datos": {
+        "autores": [
+          "Elisabetta Gnone"
+        ],
+        "coleccion": "Infantil Juvenil",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2022-11-07",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/fairy-oak-la-trilogia/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788419004826",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 1008,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2022/10/fairy.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1690,
+        "sinopsis_breve": "Fairy Oak es un pueblo habitado por criaturas mágicas y seres sin poderes, pero es difícil distinguir a las unas de los otros, pues…",
+        "sinopsis_completa": "Fairy Oak es un pueblo habitado por criaturas mágicas y seres sin poderes, pero es difícil distinguir a las unas de los otros, pues magos, brujas y ciudadanos normales viven en sus casas de piedra desde hace tanto tiempo que nadie presta ya atención a sus rarezas recíprocas y todos se parecen un poco. Salvo las hadas, que son muy pequeñas y luminosas, y... vuelan. Esta historia está contada por una de ellas y narra la aventura fabulosa de dos hermanas gemelas, Vainilla y Pervinca.",
+        "titulo": "Fairy Oak. La Trilogía"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/fairy-oak-la-trilogia/",
+      "intentos": 1,
+      "isbn13": "9788419004826",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788419132956": {
       "datos": {
@@ -10626,10 +11150,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/libros-ninos-9-anos/316953-libro-me-llamo-goa-1-me-llamo-goa-9788419378927",
+      "intentos": 1,
       "isbn13": "9788419378927",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788419434210": {
       "datos": {
@@ -10712,10 +11237,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-bolsillo-2027-la-vecina-rubia/429971",
+      "intentos": 1,
       "isbn13": "9788419434227",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788419434234": {
       "datos": {
@@ -10757,10 +11283,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-bolsillo-2027-maria-hesse/429974",
+      "intentos": 1,
       "isbn13": "9788419434234",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788419434241": {
       "datos": {
@@ -10804,10 +11331,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-bolsillo-2027-brianda/429975",
+      "intentos": 1,
       "isbn13": "9788419434241",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-10-30",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788419434289": {
       "datos": {
@@ -11100,10 +11628,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/s-el-barco-de-teseo/",
+      "intentos": 1,
       "isbn13": "9788419521491",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788419521620": {
       "datos": {
@@ -11122,7 +11651,9 @@
         "fuentes_autores": {},
         "idioma": "es",
         "isbn13": "9788419521620",
-        "materias": [],
+        "materias": [
+          "Narrativa"
+        ],
         "numero_paginas": 348,
         "palabras_clave": [],
         "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2023/07/Dama-blanca-1.jpeg",
@@ -11134,10 +11665,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/dama-blanca/",
+      "intentos": 1,
       "isbn13": "9788419521620",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-03"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788419688361": {
       "datos": {
@@ -11969,6 +12501,48 @@
       "libro_id": "isbn-9788423441013",
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
+    },
+    "isbn13:9788423441037": {
+      "datos": {
+        "autores": [
+          "Charles Murray"
+        ],
+        "coleccion": "Deusto",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Deusto",
+        "editorial_slug": "deusto",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-28",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-tomarse-la-religion-en-serio/458962",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788423441037",
+        "materias": [
+          "Actualidad"
+        ],
+        "numero_paginas": 176,
+        "palabras_clave": [
+          "Actualidad",
+          "Actualidad sociologia",
+          "Religión",
+          "Historia de las religiones",
+          "Filosofía",
+          "Filosofía de la religión"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/bfd54929-bf8a-43ff-af68-da745fd3848e/d_360_620/portada_tomarse-la-religion-en-serio_charles-murray_202609280852.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2095,
+        "sinopsis_breve": "En una época en la que la religión parece haber quedado relegada frente al avance de la ciencia y el pensamiento racional, Charles Murray…",
+        "sinopsis_completa": "¿Qué ocurre cuando uno de los pensadores más polémicos e influyentes de nuestro tiempo decide tomarse en serio la idea de Dios?\n\nEn una época en la que la religión parece haber quedado relegada frente al avance de la ciencia y el pensamiento racional, Charles Murray decidió emprender un viaje tan inesperado como ambicioso: explorar la fe desde la lógica, la evidencia y la reflexión...",
+        "titulo": "Tomarse la religión en serio"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788423441037",
+      "libro_id": "isbn-9788423441037",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788423441051": {
       "datos": {
@@ -12814,6 +13388,42 @@
       "libro_id": "isbn-9788425374074",
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
+    },
+    "isbn13:9788425374111": {
+      "datos": {
+        "autores": [
+          "Elvira Perejón (@educacionincondicional)"
+        ],
+        "coleccion": "Crecer en familia",
+        "cover_use_basis": "Portada tipográfica propia generada con los datos bibliográficos; no reproduce la cubierta editorial",
+        "edad_recomendada": "",
+        "editorial": "GRIJALBO",
+        "editorial_slug": "grijalbo",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2027-01-28",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.todostuslibros.com/libros/educar-leones-en-un-mundo-que-prefiere-borregos_978-84-253-7411-1",
+        "fuentes_autores": {},
+        "grupo_editorial": "Penguin Random House Grupo Editorial",
+        "idioma": "es",
+        "isbn13": "9788425374111",
+        "materias": [
+          "psicologia"
+        ],
+        "numero_paginas": 256,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.todostuslibros.com/libros/educar-leones-en-un-mundo-que-prefiere-borregos_978-84-253-7411-1",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "En este libro, Elvira Perejón, neuroeducadora y especialista en neuropsicología infantojuvenil, acerca la ciencia del cerebro a la vida cotidiana para mostrarnos cómo educar…",
+        "sinopsis_completa": "Educar no es conseguir que los niños obedezcan. Es prepararlos para que sepan pensar, decidir y vivir por sí mismos.\n\nQueremos que nuestros hijos e hijas crezcan seguros, autónomos, capaces de decir «no», defender lo que piensan, gestionar sus emociones y levantarse cuando algo sale mal. Sin embargo, los educamos en un mundo que demasiadas veces premia justo lo contrario: obedecer, encajar y no cuestionar.\n\nEn este libro, Elvira Perejón, neuroeducadora y especialista en neuropsicología infantojuvenil, acerca la ciencia del cerebro a la vida cotidiana para mostrarnos cómo educar niños y niñas con criterio propio, autoestima y recursos para afrontar los retos de la vida, sin recurrir al miedo, los castigos o la culpa.\n\nPorque criar leones no es dejar que hagan lo que quieran. Es acompañarlos para que sepan quiénes son, piensen por sí mismos y tengan el valor de seguir siendo ellos cuando el mundo los empuje a seguir al rebaño.\n\nNo necesitamos hijos más obedientes. Necesitamos hijos preparados para la vida.",
+        "titulo": "Educar leones en un mundo que prefiere borregos"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788425374111",
+      "libro_id": "isbn-9788425374111",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788425374371": {
       "datos": {
@@ -13691,10 +14301,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-a-cinco-segundos-de-ti/458012",
+      "intentos": 1,
       "isbn13": "9788427055735",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-03",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788427055780": {
       "datos": {
@@ -13913,10 +14524,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/ciencia-ficcion-juvenil/356896-libro-los-juegos-del-hambre-5-amanecer-en-la-cosecha-9788427248427",
+      "intentos": 1,
       "isbn13": "9788427248427",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788427254985": {
       "datos": {
@@ -14241,18 +14853,21 @@
     "isbn13:9788430629077": {
       "datos": {
         "autores": [
+          "Esther Duflo",
           "Abhijit Banerjee"
         ],
         "coleccion": "Pensamiento",
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "TAURUS",
+        "editorial_slug": "taurus",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-10-08",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/economia-politica-y-actualidad/635115-libro-repensar-la-pobreza-9788430629077",
         "fuentes_autores": {
-          "Abhijit Banerjee": "https://www.penguinlibros.com/es/economia-politica-y-actualidad/635115-libro-repensar-la-pobreza-9788430629077"
+          "Abhijit Banerjee": "https://www.penguinlibros.com/es/183924-abhijit-banerjee",
+          "Esther Duflo": "https://www.penguinlibros.com/es/188642-esther-duflo"
         },
         "idioma": "es",
         "isbn13": "9788430629077",
@@ -14260,15 +14875,35 @@
           "Economía, política, sociedad y actualidad"
         ],
         "numero_paginas": 480,
+        "palabras_clave": [
+          "abhijit banerjee",
+          "asistencia social",
+          "ciencias sociales",
+          "crisis economica",
+          "cuestiones sociales",
+          "economia kindle",
+          "economia libro",
+          "el tercer m undo",
+          "ensayo",
+          "sociologia",
+          "entender la pobreza",
+          "esther duflo",
+          "etica y valores en la sociedad",
+          "etnologia",
+          "filosofia de la economia"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8084470-thickbox_default/repensar-la-pobreza.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2590,
+        "sinopsis_breve": "Nuestra tendencia a reducir a los pobres a un conjunto de clichés nos ha impedido hasta ahora comprender los problemas a los que se…",
+        "sinopsis_completa": "¿Cómo se vive con menos de un dólar al día? ¿Por qué los microcréditos resultan útiles pero no son el milagro que algunos esperaban? ¿Por qué los pobres dejan pasar las campañas de vacunación gratuita pero pagan por medicinas que a menudo no necesitan? ¿Por qué sus hijos pueden ir a la escuela año tras año y no aprender nada? ¿Por qué no siempre invierten en obtener más calorías, sino calorías que saben mejor?\n\nNuestra tendencia a reducir a los pobres a un conjunto de clichés nos ha impedido hasta ahora comprender los problemas a los que se enfrentan a diario. Dado que poseen tan poco, hemos asumido que no hay nada de interés en su vida económica. Las políticas gubernamentales destinadas a ayudarles muchas veces fracasan porque se fundamentan en suposiciones erradas con respecto a sus circunstancias y su conducta.\n\nRepensar la pobreza supone un revolucionario giro en el modo de abordar la lucha global contra la pobreza. Sus autores, dos consagrados economistas del MIT, han acudido directamente a los protagonistas para comprender cómo funciona de verdad la economía de los pobres, cuáles son sus motivaciones y aspiraciones. Los resultados de sus observaciones contradicen muchas de nuestras creencias más arraigadas.\n\nEl innovador planteamiento de este libro empieza por cambiar las preguntas. A partir de ahí, ofrece las respuestas y, con ellas, un gran potencial transformador y una guía esencial para políticos, activistas y cualquier persona preocupada por construir un mundo sin desigualdad.",
         "titulo": "Repensar la pobreza"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/economia-politica-y-actualidad/635115-libro-repensar-la-pobreza-9788430629077",
+      "estado_ingesta": "publicado",
       "isbn13": "9788430629077",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20"
+      "libro_id": "isbn-9788430629077",
+      "primera_deteccion": "2026-10-20",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788430629138": {
       "datos": {
@@ -14591,10 +15226,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.anagrama-ed.es/libro/llibres-anagrama/adolescencia/9788433951038/LA_147",
+      "intentos": 1,
       "isbn13": "9788433951038",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788433951045": {
       "datos": {
@@ -15741,11 +16377,12 @@
         "titulo": "La luz y el hilo (Láurea)"
       },
       "estado_ingesta": "publicado",
+      "intentos": 1,
       "isbn13": "9788439747222",
       "libro_id": "isbn-9788439747222",
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-20",
-      "retry_after": "2026-11-05",
+      "retry_after": "2026-11-08",
       "ultima_revision_error": "Cambio de autoría o cubierta: requiere revisión editorial"
     },
     "isbn13:9788445019535": {
@@ -15980,6 +16617,47 @@
       "primera_deteccion": "2026-11-04",
       "publicado_en": "2026-11-04"
     },
+    "isbn13:9788445022764": {
+      "datos": {
+        "autores": [
+          "John Gwynne"
+        ],
+        "coleccion": "Fantasía",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Minotauro",
+        "editorial_slug": "minotauro",
+        "encuadernacion": "Tapa dura con sobrecubierta",
+        "fecha_publicacion_edicion": "2027-01-27",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-hds-n-0303-la-furia-de-los-dioses-cantos-tintados/457105",
+        "fuentes_autores": {
+          "John Gwynne": "https://www.planetadelibros.com/autor/john-gwynne/000058035"
+        },
+        "idioma": "es",
+        "isbn13": "9788445022764",
+        "materias": [
+          "Fantasía"
+        ],
+        "numero_paginas": 568,
+        "palabras_clave": [
+          "Fantasía"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/2a9fbe98-1435-44ab-bed5-9a6efe9e4436/d_360_620/portada_hds-n-0303-la-furia-de-los-dioses-cantos-tintados_john-gwynne_202610091322.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 3000,
+        "sinopsis_breve": "Varg, convertido en un auténtico Hermano de Sangre, se enfrenta junto a sus compañeros a una misión casi imposible: matar a un dragón....",
+        "sinopsis_completa": "La batalla final entre dioses y mortales llega en una espectacular edición especial con cantos tintados.\n\nEl esperado desenlace de la épica trilogía «Hermanos de Sangre» de John Gwynne llega en una espectacular edición especial con cantos tintados.\n\nVarg, convertido en un auténtico Hermano de Sangre, se enfrenta junto a sus compañeros a una misión casi imposible: matar a un dragón....",
+        "titulo": "HDS nº 03/03 La furia de los dioses (Cantos tintados)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.planetadelibros.com/libro-hds-n-0303-la-furia-de-los-dioses-cantos-tintados/457105",
+      "intentos": 1,
+      "isbn13": "9788445022764",
+      "motivo": "Cubierta ausente, pequeña o proporción incompatible",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788445022856": {
       "datos": {
         "autores": [
@@ -16058,10 +16736,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-1984-rebelion-en-la-granja-ediciones-singulares/459629",
+      "intentos": 1,
       "isbn13": "9788445022917",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788445023105": {
       "datos": {
@@ -16255,10 +16934,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-harry-potter-artefactos-del-mundo-magico/450041",
+      "intentos": 1,
       "isbn13": "9788448049157",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788448049188": {
       "datos": {
@@ -17849,10 +18529,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/x_9788466393164",
+      "intentos": 1,
       "isbn13": "9788466393164",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788466393850": {
       "datos": {
@@ -20016,6 +20697,15 @@
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
     },
+    "isbn13:9788467085044": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.todostuslibros.com/libros/x_9788467085044",
+      "intentos": 1,
+      "isbn13": "9788467085044",
+      "motivo": "Edición no identificada como castellano",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788467085068": {
       "datos": {
         "autores": [
@@ -20103,10 +20793,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/30192-libro-culpa-mia-culpables-1-9788490438664",
+      "intentos": 1,
       "isbn13": "9788490438664",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788491057031": {
       "datos": {
@@ -20287,10 +20978,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/330291-libro-la-asistenta-9788491294283",
+      "intentos": 1,
       "isbn13": "9788491294283",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788491296027": {
       "datos": {
@@ -20595,10 +21287,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/libros-ninos-7-anos/37664-libro-el-principito-edicion-original-con-las-acuarelas-del-autor-9788498381498",
+      "intentos": 1,
       "isbn13": "9788498381498",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-26",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9791370136413": {
       "estado_ingesta": "pendiente_datos",
@@ -20869,10 +21562,81 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/the-book/",
+      "intentos": 1,
       "isbn13": "9791387574079",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
+    },
+    "isbn13:9791387574253": {
+      "datos": {
+        "autores": [
+          "Nicoletta Verna"
+        ],
+        "coleccion": "Nefelibata",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-05-25",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/los-dias-de-vidrio/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791387574253",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 432,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/04/LOS_DIAS_DE_VIDRIO_frontal_1600x2422_72dpi-676x1024.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2000,
+        "sinopsis_breve": "LA NOVELA GANADORA DEL PREMIO DE LITERATURA DE LA UNIÓN EUROPEA «“La península italiana de las casas vacías”. Ya no necesitaré narrar la herida…",
+        "sinopsis_completa": "Ya no necesitaré narrar la herida fascista de Italia bajo el realismo mágico. Una de mis novelas europeas favoritas. Lírica y divertida; cruda y despiadada. Una gigantesca alegoría contra el horror. Maravilla.» David uclés una novela sobre la fragilidad y la obstinada resistencia frente a la violencia de la historia. Redenta nació en Castrocaro el mismo día de un suceso que sacudió Italia. En el pueblo se murmura que trae la desgracia y que ni siquiera llegará viva a la fiesta de San Roque. Pero cuando el día llega, ella sigue allí… mientras el país asiste al trágico desenlace de aquel acontecimiento. Así comienza el fascismo, y también la historia de Redenta. En un mundo marcado por la guerra y la violencia masculina, Redenta se aferra a una inagotable confianza en las personas. Aunque Bruno, el amigo de la infancia que le prometió casarse con ella sin importarle su «pierna torcida» por la polio, desaparece sin motivo, ella no deja de esperarlo. Y cuando el jerarca fascista Vidrio la elige como esposa, la brutalidad que le inflige no apaga en ella ese instinto de salvación: el de los demás, antes incluso que el suyo propio. Su destino acabará cruzándose con el de Iris, partisana en la banda del legendario comandante Díaz. Pero ¿qué secreto esconde Iris? En un tiempo dominado por el miedo y la crueldad, estas dos mujeres tan diferentes y unidas por un destino tan cruel como esperanzador encarnarán una resistencia inesperada: la de quien se niega a renunciar a la humanidad.",
+        "titulo": "Los días de Vidrio"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387574253",
+      "libro_id": "isbn-9791387574253",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9791387574406": {
+      "datos": {
+        "autores": [
+          "Agnès Martin-Lugand"
+        ],
+        "coleccion": "Nefelibata",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-10-19",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/los-renaceres/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791387574406",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 400,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/09/Los-renaceres-300-pp-676x1024.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2000,
+        "sinopsis_breve": "LA AUTORA BESTSELLER QUE EMOCIONA A LOS LECTORES «Deslumbrante.» Elle HAY MIRADAS QUE DAÑAN. OTRAS TIENEN EL PODER DE SANAR… Por casualidad, un hombre…",
+        "sinopsis_completa": "Por casualidad, un hombre y una mujer se encuentran en la barra de un bistró. Rebecca se enfrenta a un bloqueo creativo: la inspiración la ha abandonado y las dudas han tomado el control de su vida. Lino es un artesano apasionado por la historia del arte y atormentado por los fantasmas de su pasado. Inclinado a confiar en ella, se sincera antes de desaparecer en la noche. Fascinada por su historia, Rebecca se lanza a buscarlo, decidida a convertirlo en el protagonista de su próxima novela. Conmovedora y luminosa, Los renaceres nos habla de segundas oportunidades, mujeres que se reinventan y vínculos capaces de transformar una vida. Un canto al coraje de renacer cuando el corazón lo pide.",
+        "titulo": "Los renaceres"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387574406",
+      "libro_id": "isbn-9791387574406",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791387574536": {
       "datos": {
@@ -21110,10 +21874,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/murcielagos-de-la-republica/",
+      "intentos": 1,
       "isbn13": "9791387574819",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9791387574833": {
       "datos": {
@@ -22297,10 +23062,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-stitch-cine-en-casa/444061",
+      "intentos": 1,
       "isbn13": "9791387901400",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9791387901813": {
       "datos": {
@@ -22628,12 +23394,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "DEBATE",
+        "editorial_slug": "debate",
         "encuadernacion": "Tapa blanda",
         "fecha_publicacion_edicion": "2026-10-01",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-biografias/634699-libro-freud-y-el-matrimonio-serie-endebate-9791387904593",
         "fuentes_autores": {
-          "J.M. Coetzee": "https://www.penguinlibros.com/es/libro-de-biografias/634699-libro-freud-y-el-matrimonio-serie-endebate-9791387904593"
+          "J.M. Coetzee": "https://www.penguinlibros.com/es/1065-jm-coetzee"
         },
         "idioma": "es",
         "isbn13": "9791387904593",
@@ -22641,15 +23408,39 @@
           "Biografías y memorias"
         ],
         "numero_paginas": 80,
+        "palabras_clave": [
+          "endebate",
+          "ensayo",
+          "libros breves",
+          "libros cortos",
+          "psicoanalisis",
+          "platon",
+          "premio nobel",
+          "jm coetzee",
+          "coetzee en español",
+          "sigmund freud",
+          "matrimonio libros",
+          "relaciones de pareja",
+          "aristoteles",
+          "shakespeare",
+          "la teoria del amor",
+          "conversations on love",
+          "desgracia",
+          "tres cuentos",
+          "veran"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/7890442-thickbox_default/freud-y-el-matrimonio-serie-endebate.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1390,
+        "sinopsis_breve": "La colección Endebate es el hogar de aquellos textos breves que presentan una opinión, defienden una actitud o cuentan una historia, pero son más…",
+        "sinopsis_completa": "Ni en su obra ni en su vida personal mostró Freud gran interés por las dimensiones espirituales del matrimonio. Decepcionado ante este hecho, Coetzee indaga en las cuestiones maritales a las que el padre del psicoanálisis podría haber dado respuesta. A partir de la relación de Freud con su esposa, Martha Bernays, de las razones de su noviazgo, la falta de pasión erótica entre ambos o los celos que marcaron el matrimonio, y en diálogo con Platón, Aristóteles o Shakespeare, el premio Nobel recuesta en el diván al célebre psicoanalista para extraerle aquello de lo que nunca habló.\n\nLa colección Endebate es el hogar de aquellos textos breves que presentan una opinión, defienden una actitud o cuentan una historia, pero son más un aperitivo que un banquete, estimulan la conversación más que saciarla e inician un festín (que no clausuran). Como los mejores bocados, entran por los ojos y dejan un largo poso en el paladar.",
         "titulo": "Freud y el matrimonio (Serie ENDEBATE)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libro-de-biografias/634699-libro-freud-y-el-matrimonio-serie-endebate-9791387904593",
+      "estado_ingesta": "publicado",
       "isbn13": "9791387904593",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20"
+      "libro_id": "isbn-9791387904593",
+      "primera_deteccion": "2026-10-20",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791387904661": {
       "datos": {
@@ -22799,6 +23590,44 @@
       "libro_id": "isbn-9791387905620",
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9791387918125": {
+      "datos": {
+        "autores": [
+          "Mike Hartigan"
+        ],
+        "coleccion": "Cómic infantil juvenil",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Planeta Cómic",
+        "editorial_slug": "planeta-comic",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-super-princesa-unicornio-n-02/430266",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791387918125",
+        "materias": [
+          "Cómic"
+        ],
+        "numero_paginas": 192,
+        "palabras_clave": [
+          "Cómic",
+          "Cómics para niños"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/0566c376-02cc-49d7-8147-2e354853c8a0/d_360_620/portada_super-princesa-unicornio-n-02_mike-hartigan_202607061324.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1395,
+        "sinopsis_breve": "La segunda entrega de la divertida serie de novelas gráficas protagonizada por la superheroína más adorable y fuerte que existe: : ¡Super Princesa Unicornio!",
+        "sinopsis_completa": "La segunda entrega de la divertida serie de novelas gráficas protagonizada por la superheroína más adorable y fuerte que existe: : ¡Super Princesa Unicornio!\n\n¡Algunos héroes llevan tutú!\n\nSuper Princesa Unicornio ya tenía bastante trabajo manteniendo a salvo Ciudad Horizonte, pero cuando Leona Linus, su archienemiga declarada (según la propia Leona), se obsesiona con ganar el premio a...",
+        "titulo": "Super Princesa Unicornio nº 02"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387918125",
+      "libro_id": "isbn-9791387918125",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791387920852": {
       "datos": {
@@ -23233,9 +24062,27 @@
           "Cocina"
         ],
         "numero_paginas": 304,
+        "palabras_clave": [
+          "ottolenghi simple",
+          "cocina libro",
+          "libros recomendados",
+          "libros mas vendidos",
+          "mejores libros",
+          "comida saludable",
+          "la biblia de ma sterchef",
+          "masterchef libro",
+          "cocina simple",
+          "real fooding",
+          "come comida real",
+          "ottolenghi español",
+          "velocidad cuchara",
+          "ottolenghi c"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8270178-thickbox_default/mas-simple.jpg",
         "precision_fecha": "dia",
-        "sinopsis_breve": "Después del grandísimo éxito de Cocina Simple , el libro que hizo de Yotam Ottolenghi un icono y referente de los libros de cocina…",
+        "pvp_centimos": 3000,
+        "sinopsis_breve": "Después del grandísimo éxito de Cocina Simple, el libro que hizo de Yotam Ottolenghi un icono y referente de los libros de cocina de…",
+        "sinopsis_completa": "Después del grandísimo éxito de Cocina Simple, el libro que hizo de Yotam Ottolenghi un icono y referente de los libros de cocina de nuestra época, vuelve Más simple, una propuesta que continúa con el legado de su cocina exuberante a la vez que sencilla y cosmopolita. 130 nuevas recetas fieles a su lema «menos es más»: fáciles, rápidas, resultonas y directamente salidas de la despensa.\n\nDesde desayunos saciantes como una buena granola o una tortilla rellena, pasando por entrantes originales como los dips de berenjena, cremas de legumbres, o su famosa forma de convertir las verduras en platos de rechupete, Más simple nos regala recetas para todas las ocasiones sin dejar de lado a los vegetarianos, que no podrán resistirse a ese risotto verde con hallumi o a los grandes principales de carne y pescado (¿qué tal unos pimientos rellenos de cordero o un salmón al horno con pesto de albaricoque?). Como siempre, Ottolenghi es generoso en sabores y cantidades, y también en conocimiento: la guinda del pastel son tres secciones extra, dedicadas a los «fundamentales» de la cocina, a la lista de ingredientes básicos en toda despensa y a un valioso planner de ágapes.\n\nLos cocinitas a los que Cocina Simple cambió la vida o aquellos que buscan enriquecer su recetario casero ya pueden ir atándose el delantal: vuelven las propuestas al alcance de todos los horarios, bolsillos y fogones con ese aliño tan especial de la cocina Ottolenghi.",
         "titulo": "Más Simple"
       },
       "estado_ingesta": "publicado",
@@ -24749,10 +25596,46 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/que-es-una-frontera/",
+      "intentos": 1,
       "isbn13": "9791388042119",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
+    },
+    "isbn13:9791388042140": {
+      "datos": {
+        "autores": [
+          "Kristina Ohlsson"
+        ],
+        "coleccion": "Infantil Juvenil",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-06-15",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/la-noria-del-mal/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388042140",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 239,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/04/La-noria-del-mal-300-scaled.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1690,
+        "sinopsis_breve": "UNA NOVELA TERRORÍFICA DE LA MAESTRA DEL SUSPENSE Un huésped misterioso, una noria infernal y un pueblo donde nada es lo que parece... En…",
+        "sinopsis_completa": "Un huésped misterioso, una noria infernal y un pueblo donde nada es lo que parece... En casa de Heidi, en un pequeño pueblo costero, empiezan a ocurrir cosas inquietantes. Un viejo zapato de niño y un sonajero aparecen bajo el suelo de su habitación. Noche tras noche, estalla un violento temporal y ella oye pasos sigilosos entre las paredes. Por suerte, el verano se acerca, y, con él, la llegada de una noria al pueblo. Su propietario, Bill, alquila una habitación en el sótano de la casa de Heidi. Pero algo no encaja: su abuela parece aterrorizada ante la presencia del hombre y de la noria. La chica no tarda en comprender que algo terrible ocurrió allí hace mucho tiempo. El pasado amenaza con repetirse... Algunos secretos deberían permanecer enterrados para siempre «Heidi se detuvo en seco en mitad de la habitación. El ruido provenía de la cuna que les había regalado Bill. Se mecía lentamente de un lado a otro, como si alguien la empujara. Pero, aparte de ella, allí no había nadie más.»",
+        "titulo": "La noria del mal"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388042140",
+      "libro_id": "isbn-9791388042140",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791388042225": {
       "datos": {
@@ -24918,15 +25801,16 @@
         "precision_fecha": "dia",
         "pvp_centimos": 1490,
         "sinopsis_breve": "LA HISTORIA CON LA QUE MILES DE FAMILIAS LE DAN LA BIENVENIDA AL OTOÑO Todos los animales del bosque se preparan para el cambio…",
-        "sinopsis_completa": "LA HISTORIA CON LA QUE MILES DE FAMILIAS LE DAN LA BIENVENIDA AL OTOÑO Todos los animales del bosque se preparan para el cambio de estación… ¡Bienvenidos al Hotel Otoño! Cuando el frío está a punto de llegar, el Hotel Otoño abre las puertas a sus huéspedes para que entren en letargo. Los señores Marmota tienen reservadas dos habitaciones con vistas al prado. Y en la buhardilla se aloja la familia Murciélago. La despensa está llena de comida, hay tarros de miel para el señor Oso. Pero… ¿dónde se habrá metido Lirón? ¿Llegará antes de que el hotel cierre hasta la próxima primavera? Un álbum tierno, divertido y tan cálido como una acogedora guarida donde pasar el otoño. Una edición en gran formato con un precioso mensaje y las cálidas ilustraciones de Anna Aparicio, ilustradora multipremiada y seleccionada por la Muestra de Ilustradores de la Feria del Libro Infantil de Bolonia.",
+        "sinopsis_completa": "Todos los animales del bosque se preparan para el cambio de estación… ¡Bienvenidos al Hotel Otoño! Cuando el frío está a punto de llegar, el Hotel Otoño abre las puertas a sus huéspedes para que entren en letargo. Los señores Marmota tienen reservadas dos habitaciones con vistas al prado. Y en la buhardilla se aloja la familia Murciélago. La despensa está llena de comida, hay tarros de miel para el señor Oso. Pero… ¿dónde se habrá metido Lirón? ¿Llegará antes de que el hotel cierre hasta la próxima primavera? Un álbum tierno, divertido y tan cálido como una acogedora guarida donde pasar el otoño. Una edición en gran formato con un precioso mensaje y las cálidas ilustraciones de Anna Aparicio, ilustradora multipremiada y seleccionada por la Muestra de Ilustradores de la Feria del Libro Infantil de Bolonia.",
         "titulo": "Hotel Otoño"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/hotel-otono/",
+      "intentos": 1,
       "isbn13": "9791388042300",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-01",
-      "retry_after": "2026-11-04"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9791388042324": {
       "datos": {
@@ -25552,6 +26436,44 @@
       "primera_deteccion": "2026-11-04",
       "publicado_en": "2026-11-04"
     },
+    "isbn13:9791388100383": {
+      "datos": {
+        "autores": [
+          "Hideaki Sorachi"
+        ],
+        "coleccion": "Manga Shonen",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Planeta Cómic",
+        "editorial_slug": "planeta-comic",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-gintama-n-1126/449821",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388100383",
+        "materias": [
+          "Manga"
+        ],
+        "numero_paginas": 560,
+        "palabras_clave": [
+          "Manga",
+          "Manga Shonen"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/bed17cc0-d311-48f1-bddb-285a1320097f/d_360_620/portada_gintama-n-1126_hideaki-sorachi_202605231001.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1895,
+        "sinopsis_breve": "Estamos en Edo, la antigua Tokio. Hace 20 años, la llegada desde el espacio de los amanto propició la promulgación de la ley de…",
+        "sinopsis_completa": "El caos invade de nuevo Edo en esta comedia tan irreverente.\n\nEstamos en Edo, la antigua Tokio. Hace 20 años, la llegada desde el espacio de los amanto propició la promulgación de la ley de desarme. Los cambios sociales provocaron el cenit del declive de los samuráis, los antiguos amos del país. En esta época, sin embargo, todavía resta un hombre un poco rarito que cree en sí mismo y sigue...",
+        "titulo": "Gintama nº 11/26"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388100383",
+      "libro_id": "isbn-9791388100383",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9791388100550": {
       "datos": {
         "autores": [
@@ -25746,6 +26668,82 @@
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
     },
+    "isbn13:9791388101434": {
+      "datos": {
+        "autores": [
+          "Eku Takeshima"
+        ],
+        "coleccion": "Manga Yuri",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Planeta Cómic",
+        "editorial_slug": "planeta-comic",
+        "encuadernacion": "Rústica sin solapas con s/cub.",
+        "fecha_publicacion_edicion": "2026-10-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-whispering-you-a-love-song-n-10/455502",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388101434",
+        "materias": [
+          "Manga"
+        ],
+        "numero_paginas": 176,
+        "palabras_clave": [
+          "Manga",
+          "Manga Shojo"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/853c6dc5-b807-4842-b1ef-8d4f2ca70654/d_360_620/portada_whispering-you-a-love-song-n-10_eku-takeshima_202606101350.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 895,
+        "sinopsis_breve": "Las chicas de las SS empiezan a prepararse para los exámenes, y las de Laureley encuentran su siguiente sueño: ¡organizar un concierto en solitario!…",
+        "sinopsis_completa": "El festival del instituto ha terminado y Himari y compañía han recuperado su vida cotidiana.\n\nLas chicas de las SS empiezan a prepararse para los exámenes, y las de Laureley encuentran su siguiente sueño: ¡organizar un concierto en solitario! Aki y Shiho empiezan por fin a descubrir qué son ahora que se han reconciliado, pero Shiho teme que Aki todavía no entienda del todo sus sentimientos....",
+        "titulo": "Whispering you a Love Song nº 10"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388101434",
+      "libro_id": "isbn-9791388101434",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9791388101458": {
+      "datos": {
+        "autores": [
+          "SAN.G"
+        ],
+        "coleccion": "Manhwa",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Planeta Cómic",
+        "editorial_slug": "planeta-comic",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-tomb-raider-king-n-02/455504",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388101458",
+        "materias": [
+          "Cómic"
+        ],
+        "numero_paginas": 320,
+        "palabras_clave": [
+          "Cómic",
+          "Cómics para adolescentes"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/27144c95-4859-46da-a1de-8e3df9051679/d_360_620/portada_tomb-raider-king-n-02_sang_202606040905.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1895,
+        "sinopsis_breve": "Jooheon deberá confiar en su ingenio y astucia para igualar las probabilidades.",
+        "sinopsis_completa": "Jooheon deberá confiar en su ingenio y astucia para igualar las probabilidades.\n\nEl próximo destino de Jooheon es la fabulosa ciudad de Las Vegas, donde espera que aparezcan poderosas reliquias en la subasta secreta, tal vez incluso una de clase divina si tiene suerte. Para hacerse con el premio, debe competir con otros postores adinerados, incluido su archienemigo, el presidente Kwon. La...",
+        "titulo": "Tomb Raider King nº 02"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388101458",
+      "libro_id": "isbn-9791388101458",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9791388101465": {
       "datos": {
         "autores": [
@@ -25863,6 +26861,45 @@
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
     },
+    "isbn13:9791388101618": {
+      "datos": {
+        "autores": [
+          "Kiyoshi Arai",
+          "Kei Ishiyama"
+        ],
+        "coleccion": "Disney Manga",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Planeta Cómic",
+        "editorial_slug": "planeta-comic",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-28",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-pesadilla-antes-de-navidad-mirror-moon-manga/455528",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388101618",
+        "materias": [
+          "Cómic"
+        ],
+        "numero_paginas": 128,
+        "palabras_clave": [
+          "Cómic",
+          "Cómics para adolescentes"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/56f48f2f-43d3-4d55-9c3f-05b47e12c7e3/d_360_620/portada_pesadilla-antes-de-navidad-mirror-moon-manga_kei-ishiyama_202606101343.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1695,
+        "sinopsis_breve": "El maestro de los sustos, Jack Skellington, tiene un extraño sueño en el que lleva su pasión por el terror más allá de la…",
+        "sinopsis_completa": "Una nueva y oscura aventura en la Ciudad de Halloween.\n\nEl maestro de los sustos, Jack Skellington, tiene un extraño sueño en el que lleva su pasión por el terror más allá de la Ciudad de Halloween, a los demás mundos festivos. A raíz de ello y para poder concentrarse en crear su nuevo invento, nombra a Sally como la planificadora oficial de Halloween. Sin embargo, a medida que Sally trabaja...",
+        "titulo": "Pesadilla antes de Navidad: Mirror Moon (manga)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388101618",
+      "libro_id": "isbn-9791388101618",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9791388101670": {
       "datos": {
         "autores": [
@@ -25941,6 +26978,44 @@
       "libro_id": "isbn-9791388101700",
       "primera_deteccion": "2026-10-22",
       "publicado_en": "2026-10-22"
+    },
+    "isbn13:9791388101762": {
+      "datos": {
+        "autores": [
+          "Daniel Eichinger"
+        ],
+        "coleccion": "Novela gráfica",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Planeta Cómic",
+        "editorial_slug": "planeta-comic",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-jovantore/455543",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388101762",
+        "materias": [
+          "Cómic"
+        ],
+        "numero_paginas": 336,
+        "palabras_clave": [
+          "Cómic",
+          "Novela gráfica"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/12e9448e-a4b3-4d40-bebb-5c59d2d5f25b/d_360_620/portada_jovantore_daniel-eichinger_202607230917.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2200,
+        "sinopsis_breve": "Aparentemente, Rita es una joven normal. Sin embargo, desde su infancia, la atormenta una dolencia invisible: no deja de escuchar un persistente tic tac…",
+        "sinopsis_completa": "Un inquietante tictac que esconde algo mucho más oscuro.\n\nAparentemente, Rita es una joven normal. Sin embargo, desde su infancia, la atormenta una dolencia invisible: no deja de escuchar un persistente tic tac que parece provenir directamente del interior de su cabeza. Cuando Rita ya ha perdido la esperanza de encontrar una cura, se encuentra con una misteriosa anciana bruja que, precisamente, le...",
+        "titulo": "Jovantore"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388101762",
+      "libro_id": "isbn-9791388101762",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791388101830": {
       "datos": {
@@ -27926,6 +29001,44 @@
       "primera_deteccion": "2026-10-31",
       "publicado_en": "2026-10-31"
     },
+    "isbn13:9791388279287": {
+      "datos": {
+        "autores": [
+          "Manuel López (@cuervoconaros)"
+        ],
+        "coleccion": "Aprender hoy",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Temas de Hoy",
+        "editorial_slug": "temas-de-hoy",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2026-10-07",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-el-museo-del-crimen/459305",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388279287",
+        "materias": [
+          "Arte"
+        ],
+        "numero_paginas": 328,
+        "palabras_clave": [
+          "Arte",
+          "Historia del arte"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/da6aacae-2ba8-4c7e-86d2-6262a9927336/d_360_620/portada_el-museo-del-crimen_manuel-lopez-cuervoconaros_202606111701.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "Manuel López te invita a recorrer un museo muy distinto a cualquier otro: un lugar donde la belleza convive con la violencia y la…",
+        "sinopsis_completa": "Manuel López te invita a recorrer un museo muy distinto a cualquier otro: un lugar donde la belleza convive con la violencia y la muerte. Las fascinantes obras reunidas en El museo del crimen nos revelan cómo las realidades más atroces del ser humano han quedado inmortalizadas en el arte desde hace siglos.\n\nEn este libro aprenderás a...",
+        "titulo": "El museo del crimen"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388279287",
+      "libro_id": "isbn-9791388279287",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9791388279300": {
       "datos": {
         "autores": [
@@ -28047,10 +29160,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-murdoku-vol-1-vol-2/459348",
+      "intentos": 1,
       "isbn13": "9791388279362",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-03",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9791388279379": {
       "datos": {
@@ -29201,10 +30315,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-oh-no-me-he-enfadado/465659",
+      "intentos": 1,
       "isbn13": "9791399303506",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.anagrama-ed.es/libro/llibres-anagrama/el-volum-del-temps-iv/9788433951274/LA_149": {
       "estado_ingesta": "pendiente_datos",
@@ -29225,10 +30340,11 @@
     "url:https://www.duomoediciones.com/libro/el-libro-de-las-palabras/": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/el-libro-de-las-palabras/",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-03"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.duomoediciones.com/libro/el-principito/": {
       "estado_ingesta": "pendiente_datos",
@@ -29249,10 +30365,20 @@
     "url:https://www.duomoediciones.com/libro/hotel-tardor/": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/hotel-tardor/",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-03"
+      "retry_after": "2026-11-08"
+    },
+    "url:https://www.duomoediciones.com/libro/la-dependienta-edicion-especial-de-lujo/": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/la-dependienta-edicion-especial-de-lujo/",
+      "intentos": 1,
+      "isbn13": null,
+      "motivo": "Fecha editorial ausente o inválida",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
     },
     "url:https://www.duomoediciones.com/libro/nocturno/": {
       "estado_ingesta": "pendiente_datos",
@@ -29313,10 +30439,11 @@
     "url:https://www.planetadelibros.com/libro-agenda-anual-diaria-2027-maria-hesse/429977": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-diaria-2027-maria-hesse/429977",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-agenda-anual-diaria-2027-sara-buho/429978": {
       "estado_ingesta": "pendiente_datos",
@@ -29329,10 +30456,11 @@
     "url:https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-72-kilos/429997": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-72-kilos/429997",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-10-22",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-alicia-aradilla/430006": {
       "estado_ingesta": "pendiente_datos",
@@ -29345,10 +30473,11 @@
     "url:https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-brianda/429984": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-brianda/429984",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-defreds/429996": {
       "estado_ingesta": "pendiente_datos",
@@ -29377,10 +30506,11 @@
     "url:https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-la-vecina-rubia/429986": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-la-vecina-rubia/429986",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-laura-agusti-gatos/429992": {
       "estado_ingesta": "pendiente_datos",
@@ -29393,10 +30523,11 @@
     "url:https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-maria-hesse/429990": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-maria-hesse/429990",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-agenda-escolar-diaria-2026-2027-la-vecina-rubia/429966": {
       "estado_ingesta": "pendiente_datos",
@@ -29409,18 +30540,20 @@
     "url:https://www.planetadelibros.com/libro-agenda-escolar-semanal-2026-2027-72-kilos/429967": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-escolar-semanal-2026-2027-72-kilos/429967",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-agenda-escolar-semanal-2026-2027-lector-omnisciente/429969": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-escolar-semanal-2026-2027-lector-omnisciente/429969",
+      "intentos": 1,
       "isbn13": null,
-      "motivo": "Faltan título, autoría, sello o ISBN comprobable",
+      "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-alli-donde-fueres/454773": {
       "estado_ingesta": "pendiente_datos",
@@ -29433,18 +30566,20 @@
     "url:https://www.planetadelibros.com/libro-benvinguts-a-bord-els-escriu-el-seu-comandant/458663": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-benvinguts-a-bord-els-escriu-el-seu-comandant/458663",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-bushcraft-ilustrado/458243": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-bushcraft-ilustrado/458243",
+      "intentos": 1,
       "isbn13": null,
-      "motivo": "Faltan título, autoría, sello o ISBN comprobable",
+      "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-calendario-cachorritos-2027/455516": {
       "estado_ingesta": "pendiente_datos",
@@ -29457,10 +30592,11 @@
     "url:https://www.planetadelibros.com/libro-calendario-de-mesa-2027-la-vecina-rubia/454822": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-calendario-de-mesa-2027-la-vecina-rubia/454822",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-calendario-de-mesa-2027-maria-hesse/454823": {
       "estado_ingesta": "pendiente_datos",
@@ -29513,18 +30649,20 @@
     "url:https://www.planetadelibros.com/libro-calendario-mesa-de-tarjetas-2027-72-kilos/443958": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-calendario-mesa-de-tarjetas-2027-72-kilos/443958",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-calendario-mesa-de-tarjetas-2027-defreds/443959": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-calendario-mesa-de-tarjetas-2027-defreds/443959",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-10-24",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-calendario-mesa-de-tarjetas-2027-la-vecina-rubia/443960": {
       "estado_ingesta": "pendiente_datos",
@@ -29537,18 +30675,20 @@
     "url:https://www.planetadelibros.com/libro-calendario-paisajes-espectaculares-japon-2027/455517": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-calendario-paisajes-espectaculares-japon-2027/455517",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Faltan título, autoría, sello o ISBN comprobable",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-calendario-perritos-2027/455510": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-calendario-perritos-2027/455510",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Faltan título, autoría, sello o ISBN comprobable",
       "primera_deteccion": "2026-10-22",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-calendario-romantasy-2027/456070": {
       "estado_ingesta": "pendiente_datos",
@@ -29745,10 +30885,11 @@
     "url:https://www.planetadelibros.com/libro-hecho-una-mierda-pero-en-casa/429995": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-hecho-una-mierda-pero-en-casa/429995",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-infografias-del-nazismo/455814": {
       "estado_ingesta": "pendiente_datos",
@@ -29761,18 +30902,20 @@
     "url:https://www.planetadelibros.com/libro-josper/458674": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-josper/458674",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Faltan título, autoría, sello o ISBN comprobable",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-josper/458676": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-josper/458676",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Faltan título, autoría, sello o ISBN comprobable",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-jovantore/455543": {
       "estado_ingesta": "pendiente_datos",
@@ -29793,10 +30936,11 @@
     "url:https://www.planetadelibros.com/libro-la-guia-no-oficial-de-jane-austen/448967": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-la-guia-no-oficial-de-jane-austen/448967",
+      "intentos": 1,
       "isbn13": null,
-      "motivo": "Faltan título, autoría, sello o ISBN comprobable",
+      "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-la-guia-no-oficial-de-lugares-magicos-para-fans-de-harry-potter/448950": {
       "estado_ingesta": "pendiente_datos",
@@ -29825,10 +30969,11 @@
     "url:https://www.planetadelibros.com/libro-libro-oficial-de-actividades-y-pegatinas-de-alas-de-sangre/456365": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-libro-oficial-de-actividades-y-pegatinas-de-alas-de-sangre/456365",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Faltan título, autoría, sello o ISBN comprobable",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-los-misterios-de-eversand-2-la-prometida/466980": {
       "estado_ingesta": "pendiente_datos",
@@ -29945,10 +31090,11 @@
     "url:https://www.planetadelibros.com/libro-osito-tito-un-gran-artista/449953": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-osito-tito-un-gran-artista/449953",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Encuadernación desconocida o no física",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-pelo-negro-mojado/455529": {
       "estado_ingesta": "pendiente_datos",
@@ -29985,10 +31131,11 @@
     "url:https://www.planetadelibros.com/libro-ranma-12-n-1019-catala/455524": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-ranma-12-n-1019-catala/455524",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-ranma-12-n-1119-catala/465575": {
       "estado_ingesta": "pendiente_datos",
@@ -30001,10 +31148,11 @@
     "url:https://www.planetadelibros.com/libro-romantasy-quest/456164": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-romantasy-quest/456164",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Faltan título, autoría, sello o ISBN comprobable",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
     },
     "url:https://www.planetadelibros.com/libro-spooky-love/454057": {
       "estado_ingesta": "pendiente_datos",
