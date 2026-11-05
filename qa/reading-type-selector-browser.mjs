@@ -38,17 +38,21 @@ try {
     for (const option of types.filter(t => t.count > 0)) {
       await page.locator(`details[data-facet-group="grupo"]`).evaluate(el => { el.open = true; });
       await box('grupo', option.value).check();
+      await page.waitForFunction(() => !document.querySelector('[data-facets-pending]'));
       const groups = await visibleBooks().evaluateAll(cards => cards.map(c => c.dataset.group));
       assert.ok(groups.length > 0 && groups.every(group => group === option.value), `Filtrar por ${option.value} solo muestra ese tipo`);
       assert.match(await page.evaluate(() => location.hash), new RegExp(`grupo=${option.value}`));
       await box('grupo', option.value).uncheck();
+      await page.waitForFunction(() => !document.querySelector('[data-facets-pending]'));
     }
 
     // Varias opciones dentro de un mismo filtro suman (O); cruzar filtros distintos restringe (Y).
     await page.locator('details[data-facet-group="genero"]').evaluate(el => { el.open = true; });
     await box('genero', 'fantasia').check();
+    await page.waitForFunction(() => !document.querySelector('[data-facets-pending]'));
     const fantasy = await visibleBooks().count();
     await box('genero', 'terror').check();
+    await page.waitForFunction(() => !document.querySelector('[data-facets-pending]'));
     const either = await visibleBooks().count();
     assert.ok(either >= fantasy, 'Fantasía O Terror muestra al menos los de Fantasía');
     const eitherIds = await visibleBooks().evaluateAll(cards => cards.map(c => c.dataset.categories.split(' ').some(x => x === 'fantasia' || x === 'terror')));
@@ -70,12 +74,14 @@ try {
     await page.waitForFunction(() => document.querySelectorAll('input[data-facet]:checked').length === 0);
     await page.locator('details[data-facet-group="grupo"]').evaluate(el => { el.open = true; });
     await box('grupo', 'cocina').check();
+    await page.waitForFunction(() => !document.querySelector('[data-facets-pending]'));
     const disabledNow = await page.locator('input[data-facet="genero"]:disabled').evaluateAll(list => list.map(o => o.value));
     assert.ok(disabledNow.length > 0, 'Con «Cocina» hay géneros sin libros desactivados');
     for (const value of disabledNow.slice(0, 5)) {
       assert.equal(await page.locator(`[data-catalogue-book][data-group="cocina"][data-categories~="${value}"]`).count(), 0, `La opción desactivada ${value} no tiene libros de cocina`);
     }
     await box('grupo', 'cocina').uncheck();
+    await page.waitForFunction(() => !document.querySelector('[data-facets-pending]'));
     const stillDisabled = await page.locator('input[data-facet="genero"]:disabled').evaluateAll(list => list.map(o => o.value));
     // Cuentan los ya publicados (vista por defecto); una categoría con solo próximos lanzamientos también se desactiva.
     const releasedWith = value => page.locator(`[data-catalogue-book][data-categories~="${value}"]`).evaluateAll(cards => cards.filter(c => { const d = c.dataset.published || c.dataset.publishedMonth || c.dataset.year || ''; return !d || d <= new Date().toISOString().slice(0, 10); }).length);
