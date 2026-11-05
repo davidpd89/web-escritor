@@ -9,7 +9,7 @@ from unittest.mock import patch
 from urllib.error import HTTPError
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents,discovery_index,miss_reason,discover_page_formats,swatch_formats,discover_real_covers,page_cover_url,isbn10,store_prices
+from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents,discovery_index,miss_reason,discover_page_formats,swatch_formats,discover_real_covers,page_cover_url,isbn10,store_prices,prune_foreign_editions
 import tempfile
 
 NOW=datetime(2026,10,21,10,tzinfo=timezone.utc)
@@ -70,6 +70,22 @@ class AmazonPriceTests(unittest.TestCase):
             payload=response(); info=payload['searchResult']['items'][0]['itemInfo']
             info['title']={'displayValue':title}; info['byLineInfo']={'contributors':[{'name':name,'role':'Author'}]}
             self.assertEqual(select_offers(book,payload,'contrato-21',NOW),[],title+name)
+
+    def test_known_asin_of_another_edition_in_the_same_binding_is_not_priced(self):
+        # «Mentiras y secretos» (Penguin Bolsillo) guardaba el ASIN de la rústica de Montena:
+        # 18,95 € contra un PVP de 10,95 €. El ASIN conocido no basta si es otro ISBN-10.
+        url='https://www.amazon.es/dp/8418057610?tag=contrato-21'
+        book=dict(BOOK,formatos_compra=[{'formato':'tapa-blanda','url':url,'precio_centimos':1895}])
+        payload=response(); item=payload['searchResult']['items'][0]
+        item['asin']='8418057610'; item['itemInfo']['externalIds']={'eans':{'displayValues':['9788418057618']}}
+        self.assertEqual(select_offers(book,payload,'contrato-21',NOW),[])
+        self.assertEqual(prune_foreign_editions(book),1)
+        self.assertEqual(book['formatos_compra'],[])
+        # Otra encuadernación con otro ISBN sí es legítima (la tapa dura de una edición en rústica).
+        other=dict(BOOK,formatos_compra=[{'formato':'tapa-dura','url':url}])
+        self.assertEqual(prune_foreign_editions(other),0)
+        own=dict(BOOK,formatos_compra=[{'formato':'tapa-blanda','url':'https://www.amazon.es/dp/8498382378'}])
+        self.assertEqual(prune_foreign_editions(own),0)
 
     def test_used_subscription_and_prime_prices_are_not_general_prices(self):
         for update in [{'condition':{'value':'Used'}},{'type':'SUBSCRIBEAND_SAVE'},
@@ -254,7 +270,8 @@ class AmazonFormatDiscoveryTests(unittest.TestCase):
                     clone['itemInfo']['classifications']['binding']['displayValue']='Hardcover' if a.startswith('84983824') else 'Paperback'
                     return clone
                 return {'itemsResult':{'items':[priced(a) for a in asins]}}
-        books=[dict(BOOK,id=f'lib-{i}',isbn13='9788498382372',formatos_compra=[
+        # ASIN ficticios: sin formato_edicion no se toman por otra edición de la misma encuadernación.
+        books=[dict(BOOK,id=f'lib-{i}',isbn13='9788498382372',formato_edicion=None,formatos_compra=[
             {'formato':'tapa-blanda','url':f'https://www.amazon.es/dp/84983823{i:02d}?tag=contrato-21'},
             {'formato':'tapa-dura','url':f'https://www.amazon.es/dp/84983824{i:02d}?tag=contrato-21'}]) for i in range(10)]
         provider=Provider()

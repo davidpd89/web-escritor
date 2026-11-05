@@ -69,8 +69,26 @@ class DailyLimitReached(Exception):
     data must not pass for the end of the night."""
 
 
+def foreign_edition(book,fmt,asin):
+    """A paper ASIN in the book's own binding that is another ISBN-10 is another edition
+    (bolsillo vs. rústica, otra editorial): its price is not this edition's price."""
+    own=isbn10(isbn13(book.get('isbn13')) or '')
+    return (fmt in ('tapa-blanda','tapa-dura') and fmt==book.get('formato_edicion') and bool(own)
+            and isinstance(asin,str) and bool(re.fullmatch(r'\d{9}[\dX]',asin)) and asin!=own)
+
+
+def prune_foreign_editions(book):
+    """Drops stored offers of another edition in the book's own binding; returns how many."""
+    options=book.get('formatos_compra') or []
+    kept=[o for o in options if not foreign_edition(book,o.get('formato'),asin_from_url(o.get('url')))]
+    if len(kept)!=len(options):
+        book['formatos_compra']=kept
+    return len(options)-len(kept)
+
+
 def verified_formats(book):
-    known={asin_from_url(o.get('url')):o['formato'] for o in book.get('formatos_compra',[])}
+    known={asin:fmt for o in book.get('formatos_compra',[])
+           if not foreign_edition(book,(fmt:=o['formato']),(asin:=asin_from_url(o.get('url'))))}
     direct=asin_from_url(book.get('url_amazon_afiliada'))
     if direct and book.get('formato_edicion'):
         known.setdefault(direct,book['formato_edicion'])
@@ -174,6 +192,8 @@ def select_offers(book,payload,tag,now,mismatches=None):
         binding_value=amazon_dict(amazon_dict(info.get('classifications')).get('binding')).get('displayValue','')
         binding=key(binding_value) if isinstance(binding_value,str) else ''
         fmt=known.get(asin) or BINDINGS.get(binding)
+        if fmt and foreign_edition(book,fmt,asin) and not isbn_match:
+            continue  # Otra edición en la misma encuadernación: su precio no es el de esta.
         if asin in known and BINDINGS.get(binding,fmt)!=fmt:
             # Amazon manda sobre el formato de su ASIN: un precio de tapa dura no se publica como tapa blanda.
             if mismatches is not None:
@@ -301,6 +321,7 @@ class CreatorsPrices:
 
 def store_prices(book,offers,day):
     """Prices live in formatos_compra and stay on the page until a newer one arrives."""
+    prune_foreign_editions(book)
     options=[dict(o) for o in book.get('formatos_compra',[])]
     by_format={o['formato']:o for o in options}
     added=0
@@ -425,7 +446,7 @@ def discover_page_formats(catalogue,fetch,tag,now,limit=60):
         have={o['formato'] for o in options}
         known=set(verified_formats(book))
         for fmt,found in swatch_formats(document,asin).items():
-            if fmt in have or found in known:
+            if fmt in have or found in known or foreign_edition(book,fmt,found):
                 continue
             options.append({'formato':fmt,'url':f'https://www.amazon.es/dp/{found}?tag={tag}',
                             'fuente_url':f'https://www.amazon.es/dp/{found}','fecha_verificacion':day})
@@ -546,7 +567,7 @@ def apply_audit(book,record,tag):
     known=set(verified_formats(book))
     added=0
     for fmt,found in record['amazon'].items():
-        if fmt in have or found in known:
+        if fmt in have or found in known or foreign_edition(book,fmt,found):
             continue
         options.append({'formato':fmt,'url':f'https://www.amazon.es/dp/{found}?tag={tag}',
                         'fuente_url':f'https://www.amazon.es/dp/{found}','fecha_verificacion':record['fecha']})
