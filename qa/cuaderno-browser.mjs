@@ -319,6 +319,11 @@ async function noJsAudit() {
   }
 }
 
+async function settledHash(page, expected) {
+  await page.waitForFunction(hash => location.hash === hash, expected, { timeout: 3000 }).catch(() => {});
+  return new URL(page.url()).hash;
+}
+
 async function keyboardAudit() {
   const spec = pages.find(p => p.key === 'portal');
   const { context, page } = await open(spec);
@@ -326,12 +331,13 @@ async function keyboardAudit() {
   await page.keyboard.press('Tab');
   assert.equal(await page.evaluate(() => document.activeElement?.classList.contains('skip-link')), true, 'teclado: skip link no es primer foco');
   await page.keyboard.press('Enter');
-  assert.equal(new URL(page.url()).hash, '#contenido', 'teclado: skip link no salta a contenido');
+  // La navegación por ancla con Enter es asíncrona en Chromium: se espera al hash en vez de leerlo al instante.
+  assert.equal(await settledHash(page, '#contenido'), '#contenido', 'teclado: skip link no salta a contenido');
   const firstToc = page.locator('[data-article-toc] a[href^="#"]').first();
   await firstToc.focus();
   const firstTarget = await firstToc.getAttribute('href');
   await page.keyboard.press('Enter');
-  assert.equal(new URL(page.url()).hash, firstTarget, 'teclado: TOC no navega al destino');
+  assert.equal(await settledHash(page, firstTarget), firstTarget, 'teclado: TOC no navega al destino');
   await page.locator('[data-explore-open]').focus();
   await page.keyboard.press('Enter');
   assert.equal(await page.locator('[data-explore-dialog]').evaluate(dialog => dialog.open), true, 'teclado: Explore no abre');
