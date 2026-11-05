@@ -37,7 +37,8 @@ concurrency:
 jobs:
   offline-tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    # La batería offline ronda los 5-6 min y crece con cada caso; con 5 min la QA de la ingesta se cancelaba.
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
         with:
