@@ -105,6 +105,22 @@ function knownEditorialMigration(href) {
   return KNOWN_EDITORIAL_URL_MIGRATIONS.get(href) || null;
 }
 
+// Fichas de autor combinadas («A y B», «A @usuario») que se dividieron en una por persona
+// (scripts/normalize-reading-authors.py). Solo cuenta como sustituida si todas las fichas
+// herederas existen en esta rama; una baja sin herederas sigue fallando.
+const AUTHOR_RETIREMENTS = (() => {
+  try {
+    return new Map(JSON.parse(fs.readFileSync('data/reading-author-retirements.json', 'utf8')).retiradas.map(r => [r.url, r]));
+  } catch { return new Map(); }
+})();
+function retiredAuthorProfile(href) {
+  const record = AUTHOR_RETIREMENTS.get(href.split('#')[0]);
+  if (!record?.sustituidaPor?.length) return null;
+  const heirs = record.sustituidaPor;
+  if (!heirs.every(url => fs.existsSync(`${url.replace(/^\//, '')}index.html`))) return null;
+  return `ficha de autor dividida (${record.retirada}): ${heirs.join(', ')}`;
+}
+
 // The one same-page case that is a rename rather than a removal: the fragment
 // named this page's <main> landmark, and the page still exposes that landmark
 // under a new id with its skip link resolving to it. Deliberately narrow — it
@@ -139,7 +155,7 @@ for(const p of paths){
   const beforeHtml=baseText(p),afterHtml=fs.readFileSync(p,'utf8');
   const before=inventory(beforeHtml),after=inventory(afterHtml);
   const removed=before.hrefs.filter(x=>!after.hrefs.includes(x)),added=after.hrefs.filter(x=>!before.hrefs.includes(x));
-  const removedJustification=Object.fromEntries(removed.map(h=>[h,brokenInBaseline(h)||landmarkRenamed(h,beforeHtml,afterHtml)||deprecatedDestination(h)||knownEditorialMigration(h)]));
+  const removedJustification=Object.fromEntries(removed.map(h=>[h,brokenInBaseline(h)||landmarkRenamed(h,beforeHtml,afterHtml)||deprecatedDestination(h)||knownEditorialMigration(h)||retiredAuthorProfile(h)]));
   const unjustified=removed.filter(h=>!removedJustification[h]);
   assert.deepEqual(unjustified,[],`${p}: destinos eliminados sin preservar: ${unjustified.join(', ')}`);
   report.pages[p]={before,after,addedDestinations:added,removedDestinations:removed,removedJustification,metadataChanges:{title:before.title===after.title?null:[before.title,after.title],description:before.description===after.description?null:[before.description,after.description],robots:before.robots===after.robots?null:[before.robots,after.robots],canonical:before.canonical===after.canonical?null:[before.canonical,after.canonical]}};

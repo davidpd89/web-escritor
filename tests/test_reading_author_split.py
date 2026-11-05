@@ -1,3 +1,4 @@
+import json
 import subprocess
 import sys
 import unittest
@@ -36,6 +37,18 @@ class AuthorSplitTest(unittest.TestCase):
         result = subprocess.run([sys.executable, "scripts/normalize-reading-authors.py", "--check"], cwd=ROOT,
                                 capture_output=True, text=True, encoding="utf-8")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_retired_profiles_point_to_existing_heirs(self):
+        # El control de enlaces acepta la baja de una ficha solo si sus herederas existen.
+        retired = json.loads((ROOT / "data/reading-author-retirements.json").read_text(encoding="utf-8"))
+        slugs = {a["slug"] for a in json.loads((ROOT / "data/reading-authors.json").read_text(encoding="utf-8"))["autores"]}
+        for record in retired["retiradas"]:
+            old = record["url"].strip("/").split("/")[-1]
+            self.assertNotIn(old, slugs, record["url"])
+            self.assertTrue(record["sustituidaPor"], record["url"])
+            for heir in record["sustituidaPor"]:
+                self.assertIn(heir.strip("/").split("/")[-1], slugs, heir)
+                self.assertTrue((ROOT / heir.strip("/") / "index.html").exists(), heir)
 
 
 if __name__ == "__main__":

@@ -15,8 +15,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 GENERATED = re.compile(r'^(pagefind/|recomendaciones/|editoriales/|editoriales-sitemap\.xml$|sitemap[^/]*\.xml$'
                        r'|mapa-del-sitio/|assets/page-order\.generated\.js$|data/content-registry\.json$)')
-BUILDERS = ('build-reading-catalogue.py', 'build-page-order.py', 'build-site-shell.py', 'build-sitemap.py',
-            'build-pagefind-index.py')
+# Mismo orden que refresh-reading-catalogue.py: las fichas de editorial leen el catálogo y el sitemap y
+# Pagefind leen las fichas; si falta uno, la PR sale con páginas desincronizadas.
+BUILDERS = (('build-reading-catalogue.py',),
+            ('build-editoriales.py', '--data', 'data/editoriales.json', '--output', '.'),
+            ('build-page-order.py',), ('build-site-shell.py',), ('build-sitemap.py',), ('build-pagefind-index.py',))
 
 
 def git(*args, check=True):
@@ -40,11 +43,12 @@ def main():
             else:
                 git('add', '--', f)
         print(f'{len(conflicts)} conflictos en generados: versión de main, se regeneran.', flush=True)
-    for script in BUILDERS:
-        subprocess.run([sys.executable, 'scripts/' + script], cwd=ROOT, check=True)
-    for script in BUILDERS:
-        subprocess.run([sys.executable, 'scripts/' + script, '--check'], cwd=ROOT, check=True)
-    git('add', '-A', '--', 'pagefind', 'recomendaciones', 'editoriales', 'mapa-del-sitio', 'assets/page-order.generated.js')
+    for script, *args in BUILDERS:
+        subprocess.run([sys.executable, 'scripts/' + script, *args], cwd=ROOT, check=True)
+    for script, *args in BUILDERS:
+        subprocess.run([sys.executable, 'scripts/' + script, *args, '--check'], cwd=ROOT, check=True)
+    git('add', '-A', '--', 'pagefind', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio',
+        'assets/page-order.generated.js')
     git('add', '-u')
     staged = git('diff', '--cached', '--quiet', check=False).returncode
     if git('rev-parse', '-q', '--verify', 'MERGE_HEAD', check=False).returncode == 0:
