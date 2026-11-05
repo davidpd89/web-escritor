@@ -46,6 +46,31 @@ class AmazonPriceTests(unittest.TestCase):
             payload=response(); payload['searchResult']['items'][0]['itemInfo'][field]=value
             self.assertEqual(select_offers(BOOK,payload,'contrato-21',NOW),[])
 
+    def test_exact_ean_tolerates_series_order_and_longer_names(self):
+        # Con el EAN exacto: «Saga 1. Título» frente a «Título (Saga 1)», un segundo apellido
+        # o el crédito como ilustrador no dejan el libro sin precio.
+        book=dict(BOOK,titulo='Indomables 1. El despertar de la magia',autores=['Diego Arboleda'])
+        for title,contributor in [('El despertar de la magia (Indomables 1)',{'name':'Diego Arboleda Rodríguez','role':'Author'}),
+                                  ('Indomables 1: El despertar de la magia (Spanish Edition)',{'name':'Diego Arboleda','role':'Illustrator'})]:
+            payload=response(); info=payload['searchResult']['items'][0]['itemInfo']
+            info['title']={'displayValue':title}; info['byLineInfo']={'contributors':[contributor]}
+            self.assertEqual(len(select_offers(book,payload,'contrato-21',NOW)),1,title)
+            self.assertEqual(miss_reason(book,[payload]),'sin_oferta_nueva')
+
+    def test_tolerance_needs_the_exact_ean(self):
+        book=dict(BOOK,titulo='Indomables 1. El despertar de la magia',autores=['Diego Arboleda'])
+        payload=response(); info=payload['searchResult']['items'][0]['itemInfo']
+        info['title']={'displayValue':'El despertar de la magia (Indomables 1)'}
+        info['byLineInfo']={'contributors':[{'name':'Diego Arboleda Rodríguez','role':'Author'}]}
+        info['externalIds']={'eans':{'displayValues':['9788425374012']}}
+        self.assertEqual(select_offers(book,payload,'contrato-21',NOW),[])
+        # Ni con el EAN exacto pasa otro libro de la serie u otra persona con un nombre en común.
+        for title,name in [('Indomables 2. El despertar de la magia','Diego Arboleda'),
+                           ('Indomables 1. El despertar de la magia','Diego Pérez')]:
+            payload=response(); info=payload['searchResult']['items'][0]['itemInfo']
+            info['title']={'displayValue':title}; info['byLineInfo']={'contributors':[{'name':name,'role':'Author'}]}
+            self.assertEqual(select_offers(book,payload,'contrato-21',NOW),[],title+name)
+
     def test_used_subscription_and_prime_prices_are_not_general_prices(self):
         for update in [{'condition':{'value':'Used'}},{'type':'SUBSCRIBEAND_SAVE'},
                        {'dealDetails':{'accessType':'PRIME_EXCLUSIVE'}},

@@ -84,6 +84,55 @@ def same_title(title,canonical):
     return bool(bare(canonical)) and bare(title)==bare(canonical)
 
 
+# Con el EAN exacto la edición ya está identificada; título y autor solo descartan un EAN mal
+# asignado. Por eso se toleran el orden de serie («El despertar de la magia (Indomables 1)»),
+# el sufijo de idioma y un nombre más largo («Diego Arboleda Rodríguez»), pero no otro libro
+# ni otra persona.
+_TITLE_NOISE={'spanish','edition','edicion','espanol','espanola','castellano','version'}
+
+
+def _title_words(value):
+    return {w for w in key(value).split() if w not in _TITLE_NOISE}
+
+
+def isbn_title_matches(title,canonical):
+    a,b=_title_words(title),_title_words(canonical)
+    short,long_=sorted((a,b),key=len)
+    return len(short)>=2 and short<=long_
+
+
+def isbn_author_matches(source,catalogued):
+    a,b=key(source).split(),key(catalogued).split()
+    if len(a)<2 or len(b)<2:
+        return False
+    short,long_=sorted((a,b),key=len)
+    return set(short)<=set(long_)
+
+
+def edition_matches(info,book,isbn_match):
+    """Título y autor de un resultado de Amazon frente al libro: estricto sin ISBN,
+    tolerante con el EAN exacto. Lo comparten select_offers y miss_reason."""
+    title=amazon_dict(info.get('title')).get('displayValue','')
+    if not isinstance(title,str):
+        return False,False
+    title_ok=title_matches(title,book['titulo']) or (isbn_match and isbn_title_matches(title,book['titulo']))
+    contributors=[c for c in amazon_list(amazon_dict(info.get('byLineInfo')).get('contributors'))
+                  if isinstance(c,dict) and isinstance(c.get('name'),str)]
+    # Sin ISBN solo cuentan los autores; con el EAN exacto vale cualquier rol (ilustrador,
+    # editor) para no perder ediciones en las que Amazon reparte los créditos de otro modo.
+    authors=[c['name'] for c in contributors if isinstance(c.get('role'),str) and key(c['role']) in {'author','autor'}]
+    author_ok=any(author_matches(a,n) for a in authors for n in book['autores'])
+    if isbn_match and not author_ok:
+        author_ok=any(author_matches(c['name'],n) or isbn_author_matches(c['name'],n)
+                      for c in contributors for n in book['autores'])
+    return title_ok,author_ok
+
+
+def item_isbn_match(info,wanted):
+    eans=amazon_list(amazon_dict(amazon_dict(info.get('externalIds')).get('eans')).get('displayValues'))
+    return bool(wanted) and wanted in {isbn13(v) for v in eans if isinstance(v,str)}
+
+
 def in_spanish(info):
     languages=amazon_list(amazon_dict(amazon_dict(info.get('contentInfo')).get('languages')).get('displayValues'))
     return any(isinstance(l,dict) and isinstance(l.get('displayValue'),str)
@@ -118,18 +167,10 @@ def select_offers(book,payload,tag,now,mismatches=None):
             continue
         info=amazon_dict(item.get('itemInfo'))
         title=amazon_dict(info.get('title')).get('displayValue','')
-        if not isinstance(title,str) or not title_matches(title,book['titulo']):
+        isbn_match=item_isbn_match(info,wanted)
+        title_ok,author_ok=edition_matches(info,book,isbn_match)
+        if not (title_ok and author_ok):
             continue
-        contributors=amazon_list(amazon_dict(info.get('byLineInfo')).get('contributors'))
-        authors=[c.get('name','') for c in contributors
-                 if isinstance(c,dict) and isinstance(c.get('name'),str)
-                 and isinstance(c.get('role'),str)
-                 and key(c['role']) in {'author','autor'}]
-        if not any(author_matches(author,name) for author in authors for name in book['autores']):
-            continue
-        identifiers=amazon_dict(amazon_dict(info.get('externalIds')).get('eans'))
-        isbn_match=wanted in {isbn13(value) for value in amazon_list(identifiers.get('displayValues'))
-                              if isinstance(value,str)}
         binding_value=amazon_dict(amazon_dict(info.get('classifications')).get('binding')).get('displayValue','')
         binding=key(binding_value) if isinstance(binding_value,str) else ''
         fmt=known.get(asin) or BINDINGS.get(binding)
@@ -645,16 +686,14 @@ def miss_reason(book,payloads):
                         if isinstance((v:=amazon_dict(payload).get(f)),dict)),{})
         for item in amazon_list(container.get('items')):
             info=amazon_dict(amazon_dict(item).get('itemInfo'))
-            title=amazon_dict(info.get('title')).get('displayValue','')
+            isbn_match=item_isbn_match(info,wanted)
+            title_ok,author_ok=edition_matches(info,book,isbn_match)
             stage=1
-            if isinstance(title,str) and title_matches(title,book['titulo']):
+            if title_ok:
                 stage=2
-                names=[c.get('name','') for c in amazon_list(amazon_dict(info.get('byLineInfo')).get('contributors'))
-                       if isinstance(c,dict) and isinstance(c.get('name'),str)]
-                if any(author_matches(n,a) for n in names for a in book['autores']):
+                if author_ok:
                     stage=3
-                    eans=amazon_list(amazon_dict(amazon_dict(info.get('externalIds')).get('eans')).get('displayValues'))
-                    if wanted in {isbn13(v) for v in eans if isinstance(v,str)} or in_spanish(info):
+                    if isbn_match or in_spanish(info):
                         stage=4
             best=max(best,stage)
     return MISS_STAGES[best]
