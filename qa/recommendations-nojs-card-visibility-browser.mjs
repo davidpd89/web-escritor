@@ -17,8 +17,8 @@ try {
         const result = await card.evaluate(el => {
           const rect = el.getBoundingClientRect();
           const style = getComputedStyle(el);
-          const link = el.querySelector('h3 a[href]');
-          return { width: rect.width, height: rect.height, display: style.display, visibility: style.visibility, href: link?.getAttribute('href'), text: link?.textContent?.trim() };
+          const link = el.querySelector('.catalogue-card__ficha[href]'), title = el.querySelector('h3 a[href]');
+          return { width: rect.width, height: rect.height, display: style.display, visibility: style.visibility, href: link?.getAttribute('href'), text: title?.textContent?.trim() };
         });
         assert.ok(result.width > 0 && result.height > 0 && result.display !== 'none' && result.visibility !== 'hidden', `/recomendaciones/ ${width}px: tarjeta sin caja visible: ${JSON.stringify(result)}`);
         assert.ok(result.href?.startsWith('/recomendaciones/libros/') && result.text, `/recomendaciones/ ${width}px: tarjeta sin enlace o texto navegable: ${JSON.stringify(result)}`);

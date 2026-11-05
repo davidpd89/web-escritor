@@ -3,6 +3,7 @@
   'use strict';
   const root = document.querySelector('[data-reading-catalogue]');
   if (!root) return;
+  const FACET_SEARCH_FROM = 8; // opciones a partir de las cuales el filtro lleva buscador propio
   const normalize = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').trim();
   // Solo los ISBN-13 completos admiten separadores y prefijos de presentación.
   const searchQuery = s => {
@@ -18,7 +19,6 @@
   const boxes = form ? [...form.querySelectorAll('input[data-facet]')] : [];
   const FIXED_ORDER = ['grupo', 'edad', 'formato'];
   const pick = x => Array.isArray(x) ? x : x ? [x] : [];
-  const collator = new Intl.Collator('es', { sensitivity: 'base', numeric: true });
   let market = { offers: [], ratings: [] };
   let currentPage = 1;
   const pageSize = 24;
@@ -39,7 +39,7 @@
   };
   // Muestra de 1–4 valoraciones con fuente y vigencia válidas: existe, pero no es una nota fiable.
   const thinRating = r => Number.isSafeInteger(r.numero_valoraciones) && r.numero_valoraciones >= 1 && r.numero_valoraciones < 5 && validRating({...r, numero_valoraciones: 5});
-  const discount = o => Number.isSafeInteger(o.precio_referencia_centimos) && o.precio_referencia_centimos > o.precio_centimos ? Math.floor((o.precio_referencia_centimos - o.precio_centimos) / o.precio_referencia_centimos * 100) : 0;
+  const discount = o => Number.isSafeInteger(o.precio_referencia_centimos) && o.precio_referencia_centimos > o.precio_centimos ? Math.round((o.precio_referencia_centimos - o.precio_centimos) / o.precio_referencia_centimos * 100) : 0;
   // Index entries are validated by renderMarket. Recheck expiry on interaction,
   // without reparsing the same URLs for every card and quiz option.
   const offersFor = id => (offersIndex.get(id) || []).filter(o => fresh(o, 24));
@@ -146,13 +146,24 @@
       const group = form.querySelector('[data-facet-group="' + k + '"]');
       if (!group) continue;
       const own = boxes.filter(b => b.dataset.facet === k);
+      // Buscador dentro del filtro cuando tiene muchas opciones (géneros, temáticas…): acota la lista sin tocar la selección.
+      let finder = group.querySelector('[data-facet-search]');
+      if (!finder && own.length > FACET_SEARCH_FROM) {
+        finder = document.createElement('input'); finder.type = 'search'; finder.className = 'catalogue-facet__search'; finder.dataset.facetSearch = '';
+        const name = group.querySelector('summary').firstChild.textContent.trim();
+        finder.placeholder = 'Buscar en ' + name.toLocaleLowerCase('es') + '…'; finder.setAttribute('aria-label', 'Buscar opciones de ' + name.toLocaleLowerCase('es'));
+        finder.addEventListener('input', () => renderFacets(values()));
+        finder.addEventListener('keydown', e => { if (e.key === 'Enter') e.preventDefault(); });
+        group.querySelector('.catalogue-facet__options').before(finder);
+      }
+      const query = finder ? normalize(finder.value) : '';
       const candidates = cards.filter(card => matches(card, {...v, [k]: []}));
       const sets = candidates.map(card => facetValues(card, k));
       for (const box of own) {
         const total = cards.some(card => facetValues(card, k).has(box.value));
         const count = sets.filter(set => set.has(box.value)).length, label = box.closest('label');
         // Con un tipo de libro elegido solo quedan las opciones de ese tipo (Novela → sus géneros).
-        label.hidden = (!total || (typed && k !== 'grupo' && !count)) && !box.checked;
+        label.hidden = (!total || (typed && k !== 'grupo' && !count) || (query && !normalize(label.textContent).includes(query))) && !box.checked;
         label.querySelector('[data-facet-count]').textContent = '(' + count + ')';
         box.disabled = !count && !box.checked;
         label.classList.toggle('is-empty', box.disabled);
@@ -165,7 +176,7 @@
       const rank = label => label.querySelector('input').checked ? 0 : label.classList.contains('is-empty') ? 2 : 1;
       const ordered = [...labels].sort((a, b) => rank(a) - rank(b) || (FIXED_ORDER.includes(k) ? 0 : b.dataset.count - a.dataset.count) || a.dataset.order - b.dataset.order);
       if (ordered.some((label, i) => list.children[i] !== label)) list.prepend(...ordered);
-      const shown = ordered.filter(label => !label.hidden), limit = 8, expanded = group.dataset.expanded === 'true';
+      const shown = ordered.filter(label => !label.hidden), limit = 8, expanded = group.dataset.expanded === 'true' || Boolean(query);
       let more = group.querySelector('[data-facet-more]');
       if (shown.length > limit + 2 && !more) {
         more = document.createElement('button'); more.type = 'button'; more.className = 'catalogue-facet__more'; more.dataset.facetMore = '';
@@ -181,7 +192,7 @@
         more.textContent = expanded ? 'Ver menos' : 'Ver todas (' + shown.length + ')';
         more.setAttribute('aria-expanded', String(expanded));
       }
-      group.hidden = own.every(b => b.closest('label').hidden);
+      group.hidden = !query && own.every(b => b.closest('label').hidden);
       group.querySelector('[data-facet-selected]').textContent = chosen ? '(' + chosen + ' elegidas)' : '';
       if (chosen) group.open = true;
     }
@@ -197,9 +208,6 @@
       if (v.orden === 'editorial' && v.valoracion) return nullable(rating(a), rating(b)) || nullable(dateOf(a), dateOf(b), true);
       if (v.orden === 'editorial' && v.estado === 'proximos') return nullable(dateOf(a), dateOf(b));
       switch (v.orden) {
-        case 'titulo': return collator.compare(a.dataset.title, b.dataset.title);
-        case 'titulo_desc': return collator.compare(b.dataset.title, a.dataset.title);
-        case 'autor': return collator.compare(a.dataset.author, b.dataset.author);
         case 'editorial': case 'fecha_desc': case 'fecha_asc': return nullable(dateOf(a), dateOf(b), v.orden !== 'fecha_asc');
         case 'paginas_asc': case 'paginas_desc': return nullable(Number(a.dataset.pages) || null, Number(b.dataset.pages) || null, v.orden === 'paginas_desc');
         case 'precio_tapa-dura': case 'precio_tapa-blanda': case 'precio_ebook': case 'precio_audiolibro': { const format = [v.orden.slice(7)]; return nullable(priceOf(a, format), priceOf(b, format)); }
@@ -218,7 +226,7 @@
     renderPagination(pages, visible);
     if (form) {
       const refineCount = root.querySelector('[data-catalogue-refine-count]');
-      const upcomingLink = root.querySelector('[data-catalogue-upcoming]'); if (upcomingLink) upcomingLink.hidden = v.estado === 'proximos';
+      const upcomingLink = root.querySelector('[data-catalogue-upcoming]'); if (upcomingLink) upcomingLink.hidden = v.estado === 'proximos' || v.estado === 'todos';
       if (refineCount) { const active = fields.filter(f => !['q', 'orden', 'estado'].includes(f.dataset.filter) && f.value && !f.disabled).length + boxes.filter(b => b.checked).length; refineCount.textContent = active ? '· ' + active + (active === 1 ? ' activo' : ' activos') : ''; }
       root.querySelector('[data-catalogue-count]').textContent = visible + (visible === 1 ? ' libro' : ' libros') + (pages > 1 ? ' · página ' + currentPage + ' de ' + pages : ''); root.querySelector('[data-catalogue-empty]').hidden = visible !== 0;
       if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => !FACETS.includes(k) && value && !(k === 'orden' && value === 'editorial'))); for (const k of FACETS) for (const x of v[k]) hash.append(k, x); if (currentPage > 1) hash.set('pagina', String(currentPage)); history.replaceState(null, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }

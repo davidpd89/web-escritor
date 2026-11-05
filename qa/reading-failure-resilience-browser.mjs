@@ -65,7 +65,7 @@ async function runCase(width,mode){
       await page.waitForFunction(()=>document.querySelector('[data-filter="q"]'));
       // The request remains pending until the user has changed both controls.
       await page.locator('[data-filter="q"]').fill(selected.isbn13);
-      await page.locator('[data-filter="orden"]').selectOption('titulo_desc');
+      await page.locator('[data-filter="orden"]').selectOption('fecha_asc');
       assert.deepEqual(await visible(page),[selected.id],'Search works before market response arrives');
       const before=page.url();
       release();
@@ -75,7 +75,7 @@ async function runCase(width,mode){
       await page.waitForLoadState('networkidle');
       assert.equal(intercepted,1,'The intended market request must actually be intercepted');
       assert.equal(await page.locator('[data-filter="q"]').inputValue(),selected.isbn13,'Market result must preserve user input');
-      assert.equal(await page.locator('[data-filter="orden"]').inputValue(),'titulo_desc','Market result must preserve chosen order');
+      assert.equal(await page.locator('[data-filter="orden"]').inputValue(),'fecha_asc','Market result must preserve chosen order');
       assert.equal(page.url(),before,'Market result must preserve the shareable URL');
       assert.deepEqual(await visible(page),[selected.id],'Market failure must not reset or hide the result');
       assert.equal(await page.locator('[data-price-book]:visible').count(),0,'No fabricated price after failed or empty market response');
@@ -100,7 +100,7 @@ async function runCase(width,mode){
       await page.reload({waitUntil:'networkidle'});
       await page.waitForFunction(isbn=>document.querySelector('[data-filter="q"]')?.value===isbn,selected.isbn13);
       assert.deepEqual(await visible(page),[selected.id],'Shared search survives reload with failed market');
-      assert.equal(await page.locator('[data-filter="orden"]').inputValue(),'titulo_desc','Shared ordering survives reload');
+      assert.equal(await page.locator('[data-filter="orden"]').inputValue(),'fecha_asc','Shared ordering survives reload');
     }
     const card=page.locator('[data-catalogue-book]').filter({has:page.locator(`a[href="/recomendaciones/libros/${selected.slug}/"]`)}).first();
     const amazon=card.locator('.catalogue-card__buy');

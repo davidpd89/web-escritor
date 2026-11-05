@@ -16,7 +16,7 @@ from zoneinfo import ZoneInfo
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from reading_editorial_sources import CachedHTTP, SourceError, penguin_edition
 from reading_intake_fetch import read_json, write_if_changed
-from reading_taxonomy import extra_categories
+from reading_taxonomy import apply_derived, extra_categories
 
 ROOT = Path(__file__).resolve().parents[1]
 HOST = 'https://www.penguinlibros.com/es/'
@@ -84,6 +84,7 @@ def main():
             report[key] += key in changes
         report['categorias_nuevas'] += len(changes.get('categorias', []))
         print(f"{book['id']}: {changes}")
+    report['clasificacion_propia'] = sum(map(len, apply_derived(catalogue).values()))
     print(json.dumps(report, ensure_ascii=False))
     if args.apply:
         write_if_changed(path, catalogue)

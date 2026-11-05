@@ -74,7 +74,9 @@ def git_tracked_html(root: Path) -> list[str]:
     result = subprocess.run(
         ["git", "ls-files", "*.html"], cwd=root, capture_output=True, text=True, check=True
     )
-    return sorted(line.strip() for line in result.stdout.splitlines() if line.strip())
+    # Durante una fusión con conflictos ls-files repite cada ruta por etapa (1/2/3): sin set el índice
+    # duplicaba 344 páginas (2026-11-04, #1160 con 1722 entradas en vez de 1378).
+    return sorted({line.strip() for line in result.stdout.splitlines() if line.strip()})
 
 
 def load_registry_by_source(root: Path) -> dict[str, dict]:

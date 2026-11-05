@@ -597,6 +597,30 @@ def amazon_prices(b):
     return [o for o in sorted(purchase_formats(b), key=lambda o: list(FORMATS).index(o['formato'])) if o.get('precio_centimos')]
 
 
+DIGITAL_FORMATS = ('ebook', 'audiolibro')
+
+
+def print_list_prices(b):
+    """PVP y precios de las ediciones en papel: en un ebook no son un «precio antes», sino otro formato."""
+    out = {b.get('pvp_centimos')}
+    for o in purchase_formats(b):
+        if o['formato'] not in DIGITAL_FORMATS:
+            out |= {o.get('precio_centimos'), o.get('precio_referencia_centimos')}
+    return out - {None}
+
+
+def price_discount(b, o):
+    """(precio antes, % redondeado como Amazon) o None. En digital se ignora la referencia que es el precio
+    de la versión impresa (2026-11-04: 12 ebooks salían al 50 % por eso; no era una oferta)."""
+    reference = o.get('precio_referencia_centimos', 0)
+    if o['formato'] in DIGITAL_FORMATS and reference in print_list_prices(b):
+        reference = 0
+    base = max(reference, o.get('precio_anterior_centimos', 0))
+    if base <= o['precio_centimos']:
+        return None
+    return base, ((base - o['precio_centimos']) * 200 + base) // (2 * base)
+
+
 def lowest_price(b):
     prices = [o['precio_centimos'] for o in amazon_prices(b)]
     return min(prices) if prices else None
@@ -717,12 +741,12 @@ def render_deals(books):
     deals = []
     for b in books:
         for o in amazon_prices(b):
-            base = max(o.get('precio_referencia_centimos', 0), o.get('precio_anterior_centimos', 0))
-            if base > o['precio_centimos']:
+            if found := price_discount(b, o):
+                base, pct = found
                 deals.append({'libro_id': b['id'], 'titulo': b['titulo'], 'autores': b['autores'], 'ficha': SITE + url(b),
                               'portada': SITE + b['portada_local'], 'formato': o['formato'], 'url': o['url'],
                               'precio_centimos': o['precio_centimos'], 'precio_antes_centimos': base,
-                              'descuento_pct': (base - o['precio_centimos']) * 100 // base,
+                              'descuento_pct': pct,
                               'tipo': 'bajada' if o.get('precio_anterior_centimos') == base else 'descuento',
                               **({'bajada_fecha': o['bajada_fecha']} if o.get('bajada_fecha') else {}),
                               'comprobado': o['fecha_verificacion']})
@@ -835,9 +859,8 @@ def format_discounts(b):
     """«formato:%» del mayor ahorro comprobado por formato (precio de referencia de Amazon o última bajada)."""
     out = []
     for o in amazon_prices(b):
-        base = max(o.get('precio_referencia_centimos', 0), o.get('precio_anterior_centimos', 0))
-        if base > o['precio_centimos']:
-            out.append(f"{o['formato']}:{(base - o['precio_centimos']) * 100 // base}")
+        if found := price_discount(b, o):
+            out.append(f"{o['formato']}:{found[1]}")
     return ' '.join(out)
 
 
@@ -873,7 +896,7 @@ def render_filters(data, type_options):
     advanced = '<div class="catalogue-filter-grid">'
     for key,label in [('desde', 'Publicado desde'), ('hasta', 'Publicado hasta')]:
         advanced += f'<label>{label}<input type="date" name="{key}" data-filter="{key}" min="1000-01-01" max="2100-12-31"></label>'
-    advanced += select('descuento', 'Ofertas', [('', 'Todos los precios'), ('1', 'Con descuento o bajada de precio'), ('10', '10 % o más'), ('25', '25 % o más'), ('50', '50 % o más')], 'data-market-control="offers" disabled')
+    advanced += select('descuento', 'Ofertas', [('', 'Todos los precios'), ('1', 'Con descuento o bajada de precio'), ('5', '5 % o más'), ('10', '10 % o más'), ('25', '25 % o más'), ('50', '50 % o más')], 'data-market-control="offers" disabled')
     advanced += select('valoracion', 'Valoración de lectores', [('', 'Todas las valoraciones'), ('menos-3', 'Menos de 3 estrellas'), ('3', '3 estrellas o más'), ('4', '4 estrellas o más'), ('4.5', '4,5 estrellas o más'), ('5', '5 estrellas')], 'data-market-control="ratings" disabled')
     advanced += '</div>'
     # En móvil (≤900 px) solo la búsqueda queda a la vista; el resto de filtros se pliega tras
@@ -931,8 +954,17 @@ def render_hub(data, books, template):
         attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-search="{esc(b["titulo"] + " " + " ".join(b["autores"]) + " " + b.get("isbn13", ""))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}" data-pvp="{esc(lowest_price(b) or "")}" data-format-prices="{format_prices(b)}" data-format-discounts="{format_discounts(b)}"'
         affiliate_link = amazon_destination(b)
         affiliate_cta = ('<a class="catalogue-buy-link catalogue-card__buy" href="' + esc(affiliate_link) + '" target="_blank" aria-label="' + esc(amazon_action_label(b)) + ': ' + esc(b["titulo"]) + ' (otra pestaña)" rel="sponsored nofollow noopener noreferrer">' + esc(amazon_action_label(b)) + ' <span aria-hidden="true">↗</span></a>') if affiliate_link else ''
-        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)">{image(b,i>1)}</a><div><p class="eyebrow catalogue-when">{release_line(b)}</p>{tags(cats, compact=True)}<h3><a href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña">{esc(card_title(b))}</a></h3><p class="catalogue-author">{author_links(b)}</p>{byline(b)}<p class="catalogue-card__description">{esc(card_synopsis(b, anchor=anchor))}</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}" data-isbn="{esc(b.get("isbn13", ""))}"></div>{format_box(b, compact=True)}<a class="text-action" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha del libro (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
-    sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="titulo">Título · A–Z</option><option value="titulo_desc">Título · Z–A</option><option value="autor">Autor · A–Z</option><option value="fecha_asc">Publicación · más antigua</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option>' + ''.join(f'<option value="precio_{k}">{esc(FORMATS[k])} · del más barato al más caro</option>' for k in BOX_ORDER) + '<option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
+        # Portada y título llevan directamente a Amazon con la etiqueta de afiliado; «Ver ficha» abre la ficha propia.
+        # Sin enlace de Amazon comprobado, portada y título siguen abriendo la ficha.
+        if affiliate_link:
+            amazon_attrs = f'href="{esc(affiliate_link)}" target="_blank" rel="sponsored nofollow noopener noreferrer"'
+            cover_link = amazon_attrs + f' aria-label="{esc(b["titulo"])} en Amazon (otra pestaña)"'
+            title_link = amazon_attrs + f' aria-label="{esc(b["titulo"])} en Amazon (otra pestaña)"'
+        else:
+            cover_link = f'href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)"'
+            title_link = f'href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña"'
+        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" {cover_link}>{image(b,i>1)}</a><div><p class="eyebrow catalogue-when">{release_line(b)}</p>{tags(cats, compact=True)}<h3><a {title_link}>{esc(card_title(b))}</a></h3><p class="catalogue-author">{author_links(b)}</p>{byline(b)}<p class="catalogue-card__description">{esc(card_synopsis(b, anchor=anchor))}</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}" data-isbn="{esc(b.get("isbn13", ""))}"></div>{format_box(b, compact=True)}<a class="text-action catalogue-card__ficha" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
+    sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="fecha_asc">Publicación · más antigua primero</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option>' + ''.join(f'<option value="precio_{k}">{esc(FORMATS[k])} · del más barato al más caro</option>' for k in BOX_ORDER) + '<option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
     # Lo primero que se ve son los libros ya publicados (los más recientes arriba); los próximos lanzamientos van aparte.
     show = '<label>Mostrar<select name="estado" data-filter="estado" form="catalogue-search-form" disabled><option value="">Ya publicados</option><option value="proximos" id="estado=proximos">Próximos lanzamientos</option><option value="todos">Todos</option></select></label>'
     upcoming = '<a class="catalogue-upcoming-link" href="#estado=proximos" data-catalogue-upcoming>Ver los próximos lanzamientos →</a>'
@@ -1085,7 +1117,7 @@ def render_author(a,data,books,template,all_authors=()):
     for b in selected:
         metadata=' · '.join(str(v) for v in (publication_date_label(b),b.get('editorial'),(str(b['numero_paginas'])+' páginas') if b.get('numero_paginas') else '') if v)
         items+='<li><a href="'+url(b)+'" target="_blank" rel="noopener noreferrer">'+image(b,True)+'<span>'+esc(b['titulo'])+'</span>'+NEW_TAB+'</a><p>'+esc(metadata)+'</p></li>'
-    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(a['nombre'])+'</li></ol></nav><header class="catalogue-author-hero"><p class="eyebrow">Autores · Libros recomendados</p><h1>'+esc(a['nombre'])+'</h1><p>'+esc(bio)+'</p>'+biography_source+'</header>'+context+'<section aria-labelledby="author-books"><h2 id="author-books">Libros de '+esc(a['nombre'])+' en el catálogo</h2><p>Ediciones ordenadas de la más reciente a la más antigua.</p><ul class="catalogue-author-books">'+items+'</ul></section><details class="catalogue-details"><summary>Fuentes y ediciones</summary><ul>'+''.join('<li><a href="'+esc(source['url'])+'" target="_blank" rel="noopener noreferrer">'+esc(source['titulo'])+NEW_TAB+'</a></li>' for source in a['fuentes'])+'</ul></details><div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>'
+    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(a['nombre'])+'</li></ol></nav><header class="catalogue-author-hero"><p class="eyebrow">Autores · Libros recomendados</p><h1>'+esc(a['nombre'])+'</h1><p>'+esc(bio)+'</p>'+biography_source+'</header>'+context+'<section aria-labelledby="author-books"><h2 id="author-books">Libros de '+esc(a['nombre'])+' en el catálogo</h2><p>Ediciones ordenadas de la más reciente a la más antigua.</p><ul class="catalogue-author-books">'+items+'</ul></section><div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>'
     person={'@type':'Person','@id':canonical+'#person','name':a['nombre'],'url':canonical,'description':bio}
     if a.get('nacimiento'):
         person['birthDate']=a['nacimiento']

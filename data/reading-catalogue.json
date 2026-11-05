@@ -728,6 +728,42 @@
       "orden": 230,
       "slug": "tema-agendas",
       "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Romance y romantasy para San Valentín.",
+      "id": "san-valentin",
+      "nombre": "San Valentín",
+      "orden": 143,
+      "slug": "san-valentin",
+      "tipo": "temporada"
+    },
+    {
+      "activa": true,
+      "descripcion": "Maternidad, crianza y libros para regalar a una madre.",
+      "id": "dia-de-la-madre",
+      "nombre": "Día de la Madre",
+      "orden": 144,
+      "slug": "dia-de-la-madre",
+      "tipo": "temporada"
+    },
+    {
+      "activa": true,
+      "descripcion": "Paternidad, crianza y libros para regalar a un padre.",
+      "id": "dia-del-padre",
+      "nombre": "Día del Padre",
+      "orden": 145,
+      "slug": "dia-del-padre",
+      "tipo": "temporada"
+    },
+    {
+      "activa": true,
+      "descripcion": "Ediciones especiales, limitadas, de coleccionista, ilustradas o conmemorativas.",
+      "id": "edicion-especial",
+      "nombre": "Ediciones especiales",
+      "orden": 146,
+      "slug": "edicion-especial",
+      "tipo": "contenido"
     }
   ],
   "libro_categorias": [
@@ -5598,6 +5634,582 @@
     {
       "categoria_id": "adultos",
       "libro_id": "isbn-9780241802069"
+    },
+    {
+      "categoria_id": "halloween",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387846794"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788401042119"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788466684606"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387640491"
+    },
+    {
+      "categoria_id": "dia-de-la-madre",
+      "libro_id": "isbn-9788466683043"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788401037917"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788491058298"
+    },
+    {
+      "categoria_id": "halloween",
+      "libro_id": "isbn-9780241847633"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9791387949938"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387949938"
+    },
+    {
+      "categoria_id": "halloween",
+      "libro_id": "isbn-9788466396806"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9791387962050"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387962050"
+    },
+    {
+      "categoria_id": "dia-de-la-madre",
+      "libro_id": "isbn-9791388038280"
+    },
+    {
+      "categoria_id": "dia-del-padre",
+      "libro_id": "isbn-9791388038280"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788402431332"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788467083378"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788466380096"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788466380096"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9791387962036"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387962036"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788491057031"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791388222801"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788427054479"
+    },
+    {
+      "categoria_id": "dia-de-la-madre",
+      "libro_id": "isbn-9788413445564"
+    },
+    {
+      "categoria_id": "dia-del-padre",
+      "libro_id": "isbn-9788413445564"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788427257627"
+    },
+    {
+      "categoria_id": "navidad",
+      "libro_id": "isbn-9791387526863"
+    },
+    {
+      "categoria_id": "halloween",
+      "libro_id": "isbn-9791387962005"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9791387924386"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387924386"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9791387924386"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788408327271"
+    },
+    {
+      "categoria_id": "dia-de-la-madre",
+      "libro_id": "isbn-9788423370658"
+    },
+    {
+      "categoria_id": "dia-del-padre",
+      "libro_id": "isbn-9788423370658"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788413145211"
+    },
+    {
+      "categoria_id": "dia-de-la-madre",
+      "libro_id": "isbn-9788467083613"
+    },
+    {
+      "categoria_id": "dia-del-padre",
+      "libro_id": "isbn-9788467083613"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788401042751"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9791388279263"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788408326861"
+    },
+    {
+      "categoria_id": "halloween",
+      "libro_id": "isbn-9788466686884"
+    },
+    {
+      "categoria_id": "dia-de-la-madre",
+      "libro_id": "isbn-9788425375934"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408325499"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387598440"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408327011"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788408327011"
+    },
+    {
+      "categoria_id": "dia-de-la-madre",
+      "libro_id": "isbn-9788448874575"
+    },
+    {
+      "categoria_id": "halloween",
+      "libro_id": "isbn-9788432251436"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387598815"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791388163258"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788401037894"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788425373602"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408327042"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788408327042"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788432251481"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9788408324317"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408324317"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788427055674"
+    },
+    {
+      "categoria_id": "dia-de-la-madre",
+      "libro_id": "isbn-9788466685368"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788491296027"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788425371745"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788425369650"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9788427055605"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788427055605"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788408326779"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9788408325338"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408325338"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788408327363"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788466683449"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791388163661"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791388222207"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9791388222856"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9791388417757"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408331087"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9788427055933"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788427055933"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408331353"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387902001"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788445023914"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788408330806"
+    },
+    {
+      "categoria_id": "dia-de-la-madre",
+      "libro_id": "isbn-9788449346446"
+    },
+    {
+      "categoria_id": "dia-del-padre",
+      "libro_id": "isbn-9788449346446"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408330936"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788466394390"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788467070835"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788411193832"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788427256194"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788413145228"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9788419441706"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788419441706"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788467083934"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788423370443"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9791388279409"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9791388279386"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408326823"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408326946"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408326458"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9791388038495"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788410197534"
+    },
+    {
+      "categoria_id": "halloween",
+      "libro_id": "isbn-9788425372759"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9791388038501"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788402431905"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387949891"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9788419275776"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788419275776"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387724139"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788427255968"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408326953"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9791387949068"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387949068"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9791387949792"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387949792"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9791387949792"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791388220203"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788466393850"
+    },
+    {
+      "categoria_id": "halloween",
+      "libro_id": "isbn-9791387962272"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9788427258280"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788427258280"
+    },
+    {
+      "categoria_id": "halloween",
+      "libro_id": "isbn-9788411406529"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9788466396080"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788466396080"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408329831"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408327431"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788411005555"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788427055803"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408325185"
+    },
+    {
+      "categoria_id": "halloween",
+      "libro_id": "isbn-9788411406277"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788432251467"
+    },
+    {
+      "categoria_id": "dia-de-la-madre",
+      "libro_id": "isbn-9788408325260"
+    },
+    {
+      "categoria_id": "dia-del-padre",
+      "libro_id": "isbn-9788408325260"
+    },
+    {
+      "categoria_id": "halloween",
+      "libro_id": "isbn-9788411406130"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408323099"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9791387972486"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788408327356"
+    },
+    {
+      "categoria_id": "halloween",
+      "libro_id": "isbn-9788427055063"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408324485"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788427055629"
+    },
+    {
+      "categoria_id": "romantasy",
+      "libro_id": "isbn-9788408324294"
+    },
+    {
+      "categoria_id": "san-valentin",
+      "libro_id": "isbn-9788408324294"
+    },
+    {
+      "categoria_id": "edicion-especial",
+      "libro_id": "isbn-9788408324294"
     }
   ],
   "libros": [
@@ -5627,32 +6239,32 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8498382378",
           "precio_centimos": 1135,
-          "url": "https://www.amazon.es/dp/8498382378?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1195
+          "precio_referencia_centimos": 1195,
+          "url": "https://www.amazon.es/dp/8498382378?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8498382378",
           "precio_centimos": 1420,
-          "url": "https://www.amazon.es/dp/847888579X?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1495
+          "precio_referencia_centimos": 1495,
+          "url": "https://www.amazon.es/dp/847888579X?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/8498382378",
           "precio_centimos": 664,
-          "url": "https://www.amazon.es/dp/B08CYCPBZN?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 699
+          "precio_referencia_centimos": 699,
+          "url": "https://www.amazon.es/dp/B08CYCPBZN?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/8498382378",
           "precio_centimos": 629,
-          "url": "https://www.amazon.es/dp/B08CR4VJRT?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 899
+          "precio_referencia_centimos": 899,
+          "url": "https://www.amazon.es/dp/B08CR4VJRT?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "fragmento_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372/fragmento",
@@ -5722,24 +6334,24 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/B0H7YHH8P6",
           "precio_centimos": 2270,
-          "url": "https://www.amazon.es/dp/B0H7YHH8P6?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2390
+          "precio_referencia_centimos": 2390,
+          "url": "https://www.amazon.es/dp/B0H7YHH8P6?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H82MWLRG",
           "precio_centimos": 1234,
-          "url": "https://www.amazon.es/dp/B0H82MWLRG?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1299
+          "precio_referencia_centimos": 1299,
+          "url": "https://www.amazon.es/dp/B0H82MWLRG?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B0H96NHMLG",
-          "url": "https://www.amazon.es/dp/B0H96NHMLG?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 1259,
           "precio_referencia_centimos": 1799,
-          "precio_centimos": 1259
+          "url": "https://www.amazon.es/dp/B0H96NHMLG?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -5805,24 +6417,24 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8401039568",
           "precio_centimos": 2650,
-          "url": "https://www.amazon.es/dp/8401039568?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2790
+          "precio_referencia_centimos": 2790,
+          "url": "https://www.amazon.es/dp/8401039568?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0HC4X9YNK",
           "precio_centimos": 1329,
-          "url": "https://www.amazon.es/dp/B0HC4X9YNK?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1399
+          "precio_referencia_centimos": 1399,
+          "url": "https://www.amazon.es/dp/B0HC4X9YNK?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B0HLTZY65D",
-          "url": "https://www.amazon.es/dp/B0HLTZY65D?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 1476,
           "precio_referencia_centimos": 2109,
-          "precio_centimos": 1476
+          "url": "https://www.amazon.es/dp/B0HLTZY65D?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -5881,24 +6493,24 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8425375118",
           "precio_centimos": 2365,
-          "url": "https://www.amazon.es/dp/8425375118?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2490
+          "precio_referencia_centimos": 2490,
+          "url": "https://www.amazon.es/dp/8425375118?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H8ZC6RX3",
           "precio_centimos": 1234,
-          "url": "https://www.amazon.es/dp/B0H8ZC6RX3?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1299
+          "precio_referencia_centimos": 1299,
+          "url": "https://www.amazon.es/dp/B0H8ZC6RX3?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B0H96C6B4Q",
-          "url": "https://www.amazon.es/dp/B0H96C6B4Q?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 1450,
           "precio_referencia_centimos": 2072,
-          "precio_centimos": 1450
+          "url": "https://www.amazon.es/dp/B0H96C6B4Q?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -5957,16 +6569,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/B0H5RDQTM8",
           "precio_centimos": 2185,
-          "url": "https://www.amazon.es/dp/B0H5RDQTM8?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2300
+          "precio_referencia_centimos": 2300,
+          "url": "https://www.amazon.es/dp/B0H5RDQTM8?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H8887NRP",
           "precio_centimos": 1044,
-          "url": "https://www.amazon.es/dp/B0H8887NRP?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1099
+          "precio_referencia_centimos": 1099,
+          "url": "https://www.amazon.es/dp/B0H8887NRP?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -6025,16 +6637,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8425375045",
           "precio_centimos": 2175,
-          "url": "https://www.amazon.es/dp/8425375045?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2290
+          "precio_referencia_centimos": 2290,
+          "url": "https://www.amazon.es/dp/8425375045?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0HHFR4N4G",
           "precio_centimos": 1044,
-          "url": "https://www.amazon.es/dp/B0HHFR4N4G?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1099
+          "precio_referencia_centimos": 1099,
+          "url": "https://www.amazon.es/dp/B0HHFR4N4G?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -6093,24 +6705,24 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/B0H5WQWHCQ",
           "precio_centimos": 2080,
-          "url": "https://www.amazon.es/dp/B0H5WQWHCQ?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2190
+          "precio_referencia_centimos": 2190,
+          "url": "https://www.amazon.es/dp/B0H5WQWHCQ?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0HHJCKCVJ",
           "precio_centimos": 1044,
-          "url": "https://www.amazon.es/dp/B0HHJCKCVJ?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1099
+          "precio_referencia_centimos": 1099,
+          "url": "https://www.amazon.es/dp/B0HHJCKCVJ?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B0HM898KRY",
-          "url": "https://www.amazon.es/dp/B0HM898KRY?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 1321,
           "precio_referencia_centimos": 1887,
-          "precio_centimos": 1321
+          "url": "https://www.amazon.es/dp/B0HM898KRY?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -6169,16 +6781,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8426432573",
           "precio_centimos": 2175,
-          "url": "https://www.amazon.es/dp/8426432573?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2290
+          "precio_referencia_centimos": 2290,
+          "url": "https://www.amazon.es/dp/8426432573?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H9QD1S4F",
           "precio_centimos": 1044,
-          "url": "https://www.amazon.es/dp/B0H9QD1S4F?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1099
+          "precio_referencia_centimos": 1099,
+          "url": "https://www.amazon.es/dp/B0H9QD1S4F?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -6237,16 +6849,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/B0H5RL1B6W",
           "precio_centimos": 2175,
-          "url": "https://www.amazon.es/dp/B0H5RL1B6W?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2290
+          "precio_referencia_centimos": 2290,
+          "url": "https://www.amazon.es/dp/B0H5RL1B6W?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H9Q1BM9S",
           "precio_centimos": 1044,
-          "url": "https://www.amazon.es/dp/B0H9Q1BM9S?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1099
+          "precio_referencia_centimos": 1099,
+          "url": "https://www.amazon.es/dp/B0H9Q1BM9S?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -6318,8 +6930,8 @@
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B09MDT7ZY7",
           "precio_centimos": 854,
-          "url": "https://www.amazon.es/dp/B09MDT7ZY7?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 899
+          "precio_referencia_centimos": 899,
+          "url": "https://www.amazon.es/dp/B09MDT7ZY7?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -6378,16 +6990,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8426434274",
           "precio_centimos": 1795,
-          "url": "https://www.amazon.es/dp/8426434274?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1890
+          "precio_referencia_centimos": 1890,
+          "url": "https://www.amazon.es/dp/8426434274?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H8ZD7V2P",
           "precio_centimos": 949,
-          "url": "https://www.amazon.es/dp/B0H8ZD7V2P?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 999
+          "precio_referencia_centimos": 999,
+          "url": "https://www.amazon.es/dp/B0H8ZD7V2P?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -6446,16 +7058,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8466684603",
           "precio_centimos": 1985,
-          "url": "https://www.amazon.es/dp/8466684603?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2090
+          "precio_referencia_centimos": 2090,
+          "url": "https://www.amazon.es/dp/8466684603?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H888Y8LL",
           "precio_centimos": 949,
-          "url": "https://www.amazon.es/dp/B0H888Y8LL?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 999
+          "precio_referencia_centimos": 999,
+          "url": "https://www.amazon.es/dp/B0H888Y8LL?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -6520,24 +7132,24 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8401036895",
           "precio_centimos": 2175,
-          "url": "https://www.amazon.es/dp/8401036895?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2290
+          "precio_referencia_centimos": 2290,
+          "url": "https://www.amazon.es/dp/8401036895?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0FRMR8QQC",
           "precio_centimos": 1044,
-          "url": "https://www.amazon.es/dp/B0FRMR8QQC?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1099
+          "precio_referencia_centimos": 1099,
+          "url": "https://www.amazon.es/dp/B0FRMR8QQC?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B0FZLSM7P8",
-          "url": "https://www.amazon.es/dp/B0FZLSM7P8?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 1321,
           "precio_referencia_centimos": 1887,
-          "precio_centimos": 1321
+          "url": "https://www.amazon.es/dp/B0FZLSM7P8?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -6596,16 +7208,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8439746628",
           "precio_centimos": 1700,
-          "url": "https://www.amazon.es/dp/8439746628?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1790
+          "precio_referencia_centimos": 1790,
+          "url": "https://www.amazon.es/dp/8439746628?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0F85PB3RK",
           "precio_centimos": 949,
-          "url": "https://www.amazon.es/dp/B0F85PB3RK?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 999
+          "precio_referencia_centimos": 999,
+          "url": "https://www.amazon.es/dp/B0F85PB3RK?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -6664,16 +7276,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8419456004",
           "precio_centimos": 2185,
-          "url": "https://www.amazon.es/dp/8419456004?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2300
+          "precio_referencia_centimos": 2300,
+          "url": "https://www.amazon.es/dp/8419456004?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H7SK5VGS",
           "precio_centimos": 1044,
-          "url": "https://www.amazon.es/dp/B0H7SK5VGS?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1099
+          "precio_referencia_centimos": 1099,
+          "url": "https://www.amazon.es/dp/B0H7SK5VGS?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-03",
@@ -6738,24 +7350,24 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8439747225",
           "precio_centimos": 1700,
-          "url": "https://www.amazon.es/dp/8439747225?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1790
+          "precio_referencia_centimos": 1790,
+          "url": "https://www.amazon.es/dp/8439747225?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0HJCVDRBB",
           "precio_centimos": 854,
-          "url": "https://www.amazon.es/dp/B0HJCVDRBB?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 899
+          "precio_referencia_centimos": 899,
+          "url": "https://www.amazon.es/dp/B0HJCVDRBB?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B0HL2H15NX",
-          "url": "https://www.amazon.es/dp/B0HL2H15NX?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 713,
           "precio_referencia_centimos": 1019,
-          "precio_centimos": 713
+          "url": "https://www.amazon.es/dp/B0HL2H15NX?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -6820,16 +7432,16 @@
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H7SP9N59",
           "precio_centimos": 1044,
-          "url": "https://www.amazon.es/dp/B0H7SP9N59?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1099
+          "precio_referencia_centimos": 1099,
+          "url": "https://www.amazon.es/dp/B0H7SP9N59?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B0HMTHQQG3",
-          "url": "https://www.amazon.es/dp/B0HMTHQQG3?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 1259,
           "precio_referencia_centimos": 1799,
-          "precio_centimos": 1259
+          "url": "https://www.amazon.es/dp/B0HMTHQQG3?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -6888,24 +7500,24 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8425373123",
           "precio_centimos": 2080,
-          "url": "https://www.amazon.es/dp/8425373123?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2190
+          "precio_referencia_centimos": 2190,
+          "url": "https://www.amazon.es/dp/8425373123?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H9Q3KY9D",
           "precio_centimos": 949,
-          "url": "https://www.amazon.es/dp/B0H9Q3KY9D?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 999
+          "precio_referencia_centimos": 999,
+          "url": "https://www.amazon.es/dp/B0H9Q3KY9D?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B0HM8DTGKS",
-          "url": "https://www.amazon.es/dp/B0HM8DTGKS?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 862,
           "precio_referencia_centimos": 1231,
-          "precio_centimos": 862
+          "url": "https://www.amazon.es/dp/B0HM8DTGKS?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -6967,16 +7579,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/B0H5RF8RQ6",
           "precio_centimos": 2375,
-          "url": "https://www.amazon.es/dp/B0H5RF8RQ6?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2500
+          "precio_referencia_centimos": 2500,
+          "url": "https://www.amazon.es/dp/B0H5RF8RQ6?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H88FD61C",
           "precio_centimos": 1139,
-          "url": "https://www.amazon.es/dp/B0H88FD61C?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1199
+          "precio_referencia_centimos": 1199,
+          "url": "https://www.amazon.es/dp/B0H88FD61C?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7041,8 +7653,8 @@
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H9PXS54R",
           "precio_centimos": 949,
-          "url": "https://www.amazon.es/dp/B0H9PXS54R?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 999
+          "precio_referencia_centimos": 999,
+          "url": "https://www.amazon.es/dp/B0H9PXS54R?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7101,16 +7713,16 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/B0GHSQS8DR",
           "precio_centimos": 2850,
-          "url": "https://www.amazon.es/dp/B0GHSQS8DR?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 3000
+          "precio_referencia_centimos": 3000,
+          "url": "https://www.amazon.es/dp/B0GHSQS8DR?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0GHYWYJQD",
           "precio_centimos": 1424,
-          "url": "https://www.amazon.es/dp/B0GHYWYJQD?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1499
+          "precio_referencia_centimos": 1499,
+          "url": "https://www.amazon.es/dp/B0GHYWYJQD?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7169,16 +7781,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8425371961",
           "precio_centimos": 2365,
-          "url": "https://www.amazon.es/dp/8425371961?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2490
+          "precio_referencia_centimos": 2490,
+          "url": "https://www.amazon.es/dp/8425371961?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H7SG1LPN",
-          "url": "https://www.amazon.es/dp/B0H7SG1LPN?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 1139,
           "precio_referencia_centimos": 1199,
-          "precio_centimos": 1139
+          "url": "https://www.amazon.es/dp/B0H7SG1LPN?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7237,16 +7849,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/B0H5RQTBGC",
           "precio_centimos": 2365,
-          "url": "https://www.amazon.es/dp/B0H5RQTBGC?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2490
+          "precio_referencia_centimos": 2490,
+          "url": "https://www.amazon.es/dp/B0H5RQTBGC?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0HBQNB49P",
           "precio_centimos": 1139,
-          "url": "https://www.amazon.es/dp/B0HBQNB49P?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1199
+          "precio_referencia_centimos": 1199,
+          "url": "https://www.amazon.es/dp/B0HBQNB49P?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7305,8 +7917,8 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8425374073",
           "precio_centimos": 3125,
-          "url": "https://www.amazon.es/dp/8425374073?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 3290
+          "precio_referencia_centimos": 3290,
+          "url": "https://www.amazon.es/dp/8425374073?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7365,16 +7977,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8425374863",
           "precio_centimos": 2080,
-          "url": "https://www.amazon.es/dp/8425374863?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2190
+          "precio_referencia_centimos": 2190,
+          "url": "https://www.amazon.es/dp/8425374863?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H51BVRD9",
           "precio_centimos": 949,
-          "url": "https://www.amazon.es/dp/B0H51BVRD9?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 999
+          "precio_referencia_centimos": 999,
+          "url": "https://www.amazon.es/dp/B0H51BVRD9?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7433,8 +8045,8 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8425374014",
           "precio_centimos": 2840,
-          "url": "https://www.amazon.es/dp/8425374014?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2990
+          "precio_referencia_centimos": 2990,
+          "url": "https://www.amazon.es/dp/8425374014?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7493,24 +8105,24 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/B0H17HTC5Y",
           "precio_centimos": 1890,
-          "url": "https://www.amazon.es/dp/B0H17HTC5Y?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1990
+          "precio_referencia_centimos": 1990,
+          "url": "https://www.amazon.es/dp/B0H17HTC5Y?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H9X3LYL3",
           "precio_centimos": 949,
-          "url": "https://www.amazon.es/dp/B0H9X3LYL3?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 999
+          "precio_referencia_centimos": 999,
+          "url": "https://www.amazon.es/dp/B0H9X3LYL3?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B0HJSSVFLW",
-          "url": "https://www.amazon.es/dp/B0HJSSVFLW?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 755,
           "precio_referencia_centimos": 1079,
-          "precio_centimos": 755
+          "url": "https://www.amazon.es/dp/B0HJSSVFLW?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7569,8 +8181,8 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8401039835",
           "precio_centimos": 1510,
-          "url": "https://www.amazon.es/dp/8401039835?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1590
+          "precio_referencia_centimos": 1590,
+          "url": "https://www.amazon.es/dp/8401039835?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7629,16 +8241,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8410466473",
           "precio_centimos": 2460,
-          "url": "https://www.amazon.es/dp/8410466473?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2590
+          "precio_referencia_centimos": 2590,
+          "url": "https://www.amazon.es/dp/8410466473?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0HBX8MKD6",
           "precio_centimos": 1234,
-          "url": "https://www.amazon.es/dp/B0HBX8MKD6?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1299
+          "precio_referencia_centimos": 1299,
+          "url": "https://www.amazon.es/dp/B0HBX8MKD6?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7697,24 +8309,24 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8401037913",
           "precio_centimos": 2366,
-          "url": "https://www.amazon.es/dp/8401037913?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2490
+          "precio_referencia_centimos": 2490,
+          "url": "https://www.amazon.es/dp/8401037913?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H8DPTNTG",
           "precio_centimos": 1139,
-          "url": "https://www.amazon.es/dp/B0H8DPTNTG?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1199
+          "precio_referencia_centimos": 1199,
+          "url": "https://www.amazon.es/dp/B0H8DPTNTG?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B0HNKZTGD8",
-          "url": "https://www.amazon.es/dp/B0HNKZTGD8?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 1539,
           "precio_referencia_centimos": 2199,
-          "precio_centimos": 1539
+          "url": "https://www.amazon.es/dp/B0HNKZTGD8?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7773,24 +8385,24 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8401031389",
           "precio_centimos": 2175,
-          "url": "https://www.amazon.es/dp/8401031389?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2290
+          "precio_referencia_centimos": 2290,
+          "url": "https://www.amazon.es/dp/8401031389?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H7SD4VHB",
           "precio_centimos": 1044,
-          "url": "https://www.amazon.es/dp/B0H7SD4VHB?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1099
+          "precio_referencia_centimos": 1099,
+          "url": "https://www.amazon.es/dp/B0H7SD4VHB?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B0HL1TWNBG",
-          "url": "https://www.amazon.es/dp/B0HL1TWNBG?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 1329,
           "precio_referencia_centimos": 1899,
-          "precio_centimos": 1329
+          "url": "https://www.amazon.es/dp/B0HL1TWNBG?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7849,16 +8461,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8430629661",
           "precio_centimos": 2650,
-          "url": "https://www.amazon.es/dp/8430629661?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2790
+          "precio_referencia_centimos": 2790,
+          "url": "https://www.amazon.es/dp/8430629661?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0HGZR3G5B",
           "precio_centimos": 1329,
-          "url": "https://www.amazon.es/dp/B0HGZR3G5B?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1399
+          "precio_referencia_centimos": 1399,
+          "url": "https://www.amazon.es/dp/B0HGZR3G5B?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7917,8 +8529,8 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/849105829X",
           "precio_centimos": 1610,
-          "url": "https://www.amazon.es/dp/849105829X?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1695
+          "precio_referencia_centimos": 1695,
+          "url": "https://www.amazon.es/dp/849105829X?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -7977,8 +8589,8 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/0241847648",
           "precio_centimos": 1225,
-          "url": "https://www.amazon.es/dp/0241847648?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1290
+          "precio_referencia_centimos": 1290,
+          "url": "https://www.amazon.es/dp/0241847648?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -8992,24 +9604,24 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8402431488",
           "precio_centimos": 1990,
-          "url": "https://www.amazon.es/dp/8402431488?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2095
+          "precio_referencia_centimos": 2095,
+          "url": "https://www.amazon.es/dp/8402431488?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0HGZJL69C",
           "precio_centimos": 949,
-          "url": "https://www.amazon.es/dp/B0HGZJL69C?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 999
+          "precio_referencia_centimos": 999,
+          "url": "https://www.amazon.es/dp/B0HGZJL69C?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B0HM55298S",
-          "url": "https://www.amazon.es/dp/B0HM55298S?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 979,
           "precio_referencia_centimos": 1399,
-          "precio_centimos": 979
+          "url": "https://www.amazon.es/dp/B0HM55298S?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -9133,8 +9745,8 @@
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0GX34S91H",
           "precio_centimos": 1044,
-          "url": "https://www.amazon.es/dp/B0GX34S91H?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1099
+          "precio_referencia_centimos": 1099,
+          "url": "https://www.amazon.es/dp/B0GX34S91H?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -11126,8 +11738,8 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/B0H7JHRDPN",
           "precio_centimos": 1705,
-          "url": "https://www.amazon.es/dp/B0H7JHRDPN?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1795
+          "precio_referencia_centimos": 1795,
+          "url": "https://www.amazon.es/dp/B0H7JHRDPN?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
@@ -12096,8 +12708,8 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/843395167X",
           "precio_centimos": 1415,
-          "url": "https://www.amazon.es/dp/843395167X?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1490
+          "precio_referencia_centimos": 1490,
+          "url": "https://www.amazon.es/dp/843395167X?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
@@ -12161,16 +12773,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/B0GX8DGWBM",
           "precio_centimos": 1990,
-          "url": "https://www.amazon.es/dp/B0GX8DGWBM?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2095
+          "precio_referencia_centimos": 2095,
+          "url": "https://www.amazon.es/dp/B0GX8DGWBM?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H1HDYRST",
           "precio_centimos": 1044,
-          "url": "https://www.amazon.es/dp/B0H1HDYRST?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2095
+          "precio_referencia_centimos": 2095,
+          "url": "https://www.amazon.es/dp/B0H1HDYRST?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -12282,14 +12894,14 @@
       "formatos_amazon_buscados": "2026-11-01",
       "formatos_compra": [
         {
+          "bajada_fecha": "2026-11-04",
           "fecha_verificacion": "2026-11-04",
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8433951017",
-          "precio_centimos": 2080,
-          "url": "https://www.amazon.es/dp/8433951017?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2190,
           "precio_anterior_centimos": 2130,
-          "bajada_fecha": "2026-11-04"
+          "precio_centimos": 2080,
+          "precio_referencia_centimos": 2190,
+          "url": "https://www.amazon.es/dp/8433951017?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
@@ -13856,8 +14468,8 @@
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0HLZDNHW2",
           "precio_centimos": 1329,
-          "url": "https://www.amazon.es/dp/B0HLZDNHW2?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2000
+          "precio_referencia_centimos": 2000,
+          "url": "https://www.amazon.es/dp/B0HLZDNHW2?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -14048,8 +14660,8 @@
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0GS1SM16J",
           "precio_centimos": 1234,
-          "url": "https://www.amazon.es/dp/B0GS1SM16J?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1800
+          "precio_referencia_centimos": 1800,
+          "url": "https://www.amazon.es/dp/B0GS1SM16J?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -15420,16 +16032,16 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8419868485",
           "precio_centimos": 1705,
-          "url": "https://www.amazon.es/dp/8419868485?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1795
+          "precio_referencia_centimos": 1795,
+          "url": "https://www.amazon.es/dp/8419868485?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0HJW4TGL3",
           "precio_centimos": 854,
-          "url": "https://www.amazon.es/dp/B0HJW4TGL3?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 899
+          "precio_referencia_centimos": 899,
+          "url": "https://www.amazon.es/dp/B0HJW4TGL3?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -15623,16 +16235,16 @@
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B00H4H1H2M",
           "precio_centimos": 854,
-          "url": "https://www.amazon.es/dp/B00H4H1H2M?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 899
+          "precio_referencia_centimos": 899,
+          "url": "https://www.amazon.es/dp/B00H4H1H2M?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B08FDQCBZH",
-          "url": "https://www.amazon.es/dp/B08FDQCBZH?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 1329,
           "precio_referencia_centimos": 1899,
-          "precio_centimos": 1329
+          "url": "https://www.amazon.es/dp/B08FDQCBZH?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -15951,16 +16563,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8411078396",
           "precio_centimos": 1890,
-          "url": "https://www.amazon.es/dp/8411078396?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1990
+          "precio_referencia_centimos": 1990,
+          "url": "https://www.amazon.es/dp/8411078396?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B07PNWMHPB",
           "precio_centimos": 664,
-          "url": "https://www.amazon.es/dp/B07PNWMHPB?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2239
+          "precio_referencia_centimos": 2239,
+          "url": "https://www.amazon.es/dp/B07PNWMHPB?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -16023,8 +16635,8 @@
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0BRLGTBL7",
           "precio_centimos": 759,
-          "url": "https://www.amazon.es/dp/B0BRLGTBL7?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1490
+          "precio_referencia_centimos": 1490,
+          "url": "https://www.amazon.es/dp/B0BRLGTBL7?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -16081,16 +16693,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/B0GYJG4TBN",
           "precio_centimos": 1900,
-          "url": "https://www.amazon.es/dp/B0GYJG4TBN?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2000
+          "precio_referencia_centimos": 2000,
+          "url": "https://www.amazon.es/dp/B0GYJG4TBN?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H382BTLK",
           "precio_centimos": 999,
-          "url": "https://www.amazon.es/dp/B0H382BTLK?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2000
+          "precio_referencia_centimos": 2000,
+          "url": "https://www.amazon.es/dp/B0H382BTLK?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -16261,24 +16873,24 @@
           "fecha_verificacion": "2026-11-04",
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/6073881509",
-          "url": "https://www.amazon.es/dp/6073881509?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_centimos": 1860
+          "precio_centimos": 1860,
+          "url": "https://www.amazon.es/dp/6073881509?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8466686886",
           "precio_centimos": 2365,
-          "url": "https://www.amazon.es/dp/8466686886?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2490
+          "precio_referencia_centimos": 2490,
+          "url": "https://www.amazon.es/dp/8466686886?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H66NDPP8",
           "precio_centimos": 1139,
-          "url": "https://www.amazon.es/dp/B0H66NDPP8?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1199
+          "precio_referencia_centimos": 1199,
+          "url": "https://www.amazon.es/dp/B0H66NDPP8?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -16662,8 +17274,8 @@
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H8PW3M7Y",
           "precio_centimos": 949,
-          "url": "https://www.amazon.es/dp/B0H8PW3M7Y?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 999
+          "precio_referencia_centimos": 999,
+          "url": "https://www.amazon.es/dp/B0H8PW3M7Y?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -17482,16 +18094,16 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/B0HC3GQS6C",
           "precio_centimos": 1415,
-          "url": "https://www.amazon.es/dp/B0HC3GQS6C?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 1490
+          "precio_referencia_centimos": 1490,
+          "url": "https://www.amazon.es/dp/B0HC3GQS6C?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0HC5226CH",
           "precio_centimos": 759,
-          "url": "https://www.amazon.es/dp/B0HC5226CH?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 799
+          "precio_referencia_centimos": 799,
+          "url": "https://www.amazon.es/dp/B0HC5226CH?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -17550,8 +18162,8 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/8425375576",
           "precio_centimos": 3410,
-          "url": "https://www.amazon.es/dp/8425375576?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 3590
+          "precio_referencia_centimos": 3590,
+          "url": "https://www.amazon.es/dp/8425375576?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -17609,23 +18221,23 @@
           "formato": "tapa-blanda",
           "fuente_url": "https://www.amazon.es/dp/8411005356",
           "precio_centimos": 2175,
-          "url": "https://www.amazon.es/dp/8411005356?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2290
+          "precio_referencia_centimos": 2290,
+          "url": "https://www.amazon.es/dp/8411005356?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0HGQKGNVY",
-          "url": "https://www.amazon.es/dp/B0HGQKGNVY?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
+          "precio_centimos": 1044,
           "precio_referencia_centimos": 2290,
-          "precio_centimos": 1044
+          "url": "https://www.amazon.es/dp/B0HGQKGNVY?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "audiolibro",
           "fuente_url": "https://www.amazon.es/dp/B0HPXL9NW5",
-          "url": "https://www.amazon.es/dp/B0HPXL9NW5?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_centimos": 1445
+          "precio_centimos": 1445,
+          "url": "https://www.amazon.es/dp/B0HPXL9NW5?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -17684,16 +18296,16 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/B0HC7BMT1Z",
           "precio_centimos": 2175,
-          "url": "https://www.amazon.es/dp/B0HC7BMT1Z?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2290
+          "precio_referencia_centimos": 2290,
+          "url": "https://www.amazon.es/dp/B0HC7BMT1Z?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0HJD9WSR2",
           "precio_centimos": 949,
-          "url": "https://www.amazon.es/dp/B0HJD9WSR2?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 999
+          "precio_referencia_centimos": 999,
+          "url": "https://www.amazon.es/dp/B0HJD9WSR2?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -17751,16 +18363,16 @@
           "formato": "tapa-dura",
           "fuente_url": "https://www.amazon.es/dp/846708359X",
           "precio_centimos": 2270,
-          "url": "https://www.amazon.es/dp/846708359X?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2390
+          "precio_referencia_centimos": 2390,
+          "url": "https://www.amazon.es/dp/846708359X?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         },
         {
           "fecha_verificacion": "2026-11-04",
           "formato": "ebook",
           "fuente_url": "https://www.amazon.es/dp/B0H9X6KGHZ",
           "precio_centimos": 1234,
-          "url": "https://www.amazon.es/dp/B0H9X6KGHZ?tag=davidporto-21&linkCode=ogi&th=1&psc=1",
-          "precio_referencia_centimos": 2390
+          "precio_referencia_centimos": 2390,
+          "url": "https://www.amazon.es/dp/B0H9X6KGHZ?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
         }
       ],
       "formatos_pagina_buscados": "2026-11-03",
@@ -22009,11 +22621,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/B0HPPCKGSQ?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HPPCKGSQ",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 850
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/B0HPPCKGSQ",
+          "precio_centimos": 850,
+          "url": "https://www.amazon.es/dp/B0HPPCKGSQ?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-heroe-fugitivo-n-17/465578",
@@ -22122,11 +22734,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/B0HPP75NWK?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HPP75NWK",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 895
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/B0HPP75NWK",
+          "precio_centimos": 895,
+          "url": "https://www.amazon.es/dp/B0HPP75NWK?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-mao-n-11/465580",
@@ -22361,11 +22973,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8467084898?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8467084898",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2290
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8467084898",
+          "precio_centimos": 2290,
+          "url": "https://www.amazon.es/dp/8467084898?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-los-hijos-del-medico/464551",
@@ -22417,11 +23029,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8408330381?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408330381",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2290
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8408330381",
+          "precio_centimos": 2290,
+          "url": "https://www.amazon.es/dp/8408330381?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-mientras-pueda-recordarte/464558",
@@ -22940,12 +23552,12 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8408331272?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408331272",
           "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8408331272",
+          "precio_centimos": 1516,
           "precio_referencia_centimos": 1595,
-          "precio_centimos": 1516
+          "url": "https://www.amazon.es/dp/8408331272?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-el-caos-de-beca-4-y-ahora-que-hago/465616",
@@ -23055,11 +23667,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8427055935?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8427055935",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 1990
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8427055935",
+          "precio_centimos": 1990,
+          "url": "https://www.amazon.es/dp/8427055935?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-la-platera/465376",
@@ -23111,11 +23723,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8467085002?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8467085002",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2390
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8467085002",
+          "precio_centimos": 2390,
+          "url": "https://www.amazon.es/dp/8467085002?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-el-honor-de-los-espias/465339",
@@ -23224,11 +23836,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8413445795?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8413445795",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2295
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8413445795",
+          "precio_centimos": 2295,
+          "url": "https://www.amazon.es/dp/8413445795?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-keto-mediterranea/465317",
@@ -23473,11 +24085,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8408331353?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408331353",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2090
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8408331353",
+          "precio_centimos": 2090,
+          "url": "https://www.amazon.es/dp/8408331353?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-del-dolor-al-amor/465742",
@@ -23529,11 +24141,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8408322222?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408322222",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2790
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8408322222",
+          "precio_centimos": 2790,
+          "url": "https://www.amazon.es/dp/8408322222?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-austria-7/450548",
@@ -23778,12 +24390,12 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8408330780?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408330780",
           "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8408330780",
+          "precio_centimos": 1895,
           "precio_referencia_centimos": 1995,
-          "precio_centimos": 1895
+          "url": "https://www.amazon.es/dp/8408330780?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-dioses-del-juego-3-the-keeper/465148",
@@ -23835,12 +24447,12 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8408330802?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408330802",
           "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8408330802",
+          "precio_centimos": 2275,
           "precio_referencia_centimos": 2395,
-          "precio_centimos": 2275
+          "url": "https://www.amazon.es/dp/8408330802?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-edicion-especial-dioses-del-juego-3-the-keeper/465150",
@@ -23948,11 +24560,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8411005739?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8411005739",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2290
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8411005739",
+          "precio_centimos": 2290,
+          "url": "https://www.amazon.es/dp/8411005739?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-prostibulandia/465502",
@@ -24245,11 +24857,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/B0HPPJ2WYP?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HPPJ2WYP",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 1695
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/B0HPPJ2WYP",
+          "precio_centimos": 1695,
+          "url": "https://www.amazon.es/dp/B0HPPJ2WYP?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-yawara-n-1220/465606",
@@ -24421,11 +25033,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8423441490?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8423441490",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2195
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8423441490",
+          "precio_centimos": 2195,
+          "url": "https://www.amazon.es/dp/8423441490?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-trabajos-enredados/465863",
@@ -24477,11 +25089,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8467084928?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8467084928",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2190
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8467084928",
+          "precio_centimos": 2190,
+          "url": "https://www.amazon.es/dp/8467084928?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-como-la-vida-supera-a-la-muerte/465228",
@@ -24592,11 +25204,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8423371182?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8423371182",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2390
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8423371182",
+          "precio_centimos": 2390,
+          "url": "https://www.amazon.es/dp/8423371182?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-cuando-seamos-inmortales/464623",
@@ -24648,11 +25260,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/840833042X?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/840833042X",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2390
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/840833042X",
+          "precio_centimos": 2390,
+          "url": "https://www.amazon.es/dp/840833042X?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-hombres-en-terapia/464563",
@@ -24819,11 +25431,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/B0HPP6GMCG?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HPP6GMCG",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 1095
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/B0HPP6GMCG",
+          "precio_centimos": 1095,
+          "url": "https://www.amazon.es/dp/B0HPP6GMCG?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-ice-age-donde-esta-scrat/463767",
@@ -24935,11 +25547,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8467084545?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8467084545",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2290
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8467084545",
+          "precio_centimos": 2290,
+          "url": "https://www.amazon.es/dp/8467084545?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-hielo/462116",
@@ -24991,11 +25603,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8467084561?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8467084561",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2290
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8467084561",
+          "precio_centimos": 2290,
+          "url": "https://www.amazon.es/dp/8467084561?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-el-pacto/462121",
@@ -25218,11 +25830,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8467084987?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8467084987",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2290
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8467084987",
+          "precio_centimos": 2290,
+          "url": "https://www.amazon.es/dp/8467084987?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-la-memoria-velada/465325",
@@ -33734,11 +34346,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8411406520?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8411406520",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 4000
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8411406520",
+          "precio_centimos": 4000,
+          "url": "https://www.amazon.es/dp/8411406520?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-eerie-n-2127/363758",
@@ -33791,11 +34403,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/B0HPP6CCRB?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HPP6CCRB",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 850
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/B0HPP6CCRB",
+          "precio_centimos": 850,
+          "url": "https://www.amazon.es/dp/B0HPP6CCRB?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-grand-blue-dreaming-n-17/465610",
@@ -33903,11 +34515,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/B0HPP4BX7S?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HPP4BX7S",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 1795
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/B0HPP4BX7S",
+          "precio_centimos": 1795,
+          "url": "https://www.amazon.es/dp/B0HPP4BX7S?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-mirror-game-n-02/465613",
@@ -33959,11 +34571,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/B0HPPJC6MM?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HPPJC6MM",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 995
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/B0HPPJC6MM",
+          "precio_centimos": 995,
+          "url": "https://www.amazon.es/dp/B0HPPJC6MM?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-entrelazadas-n-02/465573",
@@ -34186,11 +34798,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/B0HPP887HJ?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HPP887HJ",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2190
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/B0HPP887HJ",
+          "precio_centimos": 2190,
+          "url": "https://www.amazon.es/dp/B0HPP887HJ?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-nadie-se-viste-como-quiere/465896",
@@ -34299,11 +34911,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8408329979?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408329979",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 1195
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8408329979",
+          "precio_centimos": 1195,
+          "url": "https://www.amazon.es/dp/8408329979?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-mobs-la-vida-secreta-de-los-monstruos-de-minecraft-comic-1/463761",
@@ -34356,11 +34968,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/840833056X?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/840833056X",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2090
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/840833056X",
+          "precio_centimos": 2090,
+          "url": "https://www.amazon.es/dp/840833056X?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-el-dinero-explicado-a-blanca/464637",
@@ -34412,11 +35024,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8423441326?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8423441326",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 1995
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8423441326",
+          "precio_centimos": 1995,
+          "url": "https://www.amazon.es/dp/8423441326?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-morir-es-gratis-heredar-un-atraco/464484",
@@ -34468,11 +35080,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/842344130X?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/842344130X",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2295
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/842344130X",
+          "precio_centimos": 2295,
+          "url": "https://www.amazon.es/dp/842344130X?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-cronica-de-un-desafio-al-estado/464478",
@@ -34820,11 +35432,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/B0HPP9QVV7?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HPP9QVV7",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 1895
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/B0HPP9QVV7",
+          "precio_centimos": 1895,
+          "url": "https://www.amazon.es/dp/B0HPP9QVV7?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-the-world-after-the-fall-n-05/455955",
@@ -34876,11 +35488,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/B0HPPFF3BT?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HPPFF3BT",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 950
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/B0HPPFF3BT",
+          "precio_centimos": 950,
+          "url": "https://www.amazon.es/dp/B0HPPFF3BT?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-animales-humanos-n-03/465572",
@@ -35045,11 +35657,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/B0HPP6NBHG?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HPP6NBHG",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 4000
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/B0HPP6NBHG",
+          "precio_centimos": 4000,
+          "url": "https://www.amazon.es/dp/B0HPP6NBHG?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-spawn-siniestros-relatos-de-gunslinger-n-01/465561",
@@ -35101,11 +35713,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8491998969?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8491998969",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 2290
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8491998969",
+          "precio_centimos": 2290,
+          "url": "https://www.amazon.es/dp/8491998969?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-la-creacion-de-un-mundo-aparte/448578",
@@ -35326,11 +35938,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8411005712?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8411005712",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 1890
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8411005712",
+          "precio_centimos": 1890,
+          "url": "https://www.amazon.es/dp/8411005712?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-iran-entre-revolucion-y-tradicion/465500",
@@ -35486,11 +36098,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8445021796?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8445021796",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 1695
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8445021796",
+          "precio_centimos": 1695,
+          "url": "https://www.amazon.es/dp/8445021796?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-super-cannes/463845",
@@ -35599,11 +36211,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8408329839?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408329839",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 1995
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8408329839",
+          "precio_centimos": 1995,
+          "url": "https://www.amazon.es/dp/8408329839?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-manana-volveras-a-perder/463732",
@@ -35713,11 +36325,11 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/B0HPPF5CXG?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HPPF5CXG",
           "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 1990
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/B0HPPF5CXG",
+          "precio_centimos": 1990,
+          "url": "https://www.amazon.es/dp/B0HPPF5CXG?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-todo-lo-que-aprendi-en-terapia/464660",
@@ -38250,12 +38862,12 @@
       "formatos_amazon_buscados": "2026-11-04",
       "formatos_compra": [
         {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8408326139?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408326139",
           "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8408326139",
+          "precio_centimos": 2328,
           "precio_referencia_centimos": 2450,
-          "precio_centimos": 2328
+          "url": "https://www.amazon.es/dp/8408326139?tag=davidporto-21&linkCode=osi&th=1&psc=1"
         }
       ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-el-otro-lado-de-la-guerra/457666",
@@ -39299,6 +39911,8 @@
       "fecha_publicacion": "2027-03-03",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-blanda",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-escuadron-k-1-sin-limites-edicion-manga/451751",
       "fuente_edad_url": "https://www.planetadelibros.com/libro-escuadron-k-1-sin-limites-edicion-manga/451751",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-escuadron-k-1-sin-limites-edicion-manga/451751",
@@ -39312,6 +39926,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/eca48728-7f55-44ae-b971-26804a9b32ca/d_360_620/portada_escuadron-k-1-sin-limites-edicion-manga_roberto-santiago_202606111730.webp",
       "portada_local": "/assets/reading-covers/isbn-9788408322924.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 1495,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -39326,10 +39941,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-escuadron-k-1-sin-limites-edicion-manga/451751",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "escuadron-k-1-sin-limites-edicion-manga-9788408322924",
-      "titulo": "Escuadrón K 1. Sin límites. Edición manga",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Escuadrón K 1. Sin límites. Edición manga"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388279638&tag=davidporto-21",
@@ -39348,6 +39960,16 @@
       "fecha_publicacion": "2027-01-27",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-blanda",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/B0HPP3CC6J",
+          "precio_centimos": 1990,
+          "url": "https://www.amazon.es/dp/B0HPP3CC6J?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-preguntale-al-universo/465894",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-preguntale-al-universo/465894",
       "id": "isbn-9791388279638",
@@ -39360,6 +39982,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/08f2cb0e-ce91-44c8-a096-2c585a4edabc/d_360_620/portada_preguntale-al-universo_gemma-blat-gene_202611041319.webp",
       "portada_local": "/assets/reading-covers/isbn-9791388279638.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 1990,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -39374,18 +39997,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-preguntale-al-universo/465894",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "preguntale-al-universo-9791388279638",
-      "titulo": "Pregúntale al universo",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/B0HPP3CC6J?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HPP3CC6J",
-          "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 1990
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Pregúntale al universo"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410427709&tag=davidporto-21",
@@ -39404,6 +40016,16 @@
       "fecha_publicacion": "2027-01-20",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-blanda",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8410427702",
+          "precio_centimos": 1990,
+          "url": "https://www.amazon.es/dp/8410427702?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-la-misteriosa-taberna-yoneya/464748",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-la-misteriosa-taberna-yoneya/464748",
       "id": "isbn-9788410427709",
@@ -39416,6 +40038,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/7b183a88-7d96-4a31-b08c-8db02707ebd2/d_360_620/portada_la-misteriosa-taberna-yoneya_eiko-yamaguchi_202610091121.webp",
       "portada_local": "/assets/reading-covers/isbn-9788410427709.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 1990,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -39430,18 +40053,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-la-misteriosa-taberna-yoneya/464748",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-misteriosa-taberna-yoneya-9788410427709",
-      "titulo": "La misteriosa taberna Yoneya",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8410427702?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8410427702",
-          "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 1990
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "La misteriosa taberna Yoneya"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788419132956&tag=davidporto-21",
@@ -39460,6 +40072,24 @@
       "fecha_publicacion": "2026-11-18",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-blanda",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8419132950",
+          "precio_centimos": 1890,
+          "precio_referencia_centimos": 1990,
+          "url": "https://www.amazon.es/dp/8419132950?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        },
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/B0HKPLBL6Z",
+          "precio_centimos": 949,
+          "url": "https://www.amazon.es/dp/B0HKPLBL6Z?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-la-fuente-del-encanto-edicion-corregida-y-aumentada/458893",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-la-fuente-del-encanto-edicion-corregida-y-aumentada/458893",
       "id": "isbn-9788419132956",
@@ -39472,6 +40102,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/14ee77a1-b113-4b86-96c3-287b7209ebac/d_360_620/portada_la-fuente-del-encanto-edicion-corregida-y-aumentada_andres-trapiello_202607160829.webp",
       "portada_local": "/assets/reading-covers/isbn-9788419132956.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 1990,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -39486,26 +40117,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-la-fuente-del-encanto-edicion-corregida-y-aumentada/458893",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-fuente-del-encanto-edicion-corregida-y-aumentada-9788419132956",
-      "titulo": "La Fuente del Encanto (Edición corregida y aumentada)",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8419132950?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8419132950",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 1990,
-          "precio_centimos": 1890
-        },
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B0HKPLBL6Z?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HKPLBL6Z",
-          "fecha_verificacion": "2026-11-04",
-          "precio_centimos": 949
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "La Fuente del Encanto (Edición corregida y aumentada)"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388306280&tag=davidporto-21",
@@ -39524,6 +40136,8 @@
       "fecha_publicacion": "2026-11-09",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [],
       "fuente_bibliografica_url": "https://nordicalibros.com/product/el-corazon-en-llamas/",
       "fuente_publicacion_url": "https://nordicalibros.com/product/el-corazon-en-llamas/",
       "id": "isbn-9791388306280",
@@ -39536,6 +40150,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://nordicalibros.com/wp-content/uploads/2026/11/CorazonLlamas_SOLOWEB-1.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791388306280.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 2500,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -39550,10 +40165,7 @@
       "sinopsis_fuente_url": "https://nordicalibros.com/product/el-corazon-en-llamas/",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "el-corazon-en-llamas-9791388306280",
-      "titulo": "El corazón en llamas",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "El corazón en llamas"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408313762&tag=davidporto-21",
@@ -39573,6 +40185,8 @@
       "fecha_publicacion": "2026-10-21",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-descubro-y-aprendo-el-mundo/433870",
       "fuente_edad_url": "https://www.planetadelibros.com/libro-descubro-y-aprendo-el-mundo/433870",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-descubro-y-aprendo-el-mundo/433870",
@@ -39586,6 +40200,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/adb609fc-1b4b-4570-9821-1a3aface099a/d_360_620/portada_descubro-y-aprendo-el-mundo_yoyo_202606121331.webp",
       "portada_local": "/assets/reading-covers/isbn-9788408313762.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 1495,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -39600,10 +40215,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-descubro-y-aprendo-el-mundo/433870",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "descubro-y-aprendo-el-mundo-9788408313762",
-      "titulo": "Descubro y aprendo. El mundo",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Descubro y aprendo. El mundo"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408313779&tag=davidporto-21",
@@ -39623,6 +40235,8 @@
       "fecha_publicacion": "2026-10-21",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-descubro-y-aprendo-la-naturaleza/433872",
       "fuente_edad_url": "https://www.planetadelibros.com/libro-descubro-y-aprendo-la-naturaleza/433872",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-descubro-y-aprendo-la-naturaleza/433872",
@@ -39636,6 +40250,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/050f5137-4caa-4fa7-8fea-5398d7471373/d_360_620/portada_descubro-y-aprendo-la-naturaleza_yoyo_202606121332.webp",
       "portada_local": "/assets/reading-covers/isbn-9788408313779.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 1495,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -39650,10 +40265,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-descubro-y-aprendo-la-naturaleza/433872",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "descubro-y-aprendo-la-naturaleza-9788408313779",
-      "titulo": "Descubro y aprendo. La naturaleza",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Descubro y aprendo. La naturaleza"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408327356&tag=davidporto-21",
@@ -39672,6 +40284,17 @@
       "fecha_publicacion": "2026-10-14",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8408327356",
+          "precio_centimos": 2365,
+          "precio_referencia_centimos": 2490,
+          "url": "https://www.amazon.es/dp/8408327356?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-comprender-el-vino-edicion-especial-con-cantos-tintados/458845",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-comprender-el-vino-edicion-especial-con-cantos-tintados/458845",
       "id": "isbn-9788408327356",
@@ -39684,6 +40307,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/6a18aa2a-cd75-4c27-a3f9-e621d14b1b9e/d_360_620/portada_comprender-el-vino-edicion-especial-con-cantos-tintados_pedro-ballesteros-torres_202606181314.webp",
       "portada_local": "/assets/reading-covers/isbn-9788408327356.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 2490,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -39698,19 +40322,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-comprender-el-vino-edicion-especial-con-cantos-tintados/458845",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "comprender-el-vino-edicion-especial-con-cantos-tintados-9788408327356",
-      "titulo": "Comprender el vino. Edición especial con cantos tintados",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8408327356?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408327356",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2490,
-          "precio_centimos": 2365
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Comprender el vino. Edición especial con cantos tintados"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788427055483&tag=davidporto-21",
@@ -39730,6 +40342,25 @@
       "fecha_publicacion": "2026-10-14",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/842705548X",
+          "precio_centimos": 2840,
+          "precio_referencia_centimos": 2990,
+          "url": "https://www.amazon.es/dp/842705548X?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        },
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/B0H9XF1XS6",
+          "precio_centimos": 1424,
+          "precio_referencia_centimos": 2990,
+          "url": "https://www.amazon.es/dp/B0H9XF1XS6?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-juntos-en-cualquier-mundo-tu-y-yo-mas-alla-del-tiempo/453973",
       "fuente_edad_url": "https://www.planetadelibros.com/libro-juntos-en-cualquier-mundo-tu-y-yo-mas-alla-del-tiempo/453973",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-juntos-en-cualquier-mundo-tu-y-yo-mas-alla-del-tiempo/453973",
@@ -39743,6 +40374,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/00563285-ccaf-4a46-8638-35a5ad0ab01e/d_360_620/portada_juntos-en-cualquier-mundo-tu-y-yo-mas-alla-del-tiempo_yomoji-otono_202606111725.webp",
       "portada_local": "/assets/reading-covers/isbn-9788427055483.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 2990,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -39757,27 +40389,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-juntos-en-cualquier-mundo-tu-y-yo-mas-alla-del-tiempo/453973",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "juntos-en-cualquier-mundo-tu-y-yo-mas-alla-del-tiempo-9788427055483",
-      "titulo": "Juntos en cualquier mundo. Tú y yo más allá del tiempo",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/842705548X?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/842705548X",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2990,
-          "precio_centimos": 2840
-        },
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B0H9XF1XS6?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0H9XF1XS6",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2990,
-          "precio_centimos": 1424
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Juntos en cualquier mundo. Tú y yo más allá del tiempo"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788427055063&tag=davidporto-21",
@@ -39797,6 +40409,25 @@
       "fecha_publicacion": "2026-10-14",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-blanda",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8427055064",
+          "precio_centimos": 2080,
+          "precio_referencia_centimos": 2190,
+          "url": "https://www.amazon.es/dp/8427055064?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        },
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/B0H9XKZLWR",
+          "precio_centimos": 949,
+          "precio_referencia_centimos": 2190,
+          "url": "https://www.amazon.es/dp/B0H9XKZLWR?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-25-dias-hasta-navidad/456836",
       "fuente_edad_url": "https://www.planetadelibros.com/libro-25-dias-hasta-navidad/456836",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-25-dias-hasta-navidad/456836",
@@ -39810,6 +40441,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/894e05bb-a10e-4ae3-9a65-aa9a2b798ad1/d_360_620/portada_25-dias-hasta-navidad_per-jacobsen_202607301059.webp",
       "portada_local": "/assets/reading-covers/isbn-9788427055063.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 2190,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -39824,27 +40456,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-25-dias-hasta-navidad/456836",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "25-dias-hasta-navidad-9788427055063",
-      "titulo": "25 días hasta Navidad",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8427055064?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8427055064",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2190,
-          "precio_centimos": 2080
-        },
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B0H9XKZLWR?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0H9XKZLWR",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2190,
-          "precio_centimos": 949
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "25 días hasta Navidad"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408319931&tag=davidporto-21",
@@ -39863,6 +40475,17 @@
       "fecha_publicacion": "2026-10-07",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8408319930",
+          "precio_centimos": 1890,
+          "precio_referencia_centimos": 1990,
+          "url": "https://www.amazon.es/dp/8408319930?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-viajar-por-el-mundo-3/448084",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-viajar-por-el-mundo-3/448084",
       "id": "isbn-9788408319931",
@@ -39875,6 +40498,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/1443d4fc-77cc-44df-b1d2-04ed904da654/d_360_620/portada_viajar-por-el-mundo-3_malcolm-croft_202604101327.webp",
       "portada_local": "/assets/reading-covers/isbn-9788408319931.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 1990,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -39889,19 +40513,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-viajar-por-el-mundo-3/448084",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "viajar-por-el-mundo-3-9788408319931",
-      "titulo": "Viajar por el mundo 3",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8408319930?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408319930",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 1990,
-          "precio_centimos": 1890
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Viajar por el mundo 3"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788448048181&tag=davidporto-21",
@@ -39921,6 +40533,17 @@
       "fecha_publicacion": "2026-10-07",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8448048180",
+          "precio_centimos": 3125,
+          "precio_referencia_centimos": 3290,
+          "url": "https://www.amazon.es/dp/8448048180?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-black-sabbath-ozzy-osbourne/447495",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-black-sabbath-ozzy-osbourne/447495",
       "id": "isbn-9788448048181",
@@ -39933,6 +40556,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/26da2b8b-4030-4f93-9b7a-1e5c87aff350/d_360_620/portada_black-sabbathh-ozzy-osbourne_paul-elliott_202603231139.webp",
       "portada_local": "/assets/reading-covers/isbn-9788448048181.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 3290,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -39947,19 +40571,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-black-sabbath-ozzy-osbourne/447495",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "black-sabbath-ozzy-osbourne-9788448048181",
-      "titulo": "Black Sabbath & Ozzy Osbourne",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8448048180?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8448048180",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 3290,
-          "precio_centimos": 3125
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Black Sabbath & Ozzy Osbourne"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788448049188&tag=davidporto-21",
@@ -39978,6 +40590,17 @@
       "fecha_publicacion": "2026-10-07",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8448049187",
+          "precio_centimos": 5500,
+          "precio_referencia_centimos": 5790,
+          "url": "https://www.amazon.es/dp/8448049187?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-the-rolling-stones-on-tour/450402",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-the-rolling-stones-on-tour/450402",
       "id": "isbn-9788448049188",
@@ -39990,6 +40613,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/4646ced9-1497-49da-949b-daffabedbf53/d_360_620/portada_the-rolling-stones-on-tour_paul-sexton_202604091335.webp",
       "portada_local": "/assets/reading-covers/isbn-9788448049188.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 5790,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40004,19 +40628,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-the-rolling-stones-on-tour/450402",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "the-rolling-stones-on-tour-9788448049188",
-      "titulo": "The Rolling Stones: On Tour",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8448049187?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8448049187",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 5790,
-          "precio_centimos": 5500
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "The Rolling Stones: On Tour"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408324874&tag=davidporto-21",
@@ -40035,6 +40647,25 @@
       "fecha_publicacion": "2026-10-07",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-blanda",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/840832487X",
+          "precio_centimos": 2085,
+          "precio_referencia_centimos": 2195,
+          "url": "https://www.amazon.es/dp/840832487X?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        },
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/B0H9XM29QH",
+          "precio_centimos": 1044,
+          "precio_referencia_centimos": 2195,
+          "url": "https://www.amazon.es/dp/B0H9XM29QH?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-el-cerebro-enamorado/456529",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-el-cerebro-enamorado/456529",
       "id": "isbn-9788408324874",
@@ -40047,6 +40678,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/2d7e8ccf-7b78-4d65-bd60-addeac55bc53/d_360_620/portada_el-cerebro-enamorado_lucy-vincent_202606121155.webp",
       "portada_local": "/assets/reading-covers/isbn-9788408324874.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 2195,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40061,27 +40693,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-el-cerebro-enamorado/456529",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "el-cerebro-enamorado-9788408324874",
-      "titulo": "El cerebro enamorado",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/840832487X?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/840832487X",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2195,
-          "precio_centimos": 2085
-        },
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B0H9XM29QH?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0H9XM29QH",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2195,
-          "precio_centimos": 1044
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "El cerebro enamorado"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788402431646&tag=davidporto-21",
@@ -40101,6 +40713,17 @@
       "fecha_publicacion": "2026-10-01",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/B0HC4XPS1T",
+          "precio_centimos": 1329,
+          "precio_referencia_centimos": 1399,
+          "url": "https://www.amazon.es/dp/B0HC4XPS1T?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/los-mejores-comic/634664-libro-culos-una-historia-grafica-del-trasero-y-lo-que-hay-detras-9788402431646",
       "fuente_edad_url": "https://www.penguinlibros.com/es/los-mejores-comic/634664-libro-culos-una-historia-grafica-del-trasero-y-lo-que-hay-detras-9788402431646",
       "fuente_publicacion_url": "https://www.penguinlibros.com/es/los-mejores-comic/634664-libro-culos-una-historia-grafica-del-trasero-y-lo-que-hay-detras-9788402431646",
@@ -40114,6 +40737,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8283837-thickbox_default/culos-una-historia-grafica-del-trasero-y-lo-que-hay-detras.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788402431646.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 2695,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40128,19 +40752,7 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/los-mejores-comic/634664-libro-culos-una-historia-grafica-del-trasero-y-lo-que-hay-detras-9788402431646",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "culos-una-historia-grafica-del-trasero-y-lo-que-hay-detras-9788402431646",
-      "titulo": "Culos. Una historia gráfica del trasero (y lo que hay detrás)",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B0HC4XPS1T?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0HC4XPS1T",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 1399,
-          "precio_centimos": 1329
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Culos. Una historia gráfica del trasero (y lo que hay detrás)"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387901868&tag=davidporto-21",
@@ -40161,6 +40773,25 @@
       "fecha_publicacion": "2026-09-30",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-blanda",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/B0H7JRLRB2",
+          "precio_centimos": 1610,
+          "precio_referencia_centimos": 1695,
+          "url": "https://www.amazon.es/dp/B0H7JRLRB2?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        },
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/B0H9R9Z5S6",
+          "precio_centimos": 759,
+          "precio_referencia_centimos": 1695,
+          "url": "https://www.amazon.es/dp/B0H9R9Z5S6?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-pesadilla-antes-de-navidad-la-sombra-sobre-la-reina-de-halloween/456557",
       "fuente_edad_url": "https://www.planetadelibros.com/libro-pesadilla-antes-de-navidad-la-sombra-sobre-la-reina-de-halloween/456557",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-pesadilla-antes-de-navidad-la-sombra-sobre-la-reina-de-halloween/456557",
@@ -40174,6 +40805,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/dbb1e7ef-d94b-4800-bb32-8012f57185d8/d_360_620/portada_pesadilla-antes-de-navidad-la-sombra-sobre-la-reina-de-halloween_megan-shepherd_202606120951.webp",
       "portada_local": "/assets/reading-covers/isbn-9791387901868.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 1695,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40188,27 +40820,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-pesadilla-antes-de-navidad-la-sombra-sobre-la-reina-de-halloween/456557",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "pesadilla-antes-de-navidad-la-sombra-sobre-la-reina-de-halloween-9791387901868",
-      "titulo": "Pesadilla antes de Navidad. La sombra sobre la reina de Halloween",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/B0H7JRLRB2?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0H7JRLRB2",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 1695,
-          "precio_centimos": 1610
-        },
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B0H9R9Z5S6?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0H9R9Z5S6",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 1695,
-          "precio_centimos": 759
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Pesadilla antes de Navidad. La sombra sobre la reina de Halloween"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788419434210&tag=davidporto-21",
@@ -40227,6 +40839,17 @@
       "fecha_publicacion": "2026-09-30",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8419434213",
+          "precio_centimos": 2181,
+          "precio_referencia_centimos": 2295,
+          "url": "https://www.amazon.es/dp/8419434213?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-isa-muguruza/429970",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-isa-muguruza/429970",
       "id": "isbn-9788419434210",
@@ -40239,6 +40862,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/8713430b-a9c1-4a56-a405-ac65b3621392/d_360_620/portada_agenda-anual-semanal-2027-isa-muguruza_isa-muguruza_202605290947.webp",
       "portada_local": "/assets/reading-covers/isbn-9788419434210.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 2295,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40253,19 +40877,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-agenda-anual-semanal-2027-isa-muguruza/429970",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "agenda-anual-semanal-2027-isa-muguruza-9788419434210",
-      "titulo": "Agenda anual semanal 2027 Isa Muguruza",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8419434213?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8419434213",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2295,
-          "precio_centimos": 2181
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Agenda anual semanal 2027 Isa Muguruza"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408324485&tag=davidporto-21",
@@ -40284,6 +40896,25 @@
       "fecha_publicacion": "2026-09-23",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-blanda",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8408324489",
+          "precio_centimos": 1990,
+          "precio_referencia_centimos": 2095,
+          "url": "https://www.amazon.es/dp/8408324489?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        },
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/B0H96FDQZT",
+          "precio_centimos": 1044,
+          "precio_referencia_centimos": 2095,
+          "url": "https://www.amazon.es/dp/B0H96FDQZT?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-universidad-sorrowsong-2-daybreak/455441",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-universidad-sorrowsong-2-daybreak/455441",
       "id": "isbn-9788408324485",
@@ -40296,6 +40927,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/faf19bf4-f50c-4ac2-a44e-838db92b6cfa/d_360_620/portada_universidad-sorrowsong-2-daybreak_autumn-woods_202605211611.webp",
       "portada_local": "/assets/reading-covers/isbn-9788408324485.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 2095,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40310,27 +40942,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-universidad-sorrowsong-2-daybreak/455441",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "universidad-sorrowsong-2-daybreak-9788408324485",
-      "titulo": "Universidad Sorrowsong 2. Daybreak",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8408324489?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408324489",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2095,
-          "precio_centimos": 1990
-        },
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B0H96FDQZT?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0H96FDQZT",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2095,
-          "precio_centimos": 1044
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Universidad Sorrowsong 2. Daybreak"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9780241831397&tag=davidporto-21",
@@ -40350,6 +40962,17 @@
       "fecha_publicacion": "2026-09-17",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/0241831393",
+          "precio_centimos": 1710,
+          "precio_referencia_centimos": 1800,
+          "url": "https://www.amazon.es/dp/0241831393?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/631525-libro-curso-de-cocina-recetas-italianas-9780241831397",
       "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/631525-libro-curso-de-cocina-recetas-italianas-9780241831397",
       "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/631525-libro-curso-de-cocina-recetas-italianas-9780241831397",
@@ -40363,6 +40986,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8022160-thickbox_default/curso-de-cocina-recetas-italianas.jpg",
       "portada_local": "/assets/reading-covers/isbn-9780241831397.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 1800,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40377,19 +41001,7 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/631525-libro-curso-de-cocina-recetas-italianas-9780241831397",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "curso-de-cocina-recetas-italianas-9780241831397",
-      "titulo": "Curso de cocina - Recetas italianas",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/0241831393?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/0241831393",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 1800,
-          "precio_centimos": 1710
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Curso de cocina - Recetas italianas"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387901813&tag=davidporto-21",
@@ -40410,6 +41022,25 @@
       "fecha_publicacion": "2026-09-16",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-blanda",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/B0H4ZTGLKQ",
+          "precio_centimos": 1990,
+          "precio_referencia_centimos": 2095,
+          "url": "https://www.amazon.es/dp/B0H4ZTGLKQ?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        },
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/B0H5QJK9FL",
+          "precio_centimos": 854,
+          "precio_referencia_centimos": 2095,
+          "url": "https://www.amazon.es/dp/B0H5QJK9FL?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-disney-alas-de-ensueno/454771",
       "fuente_edad_url": "https://www.planetadelibros.com/libro-disney-alas-de-ensueno/454771",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-disney-alas-de-ensueno/454771",
@@ -40423,6 +41054,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/952f5d57-0a55-4bf8-92ae-153f7cd99470/d_360_620/portada_disney-alas-de-ensueno_gema-bonnin-sanchez_202605220853.webp",
       "portada_local": "/assets/reading-covers/isbn-9791387901813.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 2095,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40437,27 +41069,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-disney-alas-de-ensueno/454771",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "disney-alas-de-ensueno-9791387901813",
-      "titulo": "Disney. Alas de ensueño",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/B0H4ZTGLKQ?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0H4ZTGLKQ",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2095,
-          "precio_centimos": 1990
-        },
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B0H5QJK9FL?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0H5QJK9FL",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2095,
-          "precio_centimos": 854
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Disney. Alas de ensueño"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788427055629&tag=davidporto-21",
@@ -40476,6 +41088,25 @@
       "fecha_publicacion": "2026-09-09",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-blanda",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8427055625",
+          "precio_centimos": 1890,
+          "precio_referencia_centimos": 1990,
+          "url": "https://www.amazon.es/dp/8427055625?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        },
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/B0H9XGXHFL",
+          "precio_centimos": 949,
+          "precio_referencia_centimos": 1990,
+          "url": "https://www.amazon.es/dp/B0H9XGXHFL?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-encantada-de-olvidarte/454790",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-encantada-de-olvidarte/454790",
       "id": "isbn-9788427055629",
@@ -40488,6 +41119,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/1aa04042-053f-436a-a26c-f5dc038616c5/d_360_620/portada_encantada-de-olvidarte_anna-holland_202605211355.webp",
       "portada_local": "/assets/reading-covers/isbn-9788427055629.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 1990,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40502,27 +41134,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-encantada-de-olvidarte/454790",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "encantada-de-olvidarte-9788427055629",
-      "titulo": "Encantada de olvidarte",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8427055625?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8427055625",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 1990,
-          "precio_centimos": 1890
-        },
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B0H9XGXHFL?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0H9XGXHFL",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 1990,
-          "precio_centimos": 949
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Encantada de olvidarte"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408321620&tag=davidporto-21",
@@ -40542,6 +41154,25 @@
       "fecha_publicacion": "2026-09-09",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8408321625",
+          "precio_centimos": 2370,
+          "precio_referencia_centimos": 2495,
+          "url": "https://www.amazon.es/dp/8408321625?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        },
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/B0H96R6JMX",
+          "precio_centimos": 1044,
+          "precio_referencia_centimos": 2495,
+          "url": "https://www.amazon.es/dp/B0H96R6JMX?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-legado-ii-memorias-de-sombra/450192",
       "fuente_edad_url": "https://www.planetadelibros.com/libro-legado-ii-memorias-de-sombra/450192",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-legado-ii-memorias-de-sombra/450192",
@@ -40555,6 +41186,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/3d9ce85b-4443-44c9-b56d-1d12790fb386/d_360_620/portada_legado-ii-memorias-de-sombra_alba-cargol-martinez_202605211255.webp",
       "portada_local": "/assets/reading-covers/isbn-9788408321620.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 2495,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40569,27 +41201,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-legado-ii-memorias-de-sombra/450192",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "legado-ii-memorias-de-sombra-9788408321620",
-      "titulo": "Legado II. Memorias de sombra",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8408321625?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408321625",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2495,
-          "precio_centimos": 2370
-        },
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B0H96R6JMX?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0H96R6JMX",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2495,
-          "precio_centimos": 1044
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Legado II. Memorias de sombra"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408323938&tag=davidporto-21",
@@ -40609,6 +41221,25 @@
       "fecha_publicacion": "2026-09-02",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-blanda",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8408323938",
+          "precio_centimos": 1895,
+          "precio_referencia_centimos": 1995,
+          "url": "https://www.amazon.es/dp/8408323938?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        },
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/B0H6S2X7VK",
+          "precio_centimos": 949,
+          "precio_referencia_centimos": 1995,
+          "url": "https://www.amazon.es/dp/B0H6S2X7VK?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-spooky-love/454057",
       "fuente_edad_url": "https://www.planetadelibros.com/libro-spooky-love/454057",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-spooky-love/454057",
@@ -40622,6 +41253,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/611b168b-4ddb-4aa5-8d8a-b3d45f9d9865/d_360_620/portada_spooky-love_jennifer-chipman_202605211611.webp",
       "portada_local": "/assets/reading-covers/isbn-9788408323938.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 1995,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40636,27 +41268,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-spooky-love/454057",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "spooky-love-9788408323938",
-      "titulo": "Spooky love",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8408323938?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408323938",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 1995,
-          "precio_centimos": 1895
-        },
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B0H6S2X7VK?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0H6S2X7VK",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 1995,
-          "precio_centimos": 949
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Spooky love"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788408324294&tag=davidporto-21",
@@ -40676,6 +41288,17 @@
       "fecha_publicacion": "2026-08-26",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8408324292",
+          "precio_centimos": 2370,
+          "precio_referencia_centimos": 2495,
+          "url": "https://www.amazon.es/dp/8408324292?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-zodiac-academy-1-el-despertar-edicion-especial/454667",
       "fuente_publicacion_url": "https://www.planetadelibros.com/libro-zodiac-academy-1-el-despertar-edicion-especial/454667",
       "id": "isbn-9788408324294",
@@ -40688,6 +41311,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/9bc42b9d-b9de-4e43-a406-ac8f3137b0aa/d_360_620/portada_zodiac-academy-1-el-despertar_caroline-peckham-susanne-valenti_202605141552.webp",
       "portada_local": "/assets/reading-covers/isbn-9788408324294.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 2495,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40702,19 +41326,7 @@
       "sinopsis_fuente_url": "https://www.planetadelibros.com/libro-zodiac-academy-1-el-despertar-edicion-especial/454667",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "zodiac-academy-1-el-despertar-edicion-especial-9788408324294",
-      "titulo": "Zodiac Academy 1. El despertar. Edición especial",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/8408324292?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/8408324292",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2495,
-          "precio_centimos": 2370
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Zodiac Academy 1. El despertar. Edición especial"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387904432&tag=davidporto-21",
@@ -40734,6 +41346,25 @@
       "fecha_publicacion": "2026-06-11",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-blanda",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/B0GRNLHXTF",
+          "precio_centimos": 2080,
+          "precio_referencia_centimos": 2190,
+          "url": "https://www.amazon.es/dp/B0GRNLHXTF?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        },
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/B0H2VQLW88",
+          "precio_centimos": 949,
+          "precio_referencia_centimos": 999,
+          "url": "https://www.amazon.es/dp/B0H2VQLW88?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/626462-libro-satisfraier-9791387904432",
       "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/626462-libro-satisfraier-9791387904432",
       "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/626462-libro-satisfraier-9791387904432",
@@ -40747,6 +41378,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7908150-thickbox_default/satisfraier.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387904432.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 2190,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40761,27 +41393,7 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/626462-libro-satisfraier-9791387904432",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "satisfraier-9791387904432",
-      "titulo": "Satisfraier",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/B0GRNLHXTF?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0GRNLHXTF",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2190,
-          "precio_centimos": 2080
-        },
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B0H2VQLW88?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0H2VQLW88",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 999,
-          "precio_centimos": 949
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Satisfraier"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788466378048&tag=davidporto-21",
@@ -40801,6 +41413,17 @@
       "fecha_publicacion": "2026-05-28",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-blanda",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/B0BSP4Y4Z1",
+          "precio_centimos": 949,
+          "precio_referencia_centimos": 999,
+          "url": "https://www.amazon.es/dp/B0BSP4Y4Z1?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/617393-libro-soy-como-como-9788466378048",
       "fuente_edad_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/617393-libro-soy-como-como-9788466378048",
       "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/617393-libro-soy-como-como-9788466378048",
@@ -40814,6 +41437,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7637834-thickbox_default/soy-como-como.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788466378048.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 1195,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40828,19 +41452,7 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/617393-libro-soy-como-como-9788466378048",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "soy-como-como-9788466378048",
-      "titulo": "Soy como como",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B0BSP4Y4Z1?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/B0BSP4Y4Z1",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 999,
-          "precio_centimos": 949
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Soy como como"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9780241802069&tag=davidporto-21",
@@ -40861,6 +41473,17 @@
       "fecha_publicacion": "2026-05-07",
       "fecha_verificacion": "2026-11-04",
       "formato_edicion": "tapa-dura",
+      "formatos_amazon_buscados": "2026-11-04",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-11-04",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/0241802067",
+          "precio_centimos": 2655,
+          "precio_referencia_centimos": 2795,
+          "url": "https://www.amazon.es/dp/0241802067?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+        }
+      ],
       "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/616753-libro-opa-sabores-del-mundo-9780241802069",
       "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/616753-libro-opa-sabores-del-mundo-9780241802069",
       "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/616753-libro-opa-sabores-del-mundo-9780241802069",
@@ -40874,6 +41497,7 @@
       "portada_fecha_revision": "2026-11-04",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7334450-thickbox_default/opa-sabores-del-mundo.jpg",
       "portada_local": "/assets/reading-covers/isbn-9780241802069.webp",
+      "precios_amazon_revision": "2026-11-04",
       "pvp_centimos": 2795,
       "pvp_fecha_verificacion": "2026-11-04",
       "resenas": [
@@ -40888,19 +41512,7 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/616753-libro-opa-sabores-del-mundo-9780241802069",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "opa-sabores-del-mundo-9780241802069",
-      "titulo": "Opa! (Sabores del mundo)",
-      "formatos_amazon_buscados": "2026-11-04",
-      "formatos_compra": [
-        {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/0241802067?tag=davidporto-21&linkCode=osi&th=1&psc=1",
-          "fuente_url": "https://www.amazon.es/dp/0241802067",
-          "fecha_verificacion": "2026-11-04",
-          "precio_referencia_centimos": 2795,
-          "precio_centimos": 2655
-        }
-      ],
-      "precios_amazon_revision": "2026-11-04"
+      "titulo": "Opa! (Sabores del mundo)"
     }
   ],
   "schema_version": 1
