@@ -17,8 +17,9 @@ checked = 0
 for event in nodes:
     if event.get('@type') != 'Event':
         continue
-    offer = event.get('offers', {})
-    if not isinstance(offer, dict) or str(offer.get('price')) not in ('0', '0.00'):
+    offer = event.get('offers')
+    free_offer = isinstance(offer, dict) and str(offer.get('price')) in ('0', '0.00')
+    if not free_offer and event.get('isAccessibleForFree') is not True:
         continue
     fragment = urlsplit(event['@id']).fragment
     assert fragment
@@ -27,8 +28,8 @@ for event in nodes:
     visible = unescape(re.sub(r'<[^>]+>', ' ', entry.group(1)))
     visible = re.sub(r'\s+', ' ', visible).casefold()
     assert re.search(r'gratuit[oa]s?|acceso libre|entrada libre|sin coste|sin cargo', visible), (
-        f'{fragment}: Offer de precio cero sin gratuidad explicada: {visible[:180]}'
+        f'{fragment}: evento gratuito sin gratuidad explicada: {visible[:180]}'
     )
     checked += 1
-assert checked >= 1, 'La prueba no examinó ninguna oferta gratuita'
-print(f'PASS {checked} free Event offers with visible evidence')
+assert checked >= 1, 'La prueba no examinó ningún evento gratuito'
+print(f'PASS {checked} free Events with visible evidence')
