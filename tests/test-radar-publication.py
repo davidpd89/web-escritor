@@ -22,8 +22,9 @@ assert 'deadlines.ics|.lycheeignore|pagefind/*)' in workflow
 assert '            .lycheeignore \\\n' in workflow
 assert "'.lycheeignore'}" in (ROOT/'scripts/publish-radar-refresh.py').read_text(encoding='utf-8')
 
-def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocked=()):
+def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocked=(), lagging_job=0):
     calls = []
+    lag = {'left': lagging_job}
     dispatched = set()
     def gh(*args):
         calls.append(args)
@@ -68,7 +69,13 @@ def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocke
         if args[:2] == ('workflow','run'):
             dispatched.add(args[2])
         if args[0] == 'api' and args[-1].endswith('/jobs'):
-            return json.dumps({'jobs':[{'name':name,'conclusion':'skipped' if skipped_job else 'success',
+            if lag['left']:
+                # Run already completed, job record not yet closed.
+                lag['left'] -= 1
+                return json.dumps({'jobs':[{'name':name,'status':'in_progress','conclusion':None,
+                                           'html_url':'https://github.com/owner/repo/actions/runs/2/job/1'}
+                                          for name in module.REQUIRED_JOBS.values()]})
+            return json.dumps({'jobs':[{'name':name,'status':'completed','conclusion':'skipped' if skipped_job else 'success',
                                        'html_url':'https://github.com/owner/repo/actions/runs/2/job/1'}
                                       for name in module.REQUIRED_JOBS.values()]})
         return ''
@@ -114,4 +121,6 @@ scenario(pr_runs=reused)
 scenario(reused[0], pr_runs=reused)
 scenario(pr_runs=reused[2:], blocked=reused[:2])
 scenario(conflict=True)
+# A job record that lags behind its completed run is awaited, not reported as failed.
+scenario(lagging_job=2)
 print('PASS radar publication: all real workflows required, exact SHA, failed CI never merges/deploys')
