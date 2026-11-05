@@ -64,6 +64,7 @@ GENRES = {
     'novela romantica': ('romance', 'Romance'),
     'libros de amor': ('romance', 'Romance'),
     'romance': ('romance', 'Romance'),
+    'romantica': ('romance', 'Romance'),  # Planeta juvenil: «Juvenil» › «Romántica»
     'novela historica': ('novela-historica', 'Novela histórica'),
     'libros de aventura': ('aventuras', 'Aventuras'),
     'terror': ('terror', 'Terror'),
@@ -181,6 +182,9 @@ def classify(record, catalogue):
         found.append(ident)
     if not found:
         raise SourceError('Materia editorial no clasificada; queda pendiente')
+    if 'juvenil' in cats and any(normalize_text(s) == 'juvenil' for s in record['materias']):
+        # La sección «Juvenil» no es materia, pero sí el público cuando la ficha no trae edad.
+        found.append('juvenil')
     age = normalize_text(record.get('edad_recomendada', ''))
     youngest = re.fullmatch(r'(?:de|a partir de) (\d+)(?: a \d+)? anos', age)
     if age == 'adultos':
@@ -404,6 +408,17 @@ def candidate_isbn(url, source, known_urls):
     return url.rsplit('-', 1)[-1].rstrip('/') if source['provider'] == 'penguin' else known_urls.get(url)
 
 
+def newer_pending(current, cached):
+    """El estado de Git solo se reescribe cuando la carga publica: un reintento fallido sin publicación queda
+    en la caché. Si Git conserva el pendiente anterior, gana la caché; si no, el mismo libro volvía a ocupar
+    los huecos de reintento en cada carga y los demás pendientes no llegaban nunca."""
+    if not current:
+        return True
+    if current.get('estado_ingesta') != 'pendiente_datos' or cached.get('estado_ingesta') != 'pendiente_datos':
+        return False
+    return (cached.get('retry_after') or '', int(cached.get('intentos') or 0)) > (current.get('retry_after') or '', int(current.get('intentos') or 0))
+
+
 RETRY_PENDING = 4  # libros pendientes que ya no salen en los índices y se reintentan por su ficha en cada carga
 FINAL_REASONS = ('fuera de la ventana', 'no bibliográfico', 'no identificada como castellano')
 
@@ -487,7 +502,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
     cached_state = read_json(cache / 'state.json', {'schema_version': 1, 'items': {}})
     # Pending attempts survive in Actions cache; only published content is Git authority.
     for key, value in cached_state['items'].items():
-        if key not in state['items']:
+        if newer_pending(state['items'].get(key), value):
             state['items'][key] = value
     stats = {'discovered': 0, 'examined': 0, 'accepted': 0, 'updated': 0, 'already_published': 0, 'pending': 0, 'publishers': {}, 'errors': []}
     queue = {}

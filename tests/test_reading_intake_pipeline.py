@@ -474,5 +474,14 @@ class PendingRetryTests(unittest.TestCase):
         self.assertEqual(due, [f'https://x.test/{i}' for i in range(pipeline.RETRY_PENDING)])
 
 
+    def test_cached_retry_outlives_stale_git_pending(self):
+        old = {'estado_ingesta': 'pendiente_datos', 'retry_after': '2026-10-23', 'intentos': 1}
+        retried = {'estado_ingesta': 'pendiente_datos', 'retry_after': '2026-11-08', 'intentos': 2}
+        self.assertTrue(pipeline.newer_pending(None, retried))
+        self.assertTrue(pipeline.newer_pending(old, retried))
+        self.assertTrue(pipeline.newer_pending({'estado_ingesta': 'pendiente_datos'}, retried))  # sin fecha: el más antiguo
+        self.assertFalse(pipeline.newer_pending(retried, old))
+        self.assertFalse(pipeline.newer_pending({'estado_ingesta': 'publicado'}, retried))  # lo publicado manda en Git
+
 if __name__ == '__main__':
     unittest.main()

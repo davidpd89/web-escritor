@@ -32,6 +32,24 @@ class PlanetaSourceTests(unittest.TestCase):
         record = planeta_edition(kids, URL)
         self.assertEqual((record['edad_recomendada'], record['materias']), ('De 9 a 12 años', ['Novela literaria']))
 
+    def test_juvenile_section_is_followed_by_the_real_subject(self):
+        # «Te recojo a las seis» (Esencia): Temáticas = Juvenil, Romántica, A partir de 16 años. Antes solo se leía
+        # «Juvenil» (sección, no materia) y el libro quedaba «Materia editorial no clasificada».
+        teen = PAGE.replace('<li><a href="https://www.planetadelibros.com/libros/novela-literaria/00012">Novela literaria</a></li>',
+                            '<li><a href="https://www.planetadelibros.com/libros/libros-juveniles/00027">Juvenil</a></li>'
+                            '<li><a href="https://www.planetadelibros.com/libros/romantica/00027/00442">Romántica</a></li>'
+                            '<li><a href="https://www.planetadelibros.com/libros/a-partir-de-16-anos/00027/00258">A partir de 16 años</a></li>')
+        record = planeta_edition(teen, URL)
+        self.assertEqual((record['materias'], record['edad_recomendada']), (['Juvenil', 'Romántica'], 'A partir de 16 años'))
+        import reading_intake_pipeline as pipeline
+        catalogue = {'categorias': [{'id': i, 'tipo': t} for i, t in (('romance', 'genero'), ('juvenil', 'edad'))]}
+        ids = pipeline.classify({**record, 'edad_recomendada': ''}, catalogue)
+        self.assertEqual((ids[0], 'juvenil' in ids, 'tema-romantica' in ids), ('romance', True, False))
+        lone = dict(record, materias=['Juvenil'], palabras_clave=[], titulo='Sin señales')
+        with self.assertRaises(SourceError):  # la sección sola no es materia; la edad no la sustituye
+            pipeline.classify(lone, catalogue)
+        self.assertEqual(planeta_edition(PAGE, URL)['materias'], ['Novela literaria'])
+
     def test_rejects_other_hosts_and_changed_canonical(self):
         with self.assertRaises(SourceError):
             planeta_edition(PAGE, 'https://evil.example/libro-cosamala/458658')

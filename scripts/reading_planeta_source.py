@@ -25,6 +25,7 @@ COVER_HOSTS = ('proassetspdlcom.cdnstatics2.com',)
 PRODUCT_PATH = re.compile(r'^/libro-[a-z0-9-]+/(\d{1,9})/?$')
 AUTHOR_PATH = re.compile(r'^/autor/[a-z0-9-]+/\d+/?$')
 # Las fichas infantiles y juveniles publican la franja de edad como una temática más («De 9 a 12 años»).
+SECTION_TOPICS = {'juvenil'}
 AGE_TOPIC = re.compile(r'(?:De \d+ a \d+|A partir de \d+|Desde \d+) años')
 MONTHS = {'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4, 'mayo': 5, 'junio': 6, 'julio': 7, 'agosto': 8,
           'septiembre': 9, 'setiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12}
@@ -106,6 +107,13 @@ def _looks_spanish(text: str) -> bool:
     return len(words) >= 12 and sum(w in SPANISH for w in words) > sum(w in CATALAN - SPANISH for w in words) * 2
 
 
+def _subjects(topic_names: list[str]) -> list[str]:
+    """Materia de la ficha. En juvenil, Planeta antepone la sección («Juvenil») a la temática real
+    («Romántica», «Fantasía»…): sin esta, la materia quedaba en la sección y el libro sin clasificar."""
+    topics = [t for t in topic_names if not AGE_TOPIC.fullmatch(t)]
+    return topics[:2] if topics and normalize_text(topics[0]) in SECTION_TOPICS else topics[:1]
+
+
 def planeta_edition(document: str, source: str) -> dict:
     """Edición seleccionada de una ficha de Planeta; lanza SourceError si falta algo comprobable."""
     parts = urlsplit(source)
@@ -171,7 +179,7 @@ def planeta_edition(document: str, source: str) -> dict:
             'fecha_publicacion_edicion': published, 'precision_fecha': 'dia',
             'idioma': 'es', 'formato_edicion': format_id, 'encuadernacion': binding,
             'numero_paginas': int(count) if count.isdigit() else None,
-            'materias': [t for t in topic_names if not AGE_TOPIC.fullmatch(t)][:1],
+            'materias': _subjects(topic_names),
             'edad_recomendada': next((t for t in topic_names if AGE_TOPIC.fullmatch(t)), ''),
             'portada_fuente_url': image, 'fuente_bibliografica_url': source,
             'fuentes_autores': {a: author_sources[a] for a in authors if a in author_sources},
