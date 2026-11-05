@@ -58,6 +58,7 @@ CONTENT_GLOBS = (
     'recomendaciones/autores/index.html',
     'recomendaciones/editoriales/index.html',
     'recomendaciones/libros/*/index.html',
+    'recomendaciones/pagina/*/index.html',
     'recomendaciones/autores/*/index.html',
     'recomendaciones/editoriales/*/index.html',
     'recomendaciones/proximos-lanzamientos.ics',

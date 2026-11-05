@@ -20,6 +20,7 @@ EXACT = {'assets/page-order.generated.js', 'assets/reading-market.json', 'data/r
 def allowed_path(path):
     return path in EXACT or bool(re.fullmatch(
         r'(?:recomendaciones/(?:libros|autores|editoriales)/[a-z0-9-]+/index\.html|'
+        r'recomendaciones/pagina/[0-9]+/index\.html|'
         r'editoriales/[a-z0-9-]+/index\.html|'
         r'assets/reading-covers/isbn-97[89][0-9]{10}(?:-320)?\.webp|'
         r'assets/reading-audio/[a-z0-9-]+-[a-f0-9]{12}\.mp3|'

@@ -1295,6 +1295,54 @@ def render_map(original, books, authors=(), publishers=()):
     return original.replace('</main>', block + '</main>', 1)
 
 
+def render_outputs(root, data):
+    """Every file this builder owns, as {relative path: text}; the publisher allowlist must admit them all."""
+    books = validate(data, root)
+    OWN_TEXTS.clear()
+    OWN_TEXTS.update(load_own_texts(root))
+    global CATEGORY_INDEX
+    index = {}
+    for r in data['libro_categorias']:
+        index.setdefault(r['libro_id'], set()).add(r['categoria_id'])
+    CATEGORY_INDEX = (data, index)
+    authors = author_records(root)
+    template = (root / 'scripts/templates/reading-catalogue.html.tmpl').read_text(encoding='utf-8')
+    outputs = {'recomendaciones/index.html': render_hub(data, books, template)}
+    for number in range(2, max(1, math.ceil(len(books) / CATALOGUE_PAGE_SIZE)) + 1):
+        outputs[catalogue_page_url(number).lstrip('/') + 'index.html'] = render_hub(data, books, template, number)
+    map_path = root / 'mapa-del-sitio/index.html'
+    if map_path.exists():
+        outputs['mapa-del-sitio/index.html'] = render_map(map_path.read_text(encoding='utf-8'), books, authors, publisher_records(root))
+    for b in books:
+        outputs[url(b).lstrip('/') + 'index.html'] = render_book(data, b, template)
+    active_authors = [a for a in authors if any(a['nombre'] in b['autores'] for b in books)]
+    for a in active_authors:
+        outputs[author_url(a).lstrip('/') + 'index.html'] = render_author(a, data, books, template, active_authors)
+    outputs['recomendaciones/autores/index.html'] = render_authors_index(active_authors, books, template)
+    catalogue_publishers = publisher_records(root)
+    active_publishers = [p for p in catalogue_publishers if any(b.get('editorial_catalogo_slug') == p['slug'] for b in books)]
+    for p in active_publishers:
+        outputs[publisher_url(p).lstrip('/') + 'index.html'] = render_publisher(p, data, books, template, {a['nombre'] for a in authors}, active_authors)
+    outputs['recomendaciones/editoriales/index.html'] = render_publishers_index(catalogue_publishers, books, template)
+    outputs[ICS_PATH] = render_release_ics(books)
+    outputs[DEALS_PATH] = render_deals(books)
+    outputs[LLMS_PATH] = render_llms_index(data, books, active_authors, active_publishers)
+    existing = root / 'recomendaciones/libros'
+    orphans = [p for p in existing.glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
+    orphans += [p for p in (root / 'recomendaciones/pagina').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
+    orphans += [p for p in (root / 'recomendaciones/autores').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
+    orphans += [p for p in (root / 'recomendaciones/editoriales').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
+    require(not orphans, 'Hay fichas existentes fuera de los datos: revisar retirada/URL antes de eliminarlas')
+    registry = json.loads((root / 'data/content-registry.json').read_text(encoding='utf-8'))
+    registry['entries'] = [e for e in registry['entries'] if not e['id'].startswith(('reading-book-', 'reading-author-', 'reading-publisher-', 'reading-index-', 'reading-page-'))] + registry_entries(books)
+    registry['entries'] += [{'id': 'reading-author-' + a['slug'], 'url': author_url(a), 'label': a['nombre'], 'shortLabel': a['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': author_url(a).lstrip('/') + 'index.html'} for a in active_authors]
+    registry['entries'] += [{'id': 'reading-publisher-' + p['slug'], 'url': publisher_url(p), 'label': p['nombre'], 'shortLabel': p['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': publisher_url(p).lstrip('/') + 'index.html'} for p in active_publishers]
+    registry['entries'] += [{'id': 'reading-index-' + key, 'url': '/recomendaciones/' + key + '/', 'label': label, 'shortLabel': label, 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'footerEligible': True, 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': 'recomendaciones/' + key + '/index.html'} for key, label in (('autores', 'Autores'), ('editoriales', 'Editoriales del catálogo'))]
+    registry['entries'] += [{'id':f'reading-page-{n}','url':catalogue_page_url(n),'label':f'Libros recomendados: página {n}','shortLabel':f'Página {n}','type':'article','territory':'recomendaciones','parentId':'recommendations-hub','hubId':'recommendations-hub','discoverability':'secondary','searchIndex':False,'sourceFile':catalogue_page_url(n).lstrip('/')+'index.html'} for n in range(2, max(1, math.ceil(len(books) / CATALOGUE_PAGE_SIZE)) + 1)]
+    outputs['data/content-registry.json'] = json.dumps(registry, ensure_ascii=False, indent=2) + '\n'
+    return books, outputs
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=ROOT)
@@ -1304,49 +1352,7 @@ def main():
     root = args.root.resolve()
     try:
         data = json.loads((args.data or root / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
-        books = validate(data, root)
-        OWN_TEXTS.clear()
-        OWN_TEXTS.update(load_own_texts(root))
-        global CATEGORY_INDEX
-        index = {}
-        for r in data['libro_categorias']:
-            index.setdefault(r['libro_id'], set()).add(r['categoria_id'])
-        CATEGORY_INDEX = (data, index)
-        authors = author_records(root)
-        template = (root / 'scripts/templates/reading-catalogue.html.tmpl').read_text(encoding='utf-8')
-        outputs = {'recomendaciones/index.html': render_hub(data, books, template)}
-        for number in range(2, max(1, math.ceil(len(books) / CATALOGUE_PAGE_SIZE)) + 1):
-            outputs[catalogue_page_url(number).lstrip('/') + 'index.html'] = render_hub(data, books, template, number)
-        map_path = root / 'mapa-del-sitio/index.html'
-        if map_path.exists():
-            outputs['mapa-del-sitio/index.html'] = render_map(map_path.read_text(encoding='utf-8'), books, authors, publisher_records(root))
-        for b in books:
-            outputs[url(b).lstrip('/') + 'index.html'] = render_book(data, b, template)
-        active_authors = [a for a in authors if any(a['nombre'] in b['autores'] for b in books)]
-        for a in active_authors:
-            outputs[author_url(a).lstrip('/') + 'index.html'] = render_author(a, data, books, template, active_authors)
-        outputs['recomendaciones/autores/index.html'] = render_authors_index(active_authors, books, template)
-        catalogue_publishers = publisher_records(root)
-        active_publishers = [p for p in catalogue_publishers if any(b.get('editorial_catalogo_slug') == p['slug'] for b in books)]
-        for p in active_publishers:
-            outputs[publisher_url(p).lstrip('/') + 'index.html'] = render_publisher(p, data, books, template, {a['nombre'] for a in authors}, active_authors)
-        outputs['recomendaciones/editoriales/index.html'] = render_publishers_index(catalogue_publishers, books, template)
-        outputs[ICS_PATH] = render_release_ics(books)
-        outputs[DEALS_PATH] = render_deals(books)
-        outputs[LLMS_PATH] = render_llms_index(data, books, active_authors, active_publishers)
-        existing = root / 'recomendaciones/libros'
-        orphans = [p for p in existing.glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
-        orphans += [p for p in (root / 'recomendaciones/pagina').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
-        orphans += [p for p in (root / 'recomendaciones/autores').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
-        orphans += [p for p in (root / 'recomendaciones/editoriales').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
-        require(not orphans, 'Hay fichas existentes fuera de los datos: revisar retirada/URL antes de eliminarlas')
-        registry = json.loads((root / 'data/content-registry.json').read_text(encoding='utf-8'))
-        registry['entries'] = [e for e in registry['entries'] if not e['id'].startswith(('reading-book-', 'reading-author-', 'reading-publisher-', 'reading-index-', 'reading-page-'))] + registry_entries(books)
-        registry['entries'] += [{'id': 'reading-author-' + a['slug'], 'url': author_url(a), 'label': a['nombre'], 'shortLabel': a['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': author_url(a).lstrip('/') + 'index.html'} for a in active_authors]
-        registry['entries'] += [{'id': 'reading-publisher-' + p['slug'], 'url': publisher_url(p), 'label': p['nombre'], 'shortLabel': p['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': publisher_url(p).lstrip('/') + 'index.html'} for p in active_publishers]
-        registry['entries'] += [{'id': 'reading-index-' + key, 'url': '/recomendaciones/' + key + '/', 'label': label, 'shortLabel': label, 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'footerEligible': True, 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': 'recomendaciones/' + key + '/index.html'} for key, label in (('autores', 'Autores'), ('editoriales', 'Editoriales del catálogo'))]
-        registry['entries'] += [{'id':f'reading-page-{n}','url':catalogue_page_url(n),'label':f'Libros recomendados: página {n}','shortLabel':f'Página {n}','type':'article','territory':'recomendaciones','parentId':'recommendations-hub','hubId':'recommendations-hub','discoverability':'secondary','searchIndex':False,'sourceFile':catalogue_page_url(n).lstrip('/')+'index.html'} for n in range(2, max(1, math.ceil(len(books) / CATALOGUE_PAGE_SIZE)) + 1)]
-        outputs['data/content-registry.json'] = json.dumps(registry, ensure_ascii=False, indent=2) + '\n'
+        books, outputs = render_outputs(root, data)
         drift = []
         for rel, text in outputs.items():
             target = root / rel

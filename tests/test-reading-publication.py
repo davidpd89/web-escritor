@@ -13,8 +13,15 @@ for path in ['data/reading-catalogue.json', 'recomendaciones/libros/obra-9780140
              'editoriales/salamandra/index.html', 'pagefind/fragment/es_test.pf_fragment',
              'data/reading-publishers.json', 'recomendaciones/editoriales/debate/index.html',
              'recomendaciones/autores/index.html', 'recomendaciones/editoriales/index.html', 'recomendaciones/proximos-lanzamientos.ics', 'recomendaciones/llms.txt',
-             'assets/page-order.generated.js']:
+             'assets/page-order.generated.js', 'recomendaciones/pagina/2/index.html']:
     assert m.allowed_path(path), path
+# Contrato: todo lo que escribe build-reading-catalogue debe poder publicarlo la ingesta (la paginación de #1161
+# no estaba admitida y la ejecución 41981533719 falló al ensamblar la PR).
+builder_spec = importlib.util.spec_from_file_location('reading_builder_contract', ROOT / 'scripts/build-reading-catalogue.py')
+builder = importlib.util.module_from_spec(builder_spec); builder_spec.loader.exec_module(builder)
+_, builder_outputs = builder.render_outputs(ROOT, json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8')))
+rejected = sorted(p for p in builder_outputs if not m.allowed_path(p))
+assert not rejected, 'El publicador rechazaría salidas del builder: ' + ', '.join(rejected)
 for path in ['scripts/run.py', '.github/workflows/anything.yml', 'data/editoriales.json',
              'assets/reading-covers/inventada.webp', 'pagefind/../secrets', 'recomendaciones/../../scripts/run.py']:
     assert not m.allowed_path(path), path
