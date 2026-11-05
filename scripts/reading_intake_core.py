@@ -88,6 +88,52 @@ def clean_author(value: str) -> str:
     return " ".join(words)
 
 
+_AUTHOR_SEPARATOR = re.compile(r"\s+/\s+|\s*;\s*")
+_HANDLE = re.compile(r"\s*\(?@[\w.]+\)?")
+
+
+def _fold(word: str) -> str:
+    return "".join(ch for ch in unicodedata.normalize("NFKD", word.lower()) if ch.isalnum() and not unicodedata.combining(ch))
+
+
+def _drop_concatenated(name: str) -> str:
+    """«Hyūga Natsu Hyuganatsu» → «Hyūga Natsu»: la fuente repite el nombre pegado al final."""
+    words = name.split(" ")
+    if len(words) >= 3:
+        last, a, b = _fold(words[-1]), _fold(words[-3]), _fold(words[-2])
+        if last and last in (a + b, b + a):
+            return " ".join(words[:-1])
+    return name
+
+
+def _split_pair(name: str, pattern: str) -> list[str]:
+    # «Itziar Miranda y Jorge Miranda» son dos personas; «Santiago Ramón y Cajal» u
+    # «Ortega y Gasset» (un apellido tras la conjunción) son un solo nombre.
+    parts = re.split(pattern, name)
+    if len(parts) > 1 and all(len(part.split()) >= 2 for part in parts):
+        return parts
+    # «Lucía Ruiz Lafita, Delirium»: nombre completo y seudónimo de coautor. «García Márquez,
+    # Gabriel» (apellidos, nombre) tiene menos de tres palabras antes de la coma y no se parte.
+    if pattern.startswith(r"\s*,") and len(parts) == 2 and len(parts[0].split()) >= 3 and len(parts[1].split()) == 1:
+        return parts
+    return [name]
+
+
+def split_authors(names) -> list[str]:
+    """Lista pública de autores: una persona por elemento. Las fuentes editoriales mezclan
+    varios autores en una cadena («A / B», «A y B», «A, B»), añaden usuarios de redes
+    («Úrsula Perona @ursulaperonapsicologa») o repiten el nombre pegado. Idempotente."""
+    out: list[str] = []
+    for raw in names or []:
+        for piece in _AUTHOR_SEPARATOR.split(_HANDLE.sub("", str(raw))):
+            for pair in _split_pair(clean_title(piece), r"\s+y\s+"):
+                for part in _split_pair(pair, r"\s*,\s+"):
+                    name = _drop_concatenated(clean_author(part.strip(" ,;/")))
+                    if name and _fold(name) not in {_fold(n) for n in out}:
+                        out.append(name)
+    return out
+
+
 _SHOUT_WORD = re.compile(r"^[^\w]*(?:\d+|[^\W\d_]*[^\W\d_a-zà-ÿ]+)[^\w]*$")
 _QUOTE = re.compile(r"^\s*[«“\"][^»”\"]{1,240}[»”\"]\s*")
 
