@@ -3480,7 +3480,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-mi-primer-atlas-del-mundo/449758",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788408321361",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-05",
@@ -3522,7 +3522,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-liberty-haven-2-los-siete-propositos-de-oliver-grayson/450188",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788408321538",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-01",
@@ -4155,7 +4155,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-en-el-corazon-del-monstruo/455199",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788408324461",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-26",
@@ -4892,7 +4892,8 @@
         "idioma": "es",
         "isbn13": "9788408326052",
         "materias": [
-          "Juvenil"
+          "Juvenil",
+          "Romántica"
         ],
         "numero_paginas": 352,
         "palabras_clave": [
@@ -4909,9 +4910,9 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-te-recojo-a-las-seis/457392",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788408326052",
-      "motivo": "Materia editorial no clasificada; queda pendiente",
+      "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-02",
       "retry_after": "2026-11-08"
     },
@@ -5023,7 +5024,8 @@
         "idioma": "es",
         "isbn13": "9788408326144",
         "materias": [
-          "Juvenil"
+          "Juvenil",
+          "Romántica"
         ],
         "numero_paginas": 416,
         "palabras_clave": [
@@ -5037,13 +5039,11 @@
         "sinopsis_completa": "Continúa la serie de romance universitario que ha vendido más de un millón de ejemplares y que llegará a la pantalla con Prime Video.\n\nEs profesional en romper corazones… hasta que el suyo entra en juego.\n\nDonovan es uno de los Campus Drivers más populares y un rompecorazones sin remedio. Pero cuando empieza a darse cuenta del daño que ha causado con su forma de actuar, toma una decisión:...",
         "titulo": "Campus Drivers 2. Novio perfecto"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.planetadelibros.com/libro-campus-drivers-2-novio-perfecto/457667",
-      "intentos": 3,
+      "estado_ingesta": "publicado",
       "isbn13": "9788408326144",
-      "motivo": "Materia editorial no clasificada; queda pendiente",
+      "libro_id": "isbn-9788408326144",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-08"
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788408326342": {
       "datos": {
@@ -5352,7 +5352,8 @@
         "idioma": "es",
         "isbn13": "9788408326632",
         "materias": [
-          "Juvenil"
+          "Juvenil",
+          "Romántica"
         ],
         "numero_paginas": 600,
         "palabras_clave": [
@@ -5368,13 +5369,11 @@
         "sinopsis_completa": "Edición especial de una de las novelas más leídas de Inma Rubiales, con ilustraciones de Vero Navarro\n\nLiam ha perdido su pasión por las redes sociales. Está metido en una relación falsa con Michelle y el...",
         "titulo": "Hasta que nos quedemos sin estrellas (edición especial)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.planetadelibros.com/libro-hasta-que-nos-quedemos-sin-estrellas-edicion-especial/458229",
-      "intentos": 3,
+      "estado_ingesta": "publicado",
       "isbn13": "9788408326632",
-      "motivo": "Materia editorial no clasificada; queda pendiente",
+      "libro_id": "isbn-9788408326632",
       "primera_deteccion": "2026-10-31",
-      "retry_after": "2026-11-08"
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788408326656": {
       "datos": {
@@ -6185,7 +6184,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-trilogia-berlin/459624",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788408327509",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-10-27",
@@ -6211,7 +6210,8 @@
         "idioma": "es",
         "isbn13": "9788408327516",
         "materias": [
-          "Juvenil"
+          "Juvenil",
+          "Romántica"
         ],
         "numero_paginas": 1184,
         "palabras_clave": [
@@ -6228,7 +6228,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-todos-los-lugares-nuestro-lugar-en-el-mundo/459625",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788408327516",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-03",
@@ -6272,7 +6272,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-todo-lo-que-nunca-fuimos-todo-lo-que-somos-juntos/459626",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788408327523",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-03",
@@ -6686,7 +6686,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-teo-se-disfraza/462671",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788408329657",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-02",
@@ -6970,7 +6970,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-tiendas-cuquis-para-colorear/464639",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788408330585",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
@@ -7200,7 +7200,8 @@
         "idioma": "es",
         "isbn13": "9788408330974",
         "materias": [
-          "Juvenil"
+          "Juvenil",
+          "Romántica"
         ],
         "numero_paginas": 384,
         "palabras_clave": [
@@ -7215,13 +7216,11 @@
         "sinopsis_completa": "Aunque la oscuridad caiga sobre ti, siempre habrá alguien capaz de proteger tu luz.\n\nHay promesas que solo se pueden cumplir después de sobrevivir al infierno.\n\nHelen no vive, sobrevive. Crecer en un hogar que nunca ha sido seguro le ha enseñado a callar, obedecer y resistir. A fingir que todo está bien. A dejar de creer que algo bueno puede ocurrirle.\n\nGideon solo espera cumplir la mayoría de...",
         "titulo": "La promesa de Gideon"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.planetadelibros.com/libro-la-promesa-de-gideon/465333",
-      "intentos": 3,
+      "estado_ingesta": "publicado",
       "isbn13": "9788408330974",
-      "motivo": "Materia editorial no clasificada; queda pendiente",
+      "libro_id": "isbn-9788408330974",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-08"
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788408331025": {
       "estado_ingesta": "pendiente_datos",
@@ -7307,7 +7306,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-te-querre-para-siempre/465492",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788408331100",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-02",
@@ -7478,6 +7477,49 @@
       "primera_deteccion": "2026-11-04",
       "publicado_en": "2026-11-04"
     },
+    "isbn13:9788408331339": {
+      "datos": {
+        "autores": [
+          "Dr. José Carbonell"
+        ],
+        "coleccion": "No Ficción",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Editorial Planeta",
+        "editorial_slug": "editorial-planeta",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2027-01-20",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-maleducados-emocionales/465740",
+        "fuentes_autores": {
+          "Dr. José Carbonell": "https://www.planetadelibros.com/autor/dr-jose-carbonell/000068039"
+        },
+        "idioma": "es",
+        "isbn13": "9788408331339",
+        "materias": [
+          "Psicología"
+        ],
+        "numero_paginas": 256,
+        "palabras_clave": [
+          "Psicología",
+          "Divulgación psicológica",
+          "Autoayuda",
+          "Curación emocional",
+          "Habilidades sociales"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/48381df3-f5bc-43f0-a483-68119e7d5e92/d_360_620/portada_maleducados-emocionales_dr-jose-carbonell_202610091124.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "Aunque sutiles y a veces inconscientes, los microdesprecios son de las conductas que más desgastan nuestras relaciones. Estos gestos —no tenerte en cuenta, dejarte…",
+        "sinopsis_completa": "El prestigioso psiquiatra José Carbonell nos ayuda a identificar y gestionar a los maleducados emocionales que minan nuestro bienestar.\n\nAunque sutiles y a veces inconscientes, los microdesprecios son de las conductas que más desgastan nuestras relaciones. Estos gestos —no tenerte en cuenta, dejarte al margen o ignorarte en situaciones sociales— socavan poco a poco la autoestima y deterioran...",
+        "titulo": "Maleducados emocionales"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788408331339",
+      "libro_id": "isbn-9788408331339",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9788408331353": {
       "datos": {
         "autores": [
@@ -7520,6 +7562,44 @@
       "libro_id": "isbn-9788408331353",
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9788408331414": {
+      "datos": {
+        "autores": [
+          "Irene González Cabrera"
+        ],
+        "coleccion": "Historiones",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "GeoPlaneta",
+        "editorial_slug": "geoplaneta",
+        "encuadernacion": "Tapa dura sin s/cub. (cartoné)",
+        "fecha_publicacion_edicion": "2027-01-20",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-historiones-de-la-mitologia/465770",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788408331414",
+        "materias": [
+          "Religión"
+        ],
+        "numero_paginas": 248,
+        "palabras_clave": [
+          "Religión",
+          "Mitología y simbolismo"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/024c2f2b-0847-4b7f-9d37-63ec5ec9bae7/d_360_620/portada_historiones-de-la-mitologia_irene-gonzalez-cabrera_202610081657.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1990,
+        "sinopsis_breve": "En Historiones de la mitología, Irene González, La Mitóloga, recupera los grandes relatos del mundo clásico con una voz cercana, rigurosa y llena de…",
+        "sinopsis_completa": "La mitología clásica no es un conjunto de nombres imposibles, sino un universo lleno de pasiones, venganzas, metamorfosis, héroes imperfectos y monstruos inolvidables.\n\nEn Historiones de la mitología, Irene González, La Mitóloga, recupera los grandes relatos del mundo clásico con una voz cercana, rigurosa y llena de humor. Una nueva entrega de la colección Historiones para descubrir que...",
+        "titulo": "Historiones de la mitología"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788408331414",
+      "libro_id": "isbn-9788408331414",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788408331506": {
       "datos": {
@@ -7852,7 +7932,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-los-misterios-de-eversand-3-la-esposa/466988",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788408332886",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-04",
@@ -7894,7 +7974,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-los-misterios-de-eversand-4-la-hereje/467000",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788408332909",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-04",
@@ -8089,7 +8169,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.editorialperiferica.com/libros/los-trillizos/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788410171794",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
@@ -8159,7 +8239,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.editorialperiferica.com/libros/guerra-y-lluvia/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788410171831",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
@@ -8335,7 +8415,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.editorialperiferica.com/libros/europeana/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788410171947",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
@@ -8702,6 +8782,41 @@
       "primera_deteccion": "2026-11-04",
       "retry_after": "2026-11-07"
     },
+    "isbn13:9788410346864": {
+      "datos": {
+        "autores": [
+          "Ana B. Nieto"
+        ],
+        "coleccion": "Nefelibata",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-09-21",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/la-casa-del-hilo-rojo/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788410346864",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 400,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/07/LA_CASA_HILO_ROJO_frontal_1600x2422_72dpi-676x1024.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1990,
+        "sinopsis_breve": "LA DESLUMBRANTE NOVELA SOBRE UNA MUJER PIONERA: JULIA LOEWE DETRÁS DE UN GRAN IMPERIO DEL LUJO, SE ESCONDE LA HISTORIA DE LAS MUJERES QUE…",
+        "sinopsis_completa": "Madrid, 1889. La capital es una ciudad de contrastes vibrantes. En ese mundo en ebullición, una joven de catorce años se enfrenta a la prematura muerte de su madre. Su nombre es Julia Loewe. Inteligente, audaz y con una visión prodigiosa, Julia comprende que ha nacido una «nueva mujer», que recorre el mundo, que trabaja, que monta en bicicleta y que, para conquistar su independencia, necesita algo revolucionario: una nueva moda. Desde su taller en el centro de Madrid, Julia cambiará la manera en que las mujeres viajan y visten, abriéndoles las puertas de un negocio exclusivamente masculino con el fin de otorgarles la libertad que reclaman. La sociedad les exigía silencio y corsés. ellas respondieron creando una nueva moda para viajar, trabajar y decidir su destino",
+        "titulo": "La casa del hilo rojo"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788410346864",
+      "libro_id": "isbn-9788410346864",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9788410352018": {
       "datos": {
         "autores": [
@@ -8933,6 +9048,63 @@
       "libro_id": "isbn-9788410442771",
       "primera_deteccion": "2026-10-23",
       "publicado_en": "2026-10-23"
+    },
+    "isbn13:9788410442856": {
+      "datos": {
+        "autores": [
+          "E.R. Bucket"
+        ],
+        "coleccion": "No ficción",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "ROCA EDITORIAL",
+        "editorial_slug": "roca-editorial",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-11-26",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/tiempo-libre/637794-libro-minemurder-99-casos-de-logica-y-misterio-9788410442856",
+        "fuentes_autores": {
+          "E.R. Bucket": "https://www.penguinlibros.com/es/1021609-er-bucket"
+        },
+        "idioma": "es",
+        "isbn13": "9788410442856",
+        "materias": [
+          "Tiempo libre"
+        ],
+        "numero_paginas": 224,
+        "palabras_clave": [
+          "minemurder",
+          "murdoku",
+          "murdle",
+          "crímenes ilustrados",
+          "sudoku",
+          "pasatiempos",
+          "juegos de lógica",
+          "buscaminas ilustrado",
+          "misterio",
+          "crimen",
+          "crímenes",
+          "dete ctives",
+          "resolver crímenes",
+          "ingenio",
+          "resolución de crímenes",
+          "lógica",
+          "quién es el asesino",
+          "pasatiempos para adultos",
+          "de"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8246874-thickbox_default/minemurder-99-casos-de-logica-y-misterio.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1690,
+        "sinopsis_breve": "La tecnología puntera de los científicos de Minemurder ha desarrollado un método infalible para localizar a los sospechosos en la escena del crimen. Pero…",
+        "sinopsis_completa": "La tecnología puntera de los científicos de Minemurder ha desarrollado un método infalible para localizar a los sospechosos en la escena del crimen. Pero para descubrir quién es el asesino, harán falta tu lógica y tu ingenio.\n\nUnos grandes almacenes, unas fiestas de pueblo, una mansión británica, un instituto, un resort, un aeropuerto, un ático… Los escenarios del crimen parecen infinitos, y solo las mentes más brillantes conseguirán resolver cada caso.\n\nQuien se encuentre en la misma habitación que la víctima será el asesino.\n\n- 99 tableros, diferentes escenarios con 3 niveles de dificultad que pondrán a prueba hasta al detective más experimentado, inspirados en la mecánica del buscaminas.\n\n- Tableros ilustrados a todo color.\n\nEl juego más adictivo para sacar al detective que llevas dentro. ¿Te animas?",
+        "titulo": "Minemurder. 99 casos de lógica y misterio"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788410442856",
+      "libro_id": "isbn-9788410442856",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788410466470": {
       "datos": {
@@ -9552,7 +9724,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-mas-alla-mas-aca/461131",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788411078559",
       "motivo": "Sinopsis editorial ausente; se conserva la ficha anterior o queda pendiente",
       "primera_deteccion": "2026-11-04",
@@ -9880,10 +10052,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-tus-zonas/466021",
+      "intentos": 1,
       "isbn13": "9788411193979",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-06"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788411406130": {
       "datos": {
@@ -10073,7 +10246,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-el-arte-de-haikyu/408046",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788411617765",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-04",
@@ -10301,7 +10474,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-reset-alimentario/458559",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788413445625",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-10-22",
@@ -10470,7 +10643,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/el-atlas-de-las-nubes/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788416634286",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -10507,7 +10680,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/open-edicion-bestseller/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788416634361",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -10581,7 +10754,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/el-bar-de-las-grandes-esperanzas-edicion-bestseller/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788417128203",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -10692,7 +10865,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/los-goonies-2/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788417761769",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -10729,7 +10902,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/olive-kitteridge-edicion-bestseller/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788417761943",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -10895,6 +11068,43 @@
       "primera_deteccion": "2026-11-02",
       "retry_after": "2026-11-07"
     },
+    "isbn13:9788418128721": {
+      "datos": {
+        "autores": [
+          "Nita Prose"
+        ],
+        "coleccion": "Nefelibata",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2023-02-13",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/la-camarera/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788418128721",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 384,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2022/12/LA_CAMARERA_frontal_397x609.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1980,
+        "sinopsis_breve": "★ Ganadora del premio Goodreads al Mejor Libro de Misterio ★ ★ Bestseller de The Sunday Times y de The New York Times ★…",
+        "sinopsis_completa": "★ Ganadora del premio Goodreads al Mejor Libro de Misterio ★ ★ Bestseller de The Sunday Times y de The New York Times ★ ★ Publicada en más de 40 países. ★ «Una heroína inolvidable, la más interesante y adorable que me he encontrado en mucho tiempo.» Stephen King Un cadáver sobre la cama. Esta vez no será tan fácil dejarlo todo impoluto. Bienvenidos al hotel Regency Grand, donde nada es lo que parece. Molly es una joven camarera en un hotel de lujo. Es tímida y torpe en el trato social. Es también aplicada, comprometida, profesional. Una perfeccionista. En su trabajo, mulle almohadones y arregla los desastres que ocasionan los huéspedes, barriendo sus secretos. Es solo una camarera, y nadie repara en ella. Pero un asombroso hallazgo en una de las suites hace que su vida dé un vuelco, y la obliga a convertirse en detective para limpiar su propio nombre, a adentrarse en un mundo que va más allá de lo aparente. » Mira el booktrailer aquí",
+        "titulo": "La camarera"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/la-camarera/",
+      "intentos": 1,
+      "isbn13": "9788418128721",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788418128950": {
       "datos": {
         "autores": [
@@ -10926,10 +11136,82 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/ana-la-de-tejas-verdes/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788418128950",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
+      "retry_after": "2026-11-08"
+    },
+    "isbn13:9788418538100": {
+      "datos": {
+        "autores": [
+          "Donatella Di Pietrantonio"
+        ],
+        "coleccion": "",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2021-07-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/la-retornada-edicion-bestseller/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788418538100",
+        "materias": [],
+        "numero_paginas": 256,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2022/05/978841853810.jpeg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1390,
+        "sinopsis_breve": "Nueva edición a precios especial del fenómeno literario con 350.000 ejemplares vendidos. Hay novelas que pulsan cuerdas tan profundas, esenciales, que sacuden el alma.…",
+        "sinopsis_completa": "Nueva edición a precios especial del fenómeno literario con 350.000 ejemplares vendidos. Hay novelas que pulsan cuerdas tan profundas, esenciales, que sacuden el alma. Con la maleta en una mano y una bolsa con zapatos en la otra, una muchacha de trece años llama a una puerta tras la que hay un mundo desconocido, extraño. Empieza así esta historia vehemente y cautivadora, con una adolescente que de un día para otro es devuelta a su familia biológica y lo pierde todo: una casa confortable, a sus mejores amigas, el cariño incondicional de sus padres, o de quienes creía que eran sus padres. Su nuevo hogar es pequeño, oscuro, hay hermanos por todas partes y poca comida en la mesa. Pero está Adriana, la hermana pequeña que le abre mucho más que la puerta de su nueva casa.",
+        "titulo": "La Retornada (Edición Bestseller)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/la-retornada-edicion-bestseller/",
+      "intentos": 1,
+      "isbn13": "9788418538100",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
+    "isbn13:9788418538179": {
+      "datos": {
+        "autores": [
+          "Peru Cámara"
+        ],
+        "coleccion": "Nefelibata negra",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2022-05-16",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/galerna/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788418538179",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 352,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2022/03/Galerna-Frontal-scaled.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1880,
+        "sinopsis_breve": "El nuevo fenómeno de la novela negra azota San Sebastián «Altamente inquietante.» Carmen Mola «Muy entretenida.» Santiago Díaz Un joven y sagaz forense se…",
+        "sinopsis_completa": "El nuevo fenómeno de la novela negra azota San Sebastián «Altamente inquietante.» Carmen Mola «Muy entretenida.» Santiago Díaz Un joven y sagaz forense se enfrenta a la cara más siniestra de San Sebastián en una tormentosa noche de investigación y persecución sin tregua. Una llamada nocturna interrumpe la relativa tranquilidad del forense Aitor Intxaurraga. Han encontrado un cadáver en el Peine del Viento y él, el novato del Instituto Anatómico, debe hacerse cargo.En el exterior se abre paso la galerna. Las difíciles condiciones meteorológicas y la ausencia de compañeros experimentados en los que apoyarse dificultan su tarea. La Ertzaintza lo tiene claro: la muerte ha sido accidental. El cuerpo no muestra señales de violencia más allá de las contusiones provocadas por las sacudidas del mar contra las rocas. Sin embargo, un minúsculo detalle levanta las sospechas de Aitor.Junto al veterano Otamendi y la bióloga marina Eva, Aitor inicia su propia investigación. A lo largo de una noche y con las agujas del reloj y el implacable temporal pisándoles los talones, la búsqueda de la verdad les revelará una cara desconocida de la ciudad donostiarra. Mira el booktrailer aquí",
+        "titulo": "Galerna"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/galerna/",
+      "intentos": 1,
+      "isbn13": "9788418538179",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-11-05",
       "retry_after": "2026-11-08"
     },
     "isbn13:9788418538254": {
@@ -10959,7 +11241,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/los-goonies-la-historia-ilustrada/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788418538254",
       "motivo": "Sinopsis editorial ausente; se conserva la ficha anterior o queda pendiente",
       "primera_deteccion": "2026-11-02",
@@ -10996,7 +11278,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/ana-la-de-tejas-verdes-2-ana-la-de-avonlea/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788418538261",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -11033,7 +11315,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/ana-la-de-tejas-verdes-3-ana-la-de-la-isla/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788418538476",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -11070,7 +11352,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/arsene-lupin-caballero-ladron/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788418538506",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -11105,7 +11387,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/arsene-lupin-y-la-aguja-hueca/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788418538599",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -11140,7 +11422,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/west-side-story/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788418538742",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-01",
@@ -11245,7 +11527,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/arsene-lupin-caballero-ladron-edicion-ilustrada/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788418538902",
       "motivo": "Sinopsis editorial ausente; se conserva la ficha anterior o queda pendiente",
       "primera_deteccion": "2026-11-01",
@@ -11309,6 +11591,43 @@
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
     },
+    "isbn13:9788419004048": {
+      "datos": {
+        "autores": [
+          "James Ponti"
+        ],
+        "coleccion": "Infantil Juvenil",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2022-04-25",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/city-spies/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788419004048",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 400,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2022/03/Cityspies-WEB.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1590,
+        "sinopsis_breve": "¡Salvar el mundo es una misión para jóvenes! Bestseller de The New York Times. Libro del año según la revista Parents. Libro del mes…",
+        "sinopsis_completa": "¡Salvar el mundo es una misión para jóvenes! Bestseller de The New York Times. Libro del año según la revista Parents. Libro del mes en Barnes & Noble. Recomendado por la Asociación Estadounidense de Libreros Sara solo tiene doce años y no hay ordenador que no pueda hackear. Incluso ha logrado entrar en la red del sistema de justicia juvenil de Nueva York (con un buen motivo), pero ahora está metida en un gran lío. Para salvarla de las acusaciones, llega un misterioso abogado que no es otro que el director de una escuela secreta para jóvenes espías. Pronto Sara formará parte de sus filas y conocerá a sus nuevos compañeros de equipo: Kat, Río, París y Sídney, todos con talentos extraordinarios. El entrenamiento acaba de empezar y Sara vuela a París, donde se celebra una importante cumbre climática con una oscura amenaza... ¡Una primera misión que no tendrá nada que envidiar a las de 007! Disfruta la guía de lectura «Un libro adictivo, ideal incluso para los lectores más reacios.» Publisher’s Weekly «Un thriller con buen ritmo, personajes carismáticos y una trama fascinante. Un éxito.» Kirkus Reviews «Cuidado, estos espías podrían mantenerte en vela toda la noche leyendo.» Chris Grabenstein, co-autor de las series Max Einstein y Jacky Ha-ha «Una trama llena de ingenio y tan deliciosa que te arrebata una sonrisa.» People.com",
+        "titulo": "City Spies"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/city-spies/",
+      "intentos": 1,
+      "isbn13": "9788419004048",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788419004079": {
       "datos": {
         "autores": [
@@ -11338,7 +11657,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/4573/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788419004079",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-01",
@@ -11410,7 +11729,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/arsene-lupin-contra-herlock-sholmes/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788419004161",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -11445,10 +11764,47 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/dentro-del-juego-del-calamar-luz-verde-a-los-secretos-de-la-serie-manual-de-instrucciones-no-oficial/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788419004178",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-08"
+    },
+    "isbn13:9788419004826": {
+      "datos": {
+        "autores": [
+          "Elisabetta Gnone"
+        ],
+        "coleccion": "Infantil Juvenil",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2022-11-07",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/fairy-oak-la-trilogia/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788419004826",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 1008,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2022/10/fairy.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1690,
+        "sinopsis_breve": "Fairy Oak es un pueblo habitado por criaturas mágicas y seres sin poderes, pero es difícil distinguir a las unas de los otros, pues…",
+        "sinopsis_completa": "Fairy Oak es un pueblo habitado por criaturas mágicas y seres sin poderes, pero es difícil distinguir a las unas de los otros, pues magos, brujas y ciudadanos normales viven en sus casas de piedra desde hace tanto tiempo que nadie presta ya atención a sus rarezas recíprocas y todos se parecen un poco. Salvo las hadas, que son muy pequeñas y luminosas, y... vuelan. Esta historia está contada por una de ellas y narra la aventura fabulosa de dos hermanas gemelas, Vainilla y Pervinca.",
+        "titulo": "Fairy Oak. La Trilogía"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/fairy-oak-la-trilogia/",
+      "intentos": 1,
+      "isbn13": "9788419004826",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-11-05",
       "retry_after": "2026-11-08"
     },
     "isbn13:9788419132956": {
@@ -11836,7 +12192,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-bolsillo-2027-la-vecina-rubia/429971",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788419434227",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-02",
@@ -11882,7 +12238,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-bolsillo-2027-maria-hesse/429974",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788419434234",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
@@ -11930,7 +12286,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-bolsillo-2027-brianda/429975",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788419434241",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-10-30",
@@ -12439,7 +12795,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/dama-blanca/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788419521620",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -13324,6 +13680,46 @@
       "libro_id": "isbn-9788423371181",
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9788423371211": {
+      "datos": {
+        "autores": [
+          "Minyoung Kang"
+        ],
+        "coleccion": "",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Ediciones Destino",
+        "editorial_slug": "ediciones-destino",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2027-01-20",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-la-jardinera/465731",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788423371211",
+        "materias": [
+          "Novela negra"
+        ],
+        "numero_paginas": 232,
+        "palabras_clave": [
+          "Novela negra",
+          "Suspense y misterio",
+          "Novela contemporánea",
+          "Novela literaria"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/5e1f6587-7b79-4f22-a7c5-993c20e7204a/d_360_620/portada_la-jardinera_minyoung-kang_202610090932.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1990,
+        "sinopsis_breve": "La joven Yoohee regenta una tienda de plantas en un pequeño barrio de Seúl: un lugar tranquilo, cuidado y aparentemente inofensivo. Pero algunas mujeres…",
+        "sinopsis_completa": "El suspense coreano más brillante y escalofriante del momento.\n\nUn debut sobre mujeres heridas, hombres que desaparecen y una jardinera justiciera.\n\nLa joven Yoohee regenta una tienda de plantas en un pequeño barrio de Seúl: un lugar tranquilo, cuidado y aparentemente inofensivo. Pero algunas mujeres no acuden solo para pedir consejos de...",
+        "titulo": "La jardinera"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788423371211",
+      "libro_id": "isbn-9788423371211",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788423440207": {
       "datos": {
@@ -14345,9 +14741,29 @@
           "Cocina"
         ],
         "numero_paginas": 320,
+        "palabras_clave": [
+          "recetario",
+          "libro de cocina",
+          "libros para regalar",
+          "karlos arguiñano",
+          "recetas rapidas",
+          "cocina real",
+          "libros de cocina para regalar",
+          "cocina salu dable",
+          "recetas faciles",
+          "recetas con pocos ingedientes",
+          "recetas para el tupper",
+          "arguiñano",
+          "chicote",
+          "cocina libro",
+          "cocinar",
+          "cocinero"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8139229-thickbox_default/20-minutos-y-listo.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 3290,
         "sinopsis_breve": "Desde el increíble pastel de pescado y pasta al horno, pasando por los ñoquis con peperonata llenos de sabor, hasta un reconfortante estofado aromático…",
+        "sinopsis_completa": "Por muy ocupado que estés, 20 minutos ¡y listo! resuelve el «no tengo tiempo para cocinar» con platos rápidos y deliciosos para cada día de la semana.\n\nEstas 120 recetas increíbles están diseñadas para prepararlas en 20 minutos o menos; la promesa es sencilla: si la receta no se prepara en 20 minutos, no entra en este libro.\n\nCon un máximo de diez ingredientes por receta y opciones sencillas con menos carne o sin carne, 20 minutos ¡y listo! se convertirá en el libro de cocina imprescindible para quienes no tienen tiempo.\n\nY, como no podría ser de otra manera con Jamie, cada receta está llena de sabor.\n\nEntre sus capítulos se incluyen:\n\n* Ideas creativas con pollo\n\n* Pasta y ñoquis para el día a día\n\n* Legumbres al poder\n\n* Arroz y fideos reconfortantes\n\n* Ensaladas protagonistas\n\n* Pescados y mariscos fabulosos\n\n* ¡Vivan las verduras!\n\n* Huevos con estilo\n\n* Carne en minutos\n\n* Para cenar: sopa\n\nDesde el increíble pastel de pescado y pasta al horno, pasando por los ñoquis con peperonata llenos de sabor, hasta un reconfortante estofado aromático de cordero y berenjena, te sorprenderá lo rápido que puedes poner estos platos en la mesa y cómo todos se lanzan a por ellos.\n\nCocina fácil, sostenible y funcional. Comida rápida y sabrosa sin complicaciones. ¡Deliciosa!\n\nPorque cuanto menos tiempo pases cocinando, más tiempo tendrás para disfrutar de la comida en compañía.",
         "titulo": "20 minutos ¡y listo!"
       },
       "estado_ingesta": "publicado",
@@ -14739,6 +15155,64 @@
       "primera_deteccion": "2026-11-01",
       "publicado_en": "2026-11-01"
     },
+    "isbn13:9788425376498": {
+      "datos": {
+        "autores": [
+          "E.L. James"
+        ],
+        "coleccion": "Ficción",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "GRIJALBO",
+        "editorial_slug": "grijalbo",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-11-19",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-romantica/637709-libro-tierra-de-fantasmas-9788425376498",
+        "fuentes_autores": {
+          "E.L. James": "https://www.penguinlibros.com/es/5512-el-james"
+        },
+        "idioma": "es",
+        "isbn13": "9788425376498",
+        "materias": [
+          "Novela romántica"
+        ],
+        "numero_paginas": 448,
+        "palabras_clave": [
+          "2026",
+          "50 sombras",
+          "amor libro",
+          "anastasia steeele",
+          "bestseller",
+          "christian grey",
+          "cincuenta sombras",
+          "darker",
+          "dia de los enamorados",
+          "e l james",
+          "en castellano",
+          "en español",
+          "erotica",
+          "fan fiction",
+          "fantasia romantica libros",
+          "ficcion",
+          "ghosts",
+          "grey",
+          "historia de amor",
+          "hombre lobo libros"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8252768-thickbox_default/tierra-de-fantasmas.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2290,
+        "sinopsis_breve": "Casi sin darme cuenta, es lo único en lo que puedo pensar. Lo único con lo que sueño.",
+        "sinopsis_completa": "Ahora vivo en Londres con mi tío Dylan.\n\nY lo único que tenemos en común es el sentimiento de pérdida.\n\nEsta nueva vida ni siquiera parece una vida. Es insoportable.\n\nSalvo porque... hay alguien más aquí.\n\nAunque no es real. ¿O quizá sí?\n\nEs divertido, carismático, desesperante.\n\nY me comprende como nadie.\n\nPero solo yo puedo verlo.\n\nCasi sin darme cuenta, es lo único en lo que puedo pensar. Lo único con lo que sueño.\n\nOjalá pudiera tocarlo.\n\nY ojalá él pudiera tocarme.\n\n¿Me estoy enamorando... de un fantasma?",
+        "titulo": "Tierra de fantasmas"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788425376498",
+      "libro_id": "isbn-9788425376498",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9788426432575": {
       "datos": {
         "autores": [
@@ -14952,6 +15426,15 @@
       "libro_id": "isbn-9788426434456",
       "primera_deteccion": "2026-11-05",
       "publicado_en": "2026-11-05"
+    },
+    "isbn13:9788426438188": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/tiempo-libre/637845-libro-coleccion-mafalda-11-tomos-en-una-lata-edicion-limitada-9788426438188",
+      "intentos": 1,
+      "isbn13": "9788426438188",
+      "motivo": "Tipo de producto no bibliográfico o no admitido",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788427054479": {
       "datos": {
@@ -15305,7 +15788,8 @@
         "idioma": "es",
         "isbn13": "9788427055735",
         "materias": [
-          "Juvenil"
+          "Juvenil",
+          "Romántica"
         ],
         "numero_paginas": 456,
         "palabras_clave": [
@@ -15320,13 +15804,11 @@
         "sinopsis_completa": "Ser perfecta era su marca. Ser real será su revolución. Una novela para la generación que aprendió a posar antes que a contarse la verdad.\n\nGala Esteve ha construido una vida impecable: belleza, eventos, likes, marcas y miles de seguidores. Pero detrás de esa imagen perfecta esconde una herida que nunca se ha atrevido a contar.\n\nCuando su hermano Curro, de doce años, empieza a sufrir bullying,...",
         "titulo": "A cinco segundos de ti"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.planetadelibros.com/libro-a-cinco-segundos-de-ti/458012",
-      "intentos": 3,
+      "estado_ingesta": "publicado",
       "isbn13": "9788427055735",
-      "motivo": "Materia editorial no clasificada; queda pendiente",
+      "libro_id": "isbn-9788427055735",
       "primera_deteccion": "2026-11-03",
-      "retry_after": "2026-11-08"
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788427055780": {
       "datos": {
@@ -16562,7 +17044,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.anagrama-ed.es/libro/llibres-anagrama/adolescencia/9788433951038/LA_147",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788433951038",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
@@ -17021,6 +17503,41 @@
       "libro_id": "isbn-9788433951229",
       "primera_deteccion": "2026-10-30",
       "publicado_en": "2026-10-30"
+    },
+    "isbn13:9788433951243": {
+      "datos": {
+        "autores": [
+          "Margarita García Robayo"
+        ],
+        "coleccion": "Narrativas hispánicas",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Editorial Anagrama",
+        "editorial_slug": "editorial-anagrama",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-11",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.anagrama-ed.es/libro/narrativas-hispanicas/querida-sharik/9788433951243/NH_803",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9788433951243",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 208,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://cms.anagrama-ed.es/uploads/media/portadas/0001/37/thumb_36496_portadas_big.jpeg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1890,
+        "sinopsis_breve": "La narradora de esta historia es una mujer del Caribe colombiano que vive en otro país. Un día, casi como un juego, decide hacerse…",
+        "sinopsis_completa": "La narradora de esta historia es una mujer del Caribe colombiano que vive en otro país. Un día, casi como un juego, decide hacerse un test genético que rastrea su ancestralidad. Es así como descubre que su primer ancestro fue una mujer nacida en Angola hace unos ochenta mil años y se interesa por su figura. La única manera de que un ADN de Angola llegara al Caribe colombiano era a través del comercio de esclavos. Empeñada en acercarlos a su origen, planea unas vacaciones con sus hijos a una isla caribeña, pero su exmarido le cambia los planes y se ve obligada a viajar sola.\n\nEn la isla se embarca en una suerte de correspondencia con su antepasada, pero las cartas encuentran también otras destinatarias. Le escribe a su abuela, a su madre, a su tía, a su hermana y a sus primas y hasta a la mujer que las cuidó de chicas, exponiendo memorias tan hilarantes como crueles, tan arbitrarias como certeras.\n\nAl mismo tiempo, la vida cotidiana en la isla se abre paso en forma de un vecino gringo con quien ensaya fantasías eróticas, atardeceres deslumbrantes, lluvias torrenciales, pájaros exóticos, videollamadas con sus hijos, perros vagabundos y quemas de basura que por momentos los zambullen en un humo espeso y perturbador.\n\nLas cartas convocan una historia familiar hecha de afectos, silencios, humor feroz, pequeñas y enormes derrotas, y herencias que nadie recuerda haber aceptado. Con una voz donde conviven ironía e intimidad, y que asume sus propias contradicciones, Margarita García Robayo construye una novela de una amplitud extraordinaria, que hace de la conversación epistolar una forma de pensamiento y la convierte en un territorio literario de enorme originalidad.",
+        "titulo": "Querida Sharik"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788433951243",
+      "libro_id": "isbn-9788433951243",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788433951250": {
       "datos": {
@@ -17721,6 +18238,67 @@
       "retry_after": "2026-11-08",
       "ultima_revision_error": "Cambio de autoría o cubierta: requiere revisión editorial"
     },
+    "isbn13:9788439747345": {
+      "datos": {
+        "autores": [
+          "Gabi Martínez"
+        ],
+        "coleccion": "Random House",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "RANDOM HOUSE",
+        "editorial_slug": "random-house",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/literatura-contemporanea/637797-libro-gritadero-9788439747345",
+        "fuentes_autores": {
+          "Gabi Martínez": "https://www.penguinlibros.com/es/107432-gabi-martinez"
+        },
+        "idioma": "es",
+        "isbn13": "9788439747345",
+        "materias": [
+          "Literatura contemporánea"
+        ],
+        "numero_paginas": 288,
+        "palabras_clave": [
+          "gabi martinez",
+          "gritadero",
+          "random house",
+          "2026",
+          "novedad",
+          "ficcion",
+          "novela",
+          "novela literaria",
+          "en español",
+          "en castellano",
+          "gritos",
+          "club de gritos",
+          "pro testa",
+          "crisis",
+          "el club de la lucha",
+          "chuck palahniuk",
+          "kiko amat",
+          "miqui otero",
+          "pandemia",
+          "post pandemia",
+          "suspense",
+          "thriller",
+          "critica so"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8213535-thickbox_default/gritadero.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1990,
+        "sinopsis_breve": "Gritadero es la historia de un movimiento sin precedentes, el que Tanit y Lupe, dos chicas de orígenes muy distintos, consiguieron articular. Tras coincidir…",
+        "sinopsis_completa": "Al nacer, gritas. Un grito que posee todo tu potencial, tu carácter base. Aquí estoy. Escúchame. Se trata de una voz original y salvaje que las crisis planetarias y domésticas, sumadas a la avalancha de ruido audiovisual, pueden acabar transformando en una voz constreñida, impotente y resignada. Pero también llena de rabia. Los problemas son demasiado grandes, las élites que a menudo los provocan están demasiado lejos y, por muchas redes sociales de que dispongas, te preguntas: ¿para qué sirve mi voz?\n\nGritadero es la historia de un movimiento sin precedentes, el que Tanit y Lupe, dos chicas de orígenes muy distintos, consiguieron articular. Tras coincidir por primera vez en la montaña rusa de un parque de atracciones, empezaron a construir una amistad a fuerza de gritos, experimentando su poder liberador y su capacidad para romper convenciones, transgredir los límites y generar esperanza. El resultado fue una inesperada revuelta.",
+        "titulo": "Gritadero"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788439747345",
+      "libro_id": "isbn-9788439747345",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9788445019535": {
       "datos": {
         "autores": [
@@ -17988,7 +18566,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-hds-n-0303-la-furia-de-los-dioses-cantos-tintados/457105",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788445022764",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-05",
@@ -18072,7 +18650,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-1984-rebelion-en-la-granja-ediciones-singulares/459629",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9788445022917",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-02",
@@ -18254,7 +18832,8 @@
         "idioma": "es",
         "isbn13": "9788448049157",
         "materias": [
-          "Juvenil"
+          "Juvenil",
+          "Películas y series"
         ],
         "numero_paginas": 240,
         "palabras_clave": [
@@ -18268,13 +18847,11 @@
         "sinopsis_completa": "Fred y George Weasley. Harry Potter y el misterio del príncipe.\n\nArtefactos del Mundo Mágico es una guía completa que explora la creación de los artefactos mágicos que aparecen en las películas de Harry Potter y Animales fantásticos, tales como la snitch dorada,...",
         "titulo": "Harry Potter: Artefactos del Mundo Mágico"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.planetadelibros.com/libro-harry-potter-artefactos-del-mundo-magico/450041",
-      "intentos": 3,
+      "estado_ingesta": "publicado",
       "isbn13": "9788448049157",
-      "motivo": "Materia editorial no clasificada; queda pendiente",
+      "libro_id": "isbn-9788448049157",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-08"
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788448049188": {
       "datos": {
@@ -19978,12 +20555,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "PENGUIN BOLSILLO",
+        "editorial_slug": "penguin-bolsillo",
         "encuadernacion": "Bolsillo",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-historica/635056-libro-la-infiel-9788466391566",
         "fuentes_autores": {
-          "Reyes Monforte": "https://www.penguinlibros.com/es/novela-historica/635056-libro-la-infiel-9788466391566"
+          "Reyes Monforte": "https://www.penguinlibros.com/es/6615-reyes-monforte"
         },
         "idioma": "es",
         "isbn13": "9788466391566",
@@ -19991,15 +20569,37 @@
           "Novela histórica"
         ],
         "numero_paginas": 528,
+        "palabras_clave": [
+          "reyes monforte",
+          "un burka por amor",
+          "basada en hecho reales",
+          "libros basados en hechos reales",
+          "terrorismo",
+          "aventura historia",
+          "aventura historica",
+          "aventura libro",
+          "best seller",
+          "booket",
+          "edad contemporanea",
+          "en castellano",
+          "en español",
+          "ficcion",
+          "historia de",
+          "intriga libros",
+          "intrig"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8096727-thickbox_default/la-infiel.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1295,
+        "sinopsis_breve": "Pero todo cambia cuando conoce en la academia a Najib, un hombre musulmán, atractivo y enigmático, plenamente adaptado al mundo occidental, que la deslumbra…",
+        "sinopsis_completa": "Sara es una joven profesora de una academia de idiomas de Madrid que ha atravesado momentos muy difíciles: la inesperada y prematura muerte de su madre y quedarse embarazada siendo apenas una adolescente. Años después, comparte con su hijo y con su padre una vida serena y aparentemente feliz.\n\nPero todo cambia cuando conoce en la academia a Najib, un hombre musulmán, atractivo y enigmático, plenamente adaptado al mundo occidental, que la deslumbra y la introduce poco a poco en sus tradiciones y en su cultura. Lo que comienza como una inesperada y apasionada historia de amor pronto se resquebraja y deja al descubierto un mundo de secretos, amenazas y peligros. Entonces, Sara se verá arrastrada a un viaje estremecedor hacia el miedo, la pérdida, la traición y la venganza.",
         "titulo": "La infiel"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/novela-historica/635056-libro-la-infiel-9788466391566",
+      "estado_ingesta": "publicado",
       "isbn13": "9788466391566",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20"
+      "libro_id": "isbn-9788466391566",
+      "primera_deteccion": "2026-10-20",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788466392143": {
       "datos": {
@@ -20127,12 +20727,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "PENGUIN BOLSILLO",
+        "editorial_slug": "penguin-bolsillo",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-dura",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635059-libro-cuentos-completos-edicion-especial-en-tapa-dura-9788466392297",
         "fuentes_autores": {
-          "Jorge Luis Borges": "https://www.penguinlibros.com/es/literatura-contemporanea/635059-libro-cuentos-completos-edicion-especial-en-tapa-dura-9788466392297"
+          "Jorge Luis Borges": "https://www.penguinlibros.com/es/400-jorge-luis-borges"
         },
         "idioma": "es",
         "isbn13": "9788466392297",
@@ -20140,15 +20741,31 @@
           "Literatura contemporánea"
         ],
         "numero_paginas": 560,
+        "palabras_clave": [
+          "cuentos completos de borges",
+          "literatura del siglo XX",
+          "recopilacion de los cuentos de borges",
+          "El jardín de lossenderos que se bifurcan",
+          "P ierre Menard",
+          "autor del Quijote",
+          "Funes el memorioso",
+          "El Sur",
+          "El Aleph o Ulrica",
+          "mejores audiolibros",
+          "mejores libros para escucha"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8102409-thickbox_default/cuentos-completos-edicion-especial-en-tapa-dura.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1695,
+        "sinopsis_breve": "Este volumen reúne todos los cuentos de Borges, uno de los legados más influyentes y deslumbrantes de la literatura occidental. El universo borgiano, con…",
+        "sinopsis_completa": "Este volumen reúne todos los cuentos de Borges, uno de los legados más influyentes y deslumbrantes de la literatura occidental. El universo borgiano, con sus espejos, laberintos, tigres, bibliotecas, gauchos o máscaras, es ya uno de los paisajes fundamentales del siglo XX. En este libro, el verdadero libro de libros, se encuentran obras maestras como «El jardín de los senderos que se bifurcan», «Pierre Menard, autor del Quijote», «Funes el memorioso», «El Sur», «El Aleph» o «Ulrica». Leer estos cuentos supone releer la historia de la humanidad y emprender una de las aventuras más enriquecedoras, bellas y emocionantes de todos los tiempos.",
         "titulo": "Cuentos completos (edición especial en tapa dura)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/literatura-contemporanea/635059-libro-cuentos-completos-edicion-especial-en-tapa-dura-9788466392297",
+      "estado_ingesta": "publicado",
       "isbn13": "9788466392297",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20"
+      "libro_id": "isbn-9788466392297",
+      "primera_deteccion": "2026-10-20",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788466392709": {
       "estado_ingesta": "pendiente_datos",
@@ -20342,12 +20959,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "PENGUIN BOLSILLO",
+        "editorial_slug": "penguin-bolsillo",
         "encuadernacion": "Bolsillo",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635071-libro-el-ano-del-mono-9788466394611",
         "fuentes_autores": {
-          "Patti Smith": "https://www.penguinlibros.com/es/literatura-contemporanea/635071-libro-el-ano-del-mono-9788466394611"
+          "Patti Smith": "https://www.penguinlibros.com/es/874-patti-smith"
         },
         "idioma": "es",
         "isbn13": "9788466394611",
@@ -20355,15 +20973,35 @@
           "Literatura contemporánea"
         ],
         "numero_paginas": 224,
+        "palabras_clave": [
+          "montate el festival en casa",
+          "fiesta en casa",
+          "conciertos barcelona",
+          "conciertos madrid",
+          "medusa festival",
+          "reggaeton beach festival",
+          "festivald e malaga",
+          "festival de merida",
+          "mad cool",
+          "festival de almagro",
+          "quedate en casa",
+          "yo me quedo en casa",
+          "2020",
+          "Sandy Pearlman",
+          "augurios"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8213506-thickbox_default/el-ano-del-mono.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1295,
+        "sinopsis_breve": "Son las dos de la madrugada de la Nochevieja de 2015 cuando Patti Smith llega al Dream Motel, junto a la playa de Santa…",
+        "sinopsis_completa": "Al contemplar mi imagen en la superficie gris mercurio de la tostadora, me fijé en que parecía joven y vieja al mismo tiempo.\n\nSon las dos de la madrugada de la Nochevieja de 2015 cuando Patti Smith llega al Dream Motel, junto a la playa de Santa Cruz, tras dar un concierto en la legendaria sala Fillmore de San Francisco. Acaba de cumplir setenta años. En la primera mañana del año sale a dar un paseo y toma su primera polaroid del rótulo del hotel, con el que mantiene una lúcida conversación, como una Alicia moderna en su particular País de las Maravillas. La charla le inspira unos versos y decide volver a su habitación, desde cuya terraza escucha las olas y piensa en su amigo Sandy Pearlman, el famoso productor musical, que lleva dos días en coma. Él fue quien le sugirió en su juventud que montara una banda de rock. Así comienza un viaje por la Costa Oeste, el desierto de Arizona, Manhattan o Kentucky, pero también por parajes recordados o imaginados, del mundo exterior y del interior, en el que Patti Smith nos permite deambular a su lado como sus acompañantes más íntimos.\n\nEsta edición se cierra con un emocionante epílogo escrito a raíz de los acontecimientos de 2020.",
         "titulo": "El año del Mono"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/literatura-contemporanea/635071-libro-el-ano-del-mono-9788466394611",
+      "estado_ingesta": "publicado",
       "isbn13": "9788466394611",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20"
+      "libro_id": "isbn-9788466394611",
+      "primera_deteccion": "2026-10-20",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788466396080": {
       "datos": {
@@ -20828,6 +21466,60 @@
       "libro_id": "isbn-9788466685368",
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9788466685382": {
+      "datos": {
+        "autores": [
+          "Eloy Moreno"
+        ],
+        "coleccion": "Ediciones B",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "EDICIONES B",
+        "editorial_slug": "ediciones-b",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-11-17",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/literatura-contemporanea/641520-libro-el-viaje-9788466685382",
+        "fuentes_autores": {
+          "Eloy Moreno": "https://www.penguinlibros.com/es/7894-eloy-moreno"
+        },
+        "idioma": "es",
+        "isbn13": "9788466685382",
+        "materias": [
+          "Literatura contemporánea"
+        ],
+        "numero_paginas": 432,
+        "palabras_clave": [
+          "libros mas vendidos 2026",
+          "eloy moreno libros",
+          "novedades libros 2026",
+          "en español",
+          "ficcion",
+          "para adultos",
+          "libros para regalar",
+          "regalos navida d",
+          "invisible",
+          "redes",
+          "el boligrafo de gel verde",
+          "tierra",
+          "diferente",
+          "lo que encontre bajo el sofa",
+          "best seller",
+          "libros recomendados"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8262087-thickbox_default/el-viaje.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2290,
+        "sinopsis_breve": "Tanto el autor de la novela como la propia editorial han decidido, en este caso, no poner ninguna descripción de la misma en respeto…",
+        "sinopsis_completa": "Tanto el autor de la novela como la propia editorial han decidido, en este caso, no poner ninguna descripción de la misma en respeto al silencio que merece esta historia.\n\nLa sensibilidad de cada lector es única y no queremos condicionarla. Este es un libro en el que el lector decide.",
+        "titulo": "El viaje"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788466685382",
+      "libro_id": "isbn-9788466685382",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788466685443": {
       "datos": {
@@ -22512,6 +23204,62 @@
       "primera_deteccion": "2026-10-21",
       "retry_after": "2026-11-08"
     },
+    "isbn13:9788491056287": {
+      "datos": {
+        "autores": [
+          "Fiódor M. Dostoievski"
+        ],
+        "coleccion": "Ediciones Conmemorativas",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "PENGUIN CLÁSICOS",
+        "editorial_slug": "penguin-clasicos",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-11-19",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-clasicos/637778-libro-los-hermanos-karamazov-edicion-especial-en-tapa-dura-9788491056287",
+        "fuentes_autores": {
+          "Fiódor M. Dostoievski": "https://www.penguinlibros.com/es/966-fiodor-m-dostoievski"
+        },
+        "idioma": "es",
+        "isbn13": "9788491056287",
+        "materias": [
+          "Grandes clásicos"
+        ],
+        "numero_paginas": 1112,
+        "palabras_clave": [
+          "crimen y castigo",
+          "penguin clasicos",
+          "hermanos karamazov",
+          "libro bolsillo",
+          "novela",
+          "literatura rusa",
+          "rusia",
+          "dostoievski",
+          "los hermanos karamazov",
+          "dostoyevski",
+          "penguin classics",
+          "los demonios",
+          "libros que hay que leer",
+          "noches blancas",
+          "tolstoi",
+          "ana karenina",
+          "el idiota",
+          "memorias d"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8266283-thickbox_default/los-hermanos-karamazov-edicion-especial-en-tapa-dura.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1595,
+        "sinopsis_breve": "Fiódor Pávlovich Karamázov, un terrateniente borracho, arbitrario y corrompido, tiene cuatro hijos: Dmitri, de carácter violento; Iván, un intelectual frío y materialista; Aliosha, el…",
+        "sinopsis_completa": "Fiódor Pávlovich Karamázov, un terrateniente borracho, arbitrario y corrompido, tiene cuatro hijos: Dmitri, de carácter violento; Iván, un intelectual frío y materialista; Aliosha, el hijo pequeño, pasivo y religioso; y Smerdiakov, el hijo bastardo y resentido. La novela gira en torno a las relaciones perversas que se establecen entre el padre y los hijos hasta que éste es asesinado y su presunto asesino, Dmitri, juzgado y condenado. Odio, amor, crueldad, compasión, sentimientos radicalmente contrarios y enfrentados...\n\nLa presente edición de una de las obras más importantes de la literatura universal cuenta con la célebre traducción de José Laín Entralgo. Asimismo, viene acompañada de una introducción de David McDuff, traductor y crítico literario especialista en la obra del autor.",
+        "titulo": "Los hermanos Karamázov (edición especial en tapa dura)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788491056287",
+      "libro_id": "isbn-9788491056287",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9788491057031": {
       "datos": {
         "autores": [
@@ -23361,7 +24109,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/the-book/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9791387574079",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -23399,6 +24147,41 @@
       "estado_ingesta": "publicado",
       "isbn13": "9791387574253",
       "libro_id": "isbn-9791387574253",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9791387574406": {
+      "datos": {
+        "autores": [
+          "Agnès Martin-Lugand"
+        ],
+        "coleccion": "Nefelibata",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-10-19",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/los-renaceres/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791387574406",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 400,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/09/Los-renaceres-300-pp-676x1024.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2000,
+        "sinopsis_breve": "LA AUTORA BESTSELLER QUE EMOCIONA A LOS LECTORES «Deslumbrante.» Elle HAY MIRADAS QUE DAÑAN. OTRAS TIENEN EL PODER DE SANAR… Por casualidad, un hombre…",
+        "sinopsis_completa": "Por casualidad, un hombre y una mujer se encuentran en la barra de un bistró. Rebecca se enfrenta a un bloqueo creativo: la inspiración la ha abandonado y las dudas han tomado el control de su vida. Lino es un artesano apasionado por la historia del arte y atormentado por los fantasmas de su pasado. Inclinado a confiar en ella, se sincera antes de desaparecer en la noche. Fascinada por su historia, Rebecca se lanza a buscarlo, decidida a convertirlo en el protagonista de su próxima novela. Conmovedora y luminosa, Los renaceres nos habla de segundas oportunidades, mujeres que se reinventan y vínculos capaces de transformar una vida. Un canto al coraje de renacer cuando el corazón lo pide.",
+        "titulo": "Los renaceres"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387574406",
+      "libro_id": "isbn-9791387574406",
       "primera_deteccion": "2026-11-05",
       "publicado_en": "2026-11-05"
     },
@@ -23470,6 +24253,41 @@
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
       "retry_after": "2026-11-05"
+    },
+    "isbn13:9791387574581": {
+      "datos": {
+        "autores": [
+          "Kim Ho-Yeon"
+        ],
+        "coleccion": "Nefelibata",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-06-22",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/el-club-de-los-sonadores/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791387574581",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 336,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/05/EL-CLUB-DE-LOS-SONADORES-300-dpi.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1800,
+        "sinopsis_breve": "EL AUTOR COREANO QUE SEDUCE AL MUNDO La novela perfecta para quienes buscan una historia optimista que nutre el alma. UNA EMOTIVA HISTORIA SOBRE…",
+        "sinopsis_completa": "La novela perfecta para quienes buscan una historia optimista que nutre el alma. Una emotiva historia sobre sueños, amistad y segundas oportunidades. En el corazón de Daejeon, a comienzos de los años 2000, el videoclub Don Quijote era mucho más que un lugar donde alquilar películas: era un refugio. Allí, un grupo de adolescentes encontraba en su propietario, el carismático señor Don, la inspiración para creer en sí mismos y perseguir sus sueños. Quince años después, Sol, una productora de televisión que acaba de perder el empleo, regresa a su ciudad natal sin un rumbo claro. En plena crisis personal, se reencuentra con Han-Bin, el hijo del señor Don, quien le propone embarcarse en una búsqueda inesperada: encontrar a su padre, desaparecido desde hace tres años. Cuando descubren que el sótano del antiguo videoclub permanece intacto, Sol tiene una idea: crear un canal de YouTube dedicado a compartir historias sobre libros y películas… y, quizá, también a descubrir qué ocurrió con el hombre que dejó una huella imborrable en sus vidas. Del autor de los éxitos internacionales La asombrosa tienda de la señora Yeom y Las maravillas de la tienda de Cheongpa-dong, llega una novela cálida, emotiva y llena de esperanza, perfecta para los lectores que disfrutan de historias reconfortantes, personajes entrañables y segundas oportunidades.",
+        "titulo": "El club de los soñadores"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387574581",
+      "libro_id": "isbn-9791387574581",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791387574598": {
       "datos": {
@@ -23570,10 +24388,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/los-profes-que-no-volvieron-a-casa-en-navidad/",
+      "intentos": 1,
       "isbn13": "9791387574710",
       "motivo": "Datos insuficientes para orientar al lector: que_formato_elegir",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9791387574772": {
       "datos": {
@@ -23638,7 +24457,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/murcielagos-de-la-republica/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9791387574819",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
@@ -24181,12 +25000,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "PENGUIN BOLSILLO",
+        "editorial_slug": "penguin-bolsillo",
         "encuadernacion": "Bolsillo",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-romantica/634645-libro-persiguiendo-las-estrellas-las-mujeres-hard-1-9791387652609",
         "fuentes_autores": {
-          "Sarah Lark": "https://www.penguinlibros.com/es/novela-romantica/634645-libro-persiguiendo-las-estrellas-las-mujeres-hard-1-9791387652609"
+          "Sarah Lark": "https://www.penguinlibros.com/es/8193-sarah-lark"
         },
         "idioma": "es",
         "isbn13": "9791387652609",
@@ -24194,15 +25014,34 @@
           "Novela romántica"
         ],
         "numero_paginas": 576,
+        "palabras_clave": [
+          "novela de amor",
+          "novela historica romantica",
+          "novela historica",
+          "novelas romanticas",
+          "primera guerra mundial",
+          "regalo dia de la madre",
+          "reino unido",
+          "romance historico",
+          "romance regencia",
+          "romance victoriano",
+          "romantica medieval",
+          "romantica victoriana",
+          "romantica vikingos",
+          "aviaci"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8091471-thickbox_default/persiguiendo-las-estrellas-las-mujeres-hard-1.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1295,
+        "sinopsis_breve": "Juntas parten a Saint Leonards, la primera escuela femenina de Escocia, donde se prepara también a las alumnas para que estudien una carrera si…",
+        "sinopsis_completa": "Escocia, finales del siglo XIX. Las tres jóvenes primas del noble clan de los Hard tienen grandes aspiraciones. Mientras Ailis es una apasionada del estudio de las estrellas, Donella sueña con viajar en globo aerostático y Haily ambiciona alcanzar la fama en los escenarios.\n\nJuntas parten a Saint Leonards, la primera escuela femenina de Escocia, donde se prepara también a las alumnas para que estudien una carrera si así lo desean. La avispada y leal Emily, cuyos padres son sirvientes aunque se ha criado junto a las primas, las acompaña al internado. El mundo parece abrirse con un sinfín de posibilidades para las cuatro jóvenes. Hasta que un giro inesperado del destino golpea a una de ellas y todas deben emprender caminos separados...",
         "titulo": "Persiguiendo las estrellas (Las mujeres Hard 1)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/novela-romantica/634645-libro-persiguiendo-las-estrellas-las-mujeres-hard-1-9791387652609",
+      "estado_ingesta": "publicado",
       "isbn13": "9791387652609",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20"
+      "libro_id": "isbn-9791387652609",
+      "primera_deteccion": "2026-10-20",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791387667825": {
       "datos": {
@@ -24961,7 +25800,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-stitch-cine-en-casa/444061",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9791387901400",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
@@ -28344,7 +29183,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/que-es-una-frontera/",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9791388042119",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-02",
@@ -28451,10 +29290,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/historia-de-dos-almas/",
+      "intentos": 1,
       "isbn13": "9791388042256",
       "motivo": "Respuesta editorial demasiado grande",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9791388042270": {
       "datos": {
@@ -28595,6 +29435,41 @@
       "libro_id": "isbn-9791388042324",
       "primera_deteccion": "2026-10-31",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9791388042348": {
+      "datos": {
+        "autores": [
+          "Marcelo E. Mazzanti"
+        ],
+        "coleccion": "Fuera de colección",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-07-06",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/errores-criminales/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388042348",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 192,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/06/9791388042461.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1800,
+        "sinopsis_breve": "RESUELVE EL MISTERIO DEL VERANO UNA NOVELA QUE ESCONDE SUS PROPIAS PISTAS Comprueba. Rastrea. Investiga. Medita. Encuéntralo. Nombra. LOS MEJORES SECRETOS SIEMPRE ESTÁN A…",
+        "sinopsis_completa": "Comprueba. Rastrea. Investiga. Medita. Encuéntralo. Nombra. Los mejores secretos siempre están a simple bista. Hay mensajes ocultos en los títulos de los capítulos. En los erro­res de imprenta. En las alarmas de los coches aparcados a media­noche. Ariadna los ve todos. Es criptógrafa, prefiere los códigos a las personas y lleva toda la vida encontrando lo que otros no ven. Pero cuando llega al piso de una famosa divulgadora científica y la encuentra muerta en el suelo, ha de enfrentarse al enigma más peligroso que jamás ha tenido que descifrar. Alguien la observa. Alguien que conoce sus movimientos, hackea semáforos, manipula periódicos y se comunica a través de calcu­ladoras de los años ochenta o novelas de quiosco. Para salvar vidas, y quizá la suya propia, Ariadna deberá resolver una cadena de acertijos que mezcla criptografía, esteganografía e historia con la tecnología más inquietante del presente. Pero hay una regla: tú, lector, también puedes jugar. Una novela de suspense que es también un juego: puedes leerla o puedes resolverla.",
+        "titulo": "Errores criminales"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388042348",
+      "libro_id": "isbn-9791388042348",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791388042409": {
       "datos": {
@@ -28800,10 +29675,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/po-y-mo-la-estrella-de-navidad/",
+      "intentos": 1,
       "isbn13": "9791388042669",
       "motivo": "Datos insuficientes para orientar al lector: que_formato_elegir",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9791388042683": {
       "datos": {
@@ -28904,10 +29780,11 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/centella-la-primera-rena-de-papa-noel-2/",
+      "intentos": 1,
       "isbn13": "9791388042720",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-04",
-      "retry_after": "2026-11-07"
+      "retry_after": "2026-11-08"
     },
     "isbn13:9791388042775": {
       "datos": {
@@ -30836,6 +31713,61 @@
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
     },
+    "isbn13:9791388163531": {
+      "datos": {
+        "autores": [
+          "Freida McFadden"
+        ],
+        "coleccion": "SUMA",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "SUMA",
+        "editorial_slug": "suma-de-letras",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-11-26",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637817-libro-el-divorcio-9791388163531",
+        "fuentes_autores": {
+          "Freida McFadden": "https://www.penguinlibros.com/es/948769-freida-mcfadden"
+        },
+        "idioma": "es",
+        "isbn13": "9791388163531",
+        "materias": [
+          "Novela negra, misterio y thriller"
+        ],
+        "numero_paginas": 352,
+        "palabras_clave": [
+          "la asistenta",
+          "book tok",
+          "booktok",
+          "el recluso",
+          "el secreto de la asistenta",
+          "en castellano",
+          "en español",
+          "exito viral",
+          "freida mcfadden en español",
+          "intriga libros",
+          "intriga y suspense",
+          "la asistenta te vigila",
+          "la boda de la asistenta",
+          "la mujer de arriba",
+          "la profesora",
+          "el novio",
+          "n"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8266317-thickbox_default/el-divorcio.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "En lugar de eso, desarrolla una fijación con la nueva novia de su marido. Lo que comienza como curiosidad pronto se transforma en obsesión...…",
+        "sinopsis_completa": "Naomi estaba viviendo la historia de amor perfecta. Chico conoce a chica. Se enamoran, se casan, compran la casa de sus sueños, forman una familia...\n\nY entonces, él la echa a la calle, contrata a los mejores abogados de la ciudad, vacía sus cuentas y empieza una relación con una veinteañera.\n\nEs un final brutal para la historia. Naomi debería aceptar la derrota: mudarse a un apartamento modesto, volver al mercado laboral y centrarse en recomponer los pedazos de su vida\n\nSolo que... ¿por qué tendría que hacerlo?\n\nEn lugar de eso, desarrolla una fijación con la nueva novia de su marido. Lo que comienza como curiosidad pronto se transforma en obsesión..., y después en algo mucho más oscuro.\n\nA medida que Naomi descubre secretos que jamás habría imaginado, comprende que su propia vida podría estar en peligro.\n\nPero si eso mantiene intacta a su familia perfecta, ¿acaso no merece la pena?",
+        "titulo": "El divorcio"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388163531",
+      "libro_id": "isbn-9791388163531",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9791388163555": {
       "datos": {
         "autores": [
@@ -31601,6 +32533,43 @@
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
     },
+    "isbn13:9791388273070": {
+      "datos": {
+        "autores": [
+          "Nita Prose"
+        ],
+        "coleccion": "Duomo Bolsillo",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Duomo Ediciones",
+        "editorial_slug": "duomo-ediciones",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2024-05-27",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.duomoediciones.com/libro/el-huesped-misterioso-2/",
+        "fuentes_autores": {},
+        "idioma": "es",
+        "isbn13": "9791388273070",
+        "materias": [
+          "Narrativa"
+        ],
+        "numero_paginas": 336,
+        "palabras_clave": [],
+        "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2026/11/Duomo_Bolsillo_Huesped_6_90.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 690,
+        "sinopsis_breve": "Una camarera distinta a los demás. Una muerte inesperada y perturbadora. Bienvenidos al Hotel Regency Grand, donde nada es lo que parece. «Una heroína…",
+        "sinopsis_completa": "Una camarera distinta a los demás. Una muerte inesperada y perturbadora. Bienvenidos al Hotel Regency Grand, donde nada es lo que parece. «Una heroína inolvidable, la más estimulante (y adorable) que me he encontrado en mucho tiempo. Es brillante.» Stephen King «Me entretuvo mucho esta novela. Y me enseñó. Su sentido del humor hace mucho por ello. Y su inteligente ironía. Para mí fue una muy agradable sorpresa.» Ernesto Ayala-Dip Tras el éxito rotundo de su primera novela, La camarera, con más de dos millones de lectores en todo el mundo, Nita Prose nos brinda de nuevo una protagonista cautivadora y maravillosa en un misterio clásico, fresco e inolvidable. Molly Gray no es una camarera corriente. Gracias a su talento para la limpieza y la etiqueta, ha ascendido en el elegante hotel Regency Grand hasta convertirse en la apreciada jefa de camareras. Pero justo cuando su vida alcanza la cima de la perfección, todo da un vuelco. Un célebre escritor de novelas de misterio muere de repente durante un evento en el hotel. La impoluta reputación del establecimiento está en entredi­cho, y solo Molly posee la llave para resolver el misterio.",
+        "titulo": "El huésped misterioso"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/el-huesped-misterioso-2/",
+      "intentos": 1,
+      "isbn13": "9791388273070",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9791388277023": {
       "datos": {
         "autores": [
@@ -32086,7 +33055,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-murdoku-vol-1-vol-2/459348",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9791388279362",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-03",
@@ -32413,6 +33382,47 @@
       "libro_id": "isbn-9791388279652",
       "primera_deteccion": "2026-11-04",
       "publicado_en": "2026-11-04"
+    },
+    "isbn13:9791388279720": {
+      "datos": {
+        "autores": [
+          "Manuel Garand"
+        ],
+        "coleccion": "Voces de hoy",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "Temas de Hoy",
+        "editorial_slug": "temas-de-hoy",
+        "encuadernacion": "Rústica con solapas",
+        "fecha_publicacion_edicion": "2027-02-24",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.planetadelibros.com/libro-murdoku-vuelta-al-mundo/467281",
+        "fuentes_autores": {
+          "Manuel Garand": "https://www.planetadelibros.com/autor/manuel-garand/000064238"
+        },
+        "idioma": "es",
+        "isbn13": "9791388279720",
+        "materias": [
+          "Ocio y entretenimiento"
+        ],
+        "numero_paginas": 224,
+        "palabras_clave": [
+          "Ocio y entretenimiento",
+          "Juegos",
+          "Humor"
+        ],
+        "portada_fuente_url": "https://proassetspdlcom.cdnstatics2.com/usuaris/libros/thumbs/c40305b4-2910-46be-a905-639b6cf60625/d_360_620/portada_murdoku-vuelta-al-mundo_manuel-garand_202611030941.webp",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1790,
+        "sinopsis_breve": "En este esperado tercer volumen de Murdoku, el librojuego que combina el sudoku con el crimen y el ingenio de los acertijos de lógica…",
+        "sinopsis_completa": "En este esperado tercer volumen de Murdoku, el librojuego que combina el sudoku con el crimen y el ingenio de los acertijos de lógica, ¡prepárate para hacer las maletas y viajar alrededor del planeta! Hay asesinos al acecho en todas partes y necesitamos tu olfato de detective para darles...",
+        "titulo": "Murdoku: Vuelta al mundo"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388279720",
+      "libro_id": "isbn-9791388279720",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791388306129": {
       "datos": {
@@ -33241,7 +34251,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-oh-no-me-he-enfadado/465659",
-      "intentos": 3,
+      "intentos": 4,
       "isbn13": "9791399303506",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
@@ -33258,10 +34268,20 @@
     "url:https://www.duomoediciones.com/libro/11/": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/11/",
+      "intentos": 1,
       "isbn13": null,
       "motivo": "Faltan título, autoría, sello o ISBN comprobable",
       "primera_deteccion": "2026-11-02",
-      "retry_after": "2026-11-05"
+      "retry_after": "2026-11-08"
+    },
+    "url:https://www.duomoediciones.com/libro/cuentos-completos-de-beatrix-potter/": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/cuentos-completos-de-beatrix-potter/",
+      "intentos": 1,
+      "isbn13": null,
+      "motivo": "Encuadernación desconocida o no física",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
     },
     "url:https://www.duomoediciones.com/libro/el-libro-de-las-palabras/": {
       "estado_ingesta": "pendiente_datos",
@@ -33294,6 +34314,15 @@
       "isbn13": null,
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-10-31",
+      "retry_after": "2026-11-08"
+    },
+    "url:https://www.duomoediciones.com/libro/la-dependienta-edicion-especial-de-lujo/": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.duomoediciones.com/libro/la-dependienta-edicion-especial-de-lujo/",
+      "intentos": 1,
+      "isbn13": null,
+      "motivo": "Fecha editorial ausente o inválida",
+      "primera_deteccion": "2026-11-05",
       "retry_after": "2026-11-08"
     },
     "url:https://www.duomoediciones.com/libro/nocturno/": {
