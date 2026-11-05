@@ -111,7 +111,7 @@ async function runCase(width,mode){
     // Static price: only Amazon's (one of its formats), never the editorial PVP.
     const prices=(selected.formatos_compra||[]).map(o=>o.precio_centimos).filter(Boolean);
     if(prices.length){
-      const text=(await card.locator('.catalogue-format:not(.is-missing)').allInnerTexts()).join(' ').replace(/\s/g,' ');
+      const text=(await card.locator('.catalogue-format:not(.is-missing)').allTextContents()).join(' ').replace(/\s/g,' ');
       assert(prices.some(c=>text.includes((c/100).toLocaleString('es-ES',{style:'currency',currency:'EUR'}).replace(/\s/g,' '))),'Static Amazon price remains available independently of market data');
     }
     assert.equal(new URL(page.url()).searchParams.get('utm_source'),'resilience-test','Source parameter survives interactions and reload');
