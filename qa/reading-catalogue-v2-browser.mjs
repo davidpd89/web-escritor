@@ -8,7 +8,7 @@ const out=process.env.RECOMMENDATIONS_ARTIFACT_DIR||'.ci/reading-v2';
 await fs.mkdir(out,{recursive:true});
 execFileSync(process.env.PYTHON||'python',['qa/build-reading-scale-fixture.py',`${out}/scale.json`],{stdio:'inherit'});
 const fixture=JSON.parse(await fs.readFile(`${out}/scale.json`,'utf8'));
-const browser=await chromium.launch({headless:true});
+const browser=await chromium.launch({headless:true,...(process.env.QA_CHROMIUM_EXECUTABLE_PATH?{executablePath:process.env.QA_CHROMIUM_EXECUTABLE_PATH}:{})});
 const results=[];
 // The newsletter has its own browser suite. Model a visitor who dismissed it
 // so scrolling to pagination tests the catalogue rather than a modal overlay.
@@ -26,9 +26,11 @@ try {
     page.on('pageerror',e=>errors.push(e.message));
     await page.clock.install({time:new Date('2026-10-21T10:00:00Z')});
     await context.route('**/recomendaciones/',r=>r.fulfill({contentType:'text/html',body:fixture.catalogues[count].html}));
+    for (const [path, body] of Object.entries(fixture.catalogues[count].pages)) await context.route('**'+path,r=>r.fulfill({contentType:'text/html',body}));
     await context.route('**/assets/reading-covers/qa-*',r=>r.fulfill({contentType:'image/png',body:Buffer.from(fixture.cover,'base64')}));
     await context.route('**/assets/reading-market.json',r=>r.fulfill({json:{schema_version:1,offers:[],ratings:[]}}));
     await page.goto(`${base}/recomendaciones/`,{waitUntil:'networkidle'});
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     assert.equal(await page.locator('[data-catalogue-book]').count(),count);
     assert.equal(await page.locator('[data-catalogue-book]:visible').count(),24);
     await page.locator('.catalogue-pagination').getByRole('button',{name:'Siguiente →'}).click();
@@ -38,6 +40,7 @@ try {
     assert.equal(await page.locator('.catalogue-pagination [aria-current="page"]').innerText(),'1');
     await page.locator('.catalogue-pagination').getByRole('button',{name:'Página 2',exact:true}).click();
     await page.reload({waitUntil:'networkidle'});
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     assert.match(await page.locator('[data-catalogue-count]').innerText(),/página 2/);
     await openFilters(page);
     const ms=await page.evaluate(() => {
@@ -83,6 +86,7 @@ try {
     const selected=await page.locator('[data-catalogue-book]:visible').evaluateAll(es=>es.map(e=>({cats:e.dataset.categories,date:e.dataset.published})));
     assert(selected.every(b=>b.cats.split(' ').includes('halloween')));
     await page.reload({waitUntil:'networkidle'});
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
     assert.deepEqual(errors,[]);
     results.push({books:count,filter_ms:Math.round(ms),quiz_results:selected.length});
@@ -98,10 +102,12 @@ try {
     page.on('pageerror',error=>errors.push(error.message));
     await page.clock.install({time:new Date('2026-10-21T10:00:00Z')});
     await context.route('**/recomendaciones/',r=>r.fulfill({contentType:'text/html',body:fixture.catalogues[100].html}));
+    for (const [path, body] of Object.entries(fixture.catalogues[100].pages)) await context.route('**'+path,r=>r.fulfill({contentType:'text/html',body}));
     await context.route('**/assets/reading-market.json',r=>r.fulfill({json:{schema_version:1,offers:[],ratings:[]}}));
     await page.goto(base+'/recomendaciones/',{waitUntil:'networkidle'});
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     const records=await page.locator('[data-catalogue-book]').evaluateAll(cards=>cards.map(card=>({
-      id:card.dataset.bookId,group:card.dataset.group,cats:card.dataset.categories.split(' '),search:card.dataset.search
+      id:card.dataset.bookId,group:card.dataset.group,cats:card.dataset.categories.split(' '),search:[card.dataset.title,card.dataset.author,card.querySelector("[data-isbn]")?.dataset.isbn].join(" ")
     })));
     assert.equal(records.length,100);
     assert(records.some(r=>r.group==='novela')&&records.some(r=>r.group==='cocina'));
@@ -132,6 +138,7 @@ try {
     // remain recoverable; do not click an intentionally disabled checkbox.
     assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isDisabled());
     await page.goto(base+'/recomendaciones/#grupo=cocina&temporada=halloween',{waitUntil:'networkidle'});
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
     assert.equal(await verify(['cocina'],['halloween']),0);
     const cooking=page.locator('input[data-facet="grupo"][value="cocina"]');
@@ -151,6 +158,7 @@ try {
     assert.deepEqual(hash.getAll('temporada'),['halloween']);
     assert.equal(hash.get('q'),'Prueba técnica 000');
     await page.reload({waitUntil:'networkidle'});
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     assert(await page.locator('input[data-facet="grupo"][value="novela"]').isChecked());
     assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
     assert.equal(await page.locator('[data-filter="q"]').inputValue(),'Prueba técnica 000');
@@ -177,6 +185,7 @@ try {
     await page.addInitScript(()=>localStorage.setItem('nl-popup-ts',String(Date.now())));
     await page.clock.install({time:new Date('2026-10-21T10:00:00Z')});
     await page.goto(base+'/recomendaciones/',{waitUntil:'networkidle'});
+    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
     await page.evaluate(()=>document.fonts.ready);
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`overflow ${width}`);
     const links=await page.locator('.catalogue-card__cover,.catalogue-card h3 a,.catalogue-card__buy').evaluateAll(es=>es.map(e=>({target:e.target,rel:e.rel,href:e.href})));
@@ -200,10 +209,10 @@ try {
   const staticContext=await catalogueContext({javaScriptEnabled:false});
   const staticPage=await staticContext.newPage(); await staticPage.goto(base+'/recomendaciones/');
   const published=JSON.parse(await fs.readFile('data/reading-catalogue.json','utf8')).libros.filter(b=>b.estado==='publicado').length;
-  assert.equal(await staticPage.locator('[data-catalogue-book]:visible').count(),published);
+  assert.equal(await staticPage.locator('[data-catalogue-book]:visible').count(),Math.min(published,96));
   assert.equal(await staticPage.locator('.catalogue-quiz button').count(),0);
   await staticPage.locator('.catalogue-quiz>summary').click();
-  assert.match(await staticPage.locator('.catalogue-quiz__panel').innerText(),/explorar todas las fichas/);
+  assert.match(await staticPage.locator('.catalogue-quiz__panel').innerText(),/consultar todas las fichas/);
   await staticContext.close();
   const cold=await catalogueContext({viewport:{width:390,height:900}});
   const coldPage=await cold.newPage();

@@ -54,7 +54,7 @@ class CardParser(HTMLParser):
 class CardTitleIntegrityTest(unittest.TestCase):
     def test_long_titles_are_not_shortened(self):
         data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
-        html = (ROOT / 'recomendaciones/index.html').read_text(encoding='utf-8')
+        html = ''.join(page.read_text(encoding='utf-8') for page in [ROOT / 'recomendaciones/index.html', *ROOT.glob('recomendaciones/pagina/*/index.html')])
         parser = CardParser()
         parser.feed(html)
         # La tarjeta se identifica por su id: el título puede enlazar a Amazon o a la ficha según haya oferta.

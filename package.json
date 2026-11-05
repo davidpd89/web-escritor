@@ -6,7 +6,7 @@
     "postinstall:chromium": "playwright install --with-deps chromium"
   },
   "devDependencies": {
-    "@lhci/cli": "0.15.1",
+    "@lhci/cli": "0.16.0",
     "pa11y-ci": "5.0.0",
     "pagefind": "^1.5.2",
     "pixelmatch": "7.2.0",
@@ -16,6 +16,8 @@
   "overrides": {
     "basic-ftp": "6.2.1",
     "compression": "1.8.2",
-    "proxy-addr": "2.0.8"
+    "proxy-addr": "2.0.8",
+    "glob@>=9.0.0": "14.0.2",
+    "minimatch@>=7.0.0": "11.0.1"
   }
 }

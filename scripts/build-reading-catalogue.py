@@ -20,7 +20,7 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from site_shell import inject_shell_auto
-from reading_intake_core import strip_shouting
+from reading_intake_core import strip_shouting, decode_text_entities
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://davidportodiaz.com"
@@ -264,7 +264,7 @@ def tags(cats, compact=False, limit=None):
 
 
 def synopsis(b):
-    return strip_shouting(b.get('sinopsis_breve') or b['descripcion_breve'])
+    return strip_shouting(' '.join(decode_text_entities(b.get('sinopsis_breve') or b['descripcion_breve']).split()))
 
 
 def clip(text, limit):
@@ -288,7 +288,7 @@ def synopsis_paragraphs(b):
     """Sinopsis entera para la ficha; el extracto breve si la fuente aún no se ha releído.
     Sin titulares en mayúsculas ni citas de prensa pegados al texto (ficha, tarjeta y meta)."""
     if b.get('sinopsis_tipo') != 'resumen_propio' and b.get('sinopsis_completa'):
-        return [strip_shouting(p) for p in b['sinopsis_completa'].split('\n\n') if p.strip()]
+        return [strip_shouting(' '.join(decode_text_entities(p).split())) for p in b['sinopsis_completa'].split('\n\n') if p.strip()]
     return [synopsis(b)]
 
 
@@ -575,12 +575,13 @@ def author_url(a):
     return '/recomendaciones/autores/' + a['slug'] + '/'
 
 
-def author_links(b, authors=None):
+def author_links(b, authors=None, compact=False):
     authors = author_records() if authors is None else authors
     links = []
+    destination = 'libros' if compact else 'información y libros'
     for name in b['autores']:
         a = next((a for a in authors if a['nombre'] == name), None)
-        links.append(f'<a href="{author_url(a)}" target="_blank" rel="noopener" aria-label="{esc(name)}: información y libros (otra pestaña)">{esc(name)} <span aria-hidden="true">↗</span></a>' if a else esc(name))
+        links.append(f'<a href="{author_url(a)}" target="_blank" rel="noopener" aria-label="{esc(name)}: {destination} (otra pestaña)">{esc(name)} <span aria-hidden="true">↗</span></a>' if a else esc(name))
     return ', '.join(links)
 
 
@@ -725,6 +726,9 @@ def format_box(b, compact=False):
             cells.append(f'<li><a class="catalogue-format{" is-primary" if f == main else ""}" data-purchase-format="{f}" href="{esc(amazon_es(o["url"]))}" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="{FORMATS[f]}: {price} en Amazon (otra pestaña)"><span>{FORMATS[f]}</span><strong>{price}</strong></a></li>')
         else:
             cells.append(f'<li><span class="catalogue-format is-missing" data-missing-format="{f}" aria-label="{FORMATS[f]}: no disponible en Amazon"><span>{FORMATS[f]}</span><strong aria-hidden="true">✕</strong></span></li>')
+    if compact:
+        # The enclosing region already names Amazon; retain format, price and new-tab hint.
+        cells = [cell.replace(' en Amazon (otra pestaña)', ' (otra pestaña)').replace(': no disponible en Amazon', ': no disponible') for cell in cells]
     heading = '' if compact else '<h2>Formatos y precios en Amazon</h2>'
     return f'<section class="catalogue-formats{" catalogue-formats--card" if compact else ""}" aria-label="Formatos y precios en Amazon">{heading}<ul>' + ''.join(cells) + '</ul></section>'
 
@@ -935,7 +939,23 @@ def group_options(groups):
     return sorted(((gid, label) for gid, label, _m in BOOK_GROUPS if gid in groups), key=lambda g: display_order.index(g[0]))
 
 
-def render_hub(data, books, template):
+CATALOGUE_PAGE_SIZE = 96
+
+
+def catalogue_page_url(number):
+    return '/recomendaciones/' if number == 1 else f'/recomendaciones/pagina/{number}/'
+
+
+def catalogue_pager(number, pages):
+    if pages <= 1:
+        return ''
+    links = ''.join(f'<span aria-current="page">{i}</span>' if i == number else
+                    f'<a href="{catalogue_page_url(i)}" target="_self" data-catalogue-page aria-label="Página {i}">{i}</a>'
+                    for i in range(1, pages + 1))
+    return '<nav class="catalogue-pagination catalogue-static-pagination" data-catalogue-static-pagination aria-label="Páginas del catálogo">' + links + '</nav>'
+
+
+def render_hub(data, books, template, page_number=1):
     anchor = data_anchor(books) or None
     cards = []
     groups = {}
@@ -944,14 +964,24 @@ def render_hub(data, books, template):
     # y el primer filtrado del JS no mueve la página (CLS); sin JS siguen todas las fichas.
     anchor = data_anchor(books)
     books.sort(key=lambda b: b.get('fecha_publicacion', '') > anchor)
-    for i,b in enumerate(books):
+    page_count = max(1, math.ceil(len(books) / CATALOGUE_PAGE_SIZE))
+    require(type(page_number) is int and 1 <= page_number <= page_count, 'Página de catálogo fuera de rango')
+    offset = (page_number - 1) * CATALOGUE_PAGE_SIZE
+    visible_books = books[offset:offset + CATALOGUE_PAGE_SIZE]
+    canonical = SITE + catalogue_page_url(page_number)
+    version = hashlib.sha256(json.dumps(books, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
+    for book in books:
+        group = book_group(categories(data, book))
+        groups[group] = groups.get(group, 0) + 1
+    for i,b in enumerate(visible_books):
         cats = categories(data,b)
         group = book_group(cats)
-        groups[group] = groups.get(group, 0) + 1
         formats = ' '.join(sorted(set([o['formato'] for o in purchase_formats(b)] + ([b['formato_edicion']] if b.get('formato_edicion') else []))))
         published = b.get('fecha_publicacion', '')
-        year = b.get('anio_publicacion', '')
-        attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-search="{esc(b["titulo"] + " " + " ".join(b["autores"]) + " " + b.get("isbn13", ""))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}" data-pvp="{esc(lowest_price(b) or "")}" data-format-prices="{format_prices(b)}" data-format-discounts="{format_discounts(b)}"'
+        year = '' if published or b.get('fecha_publicacion_parcial') else b.get('anio_publicacion', '')
+        attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}" data-format-prices="{format_prices(b)}" data-format-discounts="{format_discounts(b)}"'
+        # Missing optional values have the same runtime meaning as empty ones.
+        attrs = re.sub(r' data-(?:published|published-month|year|pages|format-prices|format-discounts)=""', '', attrs)
         affiliate_link = amazon_destination(b)
         affiliate_cta = ('<a class="catalogue-buy-link catalogue-card__buy" href="' + esc(affiliate_link) + '" target="_blank" aria-label="' + esc(amazon_action_label(b)) + ': ' + esc(b["titulo"]) + ' (otra pestaña)" rel="sponsored nofollow noopener noreferrer">' + esc(amazon_action_label(b)) + ' <span aria-hidden="true">↗</span></a>') if affiliate_link else ''
         # Portada y título llevan directamente a Amazon con la etiqueta de afiliado; «Ver ficha» abre la ficha propia.
@@ -963,22 +993,44 @@ def render_hub(data, books, template):
         else:
             cover_link = f'href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)"'
             title_link = f'href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña"'
-        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" {cover_link}>{image(b,i>1)}</a><div><p class="eyebrow catalogue-when">{release_line(b)}</p>{tags(cats, compact=True)}<h3><a {title_link}>{esc(card_title(b))}</a></h3><p class="catalogue-author">{author_links(b)}</p>{byline(b)}<p class="catalogue-card__description">{esc(card_synopsis(b, anchor=anchor))}</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}" data-isbn="{esc(b.get("isbn13", ""))}"></div>{format_box(b, compact=True)}<a class="text-action catalogue-card__ficha" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
+        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" {cover_link}>{image(b,i>1)}</a><div><p class="eyebrow catalogue-when">{release_line(b)}</p>{tags(cats, compact=True)}<h3><a {title_link}>{esc(card_title(b))}</a></h3><p class="catalogue-author">{author_links(b, compact=True)}</p>{byline(b)}<p class="catalogue-card__description">{esc(card_synopsis(b, anchor=anchor))}</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}" data-isbn="{esc(b.get("isbn13", ""))}"></div>{format_box(b, compact=True)}<a class="text-action catalogue-card__ficha" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
     sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="fecha_asc">Publicación · más antigua primero</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option>' + ''.join(f'<option value="precio_{k}">{esc(FORMATS[k])} · del más barato al más caro</option>' for k in BOX_ORDER) + '<option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
     # Lo primero que se ve son los libros ya publicados (los más recientes arriba); los próximos lanzamientos van aparte.
     show = '<label>Mostrar<select name="estado" data-filter="estado" form="catalogue-search-form" disabled><option value="">Ya publicados</option><option value="proximos" id="estado=proximos">Próximos lanzamientos</option><option value="todos">Todos</option></select></label>'
     upcoming = '<a class="catalogue-upcoming-link" href="#estado=proximos" data-catalogue-upcoming>Ver los próximos lanzamientos →</a>'
     filters = render_filters(data, group_options(groups)).replace('<form class=', '<form id="catalogue-search-form" class=',1)
-    catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados"><div class="catalogue-layout">' + filters + '<div class="catalogue-main"><div class="catalogue-results-head"><h2>El catálogo</h2><div class="catalogue-results-controls">' + show + sort + '</div>' + upcoming + f'<p role="status" aria-live="polite" data-catalogue-count>{len(books)} ' + ('libro' if len(books)==1 else 'libros') + '</p></div><ul class="catalogue-grid">' + newtab(''.join(cards)) + '</ul><div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba con otros filtros o restablece la búsqueda.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas sin JavaScript. Los filtros requieren activarlo.</p></noscript></div></div></section>'
-    quiz='<details class="catalogue-quiz"><summary>¿Qué te apetece leer? Haz el test y encuentra tu próximo libro</summary><div class="catalogue-quiz__panel"><p>Puedes explorar todas las fichas del catálogo que aparecen a continuación.</p></div></details>' if books else ''
+    if page_number > 1:
+        filters = show = sort = upcoming = ''
+    static_count = f'Mostrando {offset + 1}–{offset + len(visible_books)} de {len(books)} libros' if books else '0 libros'
+    catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados"><div class="' + ('catalogue-layout' if page_number == 1 else 'catalogue-static-layout') + '">' + filters + '<div class="catalogue-main"><div class="catalogue-results-head"><h2>El catálogo</h2><div class="catalogue-results-controls">' + show + sort + '</div>' + upcoming + '<p role="status" aria-live="polite" data-catalogue-count>' + static_count + '</p></div><ul class="catalogue-grid">' + newtab(''.join(cards)) + '</ul>' + catalogue_pager(page_number, page_count) + '<div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba con otros filtros o restablece la búsqueda.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas recorriendo las páginas del catálogo. Los filtros requieren JavaScript.</p></noscript></div></div></section>'
+    if page_number > 1:
+        catalogue = '<p><a class="text-action" href="/recomendaciones/#catalogo" target="_self">Buscar en todo el catálogo</a></p>' + catalogue
+    quiz='<details class="catalogue-quiz"><summary>¿Qué te apetece leer? Haz el test y encuentra tu próximo libro</summary><div class="catalogue-quiz__panel"><p>Puedes recorrer las páginas del catálogo para consultar todas las fichas.</p></div></details>' if books and page_number == 1 else ''
     page=template.replace('{{catalogue}}',quiz+catalogue)
+    page = page.replace('data-reading-catalogue data-family=', f'data-reading-catalogue data-catalogue-total="{len(books)}" data-catalogue-version="{version}" data-family=')
     modified=max((b['fecha_actualizacion'] for b in books),default='2026-10-20')
     page=re.sub(r'("dateModified":\s*")[^"]*',lambda match:match[1]+modified,page,count=1)
     if books:
-        schema={'@context':'https://schema.org','@type':'ItemList','@id':SITE+'/recomendaciones/#catalogo','name':'Libros recomendados','numberOfItems':len(books),'itemListElement':[{'@type':'ListItem','position':i+1,'item':{'@type':'Book','@id':SITE+url(b)+'#book','name':b['titulo'],'url':SITE+url(b),'image':SITE+b['portada_local']}} for i,b in enumerate(books)]}
-        page=page.replace('</head>','<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')+'</script>\n</head>')
-    breadcrumb={'@context':'https://schema.org',**_breadcrumb_schema([('Inicio','/'),('Libros recomendados','/recomendaciones/')])}
+        schema={'@context':'https://schema.org','@type':'ItemList','@id':canonical+'#catalogo','name':'Libros recomendados','numberOfItems':len(visible_books),'itemListElement':[{'@type':'ListItem','position':i+1,'item':{'@type':'Book','@id':SITE+url(b)+'#book','name':b['titulo'],'url':SITE+url(b),'image':SITE+b['portada_local']}} for i,b in enumerate(visible_books)]}
+        page=page.replace('</head>','<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')+'</script>\n</head>')
+    crumbs = [('Inicio','/'),('Libros recomendados','/recomendaciones/')] + ([(f'Página {page_number}', catalogue_page_url(page_number))] if page_number > 1 else [])
+    breadcrumb={'@context':'https://schema.org',**_breadcrumb_schema(crumbs)}
     page=page.replace('</head>','<script type="application/ld+json">'+json.dumps(breadcrumb,ensure_ascii=False)+'</script>\n</head>',1)
+    if page_number > 1:
+        title = f'Libros recomendados: página {page_number} | David Porto Díaz'
+        description = f'Página {page_number} del catálogo de libros recomendados: fichas de lectura, autores, formatos y fuentes. Vuelve al catálogo para buscar en todas las páginas.'
+        page = page.replace(' data-reading-catalogue ', ' ')
+        page = page.replace('<h1>Libros recomendados</h1>', f'<h1>Libros recomendados: página {page_number}</h1>')
+        page = page.replace('<li aria-current="page">Libros recomendados</li>', f'<li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Página {page_number}</li>')
+        page = re.sub(r'<title>.*?</title>', lambda _: '<title>' + esc(title) + '</title>', page, count=1)
+        for key, value in {'description':description,'og:title':title,'og:description':description,'og:url':canonical,'twitter:title':title,'twitter:description':description}.items():
+            page = re.sub(r'(<meta (?:name|property)="'+re.escape(key)+r'" content=")[^"]*', lambda m:m[1]+esc(value), page)
+        page = page.replace('href="'+SITE+'/recomendaciones/"', 'href="'+canonical+'"')
+        def collection(match):
+            node = json.loads(match[1])
+            node.update({'@id':canonical,'url':canonical,'name':title,'description':description})
+            return '<script type="application/ld+json">'+json.dumps(node, ensure_ascii=False)+'</script>'
+        page = re.sub(r'<script type="application/ld\+json">(.*?)</script>', collection, page, count=1, flags=re.S)
     return inject_shell_auto(page)
 
 
@@ -1229,10 +1281,13 @@ def render_map(original, books, authors=(), publishers=()):
     if not books:
         return original
     links = ''.join(f'<li><a href="{url(b)}">{esc(b["titulo"])} — {esc(", ".join(b["autores"]))}</a></li>' for b in books)
+    continuation_links = ''.join(f'<li><a href="{catalogue_page_url(n)}">Catálogo: página {n}</a></li>' for n in range(2, math.ceil(len(books) / CATALOGUE_PAGE_SIZE) + 1))
     author_links = ''.join(f'<li><a href="{author_url(a)}">{esc(a["nombre"])}</a></li>' for a in authors if any(a['nombre'] in b['autores'] for b in books))
     block = start + '<section class="directory-section"><h2>Libros recomendados</h2><p><a href="/recomendaciones/">Explorar el catálogo de lectura</a> · <a href="/recomendaciones/autores/">Autores</a> · <a href="/recomendaciones/editoriales/">Editoriales del catálogo</a></p><details class="directory-reading-books"><summary>Ver las fichas de lectura</summary><ul class="directory-list">' + links + '</ul></details></section>' + end + '\n'
     if author_links:
         block = block.replace('</section>', '<details class="directory-reading-books"><summary>Ver autores del catálogo</summary><ul class="directory-list">' + author_links + '</ul></details></section>')
+    if continuation_links:
+        block = block.replace('<details', '<ul class="directory-list">' + continuation_links + '</ul><details', 1)
     publisher_links = ''.join(f'<li><a href="{publisher_url(p)}">{esc(p["nombre"])}</a></li>' for p in publishers if any(b.get('editorial_catalogo_slug') == p['slug'] for b in books))
     if publisher_links:
         block = block.replace('</section>', '<details class="directory-reading-books"><summary>Ver editoriales del catálogo</summary><ul class="directory-list">' + publisher_links + '</ul></details></section>')
@@ -1260,6 +1315,8 @@ def main():
         authors = author_records(root)
         template = (root / 'scripts/templates/reading-catalogue.html.tmpl').read_text(encoding='utf-8')
         outputs = {'recomendaciones/index.html': render_hub(data, books, template)}
+        for number in range(2, max(1, math.ceil(len(books) / CATALOGUE_PAGE_SIZE)) + 1):
+            outputs[catalogue_page_url(number).lstrip('/') + 'index.html'] = render_hub(data, books, template, number)
         map_path = root / 'mapa-del-sitio/index.html'
         if map_path.exists():
             outputs['mapa-del-sitio/index.html'] = render_map(map_path.read_text(encoding='utf-8'), books, authors, publisher_records(root))
@@ -1279,14 +1336,16 @@ def main():
         outputs[LLMS_PATH] = render_llms_index(data, books, active_authors, active_publishers)
         existing = root / 'recomendaciones/libros'
         orphans = [p for p in existing.glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
+        orphans += [p for p in (root / 'recomendaciones/pagina').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
         orphans += [p for p in (root / 'recomendaciones/autores').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
         orphans += [p for p in (root / 'recomendaciones/editoriales').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
         require(not orphans, 'Hay fichas existentes fuera de los datos: revisar retirada/URL antes de eliminarlas')
         registry = json.loads((root / 'data/content-registry.json').read_text(encoding='utf-8'))
-        registry['entries'] = [e for e in registry['entries'] if not e['id'].startswith(('reading-book-', 'reading-author-', 'reading-publisher-', 'reading-index-'))] + registry_entries(books)
+        registry['entries'] = [e for e in registry['entries'] if not e['id'].startswith(('reading-book-', 'reading-author-', 'reading-publisher-', 'reading-index-', 'reading-page-'))] + registry_entries(books)
         registry['entries'] += [{'id': 'reading-author-' + a['slug'], 'url': author_url(a), 'label': a['nombre'], 'shortLabel': a['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': author_url(a).lstrip('/') + 'index.html'} for a in active_authors]
         registry['entries'] += [{'id': 'reading-publisher-' + p['slug'], 'url': publisher_url(p), 'label': p['nombre'], 'shortLabel': p['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': publisher_url(p).lstrip('/') + 'index.html'} for p in active_publishers]
         registry['entries'] += [{'id': 'reading-index-' + key, 'url': '/recomendaciones/' + key + '/', 'label': label, 'shortLabel': label, 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'footerEligible': True, 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': 'recomendaciones/' + key + '/index.html'} for key, label in (('autores', 'Autores'), ('editoriales', 'Editoriales del catálogo'))]
+        registry['entries'] += [{'id':f'reading-page-{n}','url':catalogue_page_url(n),'label':f'Libros recomendados: página {n}','shortLabel':f'Página {n}','type':'article','territory':'recomendaciones','parentId':'recommendations-hub','hubId':'recommendations-hub','discoverability':'secondary','searchIndex':False,'sourceFile':catalogue_page_url(n).lstrip('/')+'index.html'} for n in range(2, max(1, math.ceil(len(books) / CATALOGUE_PAGE_SIZE)) + 1)]
         outputs['data/content-registry.json'] = json.dumps(registry, ensure_ascii=False, indent=2) + '\n'
         drift = []
         for rel, text in outputs.items():

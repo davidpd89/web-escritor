@@ -7,6 +7,7 @@ Contrato de referencia: .github/plans/ingesta-automatica-libros-editoriales-2026
 from __future__ import annotations
 
 import re
+import html
 import unicodedata
 from datetime import date
 from urllib.parse import urlencode
@@ -40,6 +41,23 @@ def tidy_prose(value: str) -> str:
     ingesta entera (22 libros aceptados). Se corrige al escribir, no ficha a ficha.
     """
     return _SPACE_BEFORE_PUNCT.sub("", value) if isinstance(value, str) else value
+
+
+def decode_text_entities(value: str) -> str:
+    """Decode bounded layers of complete entities, leaving bare ampersands alone.
+
+    Some publishers nest &amp;nbsp; in their prose. The result is still plain
+    text: callers must escape it when writing HTML, as for any imported text.
+    """
+    text = str(value)
+    entity = r'&(?:#[xX][0-9a-fA-F]+|#[0-9]+|[a-zA-Z][a-zA-Z0-9]+);'
+    for _ in range(3):
+        decoded = re.sub(entity, lambda m: html.unescape(m[0])
+                         if m[0].startswith('&#') or m[0][1:] in html.entities.html5 else m[0], text)
+        if decoded == text:
+            break
+        text = decoded
+    return text
 
 
 def clean_title(value: str) -> str:

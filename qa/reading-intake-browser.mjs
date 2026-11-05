@@ -14,10 +14,12 @@ try {
   page.on('pageerror', e => errors.push(e.message));
   await page.clock.setFixedTime(new Date('2026-10-20T16:00:00Z'));
   await page.goto(base + '/recomendaciones/');
+  await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
   await page.locator('[data-filter="q"]').waitFor({ state: 'visible' });
   assert.equal(await page.locator('[data-catalogue-book]').count(), books.length);
   for (const b of imported) {
     await page.locator('[data-filter="q"]').fill(b.isbn13);
+    await page.waitForFunction(id => { const cards = [...document.querySelectorAll('[data-catalogue-book]')].filter(c => !c.hidden); return cards.length === 1 && cards[0].dataset.bookId === id; }, b.id);
     // ISBN is a useful lookup as well as title/author.
     assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
   }

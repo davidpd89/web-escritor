@@ -69,7 +69,7 @@ async function settleTypography(page, label) {
     if (!document.fonts) return { supported: false, loaded: true, before: null, after: null };
 
     const requested = [
-      ['400 64px "Instrument Serif"', 'Editoriales y recepción de manuscritos, verificadas.'],
+      ['400 64px "Instrument Serif"', 'Editoriales y recepción de manuscritos, con fuentes.'],
       ['400 28px "Yellowtail"', 'Recurso para escritores Ver requisitos y fuentes'],
       ['400 18px "Newsreader"', 'No es una lista copiada de contactos.'],
       ['400 16px "Manrope"', 'Editoriales Estado Género'],
@@ -136,7 +136,7 @@ try {
       assert.equal(await page.locator('main#contenido').getAttribute('data-editoriales-directory'), '', `${name}: marcador de directorio ausente`);
       assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://davidportodiaz.com/editoriales/', `${name}: canonical alterado`);
       assert.equal(await page.locator('h1').count(), 1, `${name}: H1 no único`);
-      assert.equal((await page.locator('h1').textContent()).trim(), 'Editoriales y recepción de manuscritos, verificadas.', `${name}: H1 alterado`);
+      assert.equal((await page.locator('h1').textContent()).trim(), 'Editoriales y recepción de manuscritos, con fuentes.', `${name}: H1 alterado`);
       assert.equal(await page.locator('.section-context [aria-current="page"]').getAttribute('href'), '/editoriales/', `${name}: contexto no marca Editoriales`);
 
       const cards = page.locator('[data-editorial-card]');

@@ -19,7 +19,7 @@ try {
     const input=document.querySelector('[data-filter="q"]');
     const cards=[...document.querySelectorAll('[data-catalogue-book]')];
     const visible=cards.filter(c=>!c.hidden);
-    return input.value&&visible.length>0&&visible.every(c=>c.dataset.search?.toLocaleLowerCase('es').includes(input.value.toLocaleLowerCase('es')));
+    return input.value&&visible.length>0&&visible.every(c=>[c.dataset.title,c.dataset.author,c.querySelector('[data-isbn]')?.dataset.isbn].join(' ').toLocaleLowerCase('es').includes(input.value.toLocaleLowerCase('es')));
   });
   const result=await page.evaluate(()=>{
     const cards=[...document.querySelectorAll('[data-catalogue-book]')];

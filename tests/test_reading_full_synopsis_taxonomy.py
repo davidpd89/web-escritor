@@ -30,6 +30,16 @@ def catalogue():
 
 
 class FullSynopsisTests(unittest.TestCase):
+    def test_nested_entities_do_not_leak_into_imports_or_public_descriptions(self):
+        from reading_intake_core import decode_text_entities
+        text = 'Una aventura misteriosa &amp;amp;nbsp; para resolver juntos, con pistas y preguntas.'
+        imported = editorial_synopsis('<p>' + text + '</p>')
+        self.assertEqual(imported, 'Una aventura misteriosa para resolver juntos, con pistas y preguntas.')
+        book = {'sinopsis_completa': text, 'sinopsis_tipo': 'extracto_editorial'}
+        self.assertEqual(builder.meta_synopsis(book), imported)
+        self.assertEqual(decode_text_entities('AT&T &notanentity;'), 'AT&T &notanentity;')
+        self.assertEqual(builder.esc(decode_text_entities('&amp;lt;script&amp;gt;')), '&lt;script&gt;')
+
     def test_full_synopsis_keeps_every_paragraph_and_stops_at_reviews(self):
         full = editorial_synopsis(HTML)
         self.assertIn('se empeñara una y otra vez', full)
@@ -90,6 +100,12 @@ class FullSynopsisTests(unittest.TestCase):
 
 
 class AuthorBiographyTests(unittest.TestCase):
+    def test_nested_entities_are_decoded_in_biographies(self):
+        text = 'Autora Ejemplo nació en Madrid y escribió para Procter&amp;amp; Gamble durante muchos años.'
+        bio = publisher_author_bio(self.page(text), 'https://www.penguinlibros.com/es/773-autora', 'Autora Ejemplo')
+        self.assertIn('Procter& Gamble', bio)
+        self.assertNotIn('&amp;', bio)
+
     def page(self, text):
         return ('<html><head><link rel="canonical" href="https://www.penguinlibros.com/es/773-autora">'
                 '<meta property="og:title" content="Autora Ejemplo"><meta name="description" content="' + text + '"></head></html>')
