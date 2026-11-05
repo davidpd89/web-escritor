@@ -19,6 +19,8 @@ try {
     const visibleBooks = () => page.locator('[data-catalogue-book]:not([hidden])');
     await page.locator('input[data-facet="grupo"]').first().waitFor({ state: 'attached' });
     await page.waitForFunction(() => !document.querySelector('input[data-facet="grupo"]').disabled || document.querySelector('[data-facet-count]').textContent.includes('('));
+    // Los recuentos los pinta el JS después de cargar: sin esperar a que todos tengan número, la suma salía 0 (run 41985418402).
+    await page.waitForFunction(() => [...document.querySelectorAll('input[data-facet="grupo"]')].every(r => /\d/.test(r.parentElement.querySelector('small')?.textContent || '')));
     // Por defecto se ven los ya publicados: el total es el del contador, no el de todas las fichas del HTML.
     const total = Number((await page.locator('[data-catalogue-count]').textContent()).match(/\d+/)[0]);
     const types = await page.locator('input[data-facet="grupo"]').evaluateAll(list => list.map(r => ({ value: r.value, count: Number(r.parentElement.querySelector('small').textContent.replace(/\D/g, '')), checked: r.checked })));
