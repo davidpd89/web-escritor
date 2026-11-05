@@ -36,11 +36,17 @@ def main():
         if manual:
             git('merge', '--abort')
             raise SystemExit('Conflictos en ficheros no generados, resuélvelos a mano: ' + ', '.join(manual))
+        stages = {}
+        for line in git('ls-files', '-u').stdout.splitlines():
+            meta, path = line.split('	', 1)
+            stages.setdefault(path, set()).add(meta.split()[2])
         for f in conflicts:
-            # Borrado en main y cambiado aquí (fragmentos de pagefind): se va; el índice regenerado decide.
-            if git('checkout', '--theirs', '--', f, check=False).returncode:
+            # Borrado en un lado y cambiado en el otro (fichas retiradas aquí y retocadas en main, fragmentos de
+            # pagefind): se va; los builders vuelven a crear lo que sigan generando.
+            if stages.get(f, set()) != {'1', '2', '3'}:
                 git('rm', '-q', '--', f)
             else:
+                git('checkout', '--theirs', '--', f)
                 git('add', '--', f)
         print(f'{len(conflicts)} conflictos en generados: versión de main, se regeneran.', flush=True)
     for script, *args in BUILDERS:
