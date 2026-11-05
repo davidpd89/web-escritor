@@ -52,7 +52,9 @@ jobs:
     needs: clock
     if: needs.clock.outputs.run == 'true' && vars.READING_INTAKE_ENABLED == 'true' && (github.ref == 'refs/heads/main' || inputs.dry_run)
     runs-on: ubuntu-latest
-    timeout-minutes: 135
+    # Dos ciclos de CI de la PR (~75 min cada uno si main avanza y se traslada la carga) más Pages.
+    # 2026-11-05: la ejecución 41937351508 se cortó a los 135 min en el segundo ciclo con 22 libros listos.
+    timeout-minutes: 240
     steps:
       - uses: actions/checkout@v5
         with:
