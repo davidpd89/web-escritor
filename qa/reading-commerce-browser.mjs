@@ -29,6 +29,11 @@ try {
   assert.deepEqual(await ids(), ['contrato-uno'], 'Solo contrato-uno tiene una oferta en tapa dura');
   await page.locator('input[data-facet="formato"][value="tapa-dura"]').uncheck(); await page.locator('input[data-facet="formato"][value="ebook"]').check(); assert.deepEqual(await ids(), ['contrato-uno']);
   await field('descuento').selectOption('50'); assert.deepEqual(await ids(), ['contrato-uno']);
+  // Umbral que ningún libro cumple: desactivado (antes «50 %» salía activo con cero libros).
+  market = { ...payload, offers: [offer('contrato-uno', 'ebook', 800, { precio_referencia_centimos: 1000 })] };
+  await page.goto(`${base}/recomendaciones/?utm_source=prueba`); await page.waitForFunction(() => !document.querySelector('[data-filter="descuento"]').disabled);
+  assert.deepEqual(await field('descuento').locator('option:disabled').evaluateAll(o => o.map(x => x.value)), ['25', '50']);
+  market = payload; await open();
   await page.getByRole('button', { name: 'Restablecer' }).click();
   await page.waitForFunction(() => document.querySelector('[data-catalogue-count]').textContent === '2 libros');
   assert.equal(new URL(page.url()).searchParams.get('utm_source'), 'prueba');
@@ -47,7 +52,7 @@ try {
   await page.goto(`${base}/recomendaciones/?utm_source=prueba`); await page.waitForLoadState('networkidle');
   assert(await field('descuento').isDisabled()); assert(await field('valoracion').isDisabled());
   assert.equal(await page.locator('[data-price-book]:not([hidden])').count(), 0);
-  assert.ok((await page.locator('[data-rating-book] a').evaluateAll(els => els.map(el => el.dataset.ratingState + ' ' + el.textContent))).every(t => /^(unavailable Goodreads · ver opiniones|insufficient .* · menos de 5 valoraciones)$/.test(t)), 'Sin valoraciones válidas no se pinta ninguna nota, solo un enlace neutro');
+  assert.ok((await page.locator('[data-rating-book] a').evaluateAll(els => els.map(el => el.dataset.ratingState + ' ' + el.textContent))).every(t => /^insufficient .* · menos de 5 valoraciones$/.test(t)), 'Sin valoraciones válidas no se pinta ninguna nota ni enlace a ciegas');
   assert.equal(await page.locator('[data-rating-book] .catalogue-stars').count(), 0, 'Sin valoraciones válidas no hay estrellas');
   assert.deepEqual(errors, []);
   await context.close();

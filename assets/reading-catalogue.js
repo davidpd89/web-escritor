@@ -164,15 +164,14 @@
         // Sin valoración verificada vigente NO se pinta una nota: ni estrellas vacías ni «0,0 (0)».
         // Que aquí no haya dato utilizable (caducado, proveedor caído, fuente no válida) no prueba que la fuente tenga cero opiniones.
         const thin = market.ratings.find(x => x.libro_id === box.dataset.ratingBook && thinRating(x));
-        const isbn = /^\d{13}$/.test(box.dataset.isbn || '') ? box.dataset.isbn : '';
-        // Tarjeta y ficha muestran lo mismo: nota verificada o enlace neutro a Goodreads.
-        if (thin || isbn) {
-          const ref = document.createElement('a'); ref.href = thin ? thin.url : 'https://www.goodreads.com/book/isbn/' + isbn; ref.target = '_blank'; ref.rel = 'noopener noreferrer';
-          ref.className = 'catalogue-rating__ref'; ref.dataset.ratingState = thin ? 'insufficient' : 'unavailable';
-          ref.textContent = thin ? ratingLabel(thin) + ' · menos de 5 valoraciones' : 'Goodreads · ver opiniones';
-          ref.title = thin ? 'Muestra demasiado pequeña para mostrar una nota. Consultado el ' + new Date(thin.actualizado_en).toLocaleDateString('es-ES') : 'Opiniones de lectores en Goodreads; aquí solo se muestra una nota cuando está verificada';
+        // Sin nota verificada no se enlaza a ciegas (Goodreads bloquea).
+        if (thin) {
+          const ref = document.createElement('a'); ref.href = thin.url; ref.target = '_blank'; ref.rel = 'noopener noreferrer';
+          ref.className = 'catalogue-rating__ref'; ref.dataset.ratingState = 'insufficient';
+          ref.textContent = ratingLabel(thin) + ' · menos de 5 valoraciones';
+          ref.title = 'Muestra demasiado pequeña para mostrar una nota. Consultado el ' + new Date(thin.actualizado_en).toLocaleDateString('es-ES');
           box.append(ref);
-        }
+        } else box.hidden = true;
         continue;
       }
       const link = document.createElement('a'); link.href = r.url; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.dataset.ratingState = 'verified';
@@ -183,6 +182,9 @@
       f.disabled = !(f.dataset.marketControl === 'offers' && hasDiscounts) && !market[f.dataset.marketControl].some(f.dataset.marketControl === 'offers' ? validOffer : validRating);
       f.closest('label').hidden = f.disabled;
     }
+    // Umbral sin libros: desactivado.
+    const best = Math.max(0, ...cards.map(card => Math.max(0, ...matchingOffers(card, {}).map(o => o.pct))));
+    for (const o of root.querySelectorAll('[data-filter="descuento"] option')) if (o.value) o.disabled = Number(o.value) > best;
     for (const o of root.querySelectorAll('[data-sort-market]')) o.disabled = !market[o.dataset.sortMarket].some(o.dataset.sortMarket === 'offers' ? validOffer : validRating);
     for (const f of fields) if ((f.disabled || (f.tagName === 'SELECT' && f.selectedOptions[0]?.disabled)) && f.value) f.value = f.dataset.filter === 'orden' ? 'editorial' : '';
 
