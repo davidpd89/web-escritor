@@ -195,7 +195,7 @@
       const pages = Number(card.dataset.pages), range = !pages ? '' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga';
       return searchIndex.get(card).includes(searchQuery(v.q || '')) && (v.estado === 'todos' || (!v.estado && v.q) || (v.estado === 'proximos' ? !released(lower) : released(lower))) && ['genero', 'tematica', 'temporada', 'edad', 'contenido'].every(k => !pick(v[k]).length || pick(v[k]).some(x => cats.includes(x))) && (!pick(v.grupo).length || pick(v.grupo).includes(card.dataset.group)) && (!pick(v.formato).length || pick(v.formato).some(x => formats.has(x))) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && ratingOk(card, v) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
   }
-  // Cada filtro cuenta sus opciones con el resto de filtros aplicados (sin el suyo): una opcion sin libros se atenua y nunca se oculta si esta marcada.
+  // Cada filtro cuenta con los demás aplicados (sin el suyo): una opción sin libros se atenúa y, si está marcada, no se oculta.
   function facetValues(card, k) {
     if (k === 'formato') return cardFormats(card);
     const m = memoFor(card), key = k === 'grupo' ? 'groupSet' : 'catSet';
@@ -236,7 +236,7 @@
         label.dataset.count = count;
       }
       const chosen = own.filter(b => b.checked).length;
-      // Marcadas primero; después las que tienen libros (de más a menos, salvo tipo, edad y formato, que conservan su orden natural) y al final las vacías.
+      // Marcadas primero; luego con libros (de más a menos; tipo, edad y formato en orden natural); al final las vacías.
       const list = group.querySelector('.catalogue-facet__options'), labels = own.map(b => b.closest('label'));
       labels.forEach((label, i) => { if (label.dataset.order == null) label.dataset.order = i; });
       const rank = label => label.querySelector('input').checked ? 0 : label.classList.contains('is-empty') ? 2 : 1;
