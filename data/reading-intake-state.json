@@ -427,12 +427,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "DK",
+        "editorial_slug": "dk",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-10-01",
         "formato_edicion": "tapa-dura",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-espiritualidad/634724-libro-la-biblia-una-enciclopedia-ilustrada-9780241837702",
         "fuentes_autores": {
-          "DK": "https://www.penguinlibros.com/es/libros-de-espiritualidad/634724-libro-la-biblia-una-enciclopedia-ilustrada-9780241837702"
+          "DK": "https://www.penguinlibros.com/es/11805-dk"
         },
         "idioma": "es",
         "isbn13": "9780241837702",
@@ -440,15 +441,39 @@
           "Religión y espiritualidad"
         ],
         "numero_paginas": 512,
+        "palabras_clave": [
+          "biblia",
+          "libros para regalar",
+          "mejores libros",
+          "libros religiosos",
+          "libros mas vendidos",
+          "biblia ilustrada",
+          "libros ilustrados",
+          "religion",
+          "evangeli os",
+          "papa",
+          "leon xiv",
+          "papa francisco",
+          "juan pablo ii",
+          "enciclopedia",
+          "historia",
+          "arqueologia",
+          "biblia en español",
+          "estudio",
+          "libros educativo"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8019045-thickbox_default/la-biblia-una-enciclopedia-ilustrada.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 3500,
+        "sinopsis_breve": "Incluye cronologías detalladas, referencias bíblicas y citas seleccionadas que facilitan la navegación entre libros, capítulos y versículos. Elaborado con el asesoramiento de expertos biblistas…",
+        "sinopsis_completa": "A través de mapas detallados, yacimientos arqueológicos, objetos históricos y paneles informativos, el lector puede comprender mejor los acontecimientos que han dado forma a uno de los libros más influyentes de todos los tiempos.\n\nDescubre por qué la Biblia ha fascinado a generaciones de lectores durante siglos, tanto como documento religioso como registro histórico. Desde el Génesis hasta el Apocalipsis, esta obra ilustrada recorre los principales relatos del Antiguo y del Nuevo Testamento.\n\nConoce a los personajes clave, Adán y Eva, Abraham, Moisés, san Juan Bautista, Pedro y Pablo, y explora escenarios esenciales en la historia bíblica, como Jerusalén o Roma.\n\nIncluye cronologías detalladas, referencias bíblicas y citas seleccionadas que facilitan la navegación entre libros, capítulos y versículos. Elaborado con el asesoramiento de expertos biblistas e historiadores, este libro ofrece una forma clara, visual y accesible de comprender la Biblia como nunca antes.",
         "titulo": "La Biblia: Una enciclopedia ilustrada"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-de-espiritualidad/634724-libro-la-biblia-una-enciclopedia-ilustrada-9780241837702",
+      "estado_ingesta": "publicado",
       "isbn13": "9780241837702",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20"
+      "libro_id": "isbn-9780241837702",
+      "primera_deteccion": "2026-10-20",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9780241837849": {
       "datos": {
@@ -508,6 +533,64 @@
       "libro_id": "isbn-9780241837849",
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-31"
+    },
+    "isbn13:9780241837962": {
+      "datos": {
+        "autores": [
+          "Jeffrey Brown"
+        ],
+        "coleccion": "LEGO",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 7 años",
+        "editorial": "DK",
+        "editorial_slug": "dk",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/637468-libro-lego-nikolas-nurdblock-nikolas-nurdblock-y-el-ladrillo-perdido-9780241837962",
+        "fuentes_autores": {
+          "Jeffrey Brown": "https://www.penguinlibros.com/es/1021545-jeffrey-brown"
+        },
+        "idioma": "es",
+        "isbn13": "9780241837962",
+        "materias": [
+          "A partir de 7 años"
+        ],
+        "numero_paginas": 176,
+        "palabras_clave": [
+          "lego",
+          "libros lego",
+          "set lego",
+          "libros infantiles",
+          "libros para niños",
+          "libros divertidos",
+          "cuentos",
+          "figuras lego",
+          "mejores libros",
+          "libros juveniles",
+          "8 años",
+          "9 años",
+          "10 años",
+          "juguetes lego",
+          "construcciones lego",
+          "comic",
+          "comic infantil",
+          "comic para niños",
+          "primeras lecturas",
+          "lecturas"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8341867-thickbox_default/lego-nikolas-nurdblock-nikolas-nurdblock-y-el-ladrillo-perdido.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1295,
+        "sinopsis_breve": "Imagina un mundo donde la tecnología ha desaparecido y nadie recuerda cómo construir. En ese lugar vive Nikolas Nurdblok, el miembro más joven de…",
+        "sinopsis_completa": "Imagina un mundo donde la tecnología ha desaparecido y nadie recuerda cómo construir. En ese lugar vive Nikolas Nurdblok, el miembro más joven de una legendaria familia de aventureros dedicada a encontrar piezas, instrucciones y objetos perdidos. El problema es que Nikolas está convencido de que jamás estará a la altura de sus familiares, así que ha tomado una decisión radical: ¡convertirse en un villano!\n\nEntre planes disparatados, peligros inesperados y decisiones difíciles, Nikolas descubrirá que quizá el verdadero desafío no sea destruir el mundo... sino ayudar a construir uno mejor.\n\nUna historia llena de imaginación, amistad y humor sobre encontrar tu propio camino, incluso cuando parece que no encajas en ningún lugar.",
+        "titulo": "LEGO® Nikolas Nurdblock - Nikolas Nurdblock y el ladrillo perdido"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9780241837962",
+      "libro_id": "isbn-9780241837962",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9780241837979": {
       "datos": {
@@ -621,6 +704,178 @@
       "libro_id": "isbn-9780241837986",
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
+    },
+    "isbn13:9780241837993": {
+      "datos": {
+        "autores": [
+          "Matt Piper"
+        ],
+        "coleccion": "LEGO",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 7 años",
+        "editorial": "DK",
+        "editorial_slug": "dk",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/637469-libro-lego-ninjago-el-dragon-riyu-9780241837993",
+        "fuentes_autores": {
+          "Matt Piper": "https://www.penguinlibros.com/es/1021590-matt-piper"
+        },
+        "idioma": "es",
+        "isbn13": "9780241837993",
+        "materias": [
+          "A partir de 7 años"
+        ],
+        "numero_paginas": 80,
+        "palabras_clave": [
+          "lego",
+          "ninjago",
+          "lego ninjago",
+          "libros lego",
+          "libro lego",
+          "comic",
+          "comic lego",
+          "libros infantiles",
+          "libros para niños",
+          "libros juveniles",
+          "libros para r egalar",
+          "mejores libros",
+          "juguetes lego",
+          "juegos lego",
+          "serie lego",
+          "figuras lego",
+          "renacer de los dragones",
+          "dragons rising",
+          "libros dive"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8067885-thickbox_default/lego-ninjago-el-dragon-riyu.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 795,
+        "sinopsis_breve": "Los cazadores de dragones van tras Riyu, que tiene un pequeño problema: aunque es un dragón, ¡todavía no ha aprendido a volar! Cuando parece…",
+        "sinopsis_completa": "Los cazadores de dragones van tras Riyu, que tiene un pequeño problema: aunque es un dragón, ¡todavía no ha aprendido a volar! Cuando parece que no hay escapatoria, dos nuevos amigos acuden en su ayuda: Arin y Sora, aspirantes a ninja dispuestos a hacer lo que sea necesario para protegerlo. Juntos deberán superar todo tipo de obstáculos y encontrar el camino de regreso a casa de Riyu.\n\n¿Conseguirán mantenerse un paso por delante de los cazadores de dragones?\n\nBasado en la popular serie de televisión LEGO® NINJAGO®: El renacer de los dragones, este divertido libro combina aventura, humor e ilustraciones a todo color.\n\nAdemás, incluye un divertido desafío interactivo: ¿serás capaz de encontrar los nunchakus ocultos a lo largo de la historia?\n\nUna lectura ideal para sumergirse en el apasionante mundo de los ninjas y los dragones.",
+        "titulo": "LEGO® Ninjago - El dragón Riyu"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9780241837993",
+      "libro_id": "isbn-9780241837993",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9780241838006": {
+      "datos": {
+        "autores": [
+          "Tom Smiley"
+        ],
+        "coleccion": "LEGO",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 7 años",
+        "editorial": "DK",
+        "editorial_slug": "dk",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/637470-libro-lego-city-sin-limites-carrera-de-rosquillas-1-9780241838006",
+        "fuentes_autores": {
+          "Tom Smiley": "https://www.penguinlibros.com/es/1021591-tom-smiley"
+        },
+        "idioma": "es",
+        "isbn13": "9780241838006",
+        "materias": [
+          "A partir de 7 años"
+        ],
+        "numero_paginas": 80,
+        "palabras_clave": [
+          "lego",
+          "lego city",
+          "libros lego",
+          "lego libros",
+          "juegos lego",
+          "juguetes lego",
+          "mejores libros",
+          "libros divertidos",
+          "libros para niños",
+          "libros juveniles",
+          "libros para regalar",
+          "cuentos",
+          "dibujos lego",
+          "serie lego",
+          "pelicula lego",
+          "ladrillos",
+          "ladrillos lego",
+          "figuras lego",
+          "ideas lego",
+          "minifi"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8067967-thickbox_default/lego-city-sin-limites-carrera-de-rosquillas-1.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 795,
+        "sinopsis_breve": "Hoy es el último día de apertura de Galaxy Donuts, y Jason está convencido de que conseguirá la última caja de rosquillas. Pero no…",
+        "sinopsis_completa": "Hoy es el último día de apertura de Galaxy Donuts, y Jason está convencido de que conseguirá la última caja de rosquillas. Pero no es el único que la quiere. Muy pronto descubrirá que toda la policía de LEGO® City está dispuesta a hacer lo que sea para hacerse con ella.\n\nAcompaña a Jason y a su familia en una persecución disparatada por toda la ciudad, repleta de velocidad, acrobacias imposibles, situaciones desternillantes y un montón de chirridos de neumáticos.\n\nBasado en la popular serie LEGO® City: Sin límites, este libro encantará a los fans de las novelas llenas de humor y acción.\n\nAdemás, incluye un divertido reto interactivo: ¿serás capaz de encontrar todas las rosquillas escondidas a lo largo de la historia?",
+        "titulo": "LEGO® City - Sin límites. ¡Carrera de rosquillas! 1"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9780241838006",
+      "libro_id": "isbn-9780241838006",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9780241838013": {
+      "datos": {
+        "autores": [
+          "DK"
+        ],
+        "coleccion": "LEGO",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 9 años",
+        "editorial": "DK",
+        "editorial_slug": "dk",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/637471-libro-lego-ninjago-universos-9780241838013",
+        "fuentes_autores": {
+          "DK": "https://www.penguinlibros.com/es/11805-dk"
+        },
+        "idioma": "es",
+        "isbn13": "9780241838013",
+        "materias": [
+          "A partir de 9 años"
+        ],
+        "numero_paginas": 128,
+        "palabras_clave": [
+          "lego",
+          "ninjago",
+          "lego ninjago",
+          "libros lego",
+          "juegos lego",
+          "juguetes lego",
+          "figuras lego",
+          "ladrillos lego",
+          "minifiguras",
+          "minifiguras lego",
+          "mejores lib ros",
+          "libros divertidos",
+          "libros para niños",
+          "libros infantiles",
+          "libros juveniles",
+          "cuentos",
+          "construcciones",
+          "construcciones lego",
+          "libr"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8340833-thickbox_default/lego-ninjago-universos.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 3200,
+        "sinopsis_breve": "Cada construcción es el comienzo de una nueva aventura. Además, el libro incluye más de 150 ideas inspiradoras para ampliar tus creaciones, diseñar nuevos…",
+        "sinopsis_completa": "Da vida a increíbles mundos ninja con este espectacular libro de actividades que incluye 135 piezas LEGO® y un modelo 4 en 1 para construir y reconstruir una y otra vez.\n\n¿Con qué empezarás? Construye un veloz coche ninja y transfórmalo después en un impresionante dragón o un poderoso robot ¡Tú decides!\n\nAcompaña a Arin y a su dragón en un viaje por los fascinantes escenarios de LEGO® NINJAGO®. Explora el Monasterio, recorre el bullicioso Cruce de Caminos o aventúrate entre ríos de lava en el Páramo.\n\nCada construcción es el comienzo de una nueva aventura. Además, el libro incluye más de 150 ideas inspiradoras para ampliar tus creaciones, diseñar nuevos escenarios y dar rienda suelta a tu imaginación utilizando las piezas incluidas y tu propia colección LEGO®.\n\nEncontrarás retos, propuestas de juego y sugerencias para inventar aventuras sin fin.\n\nConstruye, juega, transforma y vuelve a construir. Con LEGO® NINJAGO® Universos, cada página abre la puerta a una nueva misión ninja y a un mundo lleno de posibilidades.",
+        "titulo": "LEGO® Ninjago - Universos"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9780241838013",
+      "libro_id": "isbn-9780241838013",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9780241838051": {
       "datos": {
@@ -1312,6 +1567,15 @@
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
     },
+    "isbn13:9788401039898": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libro-de-biografias/637733-libro-martin-vigil-el-amigo-amable-9788401039898",
+      "intentos": 1,
+      "isbn13": "9788401039898",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788401039928": {
       "datos": {
         "autores": [
@@ -1748,12 +2012,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "BRUGUERA",
+        "editorial_slug": "bruguera",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-10-01",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-autoayuda/491269-libro-el-regalo-de-la-sensibilidad-9788402431356",
         "fuentes_autores": {
-          "Dra. Sasha Hamdani": "https://www.penguinlibros.com/es/libros-autoayuda/491269-libro-el-regalo-de-la-sensibilidad-9788402431356"
+          "Dra. Sasha Hamdani": "https://www.penguinlibros.com/es/1009692-dra-sasha-hamdani"
         },
         "idioma": "es",
         "isbn13": "9788402431356",
@@ -1761,15 +2026,38 @@
           "Autoayuda"
         ],
         "numero_paginas": 352,
+        "palabras_clave": [
+          "PAS",
+          "alta sensibilidad",
+          "personas altamente sensibles",
+          "emociones",
+          "sensibles",
+          "intensidad",
+          "miriam tirado",
+          "intensa",
+          "rechazo",
+          "herida emoci onal",
+          "Sasha Hamdani",
+          "autoayuda",
+          "bienestar emocional",
+          "inseguridad",
+          "sentimientos",
+          "el don de la sensibilidad",
+          "altamente sensible",
+          "ela"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8087379-thickbox_default/el-regalo-de-la-sensibilidad.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2195,
+        "sinopsis_breve": "La doctora Sasha Hamdani desmonta estas etiquetas y ofrece una nueva forma de entender la sensibilidad emocional: lo que muchas personas viven con vergüenza…",
+        "sinopsis_completa": "¿Alguna vez te han llamado así? Desde fuera, algunas reacciones ante situaciones cotidianas (un comentario inofensivo, un malentendido en el trabajo o una propuesta rechazada) pueden parecer exageradas. Pero ¿y si esa intensidad no fuera un defecto?\n\nLa doctora Sasha Hamdani desmonta estas etiquetas y ofrece una nueva forma de entender la sensibilidad emocional: lo que muchas personas viven con vergüenza, inseguridad o miedo no es una debilidad ni está solo en su cabeza. Tiene una base biológica.\n\nCombinando psiquiatría, neurociencia y compasión, este libro es una guía revolucionaria para entender tus emociones, regular tu sistema nervioso y fortalecer tu autoestima. Porque tu sensibilidad no es un problema: es un regalo.\n\nEste libro es para ti si…\n\n-Quieres dejar de sentir vergüenza por vivirlo todo con tanta intensidad.\n\n-Quieres entender por qué situaciones aparentemente inofensivas pueden desencadenar grandes reacciones emocionales.\n\n-Alguna vez has cuestionado lo que vales por una respuesta que tarda en llegar, un cambio de tono o al sentir rechazo.\n\n-Quieres dejar de intentar no ser «tan sensible» y aprender a vivir y trabajar con tu sensibilidad.\n\n-Buscas herramientas para regular tu sistema nervioso sin apagar tu «intensidad».\n\n-Llevas años preguntándote por qué reaccionas como lo haces y qué hay «malo» en ti.\n\n-Quieres sentir comprensión en lugar de juicio con un enfoque compasivo respaldado por la ciencia.\n\nMary Claire Haver, autora de La nueva perimenopausia\n\nLouann Brizendine, neuropsiquiatra y autora best seller de El cerebro femenino\n\nKC Davis, autora best seller de Cómo cuidar tu casa cuando la vida te ahoga",
         "titulo": "El regalo de la sensibilidad"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-autoayuda/491269-libro-el-regalo-de-la-sensibilidad-9788402431356",
+      "estado_ingesta": "publicado",
       "isbn13": "9788402431356",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20"
+      "libro_id": "isbn-9788402431356",
+      "primera_deteccion": "2026-10-20",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788402431486": {
       "datos": {
@@ -1879,6 +2167,15 @@
       "libro_id": "isbn-9788402431578",
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9788402431622": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-autoayuda/637410-libro-cansadas-de-quedar-bien-9788402431622",
+      "intentos": 1,
+      "isbn13": "9788402431622",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788402431646": {
       "datos": {
@@ -2089,6 +2386,67 @@
       "libro_id": "isbn-9788402431967",
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
+    },
+    "isbn13:9788402432063": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/tiempo-libre/637413-libro-mortadeluxe-9788402432063",
+      "intentos": 1,
+      "isbn13": "9788402432063",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
+    "isbn13:9788402432391": {
+      "datos": {
+        "autores": [
+          "Coco Wyo"
+        ],
+        "coleccion": "Bruguera Tendencias",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Juvenil",
+        "editorial": "BRUGUERA",
+        "editorial_slug": "bruguera",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/tiempo-libre-juvenil/637414-libro-coco-wyo-cosas-de-chicas-edicion-oficial-en-espanol-9788402432391",
+        "fuentes_autores": {
+          "Coco Wyo": "https://www.penguinlibros.com/es/990427--coco-wyo"
+        },
+        "idioma": "es",
+        "isbn13": "9788402432391",
+        "materias": [
+          "Tiempo libre (juvenil)"
+        ],
+        "numero_paginas": 96,
+        "palabras_clave": [
+          "libros de colorear para adultos",
+          "libros de colorear para niños",
+          "coco wyo coloring book",
+          "mejores libros para colorear",
+          "regalo original",
+          "ma ndalas para colorear",
+          "cozy friends",
+          "mejores amigos",
+          "spooky cutie",
+          "abrazos blanditos",
+          "kawaii",
+          "bobbie goods",
+          "rotuladores posca",
+          "colo"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8213440-thickbox_default/coco-wyo-cosas-de-chicas-edicion-oficial-en-espanol.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1095,
+        "sinopsis_breve": "En Cosas de Chicas, encontrarás preciosas y únicas ilustraciones en blanco y negro para colorear, con escenas cotidianas de lo más relajantes. Redescubre los…",
+        "sinopsis_completa": "Descubre un mundo acogedor en estas relajantes páginas para colorear.\n\nEn Cosas de Chicas, encontrarás preciosas y únicas ilustraciones en blanco y negro para colorear, con escenas cotidianas de lo más relajantes. Redescubre los placeres sencillos, desde una taza de té caliente por la mañana hasta acurrucarte en la cama con un buen libro. Colorea los momentos más soft y deja que las chicas de las ilustraciones te transmitan toda su paz.\n\nUn regalo perfecto para tu familia, tus amigos o para ti, ideal para desconectar del estrés del día a día y reconectar contigo. ¡Este precioso libro enamorará a los amantes de los libros para colorear de todas las edades!\n\n¡Bienvenida al universo Coco Wyo! No querrás salir de él.\n\n¿Qué encontrarás en este libro?\n\n* Adorables escenas cotidianas con elementos de lo más reconfortantes.\n\n* Preciosas y entrañables ilustraciones en blanco y negro para colorear para todas las edades\n\n* Un libro perfecto para aliviar el estrés, hacer mindfulness y relajarse.\n\n* Espacios inspiradores donde expresar toda tu creatividad.\n\n*¡Papel extra grueso para colorear sin miedo a que se traspase!",
+        "titulo": "Coco Wyo - Cosas de chicas (edición oficial en español)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788402432391",
+      "libro_id": "isbn-9788402432391",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788403525238": {
       "datos": {
@@ -3034,7 +3392,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-mi-primer-atlas-del-mundo/449758",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408321361",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-05",
@@ -3076,7 +3434,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-liberty-haven-2-los-siete-propositos-de-oliver-grayson/450188",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408321538",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-01",
@@ -3709,7 +4067,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-en-el-corazon-del-monstruo/455199",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408324461",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-26",
@@ -4463,7 +4821,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-te-recojo-a-las-seis/457392",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408326052",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-02",
@@ -4593,7 +4951,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-campus-drivers-2-novio-perfecto/457667",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408326144",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-04",
@@ -4924,7 +5282,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-hasta-que-nos-quedemos-sin-estrellas-edicion-especial/458229",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408326632",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
@@ -5739,7 +6097,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-trilogia-berlin/459624",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408327509",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-10-27",
@@ -5782,7 +6140,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-todos-los-lugares-nuestro-lugar-en-el-mundo/459625",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408327516",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-03",
@@ -5826,7 +6184,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-todo-lo-que-nunca-fuimos-todo-lo-que-somos-juntos/459626",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408327523",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-03",
@@ -6240,7 +6598,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-teo-se-disfraza/462671",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408329657",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-02",
@@ -6524,7 +6882,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-tiendas-cuquis-para-colorear/464639",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408330585",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
@@ -6771,7 +7129,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-la-promesa-de-gideon/465333",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408330974",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-02",
@@ -6861,7 +7219,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-te-querre-para-siempre/465492",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408331100",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-02",
@@ -7406,7 +7764,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-los-misterios-de-eversand-3-la-esposa/466988",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408332886",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-04",
@@ -7448,7 +7806,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-los-misterios-de-eversand-4-la-hereje/467000",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788408332909",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-04",
@@ -7643,7 +8001,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.editorialperiferica.com/libros/los-trillizos/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788410171794",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
@@ -7713,7 +8071,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.editorialperiferica.com/libros/guerra-y-lluvia/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788410171831",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
@@ -7889,7 +8247,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.editorialperiferica.com/libros/europeana/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788410171947",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
@@ -8072,6 +8430,117 @@
       "libro_id": "isbn-9788410305755",
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
+    },
+    "isbn13:9788410305793": {
+      "datos": {
+        "autores": [
+          "Kazuya Minekura"
+        ],
+        "coleccion": "Shônen",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Juvenil",
+        "editorial": "DISTRITO MANGA",
+        "editorial_slug": "distrito-manga",
+        "encuadernacion": "Tapa dura con sobrecubierta",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/comic-juvenil/637444-libro-saiyuki-la-edicion-definitiva-3-shonen-9788410305793",
+        "fuentes_autores": {
+          "Kazuya Minekura": "https://www.penguinlibros.com/es/1011993-kazuya-minekura"
+        },
+        "idioma": "es",
+        "isbn13": "9788410305793",
+        "materias": [
+          "Cómic juvenil"
+        ],
+        "numero_paginas": 400,
+        "palabras_clave": [
+          "saiyuki",
+          "kazuka minekura",
+          "saiyuki gensomaden",
+          "shonen",
+          "tougen anki",
+          "yura urushibara",
+          "manga",
+          "anime",
+          "solo leveling",
+          "naruto",
+          "dragon ball",
+          "berserk",
+          "jujutsu kaisen",
+          "kimetsu no yaiba",
+          "comic niños",
+          "para adolescentes",
+          "shonen jump",
+          "shonen manga",
+          "shonen note",
+          "comic manga"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8213452-thickbox_default/saiyuki-la-edicion-definitiva-3-shonen.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2395,
+        "sinopsis_breve": "Los vínculos de sangre que unen a Sanzo, Goku, Gojyo y Hakkai, y las profundas heridas que amenazan con separarlos los acompañan mientras continúan…",
+        "sinopsis_completa": "Los vínculos de sangre que unen a Sanzo, Goku, Gojyo y Hakkai, y las profundas heridas que amenazan con separarlos los acompañan mientras continúan su travesía hacia el Oeste.\n\nPero ¿podrán seguir luchando contra sus demonios cuando los yokai de Tôgenkyô les pisan los talones?",
+        "titulo": "Saiyuki: la edición definitiva 3 (Shônen)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788410305793",
+      "libro_id": "isbn-9788410305793",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9788410318557": {
+      "datos": {
+        "autores": [
+          "Varios autores"
+        ],
+        "coleccion": "Pop-up de cuento",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "De 0 a 3 años",
+        "editorial": "PENGUIN KIDS",
+        "editorial_slug": "penguin-kids",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/637784-libro-ya-es-navidad-pop-up-de-cuento-9788410318557",
+        "fuentes_autores": {
+          "Varios autores": "https://www.penguinlibros.com/es/879--varios-autores"
+        },
+        "idioma": "es",
+        "isbn13": "9788410318557",
+        "materias": [
+          "De 0 a 3 años"
+        ],
+        "numero_paginas": 8,
+        "palabras_clave": [
+          "cuento pop up",
+          "pop up navidad",
+          "libro pop up",
+          "libro pop up infantil",
+          "libro desplegable",
+          "libro interactivo",
+          "cuento interactivo",
+          "libro sensori al",
+          "libro carton",
+          "cuento de navidad",
+          "cuento navideño",
+          "libro de navidad",
+          "libro infantil navidad",
+          "cuentos infantiles navidad",
+          "navid"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8064622-thickbox_default/ya-es-navidad-pop-up-de-cuento.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1295,
+        "sinopsis_breve": "- TEXTO RIMADO: simplifica la estructura narrativa y es ideal para los niños en edad preescolar, que disfrutan de la repetición a la vez…",
+        "sinopsis_completa": "¡Ya es Navidad!\n\nEs hora de decorar el árbol, esperar la llegada de Papá Noel y descubrir los regalos que nos esperan bajo el árbol.\n\nDescubre «Pop-up de cuento», la colección para niños y niñas con un pop-up en cada página. Historias rimadas para vivir la magia de los cuentos en 3D.\n\n¡Pop-ups sorprendentes, ilustraciones a todo color y mucha magia navideña: la combinación perfecta para disfrutar de la Navidad en familia!\n\n- formato perfecto para pequeñas manitas: este álbum ilustrado pop-up tiene unas maravillosas ilustraciones que llamarán la atención de niños y niñas.\n\n- ELEMENTOS POP-UP: los componentes tridimensionales, táctiles y sensoriales aumentarán la curiosidad de los pequeños lectores, que disfrutarán manipulando las figuras navideñas.\n\n- TEXTO RIMADO: simplifica la estructura narrativa y es ideal para los niños en edad preescolar, que disfrutan de la repetición a la vez que aprenden nuevas palabras y desarrollan sus habilidades lingüísticas.\n\n- la navidad como nunca antes: decorar el árbol, esperar a Papá Noel y descubrir los regalos se convierte en una experiencia interactiva llena de magia y sorpresas.\n\n- LIBRO REGALO: con tapa dura y de gran tamaño, este libro es perfecto para regalar a niños de 0 a 4 años.\n\nDescubre todos los libros de la colección «Pop-up de cuento»:\n\nLos tres cerditos\n\nLos animales de la granja\n\nNavidad mágica con Papá Noel\n\nLos Reyes Magos",
+        "titulo": "¡Ya es Navidad! (Pop-up de cuento)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788410318557",
+      "libro_id": "isbn-9788410318557",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788410346529": {
       "datos": {
@@ -8995,7 +9464,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-mas-alla-mas-aca/461131",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788411078559",
       "motivo": "Sinopsis editorial ausente; se conserva la ficha anterior o queda pendiente",
       "primera_deteccion": "2026-11-04",
@@ -9516,7 +9985,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-el-arte-de-haikyu/408046",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788411617765",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-04",
@@ -9744,7 +10213,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-reset-alimentario/458559",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788413445625",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-10-22",
@@ -9913,7 +10382,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/el-atlas-de-las-nubes/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788416634286",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -9945,12 +10414,12 @@
         "precision_fecha": "dia",
         "pvp_centimos": 1590,
         "sinopsis_breve": "Siendo un bebé, le pusieron una raqueta de juguete en la mano. Desde entonces, Agassi no ha hecho otra cosa que golpear pelotas de…",
-        "sinopsis_completa": "Siendo un bebé, le pusieron una raqueta de juguete en la mano. Desde entonces, Agassi no ha hecho otra cosa que golpear pelotas de tenis. Su padre, obsesionado en convertirlo en un astro del deporte, cosntruyó una máquina (el dragón) que disparaba 2.500 pelotas al día contra el pequeño Andre. Escrita por el premio Pulitzer J. R. Moehringer, Open es la semblanza a corazón abierto de André Agassi, que en estas memorias se muestra tal como es: un hombre que debió enfrentarse a las presiones de su familia, de la fama, pero que siempre conservó el valor de la amistad y un sentido altruista de la vida. En esta cautivadora autobiografía, Agassi revela, con sentido del humor y ternura, una vida definida por la contradicción entre un destino impuesto y el anhelo por complacer a quienes lo han sacrificado todo por él. «Odio el tenis, lo detesto con una oscura y secreta pasión, y sin embargo sigo jugando porque no tengo alternativa. Y ese abismo, esa contradicción entre lo que quiero hacer y lo que de hecho hago, es la esencia de mi vida.» Andre Agassi «Formidable e hipnótico.» Rosa Montero «Por favor, no dejen de leerlo.» J. Ernesto Ayala-Dip «El mejor libro que he leído en la última década.» Alessandro Baricco «Cuando terminas sientes que amas al protagonista.» Jesús Carrasco, autor de Intemperie. «Inconmesurable.» Albert Espinosa «Un libro apasionante, no he podido dejar de leerlo.» Juan José Millás «Maravillosamente escrito.» Jordi Puntí «Se lee con diversión y ganas de más.» David Trueba «¡Sorprendente y magnífica lectura!» Sergio Vila-Sanjuán &amp;nbsp; Leer",
+        "sinopsis_completa": "Siendo un bebé, le pusieron una raqueta de juguete en la mano. Desde entonces, Agassi no ha hecho otra cosa que golpear pelotas de tenis. Su padre, obsesionado en convertirlo en un astro del deporte, cosntruyó una máquina (el dragón) que disparaba 2.500 pelotas al día contra el pequeño Andre. Escrita por el premio Pulitzer J. R. Moehringer, Open es la semblanza a corazón abierto de André Agassi, que en estas memorias se muestra tal como es: un hombre que debió enfrentarse a las presiones de su familia, de la fama, pero que siempre conservó el valor de la amistad y un sentido altruista de la vida. En esta cautivadora autobiografía, Agassi revela, con sentido del humor y ternura, una vida definida por la contradicción entre un destino impuesto y el anhelo por complacer a quienes lo han sacrificado todo por él. «Odio el tenis, lo detesto con una oscura y secreta pasión, y sin embargo sigo jugando porque no tengo alternativa. Y ese abismo, esa contradicción entre lo que quiero hacer y lo que de hecho hago, es la esencia de mi vida.» Andre Agassi «Formidable e hipnótico.» Rosa Montero «Por favor, no dejen de leerlo.» J. Ernesto Ayala-Dip «El mejor libro que he leído en la última década.» Alessandro Baricco «Cuando terminas sientes que amas al protagonista.» Jesús Carrasco, autor de Intemperie. «Inconmesurable.» Albert Espinosa «Un libro apasionante, no he podido dejar de leerlo.» Juan José Millás «Maravillosamente escrito.» Jordi Puntí «Se lee con diversión y ganas de más.» David Trueba «¡Sorprendente y magnífica lectura!» Sergio Vila-Sanjuán Leer",
         "titulo": "Open (Edición Bestseller)"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/open-edicion-bestseller/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788416634361",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -9982,12 +10451,12 @@
         "precision_fecha": "dia",
         "pvp_centimos": 1680,
         "sinopsis_breve": "Una heroína (in)conformista e inolvidable Keiko Furukura tiene 36 años y está soltera. De hecho, nunca ha tenido pareja. Desde que abandonó a su…",
-        "sinopsis_completa": "Una heroína (in)conformista e inolvidable Keiko Furukura tiene 36 años y está soltera. De hecho, nunca ha tenido pareja. Desde que abandonó a su tradicional familia para mudarse a Tokio, trabaja a tiempo parcial como dependienta de una konbini, un supermercado japonés abierto las 24 horas del día. Siempre ha sentido que no encajaba en la sociedad, pero en la tienda ha encontrado un mundo predecible, gobernado por un manual que dicta a los trabajadores cómo actuar y qué decir. Ha conseguido lograr esa normalidad que la sociedad le reclama: todos quieren ver a Keiko formar un hogar, seguir un camino convencional que la convierta, a sus ojos, en una adulta. Con esta visión hilarante de las expectativas de la sociedad hacia las mujeres solteras, Sayaka Murata se ha consagrado como la nueva voz de la literatura japonesa. Ganadora del Premio Akutagawa «Una novela extraordinaria sobre lo difícil que resulta a veces formar parte del mundo.» The New York Times «Un retrato entrañable y fresco que recuerda a Banana Yoshimoto, Han Kang y Amélie.» Grove Atlantic «Una explosión de literatura, de las mejores que he visto por parte de una escritora tan joven.» John Freeman, Literary Hub «Absurda, cómica, audaz y precisa. Asombrosa.» Hiromi Kawakami &amp;nbsp; &amp;nbsp; &amp;nbsp; Leer Cope El Mundo El Periódico La Vanguardia La Vanguardia I Vida Maribel Verdú Instagram RTVE \"Página Dos\" TV3 \"Quan arribin els marcians\" Zenda",
+        "sinopsis_completa": "Una heroína (in)conformista e inolvidable Keiko Furukura tiene 36 años y está soltera. De hecho, nunca ha tenido pareja. Desde que abandonó a su tradicional familia para mudarse a Tokio, trabaja a tiempo parcial como dependienta de una konbini, un supermercado japonés abierto las 24 horas del día. Siempre ha sentido que no encajaba en la sociedad, pero en la tienda ha encontrado un mundo predecible, gobernado por un manual que dicta a los trabajadores cómo actuar y qué decir. Ha conseguido lograr esa normalidad que la sociedad le reclama: todos quieren ver a Keiko formar un hogar, seguir un camino convencional que la convierta, a sus ojos, en una adulta. Con esta visión hilarante de las expectativas de la sociedad hacia las mujeres solteras, Sayaka Murata se ha consagrado como la nueva voz de la literatura japonesa. Ganadora del Premio Akutagawa «Una novela extraordinaria sobre lo difícil que resulta a veces formar parte del mundo.» The New York Times «Un retrato entrañable y fresco que recuerda a Banana Yoshimoto, Han Kang y Amélie.» Grove Atlantic «Una explosión de literatura, de las mejores que he visto por parte de una escritora tan joven.» John Freeman, Literary Hub «Absurda, cómica, audaz y precisa. Asombrosa.» Hiromi Kawakami Leer Cope El Mundo El Periódico La Vanguardia La Vanguardia I Vida Maribel Verdú Instagram RTVE \"Página Dos\" TV3 \"Quan arribin els marcians\" Zenda",
         "titulo": "La dependienta"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/la-dependienta/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788416634620",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -10024,7 +10493,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/el-bar-de-las-grandes-esperanzas-edicion-bestseller/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788417128203",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -10061,7 +10530,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/cuentos-para-ninos-que-suenan-con-cambiar-el-mundo/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788417128531",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-05",
@@ -10098,7 +10567,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/el-gran-libro-de-las-emociones/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788417128715",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-01",
@@ -10129,13 +10598,13 @@
         "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2021/08/LosGooniesFRONTAL_METAL.jpg",
         "precision_fecha": "dia",
         "pvp_centimos": 1390,
-        "sinopsis_breve": "La novela oficial de uno de los fen&amp;oacute;menos de todos los tiempos. Vuelve la historia m&amp;aacute;s querida y apasionante de aquellos maravillosos a&amp;ntilde;os ochenta.…",
-        "sinopsis_completa": "La novela oficial de uno de los fen&amp;oacute;menos de todos los tiempos. Vuelve la historia m&amp;aacute;s querida y apasionante de aquellos maravillosos a&amp;ntilde;os ochenta. Los Goonies buscan un tesoro oculto... y lo que encuentran es &amp;iexcl;un mont&amp;oacute;n de problemas! Es verano en el peque&amp;ntilde;o puerto mar&amp;iacute;timo de Astoria. Los Goonies est&amp;aacute;n inquietos: una gran constructora amenaza con apropiarse del pueblo. Pero tras encontrar un viejo mapa pirata, el grupo sale a buscar el tesoro que puede salvar a todo el barrio. No cuentan con los esqueletos armados, los pasadizos subterr&amp;aacute;neos llenos de trampas y un asesino en busca y captura. Y todos ellos desean acabar con los Goonies. Juraron apoyarse contra viento y marea. Por suerte para ellos, porque est&amp;aacute; a punto de iniciarse la aventura m&amp;aacute;s incre&amp;iacute;ble de sus vidas. Ahora, &amp;iexcl;en una edici&amp;oacute;n con cubierta metalizada!&amp;nbsp;",
+        "sinopsis_breve": "La novela oficial de uno de los fenómenos de todos los tiempos. Vuelve la historia más querida y apasionante de aquellos maravillosos años ochenta.…",
+        "sinopsis_completa": "La novela oficial de uno de los fenómenos de todos los tiempos. Vuelve la historia más querida y apasionante de aquellos maravillosos años ochenta. Los Goonies buscan un tesoro oculto... y lo que encuentran es ¡un montón de problemas! Es verano en el pequeño puerto marítimo de Astoria. Los Goonies están inquietos: una gran constructora amenaza con apropiarse del pueblo. Pero tras encontrar un viejo mapa pirata, el grupo sale a buscar el tesoro que puede salvar a todo el barrio. No cuentan con los esqueletos armados, los pasadizos subterráneos llenos de trampas y un asesino en busca y captura. Y todos ellos desean acabar con los Goonies. Juraron apoyarse contra viento y marea. Por suerte para ellos, porque está a punto de iniciarse la aventura más increíble de sus vidas. Ahora, ¡en una edición con cubierta metalizada!",
         "titulo": "Los Goonies"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/los-goonies-2/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788417761769",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -10166,13 +10635,13 @@
         "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2021/08/OliveKitteridgeEDICIONBEST.jpg",
         "precision_fecha": "dia",
         "pvp_centimos": 1590,
-        "sinopsis_breve": "PREMIO PULITZER UNA NOVELA DE UNA EMOCI&amp;Oacute;N INTENSA Y &amp;Uacute;NICA Olive Kitteridge es una maestra retirada que vive en un peque&amp;ntilde;o lugar de Maine…",
-        "sinopsis_completa": "EMOCI&amp;Oacute;N INTENSA Y &amp;Uacute;NICA Olive Kitteridge es una maestra retirada que vive en un peque&amp;ntilde;o lugar de Maine, en Nueva Inglaterra. A veces dura, otras paciente, a veces l&amp;uacute;cida, otras abnegadamente ciega, Olive lamenta las transformaciones que han agitado el peque&amp;ntilde;o pueblo de Crosby y la deriva catastr&amp;oacute;fica que va tomando el mundo entero, pero no siempre se da cuenta de los cambios menos perceptibles que afectan a las personas m&amp;aacute;s cercanas: la desesperaci&amp;oacute;n de un ex alumno que ha perdido las ganas de vivir; la soledad de su hijo, que se siente tiranizado por los irracionales caprichos maternos; y la presencia de su marido, Henry, que vive su fidelidad conyugal como una maldita bendici&amp;oacute;n. Mientras la gente del lugar va afrontando sus problemas, sean leves o graves, Olive va tomando conciencia de s&amp;iacute; misma y de las personas que la rodean, muchas veces dolorosamente, pero siempre con una honestidad entra&amp;ntilde;able. Leer",
+        "sinopsis_breve": "PREMIO PULITZER UNA NOVELA DE UNA EMOCIÓN INTENSA Y ÚNICA Olive Kitteridge es una maestra retirada que vive en un pequeño lugar de Maine…",
+        "sinopsis_completa": "Olive Kitteridge es una maestra retirada que vive en un pequeño lugar de Maine, en Nueva Inglaterra. A veces dura, otras paciente, a veces lúcida, otras abnegadamente ciega, Olive lamenta las transformaciones que han agitado el pequeño pueblo de Crosby y la deriva catastrófica que va tomando el mundo entero, pero no siempre se da cuenta de los cambios menos perceptibles que afectan a las personas más cercanas: la desesperación de un ex alumno que ha perdido las ganas de vivir; la soledad de su hijo, que se siente tiranizado por los irracionales caprichos maternos; y la presencia de su marido, Henry, que vive su fidelidad conyugal como una maldita bendición. Mientras la gente del lugar va afrontando sus problemas, sean leves o graves, Olive va tomando conciencia de sí misma y de las personas que la rodean, muchas veces dolorosamente, pero siempre con una honestidad entrañable. Leer",
         "titulo": "Olive Kitteridge (Edición Bestseller)"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/olive-kitteridge-edicion-bestseller/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788417761943",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -10298,7 +10767,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/ella-y-su-gato/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788418128554",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -10369,7 +10838,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/ana-la-de-tejas-verdes/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788418128950",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -10381,10 +10850,8 @@
           "Brooke Vitale"
         ],
         "coleccion": "Infantil Juvenil",
-        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "",
         "editorial": "Duomo Ediciones",
-        "editorial_slug": "duomo-ediciones",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2021-07-12",
         "formato_edicion": "tapa-dura",
@@ -10398,15 +10865,15 @@
         "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2021/08/LosGoonies_WEB.jpg",
         "precision_fecha": "dia",
         "pvp_centimos": 1490,
-        "sinopsis_breve": "&amp;nbsp;&amp;laquo;LOS GOONIES NUNCA SE RINDEN.&amp;raquo; Son los Goonies. Los rechazados. Los ni&amp;ntilde;os que siempre fueron un poco... diferentes. Son amigos de toda la vida…",
-        "sinopsis_completa": "&amp;nbsp;&amp;laquo;LOS goonies nunca se. RINDEN.&amp;raquo; Son los Goonies. Los rechazados. Los ni&amp;ntilde;os que siempre fueron un poco... diferentes. Son amigos de toda la vida, pero ahora van a tener que separarse. Est&amp;aacute;n a punto de perder sus casas, y sus padres no pueden evitarlo. Es su &amp;uacute;ltimo d&amp;iacute;a juntos. Los Goonies no saben qu&amp;eacute; les espera. Todo empieza con el mapa del tesoro en el &amp;aacute;tico de Mikey. Los adultos de los muelles de Goon hace a&amp;ntilde;os que han renunciado a buscar el tesoro. Pero para los Goonies es la ocasi&amp;oacute;n de vivir una &amp;uacute;ltima aventura. El mapa los conduce hasta los t&amp;uacute;neles de debajo del pueblo. Se enfrentan a peligrosos criminales, encuentran los huesos de exploradores del pasado, descubren un mont&amp;oacute;n de trampas mortales... Pero siguen, porque saben que el viejo mapa los llevar&amp;aacute; a conseguir lo que sus padres no pueden: salvar sus casas. &amp;iexcl;No ser&amp;aacute;n los t&amp;iacute;picos h&amp;eacute;roes, pero los Goonies son los mejores! La historia ilustrada oficial de uno de los. FEN&amp;Oacute;MENOS de todos los tiempos. Arte interior 1 Arte interior 2 Arte interior 3 Arte interior 4 Arte interior 5",
+        "sinopsis_breve": "",
+        "sinopsis_completa": "Son los Goonies. Los rechazados. Los niños que siempre fueron un poco... diferentes. Son amigos de toda la vida, pero ahora van a tener que separarse. Están a punto de perder sus casas, y sus padres no pueden evitarlo. Es su último día juntos. Los Goonies no saben qué les espera. Todo empieza con el mapa del tesoro en el ático de Mikey. Los adultos de los muelles de Goon hace años que han renunciado a buscar el tesoro. Pero para los Goonies es la ocasión de vivir una última aventura. El mapa los conduce hasta los túneles de debajo del pueblo. Se enfrentan a peligrosos criminales, encuentran los huesos de exploradores del pasado, descubren un montón de trampas mortales... Pero siguen, porque saben que el viejo mapa los llevará a conseguir lo que sus padres no pueden: salvar sus casas. ¡No serán los típicos héroes, pero los Goonies son los mejores! La historia ilustrada oficial de uno de los fenómenos de todos los tiempos. Arte interior 1 Arte interior 2 Arte interior 3 Arte interior 4 Arte interior 5",
         "titulo": "Los Goonies. La historia ilustrada"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/los-goonies-la-historia-ilustrada/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788418538254",
-      "motivo": "Edición fuera de la ventana de selección configurada",
+      "motivo": "Sinopsis editorial ausente; se conserva la ficha anterior o queda pendiente",
       "primera_deteccion": "2026-11-02",
       "retry_after": "2026-11-08"
     },
@@ -10435,13 +10902,13 @@
         "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2021/08/2_AnaladeAvonlea-300-694x1024.jpg",
         "precision_fecha": "dia",
         "pvp_centimos": 1190,
-        "sinopsis_breve": "UN PERSONAJE QUE VUELVE PARA ROBARNOS EL CORAZ&amp;Oacute;N Ya han pasado cinco veranos desde que la apasionada y parlanchina Ana Shirley lleg&amp;oacute; a Avonlea.…",
-        "sinopsis_completa": "CORAZ&amp;Oacute;N Ya han pasado cinco veranos desde que la apasionada y parlanchina Ana Shirley lleg&amp;oacute; a Avonlea. &amp;iexcl;Y ahora ser&amp;iacute;a imposible imaginar Tejas Verdes y el peque&amp;ntilde;o pueblo sin ella! Con diecis&amp;eacute;is a&amp;ntilde;os y medios, Ana ha crecido y se ha convertido en maestra. Y, aunque sigue meti&amp;eacute;ndose en los l&amp;iacute;os de siempre, la pelirroja tiene nuevas preocupaciones. &amp;iquest;C&amp;oacute;mo ganarse la confianza de sus alumnos? &amp;iquest;C&amp;oacute;mo hacer realidad su sue&amp;ntilde;o de ir a la universidad? &amp;iquest;Qu&amp;eacute; le sucede al atractivo Gilbert Blythe? UNA NUEVA EDICI&amp;Oacute;N revisada de la novela de lucy maud montgomery. Empieza a leer",
+        "sinopsis_breve": "UN PERSONAJE QUE VUELVE PARA ROBARNOS EL CORAZÓN Ya han pasado cinco veranos desde que la apasionada y parlanchina Ana Shirley llegó a Avonlea.…",
+        "sinopsis_completa": "Ya han pasado cinco veranos desde que la apasionada y parlanchina Ana Shirley llegó a Avonlea. ¡Y ahora sería imposible imaginar Tejas Verdes y el pequeño pueblo sin ella! Con dieciséis años y medios, Ana ha crecido y se ha convertido en maestra. Y, aunque sigue metiéndose en los líos de siempre, la pelirroja tiene nuevas preocupaciones. ¿Cómo ganarse la confianza de sus alumnos? ¿Cómo hacer realidad su sueño de ir a la universidad? ¿Qué le sucede al atractivo Gilbert Blythe? Una nueva edición revisada de la novela de lucy maud montgomery. Empieza a leer",
         "titulo": "Ana, la de Tejas Verdes 2. Ana, la de Avonlea"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/ana-la-de-tejas-verdes-2-ana-la-de-avonlea/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788418538261",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -10472,13 +10939,13 @@
         "portada_fuente_url": "https://www.duomoediciones.com/wp-content/uploads/2021/04/Ana-la-de-la-isla-300-669x1024.jpg",
         "precision_fecha": "dia",
         "pvp_centimos": 1190,
-        "sinopsis_breve": "UN PERSONAJE QUE VUELVE PARA ROBARNOS EL CORAZ&amp;Oacute;N Ana Shirley deja su vida en Avonlea para empezar sus estudios en la universidad de Redmond.…",
-        "sinopsis_completa": "CORAZ&amp;Oacute;N Ana Shirley deja su vida en Avonlea para empezar sus estudios en la universidad de Redmond. En la Casa de Patty encuentra un nuevo hogar y enseguida se siente a gusto en compa&amp;ntilde;&amp;iacute;a de Priscilla, Stella, su nueva amiga Phil y tres gatos. Junto a la novedad de las clases, a Ana le esperan otras sorpresas&amp;hellip; como alguna propuesta de matrimonio a la que se sumar&amp;aacute; tambi&amp;eacute;n la declaraci&amp;oacute;n de amor de Gilbert. &amp;iquest;Es realmente inesperada? &amp;iquest;Le quiere ella del mismo modo o prefiere conservarlo como amigo? UNA NUEVA EDICI&amp;Oacute;N revisada de la novela de lucy maud montgomery. Empieza a leer",
+        "sinopsis_breve": "UN PERSONAJE QUE VUELVE PARA ROBARNOS EL CORAZÓN Ana Shirley deja su vida en Avonlea para empezar sus estudios en la universidad de Redmond.…",
+        "sinopsis_completa": "Ana Shirley deja su vida en Avonlea para empezar sus estudios en la universidad de Redmond. En la Casa de Patty encuentra un nuevo hogar y enseguida se siente a gusto en compañía de Priscilla, Stella, su nueva amiga Phil y tres gatos. Junto a la novedad de las clases, a Ana le esperan otras sorpresas… como alguna propuesta de matrimonio a la que se sumará también la declaración de amor de Gilbert. ¿Es realmente inesperada? ¿Le quiere ella del mismo modo o prefiere conservarlo como amigo? Una nueva edición revisada de la novela de lucy maud montgomery. Empieza a leer",
         "titulo": "Ana, la de Tejas Verdes 3. Ana, la de la isla"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/ana-la-de-tejas-verdes-3-ana-la-de-la-isla/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788418538476",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -10515,7 +10982,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/arsene-lupin-caballero-ladron/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788418538506",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -10550,7 +11017,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/arsene-lupin-y-la-aguja-hueca/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788418538599",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -10580,12 +11047,12 @@
         "precision_fecha": "dia",
         "pvp_centimos": 1680,
         "sinopsis_breve": "La historia de amor que inspiró la nueva obra maestra de Steven Spielberg En el West Side de Nueva York, los puertorriqueños tratan de…",
-        "sinopsis_completa": "La historia de amor que inspiró la nueva obra maestra de Steven Spielberg En el West Side de Nueva York, los puertorriqueños tratan de abrirse camino. Recién llegados, intentan encontrar su lugar en la ciudad, aunque eso suponga hacerlo a puñetazos. Los Sharks, liderados por Bernardo, controlan varias manzanas que se disputan con otra pandilla, los Jets, hijos de los primeros inmigrantes procedentes de Europa. Todos luchan contra todos, y todos, contra la policía. Y en medio de los enfrentamientos, en un baile, dos jóvenes pertenecientes a facciones diferentes se conocen y se enamoran La historia más romántica de todos los tiempos regresa para brillar con más fuerza que nunca, con un mensaje multicultural y el anhelo de un futuro mejor y más inclusivo «Tenía que contarla.» Steven Spielberg &amp;nbsp;",
+        "sinopsis_completa": "La historia de amor que inspiró la nueva obra maestra de Steven Spielberg En el West Side de Nueva York, los puertorriqueños tratan de abrirse camino. Recién llegados, intentan encontrar su lugar en la ciudad, aunque eso suponga hacerlo a puñetazos. Los Sharks, liderados por Bernardo, controlan varias manzanas que se disputan con otra pandilla, los Jets, hijos de los primeros inmigrantes procedentes de Europa. Todos luchan contra todos, y todos, contra la policía. Y en medio de los enfrentamientos, en un baile, dos jóvenes pertenecientes a facciones diferentes se conocen y se enamoran La historia más romántica de todos los tiempos regresa para brillar con más fuerza que nunca, con un mensaje multicultural y el anhelo de un futuro mejor y más inclusivo «Tenía que contarla.» Steven Spielberg",
         "titulo": "West Side Story"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/west-side-story/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788418538742",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-01",
@@ -10690,7 +11157,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/arsene-lupin-caballero-ladron-edicion-ilustrada/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788418538902",
       "motivo": "Sinopsis editorial ausente; se conserva la ficha anterior o queda pendiente",
       "primera_deteccion": "2026-11-01",
@@ -10778,12 +11245,12 @@
         "precision_fecha": "dia",
         "pvp_centimos": 2990,
         "sinopsis_breve": "Precioso estuche regalo que incluye los tres títulos de Ana, la de Tejas Verdes +50.000 ejemplares vendidos de las nuevas ediciones que inspiraron la…",
-        "sinopsis_completa": "Precioso estuche regalo que incluye los tres títulos de Ana, la de Tejas Verdes +50.000 ejemplares vendidos de las nuevas ediciones que inspiraron la serie de Netflix. Incluye los tres títulos del clásico que vuelve para robarnos el corazón. «Ana, la de Tejas Verdes es el triunfo de la esperanza» Margaret Atwood nuevas ediciones de las novelas que inspiraron la serie de netflix, anne with an e &amp;nbsp; &amp;nbsp;",
+        "sinopsis_completa": "Precioso estuche regalo que incluye los tres títulos de Ana, la de Tejas Verdes +50.000 ejemplares vendidos de las nuevas ediciones que inspiraron la serie de Netflix. Incluye los tres títulos del clásico que vuelve para robarnos el corazón. «Ana, la de Tejas Verdes es el triunfo de la esperanza» Margaret Atwood nuevas ediciones de las novelas que inspiraron la serie de netflix, anne with an e",
         "titulo": "Estuche colección Ana, la de Tejas Verdes: Ana, la de Tejas Verdes - Ana, la de Avonlea - Ana, la de la Isla"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/4573/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788419004079",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-01",
@@ -10813,12 +11280,12 @@
         "precision_fecha": "dia",
         "pvp_centimos": 2290,
         "sinopsis_breve": "La obra maestra de Stefan Zweig cobra vida en esta edición ilustrada por Kim Amate. Stefan Zweig, una de las mejores plumas de la…",
-        "sinopsis_completa": "La obra maestra de Stefan Zweig cobra vida en esta edición ilustrada por Kim Amate. Stefan Zweig, una de las mejores plumas de la literatura europea, heredera de la prosa depurada y elegante del siglo XIX, nos brinda sus Momentos estelares de la humanidad, un libro para todo tipo de lectores que instruye y deleita a partes iguales. Gran observador, relata con maestría en esta crónica catorce momentos que han supuesto un punto de inflexión en la Historia: el ocaso del imperio de Occidente, la derrota de Napoleón, la conquista del Polo Sur, el primer cable de telégrafo en cruzar el océano atlántico, entre otros. Todos ellos, en palabras de Zweig, «momentos preñados de fatalidad, en los que una decisión destinada a persistir a lo largo de los tiempos se comprime en una única fecha». Una obra clásica que cerca de un siglo después sigue siendo un bestseller. «Uno de los libros que más me han gustado en mi vida es Momentos estelares de la humanidad, de Stefan Zweig.» Javier Cercas «Una joya que hace 20 años los cretinos de la literatura despreciaban, que les ha sobrevivido y ahora todos aplauden.» Arturo Pérez-Reverte &amp;nbsp;",
+        "sinopsis_completa": "La obra maestra de Stefan Zweig cobra vida en esta edición ilustrada por Kim Amate. Stefan Zweig, una de las mejores plumas de la literatura europea, heredera de la prosa depurada y elegante del siglo XIX, nos brinda sus Momentos estelares de la humanidad, un libro para todo tipo de lectores que instruye y deleita a partes iguales. Gran observador, relata con maestría en esta crónica catorce momentos que han supuesto un punto de inflexión en la Historia: el ocaso del imperio de Occidente, la derrota de Napoleón, la conquista del Polo Sur, el primer cable de telégrafo en cruzar el océano atlántico, entre otros. Todos ellos, en palabras de Zweig, «momentos preñados de fatalidad, en los que una decisión destinada a persistir a lo largo de los tiempos se comprime en una única fecha». Una obra clásica que cerca de un siglo después sigue siendo un bestseller. «Uno de los libros que más me han gustado en mi vida es Momentos estelares de la humanidad, de Stefan Zweig.» Javier Cercas «Una joya que hace 20 años los cretinos de la literatura despreciaban, que les ha sobrevivido y ahora todos aplauden.» Arturo Pérez-Reverte",
         "titulo": "Momentos estelares de la humanidad"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/momentos-estelares-de-la-humanidad/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788419004130",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-05",
@@ -10855,7 +11322,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/arsene-lupin-contra-herlock-sholmes/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788419004161",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -10890,7 +11357,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/dentro-del-juego-del-calamar-luz-verde-a-los-secretos-de-la-serie-manual-de-instrucciones-no-oficial/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788419004178",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -10934,6 +11401,15 @@
       "libro_id": "isbn-9788419132956",
       "primera_deteccion": "2026-11-04",
       "publicado_en": "2026-11-04"
+    },
+    "isbn13:9788419275424": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/novela-fantastica-juvenil/637814-libro-los-gatos-guerreros-el-augurio-de-las-estrellas-6-la-ultima-esperanza-9788419275424",
+      "intentos": 1,
+      "isbn13": "9788419275424",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788419275776": {
       "datos": {
@@ -10985,6 +11461,60 @@
       "libro_id": "isbn-9788419275776",
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
+    },
+    "isbn13:9788419275851": {
+      "datos": {
+        "autores": [
+          "J.K. Rowling"
+        ],
+        "coleccion": "Harry Potter",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 9 años",
+        "editorial": "SALAMANDRA INFANTIL Y JUVENIL",
+        "editorial_slug": "salamandra",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/637815-libro-harry-potter-y-el-misterio-del-principe-harry-potter-edicion-con-ilustraciones-de-xavier-bonet-6-9788419275851",
+        "fuentes_autores": {
+          "J.K. Rowling": "https://www.penguinlibros.com/es/9926-jk-rowling"
+        },
+        "idioma": "es",
+        "isbn13": "9788419275851",
+        "materias": [
+          "A partir de 9 años"
+        ],
+        "numero_paginas": 576,
+        "palabras_clave": [
+          "harry potter y el misterio del principe",
+          "xavier bonet",
+          "hogwarts",
+          "edicion ilustrada",
+          "libro ilustrado",
+          "sexto libro harry potter",
+          "edicion esp ecial",
+          "para coleccionistas",
+          "en español",
+          "en castellano",
+          "escuela de magia",
+          "magos",
+          "brujas",
+          "libro de pociones",
+          "voldemort",
+          "literatura ju"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8295219-thickbox_default/harry-potter-y-el-misterio-del-principe-harry-potter-edicion-con-ilustraciones-de-xavier-bonet-6.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 3395,
+        "sinopsis_breve": "Mientras lord Voldemort extiende el miedo por todo el mundo mágico, Dumbledore prepara al joven mago para la inminente batalla.",
+        "sinopsis_completa": "Harry regresa a Hogwarts para comenzar su sexto curso, pero las cosas ya no son como antes.\n\nMientras lord Voldemort extiende el miedo por todo el mundo mágico, Dumbledore prepara al joven mago para la inminente batalla.\n\nEntretanto, Harry descubre en clase de Pociones un viejo libro repleto de anotaciones que pertenecieron al misterioso \"Príncipe Mestizo\".\n\nGracias a él, se convierte en el mejor alumno, aunque entre sus páginas parece esconderse un oscuro secreto...\n\n¿Quién es realmente el Príncipe Mestizo?\n\nUna nueva edición de Harry Potter:\n\n*En un formato más grande y muy vistoso, con impresionantes cubiertas y guardas ilustradas\n\n* Con ilustraciones interiores: al inicio de cada capítulo y varias ilustraciones dobles de escenas\n\n*La saga «Harry Potter» por primera vez ilustrada por un artista nacional: Xavier Bonet\n\n*Xavier Bonet nos ofrece una representación única del mundo mágico de J. K. Rowling.",
+        "titulo": "Harry Potter y el misterio del príncipe (Harry Potter edición con ilustraciones de Xavier Bonet 6)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788419275851",
+      "libro_id": "isbn-9788419275851",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788419357373": {
       "datos": {
@@ -11173,7 +11703,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-bolsillo-2027-la-vecina-rubia/429971",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788419434227",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-02",
@@ -11219,7 +11749,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-bolsillo-2027-maria-hesse/429974",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788419434234",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
@@ -11267,7 +11797,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-agenda-anual-bolsillo-2027-brianda/429975",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788419434241",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-10-30",
@@ -11422,6 +11952,65 @@
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
     },
+    "isbn13:9788419441713": {
+      "datos": {
+        "autores": [
+          "Alba Sanvez"
+        ],
+        "coleccion": "Random Cómics",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "RANDOM COMICS",
+        "editorial_slug": "random-comics",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-autoayuda/637440-libro-diario-de-3-anos-consecutivos-9788419441713",
+        "fuentes_autores": {
+          "Alba Sanvez": "https://www.penguinlibros.com/es/1021589-alba-sanvez"
+        },
+        "idioma": "es",
+        "isbn13": "9788419441713",
+        "materias": [
+          "Autoayuda"
+        ],
+        "numero_paginas": 272,
+        "palabras_clave": [
+          "journal",
+          "diario",
+          "journaling",
+          "diario sin fecha",
+          "objetivos",
+          "planificacion",
+          "bucketlist",
+          "autocuidado",
+          "bienestar",
+          "mindfulness",
+          "gratitud",
+          "reflexion",
+          "e scrituraterapeutica",
+          "escrituracreativa",
+          "autoconocimiento",
+          "metas",
+          "productividad",
+          "motivacion",
+          "vision board",
+          "planificador",
+          "manifestac"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8355028-thickbox_default/diario-de-3-anos-consecutivos.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2295,
+        "sinopsis_breve": "A través de ejercicios de autoconocimiento, herramientas de planificación y páginas de reflexión, podrás construir un mapa de tu crecimiento personal año tras año…",
+        "sinopsis_completa": "Esto no es un diario. Tampoco una agenda.\n\nEs un cuaderno de reflexión y journaling que te va a acompañar durante los próximos tres años.\n\nEn sus páginas encontrarás un espacio para pensar, crear y registrar todo aquello que hace única tu historia: tus objetivos, tus ideas, tus logros, los momentos importantes para ti y las personas que te han acompañado en ellos.\n\nA través de ejercicios de autoconocimiento, herramientas de planificación y páginas de reflexión, podrás construir un mapa de tu crecimiento personal año tras año y crearás un lugar al que volver una y otra vez para ver tus avances y construir la vida que quieres vivir.\n\nEn este cuaderno encontrarás:\n\n*Herramientas para definir objetivos a corto, medio y largo plazo.\n\n*Ejercicios para descubrir tus valores, fortalezas y motivaciones.\n\n*Vision boards, una bucket list y un seguimiento de proyectos personales para cada año.\n\n*Un espacio para registrar los libros, películas y series que te marquen.\n\n*Journaling prompts para conectar contigo, desbloquearte y reflexionar.\n\n*Revisiones mensuales, espacios para agradecer y ejercicios para cerrar cada año con perspectiva.\n\n*Páginas especiales para reflexionar el día de tu cumpleaños.",
+        "titulo": "Diario de 3 años consecutivos"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788419441713",
+      "libro_id": "isbn-9788419441713",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9788419456007": {
       "datos": {
         "autores": [
@@ -11532,6 +12121,72 @@
       "primera_deteccion": "2026-11-01",
       "retry_after": "2026-11-07"
     },
+    "isbn13:9788419514318": {
+      "datos": {
+        "autores": [
+          "Eloy Moreno"
+        ],
+        "coleccion": "Nube de Tinta",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 12 años",
+        "editorial": "NUBE DE TINTA",
+        "editorial_slug": "nube-de-tinta",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novelas-juveniles/635046-libro-invisible-edicion-luna-9788419514318",
+        "fuentes_autores": {
+          "Eloy Moreno": "https://www.penguinlibros.com/es/7894-eloy-moreno"
+        },
+        "idioma": "es",
+        "isbn13": "9788419514318",
+        "materias": [
+          "Novelas juveniles"
+        ],
+        "numero_paginas": 328,
+        "palabras_clave": [
+          "12 años",
+          "13 años",
+          "14 años",
+          "15 años",
+          "2022",
+          "adolescencia libros",
+          "redes sociales",
+          "thriller",
+          "misterio",
+          "aprendizaje",
+          "aprendizaje para niños",
+          "autoayu da libros",
+          "autoayuda para adolescentes",
+          "autoestima en adolescentes",
+          "autoestima en niños",
+          "pedro mañas",
+          "anna kadabra",
+          "didactico",
+          "ed"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8278799-thickbox_default/invisible-edicion-luna.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2495,
+        "sinopsis_breve": "El problema es que nunca he llegado a controlar bien ese poder: a veces[NS1.1], cuando más ganas tenía de ser invisible era cuando más…",
+        "sinopsis_completa": "¿Quién no ha deseado alguna vez ser invisible?\n\n¿Quién no ha deseado alguna vez dejar de serlo?\n\nEl problema es que nunca he llegado a controlar bien ese poder: a veces[NS1.1], cuando más ganas tenía de ser invisible era cuando más gente me veía, y en cambio, cuando quería que todos me vieran era cuando a mi cuerpo le daba por desaparecer.",
+        "titulo": "Invisible (edición Luna)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788419514318",
+      "libro_id": "isbn-9788419514318",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9788419514882": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/novelas-juveniles/635048-libro-redes-edicion-luna-invisible-2-9788419514882",
+      "intentos": 1,
+      "isbn13": "9788419514882",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788419521491": {
       "datos": {
         "autores": [
@@ -11559,12 +12214,12 @@
         "precision_fecha": "dia",
         "pvp_centimos": 4900,
         "sinopsis_breve": "Un impresionante canto de amor al libro físico. Del genial creador de universos, como Lost y Star Wars, J.J. Abrams «El libro más hermoso…",
-        "sinopsis_completa": "Un impresionante canto de amor al libro físico. Del genial creador de universos, como Lost y Star Wars, J.J. Abrams «El libro más hermoso que he visto nunca.» The New Yorker https://www.duomoediciones.com/wp-content/uploads/2023/09/S.-El-barco-de-Teseo.mp4 Un libro, dos lectores, un mundo de misterio, amenazas y deseo... Una joven encuentra accidentalmente un libro dejado fuera de lugar por un extraño: un lector intrigado, embelesado por la historia y su misterioso autor, como lo revelan las notas escritas al margen. Ella responde escribiendo más notas y vuelve a dejar el libro para que lo coja el chico. Así comienza un intercambio en el que los dos se adentrarán en lo desconocido. El libro: S. El barco de Teseo, la última novela de un prolífico pero enigmático autor llamado V. M. Straka, en el que un hombre sin pasado es secuestrado y llevado a un extraño barco con una tripulación siniestra, comenzando un viaje desconcertante y lleno de peligros. El escritor: Straka es un autor revolucionario, cuya identidad real es uno de los mayores misterios del mundo. Los lectores: Eric y Jennifer, tienen que afrontar decisiones cruciales sobre quiénes son, qué quieren llegar a ser y cuánto están dispuestos a confiar en sus pasiones, sus desengaños, sus miedos… y en el otro. S. El barco de Teseo, ideada, concebida y realizada por el cineasta J. J. Abrams y escrito por el galardonado novelista Doug Dorst, es la crónica de dos lectores que se conocen en los márgenes de un libro y se ven implicados en una lucha mortal entre fuerzas que no comprenden. Un viaje al universo de la palabra escrita que sumergirá a sus lectores en una espiral arriesgada, una aventura imposible de abandonar hasta y más allá de la última página. «S. quiere ser una celebración del libro como objeto físico. En este momento de correos electrónicos y mensajes de texto, y todo lo que se mueve en la nube de una manera intangible, este libro es intencionalmente tangible. Queríamos incluir cosas que realmente puedas tener en la mano: postales, fotocopias, páginas de blocs de notas, páginas del periódico escolar o un mapa en una servilleta…» J. J. Abrams &amp;nbsp;",
+        "sinopsis_completa": "Un impresionante canto de amor al libro físico. Del genial creador de universos, como Lost y Star Wars, J.J. Abrams «El libro más hermoso que he visto nunca.» The New Yorker https://www.duomoediciones.com/wp-content/uploads/2023/09/S.-El-barco-de-Teseo.mp4 Un libro, dos lectores, un mundo de misterio, amenazas y deseo... Una joven encuentra accidentalmente un libro dejado fuera de lugar por un extraño: un lector intrigado, embelesado por la historia y su misterioso autor, como lo revelan las notas escritas al margen. Ella responde escribiendo más notas y vuelve a dejar el libro para que lo coja el chico. Así comienza un intercambio en el que los dos se adentrarán en lo desconocido. El libro: S. El barco de Teseo, la última novela de un prolífico pero enigmático autor llamado V. M. Straka, en el que un hombre sin pasado es secuestrado y llevado a un extraño barco con una tripulación siniestra, comenzando un viaje desconcertante y lleno de peligros. El escritor: Straka es un autor revolucionario, cuya identidad real es uno de los mayores misterios del mundo. Los lectores: Eric y Jennifer, tienen que afrontar decisiones cruciales sobre quiénes son, qué quieren llegar a ser y cuánto están dispuestos a confiar en sus pasiones, sus desengaños, sus miedos… y en el otro. S. El barco de Teseo, ideada, concebida y realizada por el cineasta J. J. Abrams y escrito por el galardonado novelista Doug Dorst, es la crónica de dos lectores que se conocen en los márgenes de un libro y se ven implicados en una lucha mortal entre fuerzas que no comprenden. Un viaje al universo de la palabra escrita que sumergirá a sus lectores en una espiral arriesgada, una aventura imposible de abandonar hasta y más allá de la última página. «S. quiere ser una celebración del libro como objeto físico. En este momento de correos electrónicos y mensajes de texto, y todo lo que se mueve en la nube de una manera intangible, este libro es intencionalmente tangible. Queríamos incluir cosas que realmente puedas tener en la mano: postales, fotocopias, páginas de blocs de notas, páginas del periódico escolar o un mapa en una servilleta…» J. J. Abrams",
         "titulo": "S. El barco de Teseo"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/s-el-barco-de-teseo/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788419521491",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
@@ -11601,7 +12256,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/dama-blanca/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788419521620",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -11719,6 +12374,15 @@
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
     },
+    "isbn13:9788419820853": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-de-espiritualidad/637828-libro-ama-tu-sistema-nervioso-9788419820853",
+      "intentos": 1,
+      "isbn13": "9788419820853",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788419834027": {
       "datos": {
         "autores": [
@@ -11750,7 +12414,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/la-asombrosa-tienda-de-la-senora-yeom/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788419834027",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -12014,6 +12678,15 @@
       "primera_deteccion": "2026-10-27",
       "publicado_en": "2026-10-27"
     },
+    "isbn13:9788419981400": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/novela-grafica/637807-libro-vidas-con-nombre-9788419981400",
+      "intentos": 1,
+      "isbn13": "9788419981400",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788420460444": {
       "datos": {
         "autores": [
@@ -12066,6 +12739,15 @@
       "libro_id": "isbn-9788420460444",
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9788420477046": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/literatura-contemporanea/637387-libro-la-porteadora-9788420477046",
+      "intentos": 1,
+      "isbn13": "9788420477046",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788423370405": {
       "datos": {
@@ -12964,9 +13646,31 @@
           "Cocina"
         ],
         "numero_paginas": 256,
+        "palabras_clave": [
+          "libros de cocina",
+          "cocinalo",
+          "recetas",
+          "guisos",
+          "bocadillos",
+          "Masterchef",
+          "cocina tradicional",
+          "cocina creativa",
+          "comida casera",
+          "cocina facil",
+          "regalos originales",
+          "pan casero",
+          "cocina de aprovechamiento",
+          "arguiñano",
+          "sobras de comida",
+          "paso a paso",
+          "recetas tradicionales",
+          "comida españ"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8129789-thickbox_default/muerdelo.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2490,
         "sinopsis_breve": "De todos estos recuerdos y sensaciones actuales y pretéritos que giran alrededor de la cocina nace precisamente este libro, en el que encontrarás recetas…",
+        "sinopsis_completa": "A mí ese recuerdo me transporta a momentos vividos y a esa sensación tan especial de cuidar con la comida, a la entrega de esas personas que dedicaban parte de su tiempo a cocinar para alimentarnos y asegurarse de que estuviésemos sanos, fuertes y felices (gracias, mamá; gracias, papá ;))\n\nDe todos estos recuerdos y sensaciones actuales y pretéritos que giran alrededor de la cocina nace precisamente este libro, en el que encontrarás recetas de guisos fabulosos y recetas de bocadillos únicos elaborados en gran parte con las sobras de las recetas de los guisos. Tenemos que aprovechar las mal llamadas \"sobras\", porque cada resto es una oportunidad que desechamos para ser más creativos (la clave de la supervivencia humana, si me permitís ponerme intensa) y más felices. Os aseguro que una \"sobra bien pensá\" te transporta al paraíso de lo buena que te puede llegar a quedar metiéndola entre dos panes.\n\nPor último, este libro, además de guisos y bocadillos, y de guisos que se meten en bocadillos, también incluye recetas de mis panes favoritos hechos en casa, alguna que otra guarnición florida (para elevarlos a la categoría de bocadillazo) y salsas caseras buenísimas que os van a servir no solo para vuestros bocatas sino para todo lo que se os ocurra.\n\n¡Que vivan los guisos y los bocadillos!\n\nWith Love & Passion",
         "titulo": "Muérdelo"
       },
       "estado_ingesta": "publicado",
@@ -13869,6 +14573,15 @@
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-20"
     },
+    "isbn13:9788426434456": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/literatura-contemporanea/637724-libro-un-largo-invierno-9788426434456",
+      "intentos": 1,
+      "isbn13": "9788426434456",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788427054479": {
       "datos": {
         "autores": [
@@ -14238,7 +14951,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-a-cinco-segundos-de-ti/458012",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788427055735",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-03",
@@ -14683,6 +15396,131 @@
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
     },
+    "isbn13:9788427256620": {
+      "datos": {
+        "autores": [
+          "Gregory E. Lang"
+        ],
+        "coleccion": "Serres",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 4 años",
+        "editorial": "MOLINO",
+        "editorial_slug": "molino",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/637740-libro-querido-nieto-siempre-en-mi-corazon-9788427256620",
+        "fuentes_autores": {
+          "Gregory E. Lang": "https://www.penguinlibros.com/es/1021578-gregory-e-lang"
+        },
+        "idioma": "es",
+        "isbn13": "9788427256620",
+        "materias": [
+          "A partir de 4 años"
+        ],
+        "numero_paginas": 40,
+        "palabras_clave": [
+          "cuentos infantiles 4 años",
+          "5 años",
+          "6 años",
+          "Nietos",
+          "abuelos",
+          "familia",
+          "amor familiar",
+          "libros para niños",
+          "libros para niñas",
+          "para niño",
+          "para niña",
+          "álbum ilustrado",
+          "animales",
+          "adorable",
+          "bonito",
+          "ilustraciones",
+          "bestseller",
+          "Abuelo me cuentas tu historia",
+          "Abuela me cuentas tu hist"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8226486-thickbox_default/querido-nieto-siempre-en-mi-corazon.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1495,
+        "sinopsis_breve": "Celebra a los abuelos y a los nietos de tu vida con esta historia enternecedora con texto rimado, ilustraciones adorables de animales y un…",
+        "sinopsis_completa": "Celebra a los abuelos y a los nietos de tu vida con esta historia enternecedora con texto rimado, ilustraciones adorables de animales y un mensaje de amor sincero. El regalo perfecto para recordarle a nuestros familiares lo mucho que los queremos.",
+        "titulo": "Querido nieto (Siempre en mi corazón)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788427256620",
+      "libro_id": "isbn-9788427256620",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9788427256644": {
+      "datos": {
+        "autores": [
+          "Carlos G. Gurpegui"
+        ],
+        "coleccion": "Ficción Kids",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 9 años",
+        "editorial": "MOLINO",
+        "editorial_slug": "molino",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/637741-libro-abre-el-misterio-1-el-robo-de-las-croquetas-9788427256644",
+        "fuentes_autores": {
+          "Carlos G. Gurpegui": "https://www.penguinlibros.com/es/954275-carlos-g-gurpegui"
+        },
+        "idioma": "es",
+        "isbn13": "9788427256644",
+        "materias": [
+          "A partir de 9 años"
+        ],
+        "numero_paginas": 200,
+        "palabras_clave": [
+          "libros para niños de 7 años",
+          "libro de misterio para niños",
+          "resuelve el misterio",
+          "investigacion infantil",
+          "detectives infantiles",
+          "libro det ectives niños",
+          "busca pistas",
+          "enigmas para niños",
+          "acertijos para niños",
+          "juego de detectives",
+          "aventura detectivesca",
+          "misterio en e"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8074730-thickbox_default/abre-el-misterio-1-el-robo-de-las-croquetas.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1495,
+        "sinopsis_breve": "Ayuda a la agencia De Pista en Pista a desentrañar su primer gran misterio. Pepe, Guille y Lis te necesitan.",
+        "sinopsis_completa": "Las croquetas han desaparecido.\n\nY eso solo puede significar una cosa:\n\nAyuda a la agencia De Pista en Pista a desentrañar su primer gran misterio. Pepe, Guille y Lis te necesitan.\n\nBusca pistas. Resuelve enigmas. Descubre a los sospechosos.\n\n1. Abre el primer capítulo.\n\n2. Resuelve el enigma.\n\n3. Descubre qué capítulo debes abrir después.\n\n4. Sigue investigando...\n\n5. ...¡hasta encontrar al culpable!\n\nCada decisión cuenta.\n\nCada pista es importante.\n\nY tras cada capítulo sellado hay un nuevo secreto por descubrir.",
+        "titulo": "Abre el misterio 1 - El robo de las croquetas"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788427256644",
+      "libro_id": "isbn-9788427256644",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9788427256972": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-ninos-7-anos/637834-libro-mi-biblioteca-julio-verne-julio-verne-para-ninos-9788427256972",
+      "intentos": 1,
+      "isbn13": "9788427256972",
+      "motivo": "Tipo de producto no bibliográfico o no admitido",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
+    "isbn13:9788427257375": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/thriller-juvenil/637742-libro-no-podras-esconderte-9788427257375",
+      "intentos": 1,
+      "isbn13": "9788427257375",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788427257627": {
       "datos": {
         "autores": [
@@ -14842,6 +15680,15 @@
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-11-05"
     },
+    "isbn13:9788430629107": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libro-de-biografias/637826-libro-una-luz-en-la-oscuridad-9788430629107",
+      "intentos": 1,
+      "isbn13": "9788430629107",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788430629138": {
       "datos": {
         "autores": [
@@ -14873,6 +15720,15 @@
       "isbn13": "9788430629138",
       "motivo": "Sello no presente en el registro editorial de la web",
       "primera_deteccion": "2026-10-20"
+    },
+    "isbn13:9788430629473": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/literatura-contemporanea/637827-libro-el-primer-posmoderno-9788430629473",
+      "intentos": 1,
+      "isbn13": "9788430629473",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
     },
     "isbn13:9788430629664": {
       "datos": {
@@ -15163,7 +16019,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.anagrama-ed.es/libro/llibres-anagrama/adolescencia/9788433951038/LA_147",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788433951038",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
@@ -16589,7 +17445,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-hds-n-0303-la-furia-de-los-dioses-cantos-tintados/457105",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788445022764",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-05",
@@ -16673,7 +17529,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-1984-rebelion-en-la-granja-ediciones-singulares/459629",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788445022917",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-02",
@@ -16871,7 +17727,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-harry-potter-artefactos-del-mundo-magico/450041",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9788448049157",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-04",
@@ -17608,6 +18464,238 @@
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
     },
+    "isbn13:9788448874889": {
+      "datos": {
+        "autores": [
+          "Artur Laperla"
+        ],
+        "coleccion": "Mi primer cómic",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 4 años",
+        "editorial": "BEASCOA",
+        "editorial_slug": "beascoa",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/637400-libro-superpatata-8-los-peligrosos-caprichos-de-augusta-ricachon-parte-1-nueva-edicion-9788448874889",
+        "fuentes_autores": {
+          "Artur Laperla": "https://www.penguinlibros.com/es/5565-artur-laperla"
+        },
+        "idioma": "es",
+        "isbn13": "9788448874889",
+        "materias": [
+          "A partir de 4 años"
+        ],
+        "numero_paginas": 64,
+        "palabras_clave": [
+          "comic para niños",
+          "4 años",
+          "5 años",
+          "6 años",
+          "7 años",
+          "8 años",
+          "9 años",
+          "chistes para niños",
+          "comic español",
+          "comic europeo",
+          "comics clasicos",
+          "cuentos in fantiles",
+          "en español",
+          "historietas",
+          "libros de comics",
+          "libros de humor",
+          "libros divertidos",
+          "libros graciosos",
+          "libros divertidos 10 a"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8218928-thickbox_default/superpatata-8-los-peligrosos-caprichos-de-augusta-ricachon-parte-1-nueva-edicion.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1295,
+        "sinopsis_breve": "*El cómic es la propuesta ideal para fomentar hábitos de lectura y acompañar a los lectores en su camino hacia una mayor madurez lectora.",
+        "sinopsis_completa": "Los superhéroes no solo llevan capa… algunos tienen piel de patata.\n\nAugusta Ricachón está acostumbrada a conseguir todo lo que quiere. Y esta vez se ha encaprichado con algo muy difícil de encontrar: ¡un pterosaurio de verdad! ¿Podrá SUPERSUPERPATATA detener el mayor capricho jurásico de la historia… o será esta la aventura más PATATA-SÁURICA de su vida?\n\nDescubre y redescubre la serie desde el principio, con las mismas historias divertidas y autoconclusivas en esta edición actualizada.\n\n*Ganador del Premio Finestres al mejor cómic infantil de 2025.\n\n*La serie de cómic más popular, que ha marcado a toda una generación de lectores y continúa enganchando a nuevos públicos.\n\n*El cómic es la propuesta ideal para fomentar hábitos de lectura y acompañar a los lectores en su camino hacia una mayor madurez lectora.\n\n*Con 64 páginas, cantos romos y un máximo de seis viñetas por página, pensado para facilitar una lectura clara, ágil y accesible.\n\nOtros libros de la colección:\n\nVolumen 1: El origen de Superpatata\n\nVolumen 2: Zort III, el rey extraterrestre\n\nVolumen 3: El miniportal temporal\n\nVolumen 4: La venganza de Malicia la Maligna\n\nVolumen 5: Los robots del profesor Tornillo\n\nVolumen 6: Supersuperpatata\n\nVolumen 7: La revancha del doctor Malévolo\n\nVolumen 9: Los peligrosos caprichos de Augusta Ricachón 2\n\nVolumen 10: Viaje a la Edad Media\n\nVolumen 11: El secuestro de Papá Noel",
+        "titulo": "Superpatata 8 - Los peligrosos caprichos de Augusta Ricachón (parte 1) (NUEVA EDICIÓN)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788448874889",
+      "libro_id": "isbn-9788448874889",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9788448874902": {
+      "datos": {
+        "autores": [
+          "Artur Laperla"
+        ],
+        "coleccion": "Mi primer cómic",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 4 años",
+        "editorial": "BEASCOA",
+        "editorial_slug": "beascoa",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/637401-libro-superpatata-9-los-peligrosos-caprichos-de-augusta-ricachon-parte-2-nueva-edicion-9788448874902",
+        "fuentes_autores": {
+          "Artur Laperla": "https://www.penguinlibros.com/es/5565-artur-laperla"
+        },
+        "idioma": "es",
+        "isbn13": "9788448874902",
+        "materias": [
+          "A partir de 4 años"
+        ],
+        "numero_paginas": 64,
+        "palabras_clave": [
+          "comic para niños",
+          "comic infantil",
+          "libros infantiles",
+          "4 años",
+          "5 años",
+          "6 años",
+          "7 años",
+          "8 años",
+          "9 años",
+          "chistes para niños",
+          "comic español",
+          "comic e uropeo",
+          "comics clasicos",
+          "cuentos infantiles",
+          "en español",
+          "historietas",
+          "libros de comics",
+          "humor",
+          "libros de humor",
+          "libros graciosos",
+          "l"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8218108-thickbox_default/superpatata-9-los-peligrosos-caprichos-de-augusta-ricachon-parte-2-nueva-edicion.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1295,
+        "sinopsis_breve": "*El cómic es la propuesta ideal para fomentar hábitos de lectura y acompañar a los lectores en su camino hacia una mayor madurez lectora.",
+        "sinopsis_completa": "Los superhéroes no solo llevan capa… algunos tienen piel de patata.\n\nAugusta Ricachón ya se ha cansado de los pterosaurios y ahora quiere, ni más ni menos, que a SUPERSUPERPATATA. Y Malicia la Maligna está deseando ayudarla a capturarlo. ¿Podrán la niña más caprichosa del mundo y la villana más malvada de todas detener a nuestro héroe… o logrará escapar del peor PAT-ATAQUE que ha sufrido nunca?\n\nDescubre y redescubre la serie desde el principio, con las mismas historias divertidas y autoconclusivas en esta edición actualizada.\n\n*Ganador del Premio Finestres al mejor cómic infantil de 2025.\n\n*La serie de cómic más popular, que ha marcado a toda una generación de lectores y continúa enganchando a nuevos públicos.\n\n*El cómic es la propuesta ideal para fomentar hábitos de lectura y acompañar a los lectores en su camino hacia una mayor madurez lectora.\n\n*Con 64 páginas, cantos romos y un máximo de seis viñetas por página, pensado para facilitar una lectura clara, ágil y accesible.\n\nOtros libros de la colección:\n\nVolumen 1: El origen de Superpatata\n\nVolumen 2: Zort III, el rey extraterrestre\n\nVolumen 3: El miniportal temporal\n\nVolumen 4: La venganza de Malicia la Maligna\n\nVolumen 5: Los robots del profesor Tornillo\n\nVolumen 6: Supersuperpatata\n\nVolumen 7: La revancha del doctor Malévolo\n\nVolumen 8: Los peligrosos caprichos de Augusta Ricachón 1\n\nVolumen 10: Viaje a la Edad Media\n\nVolumen 11: El secuestro de Papá Noel",
+        "titulo": "Superpatata 9 - Los peligrosos caprichos de Augusta Ricachón (parte 2) (NUEVA EDICIÓN)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788448874902",
+      "libro_id": "isbn-9788448874902",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9788448874926": {
+      "datos": {
+        "autores": [
+          "Artur Laperla"
+        ],
+        "coleccion": "Mi primer cómic",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 4 años",
+        "editorial": "BEASCOA",
+        "editorial_slug": "beascoa",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/637402-libro-superpatata-10-viaje-a-la-edad-media-nueva-edicion-9788448874926",
+        "fuentes_autores": {
+          "Artur Laperla": "https://www.penguinlibros.com/es/5565-artur-laperla"
+        },
+        "idioma": "es",
+        "isbn13": "9788448874926",
+        "materias": [
+          "A partir de 4 años"
+        ],
+        "numero_paginas": 64,
+        "palabras_clave": [
+          "libros lectura",
+          "libros divertidos",
+          "libros infantiles",
+          "4 años",
+          "5 años",
+          "5 primaria",
+          "6 años",
+          "7 años",
+          "8 años",
+          "9 años",
+          "chistes para niños",
+          "comic esp añol",
+          "comic europeo",
+          "comics clasicos",
+          "en español",
+          "historietas",
+          "libros de comics",
+          "libros de humor",
+          "comic para niños",
+          "libros diverti"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8218115-thickbox_default/superpatata-10-viaje-a-la-edad-media-nueva-edicion.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1295,
+        "sinopsis_breve": "*El cómic es la propuesta ideal para fomentar hábitos de lectura y acompañar a los lectores en su camino hacia una mayor madurez lectora.",
+        "sinopsis_completa": "Los superhéroes no solo llevan capa… algunos tienen piel de patata.\n\nLa profesora Catión se ha perdido en la Edad Media y en Córtex vuelven a necesitar al héroe más valiente para viajar en el tiempo y acudir a su rescate. ¿Podrá SUPERPATATA encontrarla y traerla de vuelta a su época… o vivirá la PATATA-VENTURA más medieval de todos los tiempos?\n\nDescubre y redescubre la serie desde el principio, con las mismas historias divertidas y autoconclusivas en esta edición actualizada.\n\n*Ganador del Premio Finestres al mejor cómic infantil de 2025.\n\n*La serie de cómic más popular, que ha marcado a toda una generación de lectores y continúa enganchando a nuevos públicos.\n\n*El cómic es la propuesta ideal para fomentar hábitos de lectura y acompañar a los lectores en su camino hacia una mayor madurez lectora.\n\n*Con 64 páginas, cantos romos y un máximo de seis viñetas por página, pensado para facilitar una lectura clara, ágil y accesible.\n\nOtros libros de la colección:\n\nVolumen 1: El origen de Superpatata\n\nVolumen 2: Zort III, el rey extraterrestre\n\nVolumen 3: El miniportal temporal\n\nVolumen 4: La venganza de Malicia la Maligna\n\nVolumen 5: Los robots del profesor Tornillo\n\nVolumen 6: Supersuperpatata\n\nVolumen 7: La revancha del doctor Malévolo\n\nVolumen 8: Los peligrosos caprichos de Augusta Ricachón 1\n\nVolumen 9: Los peligrosos caprichos de Augusta Ricachón 2\n\nVolumen 11: El secuestro de Papá Noel",
+        "titulo": "Superpatata 10 - Viaje a la Edad Media (nueva edición)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788448874926",
+      "libro_id": "isbn-9788448874926",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9788448874940": {
+      "datos": {
+        "autores": [
+          "Artur Laperla"
+        ],
+        "coleccion": "Mi primer cómic",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 4 años",
+        "editorial": "BEASCOA",
+        "editorial_slug": "beascoa",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/637403-libro-superpatata-11-el-secuestro-de-papa-noel-9788448874940",
+        "fuentes_autores": {
+          "Artur Laperla": "https://www.penguinlibros.com/es/5565-artur-laperla"
+        },
+        "idioma": "es",
+        "isbn13": "9788448874940",
+        "materias": [
+          "A partir de 4 años"
+        ],
+        "numero_paginas": 64,
+        "palabras_clave": [
+          "libros infantiles",
+          "2026",
+          "7 años",
+          "8 años",
+          "9 años",
+          "4 años",
+          "5 años",
+          "6 años",
+          "chistes para niños",
+          "comic español",
+          "comic europeo",
+          "comics c lasicos",
+          "cuentos infantiles",
+          "en español",
+          "historietas",
+          "libros de comics",
+          "libros de humor",
+          "comic para niños",
+          "libros divertidos",
+          "libr"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8222657-thickbox_default/superpatata-11-el-secuestro-de-papa-noel.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1295,
+        "sinopsis_breve": "*El cómic es la propuesta ideal para fomentar hábitos de lectura y acompañar a los lectores en su camino hacia una mayor madurez lectora.",
+        "sinopsis_completa": "Los superhéroes no solo llevan capa… algunos tienen piel de patata.\n\nEsta aventura comienza lejos, muy lejos, en el frío e inhóspito Polo Norte. El malvado y tramposo Duncan Caramelo ha tomado el control de la fábrica de regalos y ha secuestrado ni más ni menos que al mismísimo, al inigualable, al mítico… Papá Noel. ¿Conseguirán SUPERPATATA, Rudolph y Polly Gominola rescatar a Papá Noel… o será esta la Navidad más PATATA-TÉTICA de la historia?\n\nUna aventura completamente nueva de Superpatata, llena de acción, humor y espíritu navideño.\n\n*Ganador del Premio Finestres al mejor cómic infantil de 2025.\n\n*La serie de cómic más popular, que ha marcado a toda una generación de lectores y continúa enganchando a nuevos públicos.\n\n*El cómic es la propuesta ideal para fomentar hábitos de lectura y acompañar a los lectores en su camino hacia una mayor madurez lectora.\n\n*Con 64 páginas, cantos romos y un máximo de seis viñetas por página, pensado para facilitar una lectura clara, ágil y accesible.\n\nOtros libros de la colección:\n\nVolumen 1: El origen de Superpatata\n\nVolumen 2: Zort III, el rey extraterrestre\n\nVolumen 3: El miniportal temporal\n\nVolumen 4: La venganza de Malicia la Maligna\n\nVolumen 5: Los robots del profesor Tornillo\n\nVolumen 6: Supersuperpatata\n\nVolumen 7: La revancha del doctor Malévolo\n\nVolumen 8: Los peligrosos caprichos de Augusta Ricachón 1\n\nVolumen 9: Los peligrosos caprichos de Augusta Ricachón 2\n\nVolumen 10: Viaje a la Edad Media",
+        "titulo": "Superpatata 11 - El secuestro de Papá Noel"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788448874940",
+      "libro_id": "isbn-9788448874940",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9788449344626": {
       "datos": {
         "autores": [
@@ -18210,6 +19298,15 @@
       "primera_deteccion": "2026-11-04",
       "retry_after": "2026-11-07"
     },
+    "isbn13:9788466390217": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637754-libro-el-susurro-del-fuego-9788466390217",
+      "intentos": 1,
+      "isbn13": "9788466390217",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9788466390514": {
       "datos": {
         "autores": [
@@ -18471,6 +19568,58 @@
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-11-02",
       "retry_after": "2026-11-08"
+    },
+    "isbn13:9788466393829": {
+      "datos": {
+        "autores": [
+          "José Carlos González-Hurtado"
+        ],
+        "coleccion": "Best Seller",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "DEBOLSILLO",
+        "editorial_slug": "debolsillo",
+        "encuadernacion": "Bolsillo",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-espiritualidad/635065-libro-nuevas-evidencias-cientificas-de-la-existencia-de-dios-9788466393829",
+        "fuentes_autores": {
+          "José Carlos González-Hurtado": "https://www.penguinlibros.com/es/966217-jose-carlos-gonzalez-hurtado"
+        },
+        "idioma": "es",
+        "isbn13": "9788466393829",
+        "materias": [
+          "Religión y espiritualidad"
+        ],
+        "numero_paginas": 432,
+        "palabras_clave": [
+          "nuevas evidencias cientificas de la existencia de dios",
+          "dios",
+          "religion",
+          "dios la ciencia y las pruebas",
+          "conversaciones con dios",
+          "existencia de dios",
+          "filosofia",
+          "ciencia y religion",
+          "neale donald walsh",
+          "pruebas de la existencia de dios",
+          "ciencia y dios",
+          "universo",
+          "2024",
+          "ang"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8064596-thickbox_default/nuevas-evidencias-cientificas-de-la-existencia-de-dios.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1095,
+        "sinopsis_breve": "En este libro, José Carlos González-Hurtado muestra todas las pruebas que apuntan a Dios. Sin embargo, este no es un libro de religión. Haciendo…",
+        "sinopsis_completa": "Mucho se ha dicho acerca de la incompatibilidad de la ciencia y la religión. La creencia de que una invalida la otra ha estado presente durante años. Y sin embargo, según avanza la tecnología, la sociedad y la cultura, esta noción pierde fuerza: nunca como en esta primera mitad del siglo XXI ha habido tantas pruebas científicas de la existencia de un Creador.\n\nEn este libro, José Carlos González-Hurtado muestra todas las pruebas que apuntan a Dios. Sin embargo, este no es un libro de religión. Haciendo hincapié en los grandes descubrimientos actuales con un estilo ágil y riguroso, el autor invita a la reflexión y el diálogo y expone en estas páginas la respuesta a la que probablemente sea la cuestión más trascendental a la que podemos enfrentarnos.\n\nBest seller instantáneo gracias a las deslumbrantes explicaciones que ofrece de temas como el Big Bang, la segunda ley de la termodinámica, las leyes de la naturaleza o los descubrimientos de la genética, Nuevas evidencias científicas de la existencia de Dios ya se ha convertido en el libro del que todo el mundo habla.\n\nFrancis Collins, director del Proyecto Genoma Humano",
+        "titulo": "Nuevas evidencias científicas de la existencia de Dios"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788466393829",
+      "libro_id": "isbn-9788466393829",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788466393850": {
       "datos": {
@@ -20792,12 +21941,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "PENGUIN CLÁSICOS",
+        "editorial_slug": "penguin-clasicos",
         "encuadernacion": "Bolsillo",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-clasicos/635074-libro-pobre-gente-9788491058205",
         "fuentes_autores": {
-          "Fiódor M. Dostoievski": "https://www.penguinlibros.com/es/libros-clasicos/635074-libro-pobre-gente-9788491058205"
+          "Fiódor M. Dostoievski": "https://www.penguinlibros.com/es/966-fiodor-m-dostoievski"
         },
         "idioma": "es",
         "isbn13": "9788491058205",
@@ -20805,15 +21955,42 @@
           "Grandes clásicos"
         ],
         "numero_paginas": 248,
+        "palabras_clave": [
+          "literatura rusa",
+          "clasicos",
+          "novela epistolar",
+          "primera novela",
+          "penguin clasicos",
+          "novelas rusas",
+          "mejores libros",
+          "crimen y castigo",
+          "el idiota",
+          "no ches blancas",
+          "pobreza",
+          "dignidad",
+          "exclusion",
+          "humillacion",
+          "san petersburgo",
+          "rusia",
+          "siglo xix",
+          "libros cortos",
+          "realismo",
+          "amor",
+          "cartas",
+          "tol"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8067878-thickbox_default/pobre-gente.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1295,
+        "sinopsis_breve": "Con una gran sensibilidad hacia quienes viven en los márgenes, Dostoievski convierte esta correspondencia en una indagación conmovedora sobre la dignidad, la vergüenza y…",
+        "sinopsis_completa": "«¡Ay, amigo mío! La desdicha es una enfermedad contagiosa».\n\nMakar Dévushkin, un modesto funcionario de San Petersburgo, y Varvara Dobrosiólova, una joven huérfana marcada por la pobreza y la desprotección, sostienen a través de sus cartas un vínculo hecho de ternura, pudor, necesidad y sacrificio. En los pequeños gestos se revelan afectos y humillaciones, esperanzas frágiles y derrotas silenciosas, pero la irrupción de un antiguo conocido y la promesa de una salida socialmente segura ponen a prueba ese frágil equilibrio.\n\nCon una gran sensibilidad hacia quienes viven en los márgenes, Dostoievski convierte esta correspondencia en una indagación conmovedora sobre la dignidad, la vergüenza y la compasión. Esta edición cuenta con una cuidada traducción a cargo de Raquel Marqués, así como con un prólogo de Tamara Djermanovic, escritora y catedrática en Filología Eslava de la Universitat Pompeu Fabra, que sitúa esta primera novela del autor en el nacimiento de una nueva mirada literaria: la de los humillados y los invisibles.",
         "titulo": "Pobre gente"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-clasicos/635074-libro-pobre-gente-9788491058205",
+      "estado_ingesta": "publicado",
       "isbn13": "9788491058205",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20"
+      "libro_id": "isbn-9788491058205",
+      "primera_deteccion": "2026-10-20",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9788491058298": {
       "datos": {
@@ -21341,6 +22518,15 @@
       "primera_deteccion": "2026-10-26",
       "publicado_en": "2026-10-26"
     },
+    "isbn13:9791387513146": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-autoayuda/637442-libro-has-nacido-para-esto-9791387513146",
+      "intentos": 1,
+      "isbn13": "9791387513146",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9791387526320": {
       "datos": {
         "autores": [
@@ -21499,7 +22685,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/the-book/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9791387574079",
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-31",
@@ -21771,12 +22957,12 @@
         "precision_fecha": "dia",
         "pvp_centimos": 3490,
         "sinopsis_breve": "UNA CARTA SELLADA. UN AMOR QUE ENTRELAZA PASADO Y FUTURO. UNA EXPERIENCIA DE LECTURA ÚNICA. «Una gloriosa demostración de todo lo que el papel…",
-        "sinopsis_completa": "The Washington Post «Murciélagos de la República es un maravilloso relato de cartas perdidas y halladas, en la línea de J. J. Abrams y Doug Dorst con S. El barco de Teseo.» Publishers Weekly En 1843, Zadock Thomas debe abandonar a la mujer que ama en Chicago para entregar una carta secreta a un infame general en el frente de guerra. El destino de la volátil República de Texas, así como el futuro de Zadock, dependen de su misión. Pero cuando una nube de murciélagos lo aparta del camino, tropieza con algo inesperado... Trescientos años después, el mundo se ha derrumbado. Zeke Thomas ha heredado de su abuelo, un prestigioso senador, un sobre sellado. Cuando la carta desaparece, Zeke se ve arrastrado a una creciente insurgencia que podría liberarlo… o poner fin a su relación amorosa, al legado de su familia y a la República entera. A medida que ambas historias se entrelazan y la propia Historia comienza a deshilarse, estalla una guerra a través del tiempo entre una civilización perdida, un futuro olvidado y el caos de lo salvaje. «Es difícil no admirar el meticuloso esfuerzo y la ambición del autor.» The New York Times un viaje extraordinario, la cautivadora y emocionante travesía de unos personajes cuyas vidas se entrelazan a lo largo de 300 años. Edición tapa dura con acabado en tela en un estuche sellado. Una obra de arte a todo color con ilustraciones, mapas dibujados a mano, tipografías únicas... Un libro con mapas, cartas y materiales especiales. &amp;nbsp; https://www.duomoediciones.com/wp-content/uploads/2026/09/Booktrailer-Murcielagos-De-La-Republica-LOWLOWLOW.mp4",
+        "sinopsis_completa": "The Washington Post «Murciélagos de la República es un maravilloso relato de cartas perdidas y halladas, en la línea de J. J. Abrams y Doug Dorst con S. El barco de Teseo.» Publishers Weekly En 1843, Zadock Thomas debe abandonar a la mujer que ama en Chicago para entregar una carta secreta a un infame general en el frente de guerra. El destino de la volátil República de Texas, así como el futuro de Zadock, dependen de su misión. Pero cuando una nube de murciélagos lo aparta del camino, tropieza con algo inesperado... Trescientos años después, el mundo se ha derrumbado. Zeke Thomas ha heredado de su abuelo, un prestigioso senador, un sobre sellado. Cuando la carta desaparece, Zeke se ve arrastrado a una creciente insurgencia que podría liberarlo… o poner fin a su relación amorosa, al legado de su familia y a la República entera. A medida que ambas historias se entrelazan y la propia Historia comienza a deshilarse, estalla una guerra a través del tiempo entre una civilización perdida, un futuro olvidado y el caos de lo salvaje. «Es difícil no admirar el meticuloso esfuerzo y la ambición del autor.» The New York Times un viaje extraordinario, la cautivadora y emocionante travesía de unos personajes cuyas vidas se entrelazan a lo largo de 300 años. Edición tapa dura con acabado en tela en un estuche sellado. Una obra de arte a todo color con ilustraciones, mapas dibujados a mano, tipografías únicas... Un libro con mapas, cartas y materiales especiales. https://www.duomoediciones.com/wp-content/uploads/2026/09/Booktrailer-Murcielagos-De-La-Republica-LOWLOWLOW.mp4",
         "titulo": "Murciélagos de la República"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/murcielagos-de-la-republica/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9791387574819",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-10-31",
@@ -22061,6 +23247,75 @@
       "libro_id": "isbn-9791387629694",
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
+    },
+    "isbn13:9791387629977": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-de-fantasia/628167-libro-la-maldad-mas-dulce-la-musica-del-engano-1-9791387629977",
+      "intentos": 1,
+      "isbn13": "9791387629977",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
+    "isbn13:9791387640316": {
+      "datos": {
+        "autores": [
+          "Lee Onhwa"
+        ],
+        "coleccion": "Salamandra Narrativa",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "SALAMANDRA",
+        "editorial_slug": "salamandra",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637820-libro-la-misteriosa-pasteleria-de-medianoche-9791387640316",
+        "fuentes_autores": {
+          "Lee Onhwa": "https://www.penguinlibros.com/es/1021562-lee-onhwa"
+        },
+        "idioma": "es",
+        "isbn13": "9791387640316",
+        "materias": [
+          "Novela negra, misterio y thriller"
+        ],
+        "numero_paginas": 240,
+        "palabras_clave": [
+          "healing fiction",
+          "medianoche",
+          "café",
+          "reencarnación",
+          "comida",
+          "vidas pasadas",
+          "antes de que se enfrie el cafe",
+          "corea",
+          "han kang",
+          "mas vendidos",
+          "gato",
+          "t aberna kamogawa",
+          "asia",
+          "traumas",
+          "cozy mystery",
+          "halloween",
+          "best seller",
+          "fantasy",
+          "fantasia",
+          "cocina coreana",
+          "pasteles",
+          "los misterios de"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8063706-thickbox_default/la-misteriosa-pasteleria-de-medianoche.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2000,
+        "sinopsis_breve": "Cuando Yeon-hwa pierde a su abuela, una mujer enigmática y distante, hereda la pastelería Hwawoldang, que ha pertenecido a su familia durante generaciones. Hace…",
+        "sinopsis_completa": "Cuando Yeon-hwa pierde a su abuela, una mujer enigmática y distante, hereda la pastelería Hwawoldang, que ha pertenecido a su familia durante generaciones. Hace tiempo que el negocio no prospera, y su intención es venderlo lo antes posible. Pero una petición inesperada cambia sus planes: debe mantener la tienda abierta durante al menos un mes, de diez a doce de la noche.\n\nSin otra opción, Yeon-hwa se ve obligada a ponerse manos a la obra. Mientras aprende a preparar los dulces tradicionales que se ofrecían en Hwawoldang, también espera descubrir algo más sobre la mujer que los elaboraba.\n\nPronto comprende que no se trata de una pastelería cualquiera. Los clientes que acuden a esas horas son espíritus que buscan resolver asuntos pendientes antes de reencarnarse. Los postres que ansían están profundamente ligados a sus vidas pasadas, y confían en que Yeon-hwa sepa interpretar sus deseos, como hacía su abuela.\n\nCon cada nueva visita, Yeon-hwa descubre qué sabores viven en la memoria de quienes la rodean y cómo ayudarles a avanzar. Acompañada por un misterioso gato negro que habita en la tienda, también comenzará a desentrañar los secretos de su propia historia familiar.",
+        "titulo": "La misteriosa pastelería de medianoche"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387640316",
+      "libro_id": "isbn-9791387640316",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791387640439": {
       "datos": {
@@ -22964,7 +24219,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-stitch-cine-en-casa/444061",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9791387901400",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
@@ -23457,6 +24712,71 @@
       "primera_deteccion": "2026-11-01",
       "publicado_en": "2026-11-01"
     },
+    "isbn13:9791387905309": {
+      "datos": {
+        "autores": [
+          "Marc Biarnés"
+        ],
+        "coleccion": "No ficción",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "ROCA EDITORIAL",
+        "editorial_slug": "roca-editorial",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/tiempo-libre/637787-libro-que-hago-me-mato-9791387905309",
+        "fuentes_autores": {
+          "Marc Biarnés": "https://www.penguinlibros.com/es/1021571-marc-biarnes"
+        },
+        "idioma": "es",
+        "isbn13": "9791387905309",
+        "materias": [
+          "Tiempo libre"
+        ],
+        "numero_paginas": 288,
+        "palabras_clave": [
+          "2026",
+          "autoestima",
+          "blogueros",
+          "con fotografias",
+          "desarrollo personal",
+          "educacion emocional",
+          "en español",
+          "libros para regalar",
+          "humor libro",
+          "ilustra do",
+          "inteligencia emocional",
+          "internet libro",
+          "libro de arte",
+          "libros autoayuda",
+          "medios digitales libro",
+          "para adultos",
+          "para regalar",
+          "p"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8218245-thickbox_default/que-hago-me-mato.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "Había una vez un hombre, Mauro Morandi, que no quería relacionarse con nadie. Logró vivir treinta años solo en una isla, hasta que lo…",
+        "sinopsis_completa": "Mira, no sé tú, pero yo no puedo más.\n\nAquí no cabe otro idiota.\n\nHabía una vez un hombre, Mauro Morandi, que no quería relacionarse con nadie. Logró vivir treinta años solo en una isla, hasta que lo descubrieron y lo obligaron a volver a la civilización. «Civilización», la llaman…\n\nMauro es mi ídolo. He pensado en replicar su hazaña, pero los vuelos a las islas desiertas están carísimos. Y, con la suerte que tengo, acabaría de vecino de un grupo de terraplanistas.\n\nNos rodean los idiotas. Nos gobiernan los idiotas.\n\nLe das una patada a una piedra y te sale un idiota.\n\nYo ya me he resignado a observar mientras espero, con moderado optimismo, la llegada del meteorito, de los aliens o de la tercera guerra mundial.\n\nY en esta espera escribo, porque necesito creer que no soy el único que está viendo como todo se desmorona. La otra opción es tirarme a las vías del metro.\n\nSi has llegado hasta aquí, piénsalo tú también: es leer este libro o acabar medicándote.",
+        "titulo": "Qué hago, ¿me mato?"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387905309",
+      "libro_id": "isbn-9791387905309",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9791387905446": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637788-libro-expediente-411-9791387905446",
+      "intentos": 1,
+      "isbn13": "9791387905446",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9791387905620": {
       "datos": {
         "autores": [
@@ -23492,6 +24812,162 @@
       "libro_id": "isbn-9791387905620",
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9791387906078": {
+      "datos": {
+        "autores": [
+          "Rick Riordan"
+        ],
+        "coleccion": "Harry Potter (TD-Salamandra)",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 9 años",
+        "editorial": "SALAMANDRA INFANTIL Y JUVENIL",
+        "editorial_slug": "salamandra",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/637809-libro-la-diosa-de-tres-cabezas-percy-jackson-y-los-dioses-del-olimpo-7-9791387906078",
+        "fuentes_autores": {
+          "Rick Riordan": "https://www.penguinlibros.com/es/5132-rick-riordan"
+        },
+        "idioma": "es",
+        "isbn13": "9791387906078",
+        "materias": [
+          "A partir de 9 años"
+        ],
+        "numero_paginas": 304,
+        "palabras_clave": [
+          "regalo 9 años",
+          "regalo 10 años",
+          "percy jackson nuevos libros",
+          "percy jackson caliz de los dioses",
+          "diosa de tres cabezas",
+          "percy jackson 1",
+          "percy jackson en español",
+          "percy jackson y el ladrón del rayo",
+          "10 años",
+          "11 años",
+          "2024",
+          "libros adolescentes",
+          "libros de fantasia juveni"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8063700-thickbox_default/la-diosa-de-tres-cabezas-percy-jackson-y-los-dioses-del-olimpo-7.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1695,
+        "sinopsis_breve": "Junto a sus amigos, Percy tiene que conseguir su segunda carta de recomendación. Parece fácil, pero hay tres factores que lo complican: la diosa…",
+        "sinopsis_completa": "Como semidiós, Percy Jackson ha estado en situaciones muy complicadas, de esas de las que crees que no vas a salir vivo. Pero resulta que había algo peor, una misión de otro nivel: entrar en la universidad.\n\nJunto a sus amigos, Percy tiene que conseguir su segunda carta de recomendación. Parece fácil, pero hay tres factores que lo complican: la diosa Hécate, sus mascotas… y la peligrosa curiosidad de Grover. Sin que sepan cómo, la situación se les va de madre. Una casa en ruinas, un enorme animal perdido en medio de Nueva York y una diosa enfurecida: las cosas no podrían ir a peor... o sí.",
+        "titulo": "La diosa de tres cabezas (Percy Jackson y los dioses del Olimpo 7)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387906078",
+      "libro_id": "isbn-9791387906078",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9791387906085": {
+      "datos": {
+        "autores": [
+          "Rick Riordan"
+        ],
+        "coleccion": "Harry Potter (TD-Salamandra)",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 9 años",
+        "editorial": "SALAMANDRA INFANTIL Y JUVENIL",
+        "editorial_slug": "salamandra",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/637810-libro-percy-jackson-y-el-caliz-de-los-dioses-percy-jackson-y-los-dioses-del-olimpo-6-9791387906085",
+        "fuentes_autores": {
+          "Rick Riordan": "https://www.penguinlibros.com/es/5132-rick-riordan"
+        },
+        "idioma": "es",
+        "isbn13": "9791387906085",
+        "materias": [
+          "A partir de 9 años"
+        ],
+        "numero_paginas": 256,
+        "palabras_clave": [
+          "Saga rick riordan",
+          "rick riordan",
+          "the cursed carnival",
+          "pruebas de apolo",
+          "libro riordan apolo",
+          "campamento jupiter",
+          "apolo libros",
+          "mitologia griega nordica",
+          "campamento mestizo",
+          "fantasia",
+          "serie",
+          "s"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8064625-thickbox_default/percy-jackson-y-el-caliz-de-los-dioses-percy-jackson-y-los-dioses-del-olimpo-6.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1695,
+        "sinopsis_breve": "Percy Jackson daba por hecho que entrar en la universidad no sería tarea fácil, pero lo de tener que conseguir cartas de recomendación de…",
+        "sinopsis_completa": "Percy Jackson daba por hecho que entrar en la universidad no sería tarea fácil, pero lo de tener que conseguir cartas de recomendación de tres dioses griegos igual es pasarse un poco. Y, por si esto no sonase lo suficientemente difícil, deberá superar tres misiones para hacerse con ellas.\n\nLa primera es encontrar el cáliz de un dios algo despistado, y no es cualquier cáliz: si un humano bebe de él, obtendrá la inmortalidad. Percy, Annabeth y Grover tienen el tiempo justo para encontrarlo antes de que caiga en las manos equivocadas y se desate el caos.",
+        "titulo": "Percy Jackson y el cáliz de los dioses (Percy Jackson y los dioses del Olimpo 6)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387906085",
+      "libro_id": "isbn-9791387906085",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9791387906115": {
+      "datos": {
+        "autores": [
+          "Vanesa Pérez-Sauquillo Muñoz"
+        ],
+        "coleccion": "Harry Potter (TD-Salamandra)",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 7 años",
+        "editorial": "SALAMANDRA INFANTIL Y JUVENIL",
+        "editorial_slug": "salamandra",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/637811-libro-baby-unicorns-3-una-aventura-con-el-hada-de-la-nieve-9791387906115",
+        "fuentes_autores": {
+          "Vanesa Pérez-Sauquillo Muñoz": "https://www.penguinlibros.com/es/4030-vanesa-perez-sauquillo-munoz"
+        },
+        "idioma": "es",
+        "isbn13": "9791387906115",
+        "materias": [
+          "A partir de 7 años"
+        ],
+        "numero_paginas": 128,
+        "palabras_clave": [
+          "unicornia",
+          "ana punset",
+          "unicornios para niñas",
+          "regalo niña 4 años",
+          "libros infantiles 5 años",
+          "7 años",
+          "6 años",
+          "regalo niña 8 años",
+          "diadema unic ornio niña",
+          "unicornia libros",
+          "primeras lecturas",
+          "unicornio juguete",
+          "anna kadabra",
+          "isadora moon",
+          "academia unicornio",
+          "iris y luna",
+          "p"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8312129-thickbox_default/baby-unicorns-3-una-aventura-con-el-hada-de-la-nieve.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1095,
+        "sinopsis_breve": "Un elfo travieso llega a Lilibel con una noticia sorpresa: ¡La tía Nubes quiere regalar un helado a todos los niños del mundo! Nora…",
+        "sinopsis_completa": "La magia de los Baby Unicorns es asombrosa, y desde que Nora cuida de ellos en la Academia de Lilibel, cada día trae una nueva aventura.\n\nUn elfo travieso llega a Lilibel con una noticia sorpresa: ¡La tía Nubes quiere regalar un helado a todos los niños del mundo! Nora, Chispas y los Baby Unicorns no dudan en viajar al palacio del Hada de la Nieve para cumplir la misión, y los camellos de los Reyes Magos y los elfos de Papá Noel también ayudarán.\n\n¿Conseguirán juntos hacer realidad este bonito sueño?\n\n¡Una serie de primeras lecturas llena de magia, aventuras y unicornios bebés!\n\nColección de libros de unicornios para niñas",
+        "titulo": "Baby Unicorns 3 - Una aventura con el hada de la nieve"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387906115",
+      "libro_id": "isbn-9791387906115",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791387918125": {
       "datos": {
@@ -23834,6 +25310,15 @@
       "libro_id": "isbn-9791387924386",
       "primera_deteccion": "2026-10-31",
       "publicado_en": "2026-10-31"
+    },
+    "isbn13:9791387924669": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/620418-libro-una-navidad-en-bramble-falls-9791387924669",
+      "intentos": 1,
+      "isbn13": "9791387924669",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
     },
     "isbn13:9791387924980": {
       "datos": {
@@ -24693,6 +26178,147 @@
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
     },
+    "isbn13:9791387962371": {
+      "datos": {
+        "autores": [
+          "Kishimoto"
+        ],
+        "coleccion": "BL",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "DISTRITO MANGA",
+        "editorial_slug": "distrito-manga",
+        "encuadernacion": "Tapa blanda con sobrecubierta",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/manga-comic/637452-libro-una-comedia-romantica-entre-dos-exnovios-bl-9791387962371",
+        "fuentes_autores": {
+          "Kishimoto": "https://www.penguinlibros.com/es/1021569--kishimoto"
+        },
+        "idioma": "es",
+        "isbn13": "9791387962371",
+        "materias": [
+          "Manga"
+        ],
+        "numero_paginas": 188,
+        "palabras_clave": [
+          "comedia romatica entre dos exnovios",
+          "comedia",
+          "BL",
+          "exnovios",
+          "romance",
+          "spicy",
+          "romcom",
+          "harada",
+          "ranmaru zariya",
+          "scarlet beriko",
+          "given",
+          "arechi",
+          "bj alex",
+          "gay",
+          "manga bl",
+          "romance gay",
+          "manga romantico",
+          "trabajo",
+          "chicos",
+          "amor",
+          "lgtbi",
+          "dating",
+          "triangulo amoroso",
+          "friends to lovers",
+          "f"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8213458-thickbox_default/una-comedia-romantica-entre-dos-exnovios-bl.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 995,
+        "sinopsis_breve": "Aihara y Kashima trabajan en el mismo restaurante, pero se llevan como el perro y el gato, discuten por cualquier chorrada. Aun así, tienen…",
+        "sinopsis_completa": "Aihara y Kashima trabajan en el mismo restaurante, pero se llevan como el perro y el gato, discuten por cualquier chorrada. Aun así, tienen un pasado en común: son expareja y, lejos de superarse, están profundamente obsesionados y encandilados el uno por el otro. El problema es que, como rompieron, creen que ya no hay forma de volver a estar juntos, pero, con la ayuda de sus compañeros de trabajo... ¡¿podrá resurgir la chispa del amor?!",
+        "titulo": "Una comedia romántica entre dos exnovios (BL)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387962371",
+      "libro_id": "isbn-9791387962371",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9791387962821": {
+      "datos": {
+        "autores": [
+          "Touko Shino",
+          "Hyuganatsu"
+        ],
+        "coleccion": "Distrito Novela",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Juvenil",
+        "editorial": "DISTRITO MANGA",
+        "editorial_slug": "distrito-manga",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/thriller-juvenil/637144-libro-los-diarios-de-la-boticaria-la-novela-original-1-9791387962821",
+        "fuentes_autores": {
+          "Hyuganatsu": "https://www.penguinlibros.com/es/1021387--hyuganatsu",
+          "Touko Shino": "https://www.penguinlibros.com/es/1021388-touko-shino"
+        },
+        "idioma": "es",
+        "isbn13": "9791387962821",
+        "materias": [
+          "Thriller juvenil"
+        ],
+        "numero_paginas": 312,
+        "palabras_clave": [
+          "los diarios de la boticaria",
+          "the apothecary diaries",
+          "kusuriya no hitorigoto",
+          "kusuriya",
+          "boticaria",
+          "maomao",
+          "jinshi",
+          "novela",
+          "light novel",
+          "novela ligera",
+          "romance",
+          "misterio",
+          "slow burn",
+          "thriller",
+          "china imperial",
+          "la asistenta",
+          "freida mcfadden",
+          "blackwater",
+          "una herencia en juego",
+          "ma"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8295375-thickbox_default/los-diarios-de-la-boticaria-la-novela-original-1.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1795,
+        "sinopsis_breve": "Para sobrevivir, mantiene en secreto su ingenio, su mente aguda y sus conocimientos médicos, pero uno de los eunucos de la corte, Jinshi, siente…",
+        "sinopsis_completa": "Maomao lleva una vida sencilla junto a su padre, el boticario del barrio rojo, pero cuando unos traficantes la secuestran y la venden como sirvienta al palacio imperial, su vida cambia radicalmente.\n\nPara sobrevivir, mantiene en secreto su ingenio, su mente aguda y sus conocimientos médicos, pero uno de los eunucos de la corte, Jinshi, siente que esa misteriosa joven esconde algo y la convierte en dama de compañía de la dama principal de palacio.\n\n¿Podrá Maomao pasar desapercibida como catadora de alimentos de su señora, o su perspicacia y curiosidad la pondrán en peligro al descubrir los conflictos en la corte?",
+        "titulo": "Los diarios de la boticaria (la novela original) 1"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387962821",
+      "libro_id": "isbn-9791387962821",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9791387962838": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/thriller-juvenil/637145-libro-los-diarios-de-la-boticaria-la-novela-original-2-9791387962838",
+      "intentos": 1,
+      "isbn13": "9791387962838",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
+    "isbn13:9791387962968": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/thriller-juvenil/637149-libro-los-diarios-de-la-boticaria-la-novela-original-1-2-pack-de-lanzamiento-9791387962968",
+      "intentos": 1,
+      "isbn13": "9791387962968",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9791387972165": {
       "datos": {
         "autores": [
@@ -24801,6 +26427,74 @@
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-11-04"
     },
+    "isbn13:9791387972899": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/620435-libro-un-secreto-navideno-9791387972899",
+      "intentos": 1,
+      "isbn13": "9791387972899",
+      "motivo": "HTTP Error 504: Gateway Time-out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
+    "isbn13:9791387973971": {
+      "datos": {
+        "autores": [
+          "Olatz Elola"
+        ],
+        "coleccion": "GROU",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "MONTENA",
+        "editorial_slug": "montena",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-espiritualidad/637722-libro-aunque-no-lo-merezcas-9791387973971",
+        "fuentes_autores": {
+          "Olatz Elola": "https://www.penguinlibros.com/es/1021588-olatz-elola"
+        },
+        "idioma": "es",
+        "isbn13": "9791387973971",
+        "materias": [
+          "Religión y espiritualidad"
+        ],
+        "numero_paginas": 192,
+        "palabras_clave": [
+          "espiritualidad",
+          "Dios",
+          "fe catolica",
+          "Biblia",
+          "esperanza",
+          "amor de Dios",
+          "encontrar a Dios",
+          "Evangelio",
+          "Jesus",
+          "vida espiritual",
+          "testimonio de fe",
+          "libr os cristianos",
+          "sanar el corazon",
+          "vivir sin miedo",
+          "hakuna",
+          "misericordia",
+          "maternidad",
+          "heridas emocionales",
+          "autoexigencia",
+          "culpa",
+          "ansi"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8246882-thickbox_default/aunque-no-lo-merezcas.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1995,
+        "sinopsis_breve": "Has construido una buena vida. Lo das todo en tu matrimonio, en tu familia y en tu trabajo. Tienes mil motivos para sentirte feliz…",
+        "sinopsis_completa": "Querida mujer altamente funcional:\n\nHas construido una buena vida. Lo das todo en tu matrimonio, en tu familia y en tu trabajo. Tienes mil motivos para sentirte feliz y agradecida. Y, aun así, hay una voz dentro de ti que no se calla. Sientes que nada es suficiente. Que no eres suficiente.\n\nNo estás sola. Yo también viví así. Hasta que, en un momento de gran vulnerabilidad, Dios irrumpió en mi vida para transformar todo lo que creía sobre mí misma, sobre la vida y sobre el amor.\n\nFue entonces cuando dimití de ser una mujer perfecta y dejé de intentar salvarme sola. Porque entendí que Él me amaba. No por lo que hacía ni por quién pretendía ser, sino precisamente a través de mi imperfección.\n\nQuizá esta historia no solo se parezca a la tuya. Quizá también pueda cambiarla.",
+        "titulo": "Aunque no lo merezcas"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387973971",
+      "libro_id": "isbn-9791387973971",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9791387975340": {
       "datos": {
         "autores": [
@@ -24834,6 +26528,65 @@
       "libro_id": "isbn-9791387975340",
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
+    },
+    "isbn13:9791387994297": {
+      "datos": {
+        "autores": [
+          "Martin Handford"
+        ],
+        "coleccion": "Busca y encuentra",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 7 años",
+        "editorial": "B DE BLOK",
+        "editorial_slug": "ediciones-b",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/637415-libro-donde-esta-wally-donde-esta-wally-el-libro-para-colorear-9791387994297",
+        "fuentes_autores": {
+          "Martin Handford": "https://www.penguinlibros.com/es/8076-martin-handford"
+        },
+        "idioma": "es",
+        "isbn13": "9791387994297",
+        "materias": [
+          "A partir de 7 años"
+        ],
+        "numero_paginas": 56,
+        "palabras_clave": [
+          "wally",
+          "buscando a wally",
+          "donde esta wally",
+          "where is waldo",
+          "busca y encuentra",
+          "libro infantil",
+          "clasico",
+          "libro de actividades",
+          "2026",
+          "navidad",
+          "li bro regalo",
+          "para regalar",
+          "libro juego",
+          "coco wyo",
+          "interactivo",
+          "libro para colorear",
+          "cozy",
+          "didactico",
+          "regalo navidad",
+          "murdle jr",
+          "7 año"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8067884-thickbox_default/donde-esta-wally-donde-esta-wally-el-libro-para-colorear.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1295,
+        "sinopsis_breve": "Da vida a las animadas escenas de la colección coloreándolas y busca cientos de objetos mientras lo haces. Una oportunidad perfecta para salir de…",
+        "sinopsis_completa": "Redescubre las icónicas escenas de ¿Dónde está Wally? en blanco y negro y desata toda tu creatividad coloreándolas. Este libro es perfecto tanto para los fans de siempre como para los nuevos.\n\nDa vida a las animadas escenas de la colección coloreándolas y busca cientos de objetos mientras lo haces. Una oportunidad perfecta para salir de las pantallas y disfrutar de un momento relajante solo o en familia.",
+        "titulo": "¿Dónde está Wally? - ¿Dónde está Wally? El libro para colorear"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387994297",
+      "libro_id": "isbn-9791387994297",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791387994303": {
       "datos": {
@@ -25006,6 +26759,130 @@
       "libro_id": "isbn-9791387994532",
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
+    },
+    "isbn13:9791387994549": {
+      "datos": {
+        "autores": [
+          "Ibon Martín"
+        ],
+        "coleccion": "Escritura desatada",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 7 años",
+        "editorial": "B DE BLOK",
+        "editorial_slug": "ediciones-b",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/637417-libro-onin-1-onin-y-la-isla-del-tesoro-9791387994549",
+        "fuentes_autores": {
+          "Ibon Martín": "https://www.penguinlibros.com/es/9128-ibon-martin"
+        },
+        "idioma": "es",
+        "isbn13": "9791387994549",
+        "materias": [
+          "A partir de 7 años"
+        ],
+        "numero_paginas": 160,
+        "palabras_clave": [
+          "libro infantil",
+          "7 años",
+          "8 años",
+          "9 años",
+          "2026",
+          "ibon martin",
+          "juvenil",
+          "libro de aventuras",
+          "magia",
+          "fantasia",
+          "piratas",
+          "onin",
+          "vasco",
+          "isla del tesoro",
+          "ac tividades",
+          "juegos",
+          "amistad",
+          "valores",
+          "libro de valores",
+          "para niño",
+          "para niña",
+          "misterio",
+          "libro de misterio",
+          "misterio infantil",
+          "busqued"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8201965-thickbox_default/onin-1-onin-y-la-isla-del-tesoro.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1595,
+        "sinopsis_breve": "Acompaña a Onin y al resto de sus amigos en una nueva serie llena de misterios, aventuras y una pizca de magia. Una nueva…",
+        "sinopsis_completa": "Acompaña a Onin y al resto de sus amigos en una nueva serie llena de misterios, aventuras y una pizca de magia. Una nueva edición de la colección infantil de Ibon Martín con nuevo diseño y contenido extra.\n\nEn su primera aventura, Onin y sus amigos se van de excursión a una isla con un secreto escondido. Allí encontrarán un mapa del tesoro mientras descubren los secretos de la isla y huyen de... ¡piratas!\n\n¿Qué encontrarás en esta saga?\n\n*La primera colección infantil de Ibon Martin, perfecta para empezar la lectura independiente, con capítulos cortos y una trama que engancha desde la primera página.\n\n*Una serie llena de aventuras, misterio y amistad que trabaja valores como el trabajo en equipo y la valentía.\n\n*Divertidas ilustraciones a todo color junto a una maqueta dinámica muy fácil de leer.\n\n*Páginas extra con actividades, curiosidades y juegos para adentrarse más en la historia de Onin y sus amigos.",
+        "titulo": "Onin 1 - Onin y la isla del tesoro"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387994549",
+      "libro_id": "isbn-9791387994549",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9791387994556": {
+      "datos": {
+        "autores": [
+          "Ibon Martín"
+        ],
+        "coleccion": "Escritura desatada",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 7 años",
+        "editorial": "B DE BLOK",
+        "editorial_slug": "ediciones-b",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/637418-libro-onin-2-onin-y-el-misterio-del-bosque-9791387994556",
+        "fuentes_autores": {
+          "Ibon Martín": "https://www.penguinlibros.com/es/9128-ibon-martin"
+        },
+        "idioma": "es",
+        "isbn13": "9791387994556",
+        "materias": [
+          "A partir de 7 años"
+        ],
+        "numero_paginas": 160,
+        "palabras_clave": [
+          "libro infantil",
+          "ibon martin",
+          "onin",
+          "libro de aventuras",
+          "magia",
+          "libro de misterio",
+          "misterio infantil",
+          "fantasia",
+          "basajaun",
+          "vasco",
+          "naturaleza",
+          "dida ctico",
+          "interactivo",
+          "juegos",
+          "actividades",
+          "libro de actividades",
+          "dinamico",
+          "2026",
+          "libros infantiles 7 años",
+          "8 años",
+          "9 años",
+          "amistad",
+          "mis"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8213446-thickbox_default/onin-2-onin-y-el-misterio-del-bosque.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1595,
+        "sinopsis_breve": "En su segunda aventura, Onin y sus amigos se internan en la montaña para descubrir si la leyenda del Basajaun es tan cierta como…",
+        "sinopsis_completa": "Acompaña a Onin y al resto de sus amigos en una nueva serie llena de misterios, aventuras y una pizca de magia. Una nueva edición de la colección infantil de Ibon Martín con nuevo diseño y contenido extra.\n\nEn su segunda aventura, Onin y sus amigos se internan en la montaña para descubrir si la leyenda del Basajaun es tan cierta como dicen. Pero cuando lo descubren, llorando desconsolado, saben que algo más grave está ocurriendo en lo más profundo del hayedo… Y solo ellos pueden ayudar al señor del bosque.\n\n¿Qué encontrarás en esta saga?\n\n*La primera colección infantil de Ibon Martin, perfecta para empezar la lectura independiente, con capítulos cortos y una trama que engancha desde la primera página.\n\n*Una serie llena de aventuras, misterio y amistad que trabaja valores como el trabajo en equipo y la valentía.\n\n*Divertidas ilustraciones a todo color junto a una maqueta dinámica muy fácil de leer.\n\n*Páginas extra con actividades, curiosidades y juegos para adentrarse más en la historia de Onin y sus amigos.",
+        "titulo": "Onin 2 - Onin y el misterio del bosque"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387994556",
+      "libro_id": "isbn-9791387994556",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791387994563": {
       "datos": {
@@ -25217,12 +27094,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "VERGARA",
+        "editorial_slug": "vergara",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-crianza/635121-libro-como-aprenden-los-bebes-9791388038334",
         "fuentes_autores": {
-          "Héctor Ruiz Martín": "https://www.penguinlibros.com/es/libros-crianza/635121-libro-como-aprenden-los-bebes-9791388038334"
+          "Héctor Ruiz Martín": "https://www.penguinlibros.com/es/10355-hector-ruiz-martin"
         },
         "idioma": "es",
         "isbn13": "9791388038334",
@@ -25230,15 +27108,34 @@
           "Familia y crianza"
         ],
         "numero_paginas": 288,
+        "palabras_clave": [
+          "psicologia infantil libros",
+          "psicologia evolutiva",
+          "psicologia del desarrollo",
+          "educacion infantil",
+          "infancia",
+          "libros de psicologia",
+          "crianza r espetuosa",
+          "crianza natural libro",
+          "crianza positiva",
+          "educar bebe",
+          "educar hijos",
+          "educar niños felices",
+          "familia libro",
+          "desarrollo pe"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8075886-thickbox_default/como-aprenden-los-bebes.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "Con un enfoque riguroso, basado en la psicología y la neurociencia, pero con el estilo ameno y cercano que caracteriza a Héctor Ruiz Martín…",
+        "sinopsis_completa": "¿Cómo influyen las experiencias del bebé en el desarrollo de su mente y cerebro? ¿Qué habilidades y predisposiciones traen al nacer y qué pueden aprender ya incluso desde el vientre materno? Este libro nos invita a adentrarnos en la etapa inicial de la vida para descubrir cómo las primeras experiencias impactan en el desarrollo del lenguaje, las emociones, el pensamiento y la personalidad.\n\nCon un enfoque riguroso, basado en la psicología y la neurociencia, pero con el estilo ameno y cercano que caracteriza a Héctor Ruiz Martín, esta obra desvela qué hay de innato y qué de aprendido, desmonta mitos sobre el desarrollo y revela hallazgos sorprendentes acerca de las extraordinarias capacidades de los bebés.",
         "titulo": "¿Cómo aprenden los bebés?"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-crianza/635121-libro-como-aprenden-los-bebes-9791388038334",
+      "estado_ingesta": "publicado",
       "isbn13": "9791388038334",
-      "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20"
+      "libro_id": "isbn-9791388038334",
+      "primera_deteccion": "2026-10-20",
+      "publicado_en": "2026-11-05"
     },
     "isbn13:9791388038372": {
       "estado_ingesta": "pendiente_datos",
@@ -25498,7 +27395,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/que-es-una-frontera/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9791388042119",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-02",
@@ -25682,7 +27579,8 @@
     "isbn13:9791388042300": {
       "datos": {
         "autores": [
-          "Davide Calì y Anna Aparicio"
+          "Davide Calì",
+          "Anna Aparicio"
         ],
         "coleccion": "Infantil Juvenil",
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
@@ -25708,7 +27606,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/hotel-otono/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9791388042300",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-01",
@@ -25883,7 +27781,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.duomoediciones.com/libro/la-vuelta-al-cielo-2/",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9791388042522",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-10-31",
@@ -27767,6 +29665,15 @@
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
     },
+    "isbn13:9791388139284": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/637790-libro-la-primera-vez-que-le-vi-9791388139284",
+      "intentos": 1,
+      "isbn13": "9791388139284",
+      "motivo": "The read operation timed out",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9791388139369": {
       "datos": {
         "autores": [
@@ -28483,6 +30390,15 @@
       "primera_deteccion": "2026-11-04",
       "publicado_en": "2026-11-04"
     },
+    "isbn13:9791388222115": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-ninos-7-anos/637833-libro-julia-y-los-mortimort-caja-con-los-libros-1-y-2-9791388222115",
+      "intentos": 1,
+      "isbn13": "9791388222115",
+      "motivo": "Tipo de producto no bibliográfico o no admitido",
+      "primera_deteccion": "2026-11-05",
+      "retry_after": "2026-11-08"
+    },
     "isbn13:9791388222207": {
       "datos": {
         "autores": [
@@ -28862,6 +30778,120 @@
       "primera_deteccion": "2026-10-24",
       "publicado_en": "2026-10-24"
     },
+    "isbn13:9791388277146": {
+      "datos": {
+        "autores": [
+          "Emilio Aragón"
+        ],
+        "coleccion": "Jóvenes lectores",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 9 años",
+        "editorial": "ALFAGUARA IJC",
+        "editorial_slug": "alfaguara",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/637388-libro-telmo-lobo-4-el-desafio-de-los-caballeros-9791388277146",
+        "fuentes_autores": {
+          "Emilio Aragón": "https://www.penguinlibros.com/es/978602-emilio-aragon"
+        },
+        "idioma": "es",
+        "isbn13": "9791388277146",
+        "materias": [
+          "A partir de 9 años"
+        ],
+        "numero_paginas": 216,
+        "palabras_clave": [
+          "libro juvenil",
+          "libro infantil",
+          "10 años",
+          "11 años",
+          "2026",
+          "en castellano",
+          "en español",
+          "para niña",
+          "para niño",
+          "regalo niña 9 años",
+          "libros para adoles centes",
+          "aventura",
+          "magia",
+          "fantasia",
+          "amanda black",
+          "telmo lobo",
+          "emilio aragon",
+          "amistad",
+          "regalo navidad",
+          "regalo papa noel",
+          "regalo reyes"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8213422-thickbox_default/telmo-lobo-4-el-desafio-de-los-caballeros.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1695,
+        "sinopsis_breve": "Grandes misterios y altas dosis de acción te esperan en esta nueva serie de la mano de Emilio Aragón para niños y niñas a…",
+        "sinopsis_completa": "Tres hermanos. Dos mundos. Un enemigo.\n\nTelmo, Carmina, Mía y Sammy vuelven a su vida normal. Pero Vértigo no les dejará descansar ni en vacaciones. Cuando encuentran una espada enterrada en la arena, se ven transportados a un nuevo mundo lleno de peligros.\n\nAtrapados en un París lleno de caballeros, tendrán que descubrir la manera de salir antes de quedarse allí encerrados para siempre. Deberán derrotar a temibles nobles, luchar con espadas y detener los planes de Vértigo antes de que sea demasiado tarde.\n\nTictac, tictac... ¿Conseguirán encontrar el camino de vuelta a casa?\n\nGrandes misterios y altas dosis de acción te esperan en esta nueva serie de la mano de Emilio Aragón para niños y niñas a partir de 9 años. Con ilustraciones para dar vida a una trepidante aventura llena de sorpresas que no querrás dejar de leer.",
+        "titulo": "Telmo Lobo 4 - El desafío de los caballeros"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388277146",
+      "libro_id": "isbn-9791388277146",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
+    "isbn13:9791388277481": {
+      "datos": {
+        "autores": [
+          "Alex Aster"
+        ],
+        "coleccion": "Sin límites",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 12 años",
+        "editorial": "ALFAGUARA IJC",
+        "editorial_slug": "alfaguara",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-11-05",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/ciencia-ficcion-juvenil/637391-libro-barbie-dreamscape-9791388277481",
+        "fuentes_autores": {
+          "Alex Aster": "https://www.penguinlibros.com/es/208383-alex-aster"
+        },
+        "idioma": "es",
+        "isbn13": "9791388277481",
+        "materias": [
+          "Ciencia ficción juvenil"
+        ],
+        "numero_paginas": 376,
+        "palabras_clave": [
+          "alex aster",
+          "libros adolescentes",
+          "14 años",
+          "15 años",
+          "16 años",
+          "17 años",
+          "2026",
+          "ciencia ficcion",
+          "distopia",
+          "en español",
+          "libros ciencia ficcion",
+          "libro s de aventuras",
+          "libros de ciencia ficcion",
+          "libros de fantasia juvenil",
+          "libros de fantasia y romance",
+          "libros fantasia epica",
+          "lib"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8084450-thickbox_default/barbie-dreamscape.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2095,
+        "sinopsis_breve": "Guiada por el misterioso poder de un collar que perteneció a su madre, Barbie se embarcará en una aventura más allá de los límites…",
+        "sinopsis_completa": "Todos los futuros están escritos…, excepto el suyo.\n\nBarbie lo tiene todo. Vive en el país del Corazón, un reino perfecto donde la justicia es absoluta y el esfuerzo siempre es recompensado. Lleva años preparándose para convertirse en la mejor alumna de la academia Pico del Cisne, cuando por fin llega el día en que le revelarán el brillante futuro que le espera.\n\nTodo parece perfecto… hasta que ocurre lo imposible: Barbie descubre que es la primera en la historia sin un destino asignado. En un instante, el orden que sostenía su mundo se rompe y la vida que creía asegurada comienza a desmoronarse.\n\nGuiada por el misterioso poder de un collar que perteneció a su madre, Barbie se embarcará en una aventura más allá de los límites del país del Corazón, un viaje lleno de magia, secretos ancestrales y desafíos inesperados que la llevará a descubrir quién es realmente. Porque la verdad que esconde su pasado podría cambiar no solo su destino, sino el de todo un reino.",
+        "titulo": "Barbie dreamscape"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791388277481",
+      "libro_id": "isbn-9791388277481",
+      "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-05"
+    },
     "isbn13:9791388279263": {
       "datos": {
         "autores": [
@@ -29063,7 +31093,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-estuche-murdoku-vol-1-vol-2/459348",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9791388279362",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-03",
@@ -30181,7 +32211,7 @@
     "isbn13:9791399303506": {
       "datos": {
         "autores": [
-          "Laura Díaz (@fantasyliterature)",
+          "Laura Díaz",
           "María Choza",
           "Luz Marina Baltasar Navas"
         ],
@@ -30218,7 +32248,7 @@
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.planetadelibros.com/libro-oh-no-me-he-enfadado/465659",
-      "intentos": 1,
+      "intentos": 2,
       "isbn13": "9791399303506",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
