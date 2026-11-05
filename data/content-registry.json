@@ -16483,6 +16483,60 @@
       "sourceFile": "recomendaciones/libros/el-origen-la-raiz-invisible-de-lo-que-dirige-tu-vida-9791388038372/index.html"
     },
     {
+      "id": "reading-book-isbn-9788466390729",
+      "url": "/recomendaciones/libros/la-asistenta-9788466390729/",
+      "label": "La asistenta",
+      "shortLabel": "La asistenta",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-asistenta-9788466390729/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387740979",
+      "url": "/recomendaciones/libros/han-cantado-bingo-9791387740979/",
+      "label": "Han cantado bingo",
+      "shortLabel": "Han cantado bingo",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/han-cantado-bingo-9791387740979/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788448874698",
+      "url": "/recomendaciones/libros/superthings-el-libro-de-la-pelicula-9788448874698/",
+      "label": "Superthings - El libro de la película",
+      "shortLabel": "Superthings - El libro de la película",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/superthings-el-libro-de-la-pelicula-9788448874698/index.html"
+    },
+    {
       "id": "reading-author-neil-gaiman",
       "url": "/recomendaciones/autores/neil-gaiman/",
       "label": "Neil Gaiman",
@@ -27875,6 +27929,24 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/autores/graciela-del-campo-vara/index.html"
+    },
+    {
+      "id": "reading-author-lana-corujo",
+      "url": "/recomendaciones/autores/lana-corujo/",
+      "label": "Lana Corujo",
+      "shortLabel": "Lana Corujo",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/lana-corujo/index.html"
     },
     {
       "id": "reading-publisher-aguilar",
