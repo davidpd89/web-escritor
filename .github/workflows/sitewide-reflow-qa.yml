@@ -34,7 +34,8 @@ jobs:
   reflow-shard:
     name: reflow shard ${{ matrix.shard }}/8
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    # Auditoria completa: 38-45 min por shard el 06/11; 45 cancelaba shards sanos. El paso ya admitia 70.
+    timeout-minutes: 75
     strategy:
       fail-fast: false
       matrix:
