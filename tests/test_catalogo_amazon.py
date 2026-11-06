@@ -64,6 +64,12 @@ class ToRecord(unittest.TestCase):
                 ca.to_record({'item': it}, '2026-11-06')
             self.assertEqual(str(ctx.exception), reason)
 
+    def test_isbn_as_manufacturer_is_not_a_publisher(self):
+        with self.assertRaises(ca.Rejected) as ctx:
+            ca.to_record({'item': item(publisher='978-628-01-9180-5')}, '2026-11-06')
+        self.assertEqual(str(ctx.exception), 'sin editorial')
+        self.assertEqual(ca.publisher_name({'displayValue': 'Ediciones 2001'}), 'Ediciones 2001')
+
     def test_spanish_isbn_without_language_is_accepted(self):
         self.assertEqual(ca.to_record({'item': item(lang=None)}, '2026-11-06')['isbn13'][:5], '97884')
 
@@ -143,6 +149,22 @@ class Transformar(unittest.TestCase):
         self.assertEqual(out['candidatos'], 1)
         motives = sorted(f['motivo'] for f in out['fallos'])
         self.assertEqual(motives, ['idioma: ingles', 'ya en el catálogo'])
+
+    def test_internal_amazon_roots_and_regional_literatures_are_not_subjects(self):
+        internal = {'displayName': 'Self Service', 'ancestor': {'displayName': 'Special Features Stores',
+                                                                'ancestor': {'displayName': 'Arborist Merchandising Root'}}}
+        # Mitología e informática siguen sin materia propia (revisión p12): las decide un nodo hermano.
+        cases = {'Lingüística': ['Ensayo'], 'Literatura europea': [],
+                 'Mitos, leyendas y sagas': [], 'Programación y desarrollo de software': []}
+        for node, subjects in cases.items():
+            with self.subTest(node):
+                record = ca.to_record({'item': item(nodes=[internal, {'displayName': node}])}, '2026-11-06')
+                self.assertEqual(record['materias'], subjects)
+
+    def test_stapled_and_cloth_books_are_print_editions(self):
+        for binding, fmt in (('Grapado', 'tapa-blanda'), ('Libro de tela', 'tapa-dura')):
+            with self.subTest(binding):
+                self.assertEqual(ca.to_record({'item': item(binding=binding)}, '2026-11-06')['formato_edicion'], fmt)
 
     def test_unmapped_node_goes_to_review_and_missing_node_is_retried(self):
         rows = [item('B1', isbn('978841111121'), title='Uno', nodes=[{'displayName': 'Nodo raro'}]),
