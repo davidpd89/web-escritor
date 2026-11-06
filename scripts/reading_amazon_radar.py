@@ -1,9 +1,9 @@
-"""Radar de novedades de Amazon: qué libros recientes faltan en el catálogo y de qué editorial son.
+"""Radar de novedades de Amazon: qué libros recientes y próximos faltan en el catálogo.
 
-Amazon no da sinopsis ni portadas reutilizables y su licencia solo permite guardar el ASIN, así que
-el radar no crea fichas: las fichas salen de la web de cada editorial. El radar mide la cobertura
-(próximamente y novedades de Amazon frente al catálogo) y dice qué editoriales conviene conectar.
-El informe va al artefacto de la CI con cifras agregadas; ni títulos ni datos de producto.
+SearchItems devuelve como mucho 10 páginas de 10 por consulta, así que una sola consulta sobre
+«Libros» ve 100 títulos de los miles que salen cada semana. El radar recorre el árbol de nodos
+(GetBrowseNodes): cada nodo que llena sus 10 páginas se parte en sus hijos, hasta `max_depth`
+o hasta agotar `max_requests`. El informe dice cuántos nodos siguen llenos (cobertura incompleta).
 """
 import re
 from collections import Counter
@@ -14,6 +14,9 @@ from reading_ratings_refresh import isbn13, key
 
 BOOKS_NODE = '599364031'  # «Libros» en amazon.es
 RESOURCES = ['itemInfo.byLineInfo', 'itemInfo.contentInfo', 'itemInfo.externalIds']
+
+
+SPANISH = ('español', 'espanol', 'spanish', 'castellano')
 
 
 def radar_request(tag, page, node=BOOKS_NODE):
@@ -35,8 +38,12 @@ def radar_rows(payload):
             continue
         publisher = amazon_dict(amazon_dict(info.get('byLineInfo')).get('manufacturer')).get('displayValue')
         published = amazon_dict(amazon_dict(info.get('contentInfo')).get('publicationDate')).get('displayValue')
+        languages = amazon_list(amazon_dict(amazon_dict(info.get('contentInfo')).get('languages')).get('displayValues'))
+        spanish = any(isinstance(amazon_dict(l).get('displayValue'), str) and amazon_dict(l)['displayValue'].strip().lower() in SPANISH
+                      for l in languages)
         rows.append({'isbn13': isbn, 'editorial': publisher.strip() if isinstance(publisher, str) else '',
-                     'fecha': published[:10] if isinstance(published, str) and re.match(r'\d{4}-\d{2}-\d{2}', published) else ''})
+                     'fecha': published[:10] if isinstance(published, str) and re.match(r'\d{4}-\d{2}-\d{2}', published) else '',
+                     'castellano': spanish})
     return rows
 
 
@@ -62,26 +69,68 @@ def coverage(rows, catalogue, connected, today):
 
 
 def missing_isbns(rows, catalogue):
-    """ISBN españoles (978-84, 979-13) que faltan, de la fecha más reciente a la más antigua."""
+    """ISBN que faltan y son españoles (978-84, 979-13) o están en castellano según Amazon, de la
+    fecha más reciente a la más antigua."""
     known = {b.get('isbn13') for b in catalogue.get('libros', [])}
-    unique = {r['isbn13']: r for r in rows if r['isbn13'].startswith(('97884', '97913')) and r['isbn13'] not in known}
+    unique = {r['isbn13']: r for r in rows if (r['isbn13'].startswith(('97884', '97913')) or r.get('castellano'))
+              and r['isbn13'] not in known}
     return [r['isbn13'] for r in sorted(unique.values(), key=lambda r: r['fecha'], reverse=True)]
 
 
-def run(provider, catalogue, aliases, tag, today=None, pages=10, node=BOOKS_NODE, collect=None):
+def children(provider, tag, nodes):
+    """Hijos de cada nodo (GetBrowseNodes admite 10 por petición): {nodo: [hijos]}."""
+    payload = provider.post('https://creatorsapi.amazon/catalog/v1/getBrowseNodes',
+                            {'marketplace': 'www.amazon.es', 'partnerTag': tag, 'browseNodeIds': list(nodes)[:10],
+                             'resources': ['browseNodes.children']}, provider.headers())
+    result = amazon_dict(payload.get('browseNodesResult') or payload.get('browseNodeResult'))
+    found = {}
+    for node in amazon_list(result.get('browseNodes')):
+        node = amazon_dict(node)
+        ids = [str(amazon_dict(c).get('id')) for c in amazon_list(node.get('children'))]
+        found[str(node.get('id'))] = [i for i in ids if re.fullmatch(r'\d+', i)]
+    return found
+
+
+def run(provider, catalogue, aliases, tag, today=None, pages=10, node=BOOKS_NODE, collect=None,
+        max_requests=10, max_depth=0):
     """`provider` es un CreatorsPrices: una petición por página, al ritmo de 1 por segundo.
 
-    Si se pasa `collect` (una lista), recibe los ISBN que faltan para la ingesta de esta misma
-    ejecución; no van al informe ni se guardan.
+    Cada nodo se lee por NewestArrivals; si llena las `pages` páginas, Amazon está cortando la
+    lista y el nodo se parte en sus hijos (hasta `max_depth` niveles bajo `node`). Si se pasa
+    `collect` (una lista), recibe los ISBN que faltan para la ingesta de esta misma ejecución.
     """
-    rows, requests = [], 0
-    for page in range(1, pages + 1):
-        payload = provider.post('https://creatorsapi.amazon/catalog/v1/searchItems', radar_request(tag, page, node), provider.headers())
+    rows, requests, scanned, full = [], 0, 0, 0
+    pending, seen = [(node, 0)], {node}
+    while pending and requests < max_requests:
+        current, depth = pending.pop(0)
+        filled = True
+        for page in range(1, pages + 1):
+            if requests >= max_requests:
+                break
+            payload = provider.post('https://creatorsapi.amazon/catalog/v1/searchItems', radar_request(tag, page, current), provider.headers())
+            requests += 1
+            rows += radar_rows(payload)
+            if len(amazon_list(amazon_dict(payload.get('searchResult')).get('items'))) < 10:
+                filled = False
+                break
+        scanned += 1
+        if not filled:
+            continue
+        if depth >= max_depth or requests >= max_requests:
+            full += 1
+            continue
         requests += 1
-        rows += radar_rows(payload)
-        if len(amazon_list(amazon_dict(payload.get('searchResult')).get('items'))) < 10:
-            break
+        try:
+            kids = children(provider, tag, [current]).get(current, [])
+        except RuntimeError:
+            kids = []
+        kids = [k for k in kids if k not in seen]
+        if not kids:
+            full += 1
+        seen.update(kids)
+        pending += [(k, depth + 1) for k in kids]
+    full += len(pending)
     if collect is not None:
         collect.extend(missing_isbns(rows, catalogue))
     report = coverage(rows, catalogue, connected_publishers(catalogue, aliases), today or date.today())
-    return {**report, 'peticiones': requests}
+    return {**report, 'peticiones': requests, 'nodos_leidos': scanned, 'nodos_sin_cubrir': full}

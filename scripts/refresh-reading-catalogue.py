@@ -149,7 +149,9 @@ def radar_isbns(config):
     isbns, tag = [], config['amazon_partner_tag']
     try:
         radar = amazon_radar(CreatorsPrices(amazon_id, amazon_secret, tag), read_json(ROOT / 'data/reading-catalogue.json'),
-                             config.get('publisher_aliases', []), tag, pages=int(config['amazon_radar'].get('pages', 10)), collect=isbns)
+                             config.get('publisher_aliases', []), tag, pages=int(config['amazon_radar'].get('pages', 10)), collect=isbns,
+                             max_requests=int(config['amazon_radar'].get('max_requests', 10)),
+                             max_depth=int(config['amazon_radar'].get('max_depth', 0)))
     except (RuntimeError, ValueError, OSError) as exc:  # sin radar, la ingesta sigue con las editoriales
         radar = {'error': str(exc)[:300]}
     write_if_changed(ROOT / '.ci/reading-intake/amazon-radar.json', {**radar, 'isbn_a_ingesta': len(isbns)})

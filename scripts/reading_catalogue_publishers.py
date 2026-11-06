@@ -15,7 +15,8 @@ from reading_intake_core import normalize_text
 SMALL_WORDS = {'de', 'del', 'la', 'las', 'el', 'los', 'y', 'e', 'en', 'para', 'a'}
 GROUPS = {'www.penguinlibros.com': 'Penguin Random House Grupo Editorial', 'www.planetadelibros.com': 'Grupo Planeta'}
 # Fuentes que no son de una editorial: el grupo lo da la propia ficha (datos del fabricante).
-SOURCE_TITLES = {'www.todostuslibros.com': 'Ficha del libro en todostuslibros.com (CEGAL)'}
+SOURCE_TITLES = {'www.todostuslibros.com': 'Ficha del libro en todostuslibros.com (CEGAL)',
+                 'www.amazon.es': 'Ficha del libro en Amazon.es (datos del fabricante)'}
 _VALID_NAME = re.compile(r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9][A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9 &.,'’·-]{1,58}\Z")
 _GENERIC = {'editorial', 'varios', 'sin editorial', 'desconocida', 'n/a'}
 

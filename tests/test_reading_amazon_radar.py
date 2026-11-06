@@ -41,6 +41,26 @@ class Provider:
         return self.pages[len(self.calls) - 1]
 
 
+FULL = {'searchResult': {'items': [item('9788420000008', 'Alfaguara', '2026-12-01')] * 10}}
+
+
+class TreeProvider:
+    """Raíz llena (10 páginas) con dos hijos: uno corto y otro también lleno y sin hijos."""
+    def __init__(self):
+        self.calls = []
+
+    def headers(self):
+        return {}
+
+    def post(self, url, payload, headers):
+        self.calls.append((url.rsplit('/', 1)[1], payload))
+        if url.endswith('getBrowseNodes'):
+            node = payload['browseNodeIds'][0]
+            kids = {'599364031': [{'id': '1'}, {'id': '2'}]}.get(node, [])
+            return {'browseNodesResult': {'browseNodes': [{'id': node, 'children': kids}]}}
+        return PAGE if payload['browseNodeId'] == '1' else FULL
+
+
 class RadarTest(unittest.TestCase):
     def test_request_is_books_newest_first(self):
         request = radar_request('tag-21', 3)
@@ -52,7 +72,7 @@ class RadarTest(unittest.TestCase):
     def test_rows_keep_only_isbn_publisher_and_date(self):
         rows = radar_rows(PAGE)
         self.assertEqual(len(rows), 4)  # el EAN que no es libro queda fuera
-        self.assertEqual(rows[0], {'isbn13': '9788439741008', 'editorial': 'Lumen', 'fecha': '2026-10-01'})
+        self.assertEqual(rows[0], {'isbn13': '9788439741008', 'editorial': 'Lumen', 'fecha': '2026-10-01', 'castellano': False})
         self.assertEqual(radar_rows({'searchResult': None}), [])
 
     def test_connected_includes_aliases_of_live_connectors_only(self):
@@ -76,6 +96,28 @@ class RadarTest(unittest.TestCase):
         collected = []
         run(Provider([PAGE]), CATALOGUE, ALIASES, 'tag-21', today=TODAY, pages=1, collect=collected)
         self.assertEqual(collected, missing_isbns(rows, CATALOGUE))
+
+    def test_spanish_language_counts_even_with_foreign_isbn(self):
+        foreign = item('9781234567897', 'Yen Press', '2026-12-01')
+        foreign['itemInfo']['contentInfo']['languages'] = {'displayValues': [{'displayValue': 'Español', 'type': 'Publicado'}]}
+        english = item('9781234567880', 'Viz', '2026-12-01')
+        rows = radar_rows({'searchResult': {'items': [foreign, english]}})
+        self.assertEqual(missing_isbns(rows, CATALOGUE), ['9781234567897'])
+
+    def test_full_nodes_split_into_children(self):
+        provider = TreeProvider()
+        report = run(provider, CATALOGUE, ALIASES, 'tag-21', today=TODAY, max_requests=100, max_depth=2)
+        ops = [op for op, _ in provider.calls]
+        self.assertEqual(ops.count('getBrowseNodes'), 2)  # raíz y nodo 2, ambos llenos
+        self.assertEqual(report['nodos_leidos'], 3)
+        self.assertEqual(report['nodos_sin_cubrir'], 1)  # el nodo 2 llena sus páginas y no tiene hijos
+        self.assertEqual(report['peticiones'], len(provider.calls))
+
+    def test_budget_bounds_the_walk(self):
+        provider = TreeProvider()
+        report = run(provider, CATALOGUE, ALIASES, 'tag-21', today=TODAY, max_requests=15, max_depth=3)
+        self.assertLessEqual(len(provider.calls), 15)
+        self.assertGreaterEqual(report['nodos_sin_cubrir'], 1)
 
     def test_run_stops_on_short_page(self):
         provider = Provider([{'searchResult': {'items': [item('9788420000008', 'Alfaguara', '2026-12-01')] * 10}}, PAGE, PAGE])

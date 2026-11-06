@@ -554,11 +554,24 @@ def load_author_records(path):
     return payload['autores']
 
 
+PUBLISHER_CACHE = {}
+
+
 def publisher_records(root=ROOT):
-    """Sellos que aparecen en el catálogo pero no en el directorio de editoriales que aceptan manuscritos."""
+    """Sellos que aparecen en el catálogo pero no en el directorio de editoriales que aceptan manuscritos.
+    Se leen y validan una vez por versión del archivo: la cuarentena de la ingesta valida libro a libro."""
     path = root / 'data/reading-publishers.json'
     if not path.exists():
         return []
+    stat = path.stat()
+    key = (str(path), stat.st_mtime_ns, stat.st_size)
+    if key not in PUBLISHER_CACHE:
+        PUBLISHER_CACHE.clear()
+        PUBLISHER_CACHE[key] = load_publisher_records(path)
+    return PUBLISHER_CACHE[key]
+
+
+def load_publisher_records(path):
     payload = json.loads(path.read_text(encoding='utf-8'))
     require(set(payload) == {'schema_version', 'editoriales'} and payload['schema_version'] == 1, 'Contrato de sellos inválido')
     slugs, names = set(), set()
@@ -890,11 +903,12 @@ def render_llms_index(data, books, authors, publishers):
         facts += [age and 'Edad: ' + age]
         head = f"- [{b['titulo']}]({SITE}{url(b)}): " + '. '.join(f.rstrip('.') for f in facts if f) + '. '
         # El «Para quién es» cede espacio para que la sinopsis conserve al menos 60 caracteres sin pasar de 690.
-        who = who and clip(who, max(40, 690 - 60 - len(head) - len('Para quién es: . Sinopsis de la editorial: ')))
-        head += (who and 'Para quién es: ' + who.rstrip('.') + '. ') + 'Sinopsis de la editorial: '
+        label = 'Sinopsis de la editorial: ' if b.get('sinopsis_breve') else 'Descripción: '
+        who = who and clip(who, max(40, 690 - 60 - len(head) - len('Para quién es: . ' + label)))
+        head += (who and 'Para quién es: ' + who.rstrip('.') + '. ') + label
         # Cada línea cabe en 700 caracteres: la sinopsis de la editorial se queda con el espacio que deja lo propio.
-        synopsis = clip(b['sinopsis_breve'], max(60, min(300, 690 - len(head))))
-        lines.append(head + synopsis.rstrip('.') + ('' if synopsis.endswith('…') else '.'))
+        text = clip(synopsis(b), max(60, min(300, 690 - len(head))))
+        lines.append(head + text.rstrip('.') + ('' if text.endswith('…') else '.'))
     return '\n'.join(lines) + '\n'
 
 
