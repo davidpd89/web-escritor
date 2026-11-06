@@ -39,6 +39,22 @@ class ToRecord(unittest.TestCase):
         with self.assertRaises(ca.Rejected):
             ca.to_record({'item': item(lang='Catalán')}, '2026-11-06')
 
+    def test_original_language_does_not_make_a_translation_spanish(self):
+        def langs(*pairs):
+            entry = item(ean=isbn('978024183670'), lang='Inglés')
+            entry['itemInfo']['contentInfo']['languages'] = {
+                'displayValues': [{'displayValue': v, 'type': t} for t, v in pairs]}
+            return {'item': entry}
+        for edition in ('Inglés', 'Catalán', 'Gallego'):
+            with self.subTest(edition=edition), self.assertRaises(ca.Rejected):
+                ca.to_record(langs(('Publicado', edition), ('Idioma original', 'Español')), '2026-11-06')
+        with self.assertRaises(ca.Rejected):  # sin «Publicado», el original tampoco cuenta
+            ca.to_record(langs(('Idioma original', 'Español'), ('Desconocido', 'Inglés')), '2026-11-06')
+        ok = ca.to_record(langs(('Publicado', 'Castellano'), ('Idioma original', 'Inglés')), '2026-11-06')
+        self.assertTrue(ok['isbn13'])
+        ok = ca.to_record(langs(('Desconocido', 'Español'),), '2026-11-06')
+        self.assertTrue(ok['isbn13'])
+
     def test_maps_amazon_item_to_book_record(self):
         r = ca.to_record({'nodo': '1', 'ruta': ['Libros', 'Thriller'], 'item': item()}, '2026-11-06')
         self.assertEqual(r['autores'], ['Benito Pérez Galdós'])
@@ -63,6 +79,12 @@ class ToRecord(unittest.TestCase):
             with self.subTest(reason), self.assertRaises(ca.Rejected) as ctx:
                 ca.to_record({'item': it}, '2026-11-06')
             self.assertEqual(str(ctx.exception), reason)
+
+    def test_isbn_as_manufacturer_is_not_a_publisher(self):
+        with self.assertRaises(ca.Rejected) as ctx:
+            ca.to_record({'item': item(publisher='978-628-01-9180-5')}, '2026-11-06')
+        self.assertEqual(str(ctx.exception), 'sin editorial')
+        self.assertEqual(ca.publisher_name({'displayValue': 'Ediciones 2001'}), 'Ediciones 2001')
 
     def test_spanish_isbn_without_language_is_accepted(self):
         self.assertEqual(ca.to_record({'item': item(lang=None)}, '2026-11-06')['isbn13'][:5], '97884')
@@ -143,6 +165,22 @@ class Transformar(unittest.TestCase):
         self.assertEqual(out['candidatos'], 1)
         motives = sorted(f['motivo'] for f in out['fallos'])
         self.assertEqual(motives, ['idioma: ingles', 'ya en el catálogo'])
+
+    def test_internal_amazon_roots_and_regional_literatures_are_not_subjects(self):
+        internal = {'displayName': 'Self Service', 'ancestor': {'displayName': 'Special Features Stores',
+                                                                'ancestor': {'displayName': 'Arborist Merchandising Root'}}}
+        # Mitología e informática siguen sin materia propia (revisión p12): las decide un nodo hermano.
+        cases = {'Lingüística': ['Ensayo'], 'Literatura europea': [],
+                 'Mitos, leyendas y sagas': [], 'Programación y desarrollo de software': []}
+        for node, subjects in cases.items():
+            with self.subTest(node):
+                record = ca.to_record({'item': item(nodes=[internal, {'displayName': node}])}, '2026-11-06')
+                self.assertEqual(record['materias'], subjects)
+
+    def test_stapled_and_cloth_books_are_print_editions(self):
+        for binding, fmt in (('Grapado', 'tapa-blanda'), ('Libro de tela', 'tapa-dura')):
+            with self.subTest(binding):
+                self.assertEqual(ca.to_record({'item': item(binding=binding)}, '2026-11-06')['formato_edicion'], fmt)
 
     def test_unmapped_node_goes_to_review_and_missing_node_is_retried(self):
         rows = [item('B1', isbn('978841111121'), title='Uno', nodes=[{'displayName': 'Nodo raro'}]),
@@ -622,3 +660,33 @@ class Client(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class PublisherKey(unittest.TestCase):
+    def test_legal_form_trade_words_and_inversions_share_a_key(self):
+        for raw, known in [('Grijalbo Comercial, S.a.', 'Grijalbo'), ('Molino,editorial', 'Molino'),
+                           ('Errata Naturae Editores S.l', 'Errata naturae'), ('Hoaki Books', 'Hoaki'),
+                           ('Altamarea Edición de Libros SL', 'Altamarea Ediciones'),
+                           ('GTM Ediciones C.b.', 'GTM Ediciones'), ('Candlewick Press (ma)', 'Candlewick Press'),
+                           ('Comanegra', 'Editorial Comanegra'), ('Satori Ediciones C.b.', 'Satori')]:
+            with self.subTest(raw=raw):
+                self.assertEqual(ca.publisher_key(raw), ca.publisher_key(known))
+        # «Libros» y «Press» son parte del nombre, no oficio
+        self.assertNotEqual(ca.publisher_key('Ediciones la Cúpula, S.l.'), ca.publisher_key('Libros Cúpula'))
+        self.assertNotEqual(ca.publisher_key('Peninsula Press Ltd'), ca.publisher_key('Ediciones Península'))
+        self.assertEqual(ca.publisher_key('Editorial'), '')
+        # sin puntos, la forma jurídica solo cuenta en mayúsculas: «As», «Sa» o «Cb» pueden ser el nombre
+        for real in ('Ediciones As', 'Editorial Sa', 'Cb'):
+            with self.subTest(real=real):
+                self.assertTrue(ca.publisher_key(real))
+        self.assertEqual(ca.publisher_key('Plan B Publicaciones, S.l.'), ca.publisher_key('Plan B SL'))
+
+    def test_index_links_only_unambiguous_keys_and_prefers_the_directory(self):
+        directory = [{'nombre': 'Maeva', 'slug': 'maeva'}, {'nombre': 'Grijalbo', 'slug': 'grijalbo'},
+                     {'nombre': 'Ediciones Sur', 'slug': 'sur-a'}, {'nombre': 'Sur Editores', 'slug': 'sur-b'}]
+        catalogue = [{'nombre': 'Maeva Ediciones', 'slug': 'maeva-ediciones'}, {'nombre': 'Molino', 'slug': 'molino'}]
+        index = ca.publisher_key_index(directory, catalogue)
+        self.assertEqual(index[ca.publisher_key('Maeva, S.a.')], ('maeva', 'directorio'))
+        self.assertEqual(index[ca.publisher_key('Grijalbo Comercial, S.a.')], ('grijalbo', 'directorio'))
+        self.assertEqual(index[ca.publisher_key('Molino,editorial')], ('molino', 'catalogo'))
+        self.assertNotIn(ca.publisher_key('Sur'), index)

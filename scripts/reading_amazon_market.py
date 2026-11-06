@@ -15,7 +15,11 @@ from reading_ratings_refresh import isbn13, title_matches, author_matches, key
 RESOURCES=['itemInfo.title','itemInfo.byLineInfo','itemInfo.externalIds',
            'itemInfo.classifications','offersV2.listings.price',
            'offersV2.listings.condition','offersV2.listings.availability',
-           'offersV2.listings.dealDetails','offersV2.listings.type']
+           'offersV2.listings.dealDetails','offersV2.listings.type','browseNodeInfo.websiteSalesRank']
+PRINT_FORMATS={'tapa-blanda','tapa-dura'}
+SALES_RANK_SOURCE='amazon_es_books'
+# Contrato con assets/reading-catalogue.js (validRank, 216 h): un puesto nunca vive más de 8 días.
+SALES_RANK_MAX_DAYS=8
 # Amazon's own cap for a new Creators API account (api-rates): 1 request per
 # second and 8640 per day. Not a choice of ours, just the ceiling.
 AMAZON_DAILY_LIMIT=8640
@@ -663,11 +667,63 @@ def only_items(payload,asins):
                                     if isinstance(i,dict) and i.get('asin') in asins]}}
 
 
+def item_sales_rank(book,payload):
+    """Mejor puesto en Libros de Amazon.es de la edición impresa de este libro, o None. Kindle y Audible
+    tienen su propia lista y su número no se compara con el de papel."""
+    payload=amazon_dict(payload)
+    container=next((value for field in ('searchResult','itemsResult','itemResults')
+                    if isinstance((value:=payload.get(field)),dict)),{})
+    wanted=isbn13(book.get('isbn13'))
+    known=verified_formats(book)
+    best=None
+    for item in amazon_list(container.get('items')):
+        item=amazon_dict(item)
+        info=amazon_dict(item.get('itemInfo'))
+        binding=amazon_dict(amazon_dict(info.get('classifications')).get('binding')).get('displayValue','')
+        fmt=known.get(item.get('asin','')) or BINDINGS.get(key(binding) if isinstance(binding,str) else '')
+        if fmt not in PRINT_FORMATS or not (item.get('asin','') in known or (wanted and item_isbn_match(info,wanted))):
+            continue
+        rank=amazon_dict(amazon_dict(item.get('browseNodeInfo')).get('websiteSalesRank')).get('salesRank')
+        if isinstance(rank,str) and rank.strip().isdigit():
+            rank=int(rank)
+        if isinstance(rank,int) and not isinstance(rank,bool) and 0<rank<10**8:
+            best=rank if best is None else min(best,rank)
+    return best
+
+
+def valid_sales_rank(entry,now):
+    """Puesto publicable: fuente conocida, entero positivo y vigente ahora."""
+    if not isinstance(entry,dict) or entry.get('fuente')!=SALES_RANK_SOURCE or not isinstance(entry.get('libro_id'),str):
+        return False
+    rank=entry.get('posicion')
+    if not isinstance(rank,int) or isinstance(rank,bool) or not 0<rank<10**8:
+        return False
+    try:
+        start=datetime.fromisoformat(str(entry['actualizado_en']).replace('Z','+00:00'))
+        end=datetime.fromisoformat(str(entry['caduca_en']).replace('Z','+00:00'))
+    except (KeyError,ValueError):
+        return False
+    return start.tzinfo is not None and end.tzinfo is not None and start<=now<end
+
+
+def merge_sales_ranks(market,ranks,catalogue_ids,now,ttl_days):
+    """Puestos nuevos sobre los vigentes; los caducados o de libros fuera del catálogo desaparecen."""
+    stamp=lambda d:d.isoformat(timespec='seconds').replace('+00:00','Z')
+    kept={e['libro_id']:e for e in market.get('sales_ranks',[]) if valid_sales_rank(e,now) and e['libro_id'] in catalogue_ids}
+    for book_id,rank in ranks.items():
+        kept[book_id]={'libro_id':book_id,'posicion':rank,'fuente':SALES_RANK_SOURCE,
+                       'actualizado_en':stamp(now),'caduca_en':stamp(now+timedelta(days=ttl_days))}
+    entries=sorted(kept.values(),key=lambda e:(e['posicion'],e['libro_id']))
+    if entries or 'sales_ranks' in market:
+        market['sales_ranks']=entries
+    return market
+
+
 def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,sweep_days=7):
     """Nightly sweep: books never priced plus the ones checked longest ago, so the
     whole catalogue comes round every sweep_days. Known ASINs are priced ten per
     request; ISBN and format searches run once per book. Prices go into the books;
-    market is untouched."""
+    market only keeps the Amazon.es sales rank of the printed editions seen, for sweep_days+1 days."""
     if not 0<=budget<=AMAZON_DAILY_LIMIT:
         raise ValueError('Price refresh budget outside the Amazon daily limit')
     now=now.astimezone(timezone.utc)
@@ -682,6 +738,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
         due+=[b for b in books[share:] if needs_discovery(b,now)]
     stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[],'sin_oferta':[],'errores_amazon':{},'formato_discrepante':[]}
     answers={}
+    ranks={}
 
     def ask(call,*args):
         if stats['requests']>=budget:
@@ -699,6 +756,9 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
 
     def keep(found,book,payload):
         answers.setdefault(book['id'],[]).append(payload)
+        rank=item_sales_rank(book,payload)
+        if rank and (book['id'] not in ranks or rank<ranks[book['id']]):
+            ranks[book['id']]=rank
         for offer in select_offers(book,payload,tag,now,stats['formato_discrepante']):
             best=found.get(offer['formato'])
             if not best or best['precio_centimos']>offer['precio_centimos']:
@@ -750,6 +810,11 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
             stats['prices']+=len(found[book['id']])
             if not book.get('formatos_compra'):
                 stats['sin_oferta'].append({'book_id':book['id'],'motivo':miss_reason(book,answers.get(book['id'],[]))})
+    # Solo cuentan los grupos guardados: el cortado a medias vuelve mañana entero.
+    saved={b['id'] for b in books if b.get('precios_amazon_revision')==day}
+    ranks={i:r for i,r in ranks.items() if i in saved}
+    stats['puestos_ventas']=len(ranks)
+    market=merge_sales_ranks(market,ranks,{b['id'] for b in books},now,min(sweep_days+1,SALES_RANK_MAX_DAYS))
     return market,stats
 
 

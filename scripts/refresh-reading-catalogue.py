@@ -283,6 +283,8 @@ def market_refresh(config):
         write_if_changed(ROOT/'.ci/reading-intake/prices-report.json',price_stats)
         print('Precios Amazon: '+json.dumps(price_stats,ensure_ascii=True),flush=True)
         changed_ratings=write_changed(ROOT/'data/reading-catalogue.json',books) or changed_ratings
+        # Puestos de «más vendidos»: dato de mercado con caducidad, fuera de la ficha del libro.
+        changed_ratings=write_changed(market_path,market) or changed_ratings
     return changed_ratings
 
 

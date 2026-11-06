@@ -112,6 +112,27 @@ try {
     await context.close();
   }
 
+  // 3b. Más vendidos: solo se ofrece con puestos vigentes de Amazon.es; con puesto primero (1, 2…), el resto después.
+  {
+    const option = page => page.locator('[data-filter="orden"] option[value="ventas"]');
+    const empty = await open({ schema_version: 1, offers: [], ratings: [] });
+    assert.equal(await option(empty.page).evaluate(o => o.disabled && o.hidden), true, 'sin puestos no se ofrece «más vendidos»');
+    await empty.context.close();
+    const [top, second, old] = ids.slice(3, 6);
+    const ranks = { schema_version: 1, offers: [], ratings: [], sales_ranks: [
+      { ...dated, libro_id: second, posicion: 40, fuente: 'amazon_es_books' },
+      { ...dated, libro_id: top, posicion: 7, fuente: 'amazon_es_books' },
+      { ...stale, libro_id: old, posicion: 1, fuente: 'amazon_es_books' },
+      { ...dated, libro_id: ids[0], posicion: 2, fuente: 'otra_tienda' },
+    ] };
+    const { context, page } = await open(ranks);
+    assert.equal(await option(page).evaluate(o => !o.disabled && !o.hidden), true, 'con puestos vigentes se ofrece «más vendidos»');
+    await page.selectOption('[data-filter="orden"]', 'ventas');
+    const order = await page.locator('.catalogue-card:not([hidden])').evaluateAll(cards => cards.slice(0, 2).map(c => c.dataset.bookId));
+    assert.deepEqual(order, [top, second], 'los más vendidos van primero, del menor puesto al mayor; caducados y otras fuentes no cuentan');
+    await context.close();
+  }
+
   // 4. Sin JS no hay notas fabricadas.
   {
     const { context, page } = await open(market, { javaScriptEnabled: false });

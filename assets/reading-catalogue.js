@@ -72,14 +72,17 @@
   const boxes = form ? [...form.querySelectorAll('input[data-facet]')] : [];
   const FIXED_ORDER = ['grupo', 'edad', 'formato'];
   const pick = x => Array.isArray(x) ? x : x ? [x] : [];
-  let market = { offers: [], ratings: [] };
+  let market = { offers: [], ratings: [], sales_ranks: [] };
   let currentPage = 1;
   const pageSize = 24;
-  let offersIndex = new Map(), ratingsIndex = new Map();
+  let offersIndex = new Map(), ratingsIndex = new Map(), ranksIndex = new Map();
   const stamp = s => typeof s === 'string' && /T.*(?:Z|[+-]\d\d:\d\d)$/.test(s) ? Date.parse(s) : NaN;
   const fresh = (e, hours) => { const start = stamp(e.actualizado_en), end = stamp(e.caduca_en), now = Date.now(); return Number.isFinite(start) && Number.isFinite(end) && start <= now && end > now && end > start && end - start <= hours * 3600000 && now - start <= hours * 3600000; };
   const safeURL = (raw, hosts, path) => { try { const u = new URL(raw); return u.protocol === 'https:' && !u.username && !u.password && !u.port && hosts.includes(u.hostname) && path.test(u.pathname) ? u : null; } catch { return null; } };
   const validOffer = o => { const u = safeURL(o.url, ['amazon.es', 'www.amazon.es'], /\/(?:dp|gp\/product)\/[A-Z0-9]{10}(?:\/|$)/); return fresh(o, 24) && o.moneda === 'EUR' && o.tipo === 'compra' && ['tapa-blanda', 'tapa-dura', 'ebook', 'audiolibro'].includes(o.formato) && Number.isSafeInteger(o.precio_centimos) && o.precio_centimos > 0 && o.precio_centimos < 100000000 && u && /^[A-Za-z0-9-]+$/.test(u.searchParams.get('tag') || ''); };
+  // Puesto en Libros de Amazon.es; renderMarket revalida la caducidad cada minuto.
+  const validRank = r => fresh(r, 216) && r.fuente === 'amazon_es_books' && Number.isSafeInteger(r.posicion) && r.posicion > 0 && r.posicion < 1e8;
+  const rankFor = id => ranksIndex.get(id)?.posicion ?? null;
   const ratingSource = r => ['google_books', 'hardcover'].includes(r.fuente) ? r.fuente : !r.fuente || r.fuente === 'goodreads' ? 'goodreads' : null;
   const ratingLabel = r => ratingSource(r) === 'google_books' ? 'Google Books' : ratingSource(r) === 'hardcover' ? 'Hardcover' : 'Goodreads';
   const validRating = r => {
@@ -118,14 +121,12 @@
     }
   }
   const values = () => ({...Object.fromEntries(fields.map(f => [f.dataset.filter, f.disabled ? '' : f.value])), ...Object.fromEntries(FACETS.map(k => [k, boxes.filter(b => b.dataset.facet === k && b.checked).map(b => b.value)]))});
-  // Descuento por formato guardado al refrescar precios («ebook:20»): precio de referencia de Amazon o última bajada.
-  // «formato:%:fecha»: una oferta sin reconfirmar en OFFER_MAX_DAYS desaparece sola.
+  // «formato:%:fecha»: sin reconfirmar en OFFER_MAX_DAYS, la oferta caduca.
   const OFFER_MAX_DAYS = 3;
   const offerCurrent = checked => /^\d{4}-\d{2}-\d{2}$/.test(checked || '') && (Date.parse(madridDate.format(new Date())) - Date.parse(checked)) / 864e5 <= OFFER_MAX_DAYS;
   const formatDiscounts = card => (card.dataset.formatDiscounts || '').split(' ').filter(Boolean).map(x => x.split(':')).filter(([, , checked]) => offerCurrent(checked)).map(([formato, pct]) => ({formato, pct: Number(pct)}));
-  // «Prime Day y Black Friday» (Temporada): libros con una oferta vigente de Amazon de 10 % o más.
-  // Categorías y formatos por libro se calculan una vez por versión de datos de mercado (renderMarket las invalida):
-  // filtrar recorre 642 fichas por cada grupo de facetas y recalcularlas en cada clic disparaba el INP.
+  // Temporada: oferta vigente de 10 % o más.
+  // Caché por versión de mercado (renderMarket la invalida): recalcular en cada clic disparaba el INP.
   let memo = new Map();
   const memoFor = card => { let m = memo.get(card); if (!m) memo.set(card, m = {}); return m; };
   const cardCategories = card => { const m = memoFor(card); return m.cats || (m.cats = [...card.dataset.categories.split(' '), ...(formatDiscounts(card).some(o => o.pct >= 10) ? ['ofertas-amazon'] : [])]); };
@@ -133,13 +134,12 @@
   for (const badge of root.querySelectorAll('[data-offer-checked]')) if (!offerCurrent(badge.dataset.offerChecked)) badge.remove();
   const matchingOffers = (card, v) => [...offersFor(card.dataset.bookId).map(o => ({formato: o.formato, pct: discount(o)})), ...formatDiscounts(card)].filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.descuento || o.pct >= Number(v.descuento)));
   const hasDiscounts = cards.some(card => card.dataset.formatDiscounts);
-  // Lanzamiento: sin elegir nada se ven los ya publicados; los próximos se piden a propósito o se buscan por texto.
+  // Por defecto, solo publicados; los próximos se piden o se buscan.
   const released = (lower) => !lower || lower <= today();
   const ratingOk = (card, v) => { if (!v.valoracion) return true; const r = ratingFor(card.dataset.bookId)?.puntuacion; return r != null && (v.valoracion === 'menos-3' ? r < 3 : r >= Number(v.valoracion)); };
-  // Precio de Amazon por formato («tapa-dura:1700 ebook:999»): se filtra y ordena dentro de un mismo formato
-  // para no mezclar un Kindle con una tapa dura.
+  // Precio por formato («ebook:999»): nunca se mezcla Kindle con papel.
   const formatPrices = card => new Map((card.dataset.formatPrices || '').split(' ').filter(Boolean).map(x => x.split(':')).map(([f, c]) => [f, Number(c)]));
-  // El formato del precio es el elegido junto al precio; si no hay, los marcados en «Formato»; si tampoco, cualquiera.
+  // Formato: el del precio, si no los de «Formato», si no cualquiera.
   const priceFormats = v => v.precio_formato ? [v.precio_formato] : pick(v.formato);
   const priceOf = (card, formats) => { const prices = [...formatPrices(card)].filter(([f]) => !formats.length || formats.includes(f)).map(([, c]) => c); return prices.length ? Math.min(...prices) : null; };
   const priceOk = (card, v) => {
@@ -148,7 +148,8 @@
     return [...formatPrices(card)].some(([f, c]) => (!formats.length || formats.includes(f)) && c >= min && c <= max);
   };
   function renderMarket() {
-    offersIndex = new Map(); ratingsIndex = new Map(); memo = new Map();
+    offersIndex = new Map(); ratingsIndex = new Map(); ranksIndex = new Map(); memo = new Map();
+    for (const r of market.sales_ranks.filter(validRank)) if (!ranksIndex.has(r.libro_id) || ranksIndex.get(r.libro_id).posicion > r.posicion) ranksIndex.set(r.libro_id, r);
     for (const offer of market.offers.filter(validOffer)) {
       if (!offersIndex.has(offer.libro_id)) offersIndex.set(offer.libro_id, []);
       offersIndex.get(offer.libro_id).push(offer);
@@ -184,7 +185,8 @@
     // Umbral sin libros: desactivado.
     const best = Math.max(0, ...cards.map(card => Math.max(0, ...matchingOffers(card, {}).map(o => o.pct))));
     for (const o of root.querySelectorAll('[data-filter="descuento"] option')) if (o.value) o.disabled = Number(o.value) > best;
-    for (const o of root.querySelectorAll('[data-sort-market]')) o.disabled = !market[o.dataset.sortMarket].some(o.dataset.sortMarket === 'offers' ? validOffer : validRating);
+    const valid = {offers: validOffer, ratings: validRating, sales_ranks: validRank};
+    for (const o of root.querySelectorAll('[data-sort-market]')) { const k = o.dataset.sortMarket; o.disabled = !market[k]?.some(valid[k]); o.hidden = o.disabled && k === 'sales_ranks'; }
     for (const f of fields) if ((f.disabled || (f.tagName === 'SELECT' && f.selectedOptions[0]?.disabled)) && f.value) f.value = f.dataset.filter === 'orden' ? 'editorial' : '';
 
   }
@@ -210,7 +212,7 @@
       const group = form.querySelector('[data-facet-group="' + k + '"]');
       if (!group) continue;
       const own = boxes.filter(b => b.dataset.facet === k);
-      // Buscador dentro del filtro cuando tiene muchas opciones (géneros, temáticas…): acota la lista sin tocar la selección.
+      // Buscador en filtros largos: acota la lista, no la selección.
       let finder = group.querySelector('[data-facet-search]');
       if (!finder && own.length > FACET_SEARCH_FROM) {
         finder = document.createElement('input'); finder.type = 'search'; finder.className = 'catalogue-facet__search'; finder.dataset.facetSearch = '';
@@ -237,7 +239,7 @@
         label.dataset.count = count;
       }
       const chosen = own.filter(b => b.checked).length;
-      // Marcadas primero; luego con libros (de más a menos; tipo, edad y formato en orden natural); vacías al final.
+      // Marcadas, luego con libros, vacías al final.
       const list = group.querySelector('.catalogue-facet__options'), labels = own.map(b => b.closest('label'));
       labels.forEach((label, i) => { if (label.dataset.order == null) label.dataset.order = i; });
       const rank = label => label.querySelector('input').checked ? 0 : label.classList.contains('is-empty') ? 2 : 1;
@@ -279,6 +281,8 @@
         case 'editorial': case 'fecha_desc': case 'fecha_asc': return nullable(dateOf(a), dateOf(b), v.orden !== 'fecha_asc');
         case 'paginas_asc': case 'paginas_desc': return nullable(Number(a.dataset.pages) || null, Number(b.dataset.pages) || null, v.orden === 'paginas_desc');
         case 'precio_tapa-dura': case 'precio_tapa-blanda': case 'precio_ebook': case 'precio_audiolibro': { const format = [v.orden.slice(7)]; return nullable(priceOf(a, format), priceOf(b, format)); }
+        // Con puesto primero; el resto, por fecha.
+        case 'ventas': return nullable(rankFor(a.dataset.bookId), rankFor(b.dataset.bookId)) || nullable(dateOf(a), dateOf(b), true);
         case 'valoracion_desc': return nullable(ratingFor(a.dataset.bookId)?.puntuacion ?? null, ratingFor(b.dataset.bookId)?.puntuacion ?? null, true);
         default: return 0;
       }
@@ -286,7 +290,7 @@
     const grid = root.querySelector('.catalogue-grid'), sorted = [...cards].sort((a, b) => compare(a, b) || originalOrder.get(a) - originalOrder.get(b));
     if (grid && sorted.some((card, i) => grid.children[i] !== card)) { const fragment = document.createDocumentFragment(); sorted.forEach(card => fragment.append(card)); grid.replaceChildren(fragment); }
     const found = sorted.filter(card => matches(card, v)), visible = found.length;
-    // Primero se pintan los resultados; los recuentos de las facetas llegan justo después del pintado (INP).
+    // Recuentos de facetas tras el pintado (INP).
     const job = ++facetJob;
     root.dataset.facetsPending = 'true';
     requestAnimationFrame(() => setTimeout(() => { if (job === facetJob) { renderFacets(values()); delete root.dataset.facetsPending; } }, 0));
@@ -302,8 +306,7 @@
       root.querySelector('[data-catalogue-count]').textContent = visible + (visible === 1 ? ' libro' : ' libros') + (pages > 1 ? ' · página ' + currentPage + ' de ' + pages : ''); root.querySelector('[data-catalogue-empty]').hidden = visible !== 0;
       if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => !FACETS.includes(k) && value && !(k === 'orden' && value === 'editorial'))); for (const k of FACETS) for (const x of v[k]) hash.append(k, x); if (currentPage > 1) hash.set('pagina', String(currentPage)); history.replaceState(null, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
       else {
-        // Restaurar o refrescar datos puede limitar la página (#pagina=99, vacía o no numérica):
-        // se corrige solo esa clave, sin entrada nueva en el historial ni hashchange.
+        // #pagina fuera de rango: se corrige sin historial ni hashchange.
         const hash = new URLSearchParams(location.hash.slice(1)), page = currentPage > 1 ? String(currentPage) : null;
         if (hash.get('pagina') !== page && (hash.has('pagina') || page)) { if (page) hash.set('pagina', page); else hash.delete('pagina'); history.replaceState(history.state, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
       }
@@ -399,7 +402,7 @@
       const heading = document.createElement('h2'); heading.tabIndex = -1;
       const choices = document.createElement('div'); choices.className = 'catalogue-quiz__choices';
       if (done) {
-        // El test sigue abierto con los resultados aplicados: desde aquí se vuelve a empezar o se quitan los filtros.
+        // El test sigue abierto con los resultados aplicados.
         status.textContent = 'Resultados del test aplicados · ' + cards.filter(card => matches(card, values())).length + ' libros';
         heading.textContent = 'Estos son tus libros';
         choices.append(button('Restablecer filtros', () => { form.reset(); reset(); }));
@@ -433,16 +436,16 @@
     if (refineToggle && refine) {
       const setRefine = open => { refine.toggleAttribute('data-open', open); refineToggle.setAttribute('aria-expanded', String(open)); };
       refineToggle.addEventListener('click', () => setRefine(!refine.hasAttribute('data-open')));
-      // Escape cierra el panel móvil y devuelve el foco al botón (el <details> de «Más filtros» tiene prioridad).
+      // Escape cierra el panel móvil y devuelve el foco.
       refine.addEventListener('keydown', event => { if (event.key === 'Escape' && getComputedStyle(refineToggle).display !== 'none') { event.preventDefault(); setRefine(false); refineToggle.focus(); } });
     }
-    // Las fechas se aplican al confirmarlas (change), no en cada tecla, y «hasta» nunca queda antes de «desde».
+    // Fechas al confirmar (change); «hasta» nunca antes de «desde».
     const from = form.querySelector('[data-filter="desde"]'), to = form.querySelector('[data-filter="hasta"]');
     const linkDates = () => { if (!from || !to) return; if (from.value && to.value && to.value < from.value) to.value = from.value; to.min = from.value || '1000-01-01'; from.max = to.value || '2100-12-31'; };
     fields.forEach(f => f.addEventListener(f.type === 'date' ? 'change' : 'input', () => { linkDates(); currentPage = 1; apply(); }));
     boxes.forEach(b => b.addEventListener('change', () => {
       currentPage = 1; apply();
-      // Al elegir el tipo se abre solo «Género»; el resto de grupos se pliega para no abrumar.
+      // Al elegir tipo se abre solo «Género».
       if (b.dataset.facet === 'grupo' && b.checked) for (const group of form.querySelectorAll('[data-facet-group]')) if (group.dataset.facetGroup !== 'grupo') group.open = group.dataset.facetGroup === 'genero' || group.querySelector('input:checked') !== null;
     }));
     form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; apply(); }); form.addEventListener('reset', () => setTimeout(() => { currentPage = 1; apply(); }, 0)); window.addEventListener('hashchange', restore); restore();
@@ -450,7 +453,7 @@
   const refresh = () => { renderNovelty(); renderMarket(); apply(false); };
   window.addEventListener('pageshow', refresh); document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); }); setInterval(() => { if (!document.hidden) refresh(); }, 60000);
   const knownIds = new Set([...root.querySelectorAll('[data-rating-book]')].map(el => el.dataset.ratingBook));
-  fetch('/assets/reading-market.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(p => { if (p?.schema_version === 1 && Array.isArray(p.offers) && Array.isArray(p.ratings)) { market = { offers: p.offers.filter(o => o && typeof o === 'object' && knownIds.has(o.libro_id)), ratings: p.ratings.filter(r => r && typeof r === 'object' && knownIds.has(r.libro_id)) }; renderMarket(); restore(); } }).catch(() => { /* The static catalogue stays available. */ }); refresh();
+  fetch('/assets/reading-market.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(p => { if (p?.schema_version === 1 && Array.isArray(p.offers) && Array.isArray(p.ratings)) { market = { offers: p.offers.filter(o => o && typeof o === 'object' && knownIds.has(o.libro_id)), ratings: p.ratings.filter(r => r && typeof r === 'object' && knownIds.has(r.libro_id)), sales_ranks: (Array.isArray(p.sales_ranks) ? p.sales_ranks : []).filter(r => r && typeof r === 'object' && knownIds.has(r.libro_id)) }; renderMarket(); restore(); } }).catch(() => { /* The static catalogue stays available. */ }); refresh();
   setupQuiz();
   if (document.fonts) document.fonts.load('1em "CatalogueNovelty"').then(faces => { root.classList.add(faces.length ? 'catalogue-fonts-ready' : 'catalogue-fonts-failed'); }).catch(() => root.classList.add('catalogue-fonts-failed'));
   else root.classList.add('catalogue-fonts-failed');

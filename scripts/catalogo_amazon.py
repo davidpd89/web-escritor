@@ -68,7 +68,12 @@ RESOURCES = ['itemInfo.title', 'itemInfo.byLineInfo', 'itemInfo.contentInfo', 'i
              'offersV2.listings.dealDetails', 'offersV2.listings.type']
 # Nodos que no dicen nada del libro: no son materia.
 GENERIC_NODES = {'libros', 'categorias', 'books', 'tienda kindle', 'ebooks kindle', 'literatura y ficcion',
-                 'libros en espanol', 'libros en idiomas extranjeros', 'novedades', 'mas vendidos'}
+                 'libros en espanol', 'libros en idiomas extranjeros', 'novedades', 'mas vendidos',
+                 # Raíces internas de Amazon: salían en los 113 libros sin materia de la tanda de semillas del 2026-11-06.
+                 'special features stores', 'self service', 'arborist merchandising root', 'featured categories',
+                 # Literaturas por región: dicen de dónde es el autor, no qué se lee; deciden los nodos hermanos.
+                 'literatura britanica e irlandesa', 'literatura europea', 'literatura mundial',
+                 'britanica e irlandesa', 'europea'}
 # Nodos de escaparate de Amazon (idioma, formato, tienda de un sello…): ocupaban las tres plazas de materia
 # y acababan como «temas» del catálogo («Libros en castellano» en 2258 de 4551 candidatos).
 STORE_NODES = re.compile(r'^(?:libros en (?:castellano|espanol|ingles|catalan|gallego|euskera|valenciano|frances|'
@@ -101,7 +106,9 @@ AMAZON_SUBJECTS = {
     'Psicología': ['psicologia', 'neurociencia'],
     'Novela histórica': ['novela historica', 'ficcion historica', 'historico'],
     'Ensayo': ['sociedad y ciencias sociales', 'sociedad y cultura', 'ensayos', 'ensayos y correspondencia', 'historia, teoria literaria y critica', 'historia y critica',
-               'periodismo', 'sociologia', 'estudios de genero', 'estudios de medios'],
+               'periodismo', 'sociologia', 'estudios de genero', 'estudios de medios',
+               'lengua, linguistica y redaccion', 'linguistica', 'gramatica', 'retorica y oratoria',
+               'enciclopedias y obras de consulta'],
     'Clásicos': ['ficcion clasica', 'clasicos'],
     'Misterio': ['novela negra', 'misterio', 'thrillers policiacos', 'thriller y suspense', 'thrillers psicologicos', 'suspense',
                  'misterio, thriller y suspense', 'misterios y detectives', 'detectives amateurs', 'investigadores privados'],
@@ -130,8 +137,10 @@ AMAZON_SUBJECTS = {
 }
 SUBJECT_OF_NODE = {key(node): subject for subject, nodes in AMAZON_SUBJECTS.items() for node in nodes}
 # Encuadernaciones de papel que el mapa común no conoce: el libro de cartón infantil (79 en la descarga del
-# 2026-11-06) y el de espiral se compran igual que una tapa dura o blanda.
-PRINT_BINDINGS = {'libro de carton': 'tapa-dura', 'encuadernacion en espiral': 'tapa-blanda'}
+# 2026-11-06), el de tela, el de espiral y el grapado se compran igual que una tapa dura o blanda. «Libro» a secas
+# no dice el formato y sigue fuera; los libros de texto también (no son lectura del portal).
+PRINT_BINDINGS = {'libro de carton': 'tapa-dura', 'libro de tela': 'tapa-dura',
+                  'encuadernacion en espiral': 'tapa-blanda', 'grapado': 'tapa-blanda'}
 AUTHOR_ROLES = {'autor', 'author', 'autora'}
 COVER_BASIS = 'Portada tipográfica propia generada con los datos bibliográficos; no reproduce la cubierta editorial'
 EDITION_PREFERENCE = ['tapa-blanda', 'tapa-dura', 'ebook', 'audiolibro']
@@ -609,7 +618,7 @@ def por_sellos(prov, tag, day, max_requests=1500, pages=10, horizon_days=60, nam
                     spanish += 1
                     found += bool(item_isbn(info))  # un sello que solo trae Kindle/Audible tampoco aporta
                     state['libros_es'] += 1
-                    maker = short_name(amazon_dict(amazon_dict(info.get('byLineInfo')).get('manufacturer')).get('displayValue'))
+                    maker = short_name(publisher_name(amazon_dict(info.get('byLineInfo')).get('manufacturer')))
                     k = key(maker)
                     # «Salamandra Infantil y Juvenil» ya sale buscando «Salamandra»: solo se aprende lo que no cubre ninguno.
                     if len(k) >= 3 and not any(k == c or k.startswith(c + ' ') for c in keys):
@@ -655,6 +664,13 @@ def por_sellos(prov, tag, day, max_requests=1500, pages=10, horizon_days=60, nam
 def text(value):
     value = amazon_dict(value).get('displayValue')
     return ' '.join(value.split()) if isinstance(value, str) else ''
+
+
+def publisher_name(value):
+    """Nombre de sello o ''. Los autoeditados traen como fabricante su ISBN («978-628-01-9180-5»): sin una
+    letra no es un sello, ni para la ficha ni para aprenderlo en el radar."""
+    name = text(value)
+    return name if re.search(r'[^\W\d_]', name) else ''
 
 
 def person(name):
@@ -737,8 +753,15 @@ def item_isbn(info):
 
 
 def languages(info):
-    values = amazon_list(amazon_dict(amazon_dict(info.get('contentInfo')).get('languages')).get('displayValues'))
-    return [key(amazon_dict(v).get('displayValue', '')) for v in values if isinstance(amazon_dict(v).get('displayValue'), str)]
+    """Idiomas en que está la edición. Amazon añade el «Idioma original» de la obra: con él, 306 ediciones en
+    catalán, gallego, euskera o inglés de obras escritas en español pasaban por castellanas (descarga del
+    2026-11-06). Si hay idioma «Publicado» manda ese; si no, vale cualquiera menos el original."""
+    values = [amazon_dict(v) for v in amazon_list(amazon_dict(amazon_dict(info.get('contentInfo')).get('languages'))
+                                                  .get('displayValues'))]
+    values = [v for v in values if isinstance(v.get('displayValue'), str)]
+    published = [v for v in values if key(v.get('type') or '') == 'publicado']
+    chosen = published or [v for v in values if key(v.get('type') or '') != 'idioma original']
+    return [key(v['displayValue']) for v in chosen]
 
 
 def subjects(item, path):
@@ -829,7 +852,7 @@ def to_record(entry, day, proper=None):
     authors = list(dict.fromkeys(a for a in authors if a))
     if not authors:
         raise Rejected('sin autoría')
-    publisher = text(byline.get('manufacturer')) or text(byline.get('brand'))
+    publisher = publisher_name(byline.get('manufacturer')) or publisher_name(byline.get('brand'))
     if not publisher:
         raise Rejected('sin editorial')
     binding_text = text(amazon_dict(info.get('classifications')).get('binding'))
@@ -933,6 +956,44 @@ def transformar(day, catalogue):
 
 LEGAL_FORM = re.compile(r'[\s,]+(?:S\.?\s?A\.?\s?S\.?|S\.?\s?A\.?\s?U\.?|S\.?\s?L\.?\s?U\.?|S\.?\s?L\.?|S\.?\s?A\.?|S\.?\s?C\.?\s?P\.?)\s*$', re.I)
 PREFIX = re.compile(r'^(?:Editorial|Ediciones)\s+(?=\S{4})', re.I)
+# Clave de sello: lo que queda al quitar forma jurídica, paréntesis y palabras de oficio. En la tanda del
+# 2026-11-06 salían como «pendientes» sellos que ya tenían ficha: «Grijalbo Comercial, S.a.», «Molino,editorial»,
+# «Errata Naturae Editores S.l», «Hoaki Books», «Altamarea Edición de Libros SL». «Libros» y «Press» no son de
+# oficio: «Ediciones la Cúpula» no es «Libros Cúpula» ni «Peninsula Press» es Península.
+# Con puntos vale cualquier caja («S.a.», «S.l», «C.b.»); sin puntos solo en mayúsculas («SL», «SA», «CB»), para
+# no comerse un nombre que acabe en «As», «Sa» o «Cb».
+KEY_LEGAL_FORM = re.compile(r'[\s,]+(?:(?i:s\.\s?[alc]\.?(?:\s?[asup]\.?)?|s\s?[alc]\.(?:\s?[asup]\.?)?|c\.\s?b\.?'
+                            r'|ltd\.?|inc\.?|llc|gmbh)|S[ALC][ASUP]?|CB)\s*$')
+KEY_TRADE_WORDS = {'editorial', 'editoriales', 'ediciones', 'edicions', 'edicion', 'editores', 'editora', 'edition',
+                   'comercial', 'publicaciones', 'publishing', 'publishers', 'books', 'de', 'del', 'la', 'el', 'y'}
+
+
+def publisher_key(name):
+    """«Grijalbo Comercial, S.a.» y «Grijalbo» → «grijalbo»; vacía si no queda nada propio."""
+    from reading_intake_core import normalize_text
+    text = re.sub(r'\([^)]*\)', ' ', name or '')
+    for _ in range(2):
+        text = KEY_LEGAL_FORM.sub('', text).strip(' ,')
+    text = normalize_text(re.sub(r'[,\-/&]', ' ', text))
+    words = re.sub(r"(?:^| )edicion(?:es)? de libros(?= |$)", " ", text).split()  # «Altamarea Edición de Libros SL»
+    return ' '.join(w for w in words if w not in KEY_TRADE_WORDS)
+
+
+def publisher_key_index(directory, catalogue):
+    """Clave → sello, solo cuando la clave señala uno. Si choca un sello del directorio con uno del catálogo
+    («Maeva» y «Maeva Ediciones»), gana el del directorio, que es el que se enlaza primero."""
+    found = {}
+    for kind, entries in (('directorio', directory), ('catalogo', catalogue)):
+        for entry in entries:
+            for name in [entry['nombre'], *entry.get('alias', [])]:
+                if k := publisher_key(name):
+                    found.setdefault(k, {}).setdefault(kind, set()).add(entry['slug'])
+    index = {}
+    for k, kinds in found.items():
+        slugs = kinds.get('directorio') or kinds.get('catalogo')
+        if len(slugs) == 1:
+            index[k] = (next(iter(slugs)), 'directorio' if 'directorio' in kinds else 'catalogo')
+    return index
 
 
 def pending_creation_path():
@@ -971,9 +1032,15 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT):
     allowed = resolve_publishers(registry, intake.get('publisher_aliases', []))
     by_slug = {p['slug']: p for p in allowed}
     catalogue_names = {normalize_text(p['nombre']): p for p in store['editoriales']}
+    catalogue_slugs = {p['slug']: p for p in store['editoriales']}
+    key_index = publisher_key_index([{'nombre': p['name'], 'slug': p['slug'], 'alias': p.get('aliases', [])}
+                                     for p in allowed], store['editoriales'])
     known_authors = {a['nombre'] for a in
                      read_json(root / 'data/reading-authors.json', {'autores': []}).get('autores', [])}
     waiting = read_json(pending_creation_path(), {'editoriales': {}, 'autores': {}})
+    pending_keys = {}
+    for pending in waiting['editoriales']:
+        pending_keys.setdefault(publisher_key(pending) or pending, pending)
     now = datetime.now(timezone.utc)
     failures = list(transform_failures)
     added = {}
@@ -991,11 +1058,18 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT):
             found = catalogue_names.get(normalize_text(variant))
             if found:
                 return {'name': found['nombre'], 'slug': found['slug'], 'catalogo': True}
+        slug, kind = key_index.get(publisher_key(name), (None, None))
+        if kind == 'directorio':
+            return {'name': by_slug[slug]['name'], 'slug': slug}
+        if kind == 'catalogo':
+            return {'name': catalogue_slugs[slug]['nombre'], 'slug': slug, 'catalogo': True}
         # Sello desconocido: el libro sale con el nombre en texto, sin enlace. Crear su ficha es trabajo aparte
         # (lista de pendientes de creación), no de la ingesta diaria.
         return {'name': display_name(name) or name, 'slug': None}
 
     def note(kind, name, isbn):
+        if kind == 'editoriales':  # «GTM Ediciones» y «GTM Ediciones C.b.» son un solo sello por crear
+            name = pending_keys.setdefault(publisher_key(name) or name, name)
         entry = waiting[kind].setdefault(name, {'libros': 0, 'primera': day, 'ejemplos': []})
         entry['libros'] += 1
         if len(entry['ejemplos']) < 3 and isbn not in entry['ejemplos']:

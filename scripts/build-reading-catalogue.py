@@ -901,7 +901,9 @@ def render_llms_index(data, books, authors, publishers):
         age = b.get('edad_recomendada') or ', '.join(c['nombre'] for c in cats if c['tipo'] == 'edad')
         who = own_summary(b)
         facts += [age and 'Edad: ' + age]
-        head = f"- [{b['titulo']}]({SITE}{url(b)}): " + '. '.join(f.rstrip('.') for f in facts if f) + '. '
+        # Corchetes del título escapados: «Harry Potter [edición…]» rompía el enlace Markdown (2026-11-06).
+        link_text = b['titulo'].replace('[', '\\[').replace(']', '\\]')
+        head = f"- [{link_text}]({SITE}{url(b)}): " + '. '.join(f.rstrip('.') for f in facts if f) + '. '
         # El «Para quién es» cede espacio para que la sinopsis conserve al menos 60 caracteres sin pasar de 690.
         label = 'Sinopsis de la editorial: ' if b.get('sinopsis_breve') else 'Descripción: '
         who = who and clip(who, max(40, 690 - 60 - len(head) - len('Para quién es: . ' + label)))
@@ -1073,7 +1075,7 @@ def render_hub(data, books, template, page_number=1):
             cover_link = f'href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)"'
             title_link = f'href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña"'
         cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" {cover_link}>{image(b,i>1)}</a><div><p class="eyebrow catalogue-when">{release_line(b)}</p>{tags(cats, compact=True)}<h3><a {title_link}>{esc(card_title(b))}</a></h3><p class="catalogue-author">{author_links(b, compact=True)}</p>{byline(b)}<p class="catalogue-card__description">{esc(card_synopsis(b, anchor=anchor))}</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}" data-isbn="{esc(b.get("isbn13", ""))}"></div>{format_box(b, compact=True, anchor=anchor)}<a class="text-action catalogue-card__ficha" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
-    sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="fecha_asc">Publicación · más antigua primero</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option>' + ''.join(f'<option value="precio_{k}">{esc(FORMATS[k])} · del más barato al más caro</option>' for k in BOX_ORDER) + '<option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
+    sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="fecha_asc">Publicación · más antigua primero</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option>' + ''.join(f'<option value="precio_{k}">{esc(FORMATS[k])} · del más barato al más caro</option>' for k in BOX_ORDER) + '<option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option><option value="ventas" data-sort-market="sales_ranks" disabled hidden>Amazon.es · más vendidos</option></select></label>'
     # Lo primero que se ve son los libros ya publicados (los más recientes arriba); los próximos lanzamientos van aparte.
     show = '<label>Mostrar<select name="estado" data-filter="estado" form="catalogue-search-form" disabled><option value="">Ya publicados</option><option value="proximos" id="estado=proximos">Próximos lanzamientos</option><option value="todos">Todos</option></select></label>'
     upcoming = '<a class="catalogue-upcoming-link" href="#estado=proximos" data-catalogue-upcoming>Ver los próximos lanzamientos →</a>'
@@ -1286,7 +1288,9 @@ def render_publisher(p, data, books, template, author_names=(), authors=()):
     count = len(selected)
     topics = {c['id']: c for b in selected for c in categories(data, b) if c['tipo'] in {'genero', 'tematica'}}
     profiles_list = authors
-    authors = sorted({name for b in selected for name in b['autores']}, key=str.casefold)
+    # Desempate por el nombre exacto: «Varios Autores»/«VARIOS AUTORES» empataban y el orden del set cambiaba la
+    # página en cada ejecución (2026-11-06, --check fallaba en un sello distinto cada vez).
+    authors = sorted({name for b in selected for name in b['autores']}, key=lambda n: (n.casefold(), n))
     summary = p['nombre'] + ' (' + p['grupo'] + '): ' + str(count) + (' libro' if count == 1 else ' libros') + ' en este catálogo, según las fichas oficiales de la editorial.'
     context = '<section aria-labelledby="publisher-context"><h2 id="publisher-context">Este sello en el catálogo</h2><p>Pertenece a ' + esc(p['grupo']) + ' y reúne ' + str(count) + (' libro' if count == 1 else ' libros') + ' de este catálogo.</p>'
     if topics:
