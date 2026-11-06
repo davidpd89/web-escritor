@@ -6,8 +6,11 @@ misma política que deja publicar al bot (fichas, autores, editoriales, portadas
 plantillas, el CSS y el JS no cambian: basta con auditar los índices y TODAS las páginas tocadas. La auditoría
 completa sigue en main y cada noche.
 
-Da `lane=full` (fail-closed): cualquier otro fichero, JS/CSS fuera de pagefind (aunque sea generado), más de
-MAX_PAGES páginas (un re-render masivo merece la auditoría completa) o no poder calcular el diff.
+Da `lane=full` (fail-closed): cualquier otro fichero, JS/CSS fuera de pagefind y del orden de páginas generado,
+o no poder calcular el diff. Con más de MAX_PAGES páginas cambiadas se audita una muestra repartida por tipo de
+página: sin cambios de código todas salen de la misma plantilla, y la auditoría completa de main de cada noche
+recorre el resto. Hasta el 06/11 cada carga con libros nuevos tocaba `assets/page-order.generated.js` y más de 60
+páginas, así que iba siempre por la vía completa (8 shards de reflow de 31-47 min).
 
 En Actions se ejecuta la copia de la rama BASE de este script y de la política (`git archive`), con LANE_ROOT
 apuntando al checkout del PR: un PR no puede cambiar las reglas que deciden cómo se le audita.
@@ -35,8 +38,10 @@ allowed_path = _policy.allowed_path
 
 # Índices que pintan el catálogo entero: se auditan siempre que cambia contenido.
 HUBS = ('/recomendaciones/', '/recomendaciones/autores/', '/recomendaciones/editoriales/')
-MAX_PAGES = 60  # un PR normal del bot toca ~20 fichas; los re-render de cientos van por la vía completa
+MAX_PAGES = 60  # con más, muestra repartida por tipo (libros, autores, editoriales, páginas del índice)
 EXECUTABLE = ('.js', '.mjs', '.css')
+# JS que build-page-order.py deriva de los datos; content-indexes exige `build-page-order.py --check`.
+GENERATED_JS = ('assets/page-order.generated.js',)
 
 # Globs de GitHub equivalentes a la política (para paths-ignore de los workflows que no miden el catálogo).
 # tests/test-ci-content-lane.py comprueba que cubren cada ruta permitida y que los workflows usan esta lista.
@@ -81,7 +86,8 @@ def git(*args: str) -> str:
 def is_content(files: list[str]) -> bool:
     files = [f.replace('\\', '/') for f in files]
     # pagefind/*.js sale del binario fijado de pagefind; cambiarlo exige tocar scripts/ (vía completa).
-    return bool(files) and all(allowed_path(f) and (f.startswith('pagefind/') or not f.endswith(EXECUTABLE)) for f in files)
+    return bool(files) and all(allowed_path(f) and (f.startswith('pagefind/') or f in GENERATED_JS
+                                                     or not f.endswith(EXECUTABLE)) for f in files)
 
 
 def page_route(f: str) -> str | None:
@@ -90,8 +96,17 @@ def page_route(f: str) -> str | None:
     return '/' + f[: -len('index.html')]
 
 
-def sample_routes(files: list[str], size=lambda f: (ROOT / f).stat().st_size) -> list[str]:
-    """Índices + todas las páginas cambiadas que siguen existiendo, de más a menos peso."""
+def page_kind(route: str) -> str:
+    parts = route.strip('/').split('/')
+    return '/'.join(parts[:2]) if len(parts) > 2 else parts[0]
+
+
+def sample_routes(files: list[str], size=lambda f: (ROOT / f).stat().st_size, limit: int = MAX_PAGES) -> list[str]:
+    """Índices + las páginas cambiadas que siguen existiendo, de más a menos peso.
+
+    Con más de `limit`, se toman por turnos de cada tipo de página (la más pesada de cada tipo primero), para que
+    la muestra cubra todas las plantillas y sus casos más largos.
+    """
     pages = []
     for f in files:
         route = page_route(f)
@@ -101,7 +116,19 @@ def sample_routes(files: list[str], size=lambda f: (ROOT / f).stat().st_size) ->
             except OSError:
                 continue  # borrada: no hay nada que auditar
     pages.sort(key=lambda item: (-item[0], item[1]))
-    return [*HUBS, *[route for _, route in pages]]
+    routes = [route for _, route in pages]
+    if len(routes) > limit:
+        kinds: dict[str, list[str]] = {}
+        for route in routes:
+            kinds.setdefault(page_kind(route), []).append(route)
+        queues, picked = [list(v) for _, v in sorted(kinds.items())], []
+        while len(picked) < limit:
+            for queue in queues:
+                if queue and len(picked) < limit:
+                    picked.append(queue.pop(0))
+        order = {route: i for i, route in enumerate(routes)}
+        routes = sorted(picked, key=order.__getitem__)
+    return [*HUBS, *routes]
 
 
 def diff_range(event: str, base: str, head: str, ref: str) -> tuple[str, ...] | None:
@@ -121,12 +148,12 @@ def decide(event: str, base: str, head: str, ref: str) -> tuple[str, list[str], 
     except subprocess.CalledProcessError as exc:
         return 'full', [], f'no se pudo calcular el diff ({exc.returncode}): auditoría completa'
     if not is_content(files):
-        others = [f for f in files if not allowed_path(f)]
+        others = [f for f in files if not is_content([f])]
         return 'full', [], 'hay cambios fuera del contenido generado: ' + ', '.join(others[:5]) + (' …' if len(others) > 5 else '')
+    changed = sum(1 for f in files if page_route(f) and page_route(f) not in HUBS)
     routes = sample_routes(files)
-    if len(routes) - len(HUBS) > MAX_PAGES:
-        return 'full', [], f'{len(routes) - len(HUBS)} páginas cambiadas (> {MAX_PAGES}): auditoría completa'
-    return 'content', routes, f'{len(files)} fichero(s) de contenido generado; se auditan {len(routes)} página(s)'
+    sampled = f' (muestra de {len(routes) - len(HUBS)} de {changed} páginas cambiadas)' if changed > MAX_PAGES else ''
+    return 'content', routes, f'{len(files)} fichero(s) de contenido generado; se auditan {len(routes)} página(s){sampled}'
 
 
 def main(argv: list[str]) -> int:

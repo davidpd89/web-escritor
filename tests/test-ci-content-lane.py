@@ -52,7 +52,8 @@ CASOS = [
     (["recomendaciones/libros/x/index.html", "scripts/build-reading-pages.py"], False),
     ([".github/workflows/pa11y-baseline.yml"], False),
     (["index.html"], False),
-    (["assets/page-order.generated.js"], False),  # generado pero ejecutable: vía completa
+    (["assets/page-order.generated.js", "recomendaciones/libros/x/index.html"], True),  # derivado de los datos
+    (["assets/reading-catalogue.js"], False),
     (["pagefind/pagefind-ui.js", "recomendaciones/libros/x/index.html"], True),
 ]
 for files, esperado in CASOS:
@@ -80,12 +81,24 @@ if len(lane.sample_routes(muchas, size=lambda f: 1)) != 40 + len(lane.HUBS):
     falla("se auditan todas las páginas cambiadas, sin muestreo")
 real_git, real_routes = lane.git, lane.sample_routes
 lane.git = lambda *args: "\n".join(f"recomendaciones/libros/l{i}/index.html" for i in range(lane.MAX_PAGES + 1))
-lane.sample_routes = lambda files: [*lane.HUBS, *files]
+lane.sample_routes = lambda files: [*lane.HUBS, *files[:lane.MAX_PAGES]]
 try:
-    if lane.decide("pull_request", "a", "b", "x")[0] != "full":
-        falla("más de MAX_PAGES páginas debe ir por la vía completa")
+    if lane.decide("pull_request", "a", "b", "x")[0] != "content":
+        falla("más de MAX_PAGES páginas de contenido van por la vía de contenido, con muestra")
 finally:
     lane.git, lane.sample_routes = real_git, real_routes
+# Muestra: tope MAX_PAGES, todos los tipos presentes y la más pesada de cada tipo dentro.
+mezcla = {f"recomendaciones/libros/l{i}/index.html": 100 + i for i in range(150)}
+mezcla.update({f"recomendaciones/autores/a{i}/index.html": i for i in range(80)})
+mezcla["recomendaciones/editoriales/e/index.html"] = 1
+mezcla["recomendaciones/pagina/2/index.html"] = 1
+muestra = lane.sample_routes(list(mezcla), size=mezcla.__getitem__)[len(lane.HUBS):]
+if len(muestra) != lane.MAX_PAGES:
+    falla(f"la muestra debe tener MAX_PAGES rutas, tiene {len(muestra)}")
+for ruta in ("/recomendaciones/libros/l149/", "/recomendaciones/autores/a79/", "/recomendaciones/editoriales/e/",
+             "/recomendaciones/pagina/2/"):
+    if ruta not in muestra:
+        falla(f"la muestra debe incluir {ruta}")
 
 # 3. Fail-closed.
 if lane.decide("push", "", "", "main")[0] != "full":

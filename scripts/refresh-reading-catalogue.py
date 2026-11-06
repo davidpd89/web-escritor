@@ -17,6 +17,8 @@ from reading_ratings_refresh import refresh as refresh_ratings, google_response,
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXTS_PREFIX = 'automation/reading-catalogue-textos-'
+# Datos consultados y aún sin PR: la siguiente ejecución los publica sin volver a consultar las fuentes.
+CHECKPOINT_PREFIX = 'automation/reading-datos-'
 spec = importlib.util.spec_from_file_location('reading_publication', ROOT / 'scripts/publish-reading-refresh.py')
 publisher = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(publisher)
@@ -92,6 +94,46 @@ def carry(branch, root=ROOT):
     return sorted(catalogue_ids((root / 'data/reading-catalogue.json').read_bytes()) - before)
 
 
+def bot_identity(root=ROOT):
+    git('config', 'user.name', 'github-actions[bot]', root=root)
+    git('config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com', root=root)
+
+
+def save_checkpoint(day, root=ROOT):
+    """Sube a una rama propia los datos fuente recién consultados, antes de construir páginas y de las pruebas.
+
+    Si algo falla después (una prueba, un generador, el límite de tiempo del job), la siguiente ejecución los
+    publica con `carry` sin repetir la ingesta. Usa un índice temporal: ni HEAD ni el índice real cambian.
+    """
+    paths = [p for p in SOURCE_PATHS if (root / p).exists()]
+    index = root / git('rev-parse', '--git-path', 'checkpoint-index', root=root).decode().strip()
+    env = {**os.environ, 'GIT_INDEX_FILE': str(index)}
+    try:
+        for args in (('read-tree', 'HEAD'), ('add', '--', *paths)):
+            subprocess.run(['git', *args], cwd=root, check=True, capture_output=True, env=env)
+        tree = subprocess.run(['git', 'write-tree'], cwd=root, check=True, capture_output=True, text=True, env=env).stdout.strip()
+    finally:
+        index.unlink(missing_ok=True)
+    if tree == git('rev-parse', 'HEAD^{tree}', root=root).decode().strip():
+        return None
+    bot_identity(root)
+    commit = git('commit-tree', tree, '-p', 'HEAD', '-m', 'Datos consultados de la carga ' + day, root=root).decode().strip()
+    branch = publisher.publication.fresh_branch(CHECKPOINT_PREFIX + day + '-', cwd=root)
+    git('push', '--quiet', 'origin', f'{commit}:refs/heads/{branch}', root=root)
+    print('Datos guardados en ' + branch, flush=True)
+    return branch
+
+
+def checkpoints(root=ROOT):
+    out = git('ls-remote', '--heads', 'origin', CHECKPOINT_PREFIX + '*', root=root).decode()
+    return sorted(line.split('refs/heads/', 1)[1] for line in out.splitlines() if 'refs/heads/' in line)
+
+
+def drop_checkpoint(branch, root=ROOT):
+    if branch:
+        subprocess.run(['git', 'push', '--quiet', 'origin', '--delete', branch], cwd=root, check=False)
+
+
 def radar_isbns(config):
     """Novedades y próximos lanzamientos de Amazon que faltan en el catálogo, más nuevos primero.
 
@@ -146,6 +188,19 @@ def refresh(*, publish=False):
                                 replaced=replaced, source=pending[0])
             publisher.close_proposal(replaced, 'Sus datos fuente chocan con cambios nuevos de main. Se conserva esta propuesta y su rama '
                                      'como referencia; el escritor vuelve a consultar las fuentes y regenera el lote desde main.')
+    if publish:
+        # Una ejecución anterior consultó y no llegó a abrir PR: se publica eso, sin consultar de nuevo.
+        for saved in checkpoints():
+            carried = carry(saved)
+            if carried is None:
+                print(f'{saved}: ya está en main o choca con él; se descarta', flush=True)
+                drop_checkpoint(saved)
+                continue
+            print(f'Datos de {saved} recuperados sin nueva consulta: {len(carried)} libros nuevos', flush=True)
+            # La cadena nocturna lee stats.accepted: un lote recuperado también encadena el siguiente.
+            write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json',
+                             {'recuperado_de': saved, 'new_books': carried, 'stats': {'accepted': len(carried)}})
+            return assemble({'new_books': carried, 'updated_books': [], 'stats': {}}, changed=True, checkpoint=saved)
     report = ingest(config, ROOT, ROOT / '.ci/reading-editorial-cache', apply=publish, isbns=radar_isbns(config))
     write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json', report)
     print(json.dumps(report['stats'], ensure_ascii=True), flush=True)
@@ -153,7 +208,8 @@ def refresh(*, publish=False):
         return
     changed = market_refresh(config)
     follow_main()
-    return assemble(report, changed=changed)
+    saved = save_checkpoint(datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat())
+    return assemble(report, changed=changed, checkpoint=saved)
 
 
 def market_refresh(config):
@@ -240,7 +296,7 @@ def quarantine_summary(quarantined, released):
     return ''.join(lines) + ('\n' if lines else '')
 
 
-def assemble(report, *, changed, replaced=None, source=None):
+def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     """Reconstruye todo lo derivado sobre el checkout actual, abre la PR y la publica por main protegido."""
     changed_ratings = changed
     # Un libro que incumple el contrato sale del lote (o vuelve a su versión publicada) en vez de pararlo.
@@ -256,6 +312,7 @@ def assemble(report, *, changed, replaced=None, source=None):
     command(sys.executable, 'scripts/build-reading-pinterest-rss.py', *(['--assign'] if rss_config.get('rss_enabled') else []))
     rss_changed=bool(subprocess.check_output(['git','status','--porcelain','--untracked-files=all','--','assets/pinterest/feeds','data/reading-pinterest-state.json'],cwd=ROOT,text=True).strip())
     if not (report['new_books'] or report['updated_books'] or released or changed_ratings or report['stats'].get('author_profiles_updated') or rss_changed):
+        drop_checkpoint(checkpoint)
         return
     # Register new routes before builders that deliberately consume git ls-files.
     command(sys.executable, 'scripts/build-reading-catalogue.py')
@@ -270,8 +327,8 @@ def assemble(report, *, changed, replaced=None, source=None):
         command(sys.executable, 'scripts/' + script)
     for script in ('build-reading-catalogue.py', 'build-page-order.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         command(sys.executable, 'scripts/' + script, '--check')
-    command(sys.executable, 'tests/test-reading-catalogue.py')
-    command(sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_reading*.py', '-q')
+    # Solo los contratos de datos: el código ya lo probó la batería completa del Required merge gate en main.
+    command(sys.executable, 'scripts/check-reading-data.py')
     command('git', 'diff', '--check')
     changed = subprocess.check_output(
         ['git', 'status', '--porcelain', '--untracked-files=all'], cwd=ROOT, text=True)
@@ -281,8 +338,7 @@ def assemble(report, *, changed, replaced=None, source=None):
     command('git', 'add', '--', *paths)
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
     branch = publisher.publication.fresh_branch('automation/reading-catalogue-' + day + '-', cwd=ROOT)
-    command('git', 'config', 'user.name', 'github-actions[bot]')
-    command('git', 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com')
+    bot_identity()
     command('git', 'switch', '-c', branch)
     command('git', 'commit', '-m', 'Actualizar catálogo de lectura ' + day)
     command('git', 'push', 'origin', 'HEAD:refs/heads/' + branch)
@@ -300,6 +356,8 @@ def assemble(report, *, changed, replaced=None, source=None):
                     'Se ejecutan las pruebas reales del commit y las reglas de main antes de fusionar. Después se despliega y se comprueba producción.\n', encoding='utf-8')
     publisher.publication.gh('pr', 'create', '--base', 'main', '--head', branch,
                              '--title', 'Actualizar catálogo de lectura ' + day, '--body-file', str(body))
+    # Desde aquí los datos viven en la rama de la PR (resume_pending/carry los recuperan si su CI falla).
+    drop_checkpoint(checkpoint)
     publisher.run(branch)
 
 

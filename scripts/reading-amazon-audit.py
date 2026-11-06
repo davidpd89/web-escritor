@@ -172,8 +172,7 @@ def publish():
         run('scripts/' + script)
     for script in scripts:
         run('scripts/' + script, '--check')
-    run('tests/test-reading-catalogue.py')
-    run('-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_reading*.py', '-q')
+    run('scripts/check-reading-data.py')  # el código lo prueba el Required merge gate; aquí, solo los datos
     paths = [line[3:] for line in git('status', '--porcelain', '--untracked-files=all', cwd=tree, capture=True).splitlines()]
     if not paths:
         print('La auditoría ya está en main')
