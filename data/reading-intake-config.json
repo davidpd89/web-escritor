@@ -3,8 +3,8 @@
   "enabled": true,
   "autopublish": true,
   "generate_audio": false,
-  "max_new_books": 100,
-  "max_requests": 800,
+  "max_new_books": 200,
+  "max_requests": 1200,
   "request_delay_seconds": 1.5,
   "lookback_days": 365,
   "preorder_days": 180,
@@ -171,6 +171,20 @@
       "index_urls": [],
       "cover_use_basis": "Portada tipográfica propia generada con los datos bibliográficos; no reproduce la cubierta editorial",
       "notes": "Novedades y próximos lanzamientos que el radar de Amazon detecta y faltan en el catálogo. De Amazon solo se usa el ISBN en la misma ejecución; la ficha (título, autoría, sello, fecha, PVP, categorías y descripción editorial) sale de todostuslibros.com (CEGAL)."
+    },
+    {
+      "id": "todostuslibros-altas",
+      "provider": "todostuslibros",
+      "enabled": true,
+      "hosts": [
+        "www.todostuslibros.com"
+      ],
+      "index_urls": [
+        "https://www.todostuslibros.com/sitemap.xml"
+      ],
+      "sitemap_files": 2,
+      "cover_use_basis": "Portada tipográfica propia generada con los datos bibliográficos; no reproduce la cubierta editorial",
+      "notes": "Altas recientes de todostuslibros.com (CEGAL) por su mapa del sitio: 1 petición al índice y 1 por hoja (las sitemap_files más nuevas) descubren miles de ISBN; cada ficha se lee una sola vez. Sin autoediciones (978-84-09). Lo que cae fuera de la ventana no se vuelve a leer hasta que entra en ella."
     }
   ],
   "publisher_aliases": [

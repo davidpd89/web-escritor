@@ -10,7 +10,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from reading_editorial_sources import SourceError
-from reading_ttl_source import subjects, ttl_edition, ttl_url, typographic_cover, url_isbn
+from reading_ttl_source import sitemap_children, sitemap_products, subjects, ttl_edition, ttl_url, typographic_cover, url_isbn
 
 ISBN = '9788400000011'
 PAGE = 'https://www.todostuslibros.com/libros/obra-de-prueba_978-84-00-00001-1'
@@ -66,6 +66,16 @@ class TTLEditionTests(unittest.TestCase):
         self.assertIsNone(url_isbn('https://example.com/libros/x_' + ISBN))
         with self.assertRaises(SourceError):
             ttl_url('123')
+
+    def test_sitemap_lists_newest_sheets_and_latest_entries_first(self):
+        index = ''.join(f'<sitemap><loc>https://www.todostuslibros.com/sitemap/{n}.xml</loc></sitemap>' for n in (0, 9, 10, 2))
+        self.assertEqual(sitemap_children(index, 2), ['https://www.todostuslibros.com/sitemap/10.xml',
+                                                      'https://www.todostuslibros.com/sitemap/9.xml'])
+        sheet = '<urlset>' + ''.join(f'<url><loc>{u}</loc></url>' for u in (
+            PAGE, 'https://www.todostuslibros.com/libros/autoeditado_978-84-09-86237-5',
+            'https://www.todostuslibros.com/libros/obra/mapas_978-84-00-00001-1',
+            'https://www.todostuslibros.com/libros/reciente_978-84-339-5167-0')) + '</urlset>'
+        self.assertEqual(sitemap_products(sheet), ['https://www.todostuslibros.com/libros/reciente_978-84-339-5167-0', PAGE])
 
     def test_subjects_keep_order_and_limit(self):
         self.assertEqual(subjects('Cómics y novelas gráficas|Infantil|Poesía'), ['comic', 'infantil'])
