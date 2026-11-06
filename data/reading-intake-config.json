@@ -239,7 +239,9 @@
   "amazon_radar": {
     "enabled": true,
     "pages": 10,
-    "notes": "Próximamente y novedades de Amazon (Libros, NewestArrivals) que faltan en el catálogo: los ISBN españoles pasan a la ingesta de esta misma ejecución (fuente amazon-novedades) y el informe de cobertura va a la CI con cifras agregadas. No guarda datos de Amazon; 10 peticiones por tanda."
+    "max_requests": 1500,
+    "max_depth": 3,
+    "notes": "Próximamente y novedades de Amazon (Libros, NewestArrivals) que faltan en el catálogo. Cada nodo que llena sus 10 páginas se parte en sus hijos (GetBrowseNodes) hasta 3 niveles o 1500 peticiones (~28 min a 1/s). Los ISBN españoles o en castellano pasan a la ingesta de esta misma ejecución; el informe da nodos leídos y nodos que siguen sin cubrir."
   },
   "ratings_refresh": {
     "enabled": true,
