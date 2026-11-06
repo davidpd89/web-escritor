@@ -17,6 +17,7 @@ class RelatedBooksTest(unittest.TestCase):
         cls.data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
         cls.books = [b for b in cls.data['libros'] if b['estado'] == 'publicado']
         cls.by_url = {builder.url(b): b for b in cls.books}
+        builder.index_categories(cls.data)  # sin índice, cada ficha recorre todas las relaciones: minutos
 
     def related(self, b):
         html = builder.related_books(self.data, b)

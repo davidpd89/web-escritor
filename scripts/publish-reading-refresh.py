@@ -34,7 +34,9 @@ def resume_pending(branch):
 
     Returns 'resumed' (published as is), 'carry' (green but behind main: the caller moves its source data onto
     current main and rebuilds pages and indices, without querying the sources again; the PR stays open until the
-    replacement exists) or 'regenerate' (red after its rerun: closed, the caller runs the full intake).
+    replacement exists; also red but behind main: the fix may already be in main, so its data is rebuilt with the
+    new code instead of being queried again, 06/11: one failed test discarded 181 accepted books) or 'regenerate'
+    (red after its rerun and already on current main: closed, the caller runs the full intake).
     Old HTML/indices may conflict with a newer renderer or lack new workflows, so stale output is never merged.
     Never close a human PR or a proposal containing non-generated changes.
     """
@@ -65,7 +67,7 @@ def resume_pending(branch):
     current = json.loads(publication.gh('pr', 'view', branch, '--json', 'headRefOid'))
     if current['headRefOid'] != pr['headRefOid']:
         raise ValueError('Pending proposal changed during validation')
-    if not failed:
+    if not failed or comparison['behind_by']:
         return 'carry'
     close_proposal(pr['number'], 'Falló la verificación (' + ', '.join(failed) + ') tras su reintento. Se conserva esta propuesta y su rama '
                    'como referencia; el escritor diario vuelve a consultar las fuentes y regenera los artefactos con el código actual. '

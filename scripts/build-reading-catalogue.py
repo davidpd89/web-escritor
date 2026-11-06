@@ -231,6 +231,15 @@ def url(b):
 CATEGORY_INDEX = None
 
 
+def index_categories(data):
+    """Activa el índice para `data` (main() y los tests que pintan el catálogo real). Mutar data después lo invalida."""
+    global CATEGORY_INDEX
+    index = {}
+    for r in data['libro_categorias']:
+        index.setdefault(r['libro_id'], set()).add(r['categoria_id'])
+    CATEGORY_INDEX = (data, index)
+
+
 def categories(data, b):
     if CATEGORY_INDEX is not None and CATEGORY_INDEX[0] is data:
         ids = CATEGORY_INDEX[1].get(b["id"], set())
@@ -1354,11 +1363,7 @@ def render_outputs(root, data):
     books = validate(data, root)
     OWN_TEXTS.clear()
     OWN_TEXTS.update(load_own_texts(root))
-    global CATEGORY_INDEX
-    index = {}
-    for r in data['libro_categorias']:
-        index.setdefault(r['libro_id'], set()).add(r['categoria_id'])
-    CATEGORY_INDEX = (data, index)
+    index_categories(data)
     authors = author_records(root)
     template = (root / 'scripts/templates/reading-catalogue.html.tmpl').read_text(encoding='utf-8')
     outputs = {'recomendaciones/index.html': render_hub(data, books, template)}

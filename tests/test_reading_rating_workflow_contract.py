@@ -36,16 +36,15 @@ class RatingWorkflowContract(unittest.TestCase):
 
     def test_daily_sync_has_optional_credentials_and_no_extra_workflow(self):
         yaml = (ROOT / ".github/workflows/reading-catalogue-sync.yml").read_text(encoding="utf-8")
-        # Noche de carga: una tanda por hora; cada una espera a que se fusione la anterior.
-        self.assertIn("cron: '0 0-5 * * *'", yaml)
-        self.assertIn("schedule:'0 0-5 * * *':*", yaml)
-        # Tandas de día para que las novedades no esperen a la noche.
-        self.assertIn("schedule:'0 11 * * *':*", yaml)
+        # Una sola carga nocturna (06/11: los 8 cron diarios ocupaban Actions de día); se encadena hasta las 06.
+        self.assertIn("cron: '17 0 * * *'", yaml)
+        self.assertIn("schedule:'17 0 * * *':*", yaml)
+        self.assertEqual(yaml.count("- cron:"), 1)
         self.assertIn("TZ=Europe/Madrid", yaml)
         # GitHub drops crons: a night batch that published books dispatches the next one.
         self.assertIn("name: Chain the next night batch", yaml)
         self.assertIn("gh workflow run reading-catalogue-sync.yml", yaml)
-        self.assertIn('[ "$hour" -lt 8 ] && [ "$accepted" -gt 0 ]', yaml)
+        self.assertIn('[ "$hour" -lt 6 ] && [ "$accepted" -gt 0 ]', yaml)
         # refresh-reading-catalogue.py writes the ingest report: the count lives under "stats".
         self.assertIn(".get('stats',{}).get('accepted',0)", yaml)
         self.assertIn("!inputs.dry_run", yaml)

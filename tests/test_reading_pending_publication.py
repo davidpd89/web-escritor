@@ -64,6 +64,14 @@ class PendingPublicationTests(unittest.TestCase):
         self.assertFalse(any('--delete-branch' in c for c in calls))
         self.assertIn('reflow-sitewide', close[0][-1])
 
+    def test_red_batch_behind_main_keeps_its_data_for_the_new_code(self):
+        # 06/11: a test fixed in main afterwards must not cost the 181 accepted books of the red batch.
+        calls, gh = self.check_case(behind=2, failed=True)
+        with patch.object(publisher.publication, 'gh', side_effect=gh), patch.object(publisher, 'run') as run:
+            self.assertEqual(publisher.resume_pending(BRANCH), 'carry')
+        run.assert_not_called()
+        self.assertFalse(any(c[:2] == ('pr', 'close') for c in calls))
+
     def test_failed_publication_is_marked_on_its_commit(self):
         posted = []
         pr = {'number': 674, 'headRefOid': 'a' * 40, 'mergeStateStatus': 'CLEAN'}

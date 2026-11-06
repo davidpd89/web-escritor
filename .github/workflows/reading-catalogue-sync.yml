@@ -2,13 +2,10 @@ name: Reading catalogue intake
 
 on:
   schedule:
-    # Noche de carga: una tanda por hora de 00:00 a 05:00 UTC (01:00-06:00 en invierno, 02:00-07:00
-    # en verano). Cada tanda espera a que la anterior se fusione; si sigue abierta, sale sin hacer nada.
-    - cron: '0 0-5 * * *'
-    # Mientras se llena el catálogo, dos tandas más de día (12:00 y 18:00 en invierno, 13:00 y 19:00
-    # en verano): los libros nuevos no esperan a la noche. Cada tanda lee primero lo próximo y lo nuevo.
-    - cron: '0 11 * * *'
-    - cron: '0 17 * * *'
+    # Una sola carga nocturna, fuera de la hora en punto (01:17 Madrid en invierno, 02:17 en verano).
+    # Si hay más novedades que cupo, la propia carga encadena la siguiente hasta las 06:00 Madrid, y de día
+    # Actions queda libre para el código. Hasta el 06/11 había 8 cron diarios que competían con las PR de código.
+    - cron: '17 0 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -45,7 +42,7 @@ jobs:
         run: |
           offset=$(TZ=Europe/Madrid date +%z)
           case "$EVENT:$SCHEDULE:$offset" in
-            schedule:'0 0-5 * * *':*|schedule:'0 11 * * *':*|schedule:'0 17 * * *':*|workflow_dispatch:*) echo run=true >> "$GITHUB_OUTPUT" ;;
+            schedule:'17 0 * * *':*|workflow_dispatch:*) echo run=true >> "$GITHUB_OUTPUT" ;;
             *) echo run=false >> "$GITHUB_OUTPUT" ;;
           esac
   intake:
@@ -82,8 +79,6 @@ jobs:
           path: .ci/reading-editorial-cache
           key: reading-editorial-v1-${{ github.run_id }}
           restore-keys: reading-editorial-v1-
-      - name: Test the ingestion contracts before network access
-        run: python -m unittest discover -s tests -p 'test_reading*.py' -q
       - name: Discover, validate and publish through protected main
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -116,7 +111,7 @@ jobs:
           fi
       - name: Chain the next night batch
         # GitHub drops most hourly crons under load (2026-11-04: one scheduled run all night), so a
-        # batch that published new books dispatches the next one itself. Night only (00-08 Madrid),
+        # batch that published new books dispatches the next one itself. Night only (00-06 Madrid),
         # so daytime merges from other work never wait behind a load. A batch with nothing new, a
         # resumed PR or a failure stops the chain; the next cron picks up again.
         if: success() && !inputs.dry_run
@@ -128,7 +123,7 @@ jobs:
           hour=$(TZ=Europe/Madrid date +%-H)
           accepted=$(python -c "import json,pathlib;p=pathlib.Path('.ci/reading-intake/publisher-report.json');print(json.loads(p.read_text(encoding='utf-8')).get('stats',{}).get('accepted',0) if p.exists() else 0)")
           echo "Madrid hour $hour, accepted $accepted"
-          if [ "$hour" -lt 8 ] && [ "$accepted" -gt 0 ]; then
+          if [ "$hour" -lt 6 ] && [ "$accepted" -gt 0 ]; then
             gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main
             echo "Next night batch dispatched (accepted $accepted at $hour h Madrid)." >> "$GITHUB_STEP_SUMMARY"
           fi
