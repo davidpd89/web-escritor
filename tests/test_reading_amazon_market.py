@@ -138,6 +138,15 @@ class AmazonPriceTests(unittest.TestCase):
         self.assertEqual(len(calls),1)
         self.assertEqual(stats['status'],'pending_amazon_eligibility')
 
+    def test_chained_batch_does_not_reprice_what_was_revised_today(self):
+        calls=[]
+        def provider(book):
+            calls.append(book['id']); return response()
+        today=NOW.date().isoformat()
+        books=[dict(BOOK,id='hoy',precios_amazon_revision=today),dict(BOOK,id='ayer',precios_amazon_revision='2026-10-20')]
+        refresh_offers({'libros':books},{'offers':[]},provider,'contrato-21',NOW,sweep_days=1)
+        self.assertEqual(calls,['ayer'])
+
     def test_real_eligibility_error_is_classified_without_leaking_credentials(self):
         client=CreatorsPrices('private-client','private-secret','contrato-21')
         error=HTTPError('https://api.amazon.co.uk/auth/o2/token',403,'Forbidden',{},

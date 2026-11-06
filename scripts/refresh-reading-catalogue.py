@@ -11,6 +11,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import reading_quarantine
+import catalogo_estado as estado
 from reading_intake_pipeline import ingest
 from reading_intake_fetch import read_json, write_if_changed
 from reading_ratings_refresh import refresh as refresh_ratings, google_response, hardcover_response, write_changed
@@ -203,15 +204,45 @@ def refresh(*, publish=False):
             write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json',
                              {'recuperado_de': saved, 'new_books': carried, 'stats': {'accepted': len(carried)}})
             return assemble({'new_books': carried, 'updated_books': [], 'stats': {}}, changed=True, checkpoint=saved)
-    report = ingest(config, ROOT, ROOT / '.ci/reading-editorial-cache', apply=publish, isbns=radar_isbns(config))
+    amazon = config.get('amazon_catalogo', {}).get('enabled')
+    if amazon:
+        report = amazon_intake(config, publish)
+    else:
+        report = ingest(config, ROOT, ROOT / '.ci/reading-editorial-cache', apply=publish, isbns=radar_isbns(config))
     write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json', report)
     print(json.dumps(report['stats'], ensure_ascii=True), flush=True)
     if not publish:
         return
     changed = market_refresh(config)
     follow_main()
-    saved = save_checkpoint(datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat())
+    day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
+    saved = save_checkpoint(day)
+    if amazon:
+        # Solo ahora: los libros ya están a salvo en la rama de datos (o no había nada), así que la cola de
+        # semillas puede avanzar sin perder ninguno si después falla la PR.
+        estado.guardar(f'Estado de la ingesta {day}: {len(report["new_books"])} altas')
     return assemble(report, changed=changed, checkpoint=saved)
+
+
+def amazon_intake(config, publish):
+    """Altas de scripts/catalogo_amazon.py (semillas por ISBN + sellos) con el estado de la rama catalogo-estado.
+
+    Mismo informe que la ingesta editorial: `new_books` y `stats.accepted` encadenan el siguiente lote nocturno.
+    En prueba (sin --publish) no se toca el catálogo ni se guarda el estado."""
+    settings = config['amazon_catalogo']
+    estado.restaurar()
+    catalogue_path = ROOT / 'data/reading-catalogue.json'
+    before = catalogue_ids(catalogue_path.read_bytes())
+    day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
+    # La prueba solo comprueba credenciales y fuentes con unas pocas peticiones: ni transforma ni gasta cuota.
+    phase, requests = ('todo', int(settings.get('peticiones', 600))) if publish else ('descargar', 20)
+    import catalogo_amazon
+    catalogo_amazon.main([phase, '--dia', day, '--peticiones', str(requests),
+                          '--altas', str(int(settings.get('altas', 200)))])
+    new = sorted(catalogue_ids(catalogue_path.read_bytes()) - before)
+    summary = read_json(catalogo_amazon.WORK / f'informe-{day}.json', {})
+    write_if_changed(ROOT / '.ci/reading-intake/amazon-catalogo.json', summary)
+    return {'new_books': new, 'updated_books': [], 'stats': {'accepted': len(new), 'fuente': 'amazon_catalogo'}}
 
 
 def market_refresh(config):
