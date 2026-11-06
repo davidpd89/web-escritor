@@ -675,6 +675,11 @@ class PublisherKey(unittest.TestCase):
         self.assertNotEqual(ca.publisher_key('Ediciones la Cúpula, S.l.'), ca.publisher_key('Libros Cúpula'))
         self.assertNotEqual(ca.publisher_key('Peninsula Press Ltd'), ca.publisher_key('Ediciones Península'))
         self.assertEqual(ca.publisher_key('Editorial'), '')
+        # sin puntos, la forma jurídica solo cuenta en mayúsculas: «As», «Sa» o «Cb» pueden ser el nombre
+        for real in ('Ediciones As', 'Editorial Sa', 'Cb'):
+            with self.subTest(real=real):
+                self.assertTrue(ca.publisher_key(real))
+        self.assertEqual(ca.publisher_key('Plan B Publicaciones, S.l.'), ca.publisher_key('Plan B SL'))
 
     def test_index_links_only_unambiguous_keys_and_prefers_the_directory(self):
         directory = [{'nombre': 'Maeva', 'slug': 'maeva'}, {'nombre': 'Grijalbo', 'slug': 'grijalbo'},

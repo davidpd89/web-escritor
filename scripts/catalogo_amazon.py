@@ -960,7 +960,10 @@ PREFIX = re.compile(r'^(?:Editorial|Ediciones)\s+(?=\S{4})', re.I)
 # 2026-11-06 salían como «pendientes» sellos que ya tenían ficha: «Grijalbo Comercial, S.a.», «Molino,editorial»,
 # «Errata Naturae Editores S.l», «Hoaki Books», «Altamarea Edición de Libros SL». «Libros» y «Press» no son de
 # oficio: «Ediciones la Cúpula» no es «Libros Cúpula» ni «Peninsula Press» es Península.
-KEY_LEGAL_FORM = re.compile(r'[\s,]+(?:s\.?\s?[alc]\.?\s?[asup]?\.?|c\.?\s?b\.?|ltd\.?|inc\.?|llc|gmbh|a\.?\s?s\.?)\s*$', re.I)
+# Con puntos vale cualquier caja («S.a.», «S.l», «C.b.»); sin puntos solo en mayúsculas («SL», «SA», «CB»), para
+# no comerse un nombre que acabe en «As», «Sa» o «Cb».
+KEY_LEGAL_FORM = re.compile(r'[\s,]+(?:(?i:s\.\s?[alc]\.?(?:\s?[asup]\.?)?|s\s?[alc]\.(?:\s?[asup]\.?)?|c\.\s?b\.?'
+                            r'|ltd\.?|inc\.?|llc|gmbh)|S[ALC][ASUP]?|CB)\s*$')
 KEY_TRADE_WORDS = {'editorial', 'editoriales', 'ediciones', 'edicions', 'edicion', 'editores', 'editora', 'edition',
                    'comercial', 'publicaciones', 'publishing', 'publishers', 'books', 'de', 'del', 'la', 'el', 'y'}
 
@@ -1035,6 +1038,9 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT):
     known_authors = {a['nombre'] for a in
                      read_json(root / 'data/reading-authors.json', {'autores': []}).get('autores', [])}
     waiting = read_json(pending_creation_path(), {'editoriales': {}, 'autores': {}})
+    pending_keys = {}
+    for pending in waiting['editoriales']:
+        pending_keys.setdefault(publisher_key(pending) or pending, pending)
     now = datetime.now(timezone.utc)
     failures = list(transform_failures)
     added = {}
@@ -1063,7 +1069,7 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT):
 
     def note(kind, name, isbn):
         if kind == 'editoriales':  # «GTM Ediciones» y «GTM Ediciones C.b.» son un solo sello por crear
-            name = next((n for n in waiting[kind] if publisher_key(n) == publisher_key(name)), name)
+            name = pending_keys.setdefault(publisher_key(name) or name, name)
         entry = waiting[kind].setdefault(name, {'libros': 0, 'primera': day, 'ejemplos': []})
         entry['libros'] += 1
         if len(entry['ejemplos']) < 3 and isbn not in entry['ejemplos']:
