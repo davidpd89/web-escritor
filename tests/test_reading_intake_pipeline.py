@@ -173,6 +173,16 @@ class ContractTests(unittest.TestCase):
         pair = [self.book, other]
         self.assertNotEqual(builder.book_title(self.book, pair), builder.book_title(other, pair))
 
+    def test_seo_title_stays_bounded_with_a_very_long_signature(self):
+        b = {**self.book, 'titulo': 'Historia de las instituciones del reino durante la Edad Moderna y sus fuentes documentales',
+             'autores': ['Centro de Estudios Políticos y Constitucionales del Ministerio de la Presidencia']}
+        title = builder.book_title(b)
+        self.assertLessEqual(len(title), 75, title)
+        b['autores'] = ['Universidad Nacional de Educación a Distancia', 'Comisión Interministerial de Ciencia']
+        title = builder.book_title(b)
+        self.assertLessEqual(len(title), 75, title)
+        self.assertIn('Universidad Nacional', title)
+
     def test_seo_title_drops_edition_note_and_series_before_the_author(self):
         b = {**self.book, 'titulo': 'Lazos de fuego (Academia Bloodwing 2) Edición especial con cantos tintados', 'autores': ['Briar Boleyn']}
         self.assertEqual(builder.book_title(b), 'Lazos de fuego (Academia Bloodwing 2) · Briar Boleyn')

@@ -495,10 +495,12 @@ def book_title(b, books=()):
                 return title
     # Con muchas firmas (guías, obras colectivas) cabe «primer autor y otros»: el autor no se pierde nunca.
     lead = ' · ' + b['autores'][0] + (' y otros' if len(b['autores']) > 1 else '')
-    tails = [' · ' + authors] + ([lead] if lead != ' · ' + authors else [])
+    tails = list(dict.fromkeys([' · ' + authors, lead, ' · ' + b['autores'][0]]))  # Sin «y otros» si no cabe.
     for tail in tails:
+        if len(tail) > 54:
+            continue  # Con una firma tan larga, el corte negativo devolvería el título entero.
         cut = b['titulo'][:74-len(tail)].rsplit(' ', 1)[0].rstrip(' -–—:.,')
-        if len(cut) >= 20 and not any(t.startswith(cut.casefold()) for t in clash):
+        if len(cut) >= 12 and not any(t.startswith(cut.casefold()) for t in clash):
             return cut + '…' + tail
     suffix = ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8])
     tail = next((t for t in tails if len(t) <= 30), '')
