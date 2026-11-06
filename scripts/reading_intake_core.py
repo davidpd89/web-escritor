@@ -74,7 +74,7 @@ def clean_author(value: str) -> str:
     """Nombre de autor público: los que llegan enteros en mayúsculas («JØRN LIER HORST») pasan a
     «Jørn Lier Horst»; las partículas van en minúscula salvo al inicio. Los demás no se tocan."""
     name = clean_title(value)
-    letters = [ch for ch in name if ch.isalpha()]
+    letters = [ch for ch in name if ch.isalpha() and ch not in 'ªº']  # «Mª» no es minúscula
     # Un seudónimo de una palabra en mayúsculas («KKAM») es estilo del autor, no un fallo de la fuente.
     if " " not in name or not all(ch.isupper() for ch in letters):
         return name

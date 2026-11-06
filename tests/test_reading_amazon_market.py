@@ -38,6 +38,12 @@ class AmazonPriceTests(unittest.TestCase):
         self.assertEqual(offers[0]['url'],'https://www.amazon.es/dp/8498382378?tag=contrato-21')
         self.assertEqual(offers[0]['caduca_en'],'2026-10-22T10:00:00Z')
 
+    def test_creators_scarce_stock_spelling_keeps_the_price(self):
+        # Creators escribe IN_STOCK_SCARCE («solo quedan 2»): ~10 % de las ofertas de una descarga real.
+        for kind,expected in [('IN_STOCK_SCARCE',1),('INSTOCKSCARCE',1),('OUT_OF_STOCK',0),('UNAVAILABLE',0)]:
+            payload=response(); payload['searchResult']['items'][0]['offersV2']['listings'][0]['availability']['type']=kind
+            self.assertEqual(len(select_offers(BOOK,payload,'contrato-21',NOW)),expected,kind)
+
     def test_wrong_isbn_author_title_or_unknown_binding_is_rejected(self):
         for field,value in [('title',{'displayValue':'Otro libro'}),
                             ('byLineInfo',{'contributors':[{'name':'Otra persona','role':'Author'}]}),

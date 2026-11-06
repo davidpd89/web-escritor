@@ -251,7 +251,8 @@ def select_offers(book,payload,tag,now,mismatches=None):
             except (ValueError,TypeError):
                 continue
             availability=amazon_dict(listing.get('availability')).get('type')
-            if not isinstance(availability,str) or availability not in {'IN_STOCK','INSTOCK','INSTOCKSCARCE','LEADTIME','PREORDER'}:
+            # Creators devuelve IN_STOCK_SCARCE («solo quedan 2»); PA-API lo escribía sin guiones bajos.
+            if not isinstance(availability,str) or availability.replace('_','') not in {'INSTOCK','INSTOCKSCARCE','LEADTIME','PREORDER'}:
                 continue
             price=amazon_dict(listing.get('price'))
             cents=money_cents(price.get('money'))
@@ -269,50 +270,82 @@ def select_offers(book,payload,tag,now,mismatches=None):
     return list(offers.values())
 
 
+class NotFound(RuntimeError):
+    """404 de Creators: la búsqueda no tiene resultados (no es una caída)."""
+
+
+# Reintentos tomados de sergioteula/python-amazon-paapi (MIT, amazon_creatorsapi/core/retry.py):
+# 429 y 5xx con espera exponencial o la que pida Retry-After; un 401 renueva el token una vez.
+RETRY_STATUS = frozenset({429, 500, 502, 503, 504})
+TOKEN_URL = 'https://api.amazon.co.uk/auth/o2/token'
+
+
 class CreatorsPrices:
     def __init__(self,client_id,secret,tag):
         self.client_id,self.secret,self.tag=client_id,secret,tag
         self.token=None
+        self.expires=0.0
         self.last=0
 
     def post(self,url,payload,headers=None,retries=3):
-        time.sleep(max(0,1.1-(time.monotonic()-self.last)))
-        self.last=time.monotonic()
-        request=Request(url,data=json.dumps(payload).encode(),method='POST',
-                        headers={'Content-Type':'application/json',**(headers or {})})
-        try:
-            with urlopen(request,timeout=20) as response:
-                result=json.load(response)
-        except HTTPError as exc:
+        attempt,refreshed=0,False
+        while True:
+            time.sleep(max(0,1.1-(time.monotonic()-self.last)))
+            self.last=time.monotonic()
+            request=Request(url,data=json.dumps(payload).encode(),method='POST',
+                            headers={'Content-Type':'application/json',**(headers or {})})
             try:
-                error=json.loads(exc.read(20000))
-            except ValueError:
-                error={}
-            if not isinstance(error,dict):
-                error={}
-            if exc.code==429 and retries:
-                # Throttling is per second: wait what Amazon asks (bounded) and retry.
-                wait=error.get('retryAfterSeconds') or (exc.headers or {}).get('Retry-After')
+                with urlopen(request,timeout=20) as response:
+                    result=json.load(response)
+            except HTTPError as exc:
                 try:
-                    wait=min(60.0,max(1.0,float(wait)))
-                except (TypeError,ValueError):
-                    wait=2.0*2**(3-retries)
-                time.sleep(wait)
-                return self.post(url,payload,headers,retries-1)
-            if exc.code==403 and ('eligib' in str(error.get('message','')).lower() or any(e.get('code')=='AssociateNotEligible' for e in error.get('errors',[]) if isinstance(e,dict))):
-                raise RuntimeError('pending_amazon_eligibility') from exc
-            raise RuntimeError(f'Amazon Creators HTTP {exc.code}') from exc
-        except (URLError,TimeoutError) as exc:
-            raise RuntimeError('Amazon Creators unavailable') from exc
-        if not isinstance(result,dict):
-            raise RuntimeError('Invalid Amazon Creators response')
-        return result
+                    error=json.loads(exc.read(20000))
+                except (ValueError,AttributeError,TypeError):
+                    error={}
+                if not isinstance(error,dict):
+                    error={}
+                if exc.code==401 and headers and 'Authorization' in headers and not refreshed:
+                    # Token caducado a mitad de un recorrido largo: uno nuevo y se repite la petición.
+                    refreshed=True
+                    self.token=None
+                    headers={**headers,**self.headers()}
+                    continue
+                if exc.code in RETRY_STATUS and attempt<retries:
+                    wait=error.get('retryAfterSeconds') or (exc.headers or {}).get('Retry-After')
+                    try:
+                        wait=min(60.0,max(1.0,float(wait)))
+                    except (TypeError,ValueError):
+                        wait=min(30.0,2.0*2**attempt)
+                    attempt+=1
+                    time.sleep(wait)
+                    continue
+                if exc.code==403 and ('eligib' in str(error.get('message','')).lower() or any(e.get('code')=='AssociateNotEligible' for e in error.get('errors',[]) if isinstance(e,dict))):
+                    raise RuntimeError('pending_amazon_eligibility') from exc
+                if exc.code==404:
+                    raise NotFound('Amazon Creators HTTP 404') from exc
+                raise RuntimeError(f'Amazon Creators HTTP {exc.code}') from exc
+            except (URLError,TimeoutError,ConnectionError) as exc:
+                if attempt<retries:
+                    attempt+=1
+                    time.sleep(min(30.0,2.0*2**attempt))
+                    continue
+                raise RuntimeError('Amazon Creators unavailable') from exc
+            if not isinstance(result,dict):
+                raise RuntimeError('Invalid Amazon Creators response')
+            return result
 
     def headers(self):
-        if not self.token:
-            self.token=self.post('https://api.amazon.co.uk/auth/o2/token',{
+        # El token dura ~1 h: se renueva 30 s antes de caducar, como hace python-amazon-paapi.
+        if not self.token or time.time()>=self.expires:
+            data=self.post(TOKEN_URL,{
                 'grant_type':'client_credentials','client_id':self.client_id,
-                'client_secret':self.secret,'scope':'creatorsapi::default'})['access_token']
+                'client_secret':self.secret,'scope':'creatorsapi::default'})
+            self.token=data['access_token']
+            try:
+                life=float(data.get('expires_in') or 3600)
+            except (TypeError,ValueError):
+                life=3600.0
+            self.expires=time.time()+max(60.0,life-30)
         return {'Authorization':'Bearer '+self.token,'x-marketplace':'www.amazon.es'}
 
     def __call__(self,book):

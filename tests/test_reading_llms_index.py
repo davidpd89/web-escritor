@@ -21,7 +21,8 @@ class ReadingLlmsIndexTest(unittest.TestCase):
         self.assertIn(f'## Libros ({len(self.books)})', self.text)
         for b in self.books:
             entry = self.entries[f"{SITE}/recomendaciones/libros/{b['slug']}/"]
-            for value in (*b['autores'], b['editorial'], 'ISBN ' + b['isbn13'], 'Sinopsis de la editorial: '):
+            label = 'Sinopsis de la editorial: ' if b.get('sinopsis_breve') else 'Descripción: '
+            for value in (*b['autores'], b['editorial'], 'ISBN ' + b['isbn13'], label):
                 self.assertIn(value, entry, b['id'])
             self.assertTrue((ROOT / 'recomendaciones/libros' / b['slug'] / 'index.html').is_file(), b['id'])
 
