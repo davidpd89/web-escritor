@@ -87,6 +87,20 @@ class ReaderTests(unittest.TestCase):
         self.assertEqual(len(errors), 1)
         self.assertIn("tiktok", errors[0])
 
+    def test_skipped_network_gets_no_request(self):
+        seen = []
+
+        def fake_fetch(url):
+            seen.append(url)
+            return '"follower_count":8'
+        rendered = mock.Mock(return_value={"threads": 50})
+        with mock.patch.dict("os.environ", {public.SKIP_ENV: "Instagram, x"}),                 mock.patch.object(public, "fetch", side_effect=fake_fetch),                 mock.patch.object(public, "read_rendered", rendered):
+            records = public.read(NOW, [])
+        self.assertEqual(rendered.call_args.args[0], ("threads", "facebook"))
+        self.assertFalse(any("fxtwitter" in url or "instagram" in url for url in seen))
+        self.assertNotIn("instagram", {r["id"] for r in records})
+        self.assertNotIn("x", {r["id"] for r in records})
+
     def test_records_are_accepted_by_the_compositor(self):
         payload = compose.compose([live(n, 10) for n in compose.PROFILES if n not in ("bluesky", "mastodon")], now=NOW)
         self.assertEqual(payload["totals"]["coverage"], 6)
