@@ -119,7 +119,7 @@
   }
   const values = () => ({...Object.fromEntries(fields.map(f => [f.dataset.filter, f.disabled ? '' : f.value])), ...Object.fromEntries(FACETS.map(k => [k, boxes.filter(b => b.dataset.facet === k && b.checked).map(b => b.value)]))});
   // Descuento por formato guardado al refrescar precios («ebook:20»): precio de referencia de Amazon o última bajada.
-  // «formato:%:fecha»: an offer Amazon has not reconfirmed for OFFER_MAX_DAYS disappears by itself (badge and filter).
+  // «formato:%:fecha»: una oferta sin reconfirmar en OFFER_MAX_DAYS desaparece sola.
   const OFFER_MAX_DAYS = 3;
   const offerCurrent = checked => /^\d{4}-\d{2}-\d{2}$/.test(checked || '') && (Date.parse(madridDate.format(new Date())) - Date.parse(checked)) / 864e5 <= OFFER_MAX_DAYS;
   const formatDiscounts = card => (card.dataset.formatDiscounts || '').split(' ').filter(Boolean).map(x => x.split(':')).filter(([, , checked]) => offerCurrent(checked)).map(([formato, pct]) => ({formato, pct: Number(pct)}));
@@ -161,15 +161,14 @@
     for (const box of root.querySelectorAll('[data-rating-book]')) {
       const r = ratingFor(box.dataset.ratingBook); box.replaceChildren(); box.hidden = false;
       if (!r) {
-        // Sin valoración verificada vigente NO se pinta una nota: ni estrellas vacías ni «0,0 (0)».
-        // Que aquí no haya dato utilizable (caducado, proveedor caído, fuente no válida) no prueba que la fuente tenga cero opiniones.
+        // Sin nota verificada vigente no se pinta nota (ni estrellas vacías ni «0,0 (0)»).
         const thin = market.ratings.find(x => x.libro_id === box.dataset.ratingBook && thinRating(x));
-        // Sin nota verificada no se enlaza a ciegas (Goodreads bloquea).
-        if (thin) {
-          const ref = document.createElement('a'); ref.href = thin.url; ref.target = '_blank'; ref.rel = 'noopener noreferrer';
-          ref.className = 'catalogue-rating__ref'; ref.dataset.ratingState = 'insufficient';
-          ref.textContent = ratingLabel(thin) + ' · menos de 5 valoraciones';
-          ref.title = 'Muestra demasiado pequeña para mostrar una nota. Consultado el ' + new Date(thin.actualizado_en).toLocaleDateString('es-ES');
+        const isbn = /^\d{13}$/.test(box.dataset.isbn) && box.dataset.isbn;
+        // Nota verificada o enlace a Goodreads por ISBN (igual en tarjeta y ficha).
+        if (thin || isbn) {
+          const ref = document.createElement('a'); ref.target = '_blank'; ref.rel = 'noopener noreferrer'; ref.className = 'catalogue-rating__ref';
+          if (thin) { ref.href = thin.url; ref.dataset.ratingState = 'insufficient'; ref.textContent = ratingLabel(thin) + ' · menos de 5 valoraciones'; ref.title = 'Muestra demasiado pequeña para mostrar una nota. Consultado el ' + new Date(thin.actualizado_en).toLocaleDateString('es-ES'); }
+          else { ref.href = 'https://www.goodreads.com/book/isbn/' + isbn; ref.dataset.ratingState = 'unavailable'; ref.textContent = 'Goodreads · ver opiniones'; }
           box.append(ref);
         } else box.hidden = true;
         continue;
@@ -197,7 +196,7 @@
       const pages = Number(card.dataset.pages), range = !pages ? '' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga';
       return searchIndex.get(card).includes(searchQuery(v.q || '')) && (v.estado === 'todos' || (!v.estado && v.q) || (v.estado === 'proximos' ? !released(lower) : released(lower))) && ['genero', 'tematica', 'temporada', 'edad', 'contenido'].every(k => !pick(v[k]).length || pick(v[k]).some(x => cats.includes(x))) && (!pick(v.grupo).length || pick(v.grupo).includes(card.dataset.group)) && (!pick(v.formato).length || pick(v.formato).some(x => formats.has(x))) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && ratingOk(card, v) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
   }
-  // Cada filtro cuenta con los demás aplicados (sin el suyo): una opción sin libros se atenúa y, si está marcada, no se oculta.
+  // Cada filtro cuenta con los demás aplicados: una opción sin libros se atenúa (si está marcada, no se oculta).
   function facetValues(card, k) {
     if (k === 'formato') return cardFormats(card);
     const m = memoFor(card), key = k === 'grupo' ? 'groupSet' : 'catSet';
@@ -238,7 +237,7 @@
         label.dataset.count = count;
       }
       const chosen = own.filter(b => b.checked).length;
-      // Marcadas primero; luego con libros (de más a menos; tipo, edad y formato en orden natural); al final las vacías.
+      // Marcadas primero; luego con libros (de más a menos; tipo, edad y formato en orden natural); vacías al final.
       const list = group.querySelector('.catalogue-facet__options'), labels = own.map(b => b.closest('label'));
       labels.forEach((label, i) => { if (label.dataset.order == null) label.dataset.order = i; });
       const rank = label => label.querySelector('input').checked ? 0 : label.classList.contains('is-empty') ? 2 : 1;
