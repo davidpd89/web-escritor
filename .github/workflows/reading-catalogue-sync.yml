@@ -126,7 +126,7 @@ jobs:
         run: |
           set -euo pipefail
           hour=$(TZ=Europe/Madrid date +%-H)
-          accepted=$(python -c "import json,pathlib;p=pathlib.Path('.ci/reading-intake/publisher-report.json');print(json.loads(p.read_text(encoding='utf-8')).get('accepted',0) if p.exists() else 0)")
+          accepted=$(python -c "import json,pathlib;p=pathlib.Path('.ci/reading-intake/publisher-report.json');print(json.loads(p.read_text(encoding='utf-8')).get('stats',{}).get('accepted',0) if p.exists() else 0)")
           echo "Madrid hour $hour, accepted $accepted"
           if [ "$hour" -lt 8 ] && [ "$accepted" -gt 0 ]; then
             gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main
