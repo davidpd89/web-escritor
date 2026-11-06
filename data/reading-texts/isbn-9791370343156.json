@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791370343156",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La granja está pensado para el público infantil que prefiere colorear, decorar y mostrar sus creaciones en lugar de limitarse a leer. Su propuesta combina láminas temáticas con elementos magnéticos, por lo que se aleja de los cuentos centrados en una historia con personajes y argumento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "La actividad consiste en trabajar con láminas de la granja y colocarlas sobre una superficie metálica mediante el marco magnético incluido. Además, incorpora 15 imanes independientes que se pueden colorear y utilizar para decorar las composiciones. El resultado permite exhibir los trabajos sin recurrir a un marco convencional.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La granja se presenta en tapa blanda, con 24 páginas y una actividad que utiliza láminas, un marco magnético y 15 imanes para colorear. El formato físico permite manipular los elementos y colocar las creaciones sobre metal, de modo que el uso principal va más allá de pasar páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La granja comparte con Bajo el mar el uso de láminas y un marco magnético para exponer trabajos, pero cambia los animales marinos por motivos de granja. Dinosaurios propone una actividad magnética semejante con otra temática. Los tres títulos son de Susaeta Ediciones y se orientan a la creación manual infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589",
+        "isbn-9791370343163",
+        "isbn-9791370343149"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "07f333a684d6b43e",
+  "origen": "chatgpt-web"
+}

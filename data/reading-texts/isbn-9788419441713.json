@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788419441713",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diario de 3 años consecutivos está pensado para adultos que quieran registrar sus objetivos, experiencias y cambios personales durante tres años. Alba Sanvez combina escritura reflexiva, planificación y ejercicios de autoconocimiento. No responde al uso de una agenda convencional ni al de un diario compuesto únicamente por páginas libres.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Diario de 3 años consecutivos reúne ejercicios de autoconocimiento, planificación de objetivos y espacios de escritura distribuidos a lo largo de tres años. Incluye paneles visuales de metas, listas de experiencias pendientes, seguimiento de proyectos y registros de lecturas y contenidos audiovisuales. Las revisiones mensuales, los cierres anuales y las páginas de cumpleaños permiten comparar prioridades y experiencias entre distintas etapas.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Diario de 3 años consecutivos se presenta en tapa dura, con 272 páginas destinadas a ejercicios, registros y reflexiones personales. La encuadernación rígida resulta apropiada para un cuaderno que se utilizará de forma recurrente durante tres años. También permite conservar en un mismo volumen las anotaciones de cada periodo y revisarlas posteriormente.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3beafa84af369aa5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788448049409",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Stop cortisol e inflamación se dirige a personas interesadas en la alimentación, el bienestar y la relación entre el estrés y las sensaciones corporales. Su enfoque práctico sobre el cortisol y la inflamación encaja menos con quienes buscan un recetario de cocina general o una obra de divulgación histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Stop cortisol e inflamación está disponible en tapa blanda y Kindle, con una edición impresa de 208 páginas publicada por Libros Cúpula. El papel facilita consultar y marcar apartados durante la aplicación del método alimentario; Kindle permite llevar el contenido en el móvil o en un lector electrónico sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Stop cortisol e inflamación y 5 semanas para desinflamarte (edición limitada) comparten el interés por la inflamación y los cambios relacionados con el bienestar. Maria de Lluc Martorell centra su propuesta en el cortisol, la alimentación y un programa de cuatro semanas, mientras que el título de Blanca García-Orea Haro (@blancanutri) plantea un periodo de cinco semanas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a0eaf60f6d1ab753",
+  "origen": "chatgpt-web"
+}

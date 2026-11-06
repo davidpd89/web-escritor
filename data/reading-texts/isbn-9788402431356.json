@@ -1,0 +1,34 @@
+{
+  "id": "isbn-9788402431356",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El regalo de la sensibilidad está dirigido a adultos que quieren comprender sus reacciones emocionales intensas y aprender a regularlas. Dra. Sasha Hamdani aborda la autoestima, el miedo al rechazo y la sensibilidad desde la psiquiatría y la neurociencia. No responde al planteamiento de una novela ni al de una obra centrada en conflictos de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El regalo de la sensibilidad puede leerse en tapa blanda con solapas o en Kindle. La edición física de Bruguera reúne 352 páginas y permite consultar de nuevo los apartados dedicados a las emociones, la autoestima y la regulación del sistema nervioso. Kindle facilita llevar esa lectura de desarrollo personal en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ade5d965426147b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791387941208",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cerebro, espacio y tiempo se dirige a lectores de divulgación científica interesados en la memoria, la orientación espacial y la percepción temporal. Su contenido se centra en mecanismos neuronales y estudios sobre el cerebro, por lo que se aleja de una narración histórica convencional o de una guía de ejercicios de memoria.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Cerebro, espacio y tiempo explica cómo los circuitos neuronales intervienen en la orientación, la formación de recuerdos y la percepción del paso del tiempo. Liset Ménendez de la Prida conecta estos procesos con la evolución animal, la navegación por entornos virtuales y las interfaces entre el cerebro y las máquinas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cerebro, espacio y tiempo se publica en tapa blanda y tiene 152 páginas. La edición de Guadalmazán permite consultar en papel las explicaciones sobre memoria, orientación y circuitos neuronales, además de regresar a los ejemplos que relacionan el comportamiento animal con las capacidades humanas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cerebro, espacio y tiempo comparte con El acorde secreto el interés por estudiar capacidades humanas desde la neurociencia. Liset Ménendez de la Prida se ocupa de la memoria, la orientación y la percepción temporal, mientras que la obra de Daniel J. Levitin se presenta vinculada a la investigación neurocientífica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449345975"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bdcd63063bab06d2",
+  "origen": "chatgpt-web"
+}

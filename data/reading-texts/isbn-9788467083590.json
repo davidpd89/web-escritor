@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El toque Delirium se dirige a lectores interesados en cocinar para otras personas y prestar atención a la presentación y al cuidado de los invitados. Su planteamiento gastronómico y social encaja menos con quienes buscan una novela o una lectura centrada en conflictos de ficción.",
+      "texto": "El toque Delirium está dirigido a quienes buscan cocinar para invitados y prestar atención tanto a la preparación como a la manera de recibirlos. Su planteamiento vincula la cocina con el cuidado de otras personas, por lo que se distancia de los libros centrados exclusivamente en técnicas culinarias o alimentación individual.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,32 +13,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El toque Delirium está disponible en tapa dura y Kindle. La edición de Editorial Espasa reúne 288 páginas en cartoné, una opción para conservar y consultar el libro en papel o regalarlo; Kindle permite acceder al contenido desde un dispositivo compatible y consultarlo sin ocupar espacio físico.",
+      "texto": "El toque Delirium puede leerse en tapa dura o en Kindle. La edición física reúne 288 páginas en cartoné, apropiadas para consultar el contenido en la cocina o conservarlo en una estantería; Kindle permite acceder al libro desde un dispositivo compatible sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El toque Delirium y Cocina de siempre para disfrutar hoy comparten el interés por preparar comida para disfrutar en casa, aunque el primero pone el acento en recibir y cuidar a los invitados y el segundo en adaptar recetas tradicionales. Frente a 20 minutos ¡y listo!, centrado en cocinar con poco tiempo, El toque Delirium prioriza la experiencia de compartir la mesa.",
+      "texto": "El toque Delirium y 20 minutos ¡y listo! comparten la cocina como asunto central, pero responden a necesidades distintas. Lucía Ruiz Lafita y Delirium ponen el foco en preparar comidas y atender a los invitados, mientras Jamie Oliver orienta su propuesta hacia cocinar cuando se dispone de poco tiempo.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425374074",
-        "isbn-9788408324263"
+        "isbn-9788425374074"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e2d21d400720cdc0",
+  "fuente_hash": "174747cd2c4eec18",
   "origen": "chatgpt-web"
 }

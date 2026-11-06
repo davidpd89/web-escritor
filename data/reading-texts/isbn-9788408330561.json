@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788408330561",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El dinero explicado a Blanca está dirigido a lectores que comienzan su vida laboral y quieren comprender decisiones financieras como gestionar la primera nómina o afrontar la compra de una vivienda. Su enfoque introductorio y ligado a situaciones personales se aparta de los tratados sobre mercados internacionales o estrategias empresariales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El dinero explicado a Blanca se publica en tapa blanda con solapas, en una edición de Zenith de 240 páginas. El papel permite consultar de nuevo los apartados sobre economía personal y mantener el libro a mano durante la planificación de decisiones financieras.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El dinero explicado a Blanca y Cariño, ¿y este recibo? tratan decisiones económicas que afectan a la vida cotidiana. Montse Cespedosa parte del inicio de la independencia financiera, mientras que Angie Gil Ribera aborda cuestiones como compartir una cuenta bancaria o mantener las finanzas separadas. Domina el arte de los negocios cambia el foco hacia las habilidades profesionales y empresariales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390514",
+        "isbn-9788402431332"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d3f2d63b3021b633",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408331292",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ver de oídas se dirige a lectores interesados en la naturaleza, la divulgación científica y los paisajes sonoros de España. Su enfoque basado en grabaciones de campo y escucha ambiental se aparta de las guías prácticas de identificación de especies o de actividades al aire libre.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Ver de oídas aborda la riqueza acústica de los espacios naturales españoles mediante una combinación de divulgación y escritura literaria. Carlos de Hita recurre a cuatro décadas de registros ambientales para mostrar cómo los animales y sus vocalizaciones permiten conocer un territorio, tomando como antecedente una grabación de 1985 realizada en los Montes de Toledo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ver de oídas está editado en tapa dura de cartoné, sin sobrecubierta, con 240 páginas publicadas por Geoplaneta. Esta presentación reúne en un volumen físico el recorrido por los sonidos naturales de España y permite conservarlo para consultas o relecturas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La botica natural comparte con Ver de oídas el interés por el entorno natural, pero aborda las plantas medicinales desde la preparación de un botiquín herbal, mientras Carlos de Hita se ocupa de los sonidos del paisaje. El acorde secreto se aproxima desde la neurociencia y la autoría de Daniel J. Levitin, frente al trabajo de grabación de campo que estructura Ver de oídas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449345975",
+        "isbn-9791387905620"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "13ba4f093c81d55f",
+  "origen": "chatgpt-web"
+}

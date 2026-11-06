@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788408328834",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La hora antes del alba se dirige a lectores de narrativa contemporánea interesados en las relaciones amorosas condicionadas por la represión política y la pérdida familiar. Su conflicto, marcado por una dictadura y la incertidumbre sobre el destino de una persona querida, se aleja de las historias románticas centradas únicamente en la pareja.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La hora antes del alba combina una trama sentimental con las consecuencias personales de vivir bajo una dictadura. Isabel Allende sitúa el conflicto en la espera de Alba tras perder a su abuelo, mientras desconoce qué ha ocurrido con su primer amor; el recuerdo y la incertidumbre sostienen la dimensión íntima de esta novela contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de La hora antes del alba reúne sus 352 páginas en un volumen con sobrecubierta, apropiado para conservarlo en la biblioteca o entregarlo como regalo. Kindle permite leer la misma obra en un dispositivo electrónico o en el móvil, sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La hora antes del alba y La casa de los espíritus comparten la autoría de Isabel Allende y su vinculación con la narrativa contemporánea. La primera aborda la espera de una mujer que desconoce el destino de su primer amor en un país sometido a una dictadura, mientras que La casa de los espíritus desarrolla una historia familiar. La diferencia está en el punto de partida: una incertidumbre sentimental frente a un relato centrado en una familia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401042751"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6b5be067f9693909",
+  "origen": "chatgpt-web"
+}

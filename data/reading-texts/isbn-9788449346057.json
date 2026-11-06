@@ -4,38 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mira el lado bueno de las cosas, de Sumit Paul-Choudhury, se dirige a lectores interesados en la psicología, el desarrollo personal y las explicaciones científicas del optimismo. Su atención a la forma de pensar ante las noticias negativas y las crisis sociales lo diferencia de las novelas de entretenimiento y de los relatos de ficción.",
+      "texto": "Mira el lado bueno de las cosas se dirige a lectores interesados en la psicología, el desarrollo personal y las explicaciones científicas del optimismo. Su enfoque divulgativo sobre la manera de interpretar las dificultades no responde a quien busque una novela de ficción o una historia de suspense.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mira el lado bueno de las cosas está disponible en tapa blanda y Kindle; la edición de Ediciones Paidós tiene 320 páginas y se presenta en rústica con solapas. El ejemplar impreso permite conservar y consultar físicamente el contenido sobre optimismo, mientras que Kindle facilita leerlo desde el móvil o un dispositivo electrónico.",
+      "texto": "Mira el lado bueno de las cosas está disponible en tapa blanda y Kindle, con 320 páginas. La edición física de Ediciones Paidós es rústica con solapas y permite conservar el volumen para consultas posteriores; Kindle facilita leerlo en el móvil o en un lector electrónico.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
+        "editorial",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La compañera, de Freida McFadden, y Mira el lado bueno de las cosas, de Sumit Paul-Choudhury, abordan preocupaciones humanas desde géneros distintos. La compañera es un thriller sobre las consecuencias de acontecimientos del pasado, mientras que Mira el lado bueno de las cosas trata el optimismo desde la psicología y la ciencia, con atención a la percepción de las crisis actuales.",
+      "texto": "Mira el lado bueno de las cosas y Maleducados emocionales abordan el bienestar psicológico, pero Sumit Paul-Choudhury estudia el optimismo desde la ciencia y Dr. José Carbonell se ocupa de las relaciones con personas que afectan al equilibrio emocional. Mentes diferentes, de Chloé Hayden, combina testimonio y activismo sobre neurodivergencia, frente al enfoque divulgativo del optimismo de Mira el lado bueno de las cosas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388163555"
+        "isbn-9788408331339",
+        "isbn-9788411193894"
       ]
     }
   ],

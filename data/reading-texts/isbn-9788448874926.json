@@ -1,0 +1,66 @@
+{
+  "id": "isbn-9788448874926",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores desde los 4 años interesados en cómics humorísticos, superhéroes y aventuras ambientadas en otras épocas. La búsqueda de la profesora Catión introduce viajes temporales y un rescate en la Edad Media; resulta menos adecuado para quien busque una explicación histórica extensa o una narración realista.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La nueva edición de Beascoa presenta esta aventura medieval en castellano, con tapa blanda y 64 páginas. Conserva la historia autoconclusiva y emplea cantos romos, además de una composición de seis viñetas como máximo por página. Su fecha de publicación es el 2026-11-05.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La lectura está recomendada a partir de los 4 años y se presenta como un cómic de 64 páginas. La edición en castellano tiene tapa blanda, cantos romos y páginas organizadas en un máximo de seis viñetas. Combina el humor de los superhéroes con una aventura de rescate ambientada en la Edad Media.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "idioma",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer y señalar las viñetas directamente sobre las 64 páginas impresas, especialmente durante la lectura acompañada. Kindle ofrece acceso digital al cómic desde un dispositivo compatible, sin necesidad de llevar el libro físico. Para observar las ilustraciones, conviene considerar el tamaño de la pantalla disponible.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Superpatata 8 - Los peligrosos caprichos de Augusta Ricachón (parte 1) (NUEVA EDICIÓN) comparte el humor y los superhéroes de Artur Laperla, pero plantea un conflicto relacionado con un pterosaurio. Superdónuts 3 - El destino de los dónuts, de Neill Cameron, también incorpora elementos extraordinarios y temporales, aunque sitúa su amenaza en el futuro en lugar de la Edad Media.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788448874889",
+        "isbn-9788448873479"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa39f9e362343d4b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,68 @@
+{
+  "id": "isbn-9791388236808",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La sumisa- 2026, de Dostoyevski F. M., se dirige a lectores interesados en las relaciones de pareja marcadas por la culpa, el duelo y las contradicciones personales. Su tratamiento del suicidio y su narración centrada en los pensamientos de un marido la alejan de quienes buscan un romance ligero o una historia de amor convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La sumisa- 2026 es un relato psicológico centrado en un marido que intenta comprender el suicidio de su esposa. La narración avanza mediante recuerdos, justificaciones y contradicciones que revelan su conflicto interior. Aunque se incluye entre las obras de romance y narrativa contemporánea, su núcleo es el duelo y la revisión de una relación marcada por la culpa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de La sumisa- 2026 está publicada por Galaxia Gutenberg en castellano, con 112 páginas y encuadernación en tapa blanda. Recupera la traducción de Juan Luis Abollado de un relato publicado originalmente en 1876. Su ISBN es 9791388236808 y su fecha de publicación editorial es el 14 de octubre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "edicion",
+        "isbn13",
+        "fecha_publicacion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La sumisa- 2026 está disponible en tapa blanda, con una extensión de 112 páginas. Su formato físico permite llevar el relato en el bolso y volver sobre los pasajes en los que el narrador revisa sus recuerdos. También permite conservar en papel esta traducción recuperada por Galaxia Gutenberg.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La sumisa- 2026 y Mañana volverás a perder comparten el interés por experiencias afectivas dolorosas, aunque la obra de Dostoyevski F. M. aborda la culpa tras un suicidio y la de Dara Kelton se presenta como una novela emotiva. Frente a El color de la esperanza, de Danielle Steel, centrada en nuevos comienzos, La sumisa- 2026 examina una relación desde el duelo y la reconstrucción de lo ocurrido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040368",
+        "isbn-9788408329831"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "49f6b3e92c66fbf4",
+  "origen": "chatgpt-web"
+}

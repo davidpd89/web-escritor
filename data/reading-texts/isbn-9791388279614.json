@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388279614",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Comilona encaja con lectores de narrativa contemporánea interesados en los conflictos relacionados con la alimentación, las exigencias laborales y los límites familiares. La presencia del control de calorías y de una relación materna conflictiva la aleja de una lectura centrada en situaciones cotidianas ligeras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Comilona es una obra de narrativa contemporánea sobre la obsesión alimentaria, la presión profesional y los conflictos familiares. Melissa Broder sitúa a Rachel en Hollywood, donde trabaja para una agencia de representación mientras mantiene un control estricto de su alimentación. La dificultad para establecer límites con su madre añade una tensión personal a sus exigencias laborales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Comilona cuenta con una edición de tapa blanda, en rústica con solapas, de 304 páginas en castellano. Este formato permite llevar la novela en el bolso o la mochila y mantenerla en una biblioteca doméstica sin el volumen de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e07cf0624944473",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9791388202902",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diario del Ángel Caído se orienta a lectores interesados en relatos de reflexión filosófica con elementos religiosos y referencias a la historia humana. Asier Pitillas Pascual utiliza la figura de Lucifer para examinar la libertad, el conocimiento y las contradicciones de la humanidad. Su propuesta se apoya en una voz narrativa sarcástica y melancólica, más que en una sucesión de enfrentamientos sobrenaturales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Diario del Ángel Caído presenta una narración en forma de diario desde la perspectiva de Lucifer, que observa el desarrollo de la humanidad a través de distintas épocas. Sus encuentros con figuras históricas sirven para contrastar la creatividad humana con la violencia y sus consecuencias. El relato utiliza una voz antigua, irónica y melancólica para plantear cuestiones sobre la libertad y la responsabilidad moral.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Diario del Ángel Caído se publica en tapa blanda, con 152 páginas. La edición física reúne las reflexiones y encuentros de Lucifer a lo largo de diferentes periodos históricos en un volumen de cubierta flexible. Por su extensión, puede transportarse para leer durante desplazamientos y conservarse en papel para volver a determinados pasajes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a309f1cdc6b249c8",
+  "origen": "chatgpt-web"
+}

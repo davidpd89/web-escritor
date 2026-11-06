@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788410944084",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sobre estrategas y estrategias está dirigido a lectores interesados en geopolítica, conflictos militares y decisiones estratégicas durante las crisis internacionales. Su enfoque histórico y analítico se aleja de los manuales empresariales centrados en técnicas de ventas, gestión comercial o desarrollo profesional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Lawrence Freedman reúne análisis sobre pensamiento estratégico, relaciones internacionales y conflictos armados. Sobre estrategas y estrategias examina la disuasión nuclear, las tácticas militares y la interpretación de las guerras modernas, junto con decisiones tomadas por dirigentes y figuras históricas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sobre estrategas y estrategias se presenta en tapa blanda, con 408 páginas dedicadas al análisis histórico y político. Este formato permite consultar en papel los distintos ensayos y regresar a cuestiones concretas, como las armas nucleares o las decisiones adoptadas durante conflictos internacionales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sobre estrategas y estrategias comparte con Cómo ganar una guerra comercial el análisis de conflictos internacionales y decisiones con consecuencias políticas y económicas. Lawrence Freedman examina estrategias militares, crisis y relaciones internacionales, mientras que Soumaya Keynes y Chad P. Bown se centran en las disputas comerciales y los cambios en las reglas del comercio global.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441051"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ef156eedefc81480",
+  "origen": "chatgpt-web"
+}

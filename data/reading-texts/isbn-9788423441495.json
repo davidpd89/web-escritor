@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Trabajos enredados se dirige a lectores interesados en los efectos de la inteligencia artificial sobre el empleo y en el valor de las decisiones humanas dentro del trabajo. Su planteamiento económico se distancia de los manuales técnicos sobre programación y de las predicciones centradas únicamente en la desaparición de profesiones.",
+      "texto": "Trabajos enredados se dirige a lectores interesados en cómo la inteligencia artificial transforma el empleo y las decisiones profesionales. Su perspectiva económica sobre las tareas rutinarias y el criterio humano encaja menos con quien busca instrucciones técnicas para desarrollar sistemas de IA.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,38 +13,35 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Trabajos enredados analiza qué tareas laborales puede asumir la inteligencia artificial y cuáles dependen del juicio y la responsabilidad de las personas. Luis Garicano presenta una interpretación económica que distingue la automatización de actividades rutinarias de la sustitución completa de puestos de trabajo.",
+      "texto": "Luis Garicano examina la relación entre inteligencia artificial, sustitución de tareas y responsabilidad profesional desde una perspectiva económica. El análisis distingue las actividades rutinarias de los trabajos que exigen juicio humano y plantea cómo esa diferencia condiciona el impacto de la automatización sobre el empleo.",
       "evidencias": [
-        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Trabajos enredados está disponible en tapa blanda, con 224 páginas publicadas por Deusto en rústica con solapas. La edición física permite consultar de nuevo sus argumentos sobre automatización, empleo y criterio humano, o conservarla como volumen de divulgación.",
+      "texto": "Trabajos enredados está disponible en tapa blanda, concretamente en rústica con solapas. Sus 224 páginas permiten consultar y retomar los argumentos sobre inteligencia artificial y empleo en un volumen físico que puede transportarse y anotarse durante la lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "editorial",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Trabajos enredados y Los límites del infinito pertenecen al ámbito de la divulgación, pero Luis Garicano examina las consecuencias laborales de la inteligencia artificial e Ian Stewart explora las fronteras de las matemáticas. Matemagia, de Fernando Blasco, también trata cuestiones matemáticas, aunque recurre a juegos y desafíos en lugar de analizar el empleo.",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, comparte con Trabajos enredados el interés por la inteligencia artificial, pero presenta conocimientos generales mientras Luis Garicano se concentra en sus consecuencias laborales. El acorde secreto, de Daniel J. Levitin, también aborda cuestiones científicas, aunque desde la neurociencia y no desde la economía del trabajo.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788491999386",
-        "isbn-9788434441330"
+        "isbn-9788434441309",
+        "isbn-9788449345975"
       ]
     }
   ],

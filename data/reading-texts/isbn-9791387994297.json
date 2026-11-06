@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387994297",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Dónde está Wally? - ¿Dónde está Wally? El libro para colorear está dirigido a niños desde los 7 años que disfrutan coloreando y buscando detalles en ilustraciones. También permite participar a familiares y lectores familiarizados con la colección; encaja menos con quienes prefieren una narración continua a las actividades visuales.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro se utiliza coloreando escenas en blanco y negro de ¿Dónde está Wally? mientras se buscan objetos escondidos entre sus numerosos detalles. Martin Handford combina así dos actividades que pueden realizarse individualmente o en familia, alternando la observación de las ilustraciones con el uso de colores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada comienza a los 7 años y el libro tiene 56 páginas. Ediciones B publica esta edición en castellano y tapa blanda, con actividades de coloreado y búsqueda visual que requieren observar escenas detalladas.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Dónde está Wally? - ¿Dónde está Wally? El libro para colorear figura disponible en tapa dura y tapa blanda. La tapa dura aporta una cubierta rígida para protegerlo durante su uso, mientras que la tapa blanda resulta más flexible al transportarlo; ambas opciones permiten realizar las actividades directamente sobre papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eb05cb5bfed84457",
+  "origen": "chatgpt-web"
+}

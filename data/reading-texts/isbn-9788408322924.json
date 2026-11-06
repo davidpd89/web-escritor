@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9788408322924",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra de Roberto Santiago está dirigida a lectores de 9 a 12 años interesados en la música, la fama y los misterios con elementos extraordinarios. La historia sigue a cinco integrantes de un grupo musical que alcanza popularidad mundial, mientras Kasandra comienza a experimentar cambios extraños. Se aleja de las narraciones exclusivamente realistas y de las historias centradas en conflictos escolares cotidianos.",
+      "evidencias": [
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se lee como una narración juvenil que puede dividirse en varias sesiones, siguiendo los acontecimientos que afectan a los integrantes de un grupo musical. Las 368 páginas desarrollan una historia en la que Kasandra comienza a experimentar cambios inesperados al cumplir once años. La edición física en rústica con solapas permite avanzar por el relato y retomarlo posteriormente.",
+      "evidencias": [
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada es de 9 a 12 años y la edición contiene 368 páginas en castellano. Se publica en tapa blanda, mediante una encuadernación rústica con solapas de Destino Infantil & Juvenil. Su extensión permite organizar la lectura en varias sesiones y su argumento combina música, popularidad y acontecimientos extraordinarios.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "editorial",
+        "formato_edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La presentación disponible es de tapa blanda, con encuadernación rústica y solapas. El volumen reúne 368 páginas y puede transportarse en una mochila para leerlo en distintos momentos. También permite conservar un ejemplar físico, prestarlo o entregarlo como regalo a un lector de 9 a 12 años.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "edad_recomendada"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esta historia y Los Once 12. El partido decisivo: rumbo al Himalaya comparten la autoría de Roberto Santiago y presentan grupos juveniles vinculados a una actividad común. En la primera, cinco integrantes de un grupo musical alcanzan fama mundial y afrontan acontecimientos extraños; en la segunda, un equipo infantil de fútbol viaja a Katmandú, Nepal, para enfrentarse a los Trishuli. La diferencia principal está en el misterio relacionado con la música frente a la competición deportiva.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326540"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "25978c4b199c71d6",
+  "origen": "chatgpt-web"
+}

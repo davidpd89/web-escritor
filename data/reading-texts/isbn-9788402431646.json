@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788402431646",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Culos. Una historia gráfica del trasero (y lo que hay detrás) se dirige a lectores adultos interesados en la representación del cuerpo, los cánones estéticos y su dimensión social. Su tratamiento del deseo, el género y las desigualdades mediante viñetas se distancia de los cómics centrados en aventuras de ficción.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Culos. Una historia gráfica del trasero (y lo que hay detrás) es un ensayo en formato cómic que examina cómo ha cambiado la percepción cultural de una parte del cuerpo. Combina referencias artísticas, episodios históricos y análisis de convenciones sociales mediante ilustraciones a color y humor.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Culos. Una historia gráfica del trasero (y lo que hay detrás) contiene 208 páginas y permite consultar físicamente las viñetas a color y las referencias visuales. Kindle ofrece una alternativa digital para leer el ensayo gráfico sin transportar el ejemplar, con la visualización de las ilustraciones condicionada por la pantalla utilizada.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Culos. Una historia gráfica del trasero (y lo que hay detrás) y Cansadas de quedar bien se relacionan por su atención a las presiones sociales, aunque el primero estudia los ideales corporales mediante cómic y el segundo parte de la dificultad para decir que no. Esas muchachas que escriben poemas presenta distintas experiencias de mujeres desde el ámbito literario, frente al análisis histórico y visual de Erell Hannah.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431622",
+        "isbn-9788426434272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2fd851f44b0ca468",
+  "origen": "chatgpt-web"
+}

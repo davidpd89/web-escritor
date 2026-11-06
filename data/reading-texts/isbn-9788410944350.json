@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410944350",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Funeral en Greyfriars + Guía de Edimburgo encaja con lectores de fantasía interesados en relaciones afectivas, sueños misteriosos y vínculos sobrenaturales. La historia de Carmen Santaella combina una crisis personal con elementos románticos; se aleja de la fantasía centrada en batallas o sistemas de magia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Funeral en Greyfriars + Guía de Edimburgo propone una historia fantástica de componente romántico ambientada en Edimburgo. Su conflicto relaciona la reconstrucción personal de Alba con la presencia recurrente de Agnes en sus sueños y una conexión que desafía el paso del tiempo. El título incorpora además una guía de la ciudad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Funeral en Greyfriars + Guía de Edimburgo está disponible en tapa blanda, con una extensión de 208 páginas. La edición reúne en un volumen físico la historia ambientada en Edimburgo y la guía anunciada en el título, de modo que ambas partes pueden consultarse en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "065452c8fb705022",
+  "origen": "chatgpt-web"
+}

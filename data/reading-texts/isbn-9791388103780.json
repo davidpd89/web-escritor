@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791388103780",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mirror Game nº 02 se dirige a lectores de cómic interesados en los misterios de identidad, las investigaciones y las amenazas psicológicas. Su componente terrorífico y la búsqueda de recuerdos perdidos lo alejan de las historias humorísticas o de aventuras ligeras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un cómic de misterio con elementos de terror y magia, centrado en dos investigaciones relacionadas con K. Seo Jinwoo intenta reconstruir su pasado mientras Cha Jihyeon busca desenmascarar al responsable de los acontecimientos; el título lo identifica como el n.º 02.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mirror Game nº 02 está disponible en tapa blanda, en una edición rústica con solapas de Planeta Cómic. Sus 192 páginas permiten leer el volumen en papel y conservarlo junto a otros títulos de la colección, sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ba7c18664b383679",
+  "origen": "chatgpt-web"
+}

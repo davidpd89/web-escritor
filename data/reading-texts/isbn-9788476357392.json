@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788476357392",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ormuz. Historia militar de un estrecho se dirige a lectores interesados en la historia militar y en la relación entre geografía, comercio y poder político. Sus 92 páginas se concentran en conflictos y estrategias de control marítimo, por lo que se aleja de una historia general de las guerras terrestres.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Luis Claret analiza cómo la geografía del estrecho de Ormuz ha condicionado las estrategias militares y el control de las rutas comerciales durante siglos. El estudio recorre episodios desde el siglo IV a. C. hasta 2026 y examina el papel de las potencias navales, los bloqueos y las amenazas de cierre como instrumentos de presión política.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 92 páginas de Ormuz. Historia militar de un estrecho en un volumen físico de extensión breve. La opción Kindle permite consultar el mismo título desde un lector electrónico o un dispositivo compatible, mientras que el papel facilita volver a los distintos episodios históricos durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ormuz. Historia militar de un estrecho comparte con Auge y caída del Tercer Reich (edición especial) el interés por los conflictos históricos y sus consecuencias políticas. El libro de Luis Claret delimita su estudio a un paso marítimo estratégico, mientras que el de William L. Shirer aborda la trayectoria de un régimen político.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005555"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "af5d31598747e766",
+  "origen": "chatgpt-web"
+}

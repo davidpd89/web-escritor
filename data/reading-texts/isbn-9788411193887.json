@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788411193887",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amiga, sepárate ya, de Coral Herrera, se dirige a mujeres que quieren examinar sus relaciones de pareja, reconocer la dependencia emocional y cuestionar las ideas heredadas sobre el amor. Su enfoque de desarrollo personal no responde a quien busca una novela romántica o una historia de ficción, sino a quien necesita reflexionar sobre el miedo, la culpa y las decisiones afectivas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amiga, sepárate ya está disponible en tapa blanda y Kindle. La edición física de Diana reúne 240 páginas en rústica con solapas, una opción para subrayar y consultar pasajes sobre relaciones y autonomía emocional; Kindle permite llevar esa misma lectura en un dispositivo compatible y retomarla sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d0af4e2d156c849a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788411005463",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mentalidad ganadora se dirige a lectores interesados en las memorias deportivas y el desarrollo personal a través de experiencias reales. Juan Carlos Ferrero aborda su trayectoria en el tenis desde dos posiciones, jugador y entrenador; no es una novela ni un manual centrado exclusivamente en ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mentalidad ganadora está disponible en tapa blanda y Kindle. La edición física de Ediciones Península tiene 288 páginas y encuadernación rústica con solapas, adecuada para conservarla en papel o regalarla; Kindle permite llevar la lectura en un dispositivo electrónico sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mentalidad ganadora y David Summers: en persona se aproximan a trayectorias de figuras públicas, aunque el primero se centra en el tenis y el segundo en la música. Dustin Hoffman: look at me también aborda una carrera reconocida, pero desde la biografía cinematográfica y con una autoría distinta del relato personal de Juan Carlos Ferrero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049379",
+        "isbn-9788448049843"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7eb07a419275b76b",
+  "origen": "chatgpt-web"
+}

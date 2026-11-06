@@ -1,0 +1,65 @@
+{
+  "id": "isbn-9788448874902",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a niños desde los 4 años interesados en cómics de superhéroes con humor y enfrentamientos entre personajes extravagantes. Augusta Ricachón y Malicia la Maligna intentan capturar al protagonista, por lo que resulta menos afín a lectores que prefieren aventuras cotidianas sin villanos ni persecuciones.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Beascoa publica esta nueva edición en tapa blanda y castellano, con 64 páginas y una historia centrada en la persecución de SUPERSUPERPATATA. El volumen incorpora cantos romos y limita cada página a seis viñetas como máximo. La presentación actualizada mantiene la aventura original dentro de la colección.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Es un cómic infantil recomendado a partir de 4 años, con 64 páginas en castellano. La edición física utiliza tapa blanda y cantos romos, mientras que las páginas contienen un máximo de seis viñetas. Su estructura visual permite alternar la lectura de textos breves con el seguimiento de las ilustraciones.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En tapa blanda, las 64 páginas se pueden recorrer físicamente, señalando las viñetas durante una lectura acompañada. Kindle ofrece una alternativa digital para llevar el cómic en un dispositivo compatible y consultar las ilustraciones en pantalla. El papel facilita pasar las hojas; el formato electrónico evita transportar el ejemplar.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Superpatata 8 - Los peligrosos caprichos de Augusta Ricachón (parte 1) (NUEVA EDICIÓN) presenta el conflicto anterior, centrado en el deseo de Augusta Ricachón de conseguir un pterosaurio. Este libro traslada su obsesión al propio superhéroe. Superpatata 11 - El secuestro de Papá Noel comparte el universo de Artur Laperla, pero anuncia otro conflicto desde el título.",
+      "evidencias": [
+        "afines_catalogo",
+        "sinopsis_editorial",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788448874940",
+        "isbn-9788448874889"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6bfb462ec01402dc",
+  "origen": "chatgpt-web"
+}

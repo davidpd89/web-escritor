@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791387973971",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aunque no lo merezcas se dirige a lectores adultos interesados en la espiritualidad cristiana, la autoestima y las relaciones personales. Olatz Elola aborda la exigencia de ser una mujer perfecta desde una experiencia de fe; encaja menos con quienes buscan un tratamiento exclusivamente secular del bienestar emocional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Aunque no lo merezcas combina una experiencia personal con una reflexión religiosa sobre la aceptación de las propias imperfecciones. Olatz Elola relaciona las exigencias familiares, laborales y sentimentales con un cambio en su manera de entender el amor a partir de su encuentro con Dios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aunque no lo merezcas está disponible en tapa blanda y Kindle. La edición impresa de Montena tiene 192 páginas y solapas; la versión Kindle permite leer el mismo título desde un dispositivo compatible y ajustar la visualización del texto según las opciones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aunque no lo merezcas y Los genios creen en Dios comparten el interés por la fe, pero parten de enfoques diferentes. Olatz Elola trata la transformación personal y la aceptación de las imperfecciones, mientras que José Carlos González-Hurtado aborda la relación entre las creencias religiosas y la ciencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410096547"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0fbcc46453fe2391",
+  "origen": "chatgpt-web"
+}

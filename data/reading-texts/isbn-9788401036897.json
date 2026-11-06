@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los escalones, de Sylvester Stallone, está dirigido a adultos interesados en las autobiografías y en los obstáculos que preceden a una carrera cinematográfica. Su enfoque en la perseverancia, las decisiones profesionales y la experiencia personal encaja menos con quien busca una guía técnica de interpretación o una historia de ficción.",
+      "texto": "Los escalones está dirigido a lectores adultos interesados en las memorias de figuras del cine y en los procesos personales de superación. Su recorrido por la infancia, las dificultades profesionales y la creación de Rocky lo distingue de una biografía histórica ajena al mundo cinematográfico.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,27 +14,25 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Los escalones examina la relación entre las dificultades personales, la ambición artística y la construcción de una trayectoria profesional. Sylvester Stallone utiliza sus recuerdos de infancia, sus primeros años en Nueva York y la creación de Rocky para reflexionar sobre la voluntad, el trabajo y la capacidad de superar obstáculos.",
+      "texto": "Sylvester Stallone reconstruye su trayectoria personal y profesional mediante recuerdos de infancia, obstáculos escolares y experiencias anteriores a su reconocimiento cinematográfico. La narración presta especial atención al esfuerzo, la creatividad y la perseverancia, con la creación de Rocky como episodio central.",
       "evidencias": [
-        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los escalones puede leerse en tapa dura o Kindle. La edición de Plaza & Janés reúne 352 páginas con sobrecubierta, una presentación física apropiada para conservar o regalar; Kindle facilita consultar y continuar las memorias en el móvil o en un lector electrónico compatible.",
+      "texto": "Los escalones tiene 352 páginas y puede elegirse en tapa dura, tapa blanda, Kindle o audiolibro. La tapa dura con sobrecubierta ofrece una presentación para conservar o regalar; la blanda facilita el transporte, Kindle permite leerlo en el móvil y el audiolibro ofrece la alternativa de escucharlo.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los escalones y El canto del cisne parten de experiencias personales de figuras públicas, pero Sylvester Stallone se concentra en la perseverancia profesional mientras Charles Spencer aborda una pérdida familiar. Frente a Detrás de una Estrella, centrado en la transformación de una empresa cervecera, Los escalones examina el esfuerzo individual en una carrera artística.",
+      "texto": "Los escalones y Churchill comparten el interés por reconstruir la trayectoria de una personalidad conocida y las circunstancias que marcaron su vida. Sylvester Stallone relata su propia experiencia en el cine, mientras que Churchill, de Paul Johnson y Diego Pereda Sancho, presenta una figura histórica desde el análisis biográfico de un historiador.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,13 +40,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423441075",
-        "isbn-9788401039928"
+        "isbn-9791388328046"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "54b0fb81570c3408",
+  "fuente_hash": "b4939865e08149b8",
   "origen": "chatgpt-web"
 }

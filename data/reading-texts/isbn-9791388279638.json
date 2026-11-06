@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388279638",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pregúntale al universo está orientado a lectores interesados en comprender la astrología y su presencia en las conversaciones cotidianas. Su enfoque esotérico y explicativo se distancia de una novela de ficción o de un manual de astronomía científica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Gemma Blat Gené presenta una guía de astrología centrada en interpretar el significado que se atribuye a los astros en relación con las personas. La obra parte de la presencia habitual de este tema en redes sociales y conversaciones entre amigos para desarrollar una explicación dentro del ámbito del esoterismo.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pregúntale al universo cuenta con una edición en tapa blanda de 336 páginas, publicada por Temas de Hoy en rústica con solapas. El volumen físico permite volver a los apartados de esta guía astrológica durante su consulta y conservarla como lectura de referencia.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diálogos sobre lo desconocido y Pregúntale al universo coinciden en explorar asuntos ajenos a las explicaciones cotidianas, pero David Cuevas reúne testimonios de más de 40 personalidades y Gemma Blat Gené se centra en la astrología. Tras la pista del mal aborda la relación del crimen con el mito, el ritual o la fe, frente al enfoque astrológico de Pregúntale al universo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387667849",
+        "isbn-9791387667924"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e12405d9cf2cf35d",
+  "origen": "chatgpt-web"
+}

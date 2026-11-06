@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388038037",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nadie te cuidará tanto como tú se dirige a lectores adultos interesados en el autocuidado, la prevención y los hábitos relacionados con la salud. Su enfoque combina bienestar cotidiano y prácticas de tradición naturista, por lo que no responde a quien busca una narración de ficción o una historia protagonizada por personajes.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nadie te cuidará tanto como tú puede leerse en tapa blanda o Kindle. La edición impresa de Vergara tiene 288 páginas y solapas, adecuadas para consultar físicamente sus contenidos sobre autocuidado; Kindle permite llevar el texto en un dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nadie te cuidará tanto como tú y 5 semanas para desinflamarte (edición limitada) comparten el interés por los cambios relacionados con el bienestar personal. El libro de Dr. Karmelo Bizkarra aborda el autocuidado desde la prevención, los hábitos saludables y las prácticas naturistas, mientras que el título de Blanca García-Orea Haro plantea una transformación personal vinculada a la desinflamación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a849187a48d9820",
+  "origen": "chatgpt-web"
+}

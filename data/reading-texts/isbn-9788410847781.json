@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788410847781",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gloria Fuertes. Tanto amas, tanto vales se dirige a quienes buscan poesía y textos breves vinculados con la literatura infantil. Gloria Fuertes reúne cuentos, adivinanzas y versos humorísticos, por lo que su contenido se aparta de una novela de argumento continuo y también de una antología exclusivamente adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Gloria Fuertes. Tanto amas, tanto vales propone una lectura fragmentada, organizada alrededor de los asuntos recurrentes de la escritura infantil de Gloria Fuertes. Alterna formas narrativas y poéticas, con el humor y el afecto como elementos comunes. Sus 304 páginas permiten escoger textos individuales en lugar de seguir una historia de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gloria Fuertes. Tanto amas, tanto vales está disponible en tapa dura. Esta edición de Susaeta Ediciones reúne 304 páginas y permite conservar juntos poemas, cuentos y adivinanzas en un volumen físico, tanto para la lectura compartida como para volver a textos concretos.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gloria Fuertes. Tanto amas, tanto vales comparte con Antología la reunión de escritos poéticos, pero la obra de Gloria Fuertes incorpora cuentos y adivinanzas infantiles, mientras que la de Antonio Cano recopila su producción completa. El libro de los gatos también combina poemas con otras formas expresivas, aunque Ursula K. Le Guin centra su volumen en los gatos y añade meditaciones y dibujos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370140908",
+        "isbn-9791388306297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1ae5f70ab057642a",
+  "origen": "chatgpt-web"
+}

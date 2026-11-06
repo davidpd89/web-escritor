@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Amor, de Patri Psicóloga y Yolanda Cuevas, está dirigido a adultos que quieren trabajar el cuidado de su relación mediante una práctica semanal. Aborda la comunicación, la escucha y la convivencia cotidiana, por lo que se aleja de los libros centrados en encontrar pareja o superar una ruptura. Su planteamiento requiere participación, no únicamente lectura.",
+      "texto": "Amor está dirigido a adultos que desean trabajar el cuidado de su relación de pareja mediante actividades periódicas. Patri Psicóloga y Yolanda Cuevas plantean ejercicios relacionados con la comunicación y la atención mutua; no es una novela romántica ni un libro centrado en superar una ruptura.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,11 +15,9 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Amor se publica en tapa dura y Kindle, con 224 páginas en la edición física de Grijalbo. La tapa dura permite mantener el libro a mano para consultar las propuestas semanales y también regalarlo. Kindle facilita acceder a esas prácticas desde el móvil o un lector electrónico, especialmente cuando se realizan fuera de casa.",
+      "texto": "La tapa dura presenta las 224 páginas de Amor en un volumen físico que la pareja puede compartir al realizar las prácticas semanales. Kindle facilita consultar las propuestas desde el móvil o un lector electrónico, mientras que el audiolibro permite escucharlas sin necesidad de mantener el texto delante.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
@@ -27,7 +25,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amor y Los cinco acuerdos de la pareja comparten el interés por cuidar las relaciones mediante acciones concretas. El primero, de Patri Psicóloga y Yolanda Cuevas, organiza una práctica por semana; el segundo, de Nilda Chiaraviglio, se centra en establecer acuerdos sobre la relación y la comunicación. Frente a ambos, Nadie duele para siempre, de Marcelo Júnior, aborda la pérdida que sigue a una ruptura.",
+      "texto": "Los cinco acuerdos de la pareja y Amor comparten un enfoque práctico sobre el cuidado de las relaciones y la comunicación. El libro de Nilda Chiaraviglio se articula alrededor de acuerdos para construir una relación, mientras que Patri Psicóloga y Yolanda Cuevas distribuyen sus propuestas en prácticas semanales. Nadie duele para siempre se ocupa de la pérdida tras una ruptura, frente al trabajo sobre una relación que continúa en Amor.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,6 +40,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a5f5a9f8c9febce3",
+  "fuente_hash": "a9255f7cd9a915a4",
   "origen": "chatgpt-web"
 }

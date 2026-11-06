@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388102660",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Spawn: Siniestros Relatos de Gunslinger nº 01 se dirige a lectores de cómic interesados en conocer los antecedentes de Gunslinger Spawn y su lugar dentro del Universo Spawn. Su atención a un personaje concreto encaja menos con quien busca una historia ajena a ese universo de ficción. El título lo identifica como el n.º 01.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Spawn: Siniestros Relatos de Gunslinger nº 01 desarrolla la historia de Gunslinger Spawn dentro del Universo Spawn. El relato se centra en revelar los antecedentes de esta figura, con guion de Jimmy Palmiotti e ilustraciones de Patric Reynolds y Dudu Pansica. Su planteamiento corresponde a una narración gráfica centrada en el pasado de un personaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Spawn: Siniestros Relatos de Gunslinger nº 01 está publicada por Planeta Cómic en castellano y utiliza encuadernación cartoné sin sobrecubierta. Reúne 304 páginas en tapa dura y tiene como fecha editorial el 20 de enero de 2027. Su ISBN es 9791388102660, identificador que permite distinguirla de otras presentaciones comerciales.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "formato_edicion",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Spawn: Siniestros Relatos de Gunslinger nº 01 se comercializa en tapa dura, con cubiertas rígidas y sin sobrecubierta. Sus 304 páginas permiten leer la historia de Gunslinger Spawn en un volumen físico que protege las páginas durante el almacenamiento y facilita conservar la edición junto a otros cómics.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a3accadb61ed2b4",
+  "origen": "chatgpt-web"
+}

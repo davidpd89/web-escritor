@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Diario de Greg 21 - Montando un pollo está dirigido a lectores a partir de 7 años interesados en los conflictos escolares y las dificultades de la convivencia entre compañeros. La historia aborda el miedo a los matones y las consecuencias de revelar información sobre ellos, por lo que se aleja de las aventuras fantásticas y los relatos de exploración.",
+      "texto": "Diario de Greg 21 - Montando un pollo está dirigido a lectores a partir de 7 años interesados en historias escolares con conflictos entre compañeros. Su argumento sobre intimidación, secretos y estrategias para evitar problemas encaja menos con quienes buscan aventuras alejadas del entorno escolar.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,47 +14,42 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Diario de Greg 21 - Montando un pollo está recomendado a partir de 7 años y cuenta con 224 páginas en castellano. La edición de Molino es de tapa dura y presenta un conflicto escolar protagonizado por Greg Heffley; el título lo identifica como el n.º 21.",
+      "texto": "Diario de Greg 21 - Montando un pollo está recomendado a partir de 7 años y tiene 224 páginas. Esta edición de Molino se presenta en tapa dura y en castellano; su historia gira alrededor de los problemas escolares de Greg Heffley y de una carpeta con información comprometida sobre otros alumnos.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "numero_paginas",
-        "idioma",
-        "editorial",
         "edicion",
+        "editorial",
+        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Diario de Greg 21 - Montando un pollo está disponible en tapa dura y Kindle. La edición física de Molino reúne sus 224 páginas en un volumen de cubierta rígida, mientras que Kindle permite seguir los problemas escolares de Greg Heffley desde un dispositivo de lectura digital.",
+      "texto": "Diario de Greg 21 - Montando un pollo puede elegirse en tapa dura, Kindle o audiolibro. La tapa dura reúne sus 224 páginas en un volumen físico para leer y conservar; Kindle permite llevarlo en el móvil o lector electrónico, mientras que el audiolibro ofrece la posibilidad de escuchar la historia.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aprender a leer en la Escuela de Monstruos 24 - Dos artistas muy solistas y Diario de Greg 21 - Montando un pollo comparten el ámbito de las lecturas infantiles, pero el primero gira alrededor del canto y las actuaciones, mientras que el segundo aborda problemas con matones escolares. Capitán Patata 2 - Quietecito o te dejo frito propone miniaventuras absurdas de un superhéroe, frente al conflicto de instituto que afronta Greg Heffley.",
+      "texto": "Diario de Greg 21 - Montando un pollo y Abre el misterio 1 - El robo de las croquetas comparten un conflicto que parte de un objeto desaparecido o fuera de su lugar. En el libro de Jeff Kinney, una carpeta compromete a su protagonista ante otros alumnos; el de Carlos G. Gurpegui plantea la desaparición de unas croquetas como punto de partida de un misterio.",
       "evidencias": [
         "titulo",
-        "edad_recomendada",
-        "categorias",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387724184",
-        "isbn-9788427254985"
+        "isbn-9788427256644"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "175b786c1f4665cf",
+  "fuente_hash": "22a3bb39fe785fd8",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370342043",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Colores está pensado para compartir con niños pequeños mediante la observación de colores y la exploración táctil de sus páginas. Su propuesta visual y sensorial, de 20 páginas, se diferencia de los libros infantiles que priorizan una trama larga o la lectura continuada de texto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Colores está disponible en tapa dura, con 20 páginas destinadas a la exploración visual y táctil. Esta edición física de Susaeta Ediciones permite tocar directamente las superficies de cada página y observar sus colores durante la lectura compartida con niños pequeños.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Colores y Dinosaurios, ambos de Ediciones Susaeta, proponen actividades infantiles relacionadas con elementos visuales. Colores se centra en el brillo, los colores y el tacto de las páginas, mientras que Dinosaurios plantea colorear láminas y decorarlas con pegatinas. El primero invita a explorar superficies; el segundo, a intervenir sobre dibujos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370342654"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ab0bec5d23a6d792",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Qué vino con este pato? Edición especial con cantos tintados se dirige a quienes quieren comprender el maridaje desde la cocina y sus fundamentos teóricos. Ferran Centelles aborda la relación entre vino y comida desde su experiencia como sumiller; no es una obra narrativa ni un recetario centrado en preparar platos.",
+      "texto": "¿Qué vino con este pato? Edición especial con cantos tintados se dirige a quienes quieren comprender cómo se combinan los vinos con los alimentos. Ferran Centelles aborda el maridaje desde sus fundamentos científicos y teóricos, por lo que su enfoque se aleja de los recetarios centrados en preparar platos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,44 +14,43 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de ¿Qué vino con este pato? Edición especial con cantos tintados se distingue por el acabado de sus cantos y su encuadernación en tapa dura con sobrecubierta. Planeta Gastro la publica el 14 de octubre de 2026 con 320 páginas en castellano, características que permiten identificar esta presentación física.",
+      "texto": "Esta edición de ¿Qué vino con este pato? Edición especial con cantos tintados se distingue por sus cantos tintados y su encuadernación en tapa dura con sobrecubierta. Planeta Gastro la publicó el 14 de octubre de 2026, con 320 páginas en castellano y el ISBN 9788408327363.",
       "evidencias": [
         "titulo",
         "edicion",
         "editorial",
         "fecha_publicacion",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura con sobrecubierta es el formato disponible de ¿Qué vino con este pato? Edición especial con cantos tintados. Sus 320 páginas reúnen una exposición sobre la ciencia y las teorías del maridaje; la encuadernación rígida y los cantos tintados favorecen su conservación como libro de consulta o regalo físico.",
+      "texto": "La tapa dura de ¿Qué vino con este pato? Edición especial con cantos tintados reúne 320 páginas en un volumen con sobrecubierta, apropiado para consultar en una mesa o conservar en una estantería. La tapa blanda facilita manejarlo durante la lectura y Kindle permite consultar su contenido desde el móvil sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
         "numero_paginas",
-        "sinopsis_editorial"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Qué vino con este pato? Edición especial con cantos tintados y Experto en carnes en 24 horas comparten el interés por comprender mejor los alimentos y su preparación o acompañamiento. Ferran Centelles estudia los fundamentos del maridaje entre vino y comida, mientras que Elisabeth G. Iborra se centra en las clases de carne, sus cortes y las técnicas de cocción.",
+      "texto": "¿Qué vino con este pato? Edición especial con cantos tintados y Comprender el vino. Edición especial con cantos tintados comparten el interés por el vino, pero responden a preguntas diferentes. Ferran Centelles estudia las teorías del maridaje, mientras que Pedro Ballesteros Torres se centra en conocer y entender los principales vinos españoles.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408330950"
+        "isbn-9788408327356"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8e6dd220907cc2b6",
+  "fuente_hash": "b62a9a6ffb950933",
   "origen": "chatgpt-web"
 }

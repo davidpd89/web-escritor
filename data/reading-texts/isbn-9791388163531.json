@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388163531",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El divorcio, de Freida McFadden, está dirigido a lectores adultos de suspense psicológico interesados en las rupturas matrimoniales, la obsesión y los secretos familiares. Quienes busquen una historia de reconciliación romántica encontrarán un conflicto centrado en la desconfianza y el peligro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El divorcio plantea un thriller construido alrededor de las consecuencias de una separación conflictiva. Naomi pierde su estabilidad económica y familiar tras la ruptura, pero su atención se concentra en la nueva pareja de su marido y en unos secretos que amenazan su seguridad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El divorcio puede leerse en tapa blanda o en Kindle. La edición impresa de Suma de Letras reúne 352 páginas y lleva solapas, mientras que Kindle permite consultar la novela en un lector electrónico o en un móvil compatible sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El divorcio y La compañera son novelas de Freida McFadden que utilizan secretos y amenazas personales para sostener el suspense. La compañera relaciona el peligro con acontecimientos del pasado, mientras que El divorcio lo sitúa en una separación matrimonial y la obsesión por una nueva pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388163555"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "961d9519c0a0506f",
+  "origen": "chatgpt-web"
+}

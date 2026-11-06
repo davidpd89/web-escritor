@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791399130829",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La bicicleta robada se orienta a lectores de narrativa contemporánea e histórica que buscan historias familiares conectadas con acontecimientos colectivos. La investigación sobre una desaparición se desarrolla mediante relatos entrecruzados, de modo que se aparta de una intriga construida únicamente alrededor de pistas y una resolución policial.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La bicicleta robada combina una búsqueda familiar con episodios históricos y recuerdos vinculados a Taiwán. El hilo conductor es una bicicleta cuya trayectoria conecta personajes y periodos distintos, desde la Segunda Guerra Mundial hasta historias de coleccionismo y oficios artesanales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La bicicleta robada se presenta en tapa blanda, con 448 páginas publicadas por Editorial Más Al Este. Es una edición física para seguir una narración extensa que alterna historias personales y acontecimientos históricos, con posibilidad de retroceder entre sus diferentes episodios.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La bicicleta robada puede compararse con Cosamala por su incorporación de hechos históricos a una narración que también utiliza elementos imaginados. Ming-Yi Wu articula historias familiares y memoria de Taiwán, mientras que Alana S. Portero parte de un crimen de la guerra civil para desarrollar una novela de componentes góticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "31cccc3fffb4d4a2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788491459354",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Buenas noches, robot se dirige al público infantil interesado en robots, exploración espacial y relatos vinculados a canciones tradicionales. Sus 7 páginas plantean una lectura breve centrada en una aventura por el espacio; no responde a quien busca una historia extensa de ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Buenas noches, robot se publica en tapa dura, con 7 páginas en castellano. Esta edición física reúne en un volumen breve las escenas de exploración espacial del robot y su relación con la canción infantil Estrellita, ¿dónde estás?",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Buenas noches, robot comparte con Buenas noches, hada la autoría de Jeffrey Burton y Zoe Waring y una propuesta infantil vinculada a mundos imaginarios. Mientras el primero presenta un robot que explora el espacio, Buenas noches, hada sitúa su propuesta en un entorno de magia y vuelo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491459347"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f14a7f0769e6e0fc",
+  "origen": "chatgpt-web"
+}

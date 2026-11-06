@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788411406277",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Creepy nº 25/29 está dirigido a lectores de cómic de terror interesados en monstruos, amenazas sobrenaturales y criaturas extraterrestres. Sus imágenes de tumbas, desesperación y seres infernales lo alejan de una lectura infantil ligera; el título lo identifica como el n.º 25/29.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Creepy nº 25/29 propone terror en formato de cómic, con amenazas que incluyen criaturas monstruosas, seres infernales y peligros de origen extraterrestre. La presentación insiste en la inquietud y el horror, por lo que su orientación es distinta de la aventura humorística o de la narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Creepy nº 25/29 contiene 272 páginas en castellano y permite conservar el cómic como volumen físico para releer sus ilustraciones. Kindle ofrece una alternativa digital para llevarlo en un dispositivo compatible, aunque la experiencia de observar las viñetas dependerá del tamaño de la pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Creepy nº 25/29 comparte con Creepy nº 11/29 la autoría colectiva y el terror, aunque son entregas identificadas con números diferentes. Eerie nº 21/27 también aparece firmado por Varios Autores y se presenta con una referencia al Apocalipsis, mientras que Creepy nº 25/29 destaca monstruos, criaturas infernales y amenazas extraterrestres.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411406130",
+        "isbn-9788411406529"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d5705a99157ada0a",
+  "origen": "chatgpt-web"
+}

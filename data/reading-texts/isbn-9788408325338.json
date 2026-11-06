@@ -4,7 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una corte de armonía rota encaja con lectores de fantasía romántica interesados en territorios fae, amenazas antiguas y conflictos por el poder. Es una entrega de Una corte de rosas y espinas, por lo que resulta menos apropiada para quien busca una historia independiente o una ambientación realista.",
+      "texto": "Una corte de armonía rota se dirige a lectores de fantasía romántica interesados en territorios fae, amenazas antiguas y disputas por el poder. Su planteamiento sobrenatural y político se distancia de las novelas románticas contemporáneas centradas exclusivamente en relaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Una corte de armonía rota pertenece a la fantasía romántica y amplía el universo de Una corte de rosas y espinas. La posible liberación de Koschei el Inmortal altera el equilibrio entre los fae y favorece la formación de alianzas interesadas en recuperar antiguos dominios. La trama plantea una amenaza sobrenatural ligada a rivalidades territoriales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,8 +22,9 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas ofrece las 400 páginas en una edición física de Crossbooks, útil para mantener la colección en papel. Kindle permite llevar esta entrega digitalmente y continuar su lectura desde un dispositivo compatible sin cargar con el volumen impreso.",
+      "texto": "Una corte de armonía rota ofrece dos opciones de lectura: tapa blanda y Kindle. La edición física de Crossbooks reúne 400 páginas en rústica con solapas, mientras que Kindle permite llevar la novela en un lector electrónico o dispositivo compatible sin transportar el volumen impreso.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "edicion",
@@ -23,24 +33,22 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Donde duermen las sombras comparte con Una corte de armonía rota la combinación de fantasía y romance, pero sitúa el amor en un contexto contemporáneo de dimensiones y sombras. Guerra de dragones (Lengua de dragones 2) se aproxima más por el conflicto colectivo, aunque se centra en una rebelión con dragones frente a la amenaza sobre los territorios fae.",
+      "texto": "Una corte de armonía rota puede compararse con Casa de cielo y aliento (Ciudad Medialuna 2), otra obra de Sarah J. Maas vinculada a una saga de fantasía. La primera plantea una amenaza antigua sobre los territorios fae, mientras que la segunda se identifica como una entrega de Ciudad Medialuna. Alas de escarcha y oro: El canto del cisne comparte el interés por las estructuras de poder, aunque desarrolla su conflicto alrededor de una aspirante y una corte.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055605",
-        "isbn-9788419275776"
+        "isbn-9788466396080",
+        "isbn-9791387949938"
       ]
     }
   ],
-  "descartados": [
-    "encaje_documentado: copia 8 palabras seguidas de la sinopsis",
-    "faltan módulos: encaje_documentado"
-  ],
+  "descartados": [],
   "version": 3,
-  "fuente_hash": "c343381740238396",
+  "fuente_hash": "a9165b7642a7997a",
   "origen": "chatgpt-web"
 }

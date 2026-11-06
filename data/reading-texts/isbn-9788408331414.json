@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788408331414",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historiones de la mitología se dirige a lectores interesados en los relatos clásicos, sus dioses, héroes y criaturas, tratados con humor y atención al contexto. Su enfoque narrativo sobre mitos y transformaciones no encaja con quien busca exclusivamente un manual de prácticas religiosas.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Historiones de la mitología recupera relatos de la tradición clásica mediante una exposición divulgativa que combina rigor y humor. Irene González Cabrera aborda figuras heroicas, monstruos, venganzas y metamorfosis, dentro de una nueva entrega de la colección Historiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Historiones de la mitología está disponible en tapa dura sin sobrecubierta, con encuadernación cartoné. Sus 248 páginas en castellano forman un volumen físico para consultar los relatos mitológicos, conservarlo en una biblioteca o entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas de la mitología ilustrado comparte con Historiones de la mitología el interés por acercar los mitos al lector desde una perspectiva cultural. El primero pertenece a una colección de atlas ilustrados, mientras que Historiones de la mitología, de Irene González Cabrera, recupera relatos clásicos con una narración que incorpora humor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388220104"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3281cb4546761bde",
+  "origen": "chatgpt-web"
+}

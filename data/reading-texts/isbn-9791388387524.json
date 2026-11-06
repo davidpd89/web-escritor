@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9791388387524",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Atención y esfuerzo se dirige a lectores adultos interesados en la psicología, la concentración y los mecanismos del pensamiento. Su enfoque científico, basado en experimentos y teorías cognitivas, se aleja de los manuales de desarrollo personal centrados en consejos rápidos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Atención y esfuerzo, publicada por Debate el 12 de noviembre de 2026, incorpora una introducción del neurocientífico Daniel Levitin. Reúne 384 páginas en castellano y se presenta en tapa blanda con solapas, con un texto publicado originalmente en 1973.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "edicion",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas permite consultar y señalar pasajes de las 384 páginas de Atención y esfuerzo durante el estudio. Kindle facilita llevar el ensayo en el móvil y retomar la lectura sin transportar el volumen físico; ambos formatos sirven para abordar sus explicaciones sobre la atención y el esfuerzo mental.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atención y esfuerzo y El tercer cerebro está en los pies tratan aspectos del funcionamiento humano, pero el primero examina los procesos mentales y el segundo se centra en las señales de los pies. Frente a La luz en la oscuridad, dedicada a la investigación astronómica y los agujeros negros, el libro de Daniel Kahneman aborda la concentración desde la psicología experimental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425373893",
+        "isbn-9791388387715"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "33a1db53f92d091e",
+  "origen": "chatgpt-web"
+}

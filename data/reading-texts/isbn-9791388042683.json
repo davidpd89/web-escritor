@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9791388042683",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Killerlogic está pensado para lectores que quieren resolver sudokus y acertijos mientras reconstruyen un misterio. Sus juegos de lógica requieren participación directa, por lo que encaja menos con quien busca una novela convencional que pueda seguirse sin detenerse a resolver pruebas. El relato gira alrededor de una desaparición familiar.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Killerlogic, de Francesc Domènech, combina una investigación sobre la desaparición del propietario de un hotel con ejercicios de razonamiento. Un cuaderno heredado reúne cartas, mensajes cifrados y sudokus que permiten avanzar en el misterio. Incluye más de 90 juegos de lógica integrados en la búsqueda de respuestas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Killerlogic se presenta en tapa blanda, con 192 páginas publicadas por Duomo Ediciones. El formato físico permite consultar las pistas, volver a los mensajes cifrados y trabajar los sudokus sobre papel. Su contenido de acertijos hace especialmente relevante poder revisar páginas anteriores mientras se resuelve cada prueba.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1629864614bd4912",
+  "origen": "chatgpt-web"
+}

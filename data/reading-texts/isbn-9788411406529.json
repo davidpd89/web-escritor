@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788411406529",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Eerie nº 21/27 encaja con lectores de cómic de terror que buscan relatos de suspense y personajes recurrentes. Sus historias grotescas y su ambientación apocalíptica lo alejan de las lecturas infantiles o de quienes prefieren aventuras sin elementos inquietantes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Eerie nº 21/27 reúne historietas de terror y suspense procedentes de los números 100 a 103 de Eerie. La recopilación incluye apariciones de Torre, Darklon y Hunter, además del número conmemorativo 100. Su estructura permite leer distintas historias dentro de un mismo volumen de archivo.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Eerie nº 21/27 está disponible en tapa dura, con encuadernación cartoné sin sobrecubierta. Sus 264 páginas reúnen varios números de la publicación original en un solo tomo, una disposición práctica para conservar y consultar las historietas sin recurrir a ejemplares separados.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Creepy nº 11/29 y Eerie nº 21/27 comparten el terror en formato de recopilación de historietas y la autoría colectiva de Varios Autores. Creepy nº 11/29 plantea otra entrega de relatos terroríficos, mientras Eerie nº 21/27 incorpora personajes recurrentes y los números 100 a 103 de su publicación. Creepy nº 25/29 se aproxima más al terror asociado a tumbas, duda y desesperación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411406130",
+        "isbn-9788411406277"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "82977e61781094ca",
+  "origen": "chatgpt-web"
+}

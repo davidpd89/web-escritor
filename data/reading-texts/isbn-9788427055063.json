@@ -1,0 +1,62 @@
+{
+  "id": "isbn-9788427055063",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "25 días hasta Navidad está dirigido a lectores desde los 16 años que buscan terror y suspense con ambientación navideña. Su estructura de thriller de adviento y la presencia de un juego mortal lo alejan de las historias familiares navideñas de tono amable.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "La recomendación editorial es a partir de 16 años y la obra combina terror, misterio y thriller. El argumento incluye una amenaza mortal asociada a un juego de amigo invisible y tensiones familiares, por lo que conviene considerar estos elementos antes de escogerla para lectores sensibles al suspense.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un thriller de adviento organizado para leer un capítulo diario antes de Navidad. La historia comienza con unas vacaciones familiares en una cabaña y transforma la dinámica de los regalos en una situación de peligro, combinando suspense, convivencia y una cuenta atrás vinculada al calendario navideño.",
+      "evidencias": [
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 408 páginas de 25 días hasta Navidad en rústica con solapas, adecuada para mantener el libro físico durante la lectura diaria de adviento. Kindle permite seguir esa misma organización por capítulos desde un lector electrónico o móvil sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "25 días hasta Navidad y Cosamala, de Alana S. Portero, comparten elementos de terror, aunque parten de conflictos distintos. Per Jacobsen sitúa el peligro en un juego navideño durante unas vacaciones familiares, mientras que Cosamala desarrolla una historia gótica de brujas vinculada a un crimen de la guerra civil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7a1a34f64249acc1",
+  "origen": "chatgpt-web"
+}

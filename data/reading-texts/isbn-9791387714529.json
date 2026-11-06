@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387714529",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Por la gracia de Dios encaja con lectores de novela histórica interesados en la dictadura, el poder y la memoria política del siglo XX. Su atención a los recuerdos y la psicología de un gobernante lo aleja de una aventura histórica centrada en viajes o enfrentamientos militares continuos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Por la gracia de Dios es una novela histórica ambientada en 1973 y centrada en los recuerdos de Francisco Franco. José Antonio Fortea aborda la guerra civil, la consolidación del poder y las tensiones internas del régimen desde la memoria y la psicología del protagonista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura con sobrecubierta de Istoría presenta las 592 páginas de Por la gracia de Dios en un volumen físico pensado para conservarse en la biblioteca. Kindle permite leer esta novela extensa en formato digital y llevarla en el móvil o en un lector electrónico sin cargar con el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cosamala comparte con Por la gracia de Dios el trasfondo de la guerra civil, pero lo transforma en una ficción gótica con brujas, frente a la reconstrucción psicológica de un dictador. Cuando seamos inmortales también utiliza figuras históricas y conflictos de poder, aunque se ocupa de Rubens, Velázquez y el destino de Europa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788432251436",
+        "isbn-9788423371181"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f7683dbb4ee578a",
+  "origen": "chatgpt-web"
+}

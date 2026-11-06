@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El tiempo que pasa se dirige a lectores adultos interesados en las memorias personales y la vida cotidiana de la España de posguerra. Manuel Medina combina recuerdos familiares, relaciones personales y reflexiones sobre el envejecimiento; encaja menos con quienes buscan un estudio histórico sistemático o una novela de ficción.",
+      "texto": "El tiempo que pasa se dirige a lectores adultos interesados en las memorias personales, las relaciones familiares y la historia social. Su recorrido por los recuerdos de infancia y la posguerra encaja menos con quienes buscan una narración de ficción centrada en la acción o el suspense.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,7 +14,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El tiempo que pasa aborda la memoria, el paso de los años y la relación entre las experiencias individuales y los cambios sociales. Manuel Medina parte de recuerdos de infancia y episodios familiares para contrastar las dificultades de la posguerra con las preocupaciones actuales, prestando atención al amor, la soledad y las expectativas personales.",
+      "texto": "El tiempo que pasa examina la memoria familiar, el paso de los años y las transformaciones sociales desde una perspectiva autobiográfica. Manuel Medina relaciona las experiencias de la posguerra con cuestiones como el amor, la soledad, el esfuerzo y las incertidumbres del presente.",
       "evidencias": [
         "titulo",
         "autores",
@@ -25,28 +24,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El tiempo que pasa puede leerse en tapa blanda o Kindle. La edición de Plaza & Janés reúne 224 páginas con solapas, apropiadas para conservar el volumen físico y volver a sus recuerdos; Kindle facilita leerlo durante los desplazamientos o continuar la lectura desde el móvil.",
+      "texto": "La edición en tapa blanda con solapas de El tiempo que pasa tiene 224 páginas y permite una lectura física sin recurrir a un volumen de tapa dura. En Kindle puede leerse en un dispositivo electrónico, una alternativa para llevar el texto sin ocupar espacio en el equipaje.",
       "evidencias": [
         "titulo",
         "edicion",
-        "editorial",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El tiempo que pasa y Memoria de las manos comparten el interés por la experiencia humana y los vínculos personales, pero Manuel Medina reconstruye recuerdos propios, mientras Virginia Mendoza examina el cuerpo, el abrazo y la empatía. También se aproxima a Duelo por su atención a las emociones, aunque Michael Cholbi estudia específicamente la pérdida desde la filosofía.",
+      "texto": "El tiempo que pasa y Recuerdos. Breve historia de un amor recurren a experiencias personales para abordar el pasado, pero el primero relaciona memoria familiar y cambios sociales, mientras el segundo se centra en el testimonio de una relación amorosa. Memoria de las manos también examina la experiencia humana, aunque desde la evolución corporal y la empatía, no desde los recuerdos autobiográficos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "sinopsis_editorial",
         "categorias",
+        "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791387904968",
-        "isbn-9788449344626"
+        "isbn-9788432251467"
       ]
     }
   ],

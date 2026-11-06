@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791399283709",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tabaiba dulce encaja con lectores de narrativa contemporánea que disfrutan de los relatos con elementos de fábula y conflictos sociales. Se aleja de las historias estrictamente realistas: Ana Marante introduce hadas, gnomos y brujas para abordar cuestiones como la soledad, la violencia y las consecuencias de la explotación turística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Propone una colección de relatos que utiliza la fábula y la imaginación infantil para examinar problemas de la sociedad contemporánea. Ana Marante mezcla criaturas fantásticas con personajes cotidianos, entre ellos adolescentes y monjas, y desarrolla historias relacionadas con el duelo, la violencia, el turismo y la soledad.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Editorial Dieciséis está disponible en tapa blanda y contiene 154 páginas, una extensión contenida para un libro de relatos. El formato permite transportar en un solo volumen las distintas historias de Ana Marante y alternar su lectura, siguiendo los temas sociales y personales que comparten.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6b4384d18190bc03",
+  "origen": "chatgpt-web"
+}

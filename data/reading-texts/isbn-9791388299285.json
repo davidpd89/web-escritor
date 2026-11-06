@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388299285",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La belleza del fracaso se dirige a lectores interesados en reflexionar sobre la derrota, la identidad personal y la presión social por alcanzar el éxito. Sus 122 páginas plantean estas cuestiones desde la filosofía, por lo que encaja menos con quien busca técnicas empresariales para mejorar resultados.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina cómo una derrota puede modificar la percepción que una persona tiene de sí misma y de sus logros. Juan Pedro Aparicio contrapone la valoración social del éxito a las consecuencias personales y futuras de fracasar, incluidas las aportaciones que pueden reconocerse mucho después de producirse.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La belleza del fracaso está disponible en tapa blanda, con 122 páginas en castellano publicadas por Eolas Ediciones. Esta edición permite llevar el ensayo en el bolso y volver sobre sus reflexiones en papel sin manejar un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La belleza del fracaso comparte con Bobadas el interés por revisar qué merece importancia en la vida cotidiana, aunque Juan Pedro Aparicio centra su reflexión en las derrotas y sus consecuencias. Antes de perder el juicio aborda, en cambio, los problemas de la verdad y la propaganda, con una preocupación más pública que personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387302",
+        "isbn-9788426741622"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fdb1182267d276bf",
+  "origen": "chatgpt-web"
+}

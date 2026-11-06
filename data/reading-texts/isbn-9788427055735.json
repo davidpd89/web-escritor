@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788427055735",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A cinco segundos de ti está dirigido a lectores a partir de 16 años interesados en el romance juvenil y los conflictos relacionados con la imagen pública. La presencia de redes sociales, heridas personales y acoso escolar lo aleja de quienes buscan una historia romántica sin problemas familiares o sociales.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "A cinco segundos de ti está recomendado a partir de 16 años. La historia incluye acoso escolar hacia un menor, presión por mantener una imagen pública y una experiencia dolorosa que la protagonista oculta; estos asuntos pueden resultar sensibles para lectores afectados por situaciones similares.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "A cinco segundos de ti pertenece al romance juvenil y aborda la distancia entre la identidad personal y la imagen proyectada en redes sociales. Sandra Miró sitúa el conflicto alrededor de una protagonista con numerosos seguidores, una herida emocional oculta y un problema de acoso escolar que afecta a su hermano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A cinco segundos de ti está disponible en tapa blanda y Kindle. La edición de Ediciones Martínez Roca reúne 456 páginas en rústica con solapas, mientras que Kindle permite leer esa misma extensión desde un dispositivo electrónico o el móvil sin cargar con el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3060481a657fee76",
+  "origen": "chatgpt-web"
+}

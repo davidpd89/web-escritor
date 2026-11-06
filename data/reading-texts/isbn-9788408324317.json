@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Zodiac Academy 1. El despertar encaja con lectores de fantasía juvenil que buscan romance, herencias inesperadas y protagonistas enfrentadas a un origen desconocido. La historia de Darcy y Tory Vega parte de una vida de precariedad y un descubrimiento que altera su identidad; no responde a quien prefiera una novela realista sin elementos fantásticos.",
+      "texto": "Zodiac Academy 1. El despertar encaja con lectores de fantasía romántica interesados en protagonistas que descubren un origen extraordinario. Darcy y Tory Vega pasan de una vida marcada por la precariedad a conocer su condición de herederas. El planteamiento se aleja del romance realista y de las historias sin componentes fantásticos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,18 +13,16 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Zodiac Academy 1. El despertar combina fantasía y romance alrededor de dos hermanas que descubren su condición de herederas. Darcy y Tory Vega proceden del mundo mortal y conocen su vínculo con otra realidad cuando interviene un profesor desconocido. El título lo identifica como el n.º 1, y esta entrega de Caroline Peckham y Susanne Valenti tiene 480 páginas.",
+      "texto": "La historia combina fantasía y romance con el descubrimiento de una herencia desconocida. Darcy y Tory Vega han crecido en el mundo mortal sin recursos económicos ni apoyo familiar, hasta que la llegada de un profesor revela su condición de herederas. El título identifica Zodiac Academy 1 como el primer volumen y sitúa el cambio de identidad de las gemelas en el centro de su planteamiento.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Zodiac Academy 1. El despertar está disponible en Tapa blanda y Kindle. La edición física de Crossbooks reúne sus 480 páginas en rústica con solapas, apropiada para conservar en la estantería o regalar. Kindle permite llevar la misma lectura en un dispositivo electrónico o en el móvil sin transportar el volumen impreso.",
+      "texto": "Zodiac Academy 1. El despertar cuenta con tapa dura, tapa blanda, Kindle y audiolibro. La edición de Crossbooks en rústica con solapas tiene 480 páginas y permite leer el volumen en papel; la tapa dura ofrece una cubierta rígida para conservarlo. Kindle facilita llevar la lectura en el móvil y el audiolibro permite escucharla sin mantener abierto el libro.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -35,22 +33,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Zodiac Academy 1. El despertar y Alas de escarcha y oro: El canto del cisne comparten una fantasía construida alrededor de capacidades u orígenes que sus protagonistas desconocen u ocultan. En la novela de Caroline Peckham y Susanne Valenti, Darcy y Tory Vega descubren una herencia; en la de Marta Morillo, Eira mantiene escondidos sus dones. Donde duermen las sombras incorpora también romance fantástico, pero plantea un amor entre dimensiones.",
+      "texto": "La edición especial de Zodiac Academy comparte obra y autoría con la edición habitual de Caroline Peckham y Susanne Valenti, aunque se presenta como una variante editorial. Alas de escarcha y oro: El canto del cisne, de Marta Morillo, también aborda la existencia de capacidades ocultas. En Zodiac Academy, el punto de partida es el descubrimiento de la ascendencia de dos hermanas, mientras que la obra de Marta Morillo presenta a Eira, que ha crecido ocultando sus dones.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949938",
-        "isbn-9788427055605"
+        "isbn-9791387949938"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b78df62c65c244f0",
+  "fuente_hash": "2fc54b14879f4f98",
   "origen": "chatgpt-web"
 }

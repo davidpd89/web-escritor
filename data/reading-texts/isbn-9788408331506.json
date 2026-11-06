@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788408331506",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los misterios de Eversand 1. La doncella encaja con lectores de misterio, novela negra y secretos vinculados a una mansión aislada. Su punto de partida, una universitaria que acepta trabajar para una anciana en Rhode Island, se aleja de las investigaciones policiales convencionales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Victor Dixen plantea un misterio contemporáneo que comienza con una oferta de empleo doméstico en Eversand Hall. La llegada de Birdie Baker a una mansión situada en una península de Rhode Island establece un escenario cerrado, mientras que su clasificación en novela negra sitúa la intriga en el centro de la lectura.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 432 páginas de Los misterios de Eversand 1. La doncella en una edición rústica con solapas de Editorial Planeta, adecuada para conservar en papel. Kindle permite llevar esa misma lectura en un dispositivo digital sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los crímenes del sanatorio (Serie Comisario Reykdal 1) comparte con Los misterios de Eversand 1. La doncella el misterio situado en un edificio con una historia inquietante, aunque parte de un asesinato y varios sospechosos, frente a una contratación doméstica. El asesinato de Roger Ackroyd (Edición especial con cantos tintados) se centra en la investigación detectivesca, mientras que Victor Dixen introduce su intriga mediante la llegada de una universitaria a una mansión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083934",
+        "isbn-9788432251399"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "86816be03434a443",
+  "origen": "chatgpt-web"
+}

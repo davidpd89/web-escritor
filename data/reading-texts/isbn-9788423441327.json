@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788423441327",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Morir es gratis. Heredar, un atraco se dirige a lectores interesados en las consecuencias económicas y familiares de las herencias. Iñaki Barredo aborda testamentos, decisiones patrimoniales y desacuerdos entre familiares desde su experiencia como abogado, por lo que su enfoque se aparta de las novelas sobre disputas sucesorias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una obra de economía y empresa centrada en los problemas que pueden surgir al organizar una herencia. Iñaki Barredo examina cómo la ausencia de testamento, las decisiones tomadas antes del fallecimiento y los desacuerdos familiares pueden desencadenar conflictos; el punto de partida es jurídico y patrimonial, no narrativo.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Morir es gratis. Heredar, un atraco tiene una edición en tapa blanda, con encuadernación rústica y solapas. Sus 224 páginas permiten consultar en papel las cuestiones relacionadas con testamentos y conflictos hereditarios, con una cubierta flexible que facilita transportar el volumen y volver a los apartados de interés.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Morir es gratis. Heredar, un atraco comparte con Deja de regalar tu dinero la atención a decisiones económicas que pueden tener consecuencias para el bolsillo, aunque Iñaki Barredo se ocupa de herencias y David Jiménez de contratos y trámites. Cariño, ¿y este recibo? también aborda decisiones financieras personales, pero Angie Gil Ribera plantea cuestiones de organización del dinero en pareja en lugar de conflictos sucesorios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431332",
+        "isbn-9791388139567"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "687b5b875a643239",
+  "origen": "chatgpt-web"
+}

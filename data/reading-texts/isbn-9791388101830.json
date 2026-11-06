@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791388101830",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Grand Blue Dreaming nº 16 encaja con lectores de manga que buscan enredos sentimentales, celos y situaciones cómicas entre personajes. La escapada a Okinawa y los intentos de sabotear un posible romance marcan una lectura distinta de la acción fantástica o del terror, y el título lo identifica como el n.º 16.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Grand Blue Dreaming nº 16 plantea una comedia de enredos alrededor de una escapada que termina alterada por los celos y las intromisiones de otros personajes. El conflicto se apoya en las relaciones entre Iori, Chisa, Aina y Kohei, con situaciones vinculadas a un alojamiento romántico y a planes que se complican.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Grand Blue Dreaming nº 16 se ofrece en tapa blanda, con 208 páginas en castellano y encuadernación rústica sin solapas con sobrecubierta. Este formato permite leer las páginas impresas y guardar el volumen junto a otros números de la colección, manteniendo una presentación física uniforme.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Grand Blue Dreaming nº 16 puede compararse directamente con Grand Blue Dreaming nº 17 porque ambos llevan la firma de Kenji Inoue y Kimitake Yoshioka y pertenecen a la misma serie. El título identifica al primero como el n.º 16, centrado en los enredos de una escapada romántica, mientras que el segundo aparece como n.º 17 y destaca los bañadores en su presentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388103759"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3e5b7cb5a91bbb62",
+  "origen": "chatgpt-web"
+}

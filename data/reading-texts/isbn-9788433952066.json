@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788433952066",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Atlas de Xochimilco encaja con lectores de narrativa contemporánea interesados en los vínculos familiares, la memoria y los conflictos relacionados con el territorio. Su atención a la conservación de las chinampas y a las heridas del pasado lo aleja de quienes buscan una historia centrada exclusivamente en la acción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Atlas de Xochimilco es una novela contemporánea que relaciona las trayectorias de dos mujeres de épocas diferentes con las transformaciones de Xochimilco. Jazmina Barrera articula el conflicto entre la pertenencia familiar y la defensa de un territorio amenazado por intereses económicos y cambios sociales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Atlas de Xochimilco está disponible en tapa blanda, con 384 páginas en castellano publicadas por Editorial Anagrama. Es una edición física que permite avanzar por sus distintas historias, retroceder a pasajes anteriores y conservar el volumen en la biblioteca sin el peso habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "09a455e64e846401",
+  "origen": "chatgpt-web"
+}

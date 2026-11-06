@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408331339",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Maleducados emocionales está dirigido a quienes quieren reconocer comportamientos que deterioran sus relaciones personales. Dr. José Carbonell examina los desprecios cotidianos y sus consecuencias psicológicas; encaja menos con lectores que buscan ficción o un tratado general sobre todas las ramas de la psicología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Maleducados emocionales se publica en tapa blanda con solapas y tiene 256 páginas. Esta edición permite consultar en papel las explicaciones sobre conductas relacionales y regresar a los apartados que interesen durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Maleducados emocionales y El arte de la negociación tratan dificultades que aparecen al relacionarse con otras personas. Dr. José Carbonell se ocupa de identificar desprecios y gestionar sus efectos, mientras que Giorgio Nardone y Stefano Bartoli abordan la negociación como herramienta para alcanzar acuerdos y objetivos compartidos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425453304"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ce5ba0ca1d5a33fa",
+  "origen": "chatgpt-web"
+}

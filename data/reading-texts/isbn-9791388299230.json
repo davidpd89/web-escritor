@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388299230",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pienso para pájaros encaja con lectores de poesía que buscan reflexiones sobre el lenguaje, el canto y el silencio mediante imágenes de aves. Su planteamiento abstracto se aleja de los libros de divulgación ornitológica y de la poesía centrada en contar acontecimientos concretos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Sergio Artero Pérez utiliza la figura de los pájaros para explorar las relaciones entre expresión, identidad y silencio. El poemario convierte el canto en una cuestión sobre los límites del lenguaje y establece un diálogo con las ideas presentes en La novela nueva de Juan Luis Martínez, citada en su presentación.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pienso para pájaros está disponible en tapa blanda, con 108 páginas en castellano publicadas por Eolas Ediciones. El volumen permite una lectura seguida del poemario y posteriores consultas de los pasajes dedicados al canto, las aves y el silencio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pienso para pájaros y El libro de los gatos comparten la presencia de animales en textos poéticos. Sergio Artero Pérez utiliza las aves para reflexionar sobre la voz y el silencio; Ursula K. Le Guin reúne poemas, meditaciones y dibujos dedicados a los gatos. El primero plantea una exploración del lenguaje, mientras que el segundo incorpora también una dimensión visual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f1db89cff753b2a9",
+  "origen": "chatgpt-web"
+}

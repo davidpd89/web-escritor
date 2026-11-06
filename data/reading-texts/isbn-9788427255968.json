@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Aunque se acabe el mundo se dirige al público juvenil que busca romance y ciencia ficción en una situación de supervivencia. El vínculo entre Laia y Diana atraviesa una catástrofe con persecuciones y peligro de muerte, por lo que encaja menos con quien prefiera relaciones románticas sin amenazas violentas.",
+      "texto": "Aunque se acabe el mundo está dirigido al público juvenil que busca romance y ciencia ficción en un escenario de supervivencia. La amenaza de muerte, la persecución y el derrumbe de la vida cotidiana lo alejan de quienes prefieren historias románticas sin violencia ni situaciones extremas.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,36 +14,38 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Aunque se acabe el mundo está clasificada como lectura juvenil y contiene amenazas mortales, destrucción y separación de seres queridos. La aparición de personas que persiguen a los supervivientes para matarlos introduce violencia y tensión sostenida, aspectos que conviene considerar en lectores sensibles.",
+      "texto": "Aunque se acabe el mundo está clasificado como lectura juvenil y combina una relación afectiva con una catástrofe de ciencia ficción. Incluye amenazas mortales, persecuciones, destrucción urbana y separación de personas queridas, elementos que pueden inquietar a lectores sensibles a la violencia y al peligro constante.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "encaje_documentado",
-      "texto": "Aunque se acabe el mundo combina romance juvenil y ciencia ficción apocalíptica. La historia enfrenta a Laia y Diana con una catástrofe que interrumpe las comunicaciones y las obliga a intentar reunirse mientras la supervivencia está amenazada. El conflicto sentimental depende directamente del desastre colectivo.",
-      "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
+      "modulo": "encaje_documentado",
+      "texto": "Aunque se acabe el mundo combina romance juvenil, ciencia ficción apocalíptica y supervivencia. Clara Duarte plantea un desastre global que interrumpe las comunicaciones y separa a Laia y Diana, de modo que el vínculo entre ambas se convierte en el eje personal del conflicto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
       "modulo": "que_formato_elegir",
-      "texto": "Aunque se acabe el mundo está disponible en tapa blanda y Kindle. La edición física de Molino tiene 488 páginas y solapas, una opción para conservar el volumen en papel; Kindle permite llevar esa misma lectura en un dispositivo compatible sin transportar el libro físico.",
+      "texto": "Aunque se acabe el mundo está disponible en tapa blanda y Kindle, con una edición impresa de 488 páginas y solapas. El papel ofrece una lectura física de cierta extensión, mientras Kindle permite continuar la historia desde el móvil o un lector electrónico sin transportar el volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "editorial",
         "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aunque se acabe el mundo y La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) presentan sociedades sometidas a situaciones extraordinarias. La novela de Clara Duarte combina una catástrofe con la separación de dos jóvenes, mientras que la de Veronica Roth plantea una decisión individual dentro de una sociedad organizada en cinco facciones.",
+      "texto": "Aunque se acabe el mundo comparte con Juntos en cualquier mundo. Tú y yo más allá del tiempo la combinación de una relación amorosa y elementos de ciencia ficción. Clara Duarte sitúa el vínculo entre sus protagonistas durante una catástrofe terrestre, mientras la obra de Yomoji Otono desarrolla el amor mediante historias ambientadas en el multiverso.",
       "evidencias": [
         "titulo",
         "autores",
@@ -52,7 +54,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427257627"
+        "isbn-9788427055483"
       ]
     }
   ],

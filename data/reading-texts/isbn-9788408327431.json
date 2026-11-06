@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9788408327431",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hasta que el calendario nos separe encaja con lectores de romance que buscan una historia ambientada en Navidad, con un calendario de Adviento misterioso y una protagonista que rechaza esas fiestas. No responde tanto a quien prefiere una novela romántica sin elementos extraordinarios ni ambientación navideña.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Hasta que el calendario nos separe es una novela romántica ambientada en Nueva York durante la Navidad. Maggie rechaza estas celebraciones, pero la aparición de un calendario de Adviento misterioso introduce una situación extraordinaria en su vida. La historia combina el conflicto sentimental propio del romance con un elemento de misterio ligado al mes de diciembre.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 384 páginas de Hasta que el calendario nos separe en una edición rústica con solapas, adecuada para conservar en papel o regalar. Kindle permite leer la novela en un dispositivo electrónico o en el móvil, sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "572ff99b1f671933",
+  "origen": "chatgpt-web"
+}

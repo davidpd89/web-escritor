@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788466687188",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fury Bound. Furia de lobo (Los Lobos de la Ruina 2) encaja con quienes buscan fantasía romántica, rivalidades políticas y relaciones marcadas por la desconfianza. Sus 648 páginas desarrollan una disputa por el poder junto a un romance de evolución lenta; no responde a la búsqueda de una historia breve ni de una relación amorosa sin conflictos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La novela combina romantasy y fantasía política alrededor de una reina cuya autoridad cuestionan distintos sectores del reino. La relación con un alfa enfrentado a ella introduce un conflicto entre atracción, lealtad y supervivencia, mientras los vínculos familiares y las decisiones moralmente ambiguas condicionan la lucha por el poder. El título la identifica como el n.º 2 de Los Lobos de la Ruina.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite conservar Fury Bound. Furia de lobo (Los Lobos de la Ruina 2) como volumen físico de 648 páginas, adecuado para consultar o releer pasajes. Kindle reúne esa misma extensión en un dispositivo electrónico y facilita continuar la lectura desde el móvil sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2) comparte con Fury Bound. Furia de lobo (Los Lobos de la Ruina 2) su identificación como segunda entrega de una saga, aunque la obra de Sable Sorensen concreta su conflicto en una sucesión al trono y un vínculo romántico hostil. Donde duermen las sombras también combina fantasía y amor, pero sitúa su propuesta en un contexto contemporáneo con dimensiones y sombras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396080",
+        "isbn-9788427055605"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4cd41e813c535cc7",
+  "origen": "chatgpt-web"
+}

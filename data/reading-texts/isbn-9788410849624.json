@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410849624",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El magnífico libro de los lobos se dirige a lectores infantiles interesados en la fauna salvaje y el comportamiento animal. Manuela Román explica cómo viven los lobos, sus formas de comunicación, la crianza y las dificultades de supervivencia, junto con leyendas relacionadas con ellos; su enfoque es divulgativo y no una narración de aventuras protagonizada por animales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El magnífico libro de los lobos se ofrece en tapa dura, con una extensión de 96 páginas. La edición física permite consultar los apartados dedicados a los hábitats, la caza, la comunicación y la crianza de los lobos. Es el formato disponible para este libro de Manuela Román.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El magnífico libro de los lobos y El magnífico libro de las hormigas son obras de Manuela Román dedicadas a conocer animales mediante contenidos divulgativos. El primero aborda la vida de los lobos, sus estrategias de caza y sus problemas de supervivencia; el segundo se centra en las hormigas y presenta ilustraciones sobre su mundo. Ambos comparten autora, pero estudian especies y comportamientos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410849297"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d661abeee220fb5",
+  "origen": "chatgpt-web"
+}

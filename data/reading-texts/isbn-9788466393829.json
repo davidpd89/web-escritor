@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788466393829",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nuevas evidencias científicas de la existencia de Dios se dirige a lectores adultos interesados en la relación entre ciencia, fe y espiritualidad. No está concebido como una novela ni como una exposición neutral de todas las posiciones filosóficas, ya que José Carlos González-Hurtado desarrolla argumentos científicos que interpreta como indicios de un Creador.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una obra argumentativa de religión y espiritualidad que examina la posible compatibilidad entre el conocimiento científico y la creencia en Dios. José Carlos González-Hurtado utiliza cuestiones como el Big Bang, la termodinámica, las leyes naturales y la genética para defender su interpretación sobre el origen del universo y la existencia de un Creador.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de bolsillo de Nuevas evidencias científicas de la existencia de Dios reúne 432 páginas en tapa blanda, una opción física para seguir sus argumentos y volver a consultar distintos capítulos. Kindle permite leer el texto en el móvil o en un lector electrónico sin llevar el volumen de Debolsillo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los genios creen en Dios y Nuevas evidencias científicas de la existencia de Dios comparten autor, José Carlos González-Hurtado, y examinan la relación entre ciencia y fe; el segundo desarrolla argumentos basados en descubrimientos científicos concretos. La Biblia: Una enciclopedia ilustrada también aborda cuestiones religiosas, pero utiliza mapas, objetos históricos y materiales arqueológicos para contextualizar textos y acontecimientos, en lugar de defender una tesis sobre la existencia de Dios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410096547",
+        "isbn-9780241837702"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "416c564fe349a483",
+  "origen": "chatgpt-web"
+}

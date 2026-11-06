@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388102691",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Usagi Yojimbo Saga nº 09 se dirige a lectores de cómic fantástico interesados en relatos de samuráis, conflictos feudales y aventuras ambientadas en Japón. Stan Sakai sitúa la historia en un contexto de guerras civiles, por lo que encaja menos con quien busca una narración contemporánea alejada de los enfrentamientos militares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Usagi Yojimbo Saga nº 09 combina fantasía y cómic histórico de aventuras alrededor de un conejo ronin marcado por la pérdida de su señor. El conflicto se desarrolla en el Japón de las guerras feudales y mantiene como trasfondo las disputas territoriales y militares; el título identifica esta entrega como el n.º 09.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Usagi Yojimbo Saga nº 09 puede leerse en tapa blanda o Kindle; la edición impresa reúne 392 páginas en rústica con solapas. El papel permite recorrer las páginas de cómic en un volumen físico, mientras que Kindle evita transportar el libro y ofrece una alternativa de lectura digital.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Usagi Yojimbo Saga nº 09 y Dragon Quest: The Adventure of Dai nº 12/25 comparten la fantasía y los conflictos armados como elementos narrativos. Stan Sakai sitúa la acción en un Japón feudal marcado por la pérdida de un señor, mientras que Koji Inada desarrolla una ofensiva contra la Tierra de Muerte con participación de distintos reinos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387920852"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d997ff661aabe9e7",
+  "origen": "chatgpt-web"
+}

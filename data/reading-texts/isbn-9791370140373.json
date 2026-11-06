@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791370140373",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La antropología filosófica en Kant. Descripción y proyección del ser humano está dirigida a lectores interesados en filosofía, antropología y pensamiento cosmopolita. Su análisis de obras filosóficas y conceptos trascendentales se aleja de una introducción divulgativa centrada en ejemplos cotidianos de comportamiento humano.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Jesús David Cifuentes Yarce investiga la concepción kantiana de la persona desde dos planos: lo que puede conocerse mediante la observación y los principios filosóficos que hacen posible ese conocimiento. El ensayo relaciona ambas perspectivas con la capacidad humana de participar en una comunidad política mundial y examina el cosmopolitismo como consecuencia de esa interpretación.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La antropología filosófica en Kant. Descripción y proyección del ser humano cuenta con una edición en tapa blanda de 262 páginas. El volumen impreso permite consultar de nuevo los argumentos sobre antropología empírica, pensamiento trascendental y cosmopolitismo durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La antropología filosófica en Kant. Descripción y proyección del ser humano y Bobadas coinciden en plantear preguntas sobre la condición humana. Jesús David Cifuentes Yarce desarrolla un análisis filosófico del pensamiento de Kant, mientras que Javier Urra Portillo y Cristina González Reche se centran en reconsiderar las prioridades de la vida cotidiana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426741622"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c151f13e915d5eb5",
+  "origen": "chatgpt-web"
+}

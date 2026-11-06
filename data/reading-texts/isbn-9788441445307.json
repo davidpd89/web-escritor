@@ -1,0 +1,67 @@
+{
+  "id": "isbn-9788441445307",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amigos, aduladores, charlatanes, de Plutarco, se dirige a lectores de filosofía interesados en la amistad, la conducta humana y las relaciones sociales. Sus reflexiones sobre la educación, la razón y la moderación encajan con una lectura de carácter ético, no con quien busca una novela o una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Editorial Edaf publica Amigos, aduladores, charlatanes en castellano, en tapa blanda y con 160 páginas. Esta edición reúne una traducción renovada de cuatro textos de Plutarco sobre la amistad, los enemigos y la charlatanería. Su ISBN es 9788441445307 y su publicación editorial corresponde al 13 de octubre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Plutarco examina cómo distinguir una amistad verdadera de la adulación y qué utilidad puede encontrarse incluso en las relaciones adversas. El volumen incorpora reflexiones sobre la abundancia de amigos y el exceso de palabras. Su enfoque filosófico relaciona estas cuestiones cotidianas con la educación, el uso de la razón y la búsqueda de una vida equilibrada.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amigos, aduladores, charlatanes puede leerse en tapa blanda o en Kindle. La edición física reúne sus 160 páginas en un volumen que permite consultar por separado los distintos tratados, mientras que Kindle facilita llevar los textos en un lector electrónico o dispositivo compatible. Ambas opciones permiten alternar entre las reflexiones sobre amistad, enemigos y charlatanería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amigos, aduladores, charlatanes y Contingencia, ironía y solidaridad comparten la reflexión filosófica sobre la convivencia, pero Plutarco se centra en las relaciones personales y Richard Rorty en la sociedad y sus fundamentos. También puede compararse con Bobadas, de Javier Urra Portillo y Cristina González Reche, por su atención a la vida cotidiana, aunque Plutarco desarrolla su análisis mediante tratados sobre amistad y conducta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426741622",
+        "isbn-9788449345951"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "162455749cdf3590",
+  "origen": "chatgpt-web"
+}

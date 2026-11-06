@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9791387574871",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La lista encaja con lectores de narrativa contemporánea interesados en secretos empresariales, conflictos de poder y amenazas que surgen dentro de una comunidad pequeña. Su trama incluye una investigación relacionada con muertes y prácticas ocultas, por lo que se aleja de las historias cotidianas sin violencia ni intriga criminal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La lista desarrolla una intriga criminal alrededor de una empresa que domina la economía local y protege intereses ocultos. El regreso de Brent Walker a Concord lo sitúa entre sus obligaciones familiares, su nuevo trabajo como abogado y el descubrimiento de una trama peligrosa. El conflicto combina vínculos personales, dependencia económica y una investigación con consecuencias violentas.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La lista está disponible en tapa blanda y Kindle. La edición física de Duomo Ediciones tiene 448 páginas y permite conservar la novela en papel; Kindle facilita continuar una lectura de esa extensión desde el móvil sin llevar el volumen. La elección depende de si se prefiere manejar un ejemplar físico o leer en pantalla.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bfa9abfeca52fbaa",
+  "origen": "chatgpt-web"
+}

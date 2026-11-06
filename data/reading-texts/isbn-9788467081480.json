@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788467081480",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El castillo de la felicidad, de Enrique Rojas, se dirige a lectores interesados en fortalecer el autocontrol, cultivar la estabilidad emocional y dar sentido a sus rutinas. Su planteamiento aborda la felicidad mediante virtudes y hábitos sostenidos, por lo que no encaja con quien busca una novela o fórmulas de bienestar basadas en resultados inmediatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El castillo de la felicidad está disponible en tapa blanda y Kindle. La edición de Editorial Espasa reúne 264 páginas en rústica con solapas, apropiadas para señalar reflexiones sobre autocontrol y hábitos cotidianos; Kindle permite consultar esos contenidos desde el móvil o un lector compatible y continuar la lectura sin transportar el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "037045357d4d9f0d",
+  "origen": "chatgpt-web"
+}

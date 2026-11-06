@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788466391566",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La infiel se dirige a lectores adultos interesados en las relaciones de pareja atravesadas por secretos, amenazas y conflictos culturales. Su combinación de romance y suspense se aleja de las historias sentimentales centradas únicamente en la convivencia cotidiana.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La infiel combina novela histórica, intriga y conflicto sentimental en una historia situada inicialmente en Madrid. La relación entre Sara y Najib introduce diferencias culturales que terminan vinculadas a situaciones de peligro, traición y venganza.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de La infiel reúne sus 528 páginas en una edición de bolsillo de Penguin Bolsillo, pensada para manejar un volumen extenso en papel. Kindle permite llevar esa misma lectura en un dispositivo electrónico y ajustar la presentación del texto.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La infiel comparte con La historia de Romana y Uliana (Amadoca 1) el interés por personajes enfrentados a circunstancias difíciles, aunque la primera desarrolla una relación marcada por secretos y amenazas y la segunda parte de un soldado amnésico en un hospital de Kiev. Frente a Persiguiendo las estrellas (Las mujeres Hard 1), ambientada en la Escocia del siglo XIX, sitúa su conflicto sentimental en un entorno contemporáneo.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387640491",
+        "isbn-9791387652609"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "25050bedb1c105b1",
+  "origen": "chatgpt-web"
+}

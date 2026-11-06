@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sin filtro se dirige a adultos interesados en el desarrollo personal y en cómo hablar de sus emociones sin compartir más de lo conveniente. Leslie John aborda la comunicación en las relaciones personales y laborales, por lo que no responde a quien busque una novela de ficción, sino a quien quiera examinar cuándo abrirse a los demás y cuándo reservarse información.",
+      "texto": "Sin filtro, de Leslie John, se dirige a adultos interesados en la comunicación interpersonal y en decidir qué compartir sobre su vida privada. Examina las ventajas y los riesgos de revelar información personal en distintos contextos, por lo que no plantea la sinceridad absoluta como solución para todas las conversaciones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,20 +15,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sin filtro se publica en tapa blanda con solapas, en una edición de 320 páginas de Aguilar. El formato en papel permite subrayar o volver a las ideas de Leslie John sobre confianza y comunicación; las solapas pueden utilizarse para señalar el punto de lectura.",
+      "texto": "Sin filtro puede leerse en tapa blanda o Kindle y cuenta con 320 páginas dedicadas a la comunicación personal, apoyadas en investigaciones e historias reales. La edición de Aguilar, con solapas, permite subrayar ejemplos y consultar pasajes; Kindle facilita recuperar esas explicaciones desde el móvil antes de una conversación difícil.",
       "evidencias": [
         "titulo",
-        "autores",
-        "editorial",
-        "edicion",
         "numero_paginas",
         "formatos_disponibles",
+        "edicion",
+        "editorial",
         "sinopsis_editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8bf87f5c57448061",
+  "fuente_hash": "f0c0ef58ba340e5d",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791387995386",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "CINEXIN. ¡LUCES, CÁMARAS, ACCIÓN! se dirige a lectores interesados en la historia de los juguetes, el cine doméstico y los recuerdos de infancia vinculados al Cinexin. No está planteado como una aventura de ficción: Aser Queipo recorre la evolución de los proyectores, sus películas, la publicidad y los personajes que aparecían en ellas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Propone una lectura histórica sobre el Cinexin, centrada en su evolución como juguete y en su presencia en los hogares desde 1971. Aser Queipo repasa los distintos proyectores, películas, anuncios y curiosidades, con referencias a personajes como Chaplin, el Pato Donald y la Pantera Rosa, dentro de una obra clasificada como cómic y novela gráfica.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para las 280 páginas de esta edición de Diabolo Ediciones en castellano. Su encuadernación rígida permite conservar el volumen y consultar las secciones dedicadas a la historia del Cinexin, sus diferentes proyectores, las películas y la publicidad asociada al juguete.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c79dd8e1ccab8c9",
+  "origen": "chatgpt-web"
+}

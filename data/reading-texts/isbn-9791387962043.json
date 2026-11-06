@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387962043",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Wind Breaker 16 (Shônen), de Satoru Nii, encaja con lectores de manga juvenil interesados en enfrentamientos entre bandas, rivalidades y alianzas durante una batalla. La historia presupone familiaridad con personajes y conflictos anteriores, por lo que resulta menos apropiada para quien busque una trama independiente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El título identifica Wind Breaker 16 (Shônen) como el n.º 16, y su argumento continúa un enfrentamiento que amenaza la continuidad de una banda. Los antiguos adversarios intervienen como aliados y la acción se reparte entre varios combates, con lealtades personales y disputas pendientes como motores del conflicto.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Wind Breaker 16 (Shônen) está disponible en tapa blanda con sobrecubierta, en una edición de 192 páginas publicada por Distrito Manga. Es un volumen físico de manga juvenil que puede guardarse junto a otros tomos de la colección y leerse directamente en papel.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "95a867c76db2a2ba",
+  "origen": "chatgpt-web"
+}

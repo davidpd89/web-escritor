@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388236129",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El derecho a quedarse quieto encaja con lectores de narrativa contemporánea interesados en la intimidad, la presión social y los límites de la exposición pública. Marina Perezagua construye el conflicto alrededor de un hombre que rechaza abandonar una zona contaminada, de modo que el interés principal no reside en una aventura de supervivencia convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El derecho a quedarse quieto propone una novela contemporánea sobre la tensión entre la libertad individual y la curiosidad colectiva. Una periodista investiga a un hombre que permanece en una ciudad evacuada por un accidente nuclear, mientras la difusión de su historia transforma una decisión privada en un asunto de atención pública.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El derecho a quedarse quieto está disponible en tapa dura y Kindle. La edición de Galaxia Gutenberg tiene 168 páginas, una extensión que permite leer el conflicto en un volumen físico compacto; Kindle ofrece la alternativa digital para seguir la historia en un dispositivo compatible sin llevar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ab849cedcd0a4449",
+  "origen": "chatgpt-web"
+}

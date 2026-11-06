@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Yo solo quería escribir algunos domingos, de Marco Junca, se orienta a lectores interesados en las experiencias personales, la escritura cotidiana y las reflexiones sobre la vida diaria. Su combinación de memorias y relatos se distancia de los manuales con métodos estructurados y de las narraciones de ficción con una trama central.",
+      "texto": "Yo solo quería escribir algunos domingos encaja con lectores interesados en las memorias personales, la escritura cotidiana y las experiencias que nacen de una newsletter. Marco Junca parte de sus correos dominicales para abordar asuntos del día a día, por lo que se aleja de los manuales académicos y de la narrativa de ficción con una trama convencional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Yo solo quería escribir algunos domingos puede leerse en tapa dura o en Kindle. La edición física de Editorial Espasa reúne 240 páginas en cartoné, una opción para conservar el volumen o regalarlo; Kindle permite llevar esos textos en un dispositivo compatible sin cargar con el libro impreso.",
+      "texto": "La tapa dura de Yo solo quería escribir algunos domingos reúne 240 páginas en una edición de Editorial Espasa, adecuada para conservar en papel o regalar. Kindle permite llevar el texto en un lector electrónico o en el móvil y retomar sus reflexiones cotidianas sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
+        "numero_paginas",
         "editorial",
-        "numero_paginas"
+        "formatos_disponibles",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Yo solo quería escribir algunos domingos y Mentalidad ganadora, de Juan Carlos Ferrero, parten de experiencias personales narradas por sus protagonistas. Marco Junca se centra en la escritura y las observaciones cotidianas, mientras que Juan Carlos Ferrero reconstruye su trayectoria en el tenis, primero como jugador y después en otra etapa profesional.",
+      "texto": "Cómo me gustaría contarte, de Ángel Gómez Merino, comparte con Yo solo quería escribir algunos domingos el interés por las experiencias personales, aunque parte de una vida marcada por las expectativas ajenas, mientras Marco Junca reconstruye su recorrido a través de la escritura. Ansiedad. ¿Cómo se sale de aquí?, de Gemma Correll, aborda el malestar emocional desde una propuesta centrada en la ansiedad, frente al relato autobiográfico vinculado a una newsletter.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,7 +34,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411005463"
+        "isbn-9788402431967",
+        "isbn-9788403526723"
       ]
     }
   ],

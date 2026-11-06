@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Duelo se dirige a lectores interesados en comprender la pérdida desde la filosofía y el desarrollo personal. Michael Cholbi examina cómo el dolor puede influir en la identidad y en la reconstrucción personal, por lo que encaja menos con quienes buscan una novela centrada en personajes y acontecimientos ficticios.",
+      "texto": "Duelo se orienta a lectores interesados en comprender la pérdida desde la filosofía y el estudio de las emociones. Michael Cholbi examina cómo esta experiencia afecta a la identidad y a la reconstrucción personal, por lo que su planteamiento se aleja de una narración autobiográfica de aventuras o de una guía centrada en ejercicios cotidianos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,20 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Duelo está disponible en tapa blanda, en una edición rústica con solapas de 288 páginas publicada por Ediciones Paidós. El formato en papel permite subrayar argumentos filosóficos, anotar reflexiones sobre la pérdida y regresar a determinados pasajes durante la lectura.",
+      "texto": "Duelo está disponible en tapa blanda y Kindle, con una extensión de 288 páginas. La edición física de Ediciones Paidós incorpora solapas y permite consultar o señalar pasajes durante la lectura del ensayo filosófico. Kindle facilita llevar el texto en el móvil y retomar sus reflexiones sin cargar con el ejemplar impreso.",
       "evidencias": [
         "titulo",
+        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Duelo y Cuando fuimos todo se acercan a los vínculos afectivos desde perspectivas diferentes: Michael Cholbi reflexiona filosóficamente sobre la pérdida, mientras que la historia de Emma y Gael parte de una relación amorosa. La fibra es la solución también aborda cuestiones de bienestar personal, pero desde los hábitos alimentarios y los efectos de consumir fibra, no desde la experiencia emocional del duelo.",
+      "texto": "Duelo y Cómo me gustaría contarte tratan las consecuencias de perder a alguien cercano, aunque Michael Cholbi desarrolla una reflexión filosófica y Ángel Gómez Merino relata su experiencia personal. Frente a ambos, De la discusión a la conexión, de Gabrielle Rifkind, aborda la gestión de conflictos y las relaciones cotidianas. La diferencia está entre comprender una pérdida, contarla desde la memoria y trabajar los desacuerdos interpersonales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,13 +36,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425374869",
-        "isbn-9791387598440"
+        "isbn-9788403526723",
+        "isbn-9788408328773"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8d0d565fe375e818",
+  "fuente_hash": "21f0cafe394d575a",
   "origen": "chatgpt-web"
 }

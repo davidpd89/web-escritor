@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387972899",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un secreto navideño encaja con lectores de romance juvenil que buscan conflictos amorosos, secretos familiares y una ambientación navideña. No responde a quienes prefieren una historia centrada en la investigación criminal o la ciencia ficción, porque su conflicto gira alrededor de un hostal amenazado y las relaciones entre sus personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela romántica juvenil que combina las dificultades personales de Oliver con una disputa por el futuro del hostal El Muérdago. La amenaza de demolición en quince días introduce un plazo concreto, mientras el enfrentamiento con Perseo Montecarlo y los secretos familiares sostienen el conflicto entre personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas permite leer las 416 páginas de Un secreto navideño en papel y conservar la edición de Montena en la estantería. Kindle ofrece la misma obra en formato digital para llevarla en el móvil o en un lector electrónico, sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mentiras y secretos (Perfectos Mentirosos 1) comparte con Un secreto navideño el interés por las relaciones juveniles y los secretos, pero sitúa su conflicto en una universidad elitista, no en un hostal familiar. Amor en pole position (Dirty Air 3) también aborda el romance, aunque lo traslada al entorno de la Fórmula 1 y no a una disputa navideña por una propiedad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413145211",
+        "isbn-9788427055674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "00f1f888e57b8a51",
+  "origen": "chatgpt-web"
+}

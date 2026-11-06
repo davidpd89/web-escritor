@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788425236716",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Por qué miramos a los animales? se dirige a quienes buscan una reflexión filosófica sobre la relación humana con otras especies y su transformación cultural. Con 94 páginas, responde a un interés por el ensayo breve más que a la búsqueda de una guía práctica sobre el cuidado de animales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "John Berger analiza el cambio en el lugar que ocupan los animales dentro de las sociedades humanas. El ensayo contrapone sus antiguas funciones simbólicas y prácticas con su progresiva exclusión de la vida compartida y su conversión en objetos de observación y entretenimiento.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Por qué miramos a los animales? puede leerse en tapa dura o en Kindle. La edición física reúne 94 páginas y ofrece una encuadernación rígida para conservar el ensayo; Kindle permite llevar ese mismo título en un lector electrónico o consultarlo desde el móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Por qué miramos a los animales? y Filosofía de la corrida de toros examinan la relación entre personas y animales desde preguntas filosóficas. John Berger estudia su posición en la cultura, mientras Francis Wolff se concentra en el conflicto moral y estético de una práctica concreta; Esenciales, por su parte, reúne escritos de pensamiento con un alcance temático más amplio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629138",
+        "isbn-9791388127250"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e679cc7cb128c5b9",
+  "origen": "chatgpt-web"
+}

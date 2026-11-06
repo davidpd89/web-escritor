@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9788427055483",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Juntos en cualquier mundo. Tú y yo más allá del tiempo se dirige a lectores desde los 14 años que buscan ciencia ficción juvenil con relaciones amorosas y universos paralelos. Su combinación de dos novelas y conflictos sentimentales se aleja de una lectura centrada exclusivamente en la exploración científica.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Juntos en cualquier mundo. Tú y yo más allá del tiempo está recomendado a partir de 14 años y pertenece a la ciencia ficción juvenil. La historia aborda el divorcio de los padres de Koyomi, sus dificultades para relacionarse y sus vínculos amorosos, mientras los viajes entre universos paralelos forman parte de la vida cotidiana.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Propone dos novelas de amor vinculadas por un escenario de ciencia ficción donde los desplazamientos entre universos paralelos forman parte de la vida cotidiana. Koyomi es el personaje central y sus relaciones personales articulan el conflicto, de modo que el elemento especulativo convive con una historia de sentimientos y decisiones.",
+      "evidencias": [
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura presenta las 480 páginas de Juntos en cualquier mundo. Tú y yo más allá del tiempo en una edición zigzag que reúne dos novelas. Kindle permite llevar la lectura en un dispositivo electrónico o móvil, mientras que la edición física conserva la presentación especial de Ediciones Martínez Roca.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Juntos en cualquier mundo. Tú y yo más allá del tiempo y Aunque se acabe el mundo, de Clara Duarte, comparten elementos de ciencia ficción que modifican la realidad cotidiana. La obra de Yomoji Otono aborda el amor mediante universos paralelos, mientras que Aunque se acabe el mundo plantea una transformación de parte de la humanidad tras la aparición de una cúpula sobre la Tierra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427255968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4aaa83b888f4d526",
+  "origen": "chatgpt-web"
+}

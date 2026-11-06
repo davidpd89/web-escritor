@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788411004954",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La galaxia ultra se dirige a lectores interesados en la actualidad política, los movimientos de extrema derecha y sus efectos sobre las democracias. Su orientación periodística y su atención a dirigentes y gobiernos contemporáneos lo diferencian de una novela política o de una historia general de las ideologías.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La galaxia ultra es una investigación periodística de Miguel González sobre el crecimiento de las fuerzas políticas ultras en distintos países. Examina figuras como Abascal, Milei, Meloni y Trump, y relaciona su presencia institucional y electoral con los cambios políticos que afectan a las democracias contemporáneas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La galaxia ultra se ofrece en tapa blanda y Kindle. La edición en papel consta de 424 páginas y utiliza encuadernación rústica con solapas; Kindle permite leer la investigación en el móvil o en un lector electrónico y prescindir del volumen físico durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La galaxia ultra y El estado del Estado comparten el interés por la política contemporánea y las tensiones que afectan a las instituciones. Miguel González investiga el avance internacional de movimientos ultras, mientras que Enrique López López centra su reflexión en España, la polarización y la incertidumbre política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441013"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ff3745ef7852b317",
+  "origen": "chatgpt-web"
+}

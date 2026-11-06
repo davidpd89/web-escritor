@@ -4,9 +4,8 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Amor en pole position (Dirty Air 3) se dirige a lectores desde los 16 años interesados en el romance contemporáneo ambientado en la Fórmula 1. Su historia incorpora problemas de reputación, conductas autodestructivas y una relación sentimental. No corresponde a quien busque fantasía o una narración deportiva sin conflicto romántico.",
+      "texto": "Pensado para lectores desde los 16 años que buscan romance contemporáneo ambientado en la Fórmula 1, con conflictos de pareja y consecuencias personales. Encaja menos con quienes prefieren fantasía o historias deportivas centradas exclusivamente en la competición, ya que el conflicto romántico y la reputación del protagonista ocupan un lugar central.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,7 +13,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Amor en pole position (Dirty Air 3) está recomendado a partir de 16 años. El protagonista menciona el consumo de pastillas y alcohol, además de decisiones autodestructivas relacionadas con su sufrimiento emocional. Estos contenidos, junto con las consecuencias de un error grave, forman parte del conflicto de la novela.",
+      "texto": "Amor en pole position (Dirty Air 3) está recomendado a partir de 16 años. Incluye referencias al consumo de pastillas y alcohol, conductas autodestructivas y un error grave con consecuencias para la reputación del protagonista, cuestiones que conviene considerar antes de elegirlo.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -23,27 +22,25 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Amor en pole position (Dirty Air 3) es una novela de romance contemporáneo situada en el entorno profesional de la Fórmula 1. La trama parte de las consecuencias de una conducta destructiva y de los esfuerzos por reparar la imagen pública del protagonista. El conflicto sentimental se desarrolla junto a esa crisis personal y profesional.",
+      "texto": "Es un romance contemporáneo situado en el entorno profesional de la Fórmula 1, con una trama marcada por la conducta autodestructiva y la necesidad de reparar una reputación dañada. El deporte funciona como escenario de una historia de relaciones personales, decisiones perjudiciales y consecuencias públicas.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Amor en pole position (Dirty Air 3) está disponible en tapa blanda y Kindle. La edición impresa de Ediciones Martínez Roca consta de 448 páginas en rústica con solapas, para quienes prefieren leer y conservar el volumen físico. Kindle permite transportar la novela digitalmente y leerla también desde el móvil.",
+      "texto": "La tapa blanda contiene 448 páginas en rústica con solapas, para leer en papel y conservar junto a otros volúmenes de la serie. Kindle permite llevar esta novela extensa en formato digital y leerla desde dispositivos compatibles sin transportar el ejemplar físico.",
       "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "formatos_disponibles",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amor en pole position (Dirty Air 3) puede compararse con Solo un juego más (CAR HOCKEY 1) por la presencia del deporte en historias relacionadas con el romance. Lauren Asher sitúa su novela en la Fórmula 1 y aborda una crisis de reputación; Susanna Herrero presenta a un graduado en Matemáticas cuyo futuro se cruza con un centro de alto rendimiento de hockey. Cambian tanto el deporte como el punto de partida del protagonista.",
+      "texto": "Amor en pole position (Dirty Air 3) y Amor sin frenos (Dirty Air 4) comparten autora, Lauren Asher, y el romance ambientado en la Fórmula 1; el segundo se presenta como cierre de la serie, mientras que el título del primero lo identifica como el n.º 3. Un amor de diciembre, también de Lauren Asher, mantiene el interés por las relaciones románticas, pero propone una lectura organizada en un capítulo diario durante diciembre.",
       "evidencias": [
         "titulo",
         "autores",
@@ -52,7 +49,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388222801"
+        "isbn-9788427055803",
+        "isbn-9788427054479"
       ]
     }
   ],

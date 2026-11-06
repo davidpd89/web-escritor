@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388101618",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pesadilla antes de Navidad: Mirror Moon (manga) encaja con lectores de cómic interesados en Jack Skellington, Sally y el universo de la Ciudad de Halloween. Su argumento combina elementos festivos con una aventura de tono oscuro, por lo que se distancia de las historias realistas y de quienes prefieren una novela escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Pesadilla antes de Navidad: Mirror Moon (manga) presenta una aventura en formato cómic protagonizada por Jack Skellington y Sally. El deseo de Jack de extender sus creaciones terroríficas a otros mundos festivos coincide con su decisión de encargar a Sally la organización de Halloween, lo que establece dos líneas de acción dentro del mismo escenario fantástico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pesadilla antes de Navidad: Mirror Moon (manga) se ofrece en tapa blanda, mediante una edición rústica con solapas de Planeta Cómic. Sus 128 páginas forman un volumen físico que permite leer la historia en papel y conservarlo junto a otros títulos de cómic y novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a2f858d29a03384e",
+  "origen": "chatgpt-web"
+}

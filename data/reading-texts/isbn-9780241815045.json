@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ramen cada día (Sabores del mundo), de Deborah Kaloper, se dirige a adultos interesados en preparar ramen japonés en casa. Sus recetas trabajan con caldos, fideos y acompañamientos variados; no está enfocado en la repostería ni en la cocina tradicional española.",
+      "texto": "Ramen cada día (Sabores del mundo) está dirigido a adultos que quieren preparar ramen en casa y experimentar con distintas combinaciones de ingredientes. Deborah Kaloper aborda tanto las preparaciones con carne como las alternativas con verduras o marisco. Su enfoque culinario encaja menos con quien busque una lectura narrativa o un manual de cocina general sin especialización en este plato.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,26 +15,28 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Incluye recetas de ramen con distintas bases y combinaciones de ingredientes para cocinar en casa. Entre las preparaciones figuran el wagyu shoyu, el tonkotsu con pollo karaage, el shio con maíz y puerro y el miso de marisco. Sus 128 páginas permiten consultar alternativas según los ingredientes y el tipo de caldo.",
+      "texto": "Ramen cada día (Sabores del mundo) reúne recetas de ramen para elaborar en casa y adaptar a diferentes gustos. Incluye preparaciones como wagyu shoyu, tonkotsu con pollo karaage, shio con maíz y puerro y miso de marisco. Sus 128 páginas se centran en las variaciones de este plato, con propuestas que permiten cambiar caldos y acompañamientos según la receta elegida.",
       "evidencias": [
+        "titulo",
         "sinopsis_editorial",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ramen cada día (Sabores del mundo) está disponible en tapa dura, con 128 páginas en castellano. Es una edición física que permite consultar las recetas sobre la mesa de cocina y volver a ellas durante la preparación. La encuadernación rígida también facilita conservarlo como recetario de consulta.",
+      "texto": "Ramen cada día (Sabores del mundo) se presenta en tapa dura, con 128 páginas publicadas por DK. El volumen físico permite consultar las recetas sobre una mesa o junto a la zona de preparación sin depender de una pantalla. La encuadernación rígida también facilita conservarlo como recetario de consulta habitual.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "formato_edicion"
+        "edicion",
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ramen cada día (Sabores del mundo) y Cocina de siempre para disfrutar hoy comparten la preparación de platos caseros, pero Deborah Kaloper se centra en el ramen japonés y Marcos Serén @chefmspin.recetas adapta recetas tradicionales. Frente a Al micro y listo, de Dani García, el primero presta atención a los caldos y sus distintas combinaciones, mientras el segundo se presenta desde la facilidad de cocinar.",
+      "texto": "Ramen cada día (Sabores del mundo) y Al micro y listo comparten un propósito práctico: cocinar en casa siguiendo propuestas de sus autores. Deborah Kaloper se concentra en las distintas elaboraciones del ramen, mientras que Dani García plantea una cocina vinculada al uso del microondas. Frente a 20 minutos ¡y listo!, de Jamie Oliver, el criterio principal cambia: especialización en un plato frente a rapidez de preparación.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,8 +44,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467084757",
-        "isbn-9788408324263"
+        "isbn-9788425374074",
+        "isbn-9788467084757"
       ]
     }
   ],

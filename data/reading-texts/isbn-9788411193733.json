@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788411193733",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Microprácticas está dirigido a lectores de desarrollo personal que quieran incorporar acciones breves a sus rutinas para trabajar el bienestar y la energía. Eli Susman propone intervenciones de menos de un minuto fundamentadas en la ciencia, en lugar de cambios que exijan largas sesiones. Su enfoque no corresponde a quien busque una narración autobiográfica o una novela.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Microprácticas está disponible en tapa blanda y Kindle, con 336 páginas dedicadas a pequeñas acciones relacionadas con el bienestar. La edición física de Diana, en rústica con solapas, permite consultar las propuestas y señalar las que se quieran incorporar a la rutina. Kindle facilita revisar esas prácticas desde el móvil sin llevar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2532cb7736867070",
+  "origen": "chatgpt-web"
+}

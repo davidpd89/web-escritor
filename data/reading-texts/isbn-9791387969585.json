@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387969585",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Globo de helio se orienta a lectores que buscan una narración ilustrada breve, de carácter íntimo y centrada en los vínculos de protección. Georgina Palazón Gray utiliza imágenes expresivas y una progresión visual del relato; quien prefiera una novela extensa basada principalmente en texto encontrará aquí una propuesta distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Globo de helio plantea una lectura visual sobre el cuidado y la protección, con una intensidad narrativa que aumenta conforme avanza la obra. Sus ilustraciones monocromas combinan procedimientos tradicionales y digitales, mientras el texto íntimo aporta una dimensión familiar. La relación entre palabra e imagen sostiene el desarrollo de sus 32 páginas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Globo de helio se publica en tapa blanda, con 32 páginas en castellano. El formato físico permite recorrer las ilustraciones monocromas y observar los recursos visuales que acompañan la evolución del relato. Por su extensión, puede leerse de una vez o revisarse prestando atención a la combinación de técnicas gráficas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "161058d53733be3b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788408330974",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La promesa de Gideon se dirige a lectores desde los 16 años que buscan romance juvenil con conflictos familiares difíciles. La situación de Helen, marcada por un hogar inseguro y la necesidad de resistir, la aleja de las historias románticas centradas únicamente en encuentros sentimentales ligeros.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "La promesa de Gideon está recomendada a partir de los 16 años y aborda experiencias de inseguridad dentro del hogar. Helen ha crecido bajo condiciones que la obligan a obedecer y ocultar lo que siente, por lo que el sufrimiento familiar y la supervivencia emocional son aspectos relevantes para lectores sensibles a estas situaciones.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La promesa de Gideon plantea un romance juvenil atravesado por la vulnerabilidad y las consecuencias de crecer en un entorno familiar hostil. Helen afronta una vida condicionada por el miedo y la obediencia, mientras Gideon espera alcanzar la mayoría de edad; ambos parten de circunstancias personales que influyen en el conflicto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La promesa de Gideon se publica en tapa blanda, con encuadernación rústica y solapas. Esta edición de Esencia contiene 384 páginas en castellano y ofrece un volumen físico de extensión intermedia para leer y conservar sin el peso habitual de una edición extensa en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e5844c7e89b08210",
+  "origen": "chatgpt-web"
+}

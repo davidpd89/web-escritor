@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788419483881",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Artesanos del queso se dirige a quienes quieren conocer la elaboración artesanal del queso español y las personas que trabajan en ella. Su enfoque en el oficio, las queserías y sus transformaciones lo aleja de los manuales centrados en preparar recetas domésticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro recorre 23 queserías de España mediante las experiencias de quienes elaboran sus productos. Sus 288 páginas permiten conocer técnicas recuperadas, experimentos con ahumados y quesos azules, además de las dificultades del oficio y su relación con el territorio.",
+      "evidencias": [
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Artesanos del queso está disponible en tapa dura, con 288 páginas en castellano publicadas por Col&col Ediciones. Esta encuadernación permite conservar el volumen para consultar de nuevo sus contenidos sobre queserías y técnicas artesanales, además de utilizarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Artesanos del queso y Café para tomar aquí comparten el interés por productos alimentarios y los conocimientos asociados a su elaboración. El primero aborda el trabajo de 23 queserías españolas, mientras que el segundo se centra en el café de especialidad. Barbacoa, en cambio, trata técnicas culinarias vinculadas a cocinar con fuego.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374012",
+        "isbn-9788408328889"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8ef9815461205dd7",
+  "origen": "chatgpt-web"
+}

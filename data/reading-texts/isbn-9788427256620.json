@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788427256620",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Querido nieto (Siempre en mi corazón) está dirigido a lectores a partir de 4 años y a familias que buscan una historia sobre el afecto entre abuelos y nietos. Combina versos e ilustraciones de animales para expresar vínculos familiares; no responde a la búsqueda de una aventura de acción o de una trama de misterio.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Querido nieto (Siempre en mi corazón) se recomienda desde los 4 años y consta de 40 páginas. Gregory E. Lang presenta un texto rimado acompañado de dibujos de animales, en una edición de Molino en castellano y tapa dura. Su extensión permite compartir la lectura en familia y detenerse en las ilustraciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Querido nieto (Siempre en mi corazón) está disponible en tapa dura y Kindle. La tapa dura ofrece sus 40 páginas como objeto físico para regalar entre familiares y compartir durante la lectura. Kindle permite acceder al texto rimado y a la historia desde un dispositivo electrónico, sin necesidad de llevar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cinco cuentos reúne cinco historias con distintos protagonistas, mientras que Querido nieto (Siempre en mi corazón) se centra en el cariño entre abuelos y nietos mediante versos e ilustraciones de animales. Ambos ofrecen lecturas infantiles, pero el libro de Gregory E. Lang desarrolla un vínculo familiar concreto, frente a la variedad de personajes y relatos de Posy Simmonds.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788419981035"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "34b7c6d5ecd8b6c1",
+  "origen": "chatgpt-web"
+}

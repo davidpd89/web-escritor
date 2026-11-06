@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Niños ancestrales se dirige a quienes buscan comprender la salud infantil desde el embarazo y durante las primeras etapas de crianza. Rubén Muñoz relaciona la alimentación, la lactancia y el entorno con distintos aspectos del desarrollo del niño. Su contenido se centra en procesos de salud y cuidados tempranos, no en conflictos familiares propios de etapas posteriores.",
+      "texto": "Niños ancestrales está dirigido a familias y personas interesadas en la salud infantil desde el embarazo y los primeros cuidados. Rubén Muñoz relaciona la alimentación, la lactancia y el entorno con distintas áreas del desarrollo del niño. No está planteado como una obra de ficción ni como una guía centrada exclusivamente en los conflictos de convivencia familiar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Niños ancestrales aborda la influencia de las decisiones tomadas durante el embarazo, la lactancia y la incorporación de alimentos en la salud infantil. Sus capítulos explican aspectos del aparato digestivo y relacionan los cuidados tempranos con el desarrollo inmunitario, neurológico y emocional. Las 320 páginas permiten consultar estos asuntos dentro de una misma obra dedicada a la crianza.",
+      "texto": "Niños ancestrales organiza su contenido en capítulos sobre factores tempranos que intervienen en la salud infantil. Trata decisiones durante el embarazo, la lactancia, la introducción de alimentos y las condiciones del entorno, además del funcionamiento digestivo. Sus 320 páginas permiten consultar estas cuestiones desde una perspectiva de crianza, nutrición y bienestar.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -24,23 +24,21 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Niños ancestrales puede adquirirse en tapa blanda o Kindle. La edición de Alienta Editorial reúne 320 páginas en rústica con solapas, que permiten consultar físicamente los capítulos sobre alimentación y desarrollo infantil. Kindle facilita llevar el contenido en el móvil o en un lector electrónico y recuperarlo durante las distintas etapas de crianza.",
+      "texto": "Niños ancestrales se ofrece en tapa blanda, Kindle y audiolibro. La edición de Alienta Editorial es rústica con solapas y contiene 320 páginas, adecuada para consultar capítulos concretos en papel. Kindle facilita llevar el contenido en el móvil o en un lector electrónico, mientras que el audiolibro permite escucharlo sin necesidad de mantener el libro abierto.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Niños ancestrales comparte con Preparados, listos, ¡llegó el bebé!, de Laura Álvarez (La pediatra Laura), la atención a la salud y los cuidados durante los primeros años de vida. Rubén Muñoz incorpora el embarazo, la lactancia y el desarrollo digestivo, mientras Laura Álvarez (La pediatra Laura) presenta una guía general de crianza. Criar juntos de verdad, de Armando Bastida @armandobastidaep, se distingue por centrarse en la crianza compartida.",
+      "texto": "Niños ancestrales y Preparados, listos, ¡llegó el bebé! comparten el interés por los cuidados y el desarrollo infantil. Rubén Muñoz se concentra en la influencia del embarazo, la alimentación y el entorno sobre la salud, mientras que Laura Álvarez (La pediatra Laura) ofrece una guía general de los primeros años de crianza. Criar juntos de verdad, de Armando Bastida @armandobastidaep, desplaza el foco hacia la colaboración entre quienes crían.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
@@ -52,6 +50,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f8e7de187a874ee8",
+  "fuente_hash": "eacf69e7e120da3b",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Hanami, de Patricia Benito, se dirige a quienes buscan reflexiones sobre la belleza cotidiana, los afectos y el carácter pasajero de las experiencias. Su estructura mediante cartas y su enfoque filosófico lo separan de los ensayos académicos centrados en desarrollar una teoría sistemática o de los manuales con instrucciones prácticas.",
+      "texto": "Hanami encaja con lectores interesados en reflexiones sobre la belleza cotidiana, los vínculos afectivos y el carácter pasajero de las experiencias. Patricia Benito construye el libro mediante cartas, una estructura menos afín a quien prefiere un ensayo académico organizado alrededor de argumentos teóricos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,29 +14,26 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Hanami examina la atención a aquello que emociona y la necesidad de apreciar las experiencias mientras suceden. Patricia Benito parte de una costumbre japonesa vinculada a la floración de los cerezos y organiza sus reflexiones en cartas. Los vínculos personales, los recuerdos y los pequeños gestos de cuidado sirven para explorar la belleza y su duración limitada.",
+      "texto": "Hanami aborda la atención a los pequeños acontecimientos que producen emoción y la necesidad de apreciar aquello que tiene una duración limitada. Patricia Benito utiliza la tradición japonesa de contemplar los cerezos en flor como punto de partida y desarrolla sus reflexiones mediante una sucesión de cartas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Hanami se ofrece en tapa blanda y Kindle, dos maneras de leer sus reflexiones organizadas en cartas. La edición en papel de Plaza & Janés tiene 176 páginas y permite volver físicamente a cada texto; Kindle facilita consultarlos desde el móvil o un lector electrónico compatible. El contenido puede acompañar tanto una lectura seguida como el regreso a cartas concretas.",
+      "texto": "Hanami está disponible en tapa blanda y Kindle, con una extensión de 176 páginas en su edición impresa. El papel permite conservar y releer las cartas como piezas individuales, mientras que Kindle facilita llevar el texto en el móvil o en un lector electrónico sin transportar el volumen.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
         "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Hanami y Duelo, de Michael Cholbi, abordan experiencias emocionales desde una perspectiva reflexiva. Patricia Benito utiliza cartas para detenerse en la belleza de lo cotidiano y su fugacidad, mientras que Michael Cholbi examina filosóficamente la experiencia de perder a alguien. Contingencia, ironía y solidaridad, de Richard Rorty, desplaza esa reflexión hacia la convivencia social y la ausencia de verdades universales.",
+      "texto": "Hanami y Esenciales se relacionan por su dimensión reflexiva, aunque presentan enfoques diferentes. Patricia Benito recurre a cartas sobre la belleza efímera y los afectos cotidianos, mientras que Esenciales reúne escritos de Simone Weil y permite recorrer el pensamiento de su autora desde una perspectiva filosófica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -45,8 +42,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788449345951",
-        "isbn-9788449344626"
+        "isbn-9788430629138"
       ]
     }
   ],

@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788410943841",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Introvertidos. Guía de supervivencia se dirige a personas interesadas en comprender la introversión y gestionar situaciones sociales o laborales que producen agotamiento. No plantea técnicas para convertirse en alguien extrovertido, sino herramientas para comunicarse, establecer límites y aprovechar las características propias de este perfil.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Elena Compte aborda la introversión desde situaciones cotidianas como las reuniones de trabajo, los encuentros familiares y las relaciones de amistad. Introvertidos. Guía de supervivencia combina explicaciones sobre distintas formas de relacionarse con herramientas para gestionar estímulos, comunicarse y colaborar con otras personas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Introvertidos. Guía de supervivencia puede leerse en tapa blanda o en Kindle, con una extensión de 240 páginas. La edición física facilita consultar y señalar herramientas para situaciones sociales concretas; Kindle permite recuperar esos contenidos desde un lector electrónico o el móvil.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Introvertidos. Guía de supervivencia y Plaza Brugmann, 33 prestan atención a las relaciones entre personas, aunque desde perspectivas distintas. Elena Compte analiza comportamientos y propone herramientas para la convivencia cotidiana; Alice Austen desarrolla una historia de ficción alrededor de los habitantes de un edificio y sus vínculos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387640439"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9cfb0027b839bb85",
+  "origen": "chatgpt-web"
+}

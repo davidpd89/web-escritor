@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399213232",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La escritora invisible se dirige a lectores juveniles interesados en la escritura, las redes sociales y los conflictos personales. Jordi Sierra i Fabra plantea las dificultades de una joven que compagina estudios, trabajo y aspiraciones literarias. No responde a quien busque una aventura fantástica o una historia centrada exclusivamente en el romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La escritora invisible está disponible en tapa blanda, con 212 páginas en castellano. Esta edición de Munyx Editorial permite leerla en papel, transportarla en una mochila y conservarla en una estantería sin el volumen habitual de una tapa dura. Es la opción física recogida para este título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La escritora invisible y Radiografía de chica con tatuaje son obras de Jordi Sierra i Fabra con conflictos diferentes. La primera trata sobre una joven que trabaja como escritora fantasma para una creadora de contenidos y afronta problemas familiares y sentimentales. La segunda parte de una noche de pasión que termina en un crimen. Una aborda las tensiones del trabajo editorial y la otra presenta una situación criminal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788424678982"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "de68ce1ea7d191c6",
+  "origen": "chatgpt-web"
+}

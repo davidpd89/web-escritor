@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788403526723",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo me gustaría contarte se dirige a lectores adultos interesados en las memorias personales sobre la pérdida de un familiar y la reconstrucción de la vida mediante nuevos objetivos. Ángel Gómez Merino combina el recuerdo de su hermana con experiencias de aventura y superación; no responde a quien busque un manual de ejercicios para afrontar el duelo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas reúne las 272 páginas de Cómo me gustaría contarte en una edición física que permite volver a los episodios y marcar pasajes. Kindle contiene la lectura en formato digital, apropiado para llevarla en el móvil sin transportar el volumen impreso. Ambas opciones permiten seguir el relato personal de Ángel Gómez Merino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo me gustaría contarte y Duelo abordan la pérdida, pero Ángel Gómez Merino la narra desde su experiencia familiar y Michael Cholbi la examina mediante la filosofía. También guarda relación con El tiempo que pasa, de Manuel Medina, por la importancia de los recuerdos personales. Este último se centra en la infancia y la España de la posguerra, mientras que Cómo me gustaría contarte incorpora aventuras emprendidas tras una muerte cercana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040580",
+        "isbn-9788449344626"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8dcbc9bdfc8c4215",
+  "origen": "chatgpt-web"
+}

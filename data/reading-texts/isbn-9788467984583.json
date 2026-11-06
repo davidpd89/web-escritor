@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788467984583",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "BLUER THAN LOVE 04 encaja con lectores de romance que buscan relaciones entre chicas, sentimientos expresados mediante la escritura y conflictos afectivos en el instituto. Su atención a los vínculos personales y a las decisiones sentimentales lo distingue de las historias centradas en la acción o el peligro físico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "BLUER THAN LOVE 04 aborda un momento de cambio sentimental a través de una colaboración literaria entre dos institutos. La escritura de un texto lleva a Takamine a examinar sus preferencias y afrontar una decisión sobre su futuro afectivo. El título lo identifica como el n.º 04.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "BLUER THAN LOVE 04 tiene una edición en tapa blanda de 192 páginas, publicada en castellano por Norma Editorial. Este formato reúne en un volumen físico la historia de relaciones personales y actividades literarias que desarrolla Kon Fukami.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b731da12680050ba",
+  "origen": "chatgpt-web"
+}

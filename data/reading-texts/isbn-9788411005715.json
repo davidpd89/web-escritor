@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788411005715",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Irán. Entre revolución y tradición se dirige a lectores interesados en la política internacional y la historia contemporánea de Irán. Su planteamiento histórico y geopolítico, organizado mediante fechas y preguntas, se aleja de las narraciones de viajes y de la ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una obra de divulgación histórica y política centrada en Irán y su posición internacional. Yann Richard y Thomas Snégaroff estructuran la explicación mediante 6 fechas y 30 preguntas, un planteamiento que permite abordar acontecimientos y cuestiones concretas en sus 192 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Irán. Entre revolución y tradición está disponible en tapa blanda, concretamente en rústica con solapas. Esta edición de Ediciones Península reúne 192 páginas en un volumen físico que permite consultar las fechas y preguntas del libro sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la sombra del Estado comparte con Irán. Entre revolución y tradición el interés por las relaciones de poder, aunque se ocupa del espionaje, la desinformación y las operaciones encubiertas. Crónica de un desafío al Estado también aborda conflictos políticos, pero desde el relato en primera persona de los acontecimientos del Procés, frente a la estructura de fechas y preguntas sobre Irán.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057",
+        "isbn-9788423441303"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d9e662765bcb0fa2",
+  "origen": "chatgpt-web"
+}

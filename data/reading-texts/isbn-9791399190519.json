@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791399190519",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MUNDO EN MI MALETA, EL se orienta a lectores interesados en la historia familiar, la diplomacia y los acontecimientos internacionales. Su recorrido por distintas épocas, con episodios vinculados a Turquía y la Segunda Guerra Mundial, se aleja de la ficción de aventuras puramente imaginarias; sus 528 páginas exigen una lectura de cierta extensión.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "MUNDO EN MI MALETA, EL combina memoria familiar y relato histórico a través de las experiencias diplomáticas de los padres de Pilar D E Arístegui. La narración conecta destinos internacionales, cambios culturales y decisiones personales, entre ellas la protección de personas perseguidas durante la Segunda Guerra Mundial. Su enfoque parte de vidas reales y acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "MUNDO EN MI MALETA, EL cuenta con una edición en tapa dura de 528 páginas publicada por Iman Comunicacion Ag.hiperactiva. La encuadernación rígida resulta práctica para conservar un volumen extenso y regalarlo; por su tamaño de lectura, conviene más para mantenerlo en casa que para llevarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "37b0c9de86541988",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La Casa de la Ciénaga (Serie Slow Horses 7), de Mick Herron, se dirige a lectores adultos de misterio y thriller interesados en el espionaje británico y las luchas internas del poder. Su conflicto combina amenazas contra agentes apartados, irregularidades administrativas y maniobras del servicio secreto. No sigue el modelo del espía infalible: sus protagonistas trabajan desde una posición vulnerable dentro de la institución.",
+      "texto": "La Casa de la Ciénaga (Serie Slow Horses 7) se dirige a lectores adultos de espionaje, intriga política y thrillers institucionales. Mick Herron plantea un conflicto en el que los servicios secretos británicos amenazan a sus propios agentes, con ironía y crítica de la burocracia. No responde a quien busque una aventura de espionaje centrada en héroes infalibles o alejada de las maniobras políticas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,7 +15,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La Casa de la Ciénaga (Serie Slow Horses 7) plantea un thriller de espionaje en el que la amenaza surge del propio aparato de seguridad. Los agentes descubren que sus identidades oficiales han desaparecido de los sistemas del servicio secreto, mientras se acumulan incidentes sospechosos. El título lo identifica como el n.º 7 de la serie Slow Horses, y la trama aborda la burocracia, la lealtad institucional y las consecuencias de las decisiones políticas.",
+      "texto": "La Casa de la Ciénaga (Serie Slow Horses 7) es un thriller de espionaje ambientado en un contexto de inestabilidad política británica. El conflicto surge cuando desaparecen los registros oficiales de un grupo de agentes y la propia organización de inteligencia se convierte en una amenaza. El título lo identifica como el n.º 7 de la serie Slow Horses, con una trama de lealtades institucionales y encubrimientos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -24,19 +24,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La Casa de la Ciénaga (Serie Slow Horses 7) está disponible en tapa blanda con solapas, en una edición de Salamandra de 368 páginas. El formato permite seguir las intrigas de espionaje en papel, volver a escenas anteriores y conservar el volumen junto a otras lecturas de la serie. Su extensión es un dato útil para organizar la lectura por sesiones.",
+      "texto": "La Casa de la Ciénaga (Serie Slow Horses 7) está disponible en tapa blanda, Kindle y audiolibro. La edición de Salamandra reúne 368 páginas en tapa blanda con solapas, para quienes prefieren seguir la investigación en papel. Kindle permite continuar la lectura desde dispositivos electrónicos y el audiolibro ofrece una opción de escucha durante los desplazamientos.",
       "evidencias": [
         "titulo",
-        "edicion",
         "editorial",
+        "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a3c80761c6cf7f1c",
+  "fuente_hash": "ebe8d22a3e32cf13",
   "origen": "chatgpt-web"
 }

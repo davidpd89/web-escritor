@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788419820853",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ama tu sistema nervioso se dirige a lectores adultos interesados en el autoconocimiento, la regulación emocional y el cuidado personal. Elsa Bonafonte aborda el funcionamiento del sistema nervioso y propone prácticas para trabajar la relación con uno mismo. Su enfoque es práctico y reflexivo, por lo que se aleja de una lectura centrada exclusivamente en explicaciones teóricas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ama tu sistema nervioso está disponible en tapa blanda y Kindle. La edición física de Vergara tiene 288 páginas y solapas, una opción para consultar y recuperar los ejercicios de regulación personal en papel. Kindle permite llevar el contenido en el móvil o en un lector electrónico y acceder a las prácticas sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ama tu sistema nervioso y Uketamo. Abrazar la vida tal cual viene comparten el interés por la relación de cada persona consigo misma. Elsa Bonafonte se centra en comprender el sistema nervioso y practicar su regulación, mientras que Ana Galeote Frontelo plantea la aceptación ante la exigencia de resultados y certezas. Aunque no lo merezcas, de Olatz Elola, ofrece otra aproximación al bienestar personal desde la experiencia de una mujer altamente funcional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431486",
+        "isbn-9791387973971"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "42bdfabcbe40ca17",
+  "origen": "chatgpt-web"
+}

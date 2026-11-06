@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788410944114",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La gran traición se dirige a lectores interesados en el terrorismo de ETA, la memoria de sus víctimas y las decisiones políticas relacionadas con su legado. No responde a las expectativas de quien busque una historia de terror ficticia: Cayetano González Hermosilla desarrolla una interpretación periodística y política de hechos históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La gran traición plantea un análisis político y moral sobre la memoria del terrorismo y el papel de los partidos en la política vasca y española. Cayetano González Hermosilla combina su experiencia periodística con una interpretación crítica de las negociaciones políticas y del tratamiento público de las víctimas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer y consultar las 328 páginas de La gran traición en papel, mientras que Kindle facilita llevar el texto en un dispositivo electrónico. La edición física de La Esfera de los Libros resulta apropiada para conservar el volumen y volver a pasajes concretos durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La gran traición y Cosamala se acercan a episodios violentos del pasado español, pero emplean tratamientos diferentes. Cayetano González Hermosilla aborda el terrorismo y sus consecuencias políticas mediante el periodismo, mientras que la obra de Alana S. Portero transforma un crimen de la guerra civil en ficción gótica con brujas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "388deec6ccf72abf",
+  "origen": "chatgpt-web"
+}

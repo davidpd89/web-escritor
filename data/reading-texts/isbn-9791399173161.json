@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791399173161",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los irredentos encaja con lectores de relatos contemporáneos interesados en la pérdida, el desarraigo y las relaciones familiares. Sus tres escenarios y su prosa concentrada se alejan de una narración de aventuras continuadas, por lo que puede encajar menos con quien prefiera una única trama de acción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Los irredentos propone una lectura de narrativa contemporánea organizada en tres partes, cada una vinculada a un escenario diferente. Cristina Garcia Molina explora la distancia entre los deseos personales y las circunstancias que los limitan, mediante una escritura contenida y situaciones marcadas por la ausencia y la búsqueda de pertenencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los irredentos se publica en tapa blanda y tiene 136 páginas, una extensión que permite abordar sus tres partes en sesiones de lectura relativamente breves. La edición de editorial minúscula es física y flexible, adecuada para llevar el libro consigo y volver a determinados pasajes.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los irredentos puede compararse con La semana de colores y Andamos huyendo Lola por su relación con el relato y por el peso de la imaginación en la construcción literaria. Elena Garro aparece vinculada a una imaginación sin límites, mientras Cristina Garcia Molina trabaja con escenarios de extrañeza, pérdidas familiares y personajes que buscan un lugar propio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084856"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f178457cda02559c",
+  "origen": "chatgpt-web"
+}

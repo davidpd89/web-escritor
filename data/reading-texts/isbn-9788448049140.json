@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788448049140",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Frutos secos está dirigido a quienes buscan recetas que incorporen estos ingredientes para aumentar el aporte de proteína de sus platos. Su propuesta culinaria se centra en preparar comidas con frutos secos, por lo que no responde a quien busca un tratado general de nutrición o un recetario dedicado a otros ingredientes.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro reúne recetas de distintos tipos que utilizan frutos secos como ingrediente principal o como complemento de otros platos. Clémence Catz explica su aplicación culinaria para modificar la textura, aportar cremosidad y aumentar la presencia de proteína en las preparaciones, dentro de un volumen de 144 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Frutos secos se publica en tapa blanda, en una edición rústica con solapas de Libros Cúpula. Sus 144 páginas forman un recetario físico que puede mantenerse a mano en la cocina y consultarse por preparaciones, sin necesidad de utilizar una pantalla durante la elaboración.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "20 minutos ¡y listo! comparte con Frutos secos su orientación práctica hacia la preparación de comidas, pero organiza su propuesta alrededor del tiempo disponible y no de un ingrediente. Al micro y listo también aborda la cocina cotidiana, aunque su punto de partida es cocinar con microondas, mientras que Clémence Catz se concentra en los frutos secos y su aporte proteico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788467084757"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9863a801737f5b01",
+  "origen": "chatgpt-web"
+}

@@ -4,59 +4,54 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) se dirige a lectores de ciencia ficción juvenil interesados en sociedades divididas, decisiones personales y rebeliones. Veronica Roth plantea un conflicto entre la pertenencia a una facción y los vínculos familiares. No encaja con quien busca una historia realista sin elementos distópicos.",
+      "texto": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) se orienta a lectores de ciencia ficción juvenil interesados en sociedades divididas, decisiones personales y rebeliones clandestinas. Su conflicto político y familiar se aleja de las historias centradas exclusivamente en aventuras espaciales o exploración tecnológica.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) presenta una distopía juvenil organizada alrededor de cinco facciones. La elección de Beatrice Prior implica abandonar su entorno familiar y enfrentarse a las consecuencias de una ceremonia alterada por la tragedia. El conflicto combina identidad, lealtad y una rebelión oculta.",
+      "texto": "La lectura plantea una sociedad organizada en cinco facciones donde la elección de pertenencia determina el futuro personal. Beatrice Prior debe afrontar las consecuencias de su decisión, el alejamiento de su familia y una rebelión clandestina, en una trama juvenil de ciencia ficción que combina identidad, lealtad y secretos.",
       "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) se distingue por sus cantos tintados y su presentación en tapa dura con sobrecubierta. Molino la publica en castellano con 608 páginas y el ISBN 9788427257627. El título la identifica como el n.º 1 y señala expresamente su carácter de edición especial limitada.",
+      "texto": "Esta edición especial limitada de La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) incorpora cantos tintados y se presenta en tapa dura con sobrecubierta. Publicada por Molino, reúne 608 páginas en castellano; el título la identifica como el n.º 1.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
+        "editorial",
         "numero_paginas",
-        "idioma",
-        "isbn13"
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) puede elegirse en tapa dura, tapa blanda, Kindle o audiolibro. La tapa dura de Molino reúne 608 páginas, sobrecubierta y cantos tintados, mientras que la tapa blanda resulta más flexible para transportarla. Kindle evita cargar con el volumen físico y el audiolibro permite seguir la historia mediante escucha.",
+      "texto": "La tapa dura corresponde a la edición especial limitada con cantos tintados y sobrecubierta de 608 páginas, pensada para conservar el objeto físico. La tapa blanda ofrece una alternativa impresa, Kindle permite leer desde el móvil o un lector electrónico y el audiolibro permite escuchar la historia sin seguir el texto en papel.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aunque se acabe el mundo comparte con La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) un escenario de ciencia ficción donde cambia radicalmente la organización de la vida humana. Clara Duarte parte de una cúpula sobre la Tierra y una transformación de la humanidad; Veronica Roth sitúa el conflicto en un sistema de facciones y una elección personal. Neuromante (Edición especial), de William Gibson, se diferencia por su entorno ciberpunk y el robo de información electrónica.",
+      "texto": "La sexta facción 1 - La sexta facción (edición especial limitada con cantos tintados) y Aunque se acabe el mundo, de Clara Duarte, presentan sociedades sometidas a cambios que afectan a sus habitantes. Veronica Roth construye el conflicto alrededor de cinco facciones y una elección personal, mientras que Clara Duarte parte de una cúpula sobre la Tierra que transforma a parte de la humanidad.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
+        "afines_catalogo",
         "sinopsis_editorial",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788427255968",
-        "isbn-9788445023914"
+        "isbn-9788427255968"
       ]
     }
   ],

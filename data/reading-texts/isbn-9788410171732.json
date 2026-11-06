@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Aby encaja con lectores de narrativa contemporánea interesados en la historia del arte, los libros y la salud mental a partir de la figura de Aby Warburg. No se orienta a quien busque una trama de desarrollo lineal: Marie de Quatrebarbes recurre al montaje y a asociaciones entre imágenes e ideas.",
+      "texto": "Aby encaja con lectores de narrativa contemporánea interesados en la historia del arte, el coleccionismo y la relación entre creación intelectual y enfermedad mental. Su tratamiento de la esquizofrenia, la paranoia y el internamiento psiquiátrico puede resultar incómodo para quien busque una lectura ligera.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Aby plantea una novela de estructura fragmentaria que une la vida de Aby Warburg con la exploración de sus trastornos mentales. Marie de Quatrebarbes utiliza documentos clínicos y un montaje de imágenes e ideas para conectar su internamiento con el mundo de los libros y los cambios científicos y bélicos de su época.",
+      "texto": "Marie de Quatrebarbes construye en Aby una novela de base biográfica mediante fragmentos y asociaciones entre imágenes, ideas y acontecimientos históricos. La experiencia de Aby Warburg permite abordar el conflicto entre el pensamiento, los trastornos mentales y las transformaciones culturales de su época, con una estructura alejada del relato cronológico convencional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,18 +23,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Aby está disponible en tapa blanda y Kindle. La edición en papel de Editorial Periférica tiene 160 páginas y resulta manejable para transportarla; Kindle permite leer el título en un lector electrónico o desde el móvil sin llevar el ejemplar físico.",
+      "texto": "Aby está disponible en tapa blanda y Kindle, dos opciones para leer sus 160 páginas. La edición física de Editorial Periférica permite consultar y releer pasajes sobre papel, mientras que Kindle facilita llevar el texto en el móvil o en un lector electrónico.",
       "evidencias": [
         "titulo",
-        "editorial",
         "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5f9e5aa5dbc19aa1",
+  "fuente_hash": "23d364e45dc07790",
   "origen": "chatgpt-web"
 }

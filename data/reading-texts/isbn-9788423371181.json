@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando seamos inmortales se dirige a lectores de novela histórica interesados en la pintura, las rivalidades artísticas y la política europea. La relación entre Rubens y Velázquez, situada en 1628, ocupa el centro de una historia que encaja menos con quien busca una ambientación contemporánea o una trama desvinculada de acontecimientos históricos.",
+      "texto": "Cuando seamos inmortales está dirigido a lectores de novela histórica interesados en el arte y las rivalidades entre creadores. La presencia de Rubens y Velázquez, junto con el contexto político del Imperio español, lo aleja de las novelas centradas exclusivamente en conflictos personales contemporáneos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,28 +13,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Cuando seamos inmortales es una novela histórica de Tony Gratacós ambientada en 1628, durante el esplendor artístico de la corte española. La rivalidad entre Rubens y Velázquez se relaciona con la situación del Imperio español y el futuro de Europa. La pintura funciona como eje de una narración que conecta creación artística y poder político.",
+      "texto": "Cuando seamos inmortales es una novela histórica ambientada en 1628, con Rubens y Velázquez como figuras centrales de una rivalidad artística. La creación pictórica se relaciona con la situación del Imperio español y el destino político de Europa, de modo que el conflicto combina arte e historia.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuando seamos inmortales está disponible en tapa dura con sobrecubierta, publicada por Ediciones Destino. Sus 528 páginas forman un volumen extenso, cuya cubierta rígida ofrece mayor protección para conservarlo y consultarlo después de la lectura. La sobrecubierta añade una pieza exterior que puede retirarse mientras se lee.",
+      "texto": "Cuando seamos inmortales está disponible en tapa dura con sobrecubierta y cuenta con 528 páginas. Esta presentación protege el volumen durante su conservación en una biblioteca y ofrece una edición física para quienes prefieren leer una novela histórica extensa en papel.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando seamos inmortales y El hombre de Damasco comparten el interés por épocas históricas, aunque Tony Gratacós sitúa su novela en la corte española de 1628 y Alejandro Núñez Alonso remite al Imperio Romano. La hija del joyero, de Inma Aguilera, ofrece otra ambientación histórica, Málaga, 1867. La diferencia principal está en el periodo y el escenario de cada obra.",
+      "texto": "Cuando seamos inmortales y Hijos del Mediodía, de Eva Diaz Perez, pertenecen a la novela histórica y sitúan sus conflictos en distintas etapas de la historia de España. Tony Gratacós se ocupa del arte y la política del Imperio español, mientras que Hijos del Mediodía aborda Sevilla, la generación del 27 y la Guerra Civil.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,8 +42,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387714567",
-        "isbn-9788466685016"
+        "isbn-9788419188908"
       ]
     }
   ],

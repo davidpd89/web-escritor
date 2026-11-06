@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788491459347",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Buenas noches, hada se dirige al público infantil interesado en cuentos de fantasía ambientados en mundos mágicos. La historia acompaña a un hada por bosques floridos y escenarios celestes, con una estructura inspirada en la melodía de Estrellita ¿dónde estás? y orientada a la lectura antes de dormir. Se diferencia de las narraciones centradas en enfrentamientos, peligros o aventuras extensas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Buenas noches, hada se ofrece en tapa dura, en una edición de Picarona de 7 páginas. Su extensión permite recorrer el cuento en una sesión breve de lectura en papel, mientras que la cubierta rígida facilita conservarlo entre las lecturas habituales de la noche. El texto está publicado en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Buenas noches, hada comparte autoría con Buenas noches, robot: ambos están firmados por Jeffrey Burton y Zoe Waring y se dirigen al ámbito infantil. El primero desarrolla una escena de despedida del día entre hadas y paisajes mágicos, con una cadencia inspirada en una canción de cuna; el segundo presenta una propuesta relacionada con robots y un despegue.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491459354"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4aa3e49db2ab8e27",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788430629138",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esenciales está destinado a adultos interesados en filosofía, pensamiento político y debates sobre la condición humana. Sus ensayos y manuscritos abordan el totalitarismo, el trabajo y la espiritualidad, por lo que se aleja de una lectura narrativa centrada en personajes y acontecimientos ficticios.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Esenciales reúne reflexiones de Simone Weil sobre la opresión política, la experiencia laboral, la dignidad personal y las necesidades espirituales. La selección combina ensayos, artículos y manuscritos, con un prólogo de Remedios Zafra que acompaña esta aproximación a su pensamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esenciales puede leerse en tapa blanda o en Kindle, dos opciones para recorrer sus 224 páginas. La edición impresa permite marcar pasajes y consultar distintos textos del volumen; Kindle facilita llevar la antología en un lector electrónico o dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esenciales se aproxima a Manifiesto contra la intolerancia por su atención a los peligros del pensamiento autoritario. Simone Weil aborda también el trabajo y la vida espiritual mediante escritos de distintos tipos, mientras que Rafael Narbona centra el planteamiento de su obra en las nuevas manifestaciones del fascismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139055"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4051ac4017c4aa89",
+  "origen": "chatgpt-web"
+}

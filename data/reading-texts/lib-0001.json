@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Coraline encaja con lectores desde los 9 años que buscan fantasía oscura y misterios en escenarios domésticos. Puede no encajar con quienes evitan las amenazas de encierro: unos padres alternativos quieren retener a la protagonista.",
+      "texto": "Coraline encaja con lectores desde los 9 años interesados en la fantasía oscura, los mundos paralelos y los misterios con elementos de terror. Su amenaza de encierro y la presencia de unos padres alternativos inquietantes pueden alejar a quienes prefieren aventuras sin situaciones amenazantes.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Coraline se recomienda a partir de 9 años y combina misterio, fantasía oscura y terror. Su amenaza central es quedar atrapada en una versión alternativa del hogar, con unos padres que no quieren dejar marchar a la protagonista; ese riesgo de encierro puede inquietar a lectores sensibles.",
+      "texto": "Coraline está recomendada a partir de 9 años y combina fantasía juvenil con terror y misterio. La protagonista encuentra una puerta que conduce a otra versión de su hogar, donde sus otros padres pretenden impedir que regrese. La amenaza de encierro y la transformación del entorno familiar en un lugar peligroso pueden inquietar a los lectores más sensibles.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,18 +24,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Coraline, de Salamandra, tiene 160 páginas y solapas para leerla en papel y llevarla consigo. La tapa dura aporta una cubierta rígida para relecturas o regalo; Kindle permite leer en el móvil y el audiolibro escuchar la historia.",
+      "texto": "Coraline está disponible en tapa dura, tapa blanda, Kindle y audiolibro. La edición de Salamandra en tapa blanda con solapas tiene 160 páginas y permite una lectura impresa de extensión breve; la tapa dura ofrece una encuadernación más rígida, Kindle evita llevar el libro físico y el audiolibro permite escucharlo.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Coraline y Cosamala recurren a lo inquietante, pero sitúan el conflicto en lugares diferentes: Coraline abre la puerta a otro hogar, mientras Cosamala parte de un crimen de la guerra civil y una historia de brujas. Neil Gaiman escribe fantasía juvenil; Alana S. Portero recurre a lo gótico.",
+      "texto": "Coraline y Pesadilla antes de Navidad. La sombra sobre la reina de Halloween comparten escenarios inquietantes y amenazas vinculadas a espacios ajenos al mundo cotidiano. En Coraline, de Neil Gaiman, el peligro aparece tras una puerta doméstica y afecta a la libertad de la protagonista; en el libro de Megan Shepherd, Disney, la amenaza se sitúa en un reino oscuro al que llega Sally.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,7 +44,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788432251436"
+        "isbn-9791387901868"
       ]
     }
   ],

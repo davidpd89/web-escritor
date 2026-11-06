@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467083576",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tu microbiota adolescente en acción está orientado a adolescentes interesados en comprender las relaciones entre alimentación, intestino, sueño y emociones. Su enfoque divulgativo sobre salud juvenil se distingue de una novela de ficción y de un manual centrado exclusivamente en la alimentación de adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tu microbiota adolescente en acción se ofrece en tapa blanda y Kindle. La edición en rústica con solapas de Editorial Espasa contiene 192 páginas y permite consultar el contenido en papel; Kindle ofrece una alternativa digital para leerlo desde el móvil o un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tu microbiota adolescente en acción y La fibra es la solución relacionan alimentación y bienestar físico, aunque el primero aborda también las emociones y el sueño durante la adolescencia y el segundo se centra en el consumo de fibra. Ansiedad. ¿Cómo se sale de aquí? comparte el interés por el malestar emocional, pero sitúa la ansiedad en el centro de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431967",
+        "isbn-9788425374869"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "70b667d303ded514",
+  "origen": "chatgpt-web"
+}

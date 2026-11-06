@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788427151062",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La historia de todas las historias se dirige a lectores infantiles y juveniles interesados en conocer los relatos bíblicos mediante episodios ilustrados. También permite compartir la lectura en familia, aunque no encaja con quien busque una narración ajena a la tradición cristiana: aborda la creación, la historia de la salvación y figuras de la Iglesia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Ediciones Mensajero se identifica por el ISBN 9788427151062 y reúne 500 páginas en tapa dura. Está publicada en castellano e incorpora ilustraciones de Diana Renzina, además de referencias a santos, papas y Padres de la Iglesia que ayudan a relacionar los distintos acontecimientos bíblicos.",
+      "evidencias": [
+        "editorial",
+        "isbn13",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición de 500 páginas, con una encuadernación rígida adecuada para conservarla y consultarla. El volumen reúne los episodios bíblicos y las ilustraciones de Diana Renzina en papel, lo que permite compartir la lectura en familia sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "52ea5762e1c1f2c9",
+  "origen": "chatgpt-web"
+}

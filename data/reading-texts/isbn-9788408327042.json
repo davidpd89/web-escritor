@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados se dirige a lectores de romance interesados en conflictos personales vinculados al sacrificio, las mentiras y la reconstrucción de una vida. Encaja menos con quienes buscan una historia centrada en la acción o desligada de las relaciones sentimentales.",
+      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados se dirige a lectores de romance interesados en conflictos personales, secretos y relaciones afectivas. La historia de Maya, marcada por su dedicación al ballet y por una mentira que altera su vida, se aleja de las aventuras fantásticas y de la narrativa centrada en la acción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -12,20 +12,8 @@
       ]
     },
     {
-      "modulo": "esta_edicion",
-      "texto": "Esta edición de Cuando no queden más estrellas que contar. Edición especial con cantos decorados incorpora capítulos adicionales narrados desde la perspectiva de Lucas y presenta los cantos decorados anunciados en el título. Booket la publica en castellano, con 512 páginas y encuadernación de tapa dura en cartoné.",
-      "evidencias": [
-        "titulo",
-        "sinopsis_editorial",
-        "editorial",
-        "idioma",
-        "numero_paginas",
-        "edicion"
-      ]
-    },
-    {
       "modulo": "encaje_documentado",
-      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados es una novela romántica de María Martínez que vincula las relaciones personales con las consecuencias de una vida dedicada al ballet. Maya afronta un conflicto relacionado con su trayectoria y una mentira, mientras esta edición incorpora capítulos adicionales narrados desde la perspectiva de Lucas.",
+      "texto": "La novela propone un romance construido alrededor de una crisis personal y de las consecuencias de descubrir una mentira. María Martínez presenta a Maya, una solista de ballet cuya trayectoria ha exigido sacrificios desde la infancia, y amplía esta edición con capítulos narrados desde el punto de vista de Lucas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,23 +22,30 @@
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible de Cuando no queden más estrellas que contar. Edición especial con cantos decorados. Sus 512 páginas incluyen material narrativo adicional desde la perspectiva de Lucas, y la encuadernación de cartoné con cantos decorados aporta una presentación física diferenciada para conservar o regalar.",
+      "modulo": "esta_edicion",
+      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados se presenta en tapa dura de cartoné, con cantos decorados y 512 páginas. La edición de Booket incorpora capítulos adicionales desde la perspectiva de Lucas, por lo que su contenido narrativo se amplía respecto a la versión anterior.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de esta edición de 512 páginas reúne los cantos decorados y los capítulos extra de Lucas en un volumen de cartoné, pensado también para conservar o regalar. La tapa blanda ofrece una alternativa física; Kindle permite leer en el móvil y el audiolibro seguir la novela mediante la escucha.",
+      "evidencias": [
+        "titulo",
         "numero_paginas",
         "edicion",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     }
   ],
-  "descartados": [
-    "encaje_documentado: afirmaciones sin respaldo: premi",
-    "que_formato_elegir: repite otro bloque",
-    "faltan módulos: encaje_documentado, que_formato_elegir"
-  ],
+  "descartados": [],
   "version": 3,
-  "fuente_hash": "af23645a47867e85",
+  "fuente_hash": "6868c5f2e0ba4729",
   "origen": "chatgpt-web"
 }

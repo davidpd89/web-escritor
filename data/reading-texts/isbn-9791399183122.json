@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9791399183122",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "FURIA se dirige a lectores de narrativa contemporánea interesados en los vínculos familiares, la violencia y las consecuencias de la guerra. Por sus conflictos entre desertores, relaciones marcadas por el sufrimiento y tratamiento del deseo, se aleja de las historias centradas en aventuras ligeras o conflictos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "FURIA es una novela de narrativa contemporánea que relaciona los conflictos bélicos con la herencia familiar y las relaciones afectivas. Clyo Mendoza construye una historia de personajes cuyas experiencias se cruzan en un territorio desértico, con elementos de transformación corporal, conciencia y erotismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "FURIA está disponible en tapa blanda y Kindle, dos opciones para leer sus 264 páginas. La edición física permite conservar y prestar el ejemplar, mientras que Kindle facilita llevar la novela en un lector electrónico o en el móvil sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "67fd7ad7bdbab7e5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388103537",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Animales humanos nº 03 encaja con lectores de cómic interesados en los thrillers inquietantes y en los conflictos relacionados con la supervivencia. La presencia de una granja, la depredación y una visión cruda de la naturaleza lo alejan de las lecturas infantiles sobre animales o de los relatos de aventuras ligeras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Animales humanos nº 03 plantea un thriller gráfico ambientado en una granja donde las relaciones entre seres vivos se rigen por la fuerza y la supervivencia. El conflicto gira alrededor del acto de alimentarse de otros seres y de las consecuencias de una jerarquía basada en depredadores y presas. El título lo identifica como el n.º 03.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Animales humanos nº 03 se ofrece en tapa blanda, en una edición rústica sin solapas con sobrecubierta. Sus 176 páginas reúnen la lectura gráfica en un volumen físico relativamente breve, adecuado para manejar las páginas y consultar las viñetas directamente en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Brigada Felina 2 - El secreto de Zarpafilada, de Susanna Isern, comparte con Animales humanos nº 03 la presencia de animales, pero se presenta como una aventura frente al thriller de supervivencia de Takuya Okada. Sapiens. Una historia gráfica 4 - La era de las revoluciones, de Yuval Noah Harari y David Vandermeulen, también utiliza la narración gráfica, aunque aborda la historia de la humanidad desde una perspectiva divulgativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873639",
+        "isbn-9791387904661"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dcaf18f4d79a316f",
+  "origen": "chatgpt-web"
+}

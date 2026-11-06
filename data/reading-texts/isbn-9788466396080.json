@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788466396080",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2) encaja con lectores de fantasía romántica que buscan relaciones sentimentales sometidas a conflictos políticos y amenazas colectivas. Su combinación de deseo, rebelión y peligro se aleja de las historias centradas exclusivamente en una relación de pareja.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La novela combina fantasía y romance con un conflicto de lealtades ante una rebelión. Bryce Quinlan y Hunt Athalar intentan recuperar cierta normalidad después de proteger Ciudad Medialuna, pero la implicación de sus amigos en una causa política los obliga a elegir entre mantenerse al margen o intervenir. La relación sentimental avanza bajo esa presión.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2) está disponible en tapa blanda y Kindle. La edición impresa de 848 páginas permite leer y conservar el volumen físico, aunque exige más espacio al transportarlo; Kindle reúne esa misma extensión en un dispositivo, una alternativa para desplazamientos y lectura en el móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una corte de armonía rota, de Sarah J. Maas, comparte autoría con Casa de cielo y aliento (Ciudad Medialuna 2), cuya trama combina una relación sentimental con una rebelión. Donde duermen las sombras, de Andrea Ornos, también une fantasía y romance, pero sitúa su conflicto amoroso entre dimensiones y sombras, frente a las tensiones políticas de Ciudad Medialuna.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408325338",
+        "isbn-9788427055605"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8b5b66b346158bc",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788410467989",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ya se te pasará, de Silvia Severino, se dirige a adultos interesados en el desarrollo personal y en comprender sus propias emociones. Combina reflexión y ejercicios prácticos para revisar la relación con uno mismo, por lo que se aleja de las lecturas centradas en la productividad o la organización de tareas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ya se te pasará está disponible en tapa blanda y Kindle, dos opciones para trabajar con sus 256 páginas de reflexiones y propuestas prácticas. La edición de Vergara lleva solapas y permite consultar y marcar pasajes en papel; Kindle facilita llevar el contenido en el móvil y retomar los ejercicios sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6254a4a912e47185",
+  "origen": "chatgpt-web"
+}

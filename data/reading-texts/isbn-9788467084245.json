@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788467084245",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sesenta semanas en el trópico se dirige a lectores interesados en el pensamiento de Antonio Escohotado y en los relatos personales que combinan experiencias vitales con reflexión intelectual. Su recorrido por un año sabático en Tailandia lo aleja de una guía turística convencional o de un ensayo exclusivamente académico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda la experiencia personal de Antonio Escohotado durante su estancia en Tailandia y sus reflexiones sobre los cambios emocionales que atraviesa. También incorpora su interés académico por las causas de la pobreza y la riqueza en el Sureste asiático, combinando observación autobiográfica y pensamiento económico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sesenta semanas en el trópico está disponible en tapa blanda y Kindle. La edición de Editorial Espasa contiene 360 páginas en rústica con solapas, mientras que la versión Kindle permite seguir el relato y sus reflexiones desde un dispositivo electrónico compatible, sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprendiendo de las drogas comparte autoría con Sesenta semanas en el trópico, pero se centra en una reflexión sobre las drogas, frente al relato personal y académico de una estancia en Tailandia. David Summers: en persona también explora una trayectoria individual, aunque lo hace desde una mirada biográfica sobre un artista, mientras que Antonio Escohotado escribe sobre sus propias vivencias y preocupaciones intelectuales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084221",
+        "isbn-9788448049379"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5033f08f9fb3848",
+  "origen": "chatgpt-web"
+}

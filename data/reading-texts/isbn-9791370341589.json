@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791370341589",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Animales está dirigido al público infantil que disfruta de cuentos ilustrados protagonizados por animales y centrados en historias de amor. Reúne seis relatos en 48 páginas, por lo que encaja menos con quien busca un libro de actividades, ejercicios para aprender a contar o explicaciones sobre zoología.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Animales se presenta en tapa dura, con 48 páginas que reúnen seis cuentos ilustrados. La encuadernación rígida permite conservar los relatos en un volumen físico para leerlos de nuevo y compartir sus ilustraciones; su extensión también facilita repartir la lectura entre distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animales y Aprende a contar animales comparten el protagonismo de los animales y la autoría de Susaeta Ediciones, pero el primero reúne cuentos ilustrados de amor y el segundo propone aprender los números del 1 al 10. Bajo el mar también presenta animales, aunque utiliza láminas con un marco magnético en lugar de relatos narrativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341176",
+        "isbn-9791370343163"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d65104f21a8711c2",
+  "origen": "chatgpt-web"
+}

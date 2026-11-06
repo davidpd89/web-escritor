@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410849211",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Viajes y descubrimientos se dirige a lectores interesados en la historia de las exploraciones y en cómo los desplazamientos han transformado las sociedades. Su recorrido desde las expediciones históricas hasta el turismo contemporáneo encaja menos con quien necesita itinerarios, alojamientos o indicaciones prácticas para preparar unas vacaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Viajes y descubrimientos plantea una lectura divulgativa sobre la evolución histórica y cultural de los viajes. Gianni Palitta y Giorgio Bergamino relacionan expediciones como las de Alejandro Magno y Cristóbal Colón con los cambios entre civilizaciones, antes de abordar el turismo de masas y las formas actuales de desplazarse.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Viajes y descubrimientos y Allí donde fueres... se aproximan al viaje desde perspectivas culturales, pero el primero examina su evolución histórica y el libro de Patrick Kinsella plantea cuestiones de costumbres, como los saludos en Japón. Frente a Amsterdam de cerca 2027-2028, de Catherine Le Nevez, la obra de Gianni Palitta y Giorgio Bergamino no se concentra en una ciudad, sino en las exploraciones y el turismo a lo largo del tiempo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324331",
+        "isbn-9788408320890"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "68f126404e33df9f",
+  "origen": "chatgpt-web"
+}

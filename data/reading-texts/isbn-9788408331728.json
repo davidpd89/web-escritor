@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El poder de la intención se dirige a lectores de desarrollo personal interesados en revisar la influencia del ego y la relación entre identidad y propósito. Wayne W. Dyer plantea la intención como una fuerza vinculada al individuo y al universo, por lo que su enfoque se distancia de los manuales que tratan el cambio personal únicamente mediante técnicas de organización o productividad.",
+      "texto": "El poder de la intención se dirige a lectores de desarrollo personal interesados en revisar la influencia del ego, las posesiones y el trabajo sobre su identidad. Wayne W. Dyer aborda la búsqueda de propósito desde una perspectiva espiritual, por lo que se aleja de quienes buscan una narración de ficción o un manual centrado en técnicas profesionales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El poder de la intención está disponible en tapa blanda y Kindle. La edición física de Booket tiene 336 páginas y encuadernación rústica sin solapas, mientras que Kindle permite leerlo desde un dispositivo compatible y consultar sus contenidos sin llevar el volumen. El papel ofrece una copia física para conservar o regalar; la versión digital facilita la lectura durante los desplazamientos.",
+      "texto": "La edición en tapa blanda de Booket reúne 336 páginas en rústica sin solapas, apropiada para transportar y consultar durante la lectura. La tapa dura ofrece una encuadernación más rígida para conservar el ejemplar; Kindle permite llevar el texto en un dispositivo y el audiolibro facilita escucharlo sin sostener el libro.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
+        "editorial",
         "edicion",
-        "editorial"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El poder de la intención y Tus zonas sagradas son obras de Wayne W. Dyer que examinan el ego, aunque la primera relaciona la intención con el propósito y la segunda profundiza en la conexión espiritual interior. Tus zonas mágicas, del mismo autor, aborda los milagros y la magia verdadera, frente al interés de El poder de la intención por la identidad personal y la fuerza de la intención.",
+      "texto": "Tus zonas sagradas comparte con El poder de la intención, de Wayne W. Dyer, el interés por superar el ego, aunque pone el acento en el poder espiritual y su aplicación cotidiana. Tus zonas mágicas, también de Wayne W. Dyer, se orienta hacia los milagros y la magia verdadera, frente a la relación entre identidad, inconformidad y propósito que plantea El poder de la intención.",
       "evidencias": [
         "titulo",
         "autores",
@@ -40,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f11fd31b0d9d5841",
+  "fuente_hash": "4a0b6f6a51b1304b",
   "origen": "chatgpt-web"
 }

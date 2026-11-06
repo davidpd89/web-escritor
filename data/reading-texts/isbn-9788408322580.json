@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788408322580",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gran Hotel Monstruoso está pensado para el público infantil que disfruta de los álbumes ilustrados, el humor y los juegos de búsqueda. La presencia de fantasmas, muertos vivientes y escenarios terroríficos puede no encajar con niños que prefieran historias sin monstruos, aunque el tratamiento descrito es humorístico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Gran Hotel Monstruoso propone buscar a una fantasma traviesa mientras se exploran las distintas dependencias de un hotel habitado por monstruos. El lector abre las solapas para investigar los escenarios y encontrar sorpresas, de modo que la observación y la manipulación de las páginas forman parte de la actividad.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gran Hotel Monstruoso se presenta en tapa dura de cartoné, con 52 páginas y solapas que se abren durante la lectura. Esta edición física de Destino Infantil & Juvenil permite manipular directamente los elementos del álbum, algo necesario para participar en el juego de búsqueda que plantea.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e5abd011b691b8d",
+  "origen": "chatgpt-web"
+}

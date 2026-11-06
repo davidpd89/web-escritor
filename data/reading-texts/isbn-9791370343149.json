@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791370343149",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dinosaurios encaja con niños interesados en colorear figuras de estos animales y crear composiciones con imanes. Es una actividad infantil centrada en la manipulación y la decoración, distinta de un libro de cuentos o una lectura narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Las láminas de dinosaurios se pueden colocar sobre superficies metálicas con ayuda del marco magnético. El conjunto incorpora 15 imanes adicionales para colorear, combinar con las láminas y modificar su decoración.",
+      "evidencias": [
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dinosaurios se ofrece en tapa blanda y contiene 24 páginas. El formato físico permite utilizar el marco magnético y los 15 imanes para colorear y decorar las láminas, de modo que el libro funciona también como material de actividad manual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dinosaurios utiliza el mismo sistema de exposición magnética que Bajo el mar y Unicornios, de Susaeta Ediciones. Los tres permiten trabajar con láminas decorativas, pero cambian sus protagonistas: criaturas prehistóricas, animales marinos y unicornios, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589",
+        "isbn-9791370343163",
+        "isbn-9791370343170"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c61998a37316e7ff",
+  "origen": "chatgpt-web"
+}

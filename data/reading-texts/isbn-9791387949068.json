@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) está orientada al público juvenil que busca fantasía romántica con demonios, pactos y conflictos familiares. El vínculo entre Eda Shaw y Kit'rath se desarrolla bajo amenazas y sacrificios, de modo que encaja menos con quienes prefieran romances cotidianos sin elementos sobrenaturales oscuros.",
+      "texto": "Reap & Sow (edición en español) (Reap & Sow 1), de Charlotte B. Plumb, está dirigido al público juvenil que busca fantasía romántica con demonios, pactos sobrenaturales y dilemas morales. La explotación de personas desesperadas y el peligro que afronta una familia lo alejan de las historias de magia cotidiana o relaciones sentimentales sin amenazas oscuras.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,51 +15,50 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) pertenece a la narrativa juvenil y presenta pactos demoníacos que exigen entregar años de vida. La historia incluye explotación de personas desesperadas, arrestos familiares y amenazas sobre la supervivencia de una ciudad. Estos elementos pueden resultar inquietantes para lectores sensibles a la coerción y al peligro sobrenatural.",
+      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) está clasificado como lectura juvenil. Incluye acuerdos demoníacos que consumen años de vida, explotación de personas vulnerables, detenciones y amenazas contra familiares. Su combinación de romance y peligro sobrenatural puede resultar intensa para lectores sensibles a los sacrificios personales y la coerción.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) mezcla fantasía y romance alrededor de acuerdos sobrenaturales con consecuencias personales. Eda Shaw busca liberar a sus hermanos con ayuda de Kit'rath, pero esa alianza incorpora sentimientos y nuevas obligaciones. La trama relaciona el rescate familiar con el precio de los deseos y el poder de los demonios.",
+      "texto": "Es una fantasía romántica juvenil ambientada en Blackbridge, donde los deseos pueden obtenerse mediante intercambios con entidades demoníacas. Eda Shaw necesita la colaboración de Kit'rath para proteger a su familia, pero esa alianza implica nuevas obligaciones. La relación entre ambos añade un conflicto afectivo a una trama de deudas sobrenaturales y supervivencia.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) está disponible en tapa dura. La edición de Alfaguara contiene 432 páginas y ofrece una encuadernación rígida para conservar el volumen, colocarlo en una colección o regalarlo. La lectura se realiza en papel.",
+      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) se ofrece en tapa dura. La edición de Alfaguara contiene 432 páginas en castellano y permite conservar la novela como volumen físico, tanto para lectura habitual como para regalo. El título la identifica como el n.º 1 de Reap & Sow.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
+        "numero_paginas",
         "editorial",
-        "numero_paginas"
+        "idioma",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Reap & Sow (edición en español) (Reap & Sow 1) y Donde duermen las sombras combinan romance y fantasía con amenazas sobrenaturales. Charlotte B. Plumb centra el conflicto en pactos demoníacos y una familia en peligro, mientras que Andrea Ornos plantea un amor capaz de atravesar dimensiones. En ambas hay vínculos afectivos condicionados por fuerzas extraordinarias, pero sus conflictos son distintos.",
+      "texto": "Donde duermen las sombras, de Andrea Ornos, comparte con Reap & Sow (edición en español) (Reap & Sow 1) el romance unido a fuerzas sobrenaturales, pero desarrolla una maldición y el cruce de dimensiones en lugar de contratos demoníacos. El ocaso del rey (Dioses y monstruos 5), de Amber V. Nicole, se presenta como dark romantasy, una orientación próxima al componente oscuro de los pactos que condicionan la vida de Eda Shaw.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055605"
+        "isbn-9788427055605",
+        "isbn-9788427258280"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fffbe6c3682647cc",
+  "fuente_hash": "c3ac7df6e4e74702",
   "origen": "chatgpt-web"
 }

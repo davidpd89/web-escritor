@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788484598251",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hijos de África se dirige a lectores interesados en el origen de la humanidad y en las relaciones entre evolución biológica, cultura y sociedad. Su enfoque científico e histórico se aleja de las narraciones de aventuras y de los relatos centrados en personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "José María Bermúdez de Castro examina el papel de África en la aparición de nuestra especie y en el desarrollo de sus capacidades. También relaciona la expansión humana con el colonialismo, la explotación y el racismo, y cuestiona la supuesta superioridad biológica del ser humano respecto a otros primates.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hijos de África está disponible en tapa blanda y Kindle. La edición impresa reúne 272 páginas y permite consultar físicamente distintos pasajes sobre evolución humana; Kindle facilita llevar el ensayo en un dispositivo y acceder a él durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hijos de África y Atención y esfuerzo, de Daniel Kahneman, comparten el interés por las capacidades humanas. El primero estudia su desarrollo evolutivo y sus consecuencias históricas, mientras que el segundo se concentra en cómo la mente reparte sus recursos de atención.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387524"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9d505837423ebf7a",
+  "origen": "chatgpt-web"
+}

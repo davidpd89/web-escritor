@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788427055629",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encantada de olvidarte se dirige a lectores de romance que buscan una historia donde el deseo de ser reconocida se cruza con un ritual y consecuencias sobrenaturales. La trama parte de la inseguridad de Emma y de su decisión de recurrir a la magia; no plantea un romance exclusivamente realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Encantada de olvidarte es una novela romántica de Anna Holland que incorpora magia oscura a un conflicto de identidad y autoestima. Emma realiza un ritual para cambiar la manera en que los demás la perciben, y una tormenta acompaña la aparición del componente sobrenatural de la historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Encantada de olvidarte está disponible en tapa blanda y Kindle. La edición en rústica con solapas de Ediciones Martínez Roca contiene 432 páginas y permite leerla en papel; Kindle ofrece una alternativa digital para continuar la novela desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e3b97ea2d1dcb7c1",
+  "origen": "chatgpt-web"
+}

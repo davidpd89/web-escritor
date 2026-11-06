@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788410944169",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La traición de las élites se dirige a lectores interesados en las relaciones entre poder político, economía, medios de comunicación y soberanía. Su enfoque crítico de las instituciones occidentales encaja menos con quien busca una exposición histórica general o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Fernando Paz plantea un análisis político centrado en la distancia entre las élites dirigentes y las sociedades occidentales. Examina el globalismo, los organismos supranacionales y los mecanismos de control económico e informativo desde una tesis crítica sobre la pérdida de autonomía ciudadana.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de La traición de las élites reúne 312 páginas y permite consultar pasajes en papel durante la lectura. La versión Kindle facilita llevar el texto en un dispositivo electrónico y buscar fragmentos sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la sombra del Estado comparte con La traición de las élites el interés por los mecanismos de poder, pero se concentra en el espionaje y las operaciones encubiertas. El estado del Estado aborda también cuestiones institucionales, aunque sitúa su reflexión en España, frente al alcance occidental del análisis de Fernando Paz.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057",
+        "isbn-9788423441013"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5eeb1916e8736bf",
+  "origen": "chatgpt-web"
+}

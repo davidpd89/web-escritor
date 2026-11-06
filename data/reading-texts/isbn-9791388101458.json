@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388101458",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tomb Raider King nº 02 se dirige a lectores de cómic interesados en las reliquias extraordinarias, las subastas clandestinas y los enfrentamientos entre rivales. La historia se apoya en la estrategia de Jooheon para competir con adversarios poderosos, por lo que no responde a quien busque una narración cotidiana o una obra de no ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Tomb Raider King nº 02 es un cómic cuyo título lo identifica como el n.º 02. La acción sitúa a Jooheon en Las Vegas, donde intenta conseguir reliquias excepcionales durante una subasta secreta y debe enfrentarse a competidores con grandes recursos, entre ellos el presidente Kwon. El conflicto combina rivalidad personal, cálculo y búsqueda de objetos valiosos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tomb Raider King nº 02 está disponible en tapa blanda, en una edición rústica con solapas publicada por Planeta Cómic. Sus 320 páginas se presentan en un volumen físico que puede conservarse junto a otros cómics y consultarse sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c8bd170dd2a96cf",
+  "origen": "chatgpt-web"
+}

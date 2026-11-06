@@ -1,0 +1,61 @@
+{
+  "id": "isbn-9791387906085",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores a partir de 9 años interesados en la fantasía mitológica, las misiones y los personajes que deben resolver problemas bajo presión. Su trama se apoya en dioses griegos y objetos sobrenaturales, por lo que se distancia de las aventuras realistas y de las historias sin peligro.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se lee como una aventura narrativa organizada alrededor de una misión: recuperar un objeto divino antes de que provoque consecuencias graves. El lector sigue las decisiones de Percy, Annabeth y Grover mientras intentan localizar el cáliz y evitar que alguien utilice su poder para obtener la inmortalidad.",
+      "evidencias": [
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Está clasificado para lectores a partir de 9 años y tiene 256 páginas. Salamandra lo publica en castellano con tapa blanda y solapas, dentro de la fantasía infantil y juvenil, con una extensión que permite distribuir la lectura entre varias sesiones.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 256 páginas en un ejemplar físico con solapas, útil para leer y conservar en una colección. Kindle permite llevar la aventura en formato digital y continuarla desde un móvil o lector electrónico, sin transportar el libro impreso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La diosa de tres cabezas (Percy Jackson y los dioses del Olimpo 7), también de Rick Riordan, continúa con las dificultades de Percy para conseguir recomendaciones divinas, pero aborda una segunda carta y nuevos problemas. Campamento Mestizo 1 - La zona rebelde, de Rick Riordan y Annabelle Oh, comparte el entorno mitológico del Campamento Mestizo, aunque sitúa allí su punto de partida.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788419868466",
+        "isbn-9791387906078"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea5e1cf02c599db9",
+  "origen": "chatgpt-web"
+}

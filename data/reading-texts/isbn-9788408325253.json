@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408325253",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Más fuerte que la adversidad se dirige a lectores interesados en gestionar el estrés, la incertidumbre y otras experiencias difíciles mediante herramientas de desarrollo personal. Su planteamiento se centra en la resiliencia y el aprendizaje ante los problemas, por lo que no corresponde a una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Más fuerte que la adversidad está disponible en tapa blanda y Kindle. La edición física de Zenith presenta 184 páginas en rústica con solapas para su lectura y consulta en papel; Kindle permite acceder al mismo título desde un lector electrónico o un móvil.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Más fuerte que la adversidad y El coraje de ser quien eres (aunque no gustes) pertenecen al desarrollo personal y comparten autor, Walter Riso. El primero aborda la respuesta ante el estrés y las dificultades; el segundo trata la individualidad y la autonomía. Ama y no sufras desplaza la atención hacia las relaciones de pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408325239",
+        "isbn-9788408324898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb7826b8a3fbbbbb",
+  "origen": "chatgpt-web"
+}

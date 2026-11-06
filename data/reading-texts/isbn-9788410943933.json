@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788410943933",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Que hace un bosson como tu en un Big Bang como este(retapado) se dirige a lectores de divulgación científica interesados en comprender la física de partículas sin partir de una formación especializada. Javier Santaolalla Camino explica cuestiones complejas con un tono desenfadado, por lo que encaja menos con quien busca un tratado técnico de física.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Que hace un bosson como tu en un Big Bang como este(retapado) explica los fundamentos de los campos cuánticos, la naturaleza del bosón de Higgs y cuestiones relacionadas con el Big Bang. Javier Santaolalla Camino recurre a un lenguaje divulgativo y desenfadado, apoyado en su participación científica en el hallazgo de esa partícula, para conectar la física del universo con la posición del ser humano en él.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Que hace un bosson como tu en un Big Bang como este(retapado) está disponible en tapa blanda, con 408 páginas en castellano. Esta edición permite conservar en papel las explicaciones sobre física cuántica y volver a ellas durante la lectura, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cerebro, espacio y tiempo comparte con Que hace un bosson como tu en un Big Bang como este(retapado) el interés por explicar cuestiones científicas, pero se centra en cómo el cerebro reconoce la posición espacial. Frente a 50 cosas que hay que saber sobre IA, dedicado a la inteligencia artificial, el libro de Javier Santaolalla Camino se ocupa de la física fundamental y el universo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309",
+        "isbn-9791387941208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "64a3848cfb25ef00",
+  "origen": "chatgpt-web"
+}

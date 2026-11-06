@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388347016",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los diarios de la boticaria (la novela original) 3 encaja con lectores juveniles interesados en los enigmas palaciegos, las intrigas cortesanas y la ficción de ambientación histórica. Su conflicto gira alrededor de secretos políticos, embarazos que deben ocultarse y situaciones de peligro, por lo que se aleja de las historias infantiles centradas en aventuras sencillas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los diarios de la boticaria (la novela original) 3 se presenta en tapa blanda y reúne 392 páginas en castellano. Es una edición física que permite seguir los misterios de la corte en papel y conservar el volumen junto a otras entregas de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los diarios de la boticaria (la novela original) 3 y Cuando seamos inmortales comparten el interés por las rivalidades y las tensiones de poder en escenarios históricos. La obra de Hyūga Natsu y Touko Shino sitúa sus enigmas en una corte imperial, mientras la de Tony Gratacós se centra en Rubens, Velázquez y el destino político de Europa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423371181"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f95975e46b2f2917",
+  "origen": "chatgpt-web"
+}

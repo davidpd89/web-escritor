@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La platera se dirige a lectores que buscan fantasía con elementos románticos, maldiciones y personajes vinculados a un entorno aristocrático. La protagonista debe abandonar las obligaciones habituales de su oficio para afrontar una amenaza sobrenatural; no es una historia de realismo cotidiano ni un romance desligado de la magia.",
+      "texto": "La platera se dirige a lectores de fantasía con interés por las maldiciones, los oficios vinculados a espacios señoriales y las búsquedas motivadas por sucesos sobrenaturales. No responde a las expectativas de una historia estrictamente realista, pues el problema de Ezel incluye un encantamiento antiguo y la intervención de un pájaro capaz de hablar.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La platera combina fantasía y romance a partir de una maldición que altera el trabajo de Ezel en el Palacete de Robledales. La búsqueda de Nazael, heredero del lugar, y las indicaciones de un pájaro parlante introducen una investigación ligada a lo sobrenatural. El conflicto nace dentro de un espacio aristocrático y se desplaza hacia sus secretos.",
+      "texto": "La platera plantea una fantasía de maldiciones y secretos familiares que comienza en un entorno de trabajo doméstico. Ezel entra al servicio del Palacete de Robledales para cuidar la plata del duque, pero una maldición altera su situación y la conduce hacia Nazael con ayuda de un ave parlante.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,33 +22,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La platera está disponible en tapa blanda, mediante una edición rústica con solapas de Ediciones Martínez Roca. Sus 400 páginas constituyen un volumen de extensión media-larga, adecuado para dividir la lectura en varias sesiones y conservar el ejemplar físico en una colección de fantasía.",
+      "texto": "La platera está disponible en tapa blanda, concretamente en rústica con solapas, con 400 páginas publicadas por Ediciones Martínez Roca. Las solapas permiten proteger parcialmente los bordes de la cubierta y pueden utilizarse como punto de lectura, mientras que la encuadernación flexible facilita sujetar el libro.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "editorial",
         "numero_paginas",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La platera comparte con Donde duermen las sombras la combinación de fantasía y romance, aunque sus conflictos sobrenaturales son diferentes. Alba Real sitúa la historia alrededor de una maldición y un heredero misterioso; Andrea Ornos plantea una relación capaz de atravesar dimensiones y enfrentarse a las sombras. La primera parte de un palacete y la segunda se presenta como romantasy contemporáneo.",
+      "texto": "Alas de escarcha y oro: El canto del cisne, de Marta Morillo, comparte con La platera el componente fantástico, pero presenta dones escondidos frente a la maldición que afecta a Ezel. Donde duermen las sombras, de Andrea Ornos, también recurre a lo sobrenatural, aunque su argumento gira alrededor del amor entre dimensiones mientras La platera parte de un oficio y de la búsqueda de un heredero.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791387949938",
         "isbn-9788427055605"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dc13ff3f8227f904",
+  "fuente_hash": "e8a22085dfb014d0",
   "origen": "chatgpt-web"
 }

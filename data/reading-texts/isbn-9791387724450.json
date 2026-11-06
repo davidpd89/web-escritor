@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Uñas sucias se dirige a lectores adultos de misterio y thriller interesados en investigaciones periodísticas y conflictos relacionados con la impunidad. La desaparición de un juez permite abordar las agresiones sexuales, el tratamiento mediático de los casos y las relaciones de poder. Encaja menos con quienes buscan una lectura ajena a la violencia sexual o a las controversias judiciales.",
+      "texto": "Uñas sucias se dirige a lectores adultos de misterio y thriller interesados en investigaciones periodísticas, poder judicial y violencia sexual. Su conflicto incorpora agresiones sexuales, impunidad y encubrimiento mediático, por lo que se aleja del misterio ligero y puede resultar incómodo para quienes evitan estos temas.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,27 +14,28 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Uñas sucias es una novela de misterio construida alrededor de una desaparición y de las preguntas que provoca una investigación periodística. Ariadna examina la trayectoria de Ricardo Solana, un juez asociado a resoluciones controvertidas, mientras una forense interviene en el caso. El conflicto conecta la búsqueda de respuestas con el silencio público y la responsabilidad de quienes ejercen poder.",
+      "texto": "Uñas sucias plantea una investigación criminal con una dimensión de denuncia social centrada en la impunidad y el silencio. Júlia Salander construye el misterio alrededor de la desaparición de Ricardo Solana y del trabajo de Ariadna, una periodista que cuestiona el relato dominante y busca las razones que hay detrás del caso.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Uñas sucias puede elegirse en tapa blanda, Kindle o audiolibro, tres maneras de acceder a sus 256 páginas de narración. La edición física de Montena incorpora solapas y permite conservar el libro en papel. Kindle facilita la lectura digital en desplazamientos, mientras que el audiolibro permite seguir la investigación mediante escucha.",
+      "texto": "Uñas sucias puede leerse en tapa blanda con solapas, una edición de 256 páginas que permite conservar el ejemplar físico. Kindle facilita llevar la novela en el móvil o lector electrónico, mientras que el audiolibro ofrece la posibilidad de seguir la investigación mediante la escucha.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "editorial"
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Uñas sucias y Mi amor no muere presentan historias vinculadas a personajes concretos, aunque sus puntos de partida son distintos. Júlia Salander desarrolla una investigación sobre un juez desaparecido, mientras Roberto Saviano sitúa a Rossella Casini, una joven de poco más de veinte años, en el centro de su propuesta. La primera se identifica expresamente como misterio y thriller, con el periodismo como motor del conflicto.",
+      "texto": "Uñas sucias y Culos. Una historia gráfica del trasero (y lo que hay detrás) permiten abordar cuestiones relacionadas con las mujeres y las estructuras sociales, pero desde géneros diferentes. Júlia Salander utiliza una investigación criminal sobre impunidad y agresiones sexuales; Erell Hannah examina los ideales de belleza corporal a lo largo de la historia mediante una obra gráfica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,7 +44,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387846794"
+        "isbn-9788402431646"
       ]
     }
   ],

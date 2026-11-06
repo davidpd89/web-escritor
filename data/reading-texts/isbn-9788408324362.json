@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Guinness World Records 2027 se dirige a lectores de 9 a 12 años interesados en los récords de naturaleza, deporte, ciencia y cultura. No está orientado a quienes busquen una novela con protagonistas y un argumento continuado, porque su contenido gira alrededor de logros, marcas y curiosidades de distintas disciplinas.",
+      "texto": "Guinness World Records 2027 está dirigido a lectores de 9 a 12 años interesados en récords relacionados con el deporte, la naturaleza, la ciencia y la cultura. Su contenido reúne datos y logros de ámbitos diversos, por lo que se aleja de quienes buscan una novela con personajes y una trama continuada.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,22 +14,11 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Guinness World Records 2027 es la edición de Planeta Junior publicada el 2026-10-07, con 256 páginas en tapa dura de cartoné sin sobrecubierta. Esta entrega reúne récords de múltiples ámbitos, desde fenómenos naturales hasta logros deportivos y avances científicos, en lugar de concentrarse en una única disciplina.",
+      "texto": "Guinness World Records 2027 es una edición de Planeta Junior publicada en 2026, con 256 páginas en castellano y encuadernación de tapa dura en cartoné. Reúne récords de distintas disciplinas, desde fenómenos naturales y avances científicos hasta marcas deportivas y acontecimientos culturales.",
       "evidencias": [
         "titulo",
         "editorial",
         "fecha_publicacion",
-        "edicion",
-        "numero_paginas",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "edad_y_formato",
-      "texto": "La edad recomendada es de 9 a 12 años, y Guinness World Records 2027 cuenta con 256 páginas en castellano. Su presentación es de tapa dura de cartoné sin sobrecubierta, con contenidos sobre récords que permiten consultar temas diferentes sin seguir una trama narrativa.",
-      "evidencias": [
-        "titulo",
-        "edad_recomendada",
         "numero_paginas",
         "idioma",
         "edicion",
@@ -37,28 +26,39 @@
       ]
     },
     {
+      "modulo": "edad_y_formato",
+      "texto": "Guinness World Records 2027 está orientado a lectores de 9 a 12 años y tiene 256 páginas. Su formato es de tapa dura sin sobrecubierta, con contenidos sobre naturaleza, deporte, ciencia y otros campos que pueden consultarse por temas en lugar de seguir una narración lineal.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible para Guinness World Records 2027, con 256 páginas y encuadernación de cartoné sin sobrecubierta. El volumen físico permite consultar y volver a revisar récords de ciencia, deporte, naturaleza y entretenimiento, tanto de forma individual como compartiendo sus contenidos.",
+      "texto": "Guinness World Records 2027 se comercializa en tapa dura, con 256 páginas y encuadernación en cartoné sin sobrecubierta. Este formato permite conservar el volumen para consultas repetidas y utilizarlo como libro físico de referencia sobre récords de diferentes ámbitos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
+        "edicion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Guinness World Records 2027. Fútbol, también de Guinness World Records, se concentra en el fútbol masculino y femenino, mientras Guinness World Records 2027 abarca además naturaleza, ciencia y cultura. Pipoka y la Fábrica del Desastre se diferencia por su carácter narrativo, con un cuentacuentos y una marioneta mágica que recorren paisajes y encuentran criaturas legendarias.",
+      "texto": "Guinness World Records 2027 y Guinness World Records 2027. Fútbol comparten autoría y el tratamiento de marcas y logros destacados. El primero abarca naturaleza, ciencia, deporte y cultura, mientras que el segundo concentra su contenido en el fútbol masculino y femenino, con una selección específica de información sobre ese deporte.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324379",
-        "isbn-9791388277085"
+        "isbn-9788408324379"
       ]
     }
   ],

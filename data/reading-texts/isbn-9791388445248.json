@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9791388445248",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El color invisible se dirige a lectores de narrativa que buscan una investigación criminal vinculada a enigmas históricos. Eduardo Orive Rodríguez plantea un asesinato que conduce al inspector Roma hacia objetos relacionados con la historia de Castilla y León. Su argumento gira alrededor de un delito, una pesquisa y secretos del pasado, en lugar de centrarse exclusivamente en relaciones personales o conflictos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El color invisible combina una investigación policial con una búsqueda de objetos históricos cuyo origen se remonta a varios siglos atrás. El inspector Roma decide indagar en el asesinato de una mujer siria pese a no tener asignado el caso, y sus pesquisas conectan el presente con regalos de Tamorlán a Enrique III. La codicia, las venganzas y los secretos vinculados a esos objetos articulan el conflicto narrativo.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El color invisible está editado en tapa blanda y tiene 190 páginas. Esta presentación reúne en un volumen de cubierta flexible la investigación del inspector Roma y la trama histórica asociada a los objetos desaparecidos. Su extensión permite llevar el ejemplar en una mochila o bolso y continuar la lectura sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9e86cc066461478a",
+  "origen": "chatgpt-web"
+}

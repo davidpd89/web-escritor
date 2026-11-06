@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9788411329880",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esplendor se orienta a lectores de narrativa contemporánea interesados en la memoria urbana, la amistad entre generaciones y el paso del tiempo. Su atención a los recuerdos personales y a las transformaciones de Barcelona lo distancia de las novelas construidas alrededor de una investigación criminal o una sucesión de acontecimientos de acción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Esplendor propone una narración situada entre el recuerdo autobiográfico y la ficción, con una amistad masculina como eje de la reconstrucción del pasado. Jordi Corominas relaciona la evolución personal de sus personajes con los cambios de Barcelona desde finales del siglo XX, prestando atención a los espacios y las costumbres que desaparecen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esplendor se publica en tapa blanda, en una edición de RBA Libros de 352 páginas. Este formato permite leer la obra en papel, marcar pasajes y conservar un volumen físico de extensión media, tanto para la lectura personal como para regalar.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a7124f45146bffdf",
+  "origen": "chatgpt-web"
+}

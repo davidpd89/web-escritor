@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410427594",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Trabaja como un monje budista se dirige a quienes quieren reflexionar sobre el sentido de su actividad profesional y su relación con el estilo de vida. Shoukei Matsumoto aborda el trabajo desde una perspectiva budista; no plantea una historia de ficción ni una aventura protagonizada por personajes inventados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Trabaja como un monje budista tiene 184 páginas y está disponible en tapa blanda y Kindle. La edición rústica con solapas de Neko Books permite conservarlo como libro de consulta; Kindle facilita retomar sus reflexiones desde un dispositivo de lectura digital.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Trabaja como un monje budista y Karateka comparten el interés por la relación entre esfuerzo y desarrollo personal. Shoukei Matsumoto examina el significado del trabajo desde una perspectiva budista, mientras que Sandra Sánchez relata su trayectoria deportiva en primera persona, con atención a la perseverancia y la superación. Uno propone reflexionar sobre la actividad profesional; el otro presenta una experiencia biográfica vinculada al karate.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220296"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "84d331fc059ac625",
+  "origen": "chatgpt-web"
+}

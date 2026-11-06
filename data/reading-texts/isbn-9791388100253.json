@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388100253",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Star Wars: Historias de la Estrella de la Muerte se dirige a lectores de cómic interesados en el lado más oscuro del universo de Star Wars. Sus historias incorporan presencias sobrenaturales, amenazas y restos de una estación espacial destruida. No corresponde a una novela convencional en prosa ni a una guía técnica sobre naves espaciales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Star Wars: Historias de la Estrella de la Muerte es un cómic de Cavan Scott centrado en los elementos inquietantes que rodean a la estación espacial destruida. Su planteamiento incorpora criaturas alienígenas, naves fantasma, artefactos peligrosos y espíritus vengativos. La historia de la estación y las amenazas que permanecen entre sus restos proporcionan el marco de estas narraciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Star Wars: Historias de la Estrella de la Muerte puede adquirirse en tapa dura o Kindle. La edición física de Planeta Cómic tiene 104 páginas y encuadernación en cartoné sin sobrecubierta, que permite conservar las páginas ilustradas en un volumen rígido. Kindle ofrece una alternativa digital para leer el cómic desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6221b00d07a520c9",
+  "origen": "chatgpt-web"
+}

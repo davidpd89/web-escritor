@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408330547",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Superar el abuso emocional se dirige a personas interesadas en comprender las consecuencias del maltrato narcisista y la recuperación posterior a una relación dañina. Aborda situaciones de pareja, familia y trabajo, por lo que su contenido se centra en esas experiencias y no en el desarrollo personal de carácter general.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Superar el abuso emocional está editado en tapa blanda, con solapas y 320 páginas en castellano. La edición física permite consultar apartados durante la lectura y volver a los contenidos relacionados con la culpa, la hipervigilancia y la autoestima.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Superar el abuso emocional y De la discusión a la conexión se ocupan de las relaciones personales, aunque la obra de Dra. Daksha Hirani se centra en las secuelas del maltrato narcisista y la de Gabrielle Rifkind en gestionar conflictos cotidianos. Neurocambios comparte la atención a los patrones dañinos y las emociones, pero aborda su transformación desde el funcionamiento de la propia mente, no específicamente desde una experiencia de abuso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328773",
+        "isbn-9788408325291"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "47453d7d8ea2fb22",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788419188908",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hijos del Mediodía se dirige a lectores de novela histórica interesados en la vida cultural y los cambios políticos de España durante los años previos a la Guerra Civil. Sus 528 páginas y su atención a la generación del 27 y a la historia de Sevilla encajan menos con quien busca una narración breve o alejada de acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Hijos del Mediodía sitúa su narración en Sevilla durante los años de la revista Mediodía, la generación del 27 y la Exposición Iberoamericana de 1929. Eva Diaz Perez relaciona ese ambiente cultural con el tránsito político hacia la Segunda República y la proximidad de la Guerra Civil; el volumen también incluye un recorrido literario por la ciudad de aquella época.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hijos del Mediodía se publica en tapa blanda, con 528 páginas. La edición en papel reúne una novela histórica extensa y un recorrido literario por la Sevilla de la época, que puede consultarse durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cosamala y Hijos del Mediodía comparten la Guerra Civil como referencia histórica, aunque la abordan de manera distinta. Alana S. Portero recurre a elementos góticos y brujería a partir de un crimen real, mientras que Eva Diaz Perez reconstruye el ambiente literario y político de Sevilla antes del conflicto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788432251436"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5b420b8bf3bdf8b8",
+  "origen": "chatgpt-web"
+}

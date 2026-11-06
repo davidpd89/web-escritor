@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791388038334",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Cómo aprenden los bebés? está dirigido a adultos interesados en la crianza y en comprender el desarrollo infantil desde la psicología y la neurociencia. Héctor Ruiz Martín examina cómo intervienen las capacidades innatas y las experiencias tempranas en el aprendizaje. Su enfoque explicativo se diferencia de una guía centrada exclusivamente en resolver problemas cotidianos de convivencia familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Cómo aprenden los bebés? se ofrece en tapa blanda y Kindle. La edición de Vergara tiene 288 páginas y solapas, con contenido sobre el desarrollo del lenguaje, las emociones y el pensamiento que puede consultarse por temas. Kindle permite acceder a estas explicaciones desde el móvil o un lector electrónico sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Cómo aprenden los bebés? y Niños ancestrales coinciden en prestar atención a las primeras etapas del desarrollo infantil. Héctor Ruiz Martín estudia el aprendizaje desde la psicología y la neurociencia, mientras que Rubén Muñoz aborda la salud desde el embarazo, la lactancia y la alimentación. Criar juntos de verdad, de Armando Bastida, desplaza el foco hacia la colaboración entre quienes comparten la crianza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370658",
+        "isbn-9788413445564"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "918fa09be9d9cb76",
+  "origen": "chatgpt-web"
+}

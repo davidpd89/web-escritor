@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791388101861",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Evangelion Anima (novela) nº 04 encaja con lectores de ciencia ficción interesados en conflictos de escala planetaria y elementos tecnológicos o fantásticos. La amenaza sobre la Tierra y los acontecimientos relacionados con la Luna lo alejan de las historias realistas y de los conflictos exclusivamente cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Evangelion Anima (novela) nº 04 plantea una crisis que afecta a la estructura física de la Tierra y la Luna. La Lanza de Longinus interviene en el destino del planeta, mientras que el desplazamiento de materiales terrestres desencadena nuevas alteraciones. El título lo identifica como el n.º 04.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Evangelion Anima (novela) nº 04 se publica en tapa blanda, en una edición de 296 páginas con solapas de Planeta Cómic. El formato permite llevar la novela en papel y conservarla junto a otros volúmenes de la colección, con una encuadernación más flexible que la tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Evangelion Anima (novela) nº 04 y Aunque se acabe el mundo presentan amenazas extraordinarias que afectan a la Tierra. En la obra de khara, el peligro procede de la Lanza de Longinus y de alteraciones planetarias; en la de Clara Duarte, una cúpula aparece sobre el planeta y transforma a parte de la humanidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427255968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "968c88392fd6a465",
+  "origen": "chatgpt-web"
+}

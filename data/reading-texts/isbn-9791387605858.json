@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387605858",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nostalgia del papel está dirigido a quienes buscan comprender las relaciones históricas entre periodismo, empresas informativas y poder político en España. Sus 528 páginas desarrollan un ensayo histórico, por lo que no responde a quien busca únicamente consejos prácticos de comunicación digital o una introducción breve al periodismo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Nostalgia del papel estudia cómo los cambios tecnológicos han transformado la influencia política de los medios de comunicación en España. Mercedes Cabrera examina el papel de los propietarios, la regulación estatal y la independencia periodística, desde la prensa impresa hasta las plataformas digitales, con atención a la desinformación y la confianza pública.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nostalgia del papel puede leerse en tapa blanda o Kindle, dos opciones para sus 528 páginas. La edición física de Galaxia Gutenberg permite consultar el ensayo en papel, mientras que Kindle facilita llevar una obra extensa en un lector electrónico o en el móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nostalgia del papel y Antes de perder el juicio coinciden en su preocupación por la verdad y las distorsiones del debate público. Mercedes Cabrera reconstruye históricamente las relaciones entre medios y política, mientras que Mauricio García Villegas se centra en la propaganda y las cámaras de eco. A las mil maravillas también se relaciona con la prensa, pero aborda la colaboración entre escritores e ilustradores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944138",
+        "isbn-9791388387302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "57dec470a214ee65",
+  "origen": "chatgpt-web"
+}

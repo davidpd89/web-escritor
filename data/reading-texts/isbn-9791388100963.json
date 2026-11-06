@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388100963",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los gatos del Louvre nº 01 se dirige a lectores de cómic que buscan una fábula fantástica protagonizada por animales y vinculada al mundo del arte. Su combinación de secretos, pinturas y elementos mágicos se distancia de las historias centradas en conflictos realistas o en la acción constante.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La obra de Taiyo Matsumoto combina cómic, fantasía y misterio dentro del Museo del Louvre. Un gato blanco rompe las normas de su comunidad al atender las voces de las pinturas, lo que introduce un conflicto entre la vida oculta de los animales y los secretos del museo; el título lo identifica como el n.º 01.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los gatos del Louvre nº 01 se presenta en tapa dura de tipo cartoné, sin sobrecubierta, bajo el sello Planeta Cómic. Esta encuadernación protege sus 240 páginas y permite conservar el cómic como volumen físico para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38dd7f00dec31100",
+  "origen": "chatgpt-web"
+}

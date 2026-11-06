@@ -1,0 +1,67 @@
+{
+  "id": "isbn-9788411617765",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de Haikyû!! se dirige a lectores interesados en las ilustraciones del manga de voleibol de Haruichi Furudate. Su contenido se centra en el trabajo gráfico de la serie, por lo que encaja menos con quien busque una narración continuada de nuevos acontecimientos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una recopilación artística vinculada al manga Haikyû!!, centrada en su desarrollo visual a lo largo de más de una década. Combina páginas coloreadas, carteles, materiales promocionales y piezas exclusivas, en lugar de organizarse como una historia convencional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Planeta Cómic publica El arte de Haikyû!! en tapa dura con sobrecubierta, con 400 páginas en castellano. Esta edición reúne ilustraciones del manga de voleibol de Haruichi Furudate y se identifica con el ISBN 9788411617765. Su fecha de publicación editorial es 2027-05-05.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13",
+        "fecha_publicacion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible de El arte de Haikyû!!, con 400 páginas dedicadas a ilustraciones y materiales gráficos. La encuadernación rígida y la sobrecubierta permiten conservar el volumen como libro de consulta visual o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Haikyû!! nº 44 y El arte de Haikyû!! comparten la autoría de Haruichi Furudate y el universo del voleibol. El primero presenta el reencuentro de Hinata y Kageyama en la V.League; el segundo reúne ilustraciones y materiales gráficos de la serie, sin centrarse en continuar ese episodio narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388103667"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "11d3a2e78e6de2e3",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387744335",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los compis 3 Consumir sin moderación está dirigido al público infantil que lee cómics y disfruta de situaciones humorísticas relacionadas con la vida cotidiana. Sus escenas transcurren alrededor del comedor y combinan bromas con momentos emotivos; se distancia de las aventuras centradas en combates o grandes conflictos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los compis 3 Consumir sin moderación se presenta en tapa blanda, con 64 páginas en castellano. Es una edición física de Kómikids que permite recorrer las escenas del cómic en papel y volver a sus viñetas sin utilizar una pantalla. Su extensión corresponde a un volumen breve dentro de la lectura infantil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los compis 3 Consumir sin moderación puede compararse con Capitán Patata 2 - Quietecito o te dejo frito por su humor dirigido a lectores infantiles. El libro de Nob sitúa las situaciones cómicas en un comedor, mientras que el de Neil Coslett presenta cinco pequeñas aventuras absurdas protagonizadas por un superhéroe y sus amigos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427254985"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "765ece49ff15720d",
+  "origen": "chatgpt-web"
+}

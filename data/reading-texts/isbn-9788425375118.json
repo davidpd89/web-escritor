@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La hija del veneno se dirige a lectores adultos de fantasía romántica oscura, especialmente interesados en matrimonios impuestos y relaciones que evolucionan desde la hostilidad. Sheila Masterson incorpora asesinatos, hombres abusivos y vampiros; no encaja con quien busque un romance cotidiano sin violencia ni elementos sobrenaturales.",
+      "texto": "La hija del veneno se orienta a lectores adultos de fantasía romántica oscura interesados en relaciones conflictivas, matrimonios impuestos y personajes moralmente ambiguos. Los asesinatos mediante envenenamiento, la violencia contra hombres abusivos y las amenazas vampíricas la alejan del romance ligero.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La hija del veneno combina fantasía romántica oscura con un matrimonio de inconveniencia y una relación que parte del enfrentamiento. Harlow posee un beso mortal, pero su futuro esposo sobrevive a él, lo que altera su capacidad de controlar la situación. La convivencia forzada, los secretos y la presencia de vampiros sostienen el conflicto.",
+      "texto": "La hija del veneno combina fantasía romántica oscura, matrimonio de inconveniencia y una relación que evoluciona desde la hostilidad. Harlow Carrenwell utiliza un beso mortal contra sus víctimas, pero Henry Havenwood sobrevive a ese poder. La convivencia forzada y el conocimiento de sus crímenes convierten la confianza en un conflicto central.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -24,7 +23,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La hija del veneno puede adquirirse en tapa dura o Kindle. La edición de Grijalbo suma 792 páginas y lleva sobrecubierta, por lo que ocupa un espacio considerable en papel y puede destinarse a regalo; Kindle permite leer esta novela extensa en un dispositivo compatible sin transportar el volumen físico.",
+      "texto": "La hija del veneno está disponible en tapa dura, Kindle y audiolibro. La edición impresa de Grijalbo tiene 792 páginas y sobrecubierta, mientras que Kindle evita transportar un volumen extenso. El audiolibro permite seguir la historia mediante escucha, sin necesidad de mantener la atención sobre una página.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -35,22 +34,23 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La hija del veneno y Un hombre de ley (Aristócratas de Londres 1) comparten conflictos relacionados con la violencia y las relaciones personales. Sheila Masterson incorpora asesinatos, vampiros y un matrimonio forzado en una fantasía romántica; la obra de Susie Tate parte de una infancia marcada por la violencia doméstica. Los finales perfectos no existen, de Violeta Reed, se aproxima al romance desde las comedias románticas, sin el componente fantástico que define La hija del veneno.",
+      "texto": "La hija del veneno comparte con Alchemised (edición coleccionista limitada) la fantasía adulta, el romance y los conflictos atravesados por la violencia. Sheila Masterson sitúa la tensión en un matrimonio con una asesina de beso venenoso, mientras que SenLinYu explora el cautiverio y la pérdida de memoria tras una guerra. El ocaso del rey (Dioses y monstruos 5) también pertenece al ámbito del romantasy oscuro, pero su título lo identifica como el n.º 5 de una serie.",
       "evidencias": [
         "titulo",
         "autores",
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425371745",
-        "isbn-9788425369650"
+        "isbn-9791387924386",
+        "isbn-9788427258280"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "57dbdcc1e6952e81",
+  "fuente_hash": "fd0c83ac0e03c8d2",
   "origen": "chatgpt-web"
 }

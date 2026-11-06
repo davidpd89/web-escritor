@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788434441033",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ya están aquí se dirige a quienes quieren comprender cómo los asistentes de inteligencia artificial pueden intervenir en las decisiones cotidianas y qué implicaciones éticas plantea su autonomía. Su enfoque divulgativo y práctico se aleja de la ficción y de los manuales centrados exclusivamente en el funcionamiento técnico de la IA.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Idoia Salazar examina el paso de la inteligencia artificial que responde consultas a sistemas capaces de organizar tareas y actuar por sus usuarios. El enfoque combina cuestiones éticas con situaciones prácticas, como la gestión de agendas, comunicaciones y decisiones personales, para abordar el papel de estos asistentes en la vida diaria.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Ya están aquí reúne 296 páginas en una edición rústica con solapas, adecuada para consultar y señalar pasajes sobre inteligencia artificial. Kindle permite llevar el mismo título en un lector electrónico o en el móvil, sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ya están aquí y 50 cosas que hay que saber sobre IA comparten el interés por explicar la inteligencia artificial a lectores no especializados. El libro de Idoia Salazar se concentra en los asistentes autónomos y sus consecuencias éticas, mientras que el de Keith Mansfield plantea una aproximación más general a los conocimientos sobre esta tecnología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2fb065015d742318",
+  "origen": "chatgpt-web"
+}

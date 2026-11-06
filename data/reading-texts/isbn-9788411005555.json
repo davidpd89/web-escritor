@@ -1,0 +1,67 @@
+{
+  "id": "isbn-9788411005555",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Auge y caída del Tercer Reich (edición especial) se dirige a lectores interesados en la historia política del nazismo y en el análisis extenso de un régimen histórico. Sus 1600 páginas y su enfoque documental encajan menos con quien busque una introducción breve o una novela ambientada en ese periodo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial de Auge y caída del Tercer Reich (edición especial) está publicada por Ediciones Península en tapa dura con sobrecubierta. Contiene 1600 páginas en castellano, lleva el ISBN 9788411005555 y tiene fecha de publicación del 18 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra estudia la formación, el apogeo y el derrumbe del régimen nazi, con atención al papel de Adolf Hitler en su ascenso al poder. William L. Shirer aborda ese proceso desde su experiencia como corresponsal y testigo de parte de los acontecimientos, combinando perspectiva histórica y conocimiento directo del periodo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Auge y caída del Tercer Reich (edición especial) se ofrece en tapa dura y Kindle, una elección relevante por sus 1600 páginas. La edición física, con sobrecubierta, permite conservar el volumen como obra de consulta; Kindle facilita transportar y leer un texto de esta extensión sin cargar con el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Auge y caída del Tercer Reich (edición especial) y CORONA AUTORITARIA, LA examinan sistemas políticos autoritarios desde una perspectiva histórica. William L. Shirer estudia el régimen nazi, mientras que Guillermo María Muñoz se ocupa de la monarquía y el nacionalismo español durante la dictadura de Primo de Rivera.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419892782"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e2a56d0b54a39667",
+  "origen": "chatgpt-web"
+}

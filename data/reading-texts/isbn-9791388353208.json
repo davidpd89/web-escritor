@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388353208",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LOS ÁNGELES MALOS encaja con lectores de poesía interesados en la memoria infantil y en las imágenes de la naturaleza como forma de reflexión personal. Su tratamiento de una infancia alejada de la idealización y sus referencias a la muerte pueden distanciar a quienes buscan versos de tono ligero.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "LOS ÁNGELES MALOS es un poemario que explora los recuerdos de infancia mediante imágenes del mundo natural y distintas percepciones del tiempo. Dionisio López combina esa indagación personal con preguntas sobre la pureza, la muerte y la dimensión espiritual de la niñez, sin construir una narración convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "LOS ÁNGELES MALOS está disponible en tapa blanda, con una extensión de 70 páginas. Esta edición permite leer el poemario en papel, detenerse en sus imágenes y regresar a determinados versos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antología y LOS ÁNGELES MALOS pertenecen al ámbito de la poesía, pero proponen acercamientos distintos. El volumen de Antonio Cano reúne una obra poética completa, mientras que Dionisio López desarrolla en 70 páginas una exploración de la infancia, la memoria y sus resonancias espirituales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "81225e9d0bc7ed1a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788466390729",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La asistenta encaja con lectores de suspense psicológico que buscan secretos domésticos, relaciones de poder y una amenaza que crece dentro de una casa. No responde a quien prefiera una historia familiar sin tensión ni situaciones de encierro, engaño y peligro.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La asistenta es un thriller psicológico construido alrededor de una empleada doméstica y la familia para la que trabaja. Freida McFadden utiliza las diferencias de posición social, las conductas inquietantes de los habitantes de la casa y los secretos de la protagonista para sostener el conflicto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La asistenta está disponible en tapa blanda y Kindle, dos opciones para leer sus 344 páginas. La edición física de Penguin Bolsillo permite conservarla o prestarla; Kindle facilita llevar la novela en un lector electrónico o en el móvil sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La asistenta y La compañera son thrillers de Freida McFadden, pero el primero sitúa el peligro en una relación laboral doméstica y el segundo relaciona el presente con acontecimientos del pasado. La inquilina, también de Freida McFadden, parte de la situación de Blake Porter, mientras que La asistenta sigue a una trabajadora dentro de una familia acomodada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388163555",
+        "isbn-9791387512446"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26b37f75aeda2235",
+  "origen": "chatgpt-web"
+}

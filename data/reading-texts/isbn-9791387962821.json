@@ -1,0 +1,63 @@
+{
+  "id": "isbn-9791387962821",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores juveniles interesados en los misterios de palacio, las intrigas de poder y los conocimientos médicos aplicados a una investigación. Los diarios de la boticaria (la novela original) 1, de Touko Shino y Hyuganatsu, se aleja de la acción fantástica basada en combates y se concentra en los secretos de la corte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Se clasifica como lectura juvenil, con situaciones de secuestro, tráfico de personas y peligro dentro de un entorno palaciego. La protagonista pierde su libertad y debe ocultar parte de sus capacidades para protegerse, por lo que el contenido puede resultar incómodo para lectores sensibles a la explotación y la coerción.",
+      "evidencias": [
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela juvenil de misterio con elementos de romance y conflictos vinculados a la jerarquía de una corte imperial. Maomao utiliza sus conocimientos de medicina y su capacidad de observación mientras trabaja al servicio de una dama de palacio, donde su curiosidad puede comprometer su seguridad.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se ofrece en tapa blanda con solapas, con una extensión de 312 páginas. Esta presentación de Distrito Manga permite conservar la novela en papel y transportarla sin la rigidez de una encuadernación de tapa dura. Es la opción física indicada para esta edición en castellano.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los diarios de la boticaria (la novela original) 2 continúa el entorno cortesano de Los diarios de la boticaria (la novela original) 1, pero presenta a Maomao de regreso al servicio de Jinshi. No podrás esconderte comparte el misterio y el público juvenil, aunque traslada el peligro a una persecución contemporánea relacionada con un secreto personal.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387962838",
+        "isbn-9788427257375"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6f7b872d70d36738",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388102493",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "My Hero Academia: Ultra Artworks se dirige a quienes buscan ilustraciones originales de la serie y comentarios de Kohei Horikoshi. Su contenido se centra en el trabajo gráfico recopilado durante diez años, por lo que no responde a quien prefiera una narración desarrollada en viñetas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "My Hero Academia: Ultra Artworks es una recopilación gráfica de Kohei Horikoshi dedicada al universo visual de My Hero Academia. Sus 256 páginas contienen dibujos a color creados a lo largo de una década para revistas, tomos, acontecimientos y materiales publicitarios, junto con anotaciones del creador sobre su trabajo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "My Hero Academia: Ultra Artworks está disponible en tapa dura de cartoné, publicada por Planeta Cómic. Sus 256 páginas reúnen ilustraciones a color y comentarios del autor en un volumen físico que permite consultar las imágenes y volver a ellas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "29c645e796d3add3",
+  "origen": "chatgpt-web"
+}

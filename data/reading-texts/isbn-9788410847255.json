@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410847255",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Experimentos científicos para niños se dirige al público infantil y juvenil interesado en realizar actividades prácticas de química, física y biología. Incluye instrucciones ilustradas y niveles de dificultad, por lo que responde mejor a la curiosidad por experimentar que a la búsqueda de una historia de ficción o un manual exclusivamente teórico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Experimentos científicos para niños se publica en tapa dura y tiene 104 páginas. Esta edición permite mantener abierto el libro mientras se siguen las instrucciones ilustradas de cada experimento y consultar sus niveles de dificultad; la encuadernación rígida también resulta práctica para conservarlo tras sucesivas actividades.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Experimentos científicos para niños y Antigua Roma (Civilizaciones antiguas para niños) comparten una orientación divulgativa infantil, aunque Francesca Massa propone experimentos de ciencias y DK aborda la vida en la antigua Roma. Frente a Arta Game - Busca y encuentra, centrado en la búsqueda visual, este libro organiza actividades prácticas con instrucciones y grados de dificultad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241839362",
+        "isbn-9791387972165"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f4036ee0beb977c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788423441105",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Falaz se dirige a lectores interesados en reconocer errores de razonamiento y entender cómo se utilizan los argumentos en los debates públicos. Su enfoque sobre tertulias, redes sociales y política encaja menos con quien busca una obra de desarrollo personal centrada exclusivamente en hábitos individuales o bienestar emocional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 224 páginas de Falaz en rústica con solapas, una opción para consultar en papel sus explicaciones sobre argumentos y razonamientos. Kindle permite llevar el contenido en el móvil o lector electrónico y retomarlo sin cargar con el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Falaz y A la sombra del Estado coinciden en su interés por los mecanismos que influyen en el discurso público, aunque el segundo aborda el espionaje, la desinformación y el poder clandestino. Crónica de un desafío al Estado también trata cuestiones políticas, pero reconstruye los acontecimientos del Procés desde una perspectiva testimonial, mientras Falaz examina los razonamientos empleados en las discusiones.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057",
+        "isbn-9788423441303"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ed3c42c2d354bf9",
+  "origen": "chatgpt-web"
+}

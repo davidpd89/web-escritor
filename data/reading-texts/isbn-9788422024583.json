@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788422024583",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "IA Y TEOLOGÍA: UNA RELACIÓN A CONSTRUIR encaja con lectores interesados en las consecuencias humanas de la inteligencia artificial desde una perspectiva teológica cristiana. Su atención al pensamiento religioso y a la dignidad de la persona lo diferencia de los manuales centrados en aprender a utilizar herramientas digitales.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Carlos Simón estudia las implicaciones de la inteligencia artificial para la comprensión teológica del ser humano y de la tecnología. Su planteamiento incorpora el Magisterio de la Iglesia y Magnifica humanitas para examinar la responsabilidad humana, el valor de la persona y la relación con la Creación.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "IA Y TEOLOGÍA: UNA RELACIÓN A CONSTRUIR se ofrece en tapa blanda, con 320 páginas en castellano. Esta edición impresa permite trabajar con calma sus argumentos sobre inteligencia artificial y pensamiento teológico, además de volver a los apartados que relacionan tecnología y responsabilidad humana.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "IA Y TEOLOGÍA: UNA RELACIÓN A CONSTRUIR puede compararse con Antes de perder el juicio por su interés en los problemas que afectan al juicio humano. Carlos Simón los examina desde la teología ante la inteligencia artificial, mientras que Mauricio García Villegas aborda la verdad y su deterioro entre la propaganda y las posiciones sectarias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "82dc9e46f4527f60",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788413643632",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lecciones sobre la guerra y la paz se dirige a lectores de filosofía interesados en los fundamentos jurídicos y morales de los conflictos armados. Su análisis histórico de la guerra y el pacifismo se aleja de los relatos militares centrados en batallas y operaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Norberto Bobbio examina las razones utilizadas para legitimar la guerra y las distintas concepciones de la paz. Desde la filosofía del derecho, contrapone la resistencia no violenta al uso de la fuerza frente a las agresiones, mediante un análisis histórico y conceptual desarrollado en sus clases de 1964.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lecciones sobre la guerra y la paz está disponible en tapa blanda, con 240 páginas en castellano publicadas por Editorial Trotta. Esta edición permite consultar y subrayar los argumentos filosóficos en papel, además de volver a pasajes concretos durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de perder el juicio, de Mauricio García Villegas, también aborda cuestiones relacionadas con el pensamiento crítico, pero se centra en la verdad frente a la propaganda y la polarización. Lecciones sobre la guerra y la paz, de Norberto Bobbio, traslada la reflexión al derecho, la violencia y las posibilidades del pacifismo.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388387302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9017a2cb74fbf52c",
+  "origen": "chatgpt-web"
+}

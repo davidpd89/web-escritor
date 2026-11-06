@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410427709",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La misteriosa taberna Yoneya se dirige a lectores de narrativa contemporánea interesados en los encuentros cotidianos, la gastronomía y los pequeños establecimientos de barrio. Su escenario principal, una taberna de siete asientos donde se ofrece comida caliente y sake, encaja menos con quienes prefieren aventuras de acción o historias ambientadas en grandes conflictos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La misteriosa taberna Yoneya plantea una historia contemporánea alrededor de un local discreto de Shin-Koiwa, donde la comida y la bebida forman parte de la acogida a sus visitantes. Eiko Yamaguchi concentra el escenario en una taberna de siete asientos, con una escala narrativa ligada a un espacio reducido y reconocible.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La misteriosa taberna Yoneya se publica en tapa blanda, concretamente en rústica con solapas, con 240 páginas en castellano. Esta edición de Neko Books ofrece un volumen físico de extensión moderada, manejable para llevar en el bolso o leer fuera de casa, y con solapas que permiten señalar el punto de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c25b0103f039b1df",
+  "origen": "chatgpt-web"
+}

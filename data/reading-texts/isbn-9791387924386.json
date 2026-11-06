@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Alchemised (edición coleccionista limitada) se dirige a lectores adultos de fantasía y romance interesados en conflictos de posguerra, cautiverio, nigromancia y secretos relacionados con la memoria. La historia incluye asesinatos, represión y pérdida de libertad, por lo que encaja menos con quienes prefieran conflictos ligeros o quieran evitar situaciones de violencia.",
+      "texto": "Alchemised (edición coleccionista limitada) está dirigida a lectores adultos de fantasía oscura y romance que buscan conflictos relacionados con la guerra, la memoria y el cautiverio. Por sus asesinatos, la represión y la presencia de nigromancia, se aleja de las aventuras juveniles de tono ligero.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,40 +14,43 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Alchemised (edición coleccionista limitada) combina fantasía y romance con una trama de supervivencia tras una guerra. Helena Marino, antigua alquimista y prisionera, sufre una pérdida de memoria que despierta las sospechas de sus enemigos, mientras el Sumo Inquisidor intenta recuperar unos recuerdos vinculados con la Resistencia.",
+      "texto": "Alchemised (edición coleccionista limitada) propone una fantasía adulta ambientada después de una guerra, bajo el dominio de una clase dirigente vinculada a la nigromancia. Helena Marino, antigua alquimista, intenta recuperar recuerdos perdidos mientras permanece prisionera. La identidad, el control y los secretos de sus captores articulan el conflicto.",
       "evidencias": [
         "titulo",
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Alchemised (edición coleccionista limitada) cuenta con una edición de tapa dura de 1056 páginas en castellano. Por su extensión, resulta un volumen más apropiado para leer apoyado que para sostenerlo durante largos desplazamientos; el formato físico también permite conservar o regalar esta edición coleccionista limitada.",
+      "texto": "Alchemised (edición coleccionista limitada) se ofrece en tapa dura, con una extensión de 1056 páginas. Por su tamaño, es un volumen más apropiado para leer sobre una superficie estable que para sostenerlo durante desplazamientos prolongados. La encuadernación rígida también favorece su conservación como edición coleccionista.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion",
-        "idioma"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Alchemised (edición coleccionista limitada) y Las Pruebas del Tarot presentan protagonistas enfrentadas a conflictos que condicionan su futuro. SenLinYu sitúa a Helena Marino en una posguerra marcada por el cautiverio, la nigromancia y los recuerdos perdidos; Katee Robert parte del entrenamiento de Kestrel para competir en las Pruebas del Tarot.",
+      "texto": "Alchemised (edición coleccionista limitada) y La hija del veneno comparten la fantasía adulta con elementos románticos y situaciones de violencia. SenLinYu desarrolla una historia de cautiverio, recuerdos perdidos y nigromancia, mientras que Sheila Masterson construye su conflicto alrededor de una mujer cuyo beso resulta mortal. El ocaso del rey (Dioses y monstruos 5) ofrece otra referencia de romantasy oscura, aunque su título lo identifica como el n.º 5 de su serie.",
       "evidencias": [
         "titulo",
         "autores",
+        "edad_recomendada",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401037917"
+        "isbn-9788425375118",
+        "isbn-9788427258280"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "391abea6f73d1488",
+  "fuente_hash": "24a40387359fe67c",
   "origen": "chatgpt-web"
 }

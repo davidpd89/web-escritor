@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788419969439",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Robert Walser se dirige a lectores de biografías literarias interesados en la relación entre escritura, pensamiento y paseo. Su atención a la obra de un escritor y al caminar como práctica creativa lo diferencia de las memorias personales convencionales y de las biografías centradas en la actividad política.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Miguel Ángel Ortiz Albero aborda la figura de Robert Walser desde el papel que desempeña el paseo en su trabajo literario. El análisis toma El Paseo como referencia y relaciona el movimiento físico con la elaboración del pensamiento, dentro de una serie de estudios del autor sobre escritores y caminantes.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Robert Walser está disponible en tapa blanda, con 204 páginas publicadas por Fórcola Ediciones. Este formato permite leer el estudio en papel, volver a sus pasajes sobre escritura y paseo y conservar el volumen junto a otras obras de temática literaria.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Robert Walser y Churchill comparten el interés por estudiar una figura individual, pero el primero examina la relación entre literatura y paseo, mientras el segundo presenta una personalidad histórica desde la biografía. Cesar La conquista de la eternidad también sigue una trayectoria personal, aunque su atención recae en las experiencias de un general romano.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944329",
+        "isbn-9791388328046"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "793b197583d25b00",
+  "origen": "chatgpt-web"
+}

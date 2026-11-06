@@ -1,0 +1,69 @@
+{
+  "id": "isbn-9788467084320",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Catulo / Marcial se dirige a lectores interesados en la poesía latina, el erotismo y la sátira de las costumbres. Ernesto Cardenal presenta versiones de poetas de la antigua Roma con una expresión contemporánea. Encaja menos con quien busque una novela histórica con personajes y acontecimientos desarrollados mediante una narración continua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Catulo / Marcial propone una lectura poética de textos procedentes de la antigua Roma mediante versiones realizadas por Ernesto Cardenal. El volumen trata el erotismo, la sátira y los comportamientos sociales desde una expresión cercana al lector contemporáneo. Su contenido se organiza alrededor de la poesía latina reinterpretada, no de una narración histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Editorial Espasa presenta Catulo / Marcial, de Ernesto Cardenal, en rústica con solapas y con una extensión de 128 páginas. La edición está en castellano, corresponde al ISBN 9788467084320 y tiene fecha editorial del 18 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Catulo / Marcial se publica en tapa blanda, con una encuadernación rústica con solapas y 128 páginas. Su extensión permite llevar el volumen en papel y volver a poemas concretos durante distintas sesiones de lectura, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Catulo / Marcial y Antología comparten la poesía como género y la recuperación de textos de otros autores. Ernesto Cardenal ofrece versiones actuales de poetas latinos centradas también en la sátira, mientras que Antonio Cano figura como autor de una recopilación de su propia obra, vinculada a los años treinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3eee5ddbd8d31612",
+  "origen": "chatgpt-web"
+}

@@ -4,33 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Protocolos, de Andrew Huberman, se dirige a lectores de desarrollo personal y bienestar interesados en la relación entre el sistema nervioso, la mente y el cuerpo. Sus 640 páginas permiten abordar estos asuntos en una obra extensa, centrada en procedimientos relacionados con la salud. No responde al planteamiento de una novela ni al de un manual dedicado exclusivamente a la alimentación.",
+      "texto": "Protocolos se dirige a lectores interesados en la relación entre el sistema nervioso, la salud y los hábitos de bienestar. Andrew Huberman aborda la conexión entre mente y cuerpo mediante protocolos, por lo que su enfoque se aleja de las memorias personales y de los relatos de ficción.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Protocolos puede leerse en tapa blanda o Kindle, dos opciones con diferencias prácticas por su extensión de 640 páginas. La edición física de Editorial Planeta es rústica con solapas y permite consultar el contenido en papel. Kindle evita transportar un volumen de esa longitud y facilita tenerlo disponible en el móvil para consultas durante el día.",
+      "texto": "La tapa blanda de Protocolos reúne 640 páginas en una edición rústica con solapas, adecuada para consultar distintos apartados en papel. Kindle permite llevar esa extensión en un dispositivo de lectura o móvil, mientras que el audiolibro ofrece la alternativa de escuchar el contenido sin manejar el volumen físico.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Protocolos comparte con La fibra es la solución el interés por mejorar la salud mediante hábitos concretos, pero Andrew Huberman aborda la relación entre el sistema nervioso, la mente y el cuerpo, mientras que Kristen Stavridis se centra en el consumo de fibra. Frente a Cómo no tener diabetes, orientado a una enfermedad específica, Protocolos plantea un campo de bienestar más amplio.",
+      "texto": "Protocolos y Cómo no tener diabetes comparten el interés por la salud, pero el primero aborda el sistema nervioso y la relación entre mente y cuerpo, mientras que el segundo se centra en la diabetes. La fibra es la solución también trata el bienestar físico, aunque concreta su propuesta en el consumo diario de fibra y sus posibles beneficios.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
@@ -42,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "06f0fe12968a0dca",
+  "fuente_hash": "00f61d4c4a173072",
   "origen": "chatgpt-web"
 }

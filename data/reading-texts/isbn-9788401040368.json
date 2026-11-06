@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788401040368",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El color de la esperanza encaja con lectores de romance y narrativa contemporánea interesados en el duelo, las segundas oportunidades y los vínculos que nacen tras una pérdida. Su conflicto se centra en la reconstrucción personal y familiar, por lo que se aleja de las historias de amor basadas en la rivalidad o la competición.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El color de la esperanza combina romance contemporáneo, duelo y reconstrucción personal en un entorno rural del País Vasco francés. Danielle Steel articula la historia alrededor de una viuda que busca rehacer su vida y de un propietario condicionado por sus problemas económicos y matrimoniales. La memoria familiar y la acogida de niños también intervienen en el desarrollo de sus relaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El color de la esperanza está disponible en tapa blanda, con 288 páginas en castellano publicadas por Plaza & Janés. Esta edición permite llevar la novela en el bolso y leerla por sesiones sin cargar con un volumen especialmente extenso. La encuadernación flexible también facilita sujetarla durante desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un baile en Versalles comparte con El color de la esperanza la autoría de Danielle Steel, pero sitúa su historia en una gala celebrada en el Palacio de Versalles durante el verano de 1959, frente al duelo y los nuevos comienzos de una viuda en el País Vasco francés. A mil por hora, de Hannah Grace, también pertenece al romance, aunque desplaza el conflicto sentimental al entorno de la Fórmula 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401037894",
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "042315b78190c31c",
+  "origen": "chatgpt-web"
+}

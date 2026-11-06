@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788423370931",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un crimen dialéctico encaja con lectores de novela negra interesados en conflictos políticos y dilemas morales. La presencia de una misión violenta vinculada a unas elecciones lo aleja de los misterios centrados exclusivamente en descubrir la identidad de un culpable.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Un crimen dialéctico combina intriga criminal y reflexión filosófica sobre la responsabilidad de elegir. Guillermo Martínez sitúa el conflicto en una transición política, donde un antiguo militante debe afrontar una petición de sus compañeros revolucionarios con posibles consecuencias electorales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 208 páginas de Un crimen dialéctico en una edición rústica con solapas de Ediciones Destino, para quienes prefieren leer y conservar el ejemplar físico. Kindle ofrece la misma obra en formato digital, con la comodidad de llevarla en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El asesinato de Roger Ackroyd (Edición especial con cantos tintados) comparte con Un crimen dialéctico el terreno de la ficción criminal, aunque se centra en la investigación detectivesca frente al conflicto político y filosófico. El honor de los espías se aproxima por su interés en operaciones reservadas, pero dirige la atención al espionaje.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083934",
+        "isbn-9788467085006"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bbd86a8a4fc88ac6",
+  "origen": "chatgpt-web"
+}

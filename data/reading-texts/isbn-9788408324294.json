@@ -1,0 +1,63 @@
+{
+  "id": "isbn-9788408324294",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Zodiac Academy 1. El despertar. Edición especial se orienta a lectores de fantasía romántica interesados en herencias desconocidas y protagonistas que descubren un origen distinto al que creían tener. Encaja menos con quienes buscan una novela realista, pues la situación de Darcy y Tory Vega parte del contraste entre el mundo mortal y su nueva identidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La historia plantea un cambio de identidad y posición social dentro de una fantasía con componentes románticos. Darcy y Tory Vega pasan de una vida marcada por la precariedad y la ausencia de familia al descubrimiento de una herencia, desencadenado por la aparición de un profesor misterioso.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Zodiac Academy 1. El despertar. Edición especial se publica en Crossbooks el 26 de agosto de 2026, con 480 páginas en castellano. Su presentación es de tapa dura con sobrecubierta, una característica física concreta para distinguir esta edición de otras presentaciones del título.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Zodiac Academy 1. El despertar. Edición especial está disponible en tapa dura, con sobrecubierta y una extensión de 480 páginas. Es una presentación física orientada a la conservación en estantería y al regalo; la sobrecubierta añade una pieza exterior que puede retirarse durante la lectura para evitar su desgaste.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Zodiac Academy 1, de Caroline Peckham y Susanne Valenti, comparte autoría y planteamiento con la edición especial de El despertar, cuya presentación incluye tapa dura con sobrecubierta. Alas de escarcha y oro: El canto del cisne, de Marta Morillo, también aborda capacidades personales ocultas, pero parte de una protagonista que esconde sus dones, frente al descubrimiento de una herencia por las gemelas Darcy y Tory Vega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "13efdadf5009672a",
+  "origen": "chatgpt-web"
+}

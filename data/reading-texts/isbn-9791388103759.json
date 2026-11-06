@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791388103759",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Grand Blue Dreaming nº 17 se orienta a lectores de manga que disfrutan del humor absurdo y los enredos sentimentales entre personajes conocidos. Las bromas sobre desnudos, cerveza y rivalidades románticas lo alejan de quienes buscan una historia solemne o un conflicto centrado en la acción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Grand Blue Dreaming nº 17 desarrolla una comedia de equívocos alrededor de Iori, Sakurako y Aina. La supuesta fortuna obtenida en la lotería desencadena una competencia sentimental en la que intervienen sus amistades, con Okinawa como escenario. El título identifica esta entrega como el n.º 17.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Grand Blue Dreaming nº 17 se publica en tapa blanda, en rústica sin solapas y con sobrecubierta. Sus 208 páginas forman un tomo de manga que puede transportarse y guardarse junto a otras entregas de la colección; la sobrecubierta permite proteger la cubierta interior del roce habitual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Grand Blue Dreaming nº 16 es la comparación directa de Grand Blue Dreaming nº 17: ambos comparten autores, Kenji Inoue y Kimitake Yoshioka, y una trama de rivalidades sentimentales. El primero gira alrededor de una escapada romántica convertida en enfrentamiento, mientras el segundo introduce una supuesta ganancia de lotería que altera las relaciones entre Iori, Sakurako y Aina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101830"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ce66c232d1ca1b5b",
+  "origen": "chatgpt-web"
+}

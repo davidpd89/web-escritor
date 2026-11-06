@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791387667825",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "ReESCRÍBETE, de Montse Perelló, aborda el desarrollo personal mediante la grafoterapia y la observación de la escritura manuscrita. Su planteamiento se centra en relacionar los trazos con emociones y experiencias personales, por lo que no está orientado a quien busque técnicas de escritura literaria o corrección de textos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "ReESCRÍBETE tiene 208 páginas y se ofrece en tapa blanda y Kindle. La edición en rústica con solapas de Ediciones Luciérnaga permite consultar en papel las explicaciones sobre grafoterapia y observar la propia escritura mientras se lee; Kindle facilita acceder al contenido desde el móvil sin llevar el libro físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7cad2513a6e597d2",
+  "origen": "chatgpt-web"
+}

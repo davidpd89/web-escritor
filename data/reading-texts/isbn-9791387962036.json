@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La bestia del rey 13 (Shôjo) se dirige a lectores juveniles interesados en el romance fantástico, los conflictos entre grupos sociales y las tensiones políticas. Encaja menos con quien busque una historia realista y alejada de las disputas de poder, ya que la relación entre los protagonistas está condicionada por reformas sociales y una amenaza de guerra.",
+      "texto": "La bestia del rey 13 (Shôjo) se dirige a lectores de cómic juvenil que buscan fantasía romántica con conflictos políticos. La relación entre Rangetsu y Tenyô convive con reformas sociales y amenazas militares, por lo que encaja menos con quien prefiera romances alejados de las disputas de poder.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La bestia del rey 13 (Shôjo) combina una promesa de matrimonio con las dificultades de transformar una sociedad dividida entre humanos y semihumanos. Rangetsu regresa al palacio con un cargo militar, mientras Tenyô impulsa cambios que provocan la reacción de otras naciones. La relación sentimental convive así con tensiones sociales y la posibilidad de un enfrentamiento bélico.",
+      "texto": "La bestia del rey 13 (Shôjo) combina romance fantástico y tensiones entre humanos y semihumanos. El compromiso matrimonial de Rangetsu y Tenyô coincide con cambios impulsados desde el poder y con la oposición de otros países, de modo que el conflicto sentimental comparte espacio con el político.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,31 +22,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La bestia del rey 13 (Shôjo) está disponible en tapa blanda con sobrecubierta y tiene 168 páginas. Esta edición permite seguir en papel el desarrollo del conflicto entre humanos y semihumanos, con una cubierta exterior que puede conservarse junto al volumen.",
+      "texto": "La bestia del rey 13 (Shôjo) está disponible en tapa blanda con sobrecubierta, una presentación física de 168 páginas. Este formato permite conservar el volumen en una colección de cómics y consultar sus páginas impresas sin depender de una pantalla.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La bestia del rey 13 (Shôjo) comparte con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, la presencia de personajes cuya identidad condiciona su situación personal. Mientras Rei Tôma sitúa a sus protagonistas ante una promesa matrimonial, reformas sociales y posibles enfrentamientos entre naciones, la historia de Marta Morillo parte de una protagonista que mantiene ocultos sus dones y debilidades.",
+      "texto": "La bestia del rey 13 (Shôjo) puede compararse con Donde duermen las sombras por la presencia de romance y elementos fantásticos. Mientras la obra de Rei Tôma sitúa la relación amorosa entre reformas políticas y conflictos militares, la de Andrea Ornos plantea un amor que atraviesa dimensiones y se enfrenta a las sombras.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949938"
+        "isbn-9788427055605"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1cf485a7f01aa8ef",
+  "fuente_hash": "c540016b8328c7ce",
   "origen": "chatgpt-web"
 }

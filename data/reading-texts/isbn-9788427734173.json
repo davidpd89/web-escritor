@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788427734173",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La educación polarizada se dirige a lectores interesados en la psicología del debate educativo y en los conflictos que afectan a la percepción pública de la escuela. Su atención a las narrativas políticas y los intereses comerciales la aleja de los manuales de actividades para aplicar directamente en el aula.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La educación polarizada plantea un análisis de las disputas ideológicas y económicas que condicionan el discurso sobre la enseñanza. Pablo Ramos Ramos examina cómo determinadas organizaciones, publicaciones y figuras del sector educativo pueden influir en la imagen social de los docentes y de los centros escolares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La educación polarizada está editada en tapa blanda y tiene 176 páginas, publicadas por Narcea Ediciones. El soporte impreso permite revisar los argumentos sobre intereses comerciales, discursos educativos y percepción pública del profesorado en un volumen de extensión contenida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La educación polarizada y Educar leones en un mundo que prefiere borregos comparten el interés por cuestionar determinadas ideas sobre la enseñanza. Pablo Ramos Ramos analiza la confrontación entre discursos educativos y sus intereses económicos, mientras que Elvira Perejón plantea la educación desde una reflexión sobre la obediencia infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374111"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "872ea26e4177e760",
+  "origen": "chatgpt-web"
+}

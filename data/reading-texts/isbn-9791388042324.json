@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9791388042324",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Maldita agencia de detectives. El caso de la estatua decapitada encaja con lectores que disfrutan resolviendo misterios mediante pistas, preguntas y acertijos. Su propuesta interactiva exige participar en la investigación, por lo que se aleja de la narrativa convencional en la que basta con seguir los acontecimientos.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una aventura detectivesca interactiva ambientada en Malasombras, donde la desaparición de la cabeza de una estatua desencadena una investigación rodeada de rumores sobre una maldición. La lectura combina el relato con un mapa del pueblo, una relación de sospechosos, pistas escondidas, cuestionarios, preguntas de comprobación y laberintos que permiten intervenir en la resolución del caso.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Maldita agencia de detectives. El caso de la estatua decapitada está disponible en tapa blanda, con 144 páginas publicadas por Duomo Ediciones. El formato físico permite consultar el mapa, volver a las pistas y resolver los laberintos mientras se avanza en la investigación, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6b4e1e0a8a247ea",
+  "origen": "chatgpt-web"
+}

@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El vuelo de los gansos está dirigido a lectores adultos de thrillers sobre poder económico, conspiraciones y conflictos políticos contemporáneos. Ángel Boixadós plantea una confrontación entre una empresa de energías renovables y los intereses de los combustibles fósiles; no responde al modelo de misterio detectivesco centrado en resolver un asesinato.",
+      "texto": "El vuelo de los gansos se dirige a lectores adultos interesados en los thrillers sobre intereses económicos, poder político y conflictos empresariales. El enfrentamiento entre una compañía de energías renovables y quienes defienden los combustibles fósiles articula una trama de amenazas y manipulación pública. Se aleja de las historias centradas exclusivamente en la investigación policial.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,37 +14,36 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El vuelo de los gansos combina el thriller empresarial con la intriga política y la disputa por el control energético. La propuesta de una empresa de renovables desencadena una operación de descrédito y violencia impulsada por intereses económicos, de modo que el conflicto se desarrolla tanto en los medios como en el terreno de la seguridad personal.",
+      "texto": "El vuelo de los gansos plantea un thriller contemporáneo sobre las consecuencias de desafiar intereses económicos consolidados. Ángel Boixadós sitúa a un empresario innovador frente a una alianza de dirigentes y magnates dispuestos a recurrir a la violencia y la desinformación. La tensión combina supervivencia personal, disputa mediática y mecanismos de influencia política.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El vuelo de los gansos puede leerse en tapa blanda o Kindle. La edición de Grijalbo reúne 400 páginas con solapas, adecuadas para quien prefiera consultar y conservar el ejemplar físico; Kindle permite continuar la lectura desde el móvil o un lector electrónico compatible.",
+      "texto": "El vuelo de los gansos está disponible en tapa blanda y Kindle. La edición física de Grijalbo reúne 400 páginas con solapas, una opción para conservar el volumen o prestarlo. Kindle permite llevar esa misma extensión en un lector electrónico o consultarla desde el móvil sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El vuelo de los gansos y Corazón de sílex comparten el terreno del misterio, pero Ángel Boixadós desarrolla una conspiración empresarial y política, mientras Emilia Landaluce y Rosa Belmonte parten de una joven que ha perdido el recuerdo de una noche. Frente a Los crímenes del sanatorio (Serie Comisario Reykdal 1), de Ragnar Jónasson, sustituye la investigación de un crimen con sospechosos por una amenaza contra una empresa energética.",
+      "texto": "El vuelo de los gansos comparte con Aguas turbulentas el interés por las amenazas y los conflictos que conectan distintos ámbitos de poder. La obra de Ángel Boixadós se centra en una empresa energética sometida a presiones políticas y económicas, mientras que Aguas turbulentas vincula acontecimientos oscuros del pasado y del presente en Edimburgo. Ambas proponen intriga, pero desde conflictos diferentes.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467083330",
-        "isbn-9788432251399"
+        "isbn-9791370310318"
       ]
     }
   ],

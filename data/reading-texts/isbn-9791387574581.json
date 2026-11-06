@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387574581",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El club de los soñadores encaja con lectores de narrativa contemporánea interesados en la amistad, los cambios de rumbo y las segundas oportunidades. Su historia combina recuerdos de adolescencia, una crisis laboral y la búsqueda de una persona desaparecida, por lo que se distancia de las novelas centradas exclusivamente en la investigación criminal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El club de los soñadores es una novela contemporánea que alterna los recuerdos de un videoclub en Daejeon con el regreso de una antigua visitante quince años después. Kim Ho-Yeon utiliza la búsqueda del propietario desaparecido para relacionar las amistades juveniles con las decisiones de la vida adulta. Los libros, las películas y la creación de contenido audiovisual forman parte de ese reencuentro con el pasado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El club de los soñadores está disponible en tapa blanda y Kindle. La edición física de Duomo Ediciones tiene 336 páginas y permite conservar el volumen en papel o prestarlo. Kindle facilita continuar la lectura desde el móvil o un lector electrónico sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d9838f8ca5d4c4cc",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788423441037",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tomarse la religión en serio se dirige a quienes buscan una reflexión sobre la fe, la ciencia y el pensamiento racional en el debate contemporáneo. Su planteamiento argumentativo se aparta de las narraciones religiosas de ficción y de los libros centrados en prácticas devocionales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Charles Murray examina la cuestión de Dios mediante un enfoque que relaciona razonamiento lógico, pruebas y reflexión personal. Tomarse la religión en serio sitúa ese examen en un contexto de tensiones entre religión, ciencia y racionalidad, con una extensión de 176 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tomarse la religión en serio está disponible en tapa blanda y Kindle. La edición física de Deusto presenta 176 páginas en rústica con solapas, que permiten consultar el texto en papel; Kindle ofrece la alternativa digital para leerlo desde el móvil o un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprendiendo de las drogas y Tomarse la religión en serio comparten el examen de asuntos que generan controversia, aunque Antonio Escohotado aborda las drogas sin prejuicios y Charles Murray reflexiona sobre la fe mediante la lógica. El estado del Estado no figura entre sus lecturas afines; A la sombra del Estado sí, pero trata el espionaje y el poder clandestino, no las creencias religiosas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057",
+        "isbn-9788467084221"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c92606b6c90c3cb1",
+  "origen": "chatgpt-web"
+}

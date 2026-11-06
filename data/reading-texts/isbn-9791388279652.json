@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388279652",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nadie se viste como quiere se dirige a lectores interesados en la relación entre moda, normas sociales y poder. Leticia García examina quién establece las tendencias y cómo influyen en las decisiones individuales; su enfoque social se aleja de los manuales de estilismo y de las guías para combinar prendas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una lectura de ciencias humanas y sociales que utiliza la moda para analizar las relaciones de poder y las diferencias entre grupos. El planteamiento de Leticia García cuestiona hasta qué punto la elección de ropa es individual cuando existen reglas sociales sobre quién puede vestir determinadas prendas y quién establece las tendencias.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nadie se viste como quiere está disponible en tapa blanda, con encuadernación rústica y solapas. Sus 256 páginas permiten consultar distintos pasajes sobre moda y sociedad en un volumen físico que puede transportarse y guardarse en una estantería sin la rigidez de una cubierta de cartón.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nadie se viste como quiere y Ciencias del comportamiento (Edición especial) comparten el interés por las conductas humanas, aunque Leticia García estudia las normas sociales de la moda y Juan Manuel García Pincho (@cienciasdelcomportamiento) presenta un método de aplicación cotidiana. Las leyes fundamentales de la estupidez humana también examina comportamientos humanos, pero desde un ensayo mordaz de Carlo M. Cipolla, en lugar de centrarse en la ropa y las tendencias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388279263",
+        "isbn-9788491995913"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1dea79c4b3b5eb9e",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388103445",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "That Texas Blood nº 02 se dirige a lectores de cómic interesados en investigaciones criminales, sectas y desapariciones. La muerte de un niño durante un ritual y la intervención de un detective privado apuntan a una lectura de contenido violento, alejada de los misterios infantiles. El título lo identifica como el n.º 02.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "That Texas Blood nº 02 es un thriller en formato cómic que combina una investigación criminal con la actividad de una secta. La acción comienza en septiembre de 1981, tras un ritual fallido en un rancho que termina con un niño muerto y su hermana desaparecida. El detective privado Harlan Eversaul interviene para intentar detener a los responsables antes de que actúen de nuevo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "That Texas Blood nº 02 está disponible en tapa dura, con encuadernación cartoné y sin sobrecubierta. Sus 184 páginas forman un volumen de cómic que puede conservarse en una estantería y consultarse repetidamente, con cubiertas rígidas que ofrecen mayor protección física que una encuadernación flexible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tomogui: que comience la caza 1 (Seinen), de Nobuaki Kanazawa y RAZEN, comparte con That Texas Blood nº 02 la presencia de conflictos violentos, pero aborda una venganza escolar en lugar de una investigación sobre una secta. Resuelve el caso con Mortadelo y Filemón, de Francisco Ibáñez, también gira alrededor de resolver casos, aunque se centra en agentes secretos y plantea un tipo de misterio distinto del thriller criminal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431578",
+        "isbn-9791387962272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f1653ae9c269fbff",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La casa del callejón encaja con lectores interesados en las relaciones de poder dentro de la familia, la subordinación femenina y los conflictos psicológicos. No está orientada a quienes prefieren tramas dominadas por la acción exterior: la tensión procede del control doméstico, la dependencia afectiva y los celos.",
+      "texto": "La casa del callejón encaja con lectores interesados en las relaciones familiares marcadas por la autoridad masculina, la dependencia y la falta de libertad. Quien busque una historia de aventuras o conflictos exteriores encontrará aquí una narración concentrada en la convivencia doméstica y sus tensiones psicológicas.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela de conflicto doméstico que examina la autoridad de don Lùcio sobre Antonietta y Nicolina. Maria Messina construye esa relación mediante las rutinas de una casa cerrada, los silencios y la contradicción entre el deseo de libertad y los vínculos emocionales que mantienen a ambas mujeres sometidas.",
+      "texto": "Maria Messina construye una novela de observación doméstica sobre el poder que ejerce don Lùcio sobre su esposa y su cuñada. El conflicto se desarrolla mediante rutinas impuestas, silencios, celos y deseos de independencia, con una escritura de orientación verista que presta atención a los pequeños gestos.",
       "evidencias": [
         "autores",
         "categorias",
@@ -22,19 +22,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La casa del callejón se presenta en tapa blanda, con 136 páginas en castellano. Su extensión permite distribuir la lectura en pocas sesiones y manejar un ejemplar físico relativamente breve, adecuado para volver sobre los silencios y las tensiones entre los personajes.",
+      "texto": "La casa del callejón puede leerse en Tapa blanda o Kindle. Sus 136 páginas hacen de la edición física de Editorial Periférica un volumen relativamente breve para llevar en el bolso o guardar en una estantería; Kindle permite leerlo en el móvil o en un lector electrónico sin ocupar espacio físico.",
       "evidencias": [
         "titulo",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "idioma",
-        "sinopsis_editorial"
+        "editorial",
+        "edicion",
+        "formatos_disponibles"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "298959157997ff5b",
+  "fuente_hash": "0339b7a0a1813d6c",
   "origen": "chatgpt-web"
 }

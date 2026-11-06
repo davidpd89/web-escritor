@@ -1,0 +1,70 @@
+{
+  "id": "isbn-9791387745462",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La poesía es el nuevo punk, de Claudia Masin, está dirigida a lectores de poesía interesados en la infancia, el amor, la pérdida y las heridas emocionales. Su selección de poemas escritos a lo largo de 30 años permite acercarse a distintas etapas de la autora. No responde a las expectativas de quien busca una novela con argumento continuo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La poesía es el nuevo punk es una antología seleccionada y prologada por Claudia Masin que reúne textos de 30 años de escritura. Su poesía aborda el daño, los vínculos afectivos y la capacidad del lenguaje para intervenir en la experiencia del dolor. El título expresa una concepción de la escritura poética como respuesta de desobediencia ante la violencia y la crueldad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Visor Libros publica La poesía es el nuevo punk en castellano, en tapa blanda y con 252 páginas. Esta antología se distingue por reunir poemas de 30 años de trayectoria, con selección y prólogo de la propia Claudia Masin. La edición tiene el ISBN 9791387745462 y fecha de publicación editorial del 30 de septiembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "autores",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La poesía es el nuevo punk se presenta en tapa blanda, con 252 páginas que reúnen poemas de distintas etapas de Claudia Masin. El volumen físico permite leer los textos de forma independiente y regresar a los que tratan temas concretos, como la infancia o la pérdida. También conserva en una misma edición la selección y el prólogo realizados por la autora.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La poesía es el nuevo punk y Antología, de Antonio Cano, comparten el formato de recopilación poética, aunque Claudia Masin selecciona textos de 30 años y la obra de Antonio Cano reúne su producción completa. También se aproxima a Ciudad, de Luis Pérez Capitán, por su relación entre poesía y conflictos del presente. Claudia Masin pone el acento en la violencia, el daño y la reparación mediante las palabras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370140908",
+        "isbn-9788410167841"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ddebb3e23eaac8b",
+  "origen": "chatgpt-web"
+}

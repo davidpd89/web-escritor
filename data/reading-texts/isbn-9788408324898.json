@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408324898",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El coraje de ser quien eres (aunque no gustes) aborda la autonomía personal y la capacidad de actuar conforme a los propios principios. Está dirigido a lectores interesados en el desarrollo personal y la libertad interior, no a quienes buscan una novela de ficción o una historia protagonizada por personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El coraje de ser quien eres (aunque no gustes) puede elegirse en tapa dura, tapa blanda, Kindle o audiolibro. La edición rústica con solapas de Zenith tiene 240 páginas; la tapa dura ofrece una encuadernación rígida, Kindle facilita consultar el contenido en el móvil y el audiolibro permite escucharlo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El coraje de ser quien eres (aunque no gustes) y Más fuerte que la adversidad son obras de Walter Riso sobre desarrollo personal. La primera trata la independencia de criterio y la segunda se centra en afrontar situaciones difíciles. La afectividad masculina comparte autor, pero aborda específicamente las emociones y los modelos de masculinidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408325246",
+        "isbn-9788408325253"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf21bf64446ea75f",
+  "origen": "chatgpt-web"
+}

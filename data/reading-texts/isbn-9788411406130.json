@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788411406130",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Creepy nº 11/29 está dirigido a lectores de cómic de terror interesados en relatos macabros y en el trabajo de distintos autores. Su enfoque en lo siniestro se aleja de las historietas humorísticas o de aventuras ligeras y puede resultar incómodo para quienes evitan el terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Creepy nº 11/29 es una recopilación de cómics de terror procedentes de la serie de Editorial Warren. Reúne aportaciones de Richard Corben, Esteban Maroto, Doug Moench y Steve Skeates, entre otros colaboradores, que desarrollan distintas aproximaciones a lo macabro. El título lo identifica como el n.º 11/29.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Creepy nº 11/29 puede leerse en tapa dura o en Kindle. La edición física de Planeta Cómic reúne 256 páginas en cartoné, una opción para conservar el volumen en una colección; Kindle permite consultar las historietas en un dispositivo compatible y ampliar las viñetas cuando la aplicación lo permita.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Creepy nº 11/29 y Creepy nº 25/29 pertenecen a la misma serie de terror y comparten la autoría colectiva. El primero reúne historietas macabras de colaboradores de Editorial Warren, mientras que la presentación del segundo pone el acento en la duda, la desesperación y la figura del Tío Creepy.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411406277"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "400421f0fd5873af",
+  "origen": "chatgpt-web"
+}

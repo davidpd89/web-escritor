@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788408327196",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No metas la pata en Japón se dirige a quienes preparan una visita a Japón y quieren entender las normas sociales que afectan a situaciones cotidianas. Su enfoque sobre costumbres y errores culturales encaja menos con quien busca una guía centrada en rutas, monumentos o itinerarios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una lectura de viajes centrada en las diferencias culturales y las reglas de convivencia en Japón. Andreas Fels y Kerstin Fels abordan situaciones como el rechazo de una petición, el calzado apropiado en interiores o las molestias que puede causar un perfume intenso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 216 páginas en rústica con solapas, apropiadas para consultar las costumbres japonesas durante la preparación de un viaje. Kindle permite llevar el mismo título en el móvil y revisar sus consejos durante los desplazamientos sin cargar con el ejemplar físico.",
+      "evidencias": [
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "No metas la pata en Japón comparte con Allí donde fueres... el interés por las costumbres y las formas de comportarse en Japón. El libro de Andreas Fels y Kerstin Fels aborda distintos errores culturales, mientras que el de Patrick Kinsella plantea específicamente cómo saludar correctamente. Frente a Amsterdam de cerca 2027-2028, de Catherine Le Nevez, se centra en la convivencia cultural y no en presentar una ciudad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324331",
+        "isbn-9788408320890"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7d60108e0294c433",
+  "origen": "chatgpt-web"
+}

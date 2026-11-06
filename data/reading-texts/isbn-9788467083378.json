@@ -4,7 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Todo bajo control, menos tú, de Megan Maxwell, encaja con lectores de novela romántica interesados en protagonistas que compaginan las dificultades económicas y familiares con sus relaciones sentimentales. La responsabilidad de cuidar a una madre y la aparición de un hombre que complica la situación personal marcan el conflicto. Se aleja de las historias centradas únicamente en el romance, sin obligaciones cotidianas.",
+      "texto": "Todo bajo control, menos tú encaja con lectores de romance interesados en protagonistas que afrontan responsabilidades familiares y dificultades económicas mientras surge una posible relación. La historia de Yuls Pérez parte del trabajo precario y del cuidado de su madre, por lo que no se presenta como una aventura fantástica ni como una lectura ajena a los problemas cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Todo bajo control, menos tú es una novela romántica de Megan Maxwell cuyo conflicto inicial enfrenta las obligaciones de Yuls Pérez con la aparición de Oliver Dávila. La protagonista necesita sostener económicamente su vida y atender a su madre, circunstancias que condicionan su disposición a iniciar una relación.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,20 +22,10 @@
       ]
     },
     {
-      "modulo": "encaje_documentado",
-      "texto": "Todo bajo control, menos tú plantea una historia romántica atravesada por las responsabilidades familiares y la precariedad económica. Yuls Pérez trabaja en distintos empleos para sostenerse y atender a su madre, mientras la presencia de Oliver Dávila introduce un conflicto sentimental que no buscaba. La tensión nace del contraste entre mantener el control de las obligaciones y permitir que una relación altere sus prioridades.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "Todo bajo control, menos tú se ofrece en tapa blanda y Kindle. La edición de Editorial Espasa tiene 544 páginas y solapas, por lo que el papel supone manejar un volumen extenso durante la lectura. Kindle permite llevar esas mismas páginas en el móvil o un lector electrónico, sin depender del tamaño del ejemplar físico.",
+      "texto": "La tapa blanda con solapas permite leer las 544 páginas de Todo bajo control, menos tú en papel, aunque su extensión supone llevar un volumen considerable. Kindle facilita continuar la novela desde el móvil o un lector electrónico, y el audiolibro ofrece la alternativa de seguir la historia mediante escucha.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles"
@@ -35,6 +34,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7939b78d7faa650f",
+  "fuente_hash": "51171656c83f6c70",
   "origen": "chatgpt-web"
 }

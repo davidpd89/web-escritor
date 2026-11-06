@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Qué pensará tu hija de ti? se dirige a lectores interesados en las experiencias personales de maternidad, las dudas sobre tener hijos y los cambios en las relaciones. Su enfoque autobiográfico, vinculado a las vivencias de Diana López Varela, lo distancia de una guía práctica de crianza o de una ficción familiar.",
+      "texto": "¿Qué pensará tu hija de ti? se dirige a lectores interesados en relatos personales sobre maternidad, relaciones de pareja y cambios vitales. Diana López Varela parte de su experiencia ante el deseo de ser madre y las dificultades emocionales del proceso; no plantea una historia de ficción ni un manual de crianza.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,27 +14,27 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "¿Qué pensará tu hija de ti? aborda el deseo de ser madre desde la experiencia personal de Diana López Varela. La decisión de tener un hijo aparece vinculada a las relaciones sentimentales, la pandemia, el confinamiento y las preocupaciones hipocondríacas. El enfoque se sitúa entre las memorias personales y las cuestiones relacionadas con las mujeres.",
+      "texto": "La maternidad, las dudas sentimentales y la ansiedad vinculada a la salud articulan ¿Qué pensará tu hija de ti?. Diana López Varela cuenta cómo una nueva relación y el confinamiento durante la pandemia influyen en su decisión de ser madre, desde una perspectiva personal centrada en las consecuencias emocionales.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Qué pensará tu hija de ti? puede leerse en tapa blanda o en Kindle. La edición física tiene 224 páginas y encuadernación rústica con solapas, mientras que Kindle permite llevar el texto en un lector electrónico o en el móvil sin transportar el ejemplar impreso.",
+      "texto": "La tapa blanda de ¿Qué pensará tu hija de ti? ofrece 224 páginas en una edición rústica con solapas, manejable para leer fuera de casa. Kindle conserva el texto en formato digital y permite continuar la lectura desde un móvil o dispositivo compatible sin llevar el libro impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Qué pensará tu hija de ti? y Fuera de mí comparten el interés por experiencias y cuestiones relacionadas con las mujeres. Diana López Varela aborda la maternidad desde sus vivencias, mientras que Violeta Gil y Ana Jarén plantean quién tiene autoridad para determinar el estado mental femenino. Esas muchachas que escriben poemas, de Alba Donati, desplaza la atención hacia mujeres vinculadas a la poesía.",
+      "texto": "¿Qué pensará tu hija de ti? y Esas muchachas que escriben poemas se aproximan a experiencias femeninas, aunque desde asuntos diferentes. Diana López Varela aborda su propia maternidad y sus dudas sentimentales, mientras que Alba Donati presenta distintas personalidades y vivencias de mujeres vinculadas a la escritura poética.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,7 +43,6 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388220173",
         "isbn-9788426434272"
       ]
     }

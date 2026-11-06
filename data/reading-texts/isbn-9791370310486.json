@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791370310486",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Frankenstein encaja con lectores de terror interesados en los dilemas morales de la creación, la ambición y el aislamiento. El conflicto entre Victor Frankenstein y su criatura concede importancia a las consecuencias de los actos, por lo que se aleja de una historia centrada exclusivamente en sobresaltos o amenazas físicas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Frankenstein combina el terror con una reflexión narrativa sobre los límites de la intervención humana y la responsabilidad ante sus resultados. Mary Shelley articula estas cuestiones mediante la relación entre un creador y el ser al que da vida, con la soledad y las consecuencias de la ambición como ejes del conflicto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Frankenstein está disponible en tapa dura y Kindle, con una extensión de 256 páginas en esta edición de RBA Libros. La tapa dura ofrece una encuadernación rígida para conservar el volumen y regalarlo; Kindle permite leer la novela en formato digital y transportarla sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frankenstein y Coraline recurren a situaciones inquietantes que alteran la experiencia de sus protagonistas. Neil Gaiman plantea el acceso a una versión distinta del hogar de Coraline, mientras Mary Shelley explora la responsabilidad de Victor Frankenstein ante su criatura y las consecuencias de intentar superar los límites humanos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "lib-0001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "311d9070fd3af16a",
+  "origen": "chatgpt-web"
+}

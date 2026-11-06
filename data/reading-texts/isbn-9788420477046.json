@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788420477046",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La porteadora se dirige a lectores adultos de novela histórica interesados en la participación de las mujeres en la Primera Guerra Mundial. La narración combina tareas de abastecimiento militar, riesgos de montaña y un vínculo amoroso con un enemigo herido; no está planteada como una historia bélica centrada exclusivamente en combates.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La porteadora es una novela histórica ambientada en una comunidad alpina durante la Primera Guerra Mundial. Su protagonista transporta suministros hasta las posiciones militares y debe reconsiderar sus convicciones cuando encuentra a un soldado enemigo herido. El conflicto une las obligaciones hacia su país con una relación afectiva surgida en circunstancias de guerra.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La porteadora está disponible en tapa blanda con solapas y Kindle. La edición impresa de Alfaguara reúne 304 páginas, una extensión que permite leer la novela en un volumen físico único; Kindle ofrece la posibilidad de llevarla en formato digital. El papel resulta apropiado para conservar o regalar el ejemplar, mientras que la versión electrónica evita transportarlo.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La porteadora y La historia de Romana y Uliana (Amadoca 1) comparten un contexto de guerra y la presencia de personajes afectados por ella, aunque Ilaria Tuti se centra en mujeres que abastecen el frente alpino y Sofía Andrujóvich presenta a un soldado herido y amnésico en un hospital de Kiev. Un baile en Versalles también utiliza una ambientación histórica, pero Danielle Steel sitúa su punto de partida en una gala de 1959, lejos del trabajo militar de las porteadoras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401037894",
+        "isbn-9791387640491"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d4f20ff0bc53f468",
+  "origen": "chatgpt-web"
+}

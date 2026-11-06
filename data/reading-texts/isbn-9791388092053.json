@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Menú del día (Mesa y mantel) se dirige a lectores adultos interesados en la cocina popular y en las costumbres gastronómicas vinculadas al trabajo y la vida cotidiana. Lakshmi Aguirre combina recetas con una mirada cultural sobre la comida fuera de casa; encaja menos con quien busque únicamente técnicas culinarias sin contexto histórico o social.",
+      "texto": "Menú del día (Mesa y mantel) se dirige a adultos interesados en la cocina popular española y en la relación entre gastronomía y costumbres sociales. Combina recetas tradicionales con una mirada a la organización de las comidas fuera de casa; se diferencia de los recetarios centrados exclusivamente en técnicas rápidas o preparaciones de un solo aparato.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,28 +14,28 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Menú del día (Mesa y mantel) reúne recetas de platos habituales en los almuerzos populares, entre ellos arroz a la cubana, croquetas, pollo al ajillo y flan. Lakshmi Aguirre aborda también la estructura de primeros, segundos y postres, y explica su relación con la jornada laboral, la economía doméstica y la evolución de los hábitos alimentarios.",
+      "texto": "Menú del día (Mesa y mantel) recopila recetas representativas de los almuerzos tradicionales, entre ellas arroz a la cubana, croquetas, pollo al ajillo y flan. Lakshmi Aguirre las sitúa en el contexto de una comida organizada alrededor de primeros platos, segundos y postres, vinculada a los horarios laborales y a la economía cotidiana. Sus 224 páginas permiten abordar tanto las preparaciones como su significado cultural.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Menú del día (Mesa y mantel) puede elegirse en tapa dura o Kindle. La edición de Debate tiene 224 páginas: el volumen encuadernado resulta práctico para conservar y consultar las recetas en casa, mientras que Kindle facilita acceder al contenido desde un dispositivo compatible cuando se cocina fuera de la cocina habitual.",
+      "texto": "Menú del día (Mesa y mantel) está disponible en tapa dura y Kindle, con una extensión de 224 páginas. La edición física de Debate ofrece una encuadernación rígida para conservar y consultar el recetario; Kindle permite acceder a las preparaciones desde el móvil o un lector electrónico durante la compra o en la cocina.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Menú del día (Mesa y mantel) se aproxima a Cocina de siempre para disfrutar hoy por su atención a los platos tradicionales, aunque Lakshmi Aguirre estudia además el menú como costumbre social y Marcos Serén @chefmspin.recetas se centra en adaptar recetas. Frente a Al micro y listo, de Dani García, su enfoque está menos ligado a un método de preparación y más a la cultura del almuerzo.",
+      "texto": "Menú del día (Mesa y mantel) y 20 minutos ¡y listo! tratan la cocina cotidiana, pero Lakshmi Aguirre recupera platos tradicionales y su contexto cultural, mientras que Jamie Oliver pone el acento en el tiempo de preparación. También se diferencia de Al micro y listo, de Dani García: este último destaca una forma de cocinar, frente al repertorio de primeros, segundos y postres del menú tradicional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,8 +43,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467084757",
-        "isbn-9788408324263"
+        "isbn-9788425374074",
+        "isbn-9788467084757"
       ]
     }
   ],

@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9791388102394",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "The World After the Fall nº 05 se dirige a lectores de manhwa de acción y fantasía interesados en torneos, enfrentamientos múltiples y amenazas que afectan a todo un mundo. Su trama continúa el ascenso de Jae-hwan y el conflicto de Gorgon, por lo que se ajusta menos a quien busca una historia independiente o sin combates.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "The World After the Fall nº 05 combina fantasía de acción con una competición por el control de un castillo y una amenaza exterior. Jae-hwan altera el desarrollo del torneo al decidir combatir contra todos sus contrincantes simultáneamente, mientras Gorgon afronta el peligro de una horda de muertos.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "The World After the Fall nº 05 se publica en tapa blanda, con 304 páginas y encuadernación rústica con solapas de Planeta Cómic. Este formato permite conservar el volumen en papel y manejarlo con una cubierta flexible, aunque su extensión supone un ejemplar más voluminoso que otros cómics breves.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d0b528c1d5bcefdf",
+  "origen": "chatgpt-web"
+}

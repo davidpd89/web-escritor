@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788437508696",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El vampiro de Clarendon House encaja con lectores de misterio interesados en investigaciones criminales ambientadas en la Inglaterra victoriana. La presencia de asesinatos, una posible amenaza vampírica y una conspiración histórica lo aleja de las historias cotidianas sin violencia ni elementos inquietantes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El vampiro de Clarendon House plantea un misterio histórico con dos investigaciones relacionadas: unos crímenes atribuidos a un vampiro y una conspiración de consecuencias políticas. José Carlos Somoza sitúa la acción en 1865 y reúne a personajes históricos con un investigador ficticio vinculado a un sanatorio, combinando pesquisas criminales y amenazas de mayor alcance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El vampiro de Clarendon House se presenta en tapa blanda, con 398 páginas en castellano. La edición física de Fondo de Cultura Económica de España reúne en un solo volumen la investigación victoriana y su trama conspirativa, para una lectura continuada en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "551da438cd4f69e9",
+  "origen": "chatgpt-web"
+}

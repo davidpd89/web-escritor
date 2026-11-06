@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791388220296",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Karateka encaja con quienes buscan testimonios deportivos sobre perseverancia y trayectorias personales alejadas de los recorridos habituales hacia la élite. Sandra Sánchez cuenta su experiencia como campeona olímpica de karate; no es una obra centrada en enseñar técnicas de combate ni una ficción deportiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Karateka puede leerse en tapa blanda o Kindle. La edición física de Lunwerg Editores tiene 184 páginas y se presenta en rústica con solapas, una opción para conservar o regalar el testimonio de Sandra Sánchez; Kindle permite leerlo en el móvil sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Karateka y Trabaja como un monje budista abordan experiencias vinculadas al esfuerzo y al sentido de la actividad personal, aunque Sandra Sánchez relata una trayectoria deportiva y Shoukei Matsumoto reflexiona sobre el trabajo. También puede compararse con Cómo me gustaría contarte, de Ángel Gómez Merino: ambas parten de experiencias personales, pero Karateka sitúa el deporte en el centro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410427594",
+        "isbn-9788403526723"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "682929e6ee7893ff",
+  "origen": "chatgpt-web"
+}

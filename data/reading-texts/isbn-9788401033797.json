@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una familia moderna, de Julia Navarro, está dirigida a adultos interesados en las relaciones entre generaciones y los cambios de valores dentro de una familia. La historia reúne a abuelos, hija y nieta con distintas maneras de entender la vida; no responde al planteamiento de una novela de aventuras ni al de un manual de crianza.",
+      "texto": "Una familia moderna está dirigida a lectores adultos interesados en la narrativa contemporánea sobre relaciones familiares y diferencias generacionales. Su atención a una familia vinculada al mundo cultural y a los cambios sociales la distingue de las novelas centradas en la acción o el misterio.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,44 +14,45 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Una familia moderna es una novela contemporánea sobre las diferencias generacionales y la transformación de las relaciones familiares. Julia Navarro sitúa el conflicto entre una pareja vinculada al mundo cultural, su hija dedicada a un canal digital y una nieta adolescente que cuestiona las convenciones. La tensión procede del contraste entre sus experiencias y su manera de interpretar el presente.",
+      "texto": "Una familia moderna aborda las tensiones entre generaciones a través de una familia relacionada con la danza, la filosofía y los medios digitales. Julia Navarro sitúa el conflicto en la distancia entre las convicciones de los abuelos y las decisiones personales de sus descendientes, dentro de la narrativa contemporánea para adultos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "edad_recomendada",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Una familia moderna puede leerse en tapa dura o Kindle. La edición física de Plaza & Janés tiene 400 páginas y sobrecubierta, una presentación apropiada para conservar el ejemplar o entregarlo como regalo. Kindle permite llevar la novela de Julia Navarro en formato digital y continuar la lectura desde un dispositivo compatible.",
+      "texto": "Una familia moderna puede leerse en tapa dura o Kindle, y también está disponible en audiolibro. La edición impresa de Plaza & Janés tiene 400 páginas y sobrecubierta, mientras que Kindle facilita la lectura en dispositivos y el audiolibro permite seguir la narración mediante escucha.",
       "evidencias": [
         "titulo",
-        "autores",
-        "editorial",
+        "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El tiempo que pasa, de Manuel Medina, comparte con Una familia moderna la atención al paso del tiempo y a las experiencias de distintas generaciones. La primera obra recupera la infancia en la España de la posguerra, mientras Julia Navarro aborda los cambios culturales desde una familia contemporánea. Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?), de Elma van Vliet, propone en cambio un libro para construir memoria familiar.",
+      "texto": "Una familia moderna y Criar juntos de verdad comparten el interés por las relaciones familiares, aunque Julia Navarro las explora mediante una novela para adultos y Armando Bastida aborda la crianza compartida desde un libro práctico. También puede compararse con Cuando tu hijo te habla peor que a nadie, de Carlos Rodríguez Lorenzo, por los conflictos entre familiares, aunque este último se centra en las dificultades de comunicación con los hijos.",
       "evidencias": [
         "titulo",
         "autores",
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401040580",
-        "isbn-9788401039836"
+        "isbn-9788423370658",
+        "isbn-9791388038280"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0b893722ad9f41fb",
+  "fuente_hash": "9aa3092f8a0ca9fb",
   "origen": "chatgpt-web"
 }

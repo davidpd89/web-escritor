@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788467084221",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aprendiendo de las drogas se dirige a quienes buscan un ensayo sobre el consumo de sustancias y las ideas sociales que lo rodean. Su planteamiento cuestiona las visiones contrapuestas sobre las drogas, por lo que se aleja de una narración de ficción o de una guía centrada exclusivamente en cuestiones prácticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Antonio Escohotado examina las drogas desde una perspectiva crítica con los prejuicios y las afirmaciones inexactas. El enfoque contempla su consideración como sustancias lícitas o ilícitas, las interpretaciones culturales que reciben y la experiencia de alterar químicamente la conciencia.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece 208 páginas en una edición rústica con solapas de Editorial Espasa, apropiada para consultar y señalar pasajes en papel. Kindle permite llevar Aprendiendo de las drogas en un dispositivo electrónico y retomar la lectura sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sesenta semanas en el trópico comparte con Aprendiendo de las drogas la autoría de Antonio Escohotado, pero se presenta como una obra personal frente al examen de las sustancias y sus interpretaciones sociales. A la sombra del Estado también aborda asuntos de actualidad, aunque se ocupa del espionaje y el poder clandestino, no de las drogas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084245",
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "554d7abd6ad6292e",
+  "origen": "chatgpt-web"
+}

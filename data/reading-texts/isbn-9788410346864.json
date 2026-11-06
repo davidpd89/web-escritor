@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788410346864",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La casa del hilo rojo encaja con lectores de narrativa contemporánea interesados en historias situadas en el pasado y en los cambios de la posición social de las mujeres. La trama de Ana B. Nieto relaciona la independencia femenina con el trabajo, la moda y el emprendimiento en Madrid. Se aleja de las novelas cuyo conflicto principal es una investigación criminal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La casa del hilo rojo propone una narración ambientada en Madrid en 1889, centrada en las oportunidades y restricciones que afrontaban las mujeres. Julia Loewe, de catorce años, busca transformar la forma de vestir y viajar desde su actividad profesional. La historia vincula la evolución de un negocio con la aspiración de autonomía femenina.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Duomo Ediciones consta de 400 páginas y permite leer la novela en un volumen físico. Kindle ofrece la misma elección de título en formato digital, con la posibilidad de llevarlo en el móvil o lector electrónico. El papel responde a la preferencia por conservar el ejemplar y la versión digital evita transportar sus páginas impresas.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1085411447e2cb26",
+  "origen": "chatgpt-web"
+}

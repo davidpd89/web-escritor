@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9791388100383",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gintama nº 11/26 encaja con lectores de manga que buscan humor irreverente, samuráis y ciencia ficción en una misma historia. Su escenario combina transformaciones sociales y personajes excéntricos; quienes prefieran una reconstrucción histórica estrictamente realista encontrarán elementos ajenos a ese enfoque.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La obra mezcla comedia y ciencia ficción en Edo, una sociedad alterada por la llegada de visitantes extraterrestres y la prohibición de portar armas. El declive de los samuráis proporciona el trasfondo histórico alternativo. El título identifica esta entrega como el n.º 11/26.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gintama nº 11/26 reúne 560 páginas y está disponible en tapa blanda y Kindle. La edición rústica con solapas permite conservar el volumen físico de esta colección; Kindle facilita transportar una entrega extensa sin añadir ese peso al equipaje.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "52d0ad9a7d545a30",
+  "origen": "chatgpt-web"
+}

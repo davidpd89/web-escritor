@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788412828061",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "BOSQUE DE COQUITO, EL, de Martin Leon Barreto, se dirige al público infantil interesado en historias sobre la convivencia, los oficios y la naturaleza. La construcción de hogares en el bosque y la llegada de un huracán introducen un conflicto relacionado con la pérdida y los cambios inesperados. No responde a la búsqueda de un libro centrado exclusivamente en explicar los árboles o las profesiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "BOSQUE DE COQUITO, EL está disponible en tapa dura, con 48 páginas en castellano. Esta edición de Publicaciones Ilustradas TTT permite manejar el libro físicamente durante la lectura compartida y conservarlo en una estantería infantil. Su extensión también permite repartir la lectura en varias sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e0fde57eef6bebf0",
+  "origen": "chatgpt-web"
+}

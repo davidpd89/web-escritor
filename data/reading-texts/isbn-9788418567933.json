@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788418567933",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA se dirige a lectores de historia interesados en la investigación biográfica y en las circunstancias que rodearon la muerte de Federico García Lorca. Juan Carlos García de Polavieja reconstruye la trayectoria del investigador Agustín Penón, por lo que el centro del libro no es una recopilación de poemas ni una biografía convencional del poeta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA estudia el trabajo de Agustín Penón para esclarecer la vida y la muerte del poeta. Juan Carlos García de Polavieja recorre sus entrevistas en Granada, la vigilancia policial que sufrió y las dificultades para publicar sus investigaciones. El enfoque histórico se apoya en más de 200 fotografías y documentos, incluidos materiales poco conocidos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA está disponible en tapa blanda. La edición de Alvarellos Editora tiene 275 páginas e incorpora más de 200 fotografías y documentos, de modo que el ejemplar físico permite consultar el material visual junto al relato de la investigación histórica.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA y CORONA AUTORITARIA, LA abordan investigaciones históricas relacionadas con contextos políticos españoles. Juan Carlos García de Polavieja sigue las pesquisas sobre la muerte de Federico García Lorca y la vigilancia de su investigador, mientras que Guillermo María Muñoz examina las relaciones entre monarquía y nacionalismo durante la dictadura de Primo de Rivera. Uno se articula alrededor de una investigación personal; el otro, de instituciones e ideas políticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788419892782"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3c1945768af1b9e4",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791388103544",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Entrelazadas nº 02 se dirige a lectores de manga yuri interesados en las emociones adolescentes y las relaciones entre alumnas. Su atención a la admiración, la belleza y las jerarquías escolares encaja menos con quien busca aventuras de acción o conflictos alejados de la vida académica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Entrelazadas nº 02 plantea un manga yuri de ambiente escolar centrado en la fascinación que despiertan las alumnas mayores de la Academia Hoshimiya. La diferencia entre quienes reciben su tutela y quienes las observan establece una dinámica de admiración y aspiraciones personales. El título identifica esta entrega como el n.º 02.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Entrelazadas nº 02 se ofrece en tapa blanda, mediante una edición en rústica sin solapas y con sobrecubierta. Sus 184 páginas permiten reunir la entrega en un tomo físico de extensión contenida, adecuado para llevar en el bolso o conservar junto a otros volúmenes de la misma obra.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Entrelazadas nº 01/06 es la referencia más cercana a Entrelazadas nº 02, pues ambas obras son de Yuriko Hara y comparten el enfoque yuri sobre las emociones adolescentes. La diferencia identificable está en la numeración: el primer título se presenta como nº 01/06, mientras el segundo lleva nº 02 y desarrolla el ambiente de admiración entre alumnas de la Academia Hoshimiya.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101885"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f615fc8759bc634b",
+  "origen": "chatgpt-web"
+}

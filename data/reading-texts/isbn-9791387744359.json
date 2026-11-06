@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387744359",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Emilio y Margot 8 Monstruos a la vista se dirige a lectores infantiles que disfrutan del cómic, las travesuras y el humor con monstruos. Sus protagonistas recurren a estas criaturas para resolver problemas cotidianos en un castillo; encaja menos con quien busca una historia realista o un misterio de tono serio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Emilio y Margot 8 Monstruos a la vista está disponible en tapa blanda, con 96 páginas en castellano. Es una edición física manejable para leer por partes, transportar en una mochila o regalar a quienes prefieren el cómic en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Capitán Patata 2 - Quietecito o te dejo frito comparte con Emilio y Margot 8 Monstruos a la vista el humor disparatado y las aventuras breves, aunque cambia los monstruos del castillo por un superhéroe y sus amigos. Cinco cuentos también reúne situaciones protagonizadas por distintos personajes, pero presenta cinco relatos en lugar de las travesuras de Emilio y Margot.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427254985",
+        "isbn-9788419981035"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "19c9a4d94ca93431",
+  "origen": "chatgpt-web"
+}

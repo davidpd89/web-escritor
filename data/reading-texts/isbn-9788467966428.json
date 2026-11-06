@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788467966428",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "SIN CITY 07. IDA Y VUELTA AL INFIERNO (CARTONÉ) encaja con lectores de cómic y novela gráfica interesados en historias de secuestros, organizaciones clandestinas y conflictos sentimentales. La presencia de un intento de suicidio y de un protagonista dispuesto a matar para rescatar a otra persona lo aleja de quienes prefieren relatos sin violencia ni situaciones perturbadoras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Frank Miller plantea una historia gráfica protagonizada por Wallace, un artista que intenta mantener sus principios mientras persigue a quienes han secuestrado a Esther. El argumento enfrenta su vínculo sentimental con una sociedad secreta y recurre a la violencia como parte central de la respuesta del protagonista.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta edición cartoné se publica en tapa dura y contiene 328 páginas en castellano. Su encuadernación permite conservar el cómic como volumen físico y consultar de nuevo sus páginas ilustradas, tanto para lectura personal como para regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "SIN CITY 07. IDA Y VUELTA AL INFIERNO (EDICIÓN DE LUJO) es la comparación más directa: también pertenece a Frank Miller y presenta a Wallace como un artista que no quiere renunciar a sus principios. La distinción visible para el comprador es editorial, entre la denominación cartoné de este título y la edición de lujo del otro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467966435"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b30e29510ca2517",
+  "origen": "chatgpt-web"
+}

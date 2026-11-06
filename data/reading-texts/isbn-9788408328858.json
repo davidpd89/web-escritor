@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788408328858",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La añoranza encaja con lectores de narrativa contemporánea que buscan historias sentimentales atravesadas por conflictos políticos y acontecimientos del pasado. La persecución durante una protesta contra el régimen y la relación entre sus protagonistas la alejan de una novela romántica sin trasfondo histórico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La añoranza plantea una relación personal dentro de un contexto de represión política, con la memoria y el paso del tiempo como ejes temáticos. Sergio Hernández parte del encuentro entre Julia Ferré y Bastian Ballard en la primavera de 1959, después de una manifestación en la que interviene la Guardia Civil, para vincular el amor con las circunstancias históricas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de La añoranza está publicada por Editorial Planeta en castellano, con encuadernación de tapa dura y sobrecubierta. Consta de 472 páginas y su fecha de publicación es 2026-11-04. El ISBN 9788408328858 permite identificar este ejemplar concreto frente a otras presentaciones de la obra.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de La añoranza presenta sus 472 páginas con sobrecubierta, una opción física para guardar y consultar en una biblioteca personal. La versión Kindle facilita continuar la lectura en el móvil o en un lector electrónico y evita llevar un volumen de esa extensión.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a78e146c51c6591a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408325291",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Neurocambios encaja con lectores que buscan comprender sus patrones de pensamiento, sus reacciones emocionales y las posibilidades de cambiarlos. Begoña del Campo plantea una lectura de desarrollo personal centrada en la conducta individual, no en la divulgación sobre alimentación ni en una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Neurocambios está disponible en tapa blanda y Kindle, dos opciones para leer sus 264 páginas. La edición física de Zenith lleva solapas y permite consultar el texto en papel; Kindle facilita continuar la lectura en el móvil o en un lector electrónico sin transportar el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Neurocambios y De la discusión a la conexión abordan cambios en la manera de reaccionar, aunque el primero trabaja los patrones mentales individuales y el segundo los conflictos en las relaciones. El cerebro enamorado comparte el interés por el funcionamiento de la mente, pero lo aplica específicamente al amor y a la evolución de la pareja.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328773",
+        "isbn-9788408324874"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e90873b46bf74020",
+  "origen": "chatgpt-web"
+}

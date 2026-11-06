@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9780241837962",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LEGO® Nikolas Nurdblock - Nikolas Nurdblock y el ladrillo perdido está dirigido a lectores desde los 7 años que buscan humor, aventuras y conflictos familiares dentro de un mundo imaginario. La historia de Jeffrey Brown gira alrededor de un joven que quiere convertirse en villano, por lo que se distancia de los relatos realistas y cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La lectura está recomendada a partir de 7 años y pertenece al ámbito del cómic y la novela gráfica infantil. Esta edición de DK contiene 176 páginas en castellano y se publica en tapa dura, una encuadernación rígida para manejar el libro durante sucesivas lecturas.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "LEGO® Nikolas Nurdblock - Nikolas Nurdblock y el ladrillo perdido se ofrece en tapa dura, con 176 páginas. Esta presentación permite conservar el volumen como parte de una colección infantil de cómics y novelas gráficas, y su cubierta rígida facilita entregarlo como libro físico de regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "LEGO® Ninjago - El dragón Riyu comparte con este libro el universo LEGO® y las aventuras protagonizadas por personajes jóvenes. Mientras Matt Piper presenta a un dragón perseguido que necesita ayuda para regresar a casa, Jeffrey Brown desarrolla la decisión de Nikolas de convertirse en villano ante sus inseguridades familiares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241837993"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9fe5fca9c85ef6d7",
+  "origen": "chatgpt-web"
+}

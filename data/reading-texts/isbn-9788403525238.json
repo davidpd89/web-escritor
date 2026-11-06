@@ -4,24 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El alma de las especias se dirige a lectores adultos interesados en la cocina y en la historia cultural de las plantas y los condimentos. No responde a quien busca únicamente recetas rápidas: Jessica Ramos también aborda orígenes, leyendas y usos vinculados al cuidado personal.",
+      "texto": "El alma de las especias está dirigido a adultos interesados en la cocina, las plantas y la historia de los ingredientes. Sus contenidos combinan usos culinarios, tradiciones y relatos históricos, por lo que se aparta de los recetarios centrados exclusivamente en preparar platos mediante instrucciones paso a paso.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "categorias",
-        "sinopsis_editorial",
-        "autores"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas de El alma de las especias reúne 448 páginas para consultar en papel sus apartados sobre plantas y especias. Kindle permite llevar la lectura en el móvil o en un lector electrónico sin cargar con el volumen físico.",
+      "texto": "El alma de las especias puede leerse en tapa blanda con solapas o en Kindle. La edición impresa reúne sus 448 páginas en un volumen físico para consultar y regalar; Kindle permite acceder al contenido desde el móvil o un lector electrónico, sin cargar con el ejemplar en papel.",
       "evidencias": [
         "titulo",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "sinopsis_editorial"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El alma de las especias y Artesanos del queso comparten el interés por los alimentos y su contexto cultural, aunque Jessica Ramos aborda plantas y condimentos e Ignacio Medina se centra en queserías españolas. Frente a 20 minutos ¡y listo!, de Jamie Oliver, orientado a cocinar con poco tiempo, El alma de las especias dedica espacio a los orígenes, las leyendas y los usos de los ingredientes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788419483881"
       ]
     }
   ],

@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9780241838006",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LEGO® City - Sin límites. ¡Carrera de rosquillas! 1 encaja con lectores a partir de 7 años que buscan humor, persecuciones y aventuras urbanas. Su conflicto gira alrededor de una caja de rosquillas disputada por varios personajes, incluida la policía, por lo que se aleja de las historias centradas en enigmas complejos o conflictos dramáticos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada para este libro de Tom Smiley es a partir de 7 años. La edición de DK tiene 80 páginas, está escrita en castellano y se presenta en tapa blanda. Incluye una actividad interactiva que consiste en localizar rosquillas escondidas durante la historia.",
+      "evidencias": [
+        "autores",
+        "edad_recomendada",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para este libro de Tom Smiley. Sus 80 páginas reúnen una aventura de persecuciones y una actividad de búsqueda de rosquillas ocultas, que permite volver sobre las páginas durante la lectura. El ejemplar físico facilita consultar las escenas anteriores para completar ese reto.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abre el misterio 1 - El robo de las croquetas comparte con LEGO® City - Sin límites. ¡Carrera de rosquillas! 1 un conflicto relacionado con comida, aunque el primero parte de una desaparición y el segundo desarrolla una persecución. Arta Game - Busca y encuentra ofrece otra forma de participar en la lectura: frente a su propuesta de búsqueda, el libro de Tom Smiley integra rosquillas ocultas en una aventura narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788427256644",
+        "isbn-9791387972165"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c39cb410e42c7077",
+  "origen": "chatgpt-web"
+}

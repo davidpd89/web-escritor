@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788491459705",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡El hilo lo es todo! se dirige al público infantil y juvenil que disfruta del humor extraño y las historias con elementos de terror. La afición al crochet, la competición y una ambición inquietante articulan el conflicto; quienes prefieran relatos infantiles sin situaciones amenazantes encontrarán aquí un tono diferente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡El hilo lo es todo! se ofrece en tapa dura, con 112 páginas y edición de Picarona. La cubierta rígida facilita conservar el ejemplar y regalarlo, mientras que su extensión permite repartir la historia en varias sesiones de lectura sin abordar un libro especialmente largo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡El hilo lo es todo! y Dos veces Poe comparten elementos inquietantes dentro de relatos vinculados al público infantil, aunque el primero gira alrededor del crochet y una competición, mientras el segundo parte de la aparición de un hombre misterioso en un parque. Frente a Creepy nº 11/29, presentado como recopilación de terror, la obra de Aaron Reynolds y Peter Brown desarrolla una historia centrada en una afición concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411406130",
+        "isbn-9791399248814"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bceb1e51b59f8520",
+  "origen": "chatgpt-web"
+}

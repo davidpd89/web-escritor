@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Treinta y cuatro está dirigido a lectores adultos de memorias personales que quieran abordar las relaciones familiares, la identidad y la relación conflictiva con el propio cuerpo. Carolina Lapausa trata el miedo, la culpa y el proceso de reconstrucción personal; encaja menos con quien busque una lectura alejada del sufrimiento psicológico y de los vínculos familiares difíciles.",
+      "texto": "Treinta y cuatro se dirige a lectores adultos interesados en memorias personales sobre la relación con el cuerpo, la identidad y los vínculos familiares. El relato aborda el miedo, la culpa y la recuperación desde varias perspectivas, por lo que puede resultar emocionalmente exigente para quienes prefieren testimonios alejados del sufrimiento psicológico.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,38 +14,36 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Treinta y cuatro aborda la autoexigencia, la vergüenza, la percepción corporal y las dificultades para construir una identidad propia. Carolina Lapausa incorpora distintas perspectivas sobre una misma experiencia, desde la relación con los padres y una amiga hasta el acompañamiento terapéutico, para examinar cómo influyen los demás tanto en el daño como en la recuperación.",
+      "texto": "Treinta y cuatro examina la construcción de la identidad a través de la percepción corporal, la autoexigencia y las relaciones afectivas. Carolina Lapausa incorpora las miradas de una madre, un padre, una amiga y una terapeuta para mostrar distintas formas de acompañamiento y conflicto. La narración relaciona el deterioro personal con un proceso de reconstrucción que afecta también al entorno cercano.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Treinta y cuatro está disponible en tapa blanda y Kindle. La edición de Aguilar consta de 176 páginas y tiene solapas, por lo que puede leerse en un volumen físico de extensión contenida; Kindle permite acceder al relato desde un lector electrónico o un dispositivo compatible sin llevar el libro en papel.",
+      "texto": "Treinta y cuatro puede leerse en tapa blanda o Kindle y tiene 176 páginas. La edición de Aguilar incluye solapas y permite conservar el testimonio en papel; Kindle facilita llevar el texto en el móvil o un lector electrónico y retomarlo en distintos momentos.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Treinta y cuatro y Ansiedad. ¿Cómo se sale de aquí? comparten el interés por el malestar emocional, pero Carolina Lapausa lo aborda mediante una experiencia personal y Gemma Correll presenta la ansiedad a través de la imagen de un parque de atracciones. También puede compararse con El canto del cisne por su dimensión biográfica y familiar, aunque Charles Spencer parte del duelo por su hermana y Treinta y cuatro examina la identidad y la recuperación.",
+      "texto": "Treinta y cuatro y Ansiedad. ¿Cómo se sale de aquí? comparten el interés por el malestar psicológico, pero Carolina Lapausa construye un relato personal con distintas voces, mientras que Gemma Correll presenta la ansiedad mediante la imagen de un parque de atracciones. Frente a Canción de amor definitiva, de Jorge Martí Aguas, que introduce cambios de ánimo, país y profesión, Treinta y cuatro se concentra en el cuerpo, la identidad y los vínculos familiares.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788402431967",
-        "isbn-9788401039928"
+        "isbn-9788401042119"
       ]
     }
   ],

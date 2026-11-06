@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791387962371",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una comedia romántica entre dos exnovios (BL) se dirige a lectores adultos interesados en el romance entre hombres, el humor y las relaciones que continúan después de una ruptura. Su conflicto nace de la atracción persistente entre antiguos novios que trabajan juntos; no se orienta a quien busca acción fantástica o una historia romántica sin discusiones.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Una comedia romántica entre dos exnovios (BL) combina romance y humor en formato de manga. Kishimoto plantea una relación entre antiguos novios que comparten lugar de trabajo, discuten con frecuencia y siguen sintiendo atracción mutua. La intervención de sus compañeros introduce una dimensión colectiva en el conflicto sentimental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una comedia romántica entre dos exnovios (BL) se ofrece en tapa blanda y Kindle. La edición impresa de Distrito Manga incorpora sobrecubierta y reúne 188 páginas, una presentación física para conservar el manga. Kindle permite leerlo en formato digital y llevarlo en un dispositivo sin ocupar espacio en la estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los finales perfectos no existen comparte con Una comedia romántica entre dos exnovios (BL) el interés por las relaciones sentimentales y las convenciones de la comedia romántica. La obra de Kishimoto concreta ese enfoque en dos hombres que fueron pareja y siguen trabajando juntos. La Risa de mi vida coincide en el componente humorístico, aunque su punto de partida es la adopción de una perra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788425371745",
+        "isbn-9788466684606"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dba145cff858f9bb",
+  "origen": "chatgpt-web"
+}

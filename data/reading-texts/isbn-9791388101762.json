@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9791388101762",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Jovantore se dirige a lectores de cómic interesados en misterios inquietantes y elementos sobrenaturales. La experiencia de Rita, marcada por un sonido que solo ella percibe y por su encuentro con una bruja, se aleja de las historias cotidianas sin componentes fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El cómic plantea un misterio relacionado con una percepción auditiva persistente que condiciona la vida de Rita desde niña. La aparición de una anciana vinculada a la brujería introduce una posible respuesta a su problema y desplaza el conflicto hacia lo sobrenatural.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Jovantore tiene 336 páginas y puede leerse en tapa blanda o Kindle. La edición física de Planeta Cómic incorpora solapas y permite conservar el volumen; Kindle ofrece una alternativa digital para llevar la lectura en un dispositivo compatible sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fdf1aa51dd4c820f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9780241837597",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La luna: Una historia ilustrada (La guía visual definitiva) está dirigida a adultos interesados en astronomía, naturaleza e historia cultural. Sus fotografías, mapas y explicaciones científicas responden a una lectura divulgativa, menos orientada a quien busque una narración de ficción espacial.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La luna: Una historia ilustrada (La guía visual definitiva) propone una aproximación visual y divulgativa al satélite terrestre. Combina formación geológica, efectos sobre la naturaleza, exploración espacial y representaciones culturales, además de incorporar una guía de observación y mapas de la superficie lunar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La luna: Una historia ilustrada (La guía visual definitiva) se presenta en tapa dura y reúne 256 páginas de contenido visual y divulgativo. La encuadernación rígida permite consultarlo sobre una mesa y volver a sus fotografías, mapas e ilustraciones, tanto para estudiar como para compartirlo en casa.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La luna: Una historia ilustrada (La guía visual definitiva) comparte con La Biblia: Una enciclopedia ilustrada el enfoque visual de DK y el uso de mapas y materiales documentales. La primera se concentra en astronomía y exploración lunar, mientras que la segunda utiliza recursos gráficos y arqueológicos para explicar acontecimientos vinculados a un texto religioso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241837702"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d4a3a36c2bd1937a",
+  "origen": "chatgpt-web"
+}

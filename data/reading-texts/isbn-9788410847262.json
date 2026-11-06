@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410847262",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Trucos de magia para niños está pensado para lectores infantiles que quieren aprender a realizar trucos con objetos y cartas, además de resolver enigmas mágicos. Viola y Barbieri Autieri presentan instrucciones ilustradas, materiales cotidianos y niveles de dificultad; el contenido se centra en practicar números de magia, no en seguir una aventura fantástica de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Trucos de magia para niños se publica en tapa dura y tiene 104 páginas. El formato físico permite mantener abiertas las instrucciones ilustradas mientras se preparan los materiales y se ensayan los trucos. Los pasos y los grados de dificultad sirven para organizar la práctica de las distintas actividades.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Trucos de magia para niños y Onin 1 - Onin y la isla del tesoro comparten la presencia de la magia en contenidos infantiles, pero proponen experiencias distintas. El primero enseña trucos mediante instrucciones ilustradas y materiales accesibles; el segundo narra aventuras y misterios protagonizados por Onin y sus amigos. La magia de la música - Cenicienta también se sitúa en el terreno de los relatos, con una historia centrada en Cenicienta.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9780241834923",
+        "isbn-9791387994549"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cbf76c53b296900f",
+  "origen": "chatgpt-web"
+}

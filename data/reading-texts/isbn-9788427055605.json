@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Donde duermen las sombras encaja con lectores desde los 14 años que buscan fantasía romántica contemporánea, magia oculta y relaciones condicionadas por fuerzas sobrenaturales. Su conflicto incluye una maldición y una conexión mágica entre personajes, de modo que se aleja del romance realista sin elementos fantásticos.",
+      "texto": "Donde duermen las sombras, de Andrea Ornos, se dirige a lectores desde los 14 años que buscan romance juvenil con magia oculta, maldiciones y dimensiones alternativas. El conflicto sentimental depende de una conexión sobrenatural y de la posibilidad de romper una condena, por lo que encaja menos con quienes prefieren romances realistas sin fantasía.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,17 +15,15 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Donde duermen las sombras está recomendado a partir de 14 años. La historia incorpora una maldición vinculada a las sombras, una unión mágica y el peligro asociado al destino de uno de sus protagonistas. Su contenido combina romance y amenazas sobrenaturales dentro de una ambientación contemporánea.",
+      "texto": "La edad recomendada comienza a los 14 años. La historia incorpora una maldición que mantiene a un personaje vinculado a las sombras y una relación afectiva condicionada por fuerzas mágicas. El peligro sobrenatural y la situación de condena forman parte de los elementos que conviene considerar para lectores sensibles.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
-        "sinopsis_editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Donde duermen las sombras propone una fantasía romántica contemporánea donde la magia permanece escondida y existen conexiones entre dimensiones. Kaylin Aelis puede atravesarlas y queda vinculada mágicamente a un personaje afectado por una maldición. La relación sentimental y las consecuencias de ese vínculo sostienen el conflicto fantástico.",
+      "texto": "Donde duermen las sombras plantea un romantasy contemporáneo en el que la magia permanece escondida y existen distintas dimensiones. Kaylin Aelis puede desplazarse entre ellas, mientras otro personaje afronta una maldición relacionada con las sombras. El vínculo entre ambos convierte el romance en parte del conflicto sobrenatural.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -33,7 +32,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Donde duermen las sombras se ofrece en tapa blanda y Kindle. La edición de Ediciones Martínez Roca contiene 368 páginas en rústica con solapas, una opción para conservar el libro físico. Kindle permite leerlo en un dispositivo compatible sin llevar esas páginas en papel.",
+      "texto": "Donde duermen las sombras está disponible en tapa blanda y Kindle. La edición física de Ediciones Martínez Roca consta de 368 páginas y presenta encuadernación rústica con solapas, adecuada para quien quiere conservar un ejemplar en papel. Kindle ofrece una alternativa digital para leer en dispositivos compatibles sin llevar el volumen impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -44,21 +43,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Donde duermen las sombras puede compararse con Alas de escarcha y oro: El canto del cisne por la presencia de dones sobrenaturales que condicionan a sus personajes. Andrea Ornos sitúa el conflicto en una fantasía romántica contemporánea con dimensiones y maldiciones, mientras que la historia de Marta Morillo parte de una protagonista que oculta sus capacidades. En ambas, la magia afecta a la vida personal.",
+      "texto": "Donde duermen las sombras comparte con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, el protagonismo de personajes con capacidades extraordinarias, aunque la historia de Eira se centra inicialmente en ocultar sus dones. El ocaso del rey (Dioses y monstruos 5), de Amber V. Nicole, también combina fantasía y romance, pero se presenta como dark romantasy, mientras la novela de Andrea Ornos parte de una ambientación contemporánea con magia secreta.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949938"
+        "isbn-9791387949938",
+        "isbn-9788427258280"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a4ab25e723297ad9",
+  "fuente_hash": "c2be849686188de2",
   "origen": "chatgpt-web"
 }

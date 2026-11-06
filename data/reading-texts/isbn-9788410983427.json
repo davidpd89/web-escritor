@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788410983427",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Asesinos en la niebla está dirigido a lectores de misterio y thriller que buscan investigaciones criminales atravesadas por la corrupción y la manipulación mediática. La presencia de un programa televisivo que explota delitos reales introduce un conflicto sobre la exposición pública; encaja menos con quien prefiere enigmas desvinculados de los medios de comunicación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Asesinos en la niebla desarrolla una investigación sobre una muerte sospechosa dentro de un entorno televisivo que convierte los delitos en espectáculo. José Luis Córdoba enlaza esa búsqueda con una red de corrupción, un robo bancario antiguo y una organización religiosa, mientras la intervención de las cámaras complica la distinción entre hechos y montaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Asesinos en la niebla está disponible en tapa blanda y Kindle. Sus 480 páginas convierten la edición física de RBA Libros en una lectura extensa para conservar en papel; Kindle permite avanzar por la investigación desde el móvil o un lector electrónico sin cargar con el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "73542376044f5cb5",
+  "origen": "chatgpt-web"
+}

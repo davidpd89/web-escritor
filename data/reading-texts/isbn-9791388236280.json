@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388236280",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La luz del despertar se dirige a lectores de ensayo interesados en los derechos humanos, la situación de Palestina y la participación ciudadana. Su planteamiento reivindicativo, centrado en la acción colectiva y en la denuncia política, se distancia de una exposición histórica exclusivamente descriptiva.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La luz del despertar aborda los derechos humanos del pueblo palestino, la situación en los territorios ocupados y las posibilidades de participación ciudadana. Francesca Albanese relaciona estos asuntos con el ejercicio de las libertades democráticas, la solidaridad y la emancipación colectiva, y plantea la organización social como respuesta ante las vulneraciones de derechos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La luz del despertar ofrece 256 páginas y puede leerse en tapa blanda o Kindle. La edición impresa permite conservar y consultar físicamente sus reflexiones sobre derechos humanos; Kindle facilita llevar el ensayo en un lector electrónico o dispositivo compatible y retomar la lectura fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La luz del despertar y Antes de perder el juicio comparten el interés por el debate público y los problemas de las sociedades contemporáneas. Mauricio García Villegas parte de la tensión entre verdad, propaganda y discursos sectarios, mientras Francesca Albanese concentra su reflexión en Palestina, los derechos humanos y la movilización colectiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6e4f35ef1e2db929",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788418735974",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La cocina de los árboles se dirige a quienes buscan recetas basadas en ingredientes procedentes de árboles y arbustos, con atención a los aprovechamientos del bosque. Su enfoque culinario y vegetal se aleja de los recetarios centrados en platos cotidianos de preparación rápida.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Reúne más de 80 recetas y elaboraciones que utilizan flores, frutos, hojas, brotes y savias de árboles y arbustos. Entre las preparaciones figuran vinagres, fermentados, licores, sales aromáticas, jarabes y postres, con aplicaciones para explorar estos ingredientes en la cocina.",
+      "evidencias": [
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La cocina de los árboles está disponible en tapa blanda, con 240 páginas en castellano publicadas por Lectio Ediciones. Este formato permite consultar las recetas en papel y volver a las elaboraciones durante su preparación, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La cocina de los árboles y Artesanos del queso comparten el interés por los alimentos vinculados al territorio, aunque el primero trabaja con ingredientes vegetales del bosque y el segundo recorre queserías españolas. Frente a Barbacoa, centrado en una técnica de cocción, Iolanda Bustos Cabezuelo aborda distintas elaboraciones con recursos de árboles y arbustos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419483881",
+        "isbn-9788425374012"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1c2a60e3bdd8a6c7",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9780241831397",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Curso de cocina - Recetas italianas está orientado a adultos que quieren aprender preparaciones italianas desde cero o incorporar nuevas recetas a su repertorio. Sus instrucciones ilustradas y técnicas básicas responden a un aprendizaje práctico, más que a una lectura centrada en la historia o la cultura gastronómica.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Curso de cocina - Recetas italianas reúne más de 60 preparaciones de cocina italiana, acompañadas de imágenes que permiten seguir el proceso de elaboración. Sus 160 páginas incluyen fundamentos culinarios, alternativas para modificar los platos y ejemplos como la carbonara, los canelones de ricotta con espinacas, las berenjenas a la parmesana y el tiramisú.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Curso de cocina - Recetas italianas está disponible en tapa dura, en una edición de DK de 160 páginas. Este formato permite conservar el recetario como libro de consulta en la cocina y utilizar sus ilustraciones junto a las instrucciones de cada preparación, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Curso de cocina - Recetas italianas y 20 minutos ¡y listo! comparten su orientación a preparar platos en casa, pero Séverine Augé se centra en recetas italianas explicadas paso a paso y Jamie Oliver en cocinar con poco tiempo. Frente a Al micro y listo, dedicado a facilitar la cocina con microondas, el recetario de Séverine Augé organiza el aprendizaje alrededor de técnicas y preparaciones italianas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788467084757"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b32c7fd6d72fb1c9",
+  "origen": "chatgpt-web"
+}

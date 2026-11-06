@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408326731",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando todos se van está orientado a lectores interesados en exploraciones reales, espacios abandonados y lugares asociados al peligro o al misterio. Su contenido de viajes y actualidad, con elementos inquietantes, se diferencia del terror de ficción basado en personajes y sucesos inventados.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Kibara relata experiencias de exploración en instalaciones y territorios abandonados, con referencias a búnkeres, bases militares y zonas afectadas por la radiación. Cuando todos se van combina el relato de viajes reales con escenarios vinculados al miedo, la historia reciente y los espacios deshabitados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuando todos se van puede adquirirse en tapa blanda o Kindle. La edición de Geoplaneta consta de 264 páginas en rústica con solapas para lectura y consulta en papel; Kindle permite llevar el relato de las exploraciones en formato digital y leerlo desde el móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Turismo de terror y Cuando todos se van comparten el interés por los aspectos inquietantes de los viajes reales. Andy Robinson reúne crónicas sobre el lado oscuro del turismo en América, mientras Kibara explora lugares abandonados; Carrie (edición serie), de Stephen King, también incorpora el terror, pero mediante una historia de ficción sobre una joven acosada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425372759",
+        "isbn-9788466396806"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "569462e01d45dbe6",
+  "origen": "chatgpt-web"
+}

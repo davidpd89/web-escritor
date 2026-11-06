@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791399190540",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "CLAMOR AL CIELO se dirige a lectores de poesía interesados en el amor y en la dimensión espiritual de la experiencia humana. Sus 66 páginas reúnen versos organizados alrededor de cuatro etapas vitales, una estructura distinta de la narración continuada de una novela. No responde a quien busque una historia desarrollada mediante capítulos narrativos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "CLAMOR AL CIELO propone una lectura poética centrada en la relación entre la existencia corporal, la espiritualidad y el amor. La obra organiza sus versos en cuatro actos vinculados a la experiencia vital y presenta textos escritos a lo largo de varios años. Su planteamiento es lírico, con la expresión amorosa como eje, en lugar de desarrollar una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "CLAMOR AL CIELO está disponible en tapa blanda y contiene 66 páginas en castellano. Su extensión permite leer el conjunto en pocas sesiones o detenerse en los poemas de cada acto para releerlos por separado. La edición impresa facilita conservar las páginas señaladas y consultar los versos sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antología y CLAMOR AL CIELO reúnen poesía vinculada a trayectorias de escritura anteriores a su publicación, pero la primera presenta la obra completa de Antonio Cano y la segunda organiza versos de Mercedes Martínz Arranz en cuatro actos vitales. Catulo / Marcial también aborda el deseo y las relaciones humanas, aunque incorpora sátira y crítica social frente al enfoque amoroso y espiritual de CLAMOR AL CIELO.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370140908",
+        "isbn-9788467084320"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6edc5e1644e31018",
+  "origen": "chatgpt-web"
+}

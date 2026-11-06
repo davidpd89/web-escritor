@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387759414",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MISES Y MEDUSAS se dirige a lectores interesados en el periodismo ambiental, la contaminación y las responsabilidades humanas detrás de una crisis ecológica. Su tratamiento documental y literario del Mar Menor se aparta tanto de las guías de naturaleza como de las novelas de ficción desligadas de acontecimientos reales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Miguel Angel Ruiz investiga el deterioro del Mar Menor mediante una crónica que combina reconstrucción periodística y recursos narrativos. Examina la contaminación agrícola y ganadera, la presión urbanística, los residuos mineros y las decisiones políticas, conectando el episodio de 2016 con procesos acumulados durante décadas.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "MISES Y MEDUSAS cuenta con una edición en tapa blanda de 214 páginas, publicada por Tundra Producciones en castellano. El formato impreso permite consultar distintos pasajes de la investigación y volver sobre los factores ambientales, económicos y políticos que se relacionan en la crónica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de perder el juicio, de Mauricio García Villegas, comparte con MISES Y MEDUSAS el interés por examinar problemas colectivos, aunque se centra en la verdad y la propaganda frente al deterioro ambiental. A las mil maravillas, de Andrés Trapiello, también se aproxima al ámbito periodístico, pero aborda la colaboración histórica entre escritores e ilustradores.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944138",
+        "isbn-9791388387302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "134e813ba02dd847",
+  "origen": "chatgpt-web"
+}

@@ -4,38 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dos casos clínicos, de Sigmund Freud, se dirige a lectores interesados en el psicoanálisis, la historia de los tratamientos psicológicos y la relación entre sufrimiento y experiencia personal. Su contenido se construye alrededor de estudios clínicos, por lo que no sigue la estructura de una novela de ficción ni funciona como un manual de ejercicios de bienestar.",
+      "texto": "Dos casos clínicos se dirige a lectores interesados en el psicoanálisis, la historia de la psicología y el estudio de los trastornos psicológicos mediante casos individuales. Su enfoque analítico y clínico se aleja de los manuales de consejos prácticos o de las narraciones de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Dos casos clínicos estudia las experiencias de Catalina e Isabel de R. desde el análisis psicológico de Sigmund Freud. Los textos relacionan síntomas, violencia sufrida por mujeres y procesos inconscientes. También permiten observar la evolución de sus procedimientos de investigación, desde la hipnosis y el método catártico hasta la asociación libre.",
+      "texto": "Sigmund Freud examina las experiencias de Catalina e Isabel de R. para relacionar determinados síntomas psicológicos con situaciones de violencia sufridas por mujeres. El volumen permite seguir la evolución de sus procedimientos terapéuticos, desde la hipnosis y el método catártico hasta la asociación libre, y su interpretación del inconsciente.",
       "evidencias": [
-        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Dos casos clínicos está disponible en tapa blanda y Kindle. La edición impresa de Nórdica Libros contiene 104 páginas, una extensión que permite transportar el volumen y consultar por separado sus dos estudios. Kindle ofrece la alternativa de leer los textos de Sigmund Freud en un dispositivo compatible sin llevar el ejemplar físico.",
+      "texto": "Dos casos clínicos puede leerse en tapa blanda o en Kindle, dos opciones para sus 104 páginas. La edición física de Nórdica Libros permite consultar y marcar pasajes en papel, mientras que Kindle facilita transportar el texto y buscar fragmentos durante el estudio.",
       "evidencias": [
         "titulo",
-        "autores",
-        "editorial",
-        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuerpo, humano, de Vittorio Lingiardi, comparte con Dos casos clínicos el interés por la experiencia humana, aunque aborda el cuerpo desde su dimensión física y poética, frente al análisis psicológico de Sigmund Freud. Este deseo no es el mío, de Andrea Proenza, examina las relaciones afectivas atravesadas por la tecnología; Dos casos clínicos se concentra en experiencias individuales estudiadas mediante procedimientos clínicos.",
+      "texto": "INHIBICIÓN, SÍNTOMA Y ANGUSTIA (Bilingüe), de Sigmund Freud, comparte autor y perspectiva psicoanalítica con Dos casos clínicos, pero se concentra en la elaboración teórica de la angustia. Dos casos clínicos presenta el análisis de experiencias individuales, mientras que el otro título examina los cambios y rectificaciones de un concepto psicológico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,8 +39,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788433951304",
-        "isbn-9788433951199"
+        "isbn-9791399156607"
       ]
     }
   ],

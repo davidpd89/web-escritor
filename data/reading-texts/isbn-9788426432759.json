@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788426432759",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Ruina, de Lizzy Stewart, se dirige a lectores adultos de novela gráfica interesados en las relaciones de pareja, la amistad y las tensiones de la convivencia. Su conflicto gira alrededor del deseo, los celos y los límites de una vida compartida, por lo que no responde al planteamiento de un cómic de aventuras o acción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Esta novela gráfica examina las consecuencias de trasladar una antigua amistad universitaria a una convivencia entre dos parejas. La propuesta de compartir una casa rural pone a prueba los vínculos afectivos y convierte la búsqueda de libertad en un problema de intimidad, dependencia y espacio personal.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Ruina se presenta en tapa dura, con 320 páginas publicadas por Lumen en castellano. Es una edición física para leer y conservar la novela gráfica en papel, con encuadernación rígida; el formato permite consultar sus páginas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "75052e4d6887687c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791370340735",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El extraordinario libro de la antigua Roma, de Blanca Millán, está orientado al público infantil interesado en la historia romana y las actividades manuales. Trata la vida cotidiana, el ejército y las costumbres de esta civilización, además de explicar cómo fabricar objetos inspirados en ella. No está planteado como una novela histórica con una trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El extraordinario libro de la antigua Roma se presenta en tapa dura, con 48 páginas en castellano. La edición física permite consultar las instrucciones para elaborar un casco, una armadura y un arco romano mientras se realizan las actividades. También puede utilizarse como libro de consulta sobre distintos aspectos de la civilización romana.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d24e3d22c229600f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791388279720",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Murdoku: Vuelta al mundo está orientado a quienes disfrutan resolviendo sudokus, acertijos lógicos y misterios criminales. Su estructura de librojuego exige participar en los desafíos, por lo que se aleja de una novela de misterio destinada únicamente a la lectura continua.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Murdoku: Vuelta al mundo combina pasatiempos de lógica con investigaciones sobre asesinatos situadas en distintos lugares del planeta. Es el tercer volumen de Murdoku y mantiene la mezcla de sudoku y deducción detectivesca, con una ambientación centrada en recorrer diferentes escenarios.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Murdoku: Vuelta al mundo se ofrece en tapa blanda, concretamente en rústica con solapas. Sus 224 páginas permiten trabajar los sudokus y acertijos directamente sobre el ejemplar físico, una opción práctica para un librojuego que requiere detenerse a resolver problemas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Murdoku (edición especial SORTEO) y Murdoku 2 (edición especial SORTEO) comparten con Murdoku: Vuelta al mundo el autor, Manuel Garand, y los desafíos que combinan asesinatos, sudokus y lógica. Murdoku: Vuelta al mundo se distingue por ser el tercer volumen y trasladar sus enigmas a escenarios repartidos por el planeta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388279386",
+        "isbn-9791388279409"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6026909e4d09e05b",
+  "origen": "chatgpt-web"
+}

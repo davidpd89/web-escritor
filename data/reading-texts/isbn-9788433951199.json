@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este deseo no es el mío se dirige a quienes buscan un ensayo sobre la influencia de la tecnología en las relaciones personales, el cuerpo y el deseo. Su enfoque feminista aborda las desigualdades asociadas al entorno digital, por lo que no responde a quien busque una guía técnica sobre aplicaciones o inteligencia artificial.",
+      "texto": "Este deseo no es el mío se dirige a lectores interesados en cómo las plataformas digitales y la inteligencia artificial influyen en las relaciones afectivas y la autonomía personal. Es un ensayo de 328 páginas con perspectiva feminista, alejado tanto de los manuales técnicos de informática como de las narraciones románticas de ficción.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Andrea Proenza examina cómo las redes sociales, las aplicaciones de citas y las herramientas de seguimiento corporal intervienen en la intimidad. También analiza la inteligencia artificial desde una perspectiva feminista que cuestiona las relaciones de poder y las desigualdades tecnológicas. Su planteamiento evita tanto el rechazo general de la tecnología como su aceptación incondicional.",
+      "texto": "Andrea Proenza analiza la influencia de las redes sociales, las aplicaciones de citas y las tecnologías de seguimiento corporal sobre la intimidad y el deseo. Desde una perspectiva feminista, examina las relaciones de poder presentes en el entorno digital y plantea una reflexión crítica que evita considerar la tecnología intrínsecamente perjudicial o beneficiosa.",
       "evidencias": [
         "autores",
         "sinopsis_editorial"
@@ -21,18 +22,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Este deseo no es el mío está disponible en tapa blanda y Kindle. La edición impresa de Editorial Anagrama tiene 328 páginas y permite consultar y marcar pasajes sobre tecnología y feminismo en papel. Kindle ofrece el mismo tipo de lectura en formato digital, con acceso desde dispositivos compatibles sin transportar el volumen físico.",
+      "texto": "La tapa blanda de Este deseo no es el mío reúne 328 páginas y permite marcar físicamente los pasajes dedicados a tecnología, feminismo y relaciones personales. Kindle ofrece la posibilidad de leer el ensayo desde el móvil o un lector electrónico y mantener el contenido accesible sin llevar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cómo construir la soberanía digital europea, de Francesca Bria, comparte con Este deseo no es el mío el interés por las decisiones que condicionan el futuro tecnológico. El primero plantea la autonomía digital europea, mientras Andrea Proenza examina sus consecuencias sobre los vínculos y el deseo. Antes de perder el juicio, de Mauricio García Villegas, se aproxima desde otro ángulo: la verdad, la propaganda y las cámaras de eco.",
+      "texto": "Este deseo no es el mío y Antes de perder el juicio examinan problemas de la vida contemporánea vinculados al entorno informativo, aunque Andrea Proenza se centra en la intimidad digital y Mauricio García Villegas en la propaganda y la distorsión de la verdad. Frente a Atención y esfuerzo, de Daniel Kahneman, el análisis del deseo se aborda desde el feminismo y las relaciones de poder, no desde el estudio psicológico de la atención.",
       "evidencias": [
         "titulo",
         "autores",
@@ -41,7 +41,7 @@
       ],
       "enlaces": [
         "isbn-9791388387302",
-        "isbn-9788433951670"
+        "isbn-9791388387524"
       ]
     }
   ],

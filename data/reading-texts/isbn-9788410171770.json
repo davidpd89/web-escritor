@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La cruz torcida se dirige a lectores interesados en el ascenso del nazismo y sus efectos sobre la vida familiar, las relaciones amorosas y las decisiones individuales. No encaja con quien busque una historia romántica separada de su contexto político: la persecución racial condiciona directamente el futuro de Lexa Kluger y Moritz Weissmann.",
+      "texto": "La cruz torcida se dirige a lectores interesados en la ficción histórica sobre el ascenso del nazismo y sus efectos en la vida familiar y sentimental. La persecución racial, la pérdida de derechos y la presión política forman parte del conflicto, por lo que se aleja de las historias románticas desligadas de su contexto histórico.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,28 +13,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela retrata a una familia del sur de Alemania durante el avance del nazismo, entre la Nochebuena de 1932 y el verano de 1933. El desempleo de los hermanos de Lexa Kluger, su acercamiento al partido nazi y la discriminación sufrida por Moritz Weissmann muestran cómo las transformaciones políticas alteran las lealtades familiares y las relaciones personales.",
+      "texto": "Sally Carson retrata la transformación de una familia alemana entre la Nochebuena de 1932 y el verano de 1933. La incorporación de varios jóvenes al movimiento nazi y la discriminación sufrida por Moritz Weissmann muestran cómo las decisiones políticas alteran el empleo, las relaciones afectivas y la convivencia cotidiana.",
       "evidencias": [
-        "categorias",
-        "sinopsis_editorial"
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La cruz torcida cuenta con una edición en tapa blanda de 352 páginas, publicada en castellano por Editorial Periférica. El ejemplar físico permite seguir en papel la evolución de la familia Kluger durante los meses que abarca la historia y regresar a los episodios que muestran el avance de la persecución política y racial.",
+      "texto": "La cruz torcida está disponible en Tapa blanda y Kindle. La edición física de Editorial Periférica consta de 352 páginas y permite conservar la novela en papel; Kindle facilita leerla en el móvil o en un lector electrónico durante los desplazamientos, sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "edicion",
         "editorial",
+        "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "idioma",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "436ba77e67844cde",
+  "fuente_hash": "918f4c2fd07d0339",
   "origen": "chatgpt-web"
 }
