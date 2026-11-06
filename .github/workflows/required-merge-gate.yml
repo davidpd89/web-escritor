@@ -20,7 +20,8 @@ jobs:
   required-merge-gate:
     name: Required merge gate
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 30 se quedaba corto con cargas de ~170 libros: dos cancelaciones seguidas el 06/11.
+    timeout-minutes: 45
     steps:
       - name: Checkout
         uses: actions/checkout@v5
