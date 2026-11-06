@@ -14,7 +14,7 @@ vez de acumularse.
 
 Regla: para cada `name` de una entidad de tipo vigilado, todos los @id no nulos
 que aparezcan en el sitio deben coincidir. Las obras de terceros (recomendaciones
-literarias) no llevan @id y se ignoran: no son entidades nuestras.
+literarias) se ignoran: no son entidades nuestras, y su @id ya va ligado al ISBN.
 
 Uso:
   python scripts/check-canonical-entity-ids.py
@@ -39,6 +39,10 @@ SKIP_PARTS = {
     ".claude",
 }
 WATCHED_TYPES = {"Book", "Person", "Organization"}
+# Third-party works (reading recommendations) are identified by their own
+# ISBN-based page, so two different books sharing a title ("Dinosaurios")
+# are two entities, not a fragmented one.
+THIRD_PARTY_ID = re.compile(r"/recomendaciones/libros/[^/]+-\d{13}/#book$")
 LD_BLOCK = re.compile(r"<script[^>]*application/ld\+json[^>]*>(.*?)</script>", re.S | re.I)
 
 # Identificadores canonicos fijados. La comprobacion de consistencia por si sola
@@ -84,7 +88,7 @@ def walk(node, found):
         # canonical one).
         if types_of(node) & WATCHED_TYPES and "exampleOfWork" not in node:
             name, entity_id = node.get("name"), node.get("@id")
-            if isinstance(name, str) and isinstance(entity_id, str):
+            if isinstance(name, str) and isinstance(entity_id, str) and not THIRD_PARTY_ID.search(entity_id.strip()):
                 found.append((name.strip(), entity_id.strip()))
         for value in node.values():
             walk(value, found)
