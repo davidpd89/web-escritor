@@ -753,8 +753,15 @@ def item_isbn(info):
 
 
 def languages(info):
-    values = amazon_list(amazon_dict(amazon_dict(info.get('contentInfo')).get('languages')).get('displayValues'))
-    return [key(amazon_dict(v).get('displayValue', '')) for v in values if isinstance(amazon_dict(v).get('displayValue'), str)]
+    """Idiomas en que está la edición. Amazon añade el «Idioma original» de la obra: con él, 306 ediciones en
+    catalán, gallego, euskera o inglés de obras escritas en español pasaban por castellanas (descarga del
+    2026-11-06). Si hay idioma «Publicado» manda ese; si no, vale cualquiera menos el original."""
+    values = [amazon_dict(v) for v in amazon_list(amazon_dict(amazon_dict(info.get('contentInfo')).get('languages'))
+                                                  .get('displayValues'))]
+    values = [v for v in values if isinstance(v.get('displayValue'), str)]
+    published = [v for v in values if key(v.get('type') or '') == 'publicado']
+    chosen = published or [v for v in values if key(v.get('type') or '') != 'idioma original']
+    return [key(v['displayValue']) for v in chosen]
 
 
 def subjects(item, path):
@@ -949,6 +956,41 @@ def transformar(day, catalogue):
 
 LEGAL_FORM = re.compile(r'[\s,]+(?:S\.?\s?A\.?\s?S\.?|S\.?\s?A\.?\s?U\.?|S\.?\s?L\.?\s?U\.?|S\.?\s?L\.?|S\.?\s?A\.?|S\.?\s?C\.?\s?P\.?)\s*$', re.I)
 PREFIX = re.compile(r'^(?:Editorial|Ediciones)\s+(?=\S{4})', re.I)
+# Clave de sello: lo que queda al quitar forma jurídica, paréntesis y palabras de oficio. En la tanda del
+# 2026-11-06 salían como «pendientes» sellos que ya tenían ficha: «Grijalbo Comercial, S.a.», «Molino,editorial»,
+# «Errata Naturae Editores S.l», «Hoaki Books», «Altamarea Edición de Libros SL». «Libros» y «Press» no son de
+# oficio: «Ediciones la Cúpula» no es «Libros Cúpula» ni «Peninsula Press» es Península.
+KEY_LEGAL_FORM = re.compile(r'[\s,]+(?:s\.?\s?[alc]\.?\s?[asup]?\.?|c\.?\s?b\.?|ltd\.?|inc\.?|llc|gmbh|a\.?\s?s\.?)\s*$', re.I)
+KEY_TRADE_WORDS = {'editorial', 'editoriales', 'ediciones', 'edicions', 'edicion', 'editores', 'editora', 'edition',
+                   'comercial', 'publicaciones', 'publishing', 'publishers', 'books', 'de', 'del', 'la', 'el', 'y'}
+
+
+def publisher_key(name):
+    """«Grijalbo Comercial, S.a.» y «Grijalbo» → «grijalbo»; vacía si no queda nada propio."""
+    from reading_intake_core import normalize_text
+    text = re.sub(r'\([^)]*\)', ' ', name or '')
+    for _ in range(2):
+        text = KEY_LEGAL_FORM.sub('', text).strip(' ,')
+    text = normalize_text(re.sub(r'[,\-/&]', ' ', text))
+    words = re.sub(r"(?:^| )edicion(?:es)? de libros(?= |$)", " ", text).split()  # «Altamarea Edición de Libros SL»
+    return ' '.join(w for w in words if w not in KEY_TRADE_WORDS)
+
+
+def publisher_key_index(directory, catalogue):
+    """Clave → sello, solo cuando la clave señala uno. Si choca un sello del directorio con uno del catálogo
+    («Maeva» y «Maeva Ediciones»), gana el del directorio, que es el que se enlaza primero."""
+    found = {}
+    for kind, entries in (('directorio', directory), ('catalogo', catalogue)):
+        for entry in entries:
+            for name in [entry['nombre'], *entry.get('alias', [])]:
+                if k := publisher_key(name):
+                    found.setdefault(k, {}).setdefault(kind, set()).add(entry['slug'])
+    index = {}
+    for k, kinds in found.items():
+        slugs = kinds.get('directorio') or kinds.get('catalogo')
+        if len(slugs) == 1:
+            index[k] = (next(iter(slugs)), 'directorio' if 'directorio' in kinds else 'catalogo')
+    return index
 
 
 def pending_creation_path():
@@ -987,6 +1029,9 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT):
     allowed = resolve_publishers(registry, intake.get('publisher_aliases', []))
     by_slug = {p['slug']: p for p in allowed}
     catalogue_names = {normalize_text(p['nombre']): p for p in store['editoriales']}
+    catalogue_slugs = {p['slug']: p for p in store['editoriales']}
+    key_index = publisher_key_index([{'nombre': p['name'], 'slug': p['slug'], 'alias': p.get('aliases', [])}
+                                     for p in allowed], store['editoriales'])
     known_authors = {a['nombre'] for a in
                      read_json(root / 'data/reading-authors.json', {'autores': []}).get('autores', [])}
     waiting = read_json(pending_creation_path(), {'editoriales': {}, 'autores': {}})
@@ -1007,11 +1052,18 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT):
             found = catalogue_names.get(normalize_text(variant))
             if found:
                 return {'name': found['nombre'], 'slug': found['slug'], 'catalogo': True}
+        slug, kind = key_index.get(publisher_key(name), (None, None))
+        if kind == 'directorio':
+            return {'name': by_slug[slug]['name'], 'slug': slug}
+        if kind == 'catalogo':
+            return {'name': catalogue_slugs[slug]['nombre'], 'slug': slug, 'catalogo': True}
         # Sello desconocido: el libro sale con el nombre en texto, sin enlace. Crear su ficha es trabajo aparte
         # (lista de pendientes de creación), no de la ingesta diaria.
         return {'name': display_name(name) or name, 'slug': None}
 
     def note(kind, name, isbn):
+        if kind == 'editoriales':  # «GTM Ediciones» y «GTM Ediciones C.b.» son un solo sello por crear
+            name = next((n for n in waiting[kind] if publisher_key(n) == publisher_key(name)), name)
         entry = waiting[kind].setdefault(name, {'libros': 0, 'primera': day, 'ejemplos': []})
         entry['libros'] += 1
         if len(entry['ejemplos']) < 3 and isbn not in entry['ejemplos']:

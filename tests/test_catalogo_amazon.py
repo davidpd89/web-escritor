@@ -39,6 +39,22 @@ class ToRecord(unittest.TestCase):
         with self.assertRaises(ca.Rejected):
             ca.to_record({'item': item(lang='Catalán')}, '2026-11-06')
 
+    def test_original_language_does_not_make_a_translation_spanish(self):
+        def langs(*pairs):
+            entry = item(ean=isbn('978024183670'), lang='Inglés')
+            entry['itemInfo']['contentInfo']['languages'] = {
+                'displayValues': [{'displayValue': v, 'type': t} for t, v in pairs]}
+            return {'item': entry}
+        for edition in ('Inglés', 'Catalán', 'Gallego'):
+            with self.subTest(edition=edition), self.assertRaises(ca.Rejected):
+                ca.to_record(langs(('Publicado', edition), ('Idioma original', 'Español')), '2026-11-06')
+        with self.assertRaises(ca.Rejected):  # sin «Publicado», el original tampoco cuenta
+            ca.to_record(langs(('Idioma original', 'Español'), ('Desconocido', 'Inglés')), '2026-11-06')
+        ok = ca.to_record(langs(('Publicado', 'Castellano'), ('Idioma original', 'Inglés')), '2026-11-06')
+        self.assertTrue(ok['isbn13'])
+        ok = ca.to_record(langs(('Desconocido', 'Español'),), '2026-11-06')
+        self.assertTrue(ok['isbn13'])
+
     def test_maps_amazon_item_to_book_record(self):
         r = ca.to_record({'nodo': '1', 'ruta': ['Libros', 'Thriller'], 'item': item()}, '2026-11-06')
         self.assertEqual(r['autores'], ['Benito Pérez Galdós'])
@@ -644,3 +660,28 @@ class Client(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class PublisherKey(unittest.TestCase):
+    def test_legal_form_trade_words_and_inversions_share_a_key(self):
+        for raw, known in [('Grijalbo Comercial, S.a.', 'Grijalbo'), ('Molino,editorial', 'Molino'),
+                           ('Errata Naturae Editores S.l', 'Errata naturae'), ('Hoaki Books', 'Hoaki'),
+                           ('Altamarea Edición de Libros SL', 'Altamarea Ediciones'),
+                           ('GTM Ediciones C.b.', 'GTM Ediciones'), ('Candlewick Press (ma)', 'Candlewick Press'),
+                           ('Comanegra', 'Editorial Comanegra'), ('Satori Ediciones C.b.', 'Satori')]:
+            with self.subTest(raw=raw):
+                self.assertEqual(ca.publisher_key(raw), ca.publisher_key(known))
+        # «Libros» y «Press» son parte del nombre, no oficio
+        self.assertNotEqual(ca.publisher_key('Ediciones la Cúpula, S.l.'), ca.publisher_key('Libros Cúpula'))
+        self.assertNotEqual(ca.publisher_key('Peninsula Press Ltd'), ca.publisher_key('Ediciones Península'))
+        self.assertEqual(ca.publisher_key('Editorial'), '')
+
+    def test_index_links_only_unambiguous_keys_and_prefers_the_directory(self):
+        directory = [{'nombre': 'Maeva', 'slug': 'maeva'}, {'nombre': 'Grijalbo', 'slug': 'grijalbo'},
+                     {'nombre': 'Ediciones Sur', 'slug': 'sur-a'}, {'nombre': 'Sur Editores', 'slug': 'sur-b'}]
+        catalogue = [{'nombre': 'Maeva Ediciones', 'slug': 'maeva-ediciones'}, {'nombre': 'Molino', 'slug': 'molino'}]
+        index = ca.publisher_key_index(directory, catalogue)
+        self.assertEqual(index[ca.publisher_key('Maeva, S.a.')], ('maeva', 'directorio'))
+        self.assertEqual(index[ca.publisher_key('Grijalbo Comercial, S.a.')], ('grijalbo', 'directorio'))
+        self.assertEqual(index[ca.publisher_key('Molino,editorial')], ('molino', 'catalogo'))
+        self.assertNotIn(ca.publisher_key('Sur'), index)
