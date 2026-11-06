@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9791387904432",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Satisfraier se dirige a adultos que quieren cocinar con freidora de aire y aplicar técnicas culinarias a las comidas domésticas. David de Jorge combina el uso de este electrodoméstico con el tratamiento del producto y la organización de la cocina. Encaja menos con quien busca un manual de cocina tradicional centrado exclusivamente en el horno o los fogones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Satisfraier está publicada por Debate en tapa blanda con solapas y reúne 256 páginas en castellano. Su contenido combina cocina con freidora de aire y una introducción dedicada a preparar y organizar el espacio doméstico. La fecha de publicación editorial es el 11 de junio de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Satisfraier está disponible en tapa blanda y Kindle, dos opciones para consultar sus 256 páginas mientras se cocina. La edición física de Debate incorpora solapas y permite dejar el libro abierto junto a los utensilios. Kindle facilita consultar el contenido desde un dispositivo compatible, sin ocupar espacio adicional en la cocina.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Satisfraier comparte autoría con Ponte fino, de Martín Berasategui y David de Jorge, pero concentra su propuesta en la freidora de aire y la organización de la cocina doméstica. También puede compararse con Al micro y listo, de Dani García: ambos abordan la cocina mediante electrodomésticos concretos, aunque uno utiliza la freidora de aire y el otro se centra en el microondas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388092268",
+        "isbn-9788467084757"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4620d99034a3d95a",
+  "origen": "chatgpt-web"
+}

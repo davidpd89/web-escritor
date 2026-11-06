@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791387924669",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una navidad en Bramble Falls encaja con lectores de romance juvenil que buscan una historia de amistad, sentimientos cambiantes y celebraciones navideñas. La atracción entre Sloane, su mejor amigo y un jugador de hockey ocupa el conflicto principal, por lo que se distancia de las novelas centradas en aventuras fantásticas o intrigas criminales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Una navidad en Bramble Falls es una novela romántica juvenil ambientada durante la preparación de un festival de invierno. La protagonista debe compaginar su participación en el evento con la confusión que le provocan dos vínculos afectivos distintos. La relación entre amistad y enamoramiento pesa más en la trama que la organización turística del pueblo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una navidad en Bramble Falls está disponible en tapa blanda con solapas y en Kindle. La edición física de Montena contiene 344 páginas y permite conservar el libro en papel o entregarlo como regalo; la digital facilita llevar la novela en un lector electrónico o dispositivo compatible. Ambas opciones corresponden a la misma obra de Misty Wilson.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una navidad en Bramble Falls y Amor en pole position (Dirty Air 3) comparten el romance y la presencia de personajes vinculados al deporte, aunque Misty Wilson sitúa el conflicto en un festival navideño juvenil y Lauren Asher lo ambienta en la Fórmula 1. Cuando fuimos todo también aborda relaciones sentimentales, pero parte de la convicción de Emma de que Gael sería su pareja definitiva, frente a las dudas de Sloane entre dos personas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674",
+        "isbn-9791387598440"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "37780634dc23c8c1",
+  "origen": "chatgpt-web"
+}

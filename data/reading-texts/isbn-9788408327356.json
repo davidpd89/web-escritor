@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788408327356",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Comprender el vino. Edición especial con cantos tintados está dirigido a lectores que quieren conocer los principales vinos españoles y entender sus características. Pedro Ballesteros Torres se centra en el conocimiento del vino, por lo que su contenido se diferencia de los manuales dedicados a técnicas de cocina o preparación de alimentos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Comprender el vino. Edición especial con cantos tintados presenta una encuadernación en tapa dura con sobrecubierta y cantos tintados. Esta edición de Planeta Gastro, publicada el 14 de octubre de 2026, contiene 536 páginas en castellano y se identifica con el ISBN 9788408327356.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Comprender el vino. Edición especial con cantos tintados está disponible en tapa dura, con sobrecubierta y 536 páginas. Su presentación física permite conservarlo como volumen de consulta sobre vinos españoles y tenerlo a mano para revisar su contenido sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comprender el vino. Edición especial con cantos tintados y ¿Qué vino con este pato? Edición especial con cantos tintados tratan el vino desde enfoques complementarios. Pedro Ballesteros Torres explica los principales vinos españoles, mientras que Ferran Centelles estudia la ciencia y las teorías que intervienen en el maridaje con alimentos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408327363"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4648607388fb75d5",
+  "origen": "chatgpt-web"
+}

@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Hay conciencia en tu cerebro? se dirige a lectores adultos interesados en la filosofía de la mente y en la relación entre cerebro y experiencia subjetiva. Su enfoque examina distintas posiciones filosóficas y cuestiona el materialismo, por lo que encaja menos con quienes buscan exclusivamente una explicación neurológica o un manual de ejercicios prácticos.",
+      "texto": "El ensayo de Enric F. Gel se dirige a lectores adultos interesados en la filosofía de la mente y las preguntas sobre la experiencia subjetiva. Examina distintas explicaciones de la conciencia y cuestiona las interpretaciones exclusivamente materiales. Su planteamiento argumentativo se aleja de los manuales dedicados a ejercicios prácticos o técnicas de bienestar.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,36 +15,37 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "¿Hay conciencia en tu cerebro? aborda cómo se relacionan los procesos físicos del cerebro con la experiencia consciente y qué lugar ocupa la subjetividad en la comprensión del mundo. Enric F. Gel contrasta posiciones filosóficas sobre la conciencia desde una perspectiva crítica con el materialismo, sin presentar esa crítica como una conclusión dogmática.",
+      "texto": "La obra de Enric F. Gel aborda la relación entre la actividad cerebral y la experiencia consciente. Examina diferentes posiciones filosóficas sobre la subjetividad y plantea objeciones a la explicación materialista de la mente. Su aproximación combina discusión conceptual y preguntas sobre la naturaleza de la realidad, desde una perspectiva crítica que evita presentar una única postura como incuestionable.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas de ¿Hay conciencia en tu cerebro? ofrece sus 384 páginas en papel, útil para subrayar y volver a los argumentos filosóficos. Kindle permite consultar el mismo título en un dispositivo compatible, con las ventajas de transporte y ajuste de lectura propias del formato digital. La elección depende de cómo se prefiera trabajar con un ensayo extenso.",
+      "texto": "¿Hay conciencia en tu cerebro? se publica en tapa blanda y Kindle. La edición de Montena consta de 384 páginas con solapas, útiles para conservar el ensayo en una biblioteca y volver a sus argumentos. Kindle permite consultar el texto en dispositivos electrónicos y retomar sus cuestiones filosóficas sin llevar el volumen físico.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Contingencia, ironía y solidaridad, de Richard Rorty, y ¿Hay conciencia en tu cerebro?, de Enric F. Gel, comparten el interés por los fundamentos filosóficos de nuestra visión del mundo. El primero se ocupa de la sociedad, la solidaridad y las verdades universales; el segundo examina la conciencia y cuestiona las explicaciones materialistas de la experiencia subjetiva.",
+      "texto": "El ensayo de Enric F. Gel puede compararse con Antes de perder el juicio por su interés en revisar las ideas que condicionan nuestra interpretación del mundo. El primero estudia la conciencia desde distintas corrientes filosóficas, mientras que Mauricio García Villegas se ocupa de la verdad frente a la propaganda y las opiniones sectarias. Uno plantea un problema sobre la mente y el otro se centra en el juicio ante la información pública.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788449345951"
+        "isbn-9791388387302"
       ]
     }
   ],

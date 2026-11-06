@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388038440",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Minikit para dejar de sobrepensar se dirige a quienes revisan mentalmente conversaciones, anticipan dificultades o analizan repetidamente situaciones cotidianas. Marina Muñoz plantea recursos prácticos y ejemplos reconocibles, por lo que encaja menos con lectores que busquen una narración de ficción en lugar de herramientas de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las 288 páginas de Minikit para dejar de sobrepensar pueden leerse en tapa blanda o Kindle. El papel permite volver a los ejemplos y recursos prácticos durante la lectura, mientras que la edición Kindle facilita consultar esas herramientas desde el móvil cuando surjan situaciones relacionadas con los pensamientos repetitivos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ed927ee3b553f155",
+  "origen": "chatgpt-web"
+}

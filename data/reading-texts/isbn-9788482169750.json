@@ -1,0 +1,69 @@
+{
+  "id": "isbn-9788482169750",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lost in translation, de Luca Calvi, se dirige a lectores interesados en la historia del alpinismo, la escalada y las experiencias personales de sus protagonistas. Sus recuerdos como traductor e intérprete ofrecen una perspectiva basada en encuentros y conversaciones, más cercana a la crónica testimonial que a un manual técnico de montaña.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Lost in translation se publica en castellano bajo el sello Sua Edizioak, en una edición de tapa blanda de 176 páginas. El libro recoge las experiencias de Luca Calvi como traductor e intérprete en encuentros con figuras del alpinismo internacional. Su ISBN es 9788482169750 y su fecha de publicación editorial es el 23 de septiembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "edicion",
+        "numero_paginas",
+        "autores",
+        "sinopsis_editorial",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Luca Calvi reconstruye encuentros con alpinistas y escaladores desde su experiencia profesional como traductor e intérprete en festivales de montaña. Sus relatos incluyen conversaciones, anécdotas y cambios de percepción sobre figuras como Reinhold Messner, Alex Honnold y Alex Txikon. El enfoque combina memoria personal e historia del montañismo a través del contacto directo con sus protagonistas.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lost in translation está disponible en tapa blanda y reúne 176 páginas de recuerdos y anécdotas vinculados al alpinismo. La edición en papel permite leer por separado los encuentros que Luca Calvi relata con distintas figuras de la montaña. Su extensión facilita llevar el volumen durante desplazamientos o consultarlo por protagonistas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lost in translation y AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA se acercan a figuras conocidas mediante experiencias e investigaciones relacionadas con sus vidas. Luca Calvi ofrece recuerdos de encuentros con alpinistas, mientras que Juan Carlos García de Polavieja aborda una investigación sobre Federico García Lorca. Frente a Cesar La conquista de la eternidad, de Alberto Angela, el libro de Luca Calvi se centra en testimonios personales del montañismo contemporáneo y no en un general romano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933",
+        "isbn-9788410944329"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16bed9de33ae9588",
+  "origen": "chatgpt-web"
+}

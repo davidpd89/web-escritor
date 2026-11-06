@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Bajamar está dirigido a lectores adultos que buscan misterio y thriller vinculados a conflictos sociales en una localidad costera. La muerte de una defensora del turismo sostenible y los intereses inmobiliarios que rodean el escenario hacen que encaje menos con quienes prefieren historias alejadas de crímenes y circunstancias inquietantes.",
+      "texto": "Bajamar está orientada a lectores adultos de novela negra que buscan una investigación criminal relacionada con conflictos sociales. El asesinato de una defensora del turismo sostenible y las tensiones inmobiliarias de una localidad costera sitúan la historia lejos de la aventura infantil o del misterio fantástico.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,27 +14,44 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Bajamar plantea un thriller de misterio ambientado en una villa marinera de la costa cantábrica afectada por la especulación inmobiliaria. Ibon Martín sitúa la muerte sospechosa de una influencer vinculada al turismo sostenible en un entorno de intereses enfrentados, de manera que el conflicto social forma parte del enigma.",
+      "texto": "Bajamar plantea un thriller criminal donde la muerte de una figura pública se cruza con los intereses económicos de una población marinera. La presión urbanística y el debate sobre el turismo sostenible forman parte del conflicto, de modo que la investigación se desarrolla en un entorno de tensiones locales.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Bajamar se ofrece en tapa dura con sobrecubierta, en una edición de 496 páginas publicada por Plaza & Janés. La encuadernación rígida proporciona un soporte resistente para conservar o prestar el ejemplar, mientras que la sobrecubierta añade una protección exterior al volumen físico.",
+      "texto": "Bajamar cuenta con 496 páginas y una edición en tapa dura con sobrecubierta de Plaza & Janés, pensada para quien prefiera un volumen físico de larga extensión. Kindle permite continuar la novela en el móvil o lector electrónico, mientras que el audiolibro ofrece la posibilidad de seguir la investigación mediante escucha.",
       "evidencias": [
         "titulo",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "editorial",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajamar y Onin 1 - Onin y la isla del tesoro comparten autor, Ibon Martín, y la presencia del misterio, pero se dirigen a experiencias distintas: investigación criminal adulta frente a aventuras con amigos y elementos mágicos. Onin 2 - Onin y el misterio del bosque mantiene esa vertiente aventurera, mientras Bajamar vincula el delito con intereses inmobiliarios y turismo sostenible.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994549",
+        "isbn-9791387994556"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3f1cf6bc98f2cf82",
+  "fuente_hash": "06362ef7e8e69ab3",
   "origen": "chatgpt-web"
 }

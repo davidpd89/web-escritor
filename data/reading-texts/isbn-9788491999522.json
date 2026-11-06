@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Revoluciones. Una nueva historia se dirige a lectores interesados en los cambios políticos y sociales desde una perspectiva histórica de largo recorrido. Su atención a procesos que duran décadas encaja menos con quien busca una cronología breve de levantamientos o una historia limitada a sus episodios más conocidos.",
+      "texto": "Revoluciones. Una nueva historia se dirige a lectores de historia interesados en comprender los procesos revolucionarios y sus consecuencias a largo plazo. Donald Sassoon propone observar cambios que se extienden durante décadas, por lo que su enfoque se distancia de los relatos centrados únicamente en levantamientos y episodios decisivos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Revoluciones. Una nueva historia examina cómo se originan, evolucionan y dejan consecuencias los grandes procesos revolucionarios. Donald Sassoon desplaza la atención de acontecimientos puntuales, como la toma de la Bastilla, hacia transformaciones que pueden extenderse durante décadas y continuar después de los episodios iniciales.",
+      "texto": "Revoluciones. Una nueva historia analiza las revoluciones como transformaciones históricas prolongadas, no como acontecimientos aislados. Donald Sassoon utiliza ejemplos de insurrecciones y cambios políticos para situar el inicio de estos procesos frente a sus efectos posteriores. El enfoque presta atención a la duración de las transformaciones y a la persistencia de sus consecuencias.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,29 +23,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Revoluciones. Una nueva historia se publica en tapa dura con sobrecubierta y tiene 544 páginas. La edición de Editorial Crítica reúne el estudio histórico en un volumen físico de encuadernación rígida, pensado para la lectura prolongada y la consulta posterior en papel.",
+      "texto": "Revoluciones. Una nueva historia está disponible en tapa dura con sobrecubierta, en una edición de 544 páginas publicada por Editorial Crítica. La encuadernación rígida ofrece soporte para un volumen extenso y permite conservarlo como libro de consulta. La sobrecubierta protege las tapas durante su almacenamiento, aunque puede retirarse mientras se lee.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
-        "categorias",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Revoluciones. Una nueva historia y Los pilares de la historia comparten el interés por interpretar los procesos históricos, aunque Donald Sassoon estudia las revoluciones y Javier Fernández Sebastián plantea la capacidad explicativa de la historia. Richelieu y Olivares reduce la escala al análisis comparado de dos figuras políticas del siglo XVII.",
+      "texto": "Auge y caída del Tercer Reich (edición especial), de William L. Shirer, comparte con Revoluciones. Una nueva historia el interés por las transformaciones políticas, pero se concentra en el ascenso y la caída del régimen nazi. CORONA AUTORITARIA, LA, de Guillermo María Muñoz, también estudia el poder y sus relaciones políticas, aunque delimita su análisis a la monarquía y el nacionalismo español durante la dictadura de Primo de Rivera.",
       "evidencias": [
         "titulo",
-        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788430629664",
-        "isbn-9788408331742"
+        "isbn-9788411005555",
+        "isbn-9788419892782"
       ]
     }
   ],

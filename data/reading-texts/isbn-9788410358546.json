@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410358546",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El año que volví a ser salvajemente humana se dirige a lectores de memorias personales interesados en el duelo afectivo, la relación con el cuerpo y la recuperación emocional. Rocío Carmona relata su propia experiencia durante doce meses, por lo que no responde al planteamiento de un manual con instrucciones para resolver problemas personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El año que volví a ser salvajemente humana puede leerse en tapa blanda o Kindle. La edición impresa de Ediciones Koan tiene 176 páginas y permite recorrer físicamente su diario mensual; Kindle facilita llevar el texto en un dispositivo compatible y retomar la lectura sin transportar el libro en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El año que volví a ser salvajemente humana y Cómo me gustaría contarte comparten la atención a las experiencias personales y a la relación entre la vida propia y las expectativas ajenas. Frente a Ansiedad. ¿Cómo se sale de aquí?, que utiliza la imagen de un parque de atracciones para abordar la ansiedad, Rocío Carmona construye un diario sobre el duelo y la recuperación de las sensaciones corporales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431967",
+        "isbn-9788403526723"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04bcac628789ab1e",
+  "origen": "chatgpt-web"
+}

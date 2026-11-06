@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788425376498",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tierra de fantasmas, de E.L. James, se dirige a lectores adultos de romance con elementos sobrenaturales y conflictos emocionales relacionados con la pérdida. No sigue el planteamiento de una fantasía centrada en guerras o sistemas de magia, sino el de una relación afectiva condicionada por la naturaleza de uno de sus protagonistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Tierra de fantasmas combina una historia de duelo con un vínculo romántico de carácter sobrenatural. La protagonista se instala en Londres con su tío Dylan y establece una conexión emocional con alguien a quien únicamente ella puede ver, lo que introduce dudas sobre su existencia y la posibilidad del contacto físico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tierra de fantasmas se ofrece en tapa blanda y Kindle. La edición de Grijalbo tiene 448 páginas y solapas, mientras que la versión Kindle permite llevar la novela en un dispositivo de lectura o acceder a ella desde el móvil sin cargar con el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tierra de fantasmas y La maldad más dulce (La Música del Engaño 1) incorporan elementos fantásticos a conflictos de carácter romántico. La novela de E.L. James se centra en una relación con una presencia invisible para los demás, mientras que la de Raven Kennedy plantea un mundo amenazado por nueve seres monstruosos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387629977"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d473f589ee80f49b",
+  "origen": "chatgpt-web"
+}

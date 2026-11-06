@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788466394611",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El año del Mono se dirige a lectores adultos interesados en la narrativa contemporánea de carácter autobiográfico y reflexivo. Patti Smith entrelaza desplazamientos, recuerdos y escenas imaginadas, una propuesta menos próxima a quien prefiera una trama de ficción convencional con acontecimientos estrictamente cronológicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El año del Mono combina recuerdos personales, desplazamientos y episodios imaginados en una narración vinculada a Patti Smith. El relato comienza durante la Nochevieja de 2015 y recorre lugares como Santa Cruz, Arizona y Manhattan, entre encuentros, amistades y reflexiones sobre el paso del tiempo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de El año del Mono publicada por Penguin Bolsillo el 2026-10-15 contiene 224 páginas y se presenta en formato de bolsillo. El texto incorpora un epílogo relacionado con los acontecimientos de 2020, que amplía el recorrido temporal de la narración.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El año del Mono está disponible en tapa blanda y Kindle, con una extensión de 224 páginas en la edición impresa. El formato de bolsillo facilita transportarlo durante los desplazamientos; Kindle permite continuar la lectura en un dispositivo electrónico sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "31d3c8b06dc39cbb",
+  "origen": "chatgpt-web"
+}

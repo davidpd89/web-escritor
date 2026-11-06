@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788448049843",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dustin Hoffman: look at me se dirige a lectores interesados en las biografías de actores y en conocer su trayectoria profesional desde una perspectiva personal. Su enfoque en una figura concreta del cine lo aleja de los manuales de interpretación y de las historias generales de la industria cinematográfica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Dustin Hoffman: look at me examina la carrera interpretativa de Dustin Hoffman y sus relaciones profesionales a lo largo de seis décadas. El relato combina la dimensión personal del actor con su experiencia trabajando junto a figuras como Meryl Streep, Gene Hackman y Robert Redford.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dustin Hoffman: look at me se publica en tapa blanda, con encuadernación rústica y solapas. Sus 532 páginas forman un volumen biográfico extenso, pensado para una lectura continuada en papel o para consultar distintos momentos de la trayectoria del actor.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dustin Hoffman: look at me puede compararse con David Summers: en persona porque ambos se ocupan de figuras del espectáculo y de su dimensión personal. La diferencia está en el ámbito profesional: Dustin Hoffman desarrolla su trayectoria como actor de cine, mientras que David Summers es presentado como artista y fenómeno público.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049379"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8588a6440e05cf2a",
+  "origen": "chatgpt-web"
+}

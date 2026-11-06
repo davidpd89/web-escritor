@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388220210",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cinco maneras de volver a casa encaja con lectores de narrativa contemporánea interesados en las familias elegidas, las relaciones afectivas y el papel cotidiano de la comida. No responde a quien busque principalmente un recetario con instrucciones culinarias, ya que su planteamiento es el de una novela sobre vínculos personales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Cinco maneras de volver a casa es en tapa blanda con solapas, publicada por Lunwerg Editores. Sus 320 páginas forman un volumen físico que permite avanzar por la novela y retomarla sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cinco maneras de volver a casa y 20 minutos ¡y listo! comparten la presencia de la comida, pero la abordan desde perspectivas distintas. Maiko Seo utiliza la alimentación para explorar relaciones familiares y recuerdos, mientras que Jamie Oliver plantea soluciones culinarias para personas con poco tiempo. Al micro y listo también se centra en cocinar, frente al enfoque narrativo de la novela.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788467084757"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "90c792b6b6eee55c",
+  "origen": "chatgpt-web"
+}

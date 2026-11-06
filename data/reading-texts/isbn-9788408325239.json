@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408325239",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ama y no sufras está dirigido a lectores interesados en comprender el sufrimiento amoroso y las relaciones de pareja desde el desarrollo personal. Walter Riso examina cuestiones relacionadas con el amor y el bienestar afectivo; no se trata de una novela romántica ni de una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ama y no sufras puede leerse en tapa blanda o Kindle. La edición de Zenith reúne 272 páginas en rústica con solapas, apropiadas para consultar pasajes en papel; la versión Kindle permite transportar el contenido digitalmente y leerlo desde el móvil o un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ama y no sufras y La afectividad masculina son libros de Walter Riso relacionados con la vida emocional. El primero examina el amor y las dificultades en pareja, mientras que el segundo aborda los modelos de masculinidad y la expresión afectiva. El coraje de ser quien eres (aunque no gustes) cambia el foco hacia la autonomía individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324898",
+        "isbn-9788408325246"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "68e9842edb251b27",
+  "origen": "chatgpt-web"
+}

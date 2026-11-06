@@ -1,0 +1,60 @@
+{
+  "id": "isbn-9791387901813",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores desde los 14 años interesados en la fantasía juvenil, las hadas y el romance fantástico. La historia parte de una magia perdida y una frontera prohibida, de modo que se aleja de la narrativa realista y de las aventuras sin componentes mágicos.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Disney. Alas de ensueño está recomendado a partir de 14 años. Su argumento incluye una frontera prohibida, una magia capaz de alterar la realidad y el peligro asociado a ese descubrimiento; conviene tener en cuenta estos conflictos para lectores sensibles a las amenazas fantásticas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Combina fantasía juvenil y romantasy en una historia sobre hadas, territorios separados y poderes antiguos. Periwinkle se aproxima a una zona restringida que divide dos regiones estacionales y encuentra indicios de una fuerza olvidada capaz de poner en peligro el equilibrio de su realidad.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 408 páginas y lleva solapas, una opción para quienes prefieren leer en papel y conservar el volumen. Kindle ofrece la lectura digital para dispositivos compatibles, con la ventaja de transportar el libro sin ocupar espacio físico en la mochila.",
+      "evidencias": [
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La historia de Periwinkle comparte el universo de las hadas con Disney. Alas de estrella, aunque aquella aborda una magia olvidada y esta última plantea un conflicto entre las obligaciones y los sentimientos. Pesadilla antes de Navidad. La sombra sobre la reina de Halloween también pertenece a la fantasía juvenil de Disney, pero presenta a Sally frente a un enemigo persistente en lugar de explorar los límites mágicos del territorio de las hadas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387526320",
+        "isbn-9791387901868"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "83fdd611990a90c6",
+  "origen": "chatgpt-web"
+}

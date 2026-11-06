@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788427055896",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hasta su último latido está dirigido a quienes desean comprender el acompañamiento durante una enfermedad y las emociones vinculadas al duelo. Nuria Pajares centra el libro en el cuidado y la despedida, asuntos que pueden resultar difíciles para lectores que prefieran evitar experiencias relacionadas con la pérdida de seres queridos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Hasta su último latido es de tapa blanda, en rústica con solapas, y reúne 232 páginas. Este formato de Ediciones Martínez Roca permite leer sobre papel y regresar a los pasajes dedicados al cuidado, la enfermedad y el duelo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9225cd1be1ab3c6e",
+  "origen": "chatgpt-web"
+}

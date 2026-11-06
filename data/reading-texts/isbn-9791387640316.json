@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791387640316",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La misteriosa pastelería de medianoche se dirige a lectores adultos interesados en la fantasía, los misterios familiares y la cocina tradicional. La historia combina el duelo por una abuela, una herencia y encuentros con espíritus; se aleja de los libros centrados en recetas prácticas o investigaciones criminales convencionales.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "La misteriosa pastelería de medianoche contiene una narración de 240 páginas organizada alrededor de una pastelería que abre de diez a doce de la noche. Los encargos de sus visitantes sobrenaturales relacionan dulces tradicionales con recuerdos personales, mientras la protagonista investiga el pasado de su familia. Es ficción sobre cocina y memoria, no un manual de repostería.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda con solapas de Salamandra reúne las 240 páginas de La misteriosa pastelería de medianoche en un volumen físico que puede conservarse o regalarse. Kindle permite leer esa misma extensión desde un dispositivo compatible, sin transportar el ejemplar impreso. La elección depende de si se prefiere pasar páginas en papel o leer en pantalla.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La misteriosa pastelería de medianoche y El mundo perdido comparten elementos de misterio, aunque Lee Onhwa utiliza una pastelería frecuentada por espíritus y Michael Crichton plantea una amenaza relacionada con dinosaurios. Frente a 20 minutos ¡y listo!, de Jamie Oliver, que aborda la cocina desde su aplicación práctica, la novela convierte los dulces en parte de un conflicto familiar y sobrenatural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392143",
+        "isbn-9788425374074"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c20e2faa8dc15d91",
+  "origen": "chatgpt-web"
+}

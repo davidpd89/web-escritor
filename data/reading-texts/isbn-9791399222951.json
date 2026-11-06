@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399222951",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MISS PIPELETTE 01 ¡CUIDADO! ¡BRUJA PARLANCHINA! se dirige a lectores desde los 5 años interesados en el humor, las brujas y las escuelas de magia. Su protagonista convierte su tendencia a hablar continuamente en una habilidad peculiar, por lo que encaja menos con quienes buscan una historia de magia solemne o centrada en enfrentamientos oscuros.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Este cómic de Maxe L´Hermenier combina humor y fantasía en una escuela de magia. Éléonore estudia en Boudboa, donde cada alumno posee una habilidad extraordinaria, y ella destaca por hablar tanto que puede incapacitar a otras criaturas. Sus aventuras con amigos giran alrededor de esa peculiaridad, mientras que el título identifica la entrega como el n.º 01.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Harriet Ediciones se presenta en tapa dura y contiene 48 páginas. La cubierta rígida permite conservar el cómic como volumen físico y consultar sus viñetas directamente en papel. Su extensión corresponde a una lectura breve dentro del formato de cómic.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "de9be9cd3cf85c55",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788408326137",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El otro lado de la guerra se dirige a lectores interesados en testimonios sobre conflictos contemporáneos y sus consecuencias humanas. Su enfoque sobre el miedo, las pérdidas y la supervivencia se aleja de una historia militar centrada exclusivamente en estrategias, armamento o movimientos de tropas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Diego Fernández Gabaldón aborda la distancia entre las decisiones políticas y sus consecuencias sobre quienes viven una guerra. El testimonio parte de experiencias en Irak, Sudán, Afganistán, Corea del Norte y Palestina para tratar el sufrimiento, la memoria y la supervivencia desde una perspectiva humana.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El otro lado de la guerra está disponible en tapa dura, con 160 páginas en castellano. Es una edición física de extensión contenida que permite consultar y releer los testimonios sin depender de un dispositivo electrónico; su encuadernación en cartoné también resulta apropiada para conservar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El otro lado de la guerra y A la sombra del Estado se ocupan de conflictos y poder, pero el primero observa sus consecuencias humanas y el segundo aborda el espionaje, las operaciones encubiertas y la guerra híbrida. Crónica de un desafío al Estado también recurre al testimonio en primera persona, aunque se concentra en la tensión política de Cataluña y los acontecimientos del Procés.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441303",
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9da66175874b9719",
+  "origen": "chatgpt-web"
+}

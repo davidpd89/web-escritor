@@ -1,0 +1,66 @@
+{
+  "id": "isbn-9788408313779",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Descubro y aprendo. La naturaleza encaja con niños de 6 a 8 años interesados en animales, plantas y ecosistemas. Su enfoque de exploración del entorno natural no responde a quienes buscan una novela infantil con una trama protagonizada por personajes.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "La lectura se organiza como una exploración de animales, plantas y diferentes ecosistemas. Sus 22 páginas permiten recorrer ambientes naturales, desde montañas hasta zonas oceánicas, y detenerse en cada tema para observar y comentar sus particularidades.",
+      "evidencias": [
+        "sinopsis_editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Descubro y aprendo. La naturaleza está dirigido a edades de 6 a 8 años y contiene 22 páginas en castellano. Su edición en cartoné con interior de cartón ofrece páginas rígidas para consultar los contenidos sobre animales, plantas y ecosistemas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne las 22 páginas de Descubro y aprendo. La naturaleza en un volumen de cartoné con interior de cartón. Es una presentación física para hojear los contenidos sobre animales y plantas, manipular las páginas y compartir la exploración durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Descubro y aprendo. La naturaleza comparte autoría de YOYO y orientación exploratoria con Descubro y aprendo. El mundo. La diferencia está en el objeto de interés: el primero aborda animales, plantas y ecosistemas, mientras que el segundo presenta una exploración más amplia del mundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408313762"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "242106aaf7dcc0c9",
+  "origen": "chatgpt-web"
+}

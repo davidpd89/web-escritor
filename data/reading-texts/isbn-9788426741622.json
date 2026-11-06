@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788426741622",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bobadas se dirige a lectores interesados en cuestionar hábitos, opiniones y prioridades de la vida cotidiana mediante la reflexión filosófica. Su planteamiento abierto al desacuerdo encaja menos con quienes buscan respuestas definitivas, normas de conducta cerradas o una exposición puramente académica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Javier Urra Portillo y Cristina González Reche examinan cómo las opiniones, la información y los estímulos cotidianos condicionan aquello a lo que prestamos atención. Su enfoque consiste en formular preguntas, contrastar perspectivas y promover conversaciones sobre las decisiones individuales y la convivencia social, sin imponer conclusiones únicas.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bobadas está disponible en tapa blanda, con 248 páginas en castellano publicadas por Marcombo. El formato permite leer en papel sus reflexiones sobre cuestiones cotidianas y volver a los pasajes que susciten preguntas o discrepancias.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de perder el juicio comparte con Bobadas el interés por examinar las opiniones y ejercer el pensamiento crítico, aunque se centra en la propaganda y las cámaras de eco. Contingencia, ironía y solidaridad aborda también la convivencia y las ideas compartidas, pero desde la filosofía política y cultural, mientras Bobadas parte de cuestiones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791388387302",
+        "isbn-9788449345951"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a0b0b93daa73d8e0",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788422024552",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EUCARISTÍA EN EL DIÁLOGO ECUMÉNICO, LA se dirige a quienes estudian las relaciones entre confesiones cristianas y las cuestiones teológicas que dificultan su unidad. Su tratamiento de la celebración eucarística y del diálogo institucional se aleja de una lectura centrada en la espiritualidad individual.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina la eucaristía como punto de encuentro y de desacuerdo entre distintas comunidades cristianas. Parte del impulso ecuménico del Concilio Vaticano II y revisa los avances en el entendimiento mutuo, junto con las dificultades que persisten para celebrar conjuntamente este sacramento.",
+      "evidencias": [
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "EUCARISTÍA EN EL DIÁLOGO ECUMÉNICO, LA cuenta con una edición en tapa blanda de 392 páginas, publicada en castellano por Biblioteca Autores Cristianos. El volumen físico permite consultar y releer sus cuestiones teológicas durante un estudio prolongado sobre el ecumenismo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EUCARISTÍA EN EL DIÁLOGO ECUMÉNICO, LA y CARLOS ACUTIS. LA SENCILLA RUTA A LA SANTIDAD comparten un marco de pensamiento cristiano. El primero estudia las relaciones doctrinales y sacramentales entre confesiones; el segundo se ocupa de la santidad personal a través de una figura concreta.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788422024620"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "692b9a5a7e18c56c",
+  "origen": "chatgpt-web"
+}

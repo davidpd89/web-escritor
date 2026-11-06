@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370345822",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La era de los dinosaurios está orientado a lectores infantiles interesados en los animales prehistóricos y sus diferencias. Jorge Montoro dedica sus 48 páginas a dinosaurios y otras especies marinas, voladoras y terrestres, con un desplegable; el contenido es divulgativo y no plantea una historia de ficción protagonizada por dinosaurios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "La era de los dinosaurios se utiliza como libro de consulta sobre animales prehistóricos, con un desplegable dedicado a los dinosaurios. La lectura permite conocer especies de distintos tamaños y ambientes, mientras que el desplegable añade una parte visual que puede abrirse durante la exploración del contenido. Sus 48 páginas combinan información sobre dinosaurios y otros animales prehistóricos.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La era de los dinosaurios está disponible en tapa dura y contiene 48 páginas. Esta edición física permite abrir el desplegable de dinosaurios y consultar las secciones sobre animales prehistóricos sin depender de una pantalla. La tapa dura es el formato recogido para este título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cb88f815d47a7daf",
+  "origen": "chatgpt-web"
+}

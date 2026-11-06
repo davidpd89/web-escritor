@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791370310189",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ace & Ember encaja con lectores de romance que buscan una relación marcada por la atracción prohibida, los secretos y el peligro. Kate Crew sitúa el conflicto entre una hacker y el mejor amigo de su hermano, dentro de un entorno de motoristas; no responde a las expectativas de quien prefiera una historia romántica sin amenazas externas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Ace & Ember combina romance oscuro con elementos de comedia romántica y una trama de amenazas personales. La relación entre Evie Emberson y Aiden Hayes está condicionada por la lealtad familiar y una prohibición que ambos deben afrontar, mientras el pasado de ella introduce un conflicto de seguridad. La presencia de motoristas y secretos conecta esta historia con el universo de Rook & Rebel.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ace & Ember se publica en tapa blanda y Kindle. La edición física reúne 512 páginas, una extensión considerable para llevar en papel; Kindle permite leer la misma obra en el móvil o en un lector electrónico sin cargar con el volumen impreso. La tapa blanda ofrece una opción para conservar el ejemplar en la estantería.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f2871f4b4aa5ee02",
+  "origen": "chatgpt-web"
+}

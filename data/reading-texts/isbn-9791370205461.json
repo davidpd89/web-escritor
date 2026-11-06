@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370205461",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Forjando la Edad Media está dirigido a lectores interesados en la historia medieval, la arqueología y las técnicas de fabricación de objetos metálicos. Yaiza Hernández Casas examina el trabajo artesanal y su relación con las estructuras económicas y sociales. No es una novela histórica ni una narración de aventuras ambientada en la Edad Media.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Forjando la Edad Media es un estudio histórico y arqueológico sobre la metalurgia medieval en la Península Ibérica entre los siglos XII y XV. Examina la extracción de minerales, la fabricación de objetos y el trabajo con hierro, cobre y plata, tomando como referencia el Señorío de Molina de Aragón. Combina documentos históricos, restos materiales y análisis arqueométricos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Forjando la Edad Media se presenta en tapa blanda, con 224 páginas en castellano publicadas por Almuzara. El formato físico permite consultar sus explicaciones sobre procesos metalúrgicos, fuentes históricas y materiales arqueológicos, además de volver a pasajes concretos durante el estudio. Es una edición manejable para lectura y consulta en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41f8c37480bbb8d3",
+  "origen": "chatgpt-web"
+}

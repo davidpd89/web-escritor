@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791387629977",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La maldad más dulce (La Música del Engaño 1) se dirige a lectores adultos de romantasy que buscan criaturas sobrenaturales, magia peligrosa y atracción entre personajes enfrentados. La protagonista permanece cautiva y necesita escapar para proteger a su familia, de modo que no responde a las expectativas de un romance cotidiano sin amenazas fantásticas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La maldad más dulce (La Música del Engaño 1) combina fantasía de amenazas sobrenaturales con una relación marcada por el cautiverio y la atracción mágica. La protagonista tiene ascendencia de dos especies enfrentadas y debe negociar su supervivencia frente al Flautista. El título lo identifica como el n.º 1 de La Música del Engaño, y la trama incorpora proximidad forzosa y tensión romántica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La maldad más dulce (La Música del Engaño 1) dispone de una edición en tapa dura con sobrecubierta de Roca Editorial y una versión Kindle. Sus 544 páginas hacen del formato digital una alternativa para transportar la novela sin el peso del volumen físico. La tapa dura ofrece una presentación con sobrecubierta para quienes prefieren conservarla en papel.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La maldad más dulce (La Música del Engaño 1) y El ocaso del rey (Dioses y monstruos 5) pertenecen al terreno de la fantasía romántica oscura, aunque sus títulos identifican posiciones distintas dentro de sus respectivas series. Casa de cielo y aliento (Ciudad Medialuna 2) también combina fantasía y romance; frente a esa segunda entrega, Raven Kennedy presenta una historia cuyo título señala el n.º 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396080",
+        "isbn-9788427258280"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5dabcea7a09d67ea",
+  "origen": "chatgpt-web"
+}

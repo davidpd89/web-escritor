@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788427151826",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en psicología y desarrollo personal que prefieren acercarse a los conflictos emocionales mediante historias de personas concretas. No responde tanto a quien busque ficción desvinculada de cuestiones psicológicas: los relatos de Itziar de Barrenengoa abordan ansiedad, duelo, relaciones de pareja y dificultades en distintas etapas de la vida.",
+      "evidencias": [
+        "categorias",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Ediciones Mensajero ofrece sus 296 páginas en tapa blanda, una encuadernación flexible para transportar y manejar el libro. En ese volumen se reúnen los relatos inspirados en la práctica clínica de Itziar de Barrenengoa, que pueden leerse individualmente o siguiendo los conflictos emocionales que relacionan sus historias.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con Maleducados emocionales el interés por el bienestar psicológico, pero Itziar de Barrenengoa utiliza relatos inspirados en casos clínicos, mientras Dr. José Carbonell aborda cómo reconocer y gestionar comportamientos ajenos que perjudican ese bienestar. Frente a Mentes diferentes, centrado en la neurodivergencia, el testimonio y el activismo, aquí predominan experiencias de ansiedad, duelo y relaciones personales.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788408331339",
+        "isbn-9788411193894"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "58d5fbdf0552efc5",
+  "origen": "chatgpt-web"
+}

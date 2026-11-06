@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791387904593",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Freud y el matrimonio (Serie ENDEBATE) se dirige a lectores adultos interesados en la vida privada de figuras intelectuales y en las relaciones de pareja. Sus 80 páginas y su enfoque ensayístico encajan menos con quien busca una biografía extensa o una historia romántica de ficción.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "J.M. Coetzee examina las contradicciones entre las ideas de Freud y su experiencia matrimonial. El análisis aborda su relación con Martha Bernays, los celos y el deseo, y recurre a Platón, Aristóteles y Shakespeare para interrogar aspectos personales que el psicoanalista apenas desarrolló en su obra.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer y consultar físicamente las 80 páginas de Freud y el matrimonio (Serie ENDEBATE), además de conservar el ensayo en una biblioteca. La edición Kindle ofrece el mismo título en formato digital para llevarlo en el móvil o en un lector electrónico, sin ocupar espacio físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Freud y el matrimonio (Serie ENDEBATE) y Canción de amor definitiva comparten el interés por las relaciones personales, aunque el primero examina un matrimonio histórico y el segundo parte de cambios vitales y profesionales. Frente a Cómo me gustaría contarte, que presenta una trayectoria marcada por las expectativas ajenas, J.M. Coetzee centra su reflexión en la intimidad conyugal de Freud.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788401042119",
+        "isbn-9788403526723"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "def00359893f0c6e",
+  "origen": "chatgpt-web"
+}

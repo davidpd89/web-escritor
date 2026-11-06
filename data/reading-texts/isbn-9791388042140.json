@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388042140",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La noria del mal encaja con lectores de ficción inquietante que busquen secretos familiares, sucesos extraños y una amenaza vinculada al pasado. Kristina Ohlsson sitúa el conflicto en una localidad costera donde una adolescente investiga acontecimientos perturbadores; no es una lectura orientada a quien prefiera historias cotidianas sin elementos de miedo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La noria del mal plantea una historia de suspense construida alrededor de una casa, una atracción de feria y un visitante cuya presencia altera a una familia. Los objetos infantiles ocultos y los fenómenos nocturnos conectan el misterio presente con acontecimientos anteriores. Kristina Ohlsson utiliza la investigación de Heidi y el temor de su abuela para sostener la tensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La noria del mal puede leerse en tapa blanda o Kindle y tiene 239 páginas. La edición impresa de Duomo Ediciones permite seguir físicamente una narración de misterio relativamente breve y conservar el ejemplar. Kindle ofrece la misma obra en soporte digital para leerla en el móvil o alternar sesiones sin llevar el libro de papel.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fad2de45e4e917a4",
+  "origen": "chatgpt-web"
+}

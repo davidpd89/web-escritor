@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387905446",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Expediente 411 está dirigido a lectores adultos interesados en el misterio y la ciencia ficción, especialmente en historias sobre vigilancia tecnológica y desapariciones. No encaja con quienes buscan una investigación realista ambientada en el presente, ya que la trama transcurre en una sociedad futura dominada por sistemas automatizados.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Expediente 411 plantea un thriller de ciencia ficción ambientado en Nova Barcelona en 2097, donde la vigilancia y la dependencia de los robots condicionan la vida cotidiana. La búsqueda de una hermana desaparecida veinticuatro años antes conduce a una investigación sobre la fiabilidad de las imágenes y el posible engaño del sistema.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda con solapas de Expediente 411 reúne 448 páginas y permite seguir la investigación en un volumen físico. Kindle facilita llevar la novela completa en un dispositivo electrónico, especialmente para leer fuera de casa sin cargar con el libro en papel.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mundo perdido y Expediente 411 comparten elementos de ciencia ficción y peligro, pero el primero parte de dinosaurios encontrados en una isla de Costa Rica, mientras el segundo investiga una desaparición en una sociedad vigilada. Evangelion Anima (novela) nº 04 también presenta amenazas de alcance tecnológico o extraordinario, aunque su conflicto gira alrededor de la Lanza de Longinus y el futuro del mundo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392143",
+        "isbn-9791388101861"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "914774db47027409",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791388306280",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El corazón en llamas se dirige a lectores interesados en conocer la escritura y el pensamiento de María Zambrano a través de textos breves. Reúne materiales de distintas procedencias, por lo que no sigue el desarrollo continuo de una novela ni presenta una única obra completa de la autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El corazón en llamas es una antología de escritos de María Zambrano que combina correspondencia, poesía y artículos con ilustraciones de Leticia Ruifernández. Mercedes Gómez-Blesa se encarga de seleccionar los fragmentos, cuyo conjunto permite acercarse al pensamiento y al lenguaje simbólico de la autora sin seguir una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El corazón en llamas está disponible en tapa dura y tiene 120 páginas, una extensión que permite consultar sus fragmentos por separado. La edición física reúne los escritos seleccionados y las ilustraciones que acompañan cada texto, de modo que puede leerse de principio a fin o abrirse por piezas individuales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e5cda09857451014",
+  "origen": "chatgpt-web"
+}

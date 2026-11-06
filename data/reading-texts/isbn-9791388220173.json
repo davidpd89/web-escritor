@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Fuera de mí se dirige a lectores interesados en la historia de las mujeres, la salud mental y los prejuicios que afectan a su interpretación. Es un ensayo ilustrado construido a partir de diez trayectorias personales, no una novela de ficción ni un manual de tratamiento psicológico.",
+      "texto": "Fuera de mí se dirige a lectores interesados en la historia de las mujeres, la salud mental y los prejuicios sociales que afectan a su interpretación. Su enfoque ensayístico e ilustrado encaja menos con quien busca una autobiografía individual o una narración de ficción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,30 +13,28 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Fuera de mí examina quién tiene autoridad para definir la salud mental de las mujeres y qué sesgos intervienen en esos juicios. Violeta Gil y Ana Jarén articulan la reflexión mediante diez figuras femeninas de diferentes contextos históricos y geográficos. El enfoque combina ensayo ilustrado y recorrido biográfico, con 160 páginas dedicadas a esa cuestión.",
+      "texto": "Fuera de mí examina quién establece los criterios sobre la salud mental femenina y cómo intervienen los sesgos de género. Violeta Gil y Ana Jarén articulan esta reflexión mediante un ensayo ilustrado que recorre las experiencias de diez mujeres pertenecientes a épocas y lugares diferentes.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Fuera de mí se ofrece en tapa dura y Kindle. La edición de Lunwerg Editores tiene 160 páginas, encuadernación en cartoné y un contenido ilustrado que puede consultarse en papel; Kindle permite leerlo digitalmente, aunque la visualización de las ilustraciones dependerá de la pantalla utilizada.",
+      "texto": "Fuera de mí está disponible en tapa dura y Kindle, con una extensión de 160 páginas. La edición física de Lunwerg Editores utiliza encuadernación cartoné sin sobrecubierta, apropiada para conservar el volumen ilustrado; Kindle permite leer el ensayo desde un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Fuera de mí y ¿Qué pensará tu hija de ti? comparten el interés por experiencias relacionadas con las mujeres. Violeta Gil y Ana Jarén estudian los prejuicios sobre salud mental mediante diez biografías, mientras Diana López Varela parte de sus dudas ante la maternidad. Frente a ese enfoque personal, Fuera de mí reúne voces de distintas épocas y procedencias.",
+      "texto": "Fuera de mí y Dustin Hoffman: look at me recurren a experiencias personales para abordar cuestiones vinculadas a la identidad y la trayectoria vital. Violeta Gil y Ana Jarén examinan los sesgos sobre la salud mental de diez mujeres mediante un ensayo ilustrado; Dustin Hoffman y Ariel Levy presentan una biografía centrada en una sola figura del cine.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,7 +42,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388279300"
+        "isbn-9788448049843"
       ]
     }
   ],

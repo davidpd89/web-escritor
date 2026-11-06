@@ -4,8 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores a partir de 12 años que busquen fantasía juvenil con romance, intrigas de corte y una competición por un puesto. No encaja con quien prefiera historias realistas o ajenas a los conflictos de poder.",
+      "texto": "Alas de escarcha y oro: El canto del cisne encaja con lectores desde los 12 años interesados en la fantasía juvenil, las intrigas palaciegas y las relaciones condicionadas por el poder. La competencia por un puesto en la corte y las amenazas a la supervivencia la distancian de las historias románticas sin conflictos políticos.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -13,38 +14,44 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La disputa por un puesto en la Corte Cisne articula un conflicto entre supervivencia, autoridad y vínculos personales. Eira intenta avanzar en una selección competitiva mientras su relación con Danayher queda atravesada por las intrigas de palacio.",
+      "texto": "Alas de escarcha y oro: El canto del cisne aborda la supervivencia, las diferencias de poder y el conflicto entre la lealtad y la autonomía personal. A través de Eira y Danayher, Marta Morillo plantea una competición dentro de la Corte Cisne en la que las decisiones personales quedan sometidas a las exigencias del entorno político. El enfoque combina fantasía juvenil, intriga y vínculos afectivos.",
       "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas es la opción disponible, con 384 páginas en castellano. Su encuadernación flexible permite leerla y transportarla en papel; las solapas forman parte de esta edición de Alfaguara.",
+      "texto": "Alas de escarcha y oro: El canto del cisne puede leerse en tapa blanda o Kindle. La edición impresa de Alfaguara contiene 384 páginas y presenta solapas, una opción para quien prefiere conservar el libro físico. Kindle permite leerlo en un dispositivo compatible sin cargar con el ejemplar en papel.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
-        "idioma",
+        "edicion",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte fantasía y romance con La hija del veneno, mientras que con Coraline coincide en fantasía, aventuras y misterio. En este libro, el conflicto se centra en una selección dentro de una corte y en el vínculo con la heredera al trono.",
+      "texto": "Alas de escarcha y oro: El canto del cisne y Luna nueva (edición especial limitada «Bella y Jacob» por el 20º aniversario) comparten la fantasía juvenil y el peso de las relaciones afectivas. Marta Morillo desarrolla intrigas de corte y una competición por la supervivencia, mientras que Stephenie Meyer plantea un romance amenazado por vampiros. Donde duermen las sombras también incorpora amor y elementos fantásticos, pero sitúa su propuesta en un entorno contemporáneo con dimensiones sobrenaturales.",
       "evidencias": [
-        "afines_catalogo",
+        "titulo",
+        "autores",
         "categorias",
-        "sinopsis_editorial"
+        "edad_recomendada",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "lib-0001",
-        "isbn-9788425375118"
+        "isbn-9791387949792",
+        "isbn-9788427055605"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b15291820e75e194",
+  "fuente_hash": "2303dea77d287c78",
   "origen": "chatgpt-web"
 }

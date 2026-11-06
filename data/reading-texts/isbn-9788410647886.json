@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788410647886",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Operación Blackout está orientada a lectores de thrillers de espionaje, conspiraciones internacionales y amenazas relacionadas con infraestructuras críticas. Jorge Gómez Pena sitúa el conflicto en torno a un apagón europeo y una investigación de inteligencia; encaja menos con quien prefiere misterios domésticos sin dimensión política o tecnológica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Operación Blackout es un thriller de espionaje construido alrededor de una crisis eléctrica que afecta a Europa. La investigación de un agente del CNI conecta el ataque con una trama internacional, de modo que el conflicto combina seguridad, operaciones encubiertas y decisiones de alcance colectivo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Operación Blackout se ofrece en tapa blanda y Kindle, con 256 páginas en su edición impresa. El papel permite seguir la investigación en un volumen físico; Kindle facilita continuar la lectura en dispositivos electrónicos o en el móvil, sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db8799cb54918e8c",
+  "origen": "chatgpt-web"
+}

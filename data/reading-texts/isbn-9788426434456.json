@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788426434456",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un largo invierno se dirige a lectores adultos de narrativa contemporánea interesados en los conflictos familiares, el aislamiento rural y las decisiones personales. No responde a la búsqueda de una aventura de acción: el peso de la historia recae en la desaparición de una madre, el resentimiento entre padre e hijo y las posibilidades de abandonar el valle.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Un largo invierno reúne dos novelas breves de Colm Tóibín que forman una historia continuada. La primera aborda una desaparición familiar en el Pirineo catalán; El puente recupera a Miquel meses después, cuando una nueva conexión con el exterior altera las perspectivas del valle. El conflicto combina vínculos familiares, aislamiento y deseos de cambio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas de Un largo invierno reúne sus 200 páginas en un volumen físico que contiene las dos novelas. Kindle permite llevar esa misma lectura en un dispositivo electrónico y ajustar la visualización del texto. La elección depende de si se prefiere conservar el ejemplar impreso o leer en pantalla.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "19ca56a1ecbbc4d1",
+  "origen": "chatgpt-web"
+}

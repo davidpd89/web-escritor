@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388101557",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Roboco y yo nº 10 encaja con lectores de manga cómico que disfrutan de las parodias de robots y las situaciones absurdas. Shuuhei Miyazaki utiliza conflictos cotidianos y redes sociales como materia humorística, por lo que se aleja de las historias de acción seria o de ciencia ficción técnica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Roboco y yo nº 10 propone una comedia manga basada en la exageración de situaciones sociales y en la parodia de las sirvientas robóticas. Los problemas relacionados con los regalos de San Valentín y la búsqueda de seguidores en redes sociales sirven para construir conflictos humorísticos; el título lo identifica como el n.º 10.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Roboco y yo nº 10 está disponible en tapa blanda y Kindle, con 184 páginas de contenido. La edición de Planeta Cómic es rústica sin solapas y con sobrecubierta, mientras que Kindle permite leer el manga en formato digital, con un tamaño de visualización dependiente del dispositivo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "73f719cc456500d0",
+  "origen": "chatgpt-web"
+}

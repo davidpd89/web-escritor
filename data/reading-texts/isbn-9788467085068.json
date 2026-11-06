@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "España. 50 años después, de William Chislett, se dirige a lectores interesados en la política española, la Transición y los cambios sociales desde la dictadura franquista. Su enfoque histórico y de actualidad se aparta de la ficción y de los relatos centrados en personajes inventados. El eje de lectura es la evolución de la democracia española.",
+      "texto": "España. 50 años después se dirige a lectores interesados en la historia política reciente de España y en la evolución de sus instituciones democráticas. Su recorrido por los cambios sociales desde la Transición encaja menos con quien busca una novela de ficción o un estudio centrado exclusivamente en la actualidad inmediata.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "España. 50 años después plantea un balance político y social de España desde la Transición hasta la democracia actual. William Chislett toma como referencia las elecciones del 15 de junio de 1977 y aporta su experiencia como antiguo corresponsal de The Times en España. El contenido relaciona los cambios históricos con la situación del país cincuenta años después.",
+      "texto": "España. 50 años después es una obra de actualidad y análisis político que revisa la transformación española desde el final de la dictadura franquista. William Chislett combina el balance histórico con su experiencia como corresponsal y observador de la Transición, tomando las elecciones del 15 de junio de 1977 como referencia temporal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,29 +23,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "España. 50 años después tiene una edición en tapa blanda, con solapas, publicada por Editorial Espasa. Sus 304 páginas ofrecen el análisis en un único volumen físico, que permite volver a fechas y pasajes durante la lectura. El texto está en castellano y la encuadernación es rústica.",
+      "texto": "España. 50 años después se publica en tapa blanda con solapas, una presentación física apropiada para consultar distintos momentos de la historia reciente española. Sus 304 páginas ofrecen una extensión concreta para quien prefiera leer y subrayar en papel el análisis de William Chislett.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "autores",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "España. 50 años después puede compararse con El estado del Estado por su atención a la realidad política y social española. William Chislett examina los cambios desde la Transición, mientras que Enrique López López propone una reflexión sobre la polarización y la incertidumbre actuales. Frente a Nada es lo que era, centrado en el orden global, el análisis de William Chislett tiene un ámbito nacional.",
+      "texto": "El estado del Estado, de Enrique López López, comparte con España. 50 años después el interés por la situación política española, aunque plantea una reflexión sobre el presente frente al balance histórico de William Chislett. Crónica de un desafío al Estado, de Javier Alberto Zaragoza Aguado, se concentra en el conflicto catalán y el Procés, mientras España. 50 años después abarca una transformación nacional más extensa.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423441013",
-        "isbn-9788467083729"
+        "isbn-9788423441303",
+        "isbn-9788423441013"
       ]
     }
   ],

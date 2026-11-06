@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tu mejor medicina eres tú, de Javier Dols Juste, se dirige a lectores interesados en mejorar sus hábitos de salud y comprender cómo influyen las decisiones cotidianas en el bienestar. Desde la experiencia médica en Atención Primaria, ofrece explicaciones y herramientas prácticas para el autocuidado. Su enfoque es general, por lo que se diferencia de los libros dedicados a una enfermedad o un aspecto nutricional concreto.",
+      "texto": "Tu mejor medicina eres tú, de Javier Dols Juste, se dirige a lectores interesados en mejorar sus hábitos de salud mediante explicaciones médicas y herramientas de uso cotidiano. Su planteamiento es divulgativo y práctico, por lo que se diferencia de los testimonios personales y de los libros centrados en una sola enfermedad.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,19 +14,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tu mejor medicina eres tú se publica en tapa blanda con solapas, en una edición de Zenith de 416 páginas. El formato físico permite consultar sus explicaciones y herramientas de autocuidado, marcar apartados y regresar a ellos sin depender de un dispositivo electrónico. Por su extensión, conviene contar con un volumen de papel considerable si se pretende llevarlo habitualmente fuera de casa.",
+      "texto": "La tapa blanda de Tu mejor medicina eres tú contiene 416 páginas en una edición rústica con solapas de Zenith, apropiada para consultar sus explicaciones en papel. Kindle permite acceder al contenido desde el móvil o un lector electrónico y evita transportar el volumen físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "numero_paginas",
         "edicion",
         "editorial",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tu mejor medicina eres tú comparte con Cómo no tener diabetes y La fibra es la solución el interés por la prevención y el cuidado de la salud. Javier Dols Juste aborda el bienestar cotidiano desde una perspectiva médica general, mientras Adrián Díaz Alonso se centra en la diabetes. Kristen Stavridis delimita aún más el tema al consumo de fibra y sus posibles beneficios, incluida la reducción de la inflamación y la prevención de enfermedades.",
+      "texto": "Tu mejor medicina eres tú y Cómo no tener diabetes tratan cuestiones relacionadas con la salud, aunque difieren en su alcance. Javier Dols Juste aborda el cuidado cotidiano desde una perspectiva médica general, mientras que Adrián Díaz Alonso centra su libro en la diabetes; el primero plantea un marco amplio y el segundo delimita una enfermedad concreta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -35,13 +34,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425373152",
-        "isbn-9788425374869"
+        "isbn-9788425373152"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ea190fd0df7701a6",
+  "fuente_hash": "f45073cd7a004b04",
   "origen": "chatgpt-web"
 }

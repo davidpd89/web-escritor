@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791388215292",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Bronka! se dirige a lectores de narrativa contemporánea interesados en la amistad adolescente, la memoria y los conflictos políticos de los años noventa. No se limita a una reconstrucción realista de los disturbios: Pablo Loperena López introduce sucesos extraños y recuerdos contradictorios que ponen en cuestión lo ocurrido durante una noche en Iruñea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una narración sobre la amistad y el paso del tiempo construida alrededor de recuerdos que no coinciden. Ambientada en Iruñea durante los años noventa, combina tensiones políticas, decisiones adolescentes y acontecimientos que parecen alterar las reglas habituales de la realidad, mientras los protagonistas intentan reconstruir aquella noche décadas después.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Txalaparta está disponible en tapa blanda, con 210 páginas en castellano. Es un volumen de papel manejable para seguir las distintas versiones de aquella noche y los encuentros posteriores de los amigos, sin necesitar un dispositivo de lectura electrónica.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "97084b267225867a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791387905309",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Qué hago, ¿me mato? se dirige a lectores adultos que buscan humor crítico sobre la convivencia, el comportamiento social y el hartazgo cotidiano. Marc Biarnés recurre a la exageración y al sarcasmo para expresar su rechazo a determinadas conductas. No encaja con quien busque un manual de desarrollo personal de tono sereno o ejercicios de reflexión estructurados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Qué hago, ¿me mato? está disponible en tapa blanda y Kindle, con una extensión de 288 páginas. La edición impresa de Roca Editorial incorpora solapas y permite leer sin pantalla; Kindle facilita llevar el texto en el móvil o en un lector electrónico. Ambos formatos corresponden a una obra de humor dirigida al público adulto.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "categorias",
+        "edad_recomendada"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Qué hago, ¿me mato? comparte con Mortadeluxe, de Francisco Ibáñez, el uso del humor, aunque Marc Biarnés se centra en la irritación ante la sociedad y Mortadeluxe presenta las peripecias festivas de Mortadelo y Filemón. Frente a El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados, de Modesto García, cambia el misterio recreativo por una mirada sarcástica a la convivencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040740",
+        "isbn-9788402432063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1121b2b95607ff25",
+  "origen": "chatgpt-web"
+}

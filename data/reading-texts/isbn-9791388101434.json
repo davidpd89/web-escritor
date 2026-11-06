@@ -1,0 +1,37 @@
+{
+  "id": "isbn-9791388101434",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Whispering you a Love Song nº 10 encaja con lectores de cómic que siguen historias de relaciones personales, música y vida escolar. El conflicto entre Aki y Shiho gira alrededor de sentimientos que todavía necesitan aclararse; quien busque una aventura centrada en la acción encontrará aquí otro tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una entrega de cómic ambientada en un instituto, donde conviven los preparativos académicos y los proyectos musicales. Mientras unas estudiantes afrontan los exámenes, otras trabajan para ofrecer su propio concierto; la relación entre Aki y Shiho introduce un conflicto sentimental tras su reconciliación.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Whispering you a Love Song nº 10 está disponible en tapa blanda, con 176 páginas y una encuadernación rústica sin solapas y con sobrecubierta. Es la opción física para conservar esta entrega de la colección, prestarla o incorporarla a una estantería de cómics.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e52200a200b62efe",
+  "origen": "chatgpt-web"
+}

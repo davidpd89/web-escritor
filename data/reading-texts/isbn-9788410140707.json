@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tinderella encaja con lectores de narrativa contemporánea interesados en las relaciones familiares, las diferencias entre hermanas y el peso de las apariencias sociales. La historia de Ella Tacón de Aguja dentro de una familia aristocrática centrada en la imagen se aleja de las lecturas que buscan mundos fantásticos o aventuras sobrenaturales.",
+      "texto": "Tinderella se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares, las citas y los conflictos de identidad. La historia presenta a una mujer que ha crecido a la sombra de sus hermanas en una familia aristocrática preocupada por la belleza y el lujo. Encaja menos con quienes buscan relatos centrados en aventuras o mundos fantásticos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Tinderella propone una novela contemporánea sobre identidad, relaciones familiares y expectativas sociales. Inés DMiguel sitúa a Ella Tacón de Aguja en una familia aristocrática donde la belleza, el lujo y la notoriedad de sus hermanas condicionan su posición. Las citas y las mentiras forman parte del conflicto anunciado.",
+      "texto": "Tinderella, de Inés DMiguel, es una novela contemporánea sobre las tensiones familiares y la identidad personal. Ella Tacón de Aguja ocupa una posición secundaria frente a sus hermanas, Marlene y Olivia, dentro de una familia aristocrática que concede gran importancia a la imagen pública. Las citas y las mentiras añaden conflictos a esa situación familiar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,19 +23,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tinderella está disponible en tapa blanda, en una edición rústica con solapas de NdeNovela. Sus 608 páginas forman un volumen extenso de narrativa contemporánea; el formato físico permite mantener toda la novela reunida en papel, aunque exige transportar un libro de considerable extensión.",
+      "texto": "Tinderella está disponible en tapa blanda y Kindle. La edición rústica con solapas de NdeNovela tiene 608 páginas y permite conservar la novela en papel; Kindle evita cargar con un volumen de esa extensión y facilita continuar la lectura desde el móvil. La elección depende de si se prefiere un ejemplar físico o digital.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "editorial",
         "numero_paginas",
-        "categorias"
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b80b2de569b37cd1",
+  "fuente_hash": "88e24558384f881c",
   "origen": "chatgpt-web"
 }

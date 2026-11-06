@@ -1,0 +1,61 @@
+{
+  "id": "isbn-9791387901868",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pesadilla antes de Navidad. La sombra sobre la reina de Halloween se dirige a lectores juveniles desde los 12 años interesados en la fantasía, las aventuras y los conflictos entre personajes conocidos. Su trama de amenazas pendientes y enfrentamientos con un villano se aleja de las lecturas realistas o centradas en situaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "La edad recomendada para Pesadilla antes de Navidad. La sombra sobre la reina de Halloween es a partir de 12 años. La historia incorpora un reino oscuro, un enemigo peligroso y una amenaza contra la ciudad de Halloween, elementos que pueden inquietar a lectores sensibles a los escenarios sombríos y al peligro.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela juvenil de fantasía y aventuras construida alrededor de un conflicto que continúa abierto después de anteriores amenazas. Sally ocupa el centro de la acción como reina de la ciudad de Halloween, mientras la búsqueda de un adversario todavía libre sostiene la tensión de la historia.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Pesadilla antes de Navidad. La sombra sobre la reina de Halloween reúne 416 páginas en una edición rústica con solapas, apropiada para conservar físicamente o regalar. Kindle permite llevar la misma lectura en un dispositivo compatible y ajustar la presentación del texto sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Disney. Alas de estrella comparte con la historia de Sally la fantasía de Disney, pero aborda una elección entre el deber y los sentimientos en lugar de la persecución de un enemigo. Disney. Alas de ensueño también presenta magia y un reino amenazado, aunque se centra en las hadas, mientras Megan Shepherd sitúa el conflicto en la ciudad de Halloween.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387901813",
+        "isbn-9791387526320"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ce5c5ec9df8cbfde",
+  "origen": "chatgpt-web"
+}

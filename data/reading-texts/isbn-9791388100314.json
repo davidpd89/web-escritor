@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388100314",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Star Wars: Caballeros Jedi nº 02 se dirige a lectores de cómic interesados en las investigaciones y los peligros que afronta la Orden Jedi. Su trama gira alrededor de una muerte violenta y nuevas amenazas, por lo que se aleja de las historias centradas en aventuras sin misterio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El eje de esta entrega es un crimen que pone en peligro a los integrantes de la Orden Jedi. Fondar Etzis aparece muerto y tres caballeros reciben el encargo de recuperar su cuerpo, mientras surge la posibilidad de que haya más víctimas. Marc Guggenheim presenta este conflicto en formato de cómic, con 136 páginas que recopilan cinco entregas de la serie.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Star Wars: Caballeros Jedi nº 02 es de tapa dura en cartoné, con 136 páginas en castellano. Su encuadernación rígida permite conservar juntos los números recopilados y resulta adecuada para guardar el volumen en una colección física de cómics.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "86c351ecd41ff405",
+  "origen": "chatgpt-web"
+}

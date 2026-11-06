@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788411326513",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Enciclopedia de plantas medicinales y fitoterapia está dirigida a quienes buscan una obra de consulta sobre plantas, remedios tradicionales y sus aplicaciones terapéuticas. Josep Lluís Berdonces incorpora datos sobre componentes activos, contraindicaciones y toxicidad, por lo que su contenido va más allá de una recopilación de preparaciones caseras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Enciclopedia de plantas medicinales y fitoterapia está disponible en tapa dura y Kindle. La edición impresa de 304 páginas permite consultar las fichas visuales de las 330 plantas y conservar el volumen como referencia; Kindle ofrece acceso digital a las descripciones, los usos y las indicaciones de seguridad desde un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Enciclopedia de plantas medicinales y fitoterapia y 5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro, comparten el ámbito del bienestar, aunque la primera funciona como repertorio de plantas y preparaciones, mientras que la segunda plantea una transformación personal vinculada a la inflamación. Frente a Cáncer con brújula, de Elisa Molina Buendía, centrado en un diagnóstico de cáncer, la enciclopedia organiza conocimientos sobre fitoterapia y seguridad de uso.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390",
+        "isbn-9788441445321"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d6a4266f8b693bcf",
+  "origen": "chatgpt-web"
+}

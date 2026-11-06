@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788466379021",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La curación por el espíritu se dirige a lectores adultos interesados en la historia de la psicología y las relaciones entre mente, enfermedad y creencias. Stefan Zweig aborda estas cuestiones mediante tres figuras históricas, por lo que su enfoque biográfico se aleja de los manuales de desarrollo personal basados en ejercicios y consejos prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de La curación por el espíritu reúne 400 páginas en formato de bolsillo, apropiado para transportar y consultar pasajes concretos. Kindle permite llevar el ensayo en un lector electrónico o en el móvil, sin cargar con el volumen físico. Ambas opciones mantienen el acceso a una obra de carácter biográfico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La curación por el espíritu y El día que lo fuimos todo se relacionan por su interés en la experiencia humana y los cambios personales. Stefan Zweig examina las ideas sobre la curación a través de personajes históricos, mientras que Ángel Martín plantea una historia sobre acontecimientos que transforman la vida. El primero adopta una perspectiva ensayística y biográfica; el segundo, narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408327134"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c03479d3451db634",
+  "origen": "chatgpt-web"
+}

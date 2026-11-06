@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370310431",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Muerte en Venecia se orienta a lectores de narrativa contemporánea interesados en los conflictos interiores, la fascinación estética y sus consecuencias. Thomas Mann presenta a un hombre cuya disciplina personal se ve alterada por una atracción obsesiva; no es una historia centrada en la acción ni en la resolución de un misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Muerte en Venecia propone una narración de conflicto psicológico ambientada en Venecia en 1911. Su eje es el deterioro de las convicciones de un hombre que pierde el control ante la belleza y el deseo, con una tensión que nace de su propia transformación. La obra aborda la obsesión y la pérdida desde una perspectiva íntima.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Muerte en Venecia se ofrece en tapa dura y Kindle. La edición física de RBA Libros tiene 128 páginas, por lo que combina una extensión breve con una encuadernación rígida para conservarla o regalarla; Kindle permite llevar el texto en el móvil o en un lector electrónico y continuar la lectura sin el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "15161f87672b170e",
+  "origen": "chatgpt-web"
+}

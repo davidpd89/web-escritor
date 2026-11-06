@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791370342654",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dinosaurios está dirigido al público infantil que disfruta coloreando y colocando pegatinas. Sus actividades giran alrededor de figuras de dinosaurios, por lo que encaja con el juego creativo sobre papel y no con quien busca una narración continuada o un libro de divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Dinosaurios se utiliza coloreando las ilustraciones y completándolas con las pegatinas incluidas. Cada lámina permite intervenir directamente sobre el papel, de modo que la actividad consiste en combinar colores y elementos adhesivos para decorar las figuras. El libro reúne 64 páginas dedicadas a este tipo de juego.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dinosaurios se presenta en tapa blanda, un formato físico que permite pintar sus láminas y pegar los adhesivos sobre ellas. La edición de Susaeta Ediciones tiene 64 páginas y está pensada para manipular el contenido directamente, en lugar de limitarse a leerlo en una pantalla.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dinosaurios y Colores son libros infantiles de Ediciones Susaeta que proponen interactuar físicamente con sus páginas. Dinosaurios utiliza láminas para pintar y pegatinas para decorar, mientras que Colores se centra en el brillo, los colores y las sensaciones táctiles de cada página. El primero plantea una actividad manual; el segundo, una exploración sensorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370342043"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "44c26ded8b9bc258",
+  "origen": "chatgpt-web"
+}

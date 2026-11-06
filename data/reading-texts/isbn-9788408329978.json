@@ -1,0 +1,61 @@
+{
+  "id": "isbn-9788408329978",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MOBS: La vida secreta de los monstruos de Minecraft. Cómic 1 está dirigido a lectores de 6 a 8 años que disfrutan de Minecraft, las criaturas del juego y el humor gráfico. Frigiel presenta situaciones cómicas protagonizadas por monstruos, un enfoque distinto al de los libros que desarrollan una aventura larga o explican estrategias para jugar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada para MOBS: La vida secreta de los monstruos de Minecraft. Cómic 1 es de 6 a 8 años. Tiene 48 páginas, está escrito en castellano y se publica en tapa dura de cartón, con una propuesta de cómic infantil basada en 44 situaciones humorísticas relacionadas con las criaturas de Minecraft.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "MOBS: La vida secreta de los monstruos de Minecraft. Cómic 1 se ofrece en tapa dura, con encuadernación de cartón. Sus 48 páginas forman un volumen breve de humor gráfico, con cubierta rígida para protegerlo durante las lecturas repetidas y un tamaño de contenido manejable para lectores de 6 a 8 años.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias",
+        "edad_recomendada"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MOBS: La vida secreta de los monstruos de Minecraft. Cómic 1 comparte con Capitán Patata 2 - Quietecito o te dejo frito el humor disparatado y las aventuras breves, aunque Frigiel se centra en los monstruos de Minecraft y Neil Coslett en un superhéroe. Piratix. Primeras lecturas 2 - El banquete del Kraken también incorpora criaturas extraordinarias, pero Magicbox desarrolla un conflicto de aventuras relacionado con una moneda y un barco legendario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427254985",
+        "isbn-9788448874834"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "256d6178be76757e",
+  "origen": "chatgpt-web"
+}

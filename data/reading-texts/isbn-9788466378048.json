@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788466378048",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Soy como como se dirige a adultos que quieren revisar sus hábitos alimentarios y desarrollar criterios propios sobre nutrición. Núria Coll plantea reflexiones y consejos frente a las dietas de moda, de modo que su enfoque se distingue del de los libros centrados en recetas o planes de comidas cerrados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Soy como como cuenta con una edición de bolsillo de 200 páginas y una versión Kindle. El formato físico permite subrayar y consultar sus reflexiones sobre alimentación en papel, mientras que Kindle facilita llevar el texto en el móvil y recuperar sus consejos durante la lectura cotidiana.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Soy como como y La fibra es la solución, de Kristen Stavridis, tratan la alimentación y su relación con la salud, pero Núria Coll se centra en construir un criterio nutricional propio y el otro libro aborda específicamente el consumo de fibra. La revolución de la glucosa: el Método, de Jessie Inchauspé, propone un programa de cuatro semanas con recetas, frente al enfoque reflexivo de Soy como como.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374869",
+        "isbn-9788411191937"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e7ab1c2f3c340785",
+  "origen": "chatgpt-web"
+}

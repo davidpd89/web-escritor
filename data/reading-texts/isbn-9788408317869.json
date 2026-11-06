@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788408317869",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Chile y la Isla de Pascua 9 se dirige a quienes preparan un viaje y prefieren organizar recorridos por su cuenta. Sus mapas, rutas a pie y en coche e itinerarios flexibles responden a necesidades prácticas, no a la búsqueda de una novela de viajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una guía de viajes centrada en la planificación y la exploración del destino. Combina propuestas de recorridos, cartografía detallada y orientaciones para elegir dónde comer o descansar, con alternativas para desplazarse caminando o en coche.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 432 páginas en una edición rústica sin solapas, adecuada para consultar mapas y recorridos en papel. Kindle permite llevar la guía en el móvil y revisar las propuestas de itinerarios sin transportar el volumen físico.",
+      "evidencias": [
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Irlanda 7 comparte con Chile y la Isla de Pascua 9 su orientación viajera, aunque se centra en la música, los castillos y la hospitalidad irlandesa, frente a los itinerarios y rutas del segundo. Japón 2027-2028 también aborda un destino internacional, pero destaca tradiciones, cultura pop y gastronomía en lugar de la planificación de recorridos por Chile y la Isla de Pascua.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408319238",
+        "isbn-9788408323181"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a12b14c6d0982a22",
+  "origen": "chatgpt-web"
+}

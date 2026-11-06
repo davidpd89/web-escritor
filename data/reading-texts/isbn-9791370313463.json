@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791370313463",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amanecer Rojo I Deluxe Edition encaja con lectores de ciencia ficción interesados en sociedades jerarquizadas, luchas por la libertad y conflictos de identidad. Su argumento incluye una competición mortal y violencia ligada a la supervivencia, por lo que se aleja de las historias futuristas centradas en la exploración pacífica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela de ciencia ficción ambientada en Marte, donde una estructura social dividida por colores determina el poder y las oportunidades. Darrow debe ocultar su origen para participar en una competición reservada a los dorados, mientras afronta el conflicto entre sobrevivir y conservar sus principios.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amanecer Rojo I Deluxe Edition se presenta en tapa dura, con 544 páginas en castellano editadas por RBA Libros. La encuadernación rígida resulta apropiada para conservar este volumen extenso en una biblioteca o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amanecer Rojo I Deluxe Edition y Aunque se acabe el mundo comparten escenarios de ciencia ficción donde la humanidad afronta una transformación radical de su realidad. Pierce Brown sitúa el conflicto en una sociedad de castas marciana, mientras que la obra de Clara Duarte parte de una cúpula aparecida sobre la Tierra que altera a parte de la población.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427255968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b35adf07231f38c4",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un día en la vida de Clarita se orienta a lectores adultos de narrativa contemporánea interesados en los cambios personales ligados al trabajo y la jubilación. Quien busque una historia que abarque años encontrará, en cambio, un conflicto concentrado en la última jornada laboral de Clarita.",
+      "texto": "Un día en la vida de Clarita encaja con lectores adultos de narrativa contemporánea interesados en la jubilación, las relaciones laborales y los cambios personales. Su protagonista afronta una última jornada de trabajo marcada por el trato de sus compañeros; no es una historia centrada en aventuras fantásticas ni en una relación romántica.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,28 +14,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Un día en la vida de Clarita es una narración contemporánea que condensa su acción en el último día de trabajo de una empleada de banca. Un suceso imprevisto altera esa rutina y convierte la respuesta de Clarita en un conflicto de afirmación personal, con humor e intriga.",
+      "texto": "Un día en la vida de Clarita es una novela contemporánea de Rosa Montero que concentra su conflicto en la jornada previa a la jubilación de una empleada bancaria. Un incidente altera su rutina y la obliga a tomar una posición distinta ante quienes la rodean, con elementos de humor, tensión psicológica e intriga.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un día en la vida de Clarita se ofrece en tapa blanda con solapas, con 144 páginas en la edición de Alfaguara. Su extensión permite seguir en un volumen físico una historia concentrada en unas pocas horas, sin necesidad de un lector electrónico.",
+      "texto": "Un día en la vida de Clarita ofrece tres opciones: tapa blanda con solapas, Kindle y audiolibro. La edición física tiene 144 páginas y permite conservarla en papel; Kindle facilita leerla en un dispositivo compatible y el audiolibro permite seguir la historia mediante la escucha.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
-        "editorial",
         "numero_paginas",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "437db827d2aa4d02",
+  "fuente_hash": "5e4379bc19b63c88",
   "origen": "chatgpt-web"
 }

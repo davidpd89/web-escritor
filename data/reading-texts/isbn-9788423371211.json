@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788423371211",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La jardinera, de Minyoung Kang, se dirige a quienes buscan suspense criminal contemporáneo con conflictos relacionados con las mujeres y la desaparición de hombres. No responde al esquema de una novela romántica ni al de una historia centrada exclusivamente en una investigación policial convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La jardinera sitúa su misterio en una tienda de plantas de un barrio de Seúl, regentada por Yoohee. El contraste entre ese negocio cotidiano y las desapariciones masculinas introduce un conflicto de justicia y violencia relacionado con las experiencias de varias mujeres.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La jardinera se presenta en tapa blanda, en una edición de 232 páginas con solapas. Este formato permite transportar el volumen sin el peso habitual de una encuadernación rígida y conservar las solapas como protección adicional de la cubierta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La jardinera comparte con Los crímenes del sanatorio (Serie Comisario Reykdal 1) el misterio criminal, aunque cambia el sanatorio y sus cinco sospechosos por una tienda de plantas de Seúl vinculada a desapariciones. Frente a El asesinato de Roger Ackroyd (Edición especial con cantos tintados), de Agatha Christie, desplaza el interés del enigma detectivesco hacia los conflictos de varias mujeres.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083934",
+        "isbn-9788432251399"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a4432b86dd7ac8d",
+  "origen": "chatgpt-web"
+}

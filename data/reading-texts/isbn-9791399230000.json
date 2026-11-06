@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791399230000",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abajo el sistema se dirige a lectores interesados en la trayectoria de Serj Tankian, la música de System of a Down y el activismo político vinculado al rock. Su perspectiva personal y musical encaja menos con quien busca un ensayo teórico desligado de experiencias biográficas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Serj Tankian relata su infancia marcada por la guerra, la emigración familiar y su posterior decisión de dedicarse a la música. El relato relaciona su carrera al frente de System of a Down con el desarrollo de su conciencia política y espiritual, desde una perspectiva autobiográfica.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Abajo el sistema está disponible en tapa blanda y Kindle, dos opciones para leer sus 312 páginas. El papel permite conservar el relato autobiográfico como volumen físico, mientras que Kindle facilita continuar la lectura en distintos momentos desde un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abajo el sistema y Antes de perder el juicio comparten una preocupación por los discursos públicos y las posiciones críticas ante la sociedad. Serj Tankian aborda estas cuestiones desde su experiencia musical y activista, mientras que Mauricio García Villegas se centra en la propaganda, las consignas y la formación de opiniones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a60a0a95c45c64ce",
+  "origen": "chatgpt-web"
+}

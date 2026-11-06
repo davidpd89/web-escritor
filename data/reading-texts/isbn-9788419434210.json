@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788419434210",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Agenda anual semanal 2027 Isa Muguruza está dirigida a quienes quieren organizar sus semanas de 2027 y dedicar espacio al autoconocimiento. Es una agenda de Isa Muguruza, no una novela ni un libro concebido únicamente para leer de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Agenda anual semanal 2027 Isa Muguruza está disponible en tapa dura, con encuadernación de cartoné y 184 páginas. Este formato permite conservar en un mismo volumen la planificación semanal del año y utilizarlo como agenda física sobre el escritorio o llevarlo en el bolso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agenda anual semanal 2027 Isa Muguruza y Citas conmigo misma comparten la autoría de Isa Muguruza y el interés por dedicar tiempo a una misma. La primera organiza el año mediante una agenda semanal; Citas conmigo misma se centra en llevar a cabo planes personales de autocuidado y ocio que suelen aplazarse.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419434289"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "00a2ad6869b8f503",
+  "origen": "chatgpt-web"
+}

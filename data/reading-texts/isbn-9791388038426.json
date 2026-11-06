@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791388038426",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo darle la vuelta a tu felicidad, de Anna Morató García, está dirigido a adultos interesados en comprender sus emociones y revisar los hábitos que influyen en su bienestar. Plantea herramientas mentales y ejemplos mediante metáforas, de modo que se distancia de una novela de ficción o de una lectura centrada exclusivamente en explicaciones teóricas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo darle la vuelta a tu felicidad cuenta con edición en tapa blanda y versión Kindle. Sus 288 páginas en papel, publicadas por Vergara con solapas, permiten marcar las metáforas y los hábitos emocionales que se quieran revisar; Kindle ofrece la posibilidad de consultar esas ideas desde el móvil o un lector digital, sin cargar con el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "90fcd9076bc34282",
+  "origen": "chatgpt-web"
+}

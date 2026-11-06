@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388127250",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Filosofía de la corrida de toros se dirige a lectores interesados en la tauromaquia como problema filosófico, estético y moral. Sus 240 páginas desarrollan argumentos sobre el riesgo, la belleza y la relación entre el ser humano y el toro, por lo que encaja menos con quien busca una historia general del espectáculo taurino.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Francis Wolff estudia la corrida como práctica cultural atravesada por cuestiones éticas y estéticas. Examina la función del rito, la exposición a la muerte y las técnicas del toreo mediante razonamientos filosóficos que incorporan referencias a Kant, Hegel, Spinoza y Nietzsche.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Filosofía de la corrida de toros se presenta en tapa blanda, con 240 páginas en castellano editadas por Athenaica Ediciones. El formato en papel permite consultar de nuevo los distintos argumentos filosóficos y mantener reunido el desarrollo completo del ensayo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Filosofía de la corrida de toros y Hanami coinciden en prestar atención a la belleza, pero Francis Wolff la examina mediante el conflicto taurino y Patricia Benito la aborda desde una expresión personal de supervivencia. Esenciales ofrece otra vía de lectura filosófica: una panorámica de escritos de Simone Weil, frente al estudio concentrado de una sola práctica cultural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629138",
+        "isbn-9788401041723"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6b1593b443f27c5e",
+  "origen": "chatgpt-web"
+}

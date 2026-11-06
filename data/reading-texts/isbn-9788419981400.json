@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419981400",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vidas con nombre está dirigido a lectores adultos interesados en el periodismo de conflictos y sus consecuencias sobre la población civil. Fermín Solís y Almudena Ariza presentan testimonios relacionados con Gaza y Cisjordania mediante una obra de novela gráfica. No responde a quien busque ficción de evasión o una historia desligada de acontecimientos políticos y humanitarios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Vidas con nombre traslada al formato de novela gráfica el trabajo periodístico de Almudena Ariza sobre el conflicto palestino-israelí. Su enfoque parte de experiencias de familias, personal sanitario, periodistas y supervivientes recogidas durante dos años de cobertura. La atención se desplaza de las cifras generales a las personas afectadas por la violencia y la ocupación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vidas con nombre cuenta con una edición de tapa blanda con solapas de 248 páginas, publicada por Salamandra, y una opción Kindle. El papel permite consultar físicamente las páginas de esta novela gráfica, mientras que Kindle ofrece acceso digital desde un dispositivo compatible. La elección afecta especialmente a la forma de visualizar y recorrer una obra gráfica.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "219a9d6c6f0041d1",
+  "origen": "chatgpt-web"
+}

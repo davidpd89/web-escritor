@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9788408326144",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Campus Drivers 2. Novio perfecto se dirige a lectores de romance juvenil interesados en relaciones universitarias y personajes que deben afrontar las consecuencias de su comportamiento sentimental. Su conflicto gira alrededor de Donovan y su manera de relacionarse con los demás, por lo que se distancia de las novelas centradas en misterios o aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela romántica juvenil ambientada en el entorno universitario, con un protagonista que empieza a cuestionar su historial amoroso. El conflicto nace del contraste entre la reputación de Donovan y su creciente conciencia del daño causado. El título la identifica como la entrega n.º 2 de Campus Drivers.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición física de Crossbooks es una rústica con solapas de 416 páginas, destinada a quienes prefieren leer en papel o conservar los volúmenes de la serie. La versión Kindle permite llevar la novela en un dispositivo sin transportar el ejemplar físico. Ambas opciones mantienen la elección entre lectura tradicional y digital.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3081f7ec658c9d65",
+  "origen": "chatgpt-web"
+}

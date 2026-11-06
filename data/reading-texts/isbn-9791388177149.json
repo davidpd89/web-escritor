@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388177149",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Jane Austen Citas está pensado para lectores interesados en las frases literarias de Jane Austen y en sus novelas de época. Max Morris reúne pasajes de varias obras conocidas; quien busque una novela completa o un estudio histórico desarrollado encontrará aquí una selección de citas, no esos formatos de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Jane Austen Citas presenta una recopilación de pasajes literarios procedentes de seis novelas de Jane Austen: Emma, Persuasión, Mansfield Park, Orgullo y prejuicio, Sentido y sensibilidad y La abadía de Northanger. El volumen permite acercarse a su escritura mediante fragmentos escogidos, en lugar de seguir una narración completa. La edición impresa añade pegatinas personalizadas como complemento.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Jane Austen Citas está disponible en tapa dura y Kindle. La edición física de Editorial Reverté se presenta como un volumen breve para regalar y contiene una hoja de pegatinas; Kindle permite consultar las citas en formato digital sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Jane Austen Citas y AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA se relacionan con figuras literarias, pero ofrecen aproximaciones distintas: Max Morris presenta citas de novelas, mientras que Juan Carlos García de Polavieja aborda una investigación biográfica. Frente a CORONA AUTORITARIA, LA, dedicada a las relaciones entre monarquía y nacionalismo español, Jane Austen Citas se concentra en fragmentos de ficción literaria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933",
+        "isbn-9788419892782"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e68bd8b4716e4455",
+  "origen": "chatgpt-web"
+}

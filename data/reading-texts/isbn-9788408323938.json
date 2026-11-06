@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788408323938",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Spooky love está dirigido a lectores desde los 16 años interesados en la fantasía juvenil, la brujería y los seres sobrenaturales. Su ambientación mágica y la presencia de un demonio lo distancian de las historias juveniles realistas, aunque su propuesta de lectura diaria hasta Halloween aporta un componente estacional.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Spooky love tiene una edad recomendada a partir de 16 años y combina fantasía juvenil con elementos sobrenaturales. La historia presenta una bruja, un gato que resulta ser un demonio y un entorno donde la magia es habitual, aspectos que conviene considerar para lectores sensibles a las criaturas demoníacas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Spooky love propone una historia de fantasía juvenil ambientada en Pleasant Grove, un pueblo donde la magia forma parte de la vida cotidiana. Willow es una bruja que se encuentra con un gato negro que en realidad es un demonio atrapado. La edición incorpora capítulos sellados para abrir uno cada día hasta Halloween, lo que permite distribuir la lectura siguiendo ese calendario.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas de Spooky love contiene 344 páginas y permite disfrutar físicamente de la apertura progresiva de los capítulos sellados hasta Halloween. Kindle ofrece la lectura electrónica del título para llevarlo en el móvil o en un lector digital, mientras que el ejemplar impreso conserva el componente material de esa propuesta.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "12bc32db5a5ee643",
+  "origen": "chatgpt-web"
+}

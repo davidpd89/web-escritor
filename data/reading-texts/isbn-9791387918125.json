@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791387918125",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Super Princesa Unicornio nº 02 se dirige al público infantil que busca cómics de superhéroes con humor y aventuras. La historia de Mike Hartigan gira alrededor de una heroína que protege Ciudad Horizonte y de su rivalidad con Leona Linus, por lo que se aleja de las narraciones realistas sin elementos superheroicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Super Princesa Unicornio nº 02 es una novela gráfica infantil de aventuras superheroicas con un conflicto entre la protagonista y Leona Linus. La acción se sitúa en Ciudad Horizonte, donde la heroína debe mantener la seguridad mientras su adversaria persigue un premio. La descripción editorial identifica esta obra como la segunda entrega de la serie.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Super Princesa Unicornio nº 02 está disponible en tapa blanda y Kindle. La edición física de Planeta Cómic presenta 192 páginas en rústica con solapas, mientras que Kindle permite consultar la novela gráfica en formato digital desde un dispositivo compatible. La elección depende de si se prefiere conservar el cómic en papel o leerlo en pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Super Princesa Unicornio nº 02 comparte con Capitán Patata 2 - Quietecito o te dejo frito el protagonismo de superhéroes y el humor infantil. Mike Hartigan presenta una aventura centrada en una heroína y su rival, mientras que Neil Coslett reúne cinco miniaventuras de un héroe acompañado por sus amigos. Frente a ambos, LEGO® Ninjago - El dragón Riyu, de Matt Piper, plantea una persecución de dragones y el aprendizaje del vuelo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427254985",
+        "isbn-9780241837993"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c50d38ded5c14279",
+  "origen": "chatgpt-web"
+}

@@ -4,47 +4,44 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Manifiesto por otra economía y otra política se dirige a lectores interesados en el pensamiento político, la organización económica y las desigualdades sociales. Su enfoque ensayístico y su crítica del capitalismo lo alejan de las obras que se limitan a explicar conceptos económicos sin debatir sus consecuencias éticas y políticas.",
+      "texto": "Manifiesto por otra economía y otra política se dirige a lectores interesados en las relaciones entre capitalismo, democracia y justicia social. Es un ensayo de 352 páginas centrado en el análisis económico y político, por lo que no responde a quien busca una narración de ficción o un manual de finanzas personales.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Manifiesto por otra economía y otra política examina la relación entre desarrollo económico, poder político y bienestar colectivo desde una perspectiva crítica. Emanuele Felice recorre transformaciones históricas desde la Revolución Industrial y analiza problemas como la desigualdad y el cambio climático. Su propuesta defiende una economía orientada por la democracia, la sostenibilidad y la justicia social.",
+      "texto": "Emanuele Felice examina cómo las decisiones políticas y los sistemas económicos condicionan el reparto de recursos y el bienestar colectivo. Combina una perspectiva histórica desde la Revolución Industrial con cuestiones actuales como la desigualdad y el cambio climático, y plantea alternativas basadas en la intervención democrática y la sostenibilidad.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Manifiesto por otra economía y otra política puede adquirirse en tapa blanda o en Kindle. La edición impresa de Editorial Anagrama tiene 352 páginas y permite consultar pasajes directamente sobre papel; Kindle ofrece una versión digital para transportar el ensayo y leerlo en dispositivos compatibles.",
+      "texto": "La tapa blanda permite consultar y subrayar físicamente las 352 páginas de Manifiesto por otra economía y otra política. La edición Kindle facilita llevar el ensayo en el móvil y localizar pasajes durante una lectura centrada en argumentos económicos, históricos y políticos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Manifiesto por otra economía y otra política comparte con Cómo ganar una guerra comercial el análisis de las reglas que condicionan la economía. Emanuele Felice plantea una transformación del modelo de desarrollo, mientras que Soumaya Keynes y Chad P. Bown se centran en los conflictos comerciales internacionales. También se relaciona con Manifiesto contra la intolerancia, de Rafael Narbona, por su preocupación política, aunque este último aborda específicamente el fascismo contemporáneo.",
+      "texto": "Manifiesto por otra economía y otra política comparte con Los pilares de la historia el interés por interpretar las crisis contemporáneas, pero Emanuele Felice se concentra en las estructuras económicas y sus consecuencias políticas. Frente a Manifiesto contra la intolerancia, centrado en la persistencia del fascismo, aborda un campo más amplio de desigualdad, desarrollo y democracia.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9791388139055",
-        "isbn-9788423441051"
+        "isbn-9788430629664",
+        "isbn-9791388139055"
       ]
     }
   ],

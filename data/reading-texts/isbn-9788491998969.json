@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788491998969",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La creación de un mundo aparte se dirige a lectores de historia interesados en las élites económicas y su influencia sobre el desarrollo urbano y social. Su estudio de familias barcelonesas entre 1714 y 1919 encaja menos con quienes buscan una novela histórica protagonizada por personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La creación de un mundo aparte analiza la formación, consolidación y declive de una élite económica entre 1714 y 1919. Jose Miguel Sanjuan Marroquin reconstruye las trayectorias de ochenta familias barcelonesas y su influencia en los ámbitos económico, urbano y social, con un enfoque histórico centrado en las relaciones de poder.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La creación de un mundo aparte está disponible en tapa blanda, con encuadernación rústica con solapas y 320 páginas. Esta edición permite consultar en papel el estudio de las ochenta familias barcelonesas y volver a sus distintos periodos históricos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La creación de un mundo aparte y CORONA AUTORITARIA, LA estudian las relaciones de poder desde una perspectiva histórica. Jose Miguel Sanjuan Marroquin analiza la evolución de la élite económica barcelonesa a través de ochenta familias, mientras que Guillermo María Muñoz examina los vínculos entre la monarquía y el nacionalismo español durante la dictadura de Primo de Rivera.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419892782"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "14d7c1c5312ea226",
+  "origen": "chatgpt-web"
+}

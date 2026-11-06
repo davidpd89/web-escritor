@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788436282641",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Metafísica está dirigida a lectores que buscan un estudio filosófico de la realidad, el conocimiento, la acción humana y el sentido de la existencia. Su tratamiento sistemático de distintas corrientes de pensamiento exige interés por los conceptos teóricos; no responde al planteamiento de una guía práctica de bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Francisco José Martínez Martínez examina cinco problemas filosóficos: la materia, la racionalidad, la acción, el mal y el significado de la existencia. Su análisis relaciona las preguntas sobre el ser con las consecuencias sociales de la actividad humana y recurre a tradiciones positivistas, pragmatistas, marxianas y existenciales para contrastar sus respuestas.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Metafísica está editado en tapa blanda y tiene 485 páginas. El volumen físico permite trabajar con un texto filosófico extenso, marcar conceptos y regresar a los apartados dedicados a las distintas corrientes de pensamiento durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Metafísica y Bobadas, de Javier Urra Portillo y Cristina González Reche, coinciden en plantear preguntas sobre la existencia humana. Bobadas parte de las preocupaciones y los estímulos cotidianos para revisar prioridades; Metafísica desarrolla una investigación conceptual sobre el ser, la acción y el sentido mediante distintas tradiciones filosóficas.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426741622"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4b7ccbac374bd309",
+  "origen": "chatgpt-web"
+}

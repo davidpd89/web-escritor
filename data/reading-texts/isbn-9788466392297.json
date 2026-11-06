@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788466392297",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos completos (edición especial en tapa dura) está dirigido a lectores adultos interesados en la narrativa breve y la literatura del siglo XX. Sus relatos trabajan con laberintos, bibliotecas, identidades y situaciones intelectuales, por lo que encaja menos con quien busque una única historia lineal y prolongada.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Cuentos completos (edición especial en tapa dura) reúne la narrativa breve de Jorge Luis Borges en un solo volumen. Los relatos recurren a espejos, bibliotecas, máscaras y laberintos para construir situaciones literarias diferentes, con piezas como El Aleph y El Sur dentro del conjunto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Cuentos completos (edición especial en tapa dura) reúne 560 páginas en un volumen de cubierta rígida publicado por Penguin Bolsillo. Su carácter especial reside en la presentación en tapa dura y en la recopilación conjunta de los cuentos de Jorge Luis Borges, en castellano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuentos completos (edición especial en tapa dura) se ofrece en tapa dura, con 560 páginas que reúnen los relatos de Jorge Luis Borges. La cubierta rígida resulta práctica para conservar el volumen y consultarlo repetidamente, mientras que su extensión permite alternar cuentos sin seguir una novela continua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9850670757986132",
+  "origen": "chatgpt-web"
+}

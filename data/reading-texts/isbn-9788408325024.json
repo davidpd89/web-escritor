@@ -1,0 +1,63 @@
+{
+  "id": "isbn-9788408325024",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Detectograms: El topo que se infiltró está dirigido a lectores de 9 a 12 años interesados en los misterios y en descifrar códigos durante una historia. La presencia de acertijos entre capítulos lo diferencia de una aventura de lectura continua, por lo que encaja menos con quienes prefieren seguir la trama sin detenerse a resolver pruebas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "La lectura avanza mediante capítulos breves que incorporan acertijos relacionados con el misterio. El lector debe intentar resolverlos conforme progresa la investigación de un robo de arte, alternando la comprensión de la historia con la búsqueda de soluciones a las pruebas.",
+      "evidencias": [
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Detectograms: El topo que se infiltró está destinado a lectores de 9 a 12 años y consta de 224 páginas en castellano. La edición de Planeta Junior se presenta en rústica sin solapas y combina una narración de intriga con desafíos de resolución de códigos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Detectograms: El topo que se infiltró se ofrece en tapa blanda y Kindle. Sus 224 páginas pueden consultarse en papel para volver a los acertijos mientras se investiga, o leerse en formato digital desde un dispositivo compatible, manteniendo la combinación de historia y pruebas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Detectograms: El topo que se infiltró y Abre el misterio 1 - El robo de las croquetas comparten una investigación relacionada con un robo. El libro de Tim Collins incorpora acertijos y códigos dentro de la narración, mientras que el de Carlos G. Gurpegui parte de la desaparición de unas croquetas; ambos plantean misterios con objetos robados diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b2964fb366808553",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788427734081",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La aventura de educar se dirige a padres, docentes y personas vinculadas a la formación que buscan reflexionar sobre su responsabilidad educativa. Aunque figura entre las aventuras, su contenido se centra en experiencias profesionales, valores y relaciones humanas, no en una trama de acción o misterio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La aventura de educar propone una lectura reflexiva construida a partir de experiencias en la enseñanza, la gestión educativa y la vida familiar. Juan Antonio Gomez Trinidad aborda la relación entre generaciones, la transmisión cultural y las decisiones morales mediante textos vinculados a situaciones cotidianas, en lugar de desarrollar una aventura ficticia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La aventura de educar puede leerse en tapa blanda o Kindle. Sus 224 páginas en papel permiten señalar reflexiones y volver a ellas durante el trabajo educativo; la versión Kindle permite consultar el contenido desde un lector electrónico o un móvil sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La aventura de educar y Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, presentan planteamientos muy distintos pese a su proximidad en el catálogo. El segundo parte de una desaparición que desencadena un misterio; el libro de Juan Antonio Gomez Trinidad utiliza experiencias educativas para examinar responsabilidades, valores y convivencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26bba24a551e6591",
+  "origen": "chatgpt-web"
+}

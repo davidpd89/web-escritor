@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388139369",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los ricos siempre ganan se dirige a lectores interesados en las decisiones empresariales, la relación con el dinero y los hábitos de actuación de personas con grandes patrimonios. Su enfoque sobre responsabilidad, ambición y conducta personal se distancia de los manuales que buscan únicamente instrucciones para invertir o cálculos financieros.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Iñaki Arcocha Torres plantea una lectura de economía y empresa basada en experiencias de asesoramiento a grandes patrimonios. Examina patrones de comportamiento ante el riesgo, los errores y las decisiones difíciles, combinando historias profesionales con reflexiones sobre responsabilidad individual y acción.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los ricos siempre ganan se ofrece en tapa blanda, con 240 páginas en castellano publicadas por Roca Editorial. El volumen impreso permite subrayar las observaciones sobre decisiones y comportamiento, consultar pasajes anteriores y conservar las anotaciones junto al texto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Domina el arte de los negocios comparte con Los ricos siempre ganan el interés por las conductas relacionadas con el éxito profesional, aunque Brian Tracy se centra en enseñar habilidades empresariales y Iñaki Arcocha Torres analiza patrones observados al asesorar patrimonios. Deja de regalar tu dinero aborda también las decisiones económicas, pero David Jiménez se ocupa de contratos, trámites y ahorro cotidiano en lugar de las actitudes ante el riesgo y la ambición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139567",
+        "isbn-9788466390514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ca1ee666df775045",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788423441174",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La economía del cambio climático encaja con lectores interesados en las consecuencias económicas de las políticas medioambientales. Su perspectiva sobre sostenibilidad y prosperidad se aleja de una novela de ficción y de una lectura dedicada únicamente a los efectos naturales del calentamiento global.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La economía del cambio climático plantea una reflexión económica sobre las decisiones necesarias ante el calentamiento global. Rafael Doménech Vilariño y Javier Angel Andrés Domingo examinan la relación entre protección ambiental y prosperidad, cuestionando que ambas deban entenderse como objetivos incompatibles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Deusto reúne 296 páginas en rústica con solapas, una opción física para subrayar argumentos y volver a consultarlos. Kindle permite leer La economía del cambio climático en el móvil o en un lector electrónico sin llevar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo ganar una guerra comercial comparte con La economía del cambio climático el interés por decisiones económicas de alcance internacional, pero estudia los cambios en el comercio global en lugar de la sostenibilidad. Cariño, ¿y este recibo? desplaza el foco hacia las cuentas personales y las decisiones financieras domésticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431332",
+        "isbn-9788423441051"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e9322956433787c8",
+  "origen": "chatgpt-web"
+}

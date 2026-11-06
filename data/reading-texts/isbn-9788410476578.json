@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788410476578",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Riaño se dirige a lectores interesados en la historia reciente de España y en los conflictos sociales provocados por las grandes infraestructuras. Su relato del desalojo de varios pueblos y de los enfrentamientos con la Guardia Civil puede resultar menos adecuado para quien busque una historia ajena a la violencia institucional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina las consecuencias humanas y políticas de la construcción del embalse de Riaño, cuya presa se cerró el 31 de diciembre de 1987. Emilio Gancedo sitúa el conflicto entre los habitantes afectados, los activistas y las fuerzas de seguridad, con atención a las demoliciones y a su repercusión en medios europeos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Riaño está disponible en tapa blanda, con 320 páginas en castellano publicadas por Pepitas de calabaza. Es una edición física que permite consultar y releer los episodios históricos sin depender de un dispositivo electrónico; su encuadernación flexible facilita transportarla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Riaño y CORONA AUTORITARIA, LA abordan conflictos entre el poder político y distintos sectores de la sociedad española. Mientras Guillermo María Muñoz estudia la monarquía y el nacionalismo durante la dictadura de Primo de Rivera, Emilio Gancedo se centra en el desalojo de poblaciones para construir un embalse.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419892782"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "775a54a54930b8b7",
+  "origen": "chatgpt-web"
+}

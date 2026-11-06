@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410849297",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El magnífico libro de las hormigas está orientado al público infantil y juvenil interesado en los animales, la naturaleza y la divulgación científica ilustrada. Manuela Román explica cómo se organizan las colonias, cómo se comunican estos insectos y qué funciones cumplen en los ecosistemas. Su contenido se centra en conocimientos zoológicos y curiosidades naturales, no en una aventura protagonizada por personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El magnífico libro de las hormigas cuenta con una edición en tapa dura de 96 páginas. El formato físico permite observar sus ilustraciones mientras se consultan las explicaciones sobre las especies, las colonias y sus comportamientos. La cubierta rígida facilita conservar el volumen como libro ilustrado de naturaleza y utilizarlo en consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El magnífico libro de las hormigas y El magnífico libro de los lobos son obras de Manuela Román dedicadas a explicar la vida animal y su relación con diferentes entornos naturales. El primero examina insectos sociales, sus colonias y sus formas de comunicación, mientras el segundo se ocupa de los lobos y su presencia en paisajes diversos. Ambos comparten autoría y temática zoológica, pero estudian grupos animales distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410849624"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2cbcc235f55edc85",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388080883",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yo puedo se dirige a lectores interesados en el desarrollo personal a través de experiencias autobiográficas de enfermedad, discapacidad y superación emocional. El relato de Mireia Cabañes aborda el cáncer infantil, una intervención quirúrgica y las dificultades para expresar sentimientos, por lo que no responde al planteamiento de un manual de ejercicios de autoayuda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yo puedo está disponible en tapa blanda y Kindle, con 176 páginas de extensión. La edición impresa permite conservar o prestar el testimonio de Mireia Cabañes; la versión Kindle facilita leerlo en el móvil o en un dispositivo electrónico durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "983c7141cc3faa98",
+  "origen": "chatgpt-web"
+}

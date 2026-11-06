@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Superdónuts 3 - El destino de los dónuts está orientado a lectores a partir de 7 años que disfrutan de los cómics de aventuras, el humor absurdo y la ciencia ficción. Neill Cameron combina robots, viajes temporales y situaciones disparatadas; encaja menos con quienes prefieran historias realistas, sin acción ni elementos fantásticos.",
+      "texto": "Superdónuts 3 - El destino de los dónuts se dirige a lectores a partir de 7 años que disfrutan de los cómics de aventuras, humor y ciencia ficción. Neill Cameron combina viajes temporales y enfrentamientos con robots, por lo que encaja menos con quienes buscan historias realistas o alejadas de la acción fantástica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,11 +15,12 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Superdónuts 3 - El destino de los dónuts está recomendado a partir de 7 años y pertenece al ámbito del cómic y la novela gráfica infantil. Tiene 208 páginas a todo color y se publica en tapa dura; el título lo identifica como el n.º 3 de una serie de aventuras humorísticas con elementos de ciencia ficción.",
+      "texto": "Superdónuts 3 - El destino de los dónuts está recomendado a partir de 7 años y tiene 208 páginas. La edición de Beascoa se presenta en tapa dura, con ilustraciones a todo color y una narración de cómic que combina acción, humor y elementos de ciencia ficción. La descripción editorial confirma que es la tercera entrega de la serie.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "numero_paginas",
+        "editorial",
         "edicion",
         "categorias",
         "sinopsis_editorial"
@@ -27,28 +28,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Superdónuts 3 - El destino de los dónuts se encuentra en tapa dura y Kindle. La edición física de Beascoa reúne 208 páginas a todo color, con una encuadernación adecuada para conservar el cómic y releer sus viñetas; Kindle permite llevar la aventura en formato digital, donde la visualización de las páginas dependerá de la pantalla utilizada.",
+      "texto": "Superdónuts 3 - El destino de los dónuts está disponible en tapa dura y Kindle. La edición física de 208 páginas permite conservar las ilustraciones a color en un volumen encuadernado, mientras que Kindle facilita transportar el cómic digitalmente. Para leer sus viñetas en pantalla conviene considerar el tamaño del dispositivo utilizado.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Superdónuts 3 - El destino de los dónuts se parece a Capitán Patata 2 - Quietecito o te dejo frito por el humor absurdo y los protagonistas poco convencionales, aunque Neill Cameron desarrolla una aventura temporal y Neil Coslett presenta cinco miniaventuras. También comparte con Piratix. Primeras lecturas 2 - El banquete del Kraken el conflicto fantástico y la acción, pero Magicbox utiliza una amenaza marítima en lugar de robots y viajes al futuro.",
+      "texto": "Superdónuts 3 - El destino de los dónuts comparte con Superpatata 10 - Viaje a la Edad Media (nueva edición) el humor superheroico y los desplazamientos temporales, aunque Neill Cameron plantea una amenaza robótica futura y Artur Laperla sitúa su aventura en otra época. Capitán Patata 2 - Quietecito o te dejo frito, de Neil Coslett, también utiliza un héroe cómico, pero organiza su propuesta en cinco miniaventuras.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427254985",
-        "isbn-9788448874834"
+        "isbn-9788448874926",
+        "isbn-9788427254985"
       ]
     }
   ],

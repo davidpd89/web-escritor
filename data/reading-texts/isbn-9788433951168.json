@@ -1,55 +1,54 @@
 {
   "id": "isbn-9788433951168",
-  "familia": "no_ficcion",
+  "familia": "narrativa",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tres cuentos se dirige a lectores interesados en recuerdos de infancia, reuniones familiares y narraciones breves acompañadas de ilustraciones. Truman Capote aborda las celebraciones y la memoria desde la perspectiva de un niño, con imágenes de Fede Yankelevich. Encaja menos con quienes buscan una exposición argumentativa sobre cuestiones sociales o políticas.",
+      "texto": "Tres cuentos se dirige a quienes leen narrativa contemporánea sobre recuerdos familiares, infancia y pérdidas. Su mirada infantil y su tono melancólico encajan menos con quienes buscan aventuras de acción o conflictos desarrollados a lo largo de una novela extensa.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "sinopsis_editorial",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
-      "modulo": "temas_y_enfoque",
-      "texto": "Tres cuentos aborda la memoria infantil, las celebraciones familiares y la relación entre los recuerdos y las pérdidas. Truman Capote utiliza la mirada de Buddy para reconstruir experiencias vinculadas a la Navidad y al día de Acción de Gracias. Las ilustraciones de Fede Yankelevich añaden una dimensión visual mediante objetos, texturas y detalles cotidianos.",
+      "modulo": "encaje_documentado",
+      "texto": "Tres cuentos reúne tres relatos de Truman Capote sobre celebraciones familiares y recuerdos de la infancia en el sur. La narración adopta la perspectiva de un niño y combina momentos festivos con experiencias de pérdida; las ilustraciones de Fede Yankelevich aportan una dimensión visual a esos recuerdos.",
       "evidencias": [
         "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Tres cuentos publicada por Editorial Anagrama el 2026-11-04 reúne 112 páginas encuadernadas en tapa dura. Su contenido combina tres relatos de Truman Capote sobre recuerdos infantiles y celebraciones familiares con el trabajo gráfico de Fede Yankelevich. El texto está en castellano y las ilustraciones aportan una interpretación visual de los recuerdos narrados.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tres cuentos está disponible en tapa dura, tapa blanda y Kindle. La tapa dura permite conservar sus 112 páginas en una encuadernación rígida, mientras que la tapa blanda ofrece una alternativa física flexible y ligera. Kindle permite llevar los tres relatos en un lector electrónico o dispositivo compatible, sin transportar el volumen impreso.",
+      "texto": "Tres cuentos puede elegirse en tapa dura o Kindle. La tapa dura reúne sus 112 páginas en un volumen físico con ilustraciones de Fede Yankelevich, mientras que Kindle permite llevar los tres relatos en un dispositivo de lectura o en el móvil sin transportar el libro.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Cuerpo, humano y Tres cuentos comparten una aproximación a las experiencias humanas que combina aspectos físicos y expresivos. Vittorio Lingiardi se centra en el cuerpo y su dimensión poética, mientras que Truman Capote y Fede Yankelevich trabajan con recuerdos familiares, infancia e ilustraciones. Uno parte del cuerpo como tema; el otro, de escenas del pasado.",
-      "evidencias": [
-        "afines_catalogo",
-        "titulo",
-        "autores",
-        "sinopsis_editorial"
-      ],
-      "enlaces": [
-        "isbn-9788433951304"
+        "sinopsis_editorial",
+        "autores"
       ]
     }
   ],
-  "descartados": [
-    "esta_edicion: cifras sin respaldo: 4",
-    "faltan módulos: esta_edicion"
-  ],
+  "descartados": [],
   "version": 3,
-  "fuente_hash": "fdce453bf69b34ea",
+  "fuente_hash": "d00bba225365c048",
   "origen": "chatgpt-web"
 }

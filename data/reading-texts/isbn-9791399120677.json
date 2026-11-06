@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791399120677",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "HIJOS DE UN DIOS MEZQUINO se orienta a lectores interesados en la historia social, los conflictos de clase y el origen de las desigualdades. Su recorrido mundial y sus 656 páginas lo alejan de las biografías individuales y de las introducciones históricas breves.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Gonzalo Pontón Gómez analiza cómo las clases dirigentes han impuesto desigualdades y cómo han respondido los grupos sometidos a ellas. El recorrido comienza con las primeras transformaciones agrícolas y llega hasta la actualidad, con una perspectiva mundial que concede protagonismo a la población corriente frente a los grandes gobernantes.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "HIJOS DE UN DIOS MEZQUINO se ofrece en tapa dura, con 656 páginas en castellano editadas por Editorial Pasado y Presente. Por su extensión y recorrido histórico, la edición física permite mantener el volumen en una biblioteca y retomarlo durante una lectura prolongada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "HIJOS DE UN DIOS MEZQUINO y Auge y caída del Tercer Reich (edición especial) estudian relaciones de poder desde la historia. Gonzalo Pontón Gómez aborda las desigualdades sociales a escala mundial y durante un periodo muy extenso; William L. Shirer concentra su obra en el ascenso y la desaparición del régimen nazi.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005555"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d8ac349e96da17b",
+  "origen": "chatgpt-web"
+}

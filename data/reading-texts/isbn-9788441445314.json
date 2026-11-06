@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788441445314",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Supera la diabetes tipo 2 está dirigido a personas interesadas en comprender la regulación de la glucosa y los hábitos relacionados con la salud metabólica. Dra. Sandra Rangel Martínez combina explicaciones sobre procesos del organismo con propuestas de alimentación y autocuidado, de modo que responde menos a quien busca exclusivamente una descripción teórica de la enfermedad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Supera la diabetes tipo 2 incluye recomendaciones alimentarias, recetas sencillas y pautas cotidianas relacionadas con el control de la glucosa. También explica la resistencia a la insulina, la microbiota, la inflamación y el estrés crónico para relacionar las propuestas prácticas con los procesos metabólicos que aborda la autora.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Supera la diabetes tipo 2 está disponible en tapa blanda, con 224 páginas en castellano. El soporte impreso permite consultar las recetas y recomendaciones de hábitos mientras se preparan comidas o se revisan las pautas de alimentación descritas en el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "5 semanas para desinflamarte (edición limitada) comparte con Supera la diabetes tipo 2 su orientación hacia el bienestar, pero este último se concentra en la regulación de la glucosa y la resistencia a la insulina. 9 mesos que marquen tota una vida también relaciona procesos biológicos y salud, aunque estudia específicamente la influencia del embarazo en el futuro del bebé.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390",
+        "isbn-9788411193818"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d9bb5473b6ee053",
+  "origen": "chatgpt-web"
+}

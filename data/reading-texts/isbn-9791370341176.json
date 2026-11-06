@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791370341176",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aprende a contar animales está dirigido al público infantil que comienza a familiarizarse con los números y los animales. Susaeta Ediciones plantea el aprendizaje del 1 al 10 mediante un libro de 8 páginas con forma de maletín; su contenido se limita a esa primera aproximación al conteo, no a operaciones matemáticas avanzadas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aprende a contar animales se presenta en tapa dura, con 8 páginas y un formato de maletín que forma parte de la propuesta del libro. Es una edición física para abrir y utilizar durante las primeras actividades de conteo con animales; entre los formatos disponibles figura únicamente la tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprende a contar animales y Animales son títulos infantiles de Susaeta Ediciones que utilizan animales como elemento central. El primero trabaja los números del 1 al 10 mediante un maletín, mientras que Animales reúne seis cuentos ilustrados. Bajo el mar también presenta animales, pero propone láminas marinas para colocar en superficies metálicas mediante un marco magnético.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589",
+        "isbn-9791370343163"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "14f253176caee94d",
+  "origen": "chatgpt-web"
+}

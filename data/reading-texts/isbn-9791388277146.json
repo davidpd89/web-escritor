@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791388277146",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Telmo Lobo 4 - El desafío de los caballeros se dirige a lectores desde los 9 años interesados en fantasía, amistad y aventuras con peligros. La historia incluye combates con espadas, un enemigo recurrente y la amenaza de quedar atrapados lejos de casa; por eso se distancia de las lecturas cotidianas sin enfrentamientos ni tensión.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Telmo Lobo 4 - El desafío de los caballeros está recomendado a partir de 9 años y tiene 216 páginas en castellano. La edición de Alfaguara es de tapa dura e incorpora ilustraciones. El título lo identifica como el n.º 4, mientras que su argumento presenta una aventura fantástica con caballeros, espadas y un mundo del que los protagonistas deben escapar.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Telmo Lobo 4 - El desafío de los caballeros puede leerse en tapa dura o en Kindle. La tapa dura reúne sus 216 páginas en un volumen físico con ilustraciones, adecuado para conservarlo o regalarlo. Kindle permite llevar la misma aventura en un dispositivo de lectura o en el móvil sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Onin 1 - Onin y la isla del tesoro comparte con Telmo Lobo 4 - El desafío de los caballeros las aventuras con misterios y elementos fantásticos. La obra de Emilio Aragón sitúa el peligro en un mundo de caballeros donde los protagonistas deben encontrar la salida. Campamento Mestizo 1 - La zona rebelde presenta otro escenario de aventuras, con un campamento como punto de partida, frente al entorno de espadas y nobles de Telmo Lobo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387994549",
+        "isbn-9788419868466"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "200b2028533a68b5",
+  "origen": "chatgpt-web"
+}

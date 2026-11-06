@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791387667924",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tras la pista del mal se dirige a lectores interesados en la criminología, los rituales y las creencias que rodean determinados delitos. Su enfoque de investigación sobre casos de crónica negra lo aleja de la novela policíaca de ficción y de los relatos centrados únicamente en resolver un crimen.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un ensayo de investigación criminal que examina la relación entre violencia, mitología y creencias religiosas. Cristian Puig aborda casos de crónica negra desde su experiencia como policía nacional y criminólogo, con una estructura articulada en tres grandes bloques y una extensión de 392 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tras la pista del mal está disponible en tapa blanda, mediante una edición rústica con solapas de Ediciones Luciérnaga. Sus 392 páginas permiten consultar y retomar los distintos casos de investigación en un único volumen físico, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diálogos sobre lo desconocido comparte con Tras la pista del mal el interés por fenómenos vinculados a las creencias, pero reúne testimonios personales en lugar de investigaciones criminológicas. A la sombra del Estado también examina actividades ocultas, aunque se ocupa del espionaje y del poder clandestino, no de los delitos asociados a rituales o mitos.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387667849",
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5c33c5161a1b051",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Urkinaona se dirige a lectores de narrativa contemporánea interesados en los conflictos políticos y sus consecuencias para distintos personajes. Quien busque una historia desligada de la actualidad política encontrará aquí una trama situada durante las protestas de Barcelona de octubre de 2019.",
+      "texto": "Urkinaona se dirige a lectores de narrativa contemporánea interesados en los conflictos políticos y sociales narrados mediante varios personajes. Su escenario es Barcelona durante las protestas de octubre de 2019, con una adolescente entre las figuras de la historia. No plantea una lectura desligada de la actualidad histórica ni centrada en un único punto de vista.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,27 +13,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Urkinaona es una novela coral ambientada en Barcelona durante las movilizaciones de octubre de 2019, posteriores a la sentencia del Tribunal Supremo sobre los líderes del procés. Eva Blanch entrelaza el conflicto que ocupa las calles con la experiencia de una adolescente descontenta cuya historia queda vinculada a las protestas.",
+      "texto": "Urkinaona es una novela coral de narrativa contemporánea ambientada en Barcelona durante octubre de 2019. La historia sitúa a distintos personajes ante las protestas posteriores a la sentencia del Tribunal Supremo sobre los dirigentes del procés. Los bloqueos de transportes, las barricadas y las manifestaciones conforman el escenario de un conflicto político que afecta a la vida cotidiana.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Urkinaona se ofrece en tapa blanda, mediante una edición rústica con solapas de 288 páginas. Esta presentación permite leerla y conservarla en papel, así como transportar el ejemplar sin depender de una pantalla.",
+      "texto": "Urkinaona puede leerse en tapa blanda o Kindle. La edición física de Tusquets Editores consta de 288 páginas y lleva solapas, mientras que Kindle permite leer la novela sin transportar el ejemplar impreso. La elección depende de si se prefiere conservar el libro en papel o utilizar un dispositivo digital.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a91abe4c74807007",
+  "fuente_hash": "8a842cafe9180cc9",
   "origen": "chatgpt-web"
 }

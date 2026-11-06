@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388414046",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encuentra la armonía se dirige a lectores de desarrollo personal interesados en interpretar sus pensamientos, decisiones y relaciones mediante principios generales sobre el funcionamiento de la vida. El planteamiento de Félix Torán Martí encaja menos con quien busque una historia de ficción o un tratamiento centrado exclusivamente en situaciones concretas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Encuentra la armonía cuenta con una edición en tapa blanda de 288 páginas, publicada por Ediciones Luciérnaga en rústica con solapas. La lectura en papel permite detenerse en los planteamientos sobre pensamientos, decisiones y bienestar, así como recuperar apartados anteriores para contrastarlos con situaciones personales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "08aaf7aad3180526",
+  "origen": "chatgpt-web"
+}

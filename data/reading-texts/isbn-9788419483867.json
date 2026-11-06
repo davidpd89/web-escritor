@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9788419483867",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de la cocina judía se dirige a lectores interesados tanto en preparar recetas como en comprender la historia cultural de la gastronomía judía. Su recorrido por las tradiciones asquenazí y sefardí se aleja de los recetarios centrados exclusivamente en comidas rápidas o instrucciones breves.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Col&col Ediciones publica El libro de la cocina judía en tapa dura, con 632 páginas en castellano y fecha de publicación del 21 de octubre de 2026. Esta edición conmemorativa del XXV aniversario incorpora nuevas historias y recetas, además de ampliar el recorrido por las comunidades neerlandesa, checa y argelina establecida en Francia.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro de la cocina judía contiene más de 800 recetas acompañadas de historia familiar, costumbres y contexto cultural. Claudia Roden aborda las cocinas asquenazí y sefardí, las normas alimentarias religiosas y las celebraciones, con un recorrido geográfico que permite consultar platos y conocer sus orígenes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible de El libro de la cocina judía, con 632 páginas destinadas a recetas y explicaciones culturales. Su encuadernación rígida permite mantenerlo como volumen de consulta en casa, aunque el tamaño de la obra hace menos práctico transportarlo para consultas ocasionales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El libro de la cocina judía comparte con Artesanos del queso, de Ignacio Medina, el interés por relacionar alimentación, territorio y tradiciones. Claudia Roden estudia la cocina judía mediante recetas e historia de distintas comunidades, mientras Artesanos del queso se concentra en 23 queserías y la diversidad quesera española.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419483881"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "95d81ee4a13e8c64",
+  "origen": "chatgpt-web"
+}

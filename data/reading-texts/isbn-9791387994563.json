@@ -4,9 +4,8 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Enzo Brown: loco por el basket 5 - La cancha es de todos está dirigido a lectores desde los 9 años que disfrutan del baloncesto, el humor y las historias de amistad. El conflicto combina deporte, dificultades económicas y colaboración entre compañeros. Encaja menos con quienes busquen aventuras desligadas del colegio y de los equipos deportivos.",
+      "texto": "Está dirigido a lectores desde los 9 años interesados en el baloncesto, la amistad y los conflictos de equipo. La dificultad de financiar un viaje colectivo introduce cuestiones de solidaridad y desigualdad económica, con humor e ilustraciones. Encaja menos con quienes buscan fantasía o historias deportivas centradas únicamente en los resultados de los partidos.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,55 +13,50 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición de Enzo Brown: loco por el basket 5 - La cancha es de todos publicada por Ediciones B tiene 192 páginas en castellano y tapa dura. Su fecha de publicación es el 29 de octubre de 2026. Incorpora ilustraciones de David Garrido y el título la identifica como el n.º 5 de la colección de Pablo Lolaso.",
+      "texto": "Ediciones B publica esta entrega de Pablo Lolaso en tapa dura, con 192 páginas en castellano. Incluye ilustraciones de David Garrido y una historia deportiva donde el grupo debe afrontar los gastos de un viaje. El título la identifica como el n.º 5 de la colección y la fecha de publicación es el 2026-10-29.",
       "evidencias": [
-        "titulo",
         "editorial",
+        "autores",
+        "edicion",
         "numero_paginas",
         "idioma",
-        "edicion",
-        "fecha_publicacion",
         "sinopsis_editorial",
-        "autores"
+        "titulo",
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "La lectura está recomendada a partir de 9 años y se presenta en tapa dura, con 192 páginas. Enzo Brown: loco por el basket 5 - La cancha es de todos combina narración infantil y juvenil con ilustraciones de David Garrido. Sus temas principales son el baloncesto, la amistad, el humor y la colaboración para superar dificultades dentro de un equipo.",
+      "texto": "La edad recomendada comienza a los 9 años. Esta edición tiene 192 páginas en castellano y encuadernación de tapa dura, con ilustraciones de David Garrido. La historia combina baloncesto, humor y amistad mediante un conflicto relacionado con los recursos económicos del equipo.",
       "evidencias": [
         "edad_recomendada",
-        "titulo",
-        "edicion",
         "numero_paginas",
+        "idioma",
+        "edicion",
         "sinopsis_editorial",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Enzo Brown: loco por el basket 5 - La cancha es de todos está disponible en tapa dura y Kindle. La edición física de 192 páginas incorpora ilustraciones de David Garrido y una encuadernación rígida apropiada para el uso repetido o el regalo. Kindle permite leerlo en un móvil o lector electrónico compatible, con una presentación de las ilustraciones condicionada por la pantalla.",
+      "texto": "La tapa dura reúne las 192 páginas y las ilustraciones de David Garrido en un ejemplar físico resistente al uso frecuente y apropiado para conservar o regalar. Kindle permite llevar la lectura en formato digital y continuarla desde un dispositivo compatible. La elección depende de si se prefiere conservar el volumen ilustrado o leerlo en pantalla.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amigos de verdad, de Iris Pérez-Bonaventura, comparte con Enzo Brown: loco por el basket 5 - La cancha es de todos el interés por la amistad durante la infancia, aunque el libro de Pablo Lolaso desarrolla ese vínculo mediante un equipo de baloncesto. Me llamo Goa 12 - ¡Eres única, Goa!, de Míriam Tirado, se centra en los retos de la adolescencia, mientras Enzo Brown parte de una aventura deportiva recomendada desde los 9 años.",
+      "texto": "Me llamo Goa 12 - ¡Eres única, Goa!, de Míriam Tirado, también aborda dificultades de crecimiento y relaciones personales, pero se centra en la adolescencia en lugar del deporte colectivo. Onin 1 - Onin y la isla del tesoro, de Ibon Martín, comparte el protagonismo de un grupo de amigos, aunque sustituye los problemas económicos del baloncesto por misterios y aventuras con magia.",
       "evidencias": [
-        "titulo",
-        "autores",
-        "edad_recomendada",
-        "categorias",
+        "afines_catalogo",
         "sinopsis_editorial",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
         "isbn-9791387994303",
-        "isbn-9791387994532"
+        "isbn-9791387994549"
       ]
     }
   ],

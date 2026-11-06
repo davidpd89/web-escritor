@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388220029",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Monstruos Yokai se orienta a lectores interesados en el arte y en las criaturas fantásticas vinculadas a Japón. Su tratamiento del miedo, los cementerios y los espacios inquietantes puede alejar a quienes prefieren asuntos cotidianos sin elementos sobrenaturales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Monstruos Yokai es una obra de arte dedicada a las criaturas fantásticas conocidas como yōkai en Japón. Philippe Charlier aborda su relación con el miedo y los espacios donde se sitúa su presencia, desde bosques y pozos hasta templos y cementerios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Monstruos Yokai es de tapa dura, con 192 páginas encuadernadas en cartoné sin sobrecubierta. Este formato permite mantener el volumen en una biblioteca y consultarlo físicamente como libro dedicado al arte y a las criaturas japonesas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cine de mi vida y Monstruos Yokai se relacionan con el arte, pero el primero se dirige a quienes disfrutan del cine y la ilustración, mientras el segundo se ocupa de criaturas fantásticas japonesas. Sofia Coppola también explora un universo artístico, aunque desde la trayectoria cinematográfica de una directora y no desde seres sobrenaturales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220302",
+        "isbn-9788448049232"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b22d5f314358db33",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788448874698",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Superthings - El libro de la película está dirigido a lectores a partir de 7 años interesados en aventuras de héroes y villanos, humor y trabajo en equipo. Su combinación de capítulos y páginas de cómic se orienta a la lectura infantil, no a quienes busquen una novela juvenil extensa o una historia ajena al universo Superthings.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Superthings - El libro de la película está recomendado a partir de 7 años y consta de 80 páginas en castellano. La edición de Beascoa es en tapa dura y alterna capítulos narrativos con páginas de cómic, una estructura que combina lectura convencional y secuencias gráficas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Superthings - El libro de la película se ofrece en tapa dura y Kindle, con una extensión de 80 páginas. La tapa dura permite conservar y regalar un libro infantil con páginas de cómic; Kindle facilita llevar la historia en un dispositivo y consultar sus páginas sin transportar la edición física.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Superthings - El libro de la película y Superthings. Libro juguete - Súper busca y encuentra comparten el universo de héroes y villanos de Magicbox, pero el primero narra una aventura por capítulos y el segundo propone buscar personajes y objetos en distintos escenarios. Piratix. Primeras lecturas 2 - El banquete del Kraken, también de Magicbox, cambia ese universo por una aventura marítima relacionada con un barco legendario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874834",
+        "isbn-9788448873790"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "39749d33613328af",
+  "origen": "chatgpt-web"
+}

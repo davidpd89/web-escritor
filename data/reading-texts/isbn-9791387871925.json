@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387871925",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Causa de muerte (Doctora Kay Scarpetta 7) encaja con lectores de misterio criminal interesados en la investigación forense y los indicios materiales. Patricia Cornwell sitúa a Kay Scarpetta ante una muerte bajo el agua y una serie de incidentes que complican su trabajo. No está orientado a quien prefiera historias sin delitos, amenazas o procedimientos policiales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un thriller de investigación forense y la séptima entrega de la saga protagonizada por Kay Scarpetta. El caso arranca con la muerte del periodista Theodore Andrew Edding durante una inmersión y se complica con suplantaciones de identidad, sabotajes y conductas policiales sospechosas. El trabajo de laboratorio y el examen de indicios ocupan un lugar central.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Causa de muerte (Doctora Kay Scarpetta 7) puede leerse en tapa blanda o Kindle. La edición física de Penguin Bolsillo tiene 336 páginas y permite conservar el volumen junto a otros libros de la saga. Kindle ofrece la alternativa digital para llevar la lectura en un dispositivo compatible sin transportar el ejemplar de papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "409a205efdc7138c",
+  "origen": "chatgpt-web"
+}

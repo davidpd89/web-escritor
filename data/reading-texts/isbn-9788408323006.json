@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408323006",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Dónde está la caca? está dirigido a niños de 3 a 5 años que disfrutan buscando elementos escondidos en escenas ilustradas. Su propuesta de localizar seis cacas en distintos escenarios encaja menos con quienes prefieren cuentos centrados en una historia continua.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "¿Dónde está la caca? está recomendado para edades de 3 a 5 años y tiene 40 páginas. La edición de Planeta Junior es de tapa dura en cartoné, con escenas de búsqueda ambientadas en lugares como un acuario, una selva tropical y una pista de patinaje.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Dónde está la caca? está disponible en tapa dura, con una extensión de 40 páginas. El cartoné permite manejar el ejemplar durante las búsquedas repetidas y ofrece una presentación física adecuada para regalar o compartir la actividad de localizar figuras en cada escena.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Dónde está la caca? comparte con Animales, de Susaeta Ediciones, su orientación infantil y el uso de ilustraciones, pero propone buscar figuras en lugar de leer cuentos protagonizados por animales. Aprende a contar animales, también de Susaeta Ediciones, se centra en aprender números mediante animales, mientras que ¿Dónde está la caca? plantea búsquedas visuales en diferentes escenarios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589",
+        "isbn-9791370341176"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c95959292a79993",
+  "origen": "chatgpt-web"
+}

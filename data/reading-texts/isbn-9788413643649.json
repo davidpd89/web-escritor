@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788413643649",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sentido común y Derecho se dirige tanto a profesionales del ámbito jurídico como a lectores interesados en los fundamentos de las decisiones legales. Manuel Atienza combina reflexión filosófica y problemas concretos del Derecho, por lo que su planteamiento se aparta de los manuales dedicados exclusivamente a procedimientos o normas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Sentido común y Derecho estudia la relación entre el razonamiento jurídico especializado y los juicios que puede formular una persona informada. Manuel Atienza desarrolla primero una propuesta conceptual y después la aplica a cuestiones como la valoración de pruebas desde la perspectiva de género, la libertad de decisión y los límites de la inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sentido común y Derecho se ofrece en tapa blanda, con 236 páginas en castellano. La edición en papel permite subrayar los argumentos teóricos y regresar a los ejemplos jurídicos con los que Manuel Atienza examina su propuesta sobre el sentido común.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "En torno a Elías Díaz. Los afectos y los conceptos comparte con Sentido común y Derecho la autoría de Manuel Atienza y el interés por las bases del pensamiento jurídico, aunque el primero se vincula a la figura de Elías Díaz y al Estado de Derecho. Antes de perder el juicio también aborda los problemas del razonamiento público, pero se centra en la verdad frente a la propaganda y las posiciones sectarias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413643700",
+        "isbn-9791388387302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "028eb7c886403f00",
+  "origen": "chatgpt-web"
+}

@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi amor no muere se orienta a lectores adultos interesados en historias personales atravesadas por la violencia mafiosa y las relaciones de pareja. Roberto Saviano reconstruye la vida de una joven enfrentada a los vínculos criminales de la familia de su pareja; no es una historia romántica desligada de sus consecuencias sociales y violentas.",
+      "texto": "Mi amor no muere se dirige a lectores adultos interesados en historias de mujeres, relaciones sentimentales y violencia organizada con trasfondo histórico. La reconstrucción de una desaparición vinculada a la mafia italiana plantea una lectura sobre el amor y sus consecuencias, alejada del romance ligero y de los relatos sentimentales con desenlace reconfortante.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,28 +14,28 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Mi amor no muere aborda el amor, la violencia contra las mujeres y la influencia de las organizaciones mafiosas en la vida privada. Roberto Saviano reconstruye el caso de Rossella Casini, desaparecida en 1981 y reconocida como víctima de la ’Ndrangheta, mediante una narración que vincula su relación sentimental con el contexto social italiano.",
+      "texto": "Mi amor no muere aborda la relación entre el amor, la autonomía personal y la violencia de los clanes mafiosos en la Italia de finales de los años setenta. Roberto Saviano reconstruye la historia de Rossella Casini, desaparecida el 22 de febrero de 1981, a partir de una relación afectiva atravesada por lealtades familiares y amenazas criminales. El relato conecta una experiencia individual con un contexto social y político.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mi amor no muere se ofrece en tapa blanda y Kindle. La edición de Alfaguara tiene 352 páginas y solapas para quien prefiera un ejemplar físico que pueda conservar o prestar; la versión Kindle permite leerlo en dispositivos compatibles sin cargar con el volumen.",
+      "texto": "Mi amor no muere está disponible en tapa blanda, Kindle y audiolibro. La edición de Alfaguara reúne 352 páginas con solapas para la lectura en papel; Kindle permite consultar el texto desde el móvil o un lector electrónico, mientras que el audiolibro ofrece la posibilidad de escuchar la reconstrucción de esta historia.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mi amor no muere puede ponerse junto a ¿Qué pensará tu hija de ti? por su atención a las experiencias femeninas y las relaciones afectivas. Sin embargo, Roberto Saviano reconstruye una desaparición vinculada a la mafia, mientras Diana López Varela aborda el deseo de maternidad y las dudas sentimentales. Esas muchachas que escriben poemas, de Alba Donati, también se ocupa de vidas de mujeres, pero desde sus distintas personalidades y experiencias poéticas.",
+      "texto": "Mi amor no muere y Esas muchachas que escriben poemas comparten el interés por las experiencias de mujeres, aunque Roberto Saviano reconstruye una historia marcada por la mafia y Alba Donati presenta distintas personalidades vinculadas a la escritura poética. Frente a ¿Qué pensará tu hija de ti?, centrado en las dudas sobre la maternidad, Mi amor no muere examina una relación sentimental condicionada por la violencia criminal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -52,6 +51,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a64919a391ea76b8",
+  "fuente_hash": "da81cc805342ceb1",
   "origen": "chatgpt-web"
 }

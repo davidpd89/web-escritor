@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tor está dirigido a adultos interesados en el periodismo narrativo, los crímenes reales y la reconstrucción de conflictos entre personas. Carles Porta investiga una disputa por una montaña marcada por varias muertes; no responde a las expectativas de quien busca un thriller enteramente ficticio o una lectura alejada de la violencia.",
+      "texto": "Tor está dirigido a lectores adultos interesados en el crimen real, el periodismo narrativo y la investigación de muertes vinculadas a conflictos locales. Su reconstrucción de hechos violentos y testimonios no corresponde a quien busque un misterio de ficción sin referencias a víctimas reales.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,50 +14,50 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Reservoir Books publica Tor por primera vez en castellano en una edición revisada que incorpora imágenes y comentarios. El volumen tiene 408 páginas y se presenta en tapa blanda con solapas. Esta combinación de revisión y materiales añadidos es la diferencia editorial expresamente señalada frente a versiones anteriores.",
+      "texto": "Reservoir Books publica Tor en castellano por primera vez, en una edición de tapa blanda con solapas de 408 páginas, fechada el 15 de octubre de 2026. Esta versión está revisada e incorpora imágenes y comentarios que amplían la reconstrucción periodística de Carles Porta.",
       "evidencias": [
         "titulo",
+        "autores",
         "editorial",
         "edicion",
         "numero_paginas",
+        "fecha_publicacion",
         "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Tor examina la propiedad compartida de una montaña del Pirineo, las tensiones entre sus trece vecinos y las tres muertes relacionadas con esa historia. Carles Porta aborda los hechos mediante una investigación periodística prolongada, centrada en reconstruir testimonios y acontecimientos en un entorno atravesado por el miedo y los silencios.",
+      "texto": "Tor investiga un conflicto por la propiedad de una montaña del Pirineo relacionado con trece vecinos y tres muertes. Carles Porta aborda los hechos desde el periodismo narrativo, mediante una investigación prolongada que examina la violencia, el miedo y los silencios de la comunidad.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas permite leer las 408 páginas de Tor en papel, con las imágenes y comentarios incorporados a esta edición de Reservoir Books. Kindle es la opción para consultar el texto en un dispositivo y evitar transportar el volumen físico. La elección depende de si se prefiere conservar el ejemplar impreso o leer digitalmente.",
+      "texto": "Tor puede leerse en tapa blanda o en Kindle, con una edición impresa de 408 páginas y solapas. El papel permite consultar físicamente el relato y sus materiales añadidos, mientras Kindle facilita llevar la investigación en un lector electrónico o en el móvil.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion",
-        "editorial",
         "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tor puede compararse con El canto del cisne por su relación con hechos reales, pérdidas personales y memoria, aunque Carles Porta investiga muertes ligadas a una disputa territorial y Charles Spencer aborda el fallecimiento de su hermana. Detrás de una Estrella también reconstruye acontecimientos reales, pero Fernando Trías de Bes se ocupa de una trayectoria empresarial, no de una investigación criminal.",
+      "texto": "Tor puede compararse con Crónica de un desafío al Estado, de Javier Alberto Zaragoza Aguado, por su reconstrucción de acontecimientos reales marcados por el conflicto. Carles Porta investiga muertes y disputas vecinales en el Pirineo, mientras el otro libro presenta una perspectiva en primera persona sobre la tensión política del Procés.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423441075",
-        "isbn-9788401039928"
+        "isbn-9788423441303"
       ]
     }
   ],

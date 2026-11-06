@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788412856798",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL ASEDIO PERPETUO se dirige a lectores de historia interesados en las creencias, los temores colectivos y las culturas de la Antigüedad. Gonzalo Fontana Elboj trabaja con testimonios escritos de distintas tradiciones, de modo que no es una narración de terror ni una guía de psicología práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "EL ASEDIO PERPETUO analiza las formas que adoptó el miedo en Egipto, Mesopotamia, Israel, Grecia y Roma, además del cristianismo primitivo. Gonzalo Fontana Elboj utiliza documentos religiosos, mágicos, filosóficos y literarios para relacionar cada temor con su contexto cultural. El recorrido incluye las inquietudes ante la muerte, las epidemias y las figuras sobrenaturales, hasta llegar a Satanás.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "EL ASEDIO PERPETUO se publica en tapa blanda, con 432 páginas editadas por Editorial Contraseña. El volumen físico permite avanzar por los capítulos dedicados a diferentes culturas y regresar a los ejemplos históricos y textos que sustentan el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL ASEDIO PERPETUO puede compararse con Cesar La conquista de la eternidad por su atención al pasado romano, aunque Gonzalo Fontana Elboj estudia los miedos de varias civilizaciones y Alberto Angela sigue la trayectoria de un general. Frente a Auge y caída del Tercer Reich (edición especial), centrado en el régimen nazi, EL ASEDIO PERPETUO se ocupa de las culturas antiguas y sus creencias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005555",
+        "isbn-9788410944329"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3988dacd60897323",
+  "origen": "chatgpt-web"
+}

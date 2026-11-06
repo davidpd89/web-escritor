@@ -1,0 +1,63 @@
+{
+  "id": "isbn-9788427257375",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores juveniles que buscan suspense contemporáneo, secretos personales y amenazas directas. No podrás esconderte, de Megan Lally, combina las relaciones adolescentes con una persecución en carretera, por lo que se distancia de los misterios históricos o las historias centradas en mundos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Es un thriller juvenil con situaciones de acoso, persecución y riesgo para la integridad física de sus protagonistas. La amenaza de un vehículo en una carretera aislada y la posibilidad de que salga a la luz un episodio del pasado generan una tensión que puede afectar a lectores sensibles al miedo y la intimidación.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Plantea un thriller juvenil contemporáneo en el que un secreto del pasado desencadena una amenaza inmediata. Brooke intenta mantener el control sobre su futuro académico y su imagen pública, pero una persecución nocturna convierte una celebración con compañeros en una situación de supervivencia.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas reúne las 320 páginas de No podrás esconderte en un ejemplar físico de Molino. Kindle permite leer la novela en el móvil o en un lector electrónico sin llevar el libro en papel. La elección depende del soporte de lectura y de si se desea conservar la edición impresa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los diarios de la boticaria (la novela original) 1 comparte con No podrás esconderte el misterio juvenil y una protagonista expuesta al peligro, pero desarrolla su intriga en una corte imperial en lugar de una carretera contemporánea. Alas de escarcha y oro: El canto del cisne también presenta a una protagonista que oculta aspectos de sí misma, aunque introduce dones sobrenaturales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387962821",
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "216bc440606ac6e2",
+  "origen": "chatgpt-web"
+}

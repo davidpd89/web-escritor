@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788419892799",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "DESTAPE GAY, EL se dirige a lectores interesados en la historia de la homosexualidad, el cine y los cambios culturales durante la Transición española. Su investigación sobre censura, representación y recepción comercial encaja con una lectura histórica centrada en un caso cinematográfico; no es una novela ni una panorámica general de toda la producción audiovisual de la época.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Geoffroy Huard estudia cómo pudo desarrollarse el destape gay en una sociedad que todavía mantenía fuertes actitudes contrarias a la homosexualidad. Examina la trayectoria cinematográfica de Eloy de la Iglesia, especialmente Los placeres ocultos, mediante documentación de censura, periódicos y entrevistas. El análisis relaciona el éxito comercial con los cambios en la representación del deseo masculino.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "DESTAPE GAY, EL se publica en tapa blanda, con 228 páginas en castellano. Esta edición permite seguir en papel el análisis histórico y volver a los pasajes dedicados a la censura, las películas y su recepción pública. La extensión ofrece margen para una lectura por capítulos y para consultar las cuestiones tratadas durante una investigación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA y DESTAPE GAY, EL comparten una aproximación histórica mediante el estudio de figuras concretas, pero el primero aborda una investigación sobre la vida y muerte de un poeta y el segundo examina el cine y la homosexualidad durante la Transición. CORONA AUTORITARIA, LA también estudia relaciones entre poder y sociedad, aunque se centra en la monarquía y el nacionalismo bajo la dictadura de Primo de Rivera.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933",
+        "isbn-9788419892782"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db0c2dd315b3dd02",
+  "origen": "chatgpt-web"
+}

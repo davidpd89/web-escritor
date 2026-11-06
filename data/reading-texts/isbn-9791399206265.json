@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791399206265",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuatrocientos conejos encaja con lectores de novela histórica interesados en el patrimonio cultural, los manuscritos antiguos y los conflictos sobre su propiedad. Quien busque una reconstrucción histórica estrictamente documental encontrará aquí una ficción que incorpora persecuciones, falsificaciones y elementos de la mitología mexica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Cuatrocientos conejos combina novela histórica y narrativa contemporánea mediante una trama sobre la circulación y recuperación de manuscritos. José Ramón Jouve Martín parte de un episodio ocurrido en 1982 para conectar el expolio cultural con acontecimientos anteriores y con las creencias de la tradición mexica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuatrocientos conejos está disponible en tapa blanda, con 288 páginas en castellano editadas por Editorial Rosamerón. Esta extensión permite leer la novela en un volumen físico manejable y conservar reunida su trama de investigación histórica y búsqueda de manuscritos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuatrocientos conejos comparte con La bicicleta robada una búsqueda vinculada a objetos del pasado, aunque aquí el centro son los manuscritos y allí una bicicleta relacionada con una desaparición familiar. También se aproxima a Cuando seamos inmortales por su dimensión histórica, pero sustituye la rivalidad artística por los conflictos de propiedad y recuperación del patrimonio escrito.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399130829",
+        "isbn-9788423371181"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "969ee56772f65055",
+  "origen": "chatgpt-web"
+}

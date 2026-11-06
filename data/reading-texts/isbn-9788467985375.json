@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788467985375",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MINECRAFT 09 está dirigido a lectores de manga interesados en el universo de Minecraft, las aventuras de grupo y las búsquedas familiares. La historia se apoya en personajes y elementos del videojuego, por lo que se aleja de quien busca un cómic ajeno a ese mundo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "MINECRAFT 09 traslada al manga una aventura ambientada en el mundo del videojuego, con exploración, enfrentamientos y una búsqueda familiar. La victoria frente al Dragón de Ender modifica la situación del grupo y mantiene abierta la cuestión del reencuentro de Niko con su padre. El título lo identifica como el n.º 09.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "MINECRAFT 09 se ofrece en tapa blanda, con 192 páginas en castellano editadas por Norma Editorial. La edición impresa permite seguir las escenas de aventura y combate del manga y volver a consultar los acontecimientos relacionados con la búsqueda del padre de Niko.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "268165276ade9513",
+  "origen": "chatgpt-web"
+}

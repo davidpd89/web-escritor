@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Métricas está dirigido a lectores de filosofía interesados en cómo los sistemas de puntuación influyen en la conducta y en las prioridades personales. C. Thi Nguyen examina la ludificación de la vida cotidiana, desde los dispositivos inteligentes hasta las valoraciones sociales; encaja menos con quien busca un manual práctico para analizar datos.",
+      "texto": "Métricas se dirige a lectores de filosofía interesados en cómo los sistemas de puntuación condicionan la vida cotidiana. C. Thi Nguyen examina prácticas como contar los «me gusta», registrar datos mediante relojes inteligentes y utilizar calificaciones. No está planteado como un manual para mejorar indicadores personales o profesionales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Métricas estudia cómo las puntuaciones y las calificaciones condicionan aquello que las personas consideran importante. C. Thi Nguyen aborda esta cuestión desde la filosofía contemporánea, utilizando ejemplos como los relojes inteligentes y los «me gusta» de las redes sociales para examinar la transformación de la experiencia cotidiana en resultados medibles.",
+      "texto": "Métricas estudia la transformación de actividades cotidianas en experiencias medidas mediante puntuaciones y resultados cuantificables. C. Thi Nguyen utiliza ejemplos de redes sociales, dispositivos inteligentes y sistemas de calificación para examinar qué sucede cuando los números influyen en las prioridades personales. Su enfoque filosófico cuestiona la relación entre medir una actividad y determinar su importancia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,34 +24,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Métricas está disponible en tapa blanda, con una edición de 416 páginas publicada por Ediciones Península. Su encuadernación rústica con solapas permite conservar el ensayo en papel y volver a consultar sus reflexiones sobre los sistemas de puntuación, sin depender de un dispositivo electrónico.",
+      "texto": "Métricas ofrece tres posibilidades: tapa blanda, Kindle y audiolibro. Sus 416 páginas pueden leerse en la edición rústica con solapas de Ediciones Península, mientras que Kindle permite transportar el texto digitalmente. El audiolibro cambia la lectura por la escucha y facilita seguir su reflexión filosófica sin utilizar un ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "edicion",
-        "editorial",
-        "sinopsis_editorial"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Métricas y Contingencia, ironía y solidaridad comparten el enfoque filosófico, pero C. Thi Nguyen estudia la influencia de las puntuaciones cotidianas y Richard Rorty reflexiona sobre la sociedad y las verdades universales. Antes de perder el juicio también cuestiona cómo se forman los juicios personales, aunque Mauricio García Villegas se centra en la propaganda, las consignas y las cámaras de eco.",
+      "texto": "Métricas comparte con Bobadas la preocupación por aquello que las personas consideran importante en su vida cotidiana. C. Thi Nguyen examina los sistemas de puntuación, mientras que Javier Urra Portillo y Cristina González Reche plantean preguntas sobre las prioridades personales ante la abundancia de estímulos. Antes de perder el juicio aborda otro problema relacionado con el entorno informativo: la influencia de la propaganda y las cámaras de eco sobre la percepción de la verdad.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791388387302",
-        "isbn-9788449345951"
+        "isbn-9788426741622"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a168946a66216aa6",
+  "fuente_hash": "b7d130acfaa7bfd3",
   "origen": "chatgpt-web"
 }

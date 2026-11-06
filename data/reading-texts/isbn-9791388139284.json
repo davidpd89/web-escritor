@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388139284",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La primera vez que le vi está dirigida a lectores adultos de misterio y thriller que buscan desapariciones, persecuciones y secretos familiares. Laura Dave sitúa el peligro en la vida de Hannah y Bailey tras el regreso inesperado de Owen, por lo que no responde a las expectativas de una novela familiar centrada únicamente en las relaciones cotidianas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La primera vez que le vi desarrolla un thriller de persecución a partir de la reaparición de un hombre que llevaba cinco años desaparecido. Hannah y Bailey deben huir mientras intentan averiguar quién las amenaza y qué relación tiene el peligro presente con el pasado de Owen, de modo que el suspense avanza unido a la investigación familiar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La primera vez que le vi ofrece una edición en tapa blanda con solapas de 288 páginas, publicada por Roca Editorial, para quienes prefieren leer el thriller en papel. Kindle permite continuar la investigación y la huida de sus protagonistas desde el móvil o un lector electrónico, sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8666b2a9d2354702",
+  "origen": "chatgpt-web"
+}

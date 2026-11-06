@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791370310318",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aguas turbulentas está dirigido a lectores de novela policiaca que prefieren investigaciones con secretos familiares, presión institucional y pistas inquietantes. La desaparición de una estudiante y los elementos siniestros del caso lo alejan de los misterios de tono ligero o humorístico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Se trata de un thriller policial ambientado en Edimburgo, construido alrededor de una desaparición y de la investigación del inspector John Rebus. El caso combina la influencia de una familia adinerada, objetos perturbadores y una actividad por Internet que conecta distintas líneas de investigación.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aguas turbulentas puede leerse en tapa blanda o en Kindle, con una extensión de 576 páginas en su edición impresa. El papel permite mantener una copia física de esta investigación extensa, mientras que Kindle facilita llevar la novela en un lector electrónico o dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas turbulentas y Corazón de sílex parten de sucesos inquietantes relacionados con mujeres jóvenes, aunque Rankin Ian desarrolla una investigación policial por desaparición y la otra obra plantea una pérdida de memoria. También se aproxima a El problema final (edición serie) por el misterio criminal, pero sitúa el peso del caso en las pesquisas del inspector John Rebus.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467083330",
+        "isbn-9788466389136"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c6ccea180db21c7",
+  "origen": "chatgpt-web"
+}

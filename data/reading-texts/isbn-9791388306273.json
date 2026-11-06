@@ -1,28 +1,40 @@
 {
   "id": "isbn-9791388306273",
-  "familia": "no_ficcion",
+  "familia": "narrativa",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La tercera vida de Grange Copeland se dirige a quienes buscan relatos de conflictos familiares entre generaciones, abandono y reparación afectiva. La dureza de las relaciones entre padres, hijos y nietos la aleja de quien prefiera historias sin rupturas familiares.",
+      "texto": "La tercera vida de Grange Copeland se dirige a lectores de narrativa contemporánea interesados en los conflictos familiares entre generaciones y sus consecuencias. La historia aborda el abandono, las relaciones dañadas y el coste personal del cuidado, por lo que se aleja de las lecturas centradas en aventuras ligeras o conflictos sin repercusiones familiares.",
       "evidencias": [
         "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La tercera vida de Grange Copeland, de Alice Walker, es una narración familiar que abarca tres generaciones en el Sur de Estados Unidos. Sitúa parte de su conflicto en Georgia durante los años treinta y examina las consecuencias de la marcha y el regreso de un padre, así como la responsabilidad hacia su nieta. El relato relaciona los vínculos familiares con la posibilidad de reparar daños anteriores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tercera vida de Grange Copeland está disponible en tapa blanda y tiene 352 páginas. Es una edición en papel para seguir la historia de varias generaciones y regresar a los pasajes de su conflicto familiar sin utilizar una pantalla.",
+      "texto": "La tercera vida de Grange Copeland se publica en tapa blanda y también está disponible en Kindle. La edición física de Nórdica Libros consta de 352 páginas y permite conservar el volumen en papel; la digital facilita leerlo en un dispositivo compatible o desde el móvil, sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "edicion",
+        "editorial",
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "80f5f3a1393dd9ae",
+  "fuente_hash": "3bcc45f9c9360628",
   "origen": "chatgpt-web"
 }

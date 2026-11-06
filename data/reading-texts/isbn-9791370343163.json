@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791370343163",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bajo el mar está dirigido al público infantil interesado en colorear animales marinos y utilizar imanes para decorar. Su propuesta se centra en la actividad manual y la exposición de láminas, por lo que no responde a quien busca principalmente cuentos para leer.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El juego consiste en colorear las láminas de animales marinos y colocarlas sobre una superficie metálica mediante el marco magnético. Incluye además 15 imanes que pueden colorearse y utilizarse para añadir detalles a las composiciones.",
+      "evidencias": [
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bajo el mar tiene 24 páginas y se presenta en tapa blanda. Su edición física incorpora un marco magnético y 15 imanes adicionales, elementos destinados a colocar y decorar las láminas sobre superficies metálicas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo el mar comparte con Dinosaurios y La granja, ambos de Susaeta Ediciones, el uso de láminas y un marco magnético para exponerlas. La diferencia está en los motivos que se trabajan: animales marinos en el primero, dinosaurios en el segundo y escenas de granja en el tercero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370341589",
+        "isbn-9791370343149",
+        "isbn-9791370343156"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "751762706ac313a2",
+  "origen": "chatgpt-web"
+}

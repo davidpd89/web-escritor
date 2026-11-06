@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788434441057",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A la sombra del Estado se dirige a lectores interesados en las relaciones internacionales, los servicios de inteligencia y los mecanismos clandestinos del poder. Su atención a las operaciones encubiertas y la desinformación lo diferencia de una novela de espías centrada en personajes ficticios y aventuras individuales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La obra examina el funcionamiento de los servicios de inteligencia y su intervención en conflictos políticos internacionales. Luis de la Corte Ibáñez aborda el espionaje, las operaciones secretas y las estrategias de guerra híbrida desde una perspectiva explicativa sobre las estructuras del poder, desarrollada en 576 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A la sombra del Estado puede leerse en tapa blanda o en Kindle. La edición física de Editorial Ariel presenta 576 páginas en rústica con solapas, mientras que Kindle permite llevar la obra en un lector electrónico o dispositivo compatible sin transportar ese volumen de papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crónica de un desafío al Estado comparte con A la sombra del Estado el interés por los conflictos políticos, pero reconstruye los acontecimientos del Procés desde una perspectiva personal. El otro lado de la guerra también trata las consecuencias de decisiones políticas y militares, aunque desplaza la atención hacia quienes padecen los conflictos, frente al análisis del espionaje y los servicios de inteligencia.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441303",
+        "isbn-9788408326137"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "03a6d3b2648735f2",
+  "origen": "chatgpt-web"
+}

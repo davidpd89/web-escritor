@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788431341510",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La figura humana está orientado a lectores de filosofía interesados en la condición humana y en las relaciones entre dimensiones aparentemente opuestas de la existencia. Su planteamiento académico y fenomenológico exige atención conceptual; no responde al enfoque de una guía práctica de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Rafael Fayos Febrer estudia la condición humana mediante la noción filosófica de contraste, o Gegensatz, vinculada al pensamiento de Romano Guardini. Examina tensiones como cuerpo y alma, o independencia individual y pertenencia comunitaria, entendidas como relaciones dinámicas que contribuyen a configurar la existencia humana.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La figura humana está editado en tapa blanda y tiene 232 páginas en castellano, publicadas por Eunsa. Ediciones Universidad de Navarra. El ejemplar impreso facilita subrayar conceptos, añadir anotaciones y consultar de nuevo los argumentos filosóficos desarrollados a lo largo del ensayo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bobadas, de Javier Urra Portillo y Cristina González Reche, también plantea preguntas sobre la vida humana, pero parte de la importancia de lo cotidiano frente al análisis filosófico del contraste de La figura humana. Amigos, aduladores, charlatanes, de Plutarco, ofrece otra aproximación al pensamiento filosófico mediante un autor clásico, mientras que La figura humana desarrolla un estudio contemporáneo de las ideas de Romano Guardini.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788441445307",
+        "isbn-9788426741622"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8157439932617aa6",
+  "origen": "chatgpt-web"
+}

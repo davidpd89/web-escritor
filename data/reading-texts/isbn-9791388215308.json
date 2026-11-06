@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388215308",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Quo vadis, Ertzaintza? se dirige a lectores interesados en la organización policial, los conflictos sindicales y los mecanismos de poder institucional. Sus 184 páginas desarrollan una investigación sobre la Ertzaintza, de modo que encaja menos con quien busca una novela policíaca o un manual de procedimientos de seguridad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Ahoztar Zelaieta Zamakona examina las tensiones internas de la Ertzaintza y los factores que condicionan su evolución institucional. El análisis comprende disputas sindicales, episodios de corrupción, violencia policial, vigilancia tecnológica y movimientos ideológicos, con apoyo en documentos oficiales y testimonios especializados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Quo vadis, Ertzaintza? está disponible en tapa blanda, con 184 páginas en castellano publicadas por Txalaparta. El volumen reúne en papel una investigación sobre la organización policial y permite regresar a sus distintos asuntos sindicales, institucionales y tecnológicos durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Quo vadis, Ertzaintza? y Antes de perder el juicio comparten el interés por problemas que afectan a la vida pública, aunque Ahoztar Zelaieta Zamakona investiga una institución policial y Mauricio García Villegas se ocupa de la verdad y la propaganda. Aprendiendo de las drogas aborda otra cuestión social desde una perspectiva centrada en evitar prejuicios, frente al análisis de conflictos organizativos y policiales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387302",
+        "isbn-9788467084221"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d7e03b1a6793a165",
+  "origen": "chatgpt-web"
+}

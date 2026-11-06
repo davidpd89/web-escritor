@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388103797",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Wandance nº 08 encaja con lectores de manga interesados en el baile urbano, las competiciones y la preparación de desafíos contrarreloj. Coffee sitúa el conflicto en una batalla de breaking y en la oposición de otros bailarines, por lo que se aleja de las historias centradas en combates fantásticos o aventuras ajenas al baile.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Wandance nº 08 desarrolla una historia de competición alrededor de Kabo y una batalla de breaking propuesta por Kabeya. El protagonista afronta tres desafíos y dispone de tres semanas para prepararse, mientras otros B-Boys cuestionan su participación. El título identifica esta entrega como el n.º 08 y mantiene el baile como eje del conflicto.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Wandance nº 08 se publica en tapa blanda, con encuadernación rústica sin solapas y sobrecubierta. La edición de Planeta Cómic tiene 160 páginas y permite leer las secuencias de baile en un volumen físico manejable. Es la opción recogida para esta entrega, tanto para leerla como para incorporarla a una colección de manga en papel.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8c04ceb1cf2773eb",
+  "origen": "chatgpt-web"
+}

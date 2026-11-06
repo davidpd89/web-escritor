@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788434441309",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "50 cosas que hay que saber sobre IA se dirige a quienes buscan una introducción divulgativa a la inteligencia artificial, sus fundamentos y sus consecuencias sociales. Keith Mansfield organiza el contenido en entradas breves, por lo que su planteamiento encaja menos con quien busca un manual de programación o ejercicios técnicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina los fundamentos de la inteligencia artificial, las figuras que han contribuido a su desarrollo y los dilemas éticos asociados a su expansión. Keith Mansfield distribuye estas cuestiones en 50 entradas e incorpora una perspectiva histórica sobre la computación, junto con sus implicaciones sociales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de 50 cosas que hay que saber sobre IA reúne 224 páginas en rústica con solapas. Su organización en entradas breves permite consultar conceptos concretos y regresar a ellos sin necesidad de seguir una lectura continua; el formato físico facilita señalar y localizar apartados.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA y Cerebro, espacio y tiempo comparten el propósito de explicar cuestiones científicas a lectores no especializados. Keith Mansfield se centra en la inteligencia artificial y sus consecuencias sociales, mientras que Liset Ménendez de la Prida aborda cómo el cerebro representa la posición espacial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387941208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "30f707c7eaa5d3ad",
+  "origen": "chatgpt-web"
+}

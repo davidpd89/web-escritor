@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788467084924",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo la vida supera a la muerte se orienta a lectores interesados en reflexionar sobre el amor, los vínculos personales, la pérdida y la mortalidad. José Víctor Orón Semper aborda estas cuestiones desde las relaciones humanas, un enfoque distinto del que busca ejercicios concretos para modificar hábitos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo la vida supera a la muerte se presenta en tapa blanda, con una edición en rústica con solapas de Editorial Espasa. Sus 216 páginas permiten una lectura en papel en la que detenerse y regresar a las reflexiones sobre los vínculos, el amor y la pérdida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "acfdca894e1cc3a1",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Richelieu y Olivares se dirige a lectores interesados en la historia política de la Europa moderna y en la comparación de sus dirigentes. John H. Elliot examina a dos figuras del siglo XVII y sus semejanzas; no responde al planteamiento de una biografía centrada exclusivamente en un personaje.",
+      "texto": "Richelieu y Olivares está dirigido a lectores de historia interesados en comparar figuras políticas de la Europa moderna. John H. Elliot examina semejanzas y diferencias entre ambos personajes, por lo que el enfoque se aleja de una biografía dedicada exclusivamente a una sola trayectoria.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Richelieu y Olivares estudia el poder político mediante una comparación histórica de sus protagonistas. John H. Elliot revisa las semejanzas entre ambos y el equilibrio de sus méritos, pero también amplía el análisis más allá de sus trayectorias individuales para situarlos en la Europa moderna.",
+      "texto": "Richelieu y Olivares estudia comparativamente a dos figuras políticas del siglo XVII y cuestiona las diferencias de mérito que suelen atribuírseles. John H. Elliot examina sus semejanzas y amplía el análisis más allá de sus personalidades. El resultado es una aproximación histórica basada en el contraste entre trayectorias y contextos políticos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,26 +23,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Richelieu y Olivares está disponible en tapa blanda, en una edición rústica sin solapas de Austral Editorial. Sus 272 páginas permiten consultar y retomar los distintos aspectos del análisis histórico en un volumen físico, sin depender de un dispositivo de lectura.",
+      "texto": "Richelieu y Olivares cuenta con una edición en tapa blanda de 272 páginas, publicada en castellano por Austral Editorial. Su presentación en rústica sin solapas facilita llevar el volumen y consultarlo durante una lectura de estudio. La extensión permite abordar la comparación histórica en varias sesiones.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "numero_paginas",
         "edicion",
-        "editorial",
-        "numero_paginas"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Richelieu y Olivares y Felipe II. Vida íntima de un rey de España comparten el interés por las figuras políticas de la historia europea. El primero compara a dos dirigentes del siglo XVII, mientras que el libro de Henry Kamen se concentra en un soberano español. Los pilares de la historia, de Javier Fernández Sebastián, cambia el foco hacia la capacidad de la historia para explicar el presente.",
+      "texto": "CORONA AUTORITARIA, LA comparte con Richelieu y Olivares el estudio del poder político desde una perspectiva histórica, aunque Guillermo María Muñoz se ocupa de la monarquía y el nacionalismo español durante la dictadura de Primo de Rivera. Cesar La conquista de la eternidad, de Alberto Angela, también examina una figura histórica, pero sigue la trayectoria de un general romano en lugar de comparar a dos dirigentes de la Europa moderna.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467083743",
-        "isbn-9788430629664"
+        "isbn-9788410944329",
+        "isbn-9788419892782"
       ]
     }
   ],

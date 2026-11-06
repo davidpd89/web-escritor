@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los genios creen en Dios se dirige a lectores adultos interesados en las relaciones entre ciencia, pensamiento y creencias religiosas. José Carlos González-Hurtado utiliza figuras de la historia científica para defender la compatibilidad entre inteligencia y fe. Su planteamiento afirmativo sobre la existencia de Dios lo diferencia de una exposición neutral de las distintas posturas religiosas y ateas.",
+      "texto": "Los genios creen en Dios está dirigido a lectores adultos interesados en la relación entre ciencia, pensamiento y creencias religiosas. Su planteamiento defiende una conexión entre conocimiento científico y fe, por lo que encaja menos con quienes buscan una exposición de posturas contrapuestas sin una tesis religiosa definida.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Los genios creen en Dios plantea una reflexión religiosa apoyada en testimonios de figuras relevantes de la ciencia y el pensamiento. José Carlos González-Hurtado recurre a nombres como Newton, Einstein y Ramón y Cajal para argumentar que el conocimiento científico no excluye la creencia en Dios. El texto presenta una tesis sobre la relación entre razón y fe, en lugar de desarrollar una trama de ficción.",
+      "texto": "Los genios creen en Dios es una obra de religión y espiritualidad que examina las creencias de figuras históricas de la ciencia. José Carlos González-Hurtado utiliza sus testimonios para sostener que la investigación racional y la creencia en Dios pueden estar relacionadas, con una argumentación orientada a defender esa interpretación.",
       "evidencias": [
         "titulo",
         "autores",
@@ -25,19 +24,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los genios creen en Dios puede adquirirse en tapa dura o Kindle. La edición de Roca Editorial tiene 288 páginas y sobrecubierta, características que permiten conservar el volumen como libro físico o regalarlo. Kindle ofrece una alternativa digital para leer y consultar los argumentos sobre ciencia y religión desde dispositivos compatibles.",
+      "texto": "Los genios creen en Dios está disponible en tapa dura y Kindle. La edición física de Roca Editorial presenta 288 páginas con sobrecubierta, una opción para conservar o regalar el volumen; Kindle permite consultar su contenido desde un lector electrónico o el móvil.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "edicion",
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los genios creen en Dios y Muchas vidas, muchos maestros (edición especial con cantos tintados), de Brian Weiss, abordan cuestiones espirituales desde puntos de partida diferentes. José Carlos González-Hurtado recurre a científicos y pensadores para defender la fe, mientras Brian Weiss presenta una experiencia que modificó su visión personal. Uketamo. Abrazar la vida tal cual viene, de Ana Galeote Frontelo, desplaza el interés hacia la aceptación y la manera de afrontar la vida.",
+      "texto": "Los genios creen en Dios y Nuevas evidencias científicas de la existencia de Dios comparten autor, José Carlos González-Hurtado, y abordan la relación entre ciencia y religión. El primero se centra en las creencias de científicos históricos; el segundo plantea la cuestión de la compatibilidad entre ambos ámbitos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -45,8 +43,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388038495",
-        "isbn-9788402431486"
+        "isbn-9788466393829"
       ]
     }
   ],

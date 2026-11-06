@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791388328046",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Churchill está dirigido a lectores de biografías históricas interesados en el liderazgo político y las transformaciones de una época. Su recorrido por las decisiones, éxitos y fracasos de un estadista se aleja de las memorias íntimas y de los estudios centrados exclusivamente en una campaña militar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Paul Johnson examina las distintas etapas de la vida de Winston Churchill, desde su servicio militar hasta sus advertencias sobre la Guerra Fría. El análisis atiende a su capacidad para adaptarse a situaciones cambiantes y utiliza episodios biográficos, citas y anécdotas para explicar su actuación pública.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Churchill se ofrece en tapa blanda, con 224 páginas en castellano editadas por Ciudadela Libros. Es una edición física que permite consultar distintas etapas de la biografía, marcar pasajes y recuperar las citas y anécdotas utilizadas para caracterizar al protagonista.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cesar La conquista de la eternidad, de Alberto Angela, comparte con Churchill el interés por reconstruir la trayectoria de una figura histórica vinculada al poder y la actividad militar. El primero sigue las peripecias de un general romano; Churchill, de Paul Johnson, Diego Pereda Sancho, analiza la evolución de un dirigente británico hasta la Guerra Fría.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788410944329"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8f8b199f61112737",
+  "origen": "chatgpt-web"
+}

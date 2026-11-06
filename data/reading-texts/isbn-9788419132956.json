@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788419132956",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta antología de Andrés Trapiello se dirige a lectores de poesía interesados en recorrer una trayectoria literaria mediante poemas y comentarios personales. La alternancia de verso y prosa encaja menos con quienes prefieren un poemario de composición unitaria, sin explicaciones sobre el proceso creativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Andrés Trapiello reúne más de noventa poemas seleccionados de diez libros publicados durante casi medio siglo de escritura. Cada composición se integra en una antología comentada que alterna verso y prosa, con una dimensión autobiográfica que permite relacionar la obra poética con la trayectoria personal del autor.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 368 páginas en rústica con solapas, un formato que permite señalar poemas y consultar los comentarios durante la relectura. Kindle ofrece una alternativa para llevar la antología en un dispositivo electrónico y alternar entre las composiciones y los textos en prosa sin transportar el volumen.",
+      "evidencias": [
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A las mil maravillas comparte autoría con esta antología, pero aborda una faceta diferente del trabajo de Andrés Trapiello. Mientras la selección poética reúne versos y comentarios personales de varias décadas, A las mil maravillas se centra en la colaboración entre escritores e ilustradores en la prensa y su tradición histórica.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944138",
+        "isbn-9791370140908"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "907a731b54b385d3",
+  "origen": "chatgpt-web"
+}

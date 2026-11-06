@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788425455278",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Correspondencia 1922-1976 está dirigida a lectores de filosofía interesados en conocer cómo dialogaban Hans Georg Gadamer y Martin Heidegger fuera de sus obras publicadas. Las cartas incluyen asuntos profesionales, familiares y políticos, de modo que no encaja con quien busque un tratado filosófico sistemático o una exposición introductoria de conceptos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Correspondencia 1922-1976 aborda el pensamiento filosófico y la vida académica a través de las cartas de Hans Georg Gadamer y Martin Heidegger. Los textos recogen desacuerdos intelectuales, iniciativas editoriales, actividades docentes y cuestiones familiares, además de mostrar cómo su relación pasó del aprendizaje a la colaboración. El contexto político abarca desde la República de Weimar hasta la creación de la República Federal Alemana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Correspondencia 1922-1976 se presenta en tapa dura, con 496 páginas en castellano. El volumen físico permite consultar cartas de distintas épocas, regresar a intercambios concretos y conservar reunido un periodo prolongado de comunicación filosófica. La encuadernación rígida resulta práctica para una obra destinada a consultas sucesivas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amigos, aduladores, charlatanes y Correspondencia 1922-1976 permiten acercarse al pensamiento filosófico desde perspectivas distintas: el primero presenta a Plutarco, mientras el segundo reúne el intercambio epistolar de Hans Georg Gadamer y Martin Heidegger. Antes de perder el juicio aborda la verdad y la propaganda en el debate público; Correspondencia 1922-1976 muestra discusiones intelectuales junto a asuntos personales y profesionales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788441445307",
+        "isbn-9791388387302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f04b7c5f405543e1",
+  "origen": "chatgpt-web"
+}

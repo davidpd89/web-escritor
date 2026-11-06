@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788427258280",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El ocaso del rey (Dioses y monstruos 5) se dirige a lectores de fantasía romántica oscura que buscan conflictos entre poderes sobrenaturales, alianzas difíciles y personajes de moral ambigua. No encaja tanto con quienes prefieren romances cotidianos o historias sin amenazas de alcance colectivo, ya que la supervivencia de varios dominios está en juego.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La novela desarrolla una fantasía romántica oscura centrada en la redistribución del poder, la cooperación forzada y el enfrentamiento con criaturas peligrosas. Dianna, Kaden y Isaiah necesitan regresar de una realidad ajena mientras una reliquia antigua adquiere importancia para la supervivencia de los dominios.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El ocaso del rey (Dioses y monstruos 5) se ofrece en tapa blanda, en una edición de Molino de 672 páginas. La cubierta flexible facilita manejar el volumen durante la lectura, aunque su extensión supone un libro físico considerable para transportar a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casa de cielo y aliento (Ciudad Medialuna 2), de Sarah J. Maas, comparte la fantasía romántica y los conflictos que afectan a comunidades enteras, pero se centra en una rebelión y sus consecuencias. Donde duermen las sombras, de Andrea Ornos, también incorpora realidades distintas y fuerzas oscuras, aunque destaca el amor entre dimensiones frente a las alianzas y disputas de poder de El ocaso del rey (Dioses y monstruos 5).",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396080",
+        "isbn-9788427055605"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "69fcf28b859716da",
+  "origen": "chatgpt-web"
+}

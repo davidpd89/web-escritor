@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388069284",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Odisea que Homero nunca escribió está orientado especialmente a estudiantes de Secundaria, incluidos quienes cursan Cultura Clásica. Socorro Natal Rego traslada personajes y conflictos del poema homérico a situaciones contemporáneas, por lo que no es una reproducción literal de la obra antigua ni una adaptación que conserve intactos sus acontecimientos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Odisea que Homero nunca escribió se presenta en tapa blanda, con 142 páginas en castellano. Este formato permite utilizar el ejemplar físico para la lectura escolar, consultar pasajes y trabajar sobre la reinterpretación de los personajes clásicos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fad7c5d3a3ce709d",
+  "origen": "chatgpt-web"
+}

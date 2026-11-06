@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788467984965",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LA MAZMORRA. INTEGRAL 1 (NUEVO PVP) encaja con lectores de cómic que buscan fantasía heroica tratada desde la parodia y desarrollada en un universo amplio. Su planteamiento se aparta de la fantasía épica narrada con absoluta solemnidad y de la novela convencional en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La obra combina el cómic francobelga con una reinterpretación humorística de la fantasía heroica. Bajo ese tratamiento paródico, desarrolla un mundo narrativo complejo que forma parte de una serie concebida por Joann Sfar y Lewis Trondheim en 1998.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "LA MAZMORRA. INTEGRAL 1 (NUEVO PVP) pertenece a una colección que reúne la serie completa en volúmenes integrales supervisados por sus creadores. Esta entrega de Norma Editorial se publicó el 21 de septiembre de 2026, en tapa dura y castellano, con 316 páginas.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "editorial",
+        "fecha_publicacion",
+        "formatos_disponibles",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de LA MAZMORRA. INTEGRAL 1 (NUEVO PVP) es de tapa dura y reúne 316 páginas de cómic en castellano. El formato físico permite recorrer las páginas ilustradas y conservar el volumen junto a las demás entregas integrales de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d8762f61d849eb02",
+  "origen": "chatgpt-web"
+}

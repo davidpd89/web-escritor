@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791370345808",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos para soñar se dirige a primeros lectores que disfrutan de historias mágicas acompañadas de ilustraciones. La letra manuscrita está pensada para apoyar sus primeras experiencias de lectura; quienes busquen una novela continua encontrarán, en cambio, una colección de relatos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Cuentos para soñar propone una lectura de fantasía infantil organizada en relatos independientes. Sus 240 páginas combinan aventuras de carácter mágico con imágenes y una presentación del texto que imita la escritura a mano, pensada para facilitar el contacto de los lectores principiantes con las palabras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuentos para soñar se publica en tapa dura, con 240 páginas en castellano. Esta encuadernación permite conservar juntos los relatos ilustrados y facilita su consulta repetida durante las primeras etapas de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentos para soñar y La semana de colores y Andamos huyendo Lola comparten el uso de la imaginación en sus relatos. El primero reúne historias mágicas ilustradas para lectores principiantes, mientras que el segundo presenta dos obras de Elena Garro; A sangre y fuego, de Manuel Chaves Nogales, se orienta hacia el testimonio literario de un enfrentamiento.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331810",
+        "isbn-9788467084856"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a083fb51f3061a67",
+  "origen": "chatgpt-web"
+}

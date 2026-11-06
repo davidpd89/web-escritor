@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9791388101304",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yuru Camp nº 12 encaja con quienes leen manga sobre acampadas, excursiones y actividades compartidas entre amigos. Su atención a los planes al aire libre y a los imprevistos cotidianos lo aleja de las historias centradas en grandes enfrentamientos o conflictos violentos.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Este volumen de Afro continúa las experiencias de acampada de Nadeshiko, Rin y sus compañeras del club de actividades al aire libre. La narración alterna las excursiones de distintos personajes y los contratiempos que encuentran durante sus desplazamientos. El título lo identifica como el n.º 12.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yuru Camp nº 12 está disponible en tapa blanda, con una edición rústica sin solapas y sobrecubierta de Planeta Cómic. Sus 178 páginas permiten llevar el volumen físico en una mochila para leerlo durante desplazamientos o descansos. Es la opción recogida para esta entrega.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1d5dfd49370ffa3d",
+  "origen": "chatgpt-web"
+}

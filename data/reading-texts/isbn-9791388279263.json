@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ciencias del comportamiento (Edición especial) se orienta a lectores interesados en comprender la conducta humana y aplicar técnicas de comunicación y negociación a situaciones cotidianas. Su enfoque práctico se relaciona con el desarrollo personal y las ciencias sociales, más que con una narración de ficción o un estudio exclusivamente histórico.",
+      "texto": "Ciencias del comportamiento (Edición especial) se dirige a lectores interesados en comprender la conducta humana y aplicar técnicas de comunicación y negociación a situaciones cotidianas. Su planteamiento práctico encaja menos con quienes buscan una investigación exclusivamente académica o una obra de ficción psicológica.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,42 +13,43 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Ciencias del comportamiento (Edición especial), de Juan Manuel García Pincho (@cienciasdelcomportamiento), es una edición en tapa dura de 512 páginas publicada por Temas de Hoy. Su encuadernación es de cartoné sin sobrecubierta, una característica física que la distingue de presentaciones con cubierta flexible o sobrecubierta independiente. El contenido aborda comportamiento, comunicación no consciente y negociación.",
+      "texto": "Ciencias del comportamiento (Edición especial) se presenta en una edición de Temas de Hoy encuadernada en tapa dura sin sobrecubierta. El volumen contiene 512 páginas en castellano y lleva el ISBN 9791388279263. Esta presentación en cartoné distingue físicamente la edición especial de la alternativa en tapa blanda.",
       "evidencias": [
         "titulo",
-        "autores",
-        "edicion",
         "editorial",
+        "edicion",
         "numero_paginas",
-        "sinopsis_editorial"
+        "idioma",
+        "isbn13",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ciencias del comportamiento (Edición especial) puede leerse en tapa dura o Kindle. La edición física reúne 512 páginas en cartoné, adecuada para mantener el volumen en una estantería y consultarlo sobre una mesa. Kindle permite acceder al texto desde dispositivos compatibles y evita transportar un libro de esa extensión.",
+      "texto": "La tapa dura de Ciencias del comportamiento (Edición especial) ofrece una encuadernación rígida para conservar y consultar sus 512 páginas. La tapa blanda es una alternativa física más flexible, mientras que Kindle permite leer el contenido en el móvil o en un lector electrónico. La elección depende de si se prioriza la conservación del volumen, su manejo o la lectura digital.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ciencias del comportamiento (Edición especial) puede compararse con Despierto pero disperso, de Peg Dawson, Richard Guare y Colin Guare, porque ambos presentan conocimientos sobre la conducta con una aplicación práctica. Despierto pero disperso se centra en habilidades ejecutivas infantiles y se dirige a familias y docentes; Ciencias del comportamiento (Edición especial) aborda comunicación y negociación en situaciones cotidianas.",
+      "texto": "Ciencias del comportamiento (Edición especial) y Despierto pero disperso comparten una orientación práctica hacia la conducta y las habilidades personales. El primero aborda la comunicación y la negociación en situaciones cotidianas, mientras que el segundo trabaja las funciones ejecutivas infantiles y se dirige a familias y docentes. Las leyes fundamentales de la estupidez humana ofrece, en cambio, una reflexión ensayística sobre el comportamiento humano.",
       "evidencias": [
         "titulo",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788449345999"
+        "isbn-9788449345999",
+        "isbn-9788491995913"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3506469953985dc8",
+  "fuente_hash": "1a52fa882a15fa40",
   "origen": "chatgpt-web"
 }

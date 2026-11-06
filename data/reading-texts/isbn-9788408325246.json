@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408325246",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La afectividad masculina está dirigida a lectores interesados en la psicología de los hombres, sus relaciones afectivas y las expectativas asociadas a la masculinidad. Su enfoque de desarrollo personal, centrado en las emociones y la vida sexual masculina, se aleja de la narrativa de ficción y de los manuales sobre cuestiones ajenas a las relaciones humanas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La afectividad masculina puede leerse en tapa blanda o en Kindle. La edición física de Zenith tiene 208 páginas y encuadernación rústica con solapas, adecuada para consultar y señalar pasajes; Kindle permite llevar el texto en un lector electrónico o en el móvil sin transportar el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La afectividad masculina y Ama y no sufras comparten autor, Walter Riso, y abordan cuestiones relacionadas con el afecto. El primero examina las emociones y dificultades psicológicas masculinas, mientras que Ama y no sufras se ocupa de la vida en pareja. El coraje de ser quien eres (aunque no gustes), también de Walter Riso, desplaza el foco hacia la individualidad y la afirmación personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408325239",
+        "isbn-9788408324898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa55d8d60b08c2f6",
+  "origen": "chatgpt-web"
+}

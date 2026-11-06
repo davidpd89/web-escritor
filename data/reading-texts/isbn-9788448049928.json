@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788448049928",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "I Love Cake se dirige a quienes buscan preparar tartas y pasteles mediante recetas de cocina. Su contenido se centra en la repostería, por lo que no responde a quien necesita un recetario general de platos salados o técnicas de cocina cotidiana.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "I Love Cake reúne recetas de tartas y pasteles seleccionadas por Trish Deseine a partir de sus preferencias e inspiraciones acumuladas durante años. Sus 320 páginas están dedicadas a la repostería, con preparaciones en las que aparecen ingredientes y elaboraciones como la mantequilla y la chantilly.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "I Love Cake está disponible en tapa dura, con encuadernación en cartoné y sin sobrecubierta. Sus 320 páginas pueden consultarse en papel mientras se prepara una receta, y la cubierta rígida facilita conservar el volumen para futuras consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "I Love Cake y 20 minutos ¡y listo! comparten el interés por cocinar mediante recetas, pero el primero se concentra en tartas y pasteles, mientras que el segundo plantea preparaciones para personas con poco tiempo. También puede compararse con Al micro y listo, que aborda la cocina desde el uso del microondas en lugar de centrarse en la repostería.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788467084757"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5eea98c91d15411",
+  "origen": "chatgpt-web"
+}

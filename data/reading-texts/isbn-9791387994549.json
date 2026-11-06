@@ -1,0 +1,65 @@
+{
+  "id": "isbn-9791387994549",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Onin 1 - Onin y la isla del tesoro está dirigido a lectores a partir de 7 años que disfrutan de aventuras con misterios, amistad y elementos mágicos. Sus capítulos cortos e ilustraciones facilitan la lectura independiente; encaja menos con quienes buscan historias realistas sin fantasía o relatos centrados en personajes adultos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Onin 1 - Onin y la isla del tesoro se lee por capítulos cortos y permite continuar la experiencia mediante actividades, curiosidades y juegos incluidos al final. Las ilustraciones a todo color acompañan la aventura de la isla, el mapa del tesoro y los piratas. Las páginas adicionales permiten volver sobre el mundo de los personajes después de leer.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Onin 1 - Onin y la isla del tesoro está recomendado a partir de 7 años. La edición de Ediciones B tiene 160 páginas, tapa dura e ilustraciones a todo color, además de capítulos breves y una composición pensada para facilitar la lectura. Incorpora también páginas con actividades y juegos.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "editorial",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Onin 1 - Onin y la isla del tesoro puede elegirse en Tapa dura o Kindle. La edición física de Ediciones B reúne 160 páginas con ilustraciones a todo color y actividades, por lo que permite manejar el libro y consultar sus páginas durante el juego. Kindle facilita llevar la lectura en un dispositivo electrónico o móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Onin 2 - Onin y el misterio del bosque comparte con Onin 1 - Onin y la isla del tesoro el autor, Ibon Martín, y las aventuras de Onin y sus amigos. El primer título presenta una búsqueda relacionada con una isla y piratas; el segundo traslada el misterio al bosque. Ambos mantienen la combinación de amistad, magia y exploración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387994556"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41a0caad33da9113",
+  "origen": "chatgpt-web"
+}

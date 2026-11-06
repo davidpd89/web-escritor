@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410848030",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Busca que te busca. En la granja está pensado para lectores infantiles que disfrutan buscando objetos, observando dibujos y resolviendo diferencias. Sus actividades transcurren entre animales y espacios de una granja, por lo que encaja menos con quien busca un cuento narrativo o una lectura centrada en personajes y diálogos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Busca que te busca. En la granja se ofrece en tapa blanda, con 48 páginas de actividades visuales. Su presentación en bloc con anillas y rotulador permite marcar los elementos encontrados, borrar las respuestas y repetir los ejercicios; es un formato físico pensado para manipularlo y transportarlo durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Busca que te busca. En la granja comparte con Aprender a leer en la Escuela de Monstruos 27 - Un regalo bien guardado su orientación infantil, pero el libro de Emma Martínez propone búsquedas visuales y diferencias en lugar de seguir las actividades de unos personajes. También se distingue de Pokécology (Guía Pokémon), de The Pokemon Company, que plantea preguntas sobre cómo viven los Pokémon, mientras Busca que te busca. En la granja organiza ejercicios de observación entre animales y espacios agrícolas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388222412",
+        "isbn-9791388222276"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "139eaa81ff0f15dd",
+  "origen": "chatgpt-web"
+}

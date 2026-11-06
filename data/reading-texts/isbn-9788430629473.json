@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788430629473",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El primer posmoderno se dirige a lectores adultos interesados en la historia literaria española, las biografías culturales y las transformaciones artísticas del siglo XX. No está planteado como una novela de ficción convencional, sino como una aproximación a la trayectoria y las innovaciones de Gonzalo Suárez en la escritura y el cine.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Javier Cercas examina la ruptura de Gonzalo Suárez con el realismo dominante en la España de los años sesenta. Su enfoque relaciona la literatura fantástica, la novela policíaca, la metaliteratura y el periodismo con una forma temprana de posmodernidad, y extiende el análisis a las innovaciones cinematográficas del autor.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El primer posmoderno se publica en tapa blanda con solapas, con 400 páginas para consultar y releer los pasajes dedicados a la literatura y el cine. La versión Kindle permite llevar el texto en formato digital y alternar su lectura con otras obras sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esas muchachas que escriben poemas comparte con El primer posmoderno la atención a figuras vinculadas con la creación literaria, aunque se centra en mujeres poetas frente al estudio de Gonzalo Suárez. Canción de amor definitiva ofrece una perspectiva personal marcada por cambios vitales, mientras Javier Cercas aborda las transformaciones culturales a través de una trayectoria artística ajena.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426434272",
+        "isbn-9788401042119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6c4dcedcde9f362",
+  "origen": "chatgpt-web"
+}

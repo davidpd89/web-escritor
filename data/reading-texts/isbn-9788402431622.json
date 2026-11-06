@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788402431622",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cansadas de quedar bien se dirige a personas adultas interesadas en comprender la complacencia, la necesidad de aprobación y la dificultad para establecer límites. Tamara Gómez aborda la culpa, el perfeccionismo y el cuidado de las propias necesidades desde la psicología. No está planteado como una novela ni como una lectura de entretenimiento ajena al desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cansadas de quedar bien se publica en tapa blanda con solapas y Kindle, con 224 páginas. El ejemplar físico permite volver a los apartados sobre límites, autoexigencia y relaciones personales sin utilizar una pantalla. Kindle facilita consultar esos mismos temas desde el móvil o un lector electrónico, sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cansadas de quedar bien y Mamá necesita un respiro, de Inma Sáenz, comparten la atención al bienestar de las mujeres, aunque Tamara Gómez examina la complacencia y los límites personales, mientras que el segundo título parte de la experiencia de la maternidad. Frente a Culos. Una historia gráfica del trasero (y lo que hay detrás), de Erell Hannah, cambia el análisis de los ideales corporales por el de las relaciones y la necesidad de aprobación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683043",
+        "isbn-9788402431646"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "682b9e09f98e4175",
+  "origen": "chatgpt-web"
+}

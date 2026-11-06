@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387811709",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una cuestión de principios se dirige a lectores de narrativa contemporánea que buscan humor satírico, conflictos burocráticos y personajes dispuestos a desafiar las normas. Joe Barrett construye una comedia con situaciones disparatadas y momentos emotivos; su tono irreverente puede alejar a quienes prefieran una historia solemne o contenida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La novela combina sátira social y comedia negra a partir de un desacuerdo económico con una residencia de ancianos. El protagonista convierte una reclamación particular en una confrontación más amplia con las convenciones de su entorno, mientras su relación con un menor acogido influye en sus decisiones. El conflicto enfrenta las convicciones personales con las estructuras burocráticas.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una cuestión de principios está disponible en tapa blanda, en una edición de Editorial Berenice de 384 páginas. El volumen reúne una novela de humor y sátira social que puede leerse por sesiones y retomarse siguiendo las consecuencias de las decisiones del protagonista. Es una edición física para quienes prefieren leer en papel.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7596dd6e97313451",
+  "origen": "chatgpt-web"
+}

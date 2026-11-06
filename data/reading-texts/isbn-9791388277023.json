@@ -4,10 +4,8 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El diario de Wiska 2 - Un secreto entre amigas, de Harriet Muncaster, está dirigido a lectores a partir de 7 años que disfrutan de la fantasía, las excursiones escolares y los misterios entre amigos. Sus capítulos breves e ilustraciones a color responden a las primeras etapas lectoras; encaja menos con quienes buscan aventuras extensas sin apoyo visual.",
+      "texto": "Está pensado para lectores desde los 7 años que prefieren fantasía, amistades y misterios presentados mediante capítulos cortos. El secreto de Citrina introduce incertidumbre durante una excursión escolar, aunque el relato mantiene un enfoque de primeras lecturas. Encaja menos con quienes buscan historias realistas o aventuras sin elementos mágicos.",
       "evidencias": [
-        "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,7 +13,7 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "El diario de Wiska 2 - Un secreto entre amigas se lee como un diario de aventuras, con capítulos cortos y dibujos a todo color que acompañan el texto. La excursión escolar introduce actividades como orientarse con un mapa, preparar un campamento y conseguir comida, mientras un secreto entre compañeras sostiene el misterio. Es una lectura narrativa, no un cuaderno de ejercicios.",
+      "texto": "Se lee como un diario narrativo, siguiendo las experiencias de Wiska durante una excursión con su colegio. Los capítulos breves permiten repartir la lectura en sesiones y las ilustraciones a todo color acompañan cada página. El mapa, el campamento y la búsqueda de comida forman parte de las actividades que viven los personajes, no de un juego de mesa.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial"
@@ -23,39 +21,38 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "El diario de Wiska 2 - Un secreto entre amigas está recomendado a partir de 7 años y tiene 208 páginas. La edición en castellano de Alfaguara es de tapa blanda con solapas; sus capítulos cortos, lenguaje sencillo e ilustraciones en color permiten avanzar por tramos de lectura breves.",
+      "texto": "La edad recomendada comienza a los 7 años y el volumen tiene 208 páginas en castellano. Alfaguara lo presenta en tapa blanda con solapas, con capítulos cortos, textos sencillos e ilustraciones a todo color. La combinación de texto e imagen acompaña una historia de fantasía sobre amistad y secretos.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
         "numero_paginas",
+        "idioma",
         "edicion",
         "editorial",
-        "idioma",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El diario de Wiska 2 - Un secreto entre amigas se ofrece en tapa blanda y Kindle. La edición física de 208 páginas permite recorrer sus ilustraciones a color directamente sobre papel; Kindle ofrece una alternativa digital para leer durante los desplazamientos, con una visualización de las imágenes que dependerá del dispositivo.",
+      "texto": "La tapa blanda con solapas ofrece un ejemplar físico de 208 páginas para recorrer los capítulos y observar las ilustraciones a color sobre papel. Kindle permite leer la historia digitalmente en un dispositivo compatible, con la comodidad de no transportar el volumen. Para las imágenes, la experiencia dependerá de las características de la pantalla utilizada.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Piratix. Primeras lecturas 2 - El banquete del Kraken, de Magicbox, comparte con El diario de Wiska 2 - Un secreto entre amigas la orientación hacia las primeras lecturas y una aventura con misterio, pero traslada el conflicto a un barco legendario. Pipoka y la Fábrica del Desastre, de Jose Such, también incorpora magia, aunque sigue a viajeros que recorren paisajes y encuentran criaturas legendarias.",
+      "texto": "Onin 1 - Onin y la isla del tesoro, de Ibon Martín, comparte la amistad, los misterios y los elementos mágicos, pero orienta su aventura hacia la búsqueda de un tesoro. Campamento Mestizo 1 - La zona rebelde, de Rick Riordan y Annabelle Oh, también utiliza un entorno de convivencia juvenil; este libro adopta, en cambio, la forma de diario ilustrado y capítulos cortos.",
       "evidencias": [
-        "titulo",
-        "autores",
         "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "titulo"
       ],
       "enlaces": [
-        "isbn-9791388277085",
-        "isbn-9788448874834"
+        "isbn-9788419868466",
+        "isbn-9791387994549"
       ]
     }
   ],

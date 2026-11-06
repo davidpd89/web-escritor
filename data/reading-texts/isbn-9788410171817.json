@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Eva está dormida se dirige a lectores de narrativa contemporánea interesados en la memoria familiar, la identidad cultural y los conflictos históricos europeos. No responde a quien busque una intriga desligada de la política: los vínculos entre Eva, su madre y Vito Anania están marcados por las tensiones y la represión en Tirol del Sur.",
+      "texto": "Eva está dormida se dirige a lectores de narrativa contemporánea interesados en la memoria familiar, los conflictos de identidad y las consecuencias personales de la historia política. Su combinación de recuerdos, tensiones territoriales y reconciliación se aleja de las historias centradas exclusivamente en la acción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,27 +13,28 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela de memoria familiar e identidad colectiva que utiliza un trayecto en tren para conectar distintas épocas. Los recuerdos de Eva relacionan las vidas de Gerda Huber y Vito Anania con los cambios territoriales de Tirol del Sur, la represión fascista y las restricciones impuestas a la población de habla alemana.",
+      "texto": "La novela de Francesca Melandri combina una historia familiar con el pasado político de Tirol del Sur. El desplazamiento de Eva para visitar a Vito Anania sirve de marco a los recuerdos de su infancia y a las consecuencias de la represión cultural, los enfrentamientos territoriales y las divisiones entre comunidades.",
       "evidencias": [
+        "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 408 páginas de Eva está dormida en un volumen físico en castellano. Este formato permite avanzar por una narración extensa en papel, retomar los episodios familiares e históricos y conservar el ejemplar para posteriores lecturas.",
+      "texto": "Eva está dormida está disponible en Tapa blanda y Kindle. La edición física de Editorial Periférica reúne 408 páginas y permite conservar el volumen en papel; Kindle ofrece la alternativa de leer esta misma obra en un dispositivo electrónico o en el móvil, sin transportar el libro.",
       "evidencias": [
         "titulo",
-        "edicion",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles",
-        "idioma",
-        "sinopsis_editorial"
+        "edicion"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cfe165500c9d6f21",
+  "fuente_hash": "c5a9bc40f6268554",
   "origen": "chatgpt-web"
 }

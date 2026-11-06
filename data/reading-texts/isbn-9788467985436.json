@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788467985436",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "SWEET HOME 07 se dirige a lectores de cómic interesados en el terror de supervivencia, las transformaciones monstruosas y los conflictos dentro de un grupo aislado. La ansiedad de los personajes, el peligro físico y la escasez de recursos lo alejan de quienes buscan una historia sin amenazas ni tensión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "SWEET HOME 07 desarrolla una historia de supervivencia en formato de cómic, con un grupo que debe decidir si permanece encerrado o sale a buscar suministros. La aparición de síntomas de monstruolización entre sus integrantes añade un conflicto interno al peligro del exterior. El título lo identifica como el n.º 07.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "SWEET HOME 07 está disponible en tapa blanda, con 424 páginas en castellano publicadas por Norma Editorial. El volumen físico permite seguir las secuencias gráficas y consultar páginas anteriores durante la lectura de este episodio de supervivencia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "322e46bdb9743c79",
+  "origen": "chatgpt-web"
+}

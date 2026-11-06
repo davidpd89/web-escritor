@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408323099",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amor en plena guerra está dirigido a lectores a partir de 16 años interesados en testimonios personales sobre enfermedad, amor y resiliencia. Natalia Jiménez relata su experiencia con el cáncer, de modo que encaja menos con quienes buscan una historia romántica de ficción o prefieren evitar relatos sobre tratamientos médicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Amor en plena guerra recoge la experiencia real de Natalia Jiménez ante un diagnóstico de cáncer durante su juventud. Sus 320 páginas abordan el impacto de las pruebas médicas y la quimioterapia sobre sus planes personales, con el amor, la resiliencia y la esperanza como ejes del relato.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amor en plena guerra puede leerse en tapa blanda o en Kindle. La edición física de Crossbooks tiene 320 páginas y encuadernación rústica con solapas, apropiada para conservar el volumen o regalarlo; Kindle permite llevar el mismo relato en un lector electrónico o en el móvil.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amor en plena guerra y Del dolor al amor comparten el interés por afrontar experiencias difíciles y encontrar esperanza. Natalia Jiménez parte de su vivencia con el cáncer y las relaciones afectivas, mientras que Sarab Rey sitúa la fe en el centro de su testimonio sobre la superación del sufrimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331353"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b690ea5153c9dfc1",
+  "origen": "chatgpt-web"
+}

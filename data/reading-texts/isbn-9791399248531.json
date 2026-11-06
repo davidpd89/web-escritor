@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791399248531",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra se dirige a lectores interesados en la historia naval de Huelva, los naufragios y la conservación del patrimonio marítimo. Su atención a los acontecimientos de una provincia concreta la diferencia de los estudios generales sobre conflictos bélicos o historia política.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Paco Muñoz investiga episodios navales de Huelva comprendidos entre la prehistoria y la II Guerra Mundial. Recurre a documentos históricos, conversaciones con expertos y visitas a los lugares estudiados para reconstruir ese pasado. El volumen contiene dieciséis capítulos, tres apartados especiales y un catálogo complementario de naufragios registrados en la costa provincial.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Editorial Niebla se publica en tapa blanda, con 178 páginas en castellano. Este formato permite consultar en papel los capítulos históricos y el anexo dedicado a los naufragios, además de señalar episodios o embarcaciones para posteriores consultas.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA, de Juan Carlos García de Polavieja, también se ocupa de recuperar hechos del pasado mediante una investigación histórica. Mientras esa obra examina las pesquisas sobre la vida y muerte de una figura literaria, el libro de Paco Muñoz estudia la navegación, los acontecimientos marítimos y los naufragios de Huelva.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "97135e3aec081535",
+  "origen": "chatgpt-web"
+}

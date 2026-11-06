@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Malina encaja con lectores de narrativa psicológica interesados en la identidad femenina, las relaciones de poder y las consecuencias de la violencia patriarcal. Su conflicto se desarrolla a través de la convivencia, la obsesión amorosa y un pasado doloroso. No responde tanto a quienes busquen una historia dominada por acontecimientos externos o aventuras.",
+      "texto": "Malina se dirige a lectores de narrativa psicológica interesados en la identidad femenina, las relaciones de poder y las consecuencias de la violencia patriarcal. Su atención a la conciencia de una escritora y a sus conflictos afectivos la distancia de las novelas centradas principalmente en acontecimientos externos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,29 +13,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Malina, de Ingeborg Bachmann, plantea un retrato psicológico de una escritora en la Viena de posguerra. La protagonista mantiene relaciones muy distintas con Ivan, su amante, y Malina, el funcionario con quien comparte vivienda. Los cambios en el equilibrio de poder entre ambos vínculos revelan conflictos de identidad, memoria y subordinación femenina.",
+      "texto": "Ingeborg Bachmann construye un retrato psicológico situado en la Viena de posguerra, con una escritora dividida entre dos relaciones masculinas. La tensión entre su presente y las heridas de su pasado permite abordar la fragilidad de la identidad y el peso de las estructuras sociales sobre la experiencia individual.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Malina cuenta con una edición en tapa blanda de 336 páginas, publicada en castellano por Nórdica Libros. El papel permite detenerse en los pasajes dedicados a la conciencia de la protagonista y volver a ellos sin utilizar dispositivos electrónicos. Por su extensión, puede organizarse la lectura en varias sesiones.",
+      "texto": "Malina cuenta con edición en tapa blanda y versión Kindle, mientras que el volumen de Nórdica Libros tiene 336 páginas en castellano. La tapa blanda permite volver sobre los pasajes de su exploración psicológica en papel; Kindle ofrece esa misma lectura en formato digital para dispositivos compatibles.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
         "idioma",
-        "editorial",
         "sinopsis_editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "52629586af9ae7f2",
+  "fuente_hash": "9f81e15579a57f15",
   "origen": "chatgpt-web"
 }

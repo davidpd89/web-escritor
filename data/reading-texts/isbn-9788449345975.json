@@ -4,38 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El acorde secreto, de Daniel J. Levitin, se dirige a lectores interesados en la divulgación científica sobre el cerebro, la música y sus posibles aplicaciones terapéuticas. Su enfoque explicativo y su extensión de 448 páginas lo alejan de quienes buscan una novela musical o un manual breve de interpretación de instrumentos.",
+      "texto": "El acorde secreto está dirigido a quienes buscan comprender la relación entre la música, el cerebro y sus aplicaciones terapéuticas. Su perspectiva de divulgación científica se distancia de una novela musical o de un manual dedicado a aprender a tocar un instrumento.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "temas_y_enfoque",
-      "texto": "El acorde secreto examina las relaciones entre la música y el cerebro humano desde una perspectiva neurocientífica. Daniel J. Levitin aborda sus usos terapéuticos y el empleo histórico de la música como recurso de cuidado en distintas culturas. El recorrido combina divulgación científica con referencias a prácticas musicales de diferentes regiones y épocas.",
-      "evidencias": [
-        "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "El acorde secreto está disponible en tapa blanda y Kindle. La edición impresa de Ediciones Paidós tiene 448 páginas y encuadernación rústica con solapas, apropiada para consultar y señalar pasajes durante la lectura. Kindle permite transportar el texto completo en formato digital sin cargar con el volumen físico.",
+      "modulo": "temas_y_enfoque",
+      "texto": "Daniel J. Levitin examina cómo la actividad musical se relaciona con el funcionamiento cerebral y puede utilizarse con objetivos terapéuticos. El acorde secreto combina una perspectiva neurocientífica con referencias a prácticas musicales de distintas culturas, desde sociedades orientales hasta tradiciones americanas anteriores a la colonización.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de El acorde secreto tiene 448 páginas y solapas, una opción para leer en papel y volver a consultar sus explicaciones sobre música y cerebro. Kindle permite llevar esa extensión en un dispositivo electrónico y continuar la lectura durante desplazamientos, sin cargar con el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
         "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El acorde secreto y La botica natural, de Juan Carlos Pastor / Zaira Vidal, relacionan prácticas de cuidado con conocimientos desarrollados a lo largo del tiempo. Daniel J. Levitin estudia la música desde la neurociencia, mientras La botica natural se orienta a preparar un botiquín con plantas medicinales. También se aproxima a Los límites del infinito, de Ian Stewart, por su carácter divulgativo, aunque este último se centra en las matemáticas.",
+      "texto": "El acorde secreto y El secreto mejor guardado del gran Museo del Prado se aproximan a manifestaciones artísticas desde enfoques distintos: Daniel J. Levitin estudia la música y sus efectos cerebrales, mientras Diego Arboleda presenta el museo mediante relatos vinculados a Andersen. El primero es divulgación neurocientífica; el segundo utiliza una narración de carácter lúdico para acercar el arte a sus lectores.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,8 +42,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387905620",
-        "isbn-9788491999386"
+        "isbn-9791388306181"
       ]
     }
   ],

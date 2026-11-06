@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388177057",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pequeño libro de Criminología está dirigido a quienes desean iniciarse en el estudio del delito y de la conducta criminal desde una perspectiva explicativa. Rasha Barrage trata teorías criminológicas y problemas sociales relacionados con el crimen; su contenido no responde al planteamiento de una novela policíaca ni al de un thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La propuesta es una introducción divulgativa a la criminología, centrada en explicar las razones del comportamiento delictivo y sus consecuencias colectivas. Rasha Barrage organiza el enfoque alrededor de las teorías fundamentales de la disciplina y de los desafíos que plantea la delincuencia actual, con una orientación conceptual antes que narrativa.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pequeño libro de Criminología comparte con Pequeño libro de Estoicismo la autoría de Rasha Barrage y el propósito de introducir una disciplina de forma breve. El primero examina las explicaciones del delito y sus efectos sociales; el segundo presenta el pensamiento estoico, sus figuras principales y sus principios. La elección depende de si interesa comprender la conducta criminal o una corriente filosófica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388177040"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "90e5f3446cb151d2",
+  "origen": "chatgpt-web"
+}

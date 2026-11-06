@@ -1,0 +1,68 @@
+{
+  "id": "isbn-9788419275851",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores a partir de 9 años que disfrutan de la fantasía escolar, los misterios mágicos y los enfrentamientos entre fuerzas opuestas. Harry Potter y el misterio del príncipe (Harry Potter edición con ilustraciones de Xavier Bonet 6), de J.K. Rowling, aborda amenazas y secretos, por lo que se aleja de las aventuras infantiles sin peligro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Salamandra incorpora ilustraciones de Xavier Bonet, con imágenes al comienzo de cada capítulo y composiciones dobles de distintas escenas. Se presenta en tapa dura, con un formato ampliado, cubiertas y guardas ilustradas. Contiene 576 páginas en castellano y su ISBN es 9788419275851.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "sinopsis_editorial",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada comienza a partir de 9 años y el libro tiene 576 páginas, por lo que supone una lectura extensa dentro de la fantasía infantil y juvenil. Su tapa dura y el formato ampliado permiten presentar las ilustraciones interiores y las escenas a doble página de Xavier Bonet.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa dura y reúne 576 páginas con ilustraciones de Xavier Bonet. El formato ampliado permite apreciar las imágenes de apertura de capítulo y las ilustraciones dobles, mientras que la encuadernación rígida facilita conservar el volumen y utilizarlo como regalo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Clara Nox 4. La última tormenta comparte con Harry Potter y el misterio del príncipe (Harry Potter edición con ilustraciones de Xavier Bonet 6) la fantasía y el conflicto entre fuerzas enfrentadas, pero plantea una batalla que decidirá el destino de dos mundos. Onin 1 - Onin y la isla del tesoro también incorpora magia y misterio, aunque su propuesta se centra en las aventuras de un grupo de amigos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788408331230",
+        "isbn-9791387994549"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c811cd7ca8cbb2d4",
+  "origen": "chatgpt-web"
+}

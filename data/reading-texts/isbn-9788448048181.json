@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788448048181",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Black Sabbath & Ozzy Osbourne se dirige a quienes quieren conocer las historias detrás de las canciones de Black Sabbath y su relación con el nacimiento del metal. Su enfoque musical y documental se aleja de la ficción y de las biografías centradas exclusivamente en la vida privada.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Carol Clerk y Paul Elliott abordan las letras de Black Sabbath desde el contexto de una banda surgida en Birmingham a finales de los años sesenta. El libro relaciona sus canciones con una forma de rock más oscura y pesada, dentro de una publicación de arte de 160 páginas.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Black Sabbath & Ozzy Osbourne está disponible en tapa dura, con encuadernación en cartoné y sin sobrecubierta. Sus 160 páginas permiten consultar las historias de las canciones en un volumen físico que también puede conservarse o regalarse.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "The Rolling Stones: On Tour también trata la trayectoria de una banda de rock, pero Paul Sexton se centra en sus actuaciones en directo, mientras Black Sabbath & Ozzy Osbourne examina las historias de las letras musicales. Ambos abordan grupos históricos desde perspectivas distintas: los conciertos frente al contenido de las canciones.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049188"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "25e15efaf466f2d7",
+  "origen": "chatgpt-web"
+}

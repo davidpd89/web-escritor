@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esmorzaret (Mesa y mantel) se dirige a lectores adultos interesados en la cocina valenciana, sus bocadillos y las costumbres que rodean la mesa. No es un manual general de técnicas culinarias: se centra en el esmorzaret y sus más de 40 combinaciones.",
+      "texto": "Esmorzaret (Mesa y mantel) está dirigido a adultos interesados en la gastronomía valenciana y sus costumbres sociales. Reúne historia y más de 40 combinaciones de bocadillos, de modo que su enfoque es distinto al de los manuales dedicados a técnicas generales de cocina o a dietas alimentarias.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,17 +14,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Esmorzaret (Mesa y mantel) está disponible en tapa dura y tiene 248 páginas. El volumen en papel reúne el contexto de esta costumbre valenciana y más de 40 combinaciones de bocadillos para consultar en la cocina o compartir en la mesa.",
+      "texto": "Esmorzaret (Mesa y mantel) se ofrece en tapa dura y Kindle, con una extensión de 248 páginas. La tapa dura permite conservar el volumen como libro de consulta o entregarlo como regalo; Kindle facilita leerlo y consultar sus contenidos desde el móvil sin llevar el ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "sinopsis_editorial"
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esmorzaret (Mesa y mantel) y Artesanos del queso tratan tradiciones gastronómicas españolas, pero Marta Hortelano se ocupa del almuerzo valenciano e Ignacio Medina de las queserías artesanas. Frente a Barbacoa, de Jamie Oliver, centrado en una forma de cocinar, Esmorzaret (Mesa y mantel) aborda también el ritual social que rodea a los bocadillos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419483881",
+        "isbn-9788425374012"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c28b73156c0aba6e",
+  "fuente_hash": "a4400b36830ef013",
   "origen": "chatgpt-web"
 }

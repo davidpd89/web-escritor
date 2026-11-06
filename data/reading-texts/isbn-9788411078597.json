@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9788411078597",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La tía Harry y la señora Klein se orienta a lectores de narrativa contemporánea interesados en la amistad entre mujeres y las diferencias raciales y sociales. Su planteamiento sobre dos viudas de entornos distintos encaja menos con quien busca una historia centrada en la acción, la aventura o el romance como conflicto principal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La tía Harry y la señora Klein propone una lectura de narrativa contemporánea construida alrededor de la relación entre dos mujeres viudas. La amistad funciona como eje para abordar las barreras de raza y clase social, de modo que el interés principal recae en los vínculos personales y las diferencias entre sus circunstancias.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 240 páginas de La tía Harry y la señora Klein en una edición rústica con solapas, para quienes prefieren leer y conservar el ejemplar físico. Kindle permite llevar la novela en el móvil o lector electrónico y continuar la lectura sin transportar el libro en papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a3cc1a51bfe05dd",
+  "origen": "chatgpt-web"
+}

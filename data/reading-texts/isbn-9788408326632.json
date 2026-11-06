@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9788408326632",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hasta que nos quedemos sin estrellas (edición especial), de Inma Rubiales, se dirige a lectores de romance juvenil interesados en relaciones sentimentales complicadas y en el papel de las redes sociales. Su planteamiento se aleja de las historias centradas en la aventura o la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "La edad recomendada comienza a los 16 años. El conflicto incluye una relación sentimental fingida y el desencanto de Liam con las redes sociales, cuestiones que sitúan la tensión en el terreno afectivo y personal.",
+      "evidencias": [
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La novela combina romance juvenil con conflictos ligados a la identidad pública y las relaciones personales. Liam atraviesa una etapa de desinterés por las redes sociales mientras mantiene una relación ficticia con Michelle, dos circunstancias que condicionan su situación sentimental.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial de Hasta que nos quedemos sin estrellas incorpora ilustraciones de Vero Navarro y una presentación en tapa dura con sobrecubierta. Editorial Planeta la publicó el 28 de octubre de 2026 en castellano, con 600 páginas y el ISBN 9788408326632.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "edicion",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición especial de Hasta que nos quedemos sin estrellas (edición especial) está disponible en tapa dura con sobrecubierta. Sus 600 páginas y las ilustraciones de Vero Navarro hacen que el ejemplar físico reúna tanto la novela como su contenido gráfico, una diferencia relevante para quien desea conservarlo o regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "que_formato_elegir: repite otro bloque",
+    "faltan módulos: que_formato_elegir"
+  ],
+  "version": 3,
+  "fuente_hash": "aa8d06994073da9b",
+  "origen": "chatgpt-web"
+}

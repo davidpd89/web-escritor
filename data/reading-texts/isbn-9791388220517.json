@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388220517",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todo lo que aprendí en terapia se dirige a lectores interesados en la salud mental, la psicología y el desarrollo personal mediante reflexiones ilustradas. Su enfoque en situaciones cotidianas y recursos visuales lo aleja de los manuales clínicos especializados o de los tratados exclusivamente teóricos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Todo lo que aprendí en terapia está disponible en tapa dura, con 168 páginas y encuadernación en cartoné. Este formato permite consultar las reflexiones y observar las ilustraciones en papel, además de conservar el volumen para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todo lo que aprendí en terapia y Mentes diferentes comparten el interés por comprender experiencias personales relacionadas con la salud mental y la identidad. Pablo R. Coca utiliza reflexiones ilustradas sobre el crecimiento personal, mientras Chloé Hayden combina testimonio, divulgación y activismo para abordar la neurodivergencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411193894"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26aa01e8d2d498a0",
+  "origen": "chatgpt-web"
+}

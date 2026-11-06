@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408324485",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Universidad Sorrowsong 2. Daybreak encaja con lectores de romance contemporáneo que buscan una relación marcada por secretos, conflictos familiares y deseos de venganza. La ambientación universitaria y el componente de dark academia lo alejan de las historias románticas centradas únicamente en la convivencia cotidiana.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Universidad Sorrowsong 2. Daybreak combina romance y narrativa contemporánea en un entorno universitario de dark academia. Ophelia debe afrontar las consecuencias de su relación con Alex mientras intenta demostrar que no es responsable de un incendio; la historia se presenta como el desenlace de Nightshade.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Universidad Sorrowsong 2. Daybreak está disponible en tapa blanda y Kindle. La edición de Crossbooks reúne 440 páginas en rústica con solapas, para quienes prefieren leer en papel; Kindle permite llevar la novela en un lector electrónico o en un dispositivo compatible sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Universidad Sorrowsong 2. Daybreak y Amor en pole position (Dirty Air 3) comparten el romance como eje narrativo, pero Autumn Woods sitúa el conflicto en una universidad y Lauren Asher en el mundo de la Fórmula 1. También se relaciona con Amor sin frenos (Dirty Air 4) por su función de cierre de una historia romántica, aunque sus respectivas ambientaciones son diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055674",
+        "isbn-9788427055803"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8c60198a2de59123",
+  "origen": "chatgpt-web"
+}

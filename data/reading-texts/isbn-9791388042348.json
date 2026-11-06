@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9791388042348",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Errores criminales se dirige a lectores que disfrutan del suspense y de los enigmas que pueden intentar resolver mientras avanzan por una novela. La presencia de criptografía, mensajes escondidos y recursos tecnológicos introduce una participación activa en la investigación. Encaja menos con quienes prefieren una historia sin acertijos ni atención a los detalles del texto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela de suspense que incorpora acertijos dentro de su propia estructura y permite al lector buscar soluciones paralelamente a la protagonista. Ariadna, especialista en criptografía, investiga una muerte mientras interpreta mensajes escondidos en soportes cotidianos. El relato combina investigación criminal, códigos y tecnología, con pistas que también aparecen en elementos del libro.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Duomo Ediciones tiene 192 páginas y permite revisar físicamente los detalles del texto durante la resolución de los acertijos. Kindle facilita llevar la novela en formato digital y consultar sus páginas desde un dispositivo. Dado que la historia incorpora pistas escritas y mensajes ocultos, la forma de volver sobre ellos puede influir en la elección.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4df4cb36aa299ba5",
+  "origen": "chatgpt-web"
+}

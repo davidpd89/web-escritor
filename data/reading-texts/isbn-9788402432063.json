@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788402432063",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mortadeluxe está dirigido a lectores adultos de cómic humorístico interesados en las historietas de Mortadelo y Filemón. Su selección navideña, las aventuras breves y los materiales adicionales encajan con quienes buscan una recopilación ilustrada, pero no con quien espera una novela extensa o un libro de actividades para resolver.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Mortadeluxe reúne historietas humorísticas de Francisco Ibáñez relacionadas con la Navidad, las bromas y el paso del tiempo. El volumen combina aventuras de distinta extensión con contenido adicional e inédito, dentro de una colección de recopilaciones. La lectura se estructura mediante episodios de cómic, no como una narración continua de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mortadeluxe se ofrece en tapa dura y Kindle, con una edición física de Bruguera que contiene 120 páginas. El ejemplar impreso incorpora acabados metalizados y permite apreciar las historietas en papel, además de servir como regalo. Kindle facilita llevar el contenido digital, aunque la experiencia de lectura de las viñetas depende del tamaño de la pantalla.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mortadeluxe y Resuelve el caso con Mortadelo y Filemón comparten personajes y autor, Francisco Ibáñez, pero el primero recopila historietas navideñas y el segundo plantea al lector una actividad relacionada con ser agente secreto. Ibáñez Mítico 2 - El preboste de seguridad también recupera el trabajo del dibujante, aunque se centra en una historieta concreta en lugar de reunir aventuras de temática festiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431578",
+        "isbn-9788402431936"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "20502f2ac5dbb165",
+  "origen": "chatgpt-web"
+}

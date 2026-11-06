@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791387991654",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Iberia y América en la década de 2020 encaja con lectores interesados en la historia, la filosofía y las relaciones entre economía y desigualdad social. Michael Roberts examina el crecimiento del PIB y su relación con la pobreza desde una posición contraria a los planteamientos neoliberales; se aleja, por tanto, de una lectura centrada exclusivamente en datos económicos o explicaciones técnicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Iberia y América en la década de 2020 analiza las contradicciones entre el aumento del PIB y la persistencia o agravamiento de la pobreza. Michael Roberts adopta una posición crítica ante las explicaciones neoliberales que presentan el crecimiento como respuesta suficiente a los problemas sociales. Su planteamiento relaciona economía y reflexión política desde una perspectiva cuestionadora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Iberia y América en la década de 2020 se publica en tapa blanda. La edición de Ediciones de Intervención Cultural contiene 270 páginas en castellano, un soporte físico que permite volver a los argumentos sobre crecimiento económico y desigualdad durante la lectura y la consulta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Iberia y América en la década de 2020 y CORONA AUTORITARIA, LA permiten examinar cuestiones políticas desde perspectivas distintas. Michael Roberts discute el neoliberalismo y la relación entre crecimiento y pobreza, mientras que Guillermo María Muñoz estudia los vínculos entre monarquía y nacionalismo español durante la dictadura de Primo de Rivera. El primero prioriza el debate económico; el segundo, una relación política situada históricamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788419892782"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77dd01ca35d67bbe",
+  "origen": "chatgpt-web"
+}

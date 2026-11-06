@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388299209",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sintaxis de los lenguajes privados se dirige a lectores de poesía interesados en la relación entre pensamiento, lenguaje y expresión individual. Su carácter experimental y su atención a las palabras mismas lo distancian de los poemarios organizados alrededor de una historia o un asunto reconocible.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Guillermo Lorenzo construye una obra poética a partir de expresiones que surgieron espontáneamente en distintos momentos y que después sometió a una selección. El libro examina la capacidad del lenguaje para producir significados al margen de la voluntad consciente y plantea interrogantes filosóficos sobre su existencia en la mente individual.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sintaxis de los lenguajes privados se publica en tapa blanda, con 74 páginas en castellano bajo el sello Eolas Ediciones. Su extensión facilita leer el conjunto en pocas sesiones y regresar a fragmentos concretos para examinar las relaciones entre las palabras.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sintaxis de los lenguajes privados y Ciudad utilizan la poesía para abordar cuestiones que exceden la descripción cotidiana. Guillermo Lorenzo investiga el funcionamiento autónomo del lenguaje, mientras que Luis Pérez Capitán relaciona la escritura poética con la inteligencia artificial, la política y la moral.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410167841"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "68b99da559523d8c",
+  "origen": "chatgpt-web"
+}

@@ -4,34 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "9 mesos que marquen tota una vida se dirige a quienes buscan comprender la relación entre la alimentación durante el embarazo y la salud futura del bebé. Jessie Inchauspé aborda esta cuestión desde la nutrición y el bienestar, por lo que su enfoque se aleja de los manuales generales de crianza y de las lecturas de ficción.",
+      "texto": "9 mesos que marquen tota una vida se dirige a quienes buscan comprender la relación entre la alimentación durante el embarazo y la salud futura del bebé. Su enfoque de nutrición y bienestar se aleja de los manuales generales de crianza y de las lecturas centradas en el desarrollo infantil después del nacimiento.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "9 mesos que marquen tota una vida está disponible en tapa blanda, en una edición rústica con solapas de Diana. Sus 336 páginas permiten consultar distintos pasajes sobre alimentación y embarazo en un volumen físico que puede mantenerse a mano durante la gestación.",
+      "texto": "La tapa blanda ofrece 336 páginas en una edición rústica con solapas, adecuada para consultar pasajes concretos y conservar el volumen en papel. Kindle permite llevar el contenido en el móvil y recuperar la lectura sin transportar el libro físico. Ambas opciones mantienen el enfoque sobre alimentación y embarazo.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
         "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "9 mesos que marquen tota una vida comparte con La revolución de la glucosa: el Método, también de Jessie Inchauspé, el interés por la alimentación y sus efectos sobre la salud. La diferencia está en el destinatario y el contenido: el primero se centra en el embarazo y la salud del bebé, mientras que el segundo plantea un programa de 4 semanas con 100 recetas.",
+      "texto": "La revolución de la glucosa: el Método comparte con 9 mesos que marquen tota una vida la autoría de Jessie Inchauspé y el interés por la alimentación. El primero plantea un programa de 4 semanas con 100 recetas, mientras que el segundo examina la influencia de la dieta durante el embarazo sobre la salud del bebé. La diferencia está entre aplicar pautas alimentarias mediante recetas y comprender sus efectos en la gestación.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
         "isbn-9788411191937"
@@ -40,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "afd19e3c559a434d",
+  "fuente_hash": "5e0d8257e6da4569",
   "origen": "chatgpt-web"
 }

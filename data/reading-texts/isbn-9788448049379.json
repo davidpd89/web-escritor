@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788448049379",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "David Summers: en persona se dirige a quienes buscan una lectura biográfica sobre un músico vinculado a Hombres G. Su atención a la figura personal y artística de David Summers lo aleja de los manuales musicales o de las novelas de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina la dimensión personal y profesional de David Summers, cantante, bajista y compositor de Hombres G. Javier Menéndez Flores sitúa esa figura en una trayectoria musical desarrollada durante más de 40 años, con presencia en España y distintos países de América.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura presenta las 328 páginas de David Summers: en persona en cartoné sin sobrecubierta, una opción para conservar la biografía en papel o regalarla. Kindle permite leer el mismo título en un dispositivo electrónico sin llevar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dustin Hoffman: look at me y David Summers: en persona comparten el interés biográfico por figuras del espectáculo, aunque el primero aborda el cine y el segundo la música. Mentalidad ganadora también recorre una trayectoria profesional, pero desde el testimonio en primera persona de Juan Carlos Ferrero sobre el tenis, frente al retrato de David Summers escrito por Javier Menéndez Flores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049843",
+        "isbn-9788411005463"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "348087ee16d33d89",
+  "origen": "chatgpt-web"
+}

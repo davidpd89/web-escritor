@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los hijos del médico se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares, el duelo y los recuerdos que dejan los padres. Su conflicto se centra en dos hermanos que intentan comprender una herencia desconcertante, más que en una aventura o una investigación criminal.",
+      "texto": "Los hijos del médico encaja con lectores de narrativa contemporánea interesados en las relaciones familiares, el duelo y las herencias emocionales. La combinación de recuerdos, silencios y situaciones absurdas se aleja de las novelas centradas en la acción o en un misterio policial convencional.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,28 +13,28 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Los hijos del médico, de Itziar Miranda y Jorge Miranda, aborda las consecuencias de la muerte de un padre a través de la herencia que reciben sus dos hijos. Los silencios, los indicios engañosos y la personalidad del fallecido articulan una historia sobre memoria familiar y vínculos entre generaciones.",
+      "texto": "Los hijos del médico es una novela contemporánea sobre la memoria familiar y la relación entre padres e hijos. Itziar Miranda y Jorge Miranda sitúan el conflicto tras una muerte y alrededor de una herencia que obliga a dos hermanos a revisar la figura paterna. El relato combina elementos humorísticos con una reflexión sobre lo que permanece de una persona en sus descendientes.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los hijos del médico se publica en tapa blanda, con 304 páginas en castellano. La edición de Editorial Espasa utiliza encuadernación rústica con solapas, por lo que la lectura se realiza en un volumen físico de cubierta flexible.",
+      "texto": "Los hijos del médico está disponible en tapa blanda, con una edición de Editorial Espasa de 304 páginas en rústica con solapas. Este formato permite leer la novela en papel y conservarla sin recurrir a una encuadernación rígida. Su extensión ofrece una referencia concreta para calcular el tiempo de lectura y decidir si llevar el ejemplar durante los desplazamientos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma",
-        "edicion",
-        "editorial"
+        "edicion"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "189633497db748cf",
+  "fuente_hash": "9e35c1567f861107",
   "origen": "chatgpt-web"
 }

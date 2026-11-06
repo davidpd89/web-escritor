@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388414084",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Devocionario se dirige a quienes buscan oraciones para incorporar a distintos momentos del día y se interesan por las tradiciones espirituales. Su contenido combina plegarias de diversas procedencias con escritos de Inma Grass; no responde al planteamiento de una novela ni al de un estudio histórico de los textos religiosos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 200 páginas de Devocionario en un volumen físico que puede mantenerse a mano para consultar las oraciones a lo largo del día. Kindle permite acceder a esos textos desde un lector electrónico o un móvil, sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas de la Biblia ilustrado y Devocionario se aproximan a la tradición religiosa desde propuestas diferentes: el primero presenta contenidos culturales mediante un atlas ilustrado y el segundo organiza oraciones para su lectura cotidiana. Atlas de la mitología ilustrado también aborda tradiciones culturales mediante imágenes, mientras que Devocionario se centra en la práctica espiritual y los textos de oración.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220111",
+        "isbn-9791388220104"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "71fbe3482e70e10b",
+  "origen": "chatgpt-web"
+}

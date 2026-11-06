@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388398018",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las historias más bellas del Antiguo Testamento está dirigido al público infantil que comienza a conocer los relatos y personajes bíblicos mediante textos adaptados e ilustraciones. Su planteamiento narrativo se diferencia de una lectura académica o de un estudio especializado de los textos religiosos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las historias más bellas del Antiguo Testamento cuenta con una edición en tapa dura de 192 páginas, publicada por Gribaudo. El formato físico permite compartir sus relatos ilustrados durante la lectura acompañada y conservar el volumen para volver a consultar las distintas historias.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las historias más bellas del Antiguo Testamento y Aprender a leer en la Escuela de Monstruos 27 - Un regalo bien guardado se dirigen a lectores infantiles, pero el primero adapta relatos bíblicos y el segundo presenta una historia protagonizada por monstruos. Busca que te busca. En la granja también se acerca a la infancia, aunque propone buscar animales y elementos de una granja en lugar de seguir una antología narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388222412",
+        "isbn-9788410848030"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "93661184116c2a99",
+  "origen": "chatgpt-web"
+}

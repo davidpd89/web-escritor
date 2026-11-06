@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788410647794",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Si el corazón se equivoca, se le perdona se dirige a quienes leen memorias personales sobre los vínculos familiares, el amor y las pérdidas. María del Monte aborda estas experiencias desde sus propios recuerdos, por lo que encaja menos con quien busca una biografía cronológica centrada en acontecimientos públicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina cómo influyen la familia, las creencias y las relaciones afectivas en la manera de afrontar las dificultades. María del Monte utiliza recuerdos personales y reflexiones sobre la escucha, el cuidado mutuo y la necesidad de dedicar tiempo a los demás, sin plantear un método de autoayuda.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 224 páginas de Si el corazón se equivoca, se le perdona en un volumen físico que permite consultar y releer sus reflexiones. La versión Kindle ofrece el mismo título en formato digital, con la comodidad de llevar la lectura en un móvil o lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Canción de amor definitiva y Si el corazón se equivoca, se le perdona comparten una mirada personal sobre las experiencias vitales y los cambios emocionales. El libro de María del Monte se centra en recuerdos familiares y relaciones afectivas, mientras que el de Jorge Martí Aguas presenta cambios de ánimo, país y profesión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788401042119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "02e47823a3c8faa1",
+  "origen": "chatgpt-web"
+}

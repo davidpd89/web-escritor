@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408324331",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Allí donde fueres... está dirigido a quienes viajan y quieren conocer las normas de comportamiento de otros países antes de encontrarse con situaciones incómodas. Su enfoque práctico sobre saludos, gestos y costumbres sociales lo diferencia de una guía dedicada a itinerarios, monumentos o alojamientos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Allí donde fueres... es una guía de viajes centrada en la etiqueta cultural y las diferencias de cortesía entre países. Reúne 102 consejos sobre comportamientos cotidianos, desde la forma de saludar hasta las convenciones al comer, con ejemplos orientados a evitar malentendidos durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Allí donde fueres... contiene 144 páginas en una edición de Geoplaneta que puede mantenerse como libro de consulta o entregarse como regalo a alguien que viaje. Kindle facilita llevar sus consejos en el móvil y revisar las pautas de cortesía durante una estancia en el extranjero.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Allí donde fueres... y Amsterdam de cerca 2027-2028 comparten el interés por viajar y comprender otros lugares, pero el primero aborda las normas sociales entre países y el segundo se concentra en una ciudad. Austria 7 también se ocupa de los viajes, aunque presenta un destino mediante su patrimonio y sus paisajes, frente al enfoque de etiqueta cultural de Patrick Kinsella.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408320890",
+        "isbn-9788408322221"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a3501686fa5f4cb4",
+  "origen": "chatgpt-web"
+}

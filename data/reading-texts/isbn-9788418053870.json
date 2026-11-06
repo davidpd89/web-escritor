@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788418053870",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo hacer las cosas bien, de Ben Meer, está dirigido a adultos que quieren organizar sus rutinas, proyectos y responsabilidades mediante sistemas aplicables. Sus propuestas abarcan la salud, las relaciones, el trabajo y las finanzas, de modo que no responde a quien busque una lectura centrada exclusivamente en la motivación personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las 384 páginas de Cómo hacer las cosas bien pueden leerse en tapa blanda o Kindle, según cómo se consulten sus métodos de organización. La edición física de Conecta, con solapas, permite señalar los más de 40 sistemas propuestos y volver a ellos; Kindle permite tenerlos accesibles desde el móvil al revisar rutinas o proyectos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "214a8e9a2944b1b1",
+  "origen": "chatgpt-web"
+}

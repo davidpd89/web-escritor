@@ -1,0 +1,67 @@
+{
+  "id": "isbn-9788408313762",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Descubro y aprendo. El mundo se dirige a lectores de 6 a 8 años interesados en conocer países, continentes, océanos y paisajes. Su planteamiento divulgativo, con solapas y 22 páginas, se aleja de las historias centradas en personajes y conflictos de ficción.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se utiliza abriendo las solapas para explorar contenidos sobre geografía y curiosidades del planeta. El recorrido permite detenerse en países, banderas, océanos y montañas, mientras las 22 páginas organizan la exploración en un volumen breve con páginas interiores de cartón.",
+      "evidencias": [
+        "sinopsis_editorial",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Está recomendado de 6 a 8 años y tiene 22 páginas en castellano. Descubro y aprendo. El mundo se presenta en cartoné con interior de cartón, una encuadernación rígida que permite manipular sus páginas y solapas durante la exploración.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato de Descubro y aprendo. El mundo, con 22 páginas y un interior de cartón. Esta presentación permite consultar el contenido sobre países, océanos y banderas mediante páginas físicas y solapas, tanto en lecturas compartidas como en exploraciones individuales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Descubro y aprendo. El mundo y Descubro y aprendo. La naturaleza comparten autoría de YOYO y un planteamiento de exploración infantil. El primero se centra en países, continentes, banderas y paisajes, mientras que el segundo orienta la curiosidad hacia el entorno natural, como indica su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408313779"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "768577360a42b486",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788410318557",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Ya es Navidad! (Pop-up de cuento) está dirigido a niños de 0 a 3 años que comienzan a explorar libros mediante imágenes, rimas y figuras desplegables. Su propuesta navideña favorece la lectura compartida con adultos, pero se aleja de los cuentos extensos destinados a lectores que ya siguen historias de manera autónoma.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro se utiliza pasando las páginas para desplegar figuras tridimensionales relacionadas con la Navidad. Cada página incorpora un pop-up que los pequeños pueden observar y explorar con ayuda de un adulto, mientras el texto rimado permite repetir palabras y acompañar la lectura con imágenes a todo color.",
+      "evidencias": [
+        "sinopsis_editorial",
+        "edad_recomendada"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "¡Ya es Navidad! (Pop-up de cuento) está recomendado para niños de 0 a 3 años y contiene 8 páginas. Penguin Kids lo publica en castellano y tapa dura, con ilustraciones a color, textos rimados y elementos desplegables que convierten cada página en una escena tridimensional.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato de ¡Ya es Navidad! (Pop-up de cuento), un álbum de 8 páginas de gran tamaño. Su encuadernación rígida sirve de soporte a las figuras desplegables, que forman parte de la experiencia de lectura y manipulación; por su presentación física y temática navideña, también puede entregarse como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c0894a74392a87b",
+  "origen": "chatgpt-web"
+}

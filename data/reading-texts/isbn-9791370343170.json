@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791370343170",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Unicornios se dirige a niños interesados en colorear figuras de fantasía y utilizarlas para decorar sus propias láminas. Es una actividad de manipulación y creación visual, distinta de los libros infantiles que desarrollan una narración para leer de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro permite colorear 15 imanes adicionales y emplearlos como adornos para las composiciones de unicornios. Las láminas terminadas pueden colocarse sobre superficies metálicas utilizando el marco magnético. Así, la actividad combina coloreado, decoración y exposición de los trabajos realizados.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Unicornios tiene 24 páginas en tapa blanda y se utiliza junto con sus elementos magnéticos. Esta edición permite colorear los 15 imanes, moverlos entre las creaciones y fijar las láminas en una superficie metálica, algo que convierte el soporte físico en parte de la actividad.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Unicornios y Dinosaurios comparten la propuesta de decorar láminas y exponerlas mediante un marco magnético, aunque sus motivos pertenecen a mundos diferentes. La granja utiliza el mismo sistema con escenas de temática rural. Los tres libros están firmados por Susaeta Ediciones y plantean actividades infantiles de coloreado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370343149",
+        "isbn-9791370343156"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "72872f00207fb398",
+  "origen": "chatgpt-web"
+}

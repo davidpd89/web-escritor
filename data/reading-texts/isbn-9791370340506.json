@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791370340506",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El pan está dirigido a quienes quieren conocer la historia de este alimento, las variedades elaboradas en distintas culturas y los procedimientos de panificación. Su enfoque combina cocina e historia, por lo que se diferencia de un recetario limitado a cantidades, tiempos y pasos de elaboración.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Maite Izquierdo recorre la evolución del pan desde las primeras comunidades recolectoras hasta la elaboración contemporánea con masas y levaduras desarrolladas mediante tecnología. Examina las variedades presentes en diferentes lugares, las técnicas de panificación y la influencia cultural de este alimento. Sus 256 páginas sirven para consultar tanto aspectos históricos como procedimientos de elaboración.",
+      "evidencias": [
+        "autores",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El pan cuenta con una edición en tapa dura de 256 páginas, destinada a una lectura que combina historia alimentaria y técnicas de panificación. El volumen físico permite volver a los apartados sobre variedades y elaboración, además de conservarlo como obra de consulta gastronómica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El pan y Cesar La conquista de la eternidad comparten una perspectiva histórica, pero Maite Izquierdo sigue la evolución de un alimento y Alberto Angela se centra en un general romano. Frente a CORONA AUTORITARIA, LA, dedicada a las relaciones entre monarquía y nacionalismo durante una dictadura, El pan examina prácticas culinarias y transformaciones culturales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944329",
+        "isbn-9788419892782"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3b6893d22faa9186",
+  "origen": "chatgpt-web"
+}

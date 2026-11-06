@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399138542",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Muerte a los billonarios encaja con lectores de narrativa contemporánea interesados en los conflictos sociales, la crisis climática y los thrillers de trasfondo político. Su planteamiento satírico enfrenta la desigualdad económica con una forma radical de justicia; se aleja de las historias centradas en relaciones personales sin conflicto social.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Muerte a los billonarios combina el thriller con la sátira social y sitúa el enfrentamiento entre riqueza y justicia climática en el centro de su argumento. Anders Lustgarten plantea un conflicto donde la protesta contra el poder económico se transforma en intervención directa, con consecuencias que cuestionan los límites de esa respuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Muerte a los billonarios puede leerse en tapa blanda o en Kindle. La edición impresa de Los Libros del Lince tiene 288 páginas y permite conservar el volumen en papel; Kindle facilita llevar la novela en un lector electrónico o en el móvil sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "027b5fcdf4c0748d",
+  "origen": "chatgpt-web"
+}

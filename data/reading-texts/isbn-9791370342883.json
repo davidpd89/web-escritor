@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791370342883",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gran enciclopedia de los minerales se dirige tanto a aficionados a la mineralogía como a profesionales que necesitan consultar especies, propiedades de formación y yacimientos. Su enfoque descriptivo y científico se aleja de las lecturas narrativas sobre la naturaleza y se centra en la identificación y el conocimiento de los minerales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra estudia más de 700 especies minerales agrupadas en 25 clases según criterios mineralógicos actuales. Borja Sainz de Baranda explica cómo se originan, con qué otros minerales aparecen y dónde se localizan, con el apoyo de 1300 fotografías originales. También contextualiza la importancia industrial de materias primas como el litio, el wolframio y las tierras raras.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne 544 páginas de contenido mineralógico y 1300 fotografías, por lo que funciona como volumen de consulta para tener en una estantería. Su encuadernación rígida resulta práctica para abrirlo repetidamente al buscar especies concretas y también para regalar un libro de referencia sobre minerales.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gran enciclopedia de los minerales y Cerebro, espacio y tiempo comparten la divulgación científica, aunque la primera clasifica especies minerales y la segunda plantea cómo el cerebro reconoce la posición espacial. Frente a 50 cosas que hay que saber sobre IA, centrado en conocimientos sobre inteligencia artificial, el libro de Borja Sainz de Baranda aborda materiales naturales, su formación y su localización.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309",
+        "isbn-9791387941208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cb8e4e4bcbd166d5",
+  "origen": "chatgpt-web"
+}

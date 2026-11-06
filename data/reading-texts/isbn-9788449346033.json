@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La eternidad y un día más se dirige a lectores interesados en la divulgación científica vinculada a experiencias humanas y preguntas sobre la mortalidad. Su tratamiento narrativo de la progeria y de la vida de Sammy Basso se aleja de los manuales científicos centrados exclusivamente en explicaciones técnicas.",
+      "texto": "La eternidad y un día más se dirige a quienes buscan divulgación científica relacionada con la experiencia humana de la enfermedad y la mortalidad. Carlos López-Otín aborda la vida de Sammy Basso, una persona con progeria, mediante una obra de no ficción novelada. No es una lectura planteada como manual técnico sobre enfermedades genéticas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La eternidad y un día más aborda la mortalidad prematura, el sentido de la existencia y la progeria a través de la historia de Sammy Basso. Carlos López-Otín utiliza una forma de no ficción novelada para relacionar la experiencia de una persona con cuestiones científicas y vitales, en lugar de organizar el contenido como un tratado médico.",
+      "texto": "La eternidad y un día más examina cómo se construye una vida con sentido cuando existe la conciencia de una muerte prematura. Carlos López-Otín toma como eje la historia de Sammy Basso, reconocido por su longevidad entre las personas con progeria. El enfoque combina divulgación científica y narración de una experiencia personal, con preguntas sobre el tiempo y la existencia.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La eternidad y un día más puede leerse en tapa blanda o en Kindle, con una extensión de 224 páginas. La edición física de Ediciones Paidós lleva solapas y permite conservar el volumen en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro.",
+      "texto": "La eternidad y un día más puede leerse en tapa blanda o Kindle y tiene 224 páginas. La edición impresa de Ediciones Paidós incorpora solapas y permite conservar el libro como ejemplar físico. Kindle facilita la lectura digital en distintos dispositivos y evita transportar el volumen durante los desplazamientos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -34,17 +35,16 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La eternidad y un día más y La botica natural se relacionan con cuestiones de salud, pero Carlos López-Otín aborda la progeria y la mortalidad mediante una historia personal, mientras Juan Carlos Pastor y Zaira Vidal presentan una guía para preparar un botiquín herbal. Los límites del infinito comparte el ámbito divulgativo, aunque Ian Stewart se ocupa de las matemáticas y no de una experiencia vital.",
+      "texto": "La eternidad y un día más comparte con Cerebro, espacio y tiempo el interés por explicar cuestiones científicas relacionadas con la experiencia humana. Carlos López-Otín se centra en la vida de Sammy Basso y la mortalidad, mientras que Liset Ménendez de la Prida aborda cómo el cerebro reconoce la ubicación. El acorde secreto también parte de la investigación científica, pero Daniel J. Levitin dirige su atención hacia la neurociencia.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387905620",
-        "isbn-9788491999386"
+        "isbn-9791387941208",
+        "isbn-9788449345975"
       ]
     }
   ],

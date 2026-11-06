@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791388042270",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro maldito está dirigido a lectores de suspense que acepten una historia de secuestro, peligro de muerte y repetición temporal, con protagonistas adolescentes. No responde a una lectura de misterio tranquilo: la propuesta incorpora advertencias inquietantes y una dinámica de tensión distribuida en capítulos que se abren progresivamente.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El libro maldito combina el thriller con un mecanismo de repetición temporal y una lectura organizada como cuenta atrás. Franck Thilliez relaciona el hallazgo de un cuaderno perteneciente a un adolescente secuestrado con la situación de Nael, que revive una misma jornada; los capítulos sellados convierten la apertura de cada entrega en parte de la experiencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de El libro maldito publicada por Duomo Ediciones presenta 388 páginas en tapa blanda e incorpora ilustraciones de Thomas Gilbert. Su rasgo distintivo son los 24 capítulos sellados, concebidos para abrirse de forma sucesiva durante una cuenta atrás; el ISBN 9791388042270 identifica esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "isbn13",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El libro maldito está disponible en tapa blanda, con 388 páginas y una estructura de 24 capítulos sellados que el lector debe ir abriendo. El ejemplar físico permite realizar esa apertura progresiva, una parte material de la propuesta que acompaña a la historia y a sus ilustraciones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "118e900f6c364953",
+  "origen": "chatgpt-web"
+}

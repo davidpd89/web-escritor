@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9791387962838",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los diarios de la boticaria (la novela original) 2 se dirige al público juvenil interesado en misterios conectados, intrigas de palacio y relaciones marcadas por los celos y las jerarquías. Su argumento sigue investigaciones dentro de una corte, por lo que encaja menos con lectores que buscan acción fantástica constante o historias sin enigmas.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "Los diarios de la boticaria (la novela original) 2 tiene clasificación juvenil y presenta misterios relacionados con un incendio, una intoxicación alimentaria grave y el fallecimiento de un artesano. También aparecen rivalidades entre las damas de la corte y un militar que muestra interés por Maomao. Son conflictos de intriga con referencias a daños físicos y muerte.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Los diarios de la boticaria (la novela original) 2 es una novela de misterio juvenil con componentes de romance e intriga cortesana. Maomao vuelve a trabajar cerca de Jinshi y debe investigar sucesos aparentemente separados que podrían responder a una misma causa. La observación de indicios y las relaciones de poder sostienen el conflicto narrativo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los diarios de la boticaria (la novela original) 2 se ofrece en tapa blanda con solapas, con 344 páginas en castellano. La encuadernación flexible permite llevar la novela en el bolso o la mochila y conservarla como volumen físico. Las solapas distinguen su presentación de una tapa blanda sencilla y también permiten utilizarla como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los diarios de la boticaria (la novela original) 1 comparte con Los diarios de la boticaria (la novela original) 2 la autoría de Touko Shino y Hyuganatsu y el personaje de Maomao, pero aborda su llegada forzada al palacio, mientras que el segundo título presenta su regreso al servicio y nuevas investigaciones. No podrás esconderte, de Megan Lally, también pertenece al terreno del thriller, aunque parte de la importancia de la imagen personal para Brooke.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962821",
+        "isbn-9788427257375"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c6d0c998b38f2366",
+  "origen": "chatgpt-web"
+}

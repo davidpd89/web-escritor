@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788410943889",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La generación dopada encaja con lectores interesados en la salud mental, el consumo de medicamentos y las presiones de la vida contemporánea. Ander Bernaola Álvarez examina estos asuntos desde su experiencia médica y personal, con una perspectiva social que se aleja de los manuales de bienestar centrados únicamente en hábitos individuales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "La generación dopada ofrece un análisis de cómo distintas formas de sufrimiento se relacionan con el consumo de estimulantes, antidepresivos y otros fármacos. Sus 320 páginas conectan neurociencia, condiciones laborales, publicidad, videojuegos y funcionamiento del sistema sanitario para examinar por qué se recurre a respuestas farmacológicas ante problemas de origen diverso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La generación dopada se publica en tapa blanda y reúne 320 páginas en castellano. El formato permite consultar en papel los distintos asuntos que trata Ander Bernaola Álvarez, desde los medicamentos hasta las condiciones sociales que influyen en su consumo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ansiedad. ¿Cómo se sale de aquí? y La generación dopada comparten el interés por el malestar psicológico, aunque el primero lo presenta mediante la imagen de un parque de atracciones y el segundo analiza su relación con los fármacos y las exigencias sociales. Cáncer con brújula también aborda el sufrimiento vinculado a la salud, pero parte de la experiencia de recibir un diagnóstico de cáncer.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431967",
+        "isbn-9788441445321"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "879efa50cc016ab4",
+  "origen": "chatgpt-web"
+}

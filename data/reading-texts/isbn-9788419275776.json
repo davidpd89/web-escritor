@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Guerra de dragones (Lengua de dragones 2), de S.F. Williamson, se dirige a lectores desde los 12 años interesados en fantasía juvenil con rebeliones, dragones y conflictos políticos ficticios. La interpretación de una lengua desconocida tiene un papel decisivo en la guerra. No encaja tanto con quien busque una historia cotidiana sin elementos fantásticos ni enfrentamientos armados.",
+      "texto": "Guerra de dragones (Lengua de dragones 2) se dirige a lectores desde los 12 años que buscan fantasía juvenil con dragones, rebeliones y conflictos políticos. El peso de la guerra y la persecución lo aleja de quienes prefieren aventuras cotidianas sin enfrentamientos violentos.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,17 +14,16 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Guerra de dragones (Lengua de dragones 2) está recomendada a partir de 12 años. Incluye una rebelión, persecución de una persona considerada criminal, amenazas de guerra y referencias a bombas y violencia entre dragones. Su contenido combina peligro colectivo y decisiones difíciles dentro de un mundo fantástico.",
+      "texto": "La edad recomendada para Guerra de dragones (Lengua de dragones 2) comienza a los 12 años. Su conflicto incluye una rebelión, una protagonista perseguida como criminal y una guerra en la que intervienen dragones, bombas y distintas facciones enfrentadas.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Esta fantasía juvenil combina dragones, conflicto bélico y desciframiento lingüístico. Vivian Featherswallow ha contribuido involuntariamente a intensificar una guerra y emprende la búsqueda de una especie de dragón considerada extinguida. La resolución del enfrentamiento depende tanto de comprender el lenguaje como de actuar frente a los bandos implicados.",
+      "texto": "La novela plantea una fantasía juvenil donde el conocimiento de una lengua puede modificar el desarrollo de una guerra. Vivian Featherswallow debe afrontar las consecuencias de haber descifrado el idioma de los dragones y buscar una solución que depende tanto de la investigación como de sus decisiones dentro de la rebelión.",
       "evidencias": [
         "categorias",
         "sinopsis_editorial"
@@ -33,18 +31,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Guerra de dragones (Lengua de dragones 2) se publica en tapa blanda y Kindle. La edición de Salamandra contiene 304 páginas y tiene solapas, una alternativa física para conservar junto a otros volúmenes. Kindle permite llevar la lectura en formato digital sin transportar el ejemplar impreso.",
+      "texto": "Guerra de dragones (Lengua de dragones 2) puede leerse en tapa blanda o Kindle. La edición física de Salamandra tiene 304 páginas y solapas, mientras que Kindle permite llevar la novela en un lector electrónico o en el móvil sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Guerra de dragones (Lengua de dragones 2) y Alas de escarcha y oro: El canto del cisne comparten elementos fantásticos y protagonistas vinculadas a capacidades singulares. En la obra de S.F. Williamson, la comprensión del lenguaje de los dragones interviene en una guerra; en la de Marta Morillo, Eira vive ocultando sus dones y debilidades. La primera sitúa el conflicto en una rebelión colectiva.",
+      "texto": "Guerra de dragones (Lengua de dragones 2) y Alas de escarcha y oro: El canto del cisne comparten elementos de fantasía y protagonistas vinculadas a capacidades poco comunes. En la novela de S.F. Williamson, descifrar una lengua desencadena consecuencias bélicas; la de Marta Morillo presenta a Eira, que ha vivido ocultando sus dones y debilidades.",
       "evidencias": [
         "titulo",
         "autores",
@@ -59,6 +57,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d60729e0145d05ba",
+  "fuente_hash": "9b589999409f9012",
   "origen": "chatgpt-web"
 }

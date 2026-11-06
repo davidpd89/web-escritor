@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788466685382",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El viaje está dirigido a lectores adultos interesados en la narrativa contemporánea y los viajes como ámbito literario. Eloy Moreno plantea una lectura cuyo argumento se mantiene deliberadamente reservado; encaja menos con quienes necesitan conocer el conflicto y los personajes antes de empezar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "El viaje propone una lectura de narrativa contemporánea en la que el lector se enfrenta a la historia sin una descripción previa del argumento. Eloy Moreno y Ediciones B han optado por preservar ese desconocimiento y dejar que cada persona forme su interpretación durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El viaje puede leerse en tapa blanda o en Kindle. La edición física reúne 432 páginas y lleva solapas, mientras que Kindle permite transportar el texto en un lector electrónico o dispositivo compatible sin cargar con el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El viaje puede compararse con Invisible (edición Luna), también de Eloy Moreno, por su carácter narrativo y su autoría compartida. Mientras Invisible (edición Luna) plantea desde su presentación el deseo de volverse invisible, El viaje reserva su argumento y deja al lector entrar sin conocer previamente el conflicto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419514318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "689d39e927d69787",
+  "origen": "chatgpt-web"
+}

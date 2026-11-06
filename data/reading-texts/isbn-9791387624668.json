@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791387624668",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo que la diosa ocultó a Parménides se dirige a lectores interesados en filosofía antigua, lógica, metafísica y teoría psicoanalítica. Su interpretación conceptual de un poema filosófico se distancia de los manuales de psicología práctica y de las introducciones generales a la historia del pensamiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Pedro Alemán Laín interpreta el poema de Parménides a partir de dos formas de ocultación que afectan a su estructura argumentativa. Relaciona el nacimiento de la lógica y la metafísica con la negación de la experiencia mística y utiliza planteamientos de Freud y Lacan para examinar el discurso filosófico.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lo que la diosa ocultó a Parménides cuenta con una edición en tapa blanda de 128 páginas, publicada en castellano por Punto de Vista Editores. Su extensión permite trabajar el análisis filosófico en un volumen físico relativamente breve, con posibilidad de anotar las relaciones entre conceptos y autores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "INHIBICIÓN, SÍNTOMA Y ANGUSTIA (Bilingüe), de Sigmund Freud, comparte con Lo que la diosa ocultó a Parménides el interés por el pensamiento psicoanalítico. El primero examina la evolución de una teoría sobre la angustia; Pedro Alemán Laín emplea herramientas del psicoanálisis para interpretar la lógica y la metafísica de un texto filosófico antiguo.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791399156607"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a445502b04447a4",
+  "origen": "chatgpt-web"
+}

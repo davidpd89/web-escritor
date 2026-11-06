@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388463013",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vida de Lord Byron está dirigida a lectores de biografías históricas interesados en la literatura romántica y en la relación entre vida personal y creación poética. Su recorrido por las relaciones, los viajes y las obras del poeta puede resultar menos adecuado para quien busque una introducción breve centrada únicamente en sus poemas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Karl Elze reconstruye la trayectoria de George Gordon Byron desde sus primeros años hasta su participación en la causa de la independencia de Grecia. El estudio relaciona sus experiencias familiares, viajes y conflictos personales con su evolución literaria, e incorpora una valoración crítica de su influencia en la literatura inglesa y europea.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vida de Lord Byron se presenta en tapa dura, con 408 páginas en castellano editadas por El Desvelo. Su encuadernación rígida resulta apropiada para conservar una biografía extensa y consultarla durante el estudio de la vida y la obra del poeta; también permite regalar un volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vida de Lord Byron y AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA relacionan la investigación biográfica con figuras del ámbito literario. Juan Carlos García de Polavieja aborda una investigación sobre la vida y muerte de Federico García Lorca, mientras Karl Elze reconstruye la trayectoria de George Gordon Byron y examina su producción poética.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418567933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "57a13be1d5935b1e",
+  "origen": "chatgpt-web"
+}

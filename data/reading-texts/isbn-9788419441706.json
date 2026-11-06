@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una magia imperfecta, de María Dresden, encaja con lectores a partir de 12 años interesados en la fantasía romántica, las amistades que cambian y las segundas oportunidades. Su combinación de hechizos fallidos, conflictos sentimentales y búsqueda de identidad encaja menos con quienes buscan una historia centrada en combates mágicos.",
+      "texto": "Una magia imperfecta, de María Dresden, encaja con lectores desde los 12 años que buscan fantasía romántica juvenil sobre identidad, amistad y segundas oportunidades. Su historia se centra en una bruja que pierde su lugar en la escuela de magia y regresa a su pueblo, por lo que responde menos a quienes prefieren conflictos bélicos o aventuras de grandes ejércitos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,41 +15,39 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Una magia imperfecta está recomendada a partir de 12 años y combina fantasía juvenil con romance. Trata el rechazo escolar, la pérdida de confianza en las propias capacidades, los sentimientos no correspondidos y las dificultades para encontrar un lugar al que pertenecer. Son conflictos emocionales relevantes para valorar la sensibilidad del lector.",
+      "texto": "La lectura está recomendada a partir de los 12 años. Aborda la expulsión escolar, la sensación de fracaso, los sentimientos amorosos no correspondidos y las consecuencias de un hechizo que transforma a otras personas. También trata las relaciones de amistad y la reconstrucción de la identidad tras perder una vocación.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La lectura combina fantasía cotidiana y romance de desarrollo gradual, con una protagonista cuya relación con la magia cambia tras su expulsión escolar. El regreso a su pueblo introduce amistades antiguas, un triángulo sentimental y un hechizo amoroso de consecuencias imprevisibles. La identidad personal pesa tanto como las relaciones románticas.",
+      "texto": "Una magia imperfecta mezcla fantasía juvenil y romance en un pueblo costero al que regresa una joven bruja. La trama incorpora un encantamiento amoroso fallido, un triángulo sentimental y una relación de amistad que puede convertirse en amor. La magia funciona como parte del conflicto personal, junto con los recuerdos familiares y las oportunidades de empezar de nuevo.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Una magia imperfecta puede leerse en tapa blanda o Kindle. La edición de Random Comics tiene 256 páginas y solapas, una opción física para conservar o regalar; Kindle permite llevar la novela en el móvil o en un lector electrónico sin transportar el ejemplar impreso.",
+      "texto": "Una magia imperfecta está disponible en tapa blanda y Kindle. La edición física de Random Comics reúne 256 páginas y lleva solapas, una opción para quien prefiere leer en papel o regalar un ejemplar. Kindle permite llevar la novela en un lector electrónico o en un dispositivo compatible sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Donde duermen las sombras, de Andrea Ornos, comparte con Una magia imperfecta la mezcla de fantasía y romance, pero plantea un amor entre dimensiones frente a los vínculos sentimentales de un pueblo costero. Alas de escarcha y oro: El canto del cisne, de Marta Morillo, también aborda dones personales, aunque su protagonista los oculta mientras Tesa afronta el fracaso de su magia.",
+      "texto": "Alas de escarcha y oro: El canto del cisne, de Marta Morillo, también presenta una protagonista relacionada con poderes extraordinarios, aunque Eira intenta ocultarlos y Tesa afronta sus dificultades con la magia. Donde duermen las sombras, de Andrea Ornos, comparte la mezcla de fantasía y romance, pero utiliza dimensiones y maldiciones frente al entorno de pueblo pequeño y las segundas oportunidades de Una magia imperfecta.",
       "evidencias": [
         "titulo",
-        "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791387949938",
@@ -59,6 +57,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "55140881bf968634",
+  "fuente_hash": "ccde5f5f7010481c",
   "origen": "chatgpt-web"
 }

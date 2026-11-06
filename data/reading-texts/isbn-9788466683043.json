@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mamá necesita un respiro está dirigido a lectores adultos interesados en la maternidad cotidiana, la carga mental y las dificultades de compaginar crianza, pareja y bienestar emocional. Inma Sáenz relata experiencias familiares con humor a través de un diario personal; quien busque instrucciones de crianza organizadas por etapas encontrará aquí vivencias y reflexiones en lugar de un manual práctico.",
+      "texto": "Mamá necesita un respiro está dirigido a lectores adultos interesados en la maternidad cotidiana, la crianza y el humor sobre la vida familiar. Inma Sáenz relata experiencias personales relacionadas con los hijos, la pareja y el agotamiento; no es una guía técnica de pediatría ni un manual de desarrollo infantil.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,9 +15,10 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mamá necesita un respiro se ofrece en tapa blanda con solapas, una edición de 240 páginas publicada por Ediciones B. El formato físico permite marcar episodios del diario, retomar sus reflexiones sobre la maternidad en distintos momentos o regalar un ejemplar en papel.",
+      "texto": "Mamá necesita un respiro está disponible en tapa blanda y Kindle. La edición de Ediciones B contiene 240 páginas y solapas, una opción física para regalar o leer por partes; Kindle permite acceder digitalmente a las entradas de este diario sobre maternidad desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
+        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
@@ -26,7 +27,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mamá necesita un respiro y Criar juntos de verdad comparten el interés por la crianza, pero Inma Sáenz narra su experiencia materna con humor mientras el segundo libro se centra en criar en equipo. Frente a Preparados, listos, ¡llegó el bebé!, que orienta a las familias durante los primeros años, Mamá necesita un respiro aborda el cansancio, la culpa y las relaciones familiares desde un diario personal.",
+      "texto": "Mamá necesita un respiro y Criar juntos de verdad comparten el ámbito de la crianza, pero Inma Sáenz utiliza el diario personal y el humor, mientras Armando Bastida @armandobastidaep se centra en la colaboración entre quienes crían. Preparados, listos, ¡llegó el bebé! aborda los primeros años desde una guía práctica, frente al relato de experiencias familiares de Mamá necesita un respiro.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,6 +43,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "536b29ea45e3b0ab",
+  "fuente_hash": "699be9a11b0cb503",
   "origen": "chatgpt-web"
 }

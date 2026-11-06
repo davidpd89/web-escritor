@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788441445369",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Norteamérica española (1493-1898) se dirige a lectores interesados en la historia de la presencia española en el territorio norteamericano y sus conflictos políticos y territoriales. Robert Goodwin reconstruye este periodo mediante personajes y testimonios históricos, por lo que se aleja de una exposición limitada a fechas y acontecimientos militares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra examina la expansión territorial española en Norteamérica, las relaciones con los pueblos indígenas y la competencia entre potencias coloniales. Robert Goodwin utiliza biografías, documentos y representaciones artísticas para mostrar tanto las aspiraciones de los protagonistas como sus derrotas y las transformaciones políticas que terminaron con el dominio español.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Norteamérica española (1493-1898) puede leerse en tapa blanda o Kindle. La edición impresa reúne 576 páginas y permite consultar físicamente los episodios y personajes de esta historia; Kindle facilita transportar una obra de esa extensión y leerla en dispositivos compatibles sin cargar con el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cesar La conquista de la eternidad y La Norteamérica española (1493-1898) coinciden en abordar procesos históricos a través de sus protagonistas, pero el primero sigue a un general romano y el segundo examina la expansión española en Norteamérica. Auge y caída del Tercer Reich (edición especial) también estudia el desarrollo y declive de un poder político, aunque se centra en el régimen nazi.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005555",
+        "isbn-9788410944329"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ed87b6393a34d46d",
+  "origen": "chatgpt-web"
+}

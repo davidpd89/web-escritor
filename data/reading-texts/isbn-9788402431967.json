@@ -4,9 +4,8 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ansiedad. ¿Cómo se sale de aquí? se dirige a lectores adultos interesados en la experiencia de la ansiedad contada mediante ilustraciones y humor. Quien busque un tratado exclusivamente clínico encontrará, en cambio, el relato personal de Gemma Correll sobre el pánico y los obstáculos cotidianos de convivir con la ansiedad.",
+      "texto": "Dirigido a lectores adultos interesados en la salud mental, los testimonios autobiográficos y la narración gráfica. Gemma Correll aborda la ansiedad mediante ilustraciones y humor, con experiencias que incluyen ataques de pánico y hospitalización. Su planteamiento encaja menos con quienes buscan un manual de ejercicios terapéuticos o una explicación exclusivamente clínica.",
       "evidencias": [
-        "titulo",
         "autores",
         "edad_recomendada",
         "categorias",
@@ -15,11 +14,10 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ansiedad. ¿Cómo se sale de aquí? se presenta en tapa blanda con solapas y cuenta con 448 páginas. Esta edición en papel permite seguir las ilustraciones y el relato sobre la ansiedad de Gemma Correll sin utilizar una pantalla.",
+      "texto": "La edición en tapa blanda con solapas de Bruguera tiene 448 páginas y permite consultar las ilustraciones directamente sobre papel. Kindle ofrece una alternativa digital para leer el libro en pantalla, aunque el tamaño del dispositivo condiciona la visualización de las páginas dibujadas. La elección resulta especialmente relevante por su componente gráfico.",
       "evidencias": [
-        "titulo",
-        "autores",
         "edicion",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
@@ -27,7 +25,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ansiedad. ¿Cómo se sale de aquí? comparte con Cómo no tener diabetes y La fibra es la solución el interés por la salud y el bienestar. La diferencia está en el enfoque: Gemma Correll cuenta su experiencia con la ansiedad mediante ilustraciones y humor, mientras los otros títulos se ocupan, respectivamente, de la diabetes y del consumo de fibra.",
+      "texto": "Todo lo que aprendí en terapia comparte con el libro de Gemma Correll el interés por la salud mental y el bienestar emocional. La obra de Pablo R. Coca se orienta al aprendizaje personal relacionado con la terapia, mientras que Ansiedad aborda las vivencias de su autora mediante ilustraciones y humor. La diferencia está en el enfoque formativo del primero frente al relato autobiográfico y gráfico del segundo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,13 +34,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425373152",
-        "isbn-9788425374869"
+        "isbn-9791388220517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b7c712415e61849d",
+  "fuente_hash": "490e09cae6095473",
   "origen": "chatgpt-web"
 }

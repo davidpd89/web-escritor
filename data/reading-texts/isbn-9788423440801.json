@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788423440801",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un mundo dislocado se dirige a lectores interesados en la política internacional y en los cambios del orden global. Su análisis de las relaciones entre economía, instituciones y estabilidad lo separa de la narrativa de ficción y de las lecturas centradas en conflictos personales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Un mundo dislocado propone una lectura de actualidad y política sobre la transformación de las relaciones internacionales. Ana Palacio Vallelersundi toma como punto de partida el sistema surgido tras la Segunda Guerra Mundial y examina la pérdida de estabilidad del modelo basado en instituciones y comercio regulado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Un mundo dislocado contiene 280 páginas en rústica con solapas, apropiada para leer y consultar el análisis en papel. Kindle permite seguir sus reflexiones sobre política internacional desde el móvil o un lector electrónico, sin transportar la edición impresa.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la sombra del Estado y Un mundo dislocado examinan cuestiones de poder, pero el primero aborda espionaje, operaciones encubiertas y desinformación, mientras el segundo analiza el orden internacional. El estado del Estado también reflexiona sobre la incertidumbre política, aunque centra su mirada en España frente al alcance global del libro de Ana Palacio Vallelersundi.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057",
+        "isbn-9788423441013"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf6626a65f25eb34",
+  "origen": "chatgpt-web"
+}

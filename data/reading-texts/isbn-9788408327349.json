@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788408327349",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gran libro de Karlos Arguiñano se dirige a lectores que buscan un recetario amplio con instrucciones culinarias, trucos y consejos del cocinero. Su planteamiento general para distintos públicos se diferencia de los libros limitados a una técnica, un electrodoméstico o una familia concreta de alimentos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El gran libro de Karlos Arguiñano reúne una selección de recetas junto con trucos y consejos para su preparación. Sus 704 páginas permiten utilizarlo como recetario de consulta continuada, tanto para buscar propuestas culinarias como para revisar indicaciones prácticas del autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El gran libro de Karlos Arguiñano se presenta en tapa dura con sobrecubierta, publicado por Editorial Planeta. Sus 704 páginas conforman un volumen físico extenso, pensado para conservarlo como libro de consulta en la cocina o entregarlo como regalo, con una encuadernación rígida que protege las páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "20 minutos ¡y listo! coincide con El gran libro de Karlos Arguiñano en su finalidad de facilitar la preparación de recetas, pero prioriza la rapidez frente a una recopilación culinaria extensa. Barbacoa, de Jamie Oliver, se concentra en una forma específica de cocinar, mientras que Karlos Arguiñano reúne recetas, consejos y trucos de alcance más general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788425374012"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1a378ceff7ce3ed5",
+  "origen": "chatgpt-web"
+}

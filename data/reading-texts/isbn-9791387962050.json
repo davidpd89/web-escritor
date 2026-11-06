@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Para Dafne 2 se dirige a lectores adultos interesados en la fantasía romántica atravesada por el rechazo, la pérdida de autonomía y la venganza. Su conflicto gira alrededor de un amor impuesto y sus consecuencias emocionales, por lo que se aleja de las historias románticas basadas en la reciprocidad.",
+      "texto": "Para Dafne 2 se dirige a lectores adultos de manga que buscan una historia de fantasía romántica marcada por el rechazo y las relaciones de poder. Dafne sufre las consecuencias del deseo impuesto por Febo, con una carga emocional ligada a la pérdida de autonomía. No responde al modelo de romance basado en una relación afectiva correspondida.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,43 +14,43 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Para Dafne 2 plantea una historia de fantasía y romance donde el deseo de una persona entra en conflicto con la voluntad de otra. Dafne rechaza el amor de Febo, mientras la intervención de Eros convierte ese vínculo en una fuente de sufrimiento y pérdida de control. La venganza figura entre los temas asociados a esta obra de KKAM y 3_jokseom.",
+      "texto": "Para Dafne 2 plantea una lectura de fantasía romántica centrada en el consentimiento, el rechazo y el sufrimiento emocional. La intervención de Eros desencadena una relación desigual entre Dafne y Febo, cuyo deseo no es correspondido. El título identifica este volumen como el n.º 2, dentro de una historia que utiliza figuras mitológicas para abordar el conflicto afectivo.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Para Dafne 2 está disponible en tapa blanda con solapas, una edición de Distrito Manga de 288 páginas en castellano. Este formato permite manejar el volumen durante la lectura y guardarlo sin el peso de una encuadernación rígida. Las solapas añaden protección a los bordes de la cubierta durante su uso.",
+      "texto": "Para Dafne 2 está disponible en tapa blanda con solapas y reúne 288 páginas. La edición de Distrito Manga permite seguir la narración gráfica en papel, con una encuadernación flexible para manejarla durante la lectura. Su formato físico también permite conservar el volumen en una colección de manga.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "editorial",
         "numero_paginas",
-        "idioma"
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Para Dafne 2 puede compararse con La hija del veneno, de Sheila Masterson, por su relación con la fantasía y los conflictos marcados por el temor y el poder. También comparte con Alchemised (edición coleccionista limitada), de SenLinYu, el terreno de la fantasía. La diferencia documentada de Para Dafne 2 es su conflicto romántico centrado en el rechazo de Dafne hacia Febo.",
+      "texto": "El ocaso del rey (Dioses y monstruos 5), de Amber V. Nicole, comparte con Para Dafne 2 su orientación hacia la fantasía romántica oscura. La obra de KKAM y 3_jokseom centra el conflicto en el rechazo de Dafne a Febo y las consecuencias de un amor impuesto. Para Dafne 2 es un manga para adultos, mientras que El ocaso del rey se presenta como dark romantasy.",
       "evidencias": [
         "titulo",
+        "autores",
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387924386",
-        "isbn-9788425375118"
+        "isbn-9788427258280"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e80741557a177b85",
+  "fuente_hash": "d8d7cfa4e4fe77be",
   "origen": "chatgpt-web"
 }

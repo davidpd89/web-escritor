@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788433040107",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Elements of corporate finance. Investment and financing in the company está dirigido a lectores que quieren comprender cómo se toman decisiones de inversión y financiación dentro de una empresa. Su enfoque teórico y aplicado encaja menos con quien busca consejos de ahorro doméstico o una introducción a los trámites financieros personales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La obra de Fernando Gómez-Bezares Pascual es un texto de economía empresarial centrado en las finanzas corporativas, no una narración de ficción. Organiza su contenido alrededor del análisis, la planificación, la inversión y la financiación, relacionando los fundamentos teóricos con decisiones aplicables a las compañías.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Elements of corporate finance. Investment and financing in the company se ofrece en tapa blanda, con 348 páginas publicadas por Desclée de Brouwer. La edición física permite trabajar sobre los apartados de análisis, planificación, inversión y financiación, y consultar sus explicaciones durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Elements of corporate finance. Investment and financing in the company comparte con Domina el arte de los negocios su orientación hacia el funcionamiento empresarial, pero Fernando Gómez-Bezares Pascual se concentra en las decisiones financieras y Brian Tracy en habilidades de negocio y liderazgo. Cariño, ¿y este recibo? traslada las decisiones económicas al ámbito de las cuentas personales y compartidas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431332",
+        "isbn-9788466390514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "798df8de8fd5c8d3",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388220098",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los mundos de Dune encaja con lectores interesados en la ciencia ficción y en el origen literario de Dune. Su planteamiento gira alrededor de la creación de ese universo y de su autor, por lo que se distancia de una novela que desarrolle una aventura ficticia nueva.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Los mundos de Dune plantea una aproximación a la construcción de un universo de ciencia ficción desde la trayectoria de su creador. Tom Huddleston aborda cómo un antiguo militar y periodista llegó a escribir Dune, con una perspectiva sobre la obra y su gestación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los mundos de Dune está disponible en tapa dura, con 208 páginas y encuadernación en cartoné sin sobrecubierta. Es una edición física para conservar y consultar durante la lectura, especialmente si se prefiere tener en papel el estudio del universo literario.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aunque se acabe el mundo comparte con Los mundos de Dune el terreno de la ciencia ficción, pero desarrolla una crisis que afecta a la humanidad, mientras el libro de Tom Huddleston examina la creación de Dune. Juntos en cualquier mundo. Tú y yo más allá del tiempo introduce el amor y el multiverso mediante dos novelas, frente al enfoque sobre una obra literaria de Los mundos de Dune.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427255968",
+        "isbn-9788427055483"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "de2a39af2edfa169",
+  "origen": "chatgpt-web"
+}

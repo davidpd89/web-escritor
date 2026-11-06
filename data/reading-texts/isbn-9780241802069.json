@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9780241802069",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Opa! (Sabores del mundo) está dirigido a adultos interesados en la cocina griega y en las tradiciones gastronómicas de sus tabernas. Helena Moursellas y Vikki Moursellas reúnen preparaciones tradicionales y otras combinaciones de ingredientes, acompañadas de relatos culturales. Encaja menos con quien busca un recetario dedicado a la cocina rápida de distintas procedencias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Opa! (Sabores del mundo) contiene 80 recetas de cocina griega y relatos relacionados con su cultura gastronómica. Incluye elaboraciones tradicionales, como cordero kleftiko y horiátiki salata, además de platos con langostinos, hinojo o quesos griegos. Sus 256 páginas permiten utilizarlo tanto para preparar comidas como para conocer las costumbres culinarias vinculadas a las tabernas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Opa! (Sabores del mundo) está disponible en tapa dura, con 256 páginas publicadas por DK. Su encuadernación rígida permite mantener el recetario como volumen de consulta en la cocina y conservarlo para usos posteriores. También ofrece una presentación física para regalar a personas interesadas en la gastronomía griega.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Opa! (Sabores del mundo) puede compararse con 20 minutos ¡y listo!, de Jamie Oliver, porque ambos son libros de cocina, aunque el primero se centra en recetas y costumbres griegas y el segundo pone el acento en el tiempo de preparación. Frente a Barbacoa, también de Jamie Oliver, cambia el eje del contenido: de una técnica de cocción concreta a la gastronomía de un país.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788425374012"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d7fbf16b59f3e357",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399248579",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La historia más bonita se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares durante un periodo de confinamiento. La llegada inesperada de un hijo transforma la vida de una pareja; quien busque una historia de aventuras o una trama extensa encontrará aquí una propuesta distinta, de 72 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La historia más bonita plantea una narración contemporánea sobre la paternidad inesperada en circunstancias de aislamiento. Sergio Valdés Orellana sitúa el cambio familiar en un mundo confinado, con la convivencia de pareja y la llegada de un hijo como elementos centrales de una obra de 72 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La historia más bonita está disponible en tapa blanda, con una extensión de 72 páginas. Esta edición de Editorial Niebla permite llevar el libro en el bolso o leerlo en sesiones breves sin cargar con un volumen extenso; también ofrece una opción física para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ed59246cd25108d6",
+  "origen": "chatgpt-web"
+}

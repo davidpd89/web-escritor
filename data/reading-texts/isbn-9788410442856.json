@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788410442856",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Minemurder. 99 casos de lógica y misterio, de E.R. Bucket, está pensado para adultos que prefieren resolver acertijos criminales antes que seguir una narración detectivesca continua. Su estructura de tableros y desafíos resulta menos adecuada para quienes buscan una novela tradicional con una única trama.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Minemurder. 99 casos de lógica y misterio propone resolver crímenes mediante deducción espacial, con una mecánica inspirada en el buscaminas. Cada escenario exige identificar al culpable a partir de su posición respecto a la víctima, con tres niveles de dificultad distribuidos entre los tableros.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Minemurder. 99 casos de lógica y misterio está disponible en tapa blanda con solapas y tiene 224 páginas. La edición física reúne tableros ilustrados a todo color, por lo que permite examinar directamente los escenarios y sus pistas mientras se resuelven los ejercicios.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Minemurder. 99 casos de lógica y misterio comparte con El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados el uso del crimen como punto de partida para una actividad de resolución. El primero presenta 99 tableros con tres dificultades y reglas inspiradas en el buscaminas; el segundo sitúa su misterio navideño en un centro comercial.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401040740"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f39cb25057049a49",
+  "origen": "chatgpt-web"
+}

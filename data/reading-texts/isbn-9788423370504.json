@@ -4,53 +4,52 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Todas las noches, todas las ciudades se dirige a lectores de novela negra y thriller interesados en crímenes relacionados con la ficción literaria. La investigación policial, la identidad de un escritor y su relación con unos delitos sostienen el conflicto, por lo que no encaja con quien busque una historia alejada del crimen o de la tensión psicológica.",
+      "texto": "Todas las noches, todas las ciudades, de Dolores Redondo, encaja con lectores de novela negra y misterio interesados en investigaciones criminales vinculadas a la identidad y la creación literaria. Sus 752 páginas y el conflicto entre ficción y delitos reales se alejan de las lecturas breves y de las historias centradas en relaciones cotidianas sin componente policial.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Todas las noches, todas las ciudades combina investigación criminal y un conflicto de identidad alrededor de Benedict Newman, un escritor interrogado por delitos que reproducen los de su libro. Tras sufrir un colapso, su comportamiento cambia, lo que añade incertidumbre a las sospechas policiales. Es una novela negra de Dolores Redondo con 752 páginas.",
+      "texto": "Todas las noches, todas las ciudades plantea un thriller donde la ficción escrita y una investigación criminal se entrecruzan. Dolores Redondo sitúa el conflicto alrededor de un escritor interrogado por delitos semejantes a los de su propia obra, con una alteración posterior de su comportamiento que introduce incertidumbre sobre su identidad.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura con sobrecubierta reúne las 752 páginas de Todas las noches, todas las ciudades en una edición física de Ediciones Destino, apropiada para quien quiera conservar el volumen o regalarlo. Kindle evita transportar un libro de esa extensión y permite leerlo en un dispositivo compatible. La diferencia práctica está en el peso del ejemplar frente a la comodidad de la lectura digital.",
+      "texto": "Todas las noches, todas las ciudades tiene 752 páginas y puede leerse en tapa dura con sobrecubierta o en Kindle, además de escucharse en audiolibro. La tapa dura ofrece un volumen físico para conservar o regalar; Kindle facilita transportar una novela extensa y el audiolibro permite seguirla mediante escucha.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "edicion",
-        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El asesinato de Roger Ackroyd (Edición especial con cantos tintados) comparte con Todas las noches, todas las ciudades el interés por los crímenes y su investigación, aunque la obra de Dolores Redondo vincula los delitos a la ficción de un escritor. El enigmático míster Quin también aborda el misterio, pero reúne doce relatos de Agatha Christie, frente a una novela de 752 páginas.",
+      "texto": "Todas las noches, todas las ciudades y El asesinato de Roger Ackroyd (Edición especial con cantos tintados) comparten el interés por el crimen y la investigación. Dolores Redondo relaciona los delitos con la obra y la identidad de un escritor; Agatha Christie centra su propuesta en un enigma detectivesco, presentado aquí en una edición especial con resolución sellada.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467083934",
-        "isbn-9788408331520"
+        "isbn-9788467083934"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "090594913189a5bf",
+  "fuente_hash": "1c8b7c44d78a82a1",
   "origen": "chatgpt-web"
 }

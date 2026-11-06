@@ -1,0 +1,67 @@
+{
+  "id": "isbn-9791387745479",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una distorsión narrativa se dirige a lectores de poesía contemporánea interesados en la relación entre pensamiento, cultura y extrañamiento. Sus poemas reunidos a lo largo de veinticinco años no responden a la estructura de una novela con una trama continua, por lo que encaja menos con quien busque ese tipo de narración.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Una distorsión narrativa propone una lectura poética de los cambios culturales y estéticos del primer cuarto del siglo XXI. Alberto Santamaría desplaza la atención hacia espacios marginales, restos y elementos periféricos, con una escritura que combina reflexión e ironía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Visor Libros publica Una distorsión narrativa en tapa blanda, con 156 páginas en castellano y fecha de publicación del 21 de octubre de 2026. La edición reúne poemas escritos durante los últimos veinticinco años y permite leer conjuntamente distintas etapas de la escritura de Alberto Santamaría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una distorsión narrativa está disponible en tapa blanda y tiene 156 páginas. Su extensión permite transportar el volumen y alternar la lectura seguida con la consulta de poemas concretos, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una distorsión narrativa y Ciudad, de Luis Pérez Capitán, comparten el interés por observar el presente mediante la poesía. Alberto Santamaría aborda los márgenes culturales y la extrañeza, mientras Ciudad plantea la poesía frente a la inteligencia artificial, la política y la pérdida de referentes morales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410167841"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d0483d0fbb630eb6",
+  "origen": "chatgpt-web"
+}

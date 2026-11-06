@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "5 semanas para desinflamarte (edición limitada) se dirige a quienes buscan introducir cambios en su alimentación y sus hábitos para abordar la inflamación corporal. Su enfoque combina nutrición, menús y recetas, por lo que encaja menos con quien busca un recetario desvinculado de objetivos de bienestar.",
+      "texto": "5 semanas para desinflamarte (edición limitada) se dirige a quienes buscan incorporar hábitos alimentarios y recetas para abordar la inflamación. Su programa de cinco semanas combina cambios cotidianos y pautas de bienestar; no está planteado como un recetario exclusivamente gastronómico.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,19 +13,20 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de 5 semanas para desinflamarte (edición limitada) se publica en tapa blanda bajo el sello Penguin Bolsillo. Reúne 368 páginas en castellano y lleva el ISBN 9788466394390, que permite identificar esta publicación frente a otras versiones del libro.",
+      "texto": "5 semanas para desinflamarte (edición limitada) se presenta en tapa blanda bajo el sello Penguin Bolsillo. Esta edición en castellano tiene 368 páginas y se identifica con el ISBN 9788466394390. Su fecha de publicación editorial es 2027-01-07, y el propio título la distingue como edición limitada.",
       "evidencias": [
         "titulo",
-        "edicion",
         "editorial",
+        "edicion",
         "numero_paginas",
         "idioma",
-        "isbn13"
+        "isbn13",
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El contenido se articula alrededor de un programa de 5 semanas orientado a modificar hábitos relacionados con la inflamación. Incluye consejos prácticos, menús y recetas que permiten trasladar las pautas alimentarias a la planificación de comidas y a la rutina cotidiana.",
+      "texto": "El contenido se articula alrededor de un programa de cinco semanas para modificar hábitos relacionados con la alimentación y el bienestar. Incluye consejos prácticos, menús y recetas, además de orientaciones para reconocer posibles desencadenantes de la inflamación. Permite trasladar esas pautas a la planificación de comidas cotidianas.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial"
@@ -33,20 +34,20 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar y volver a utilizar las recetas y los menús de sus 368 páginas en papel. Kindle facilita llevar las indicaciones en el móvil, mientras que el audiolibro permite escuchar los consejos durante otras actividades, aunque resulta menos directo para consultar recetas concretas.",
+      "texto": "La tapa blanda reúne las 368 páginas de 5 semanas para desinflamarte (edición limitada) en un volumen físico que permite consultar menús y recetas mientras se cocina. Kindle facilita llevar el contenido en el móvil y el audiolibro permite escucharlo sin mantener el libro abierto. La elección depende de si se prefiere consultar, leer en pantalla o escuchar.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La fibra es la solución comparte el interés por la alimentación y la inflamación, pero se centra en el consumo diario de fibra. La revolución de la glucosa: el Método también plantea cambios alimentarios mediante recetas, aunque organiza su propuesta en torno a la glucosa y un programa de 4 semanas, frente a las 5 semanas de 5 semanas para desinflamarte (edición limitada).",
+      "texto": "La fibra es la solución, de Kristen Stavridis, también aborda la inflamación desde la alimentación, pero centra su propuesta en consumir 30 gramos diarios de fibra. La revolución de la glucosa: el Método, de Jessie Inchauspé, comparte el planteamiento práctico y las recetas, aunque organiza su guía en cuatro semanas. 5 semanas para desinflamarte (edición limitada) plantea cinco semanas de hábitos y menús.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788425374869",
@@ -56,6 +57,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2f99cbd1902eeaba",
+  "fuente_hash": "a69421adbe3f6acf",
   "origen": "chatgpt-web"
 }

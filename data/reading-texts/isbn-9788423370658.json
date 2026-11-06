@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Criar juntos de verdad se dirige a madres, padres y personas implicadas en la crianza que quieren examinar cómo se distribuyen las responsabilidades familiares. Su enfoque no se centra en la alimentación o la salud pediátrica, sino en el reparto del trabajo de cuidar a los hijos y las desigualdades que pueden surgir entre quienes crían.",
+      "texto": "Criar juntos de verdad se dirige a madres, padres y parejas que quieren revisar cómo distribuyen las responsabilidades de crianza. Su conflicto principal es el desequilibrio de tareas entre adultos, de modo que se aleja de las guías dedicadas exclusivamente al comportamiento infantil o a las etapas del desarrollo de los hijos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,18 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Criar juntos de verdad está disponible en tapa blanda, con 320 páginas encuadernadas en rústica con solapas. La edición física permite releer los planteamientos sobre las responsabilidades de crianza y compartir el ejemplar entre quienes participan en el cuidado familiar.",
+      "texto": "Criar juntos de verdad se publica en tapa blanda y Kindle, con 320 páginas en su edición impresa. La rústica con solapas permite tener el libro en papel para consultar cuestiones de crianza en pareja; Kindle facilita leerlo en distintos momentos desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
-        "sinopsis_editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Criar juntos de verdad y Preparados, listos, ¡llegó el bebé! comparten el interés por la crianza familiar, pero responden a preocupaciones distintas. La obra de Laura Álvarez (La pediatra Laura) acompaña los primeros años de vida de los hijos, mientras que Armando Bastida @armandobastidaep se ocupa de cómo madres y padres distribuyen las responsabilidades al criar.",
+      "texto": "Criar juntos de verdad y Mamá necesita un respiro coinciden en abordar las dificultades que acompañan a la crianza y la maternidad. Armando Bastida examina especialmente el reparto de responsabilidades entre madres y padres, mientras Inma Sáenz parte de las expectativas emocionales asociadas a convertirse en madre.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467083613"
+        "isbn-9788466683043"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "db2c5a2dca51f10e",
+  "fuente_hash": "3cfa52cf5e2a4bd2",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791399246308",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La fábrica de Absoluto encaja con lectores interesados en la sátira de las creencias colectivas y las consecuencias sociales de la tecnología. Aunque aborda cuestiones filosóficas y políticas, su planteamiento parte de una invención ficticia, por lo que se aleja de quienes buscan un ensayo argumentativo sin elementos narrativos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La fábrica de Absoluto explora cómo una innovación energética puede desencadenar transformaciones religiosas, ideológicas y políticas. Karel Capek utiliza una situación ficticia y satírica para cuestionar el fanatismo, la propagación de las creencias y la capacidad humana para controlar las consecuencias de sus inventos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de La fábrica de Absoluto contiene 272 páginas y permite seguir en papel el desarrollo de su conflicto tecnológico y religioso. La edición Kindle ofrece una alternativa digital para leer la obra en desplazamientos o desde un dispositivo electrónico, sin llevar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La fábrica de Absoluto y Antes de perder el juicio tratan la influencia de las creencias y las ideologías en la sociedad, pero el primero utiliza una ficción satírica y el segundo desarrolla un ensayo filosófico. Manifiesto contra la intolerancia comparte la preocupación por el extremismo, aunque se centra específicamente en la persistencia del fascismo.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387302",
+        "isbn-9791388139055"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "269203fd4ba9e5fb",
+  "origen": "chatgpt-web"
+}

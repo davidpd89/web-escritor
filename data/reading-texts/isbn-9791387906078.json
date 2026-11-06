@@ -1,0 +1,62 @@
+{
+  "id": "isbn-9791387906078",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Es una lectura de fantasía para mayores de 9 años que siguen aventuras de semidioses y conflictos provocados por la mitología griega. El peligro, las consecuencias de los errores y la presencia de una divinidad enfadada la separan de las historias cotidianas sin amenazas sobrenaturales.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Funciona como una aventura de lectura continuada, centrada en las consecuencias de una misión que se complica. Percy y sus amigos deben afrontar los problemas relacionados con Hécate, sus mascotas y la curiosidad de Grover, mientras intentan conseguir una nueva recomendación divina.",
+      "evidencias": [
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad indicada comienza a los 9 años y la edición contiene 304 páginas. Salamandra presenta el libro en castellano, con tapa blanda y solapas, dentro de la fantasía infantil y juvenil, para una lectura que puede repartirse en distintas sesiones.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En tapa blanda, las 304 páginas forman un volumen con solapas que puede guardarse junto a los demás títulos de la colección. La versión Kindle permite leerlo en un dispositivo electrónico o en el móvil y evita tener que transportar el ejemplar físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Percy Jackson y el cáliz de los dioses (Percy Jackson y los dioses del Olimpo 6), de Rick Riordan, comparte protagonista y búsqueda de recomendaciones divinas, pero se ocupa de la primera misión y de un cáliz con poderes. Campamento Mestizo 1 - La zona rebelde, de Rick Riordan y Annabelle Oh, mantiene la conexión con el universo mitológico, aunque parte de la vida en el campamento.",
+      "evidencias": [
+        "afines_catalogo",
+        "sinopsis_editorial",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788419868466",
+        "isbn-9791387906085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c642bfb6423c0f48",
+  "origen": "chatgpt-web"
+}

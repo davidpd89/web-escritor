@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un deseo para cada día encaja con lectores de narrativa contemporánea que buscan historias navideñas sobre relaciones familiares, rupturas sentimentales y segundas oportunidades. Su propuesta de un capítulo diario durante diciembre también permite distribuir la lectura a lo largo del mes. Quien prefiera aventuras fantásticas encontrará aquí conflictos ligados a la vida cotidiana y las decisiones personales.",
+      "texto": "Un deseo para cada día se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares, las rupturas sentimentales y las segundas oportunidades durante la Navidad. Su estructura de lectura diaria durante diciembre encaja con quienes prefieren avanzar por capítulos, pero menos con quienes buscan una trama de acción o suspense criminal.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,29 +13,26 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela contemporánea de ambientación navideña organizada para leer un capítulo cada día de diciembre. La historia transcurre en Sankt Anna y sigue los problemas personales de los hermanos Stjärne, desde las relaciones de pareja hasta el desempleo y el regreso al lugar de origen. El conflicto combina vínculos familiares, recuerdos difíciles y oportunidades de cambiar de rumbo.",
+      "texto": "La novela de Eleonor Sager aborda los cambios personales de varios hermanos durante una Navidad en Sankt Anna. Los problemas de pareja, el desempleo y el regreso al lugar de origen articulan conflictos diferentes dentro de una misma familia. La estructura propone leer un capítulo por cada día de diciembre.",
       "evidencias": [
-        "titulo",
-        "categorias",
+        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Para seguir el calendario de lectura de diciembre en papel, Un deseo para cada día cuenta con una edición de tapa blanda de 448 páginas. El volumen permite avanzar un capítulo por jornada, según la estructura propuesta por la propia obra, o leer varios seguidos. La edición de Duomo Ediciones está publicada en castellano.",
+      "texto": "Un deseo para cada día puede leerse en tapa blanda o Kindle. La edición física de Duomo Ediciones tiene 448 páginas y permite seguir el calendario de capítulos con un ejemplar en papel; Kindle facilita mantener esa lectura diaria desde el móvil o un lector electrónico. Ambas opciones conservan la propuesta de lectura navideña.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
-        "idioma",
         "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
         "sinopsis_editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "afd35d1edd72e312",
+  "fuente_hash": "3c5a354e77e3673d",
   "origen": "chatgpt-web"
 }

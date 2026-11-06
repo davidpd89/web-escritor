@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sapiens. Una historia gráfica 4 - La era de las revoluciones está dirigido a adultos interesados en la historia, la ciencia y los cambios sociales contados mediante recursos de novela gráfica. Yuval Noah Harari y David Vandermeulen recorren transformaciones tecnológicas y económicas hasta la inteligencia artificial. No sigue el formato de un ensayo compuesto únicamente por texto.",
+      "texto": "Sapiens. Una historia gráfica 4 - La era de las revoluciones está dirigido a adultos interesados en la historia de la humanidad, la ciencia y los cambios sociales explicados mediante viñetas. Su tratamiento histórico y ensayístico se aleja de los cómics centrados exclusivamente en aventuras ficticias o conflictos individuales.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,39 +14,36 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Sapiens. Una historia gráfica 4 - La era de las revoluciones examina cómo la ciencia, la industria y la tecnología han transformado las sociedades humanas. Yuval Noah Harari y David Vandermeulen utilizan personajes y situaciones narrativas para tratar cuestiones como la creación de dinero, la organización del tiempo y la inteligencia artificial. La obra también plantea la relación entre progreso material y satisfacción humana.",
+      "texto": "El libro examina cómo las revoluciones científica e industrial transformaron la producción, el conocimiento y las relaciones de poder, hasta llegar al desarrollo de la inteligencia artificial. Utiliza personajes, situaciones humorísticas y recursos del cómic para plantear cuestiones sobre el progreso material, la satisfacción humana y el control de las nuevas tecnologías.",
       "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sapiens. Una historia gráfica 4 - La era de las revoluciones se ofrece en tapa dura y Kindle. La edición impresa de Debate reúne 248 páginas y permite recorrer físicamente sus secuencias gráficas; Kindle ofrece una alternativa digital para leerlas en un dispositivo compatible. En una obra ilustrada, el tamaño de la pantalla influye en la comodidad de lectura.",
+      "texto": "La tapa dura de Sapiens. Una historia gráfica 4 - La era de las revoluciones contiene 248 páginas y ofrece un volumen físico para recorrer sus secuencias ilustradas. Kindle permite leerlo en formato digital; al tratarse de una novela gráfica, conviene utilizar una pantalla que permita apreciar las viñetas y sus textos.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
         "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sapiens. Una historia gráfica 4 - La era de las revoluciones y Memoria de las manos examinan aspectos de la evolución humana, pero Yuval Noah Harari y David Vandermeulen se centran en las revoluciones científicas y tecnológicas, mientras Virginia Mendoza aborda el cuerpo y la empatía. Antes de perder el juicio, de Mauricio García Villegas, comparte el interés por la sociedad, aunque se ocupa de la propaganda y las cámaras de eco en lugar de la historia del progreso técnico.",
+      "texto": "Sapiens. Una historia gráfica 4 - La era de las revoluciones y Memoria de las manos abordan aspectos de la evolución humana y sus consecuencias. Yuval Noah Harari y David Vandermeulen recurren a una narración gráfica sobre grandes transformaciones históricas, mientras que Virginia Mendoza se centra en el cuerpo humano, su vulnerabilidad y la capacidad de empatizar.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387904968",
-        "isbn-9791388387302"
+        "isbn-9791387904968"
       ]
     }
   ],

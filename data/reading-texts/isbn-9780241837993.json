@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9780241837993",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LEGO® Ninjago - El dragón Riyu está dirigido a lectores desde los 7 años interesados en dragones, ninjas y aventuras fantásticas con ilustraciones. La historia de Matt Piper se centra en una persecución y en la ayuda entre amigos, por lo que se aleja de las narraciones realistas y de los relatos sin conflictos de acción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada es a partir de 7 años y la extensión es de 80 páginas. DK publica esta edición en castellano y tapa blanda, con ilustraciones a todo color que acompañan una historia de fantasía y aventuras presentada dentro del ámbito infantil del cómic y la novela gráfica.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "edicion",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "LEGO® Ninjago - El dragón Riyu se presenta en tapa blanda y tiene 80 páginas, una extensión que facilita transportarlo y leerlo en sesiones breves. El volumen incorpora ilustraciones a todo color y un desafío de búsqueda de nunchakus ocultos, elementos que se consultan directamente durante la lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Onin 1 - Onin y la isla del tesoro y LEGO® Ninjago - El dragón Riyu comparten la aventura y los elementos fantásticos. Ibon Martín plantea misterios con un grupo de amigos, mientras Matt Piper sitúa el conflicto en la protección de un dragón perseguido y añade ilustraciones a color y un juego de búsqueda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994549"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f611989c28e69f1",
+  "origen": "chatgpt-web"
+}

@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Elogio del amor está dirigido a adultos que buscan reflexiones filosóficas sobre el afecto, los cuidados y las relaciones personales. Rafael Narbona aborda los vínculos familiares, de pareja y de amistad desde su experiencia vital; quienes busquen una novela romántica o una guía de ejercicios para parejas encontrarán un enfoque diferente.",
+      "texto": "Elogio del amor está dirigido a adultos interesados en la filosofía del afecto, las relaciones personales y la importancia de cuidar a otras personas. Su enfoque reflexivo sobre los vínculos y la salud mental se distancia de las lecturas que buscan una historia romántica de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,9 +14,8 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Elogio del amor examina cómo los cuidados y las relaciones afectivas intervienen en el bienestar emocional y en la vida compartida. Rafael Narbona combina reflexión filosófica y experiencia personal para tratar la vulnerabilidad, la soledad, las redes de apoyo y los vínculos con familiares, amistades, parejas y animales.",
+      "texto": "Rafael Narbona examina el amor desde la experiencia personal y la reflexión filosófica, con especial atención a los cuidados y al apoyo mutuo. Trata las relaciones entre padres e hijos, parejas, amistades y animales, y vincula estos afectos con la salud mental, la soledad y la vulnerabilidad humana.",
       "evidencias": [
-        "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial"
@@ -25,28 +23,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Elogio del amor está disponible en tapa blanda y Kindle. La edición de Roca Bolsillo reúne 384 páginas en papel, una opción para conservar el ensayo y volver a sus reflexiones; Kindle facilita continuar la lectura desde distintos lugares mediante un dispositivo compatible, sin llevar el ejemplar físico.",
+      "texto": "La tapa blanda permite leer y consultar en papel las 384 páginas de Elogio del amor, además de conservarlo o regalarlo como volumen físico. La edición Kindle ofrece el mismo título como opción de lectura digital, más práctica para llevarlo en el móvil o en un lector electrónico.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Elogio del amor y Manifiesto contra la intolerancia comparten autor, Rafael Narbona, y una preocupación por la convivencia humana. El primero se ocupa del afecto y los cuidados personales, mientras el segundo examina amenazas políticas a la democracia. Contingencia, ironía y solidaridad, de Richard Rorty, traslada la reflexión sobre la solidaridad al terreno de la filosofía política y cultural.",
+      "texto": "Manifiesto contra la intolerancia comparte con Elogio del amor la autoría de Rafael Narbona, pero aborda el fascismo y sus nuevas manifestaciones, mientras que este libro se concentra en los cuidados y los vínculos afectivos. Bobadas también propone reflexionar sobre la vida cotidiana, aunque desde preguntas abiertas y el pensamiento crítico, frente al enfoque filosófico y personal del amor.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
         "isbn-9791388139055",
-        "isbn-9788449345951"
+        "isbn-9788426741622"
       ]
     }
   ],

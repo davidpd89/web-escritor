@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791370140908",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Antología, de Antonio Cano, se dirige a lectores de poesía interesados en la relación entre formas clásicas, experimentación y memoria territorial. Su atención al lenguaje poético y al contexto cultural de una época la aleja de quienes buscan una narración argumental convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una recopilación poética que reúne por primera vez la obra completa de Antonio Cano. Los poemas combinan recursos de la tradición clásica con búsquedas de vanguardia y vinculan la experiencia personal con Teruel y las transformaciones culturales de los años treinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Antología está editada en tapa blanda y reúne 176 páginas de poesía en castellano. El volumen concentra la obra completa de Antonio Cano, lo que permite consultar sus distintas composiciones dentro de una misma edición física.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antología, de Antonio Cano, y Ciudad, de Luis Pérez Capitán, relacionan la poesía con las preocupaciones de su época. La primera reúne versos vinculados a Teruel, la memoria territorial y la experimentación formal; Ciudad aborda un presente marcado por la inteligencia artificial y la política. Catulo / Marcial, de Ernesto Cardenal, ofrece otro contraste mediante el erotismo y la sátira de la antigua Roma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084320",
+        "isbn-9788410167841"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fb7d270c8e4e5683",
+  "origen": "chatgpt-web"
+}

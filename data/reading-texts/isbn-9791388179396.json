@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388179396",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La danza de la oscuridad (Ankoku butoh) se orienta a lectores de poesía interesados en la relación entre creación literaria y expresión corporal. Su origen en una experiencia personal ante una actuación de danza lo distancia de las novelas de argumento continuado y de los manuales técnicos de baile.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La danza de la oscuridad (Ankoku butoh) es una obra poética vinculada al impacto que una representación de butoh produjo en Juan Manuel Uría Iriarte. El punto de partida es una actuación presenciada en 2009, cuya huella personal da origen al libro, más que una sucesión de acontecimientos propia de una novela.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La danza de la oscuridad (Ankoku butoh) se presenta en tapa blanda, con 88 páginas. Su extensión permite leer el volumen en sesiones breves y regresar a pasajes concretos en papel, una forma de consulta acorde con su carácter poético.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La danza de la oscuridad (Ankoku butoh) puede compararse con Ciudad, de Luis Pérez Capitán, por su pertenencia a la poesía. Mientras Ciudad sitúa la escritura frente a cuestiones tecnológicas, políticas y morales, la obra de Juan Manuel Uría Iriarte nace del efecto emocional de una representación de danza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410167841"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea7ffe3eaaa1735f",
+  "origen": "chatgpt-web"
+}

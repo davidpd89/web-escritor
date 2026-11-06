@@ -1,0 +1,63 @@
+{
+  "id": "isbn-9780241838013",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LEGO® Ninjago - Universos se dirige a lectores a partir de 9 años interesados en construir vehículos y criaturas ninja mientras inventan sus propias aventuras. Su propuesta combina actividades y piezas de construcción, por lo que se aleja de los libros destinados únicamente a la lectura de historias.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El juego consiste en montar un modelo con las 135 piezas LEGO® incluidas y transformarlo mediante sus 4 configuraciones. Se puede pasar de un coche ninja a un dragón o un robot, y utilizar las más de 150 ideas del libro para crear escenarios, resolver retos y ampliar las construcciones con otras piezas LEGO®.",
+      "evidencias": [
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "LEGO® Ninjago - Universos está indicado a partir de 9 años y tiene 128 páginas en castellano. Su edición de DK es de tapa dura e incorpora piezas LEGO® y actividades de construcción, de modo que el contenido se utiliza tanto para consultar instrucciones y propuestas como para jugar físicamente.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "LEGO® Ninjago - Universos está disponible en tapa dura, con 128 páginas y 135 piezas LEGO® para realizar las construcciones propuestas. Es una edición física que permite consultar las actividades mientras se manipulan las piezas y conservar el libro junto al material de juego.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "LEGO® Ninjago - Universos y Star Wars Enciclopedia de naves, cazas estelares y otros vehículos comparten la autoría de DK y el interés por vehículos de universos de ficción. El primero permite construir y transformar modelos con piezas LEGO®, mientras que el segundo se centra en explicar los vehículos de Star Wars mediante una enciclopedia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9780241838068"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5d400704f875b383",
+  "origen": "chatgpt-web"
+}

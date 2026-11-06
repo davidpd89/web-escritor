@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788408326953",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Doble juego encaja con lectores de novela romántica interesados en las segundas oportunidades, los conflictos emocionales y las relaciones condicionadas por el pasado. La venganza y el amor aparecen como fuerzas enfrentadas, por lo que se distancia de las historias centradas exclusivamente en relaciones sin obstáculos personales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Doble juego, de Lina Galán, es una novela romántica construida alrededor de las consecuencias del pasado y la tensión entre el amor y la venganza. Tristan Clayton busca dejar atrás sus errores, mientras Chiara Monroe afronta heridas personales y aspiraciones postergadas. El conflicto sentimental se desarrolla entre la necesidad de comenzar de nuevo y los asuntos que ambos arrastran.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Doble juego está disponible en tapa blanda y Kindle, dos opciones para leer sus 432 páginas. La edición de Booket es rústica sin solapas y permite conservar un ejemplar físico; Kindle facilita continuar la novela desde un dispositivo compatible, incluido el móvil, sin cargar con el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "343ef1828ed4b977",
+  "origen": "chatgpt-web"
+}

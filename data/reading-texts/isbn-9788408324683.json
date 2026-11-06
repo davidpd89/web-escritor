@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788408324683",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Crimen antes de Navidad encaja con lectores a partir de 16 años que buscan un misterio juvenil ambientado durante las fiestas y con participación en la resolución del caso. Su estructura de ventanas diarias y su trama criminal lo alejan de una novela navideña centrada únicamente en las celebraciones.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_sensibilidad",
+      "texto": "La edad recomendada para Crimen antes de Navidad comienza a los 16 años. El contenido gira alrededor de un crimen y de las tensiones entre dos escritores de misterio, por lo que conviene tener en cuenta su componente de intriga y enfrentamiento personal al elegir la lectura.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Crimen antes de Navidad combina el thriller juvenil con una estructura de lectura diaria vinculada al calendario navideño. La investigación se construye mediante ventanas que permiten recomponer los acontecimientos, mientras la relación conflictiva entre Maggie Chase y Ethan Wyatt añade una tensión personal al misterio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas ofrece las 480 páginas de Crimen antes de Navidad en papel, una opción para seguir físicamente su propuesta de ventanas diarias. Kindle permite transportar la lectura en formato digital y continuar el misterio desde un dispositivo electrónico sin llevar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cfe033f61bf1fb36",
+  "origen": "chatgpt-web"
+}

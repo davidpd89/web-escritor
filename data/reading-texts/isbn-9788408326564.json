@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento se dirige a lectores de 6 a 8 años y a familias que quieran compartir textos durante el Adviento. Combina cuentos, poesía y canciones navideñas; no está planteado como una única narración larga ni como una lectura ajena a esta celebración.",
+      "texto": "Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento está dirigido a niños de 6 a 8 años y a familias que comparten lecturas durante el Adviento. Combina cuentos, poesía y canciones vinculados a la Navidad; quien busque una novela de aventuras con una trama continua encontrará aquí una propuesta distinta.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,41 +14,22 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento está recomendado de 6 a 8 años y tiene 96 páginas. Mar Benegas reúne 24 textos entre cuentos, poemas y canciones, distribuidos para acompañar los días del Adviento. La edición es de tapa dura.",
+      "texto": "La edad recomendada es de 6 a 8 años y la edición de Destino Infantil & Juvenil tiene 96 páginas en tapa dura. El contenido reúne 24 cuentos, poemas y canciones distribuidos para acompañar los días del Adviento, con una estructura que permite leer un texto en cada sesión familiar.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
-        "numero_paginas",
-        "autores",
-        "sinopsis_editorial",
-        "edicion"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "En tapa dura, las 96 páginas de Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento forman un volumen físico para conservar y compartir durante las celebraciones familiares. Kindle permite consultar digitalmente sus 24 textos y seguir la lectura diaria sin depender del ejemplar impreso.",
-      "evidencias": [
-        "titulo",
+        "editorial",
         "numero_paginas",
         "edicion",
-        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento y El libro de los gatos incluyen poesía, pero Mar Benegas combina cuentos, poemas y canciones navideñas para lectores de 6 a 8 años, mientras Ursula K. Le Guin reúne poemas, meditaciones y dibujos sobre gatos. Las luces, de Ben Lerner, también mezcla versos y prosa, aunque aborda otros motivos y no sigue un calendario de Adviento.",
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite conservar las 96 páginas como libro físico para las lecturas familiares de cada Adviento. Kindle ofrece los mismos contenidos en un dispositivo digital, útil para seguir los cuentos, poemas y canciones durante los desplazamientos o sin llevar el volumen impreso.",
       "evidencias": [
-        "titulo",
-        "autores",
-        "edad_recomendada",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791388306297",
-        "isbn-9788433951151"
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
       ]
     }
   ],

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387708399",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "CURIOSIDADES DE LOS DINOSAURIOS EN 5 MINUTOS, de Banfi Cristina, está dirigido al público infantil interesado en aprender datos sobre los dinosaurios mediante lecturas breves. Reúne más de 1.000 datos y plantea sesiones de lectura de 5 minutos, incluso de una página diaria. Su enfoque informativo no corresponde al de una novela de aventuras protagonizada por dinosaurios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de CURIOSIDADES DE LOS DINOSAURIOS EN 5 MINUTOS es de tapa dura y contiene 176 páginas en castellano. El formato físico permite consultar el contenido por partes y volver a páginas anteriores sin seguir una lectura continua. Su propuesta de dedicar 5 minutos a cada sesión facilita distribuir la consulta del libro a lo largo de varios días.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "726e265d64a0b088",
+  "origen": "chatgpt-web"
+}

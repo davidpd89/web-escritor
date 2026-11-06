@@ -1,0 +1,59 @@
+{
+  "id": "isbn-9780241837702",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Biblia: Una enciclopedia ilustrada está dirigida a lectores adultos interesados en estudiar los textos bíblicos desde una perspectiva religiosa, histórica y visual. Su organización mediante mapas, cronologías y referencias la diferencia de una novela de temática espiritual o de una lectura exclusivamente narrativa.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La Biblia: Una enciclopedia ilustrada ofrece una aproximación visual e histórica a los relatos bíblicos, desde el Génesis hasta el Apocalipsis. Sus 512 páginas combinan mapas, imágenes de piezas arqueológicas, cronologías y explicaciones sobre personajes y lugares, con citas y referencias que permiten localizar episodios concretos en los textos religiosos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Biblia: Una enciclopedia ilustrada se presenta en tapa dura, con 512 páginas en castellano publicadas por DK. El volumen físico reúne mapas, imágenes de objetos históricos, cronologías y paneles explicativos, recursos que permiten alternar entre la lectura continuada y la consulta de pasajes concretos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "idioma",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Biblia: Una enciclopedia ilustrada y Antigua Roma (Civilizaciones antiguas para niños) comparten la autoría de DK y el interés por el pasado, pero la primera aborda los textos bíblicos para adultos y la segunda presenta una civilización al público infantil. La luna: Una historia ilustrada (La guía visual definitiva) también utiliza una perspectiva histórica y cultural, aunque su objeto de estudio es el satélite terrestre y no la tradición bíblica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241839362",
+        "isbn-9780241837597"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d72abb38c314ed68",
+  "origen": "chatgpt-web"
+}

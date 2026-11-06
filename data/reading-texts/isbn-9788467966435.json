@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788467966435",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de cómic y novela gráfica interesados en conflictos violentos, sociedades secretas y rescates personales. La presencia de un secuestro, un intento de suicidio y asesinatos lo aleja de quienes buscan historias sin violencia explícita en su planteamiento.",
+      "evidencias": [
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es una novela gráfica de Frank Miller centrada en un artista que se enfrenta a una organización clandestina para recuperar a la mujer de la que se ha enamorado. El conflicto combina una relación sentimental, amenazas criminales y la disposición del protagonista a matar para conseguir su objetivo.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de lujo se presenta en tapa dura y reúne 328 páginas, una combinación adecuada para conservar el volumen en una biblioteca o regalarlo. Es una edición física de Norma Editorial en castellano, pensada para leer las páginas ilustradas directamente en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "SIN CITY 07. IDA Y VUELTA AL INFIERNO (CARTONÉ) comparte con esta edición la autoría de Frank Miller y la historia de Wallace, un artista que mantiene sus principios. La diferencia identificable está en la presentación editorial: este volumen se denomina edición de lujo, mientras que el otro se identifica como cartoné.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467966428"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ab2204c18dfaf79",
+  "origen": "chatgpt-web"
+}

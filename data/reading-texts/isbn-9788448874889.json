@@ -1,0 +1,65 @@
+{
+  "id": "isbn-9788448874889",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores desde los 4 años que disfrutan del humor, los superhéroes y las aventuras contadas en viñetas. El conflicto con Augusta Ricachón y su deseo de conseguir un pterosaurio combina fantasía y situaciones disparatadas; encaja menos con quienes buscan relatos realistas o narraciones extensas.",
+      "evidencias": [
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Beascoa reedita la aventura de Augusta Ricachón y su empeño por conseguir un pterosaurio en un cómic de 64 páginas. Esta versión actualizada incorpora esquinas redondeadas y limita la distribución a seis viñetas como máximo en cada página, para facilitar la lectura visual. Se presenta en castellano, con encuadernación de tapa blanda y fecha de publicación del 2026-11-05.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "sinopsis_editorial",
+        "idioma",
+        "edicion",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "La edad recomendada comienza a los 4 años. Esta edición en castellano tiene 64 páginas, encuadernación en tapa blanda y cantos romos. La distribución de hasta seis viñetas por página permite seguir visualmente las acciones sin enfrentarse a grandes bloques de texto.",
+      "evidencias": [
+        "edad_recomendada",
+        "numero_paginas",
+        "edicion",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite manejar físicamente las 64 páginas y recorrer las viñetas pasando las hojas, una opción práctica para la lectura compartida. Kindle reúne la misma historia en formato digital para leerla en un dispositivo compatible, sin transportar el ejemplar de papel. La elección depende de si se prefiere manipular el cómic o consultarlo en pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Superpatata 9 - Los peligrosos caprichos de Augusta Ricachón (parte 2) (NUEVA EDICIÓN) comparte autor y conflicto con este libro, pero desplaza la atención hacia la captura del héroe. Superpatata 10 - Viaje a la Edad Media (nueva edición), también de Artur Laperla, conserva el humor superheroico y cambia el capricho jurásico por un rescate mediante viajes temporales.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9788448874926",
+        "isbn-9788448874902"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6550ff3b45538d9",
+  "origen": "chatgpt-web"
+}

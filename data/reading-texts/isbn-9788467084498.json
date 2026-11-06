@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788467084498",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tao Te Ching, de Lao-Tse, se orienta a quienes buscan reflexionar sobre la sencillez, el equilibrio personal y la relación entre la conducta humana y la naturaleza. Su carácter filosófico y su vinculación con el taoísmo lo alejan de las lecturas de desarrollo personal basadas en instrucciones prácticas o soluciones inmediatas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tao Te Ching se ofrece en tapa dura y Kindle, dos opciones para una obra de 152 páginas que admite consultas y lecturas pausadas. La edición en cartoné de Editorial Espasa permite conservar el texto en papel y volver a sus pasajes; Kindle facilita acceder a sus reflexiones filosóficas desde un dispositivo compatible sin llevar el libro físico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "456b3406978a4bf5",
+  "origen": "chatgpt-web"
+}

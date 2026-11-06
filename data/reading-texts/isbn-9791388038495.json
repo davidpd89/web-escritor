@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores adultos interesados en la espiritualidad, las vidas pasadas y la relación entre psicoterapia y creencias metafísicas. Muchas vidas, muchos maestros (edición especial con cantos tintados) parte de una experiencia clínica narrada por Brian Weiss; no plantea un manual de técnicas terapéuticas ni una investigación experimental.",
+      "texto": "Muchas vidas, muchos maestros (edición especial con cantos tintados) se dirige a lectores adultos interesados en la espiritualidad, las vidas pasadas y su relación con la psicoterapia. Su enfoque se aleja de los manuales de desarrollo personal basados en ejercicios cotidianos y se centra en la experiencia clínica y espiritual relatada por Brian Weiss.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,20 +15,21 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Muchas vidas, muchos maestros (edición especial con cantos tintados) se distingue por sus cantos tintados y su encuadernación en tapa dura. Publicada por Vergara el 22 de octubre de 2026, reúne 224 páginas en castellano y lleva el ISBN 9791388038495, que permite identificarla frente a otras presentaciones del libro.",
+      "texto": "Esta edición de Muchas vidas, muchos maestros (edición especial con cantos tintados) se distingue por sus cantos tintados y su encuadernación en tapa dura. Publicada por Vergara el 22 de octubre de 2026, reúne 224 páginas en castellano y conserva el enfoque espiritual de la obra de Brian Weiss.",
       "evidencias": [
         "titulo",
+        "autores",
         "editorial",
-        "edicion",
         "fecha_publicacion",
         "numero_paginas",
+        "edicion",
         "idioma",
-        "isbn13"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible de Muchas vidas, muchos maestros (edición especial con cantos tintados). Sus 224 páginas forman un volumen físico con cantos tintados, una característica que puede interesar para conservarlo o regalarlo; la encuadernación rígida también resulta práctica para las consultas y relecturas.",
+      "texto": "La tapa dura es el formato disponible de Muchas vidas, muchos maestros (edición especial con cantos tintados), con 224 páginas y una presentación de cantos tintados. Esta encuadernación permite conservar el volumen en una biblioteca o entregarlo como regalo, especialmente cuando interesa su acabado físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -38,17 +39,15 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Muchas vidas, muchos maestros (edición especial con cantos tintados) y Uketamo. Abrazar la vida tal cual viene se acercan a cuestiones personales desde perspectivas distintas: Brian Weiss aborda las vidas pasadas y la espiritualidad, mientras Ana Galeote Frontelo se centra en la aceptación. Los genios creen en Dios también relaciona ciencia y creencias, pero desde el debate sobre la fe, no desde una experiencia de psicoterapia.",
+      "texto": "Muchas vidas, muchos maestros (edición especial con cantos tintados) comparte con Uketamo. Abrazar la vida tal cual viene el interés por la espiritualidad y la experiencia personal. Brian Weiss aborda las vidas pasadas mediante la hipnosis, mientras que Ana Galeote Frontelo centra su propuesta en aceptar las circunstancias de la vida. Ambos libros se diferencian por su enfoque: uno relata experiencias vinculadas a la psicoterapia y el otro reflexiona sobre la aceptación.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431486",
-        "isbn-9788410096547"
+        "isbn-9788402431486"
       ]
     }
   ],

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387574406",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los renaceres encaja con lectores de narrativa contemporánea interesados en las segundas oportunidades, la creación literaria y las relaciones que modifican decisiones personales. Agnès Martin-Lugand construye el conflicto alrededor de Rebecca, una escritora bloqueada, y Lino, un artesano marcado por su pasado. Su propuesta se aparta de las historias centradas en la acción o en conflictos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Los renaceres plantea una historia contemporánea sobre la reinvención personal y el vínculo entre dos desconocidos. El encuentro de Rebecca y Lino introduce dos conflictos distintos: la dificultad de ella para volver a escribir y el peso de los recuerdos de él. La búsqueda posterior conecta el interés literario de Rebecca con la posibilidad de reconsiderar sus propias decisiones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los renaceres está disponible en tapa blanda y Kindle. La edición en papel de Duomo Ediciones consta de 400 páginas y permite leer la novela en un volumen físico. Kindle ofrece la misma obra como opción de lectura digital para quienes prefieren llevar novelas extensas en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "60521c172532012d",
+  "origen": "chatgpt-web"
+}

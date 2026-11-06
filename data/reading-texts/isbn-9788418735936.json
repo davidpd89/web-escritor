@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788418735936",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un año paseando por el bosque se orienta a lectores infantiles que disfrutan de los poemas rimados, la lectura acompañada y los libros con elementos manipulables. Sus ventanas para levantar y su recorrido por las estaciones lo alejan de las novelas juveniles de lectura continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Lectio Ediciones reúne 16 páginas en tapa dura, con ilustraciones de Freya Hartas y más de 60 ventanas para levantar. Los poemas rimados acompañan las escenas del bosque y permiten combinar la lectura en voz alta con la exploración física de las páginas.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un año paseando por el bosque se ofrece en tapa dura, con 16 páginas y una estructura de cartón rígido. Este formato permite manipular sus más de 60 ventanas durante la lectura compartida y conservar las ilustraciones y los poemas en un volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un año paseando por el bosque y Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento comparten la poesía y el paso del tiempo como elementos de lectura. Rachel Piercey propone un recorrido por las estaciones con ventanas manipulables, mientras que Mar Benegas organiza cuentos, poemas y canciones alrededor de los días del Adviento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326564"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ab10e8915b572516",
+  "origen": "chatgpt-web"
+}

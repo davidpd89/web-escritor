@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788427256644",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abre el misterio 1 - El robo de las croquetas está dirigido a lectores desde los 9 años que disfrutan investigando, resolviendo enigmas y tomando decisiones durante una aventura. Encaja menos con quienes prefieren avanzar por una historia en orden fijo, sin detenerse a buscar pistas ni elegir el siguiente capítulo.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "edad_y_formato",
+      "texto": "Abre el misterio 1 - El robo de las croquetas está recomendado a partir de 9 años y tiene 200 páginas. Molino lo publica en castellano y tapa blanda; su estructura incorpora capítulos sellados y enigmas que determinan cómo continúa la investigación.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "edicion",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Abre el misterio 1 - El robo de las croquetas se ofrece en tapa blanda y Kindle. El ejemplar físico permite manipular los capítulos sellados de la investigación, mientras que Kindle ofrece una alternativa digital para leer sus 200 páginas en un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abre el misterio 1 - El robo de las croquetas y Onin 1 - Onin y la isla del tesoro comparten los misterios y las aventuras infantiles. La diferencia está en la participación: Carlos G. Gurpegui propone resolver enigmas para decidir qué capítulo abrir, mientras que la obra de Ibon Martín presenta las peripecias de un grupo de amigos con elementos mágicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994549"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e0e95bc1791465c3",
+  "origen": "chatgpt-web"
+}

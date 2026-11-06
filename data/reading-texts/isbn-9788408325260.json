@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408325260",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los dones de los niños altamente sensibles se dirige a familias interesadas en comprender las reacciones intensas de algunos niños ante cambios, ruidos o luces. Su perspectiva combina crianza y desarrollo personal, por lo que no está orientado principalmente a lectores que buscan ficción infantil o contenidos sobre enfermedades físicas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los dones de los niños altamente sensibles está disponible en tapa blanda y Kindle. La edición impresa tiene 184 páginas y encuadernación rústica con solapas, útil para consultar pasajes en papel; Kindle permite llevar la lectura en un dispositivo compatible y acceder a ella fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los dones de los niños altamente sensibles y Cómo crecer entre pantallas abordan preocupaciones familiares relacionadas con el desarrollo infantil. Úrsula Perona se concentra en la sensibilidad ante estímulos y cambios cotidianos, mientras Alberto Soler Sarrió y Concepción Roger Sánchez tratan la crianza en relación con el uso de pantallas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346446"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "48cfd4f2313245f6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788408329336",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Niño de hojalata se orienta al público infantil interesado en historias sobre objetos reutilizados y formas distintas de reconocer su valor. Andrea Longarela sitúa el conflicto en un vertedero y lo relaciona con la mirada de unos niños, por lo que se aleja de quienes buscan aventuras juveniles extensas o tramas románticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Niño de hojalata se presenta en tapa dura, con 32 páginas y encuadernación en cartoné sin sobrecubierta. Esta edición de Destino Infantil & Juvenil permite manejar un volumen breve y conservarlo para nuevas lecturas, con una cubierta rígida adecuada para proteger sus páginas durante el uso habitual.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Niño de hojalata y Aprender a leer en la Escuela de Monstruos 24 - Dos artistas muy solistas comparten su orientación hacia lectores infantiles, pero el primero trata la reutilización de objetos y el segundo se centra en cantar y actuar ante los amigos. Antigua Roma (Civilizaciones antiguas para niños) ofrece otra lectura para niños, aunque aborda la vida en una civilización histórica en lugar de contar una historia protagonizada por un personaje de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241839362",
+        "isbn-9791387724184"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "287c2bebf973841e",
+  "origen": "chatgpt-web"
+}

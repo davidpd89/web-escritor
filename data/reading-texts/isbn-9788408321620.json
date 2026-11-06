@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788408321620",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Legado II. Memorias de sombra encaja con lectores desde los 16 años que buscan una historia juvenil de amor, amenazas sobrenaturales y enfrentamientos entre poderes. No responde a quienes prefieren relatos independientes de conflictos sentimentales o ajenos a los mundos de fantasía.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La identidad, las consecuencias de sobrevivir y las relaciones afectivas articulan el conflicto de Legado II. Memorias de sombra. Alba Cargol Martínez sitúa a Elara ante la desconfianza de los Guardianes y la movilización de las cortes, mientras su vínculo con Callum añade una dimensión sentimental al peligro colectivo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Legado II. Memorias de sombra presenta sus 608 páginas en encuadernación cartoné, una opción física para conservar el volumen o regalarlo. Kindle permite leer esta narración extensa en un dispositivo electrónico sin cargar con el peso del ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne y Legado II. Memorias de sombra comparten personajes femeninos relacionados con poderes extraordinarios y aspectos ocultos de su identidad. En el libro de Marta Morillo, Eira esconde sus dones y debilidades; en el de Alba Cargol Martínez, Elara debe afrontar las consecuencias de haber sobrevivido y la amenaza que representa para los Guardianes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "88972d9dc6b19001",
+  "origen": "chatgpt-web"
+}

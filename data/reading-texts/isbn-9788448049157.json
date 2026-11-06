@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788448049157",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Harry Potter: Artefactos del Mundo Mágico se dirige al público juvenil interesado en el diseño de objetos para el cine fantástico. Jody Revenson aborda el trabajo de creación de elementos reconocibles de Harry Potter y Animales fantásticos. Su enfoque documental se aleja de las novelas de aventuras y de quienes buscan una historia protagonizada por estos personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Harry Potter: Artefactos del Mundo Mágico propone una lectura documental centrada en el diseño de objetos para producciones cinematográficas de fantasía. Jody Revenson explica la elaboración de piezas utilizadas en Harry Potter y Animales fantásticos, incluida la snitch dorada. Sus 240 páginas se dedican al universo material de estas películas, con un planteamiento de guía en lugar de una trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Harry Potter: Artefactos del Mundo Mágico está disponible en tapa dura de tipo cartoné, con 240 páginas en castellano. Su encuadernación rígida permite conservar y consultar físicamente esta guía sobre los objetos cinematográficos de Harry Potter y Animales fantásticos. Es una edición que también puede entregarse como regalo a quienes coleccionan libros relacionados con estas películas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0d5c630ee14ba083",
+  "origen": "chatgpt-web"
+}

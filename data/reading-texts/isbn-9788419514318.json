@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788419514318",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Invisible (edición Luna) está dirigido a lectores a partir de 12 años que buscan narrativa juvenil con misterio y conflictos relacionados con la percepción de uno mismo. Eloy Moreno plantea la contradicción entre querer pasar inadvertido y necesitar que los demás te vean, por lo que se aleja de las historias centradas exclusivamente en aventuras exteriores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Invisible (edición Luna) se presenta en tapa dura, con 328 páginas y edición de Nube de Tinta. Este formato ofrece una encuadernación rígida para conservar el ejemplar, prestarlo o regalarlo, y permite seguir en papel una historia juvenil que combina misterio y el deseo contradictorio de ser visto o desaparecer.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Redes (edición Luna) (Invisible 2), de Eloy Moreno, comparte autor con Invisible (edición Luna), pero trata la influencia de los likes y las redes sociales sobre la felicidad, mientras este último aborda el deseo de ser invisible y la necesidad de ser visto. El viaje, también de Eloy Moreno, se diferencia porque su presentación evita revelar el argumento, frente al conflicto de invisibilidad que plantea Invisible (edición Luna).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419514882",
+        "isbn-9788466685382"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9e7786f0d7206cd7",
+  "origen": "chatgpt-web"
+}

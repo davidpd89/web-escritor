@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388279553",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Wordle in crime: La palabra asesina del día está dirigido a quienes disfrutan resolviendo enigmas mediante palabras y pistas criminales. Cocoludic combina sospechosos, coartadas y juegos de letras, por lo que se aparta de la novela policíaca convencional que desarrolla una investigación únicamente mediante la narración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La propuesta combina pasatiempos lingüísticos con investigaciones de asesinatos que el lector debe resolver. Cocoludic parte de la mecánica de Wordle y de los juegos de misterio como Murdle para relacionar palabras, sospechosos y coartadas; la participación del lector forma parte del planteamiento, en vez de limitarse a seguir una historia policial.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Wordle in crime: La palabra asesina del día es de tapa blanda, en rústica con solapas. Sus 256 páginas reúnen una propuesta de juegos de letras y misterios criminales en papel, un soporte que permite volver a las pistas y revisar las palabras durante la resolución de los casos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Wordle in crime: La palabra asesina del día se aproxima a El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados por combinar delitos y entretenimiento, aunque Cocoludic centra la resolución en las letras y Modesto García sitúa su crimen en un centro comercial navideño. Destroza este diario. Diversión EXTREMA también exige participación activa, pero Keri Smith la orienta hacia la exploración creativa en vez de investigar asesinatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346026",
+        "isbn-9788401040740"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9fa2d96ba8aabd1a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388038372",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El origen. La raíz invisible de lo que dirige tu vida está orientado a adultos interesados en las constelaciones familiares, los vínculos heredados y el desarrollo personal. Graciela del Campo Vara interpreta las dificultades presentes desde las relaciones entre generaciones, un planteamiento distinto del que busca exclusivamente consejos sobre hábitos físicos o nutrición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edad_recomendada",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda con solapas de El origen. La raíz invisible de lo que dirige tu vida contiene 288 páginas y permite consultar físicamente sus reflexiones sobre las relaciones familiares. La versión Kindle facilita leerlo en el móvil o en un dispositivo electrónico y retomar sus apartados sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El origen. La raíz invisible de lo que dirige tu vida y Criar juntos de verdad comparten el interés por las relaciones familiares, pero tratan ámbitos diferentes. Graciela del Campo Vara examina la influencia de las generaciones anteriores mediante las constelaciones familiares; Armando Bastida se centra en la cooperación durante la crianza. El primero aborda los vínculos heredados y el segundo, la responsabilidad compartida al criar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370658"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9b88a6ea05cf550b",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estructuras Invisibles S. L. encaja con lectores de narrativa contemporánea interesados en la explotación laboral, la culpa y las relaciones entre el trabajo y la justicia, con presencia de humor negro. No responde a quien busque una historia laboral sin consecuencias trágicas ni judiciales: la muerte de un trabajador desencadena el conflicto.",
+      "texto": "Estructuras Invisibles S. L. se dirige a lectores de narrativa social interesados en la precariedad laboral, la responsabilidad individual y los mecanismos de la justicia. Su tratamiento de un accidente mortal, la explotación y la culpa puede no encajar con quienes prefieren conflictos alejados del mundo del trabajo.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,26 +13,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela social que relaciona las condiciones de trabajo con la responsabilidad individual y las consecuencias penales de un accidente. Bentor Marrero continúa transportando grandes estructuras por Tenerife en un camión que incumple las exigencias de seguridad, mientras el recuerdo de su compañero muerto acompaña una huida marcada por la culpa y el humor negro.",
+      "texto": "La novela firmada por Teodoro Jiménez Pozo y Valentín Roma sitúa el trabajo cotidiano en el centro del conflicto narrativo. A través de un camionero que continúa conduciendo tras la muerte de un compañero, relaciona las condiciones de seguridad, las consecuencias judiciales y la responsabilidad personal, con presencia de humor negro y diferencias en el habla de los personajes.",
       "evidencias": [
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Estructuras Invisibles S. L. está disponible en tapa blanda y Kindle, con una edición física de 200 páginas. La tapa blanda permite leer el relato en un volumen de papel manejable; Kindle facilita llevarlo en un lector electrónico o en el móvil sin transportar el ejemplar, manteniendo el acceso a la historia de Bentor Marrero.",
+      "texto": "Estructuras Invisibles S. L. dispone de ediciones en Tapa blanda y Kindle. La primera reúne 200 páginas publicadas por Editorial Periférica y permite leer y conservar el ejemplar físico; Kindle traslada la lectura al móvil o a un dispositivo electrónico, sin necesidad de llevar el volumen en papel.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "edicion",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b0153141879619af",
+  "fuente_hash": "cb469e76c870c4dc",
   "origen": "chatgpt-web"
 }

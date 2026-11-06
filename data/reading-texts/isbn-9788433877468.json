@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788433877468",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Publica sin perecer (y sin vender el alma al diablo) se dirige especialmente a investigadores de ciencias sociales y humanidades preocupados por la integridad académica. También aborda cuestiones relevantes para quienes trabajan en otros campos científicos, pero su centro de atención es la ética de la investigación, no la preparación técnica de artículos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Ramón Andrés Feenstra analiza los conflictos de autoría, los procesos de evaluación científica y la influencia de los indicadores de rendimiento en la universidad. Para hacerlo, organiza situaciones reconocibles de la actividad investigadora dentro de una semana ficticia, utilizando la narración como herramienta de reflexión ética.",
+      "evidencias": [
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Publica sin perecer (y sin vender el alma al diablo) se publica en tapa blanda, con 144 páginas. Esta edición permite anotar los dilemas profesionales planteados y consultar en papel los apartados sobre publicación, evaluación y relaciones de poder en el ámbito académico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Publica sin perecer (y sin vender el alma al diablo) comparte con Antes de perder el juicio, de Mauricio García Villegas, la preocupación por el juicio crítico y la relación entre verdad y presiones externas. El primero delimita esos conflictos al trabajo científico y universitario; el segundo los aborda desde la propaganda, el sectarismo y los entornos de opinión.",
+      "evidencias": [
+        "titulo",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eb95a708977c46e3",
+  "origen": "chatgpt-web"
+}

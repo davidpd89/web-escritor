@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791399156607",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "INHIBICIÓN, SÍNTOMA Y ANGUSTIA (Bilingüe) se dirige a lectores interesados en el pensamiento de Sigmund Freud y en la evolución de sus conceptos psicológicos. Su enfoque teórico, centrado en la angustia y las revisiones del autor, se distancia de los manuales de consejos prácticos sobre bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Es un texto de psicología dedicado a examinar cómo Sigmund Freud reformuló su explicación de la angustia. El análisis atiende a los cambios conceptuales del manuscrito, su modificación de título y la Adenda, y muestra por qué la angustia adquiere mayor peso que la inhibición y el síntoma.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "INHIBICIÓN, SÍNTOMA Y ANGUSTIA (Bilingüe) se presenta en tapa blanda, con 300 páginas. Esta edición física permite consultar el desarrollo de los conceptos de inhibición, síntoma y angustia, así como las rectificaciones teóricas tratadas en el texto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "INHIBICIÓN, SÍNTOMA Y ANGUSTIA (Bilingüe) y Dos casos clínicos pertenecen a la obra de Sigmund Freud. El primero estudia la revisión teórica de la angustia, mientras que el segundo reúne investigaciones clínicas sobre Catalina e Isabel de R.; ambos permiten acercarse al mismo autor desde enfoques diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306259"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4d84c8f8a6b97777",
+  "origen": "chatgpt-web"
+}

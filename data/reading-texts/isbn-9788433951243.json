@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788433951243",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Querida Sharik se dirige a lectores de narrativa contemporánea interesados en la identidad, la memoria familiar y las relaciones entre generaciones de mujeres. Margarita García Robayo utiliza cartas, recuerdos y escenas cotidianas para explorar una herencia vinculada al Caribe colombiano y Angola; se distancia de las novelas centradas en la acción o el suspense.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Querida Sharik es una novela contemporánea construida alrededor de una correspondencia imaginada con una antepasada y otras mujeres de la familia. Un test genético impulsa la búsqueda de los orígenes de la narradora, mientras las cartas permiten examinar la esclavitud, los vínculos familiares y los recuerdos desde una voz que combina intimidad e ironía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Querida Sharik está disponible en tapa blanda, con 208 páginas publicadas por Editorial Anagrama. El formato permite leer y releer en papel las cartas que articulan la novela, así como alternar sus recuerdos familiares con los episodios de la vida cotidiana en la isla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "sinopsis_editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "305533e81a34f6e9",
+  "origen": "chatgpt-web"
+}

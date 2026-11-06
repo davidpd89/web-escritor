@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788425374111",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Educar leones en un mundo que prefiere borregos se dirige a familias interesadas en desarrollar la autonomía, la autoestima y el criterio propio de sus hijos. Elvira Perejón aborda la crianza desde la neuroeducación y la psicología infantojuvenil, por lo que su planteamiento se distancia de los métodos centrados en conseguir obediencia mediante castigos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Educar leones en un mundo que prefiere borregos es un libro de crianza y psicología que relaciona el desarrollo cerebral con las decisiones educativas cotidianas. Elvira Perejón examina cómo favorecer la autonomía, la regulación emocional y la capacidad de cuestionar las normas. Su enfoque plantea alternativas al miedo, los castigos y la culpa como herramientas educativas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Educar leones en un mundo que prefiere borregos se ofrece en tapa blanda, con 256 páginas en castellano y edición de Grijalbo. El formato físico permite consultar de nuevo los apartados sobre crianza y mantener el ejemplar a mano en casa. Su encuadernación flexible facilita transportarlo para leer fuera del hogar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Criar juntos de verdad, de Armando Bastida, comparte con Educar leones en un mundo que prefiere borregos el interés por la crianza, pero pone el acento en la colaboración entre quienes educan, mientras Elvira Perejón se centra en la autonomía infantil. Cuando tu hijo te habla peor que a nadie, de Carlos Rodríguez Lorenzo, aborda los conflictos de comunicación entre padres e hijos, frente al enfoque más amplio sobre desarrollo emocional y criterio propio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370658",
+        "isbn-9791388038280"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "913aab02e38f6c65",
+  "origen": "chatgpt-web"
+}

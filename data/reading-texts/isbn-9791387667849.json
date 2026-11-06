@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Diálogos sobre lo desconocido se orienta a lectores interesados en el esoterismo y en testimonios personales de figuras públicas. Sus más de 40 participantes proceden de ámbitos como la música, el cine, la justicia y la seguridad, por lo que no plantea una narración de ficción con una trama única.",
+      "texto": "Diálogos sobre lo desconocido encaja con lectores interesados en el esoterismo y en los testimonios personales sobre experiencias difíciles de explicar. Su planteamiento mediante conversaciones con personalidades de distintos ámbitos se aleja de una novela de ficción con una trama continua.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,40 +13,37 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Diálogos sobre lo desconocido aborda experiencias personales relacionadas con fenómenos o cuestiones difíciles de explicar mediante conversaciones con más de 40 figuras públicas. David Cuevas reúne perfiles como Berto Romero, Santiago Segura y Baltasar Garzón, entre otros. El enfoque combina testimonios individuales y esoterismo a lo largo de 552 páginas.",
+      "texto": "Diálogos sobre lo desconocido propone una aproximación al esoterismo mediante conversaciones sobre experiencias personales relacionadas con lo inexplicado. David Cuevas reúne testimonios de más de 40 personalidades procedentes de ámbitos como la música, el humor, el cine y la política, con el foco puesto en su relación con lo desconocido.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Diálogos sobre lo desconocido puede leerse en tapa blanda o Kindle. La edición de Ediciones Luciérnaga tiene 552 páginas en rústica con solapas, un volumen físico extenso para consultar entrevistas; Kindle facilita llevarlo completo en un dispositivo compatible y alternar entre sus contenidos.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Diálogos sobre lo desconocido y En la mente de... permiten acercarse a cuestiones públicas desde distintas perspectivas: David Cuevas recoge experiencias personales vinculadas a lo inexplicable, mientras que El Orden Mundial y Franco Delle Donne abordan el deterioro interno de las democracias. El estado del Estado comparte el interés por figuras y asuntos públicos, pero se centra en una reflexión sobre España y su situación política.",
+      "modulo": "que_formato_elegir",
+      "texto": "Diálogos sobre lo desconocido está disponible en tapa blanda y Kindle. La edición rústica con solapas de Ediciones Luciérnaga reúne 552 páginas para la lectura en papel; Kindle permite consultar el volumen desde un dispositivo electrónico sin cargar con el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "autores",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diálogos sobre lo desconocido y Pregúntale al universo comparten el interés por cuestiones esotéricas, pero el primero reúne testimonios personales y el segundo plantea preguntas relacionadas con los astros. Tras la pista del mal también explora creencias y fenómenos inquietantes, aunque los vincula al crimen, el mito y los rituales en lugar de a experiencias de distintas personalidades.",
+      "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423441013",
-        "isbn-9788434440937"
+        "isbn-9791387667924",
+        "isbn-9791388279638"
       ]
     }
   ],

@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ponte fino está dirigido a lectores adultos que quieren preparar cocina casera mediante recetas explicadas paso a paso. Martín Berasategui y David de Jorge trabajan con bocadillos, tortillas, pescados, carnes y postres; no es una propuesta centrada en técnicas de cocina experimental ni ingredientes difíciles de conseguir.",
+      "texto": "Ponte fino está orientado a adultos que quieren preparar platos caseros con recetas explicadas mediante fotografías y pasos sucesivos. Su propuesta incluye bocadillos, tortillas, carnes, pescados y postres, por lo que se aleja de los recetarios centrados exclusivamente en técnicas de alta cocina o elaboraciones experimentales.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,36 +14,37 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Ponte fino reúne recetas de cocina casera acompañadas de fotografías e instrucciones paso a paso. Martín Berasategui y David de Jorge incluyen bocadillos, tortillas, ensaladas, platos de pescado y carne, además de postres, para preparar comidas variadas siguiendo indicaciones visuales.",
+      "texto": "Ponte fino reúne recetas seleccionadas por Martín Berasategui y David de Jorge para cocinar comidas cotidianas y menús más abundantes. Sus 208 páginas incluyen preparaciones de bocadillos, ensaladas, tortillas, carnes, pescados y postres, con instrucciones y fotografías que permiten seguir cada elaboración durante el cocinado.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ponte fino se ofrece en tapa dura y Kindle. La edición física de 208 páginas permite mantener el recetario a mano en la cocina y consultar sus fotografías, mientras que Kindle facilita revisar ingredientes y pasos desde el móvil o un lector electrónico.",
+      "texto": "La tapa dura de Ponte fino permite mantener sus 208 páginas como libro físico de consulta en la cocina y utilizarlo también como regalo. Kindle facilita acceder a las recetas desde el móvil o una tableta mientras se preparan los platos, sin necesidad de disponer del ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "sinopsis_editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ponte fino y Cocina de siempre para disfrutar hoy comparten el interés por los platos caseros, aunque Martín Berasategui y David de Jorge reúnen recetas variadas con fotografías paso a paso y Marcos Serén @chefmspin.recetas adapta preparaciones tradicionales. Frente a Al micro y listo, de Dani García, Ponte fino no limita su planteamiento a la cocina con microondas.",
+      "texto": "Ponte fino y Satisfraier comparten la autoría de David de Jorge y una orientación hacia la cocina sabrosa basada en productos cotidianos. Frente a 20 minutos ¡y listo!, de Jamie Oliver, cuyo planteamiento destaca el tiempo de preparación, Ponte fino reúne recetas variadas explicadas y fotografiadas paso a paso, sin establecer una duración única para cocinarlas.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788467084757",
-        "isbn-9788408324263"
+        "isbn-9791387904432",
+        "isbn-9788425374074"
       ]
     }
   ],

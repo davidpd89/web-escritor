@@ -1,0 +1,34 @@
+{
+  "id": "isbn-9791388177040",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pequeño libro de Estoicismo, de Rasha Barrage, se dirige a lectores interesados en una introducción breve a la filosofía estoica y su aplicación a la vida cotidiana. Explica sus orígenes, sus pensadores y sus principales virtudes, con atención a la serenidad y la fortaleza personal. Su planteamiento introductorio se diferencia del de un tratado académico especializado en una única escuela o figura filosófica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pequeño libro de Estoicismo y Pequeño libro de Criminología comparten autoría, Rasha Barrage, y un planteamiento introductorio, aunque el primero aborda una corriente filosófica y el segundo estudia las teorías y causas de la conducta criminal. Frente a El ego es tu enemigo, de Ryan Holiday, centrado en controlar el ego para alcanzar el éxito, Pequeño libro de Estoicismo ofrece una visión más general de los orígenes, pensadores y virtudes del estoicismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388177057",
+        "isbn-9788418053696"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b9468f63d770235e",
+  "origen": "chatgpt-web"
+}
