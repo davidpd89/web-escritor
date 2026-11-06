@@ -66,6 +66,7 @@ class CardContractTest(unittest.TestCase):
         books = [b for b in json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros']
                  if b['estado'] == 'publicado']
         self.assertGreater(len(books), 100)
+        known_authors = {a['nombre'] for a in m.author_records()}
         for b in books:
             page = (ROOT / 'recomendaciones/libros' / b['slug'] / 'index.html').read_text(encoding='utf-8')
             with self.subTest(b['slug']):
@@ -79,13 +80,17 @@ class CardContractTest(unittest.TestCase):
                 cover = re.search(r'class="catalogue-cover-panel"><a href="([^"]+)"', page)
                 self.assertEqual(cover.group(1), buy.group(1), 'portada y botón comparten enlace')
                 authors = re.search(r'<p class="catalogue-author">(.*?)</p>', page, re.S)
-                self.assertEqual(authors.group(1).count('<a '), len(b['autores']))
+                # El catálogo no crea fichas de autor ni de sello: sin ficha, el nombre va en texto plano.
+                self.assertEqual(authors.group(1).count('<a '), sum(n in known_authors for n in b['autores']))
                 ld = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', page, re.S).group(1))
                 self.assertEqual(next(x for x in ld['@graph'] if x['@type'] == 'Book')['isbn'], b['isbn13'])
                 self.assertNotIn('aggregateRating', json.dumps(ld))
-                publisher = ('/editoriales/' + b['editorial_slug'] if b.get('editorial_slug')
-                             else '/recomendaciones/editoriales/' + b['editorial_catalogo_slug']) + '/'
-                self.assertIn(f'href="{publisher}"', page)
+                if b.get('editorial_slug') or b.get('editorial_catalogo_slug'):
+                    publisher = ('/editoriales/' + b['editorial_slug'] if b.get('editorial_slug')
+                                 else '/recomendaciones/editoriales/' + b['editorial_catalogo_slug']) + '/'
+                    self.assertIn(f'href="{publisher}"', page)
+                else:
+                    self.assertIn(m.esc(b['editorial']), page)
 
 
 if __name__ == '__main__':

@@ -901,7 +901,9 @@ def render_llms_index(data, books, authors, publishers):
         age = b.get('edad_recomendada') or ', '.join(c['nombre'] for c in cats if c['tipo'] == 'edad')
         who = own_summary(b)
         facts += [age and 'Edad: ' + age]
-        head = f"- [{b['titulo']}]({SITE}{url(b)}): " + '. '.join(f.rstrip('.') for f in facts if f) + '. '
+        # Corchetes del título escapados: «Harry Potter [edición…]» rompía el enlace Markdown (2026-11-06).
+        link_text = b['titulo'].replace('[', '\\[').replace(']', '\\]')
+        head = f"- [{link_text}]({SITE}{url(b)}): " + '. '.join(f.rstrip('.') for f in facts if f) + '. '
         # El «Para quién es» cede espacio para que la sinopsis conserve al menos 60 caracteres sin pasar de 690.
         label = 'Sinopsis de la editorial: ' if b.get('sinopsis_breve') else 'Descripción: '
         who = who and clip(who, max(40, 690 - 60 - len(head) - len('Para quién es: . ' + label)))
@@ -1286,7 +1288,9 @@ def render_publisher(p, data, books, template, author_names=(), authors=()):
     count = len(selected)
     topics = {c['id']: c for b in selected for c in categories(data, b) if c['tipo'] in {'genero', 'tematica'}}
     profiles_list = authors
-    authors = sorted({name for b in selected for name in b['autores']}, key=str.casefold)
+    # Desempate por el nombre exacto: «Varios Autores»/«VARIOS AUTORES» empataban y el orden del set cambiaba la
+    # página en cada ejecución (2026-11-06, --check fallaba en un sello distinto cada vez).
+    authors = sorted({name for b in selected for name in b['autores']}, key=lambda n: (n.casefold(), n))
     summary = p['nombre'] + ' (' + p['grupo'] + '): ' + str(count) + (' libro' if count == 1 else ' libros') + ' en este catálogo, según las fichas oficiales de la editorial.'
     context = '<section aria-labelledby="publisher-context"><h2 id="publisher-context">Este sello en el catálogo</h2><p>Pertenece a ' + esc(p['grupo']) + ' y reúne ' + str(count) + (' libro' if count == 1 else ' libros') + ' de este catálogo.</p>'
     if topics:

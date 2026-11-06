@@ -14,7 +14,7 @@ class ReadingLlmsIndexTest(unittest.TestCase):
         self.text = INDEX.read_text(encoding='utf-8')
         data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
         self.books = [b for b in data['libros'] if b['estado'] == 'publicado']
-        self.entries = dict(re.findall(r'^- \[[^\]]+\]\((' + re.escape(SITE) + r'/recomendaciones/libros/[^)]+/)\): (.+)$', self.text, re.M))
+        self.entries = dict(re.findall(r'^- \[(?:\\.|[^\]\\])+\]\((' + re.escape(SITE) + r'/recomendaciones/libros/[^)]+/)\): (.+)$', self.text, re.M))
 
     def test_every_published_book_has_one_entry_with_its_edition_data(self):
         self.assertEqual(len(self.entries), len(self.books))
