@@ -72,14 +72,17 @@
   const boxes = form ? [...form.querySelectorAll('input[data-facet]')] : [];
   const FIXED_ORDER = ['grupo', 'edad', 'formato'];
   const pick = x => Array.isArray(x) ? x : x ? [x] : [];
-  let market = { offers: [], ratings: [] };
+  let market = { offers: [], ratings: [], sales_ranks: [] };
   let currentPage = 1;
   const pageSize = 24;
-  let offersIndex = new Map(), ratingsIndex = new Map();
+  let offersIndex = new Map(), ratingsIndex = new Map(), ranksIndex = new Map();
   const stamp = s => typeof s === 'string' && /T.*(?:Z|[+-]\d\d:\d\d)$/.test(s) ? Date.parse(s) : NaN;
   const fresh = (e, hours) => { const start = stamp(e.actualizado_en), end = stamp(e.caduca_en), now = Date.now(); return Number.isFinite(start) && Number.isFinite(end) && start <= now && end > now && end > start && end - start <= hours * 3600000 && now - start <= hours * 3600000; };
   const safeURL = (raw, hosts, path) => { try { const u = new URL(raw); return u.protocol === 'https:' && !u.username && !u.password && !u.port && hosts.includes(u.hostname) && path.test(u.pathname) ? u : null; } catch { return null; } };
   const validOffer = o => { const u = safeURL(o.url, ['amazon.es', 'www.amazon.es'], /\/(?:dp|gp\/product)\/[A-Z0-9]{10}(?:\/|$)/); return fresh(o, 24) && o.moneda === 'EUR' && o.tipo === 'compra' && ['tapa-blanda', 'tapa-dura', 'ebook', 'audiolibro'].includes(o.formato) && Number.isSafeInteger(o.precio_centimos) && o.precio_centimos > 0 && o.precio_centimos < 100000000 && u && /^[A-Za-z0-9-]+$/.test(u.searchParams.get('tag') || ''); };
+  // Puesto en Libros de Amazon.es de la edición impresa: caduca a los 8 días si el barrido no lo renueva.
+  const validRank = r => fresh(r, 216) && r.fuente === 'amazon_es_books' && Number.isSafeInteger(r.posicion) && r.posicion > 0 && r.posicion < 1e8;
+  const rankFor = id => { const r = ranksIndex.get(id); return r && fresh(r, 216) ? r.posicion : null; };
   const ratingSource = r => ['google_books', 'hardcover'].includes(r.fuente) ? r.fuente : !r.fuente || r.fuente === 'goodreads' ? 'goodreads' : null;
   const ratingLabel = r => ratingSource(r) === 'google_books' ? 'Google Books' : ratingSource(r) === 'hardcover' ? 'Hardcover' : 'Goodreads';
   const validRating = r => {
@@ -148,7 +151,8 @@
     return [...formatPrices(card)].some(([f, c]) => (!formats.length || formats.includes(f)) && c >= min && c <= max);
   };
   function renderMarket() {
-    offersIndex = new Map(); ratingsIndex = new Map(); memo = new Map();
+    offersIndex = new Map(); ratingsIndex = new Map(); ranksIndex = new Map(); memo = new Map();
+    for (const r of market.sales_ranks.filter(validRank)) if (!ranksIndex.has(r.libro_id) || ranksIndex.get(r.libro_id).posicion > r.posicion) ranksIndex.set(r.libro_id, r);
     for (const offer of market.offers.filter(validOffer)) {
       if (!offersIndex.has(offer.libro_id)) offersIndex.set(offer.libro_id, []);
       offersIndex.get(offer.libro_id).push(offer);
@@ -184,7 +188,8 @@
     // Umbral sin libros: desactivado.
     const best = Math.max(0, ...cards.map(card => Math.max(0, ...matchingOffers(card, {}).map(o => o.pct))));
     for (const o of root.querySelectorAll('[data-filter="descuento"] option')) if (o.value) o.disabled = Number(o.value) > best;
-    for (const o of root.querySelectorAll('[data-sort-market]')) o.disabled = !market[o.dataset.sortMarket].some(o.dataset.sortMarket === 'offers' ? validOffer : validRating);
+    const valid = {offers: validOffer, ratings: validRating, sales_ranks: validRank};
+    for (const o of root.querySelectorAll('[data-sort-market]')) { o.disabled = !(market[o.dataset.sortMarket] || []).some(valid[o.dataset.sortMarket] || (() => false)); o.hidden = o.disabled && o.dataset.sortMarket === 'sales_ranks'; }
     for (const f of fields) if ((f.disabled || (f.tagName === 'SELECT' && f.selectedOptions[0]?.disabled)) && f.value) f.value = f.dataset.filter === 'orden' ? 'editorial' : '';
 
   }
@@ -279,6 +284,8 @@
         case 'editorial': case 'fecha_desc': case 'fecha_asc': return nullable(dateOf(a), dateOf(b), v.orden !== 'fecha_asc');
         case 'paginas_asc': case 'paginas_desc': return nullable(Number(a.dataset.pages) || null, Number(b.dataset.pages) || null, v.orden === 'paginas_desc');
         case 'precio_tapa-dura': case 'precio_tapa-blanda': case 'precio_ebook': case 'precio_audiolibro': { const format = [v.orden.slice(7)]; return nullable(priceOf(a, format), priceOf(b, format)); }
+        // Más vendidos: los que tienen puesto, del 1 en adelante; el resto después, por fecha como siempre.
+        case 'ventas': return nullable(rankFor(a.dataset.bookId), rankFor(b.dataset.bookId)) || nullable(dateOf(a), dateOf(b), true);
         case 'valoracion_desc': return nullable(ratingFor(a.dataset.bookId)?.puntuacion ?? null, ratingFor(b.dataset.bookId)?.puntuacion ?? null, true);
         default: return 0;
       }
@@ -450,7 +457,7 @@
   const refresh = () => { renderNovelty(); renderMarket(); apply(false); };
   window.addEventListener('pageshow', refresh); document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); }); setInterval(() => { if (!document.hidden) refresh(); }, 60000);
   const knownIds = new Set([...root.querySelectorAll('[data-rating-book]')].map(el => el.dataset.ratingBook));
-  fetch('/assets/reading-market.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(p => { if (p?.schema_version === 1 && Array.isArray(p.offers) && Array.isArray(p.ratings)) { market = { offers: p.offers.filter(o => o && typeof o === 'object' && knownIds.has(o.libro_id)), ratings: p.ratings.filter(r => r && typeof r === 'object' && knownIds.has(r.libro_id)) }; renderMarket(); restore(); } }).catch(() => { /* The static catalogue stays available. */ }); refresh();
+  fetch('/assets/reading-market.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(p => { if (p?.schema_version === 1 && Array.isArray(p.offers) && Array.isArray(p.ratings)) { market = { offers: p.offers.filter(o => o && typeof o === 'object' && knownIds.has(o.libro_id)), ratings: p.ratings.filter(r => r && typeof r === 'object' && knownIds.has(r.libro_id)), sales_ranks: (Array.isArray(p.sales_ranks) ? p.sales_ranks : []).filter(r => r && typeof r === 'object' && knownIds.has(r.libro_id)) }; renderMarket(); restore(); } }).catch(() => { /* The static catalogue stays available. */ }); refresh();
   setupQuiz();
   if (document.fonts) document.fonts.load('1em "CatalogueNovelty"').then(faces => { root.classList.add(faces.length ? 'catalogue-fonts-ready' : 'catalogue-fonts-failed'); }).catch(() => root.classList.add('catalogue-fonts-failed'));
   else root.classList.add('catalogue-fonts-failed');

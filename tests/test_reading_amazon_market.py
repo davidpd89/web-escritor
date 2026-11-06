@@ -441,3 +441,50 @@ class AmazonPriceDropTests(unittest.TestCase):
 
 if __name__=='__main__':
     unittest.main()
+
+
+def ranked(rank,binding='Paperback',ean='9788498382372'):
+    payload=response(); item=payload['searchResult']['items'][0]
+    item['browseNodeInfo']={'websiteSalesRank':{'salesRank':rank,'displayName':'Libros'}}
+    item['itemInfo']['classifications']['binding']['displayValue']=binding
+    item['itemInfo']['externalIds']={'eans':{'displayValues':[ean]}}
+    return payload
+
+
+class AmazonSalesRankTests(unittest.TestCase):
+    def test_print_edition_rank_is_stored_with_expiry(self):
+        catalogue={'libros':[copy.deepcopy(BOOK)]}
+        market,stats=refresh_offers(catalogue,{'offers':[]},lambda b:ranked(1234),'contrato-21',NOW,sweep_days=7)
+        self.assertEqual(stats['puestos_ventas'],1)
+        self.assertEqual(market['sales_ranks'],[{'libro_id':'lib-1','posicion':1234,'fuente':'amazon_es_books',
+                                                 'actualizado_en':'2026-10-21T10:00:00Z','caduca_en':'2026-10-29T10:00:00Z'}])
+
+    def test_kindle_other_isbn_and_bad_ranks_are_not_book_ranks(self):
+        # La lista de Kindle es otra; otra edición u otro número no dicen nada de este libro.
+        for payload in [ranked(5,binding='Versión Kindle'),ranked(5,ean='9788425374012'),ranked(0),ranked(True),ranked('12a'),ranked(None)]:
+            market,_=refresh_offers({'libros':[copy.deepcopy(BOOK)]},{'offers':[]},lambda b,p=payload:p,'contrato-21',NOW)
+            self.assertNotIn('sales_ranks',market)
+
+    def test_numeric_string_rank_is_accepted(self):
+        market,_=refresh_offers({'libros':[copy.deepcopy(BOOK)]},{'offers':[]},lambda b:ranked('77'),'contrato-21',NOW)
+        self.assertEqual(market['sales_ranks'][0]['posicion'],77)
+
+    def test_expired_and_removed_books_disappear_and_current_ones_stay(self):
+        other=dict(BOOK,id='lib-2',isbn13='9788425374012',precios_amazon_revision='2026-10-20')
+        book=dict(BOOK,precios_amazon_revision='2026-10-20')
+        stale={'libro_id':'lib-1','posicion':9,'fuente':'amazon_es_books','actualizado_en':'2026-10-01T10:00:00Z','caduca_en':'2026-10-09T10:00:00Z'}
+        current={'libro_id':'lib-2','posicion':3,'fuente':'amazon_es_books','actualizado_en':'2026-10-20T10:00:00Z','caduca_en':'2026-10-28T10:00:00Z'}
+        gone=dict(current,libro_id='lib-borrado')
+        market={'offers':[],'sales_ranks':[stale,current,gone]}
+        market,_=refresh_offers({'libros':[book,other]},market,lambda b:{},'contrato-21',NOW,budget=0)
+        self.assertEqual(market['sales_ranks'],[current])
+
+    def test_cut_off_group_does_not_publish_partial_ranks(self):
+        books=[dict(copy.deepcopy(BOOK),id=f'lib-{i}') for i in range(3)]
+        market,stats=refresh_offers({'libros':books},{'offers':[]},lambda b:ranked(50),'contrato-21',NOW,budget=2)
+        self.assertNotIn('sales_ranks',market)
+        self.assertEqual(stats['puestos_ventas'],0)
+
+    def test_rank_lifetime_never_exceeds_the_portal_contract(self):
+        market,_=refresh_offers({'libros':[copy.deepcopy(BOOK)]},{'offers':[]},lambda b:ranked(9),'contrato-21',NOW,sweep_days=30)
+        self.assertEqual(market['sales_ranks'][0]['caduca_en'],'2026-10-29T10:00:00Z')
