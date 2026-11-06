@@ -65,11 +65,14 @@ if __name__ == "__main__":
 
 class CatalogueDealsAndFilters(unittest.TestCase):
     def test_deals_feed_and_card_discounts(self):
-        option = {'formato': 'audiolibro', 'url': 'https://www.amazon.es/dp/B000000001?tag=x', 'fuente_url': 'https://www.amazon.es/dp/B000000001',
+        option = {'formato': 'tapa-blanda', 'url': 'https://www.amazon.es/dp/B000000001?tag=x', 'fuente_url': 'https://www.amazon.es/dp/B000000001',
                   'fecha_verificacion': '2026-11-04', 'precio_centimos': 1329, 'precio_referencia_centimos': 1899}
         book = {'id': 'lib-1', 'slug': 'libro', 'titulo': 'Libro', 'autores': ['A'], 'portada_local': '/assets/reading-covers/x.webp',
                 'fecha_actualizacion': '2026-11-05', 'formatos_compra': [option]}
-        self.assertEqual(builder.format_discounts(book, '2026-11-05'), 'audiolibro:30:2026-11-04')
+        self.assertEqual(builder.format_discounts(book, '2026-11-05'), 'tapa-blanda:30:2026-11-04')
+        # Audible: el -30 % es el precio de socio, no una oferta (2026-11-05: colaba libros en «25 % o más»).
+        audible = {**book, 'formatos_compra': [{**option, 'formato': 'audiolibro'}]}
+        self.assertEqual(builder.format_discounts(audible, '2026-11-05'), '')
         deals = json.loads(builder.render_deals([book]))['ofertas']
         self.assertEqual([(d['descuento_pct'], d['tipo'], d['precio_antes_centimos']) for d in deals], [(30, 'descuento', 1899)])
         # Red percentage next to the price, with the check date the browser uses to expire it.

@@ -15,7 +15,7 @@ import re
 import sys
 from datetime import date, timedelta
 from pathlib import Path
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import parse_qs, urlencode, urlparse
 from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -623,6 +623,10 @@ def price_discount(b, o, anchor=None):
     En digital se ignora la referencia que es el precio de la versión impresa (2026-11-04: 12 ebooks salían al 50 %)."""
     if anchor and not offer_is_current(o, anchor):
         return None
+    # 2026-11-05: 26 audiolibros salían todos al -30 % exacto: es el precio de socio de Audible frente al precio
+    # sin suscripción, no una oferta. Colaban libros en «25 % o más» sin descuento real visible.
+    if o['formato'] == 'audiolibro':
+        return None
     base = o.get('precio_referencia_centimos', 0)
     paper = print_list_prices(b)
     if o['formato'] in DIGITAL_FORMATS and base in paper:
@@ -674,7 +678,11 @@ def amazon_action_label(b):
 def primary_format(b):
     """Formato de la caja al que lleva el botón principal (None si es búsqueda o un enlace sin formato)."""
     destination = amazon_destination(b)
-    return next((o['formato'] for o in purchase_formats(b) if amazon_es(o['url']) == destination), None)
+    found = next((o['formato'] for o in purchase_formats(b) if amazon_es(o['url']) == destination), None)
+    # Sin ficha de producto, la búsqueda por ISBN compra justo esta edición: su formato.
+    if not found and b.get('formato_edicion') and b.get('amazon_busqueda_isbn') and destination == amazon_es(b['amazon_busqueda_isbn']):
+        found = b['formato_edicion']
+    return found
 
 
 LANGUAGES = {'es': 'Español', 'ca': 'Català', 'gl': 'Galego', 'eu': 'Euskara', 'en': 'Inglés', 'fr': 'Francés', 'it': 'Italiano', 'pt': 'Portugués', 'de': 'Alemán'}
@@ -728,25 +736,48 @@ def amazon_es(link):
     return link + ('&' if '?' in link else '?') + 'language=es_ES'
 
 
+SEARCH_INDEX = {'ebook': 'digital-text', 'audiolibro': 'audible', 'tapa-dura': 'stripbooks', 'tapa-blanda': 'stripbooks'}
+
+
+def amazon_format_search(b, f):
+    """Búsqueda etiquetada por título y autor en la sección del formato: no se afirma que exista ni que falte."""
+    raw = b.get('amazon_busqueda_isbn') or ''
+    tag = (parse_qs(urlparse(raw).query).get('tag') or [''])[0]
+    if not tag:
+        return None
+    words = ' '.join([b.get('titulo', '')] + list(b.get('autores', [])[:1])).strip()
+    return 'https://www.amazon.es/s?' + urlencode({'k': words, 'i': SEARCH_INDEX[f], 'tag': tag})
+
+
 def format_box(b, compact=False, anchor=None):
-    """Los cuatro formatos siempre en el mismo orden: precio de Amazon o ✕ si Amazon no tiene esa edición."""
+    """Los cuatro formatos siempre en el mismo orden.
+
+    Precio de Amazon cuando el barrido lo comprobó. El formato de esta edición (ISBN) existe siempre: sin precio
+    comprobado lleva a la búsqueda por ISBN. Los demás formatos sin comprobar no se marcan como «no disponible»
+    (que el barrido no los encontrase no prueba que no existan): se ofrecen como búsqueda en su sección de Amazon.
+    """
     by_format = {o['formato']: o for o in purchase_formats(b)}
     main = None if compact else primary_format(b)
+    own = b.get('formato_edicion')
     cells = []
     for f in BOX_ORDER:
         o = by_format.get(f)
+        if not o and f == own and b.get('amazon_busqueda_isbn'):
+            o = {'formato': f, 'url': b['amazon_busqueda_isbn']}
         if o:
             price = money(o['precio_centimos']) if o.get('precio_centimos') else 'Ver precio'
-            found = price_discount(b, o, anchor) if anchor else None
+            found = price_discount(b, o, anchor) if anchor and o.get('fecha_verificacion') else None
             # Porcentaje rojo junto al precio; el navegador lo quita si la comprobación caduca (data-offer-checked).
             badge = f' <em class="catalogue-format__off" data-offer-checked="{esc(o["fecha_verificacion"])}">-{found[1]} %</em>' if found else ''
             said = f', {found[1]} % de descuento sobre {money(found[0])}' if found else ''
             cells.append(f'<li><a class="catalogue-format{" is-primary" if f == main else ""}" data-purchase-format="{f}" href="{esc(amazon_es(o["url"]))}" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="{FORMATS[f]}: {price}{said} en Amazon (otra pestaña)"><span>{FORMATS[f]}</span><strong>{price}{badge}</strong></a></li>')
+        elif (search := amazon_format_search(b, f)):
+            cells.append(f'<li><a class="catalogue-format is-missing" data-missing-format="{f}" href="{esc(amazon_es(search))}" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="{FORMATS[f]}: sin precio comprobado, buscar en Amazon (otra pestaña)"><span>{FORMATS[f]}</span><strong>Buscar</strong></a></li>')
         else:
-            cells.append(f'<li><span class="catalogue-format is-missing" data-missing-format="{f}" aria-label="{FORMATS[f]}: no disponible en Amazon"><span>{FORMATS[f]}</span><strong aria-hidden="true">✕</strong></span></li>')
+            cells.append(f'<li><span class="catalogue-format is-missing" data-missing-format="{f}" aria-label="{FORMATS[f]}: sin precio comprobado en Amazon"><span>{FORMATS[f]}</span><strong>—</strong></span></li>')
     if compact:
         # The enclosing region already names Amazon; retain format, price and new-tab hint.
-        cells = [cell.replace(' en Amazon (otra pestaña)', ' (otra pestaña)').replace(': no disponible en Amazon', ': no disponible') for cell in cells]
+        cells = [cell.replace(' en Amazon (otra pestaña)', ' (otra pestaña)').replace(', buscar en Amazon (otra pestaña)', ', buscar (otra pestaña)').replace(' comprobado en Amazon"', ' comprobado"') for cell in cells]
     heading = '' if compact else '<h2>Formatos y precios en Amazon</h2>'
     return f'<section class="catalogue-formats{" catalogue-formats--card" if compact else ""}" aria-label="Formatos y precios en Amazon">{heading}<ul>' + ''.join(cells) + '</ul></section>'
 

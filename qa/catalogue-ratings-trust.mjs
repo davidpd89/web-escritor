@@ -38,19 +38,16 @@ const unverifiedOk = (b, where) => {
 };
 
 try {
-  // 1. Proveedor caído (503) y mercado vacío: ninguna tarjeta muestra nota; con ISBN queda un enlace neutro.
+  // 1. Proveedor caído (503) y mercado vacío: ninguna tarjeta muestra nota ni enlace a ciegas.
   for (const market of ['fail', { schema_version: 1, offers: [], ratings: [] }]) {
     const { context, page, external } = await open(market);
     const all = await boxes(page);
     assert.ok(all.length > 20, 'el catálogo debe tener tarjetas con valoración');
     for (const b of all) {
       unverifiedOk(b, market === 'fail' ? 'proveedor caído' : 'sin dato');
-      // Tarjeta y ficha muestran lo mismo: con ISBN, el enlace neutro a Goodreads.
-      if (b.isbn.length === 13) {
-        assert.equal(b.text, 'Goodreads · ver opiniones');
-        assert.equal(b.state, 'unavailable');
-        assert.equal(b.href, `https://www.goodreads.com/book/isbn/${b.isbn}`);
-      } else assert.equal(b.text, '', `${b.id}: sin ISBN no hay enlace que ofrecer`);
+      // Sin nota verificada no se enlaza a ciegas a Goodreads (2026-11-05: bloquea y no prueba que haya opiniones).
+      assert.equal(b.text, '', `${b.id}: sin nota verificada no hay enlace que ofrecer`);
+      assert.equal(b.href, '');
     }
     assert.equal(await page.locator('[data-filter="valoracion"]').isDisabled(), true, 'sin valoraciones verificadas el filtro no se ofrece');
     assert.deepEqual(external, [], 'no se piden recursos externos');
@@ -84,12 +81,12 @@ try {
       assert.equal(by[id].text, text);
       assert.equal(by[id].href, href);
     }
-    // Caducado, fuente falsificada y sin dato: ni nota ni fuente ajena, solo el enlace neutro.
+    // Caducado, fuente falsificada y sin dato: ni nota ni enlace.
     for (const id of [expired, forged, none]) {
       unverifiedOk(by[id], `${width}px ${id}`);
       assert.equal(by[id].card, true);
-      assert.equal(by[id].text, 'Goodreads · ver opiniones');
-      assert.equal(by[id].state, 'unavailable');
+      assert.equal(by[id].text, '');
+      assert.equal(by[id].hidden, true);
     }
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     assert.ok(overflow <= 0, `${width}px: scroll horizontal de ${overflow} px`);

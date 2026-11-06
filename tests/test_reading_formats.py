@@ -24,7 +24,7 @@ class FormatBoxTest(unittest.TestCase):
         self.assertEqual(order, sorted(order))
         self.assertIn('<span>Kindle</span><strong>10,44 €</strong>', box)
         self.assertIn('<span>Tapa blanda</span><strong>Ver precio</strong>', box)
-        self.assertEqual(box.count('✕'), 2)
+        self.assertNotIn('✕', box)
         self.assertEqual(box.count('rel="sponsored nofollow noopener noreferrer"'), 2)
         self.assertIn('<h2>Formatos y precios en Amazon</h2>', box)
         card = m.format_box(BOOK, compact=True)
@@ -49,8 +49,19 @@ class FormatBoxTest(unittest.TestCase):
         self.assertEqual(m.amazon_destination(book), m.amazon_es(swept))
         self.assertEqual(m.primary_format(book), 'tapa-blanda')
 
-    def test_book_without_amazon_formats_shows_four_crosses(self):
+    def test_book_without_amazon_formats_never_claims_they_do_not_exist(self):
         self.assertEqual(m.format_box({**BOOK, 'formatos_compra': []}).count('is-missing'), 4)
+        # «¡Ya es Navidad!»: tapa dura sin precio barrido. Su formato existe (es el ISBN) y el resto se busca.
+        book = {**BOOK, 'formatos_compra': [], 'formato_edicion': 'tapa-dura',
+                'amazon_busqueda_isbn': 'https://www.amazon.es/s?k=9788410318557&tag=davidporto-21'}
+        box = m.format_box(book)
+        self.assertNotIn('✕', box)
+        self.assertNotIn('no disponible', box)
+        self.assertIn('data-purchase-format="tapa-dura" href="https://www.amazon.es/s?k=9788410318557&amp;tag=davidporto-21', box)
+        self.assertEqual(box.count('is-missing'), 3)
+        self.assertIn('i=digital-text&amp;tag=davidporto-21', box)
+        self.assertIn('i=audible', box)
+        self.assertEqual(m.primary_format(book), 'tapa-dura')
 
     def test_amazon_links_ask_for_spanish(self):
         self.assertEqual(m.amazon_es(URL), URL + '&language=es_ES')
