@@ -5,6 +5,7 @@ import path from 'node:path';
 import { chromium } from 'playwright';
 import { auditTargetSizes } from './target-size-audit.mjs';
 import { auditFocusNotObscured } from './focus-not-obscured-audit.mjs';
+import { rotateDetailRoutes } from './reflow-detail-rotation.mjs';
 
 const ORIGIN = process.env.QA_ORIGIN || 'http://127.0.0.1:4173';
 const ROOT = process.cwd();
@@ -411,6 +412,18 @@ if (ONLY.length) {
   const scoped = allRoutes.filter((r) => wanted.has(r));
   if (scoped.length) allRoutes = scoped;
   else console.log('[scope] ninguna ruta pedida existe: se recorren todas');
+}
+// Auditoria completa: fichas en rotacion (REFLOW_DETAIL_ROTATION=K franjas; REFLOW_ROTATION_DAY fija la franja) para que la duracion no
+// crezca con el catalogo. Con QA_ONLY_ROUTES se recorre exactamente lo pedido.
+const ROTATION_K = Number(process.env.REFLOW_DETAIL_ROTATION || 0);
+if (!ONLY.length && ROTATION_K > 1) {
+  const day = Number(process.env.REFLOW_ROTATION_DAY || Math.floor(Date.now() / 86_400_000));
+  const sizeOf = (route) => {
+    try { return fs.statSync(path.join(ROOT, route, 'index.html')).size; } catch { return 0; }
+  };
+  const rotated = rotateDetailRoutes(allRoutes, { k: ROTATION_K, day, heaviest: 5, sizeOf });
+  allRoutes = rotated.routes;
+  console.log(`[rotacion] K=${ROTATION_K} dia=${day}: ${JSON.stringify(rotated.kinds)}; ${rotated.skipped} fichas quedan para otros dias`);
 }
 const routes = allRoutes.filter((_, i) => i % SHARD_TOTAL === SHARD_INDEX);
 console.log(`[shard] ${SHARD_INDEX + 1}/${SHARD_TOTAL}: ${routes.length} rutas`);
