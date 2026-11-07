@@ -385,21 +385,56 @@ def schedule(pending, asin, day, motivo):
     pending[asin] = row
 
 
-def update_pending(day, failures, resolved):
-    """Apunta los libros con huecos reintentables y quita los que ya llegaron completos."""
+def update_pending(day, failures, resolved, write=True):
+    """Apunta los libros con huecos reintentables y quita los que ya llegaron completos. Con `write=False` no toca
+    el fichero: quien llama (aplicar) escribe la cola una sola vez, ya con los no publicados reencolados."""
     pending = read_json(pending_path(), {})
-    for asin in resolved:
-        pending.pop(asin, None)
+    popped = {asin: pending.pop(asin) for asin in resolved if asin in pending}
     for f in failures:
         if f['motivo'].startswith(RETRYABLE) and f.get('asin'):
             schedule(pending, f['asin'], day, f['motivo'])
+    if write:
+        write_json(pending_path(), pending)
+    return pending, popped
+
+
+def reencolar(day, deferred, rejected, previous=None, pending=None):
+    """Ningún candidato se pierde entre lotes: los raw y candidatos del día no se guardan en catalogo-estado (otro
+    runner no los tiene), así que lo que no entra vuelve a la cola de ASIN. Los aplazados por cupo tocan ya, sin
+    gastar intento; los rechazados al aplicar siguen el calendario de reintentos y, agotado, quedan en descartados
+    (si entretanto se corrige el método, entran solos). Con cada uno van sus otras ediciones, que dan los formatos:
+    `grupo` hace que se pidan juntas, y `ruta` guarda los nodos del recorrido, que también clasifican. `previous` son
+    las filas que transformar quitó de la cola: con ellas se conserva desde cuándo espera cada libro. `pending` es la
+    cola que transformar dejó sin escribir: así la cola se escribe una sola vez y un corte entre ambos no la vacía."""
+    pending = read_json(pending_path(), {}) if pending is None else pending
+    previous = previous or {}
+
+    def row_of(record, asin):
+        row = pending.get(asin) or dict(previous.get(asin) or {'primera': day, 'intentos': 0})
+        return row | {'grupo': record.get('asin') or asin, 'ruta': list(reversed(record.get('palabras_clave') or []))}
+    for record in deferred:
+        for asin in record_asins(record):
+            pending[asin] = row_of(record, asin) | {'motivo': 'aplazado por cupo de altas', 'siguiente': day}
+    for record in rejected:
+        for asin in record_asins(record):
+            pending[asin] = row_of(record, asin)
+            schedule(pending, asin, day, 'rechazado al aplicar (ver fallos del día)')
     write_json(pending_path(), pending)
-    return pending
+    return len(deferred), len(rejected)
+
+
+def record_asins(record):
+    items = [record.get('item'), *record.get('otras_ediciones', [])]
+    return list(dict.fromkeys(a for a in ([record.get('asin')] + [amazon_dict(i).get('asin') for i in items]) if a))
 
 
 def reintentar(prov, tag, day, out, budget):
     """getItems de los pendientes que tocan hoy, de 10 en 10, al mismo raw que el recorrido."""
-    due = sorted(a for a, row in read_json(pending_path(), {}).items() if row.get('siguiente', '') <= day)
+    # Los que más llevan esperando, primero: con más pendientes que cupo, ordenar por ASIN dejaría siempre a los
+    # mismos al final. Las ediciones de una obra (mismo `grupo`) van seguidas, para que vuelvan juntas.
+    rows = read_json(pending_path(), {})
+    due = sorted((a for a, row in rows.items() if row.get('siguiente', '') <= day),
+                 key=lambda a: (rows[a].get('siguiente', ''), rows[a].get('primera', ''), rows[a].get('grupo', a), a))
     used, asked, got = 0, set(), set()
     for start in range(0, len(due), 10):
         if used >= budget:
@@ -415,8 +450,10 @@ def reintentar(prov, tag, day, out, budget):
             continue
         result = amazon_dict(payload.get('itemsResult') or payload.get('itemResults'))
         for item in amazon_list(result.get('items')):
-            got.add(amazon_dict(item).get('asin'))
-            out.write(json.dumps({'nodo': 'pendiente', 'ruta': [], 'item': item}, ensure_ascii=False) + '\n')
+            asin = amazon_dict(item).get('asin')
+            got.add(asin)
+            route = rows.get(asin, {}).get('ruta', [])
+            out.write(json.dumps({'nodo': 'pendiente', 'ruta': route, 'item': item}, ensure_ascii=False) + '\n')
         asked.update(due[start:start + 10])
     # Lo que Amazon ya no devuelve (retirado, ASIN inválido) no se pide cada día: avanza su calendario.
     if asked - got:
@@ -427,7 +464,7 @@ def reintentar(prov, tag, day, out, budget):
     return used, len(due)
 
 
-def descargar(prov, tag, day, max_requests=1500, max_depth=3, pages=10, root_node=BOOKS_NODE):
+def descargar(prov, tag, day, max_requests=1500, max_depth=3, pages=10, root_node=BOOKS_NODE, retry_budget=None):
     """Recorre el árbol de Libros por NewestArrivals; un nodo que llena sus 10 páginas se parte en
     hijos. Todo lo leído va a raw/<día>.jsonl al momento: un corte no pierde nada y se reanuda."""
     raw = WORK / 'raw' / f'{day}.jsonl'
@@ -439,7 +476,7 @@ def descargar(prov, tag, day, max_requests=1500, max_depth=3, pages=10, root_nod
     started = time.monotonic()
     with raw.open('a', encoding='utf-8') as out:
         if 'reintentos' not in state:  # una vez por día, antes del recorrido
-            used, due = reintentar(prov, tag, day, out, max_requests // 5)
+            used, due = reintentar(prov, tag, day, out, max_requests // 5 if retry_budget is None else retry_budget)
             state['peticiones'] += used
             state['reintentos'] = due
             write_json(checkpoint, state)
@@ -541,7 +578,7 @@ def rendimiento_path():
     return WORK / 'rendimiento-sellos.json'
 
 
-def por_sellos(prov, tag, day, max_requests=1500, pages=10, horizon_days=60, names=None):
+def por_sellos(prov, tag, day, max_requests=1500, pages=10, horizon_days=60, names=None, retry_budget=None):
     """Novedades por sello (brand + NewestArrivals): casi todo sale en español, al revés que por categorías,
     donde ~3 de cada 4 novedades son importaciones en inglés (medido el 2026-11-06). Un sello se deja de paginar
     al llegar a libros de hace más de `horizon_days`. Los sellos nuevos que aparecen en libros en español se
@@ -569,7 +606,7 @@ def por_sellos(prov, tag, day, max_requests=1500, pages=10, horizon_days=60, nam
     started = time.monotonic()
     with raw.open('a', encoding='utf-8') as out:
         if 'reintentos' not in state:
-            used, due = reintentar(prov, tag, day, out, max_requests // 5)
+            used, due = reintentar(prov, tag, day, out, max_requests // 5 if retry_budget is None else retry_budget)
             state['peticiones'] += used
             state['reintentos'] = due
             write_json(checkpoint, state)
@@ -674,12 +711,13 @@ def publisher_name(value):
 
 
 def person(name):
-    """«García Márquez, Gabriel» → «Gabriel García Márquez»; «ELI CYMET» → «Eli Cymet»."""
+    """«García Márquez, Gabriel» → «Gabriel García Márquez»; «ELI CYMET» → «Eli Cymet».
+    «Cadoche y Anne de Montarlot, Elisabeth» → «Elisabeth Cadoche y Anne de Montarlot» (split_authors separa después)."""
     from reading_intake_core import clean_author
     name = ' '.join(str(name).split())
     parts = [p.strip() for p in name.split(',')]
-    if (len(parts) == 2 and all(parts) and not re.search(r'\b(?:y|and|et)\b', name)
-            and not re.fullmatch(r'(?:jr|sr|hijo|ii|iii|iv)\.?', key(parts[1]))):  # «Juan Pérez, Jr.» ya está bien
+    if (len(parts) == 2 and all(parts) and not re.search(r'\b(?:y|and|et)\b', parts[1])
+            and not re.fullmatch(r'(?:jr|sr|hijo|ii|iii|iv|varios|otros)\.?', key(parts[1]))):  # «Juan Pérez, Jr.» ya está bien
         name = parts[1] + ' ' + parts[0]
     folded = re.sub(r'[\W_]', '', key(name))
     if folded in {'aavv', 'vvaa', 'varios', 'variosautores'}:
@@ -849,7 +887,10 @@ def to_record(entry, day, proper=None):
                and key(c.get('role', '') or c.get('roleType', '')) in AUTHOR_ROLES]
     if not authors:
         authors = [person(c['name']) for c in contributors if isinstance(c.get('name'), str)][:3]
-    authors = list(dict.fromkeys(a for a in authors if a))
+    # Mismo contrato que el control (normalize-reading-authors.py --check): una persona por elemento,
+    # sin usuarios de redes («Lorena Gascón @lapsicologajaputa») ni parejas en una sola cadena.
+    from reading_intake_core import split_authors
+    authors = split_authors(a for a in authors if a)
     if not authors:
         raise Rejected('sin autoría')
     publisher = publisher_name(byline.get('manufacturer')) or publisher_name(byline.get('brand'))
@@ -880,7 +921,7 @@ def to_record(entry, day, proper=None):
     return record
 
 
-def transformar(day, catalogue):
+def transformar(day, catalogue, write_pending=True):
     """raw → candidatos.json (uno por obra) y fallos de esta fase."""
     from reading_intake_pipeline import classify, work_key  # import tardío: carga el builder
     from reading_editorial_sources import SourceError
@@ -947,9 +988,9 @@ def transformar(day, catalogue):
         candidates.append(main)
     write_json(WORK / f'candidatos-{day}.json', candidates)
     write_json(enlaces_path(day), links)
-    pending = update_pending(day, failures, complete)
+    pending, popped = update_pending(day, failures, complete, write_pending)
     return {'leidos': total, 'candidatos': len(candidates), 'pendientes': len(pending), 'enlaces': len(links),
-            'fallos': failures}
+            'fallos': failures, 'resueltos': popped, 'cola': pending}
 
 
 # ---------------------------------------------------------------- 3. aplicar
@@ -1001,11 +1042,17 @@ def pending_creation_path():
     return WORK / 'pendientes-creacion.json'
 
 
-def priorizar(candidates, day, limit):
+def priorizar(candidates, day, limit, waiting=None):
     """Altas de esta pasada: primero novedades y preventas (de 60 días atrás a 6 meses vista), de la más reciente a la
     más antigua; después el fondo, del más vendido en Amazon al menos (sin ranking, al final y por fecha). El resto
-    se aplaza: vuelve a salir en la próxima descarga y entra entonces."""
+    se aplaza (vuelve a la cola de pendientes). Para que el fondo no espere para siempre detrás de las novedades,
+    una cuarta parte del cupo es de los que llevan aplazados desde antes (`waiting`: ASIN → primer día en cola)."""
     today = date.fromisoformat(day)
+    waiting, since = waiting or {}, {}
+    for record in candidates:
+        days = [waiting[a] for a in record_asins(record) if a in waiting and waiting[a] < day]
+        if days:
+            since[id(record)] = min(days)
     window = ((today - timedelta(days=60)).isoformat(), (today + timedelta(days=183)).isoformat())
 
     def rank(record):
@@ -1013,7 +1060,26 @@ def priorizar(candidates, day, limit):
         fresh = window[0] <= published <= window[1]
         return (not fresh, 0 if fresh else sales_rank(record), [-ord(c) for c in published])
     ordered = sorted(candidates, key=rank)
-    return ordered[:limit], len(ordered[limit:])
+    oldest = sorted((r for r in ordered if id(r) in since), key=lambda r: since[id(r)])[:limit // 4]
+    first = {id(r) for r in oldest}
+    ordered = oldest + [r for r in ordered if id(r) not in first]
+    return ordered[:limit], ordered[limit:]
+
+
+def registrar_ingesta(root, day, books):
+    """Registro de procedencia en data/reading-intake-state.json: cada libro automático (isbn-) publicado
+    consta allí. import-reading-sheet.py exige ese registro para conservar los libros que no vienen de la hoja."""
+    path = root / 'data/reading-intake-state.json'
+    state = read_json(path, {'schema_version': 1, 'items': {}})
+    for book in books:
+        entry = 'isbn13:' + book['isbn13']
+        previous = state['items'].get(entry, {})
+        state['items'][entry] = {**previous, 'isbn13': book['isbn13'], 'estado_ingesta': 'publicado',
+                                 'libro_id': book['id'], 'fuente': 'amazon_catalogo',
+                                 'primera_deteccion': previous.get('primera_deteccion', day),
+                                 'publicado_en': previous.get('publicado_en', day)}
+    state['items'] = dict(sorted(state['items'].items()))
+    write_json(path, state)
 
 
 def aplicar(day, tag, candidates, transform_failures, root=ROOT):
@@ -1169,6 +1235,7 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT):
     catalogue['categorias'] = [c for c in catalogue['categorias'] if c['id'] in used or c['id'] in base_categories]
     builder.validate(catalogue, root)
     write_json(root / 'data/reading-catalogue.json', catalogue)
+    registrar_ingesta(root, day, [b for b in catalogue['libros'] if b['id'] in added])
     # Solo los libros que han quedado publicados apuntan autores y sellos pendientes de ficha.
     for book in [b for b in catalogue['libros'] if b['id'] in added]:
         if not book.get('editorial_slug') and not book.get('editorial_catalogo_slug'):
@@ -1270,17 +1337,38 @@ def main(argv=None):
     tag, cfg = config()
     report = {'dia': args.dia, 'inicio': datetime.now().isoformat(timespec='seconds')}
     started = time.monotonic()
+    limit = args.altas or cfg.get('max_altas', 1000)
     if args.fase in ('descargar', 'todo'):
         budget = args.peticiones or cfg.get('max_requests', 1500)
-        if cfg.get('semillas_sitemaps', 2):
+        raw = WORK / 'raw' / f'{args.dia}.jsonl'
+        raw.parent.mkdir(parents=True, exist_ok=True)
+        # Primero lo que ya espera en la cola (aplazados por cupo, huecos, rechazados): son candidatos hechos,
+        # los más antiguos delante. Con cupo propio, no las sobras de las semillas.
+        # Reintentar solo pide lotes de 10 mientras haya vencidos, así que lo no usado vuelve al presupuesto. Una vez
+        # por día: si el lote se relanza (otra pasada de la misma noche), los ya pedidos están en el raw.
+        retry_budget = min(budget // 2, max(budget // 5, -(-3 * limit // 10)))
+        marker = WORK / 'raw' / f'{args.dia}.reintentos.json'
+        if marker.exists():
+            report['reintentos'] = read_json(marker) | {'ya_hechos_hoy': True}
+        else:
+            with raw.open('a', encoding='utf-8') as out:
+                used, due = reintentar(provider(tag), tag, args.dia, out, retry_budget)
+            report['reintentos'] = {'peticiones': used, 'vencidos': due}
+            write_json(marker, report['reintentos'])
+            budget -= used
+        # Con más obras aplazadas de las que caben en tres pasadas no se buscan semillas nuevas: solo crecería la
+        # cola. Cuenta obras (grupo), no ASIN: cada obra trae varias ediciones. Las semillas esperan en semillas.json.
+        backlog = len({row.get('grupo', asin) for asin, row in read_json(pending_path(), {}).items()
+                       if row.get('motivo') == 'aplazado por cupo de altas'})
+        if backlog >= 3 * limit:
+            report['semillas'] = {'en_espera_por_aplazados': backlog, 'peticiones': 0}
+        elif cfg.get('semillas_sitemaps', 2):
             catalogue = read_json(ROOT / 'data/reading-catalogue.json')
             try:
                 added = semillas_ttl(http_get, args.dia, {b.get('isbn13') for b in catalogue['libros']},
                                      cfg.get('semillas_sitemaps', 2))
             except (OSError, ValueError) as exc:  # sin sitemap hoy: la cola de días anteriores sigue valiendo
                 added = f'error: {str(exc)[:120]}'
-            raw = WORK / 'raw' / f'{args.dia}.jsonl'
-            raw.parent.mkdir(parents=True, exist_ok=True)
             with raw.open('a', encoding='utf-8') as out:
                 # Las semillas rinden ~98 %: van primero y a los sellos se les guarda solo una reserva.
                 reserve = cfg.get('reserva_sellos', budget // 4)
@@ -1288,18 +1376,22 @@ def main(argv=None):
             budget -= report['semillas']['peticiones']
         if args.modo == 'sellos':
             report['descargar'] = por_sellos(provider(tag), tag, args.dia, max_requests=budget,
-                                             horizon_days=cfg.get('horizonte_dias', 60))
+                                             horizon_days=cfg.get('horizonte_dias', 60), retry_budget=0)
         else:
-            report['descargar'] = descargar(provider(tag), tag, args.dia, max_requests=budget,
+            report['descargar'] = descargar(provider(tag), tag, args.dia, max_requests=budget, retry_budget=0,
                                             max_depth=args.profundidad if args.profundidad is not None else cfg.get('max_depth', 3))
     if args.fase in ('transformar', 'aplicar', 'todo'):
         catalogue = read_json(ROOT / 'data/reading-catalogue.json')
-        result = transformar(args.dia, catalogue)
-        report['transformar'] = {k: v for k, v in result.items() if k != 'fallos'} | {'rechazos': len(result['fallos'])}
+        result = transformar(args.dia, catalogue, write_pending=args.fase == 'transformar')
+        report['transformar'] = {k: v for k, v in result.items() if k not in ('fallos', 'resueltos', 'cola')} | {'rechazos': len(result['fallos'])}
         if args.fase in ('aplicar', 'todo'):
-            candidates, deferred = priorizar(read_json(WORK / f'candidatos-{args.dia}.json'), args.dia,
-                                             args.altas or cfg.get('max_altas', 1000))
-            report['aplicar'] = aplicar(args.dia, tag, candidates, result['fallos']) | {'aplazados': deferred}
+            pool = read_json(WORK / f'candidatos-{args.dia}.json')
+            previous = result['resueltos']
+            candidates, deferred = priorizar(pool, args.dia, limit, {a: r.get('primera', args.dia) for a, r in previous.items()})
+            report['aplicar'] = aplicar(args.dia, tag, candidates, result['fallos']) | {'aplazados': len(deferred)}
+            published = {b['isbn13'] for b in read_json(ROOT / 'data/reading-catalogue.json')['libros']}
+            report['aplicar']['reencolados'] = reencolar(
+                args.dia, deferred, [r for r in candidates if r['isbn13'] not in published], previous, result['cola'])
         else:
             write_json(WORK / f'fallos-{args.dia}.json', summarize(result['fallos']))
     if args.fase in ('revisar', 'todo'):

@@ -732,7 +732,8 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
     books.sort(key=lambda b:b.get('precios_amazon_revision',''))
     unpriced=sum(not b.get('precios_amazon_revision') for b in books)
     share=max(unpriced,-(-len(books)//max(1,sweep_days)))
-    due=books[:share]
+    # Un lote encadenado la misma noche no repite lo que otro ya revisó hoy.
+    due=[b for b in books[:share] if b.get('precios_amazon_revision')!=day]
     if hasattr(provider,'discover'):
         # A missing Kindle or audiobook is looked for the first night, not when the price turn comes.
         due+=[b for b in books[share:] if needs_discovery(b,now)]
