@@ -119,7 +119,7 @@ def message(book: dict, tag: str) -> str:
     text = (
         f"📚 <b>Novedad de hoy</b>\n\n<b>{escape(book['title'])}</b>\n"
         f"{escape(book['author'])}\n📅 {book['release_date']}\n{genre_line}\n"
-        f'<a href="{escape(url, quote=True)}">Ver en Amazon</a>'
+        f'<a href="{escape(url, quote=True)}">Ver en Amazon</a> · #publicidad'
     )
     return text
 
