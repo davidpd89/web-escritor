@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fetchWithBackoff } from './production-fetch.mjs';
 
 const ROOT=process.cwd();
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
@@ -45,17 +46,7 @@ for(const file of ['manifest.json']){
 }
 
 async function fetchRetry(url){
-  let last;
-  for(let i=0;i<4;i++){
-    try{
-      const r=await fetch(url,{headers:{'cache-control':'no-cache','user-agent':'david-porto-production-asset-parity/1.0'},signal:AbortSignal.timeout(20000)});
-      const body=Buffer.from(await r.arrayBuffer());
-      last={status:r.status,headers:r.headers,body,url:r.url};
-      if(r.status!==429&&(r.status<500||r.status>599))return last;
-    }catch(e){last=e}
-    if(i<3)await new Promise(r=>setTimeout(r,700*(i+1)));
-  }
-  if(last?.status)return last;throw last;
+  return fetchWithBackoff(url,{headers:{'cache-control':'no-cache','user-agent':'david-porto-production-asset-parity/1.0'}},{read:'buffer'});
 }
 async function pool(items,n,fn){let i=0;await Promise.all(Array.from({length:n},async()=>{while(true){const k=i++;if(k>=items.length)return;await fn(items[k])}}))}
 

@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { fetchWithBackoff } from './production-fetch.mjs';
 
 const O=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const S=(process.env.EXPECTED_RELEASE_SHA||'').trim().toLowerCase();
@@ -77,21 +78,11 @@ const semantic=html=>({
 async function get(route){
   const u=new URL(route,O);
   u.searchParams.set('__qa_semantic',S||Date.now().toString(36));
-  let last;
-  for(let i=0;i<3;i++){
-    try{
-      const r=await fetch(u,{
-        redirect:'follow',
-        headers:{'cache-control':'no-cache','user-agent':'david-porto-production-semantic-parity/1.0'},
-        signal:AbortSignal.timeout(20000),
-      });
-      const body=await r.text();
-      if(r.status!==429&&(r.status<500||r.status>599)) return {r,body};
-      last=new Error(`${route}: transient HTTP ${r.status}`);
-    }catch(e){last=e}
-    if(i<2) await new Promise(r=>setTimeout(r,700*(i+1)));
-  }
-  throw last;
+  const r=await fetchWithBackoff(u,{
+    redirect:'follow',
+    headers:{'cache-control':'no-cache','user-agent':'david-porto-production-semantic-parity/1.0'},
+  });
+  return {r,body:r.body};
 }
 async function pool(xs,n,fn){
   let i=0;

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { assertProductionRelease } from './production-release-marker.mjs';
+import { fetchWithBackoff, isTransientStatus } from './production-fetch.mjs';
 
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const SHA=(process.env.EXPECTED_RELEASE_SHA||'').trim();
@@ -67,38 +68,20 @@ assert.deepEqual(forbidden,[],forbidden.join('\n'));
 assert.ok(blocks>=100,`suspiciously few JSON-LD blocks scanned: ${blocks}`);
 assert.ok(internal.size>=25,`suspiciously few internal JSON-LD URLs: ${internal.size}`);
 
-// Con una portada por libro son miles de URL: ante un 429 de Pages paran todos los hilos a la vez
-// (Retry-After si viene; si no, espera creciente) en vez de reintentar cada uno por su cuenta.
-const ATTEMPTS=6;
-let pausedUntil=0;
-const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+// Con una portada por libro son miles de URL: production-fetch.mjs pausa todos los hilos ante un 429.
 async function checkOne(url){
-  let last;
-  for(let attempt=0;attempt<ATTEMPTS;attempt++){
-    const wait=pausedUntil-Date.now();
-    if(wait>0) await sleep(wait);
-    try{
-      const u=new URL(url);
-      u.searchParams.set('__qa_jsonld',SHA||'live');
-      const r=await fetch(u,{
-        redirect:'follow',
-        headers:{'cache-control':'no-cache','user-agent':'david-porto-jsonld-integrity/1.0'},
-        signal:AbortSignal.timeout(20000),
-      });
-      if(r.status===200) return;
-      if(r.status!==429&&(r.status<500||r.status>599)){
-        throw new Error(`HTTP ${r.status}`);
-      }
-      last=new Error(`transient HTTP ${r.status}`);
-      if(r.status===429){
-        const after=Number(r.headers.get('retry-after'));
-        const pause=Number.isFinite(after)&&after>0?Math.min(after,60)*1000:Math.min(2000*2**attempt,30000);
-        pausedUntil=Math.max(pausedUntil,Date.now()+pause);
-      }
-    }catch(e){last=e}
-    if(attempt<ATTEMPTS-1) await sleep(Math.min(500*2**attempt,8000)+Math.random()*250);
-  }
-  throw new Error(`${url}: ${last?.message||last}; referenced by ${internal.get(url).slice(0,4).join(' | ')}`);
+  const u=new URL(url);
+  u.searchParams.set('__qa_jsonld',SHA||'live');
+  let problem;
+  try{
+    const r=await fetchWithBackoff(u,{
+      redirect:'follow',
+      headers:{'cache-control':'no-cache','user-agent':'david-porto-jsonld-integrity/1.0'},
+    },{read:'none'});
+    if(r.status===200) return;
+    problem=`${isTransientStatus(r.status)?'transient ':''}HTTP ${r.status}`;
+  }catch(e){problem=e?.message||String(e)}
+  throw new Error(`${url}: ${problem}; referenced by ${internal.get(url).slice(0,4).join(' | ')}`);
 }
 
 const urls=[...internal.keys()];
