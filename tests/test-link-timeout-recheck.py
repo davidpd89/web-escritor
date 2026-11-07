@@ -45,4 +45,41 @@ for code, status, expected in [(0,'200',True),(0,'204',True),(22,'404',False),(0
         args = execute.call_args.args[0]
         assert '--fail' in args and '--location' in args and '--ipv4' in args
         assert args[-2:] == ['--url',url]
-print('PASS link timeout recheck: only actual 2xx clears timeout/transport errors; HTTP errors, loops and unknown reports stay fatal')
+# Quarantine (2026-11-07): exact host, <=14 days, only unreachable/5xx.
+import io, json, os, tempfile
+from contextlib import redirect_stdout
+from datetime import date
+with tempfile.TemporaryDirectory() as tmp:
+    tmp = Path(tmp)
+    def run_with(entries, results, today=date(2026, 11, 10)):
+        (tmp/'q.json').write_text(json.dumps(entries), encoding='utf-8')
+        report = '| Errors | 0 |\n' + ''.join(f'* [TIMEOUT] <{r["url"]}>\n' for r in results)
+        (tmp/'out.md').write_text(report, encoding='utf-8')
+        by_url = {r['url']: r for r in results}
+        with patch.object(module, 'check_url', side_effect=lambda u: dict(by_url[u])), patch.dict(os.environ, {'GITHUB_STEP_SUMMARY': str(tmp/'summary.md')}), redirect_stdout(io.StringIO()):
+            return module.run(tmp/'out.md', tmp/'res.json', tmp/'q.json', today)
+    entry = {'host': 'down.example.org', 'reason': 'TCP sin respuesta', 'added': '2026-11-07', 'expires': '2026-11-21'}
+    down = {'url': 'https://down.example.org/manuscritos/', 'ok': False, 'status': '000', 'exit': 28}
+    assert run_with([entry], [down]) == 0
+    saved = json.loads((tmp/'res.json').read_text(encoding='utf-8'))
+    assert saved[0]['quarantine']['host'] == 'down.example.org'
+    assert 'down.example.org/manuscritos/' in (tmp/'summary.md').read_text(encoding='utf-8')
+    assert run_with([entry], [dict(down, status='503', exit=22)]) == 0
+    assert run_with([], [down]) == 1, 'without quarantine an unreachable host fails'
+    assert run_with([entry], [down], today=date(2026, 11, 22)) == 1, 'expired quarantine fails again'
+    assert run_with([entry], [dict(down, status='404', exit=22)]) == 1, 'a 4xx is never quarantined'
+    assert run_with([entry], [dict(down, status='301', exit=47)]) == 1, 'redirect loops are never quarantined'
+    assert run_with([entry], [dict(down, url='https://sub.down.example.org/x')]) == 1, 'host must match exactly'
+    assert run_with([entry], [dict(down, url='https://down.example.org.evil.test/x')]) == 1
+    other = {'url': 'https://other.example.org/', 'ok': False, 'status': '000', 'exit': 28}
+    assert run_with([entry], [down, other]) == 1, 'quarantine never covers other hosts'
+    for bad in [dict(entry, expires='2026-11-22'), dict(entry, expires='2026-11-06'), dict(entry, host='*.example.org'),
+                dict(entry, host='https://down.example.org'), dict(entry, reason=''), dict(entry, added=20261107),
+                {k: v for k, v in entry.items() if k != 'expires'}, 'down.example.org']:
+        assert run_with([bad], [down]) == 1, f'invalid quarantine must fail: {bad!r}'
+    (tmp/'q.json').write_text('{not json', encoding='utf-8')
+    with redirect_stdout(io.StringIO()):
+        assert module.run(tmp/'out.md', tmp/'res.json', tmp/'q.json') == 1
+# The committed quarantine itself must be valid.
+module.load_quarantine(ROOT/'.linkcheck-quarantine.json', date.today())
+print('PASS link timeout recheck: only actual 2xx clears timeout/transport errors; HTTP errors, loops and unknown reports stay fatal; quarantine only excuses listed unreachable hosts until it expires')
