@@ -20,8 +20,11 @@ Si tras el último reintento siguen sin llegar, pasan a `descartados.jsonl`.
 
 Los sellos grandes (Planeta, Random House…) llenan los 100 resultados de una búsqueda con preventas de
 dentro de un año y nunca llegan a las novedades del mes. Por eso las altas también se descubren por ISBN:
-el sitemap de todostuslibros (CEGAL) trae miles de fichas recientes al día y Amazon acepta hasta 10 ISBN
-por búsqueda separados por «|» (`semillas_ttl` → `por_isbn`, cola en `.local/catalogo/semillas.json`).
+el sitemap de todostuslibros (CEGAL) trae miles de fichas recientes al día (`semillas_ttl` → `por_isbn`, cola
+en `.local/catalogo/semillas.json`). Los ISBN 978 se piden con getItems: su ISBN-10 es el ASIN del papel
+(10 por petición, exacto; el mismo patrón que usan clientes públicos de PA-API). Los 979 no tienen ISBN-10 y
+van en una búsqueda «isbn|isbn|…» de 10; si vuelve llena (10 resultados), lo que falta pudo quedar fuera por
+el tope y se repite el mismo día en lotes de 5 sin gastar reintento.
 
 `revisar` guarda una foto de los campos de cada libro publicado y la compara con la anterior: los
 campos vaciados o los libros desaparecidos son regresión (código de salida 1).
@@ -275,19 +278,42 @@ def item_isbns(item):
     return {isbn13(v) for v in values if isinstance(v, str)} - {None}
 
 
+def seed_kind(isbn):
+    return 'getitems' if isbn10(isbn) else 'busqueda'
+
+
+CROWDED_BATCH = 5  # repetición de los que una búsqueda llena pudo dejar fuera
+
+
 def seed_batches(due, queue):
-    """Lotes de 10; lo que ya ha fallado varias veces va suelto para que un ISBN raro no arrastre a otros."""
-    group = []
+    """Lotes de 10 por vía (getItems para los 978, búsqueda para los 979); lo que ya ha fallado varias veces
+    va suelto para que un ISBN raro no arrastre a otros."""
+    groups = {}
     for isbn in due:
+        kind = seed_kind(isbn)
         if queue[isbn].get('errores', 0) >= SPLIT_AFTER:
-            yield [isbn]
+            yield kind, [isbn]
             continue
+        group = groups.setdefault(kind, [])
         group.append(isbn)
         if len(group) == 10:
-            yield group
-            group = []
-    if group:
-        yield group
+            yield kind, groups.pop(kind)
+    for kind, group in groups.items():
+        yield kind, group
+
+
+def ask_seeds(prov, tag, kind, batch):
+    """Una petición a Amazon → (items, llena). «Llena» solo en la búsqueda: 10 resultados pueden haber
+    dejado fuera a alguno de los pedidos; getItems devuelve uno por ASIN existente."""
+    common = {'marketplace': 'www.amazon.es', 'partnerTag': tag, 'condition': 'New',
+              'currencyOfPreference': 'EUR', 'resources': RESOURCES}
+    if kind == 'getitems':
+        payload = prov.post(ITEMS, common | {'itemIds': [isbn10(i) for i in batch], 'itemIdType': 'ASIN'}, prov.headers())
+        return amazon_list(amazon_dict(payload.get('itemsResult') or payload.get('itemResults')).get('items')), False
+    payload = prov.post(SEARCH, common | {'searchIndex': 'Books', 'keywords': '|'.join(batch), 'itemCount': 10,
+                                          'availability': 'IncludeOutOfStock'}, prov.headers())
+    items = amazon_list(amazon_dict(payload.get('searchResult')).get('items'))
+    return items, len(items) >= 10
 
 
 def discard_seed(queue, isbn, day, motivo):
@@ -299,25 +325,33 @@ def discard_seed(queue, isbn, day, motivo):
 
 
 def por_isbn(prov, tag, day, out, budget):
-    """Semillas que tocan hoy, de 10 en 10 («isbn|isbn|…» en una sola búsqueda). Solo cuentan (y pasan al raw)
-    los resultados cuyo ISBN se pidió: otra edición no da por encontrada la semilla. Las que Amazon aún no
-    tiene vuelven con el calendario de reintentos; agotado, se descartan con su motivo."""
+    """Semillas que tocan hoy, de 10 en 10 (getItems por ISBN-10 o búsqueda «isbn|isbn|…», ver `seed_batches`).
+    Solo cuentan (y pasan al raw) los resultados cuyo ISBN se pidió: otra edición no da por encontrada la
+    semilla. Las que Amazon aún no tiene vuelven con el calendario de reintentos; agotado, se descartan con su
+    motivo. El informe separa peticiones y hallazgos por vía: `rendimiento` (encontradas por petición) cae si
+    Amazon cambia cómo responde."""
     state = read_json(seeds_path(), {})
     queue = state.get('cola', {})
     due = sorted((row['primera'], isbn) for isbn, row in queue.items() if row.get('siguiente', '') <= day)
     due = [isbn for _, isbn in reversed(due)]  # las altas más recientes primero
     tomorrow = (date.fromisoformat(day) + timedelta(days=1)).isoformat()
     used, found, foreign, failed = 0, set(), 0, 0
-    for batch in seed_batches(due, queue):
-        if used >= budget:
-            break
+    by_kind = {kind: Counter() for kind in ('getitems', 'busqueda')}
+    work = [(kind, batch, True) for kind, batch in seed_batches(due, queue)]
+    work.reverse()  # pila: lo repetido por una búsqueda llena se pide justo después
+    crowded = []
+    while (work or crowded) and used < budget:
+        if crowded and (len(crowded) >= CROWDED_BATCH or not work):
+            kind, batch, first = 'busqueda', crowded[:CROWDED_BATCH], False
+            del crowded[:CROWDED_BATCH]
+        else:
+            kind, batch, first = work.pop()
         used += 1
+        by_kind[kind]['peticiones'] += 1
         try:
-            payload = prov.post(SEARCH, {'marketplace': 'www.amazon.es', 'partnerTag': tag, 'searchIndex': 'Books',
-                                         'keywords': '|'.join(batch), 'itemCount': 10, 'availability': 'IncludeOutOfStock',
-                                         'condition': 'New', 'currencyOfPreference': 'EUR', 'resources': RESOURCES}, prov.headers())
+            items, full = ask_seeds(prov, tag, kind, batch)
         except NotFound:
-            payload = {}
+            items, full = [], False
         except RuntimeError as exc:
             if 'eligibility' in str(exc) or 'HTTP 401' in str(exc):
                 raise
@@ -330,7 +364,7 @@ def por_isbn(prov, tag, day, out, budget):
                     queue[isbn]['siguiente'] = tomorrow
             continue
         wanted, hits = set(batch), set()
-        for item in amazon_list(amazon_dict(payload.get('searchResult')).get('items')):
+        for item in items:
             match = item_isbns(item) & wanted
             if not match:
                 foreign += 1  # otra edición u otro libro: no entra por esta vía
@@ -338,13 +372,18 @@ def por_isbn(prov, tag, day, out, budget):
             hits |= match
             out.write(json.dumps({'nodo': 'isbn', 'ruta': [], 'item': item}, ensure_ascii=False) + '\n')
         found |= hits
+        by_kind[kind]['encontradas'] += len(hits)
         for isbn in batch:
             if isbn in hits:
                 queue.pop(isbn, None)  # desde aquí lo sigue el flujo normal (por ASIN)
                 continue
             row = queue[isbn]
-            row['intentos'] += 1
             row.pop('errores', None)
+            if full and first:  # el tope de 10 pudo dejarlo fuera: no es «Amazon no lo tiene»
+                crowded.append(isbn)
+                by_kind[kind]['desplazadas'] += 1
+                continue
+            row['intentos'] += 1
             if row['intentos'] > len(RETRY_DAYS):
                 row['intentos'] -= 1
                 discard_seed(queue, isbn, day, 'Amazon no lo tiene')
@@ -352,7 +391,9 @@ def por_isbn(prov, tag, day, out, budget):
                 row['siguiente'] = (date.fromisoformat(day) + timedelta(days=RETRY_DAYS[row['intentos'] - 1])).isoformat()
     write_json(seeds_path(), state)
     return {'peticiones': used, 'debidas': len(due), 'encontradas': len(found), 'ajenos': foreign,
-            'lotes_fallidos': failed, 'en_cola': len(queue)}
+            'lotes_fallidos': failed, 'en_cola': len(queue),
+            'rendimiento': round(len(found) / used, 2) if used else None,
+            'por_via': {kind: dict(counts) for kind, counts in by_kind.items() if counts}}
 
 
 def enlaces_path(day):
