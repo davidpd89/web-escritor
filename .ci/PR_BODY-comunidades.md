@@ -53,23 +53,10 @@ Sin workflows nuevos. Ningún secreto, token ni `chat_id` en el repositorio.
 
 ## Verificación (local)
 
-- PASS:
-  - `build-community-page.py --check`
-  - `build-sitemap.py --check`
-  - `build-public-dist.py --check-assetsignore`
-  - `build-reading-catalogue.py --check`
-  - `check-asset-versions.py`
-  - `check-navigation-coverage.py`
-- Pruebas que pasan:
-  - `test-community-page`
-  - `test-header-footer-support-nav`
-  - `test-public-artifact-contract`
-  - `test-v1-font-family-token-contract`
-  - `test-staging-publication-gate`
-- Fallos solo por la codificación de Windows, que pasan con `PYTHONUTF8=1`:
-  - `presskit-numeric-mutants`
-  - `eventos-ferias-fragment-navigation`
-- **Pendiente:** `test-pagefind-artifact-corruption`. Hay que regenerar el índice Pagefind con `pagefind@1.6.0` antes de fusionar.
+- Rama rebasada sobre `main` (20b71198af) y web regenerada con la navegación actual: shell, catálogo, sitemap, Pagefind y `bot-books.json` (commit 18ee1c3724).
+- `/comunidad/` usa `v1-fonts.css?v=3` y `v1-tokens.css?v=3`; `check-asset-versions` pasa.
+- **Buscador del bot:** con el catálogo grande, «neil gaiman» devolvía otros autores llamados Neil. Ahora funciona como un buscador: si algún libro casa con todas las palabras, se descartan los parciales. `node --test tests/test-book-finder.mjs tests/test-community-bot-worker.mjs`: 2/2.
+- **Puerta local** `python scripts/gate-local.py`: 25/26. El fallo era `test-pagefind-artifact-corruption`, porque `/comunidad/` se regeneró después del índice. Reconstruido con `build-pagefind-index.py` (3.003 páginas); el test y `--check` pasan (commit eb6fecd598).
 
 ## Interacción y crecimiento (investigación, `docs/comunidades-plan.md` §12)
 
@@ -89,9 +76,9 @@ Sin workflows nuevos. Ningún secreto, token ni `chat_id` en el repositorio.
 
 ## Al ejecutar la PR (checklist completa)
 
-1. [ ] Sincronizar la rama con `main` y resolver conflictos.
-2. [ ] Regenerar Pagefind con `pagefind@1.6.0` y pasar `test-pagefind-artifact-corruption`.
-3. [ ] Repetir las comprobaciones locales de «Verificación» y lanzar la CI en GitHub Actions hasta verla en verde.
+1. [x] Sincronizar la rama con `main`.
+2. [x] Regenerar Pagefind y pasar `test-pagefind-artifact-corruption`.
+3. [x] Puerta local. [ ] CI de GitHub Actions en verde.
 4. [ ] `powershell -ExecutionPolicy Bypass -File bots/deploy-community-bot.ps1`. Lo hace David porque pide secretos:
    - worker;
    - secretos;
@@ -100,7 +87,7 @@ Sin workflows nuevos. Ningún secreto, token ni `chat_id` en el repositorio.
    - webhook y comandos de Telegram;
    - después, `/setinline` en @BotFather.
 5. [ ] Probar `/libro busco: fantasía para 11 años` en Discord y `@DavidPortoLibrosBot terror` en Telegram.
-6. [ ] Webhooks de Discord y secretos `READING_TELEGRAM_CHANNELS_JSON` y `READING_DISCORD_WEBHOOKS_JSON`, que gestiona David.
+6. [ ] Secreto `READING_TELEGRAM_CHANNELS_JSON`, que gestiona David. Desde #1212, los canales de Discord van en el mismo JSON (`"platform": "discord"` + `webhook`); no hace falta otro secreto.
 7. [ ] Aceptar las directrices de Comunidad de Discord (canales de anuncios y Onboarding).
 8. [ ] Fusionar y publicar. Comprobar `/comunidad/` en producción.
 9. [ ] Después de publicar:

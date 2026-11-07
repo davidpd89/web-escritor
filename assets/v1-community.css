@@ -48,9 +48,10 @@ html.v1 [data-family="community"] svg { width: 1.25rem; height: 1.25rem; flex: n
 .community-platform { margin: 0 0 3rem; scroll-margin-top: 5rem; }
 .community-platform > h2 { font-size: 1.75rem; margin: 0 0 1rem; }
 .community-platform__intro {
-  display: flex; gap: 1rem; align-items: flex-start;
+  display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start;
   background: var(--cm-tint); border-radius: 1rem; padding: 1.25rem; margin-bottom: 1.5rem;
 }
+.community-platform__intro > div { flex: 1 1 14rem; min-width: 0; overflow-wrap: anywhere; }
 .community-platform__intro p { margin: 0 0 .5rem; line-height: 1.55; }
 .community-platform__icon {
   display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; color: #fff; flex: none;
@@ -65,17 +66,17 @@ html.v1 [data-family="community"] svg { width: 1.25rem; height: 1.25rem; flex: n
 .community-block__intro { margin: 0 0 1rem; color: #4a5056; }
 .community-grid {
   list-style: none; margin: 0; padding: 0;
-  display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
 }
 .community-card {
-  display: flex; flex-direction: column; gap: .5rem;
+  display: flex; flex-direction: column; gap: .5rem; min-width: 0; overflow-wrap: anywhere;
   border: 1px solid #d8e2ec; border-radius: .875rem; padding: 1rem 1.1rem; background: #fff;
   scroll-margin-top: 5rem;
 }
 .community-card:target { outline: 3px solid var(--cm-blue); outline-offset: 2px; }
-.community-card__head { display: flex; justify-content: space-between; align-items: flex-start; gap: .5rem; }
+.community-card__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: .5rem; }
 .community-card h4 { font-size: 1.05rem; margin: 0; }
-.community-card__head h4 { flex: 1; align-self: center; }
+.community-card__head h4 { flex: 1 1 8rem; min-width: 0; align-self: center; }
 .community-card__avatar { width: 3rem; height: 3rem; border-radius: 50%; flex: none; object-fit: cover; }
 .community-card p { margin: 0; line-height: 1.5; }
 .community-card__cadence { font: .85rem var(--font-ui); color: #5b6168; margin-top: auto !important; }
@@ -84,12 +85,13 @@ html.v1 [data-family="community"] svg { width: 1.25rem; height: 1.25rem; flex: n
 .community-badge--planned { background: #f1f2f4; color: #4a5056; }
 .community-soon { font: 600 .9rem var(--font-ui); color: #5b6168; }
 .community-join {
-  display: inline-flex; align-items: center; gap: .5rem; align-self: flex-start;
+  display: inline-flex; align-items: center; gap: .5rem; align-self: flex-start; max-width: 100%;
   min-height: 2.75rem; padding: .45rem 1rem; border-radius: .6rem;
   font: 600 .95rem var(--font-ui); text-decoration: none; color: #fff !important;
 }
 .community-join--telegram { background: var(--cm-telegram-text); }
 .community-join--discord { background: var(--cm-discord-text); }
+.community-join span { min-width: 0; }
 .community-join:hover, .community-join:focus-visible { filter: brightness(1.12); }
 
 .community-how, .community-faq, .community-other { margin: 0 0 2.5rem; }
@@ -102,5 +104,8 @@ html.v1 [data-family="community"] svg { width: 1.25rem; height: 1.25rem; flex: n
 .community-other ul { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; list-style: none; padding: 0; margin: 0; font-family: var(--font-ui); }
 
 @media (max-width: 40rem) {
-  .community-platform__intro { flex-direction: column; }
+  /* En columna y con «wrap», la línea toma la anchura del texto más largo y con espaciado amplio salía de la tarjeta. */
+  .community-platform__intro { flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
+  .community-platform__intro > div { flex: none; }
+  .community-platform__icon { align-self: flex-start; }
 }
