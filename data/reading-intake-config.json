@@ -231,13 +231,13 @@
   ],
   "amazon_price_refresh": {
     "enabled": true,
-    "sweep_days": 7,
+    "sweep_days": 1,
     "page_formats_per_run": 0,
     "real_covers_per_run": 0,
     "notes": "page_formats_per_run y real_covers_per_run a 0: las fichas de Amazon (formatos y portadas) las audita sin cupo scripts/reading-amazon-audit.py desde el equipo local, con registro por libro en data/reading-amazon-audit.json. Solo Creators API, ISBN o ASIN verificado, EUR y compra nueva. Cada noche se revisan los libros consultados hace más tiempo, de modo que todo el catálogo se recorre cada sweep_days. El precio de cada formato se guarda en formatos_compra y sigue publicado hasta que llega uno nuevo. La búsqueda por título y autor añade las ediciones Kindle y audiolibro en español. Sin más límite que el de Amazon (8640 peticiones al día); una denegación detiene el lote."
   },
   "amazon_radar": {
-    "enabled": true,
+    "enabled": false,
     "pages": 10,
     "max_requests": 1500,
     "max_depth": 3,
@@ -254,5 +254,11 @@
     "enabled": true,
     "requests_per_run": 10,
     "notes": "Biografía breve de Wikipedia (es) solo para autores bibliográficos sin ficha editorial; valida título exacto, ocupación y no desambiguación."
+  },
+  "amazon_catalogo": {
+    "enabled": true,
+    "peticiones": 600,
+    "altas": 200,
+    "notes": "Fuente de altas nocturnas: scripts/catalogo_amazon.py (semillas ISBN del sitemap de todostuslibros y novedades por sello en Creators API). Estado entre noches en la rama catalogo-estado (scripts/catalogo_estado.py), guardado solo tras poner los libros a salvo en una rama de datos. altas acota cada PR; la cadena nocturna lanza otro lote mientras entren libros. Sustituye a la ingesta editorial y al radar."
   }
 }

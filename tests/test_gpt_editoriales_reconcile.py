@@ -104,8 +104,10 @@ class PublisherReconciliationTests(unittest.TestCase):
         ])
         self.assertEqual({e["problem"] for e in data["integrity_errors"]}, {
             "missing_directory_slug", "missing_catalogue_slug",
-            "two_publisher_targets", "no_publisher_reference",
+            "two_publisher_targets",
         })
+        # El catálogo no crea fichas: sin sello enlazado no es error, se cuenta como pendiente de alta.
+        self.assertEqual(data["books_without_publisher_page"], 1)
 
     def test_invalid_stale_and_recent_checks(self):
         data = report(manual=[

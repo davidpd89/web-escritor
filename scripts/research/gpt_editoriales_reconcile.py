@@ -131,6 +131,7 @@ def reconcile(directory: dict, catalogue_publishers: dict, books: dict,
     links_manual = Counter()
     links_imprints = Counter()
     book_errors = []
+    books_without_publisher_page = []
     for book in books["libros"]:
         if book.get("estado") != "publicado":
             continue
@@ -148,7 +149,8 @@ def reconcile(directory: dict, catalogue_publishers: dict, books: dict,
             if imprint_slug not in imprints:
                 book_errors.append({"book": ident, "problem": "missing_catalogue_slug", "slug": imprint_slug})
         else:
-            book_errors.append({"book": ident, "problem": "no_publisher_reference"})
+            # El catálogo no crea fichas: la editorial va en texto y queda pendiente de alta aparte.
+            books_without_publisher_page.append(ident)
 
     candidates = []
     for slug, row in sorted(imprints.items()):
@@ -212,6 +214,7 @@ def reconcile(directory: dict, catalogue_publishers: dict, books: dict,
         "invalid_verification_slugs": sorted(invalid_checks),
         "without_primary_source_slugs": sorted(no_primary_source),
         "integrity_errors": sorted(book_errors, key=lambda e: (str(e["book"]), e["problem"])),
+        "books_without_publisher_page": len(books_without_publisher_page),
         "imprint_candidates": candidates,
         "publish_changes": False,
     }
