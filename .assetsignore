@@ -42,6 +42,7 @@
 !/assets/
 !/atlas-literario/
 !/clubes-de-lectura/
+!/comunidad/
 !/convocatorias-escritores/
 !/cuaderno/
 !/editoriales/
@@ -84,6 +85,10 @@
 # /apoyar/ V1: solo la página registrada, nunca otros archivos.
 /apoyar/*
 !/apoyar/index.html
+
+# /comunidad/: solo la página generada, nunca otros archivos.
+/comunidad/*
+!/comunidad/index.html
 
 # Rutas gated derivadas de data/content-registry.json.
 /donde-empieza-la-jaula/

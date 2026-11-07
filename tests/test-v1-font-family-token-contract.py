@@ -25,6 +25,10 @@ ALLOWED_DIRECT: dict[str, set[str]] = {
     "v1-ai-authority.css": {
         '"SFMono-Regular",Consolas,"Liberation Mono",monospace',
     },
+    # /comunidad/ usa el titular manuscrito de /apoyar/.
+    "v1-community.css": {
+        "'Yellowtail',var(--font-ui),cursive",
+    },
     "v1-fragments.css": {
         "'Yellowtail',var(--font-ui),cursive",
     },

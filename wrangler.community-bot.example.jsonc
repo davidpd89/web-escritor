@@ -1,0 +1,14 @@
+{
+  // Copiar a wrangler.community-bot.jsonc y desplegar con: npx wrangler deploy -c wrangler.community-bot.jsonc
+  // Secretos: npx wrangler secret put DISCORD_PUBLIC_KEY | TELEGRAM_BOT_TOKEN | TELEGRAM_WEBHOOK_SECRET
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "david-porto-community-bot",
+  "main": "bots/community-bot-worker.mjs",
+  "compatibility_date": "2026-08-21",
+  "workers_dev": true,
+  "ai": { "binding": "AI" },
+  "vars": {
+    "BOT_INDEX_URL": "https://davidportodiaz.com/data/bot-books.json",
+    "BOT_AI": "false"
+  }
+}

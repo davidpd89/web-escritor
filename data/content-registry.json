@@ -95,6 +95,25 @@
       "sourceFile": "redes-sociales/index.html"
     },
     {
+      "id": "community",
+      "url": "/comunidad/",
+      "label": "Comunidad lectora en Telegram y Discord",
+      "shortLabel": "Comunidad",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "site-social-stats",
+      "hubId": "home",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "comunidad"
+      ],
+      "sourceFile": "comunidad/index.html"
+    },
+    {
       "id": "site-privacy",
       "url": "/privacidad.html",
       "label": "Privacidad",
