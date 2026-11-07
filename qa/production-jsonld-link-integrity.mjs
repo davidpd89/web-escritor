@@ -67,9 +67,16 @@ assert.deepEqual(forbidden,[],forbidden.join('\n'));
 assert.ok(blocks>=100,`suspiciously few JSON-LD blocks scanned: ${blocks}`);
 assert.ok(internal.size>=25,`suspiciously few internal JSON-LD URLs: ${internal.size}`);
 
+// Con una portada por libro son miles de URL: ante un 429 de Pages paran todos los hilos a la vez
+// (Retry-After si viene; si no, espera creciente) en vez de reintentar cada uno por su cuenta.
+const ATTEMPTS=6;
+let pausedUntil=0;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function checkOne(url){
   let last;
-  for(let attempt=0;attempt<3;attempt++){
+  for(let attempt=0;attempt<ATTEMPTS;attempt++){
+    const wait=pausedUntil-Date.now();
+    if(wait>0) await sleep(wait);
     try{
       const u=new URL(url);
       u.searchParams.set('__qa_jsonld',SHA||'live');
@@ -83,8 +90,13 @@ async function checkOne(url){
         throw new Error(`HTTP ${r.status}`);
       }
       last=new Error(`transient HTTP ${r.status}`);
+      if(r.status===429){
+        const after=Number(r.headers.get('retry-after'));
+        const pause=Number.isFinite(after)&&after>0?Math.min(after,60)*1000:Math.min(2000*2**attempt,30000);
+        pausedUntil=Math.max(pausedUntil,Date.now()+pause);
+      }
     }catch(e){last=e}
-    if(attempt<2) await new Promise(r=>setTimeout(r,500*(attempt+1)));
+    if(attempt<ATTEMPTS-1) await sleep(Math.min(500*2**attempt,8000)+Math.random()*250);
   }
   throw new Error(`${url}: ${last?.message||last}; referenced by ${internal.get(url).slice(0,4).join(' | ')}`);
 }
