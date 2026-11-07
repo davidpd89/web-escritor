@@ -193,6 +193,84 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertEqual(run(catalog, date(2026, 11, 2), db), [])
         self.assertFalse(db.exists())
 
+    def test_digest_channel_gets_one_daily_message_with_isbn_filter(self):
+        second = {
+            **self.source["libros"][0],
+            "id": "two",
+            "titulo": "Libro dos",
+            "isbn13": "9788401042751",
+            "url_amazon_afiliada": "https://www.amazon.es/dp/8401042755?tag=davidporto-21",
+        }
+        self.source["libros"][0]["isbn13"] = "9788498382372"
+        self.source["libros"].append(second)
+        self.config["channels"].append(
+            {"chat_id": "@novedades", "token_env": "TEST_TOKEN", "mode": "digest"}
+        )
+        result = run(self.catalog(), date(2026, 11, 1), self.root / "state.db")
+        digests = [r for r in result if r["chat_id"] == "@novedades"]
+        self.assertEqual(len(digests), 1)
+        text = digests[0]["text"]
+        self.assertIn("Novedades de hoy (2)", text)
+        self.assertIn("rh=p_66%3A9788498382372%7C9788401042751", text)
+        self.assertIn("tag=davidporto-21", text)
+        self.assertIn("&lt;uno&gt;", text)
+        self.assertEqual(len([r for r in result if r["chat_id"] == "@general"]), 2)
+        self.assertEqual(run(self.catalog(), date(2026, 11, 2), self.root / "s.db"), [])
+
+    def test_discord_channel_posts_digest_by_webhook_without_bot_token(self):
+        self.source["libros"][0]["isbn13"] = "9788498382372"
+        hook = "https://discord.com/api/webhooks/123/abc_DEF-9"
+        self.config["channels"] = [
+            {"platform": "discord", "chat_id": "discord-avisos", "webhook": hook, "mode": "digest"}
+        ]
+        discord = Mock(return_value=("sent", 1234567890123456789))
+        with (
+            patch.dict("os.environ", {}, clear=True),
+            patch("reading_telegram.time.sleep"),
+        ):
+            result = run(self.catalog(), date(2026, 11, 1), self.root / "d.db", True,
+                         sender=Mock(side_effect=AssertionError("telegram")),
+                         discord_sender=discord)
+        self.assertEqual(result[0]["status"], "sent")
+        self.assertEqual(discord.call_args.args[0], hook)
+        self.assertNotIn(hook, json.dumps(result))
+
+    def test_discord_text_is_markdown_and_fits_2000_chars(self):
+        from reading_telegram import to_discord
+
+        html = "📚 <b>Novedades de hoy (2)</b>\n\n" + "\n".join(
+            f"• <b>T&amp;{i}</b> — A" + "x" * 300 for i in range(12)
+        ) + '\n\n<a href="https://www.amazon.es/s?i=stripbooks&amp;rh=p_66%3A1">Ver todas en Amazon</a>'
+        text = to_discord(html)
+        self.assertLessEqual(len(text), 2000)
+        self.assertTrue(text.startswith("📚 **Novedades de hoy (2)**"))
+        self.assertIn("**T&0**", text)
+        self.assertTrue(text.endswith("[Ver todas en Amazon](<https://www.amazon.es/s?i=stripbooks&rh=p_66%3A1>)"))
+
+    def test_discord_channel_requires_a_real_webhook(self):
+        self.config["channels"] = [
+            {"platform": "discord", "chat_id": "discord-avisos", "webhook": "https://example.com/x"}
+        ]
+        with self.assertRaises(ValueError):
+            self.catalog()
+
+    def test_digest_is_sent_once_per_day(self):
+        self.source["libros"][0]["isbn13"] = "9788498382372"
+        self.config["channels"] = [
+            {"chat_id": "@novedades", "token_env": "TEST_TOKEN", "mode": "digest"}
+        ]
+        with (
+            patch.dict("os.environ", {"TEST_TOKEN": "test"}),
+            patch("reading_telegram.time.sleep"),
+        ):
+            sender = Mock(return_value=("sent", 7))
+            db = self.root / "digest.db"
+            run(self.catalog(), date(2026, 11, 1), db, True, sender=sender)
+            again = run(self.catalog(), date(2026, 11, 1), db, True, sender=sender)
+        self.assertEqual(sender.call_count, 1)
+        self.assertIsNone(sender.call_args.args[3])
+        self.assertEqual(again, [{"chat_id": "@novedades", "asin": "digest-2026-11-01", "status": "skipped:sent"}])
+
     def test_pending_partial_dates_search_links_and_unpublished(self):
         for field, value in [
             ("fecha_publicacion", "2026-11"),

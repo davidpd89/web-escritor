@@ -84,15 +84,14 @@ class GitHubState:
             db.execute(
                 "CREATE TABLE IF NOT EXISTS deliveries (chat TEXT, asin TEXT, status TEXT, message_id INTEGER, PRIMARY KEY(chat, asin))"
             )
+            keys = [b["asin"] for b in catalog["books"]] + catalog.get("digests", [])
             for channel in catalog["channels"]:
-                for book in catalog["books"]:
-                    status = self.entries.get(
-                        self.key(channel["chat_id"], book["asin"])
-                    )
+                for asin in keys:
+                    status = self.entries.get(self.key(channel["chat_id"], asin))
                     if status:
                         db.execute(
                             "INSERT OR IGNORE INTO deliveries VALUES (?, ?, ?, NULL)",
-                            (channel["chat_id"], book["asin"], status),
+                            (channel["chat_id"], asin, status),
                         )
             db.commit()
 

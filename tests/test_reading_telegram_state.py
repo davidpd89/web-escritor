@@ -122,6 +122,32 @@ class RemoteTelegramStateTests(unittest.TestCase):
             )
         self.assertEqual(result[0]["status"], "skipped:sent")
 
+    def test_digest_delivery_survives_restart(self):
+        catalog = {
+            "channels": [
+                {"chat_id": "private-channel", "token_env": "TEST_TOKEN", "mode": "digest"}
+            ],
+            "books": [{**self.catalog["books"][0], "isbn13": "9788498382372"}],
+            "digests": ["digest-2026-11-01"],
+        }
+        self.store.restore(self.db, catalog)
+        with (
+            patch.dict("os.environ", {"TEST_TOKEN": "test"}),
+            patch("reading_telegram.time.sleep"),
+        ):
+            run(catalog, date(2026, 11, 1), self.db, True,
+                sender=Mock(return_value=("sent", 9)), checkpoint=self.store.checkpoint)
+        restarted = GitHubState(
+            "owner/repo", "github", "private-stable-key-" * 3, session=self.session
+        ).load()
+        fresh_db = self.db.with_name("fresh-digest.db")
+        restarted.restore(fresh_db, catalog)
+        with patch.dict("os.environ", {"TEST_TOKEN": "test"}):
+            result = run(catalog, date(2026, 11, 1), fresh_db, True,
+                         sender=Mock(side_effect=AssertionError("duplicate")),
+                         checkpoint=restarted.checkpoint)
+        self.assertEqual(result[0]["status"], "skipped:sent")
+
     def test_checkpoint_failure_blocks_http(self):
         self.store.restore(self.db, self.catalog)
         self.session.fail = True

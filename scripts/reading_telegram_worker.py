@@ -28,7 +28,13 @@ from reading_editorial_sources import (
 from reading_generic_source import generic_edition, reviewed_hosts
 from reading_intake_core import isbn13, normalize_text
 from reading_planeta_source import planeta_edition
-from reading_telegram import amazon_url, from_reading_catalogue, run, smoke
+from reading_telegram import (
+    amazon_url,
+    digest_key,
+    from_reading_catalogue,
+    run,
+    smoke,
+)
 
 MAIN = "https://raw.githubusercontent.com/davidpd89/web-escritor/main/data/"
 
@@ -84,6 +90,25 @@ def editorial_product(document, url, book, source):
     return next(iter(products)), published
 
 
+AMAZON_FRESH_DAYS = 2
+
+
+def amazon_product(book, url, today):
+    """Books found by the Amazon intake: their source IS the product page, re-read every night."""
+    asin = asin_from_url(url)
+    if not asin:
+        raise SourceError("No direct Amazon product in source")
+    checked = max(
+        str(book.get("precios_amazon_revision") or ""),
+        str(book.get("fecha_verificacion") or ""),
+    )
+    if checked < (today - timedelta(days=AMAZON_FRESH_DAYS)).isoformat():
+        raise SourceError("Amazon product data not refreshed recently")
+    published = book["fecha_publicacion"]
+    date.fromisoformat(published)
+    return asin, published
+
+
 def verified_snapshot(catalogue, intake, today, fetch):
     result = copy.deepcopy(catalogue)
     report = {"checked": 0, "resolved": 0, "pending": [], "verified": []}
@@ -104,11 +129,15 @@ def verified_snapshot(catalogue, intake, today, fetch):
             (s for s in sources if urlsplit(url).hostname in s.get("hosts", [])), None
         )
         try:
-            if not source:
-                raise SourceError("Edition source not configured")
-            report["checked"] += 1
-            document = fetch(url, source)
-            asin, actual_date = editorial_product(document, url, book, source)
+            if urlsplit(url).hostname in {"amazon.es", "www.amazon.es"}:
+                report["checked"] += 1
+                asin, actual_date = amazon_product(book, url, today)
+            else:
+                if not source:
+                    raise SourceError("Edition source not configured")
+                report["checked"] += 1
+                document = fetch(url, source)
+                asin, actual_date = editorial_product(document, url, book, source)
             book["fecha_publicacion"] = actual_date
             book["url_amazon_afiliada"] = amazon_url(asin, tag)
             report["resolved"] += 1
@@ -165,6 +194,7 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None):
         {"date": today.isoformat(), **verification},
     )
     catalog = from_reading_catalogue(root / "catalogue.json", root / "channels.json")
+    catalog["digests"] = [digest_key(today.isoformat())]
     store = None
     if live:
         # This private token file never enters command arguments, reports or Git.

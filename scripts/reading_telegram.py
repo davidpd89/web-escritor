@@ -5,7 +5,8 @@ from __future__ import annotations
 import argparse
 from contextlib import closing
 from datetime import date, datetime
-from html import escape
+from html import escape, unescape
+import math
 import json
 import os
 from pathlib import Path
@@ -13,7 +14,7 @@ import re
 import sqlite3
 import sys
 import time
-from urllib.parse import urlencode
+from urllib.parse import parse_qs, urlencode, urlsplit
 from zoneinfo import ZoneInfo
 
 import requests
@@ -51,7 +52,13 @@ def from_reading_catalogue(path: Path, channels_path: Path) -> dict:
     if not channels or len({c["chat_id"] for c in channels}) != len(channels):
         raise ValueError("Unique channel destinations required")
     for channel in channels:
-        if not channel["chat_id"] or not channel["token_env"]:
+        if channel.get("platform") == "discord":
+            # The webhook URL is the credential: it lives only inside the private channels JSON.
+            if not channel["chat_id"] or not DISCORD_WEBHOOK.fullmatch(
+                channel.get("webhook", "")
+            ):
+                raise ValueError("Missing channel configuration")
+        elif not channel["chat_id"] or not channel["token_env"]:
             raise ValueError("Missing channel configuration")
     categories = {}
     genre_names = {
@@ -91,6 +98,7 @@ def from_reading_catalogue(path: Path, channels_path: Path) -> dict:
                 "title": book["titulo"],
                 "author": ", ".join(book["autores"]),
                 "release_date": published,
+                "isbn13": str(book.get("isbn13") or ""),
                 "categories": categories.get(book["id"], []),
                 "genres": list(
                     dict.fromkeys(
@@ -112,7 +120,54 @@ def from_reading_catalogue(path: Path, channels_path: Path) -> dict:
     }
 
 
+# Amazon.es acepta varios ISBN en el filtro p_66 separados por «|» (probado con 60: devuelve sus ediciones).
+DIGEST_MAX_ISBNS = 60
+DIGEST_MAX_TITLES = 12
+
+
+def isbn_search_url(isbns: list[str], tag: str = "") -> str:
+    query = {"i": "stripbooks", "rh": "p_66:" + "|".join(isbns[:DIGEST_MAX_ISBNS])}
+    if tag:
+        query["tag"] = tag
+    return "https://www.amazon.es/s?" + urlencode(query)
+
+
+def digest_key(day: str) -> str:
+    return f"digest-{day}"
+
+
+def digest(books: list[dict], day: str, tag: str = "") -> dict | None:
+    """One daily message per digest channel: the day's titles and one Amazon link filtered by their ISBNs."""
+    isbns = list(dict.fromkeys(b["isbn13"] for b in books if b.get("isbn13")))
+    if not isbns:
+        return None
+    if not tag:
+        tag = next(
+            (
+                found[0]
+                for b in books
+                if (found := parse_qs(urlsplit(b.get("amazon_url", "")).query).get("tag"))
+            ),
+            "",
+        )
+    lines = [
+        f"• <b>{escape(b['title'])}</b> — {escape(b['author'])}"
+        for b in books[:DIGEST_MAX_TITLES]
+    ]
+    if len(books) > DIGEST_MAX_TITLES:
+        lines.append(f"…y {len(books) - DIGEST_MAX_TITLES} más")
+    url = isbn_search_url(isbns, tag)
+    text = (
+        f"📚 <b>Novedades de hoy ({len(books)})</b>\n\n"
+        + "\n".join(lines)
+        + f'\n\n<a href="{escape(url, quote=True)}">Ver todas en Amazon</a> · #publicidad'
+    )
+    return {"asin": digest_key(day), "digest": True, "text": text, "release_date": day}
+
+
 def message(book: dict, tag: str) -> str:
+    if book.get("digest"):
+        return book["text"]
     url = book.get("amazon_url") or amazon_url(book["asin"], tag)
     genres = book.get("genres", [])
     genre_line = f"🏷️ {escape(', '.join(genres[:3]))}\n" if genres else ""
@@ -122,6 +177,56 @@ def message(book: dict, tag: str) -> str:
         f'<a href="{escape(url, quote=True)}">Ver en Amazon</a>'
     )
     return text
+
+
+DISCORD_WEBHOOK = re.compile(
+    r"https://(?:discord|discordapp)\.com/api/webhooks/\d+/[A-Za-z0-9_-]+"
+)
+DISCORD_MAX_CHARS = 2000
+
+
+def to_discord(text: str) -> str:
+    """Telegram HTML to Discord markdown; drops title lines if the 2000-char limit is hit."""
+    text = re.sub(
+        r'<a href="([^"]+)">(.*?)</a>',
+        lambda m: f"[{m.group(2)}](<{unescape(m.group(1))}>)",
+        text,
+    )
+    lines = unescape(re.sub(r"</?b>", "**", text)).split("\n")
+    while len("\n".join(lines)) > DISCORD_MAX_CHARS:
+        bullets = [i for i, line in enumerate(lines) if line.startswith("• ")]
+        if not bullets:
+            break
+        del lines[bullets[-1]]
+    return "\n".join(lines)[:DISCORD_MAX_CHARS]
+
+
+def send_discord(
+    webhook: str, chat_id: str, text: str, photo_url: str | None = None
+) -> tuple[str, int | None]:
+    """Never expose requests exceptions: the webhook URL is the credential."""
+    try:
+        payload = {"content": to_discord(text), "allowed_mentions": {"parse": []}}
+        if photo_url:
+            payload["embeds"] = [{"image": {"url": photo_url}}]
+        response = requests.post(
+            webhook, params={"wait": "true"}, json=payload, timeout=15
+        )
+        if response.status_code == 200:
+            mid = response.json().get("id")
+            if isinstance(mid, str) and mid.isdigit():
+                return "sent", int(mid)
+        if response.status_code == 429:
+            try:
+                delay = max(1, math.ceil(float(response.json().get("retry_after", 900))))
+            except (ValueError, TypeError, AttributeError):
+                delay = 900
+            return f"retry:{int(time.time()) + delay}", None
+        if 400 <= response.status_code < 500:
+            return "rejected", None
+    except (requests.RequestException, ValueError, AttributeError, TypeError):
+        pass
+    return "uncertain", None
 
 
 def send(
@@ -169,15 +274,22 @@ def run(
     tag: str = "",
     sender=send,
     checkpoint=None,
+    discord_sender=send_discord,
 ) -> list[dict]:
     due = [b for b in catalog["books"] if b["release_date"] == today.isoformat()]
-    jobs = [
-        (c, b)
-        for c in catalog["channels"]
-        for b in due
-        if not c.get("categories")
-        or set(b.get("categories", [])) & set(c["categories"])
-    ]
+    jobs = []
+    for c in catalog["channels"]:
+        mine = [
+            b
+            for b in due
+            if not c.get("categories")
+            or set(b.get("categories", [])) & set(c["categories"])
+        ]
+        if c.get("mode") == "digest":
+            summary = digest(mine, today.isoformat(), tag)
+            jobs += [(c, summary)] if summary else []
+        else:
+            jobs += [(c, b) for b in mine]
     if not live:
         return [
             {"chat_id": c["chat_id"], "status": "preview", "text": message(b, tag)}
@@ -186,7 +298,9 @@ def run(
     if catalog.get("demo", False):
         raise ValueError("Demo catalogs cannot send real messages")
     tokens = {
-        c["token_env"]: os.environ.get(c["token_env"], "") for c in catalog["channels"]
+        c["token_env"]: os.environ.get(c["token_env"], "")
+        for c in catalog["channels"]
+        if c.get("platform") != "discord"
     }
     if not all(tokens.values()):
         raise ValueError("Configure all bot token environment variables before sending")
@@ -222,12 +336,17 @@ def run(
                 checkpoint(
                     db_path
                 )  # Must be durable remotely BEFORE the HTTP side effect.
-            status, mid = sender(
-                tokens[channel["token_env"]],
-                key[0],
-                message(book, tag),
-                book.get("cover_url"),
-            )
+            if channel.get("platform") == "discord":
+                status, mid = discord_sender(
+                    channel["webhook"], key[0], message(book, tag), book.get("cover_url")
+                )
+            else:
+                status, mid = sender(
+                    tokens[channel["token_env"]],
+                    key[0],
+                    message(book, tag),
+                    book.get("cover_url"),
+                )
             db.execute(
                 "UPDATE deliveries SET status=?, message_id=? WHERE chat=? AND asin=?",
                 (status, mid, *key),
@@ -267,6 +386,9 @@ def smoke(
     def test_sender(token, chat_id, text, photo_url=None):
         return sender(token, chat_id, test_text(text), photo_url)
 
+    def test_discord(webhook, chat_id, text, photo_url=None):
+        return send_discord(webhook, chat_id, test_text(text), photo_url)
+
     results = run(
         test_catalog,
         date.fromisoformat(selected[0]["release_date"]),
@@ -274,6 +396,7 @@ def smoke(
         live,
         sender=test_sender,
         checkpoint=checkpoint,
+        discord_sender=test_discord,
     )
     for result in results:
         if "text" in result:
