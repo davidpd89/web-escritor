@@ -20,6 +20,20 @@ No anuncia todos los libros de España: cubre lo incorporado a main desde las fu
 
 Los secretos de Actions son `READING_TELEGRAM_BOT_TOKEN`, `READING_TELEGRAM_CHANNELS_JSON` y `READING_TELEGRAM_STATE_KEY`. No están en el código o en el artefacto público. La configuración y los informes privados se crean en el directorio temporal de cada runner y no se suben como artifacts. Solo se cachean respuestas editoriales públicas.
 
+### Canales del secreto `READING_TELEGRAM_CHANNELS_JSON`
+
+```json
+{"enabled": true, "demo": false, "channels": [
+  {"chat_id": "@novedades", "token_env": "READING_TELEGRAM_BOT_TOKEN", "mode": "digest"},
+  {"chat_id": "@fantasia", "token_env": "READING_TELEGRAM_BOT_TOKEN", "categories": ["fantasia"]},
+  {"platform": "discord", "chat_id": "discord-avisos", "webhook": "https://discord.com/api/webhooks/<id>/<token>", "mode": "digest"}
+]}
+```
+
+- `mode: "digest"`: un mensaje al día con los títulos de hoy y un solo enlace de Amazon filtrado por sus ISBN (`rh=p_66:ISBN|ISBN…`). Sin `mode`: un mensaje por libro con portada.
+- `categories`: slugs de `data/reading-catalogue.json`; el canal solo recibe esos géneros.
+- `platform: "discord"`: publica por webhook (Ajustes del canal → Integraciones → Webhooks). La URL del webhook es la credencial y solo vive en este secreto. Discord comparte el estado y la deduplicación de Telegram; el texto se adapta a markdown y a 2000 caracteres.
+
 La variable de repositorio `READING_TELEGRAM_ENABLED=true` habilita el servicio. Ponerla en false detiene futuros envíos remotos. No hay que iniciar ningún proceso local. Una ejecución que ya esté en marcha debe terminar o cancelarse antes de modificar su estado operativo.
 
 La clave de estado es estable e independiente del token del bot. Renovar el token no debe reiniciar el historial. No rotar la clave de estado arbitrariamente: el servicio detecta que no coincide y bloquea el envío.

@@ -217,6 +217,43 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertEqual(len([r for r in result if r["chat_id"] == "@general"]), 2)
         self.assertEqual(run(self.catalog(), date(2026, 11, 2), self.root / "s.db"), [])
 
+    def test_discord_channel_posts_digest_by_webhook_without_bot_token(self):
+        self.source["libros"][0]["isbn13"] = "9788498382372"
+        hook = "https://discord.com/api/webhooks/123/abc_DEF-9"
+        self.config["channels"] = [
+            {"platform": "discord", "chat_id": "discord-avisos", "webhook": hook, "mode": "digest"}
+        ]
+        discord = Mock(return_value=("sent", 1234567890123456789))
+        with (
+            patch.dict("os.environ", {}, clear=True),
+            patch("reading_telegram.time.sleep"),
+        ):
+            result = run(self.catalog(), date(2026, 11, 1), self.root / "d.db", True,
+                         sender=Mock(side_effect=AssertionError("telegram")),
+                         discord_sender=discord)
+        self.assertEqual(result[0]["status"], "sent")
+        self.assertEqual(discord.call_args.args[0], hook)
+        self.assertNotIn(hook, json.dumps(result))
+
+    def test_discord_text_is_markdown_and_fits_2000_chars(self):
+        from reading_telegram import to_discord
+
+        html = "📚 <b>Novedades de hoy (2)</b>\n\n" + "\n".join(
+            f"• <b>T&amp;{i}</b> — A" + "x" * 300 for i in range(12)
+        ) + '\n\n<a href="https://www.amazon.es/s?i=stripbooks&amp;rh=p_66%3A1">Ver todas en Amazon</a>'
+        text = to_discord(html)
+        self.assertLessEqual(len(text), 2000)
+        self.assertTrue(text.startswith("📚 **Novedades de hoy (2)**"))
+        self.assertIn("**T&0**", text)
+        self.assertTrue(text.endswith("[Ver todas en Amazon](<https://www.amazon.es/s?i=stripbooks&rh=p_66%3A1>)"))
+
+    def test_discord_channel_requires_a_real_webhook(self):
+        self.config["channels"] = [
+            {"platform": "discord", "chat_id": "discord-avisos", "webhook": "https://example.com/x"}
+        ]
+        with self.assertRaises(ValueError):
+            self.catalog()
+
     def test_digest_is_sent_once_per_day(self):
         self.source["libros"][0]["isbn13"] = "9788498382372"
         self.config["channels"] = [
