@@ -6,6 +6,7 @@ on:
       - '**/*.html'
       - 'scripts/recheck-link-timeouts.py'
       - 'tests/test-link-timeout-recheck.py'
+      - '.linkcheck-quarantine.json'
       - 'tests/test-link-check-budget.py'
       - 'scripts/select-link-check-inputs.py'
       - 'tests/test-link-input-selection.py'
@@ -17,6 +18,7 @@ on:
       - '**/*.html'
       - 'scripts/recheck-link-timeouts.py'
       - 'tests/test-link-timeout-recheck.py'
+      - '.linkcheck-quarantine.json'
       - 'tests/test-link-check-budget.py'
       - 'scripts/select-link-check-inputs.py'
       - 'tests/test-link-input-selection.py'
@@ -107,7 +109,7 @@ jobs:
 
       - name: Independently verify transient network/server failures
         if: steps.lychee.outcome == 'failure'
-        run: python3 scripts/recheck-link-timeouts.py --report lychee/out.md --output lychee/timeout-recheck.json
+        run: python3 scripts/recheck-link-timeouts.py --report lychee/out.md --output lychee/timeout-recheck.json --quarantine .linkcheck-quarantine.json
 
       - name: Upload report
         uses: actions/upload-artifact@v6
