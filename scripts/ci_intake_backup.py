@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""¿Carga hoy este cron de respaldo de la ingesta nocturna?
+"""¿Carga este cron de la ingesta nocturna?
 
 La carga tiene un cron principal (00:17 UTC) y dos de respaldo (01:47 y 03:17 UTC). GitHub descarta crons
-cuando hay carga: el 07/11 el de las 00:17 no saltó y esa noche no entró ningún libro. Un respaldo carga
-solo si desde las 00:00 UTC de hoy ninguna otra ejecución del workflow está en curso o en cola, ni ha
-terminado con el job `intake` en verde. Si las cargas de esta noche fallaron, el respaldo reintenta.
+cuando hay carga (07/11: el de las 00:17 no saltó y esa noche no entró ningún libro) y retrasa otros horas
+(06/11: uno a las 03:52). Cada cron carga solo si desde las 00:00 UTC de hoy ninguna otra ejecución del
+workflow está en curso o en cola, ni ha terminado con el job `intake` en verde: así un cron retrasado no
+repite la carga de un respaldo. Si las cargas de esta noche fallaron, el siguiente cron reintenta.
 
 Cuenta el job `intake` y no la ejecución entera: una ejecución en la que el reloj decidió no cargar
 termina en verde sin haber cargado nada.
@@ -68,7 +69,7 @@ def main() -> int:
     except Exception as exc:  # noqa: BLE001 - sin API se carga: mejor un intento de más que una noche perdida
         run, reason = True, f'API no disponible ({type(exc).__name__}): se carga'
     print(f"run={'true' if run else 'false'}")
-    message = f"Cron de respaldo: {'carga' if run else 'no carga'}, {reason}."
+    message = f"Cron nocturno: {'carga' if run else 'no carga'}, {reason}."
     print(message, file=sys.stderr)
     summary = os.environ.get('GITHUB_STEP_SUMMARY')
     if summary:

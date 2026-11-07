@@ -6,8 +6,9 @@ on:
     # Si hay más novedades que cupo, la propia carga encadena la siguiente hasta las 06:00 Madrid, y de día
     # Actions queda libre para el código. Hasta el 06/11 había 8 cron diarios que competían con las PR de código.
     - cron: '17 0 * * *'
-    # Respaldo: GitHub descarta crons con carga y el 07/11 el de las 00:17 no saltó (noche sin libros). Estos dos
-    # solo cargan si esta noche no hay otra carga en verde ni en curso (scripts/ci_intake_backup.py).
+    # Respaldo: GitHub descarta crons con carga (07/11: el de las 00:17 no saltó y no entró ningún libro) y retrasa
+    # otros horas (06/11: uno a las 03:52). Los tres cargan solo si esta noche no hay otra carga en verde ni en
+    # curso (scripts/ci_intake_backup.py), así un cron retrasado no repite la de un respaldo.
     - cron: '47 1 * * *'
     - cron: '17 3 * * *'
   workflow_dispatch:
@@ -34,7 +35,7 @@ jobs:
     outputs:
       run: ${{ steps.madrid.outputs.run }}
     steps:
-      - if: github.event_name == 'schedule' && github.event.schedule != '17 0 * * *'
+      - if: github.event_name == 'schedule'
         uses: actions/checkout@v5
         with:
           sparse-checkout: scripts/ci_intake_backup.py
@@ -49,8 +50,8 @@ jobs:
         run: |
           offset=$(TZ=Europe/Madrid date +%z)
           case "$EVENT:$SCHEDULE:$offset" in
-            schedule:'17 0 * * *':*|workflow_dispatch:*) echo run=true >> "$GITHUB_OUTPUT" ;;
-            schedule:'47 1 * * *':*|schedule:'17 3 * * *':*) python3 scripts/ci_intake_backup.py >> "$GITHUB_OUTPUT" ;;
+            workflow_dispatch:*) echo run=true >> "$GITHUB_OUTPUT" ;;
+            schedule:'17 0 * * *':*|schedule:'47 1 * * *':*|schedule:'17 3 * * *':*) python3 scripts/ci_intake_backup.py >> "$GITHUB_OUTPUT" ;;
             *) echo run=false >> "$GITHUB_OUTPUT" ;;
           esac
   intake:

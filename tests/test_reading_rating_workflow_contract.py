@@ -38,7 +38,7 @@ class RatingWorkflowContract(unittest.TestCase):
         yaml = (ROOT / ".github/workflows/reading-catalogue-sync.yml").read_text(encoding="utf-8")
         # Una sola carga nocturna (06/11: los 8 cron diarios ocupaban Actions de día); se encadena hasta las 06.
         self.assertIn("cron: '17 0 * * *'", yaml)
-        self.assertIn("schedule:'17 0 * * *':*", yaml)
+        self.assertIn("schedule:'17 0 * * *':*|schedule:'47 1 * * *':*|schedule:'17 3 * * *':*) python3 scripts/ci_intake_backup.py", yaml)
         # Más dos respaldos que solo cargan si esa noche no hubo carga (07/11: el de las 00:17 no saltó).
         self.assertEqual(yaml.count("- cron:"), 3)
         self.assertIn("TZ=Europe/Madrid", yaml)
