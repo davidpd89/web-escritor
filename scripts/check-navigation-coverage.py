@@ -11,6 +11,7 @@ non-public content from leaking into navigation/search surfaces.
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 import xml.etree.ElementTree as ET
@@ -18,8 +19,11 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-REGISTRY_PATH = ROOT / "data" / "content-registry.json"
-NAV_PATH = ROOT / "data" / "navigation.json"
+# Los tests de regresión pasan sus variantes por estas variables, en un directorio temporal: escribir sobre los
+# ficheros reales del repo rompía a cualquier otro proceso que los leyera a la vez.
+REGISTRY_PATH = Path(os.environ.get("NAV_COVERAGE_REGISTRY") or ROOT / "data" / "content-registry.json")
+NAV_PATH = Path(os.environ.get("NAV_COVERAGE_NAVIGATION") or ROOT / "data" / "navigation.json")
+WORKS_HTML_OVERRIDE = os.environ.get("NAV_COVERAGE_WORKS_HTML")
 SITEMAP_PATH = ROOT / "sitemap.xml"
 TOOLS_PATH = ROOT / "data" / "tools-hub.json"
 HTML_SITEMAP_PATH = ROOT / "mapa-del-sitio" / "index.html"
@@ -39,7 +43,7 @@ def load_json(path: Path):
     try:
         return json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
-        raise SystemExit(f"FAIL: cannot read {path.relative_to(ROOT)}: {exc}") from exc
+        raise SystemExit(f"FAIL: cannot read {path}: {exc}") from exc
 
 
 def normalize_public_url(value: str) -> str:
@@ -323,7 +327,7 @@ def main() -> int:
             errors.append(f"footer.Obra must keep direct canonical access to {work_id}")
 
     if works_hub and works_hub.get("sourceFile"):
-        works_source = ROOT / works_hub["sourceFile"]
+        works_source = Path(WORKS_HTML_OVERRIDE) if WORKS_HTML_OVERRIDE else ROOT / works_hub["sourceFile"]
         if works_source.is_file():
             works_html = works_source.read_text(encoding="utf-8", errors="replace")
             main_match = re.search(r"<main\b[\s\S]*?</main>", works_html, re.I)

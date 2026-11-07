@@ -179,11 +179,29 @@ ALLOWED_MANIFEST_CATEGORIES = {
 }
 
 
-def registry_data(root: Path) -> dict:
+# El registro crece con el catálogo (1,2 MB con 1.800 libros) e is_publishable() lo consulta por cada fichero:
+# releerlo cada vez hacía cuadrático el artefacto. Se reutiliza mientras no cambien su mtime ni su tamaño.
+_REGISTRY_CACHE: dict = {}
+
+
+def _registry_key(root: Path):
     path = root / "data" / "content-registry.json"
-    if not path.exists():
+    try:
+        st = path.stat()
+    except FileNotFoundError:
+        return path, None
+    return path, (str(path.resolve()), st.st_mtime_ns, st.st_size)
+
+
+def registry_data(root: Path) -> dict:
+    """Registro de contenidos de solo lectura; los llamadores no deben mutarlo."""
+    path, key = _registry_key(root)
+    if key is None:
         return {}
-    return json.loads(path.read_text(encoding="utf-8"))
+    if key not in _REGISTRY_CACHE:
+        _REGISTRY_CACHE.clear()
+        _REGISTRY_CACHE[key] = {"data": json.loads(path.read_text(encoding="utf-8"))}
+    return _REGISTRY_CACHE[key]["data"]
 
 
 def registry_entries(root: Path) -> list[dict]:
@@ -219,6 +237,13 @@ def support_page_authorized(root: Path) -> bool:
 def gated_prefixes_from_registry(root: Path) -> tuple[str, ...]:
     """Directories whose registry status says they must not be published."""
     data = registry_data(root)
+    cached = next(iter(_REGISTRY_CACHE.values()), {}) if data else {}
+    if "gated" not in cached:
+        cached["gated"] = _gated_prefixes(data)
+    return cached["gated"]
+
+
+def _gated_prefixes(data: dict) -> tuple[str, ...]:
     prefixes: set[str] = set()
     for entry in data.get("entries", []):
         if registry_status(entry, data) not in GATED_REGISTRY_STATUS:
