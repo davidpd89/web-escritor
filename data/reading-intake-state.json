@@ -2456,12 +2456,14 @@
         "sinopsis_completa": "",
         "titulo": "Vasmora (Edición limitada en español) (El Bosque Voraz 3)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/x_9788401038204",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 1,
       "isbn13": "9788401038204",
+      "libro_id": "isbn-9788401038204",
       "motivo": "Sinopsis editorial ausente; se conserva la ficha anterior o queda pendiente",
       "primera_deteccion": "2026-11-02",
+      "publicado_en": "2026-11-06",
       "retry_after": "2026-11-08"
     },
     "isbn13:9788401039560": {
@@ -6088,11 +6090,13 @@
       "publicado_en": "2026-11-02"
     },
     "isbn13:9788408325352": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/x_9788408325352",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "isbn13": "9788408325352",
+      "libro_id": "isbn-9788408325352",
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-04",
+      "publicado_en": "2026-11-06",
       "retry_after": "2026-11-07"
     },
     "isbn13:9788408325406": {
@@ -8506,12 +8510,14 @@
         "sinopsis_completa": "Pasa momentos divertidos y relajantes pintando tiendas cuquis.\n\nEntra en un mundo donde el tiempo se detiene y cada rincón invita a sonreír.\n\nDescubre cafeterías con aroma a café recién hecho, librerías llenas de historias, floristerías rebosantes de color, panaderías irresistibles y muchas otras pequeñas tiendas ilustradas con un encanto único.\n\nCon dibujos de líneas sencillas y...",
         "titulo": "Tiendas cuquis para colorear"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.planetadelibros.com/libro-tiendas-cuquis-para-colorear/464639",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 7,
       "isbn13": "9788408330585",
+      "libro_id": "isbn-9788408330585",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
+      "publicado_en": "2026-11-06",
       "retry_after": "2026-11-09"
     },
     "isbn13:9788408330783": {
@@ -8777,12 +8783,14 @@
       "publicado_en": "2026-11-05"
     },
     "isbn13:9788408331025": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/x_9788408331025",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 1,
       "isbn13": "9788408331025",
+      "libro_id": "isbn-9788408331025",
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-06",
       "retry_after": "2026-11-08"
     },
     "isbn13:9788408331087": {
@@ -8858,12 +8866,14 @@
         "sinopsis_completa": "Un amor capaz de desafiar la realidad\n\nLo dejé todo cuando mis padres y yo nos mudamos a Lille. Pensaba que nunca me acostumbraría a este lugar, pero todo cambió cuando conocí a Hadrien. En el instante en que nuestras miradas se cruzaron, aquel chico tan misterioso puso mi vida patas arriba.\n\nNo sé qué esconde, y aun así tengo la extraña sensación de que nuestros caminos tenían que...",
         "titulo": "Te querré para siempre"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.planetadelibros.com/libro-te-querre-para-siempre/465492",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 7,
       "isbn13": "9788408331100",
+      "libro_id": "isbn-9788408331100",
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-02",
+      "publicado_en": "2026-11-06",
       "retry_after": "2026-11-09"
     },
     "isbn13:9788408331131": {
@@ -14696,12 +14706,14 @@
         "sinopsis_completa": "Tres libros. Tres etapas. Un viaje desde aquello que te limita hasta aquello que eres capaz de llegar a ser.\n\nIdentifica y supera los patrones que te hacen infeliz con Tus zonas erróneas; transforma tu realidad con los consejos de Tus zonas mágicas; y trasciende el ego para conectar con tu verdadero yo en Tus zonas sagradas.\n\nUn viaje de transformación personal, desde el poder de la mente hasta...",
         "titulo": "Estuche Tus zonas"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.planetadelibros.com/libro-estuche-tus-zonas/466021",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 4,
       "isbn13": "9788411193979",
+      "libro_id": "isbn-9788411193979",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-02",
+      "publicado_en": "2026-11-06",
       "retry_after": "2026-11-09"
     },
     "isbn13:9788411214797": {
@@ -22713,12 +22725,14 @@
       "publicado_en": "2026-11-06"
     },
     "isbn13:9788426438188": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/tiempo-libre/637845-libro-coleccion-mafalda-11-tomos-en-una-lata-edicion-limitada-9788426438188",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 1,
       "isbn13": "9788426438188",
+      "libro_id": "isbn-9788426438188",
       "motivo": "Tipo de producto no bibliográfico o no admitido",
       "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-06",
       "retry_after": "2026-11-08"
     },
     "isbn13:9788426438249": {
@@ -33962,12 +33976,14 @@
       "publicado_en": "2026-11-06"
     },
     "isbn13:9788467085044": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/x_9788467085044",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 1,
       "isbn13": "9788467085044",
+      "libro_id": "isbn-9788467085044",
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-06",
       "retry_after": "2026-11-08"
     },
     "isbn13:9788467085068": {
@@ -37052,11 +37068,13 @@
       "retry_after": "2026-11-09"
     },
     "isbn13:9791370136413": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/x_9791370136413",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "isbn13": "9791370136413",
+      "libro_id": "isbn-9791370136413",
       "motivo": "Fecha editorial ausente o inválida",
       "primera_deteccion": "2026-11-04",
+      "publicado_en": "2026-11-06",
       "retry_after": "2026-11-07"
     },
     "isbn13:9791370140373": {
@@ -38851,11 +38869,13 @@
       "retry_after": "2027-05-05"
     },
     "isbn13:9791370581633": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/x_9791370581633",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "isbn13": "9791370581633",
+      "libro_id": "isbn-9791370581633",
       "motivo": "Fecha editorial ausente o inválida",
       "primera_deteccion": "2026-11-04",
+      "publicado_en": "2026-11-06",
       "retry_after": "2026-11-07"
     },
     "isbn13:9791370584054": {
@@ -41972,11 +41992,13 @@
       "retry_after": "2026-11-09"
     },
     "isbn13:9791387779788": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/x_9791387779788",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "isbn13": "9791387779788",
+      "libro_id": "isbn-9791387779788",
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-04",
+      "publicado_en": "2026-11-06",
       "retry_after": "2026-11-07"
     },
     "isbn13:9791387780715": {
@@ -48227,12 +48249,14 @@
       "publicado_en": "2026-11-06"
     },
     "isbn13:9791388056369": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/tierra_979-13-88056-36-9",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 1,
       "isbn13": "9791388056369",
+      "libro_id": "isbn-9791388056369",
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
+      "publicado_en": "2026-11-06",
       "retry_after": "2027-05-05"
     },
     "isbn13:9791388069284": {
@@ -56651,11 +56675,13 @@
       "retry_after": "2026-11-07"
     },
     "isbn13:9791399134452": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/x_9791399134452",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "isbn13": "9791399134452",
+      "libro_id": "isbn-9791399134452",
       "motivo": "HTTP Error 404: Not Found",
       "primera_deteccion": "2026-11-04",
+      "publicado_en": "2026-11-06",
       "retry_after": "2026-11-07"
     },
     "isbn13:9791399135602": {
