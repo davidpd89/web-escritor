@@ -177,6 +177,35 @@ def audience(cat_ids):
     return next((name for name, ids in AUDIENCES if cat_ids & ids), None)
 
 
+_AFFINITY = {}
+
+
+def affinity_index(data):
+    """Rasgos de cada libro publicado (categorías activas, edad mínima, público) y cuántos libros tiene cada categoría.
+
+    Se calcula una vez por catálogo: payload() se llama por cada libro y, recalculado en cada llamada, el coste
+    crecía con el cubo del catálogo (la puerta de merge pasó de 45 min con 1.840 libros). La huella detecta
+    altas, bajas, cambios de edad y de relaciones; si cambia, se recalcula.
+    """
+    books = published(data)
+    key = (id(data), id(data['libro_categorias']), len(data['libro_categorias']),
+           tuple((x['id'], x.get('edad_recomendada')) for x in books))
+    if _AFFINITY.get('key') != key:
+        active = {c['id'] for c in data['categorias'] if c['activa']}
+        relations = {}
+        for r in data['libro_categorias']:
+            relations.setdefault(r['libro_id'], set()).add(r['categoria_id'])
+        cats = {x['id']: relations.get(x['id'], set()) & active for x in books}
+        counts = {}
+        for ids in cats.values():
+            for c in ids:
+                counts[c] = counts.get(c, 0) + 1
+        _AFFINITY.update(key=key, books=books, cats=cats, counts=counts,
+                         ages={x['id']: min_age(x) for x in books},
+                         publics={i: audience(ids) for i, ids in cats.items()})
+    return _AFFINITY
+
+
 def affine_books(data, b, cat_ids):
     """Libros publicados del catálogo más parecidos (o del mismo autor), para comparar y enlazar.
 
@@ -185,16 +214,22 @@ def affine_books(data, b, cat_ids):
     """
     names = {c['id']: c['nombre'] for c in data['categorias'] if c['tipo'] in ('genero', 'tematica')}
     wanted = cat_ids & set(names)
-    books = [x for x in published(data) if x['id'] != b['id']]
-    cats = {x['id']: {c['id'] for c in catalogue.categories(data, x)} for x in books}
-    df = {c: sum(c in v for v in cats.values()) + 1 for c in wanted}
-    total = len(books) + 1
+    idx = affinity_index(data)
+    cats, ages, publics = idx['cats'], idx['ages'], idx['publics']
+    own = cats.get(b['id'], set())  # el propio libro no cuenta en la rareza de sus categorías
+    df = {c: idx['counts'].get(c, 0) - (c in own) + 1 for c in wanted}
+    total = len(idx['books']) - (b['id'] in cats) + 1
     age, public = min_age(b), audience(cat_ids)
+    authors = set(b['autores'])
     rows = []
-    for x in books:
+    for x in idx['books']:
+        if x['id'] == b['id']:
+            continue
         shared = wanted & cats[x['id']]
-        author = bool(set(x['autores']) & set(b['autores']))
-        other, other_public = min_age(x), audience(cats[x['id']])
+        author = bool(authors.intersection(x['autores']))
+        if not shared and not author:
+            continue
+        other, other_public = ages[x['id']], publics[x['id']]
         if not author and ((age is not None and other is not None and abs(age - other) > 4)
                            or (public and other_public and public != other_public)):
             continue
