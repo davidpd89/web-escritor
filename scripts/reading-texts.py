@@ -185,11 +185,14 @@ def affinity_index(data):
 
     Se calcula una vez por catálogo: payload() se llama por cada libro y, recalculado en cada llamada, el coste
     crecía con el cubo del catálogo (la puerta de merge pasó de 45 min con 1.840 libros). La huella detecta
-    altas, bajas, cambios de edad y de relaciones; si cambia, se recalcula.
+    altas, bajas, cambios de edad, de relaciones y de categorías activas; si cambia, se recalcula.
     """
     books = published(data)
-    key = (id(data), id(data['libro_categorias']), len(data['libro_categorias']),
-           tuple((x['id'], x.get('edad_recomendada')) for x in books))
+    # Huella por contenido, no por id(): Python reutiliza los id() de objetos liberados y las mutaciones in situ
+    # (activar una categoría, cambiar una relación) no cambian la identidad ni la longitud.
+    key = (tuple((r['libro_id'], r['categoria_id']) for r in data['libro_categorias']),
+           tuple(c['id'] for c in data['categorias'] if c['activa']),
+           tuple((id(x), x['id'], x.get('edad_recomendada')) for x in books))
     if _AFFINITY.get('key') != key:
         active = {c['id'] for c in data['categorias'] if c['activa']}
         relations = {}
