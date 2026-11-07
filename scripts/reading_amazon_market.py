@@ -434,6 +434,11 @@ FORMAT_ORDER=('tapa-blanda','tapa-dura','ebook','audiolibro')
 # Kindle/audiobook editions often appear months after the print one: look again
 # after this long, so books without a digital edition do not spend quota nightly.
 REDISCOVER_AFTER=timedelta(days=90)
+# A book with nothing to buy yet is looked for by title weekly; its printed edition
+# is still asked for every night by ISBN-10 in the shared getItems batches.
+UNLISTED_REDISCOVER_AFTER=timedelta(days=7)
+# Books priced together: their ASINs fill getItems batches of ten across books.
+PRICE_GROUP=50
 
 
 def discovery_index(book):
@@ -444,12 +449,20 @@ def needs_discovery(book,now):
     formats={o['formato'] for o in book.get('formatos_compra',[])}
     if {'ebook','audiolibro'}<=formats:
         return False
-    if not formats:
-        # Nothing to buy yet (new release, ISBN Amazon does not list): search by
-        # title on every sweep; it is a handful of requests against 8640 a day.
-        return True
     searched=book.get('formatos_amazon_buscados')
-    return not searched or now.date()-date.fromisoformat(searched)>=REDISCOVER_AFTER
+    wait=REDISCOVER_AFTER if formats else UNLISTED_REDISCOVER_AFTER
+    return not searched or now.date()-date.fromisoformat(searched)>=wait
+
+
+def price_asins(book,batched=True):
+    """ASINs that price this book: the verified ones or, for a 978 book still without
+    one, its ISBN-10 (the ASIN of the printed edition; the ISBN check in select_offers
+    rejects anything else). {asin: formato or None}."""
+    known=verified_formats(book)
+    if known or not batched:
+        return known
+    alt=isbn10(isbn13(book.get('isbn13')) or '')
+    return {alt:None} if alt else {}
 
 
 # Format selector (twister) of an Amazon product page. Creators search hardly ever
@@ -721,8 +734,9 @@ def merge_sales_ranks(market,ranks,catalogue_ids,now,ttl_days):
 
 def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,sweep_days=7):
     """Nightly sweep: books never priced plus the ones checked longest ago, so the
-    whole catalogue comes round every sweep_days. Known ASINs are priced ten per
-    request; ISBN and format searches run once per book. Prices go into the books;
+    whole catalogue comes round every sweep_days. ASINs are priced ten per request
+    across PRICE_GROUP books (a 978 book without ASIN goes by its ISBN-10); books
+    without ASIN are searched by ISBN on 979 or on their format-search nights. Prices go into the books;
     market only keeps the Amazon.es sales rank of the printed editions seen, for sweep_days+1 days."""
     if not 0<=budget<=AMAZON_DAILY_LIMIT:
         raise ValueError('Price refresh budget outside the Amazon daily limit')
@@ -765,24 +779,29 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
             if not best or best['precio_centimos']>offer['precio_centimos']:
                 found[offer['formato']]=offer
 
-    # Five books hold about ten ASINs: one getItems each group. A group is saved
-    # as soon as it is complete, so a cut-off night still moves the sweep forward.
-    for start in range(0,len(due),5):
-        group=due[start:start+5]
+    # A group fills its getItems batches of ten across books and is saved as soon
+    # as it is complete, so a cut-off night still moves the sweep forward.
+    batched=hasattr(provider,'items')
+    for start in range(0,len(due),PRICE_GROUP):
+        group=due[start:start+PRICE_GROUP]
         found={b['id']:{} for b in group}
         current,priced=group[0],False
         try:
             for current in group:
-                if not verified_formats(current):
-                    # No ASIN yet: the ISBN search finds the printed edition.
+                if not verified_formats(current) and (not price_asins(current,batched) or needs_discovery(current,now)):
+                    # No ASIN yet: the ISBN search finds the printed edition. A 978 book is also
+                    # asked by its ISBN-10 every night; the search, on its format-search nights,
+                    # finds the listing Amazon sells it under when that ASIN has no offer
+                    # (9788491459866 sells as 8497174585). The ASIN found is kept for getItems.
                     keep(found[current['id']],current,ask(provider,current))
                 if hasattr(provider,'discover') and needs_discovery(current,now):
                     # Kindle and audiobook editions have their own ASIN and no ISBN.
                     keep(found[current['id']],current,ask(provider.discover,current))
                     current['formatos_amazon_buscados']=day
             priced=True
-            pending=[(b,asin) for b in group for asin,fmt in verified_formats(b).items() if fmt not in found[b['id']]]
-            if hasattr(provider,'items'):
+            pending=[(b,asin) for b in group for asin,fmt in price_asins(b,batched).items()
+                     if fmt not in found[b['id']] and (fmt or not found[b['id']])]
+            if batched:
                 asins=list(dict.fromkeys(asin for _,asin in pending))
                 for i in range(0,len(asins),10):
                     batch=set(asins[i:i+10])
@@ -790,7 +809,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
                     current=next(iter(owners.values()))
                     payload=ask(provider.items,asins[i:i+10])
                     for book in owners.values():
-                        keep(found[book['id']],book,only_items(payload,set(verified_formats(book))))
+                        keep(found[book['id']],book,only_items(payload,set(price_asins(book))))
             else:
                 for current in {b['id']:b for b,_ in pending}.values():
                     keep(found[current['id']],current,ask(provider,current))
