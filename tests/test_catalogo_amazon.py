@@ -397,7 +397,17 @@ class Priorizar(unittest.TestCase):
                 ('2019-05-01', '2026-10-01', '2027-02-01', '2028-06-01', '2026-11-20')]
         chosen, deferred = ca.priorizar(rows, '2026-11-06', 4)
         self.assertEqual([r['isbn13'] for r in chosen], ['2027-02-01', '2026-11-20', '2026-10-01', '2028-06-01'])
-        self.assertEqual(deferred, 1)
+        self.assertEqual([r['isbn13'] for r in deferred], ['2019-05-01'])
+
+    def test_a_quarter_of_the_quota_goes_to_the_longest_waiting(self):
+        # Sin esto, un libro de fondo aplazado perdería siempre frente a las novedades de cada noche.
+        fresh = [{'asin': f'N{i}', 'isbn13': f'N{i}', 'fecha_publicacion_edicion': '2026-11-01'} for i in range(8)]
+        old = [{'asin': f'F{i}', 'isbn13': f'F{i}', 'fecha_publicacion_edicion': '2001-01-01'} for i in range(3)]
+        waiting = {'F0': '2026-10-01', 'F1': '2026-09-01', 'F2': '2026-11-06'}  # F2 entró hoy: no cuenta
+        chosen, deferred = ca.priorizar(fresh + old, '2026-11-06', 8, waiting)
+        self.assertEqual([r['isbn13'] for r in chosen[:2]], ['F1', 'F0'])
+        self.assertEqual(len(chosen) + len(deferred), 11)
+        self.assertIn('F2', [r['isbn13'] for r in deferred])
 
     def test_backlist_goes_by_amazon_sales_rank_after_new_releases(self):
         ranked = lambda d, r: {'isbn13': d, 'fecha_publicacion_edicion': d,
@@ -549,13 +559,15 @@ class Pendientes(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             ca.WORK = Path(tmp)
             gap = [{'asin': 'A1', 'motivo': 'sin editorial'}, {'asin': 'A2', 'motivo': 'idioma: ingles'}]
-            first = ca.update_pending('2026-11-06', gap, set())
+            first, _ = ca.update_pending('2026-11-06', gap, set())
             self.assertEqual(list(first), ['A1'])  # el idioma no se arregla esperando
             self.assertEqual(first['A1']['siguiente'], '2026-11-07')
-            again = ca.update_pending('2026-11-07', gap[:1], set())
+            again, _ = ca.update_pending('2026-11-07', gap[:1], set())
             self.assertEqual(again['A1']['intentos'], 2)
             self.assertEqual(again['A1']['siguiente'], '2026-11-09')
-            self.assertEqual(ca.update_pending('2026-11-09', [], {'A1'}), {})
+            left, resolved = ca.update_pending('2026-11-09', [], {'A1'})
+            self.assertEqual(left, {})
+            self.assertEqual(resolved['A1']['primera'], '2026-11-06')  # reencolar conserva desde cuándo espera
 
     def test_download_asks_due_pending_items_first_in_batches_of_ten(self):
         class Items(FakeProvider):
@@ -605,6 +617,39 @@ class Pendientes(unittest.TestCase):
         self.assertEqual(sorted(pending), ['D1', 'D1K', 'R1'])
         self.assertEqual((pending['D1']['siguiente'], pending['D1']['intentos']), ('2026-11-06', 0))
         self.assertEqual((pending['R1']['siguiente'], pending['R1']['intentos']), ('2026-11-07', 1))
+
+    def test_requeued_editions_keep_their_group_route_and_first_day(self):
+        record = {'asin': 'D1', 'isbn13': '1', 'item': {'asin': 'D1'}, 'otras_ediciones': [{'asin': 'D1K'}],
+                  'palabras_clave': ['Novela negra', 'Thriller']}
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            ca.reencolar('2026-11-08', [record], [], {'D1': {'primera': '2026-11-01', 'intentos': 2}})
+            pending = ca.read_json(ca.pending_path())
+        self.assertEqual(pending['D1']['primera'], '2026-11-01')
+        self.assertEqual(pending['D1K']['primera'], '2026-11-08')
+        self.assertEqual({pending[a]['grupo'] for a in ('D1', 'D1K')}, {'D1'})
+        # Al volver a pedirlos, la ruta reproduce los nodos que los clasificaron.
+        self.assertEqual(ca.subjects({}, pending['D1']['ruta']), ['Novela negra', 'Thriller'])
+
+    def test_retried_items_carry_their_route_and_editions_are_asked_together(self):
+        class Items(FakeProvider):
+            def post(self, url, body, headers):
+                self.calls.append(body.get('itemIds'))
+                return {'itemsResult': {'items': [{'asin': a} for a in body['itemIds']]}}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            rows = {f'A{i:02}': {'siguiente': '2026-11-06', 'primera': '2026-11-06'} for i in range(9)}
+            rows['ZK'] = {'siguiente': '2026-11-06', 'primera': '2026-11-02', 'grupo': 'Z1', 'ruta': ['Policiaca']}
+            rows['Z1'] = {'siguiente': '2026-11-06', 'primera': '2026-11-02', 'grupo': 'Z1', 'ruta': ['Policiaca']}
+            ca.write_json(ca.pending_path(), rows)
+            prov = Items()
+            raw = Path(tmp) / 'raw.jsonl'
+            with raw.open('w', encoding='utf-8') as out:
+                ca.reintentar(prov, 'tag-21', '2026-11-06', out, 1)
+            lines = [json.loads(x) for x in raw.read_text(encoding='utf-8').splitlines()]
+        self.assertEqual(prov.calls[0][:2], ['Z1', 'ZK'])
+        self.assertEqual(lines[0]['ruta'], ['Policiaca'])
 
     def test_oldest_due_pending_items_are_asked_first(self):
         class Items(FakeProvider):
