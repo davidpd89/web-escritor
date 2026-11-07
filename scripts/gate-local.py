@@ -69,6 +69,7 @@ def run_step(step, values, logs, bash):
 
 
 def main():
+    sys.stdout.reconfigure(encoding='utf-8')
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--skip', action='append', default=[], help='omite los pasos cuyo nombre contiene este texto')
     ap.add_argument('--only', action='append', default=[], help='ejecuta solo los pasos cuyo nombre contiene este texto')
@@ -82,6 +83,11 @@ def main():
     logs.mkdir(parents=True, exist_ok=True)
     values = local_values()
     print(f'{len(chosen)} pasos; logs en {logs}', flush=True)
+    wanted = re.search(r"python-version:\s*'?([\d.]+)", WORKFLOW.read_text(encoding='utf-8'))
+    local = f'{sys.version_info.major}.{sys.version_info.minor}'
+    if wanted and wanted.group(1) != local:
+        print(f'AVISO: Actions usa Python {wanted.group(1)} y aquí hay {local}; '
+              'los códigos de salida de unittest pueden diferir (p. ej. 5 = NO TESTS RAN en >= 3.12)', flush=True)
     results = []
     with ThreadPoolExecutor(max_workers=len(PARALLEL) + 1) as pool:
         futures = [pool.submit(run_step, s, values, logs, bash) for s in chosen if s['name'] in PARALLEL]

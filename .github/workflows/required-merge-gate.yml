@@ -82,9 +82,10 @@ jobs:
         # discover -p <fichero> conserva el sys.path y la carga de siempre; el resumen lista los que fallan.
         run: |
           logs="$RUNNER_TEMP/underscore"; mkdir -p "$logs"
+          # rc 5 = "NO TESTS RAN" (Python >= 3.12): contratos de script que se ejecutan al importar.
           for f in tests/test_*.py; do
             [ -e "$f" ] || continue
-            { python -m unittest discover -s tests -p "${f##*/}" > "$logs/${f##*/}.log" 2>&1 || echo "$f" >> "$logs/failed"; } &
+            { rc=0; python -m unittest discover -s tests -p "${f##*/}" > "$logs/${f##*/}.log" 2>&1 || rc=$?; [ "$rc" -eq 0 ] || [ "$rc" -eq 5 ] || echo "$f" >> "$logs/failed"; } &
             while [ "$(jobs -rp | wc -l)" -ge 4 ]; do wait -n; done
           done
           wait
