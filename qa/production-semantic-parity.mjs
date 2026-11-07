@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { fetchWithBackoff } from './production-fetch.mjs';
+import { auditUrl, fetchWithBackoff } from './production-fetch.mjs';
 
 const O=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const S=(process.env.EXPECTED_RELEASE_SHA||'').trim().toLowerCase();
@@ -76,9 +76,7 @@ const semantic=html=>({
 });
 
 async function get(route){
-  const u=new URL(route,O);
-  u.searchParams.set('__qa_semantic',S||Date.now().toString(36));
-  const r=await fetchWithBackoff(u,{
+  const r=await fetchWithBackoff(auditUrl(route,O),{
     redirect:'follow',
     headers:{'cache-control':'no-cache','user-agent':'david-porto-production-semantic-parity/1.0'},
   });

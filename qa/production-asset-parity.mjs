@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fetchWithBackoff } from './production-fetch.mjs';
+import { auditUrl, fetchWithBackoff } from './production-fetch.mjs';
 
 const ROOT=process.cwd();
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
@@ -62,8 +62,7 @@ await pool([...refs.values()],8,async item=>{
     const local=item.pathname.replace(/^\//,'');
     const bytes=fs.readFileSync(local);
     const query=[...item.queries].find(Boolean)||'';
-    const join=query ? query+'&' : '?';
-    const r=await fetchRetry(`${ORIGIN}${item.pathname}${query}${join}qa_asset=${encodeURIComponent(SHA||'live')}`);
+    const r=await fetchRetry(auditUrl(`${item.pathname}${query}`,ORIGIN));
     assert.equal(r.status,200,`${item.pathname}: HTTP ${r.status}`);
     const ct=(r.headers.get('content-type')||'').toLowerCase();
     assert.doesNotMatch(ct,/text\/html/,`${item.pathname}: asset served as HTML`);

@@ -1,6 +1,11 @@
 import assert from 'node:assert/strict';
 import http from 'node:http';
-import { fetchWithBackoff, isTransientStatus } from '../qa/production-fetch.mjs';
+process.env.EXPECTED_RELEASE_SHA='ABC123';
+const { auditUrl, fetchStats, fetchWithBackoff, isTransientStatus } = await import('../qa/production-fetch.mjs');
+
+// Clave anti-caché común por release: conserva la query y usa el SHA auditado.
+assert.equal(auditUrl('/assets/a.js?v=4','https://example.test').href,'https://example.test/assets/a.js?v=4&__qa_release=abc123');
+assert.equal(auditUrl('https://example.test/x/').href,'https://example.test/x/?__qa_release=abc123');
 
 // Servidor local: /rate da 429 con Retry-After: 1 la primera vez; /other anota cuándo llega cada petición.
 const hits={};
@@ -48,6 +53,9 @@ const rate=await first;
 assert.equal(rate.status,200);
 assert.equal(rate.body,'ok /rate');
 assert.equal(hits['/rate'],2);
+// Ritmo adaptativo: el 429 abrió una separación mínima entre peticiones.
+assert.equal(fetchStats.rateLimited,1);
+assert.equal(fetchStats.maxGapMs,50);
 
 // read:'none' descarta el cuerpo.
 assert.equal((await fetchWithBackoff(`${o}/x`,{},{read:'none'})).body,null);

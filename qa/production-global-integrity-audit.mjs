@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { auditUrl, fetchWithBackoff } from './production-fetch.mjs';
 
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const SHA=(process.env.EXPECTED_RELEASE_SHA||'').trim().toLowerCase();
@@ -16,19 +17,7 @@ const canonicalUrl=u=>{const v=String(u||'').trim();return v===ORIGIN?ORIGIN+'/'
 const locs=x=>[...x.matchAll(/<loc>(.*?)<\/loc>/gis)].map(m=>canonicalUrl(m[1]));
 
 async function get(route){
-  const u=new URL(route,ORIGIN);
-  u.searchParams.set('__qa_global',SHA||Date.now().toString(36));
-  let last;
-  for(let i=0;i<3;i++){
-    try{
-      const r=await fetch(u,{redirect:'follow',headers:{'cache-control':'no-cache','user-agent':'david-porto-global-production-integrity/1.0'},signal:AbortSignal.timeout(20000)});
-      const result={status:r.status,body:await r.text(),url:r.url,headers:r.headers};
-      if(result.status!==429&&(result.status<500||result.status>599)) return result;
-      last=new Error('transient HTTP '+result.status+' for '+route);
-      if(i===2) return result;
-    }catch(e){last=e;await new Promise(r=>setTimeout(r,800*(i+1)))}
-  }
-  throw last;
+  return fetchWithBackoff(auditUrl(route,ORIGIN),{redirect:'follow',headers:{'cache-control':'no-cache','user-agent':'david-porto-global-production-integrity/1.0'}});
 }
 async function pool(xs,n,fn){
   let i=0;

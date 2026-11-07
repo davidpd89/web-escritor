@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { assertProductionRelease } from './production-release-marker.mjs';
-import { fetchWithBackoff, isTransientStatus } from './production-fetch.mjs';
+import { auditUrl, fetchWithBackoff, isTransientStatus } from './production-fetch.mjs';
 
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const SHA=(process.env.EXPECTED_RELEASE_SHA||'').trim();
@@ -70,8 +70,7 @@ assert.ok(internal.size>=25,`suspiciously few internal JSON-LD URLs: ${internal.
 
 // Con una portada por libro son miles de URL: production-fetch.mjs pausa todos los hilos ante un 429.
 async function checkOne(url){
-  const u=new URL(url);
-  u.searchParams.set('__qa_jsonld',SHA||'live');
+  const u=auditUrl(url);
   let problem;
   try{
     const r=await fetchWithBackoff(u,{
