@@ -115,6 +115,44 @@ class EditorialTelegramTests(unittest.TestCase):
         )
         self.assertEqual(len(report["pending"]), 1)
 
+    def test_amazon_intake_book_uses_its_product_page_without_requests(self):
+        book = {
+            **self.book,
+            "fuente_publicacion_url": "https://www.amazon.es/dp/8415955626",
+            "precios_amazon_revision": "2026-11-01",
+        }
+
+        def no_fetch(*args):
+            raise AssertionError("no request expected")
+
+        result, report = verified_snapshot(
+            {"libros": [book]}, self.intake, date(2026, 11, 1), no_fetch
+        )
+        self.assertEqual(report["resolved"], 1)
+        self.assertEqual(
+            result["libros"][0]["url_amazon_afiliada"],
+            "https://www.amazon.es/dp/8415955626?tag=davidporto-21",
+        )
+
+    def test_stale_or_search_amazon_source_stays_pending(self):
+        for extra in [
+            {"fuente_publicacion_url": "https://www.amazon.es/dp/8415955626",
+             "precios_amazon_revision": "2026-10-20"},
+            {"fuente_publicacion_url": "https://www.amazon.es/s?k=9788415955627",
+             "precios_amazon_revision": "2026-11-01"},
+        ]:
+            with self.subTest(extra=extra):
+                result, report = verified_snapshot(
+                    {"libros": [{**self.book, **extra}]},
+                    self.intake,
+                    date(2026, 11, 1),
+                    lambda *_: self.html,
+                )
+                self.assertEqual(report["resolved"], 0)
+                self.assertEqual(
+                    result["libros"][0]["estado"], "pendiente_verificacion_telegram"
+                )
+
     def test_old_books_do_not_generate_editorial_requests(self):
         book = {**self.book, "fecha_publicacion": "2009-06-01"}
         with patch("reading_telegram_worker.editorial_product") as parser:
