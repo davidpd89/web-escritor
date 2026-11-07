@@ -39,7 +39,8 @@ class RatingWorkflowContract(unittest.TestCase):
         # Una sola carga nocturna (06/11: los 8 cron diarios ocupaban Actions de día); se encadena hasta las 06.
         self.assertIn("cron: '17 0 * * *'", yaml)
         self.assertIn("schedule:'17 0 * * *':*", yaml)
-        self.assertEqual(yaml.count("- cron:"), 1)
+        # Más dos respaldos que solo cargan si esa noche no hubo carga (07/11: el de las 00:17 no saltó).
+        self.assertEqual(yaml.count("- cron:"), 3)
         self.assertIn("TZ=Europe/Madrid", yaml)
         # GitHub drops crons: a night batch that published books dispatches the next one.
         self.assertIn("name: Chain the next night batch", yaml)
