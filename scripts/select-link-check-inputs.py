@@ -62,8 +62,12 @@ if __name__=='__main__':
                   os.environ.get('GITHUB_REF',''),full is True or str(full).lower()=='true')
     report=Path('lychee/input-selection.json');report.parent.mkdir(exist_ok=True)
     report.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+    # The list goes in a file, not on the command line: a data PR with ~2.500 new pages
+    # exceeded the kernel's per-argument limit ("Argument list too long") before lychee started.
+    inputs=Path('lychee/inputs.txt')
+    inputs.write_text(''.join('./'+p+'\n' for p in result['files']),encoding='utf-8')
     with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as output:
-        output.write('files='+' '.join('./'+p for p in result['files'])+'\n')
+        output.write('files=--files-from '+inputs.as_posix()+'\n')
     message=f"Link scope: {result['scope']}; {len(result['files'])} HTML pages. {result['reason']}."
     print(message)
     if os.environ.get('GITHUB_STEP_SUMMARY'):

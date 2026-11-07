@@ -4,6 +4,8 @@ import fs from 'node:fs/promises';
 
 const base = process.env.RECOMMENDATIONS_BASE_URL || 'http://127.0.0.1:4173';
 const catalogue = JSON.parse(await fs.readFile('data/reading-catalogue.json', 'utf8'));
+// El catálogo no crea fichas: autores y editoriales sin página se muestran en texto, sin enlace.
+const authorPages = new Set(JSON.parse(await fs.readFile('data/reading-authors.json', 'utf8')).autores.map(a => a.nombre));
 const books = catalogue.libros.filter(b => b.estado === 'publicado');
 const imported = books.filter(b => b.id.startsWith('isbn-'));
 const browser = await chromium.launch({ headless: true });
@@ -39,12 +41,15 @@ try {
     assert.match(await search.getAttribute('rel'), /sponsored/);
     assert.equal(await page.locator('.catalogue-cover-panel > a').getAttribute('href'),await search.getAttribute('href'));
     const authors = await page.locator('.catalogue-author a').count();
-    assert.equal(authors, b.autores.length);
+    assert.equal(authors, b.autores.filter(name => authorPages.has(name)).length);
+    for (const name of b.autores) assert((await page.locator('.catalogue-author').first().innerText()).includes(name));
     const ld = JSON.parse(await page.locator('script[type="application/ld+json"]').first().textContent());
     assert.equal(ld['@graph'].find(x => x['@type'] === 'Book').isbn, b.isbn13);
     assert(!JSON.stringify(ld).includes('aggregateRating'));
+    if (b.editorial_slug || b.editorial_catalogo_slug) {
     const publisherHref = b.editorial_slug ? '/editoriales/' + b.editorial_slug + '/' : '/recomendaciones/editoriales/' + b.editorial_catalogo_slug + '/';
     assert(await page.locator('main a[href="' + publisherHref + '"]').count(), 'La ficha enlaza a la página de su editorial');
+    }
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
   }
   await page.goto(base + '/mapa-del-sitio/');

@@ -674,12 +674,13 @@ def publisher_name(value):
 
 
 def person(name):
-    """«García Márquez, Gabriel» → «Gabriel García Márquez»; «ELI CYMET» → «Eli Cymet»."""
+    """«García Márquez, Gabriel» → «Gabriel García Márquez»; «ELI CYMET» → «Eli Cymet».
+    «Cadoche y Anne de Montarlot, Elisabeth» → «Elisabeth Cadoche y Anne de Montarlot» (split_authors separa después)."""
     from reading_intake_core import clean_author
     name = ' '.join(str(name).split())
     parts = [p.strip() for p in name.split(',')]
-    if (len(parts) == 2 and all(parts) and not re.search(r'\b(?:y|and|et)\b', name)
-            and not re.fullmatch(r'(?:jr|sr|hijo|ii|iii|iv)\.?', key(parts[1]))):  # «Juan Pérez, Jr.» ya está bien
+    if (len(parts) == 2 and all(parts) and not re.search(r'\b(?:y|and|et)\b', parts[1])
+            and not re.fullmatch(r'(?:jr|sr|hijo|ii|iii|iv|varios|otros)\.?', key(parts[1]))):  # «Juan Pérez, Jr.» ya está bien
         name = parts[1] + ' ' + parts[0]
     folded = re.sub(r'[\W_]', '', key(name))
     if folded in {'aavv', 'vvaa', 'varios', 'variosautores'}:
@@ -849,7 +850,10 @@ def to_record(entry, day, proper=None):
                and key(c.get('role', '') or c.get('roleType', '')) in AUTHOR_ROLES]
     if not authors:
         authors = [person(c['name']) for c in contributors if isinstance(c.get('name'), str)][:3]
-    authors = list(dict.fromkeys(a for a in authors if a))
+    # Mismo contrato que el control (normalize-reading-authors.py --check): una persona por elemento,
+    # sin usuarios de redes («Lorena Gascón @lapsicologajaputa») ni parejas en una sola cadena.
+    from reading_intake_core import split_authors
+    authors = split_authors(a for a in authors if a)
     if not authors:
         raise Rejected('sin autoría')
     publisher = publisher_name(byline.get('manufacturer')) or publisher_name(byline.get('brand'))
@@ -1016,6 +1020,22 @@ def priorizar(candidates, day, limit):
     return ordered[:limit], len(ordered[limit:])
 
 
+def registrar_ingesta(root, day, books):
+    """Registro de procedencia en data/reading-intake-state.json: cada libro automático (isbn-) publicado
+    consta allí. import-reading-sheet.py exige ese registro para conservar los libros que no vienen de la hoja."""
+    path = root / 'data/reading-intake-state.json'
+    state = read_json(path, {'schema_version': 1, 'items': {}})
+    for book in books:
+        entry = 'isbn13:' + book['isbn13']
+        previous = state['items'].get(entry, {})
+        state['items'][entry] = {**previous, 'isbn13': book['isbn13'], 'estado_ingesta': 'publicado',
+                                 'libro_id': book['id'], 'fuente': 'amazon_catalogo',
+                                 'primera_deteccion': previous.get('primera_deteccion', day),
+                                 'publicado_en': previous.get('publicado_en', day)}
+    state['items'] = dict(sorted(state['items'].items()))
+    write_json(path, state)
+
+
 def aplicar(day, tag, candidates, transform_failures, root=ROOT):
     from reading_catalogue_publishers import display_name
     from reading_intake_core import normalize_text, publisher_slug
@@ -1169,6 +1189,7 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT):
     catalogue['categorias'] = [c for c in catalogue['categorias'] if c['id'] in used or c['id'] in base_categories]
     builder.validate(catalogue, root)
     write_json(root / 'data/reading-catalogue.json', catalogue)
+    registrar_ingesta(root, day, [b for b in catalogue['libros'] if b['id'] in added])
     # Solo los libros que han quedado publicados apuntan autores y sellos pendientes de ficha.
     for book in [b for b in catalogue['libros'] if b['id'] in added]:
         if not book.get('editorial_slug') and not book.get('editorial_catalogo_slug'):

@@ -158,6 +158,8 @@ def is_technical_use(text: str, word: str, context: str = "") -> bool:
             continue
         if re.match(r"[-_/.][a-z0-9]", after, re.I):
             continue
+        if m.group()[0].isupper() and re.match(r"\s+[A-ZÁÉÍÓÚÑ]", text[m.end():m.end() + 3]):
+            continue  # nombre propio: «Frances Burney»
         return False  # al menos un uso es texto normal
     return True
 

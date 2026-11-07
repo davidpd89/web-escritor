@@ -131,6 +131,36 @@ class ToRecord(unittest.TestCase):
         self.assertEqual([ca.person(n) for n in ('AA.VV.', 'VVAA', 'ANONIMO')], ['Varios autores'] * 2 + ['Anónimo'])
         self.assertEqual(ca.person('ROSA Mª MUÑOZ GÓMEZ'), 'Rosa Mª Muñoz Gómez')
 
+    def test_published_books_are_registered_for_the_sheet_import(self):
+        # import-reading-sheet.py solo conserva un libro isbn- con registro «publicado» que apunte a su id.
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); (root / 'data').mkdir()
+            (root / 'data/reading-intake-state.json').write_text(json.dumps({'schema_version': 1, 'items': {
+                'isbn13:9788400000001': {'isbn13': '9788400000001', 'estado_ingesta': 'pendiente_datos',
+                                         'primera_deteccion': '2026-10-01'}}}), encoding='utf-8')
+            books = [{'id': 'isbn-9788400000001', 'isbn13': '9788400000001'},
+                     {'id': 'isbn-9788400000002', 'isbn13': '9788400000002'}]
+            ca.registrar_ingesta(root, '2026-11-07', books)
+            ca.registrar_ingesta(root, '2026-11-08', books)  # idempotente: no cambia las fechas
+            items = json.loads((root / 'data/reading-intake-state.json').read_text(encoding='utf-8'))['items']
+            self.assertEqual(items['isbn13:9788400000001']['estado_ingesta'], 'publicado')
+            self.assertEqual(items['isbn13:9788400000001']['primera_deteccion'], '2026-10-01')
+            self.assertEqual(items['isbn13:9788400000002']['libro_id'], 'isbn-9788400000002')
+            self.assertEqual(items['isbn13:9788400000002']['publicado_en'], '2026-11-07')
+
+    def test_authors_follow_the_published_one_person_contract(self):
+        # Lo que exige normalize-reading-authors.py --check en CI: sin usuarios de redes y una persona por elemento.
+        from reading_intake_core import split_authors
+        cases = {'Cadoche y Anne de Montarlot, Elisabeth': ['Elisabeth Cadoche', 'Anne de Montarlot'],
+                 'Lorena Gascón @lapsicologajaputa': ['Lorena Gascón'],
+                 'David Super papá (@superpapasoy)': ['David Super papá'],
+                 'Ortega y Gasset, José': ['José Ortega y Gasset']}
+        for raw_name, expected in cases.items():
+            authors = split_authors([ca.person(raw_name)])
+            self.assertEqual(authors, expected, raw_name)
+            self.assertEqual(split_authors(authors), authors)  # idempotente: el control no vuelve a tocarlo
+
     def test_review_fixes_subjects_acronyms_variants_audiobooks(self):
         nodes = [{'displayName': 'Novela histórica'}, {'displayName': 'Novela Historica'},
                  {'displayName': 'Libros en la escuela'}, {'displayName': 'Libros en inglés'}]
