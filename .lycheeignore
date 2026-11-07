@@ -211,3 +211,7 @@ https?://(www\.)?altamarea\.es/.*
 # Apeiron Ediciones (CI 42404656424, 2026-11-07): 403 intermitente a GitHub Actions
 # (dos runs anteriores de la misma rama en verde) y 200 comprobado desde fuera.
 ^https://www\.apeironediciones\.com/(envio-de-originales)?$
+
+# Maeva (CI de #1217, 2026-11-07): 403 a GitHub Actions; 200 desde fuera incluso sin
+# cabeceras de navegador, así que el bloqueo es por IP del runner.
+^https://www\.maeva\.es/(contacto)?$
