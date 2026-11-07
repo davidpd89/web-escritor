@@ -6,6 +6,11 @@ on:
     # Si hay más novedades que cupo, la propia carga encadena la siguiente hasta las 06:00 Madrid, y de día
     # Actions queda libre para el código. Hasta el 06/11 había 8 cron diarios que competían con las PR de código.
     - cron: '17 0 * * *'
+    # Respaldo: GitHub descarta crons con carga (07/11: el de las 00:17 no saltó y no entró ningún libro) y retrasa
+    # otros horas (06/11: uno a las 03:52). Los tres cargan solo si esta noche no hay otra carga en verde ni en
+    # curso (scripts/ci_intake_backup.py), así un cron retrasado no repite la de un respaldo.
+    - cron: '47 1 * * *'
+    - cron: '17 3 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -23,10 +28,6 @@ permissions:
   actions: write
   statuses: write
 
-concurrency:
-  group: reading-catalogue-intake
-  cancel-in-progress: false
-
 jobs:
   clock:
     runs-on: ubuntu-latest
@@ -34,21 +35,34 @@ jobs:
     outputs:
       run: ${{ steps.madrid.outputs.run }}
     steps:
+      - if: github.event_name == 'schedule'
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: scripts/ci_intake_backup.py
+          sparse-checkout-cone-mode: false
       - id: madrid
         env:
           EVENT: ${{ github.event_name }}
           SCHEDULE: ${{ github.event.schedule }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_ID: ${{ github.run_id }}
         # Decided by the cron that fired, not the current hour: a delayed run still counts.
         run: |
           offset=$(TZ=Europe/Madrid date +%z)
           case "$EVENT:$SCHEDULE:$offset" in
-            schedule:'17 0 * * *':*|workflow_dispatch:*) echo run=true >> "$GITHUB_OUTPUT" ;;
+            workflow_dispatch:*) echo run=true >> "$GITHUB_OUTPUT" ;;
+            schedule:'17 0 * * *':*|schedule:'47 1 * * *':*|schedule:'17 3 * * *':*) python3 scripts/ci_intake_backup.py >> "$GITHUB_OUTPUT" ;;
             *) echo run=false >> "$GITHUB_OUTPUT" ;;
           esac
   intake:
     needs: clock
     if: needs.clock.outputs.run == 'true' && vars.READING_INTAKE_ENABLED == 'true' && (github.ref == 'refs/heads/main' || inputs.dry_run)
     runs-on: ubuntu-latest
+    # En el job y no en el workflow: un respaldo que decide no cargar nunca sustituye en la cola a una carga
+    # encadenada pendiente (GitHub deja un solo pendiente por grupo).
+    concurrency:
+      group: reading-catalogue-intake
+      cancel-in-progress: false
     # Dos ciclos de CI de la PR (~75 min cada uno si main avanza y se traslada la carga) más Pages.
     # 2026-11-05: la ejecución 41937351508 se cortó a los 135 min en el segundo ciclo con 22 libros listos.
     timeout-minutes: 240

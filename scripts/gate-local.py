@@ -25,6 +25,10 @@ ROOT = Path(__file__).resolve().parent.parent
 WORKFLOW = ROOT / '.github/workflows/required-merge-gate.yml'
 # Pasos largos e independientes del artefacto: corren en paralelo con el resto.
 PARALLEL = ('Run universal Python contracts', 'Run underscore-named Python contracts')
+# Comprobaciones de otros workflows de la PR que no están en el gate y se escapaban a Actions.
+# 07/11: #1213 pasó la puerta 26/26 y content-indexes falló por un CSS cambiado sin actualizar su hash.
+EXTRA = ({'name': 'Check runtime asset cache-busting versions (content-indexes)',
+          'run': 'python scripts/check-asset-versions.py'},)
 
 
 def git(*args):
@@ -33,7 +37,7 @@ def git(*args):
 
 def steps(path=WORKFLOW):
     job = yaml.safe_load(path.read_text(encoding='utf-8'))['jobs']['required-merge-gate']
-    return [s for s in job['steps'] if 'run' in s and s.get('if') != 'always()']
+    return [s for s in job['steps'] if 'run' in s and s.get('if') != 'always()'] + list(EXTRA)
 
 
 def expand(text, values):
