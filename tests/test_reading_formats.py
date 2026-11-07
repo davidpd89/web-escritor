@@ -22,8 +22,12 @@ class FormatBoxTest(unittest.TestCase):
         order = [box.index(f'data-{kind}-format="{f}"') for f, kind in
                  (('tapa-dura', 'missing'), ('tapa-blanda', 'purchase'), ('ebook', 'purchase'), ('audiolibro', 'missing'))]
         self.assertEqual(order, sorted(order))
-        self.assertIn('<span>Kindle</span><strong>10,44 €</strong>', box)
-        self.assertIn('<span>Tapa blanda</span><strong>Ver precio</strong>', box)
+        self.assertIn('<span>Kindle</span> <strong>10,44 €</strong>', box)
+        self.assertIn('<span>Tapa blanda</span> <strong>Ver precio</strong>', box)
+        # El nombre accesible empieza por el texto visible (Lighthouse «label-in-name»): sin aria-label que lo tape.
+        self.assertNotIn('aria-label="Tapa', box)
+        self.assertNotIn('aria-label="Kindle', box)
+        self.assertIn('<span class="sr-only">: sin precio comprobado', box)
         self.assertNotIn('✕', box)
         self.assertEqual(box.count('rel="sponsored nofollow noopener noreferrer"'), 2)
         self.assertIn('<h2>Formatos y precios en Amazon</h2>', box)
