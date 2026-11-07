@@ -163,6 +163,7 @@ jobs:
           node --check qa/production-metadata-artifacts-audit.mjs
           node --check qa/production-edge-cases.mjs
           node --check qa/production-release-marker.mjs
+          node --check qa/production-fetch.mjs
           node --check qa/production-session-resilience.mjs
           node --check qa/production-pwa-install.mjs
           node --check qa/production-pwa-page-cache.mjs

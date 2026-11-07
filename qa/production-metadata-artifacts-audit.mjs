@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { fetchWithBackoff } from './production-fetch.mjs';
 
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const SHA=(process.env.EXPECTED_RELEASE_SHA||'').trim().toLowerCase();
@@ -40,18 +41,7 @@ function jsonld(html,label){
 async function request(route){
   const u=new URL(route,ORIGIN);
   u.searchParams.set('__qa_meta',SHA||Date.now().toString(36));
-  let last;
-  for(let i=0;i<4;i++){
-    try{
-      const r=await fetch(u,{redirect:'follow',headers:{'cache-control':'no-cache','user-agent':'david-porto-production-metadata-artifacts/1.0'},signal:AbortSignal.timeout(20000)});
-      const body=await r.text();
-      last={status:r.status,headers:r.headers,body,url:r.url};
-      if(r.status!==429&&(r.status<500||r.status>599)) return last;
-    }catch(e){last=e}
-    if(i<3) await new Promise(r=>setTimeout(r,700*(i+1)));
-  }
-  if(last?.status!==undefined) return last;
-  throw last;
+  return fetchWithBackoff(u,{redirect:'follow',headers:{'cache-control':'no-cache','user-agent':'david-porto-production-metadata-artifacts/1.0'}});
 }
 async function pool(xs,n,fn){
   let i=0;
@@ -121,18 +111,7 @@ await pool(pages,10,async x=>{
 async function binary(route){
   const u=new URL(route,ORIGIN);
   u.searchParams.set('__qa_social_image',SHA||Date.now().toString(36));
-  let last;
-  for(let i=0;i<4;i++){
-    try{
-      const r=await fetch(u,{headers:{'cache-control':'no-cache','user-agent':'david-porto-production-social-image/1.0'},signal:AbortSignal.timeout(20000)});
-      const body=Buffer.from(await r.arrayBuffer());
-      last={status:r.status,headers:r.headers,body};
-      if(r.status!==429&&(r.status<500||r.status>599)) return last;
-    }catch(e){last=e}
-    if(i<3) await new Promise(r=>setTimeout(r,700*(i+1)));
-  }
-  if(last?.status!==undefined)return last;
-  throw last;
+  return fetchWithBackoff(u,{headers:{'cache-control':'no-cache','user-agent':'david-porto-production-social-image/1.0'}},{read:'buffer'});
 }
 await pool([...socialImages],8,async route=>{
   try{
