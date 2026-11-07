@@ -20,7 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / '.local/catalogo'
 BRANCH = 'catalogo-estado'
-FILES = ('semillas.json', 'pendientes.json', 'sellos.json', 'rendimiento-sellos.json',
+FILES = ('semillas.json', 'pendientes.json', 'sellos.json', 'rendimiento-sellos.json', 'recorrido-sellos.json',
          'pendientes-creacion.json', 'descartados.jsonl')
 
 
