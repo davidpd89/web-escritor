@@ -22,13 +22,23 @@ DATA_CONTRACTS = (
     'test_reading_llms_index', 'test_reading_multibook_ics_page_parity', 'test_reading_open_graph_book',
     'test_reading_pvp_coherence', 'test_reading_related_books', 'test_reading_taxonomy_derived',
     'test_reading_intake_pipeline.ContractTests.test_catalogue_titles_are_bounded_distinct_and_name_the_author',
+    'test_reading_author_split', 'test_published_book_author_parity', 'test_published_book_jsonld_identity_parity',
+    'test_published_isbn_schema_parity', 'test_book_title_schema_consistency',
 )
+# Familias que solo leen datos: entran todas, también las que se añadan, para que esta lista no se quede atrás de la
+# puerta (faltaban las de mercado y una PR nocturna salió roja por precios sin precios_amazon_revision).
+DATA_FAMILIES = ('test_market_*.py', 'test_*_smoke.py')
+
+
+def contracts():
+    found = {f.stem for pattern in DATA_FAMILIES for f in (ROOT / 'tests').glob(pattern)}
+    return list(DATA_CONTRACTS) + sorted(found - set(DATA_CONTRACTS))
 
 
 def main():
     sys.path.insert(0, str(ROOT / 'tests'))
     start = time.monotonic()
-    suite = unittest.defaultTestLoader.loadTestsFromNames(DATA_CONTRACTS)
+    suite = unittest.defaultTestLoader.loadTestsFromNames(contracts())
     result = unittest.TextTestRunner(verbosity=1).run(suite)
     print(f'datos del catálogo: {result.testsRun} contratos en {time.monotonic() - start:.0f}s')
     return 0 if result.wasSuccessful() else 1
