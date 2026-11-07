@@ -137,6 +137,15 @@ def subjects(categories: str) -> list[str]:
     return found[:2]
 
 
+def ttl_publication_date(document: str) -> str | None:
+    """Solo la fecha de publicación de una ficha, sin las comprobaciones de `ttl_edition` (idioma, formato,
+    sello…): sirve para saber hasta qué día llega una página de un listado ordenado por fecha."""
+    day = re.fullmatch(r'(\d{2})-(\d{2})-(\d{4})', _dd(document, 'Fecha publicación'))
+    edition = next((w for w in _book(document).get('workExample') or [] if isinstance(w, dict)), {})
+    stamp = f'{day.group(3)}-{day.group(2)}-{day.group(1)}' if day else str(edition.get('datePublished', ''))[:10]
+    return stamp if re.fullmatch(r'\d{4}-\d{2}-\d{2}', stamp) else None
+
+
 def ttl_edition(document: str, url: str) -> dict:
     """Edición de una ficha de todostuslibros; lanza SourceError si falta algo comprobable."""
     book = _book(document)

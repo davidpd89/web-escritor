@@ -352,6 +352,72 @@ class Sellos(unittest.TestCase):
             self.assertEqual(prov.calls[2:], ['Plaza & Janes'])  # al día siguiente, directo a la buena
 
 
+    def test_full_publisher_is_split_by_category_and_the_category_classifies(self):
+        # Planeta el 07/11: 100 plazas de preventas de 2027 y ni un libro de esta semana.
+        class Big(FakeProvider):
+            def __init__(self):
+                self.calls = []
+
+            def post(self, url, body, headers):
+                if url == ca.NODES:
+                    self.calls.append(('NODES', body['browseNodeIds'][0]))
+                    return {'browseNodesResult': {'browseNodes': [{'children': [
+                        {'id': '21', 'displayName': 'Thriller'}, {'id': '22', 'displayName': 'Romántica'},
+                        {'id': '23', 'displayName': 'Calendarios y agendas'}]}]}}
+                node, page = body.get('browseNodeId'), body['itemPage']
+                self.calls.append((body['brand'], node, page))
+                if node is None:
+                    return {'searchResult': {'items': [item(f'P{page}{i}', isbn(f'97884{page:02d}{i:05d}'),
+                                                            date='2027-05-01', publisher='Grande') for i in range(10)]}}
+                return {'searchResult': {'items': [item(f'N{node}{i}', isbn(f'978849{node}{i:04d}'), date='2026-11-06',
+                                                        publisher='Grande') for i in range(3)]}}
+
+        prov = Big()
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            out = ca.por_sellos(prov, 'tag-21', '2026-11-06', names=['Grande'], retry_budget=0)
+            raw = [json.loads(line) for line in
+                   (Path(tmp) / 'raw' / '2026-11-06.jsonl').read_text(encoding='utf-8').splitlines()]
+            memory = json.loads((Path(tmp) / 'rendimiento-sellos.json').read_text(encoding='utf-8'))
+        self.assertEqual(prov.calls, [('Grande', None, p) for p in range(1, 11)] + [
+            ('NODES', ca.CATEGORIES_NODE), ('Grande', '21', 1), ('Grande', '22', 1)])  # sin calendarios
+        self.assertEqual({r['nodo']: r['ruta'] for r in raw if r['ruta']},
+                         {'sello:Grande>21': ['Thriller'], 'sello:Grande>22': ['Romántica']})
+        self.assertEqual((out['sellos_llenos'], out['particiones'], out['peticiones'], out['particiones_pendientes']),
+                         (1, 2, 13, 0))
+        self.assertEqual(memory['grande']['particion'], {'libros_es': 106, 'ultima': '2026-11-06'})
+        self.assertNotIn('saltar_hasta', memory['grande'])
+
+    def test_the_walk_resumes_in_the_next_batch_and_restarts_only_when_finished(self):
+        # Cada lote de la noche es un runner nuevo: el recorrido vive en recorrido-sellos.json (catalogo-estado).
+        class Small(FakeProvider):
+            def __init__(self):
+                self.calls = []
+
+            def post(self, url, body, headers):
+                brand = body['brand']
+                self.calls.append(brand)
+                return {'searchResult': {'items': [item(brand + str(i), isbn(f'97884{ord(brand[0]):03d}{i:04d}'),
+                                                        publisher=brand) for i in range(3)]}}
+
+        prov = Small()
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+
+            def walk(day, budget):
+                return ca.por_sellos(prov, 'tag-21', day, max_requests=budget, names=['Alba', 'Bruma', 'Cierzo'],
+                                     retry_budget=0)
+            first = walk('2026-11-06', 1)
+            self.assertEqual((prov.calls, first['sellos_pendientes']), (['Alba'], 2))
+            second = walk('2026-11-06', 10)
+            self.assertEqual((prov.calls[1:], second['sellos_leidos'], second['peticiones']), (['Bruma', 'Cierzo'], 2, 2))
+            self.assertEqual(walk('2026-11-06', 10)['peticiones'], 0)  # terminado hoy: no se repite
+            prov.calls.clear()
+            walk('2026-11-07', 1)
+            third = walk('2026-11-07', 10)
+            self.assertEqual((prov.calls, third['recorrido_desde']), (['Alba', 'Bruma', 'Cierzo'], '2026-11-07'))
+
+
 class Priorizar(unittest.TestCase):
     def test_publisher_legal_form_and_prefix_are_stripped_before_matching(self):
         clean = lambda n: ca.PREFIX.sub('', ca.LEGAL_FORM.sub('', n).strip(' ,'))
@@ -396,7 +462,8 @@ class Priorizar(unittest.TestCase):
         rows = [{'isbn13': d, 'fecha_publicacion_edicion': d} for d in
                 ('2019-05-01', '2026-10-01', '2027-02-01', '2028-06-01', '2026-11-20')]
         chosen, deferred = ca.priorizar(rows, '2026-11-06', 4)
-        self.assertEqual([r['isbn13'] for r in chosen], ['2027-02-01', '2026-11-20', '2026-10-01', '2028-06-01'])
+        # Novedades de la más cercana a hoy a la más lejana (antes del 07/11, la preventa de febrero iba primera).
+        self.assertEqual([r['isbn13'] for r in chosen], ['2026-11-20', '2026-10-01', '2027-02-01', '2028-06-01'])
         self.assertEqual([r['isbn13'] for r in deferred], ['2019-05-01'])
 
     def test_a_quarter_of_the_quota_goes_to_the_longest_waiting(self):
@@ -408,6 +475,19 @@ class Priorizar(unittest.TestCase):
         self.assertEqual([r['isbn13'] for r in chosen[:2]], ['F1', 'F0'])
         self.assertEqual(len(chosen) + len(deferred), 11)
         self.assertIn('F2', [r['isbn13'] for r in deferred])
+
+    def test_each_day_gets_one_book_per_genre_before_a_second_of_any(self):
+        def row(name, day, genre, rank):
+            return {'isbn13': name, 'fecha_publicacion_edicion': day, 'materias': [genre],
+                    'item': {'browseNodeInfo': {'websiteSalesRank': {'salesRank': rank}}}}
+        rows = [row('T1', '2026-11-07', 'Thriller', 10), row('T2', '2026-11-07', 'Thriller', 20),
+                row('T3', '2026-11-07', 'Thriller', 30), row('R1', '2026-11-07', 'Romántica', 500),
+                row('T8', '2026-11-08', 'Thriller', 5), row('A5', '2026-11-05', 'Autoayuda', 900)]
+        chosen, deferred = ca.priorizar(rows, '2026-11-06', 4)
+        # Mañana: el thriller más vendido y la romántica; luego ayer (empate a un día: primero el posterior)
+        # y pasado mañana; los otros dos thrillers de mañana, después.
+        self.assertEqual([r['isbn13'] for r in chosen], ['T1', 'R1', 'A5', 'T8'])
+        self.assertEqual([r['isbn13'] for r in deferred], ['T2', 'T3'])
 
     def test_backlist_goes_by_amazon_sales_rank_after_new_releases(self):
         ranked = lambda d, r: {'isbn13': d, 'fecha_publicacion_edicion': d,
@@ -568,6 +648,99 @@ class Semillas(unittest.TestCase):
             self.assertEqual([(r['isbn13'], r['motivo'][:15]) for r in log], [(bad, 'error de Amazon')])
 
 
+class SemillasFechas(unittest.TestCase):
+    CAT = 'ficcion_3'
+
+    @staticmethod
+    def card(isbn13_):
+        dashed = f'{isbn13_[:3]}-{isbn13_[3:5]}-{isbn13_[5:12]}-{isbn13_[12]}'
+        return (f'<li><a href="https://www.todostuslibros.com/libros/x_{isbn13_}">x</a>'
+                f'<button data-gtm-isbn="{dashed}"></button></li>')
+
+    @staticmethod
+    def ficha(day):
+        return f'<dl><dt>Fecha publicación :</dt><dd>{day[8:]}-{day[5:7]}-{day[:4]}</dd></dl>'
+
+    def site(self, listings):
+        """listings: {(modo, página): [(isbn, fecha), …]} solo para ficción; el resto de categorías, vacías."""
+        pages, asked = {}, []
+        for (mode, page), books in listings.items():
+            order = 'asc' if mode == 'proximas_apariciones' else 'desc'
+            pages[ca.ttl_listing_url(self.CAT, mode, order, page)] = ''.join(self.card(b) for b, _ in books)
+            for b, d in books:
+                pages[f'https://www.todostuslibros.com/libros/x_{b}'] = self.ficha(d)
+
+        def get(url):
+            asked.append(url)
+            return pages.get(url, '<ul class="books"></ul>')
+        return get, asked
+
+    def test_reads_by_date_in_rounds_and_stops_outside_the_window(self):
+        b = [isbn('978841112%03d' % n) for n in range(8)]
+        get, asked = self.site({
+            ('proximas_apariciones', 1): [(b[0], '2026-11-08'), (b[1], '2026-11-09')],
+            ('proximas_apariciones', 2): [(b[2], '2026-11-30'), (b[3], '2026-12-20')],  # 20/12 > hoy+30: para
+            ('novedades', 1): [(b[4], '2026-11-07'), (b[5], '2026-11-05')],
+            ('novedades', 2): [(b[6], '2026-11-01'), (b[7], '2026-10-20')]})  # 20/10 < hoy−7: para
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            out = ca.semillas_fechas(get, '2026-11-07', {b[1]}, pause=0)
+            queue = json.loads(ca.seeds_path().read_text(encoding='utf-8'))['cola']
+            self.assertEqual((out['nuevas'], out['listados_sin_terminar'], out['paginas']), (7, 0, 4))
+            self.assertNotIn(b[1], queue)  # ya en el catálogo
+            # Fecha de orden = donde empieza su página: hoy en la primera, la última de la anterior después.
+            self.assertEqual({i: queue[i]['fecha'] for i in (b[0], b[3], b[4], b[6])},
+                             {b[0]: '2026-11-07', b[3]: '2026-11-09', b[4]: '2026-11-07', b[6]: '2026-11-05'})
+            # Ninguna página 3 de ficción; las 21 categorías vacías, una petición por listado.
+            self.assertFalse([u for u in asked if 'page=3' in u])
+            self.assertEqual(len([u for u in asked if '/categoria/' in u]), 4 + 2 * (len(ca.TTL_CATEGORIES) - 1))
+            # Ronda 1: la página 1 de cada listado antes que cualquier página 2.
+            listings = [u for u in asked if '/categoria/' in u]
+            self.assertTrue(all('page=1' in u for u in listings[:2 * len(ca.TTL_CATEGORIES)]))
+            # Una vez al día: el lote siguiente de la noche no vuelve a leer.
+            asked.clear()
+            self.assertTrue(ca.semillas_fechas(get, '2026-11-07', set(), pause=0)['ya_leidas_hoy'])
+            self.assertEqual(asked, [])
+
+    def test_budget_cuts_the_farthest_pages_and_errors_stop_the_crawl(self):
+        b = [isbn('978841113%03d' % n) for n in range(4)]
+        get, asked = self.site({('proximas_apariciones', 1): [(b[0], '2026-11-08')],
+                                ('proximas_apariciones', 2): [(b[1], '2026-11-10')]})
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            out = ca.semillas_fechas(get, '2026-11-07', set(), max_requests=3, pause=0)
+            self.assertEqual((out['peticiones'], out['nuevas']), (3, 1))  # listado + ficha + novedades vacías
+
+        def down(url):
+            raise OSError('HTTP 503')
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            out = ca.semillas_fechas(down, '2026-11-07', set(), pause=0)
+            self.assertEqual((out['peticiones'], len(out['errores'])), (ca.TTL_STOP_AFTER_ERRORS, 5))
+
+    def test_dated_seeds_are_resolved_closest_first_before_sitemap_ones(self):
+        queue = {'old': {'primera': '2026-11-01'}, 'new': {'primera': '2026-11-06'},
+                 'far': {'primera': '2026-11-07', 'fecha': '2026-12-01'},
+                 'tomorrow': {'primera': '2026-11-07', 'fecha': '2026-11-08'},
+                 'yesterday': {'primera': '2026-11-07', 'fecha': '2026-11-06'},
+                 'today': {'primera': '2026-11-07', 'fecha': '2026-11-07'}}
+        self.assertEqual(ca.seed_order(queue, list(queue), '2026-11-07'),
+                         ['today', 'tomorrow', 'yesterday', 'far', 'new', 'old'])
+
+    def test_with_a_full_backlog_only_dated_seeds_are_asked(self):
+        dated, undated = isbn('978841114001'), isbn('978841114002')
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            ca.write_json(ca.seeds_path(), {'cola': {
+                dated: {'primera': '2026-11-07', 'intentos': 0, 'siguiente': '2026-11-07', 'fecha': '2026-11-08'},
+                undated: {'primera': '2026-11-07', 'intentos': 0, 'siguiente': '2026-11-07'}}})
+            prov = FakeAmazon(have=[dated, undated])
+            with (Path(tmp) / 'raw.jsonl').open('w', encoding='utf-8') as out:
+                res = ca.por_isbn(prov, 'tag', '2026-11-07', out, 5, only_dated=True)
+            self.assertEqual((res['encontradas'], res['en_cola']), (1, 1))
+            self.assertEqual(prov.calls, [('getitems', [ca.isbn10(dated)])])
+
+
 class Enlaces(unittest.TestCase):
     def test_linkless_catalogue_book_is_queued_by_isbn10_and_its_item_kept_for_aplicar(self):
         linkless, linked = '9788408326861', isbn('978849999999')
@@ -710,7 +883,7 @@ class Pendientes(unittest.TestCase):
         try:
             with tempfile.TemporaryDirectory() as tmp:
                 ca.WORK = Path(tmp)
-                ca.config = lambda: ('tag-21', {'semillas_sitemaps': 0, 'max_altas': 2})
+                ca.config = lambda: ('tag-21', {'semillas_sitemaps': 0, 'semillas_fechas': {'peticiones': 0}, 'max_altas': 2})
                 ca.provider = lambda tag: None
 
                 def fake_retry(prov, tag, day, out, budget):

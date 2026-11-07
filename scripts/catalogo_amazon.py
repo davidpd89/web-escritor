@@ -19,9 +19,11 @@ Los huecos que Amazon rellena más tarde (editorial, fecha, autoría…) no tira
 Si tras el último reintento siguen sin llegar, pasan a `descartados.jsonl`.
 
 Los sellos grandes (Planeta, Random House…) llenan los 100 resultados de una búsqueda con preventas de
-dentro de un año y nunca llegan a las novedades del mes. Por eso las altas también se descubren por ISBN:
-el sitemap de todostuslibros (CEGAL) trae miles de fichas recientes al día (`semillas_ttl` → `por_isbn`, cola
-en `.local/catalogo/semillas.json`). Los ISBN 978 se piden con getItems: su ISBN-10 es el ASIN del papel
+dentro de un año y nunca llegan a las novedades del mes. Por eso las altas se descubren por ISBN y por FECHA,
+sin depender de qué sellos conozcamos: los listados por categoría de todostuslibros (CEGAL), en castellano y
+ordenados por fecha de publicación, dan cada noche lo que sale de hoy−7 a hoy+30 (`semillas_fechas`); el
+sitemap añade las altas sueltas (`semillas_ttl`). Todo va a la cola `.local/catalogo/semillas.json` y
+`por_isbn` la resuelve empezando por la fecha más cercana a hoy. Los ISBN 978 se piden con getItems: su ISBN-10 es el ASIN del papel
 (10 por petición, exacto; el mismo patrón que usan clientes públicos de PA-API). Los 979 no tienen ISBN-10 y
 van en una búsqueda «isbn|isbn|…» de 10; si vuelve llena (10 resultados), lo que falta pudo quedar fuera por
 el tope y se repite el mismo día en lotes de 5 sin gastar reintento.
@@ -260,6 +262,118 @@ def semillas_ttl(get, day, known, files=2):
     return added
 
 
+# robots.txt de todostuslibros veta /busquedas pero no /categoria/: los listados de categoría filtran por idioma
+# y ordenan por fecha de publicación (60 libros por página). La tarjeta no trae la fecha; la ficha (permitida)
+# sí: con la última de cada página se sabe hasta qué día llega y dónde parar. Medido el 2026-11-07: infantil,
+# próximas → 9/11 en la página 1, 13/11 en la 3; novedades → 5/11, 2/11, 26/10 en las páginas 1, 2 y 5.
+TTL_HOST = 'https://www.todostuslibros.com'
+TTL_CATEGORIES = (  # las 22 de primer nivel de /categorias/
+    'ficcion_3', 'infantil-y-juvenil_6', 'comic-y-manga_23', 'biografias-y-estudios-literarios_26',
+    'historia-y-arqueologia_5', 'desarrollo-personal-y-relaciones_17', 'mente-cuerpo-y-espiritu_14',
+    'sociedad-y-ciencias-sociales_12', 'filosofia-y-religion_9', 'economia-y-empresa_11', 'artes_24',
+    'estilos-de-vida-y-aficiones_7', 'deportes-y-ocio-al-aire-libre_15', 'matematicas-y-ciencias_21',
+    'ciencias-de-la-tierra-y-medioambiente_8', 'medicina-y-veterinaria_27', 'informatica-y-computacion_2',
+    'lingueistica-e-idiomas_22', 'derecho_18', 'consulta-interdisciplinar_16',
+    'ingenieria-industria-agricultura-y-transportes_25', 'libros-de-texto-manuales-y-material-educativo_19')
+TTL_LISTINGS = (('proximas_apariciones', 'asc'), ('novedades', 'desc'))  # de hoy hacia el futuro / el pasado
+TTL_CARD_ISBN = re.compile(r'data-gtm-isbn="([\d-]+)"')
+TTL_CARD_LINK = re.compile(r'href="(https://www\.todostuslibros\.com/libros/[^"]+)"')
+TTL_STOP_AFTER_ERRORS = 5
+
+
+def ttl_listing_url(category, mode, order, page):
+    return f'{TTL_HOST}/categoria/{category}?{mode}=true&idiomas%5B%5D=spa&sort=publication-date+{order}&page={page}'
+
+
+def semillas_fechas(get, day, known, max_requests=300, ahead=30, back=7, pause=1.0):
+    """Novedades y próximas apariciones en castellano de todostuslibros → cola de semillas con su `fecha`.
+    Por rondas (la página 1 de cada listado antes que la 2 de ninguno): si el cupo se acaba, lo que queda sin
+    leer es lo más lejano. Cada listado para al salir de [hoy−back, hoy+ahead], al vaciarse o al repetirse.
+    Una vez al día: los lotes siguientes de la misma noche ya encuentran la cola hecha."""
+    from reading_ttl_source import ttl_publication_date
+    state = read_json(seeds_path(), {})
+    if state.get('fechas', {}).get('dia') == day:
+        return state['fechas'] | {'ya_leidas_hoy': True}
+    queue = state.setdefault('cola', {})
+    discarded = discarded_isbns()
+    today = date.fromisoformat(day)
+    first, last = (today - timedelta(days=back)).isoformat(), (today + timedelta(days=ahead)).isoformat()
+    # `cota`: la fecha donde empieza la página (hoy en la primera; después, la última de la anterior). Es la
+    # más cercana a hoy de todo lo que trae, y la que ordena su resolución en Amazon: la página 1 de «próximas»
+    # (del 7 al 11/11) va antes que una de «novedades» que llega del 4 al 2/11.
+    jobs = [{'categoria': c, 'modo': m, 'orden': o, 'pagina': 1, 'antes': None, 'cota': day}
+            for c in TTL_CATEGORIES for m, o in TTL_LISTINGS]
+    used, added, dated, pages, errors, streak = 0, 0, 0, 0, [], 0
+
+    def fetch(url):
+        nonlocal used, streak
+        if used and pause:
+            time.sleep(pause)  # un visitante educado: una petición por segundo
+        used += 1
+        try:
+            document = get(url)
+        except (OSError, ValueError) as exc:
+            streak += 1
+            errors.append(f'{url[len(TTL_HOST):][:90]}: {str(exc)[:80]}')
+            return None
+        streak = 0
+        return document
+
+    while jobs and used < max_requests and streak < TTL_STOP_AFTER_ERRORS:
+        for job in list(jobs):
+            if used >= max_requests or streak >= TTL_STOP_AFTER_ERRORS:
+                break
+            document = fetch(ttl_listing_url(job['categoria'], job['modo'], job['orden'], job['pagina']))
+            isbns = list(dict.fromkeys(i for i in (isbn13(v.replace('-', '')) for v in
+                                                   TTL_CARD_ISBN.findall(document or '')) if i))
+            if not isbns or isbns == job['antes']:  # final del listado (o la web repite la última página)
+                jobs.remove(job)
+                continue
+            pages += 1
+            stamp = None
+            for link in list(dict.fromkeys(TTL_CARD_LINK.findall(document)))[::-1][:2]:  # última tarjeta (o penúltima)
+                if used >= max_requests:
+                    break
+                stamp = ttl_publication_date(fetch(link) or '')
+                if stamp:
+                    break
+            for isbn in isbns:
+                if isbn in known or isbn in discarded:
+                    continue
+                row = queue.get(isbn)
+                if row is None:
+                    row = queue[isbn] = {'primera': day, 'intentos': 0, 'siguiente': day, 'fuente': 'todostuslibros-fechas'}
+                    added += 1
+                if not row.get('fecha') or abs(date.fromisoformat(job['cota']) - today) < abs(date.fromisoformat(row['fecha']) - today):
+                    row['fecha'] = job['cota']
+                    dated += 1
+            if stamp and (stamp > last if job['orden'] == 'asc' else stamp < first):
+                jobs.remove(job)  # la página ya sale de la ventana: la siguiente quedaría entera fuera
+            else:
+                job['pagina'], job['antes'] = job['pagina'] + 1, isbns
+                if stamp:
+                    job['cota'] = stamp
+    state['fechas'] = {'dia': day, 'peticiones': used, 'paginas': pages, 'nuevas': added, 'fechadas': dated,
+                       'ventana': [first, last], 'listados_sin_terminar': len(jobs), 'errores': errors[-5:]}
+    write_json(seeds_path(), state)
+    return state['fechas']
+
+
+def seed_order(queue, isbns, day):
+    """Primero las que tienen fecha, de la más cercana a hoy a la más lejana (en empate, la futura: es la que
+    aún se puede anunciar); después las del sitemap, las altas más recientes primero."""
+    today = date.fromisoformat(day)
+    dated, undated = [], []
+    for isbn in isbns:
+        try:
+            gap = (date.fromisoformat(queue[isbn]['fecha']) - today).days
+        except (KeyError, TypeError, ValueError):
+            undated.append((queue[isbn].get('primera', ''), isbn))
+            continue
+        dated.append((abs(gap), gap < 0, isbn))
+    return [isbn for *_, isbn in sorted(dated)] + [isbn for _, isbn in sorted(undated, reverse=True)]
+
+
 def discarded_isbns():
     if not discarded_path().exists():
         return set()
@@ -324,7 +438,7 @@ def discard_seed(queue, isbn, day, motivo):
                               'intentos': row['intentos'], 'errores': row.get('errores', 0)}, ensure_ascii=False) + '\n')
 
 
-def por_isbn(prov, tag, day, out, budget):
+def por_isbn(prov, tag, day, out, budget, only_dated=False):
     """Semillas que tocan hoy, de 10 en 10 (getItems por ISBN-10 o búsqueda «isbn|isbn|…», ver `seed_batches`).
     Solo cuentan (y pasan al raw) los resultados cuyo ISBN se pidió: otra edición no da por encontrada la
     semilla. Las que Amazon aún no tiene vuelven con el calendario de reintentos; agotado, se descartan con su
@@ -332,8 +446,8 @@ def por_isbn(prov, tag, day, out, budget):
     Amazon cambia cómo responde."""
     state = read_json(seeds_path(), {})
     queue = state.get('cola', {})
-    due = sorted((row['primera'], isbn) for isbn, row in queue.items() if row.get('siguiente', '') <= day)
-    due = [isbn for _, isbn in reversed(due)]  # las altas más recientes primero
+    due = seed_order(queue, [isbn for isbn, row in queue.items() if row.get('siguiente', '') <= day
+                             and (row.get('fecha') or not only_dated)], day)
     tomorrow = (date.fromisoformat(day) + timedelta(days=1)).isoformat()
     used, found, foreign, failed = 0, set(), 0, 0
     by_kind = {kind: Counter() for kind in ('getitems', 'busqueda')}
@@ -619,20 +733,52 @@ def rendimiento_path():
     return WORK / 'rendimiento-sellos.json'
 
 
+def recorrido_path():
+    """Cola del recorrido de sellos. Persiste en catalogo-estado: cada lote de la noche corre en un runner nuevo y,
+    con el checkpoint por día que había hasta el 07/11, todos volvían a empezar por los mismos sellos."""
+    return WORK / 'recorrido-sellos.json'
+
+
+SPLIT_LEVELS = 3  # sello → categoría → subcategoría → …
+
+
+def entry_label(entry):
+    return entry if isinstance(entry, str) else f"{entry['sello']}>{entry['nodo']}"
+
+
+def split_children(prov, tag, state, node):
+    """Hijos de un nodo (las categorías si es la raíz del sello), sin las que no son lectura. Caché en el
+    recorrido: los 27 de Categorías valen para todos los sellos."""
+    node = node or CATEGORIES_NODE
+    cache = state.setdefault('hijos', {})
+    if node not in cache:
+        state['peticiones'] += 1
+        cache[node] = [[k, n] for k, n in node_children(prov, tag, node) if key(n) not in SKIP_NODES]
+    return cache[node]
+
+
 def por_sellos(prov, tag, day, max_requests=1500, pages=10, horizon_days=60, names=None, retry_budget=None):
     """Novedades por sello (brand + NewestArrivals): casi todo sale en español, al revés que por categorías,
     donde ~3 de cada 4 novedades son importaciones en inglés (medido el 2026-11-06). Un sello se deja de paginar
     al llegar a libros de hace más de `horizon_days`. Los sellos nuevos que aparecen en libros en español se
-    aprenden (sellos.json) y entran en la cola del mismo recorrido."""
+    aprenden (sellos.json) y entran en la cola del mismo recorrido.
+
+    Amazon da como mucho 10 páginas por consulta y NewestArrivals empieza por las preventas más lejanas: en un sello
+    grande las 100 plazas son de 2027 y la semana en curso no sale nunca (Planeta: 0 libros del 1 al 15/11; partido
+    por categorías, 101; medido el 2026-11-07). Una consulta que se queda sin páginas antes de llegar al horizonte
+    —o que corta en una página sin español después de haber dado libros en español, como «Planeta», que mezcla
+    Lonely Planet— se parte en las categorías de Libros y, si una vuelve a llenarse, en sus hijos. El nombre de la
+    categoría va en la `ruta` del raw y clasifica el libro.
+
+    El recorrido sigue entre lotes y entre días (`recorrido_path`): uno nuevo empieza cuando el anterior acabó."""
     raw = WORK / 'raw' / f'{day}.jsonl'
-    checkpoint = WORK / 'raw' / f'{day}.sellos.json'
     oldest = (date.fromisoformat(day) - timedelta(days=horizon_days)).isoformat()
     learned = read_json(WORK / 'sellos.json', {})
     # Memoria de rendimiento: un sello que no dio ni un libro en español no se pregunta en REPOSO días
     # (Plaza & Janés, Harlequin… por nombre no traen nada; Minotauro trae Minotaur Books en inglés).
     memory = read_json(rendimiento_path(), {})
-    state = read_json(checkpoint)
-    if not state:
+    state = read_json(recorrido_path())
+    if not state or (not state['cola'] and state.get('dia', '') < day):
         queue, keys = [], []
         for name in names if names is not None else seller_names():
             short = short_name(name)
@@ -640,53 +786,72 @@ def por_sellos(prov, tag, day, max_requests=1500, pages=10, horizon_days=60, nam
             if len(k) >= 3 and k not in keys:
                 keys.append(k)
                 queue.append(short)
-        state = {'cola': queue, 'claves': keys, 'peticiones': 0, 'sellos_leidos': 0, 'sellos_nuevos': 0,
+        state = {'dia': day, 'cola': queue, 'claves': keys, 'peticiones': 0, 'sellos_leidos': 0, 'sellos_nuevos': 0,
                  'libros_es': 0, 'errores': []}
     keys = state['claves']
+    counters = ('peticiones', 'sellos_leidos', 'sellos_saltados', 'sellos_nuevos', 'sellos_llenos', 'libros_es',
+                'particiones', 'errores_total')
+    before = {c: state.get(c, 0) for c in counters}
+
+    def spent():
+        return state['peticiones'] - before['peticiones']
     raw.parent.mkdir(parents=True, exist_ok=True)
     started = time.monotonic()
     with raw.open('a', encoding='utf-8') as out:
-        if 'reintentos' not in state:
+        if state.get('reintentos_dia') != day:
             used, due = reintentar(prov, tag, day, out, max_requests // 5 if retry_budget is None else retry_budget)
             state['peticiones'] += used
-            state['reintentos'] = due
-            write_json(checkpoint, state)
+            state['reintentos'], state['reintentos_dia'] = due, day
+            write_json(recorrido_path(), state)
         origins = state.setdefault('origen', {})
-        while state['cola'] and state['peticiones'] < max_requests:
-            name = state['cola'][0]
-            origin = origins.get(name, name)  # una variante de escritura cuenta para el sello original
+        groups = state.setdefault('grupos', {})  # sello partido → particiones por leer y libros que van dando
+        while state['cola'] and spent() < max_requests:
+            entry = state['cola'][0]
+            part = isinstance(entry, dict)
+            if part:
+                name = origin = entry['sello']
+                query, node, route, level = entry['consulta'], entry['nodo'], entry['ruta'], entry['nivel']
+            else:
+                name, node, route, level = entry, None, [], 0
+                origin = origins.get(name, name)  # una variante de escritura cuenta para el sello original
+            label = entry_label(entry)
             remembered = memory.get(key(origin), {})
-            query = remembered.get('consulta', name) if name == origin else name
-            if name == origin and remembered.get('saltar_hasta', '') > day:
-                state['cola'].pop(0)
-                state['sellos_saltados'] = state.get('sellos_saltados', 0) + 1
-                continue
-            done, found = True, 0
+            if not part:
+                query = remembered.get('consulta', name) if name == origin else name
+                if name == origin and remembered.get('saltar_hasta', '') > day:
+                    state['cola'].pop(0)
+                    state['sellos_saltados'] = state.get('sellos_saltados', 0) + 1
+                    continue
+            done, found, saturated, failed = True, 0, False, False
             for page in range(1, pages + 1):
-                if state['peticiones'] >= max_requests:
+                if spent() >= max_requests:
                     done = False
                     break
+                body = {'marketplace': 'www.amazon.es', 'partnerTag': tag, 'searchIndex': 'Books', 'brand': query,
+                        'sortBy': 'NewestArrivals', 'itemCount': 10, 'itemPage': page, 'availability': 'IncludeOutOfStock',
+                        'condition': 'New', 'currencyOfPreference': 'EUR', 'resources': RESOURCES}
+                if node:
+                    body['browseNodeId'] = node
                 try:
-                    payload = prov.post(SEARCH, {'marketplace': 'www.amazon.es', 'partnerTag': tag, 'searchIndex': 'Books',
-                                                 'brand': query, 'sortBy': 'NewestArrivals', 'itemCount': 10,
-                                                 'itemPage': page, 'availability': 'IncludeOutOfStock', 'condition': 'New', 'currencyOfPreference': 'EUR',
-                                                 'resources': RESOURCES}, prov.headers())
+                    payload = prov.post(SEARCH, body, prov.headers())
                 except NotFound:
                     payload = {}
                 except RuntimeError as exc:
-                    state['errores'].append({'sello': name, 'pagina': page, 'error': str(exc)})
+                    state['errores'] = (state['errores'] + [{'sello': label, 'pagina': page, 'error': str(exc)}])[-50:]
+                    state['errores_total'] = state.get('errores_total', 0) + 1
+                    failed = True
                     if 'eligibility' in str(exc) or 'HTTP 401' in str(exc):
                         raise
-                    if name not in state.setdefault('reencolados', []):
-                        state['reencolados'].append(name)
-                        state['cola'].append(name)
+                    if label not in state.setdefault('reencolados', []):
+                        state['reencolados'].append(label)
+                        state['cola'].append(entry)
                     break
                 finally:
                     state['peticiones'] += 1
                 items = [amazon_dict(i) for i in amazon_list(amazon_dict(payload.get('searchResult')).get('items'))]
                 dates, spanish = [], 0
                 for item in items:
-                    out.write(json.dumps({'nodo': 'sello:' + name, 'ruta': [], 'item': item}, ensure_ascii=False) + '\n')
+                    out.write(json.dumps({'nodo': 'sello:' + label, 'ruta': route, 'item': item}, ensure_ascii=False) + '\n')
                     info = amazon_dict(item.get('itemInfo'))
                     published = amazon_dict(amazon_dict(info.get('contentInfo')).get('publicationDate')).get('displayValue')
                     if isinstance(published, str):
@@ -704,37 +869,86 @@ def por_sellos(prov, tag, day, max_requests=1500, pages=10, horizon_days=60, nam
                         state['cola'].append(maker)
                         learned[k] = maker
                         state['sellos_nuevos'] += 1
+                reached = bool(dates) and max(dates) < oldest
                 # Se deja de paginar: página incompleta, página sin un solo libro en español (brand es coincidencia
                 # parcial: «Minotauro» trae Minotaur Books en inglés) o página entera más antigua que el horizonte.
-                if len(items) < 10 or not spanish or (dates and max(dates) < oldest):
+                if len(items) < 10 or reached:
+                    break
+                if not spanish:
+                    # Lleno y sin llegar al horizonte, en un sello que sí publica en español: lo de español está
+                    # más abajo, tapado por otra marca que casa con el nombre. Partido, cada categoría lo destapa.
+                    saturated = bool(found or remembered.get('libros_es') or remembered.get('particion', {}).get('libros_es'))
                     break
                 if page == pages:
-                    state['sellos_llenos'] = state.get('sellos_llenos', 0) + 1  # 100 resultados: habría que partirlo
+                    saturated = True  # 10 páginas llenas sin llegar al horizonte
             if not done:
-                break  # sin presupuesto a mitad de sello: se repite entero la próxima vez
+                break  # sin presupuesto a mitad de consulta: se repite entera la próxima vez
+            group = groups.get(key(origin))
+            if group and part:
+                group['libros_es'] += found
+            if saturated and not failed:
+                state['sellos_llenos'] = state.get('sellos_llenos', 0) + 1
+                kids = []
+                if level < SPLIT_LEVELS and spent() < max_requests:
+                    try:
+                        kids = split_children(prov, tag, state, node)
+                    except RuntimeError as exc:
+                        state['errores'] = (state['errores'] + [{'sello': label, 'hijos': str(exc)}])[-50:]
+                        state['errores_total'] = state.get('errores_total', 0) + 1
+                if kids:
+                    group = groups.setdefault(key(origin), {'pendientes': 0, 'libros_es': 0 if part else found})
+                    group['pendientes'] += len(kids)
+                    state['particiones'] = state.get('particiones', 0) + len(kids)
+                    # Delante: son las novedades de esta semana que el sello entero no dejaba ver.
+                    state['cola'][1:1] = [{'sello': origin, 'consulta': query, 'nodo': k, 'ruta': route + [n],
+                                           'nivel': level + 1} for k, n in kids]
             state['cola'].pop(0)
-            state['sellos_leidos'] += 1
-            if not any(e['sello'] == name for e in state['errores']):
-                tried = state.setdefault('variantes_probadas', [])
-                untried = [v for v in spelling_variants(origin) if f'{key(origin)}|{key(v)}' not in tried and v != query]
-                if not found and untried:
-                    # Estéril con esta escritura: el papel suele estar indexado con otra (sin tilde, con
-                    # «Editorial»). Se prueba la siguiente antes de dejar el sello en reposo.
-                    tried.append(f'{key(origin)}|{key(untried[0])}')
-                    origins[untried[0]] = origin
-                    state['cola'].append(untried[0])
-                else:
-                    memory[key(origin)] = {'nombre': origin, 'libros_es': found, 'ultima': day} | (
-                        {'consulta': query} if found and query != origin else {}) | (
-                        {'saltar_hasta': (date.fromisoformat(day) + timedelta(days=REPOSO)).isoformat()} if not found else {})
-                    write_json(rendimiento_path(), memory)
+            if part:
+                group = groups.get(key(origin))
+                if group:
+                    group['pendientes'] -= 1
+                    if group['pendientes'] <= 0:
+                        # Partido y sin un libro en español: reposa como cualquier sello estéril.
+                        groups.pop(key(origin))
+                        row = memory.get(key(origin), {'nombre': origin}) | {
+                            'particion': {'libros_es': group['libros_es'], 'ultima': day}, 'ultima': day}
+                        if group['libros_es']:
+                            row.pop('saltar_hasta', None)
+                        else:
+                            row['saltar_hasta'] = (date.fromisoformat(day) + timedelta(days=REPOSO)).isoformat()
+                        memory[key(origin)] = row
+                        write_json(rendimiento_path(), memory)
+            else:
+                state['sellos_leidos'] += 1
+                if not failed and not any(e.get('sello') == name for e in state['errores']):
+                    tried = state.setdefault('variantes_probadas', [])
+                    untried = [v for v in spelling_variants(origin) if f'{key(origin)}|{key(v)}' not in tried and v != query]
+                    split = key(origin) in groups
+                    if not found and untried and not split:
+                        # Estéril con esta escritura: el papel suele estar indexado con otra (sin tilde, con
+                        # «Editorial»). Se prueba la siguiente antes de dejar el sello en reposo.
+                        tried.append(f'{key(origin)}|{key(untried[0])}')
+                        origins[untried[0]] = origin
+                        state['cola'].append(untried[0])
+                    else:
+                        # Partido: el reposo lo decide el total de sus particiones, no esta consulta.
+                        memory[key(origin)] = {'nombre': origin, 'libros_es': found, 'ultima': day} | (
+                            {'consulta': query} if found and query != origin else {}) | (
+                            {'particion': remembered['particion']} if 'particion' in remembered else {}) | (
+                            {'saltar_hasta': (date.fromisoformat(day) + timedelta(days=REPOSO)).isoformat()}
+                            if not found and not split else {})
+                        write_json(rendimiento_path(), memory)
             out.flush()
-            write_json(checkpoint, state)
+            write_json(recorrido_path(), state)
             write_json(WORK / 'sellos.json', learned)
     state['segundos'] = round(time.monotonic() - started)
-    write_json(checkpoint, state)
-    return {k: state.get(k, 0) for k in ('peticiones', 'sellos_leidos', 'sellos_saltados', 'sellos_nuevos', 'sellos_llenos', 'libros_es', 'reintentos', 'segundos')} | {
-        'sellos_pendientes': len(state['cola']), 'errores': len(state['errores']), 'raw': str(raw)}
+    write_json(recorrido_path(), state)
+    report = {c: state.get(c, 0) - before[c] for c in counters}
+    report['errores'] = report.pop('errores_total')
+    return report | {'reintentos': state.get('reintentos', 0) if state.get('reintentos_dia') == day else 0,
+                     'segundos': state['segundos'], 'recorrido_desde': state['dia'],
+                     'sellos_pendientes': sum(isinstance(e, str) for e in state['cola']),
+                     'particiones_pendientes': sum(isinstance(e, dict) for e in state['cola']), 'raw': str(raw)}
 
 
 # ---------------------------------------------------------------- 2. transformar
@@ -1084,10 +1298,13 @@ def pending_creation_path():
 
 
 def priorizar(candidates, day, limit, waiting=None):
-    """Altas de esta pasada: primero novedades y preventas (de 60 días atrás a 6 meses vista), de la más reciente a la
-    más antigua; después el fondo, del más vendido en Amazon al menos (sin ranking, al final y por fecha). El resto
-    se aplaza (vuelve a la cola de pendientes). Para que el fondo no espere para siempre detrás de las novedades,
-    una cuarta parte del cupo es de los que llevan aplazados desde antes (`waiting`: ASIN → primer día en cola)."""
+    """Altas de esta pasada: primero novedades y preventas (de 60 días atrás a 6 meses vista), de la fecha más
+    cercana a hoy a la más lejana, y en una primera vuelta un libro por día y género (el más vendido): así cada día
+    de la página de novedades tiene de todo antes de que un género llene el cupo. Hasta el 07/11 iba de la fecha
+    más lejana a la más cercana y las preventas de mayo pasaban delante de los libros de esta semana. Después el
+    fondo, del más vendido en Amazon al menos (sin ranking, al final y por fecha). El resto se aplaza (vuelve a la
+    cola de pendientes). Para que el fondo no espere para siempre detrás de las novedades, una cuarta parte del
+    cupo es de los que llevan aplazados desde antes (`waiting`: ASIN → primer día en cola)."""
     today = date.fromisoformat(day)
     waiting, since = waiting or {}, {}
     for record in candidates:
@@ -1096,11 +1313,22 @@ def priorizar(candidates, day, limit, waiting=None):
             since[id(record)] = min(days)
     window = ((today - timedelta(days=60)).isoformat(), (today + timedelta(days=183)).isoformat())
 
-    def rank(record):
-        published = record.get('fecha_publicacion_edicion') or ''
-        fresh = window[0] <= published <= window[1]
-        return (not fresh, 0 if fresh else sales_rank(record), [-ord(c) for c in published])
-    ordered = sorted(candidates, key=rank)
+    def is_fresh(record):
+        return window[0] <= (record.get('fecha_publicacion_edicion') or '') <= window[1]
+
+    def closeness(record):
+        published = record['fecha_publicacion_edicion']
+        distance = abs((date.fromisoformat(published[:10]) - today).days) if re.fullmatch(r'\d{4}-\d{2}-\d{2}', published[:10]) else 999
+        return (distance, [-ord(c) for c in published], sales_rank(record))
+    fresh = sorted((r for r in candidates if is_fresh(r)), key=closeness)
+    firsts, rest, slots = [], [], set()
+    for record in fresh:
+        slot = (record['fecha_publicacion_edicion'][:10], ((record.get('materias') or [''])[0]))
+        (rest if slot in slots else firsts).append(record)
+        slots.add(slot)
+    backlist = sorted((r for r in candidates if not is_fresh(r)),
+                      key=lambda r: (sales_rank(r), [-ord(c) for c in r.get('fecha_publicacion_edicion') or '']))
+    ordered = sorted(firsts, key=closeness) + rest + backlist
     oldest = sorted((r for r in ordered if id(r) in since), key=lambda r: since[id(r)])[:limit // 4]
     first = {id(r) for r in oldest}
     ordered = oldest + [r for r in ordered if id(r) not in first]
@@ -1411,20 +1639,29 @@ def main(argv=None):
         # cola. Cuenta obras (grupo), no ASIN: cada obra trae varias ediciones. Las semillas esperan en semillas.json.
         backlog = len({row.get('grupo', asin) for asin, row in read_json(pending_path(), {}).items()
                        if row.get('motivo') == 'aplazado por cupo de altas'})
-        if backlog >= 3 * limit:
-            report['semillas'] = {'en_espera_por_aplazados': backlog, 'peticiones': 0}
-        elif cfg.get('semillas_sitemaps', 2):
-            catalogue = read_json(ROOT / 'data/reading-catalogue.json')
+        known = {b.get('isbn13') for b in read_json(ROOT / 'data/reading-catalogue.json')['libros']}
+        dated = cfg.get('semillas_fechas', {})
+        if dated.get('peticiones', 300):  # lo que sale cada día, sin depender de qué sellos conozcamos
             try:
-                added = semillas_ttl(http_get, args.dia, {b.get('isbn13') for b in catalogue['libros']},
-                                     cfg.get('semillas_sitemaps', 2))
+                report['semillas_fechas'] = semillas_fechas(http_get, args.dia, known, dated.get('peticiones', 300),
+                                                            dated.get('adelante', 30), dated.get('atras', 7))
+            except (OSError, ValueError) as exc:  # sin listados hoy: la cola de días anteriores sigue valiendo
+                report['semillas_fechas'] = {'error': str(exc)[:120]}
+        added = 0
+        if backlog < 3 * limit and cfg.get('semillas_sitemaps', 2):
+            try:
+                added = semillas_ttl(http_get, args.dia, known, cfg.get('semillas_sitemaps', 2))
             except (OSError, ValueError) as exc:  # sin sitemap hoy: la cola de días anteriores sigue valiendo
                 added = f'error: {str(exc)[:120]}'
-            with raw.open('a', encoding='utf-8') as out:
-                # Las semillas rinden ~98 %: van primero y a los sellos se les guarda solo una reserva.
-                reserve = cfg.get('reserva_sellos', budget // 4)
-                report['semillas'] = {'nuevas': added} | por_isbn(provider(tag), tag, args.dia, out, max(budget - reserve, 0))
-            budget -= report['semillas']['peticiones']
+        with raw.open('a', encoding='utf-8') as out:
+            # Las semillas rinden ~98 %: van primero y a los sellos se les guarda solo una reserva. Con la cola de
+            # aplazados llena, solo las fechadas: las novedades cercanas son la prioridad de la web.
+            reserve = cfg.get('reserva_sellos', budget // 4)
+            report['semillas'] = {'nuevas': added} | por_isbn(provider(tag), tag, args.dia, out, max(budget - reserve, 0),
+                                                              only_dated=backlog >= 3 * limit)
+        if backlog >= 3 * limit:
+            report['semillas']['en_espera_por_aplazados'] = backlog
+        budget -= report['semillas']['peticiones']
         if args.modo == 'sellos':
             report['descargar'] = por_sellos(provider(tag), tag, args.dia, max_requests=budget,
                                              horizon_days=cfg.get('horizonte_dias', 60), retry_budget=0)
