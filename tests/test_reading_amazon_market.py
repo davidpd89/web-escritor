@@ -10,6 +10,7 @@ from urllib.error import HTTPError
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents,discovery_index,miss_reason,discover_page_formats,swatch_formats,discover_real_covers,page_cover_url,isbn10,store_prices,prune_foreign_editions,reconcile_edition_binding
+import reading_amazon_market
 import tempfile
 
 NOW=datetime(2026,10,21,10,tzinfo=timezone.utc)
@@ -319,7 +320,7 @@ class AmazonFormatDiscoveryTests(unittest.TestCase):
         refresh_offers({'libros':books},{'offers':[]},provider,'contrato-21',NOW+timedelta(days=91),sweep_days=1)
         self.assertEqual(provider.calls.count('discover'),10,'se vuelve a buscar a los 90 días')
 
-    def test_books_without_any_offer_search_formats_every_sweep(self):
+    def test_books_without_any_offer_search_formats_weekly(self):
         class Provider:
             def __init__(self): self.calls=[]
             def __call__(self,book): self.calls.append('isbn'); return {'searchResult':{'items':[]}}
@@ -328,13 +329,50 @@ class AmazonFormatDiscoveryTests(unittest.TestCase):
         provider=Provider()
         refresh_offers({'libros':books},{'offers':[]},provider,'contrato-21',NOW)
         provider.calls.clear()
+        refresh_offers({'libros':books},{'offers':[]},provider,'contrato-21',NOW+timedelta(days=1),sweep_days=1)
+        self.assertEqual(provider.calls,['isbn'],'el papel se pide cada noche; la búsqueda por título, no')
+        provider.calls.clear()
         refresh_offers({'libros':books},{'offers':[]},provider,'contrato-21',NOW+timedelta(days=7),sweep_days=1)
         self.assertEqual(provider.calls,['isbn','discover'],'sin ninguna oferta no se esperan 90 días para buscar por título')
 
+    def test_books_without_asin_go_by_isbn10_in_the_shared_batch_and_979_by_search(self):
+        class Provider:
+            def __init__(self): self.calls=[]
+            def __call__(self,book): self.calls.append(('isbn',book['isbn13'])); return {}
+            def items(self,asins):
+                self.calls.append(('items',list(asins)))
+                return {'itemsResult':{'items':[i for i in response()['searchResult']['items'] if i['asin'] in asins]}}
+        coraline=dict(BOOK,formatos_compra=[],formatos_amazon_buscados='2026-10-20')
+        nuevo=dict(BOOK,id='lib-979',isbn13='9791387500009',formatos_compra=[])
+        provider=Provider()
+        _,stats=refresh_offers({'libros':[coraline,nuevo]},{'offers':[]},provider,'contrato-21',NOW)
+        self.assertEqual(provider.calls,[('isbn','9791387500009'),('items',['8498382378'])],
+                         'el 978 sin ASIN entra en getItems por su ISBN-10; el 979 no tiene ISBN-10 y se busca')
+        self.assertEqual([(o['formato'],o['precio_centimos']) for o in coraline['formatos_compra']],[('tapa-blanda',1135)])
+        self.assertEqual(stats['requests'],2)
+        provider.calls.clear()
+        later=dict(BOOK,id='lib-otra',formatos_compra=[],formatos_amazon_buscados='2026-10-14')
+        refresh_offers({'libros':[later]},{'offers':[]},provider,'contrato-21',NOW)
+        self.assertEqual(provider.calls,[('isbn','9788498382372'),('items',['8498382378'])],
+                         'en su noche semanal también se busca: el ISBN-10 puede existir sin oferta y venderse con otro ASIN')
+
+    def test_asins_of_different_books_fill_batches_of_ten(self):
+        class Provider:
+            def __init__(self): self.batches=[]
+            def __call__(self,book): raise AssertionError('con ASIN no se busca')
+            def items(self,asins): self.batches.append(len(asins)); return {'itemsResult':{'items':[]}}
+        books=[dict(BOOK,id=f'lib-{i}',formato_edicion=None,formatos_compra=[
+            {'formato':f,'url':f'https://www.amazon.es/dp/84983{i:03d}{n}0?tag=contrato-21'}
+            for n,f in enumerate(('tapa-blanda','ebook','audiolibro'))]) for i in range(7)]
+        provider=Provider()
+        _,stats=refresh_offers({'libros':books},{'offers':[]},provider,'contrato-21',NOW)
+        self.assertEqual(provider.batches,[10,10,1],'21 ASIN de 7 libros: 3 peticiones (antes, 1 por cada 5 libros a medias)')
+
+    @patch.object(reading_amazon_market,'PRICE_GROUP',5)
     def test_a_cut_off_night_still_moves_the_sweep_forward(self):
         many={'libros':[dict(BOOK,id=f'lib-{i}',formatos_compra=[]) for i in range(20)]}
         _,stats=refresh_offers(many,{'offers':[]},lambda b:response(),'contrato-21',NOW,budget=7)
-        self.assertEqual(stats['updated'],5,'el primer grupo de 5 queda guardado')
+        self.assertEqual(stats['updated'],5,'el primer grupo queda guardado')
         _,stats=refresh_offers(many,{'offers':[]},lambda b:response(),'contrato-21',NOW+timedelta(days=1),budget=7)
         self.assertEqual({b['id'] for b in many['libros'] if b.get('precios_amazon_revision')=='2026-10-22'},
                          {f'lib-{i}' for i in range(5,10)},'la noche siguiente sigue por los pendientes')
