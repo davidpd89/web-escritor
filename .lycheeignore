@@ -202,3 +202,8 @@ https?://(www\.)?elbatracioamarillo\.com/.*
 https?://(www\.)?armaeniaeditorial\.com/.*
 https?://(www\.)?edicionesgigamesh\.com/.*
 https?://(www\.)?altamarea\.es/.*
+
+# Concursos de A Coruña (CI 42365802026, 2026-11-07): 403 a GitHub Actions y 200
+# comprobado desde fuera. Solo estas URLs:
+^https://www\.coruna\.gal/informacionxuvenil/gl/convocatorias/concursos-e-premios/detalle-concursos/xxi-certame-de-narrativa-curta-o-exame/suceso/1453918739931$
+^https://www\.coruna\.gal/informacionjuvenil/es/convocatorias/concursos-y-premios\?argIdioma=es&argPag=2&categoriaID=1220003419689$
