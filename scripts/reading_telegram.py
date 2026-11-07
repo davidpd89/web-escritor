@@ -13,7 +13,7 @@ import re
 import sqlite3
 import sys
 import time
-from urllib.parse import urlencode
+from urllib.parse import parse_qs, urlencode, urlsplit
 from zoneinfo import ZoneInfo
 
 import requests
@@ -91,6 +91,7 @@ def from_reading_catalogue(path: Path, channels_path: Path) -> dict:
                 "title": book["titulo"],
                 "author": ", ".join(book["autores"]),
                 "release_date": published,
+                "isbn13": str(book.get("isbn13") or ""),
                 "categories": categories.get(book["id"], []),
                 "genres": list(
                     dict.fromkeys(
@@ -112,7 +113,54 @@ def from_reading_catalogue(path: Path, channels_path: Path) -> dict:
     }
 
 
+# Amazon.es acepta varios ISBN en el filtro p_66 separados por «|» (probado con 60: devuelve sus ediciones).
+DIGEST_MAX_ISBNS = 60
+DIGEST_MAX_TITLES = 12
+
+
+def isbn_search_url(isbns: list[str], tag: str = "") -> str:
+    query = {"i": "stripbooks", "rh": "p_66:" + "|".join(isbns[:DIGEST_MAX_ISBNS])}
+    if tag:
+        query["tag"] = tag
+    return "https://www.amazon.es/s?" + urlencode(query)
+
+
+def digest_key(day: str) -> str:
+    return f"digest-{day}"
+
+
+def digest(books: list[dict], day: str, tag: str = "") -> dict | None:
+    """One daily message per digest channel: the day's titles and one Amazon link filtered by their ISBNs."""
+    isbns = list(dict.fromkeys(b["isbn13"] for b in books if b.get("isbn13")))
+    if not isbns:
+        return None
+    if not tag:
+        tag = next(
+            (
+                found[0]
+                for b in books
+                if (found := parse_qs(urlsplit(b.get("amazon_url", "")).query).get("tag"))
+            ),
+            "",
+        )
+    lines = [
+        f"• <b>{escape(b['title'])}</b> — {escape(b['author'])}"
+        for b in books[:DIGEST_MAX_TITLES]
+    ]
+    if len(books) > DIGEST_MAX_TITLES:
+        lines.append(f"…y {len(books) - DIGEST_MAX_TITLES} más")
+    url = isbn_search_url(isbns, tag)
+    text = (
+        f"📚 <b>Novedades de hoy ({len(books)})</b>\n\n"
+        + "\n".join(lines)
+        + f'\n\n<a href="{escape(url, quote=True)}">Ver todas en Amazon</a> · #publicidad'
+    )
+    return {"asin": digest_key(day), "digest": True, "text": text, "release_date": day}
+
+
 def message(book: dict, tag: str) -> str:
+    if book.get("digest"):
+        return book["text"]
     url = book.get("amazon_url") or amazon_url(book["asin"], tag)
     genres = book.get("genres", [])
     genre_line = f"🏷️ {escape(', '.join(genres[:3]))}\n" if genres else ""
@@ -171,13 +219,19 @@ def run(
     checkpoint=None,
 ) -> list[dict]:
     due = [b for b in catalog["books"] if b["release_date"] == today.isoformat()]
-    jobs = [
-        (c, b)
-        for c in catalog["channels"]
-        for b in due
-        if not c.get("categories")
-        or set(b.get("categories", [])) & set(c["categories"])
-    ]
+    jobs = []
+    for c in catalog["channels"]:
+        mine = [
+            b
+            for b in due
+            if not c.get("categories")
+            or set(b.get("categories", [])) & set(c["categories"])
+        ]
+        if c.get("mode") == "digest":
+            summary = digest(mine, today.isoformat(), tag)
+            jobs += [(c, summary)] if summary else []
+        else:
+            jobs += [(c, b) for b in mine]
     if not live:
         return [
             {"chat_id": c["chat_id"], "status": "preview", "text": message(b, tag)}

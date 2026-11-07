@@ -193,6 +193,47 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertEqual(run(catalog, date(2026, 11, 2), db), [])
         self.assertFalse(db.exists())
 
+    def test_digest_channel_gets_one_daily_message_with_isbn_filter(self):
+        second = {
+            **self.source["libros"][0],
+            "id": "two",
+            "titulo": "Libro dos",
+            "isbn13": "9788401042751",
+            "url_amazon_afiliada": "https://www.amazon.es/dp/8401042755?tag=davidporto-21",
+        }
+        self.source["libros"][0]["isbn13"] = "9788498382372"
+        self.source["libros"].append(second)
+        self.config["channels"].append(
+            {"chat_id": "@novedades", "token_env": "TEST_TOKEN", "mode": "digest"}
+        )
+        result = run(self.catalog(), date(2026, 11, 1), self.root / "state.db")
+        digests = [r for r in result if r["chat_id"] == "@novedades"]
+        self.assertEqual(len(digests), 1)
+        text = digests[0]["text"]
+        self.assertIn("Novedades de hoy (2)", text)
+        self.assertIn("rh=p_66%3A9788498382372%7C9788401042751", text)
+        self.assertIn("tag=davidporto-21", text)
+        self.assertIn("&lt;uno&gt;", text)
+        self.assertEqual(len([r for r in result if r["chat_id"] == "@general"]), 2)
+        self.assertEqual(run(self.catalog(), date(2026, 11, 2), self.root / "s.db"), [])
+
+    def test_digest_is_sent_once_per_day(self):
+        self.source["libros"][0]["isbn13"] = "9788498382372"
+        self.config["channels"] = [
+            {"chat_id": "@novedades", "token_env": "TEST_TOKEN", "mode": "digest"}
+        ]
+        with (
+            patch.dict("os.environ", {"TEST_TOKEN": "test"}),
+            patch("reading_telegram.time.sleep"),
+        ):
+            sender = Mock(return_value=("sent", 7))
+            db = self.root / "digest.db"
+            run(self.catalog(), date(2026, 11, 1), db, True, sender=sender)
+            again = run(self.catalog(), date(2026, 11, 1), db, True, sender=sender)
+        self.assertEqual(sender.call_count, 1)
+        self.assertIsNone(sender.call_args.args[3])
+        self.assertEqual(again, [{"chat_id": "@novedades", "asin": "digest-2026-11-01", "status": "skipped:sent"}])
+
     def test_pending_partial_dates_search_links_and_unpublished(self):
         for field, value in [
             ("fecha_publicacion", "2026-11"),

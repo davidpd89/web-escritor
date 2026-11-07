@@ -28,7 +28,13 @@ from reading_editorial_sources import (
 from reading_generic_source import generic_edition, reviewed_hosts
 from reading_intake_core import isbn13, normalize_text
 from reading_planeta_source import planeta_edition
-from reading_telegram import amazon_url, from_reading_catalogue, run, smoke
+from reading_telegram import (
+    amazon_url,
+    digest_key,
+    from_reading_catalogue,
+    run,
+    smoke,
+)
 
 MAIN = "https://raw.githubusercontent.com/davidpd89/web-escritor/main/data/"
 
@@ -188,6 +194,7 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None):
         {"date": today.isoformat(), **verification},
     )
     catalog = from_reading_catalogue(root / "catalogue.json", root / "channels.json")
+    catalog["digests"] = [digest_key(today.isoformat())]
     store = None
     if live:
         # This private token file never enters command arguments, reports or Git.
