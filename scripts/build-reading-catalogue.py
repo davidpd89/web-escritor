@@ -1173,23 +1173,54 @@ def min_age(b):
     return int(m.group(0)) if m else None
 
 
+_RELATED_POOL = {}
+
+
+def related_pool(data):
+    """Rasgos de los libros publicados (categorías activas, público, edad) y cuántos tiene cada categoría.
+
+    Con el índice de main() se calcula una vez por índice: recalculado por ficha, el coste crecía con el cuadrado
+    del catálogo y medio (55 s con 1.841 libros, ~30 min con 10.000). Sin índice (tests) se calcula al vuelo.
+    """
+    indexed = CATEGORY_INDEX is not None and CATEGORY_INDEX[0] is data
+    if indexed and _RELATED_POOL.get('index') is CATEGORY_INDEX:
+        return _RELATED_POOL
+    books = [x for x in data['libros'] if x['estado'] == 'publicado']
+    cats = {x['id']: {c['id'] for c in categories(data, x)} for x in books}
+    counts = {}
+    for ids in cats.values():
+        for c in ids:
+            counts[c] = counts.get(c, 0) + 1
+    pool = {'books': books, 'cats': cats, 'counts': counts,
+            'publics': {i: audience(ids) for i, ids in cats.items()}, 'ages': {x['id']: min_age(x) for x in books}}
+    if indexed:
+        _RELATED_POOL.clear()
+        _RELATED_POOL.update(pool, index=CATEGORY_INDEX)
+    return pool
+
+
 def related_books(data, book):
     # Cada categoría compartida pesa por lo rara que es («Hockey» dice más que «Romance») y no se cruzan públicos.
     own={c['id'] for c in categories(data,book)}
     wanted={c['id'] for c in categories(data,book) if c['tipo'] in {'genero','tematica'}}
-    pool=[(x,{c['id'] for c in categories(data,x)}) for x in data['libros'] if x['estado']=='publicado' and x['id']!=book['id']]
-    total=len(pool)+1
-    df={c:1+sum(c in cats for _,cats in pool) for c in wanted}
+    pool=related_pool(data)
+    inside=book['id'] in pool['cats']  # el propio libro no cuenta en el total ni en la rareza de sus categorías
+    total=len(pool['books'])-inside+1
+    df={c:1+pool['counts'].get(c,0)-(inside and c in own) for c in wanted}
     public,age=audience(own),min_age(book)
+    authors=set(book['autores'])
     ranked=[]
-    for candidate,cats in pool:
-        shared=wanted & cats
-        same_author=bool(set(book['autores']) & set(candidate['autores']))
-        other,other_age=audience(cats),min_age(candidate)
+    for candidate in pool['books']:
+        if candidate['id']==book['id']:
+            continue
+        shared=wanted & pool['cats'][candidate['id']]
+        same_author=bool(authors.intersection(candidate['autores']))
+        if not shared and not same_author:
+            continue
+        other,other_age=pool['publics'][candidate['id']],pool['ages'][candidate['id']]
         if not same_author and ((public and other and public!=other) or (age is not None and other_age is not None and abs(age-other_age)>4)):
             continue
-        if shared or same_author:
-            ranked.append((same_author,sum(math.log(total/df[c]) for c in sorted(shared)),candidate))  # orden fijo: el redondeo no depende del hash
+        ranked.append((same_author,sum(math.log(total/df[c]) for c in sorted(shared)),candidate))  # orden fijo: el redondeo no depende del hash
     ranked.sort(key=lambda row:(-row[0],-row[1],row[2]['titulo'].casefold(),row[2]['id']))
     if not ranked:
         return ''
