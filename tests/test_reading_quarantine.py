@@ -162,5 +162,16 @@ class QuarantineTest(unittest.TestCase):
         self.assertLessEqual(written, carried)
 
 
+    def test_book_with_only_inactive_categories_is_named(self):
+        data = copy.deepcopy(DATA)
+        book = next(b for b in data['libros'] if b['estado'] == 'publicado')
+        own = {r['categoria_id'] for r in data['libro_categorias'] if r['libro_id'] == book['id']}
+        for c in data['categorias']:
+            if c['id'] in own:
+                c['activa'] = False
+        with self.assertRaisesRegex(q.build.ValidationError, re.escape(book['id'] + ': sin categoría activa')):
+            q.build.validate(data, ROOT)
+
+
 if __name__ == '__main__':
     unittest.main()

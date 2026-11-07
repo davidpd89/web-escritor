@@ -531,6 +531,19 @@ class Enlaces(unittest.TestCase):
         self.assertEqual(list(kept), [linkless])
         self.assertEqual(pending, {})  # llegó: sale de la cola
 
+    def test_priced_or_not_the_book_is_marked_as_reviewed_today(self):
+        # La CI exige revisión a todo libro con precio y el barrido diario la usa para saber a quién le toca.
+        offer = {'formato': 'tapa-blanda', 'url': 'https://www.amazon.es/dp/8408326864?tag=t-21', 'precio_centimos': 1990}
+        priced = {'id': 'a', 'titulo': 'T', 'autores': ['X'], 'isbn13': '9788408326861'}
+        ca.price_book(priced, [offer], '2026-11-07')
+        self.assertEqual(priced['formatos_compra'][0]['precio_centimos'], 1990)
+        self.assertEqual(priced['precios_amazon_revision'], '2026-11-07')
+        unpriced = {'id': 'b', 'titulo': 'T', 'autores': ['X'], 'isbn13': '9788408326861'}
+        ca.price_book(unpriced, [], '2026-11-07')
+        self.assertNotIn('formatos_compra', unpriced)
+        self.assertEqual(unpriced['precios_amazon_revision'], '2026-11-07')
+        self.assertEqual(Path(ca.__file__).read_text(encoding='utf-8').count('store_prices('), 1)  # solo vía price_book
+
 
 class Descargar(unittest.TestCase):
     def test_full_node_is_split_into_children_and_checkpointed(self):

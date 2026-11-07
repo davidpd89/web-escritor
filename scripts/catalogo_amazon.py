@@ -1082,6 +1082,17 @@ def registrar_ingesta(root, day, books):
     write_json(path, state)
 
 
+def price_book(book, offers, day):
+    """Guarda las ofertas y marca el libro como revisado hoy en Amazon, haya o no oferta.
+
+    La revisión es la que lee el barrido diario de precios para saber a quién le toca y la que la CI exige a todo
+    libro con precio (test_market_published_offer_chronology). Guardar precios sin marcarla tumbó la puerta.
+    """
+    if offers:
+        store_prices(book, offers, day)
+    book['precios_amazon_revision'] = day
+
+
 def aplicar(day, tag, candidates, transform_failures, root=ROOT):
     from reading_catalogue_publishers import display_name
     from reading_intake_core import normalize_text, publisher_slug
@@ -1153,8 +1164,7 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT):
             offers = []
             for item in [record['item'], *record.get('otras_ediciones', [])]:
                 offers += select_offers(book, {'searchResult': {'items': [item]}}, tag, now)
-            if offers:
-                store_prices(book, offers, day)
+            price_book(book, offers, day)
             categories = classify(record, catalogue)
             catalogue['libros'].append(book)
             catalogue['libro_categorias'] += [{'libro_id': book['id'], 'categoria_id': c} for c in dict.fromkeys(categories)]
@@ -1174,7 +1184,7 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT):
             offers = select_offers(book, {'searchResult': {'items': items}}, tag, now)
             if not offers:
                 continue
-            store_prices(book, offers, day)
+            price_book(book, offers, day)
             builder.validate({'schema_version': 1, 'categorias': catalogue['categorias'], 'libros': [book],
                               'libro_categorias': [r for r in catalogue['libro_categorias'] if r['libro_id'] == book['id']]}, root)
             linked += 1
