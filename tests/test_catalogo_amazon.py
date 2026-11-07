@@ -417,28 +417,50 @@ class Priorizar(unittest.TestCase):
         self.assertEqual([r['isbn13'] for r in chosen], ['2026-11-01', '2015-01-01', '2019-05-01', '2020-01-01'])
 
 
+class FakeAmazon(FakeProvider):
+    """getItems por ASIN (= ISBN-10 del papel) y búsqueda «a|b|…» con el tope real de 10 resultados; `noise`
+    resultados ajenos delante, como cuando un ISBN trae otras ediciones."""
+
+    def __init__(self, have=(), noise=0):
+        super().__init__()
+        self.have, self.noise = set(have), noise
+
+    def post(self, url, body, headers):
+        if url == ca.ITEMS:
+            self.calls.append(('getitems', list(body['itemIds'])))
+            assert body['itemIdType'] == 'ASIN'
+            own = {ca.isbn10(b): b for b in self.have}
+            return {'itemsResult': {'items': [item(a, own[a]) for a in body['itemIds'] if a in own]}}
+        asked = body['keywords'].split('|')
+        self.calls.append(('busqueda', asked))
+        noise = [item('B9%08d' % n, isbn('979000000%03d' % n)) for n in range(self.noise)]
+        return {'searchResult': {'items': (noise + [item('A' + b[-9:], b) for b in asked if b in self.have])[:10]}}
+
+
 class Semillas(unittest.TestCase):
-    def test_sitemap_seeds_only_new_entries_and_are_asked_ten_per_search(self):
+    def test_sitemap_seeds_only_new_entries_and_go_ten_per_request_by_their_route(self):
         from reading_ttl_source import SITEMAP_INDEX
         books = [isbn('978841111%03d' % n) for n in range(12)]
+        b979 = [isbn('979131111%03d' % n) for n in range(3)]
         pages = {SITEMAP_INDEX: '<sitemapindex><loc>https://www.todostuslibros.com/sitemap/1.xml</loc></sitemapindex>',
                  'https://www.todostuslibros.com/sitemap/1.xml': ''.join(
-                     f'<loc>https://www.todostuslibros.com/libros/x_{b}</loc>' for b in books[:11])}
-
-        class Prov(FakeProvider):
-            def post(self, url, body, headers):
-                self.calls.append(body['keywords'])
-                return {'searchResult': {'items': [item('A' + b[-9:], b) for b in body['keywords'].split('|')[:3]]}}
+                     f'<loc>https://www.todostuslibros.com/libros/x_{b}</loc>' for b in books[:11] + b979)}
 
         with tempfile.TemporaryDirectory() as tmp:
             ca.WORK = Path(tmp)
-            self.assertEqual(ca.semillas_ttl(pages.get, '2026-11-06', {books[0]}), 10)  # el del catálogo no
-            prov = Prov()
+            self.assertEqual(ca.semillas_ttl(pages.get, '2026-11-06', {books[0]}), 13)  # el del catálogo no
+            prov = FakeAmazon(have=books[1:4] + b979[:1])
             with (Path(tmp) / 'raw.jsonl').open('w', encoding='utf-8') as out:
                 res = ca.por_isbn(prov, 'tag', '2026-11-06', out, 5)
-            self.assertEqual(res, {'peticiones': 1, 'debidas': 10, 'encontradas': 3, 'ajenos': 0,
-                                   'lotes_fallidos': 0, 'en_cola': 7})
-            self.assertEqual(len(prov.calls[0].split('|')), 10)
+            self.assertEqual({k: res[k] for k in ('peticiones', 'debidas', 'encontradas', 'ajenos', 'lotes_fallidos', 'en_cola')},
+                             {'peticiones': 2, 'debidas': 13, 'encontradas': 4, 'ajenos': 0, 'lotes_fallidos': 0, 'en_cola': 9})
+            self.assertEqual(res['por_via'], {'getitems': {'peticiones': 1, 'encontradas': 3},
+                                              'busqueda': {'peticiones': 1, 'encontradas': 1}})
+            self.assertEqual(res['rendimiento'], 2.0)
+            # 978 → sus ISBN-10 en getItems; 979 (sin ISBN-10) → una búsqueda «|».
+            self.assertEqual(sorted(prov.calls[0][1]) if prov.calls[0][0] == 'getitems' else None,
+                             sorted(ca.isbn10(b) for b in books[1:11]))
+            self.assertEqual(sorted(prov.calls[1][1]), sorted(b979))
             state = json.loads(ca.seeds_path().read_text(encoding='utf-8'))
             self.assertTrue(all(r['siguiente'] == '2026-11-07' for r in state['cola'].values()))
             # Al día siguiente el sitemap trae una ficha más: solo entra esa.
@@ -468,23 +490,61 @@ class Semillas(unittest.TestCase):
             self.assertIn(books[3], json.loads(ca.seeds_path().read_text(encoding='utf-8'))['cola'])
 
     def test_other_editions_do_not_count_as_found(self):
-        wanted, other = isbn('978841111200'), isbn('978841111201')
+        for wanted in (isbn('978841111200'), isbn('979131111200')):  # getItems y búsqueda
+            other = isbn('978841111201')
 
-        class Prov(FakeProvider):
-            def post(self, url, body, headers):
-                return {'searchResult': {'items': [item('B9', other)]}}
+            class Prov(FakeProvider):
+                def post(self, url, body, headers):
+                    items = [item('B9', other)]
+                    return {'itemsResult': {'items': items}} if url == ca.ITEMS else {'searchResult': {'items': items}}
 
+            with self.subTest(wanted=wanted), tempfile.TemporaryDirectory() as tmp:
+                ca.WORK = Path(tmp)
+                ca.semillas_ttl(self.pages([wanted]).get, '2026-11-06', set())
+                raw = Path(tmp) / 'raw.jsonl'
+                with raw.open('w', encoding='utf-8') as out:
+                    res = ca.por_isbn(Prov(), 'tag', '2026-11-06', out, 5)
+                self.assertEqual((res['encontradas'], res['ajenos'], res['en_cola']), (0, 1, 1))
+                self.assertEqual(raw.read_text(encoding='utf-8'), '')
+
+    def test_seed_left_out_by_a_full_search_is_asked_again_today_without_spending_a_retry(self):
+        # Medido el 2026-11-07 con la API real: 8 de 10 búsquedas de 979 volvían llenas y 5 de 100 pedidos
+        # quedaban fuera por el tope; preguntados de nuevo, aparecían.
+        seeds = [isbn('979131111%03d' % n) for n in range(10)]
         with tempfile.TemporaryDirectory() as tmp:
             ca.WORK = Path(tmp)
-            ca.semillas_ttl(self.pages([wanted]).get, '2026-11-06', set())
-            raw = Path(tmp) / 'raw.jsonl'
-            with raw.open('w', encoding='utf-8') as out:
-                res = ca.por_isbn(Prov(), 'tag', '2026-11-06', out, 5)
-            self.assertEqual((res['encontradas'], res['ajenos'], res['en_cola']), (0, 1, 1))
-            self.assertEqual(raw.read_text(encoding='utf-8'), '')
+            ca.semillas_ttl(self.pages(seeds).get, '2026-11-06', set())
+            prov = FakeAmazon(have=seeds[:9], noise=1)  # 1 ajeno + 9 propios = 10: el último pedido no cabe
+            with (Path(tmp) / 'raw.jsonl').open('w', encoding='utf-8') as out:
+                res = ca.por_isbn(prov, 'tag', '2026-11-06', out, 5)
+            # Ese hueco no prueba que Amazon no tenga el ISBN: se repite hoy, sin gastar reintento, y no aparece.
+            self.assertEqual([c[0] for c in prov.calls], ['busqueda', 'busqueda'])
+            self.assertEqual(len(prov.calls[1][1]), 1)
+            self.assertEqual(res['por_via']['busqueda']['desplazadas'], 1)
+            row = json.loads(ca.seeds_path().read_text(encoding='utf-8'))['cola']
+            self.assertEqual({k: row[k]['intentos'] for k in row}, {prov.calls[1][1][0]: 1})
+            # Si Amazon sí lo tiene, la repetición lo encuentra el mismo día.
+            prov = FakeAmazon(have=seeds, noise=1)
+            ca.semillas_ttl(self.pages(seeds).get, '2026-11-06', set())
+            ca.write_json(ca.seeds_path(), {'cola': {b: {'primera': '2026-11-06', 'intentos': 0, 'siguiente': '2026-11-06'}
+                                                     for b in seeds}})
+            with (Path(tmp) / 'raw.jsonl').open('w', encoding='utf-8') as out:
+                res = ca.por_isbn(prov, 'tag', '2026-11-06', out, 5)
+            self.assertEqual((res['encontradas'], res['en_cola'], res['peticiones']), (10, 0, 2))
+
+    def test_budget_ending_before_the_crowded_retry_leaves_the_seed_untouched_for_tomorrow(self):
+        seeds = [isbn('979131111%03d' % n) for n in range(10)]
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            ca.semillas_ttl(self.pages(seeds).get, '2026-11-06', set())
+            with (Path(tmp) / 'raw.jsonl').open('w', encoding='utf-8') as out:
+                res = ca.por_isbn(FakeAmazon(have=seeds, noise=1), 'tag', '2026-11-06', out, 1)
+            self.assertEqual((res['peticiones'], res['encontradas'], res['en_cola']), (1, 9, 1))
+            row = next(iter(json.loads(ca.seeds_path().read_text(encoding='utf-8'))['cola'].values()))
+            self.assertEqual((row['intentos'], row['siguiente']), (0, '2026-11-06'))
 
     def test_failing_batch_is_split_and_the_bad_isbn_finally_discarded(self):
-        good, bad = [isbn('978841111300'), isbn('978841111301')], isbn('978841111302')
+        good, bad = [isbn('979131111300'), isbn('979131111301')], isbn('979131111302')
 
         class Prov(FakeProvider):
             def post(self, url, body, headers):
