@@ -30,7 +30,7 @@ try {
     await context.route('**/assets/reading-covers/qa-*',r=>r.fulfill({contentType:'image/png',body:Buffer.from(fixture.cover,'base64')}));
     await context.route('**/assets/reading-market.json',r=>r.fulfill({json:{schema_version:1,offers:[],ratings:[]}}));
     await page.goto(`${base}/recomendaciones/`,{waitUntil:'networkidle'});
-    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+    await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     assert.equal(await page.locator('[data-catalogue-book]').count(),count);
     assert.equal(await page.locator('[data-catalogue-book]:visible').count(),24);
     await page.locator('.catalogue-pagination').getByRole('button',{name:'Siguiente →'}).click();
@@ -40,7 +40,7 @@ try {
     assert.equal(await page.locator('.catalogue-pagination [aria-current="page"]').innerText(),'1');
     await page.locator('.catalogue-pagination').getByRole('button',{name:'Página 2',exact:true}).click();
     await page.reload({waitUntil:'networkidle'});
-    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+    await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     assert.match(await page.locator('[data-catalogue-count]').innerText(),/página 2/);
     await openFilters(page);
     const ms=await page.evaluate(() => {
@@ -86,7 +86,7 @@ try {
     const selected=await page.locator('[data-catalogue-book]:visible').evaluateAll(es=>es.map(e=>({cats:e.dataset.categories,date:e.dataset.published})));
     assert(selected.every(b=>b.cats.split(' ').includes('halloween')));
     await page.reload({waitUntil:'networkidle'});
-    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+    await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
     assert.deepEqual(errors,[]);
     results.push({books:count,filter_ms:Math.round(ms),quiz_results:selected.length});
@@ -105,7 +105,7 @@ try {
     for (const [path, body] of Object.entries(fixture.catalogues[100].pages)) await context.route('**'+path,r=>r.fulfill({contentType:'text/html',body}));
     await context.route('**/assets/reading-market.json',r=>r.fulfill({json:{schema_version:1,offers:[],ratings:[]}}));
     await page.goto(base+'/recomendaciones/',{waitUntil:'networkidle'});
-    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+    await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     const records=await page.locator('[data-catalogue-book]').evaluateAll(cards=>cards.map(card=>({
       id:card.dataset.bookId,group:card.dataset.group,cats:card.dataset.categories.split(' '),search:[card.dataset.title,card.dataset.author,card.querySelector("[data-isbn]")?.dataset.isbn].join(" ")
     })));
@@ -139,7 +139,7 @@ try {
     // remain recoverable; do not click an intentionally disabled checkbox.
     assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isDisabled());
     await page.goto(base+'/recomendaciones/#grupo=cocina&temporada=halloween',{waitUntil:'networkidle'});
-    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+    await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     await page.waitForFunction(()=>!document.querySelector('[data-facets-pending]'));
     assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
     assert.equal(await verify(['cocina'],['halloween']),0);
@@ -160,7 +160,7 @@ try {
     assert.deepEqual(hash.getAll('temporada'),['halloween']);
     assert.equal(hash.get('q'),'Prueba técnica 000');
     await page.reload({waitUntil:'networkidle'});
-    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+    await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     assert(await page.locator('input[data-facet="grupo"][value="novela"]').isChecked());
     assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
     assert.equal(await page.locator('[data-filter="q"]').inputValue(),'Prueba técnica 000');
@@ -187,7 +187,7 @@ try {
     await page.addInitScript(()=>localStorage.setItem('nl-popup-ts',String(Date.now())));
     await page.clock.install({time:new Date('2026-10-21T10:00:00Z')});
     await page.goto(base+'/recomendaciones/',{waitUntil:'networkidle'});
-    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+    await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     await page.evaluate(()=>document.fonts.ready);
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`overflow ${width}`);
     const links=await page.locator('.catalogue-card__cover,.catalogue-card h3 a,.catalogue-card__buy').evaluateAll(es=>es.map(e=>({target:e.target,rel:e.rel,href:e.href})));

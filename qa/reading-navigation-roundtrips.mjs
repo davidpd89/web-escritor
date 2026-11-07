@@ -81,7 +81,8 @@ async function journey(width,source,target){
     await page.goto(origin+source+'?utm_source=navigation-qa');await loaded(page);
     let selectedState;
     if(source==='/recomendaciones/'){
-      await page.waitForFunction(()=>document.querySelector('[data-catalogue-filters] fieldset')?.disabled===false);
+      // Catálogo bajo demanda: la búsqueda sobre todos los libros llega con el primer uso.
+      await page.waitForFunction(()=>{const root=document.querySelector('[data-reading-catalogue]');if(root?.dataset.catalogueReady)return true;window.dispatchEvent(new HashChangeEvent('hashchange'));return false;},null,{polling:250});
       await page.locator('[data-filter="q"]').fill(book.isbn13);
       await page.locator('[data-filter="orden"]').selectOption('fecha_asc');
       selectedState=await catalogueState(page);

@@ -14,7 +14,7 @@ async function open(width, options = {}) {
   await context.route('**/*', route => new URL(route.request().url()).origin === origin ? route.continue() : route.abort());
   const page = await context.newPage();
   await page.goto(options.hash ? url + options.hash : url, { waitUntil: 'load' });
-  if (options.javaScriptEnabled !== false) await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+  if (options.javaScriptEnabled !== false) await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
   return { context, page };
 }
 const top = (page, selector) => page.locator(selector).first().evaluate(e => Math.round(e.getBoundingClientRect().top + scrollY));

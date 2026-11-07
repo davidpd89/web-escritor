@@ -16,7 +16,7 @@ try {
   page.on('pageerror', e => errors.push(e.message));
   await page.clock.setFixedTime(new Date('2026-10-20T16:00:00Z'));
   await page.goto(base + '/recomendaciones/');
-  await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+  await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
   await page.locator('[data-filter="q"]').waitFor({ state: 'visible' });
   assert.equal(await page.locator('[data-catalogue-book]').count(), books.length);
   for (const b of imported) {

@@ -62,7 +62,7 @@ async function runCase(width,mode){
       assert(await page.locator('[data-catalogue-filters] fieldset').evaluate(n=>n.disabled),'Fallback fieldset must declare disabled');
       assert(await page.locator('[data-filter="q"]').isDisabled(),'Unavailable search must not pretend to work');
     }else{
-      await page.waitForFunction(()=>document.querySelector('[data-catalogue-filters] fieldset')?.disabled===false);
+      await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
       assert.equal(await page.locator('[data-catalogue-book]').count(),books.length,'Enhanced search uses the complete real catalogue');
       await page.waitForFunction(()=>document.querySelector('[data-filter="q"]'));
       // The request remains pending until the user has changed both controls.

@@ -103,6 +103,8 @@ for (const vp of viewports) {
   check(await page.locator('h1').innerText() === 'Libros recomendados', 'hub: catalogue heading');
   check(await page.locator('[data-catalogue-filters]').isVisible(), 'hub: filters must be visible');
   check(await page.locator('[data-catalogue-book]').count() >= 1, 'hub: pilot book missing');
+  // Coraline está en otra página estática: el catálogo completo llega con el primer uso.
+  await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
   check(await page.locator('a[href="/recomendaciones/libros/coraline/"]').count() >= 1, 'hub: Coraline URL missing');
   await page.goto(BASE + '/cuaderno/');
   for (const slug of ['portal-fantasy-espanol', 'magia-con-coste']) {
