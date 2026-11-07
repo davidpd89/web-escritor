@@ -80,8 +80,12 @@ async function audit(browser){
   const zero=await search('zzqqwwjjkk99inexistente');
   // Pagefind casa por prefijo: una palabra de una o dos letras del corpus («generación Z») sale
   // con «zzqq…». Eso no es una búsqueda rota; sí lo es resaltar una palabra real del índice.
-  const real=zero.filter(x=>(x.excerpt.match(/<mark>[^<]*<\/mark>/g)||[]).some(m=>m.replace(/<\/?mark>|[^\p{L}\p{N}]/gu,'').length>2));
-  assert.ok(zero.length<5,'nonsense query returned too many results: '+zero.length);
+  // Cuántas páginas tienen esa letra suelta crece con el catálogo («Dragon Ball Z», «de la A a la Z»):
+  // no se cuenta, se exige que cada resultado venga solo de ese prefijo corto.
+  const marks=x=>(x.excerpt.match(/<mark>[^<]*<\/mark>/g)||[]).map(m=>m.replace(/<\/?mark>|[^\p{L}\p{N}]/gu,''));
+  const real=zero.filter(x=>marks(x).some(m=>m.length>2));
+  const unexplained=zero.filter(x=>!marks(x).some(m=>m.length>0&&m.length<=2));
+  assert.deepEqual(unexplained.map(x=>x.url),[],'nonsense query returned results without a short prefix match');
   assert.equal(real.length,0,'nonsense query must return zero results: '+JSON.stringify(real.map(x=>x.url+' '+x.excerpt.slice(0,160))));
 
   for(const q of ['política de privacidad datos personales','aviso legal responsabilidad']){
