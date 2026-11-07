@@ -77,7 +77,23 @@ jobs:
           if [ -s "$logs/failed" ]; then sed 's/^/FALLA: /' "$logs/failed"; exit 1; fi
 
       - name: Run underscore-named Python contracts
-        run: python -m unittest discover -s tests -p 'test_*.py'
+        shell: bash
+        # Un proceso por fichero, 4 a la vez como el paso anterior: en serie los 259 eran el cuello de la puerta.
+        # discover -p <fichero> conserva el sys.path y la carga de siempre; el resumen lista los que fallan.
+        run: |
+          logs="$RUNNER_TEMP/underscore"; mkdir -p "$logs"
+          # rc 5 = "NO TESTS RAN" (Python >= 3.12): contratos de script que se ejecutan al importar.
+          for f in tests/test_*.py; do
+            [ -e "$f" ] || continue
+            { rc=0; python -m unittest discover -s tests -p "${f##*/}" > "$logs/${f##*/}.log" 2>&1 || rc=$?; [ "$rc" -eq 0 ] || [ "$rc" -eq 5 ] || echo "$f" >> "$logs/failed"; } &
+            while [ "$(jobs -rp | wc -l)" -ge 4 ]; do wait -n; done
+          done
+          wait
+          if [ -s "$logs/failed" ]; then
+            while read -r f; do echo "::group::$f"; cat "$logs/${f##*/}.log"; echo "::endgroup::"; done < "$logs/failed"
+            sed 's/^/FALLA: /' "$logs/failed"; exit 1
+          fi
+          echo "$(ls "$logs"/*.log | wc -l) ficheros de contratos OK"
 
       - name: Verify third-party integration governance
         run: python scripts/check-third-party-integrations.py --check

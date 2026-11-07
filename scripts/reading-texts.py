@@ -177,6 +177,32 @@ def audience(cat_ids):
     return next((name for name, ids in AUDIENCES if cat_ids & ids), None)
 
 
+AFFINE_INDEX = None
+
+
+def affine_index(data):
+    """Categorías, edad y público de cada libro publicado, y cuántos libros tiene cada categoría.
+
+    Se calcula una vez por índice de categorías (pending() lo renueva en cada lote): recalcularlo para cada libro
+    hacía cuadrático el lote. Sin índice activo (llamadas sueltas) se calcula al vuelo, como antes."""
+    global AFFINE_INDEX
+    key = catalogue.CATEGORY_INDEX
+    if key is not None and AFFINE_INDEX is not None and AFFINE_INDEX[0] is key and key[0] is data:
+        return AFFINE_INDEX[1]
+    rows = []
+    for x in published(data):
+        cats = {c['id'] for c in catalogue.categories(data, x)}
+        rows.append((x, cats, min_age(x), audience(cats)))
+    counts = {}
+    for _, cats, _, _ in rows:
+        for c in cats:
+            counts[c] = counts.get(c, 0) + 1
+    result = (rows, counts)
+    if key is not None and key[0] is data:
+        AFFINE_INDEX = (key, result)
+    return result
+
+
 def affine_books(data, b, cat_ids):
     """Libros publicados del catálogo más parecidos (o del mismo autor), para comparar y enlazar.
 
@@ -185,16 +211,17 @@ def affine_books(data, b, cat_ids):
     """
     names = {c['id']: c['nombre'] for c in data['categorias'] if c['tipo'] in ('genero', 'tematica')}
     wanted = cat_ids & set(names)
-    books = [x for x in published(data) if x['id'] != b['id']]
-    cats = {x['id']: {c['id'] for c in catalogue.categories(data, x)} for x in books}
-    df = {c: sum(c in v for v in cats.values()) + 1 for c in wanted}
-    total = len(books) + 1
+    index, counts = affine_index(data)
+    own = next((c for x, c, _, _ in index if x['id'] == b['id']), set())
+    df = {c: counts.get(c, 0) - (c in own) + 1 for c in wanted}
+    total = len(index) - any(x['id'] == b['id'] for x, _, _, _ in index) + 1
     age, public = min_age(b), audience(cat_ids)
     rows = []
-    for x in books:
-        shared = wanted & cats[x['id']]
+    for x, x_cats, other, other_public in index:
+        if x['id'] == b['id']:
+            continue
+        shared = wanted & x_cats
         author = bool(set(x['autores']) & set(b['autores']))
-        other, other_public = min_age(x), audience(cats[x['id']])
         if not author and ((age is not None and other is not None and abs(age - other) > 4)
                            or (public and other_public and public != other_public)):
             continue
@@ -215,6 +242,9 @@ def source_hash(p):
 
 def pending(data, out=OUT, state=None):
     state = {} if state is None else state
+    # Cada payload busca afines entre todo el catálogo: sin el índice, categories() recorre todas las relaciones
+    # por libro y afín, y el coste crece con el cubo del catálogo (con 1.800 libros, horas).
+    catalogue.index_categories(data)
     rows = []
     for b in published(data):
         p = payload(data, b)
@@ -666,6 +696,7 @@ def publish(out=OUT):
     git('reset', '-q', '--hard', 'origin/main', cwd=tree)
     git('clean', '-qfd', cwd=tree)
     data = read_json(tree / 'data/reading-catalogue.json')
+    catalogue.index_categories(data)
     ids = {b['id'] for b in published(data)}
     target = tree / 'data/reading-texts'
     target.mkdir(exist_ok=True)
@@ -730,6 +761,7 @@ def start_publish():
 def loop(args):
     state = read_json(STATE, {})
     data = read_json(ROOT / 'data/reading-catalogue.json')
+    catalogue.index_categories(data)
     deadline = time.time() + args.hours * 3600
     done = since_publish = 0
     publishing, last = None, ''
@@ -793,6 +825,7 @@ def main(argv=None):
     sub.add_parser('publish')
     args = parser.parse_args(argv)
     data = read_json(ROOT / 'data/reading-catalogue.json')
+    catalogue.index_categories(data)
     if args.cmd == 'pending':
         rows = pending(data, state=read_json(STATE, {}))
         print(f'{len(rows)} pendientes')

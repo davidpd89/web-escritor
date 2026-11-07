@@ -9,7 +9,9 @@ required_fragments = [
     "name: Required merge gate",
     "scripts/requirements.txt",
     "for f in tests/test-*.py",
-    "python -m unittest discover -s tests -p 'test_*.py'",
+    # Los underscore-named corren un fichero por proceso, en paralelo; debe recorrerlos todos.
+    "for f in tests/test_*.py",
+    'python -m unittest discover -s tests -p "${f##*/}"',
     "for f in tests/*.mjs",
     "python tests/test-release-identity.py",
     "python tests/test-public-artifact-contract.py",

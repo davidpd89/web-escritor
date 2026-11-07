@@ -29,6 +29,7 @@ class ReadingTextsTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+        texts.catalogue.index_categories(cls.data)  # recorren todo el catálogo real: sin índice, el coste es cúbico
         cls.book = next(b for b in texts.published(cls.data)
                         if {'encaje_documentado', 'lecturas_afines'} <= {m['modulo'] for m in texts.payload(cls.data, b)['modulos_permitidos']})
         cls.payload = texts.payload(cls.data, cls.book)

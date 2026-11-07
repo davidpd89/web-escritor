@@ -29,8 +29,9 @@ from collections import defaultdict
 from pathlib import Path
 
 if sys.platform == "win32":
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
-    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8")
+    # reconfigure, no TextIOWrapper: al importarse desde los tests, sustituir el flujo cerraba el stderr del runner.
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parents[1]
 SKIP_PARTS = {
