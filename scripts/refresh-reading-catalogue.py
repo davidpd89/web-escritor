@@ -237,12 +237,18 @@ def amazon_intake(config, publish):
     # La prueba solo comprueba credenciales y fuentes con unas pocas peticiones: ni transforma ni gasta cuota.
     phase, requests = ('todo', int(settings.get('peticiones', 600))) if publish else ('descargar', 20)
     import catalogo_amazon
-    catalogo_amazon.main([phase, '--dia', day, '--peticiones', str(requests),
+    code = catalogo_amazon.main([phase, '--dia', day, '--peticiones', str(requests),
                           '--altas', str(int(settings.get('altas', 200)))])
     new = sorted(catalogue_ids(catalogue_path.read_bytes()) - before)
     summary = read_json(catalogo_amazon.WORK / f'informe-{day}.json', {})
+    if code:
+        # Libros vaciados o desaparecidos respecto a la foto anterior. No lo causa la ingesta (solo añade y enlaza);
+        # abortar dejaría la foto vieja en catalogo-estado y bloquearía todas las noches siguientes. Se avisa.
+        print('::warning::Revisión del catálogo: campos vaciados o libros desaparecidos respecto a la foto anterior; '
+              'ver .ci/reading-intake/amazon-catalogo.json', flush=True)
     write_if_changed(ROOT / '.ci/reading-intake/amazon-catalogo.json', summary)
-    return {'new_books': new, 'updated_books': [], 'stats': {'accepted': len(new), 'fuente': 'amazon_catalogo'}}
+    return {'new_books': new, 'updated_books': [], 'stats': {'accepted': len(new), 'fuente': 'amazon_catalogo',
+                                                               'regresion': bool(code)}}
 
 
 def market_refresh(config):

@@ -594,6 +594,33 @@ class Pendientes(unittest.TestCase):
         self.assertNotIn('X1', pending)
         self.assertEqual([g['asin'] for g in gone], ['X1'])
 
+    def test_deferred_and_rejected_candidates_go_back_to_the_queue_with_their_editions(self):
+        # Los raw y candidatos del día no viajan entre runners: lo que no entra no puede quedarse solo ahí.
+        deferred = {'asin': 'D1', 'isbn13': '1', 'item': {'asin': 'D1'}, 'otras_ediciones': [{'asin': 'D1K'}]}
+        rejected = {'asin': 'R1', 'isbn13': '2', 'item': {'asin': 'R1'}, 'otras_ediciones': []}
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            self.assertEqual(ca.reencolar('2026-11-06', [deferred], [rejected]), (1, 1))
+            pending = ca.read_json(ca.pending_path())
+        self.assertEqual(sorted(pending), ['D1', 'D1K', 'R1'])
+        self.assertEqual((pending['D1']['siguiente'], pending['D1']['intentos']), ('2026-11-06', 0))
+        self.assertEqual((pending['R1']['siguiente'], pending['R1']['intentos']), ('2026-11-07', 1))
+
+    def test_oldest_due_pending_items_are_asked_first(self):
+        class Items(FakeProvider):
+            def post(self, url, body, headers):
+                self.calls.append(body.get('itemIds'))
+                return {'itemsResult': {'items': [{'asin': a} for a in body['itemIds']]}}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            due = {f'A{i:02}': {'siguiente': '2026-11-06'} for i in range(10)} | {'Z9': {'siguiente': '2026-10-01'}}
+            ca.write_json(ca.pending_path(), due)
+            prov = Items()
+            with (Path(tmp) / 'raw.jsonl').open('w', encoding='utf-8') as out:
+                ca.reintentar(prov, 'tag-21', '2026-11-06', out, 1)
+        self.assertEqual(prov.calls[0][0], 'Z9')
+
 
 class Revisar(unittest.TestCase):
     def test_emptied_or_missing_books_are_a_regression_and_gaps_are_listed(self):

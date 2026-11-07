@@ -397,9 +397,35 @@ def update_pending(day, failures, resolved):
     return pending
 
 
+def reencolar(day, deferred, rejected):
+    """Ningún candidato se pierde entre lotes: los raw y candidatos del día no se guardan en catalogo-estado (otro
+    runner no los tiene), así que lo que no entra vuelve a la cola de ASIN. Los aplazados por cupo tocan ya, sin
+    gastar intento; los rechazados al aplicar siguen el calendario de reintentos y, agotado, quedan en descartados
+    (si entretanto se corrige el método, entran solos). Con cada uno van sus otras ediciones, que dan los formatos."""
+    pending = read_json(pending_path(), {})
+    for record in deferred:
+        for asin in record_asins(record):
+            row = pending.get(asin) or {'primera': day, 'intentos': 0}
+            pending[asin] = row | {'motivo': 'aplazado por cupo de altas', 'siguiente': day}
+    for record in rejected:
+        for asin in record_asins(record):
+            schedule(pending, asin, day, 'rechazado al aplicar (ver fallos del día)')
+    write_json(pending_path(), pending)
+    return len(deferred), len(rejected)
+
+
+def record_asins(record):
+    items = [record.get('item'), *record.get('otras_ediciones', [])]
+    return list(dict.fromkeys(a for a in ([record.get('asin')] + [amazon_dict(i).get('asin') for i in items]) if a))
+
+
 def reintentar(prov, tag, day, out, budget):
     """getItems de los pendientes que tocan hoy, de 10 en 10, al mismo raw que el recorrido."""
-    due = sorted(a for a, row in read_json(pending_path(), {}).items() if row.get('siguiente', '') <= day)
+    # Los que más llevan esperando, primero: con más pendientes que cupo, ordenar por ASIN dejaría siempre a los
+    # mismos al final.
+    rows = read_json(pending_path(), {})
+    due = sorted((a for a, row in rows.items() if row.get('siguiente', '') <= day),
+                 key=lambda a: (rows[a].get('siguiente', ''), a))
     used, asked, got = 0, set(), set()
     for start in range(0, len(due), 10):
         if used >= budget:
@@ -1318,9 +1344,14 @@ def main(argv=None):
         result = transformar(args.dia, catalogue)
         report['transformar'] = {k: v for k, v in result.items() if k != 'fallos'} | {'rechazos': len(result['fallos'])}
         if args.fase in ('aplicar', 'todo'):
-            candidates, deferred = priorizar(read_json(WORK / f'candidatos-{args.dia}.json'), args.dia,
-                                             args.altas or cfg.get('max_altas', 1000))
+            pool = read_json(WORK / f'candidatos-{args.dia}.json')
+            limit = args.altas or cfg.get('max_altas', 1000)
+            candidates, deferred = priorizar(pool, args.dia, limit)
             report['aplicar'] = aplicar(args.dia, tag, candidates, result['fallos']) | {'aplazados': deferred}
+            published = {b['isbn13'] for b in read_json(ROOT / 'data/reading-catalogue.json')['libros']}
+            report['aplicar']['reencolados'] = reencolar(
+                args.dia, priorizar(pool, args.dia, len(pool))[0][limit:],
+                [r for r in candidates if r['isbn13'] not in published])
         else:
             write_json(WORK / f'fallos-{args.dia}.json', summarize(result['fallos']))
     if args.fase in ('revisar', 'todo'):
