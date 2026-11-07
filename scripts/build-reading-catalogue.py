@@ -797,14 +797,14 @@ def format_box(b, compact=False, anchor=None):
             # Porcentaje rojo junto al precio; el navegador lo quita si la comprobación caduca (data-offer-checked).
             badge = f' <em class="catalogue-format__off" data-offer-checked="{esc(o["fecha_verificacion"])}">-{found[1]} %</em>' if found else ''
             said = f', {found[1]} % de descuento sobre {money(found[0])}' if found else ''
-            cells.append(f'<li><a class="catalogue-format{" is-primary" if f == main else ""}" data-purchase-format="{f}" href="{esc(amazon_es(o["url"]))}" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="{FORMATS[f]}: {price}{said} en Amazon (otra pestaña)"><span>{FORMATS[f]}</span><strong>{price}{badge}</strong></a></li>')
+            cells.append(f'<li><a class="catalogue-format{" is-primary" if f == main else ""}" data-purchase-format="{f}" href="{esc(amazon_es(o["url"]))}" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>{FORMATS[f]}</span> <strong>{price}{badge}</strong><span class="sr-only">{said} en Amazon (otra pestaña)</span></a></li>')
         elif (search := amazon_format_search(b, f)):
-            cells.append(f'<li><a class="catalogue-format is-missing" data-missing-format="{f}" href="{esc(amazon_es(search))}" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="{FORMATS[f]}: sin precio comprobado, buscar en Amazon (otra pestaña)"><span>{FORMATS[f]}</span><strong>Buscar</strong></a></li>')
+            cells.append(f'<li><a class="catalogue-format is-missing" data-missing-format="{f}" href="{esc(amazon_es(search))}" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>{FORMATS[f]}</span> <strong>Buscar</strong><span class="sr-only"> en Amazon, sin precio comprobado (otra pestaña)</span></a></li>')
         else:
-            cells.append(f'<li><span class="catalogue-format is-missing" data-missing-format="{f}" aria-label="{FORMATS[f]}: sin precio comprobado en Amazon"><span>{FORMATS[f]}</span><strong>—</strong></span></li>')
+            cells.append(f'<li><span class="catalogue-format is-missing" data-missing-format="{f}"><span>{FORMATS[f]}</span> <strong aria-hidden="true">—</strong><span class="sr-only">: sin precio comprobado en Amazon</span></span></li>')
     if compact:
         # The enclosing region already names Amazon; retain format, price and new-tab hint.
-        cells = [cell.replace(' en Amazon (otra pestaña)', ' (otra pestaña)').replace(', buscar en Amazon (otra pestaña)', ', buscar (otra pestaña)').replace(' comprobado en Amazon"', ' comprobado"') for cell in cells]
+        cells = [cell.replace(' en Amazon (otra pestaña)', ' (otra pestaña)').replace(' en Amazon, sin precio comprobado (otra pestaña)', ', sin precio comprobado (otra pestaña)').replace(' comprobado en Amazon</span>', ' comprobado</span>') for cell in cells]
     heading = '' if compact else '<h2>Formatos y precios en Amazon</h2>'
     return f'<section class="catalogue-formats{" catalogue-formats--card" if compact else ""}" aria-label="Formatos y precios en Amazon">{heading}<ul>' + ''.join(cells) + '</ul></section>'
 

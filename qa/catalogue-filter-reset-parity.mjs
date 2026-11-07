@@ -8,6 +8,8 @@ const snapshot=page=>page.evaluate(()=>({cards:[...document.querySelectorAll('[d
 try {
   const page=await browser.newPage();
   await page.goto(BASE+route,{waitUntil:'domcontentloaded'});
+  // Restablecer devuelve la vista inicial del catálogo ya mejorado (24 por página), no la página estática de 96.
+  await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
   const initial=await snapshot(page);
   assert.ok(initial.cards.length>0,`${route}: catálogo inicialmente vacío`);
   const search=page.locator('[data-filter="q"]');

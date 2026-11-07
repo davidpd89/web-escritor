@@ -33,17 +33,25 @@ try {
     await context.close();
   }
   for (const fault of ['unavailable', 'stale']) {
-    const context = await browser.newContext();
+    // La descarga llega tras el primer uso, cuando el service worker ya controla la página y sus fetch no pasan por page.route.
+    const context = await browser.newContext({ serviceWorkers: 'block' });
     await context.addInitScript(() => { localStorage.setItem('nl-popup-ts', String(Date.now())); });
     const page = await context.newPage();
+    let fetched = 0;
     await page.route('**/recomendaciones/pagina/2/', async route => {
       if (route.request().resourceType() === 'document') return route.continue();
+      fetched++;
       if (fault === 'unavailable') return route.fulfill({status:503,contentType:'text/html',body:'Unavailable'});
       const response = await route.fetch();
       return route.fulfill({response,body:(await response.text()).replace(/data-catalogue-version="[^"]+"/, 'data-catalogue-version="old"')});
     });
-    await page.goto(`${BASE}/recomendaciones/`);
+    await page.goto(`${BASE}/recomendaciones/`, { waitUntil: 'networkidle' });
+    // Bajo demanda: sin tocar filtros ni buscador no se descarga el resto del catálogo y la página estática está entera.
+    assert.equal(fetched, 0);
+    assert.equal(await page.locator('[data-catalogue-book]:visible').count(), Math.min(realCount,96));
+    await page.locator('[data-filter="q"]').focus();
     await page.waitForFunction(() => document.querySelector('[data-catalogue-count]').textContent.includes('No se pudo'));
+    assert(fetched > 0);
     assert(await page.locator('[data-catalogue-filters] fieldset').evaluate(el => el.disabled));
     assert(await page.locator('[data-catalogue-static-pagination]').isVisible());
     assert.equal(await page.locator('[data-catalogue-book]:visible').count(), Math.min(realCount,96));
@@ -57,7 +65,8 @@ try {
   // Tras publicar, el navegador puede servir el índice desde caché con la versión anterior y las páginas
   // ya nuevas: se recarga una vez y el catálogo queda completo y filtrable.
   {
-    const context = await browser.newContext();
+    // Sin service worker: la recarga llega tras el primer uso y él la serviría sin pasar por page.route.
+    const context = await browser.newContext({ serviceWorkers: 'block' });
     await context.addInitScript(() => { localStorage.setItem('nl-popup-ts', String(Date.now())); });
     const page = await context.newPage();
     let served = 0;
@@ -68,7 +77,7 @@ try {
       return route.fulfill({ response, body: (await response.text()).replace(/data-catalogue-version="[^"]+"/, 'data-catalogue-version="cached"') });
     });
     await page.goto(`${BASE}/recomendaciones/`);
-    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+    await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     assert.equal(served, 2);
     assert.equal(await page.locator('[data-catalogue-book]').count(), realCount);
     assert.doesNotMatch(await page.locator('[data-catalogue-count]').innerText(), /No se pudo/);
@@ -101,7 +110,7 @@ try {
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
     await page.goto(`${BASE}/recomendaciones/`);
-    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+    await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     await openFilters(page);
     assert.match(await page.locator('h1').innerText(), /Libros recomendados/);
     assert.equal(await page.locator('[data-catalogue-book]').count(), realCount);
@@ -147,7 +156,7 @@ try {
     const context = await browser.newContext({ viewport: { width: 390, height: 900 } });
     const page = await context.newPage();
     await page.goto(`${BASE}/recomendaciones/`);
-    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+    await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     const query = page.locator('[data-filter="q"]');
     const setQuery = async value => {
       await query.fill(value);
@@ -165,7 +174,7 @@ try {
     await setQuery(persisted);
     assert.equal(new URLSearchParams(new URL(page.url()).hash.slice(1)).get('q'), persisted);
     await page.reload();
-    await page.waitForSelector('[data-catalogue-filters] fieldset:not([disabled])');
+    await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     assert.equal(await query.inputValue(), persisted);
     assert.deepEqual(await visibleIds(), expected);
     await setQuery('9790000000000');

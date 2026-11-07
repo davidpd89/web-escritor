@@ -7,9 +7,10 @@
   // after every page of this exact catalogue snapshot has been loaded.
   const staticNav = root.querySelector('[data-catalogue-static-pagination]');
   const continuation = [...(staticNav?.querySelectorAll('a[data-catalogue-page]') || [])];
-  if (continuation.length) {
+  // El catálogo completo (todas las páginas) se descarga e indexa al primer uso de filtros, buscador o test, o al
+  // cargar con un estado en la URL (#…). Antes, la primera página ya lleva novedad, valoraciones y precios del día.
+  const hydrate = async () => {
     const localCards = [...root.querySelectorAll('[data-catalogue-book]')];
-    localCards.slice(24).forEach(card => { card.hidden = true; });
     // Páginas en paralelo y con un reintento: en serie, un móvil tardaba ~10 s en poder filtrar.
     const readPage = async (link, attempt = 0) => {
       const url = new URL(link.href, location.href);
@@ -35,7 +36,8 @@
         const target = String(pages.find(page => page.version !== root.dataset.catalogueVersion).version);
         let retry = false;
         try { retry = sessionStorage.getItem('catalogue-reload') !== target; sessionStorage.setItem('catalogue-reload', target); } catch { /* sin almacenamiento: no se recarga */ }
-        if (retry) { location.reload(); return; }
+        // Tras recargar sigue la descarga sin esperar otro gesto: el lector ya había empezado a filtrar.
+        if (retry) { try { sessionStorage.setItem('catalogue-hydrate', '1'); } catch { /* opcional */ } location.reload(); return false; }
         throw new Error('Catalogue changed');
       }
       try { sessionStorage.removeItem('catalogue-reload'); } catch { /* opcional */ }
@@ -46,14 +48,18 @@
       const fragment = document.createDocumentFragment();
       for (const card of parts) { card.hidden = true; fragment.append(card); }
       root.querySelector('.catalogue-grid').append(fragment);
+      // Solo con el catálogo completo se pasa a la paginación de 24: si falla, sigue la página estática entera.
+      localCards.slice(24).forEach(card => { card.hidden = true; });
     } catch {
       localCards.forEach(card => { card.hidden = false; });
       const count = root.querySelector('[data-catalogue-count]');
       if (count) count.textContent = 'No se pudo preparar la búsqueda completa. Puedes recorrer las páginas del catálogo.';
-      return;
+      return false;
     }
-  }
-  if (staticNav) { staticNav.hidden = true; staticNav.classList.remove('catalogue-pagination'); }
+    if (staticNav) { staticNav.hidden = true; staticNav.classList.remove('catalogue-pagination'); }
+    return true;
+  };
+  if (!continuation.length && staticNav) { staticNav.hidden = true; staticNav.classList.remove('catalogue-pagination'); }
   const FACET_SEARCH_FROM = 8; // opciones a partir de las cuales el filtro lleva buscador propio
   const normalize = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').replace(/,/g, ' ').replace(/\s+/g, ' ').trim();
   // Solo los ISBN-13 completos admiten separadores y prefijos de presentación.
@@ -62,10 +68,15 @@
     return /^97[89](?:[\s-]*\d){10}$/.test(candidate) ? candidate.replace(/[\s-]/g, '') : normalize(s);
   };
   const form = root.querySelector('[data-catalogue-filters]');
-  const cards = [...root.querySelectorAll('[data-catalogue-book]')];
-  // Reuse full title, authors and ISBN. Support cached HTML with data-search.
-  const searchIndex = new Map(cards.map(card => [card, normalize(card.dataset.search || `${card.dataset.title} ${card.dataset.author} ${card.querySelector('[data-isbn]')?.dataset.isbn || ''}`)]));
-  const originalOrder = new Map(cards.map((card, i) => [card, i]));
+  let cards, searchIndex, originalOrder, hasDiscounts;
+  const indexCards = () => {
+    cards = [...root.querySelectorAll('[data-catalogue-book]')];
+    // Reuse full title, authors and ISBN. Support cached HTML with data-search.
+    searchIndex = new Map(cards.map(card => [card, normalize(card.dataset.search || `${card.dataset.title} ${card.dataset.author} ${card.querySelector('[data-isbn]')?.dataset.isbn || ''}`)]));
+    originalOrder = new Map(cards.map((card, i) => [card, i]));
+    hasDiscounts = cards.some(card => card.dataset.formatDiscounts);
+  };
+  indexCards();
   const fields = form ? [...form.elements].filter(f => f.dataset.filter) : [];
   // Filtros con varias opciones a la vez (OR dentro de cada uno, AND entre ellos), como casillas.
   const FACETS = ['grupo', 'genero', 'tematica', 'temporada', 'edad', 'contenido', 'formato'];
@@ -133,7 +144,6 @@
   const cardFormats = card => { const m = memoFor(card); return m.formats || (m.formats = new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)])); };
   for (const badge of root.querySelectorAll('[data-offer-checked]')) if (!offerCurrent(badge.dataset.offerChecked)) badge.remove();
   const matchingOffers = (card, v) => [...offersFor(card.dataset.bookId).map(o => ({formato: o.formato, pct: discount(o)})), ...formatDiscounts(card)].filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.descuento || o.pct >= Number(v.descuento)));
-  const hasDiscounts = cards.some(card => card.dataset.formatDiscounts);
   // Por defecto, solo publicados; los próximos se piden o se buscan.
   const released = (lower) => !lower || lower <= today();
   const ratingOk = (card, v) => { if (!v.valoracion) return true; const r = ratingFor(card.dataset.bookId)?.puntuacion; return r != null && (v.valoracion === 'menos-3' ? r < 3 : r >= Number(v.valoracion)); };
@@ -429,9 +439,48 @@
     }
     quiz.addEventListener('toggle', () => { if (quiz.open && !started) { started = true; render(); } });
   }
+  const enableControls = on => {
+    if (!form) return;
+    form.querySelector('fieldset').disabled = !on; form.querySelector('[type="reset"]').disabled = !on;
+    for (const select of root.querySelectorAll('[data-filter="orden"], [data-filter="estado"]')) select.disabled = !on;
+  };
+  let hydrated = !continuation.length, ready = false, payload = null, touched = false;
+  // Solo datos de mercado de libros presentes en la página (se recalcula al añadir el resto del catálogo).
+  const adoptMarket = () => {
+    if (!payload) return;
+    const ids = new Set([...root.querySelectorAll('[data-rating-book]')].map(el => el.dataset.ratingBook)), known = x => x && typeof x === 'object' && ids.has(x.libro_id);
+    market = { offers: payload.offers.filter(known), ratings: payload.ratings.filter(known), sales_ranks: (Array.isArray(payload.sales_ranks) ? payload.sales_ranks : []).filter(known) };
+  };
+  const refresh = () => { renderNovelty(); renderMarket(); if (ready) apply(false); };
+  window.addEventListener('pageshow', refresh); document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); }); setInterval(() => { if (!document.hidden) refresh(); }, 60000);
+  fetch('/assets/reading-market.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(p => { if (p?.schema_version === 1 && Array.isArray(p.offers) && Array.isArray(p.ratings)) { payload = p; adoptMarket(); renderMarket(); if (ready) restore(); } }).catch(() => { /* The static catalogue stays available. */ }); refresh();
+  if (document.fonts) document.fonts.load('1em "CatalogueNovelty"').then(faces => { root.classList.add(faces.length ? 'catalogue-fonts-ready' : 'catalogue-fonts-failed'); }).catch(() => root.classList.add('catalogue-fonts-failed'));
+  else root.classList.add('catalogue-fonts-failed');
+  if (!hydrated) {
+    // Controles usables desde el principio: lo que el lector marque mientras carga se aplica al terminar.
+    enableControls(true);
+    root.addEventListener('input', () => { touched = true; }, true);
+    root.addEventListener('change', () => { touched = true; }, true);
+    let resume = false;
+    try { resume = sessionStorage.getItem('catalogue-hydrate') === '1'; sessionStorage.removeItem('catalogue-hydrate'); } catch { /* opcional */ }
+    if (!location.hash.slice(1) && !resume) await new Promise(resolve => {
+      const events = ['pointerdown', 'focusin', 'keydown'], controls = 'input, select, textarea, button, summary, label';
+      const go = event => {
+        if (event.type !== 'hashchange' && !event.target.closest?.(controls)) return;
+        events.forEach(type => root.removeEventListener(type, go, true));
+        window.removeEventListener('hashchange', go);
+        resolve();
+      };
+      events.forEach(type => root.addEventListener(type, go, true));
+      window.addEventListener('hashchange', go);
+    });
+    const count = root.querySelector('[data-catalogue-count]');
+    if (count) count.textContent = 'Preparando la búsqueda en todo el catálogo…';
+    if (!await hydrate()) { enableControls(false); return; }
+    hydrated = true; indexCards(); adoptMarket(); renderNovelty(); renderMarket();
+  }
   if (form) {
-    form.querySelector('fieldset').disabled = false; form.querySelector('[type="reset"]').disabled = false;
-    for (const select of root.querySelectorAll('[data-filter="orden"], [data-filter="estado"]')) select.disabled = false;
+    enableControls(true);
     const refineToggle = form.querySelector('[data-catalogue-refine-toggle]'), refine = form.querySelector('[data-catalogue-refine]');
     if (refineToggle && refine) {
       const setRefine = open => { refine.toggleAttribute('data-open', open); refineToggle.setAttribute('aria-expanded', String(open)); };
@@ -448,13 +497,12 @@
       // Al elegir tipo se abre solo «Género».
       if (b.dataset.facet === 'grupo' && b.checked) for (const group of form.querySelectorAll('[data-facet-group]')) if (group.dataset.facetGroup !== 'grupo') group.open = group.dataset.facetGroup === 'genero' || group.querySelector('input:checked') !== null;
     }));
-    form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; apply(); }); form.addEventListener('reset', () => setTimeout(() => { currentPage = 1; apply(); }, 0)); window.addEventListener('hashchange', restore); restore();
+    form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; apply(); }); form.addEventListener('reset', () => setTimeout(() => { currentPage = 1; apply(); }, 0)); window.addEventListener('hashchange', restore);
+    if (touched && !location.hash.slice(1)) { currentPage = 1; apply(); } else restore();
   }
-  const refresh = () => { renderNovelty(); renderMarket(); apply(false); };
-  window.addEventListener('pageshow', refresh); document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); }); setInterval(() => { if (!document.hidden) refresh(); }, 60000);
-  const knownIds = new Set([...root.querySelectorAll('[data-rating-book]')].map(el => el.dataset.ratingBook));
-  fetch('/assets/reading-market.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(p => { if (p?.schema_version === 1 && Array.isArray(p.offers) && Array.isArray(p.ratings)) { market = { offers: p.offers.filter(o => o && typeof o === 'object' && knownIds.has(o.libro_id)), ratings: p.ratings.filter(r => r && typeof r === 'object' && knownIds.has(r.libro_id)), sales_ranks: (Array.isArray(p.sales_ranks) ? p.sales_ranks : []).filter(r => r && typeof r === 'object' && knownIds.has(r.libro_id)) }; renderMarket(); restore(); } }).catch(() => { /* The static catalogue stays available. */ }); refresh();
   setupQuiz();
-  if (document.fonts) document.fonts.load('1em "CatalogueNovelty"').then(faces => { root.classList.add(faces.length ? 'catalogue-fonts-ready' : 'catalogue-fonts-failed'); }).catch(() => root.classList.add('catalogue-fonts-failed'));
-  else root.classList.add('catalogue-fonts-failed');
+  // El test pudo abrirse antes de terminar la descarga: se pinta ahora.
+  const quizBox = root.querySelector('.catalogue-quiz');
+  if (quizBox?.open) quizBox.dispatchEvent(new Event('toggle'));
+  ready = true; root.dataset.catalogueReady = 'true';
 })();

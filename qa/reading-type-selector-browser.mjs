@@ -14,6 +14,8 @@ try {
     // Sin intro ni popup de newsletter: con más libros la prueba dura más y el popup tapaba las casillas.
     await page.addInitScript(() => { try { sessionStorage.setItem('dp-intro-seen', '1'); localStorage.setItem('nl-popup-ts', String(Date.now())); localStorage.setItem('nl-subscribed', '1'); } catch {} });
     await page.goto(`${base}/recomendaciones/`, { waitUntil: 'load' });
+    await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
+    // El botón «Filtros» del móvil lo prepara la vista mejorada: se abre cuando ya está lista.
     await openFilters(page);
     const box = (facet, value) => page.locator(`input[data-facet="${facet}"][value="${value}"]`);
     const visibleBooks = () => page.locator('[data-catalogue-book]:not([hidden])');

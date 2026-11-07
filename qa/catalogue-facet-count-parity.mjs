@@ -13,6 +13,8 @@ try {
   page.on('pageerror',e=>errors.push(e.message));
   const response=await page.goto(BASE+route,{waitUntil:'networkidle'});
   assert.equal(response?.status(),200,`${route}: HTTP incorrecto`);
+  await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
+  await page.waitForFunction(()=>!document.querySelector('[data-reading-catalogue]').dataset.facetsPending);
   const options=await page.$$eval('[data-catalogue-filters] input[data-facet]',boxes=>boxes
     .filter(b=>!b.closest('label').hidden&&Number(b.closest('label').dataset.count)>0)
     .map(b=>({facet:b.dataset.facet,value:b.value,count:Number(b.closest('label').dataset.count)})));

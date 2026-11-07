@@ -500,7 +500,7 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
         '      </button>\n'
         '    </div>\n'
         '    <div class="site-header__actions">\n'
-        '      <a class="header-social" href="/redes-sociales/" aria-label="Redes sociales" title="Redes sociales">RRSS</a>\n'
+        '      <a class="header-social" href="/redes-sociales/" aria-label="RRSS: redes sociales" title="Redes sociales">RRSS</a>\n'
         # Same mail chooser as the footer «@ Escríbeme» (email-reveal.js +
         # v1-shell.js); without JS it stays a link to the press contact section.
         '      <a class="header-contact" href="/prensa.html#contacto" data-email-reveal data-email-keep-markup aria-label="Contactar" title="Contactar">\n'
