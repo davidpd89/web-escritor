@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { fetchWithBackoff } from './production-fetch.mjs';
+import { auditUrl, fetchWithBackoff } from './production-fetch.mjs';
 
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const SHA=(process.env.EXPECTED_RELEASE_SHA||'').trim().toLowerCase();
@@ -40,8 +40,7 @@ function jsonld(html,label){
 }
 async function request(route){
   const u=new URL(route,ORIGIN);
-  u.searchParams.set('__qa_meta',SHA||Date.now().toString(36));
-  return fetchWithBackoff(u,{redirect:'follow',headers:{'cache-control':'no-cache','user-agent':'david-porto-production-metadata-artifacts/1.0'}});
+  return fetchWithBackoff(auditUrl(u,ORIGIN),{redirect:'follow',headers:{'cache-control':'no-cache','user-agent':'david-porto-production-metadata-artifacts/1.0'}});
 }
 async function pool(xs,n,fn){
   let i=0;
@@ -110,8 +109,7 @@ await pool(pages,10,async x=>{
 
 async function binary(route){
   const u=new URL(route,ORIGIN);
-  u.searchParams.set('__qa_social_image',SHA||Date.now().toString(36));
-  return fetchWithBackoff(u,{headers:{'cache-control':'no-cache','user-agent':'david-porto-production-social-image/1.0'}},{read:'buffer'});
+  return fetchWithBackoff(auditUrl(u,ORIGIN),{headers:{'cache-control':'no-cache','user-agent':'david-porto-production-social-image/1.0'}},{read:'buffer'});
 }
 await pool([...socialImages],8,async route=>{
   try{
