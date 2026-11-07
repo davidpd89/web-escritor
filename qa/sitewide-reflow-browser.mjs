@@ -413,7 +413,7 @@ if (ONLY.length) {
   if (scoped.length) allRoutes = scoped;
   else console.log('[scope] ninguna ruta pedida existe: se recorren todas');
 }
-// Auditoria completa: fichas en rotacion (REFLOW_DETAIL_ROTATION=K dias) para que la duracion no
+// Auditoria completa: fichas en rotacion (REFLOW_DETAIL_ROTATION=K franjas; REFLOW_ROTATION_DAY fija la franja) para que la duracion no
 // crezca con el catalogo. Con QA_ONLY_ROUTES se recorre exactamente lo pedido.
 const ROTATION_K = Number(process.env.REFLOW_DETAIL_ROTATION || 0);
 if (!ONLY.length && ROTATION_K > 1) {

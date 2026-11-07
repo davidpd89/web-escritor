@@ -135,6 +135,8 @@ jobs:
           FOCUS_OBSCURED_MODE: enforce
           QA_ONLY_ROUTES: ${{ steps.lane.outputs.lane == 'content' && steps.lane.outputs.routes || steps.sel.outputs.routes }}
           REFLOW_DETAIL_ROTATION: '7'
+          # Igual en las 8 shards de un run y consecutivo entre runs: 7 runs cubren todas las fichas.
+          REFLOW_ROTATION_DAY: ${{ github.run_number }}
           SHARD_TOTAL: '8'
           SHARD_INDEX: ${{ matrix.shard }}
         timeout-minutes: 70

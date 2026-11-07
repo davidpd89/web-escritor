@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { rotateDetailRoutes } from './reflow-detail-rotation.mjs';
+import { rotateDetailRoutes, routeBucket } from './reflow-detail-rotation.mjs';
 
 const books = Array.from({ length: 70 }, (_, i) => `/recomendaciones/libros/l${String(i).padStart(3, '0')}/`);
 const authors = Array.from({ length: 21 }, (_, i) => `/recomendaciones/autores/a${String(i).padStart(3, '0')}/`);
@@ -20,15 +20,30 @@ test('las paginas que no son ficha se recorren siempre', () => {
   }
 });
 
-test('en K dias se cubren todas las fichas y cada dia es ~1/K', () => {
-  const seen = new Set();
+test('en K runs consecutivos se cubren todas las fichas, una vez cada una', () => {
+  const seen = new Map();
   for (let day = 100; day < 107; day++) {
-    const { routes, kinds } = rotateDetailRoutes(all, { k: 7, day, heaviest: 0 });
-    assert.equal(kinds.libros.audited, 10);
-    assert.equal(kinds.autores.audited, 3);
-    routes.forEach((r) => seen.add(r));
+    const { routes } = rotateDetailRoutes(all, { k: 7, day, heaviest: 0 });
+    routes.filter((r) => !fixed.includes(r)).forEach((r) => seen.set(r, (seen.get(r) || 0) + 1));
   }
-  assert.equal(seen.size, all.length);
+  assert.equal(seen.size, books.length + authors.length);
+  assert.ok([...seen.values()].every((n) => n === 1));
+});
+
+test('las altas no cambian la franja de las fichas existentes', () => {
+  const grown = [...all, ...Array.from({ length: 300 }, (_, i) => `/recomendaciones/libros/a-nuevo-${i}/`)];
+  for (let day = 0; day < 7; day++) {
+    const before = rotateDetailRoutes(all, { k: 7, day, heaviest: 0 }).routes;
+    const after = new Set(rotateDetailRoutes(grown, { k: 7, day, heaviest: 0 }).routes);
+    for (const r of before) assert.ok(after.has(r), `${r} dia ${day}`);
+  }
+});
+
+test('reparto aproximado a 1/K', () => {
+  const many = Array.from({ length: 7000 }, (_, i) => `/recomendaciones/libros/libro-${i}-97884${i}/`);
+  const counts = Array(7).fill(0);
+  many.forEach((r) => counts[routeBucket(r, 7)]++);
+  for (const c of counts) assert.ok(c > 850 && c < 1150, String(counts));
 });
 
 test('las fichas mas pesadas entran todos los dias', () => {
