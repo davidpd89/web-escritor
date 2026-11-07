@@ -216,9 +216,12 @@ def validate(data, root):
         require(pair[0] in book_ids and pair[1] in ids and pair not in seen, "Relación duplicada o referencia inexistente")
         require(pair[1] not in excluded_by_book[pair[0]], f"{pair[0]}: categoría {pair[1]} asignada y excluida simultáneamente")
         seen.add(pair)
+    # Conjunto precalculado: buscar por libro en todas las relaciones crecía con el cuadrado del catálogo.
+    active = {c["id"] for c in cats if c["activa"]}
+    with_active = {r["libro_id"] for r in relations if r["categoria_id"] in active}
     for b in books:
         if b["estado"] != "borrador":
-            require(any(r["libro_id"] == b["id"] and any(c["id"] == r["categoria_id"] and c["activa"] for c in cats) for r in relations), f"{b['id']}: sin categoría activa")
+            require(b["id"] in with_active, f"{b['id']}: sin categoría activa")
     return [b for b in books if b["estado"] == "publicado"]
 
 
