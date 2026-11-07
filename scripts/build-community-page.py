@@ -247,8 +247,8 @@ def render(config: dict) -> str:
   <meta name="twitter:image:alt" content="{TITLE}" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="stylesheet" href="/assets/v1-fonts.css?v=2" />
-  <link rel="stylesheet" href="/assets/v1-tokens.css?v=2" />
+  <link rel="stylesheet" href="/assets/v1-fonts.css?v=3" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-shell.css?v=21" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />

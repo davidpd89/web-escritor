@@ -77,9 +77,9 @@ const raizDe = w => (w.length > 5 ? w.slice(0, -1) : w); // plural y género sen
 /** Devuelve los mejores libros para la frase, con la razón de cada uno. */
 export function buscar(indice, frase, { limite = 3, hoy = new Date() } = {}) {
   const q = interpretar(frase);
-  const resultados = [];
+  let resultados = [];
   for (const libro of indice.libros) {
-    let puntos = 0;
+    let puntos = 0, aciertos = 0;
     const razones = [];
     const cats = new Set(libro.categorias);
     const comunes = q.categorias.filter(c => cats.has(c));
@@ -98,7 +98,6 @@ export function buscar(indice, frase, { limite = 3, hoy = new Date() } = {}) {
     }
     if (q.libres.length) {
       const tit = norm(libro.titulo), aut = norm(libro.autores.join(' ')), sin = norm(libro.sinopsis), cat = norm(libro.categorias.map(c => indice.categorias[c] || c).join(' '));
-      let aciertos = 0;
       for (const w of q.libres) {
         const raiz = raizDe(w);
         if (tit.includes(raiz)) { puntos += 12; aciertos++; }
@@ -115,7 +114,11 @@ export function buscar(indice, frase, { limite = 3, hoy = new Date() } = {}) {
       else if (dias >= 0 && dias < 180) puntos += 1;
     }
     if (puntos <= 0 && (q.categorias.length || q.libres.length)) continue;
-    resultados.push({ libro, puntos, razones, compra });
+    resultados.push({ libro, puntos, razones, compra, aciertos });
+  }
+  // Como un buscador: si hay libros que casan con TODAS las palabras, los parciales sobran («neil gaiman» ≠ «Neil Wilson»).
+  if (q.libres.length > 1 && resultados.some(r => r.aciertos === q.libres.length)) {
+    resultados = resultados.filter(r => r.aciertos === q.libres.length);
   }
   resultados.sort((a, b) => b.puntos - a.puntos || (b.libro.fecha || '').localeCompare(a.libro.fecha || ''));
   // Variedad: primero un libro por autor; los repetidos solo si faltan huecos.
