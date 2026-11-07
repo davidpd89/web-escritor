@@ -94,7 +94,7 @@ jobs:
 
       - name: Target-size geometry unit tests (F.1)
         if: steps.sel.outputs.run == 'true'
-        run: node --test qa/target-size-audit.test.mjs
+        run: node --test qa/target-size-audit.test.mjs qa/reflow-detail-rotation.test.mjs
 
       - name: Cache Playwright browsers
         if: steps.sel.outputs.run == 'true'
@@ -134,6 +134,9 @@ jobs:
           TEXT_RESILIENCE_MODE: report
           FOCUS_OBSCURED_MODE: enforce
           QA_ONLY_ROUTES: ${{ steps.lane.outputs.lane == 'content' && steps.lane.outputs.routes || steps.sel.outputs.routes }}
+          REFLOW_DETAIL_ROTATION: '7'
+          # Igual en las 8 shards de un run y consecutivo entre runs: 7 runs cubren todas las fichas.
+          REFLOW_ROTATION_DAY: ${{ github.run_number }}
           SHARD_TOTAL: '8'
           SHARD_INDEX: ${{ matrix.shard }}
         timeout-minutes: 70
