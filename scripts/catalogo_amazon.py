@@ -385,25 +385,29 @@ def schedule(pending, asin, day, motivo):
     pending[asin] = row
 
 
-def update_pending(day, failures, resolved):
-    """Apunta los libros con huecos reintentables y quita los que ya llegaron completos."""
+def update_pending(day, failures, resolved, write=True):
+    """Apunta los libros con huecos reintentables y quita los que ya llegaron completos. Con `write=False` no toca
+    el fichero: quien llama (aplicar) escribe la cola una sola vez, ya con los no publicados reencolados."""
     pending = read_json(pending_path(), {})
     popped = {asin: pending.pop(asin) for asin in resolved if asin in pending}
     for f in failures:
         if f['motivo'].startswith(RETRYABLE) and f.get('asin'):
             schedule(pending, f['asin'], day, f['motivo'])
-    write_json(pending_path(), pending)
+    if write:
+        write_json(pending_path(), pending)
     return pending, popped
 
 
-def reencolar(day, deferred, rejected, previous=None):
+def reencolar(day, deferred, rejected, previous=None, pending=None):
     """Ningún candidato se pierde entre lotes: los raw y candidatos del día no se guardan en catalogo-estado (otro
     runner no los tiene), así que lo que no entra vuelve a la cola de ASIN. Los aplazados por cupo tocan ya, sin
     gastar intento; los rechazados al aplicar siguen el calendario de reintentos y, agotado, quedan en descartados
     (si entretanto se corrige el método, entran solos). Con cada uno van sus otras ediciones, que dan los formatos:
     `grupo` hace que se pidan juntas, y `ruta` guarda los nodos del recorrido, que también clasifican. `previous` son
-    las filas que transformar quitó de la cola: con ellas se conserva desde cuándo espera cada libro."""
-    pending, previous = read_json(pending_path(), {}), previous or {}
+    las filas que transformar quitó de la cola: con ellas se conserva desde cuándo espera cada libro. `pending` es la
+    cola que transformar dejó sin escribir: así la cola se escribe una sola vez y un corte entre ambos no la vacía."""
+    pending = read_json(pending_path(), {}) if pending is None else pending
+    previous = previous or {}
 
     def row_of(record, asin):
         row = pending.get(asin) or dict(previous.get(asin) or {'primera': day, 'intentos': 0})
@@ -917,7 +921,7 @@ def to_record(entry, day, proper=None):
     return record
 
 
-def transformar(day, catalogue):
+def transformar(day, catalogue, write_pending=True):
     """raw → candidatos.json (uno por obra) y fallos de esta fase."""
     from reading_intake_pipeline import classify, work_key  # import tardío: carga el builder
     from reading_editorial_sources import SourceError
@@ -984,9 +988,9 @@ def transformar(day, catalogue):
         candidates.append(main)
     write_json(WORK / f'candidatos-{day}.json', candidates)
     write_json(enlaces_path(day), links)
-    pending, popped = update_pending(day, failures, complete)
+    pending, popped = update_pending(day, failures, complete, write_pending)
     return {'leidos': total, 'candidatos': len(candidates), 'pendientes': len(pending), 'enlaces': len(links),
-            'fallos': failures, 'resueltos': popped}
+            'fallos': failures, 'resueltos': popped, 'cola': pending}
 
 
 # ---------------------------------------------------------------- 3. aplicar
@@ -1340,14 +1344,22 @@ def main(argv=None):
         raw.parent.mkdir(parents=True, exist_ok=True)
         # Primero lo que ya espera en la cola (aplazados por cupo, huecos, rechazados): son candidatos hechos,
         # los más antiguos delante. Con cupo propio, no las sobras de las semillas.
+        # Reintentar solo pide lotes de 10 mientras haya vencidos, así que lo no usado vuelve al presupuesto. Una vez
+        # por día: si el lote se relanza (otra pasada de la misma noche), los ya pedidos están en el raw.
         retry_budget = min(budget // 2, max(budget // 5, -(-3 * limit // 10)))
-        with raw.open('a', encoding='utf-8') as out:
-            used, due = reintentar(provider(tag), tag, args.dia, out, retry_budget)
-        report['reintentos'] = {'peticiones': used, 'vencidos': due}
-        budget -= used
-        # Con más aplazados de los que caben en tres pasadas no se buscan semillas nuevas: solo crecería la cola.
-        # Las semillas no se pierden; esperan en semillas.json.
-        backlog = sum(1 for row in read_json(pending_path(), {}).values() if row.get('motivo') == 'aplazado por cupo de altas')
+        marker = WORK / 'raw' / f'{args.dia}.reintentos.json'
+        if marker.exists():
+            report['reintentos'] = read_json(marker) | {'ya_hechos_hoy': True}
+        else:
+            with raw.open('a', encoding='utf-8') as out:
+                used, due = reintentar(provider(tag), tag, args.dia, out, retry_budget)
+            report['reintentos'] = {'peticiones': used, 'vencidos': due}
+            write_json(marker, report['reintentos'])
+            budget -= used
+        # Con más obras aplazadas de las que caben en tres pasadas no se buscan semillas nuevas: solo crecería la
+        # cola. Cuenta obras (grupo), no ASIN: cada obra trae varias ediciones. Las semillas esperan en semillas.json.
+        backlog = len({row.get('grupo', asin) for asin, row in read_json(pending_path(), {}).items()
+                       if row.get('motivo') == 'aplazado por cupo de altas'})
         if backlog >= 3 * limit:
             report['semillas'] = {'en_espera_por_aplazados': backlog, 'peticiones': 0}
         elif cfg.get('semillas_sitemaps', 2):
@@ -1370,8 +1382,8 @@ def main(argv=None):
                                             max_depth=args.profundidad if args.profundidad is not None else cfg.get('max_depth', 3))
     if args.fase in ('transformar', 'aplicar', 'todo'):
         catalogue = read_json(ROOT / 'data/reading-catalogue.json')
-        result = transformar(args.dia, catalogue)
-        report['transformar'] = {k: v for k, v in result.items() if k not in ('fallos', 'resueltos')} | {'rechazos': len(result['fallos'])}
+        result = transformar(args.dia, catalogue, write_pending=args.fase == 'transformar')
+        report['transformar'] = {k: v for k, v in result.items() if k not in ('fallos', 'resueltos', 'cola')} | {'rechazos': len(result['fallos'])}
         if args.fase in ('aplicar', 'todo'):
             pool = read_json(WORK / f'candidatos-{args.dia}.json')
             previous = result['resueltos']
@@ -1379,7 +1391,7 @@ def main(argv=None):
             report['aplicar'] = aplicar(args.dia, tag, candidates, result['fallos']) | {'aplazados': len(deferred)}
             published = {b['isbn13'] for b in read_json(ROOT / 'data/reading-catalogue.json')['libros']}
             report['aplicar']['reencolados'] = reencolar(
-                args.dia, deferred, [r for r in candidates if r['isbn13'] not in published], previous)
+                args.dia, deferred, [r for r in candidates if r['isbn13'] not in published], previous, result['cola'])
         else:
             write_json(WORK / f'fallos-{args.dia}.json', summarize(result['fallos']))
     if args.fase in ('revisar', 'todo'):

@@ -618,6 +618,45 @@ class Pendientes(unittest.TestCase):
         self.assertEqual((pending['D1']['siguiente'], pending['D1']['intentos']), ('2026-11-06', 0))
         self.assertEqual((pending['R1']['siguiente'], pending['R1']['intentos']), ('2026-11-07', 1))
 
+    def test_queue_is_written_once_after_requeueing(self):
+        # Un corte entre transformar y reencolar no puede dejar la cola sin los que transformar quitó.
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            ca.write_json(ca.pending_path(), {'A1': {'primera': '2026-11-01', 'intentos': 1, 'siguiente': '2026-11-06'}})
+            left, popped = ca.update_pending('2026-11-06', [], {'A1'}, write=False)
+            self.assertIn('A1', ca.read_json(ca.pending_path()))  # el fichero sigue intacto
+            record = {'asin': 'A1', 'isbn13': '1', 'item': {'asin': 'A1'}, 'otras_ediciones': []}
+            ca.reencolar('2026-11-06', [record], [], popped, left)
+            pending = ca.read_json(ca.pending_path())
+        self.assertEqual(pending['A1']['primera'], '2026-11-01')
+        self.assertEqual(pending['A1']['motivo'], 'aplazado por cupo de altas')
+
+    def test_retries_run_once_per_day_and_stall_counts_works(self):
+        calls = []
+        saved = (ca.config, ca.provider, ca.reintentar, ca.por_sellos, ca.WORK)
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                ca.WORK = Path(tmp)
+                ca.config = lambda: ('tag-21', {'semillas_sitemaps': 0, 'max_altas': 2})
+                ca.provider = lambda tag: None
+
+                def fake_retry(prov, tag, day, out, budget):
+                    calls.append(budget)
+                    return 3, 25
+                ca.reintentar = fake_retry
+                ca.por_sellos = lambda *a, **k: {'peticiones': 0}
+                # 6 ASIN aplazados pero solo 2 obras: no llega a 3 × altas, así que las semillas siguen.
+                ca.write_json(ca.pending_path(), {f'A{i}': {'motivo': 'aplazado por cupo de altas', 'grupo': f'G{i % 2}'}
+                                                  for i in range(6)})
+                ca.main(['descargar', '--dia', '2026-11-06', '--peticiones', '100'])
+                ca.main(['descargar', '--dia', '2026-11-06', '--peticiones', '100'])
+                report = ca.read_json(ca.WORK / 'informe-2026-11-06.json')
+        finally:
+            ca.config, ca.provider, ca.reintentar, ca.por_sellos, ca.WORK = saved
+        self.assertEqual(len(calls), 1)
+        self.assertTrue(report['reintentos']['ya_hechos_hoy'])
+        self.assertNotIn('en_espera_por_aplazados', report.get('semillas', {}))
+
     def test_requeued_editions_keep_their_group_route_and_first_day(self):
         record = {'asin': 'D1', 'isbn13': '1', 'item': {'asin': 'D1'}, 'otras_ediciones': [{'asin': 'D1K'}],
                   'palabras_clave': ['Novela negra', 'Thriller']}
