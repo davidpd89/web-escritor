@@ -31,8 +31,44 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  # Franja de fichas de este run: en main, la que lleva más tiempo sin auditarse (deja el artefacto
+  # reflow-rotation-slot-<n> para los runs siguientes); en un PR, run_number % K. Nunca falla.
+  rotation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      contents: read
+    outputs:
+      slot: ${{ steps.pick.outputs.slot }}
+    steps:
+      - name: Checkout script
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: scripts/ci_reflow_rotation.py
+          sparse-checkout-cone-mode: false
+
+      - name: Pick slot and report coverage of the last completed runs
+        id: pick
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          RUN_NUMBER: ${{ github.run_number }}
+          RUN_ID: ${{ github.run_id }}
+          REFLOW_DETAIL_ROTATION: '7'
+        run: python3 scripts/ci_reflow_rotation.py
+
+      - name: Record slot for the next runs
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v6
+        with:
+          name: reflow-rotation-slot-${{ steps.pick.outputs.slot }}
+          path: reflow-rotation.json
+          retention-days: 30
+
   reflow-shard:
     name: reflow shard ${{ matrix.shard }}/8
+    needs: rotation
     runs-on: ubuntu-24.04
     # Auditoria completa: 38-45 min por shard el 06/11; 45 cancelaba shards sanos. El paso ya admitia 70.
     timeout-minutes: 75
@@ -135,8 +171,8 @@ jobs:
           FOCUS_OBSCURED_MODE: enforce
           QA_ONLY_ROUTES: ${{ steps.lane.outputs.lane == 'content' && steps.lane.outputs.routes || steps.sel.outputs.routes }}
           REFLOW_DETAIL_ROTATION: '7'
-          # Igual en las 8 shards de un run y consecutivo entre runs: 7 runs cubren todas las fichas.
-          REFLOW_ROTATION_DAY: ${{ github.run_number }}
+          # Igual en las 8 shards de un run; la elige el job rotation (en main, la menos reciente).
+          REFLOW_ROTATION_DAY: ${{ needs.rotation.outputs.slot }}
           SHARD_TOTAL: '8'
           SHARD_INDEX: ${{ matrix.shard }}
         timeout-minutes: 70
