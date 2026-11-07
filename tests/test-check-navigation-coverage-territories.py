@@ -9,8 +9,10 @@ from __future__ import annotations
 
 import io
 import json
+import os
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 if sys.platform == "win32":
@@ -40,28 +42,29 @@ def run_with_state(
     registry: dict | None = None,
     works_html: str | None = None,
 ) -> tuple[int, str]:
-    originals = {
-        NAV_PATH: NAV_PATH.read_text(encoding="utf-8"),
-        REGISTRY_PATH: REGISTRY_PATH.read_text(encoding="utf-8"),
-        WORKS_PATH: WORKS_PATH.read_text(encoding="utf-8"),
-    }
-    try:
-        if nav is not None:
-            NAV_PATH.write_text(json.dumps(nav, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        if registry is not None:
-            REGISTRY_PATH.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # Las variantes van a un directorio temporal: nunca se reescriben los ficheros reales del repo.
+    with tempfile.TemporaryDirectory() as tmp:
+        env = dict(os.environ)
+        for key, value, name in (
+            ("NAV_COVERAGE_NAVIGATION", nav, "navigation.json"),
+            ("NAV_COVERAGE_REGISTRY", registry, "content-registry.json"),
+        ):
+            if value is not None:
+                path = Path(tmp) / name
+                path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+                env[key] = str(path)
         if works_html is not None:
-            WORKS_PATH.write_text(works_html, encoding="utf-8")
+            path = Path(tmp) / "works.html"
+            path.write_text(works_html, encoding="utf-8")
+            env["NAV_COVERAGE_WORKS_HTML"] = str(path)
         result = subprocess.run(
             [sys.executable, str(CHECKER)],
             cwd=ROOT,
             capture_output=True,
             text=True,
+            env=env,
         )
         return result.returncode, result.stdout + result.stderr
-    finally:
-        for path, text in originals.items():
-            path.write_text(text, encoding="utf-8")
 
 
 def load_json(path: Path) -> dict:

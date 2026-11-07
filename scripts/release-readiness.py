@@ -11,7 +11,9 @@ import argparse
 import datetime as dt
 import json
 import shlex
+import os
 import subprocess
+from concurrent.futures import ThreadPoolExecutor
 import sys
 import textwrap
 import xml.etree.ElementTree as ET
@@ -167,8 +169,12 @@ def build_report(output: Path) -> int:
 
     checks_data: list[dict[str, str | int]] = []
     failures = 0
-    for label, command in CHECKS:
-        code, out = run(command)
+    # Las comprobaciones son independientes y de solo lectura: en serie tardaban ~18 min. Se ejecutan a la vez y el
+    # informe conserva el orden declarado en CHECKS.
+    workers = min(len(CHECKS), max(2, os.cpu_count() or 2))
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        outcomes = list(pool.map(lambda check: run(check[1]), CHECKS))
+    for (label, command), (code, out) in zip(CHECKS, outcomes):
         checks_data.append(
             {
                 "label": label,
