@@ -150,6 +150,25 @@ def isbn_title_matches(title,canonical):
     return len(short)>=2 and short<=long_
 
 
+# Palabras que distinguen una edición de otra del mismo libro: la ficha de una edición especial agrupa en sus
+# formatos los de la normal («Neuromante (Edición especial)» frente a «Neuromante (NE)»), y su precio no es este.
+EDITION_MARKS={'especial','limitada','ilustrada','coleccionista','aniversario','lujo','bolsillo','conmemorativa'}
+
+
+def same_work(title,canonical):
+    """Título de un ASIN ya verificado para el libro escrito de otra manera: mismas palabras en otro orden o con la
+    serie entre paréntesis («Montando un pollo: Diario de Greg 21» = «Diario de Greg 21 - Montando un pollo»). No vale
+    otra edición (marcas de edición distintas) ni otro tomo (números distintos)."""
+    if _title_words(title)&EDITION_MARKS!=_title_words(canonical)&EDITION_MARKS:
+        return False
+    numbers=lambda t:set(re.findall(r'\d+',t))
+    if numbers(title) and numbers(canonical) and not numbers(title)&numbers(canonical):
+        return False
+    bare=lambda t:_title_words(re.sub(r'[\(\[][^\)\]]*[\)\]]',' ',t))-EDITION_MARKS
+    short,long_=sorted((bare(title),bare(canonical)),key=len)
+    return len(short)>=2 and short<=long_
+
+
 def isbn_author_matches(source,catalogued):
     a,b=key(source).split(),key(catalogued).split()
     if len(a)<2 or len(b)<2:
@@ -174,7 +193,17 @@ def edition_matches(info,book,isbn_match):
     if isbn_match and not author_ok:
         author_ok=any(author_matches(c['name'],n) or isbn_author_matches(c['name'],n)
                       for c in contributors for n in book['autores'])
+    if isbn_match and not author_ok:
+        # «Varios autores» frente a «AA. VV.»: la misma obra colectiva, no otra persona (08/11: 6 novedades sin precio).
+        # Si nosotros solo tenemos un autor colectivo no hay persona que comprobar: basta el EAN con el título (Amazon
+        # acredita a veces a la editorial, «¡Ya es Navidad!»). Un «AA. VV.» de Amazon no vale por una persona nuestra.
+        ours=[n for n in book['autores'] if n]
+        author_ok=bool(ours) and all(collective(n) for n in ours) and title_ok
     return title_ok,author_ok
+
+
+def collective(name):
+    return re.sub(r'[^a-z]','',key(name)) in {'variosautores','autoresvarios','aavv','vvaa','varios'}
 
 
 def item_isbn_match(info,wanted):
@@ -218,11 +247,19 @@ def select_offers(book,payload,tag,now,mismatches=None):
         title=amazon_dict(info.get('title')).get('displayValue','')
         isbn_match=item_isbn_match(info,wanted)
         title_ok,author_ok=edition_matches(info,book,isbn_match)
+        if asin in known and not (title_ok and author_ok) and isinstance(title,str):
+            # ASIN ya guardado para este libro: basta el mismo título en otro orden (sin cambiar edición ni tomo), y
+            # con su EAN exacto y el título bien no hace falta que Amazon escriba el autor igual. Sin esto, 31 de 39
+            # formatos quedaban en «Ver precio» con precio en la API (08/11).
+            title_ok=title_ok or same_work(title,book['titulo'])
+            author_ok=author_ok or (isbn_match and title_ok)
         if not (title_ok and author_ok):
             continue
         binding_value=amazon_dict(amazon_dict(info.get('classifications')).get('binding')).get('displayValue','')
         binding=key(binding_value) if isinstance(binding_value,str) else ''
-        fmt=known.get(asin) or BINDINGS.get(binding)
+        # Con el EAN exacto el ASIN es esta edición: si Amazon la encuaderna con un nombre que no traducimos («Libro
+        # de cartón», «Libro de tela», «Estuche»), su formato es el de la edición (08/11: 9 novedades sin precio).
+        fmt=known.get(asin) or BINDINGS.get(binding) or (isbn_match and book.get('formato_edicion')) or None
         if fmt and foreign_edition(book,fmt,asin) and not isbn_match:
             continue  # Otra edición en la misma encuadernación: su precio no es el de esta.
         if asin in known and BINDINGS.get(binding,fmt)!=fmt:
@@ -255,8 +292,9 @@ def select_offers(book,payload,tag,now,mismatches=None):
             except (ValueError,TypeError):
                 continue
             availability=amazon_dict(listing.get('availability')).get('type')
-            # Creators devuelve IN_STOCK_SCARCE («solo quedan 2»); PA-API lo escribía sin guiones bajos.
-            if not isinstance(availability,str) or availability.replace('_','') not in {'INSTOCK','INSTOCKSCARCE','LEADTIME','PREORDER'}:
+            # Creators devuelve IN_STOCK_SCARCE («solo quedan 2»); PA-API lo escribía sin guiones bajos. AVAILABLE_DATE
+            # es la preventa con fecha de llegada: la mitad de las novedades sin precio del 08/11.
+            if not isinstance(availability,str) or availability.replace('_','') not in {'INSTOCK','INSTOCKSCARCE','LEADTIME','PREORDER','AVAILABLEDATE'}:
                 continue
             price=amazon_dict(listing.get('price'))
             cents=money_cents(price.get('money'))

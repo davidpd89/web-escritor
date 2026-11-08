@@ -612,7 +612,12 @@ def author_links(b, authors=None, compact=False):
 
 
 def purchase_formats(b):
-    return b.get('formatos_compra', [])
+    """Formatos que se enlazan: los que tienen precio de la API y el de la propia edición (su ISBN existe aunque aún no
+    haya precio). Un formato hermano sin precio no se enlaza ni cuenta en los filtros: el 08/11, de 39 «Ver precio», 8
+    estaban agotados en Amazon y varios eran de otra edición (la ficha de una edición especial agrupa la normal). Su
+    casilla queda como búsqueda en esa sección de Amazon hasta que el barrido le encuentre precio."""
+    own = b.get('formato_edicion')
+    return [o for o in b.get('formatos_compra', []) if o.get('precio_centimos') or o.get('formato') == own]
 
 
 def money(cents):

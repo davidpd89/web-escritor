@@ -34,7 +34,7 @@ Cada tarjeta lleva siempre, en este orden:
 5. Páginas.
 6. Dos etiquetas como máximo.
 7. Descripción.
-8. Cuatro casillas de formato: tapa dura, tapa blanda, Kindle y audiolibro, con precio, «Ver precio» o ✕.
+8. Cuatro casillas de formato: tapa dura, tapa blanda, Kindle y audiolibro, con precio, «Ver precio» (solo el formato de la propia edición, aún sin precio barrido) o «Buscar» en esa sección de Amazon. Un formato hermano sin precio no se enlaza: puede estar agotado o ser otra edición.
 9. Botones «Comprar» y «Ver ficha».
 
 Comprar y la casilla del formato principal usan el mismo enlace de Amazon (`amazon_destination`).
