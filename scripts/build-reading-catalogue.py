@@ -1241,7 +1241,9 @@ def related_books(data, book):
         other,other_age=pool['publics'][candidate['id']],pool['ages'][candidate['id']]
         if not same_author and ((public and other and public!=other) or (age is not None and other_age is not None and abs(age-other_age)>4)):
             continue
-        ranked.append((same_author,sum(math.log(total/df[c]) for c in sorted(shared)),candidate))  # orden fijo: el redondeo no depende del hash
+        # Orden fijo (no depende del hash) y redondeo a 9 decimales: empates reales que math.log resolvía por el
+        # último bit distinto en Windows y en Linux cambiaban los relacionados entre local y CI (PR #1227).
+        ranked.append((same_author,round(sum(math.log(total/df[c]) for c in sorted(shared)),9),candidate))
     ranked.sort(key=lambda row:(-row[0],-row[1],row[2]['titulo'].casefold(),row[2]['id']))
     if not ranked:
         return ''
