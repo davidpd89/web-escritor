@@ -126,9 +126,10 @@
       upcoming = !fresh && isNew(label.dataset.releaseLabel, 'proximamente');
       const text = fresh ? 'Novedad' : upcoming ? 'Pr\u00f3ximamente' : '';
       if (label.dataset.releaseFallback !== undefined) {
-        label.textContent = text || label.dataset.releaseFallback;
+        const shown = text || label.dataset.releaseFallback;
+        if (label.textContent !== shown) label.textContent = shown;
         label.classList.toggle('catalogue-novelty', fresh || upcoming);
-      } else { label.textContent = text; label.hidden = !text; }
+      } else { if (label.textContent !== text) label.textContent = text; if (label.hidden !== !text) label.hidden = !text; }
     }
   }
   const values = () => ({...Object.fromEntries(fields.map(f => [f.dataset.filter, f.disabled ? '' : f.value])), ...Object.fromEntries(FACETS.map(k => [k, boxes.filter(b => b.dataset.facet === k && b.checked).map(b => b.value)]))});
@@ -142,7 +143,9 @@
   const memoFor = card => { let m = memo.get(card); if (!m) memo.set(card, m = {}); return m; };
   const cardCategories = card => { const m = memoFor(card); return m.cats || (m.cats = [...card.dataset.categories.split(' '), ...(formatDiscounts(card).some(o => o.pct >= 10) ? ['ofertas-amazon'] : [])]); };
   const cardFormats = card => { const m = memoFor(card); return m.formats || (m.formats = new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)])); };
-  for (const badge of root.querySelectorAll('[data-offer-checked]')) if (!offerCurrent(badge.dataset.offerChecked)) badge.remove();
+  // Insignias de oferta sin reconfirmar: fuera en la página inicial y en las fichas que trae la hidratación.
+  const pruneOffers = () => { for (const badge of root.querySelectorAll('[data-offer-checked]')) if (!offerCurrent(badge.dataset.offerChecked)) badge.remove(); };
+  pruneOffers();
   const matchingOffers = (card, v) => [...offersFor(card.dataset.bookId).map(o => ({formato: o.formato, pct: discount(o)})), ...formatDiscounts(card)].filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.descuento || o.pct >= Number(v.descuento)));
   // Por defecto, solo publicados; los próximos se piden o se buscan.
   const released = (lower) => !lower || lower <= today();
@@ -157,6 +160,7 @@
     const min = v.precio_min ? Math.round(Number(v.precio_min) * 100) : 0, max = v.precio_max ? Math.round(Number(v.precio_max) * 100) : Infinity, formats = priceFormats(v);
     return [...formatPrices(card)].some(([f, c]) => (!formats.length || formats.includes(f)) && c >= min && c <= max);
   };
+  const ratingKeys = new WeakMap();
   function renderMarket() {
     offersIndex = new Map(); ratingsIndex = new Map(); ranksIndex = new Map(); memo = new Map();
     for (const r of market.sales_ranks.filter(validRank)) if (!ranksIndex.has(r.libro_id) || ranksIndex.get(r.libro_id).posicion > r.posicion) ranksIndex.set(r.libro_id, r);
@@ -170,10 +174,16 @@
       ratingsIndex.get(rating.libro_id).push(rating);
     }
     for (const box of root.querySelectorAll('[data-rating-book]')) {
-      const r = ratingFor(box.dataset.ratingBook); box.replaceChildren(); box.hidden = false;
+      const r = ratingFor(box.dataset.ratingBook);
+      const thinNow = r ? null : market.ratings.find(x => x.libro_id === box.dataset.ratingBook && thinRating(x));
+      // Mismo contenido que en la pasada anterior: no se toca el DOM (cada minuto se revalida la caducidad).
+      const key = r ? ['v', r.url, r.puntuacion, r.numero_valoraciones, r.actualizado_en, ratingSource(r)].join('|') : thinNow ? ['t', thinNow.url, thinNow.actualizado_en, ratingSource(thinNow)].join('|') : 'n|' + (box.dataset.isbn || '');
+      if (ratingKeys.get(box) === key) continue;
+      ratingKeys.set(box, key);
+      box.replaceChildren(); box.hidden = false;
       if (!r) {
         // Sin nota verificada vigente no se pinta nota (ni estrellas vacías ni «0,0 (0)»).
-        const thin = market.ratings.find(x => x.libro_id === box.dataset.ratingBook && thinRating(x));
+        const thin = thinNow;
         const isbn = /^\d{13}$/.test(box.dataset.isbn) && box.dataset.isbn;
         // Nota verificada o enlace a Goodreads por ISBN (igual en tarjeta y ficha).
         if (thin || isbn) {
@@ -200,13 +210,22 @@
     for (const f of fields) if ((f.disabled || (f.tagName === 'SELECT' && f.selectedOptions[0]?.disabled)) && f.value) f.value = f.dataset.filter === 'orden' ? 'editorial' : '';
 
   }
+  let lastQuery = null, lastNormalized = '';
+  const queryOf = v => { const q = v.q || ''; if (q !== lastQuery) { lastQuery = q; lastNormalized = searchQuery(q); } return lastNormalized; };
+  const boundsOf = card => { const m = memoFor(card); if (m.lower == null) { const published = card.dataset.published, month = card.dataset.publishedMonth, year = card.dataset.year; m.lower = published || (month ? month + '-01' : year ? year + '-01-01' : ''); m.upper = published || (month ? new Date(Date.UTC(Number(month.slice(0, 4)), Number(month.slice(5)), 0)).toISOString().slice(0, 10) : year ? year + '-12-31' : ''); } return m; };
+  const lowerOf = card => boundsOf(card).lower;
+  const rangeOf = card => { const pages = Number(card.dataset.pages); return !pages ? '' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga'; };
+  // Condiciones que no son casillas: búsqueda, estado, extensión, fechas, nota, precio y descuento.
+  const baseMatch = (card, v) => searchIndex.get(card).includes(queryOf(v)) && (v.estado === 'todos' || (!v.estado && v.q) || (v.estado === 'proximos' ? !released(lowerOf(card)) : released(lowerOf(card)))) && (!v.paginas || v.paginas === rangeOf(card)) && (!v.novedad || isNew(card.dataset.published, v.novedad)) && (!v.desde || (boundsOf(card).upper && boundsOf(card).upper >= v.desde)) && (!v.hasta || (lowerOf(card) && lowerOf(card) <= v.hasta)) && ratingOk(card, v) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
+  const facetMatch = (card, v, k) => {
+    const chosen = pick(v[k]);
+    if (!chosen.length) return true;
+    if (k === 'grupo') return chosen.includes(card.dataset.group);
+    if (k === 'formato') { const formats = cardFormats(card); return chosen.some(x => formats.has(x)); }
+    const cats = cardCategories(card); return chosen.some(x => cats.includes(x));
+  };
   function matches(card, v) {
-      const cats = cardCategories(card), published = card.dataset.published, month = card.dataset.publishedMonth, year = card.dataset.year;
-      const formats = cardFormats(card);
-      const lower = published || (month ? month + '-01' : year ? year + '-01-01' : '');
-      const upper = published || (month ? new Date(Date.UTC(Number(month.slice(0, 4)), Number(month.slice(5)), 0)).toISOString().slice(0, 10) : year ? year + '-12-31' : '');
-      const pages = Number(card.dataset.pages), range = !pages ? '' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga';
-      return searchIndex.get(card).includes(searchQuery(v.q || '')) && (v.estado === 'todos' || (!v.estado && v.q) || (v.estado === 'proximos' ? !released(lower) : released(lower))) && ['genero', 'tematica', 'temporada', 'edad', 'contenido'].every(k => !pick(v[k]).length || pick(v[k]).some(x => cats.includes(x))) && (!pick(v.grupo).length || pick(v.grupo).includes(card.dataset.group)) && (!pick(v.formato).length || pick(v.formato).some(x => formats.has(x))) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && ratingOk(card, v) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
+    return baseMatch(card, v) && FACETS.every(k => facetMatch(card, v, k));
   }
   // Cada filtro cuenta con los demás aplicados: una opción sin libros se atenúa (si está marcada, no se oculta).
   function facetValues(card, k) {
@@ -217,6 +236,15 @@
   function renderFacets(v) {
     if (!form) return;
     const typed = pick(v.grupo).length > 0;
+    // Una ficha cuenta para la faceta k si cumple todo salvo, como mucho, la propia k.
+    const totalsBy = new Map(FACETS.map(k => [k, new Set()])), countsBy = new Map(FACETS.map(k => [k, new Map()]));
+    for (const card of cards) {
+      for (const k of FACETS) for (const x of facetValues(card, k)) totalsBy.get(k).add(x);
+      if (!baseMatch(card, v)) continue;
+      const failing = FACETS.filter(k => !facetMatch(card, v, k));
+      if (failing.length > 1) continue;
+      for (const k of failing.length ? failing : FACETS) { const counts = countsBy.get(k); for (const x of facetValues(card, k)) counts.set(x, (counts.get(x) || 0) + 1); }
+    }
     for (const k of FACETS) {
       // El generador omite los grupos sin ninguna categoría con libros.
       const group = form.querySelector('[data-facet-group="' + k + '"]');
@@ -233,20 +261,19 @@
         group.querySelector('.catalogue-facet__options').before(finder);
       }
       const query = finder ? normalize(finder.value) : '';
-      const candidates = cards.filter(card => matches(card, {...v, [k]: []}));
-      // Una pasada por ficha para totales y recuentos (antes: opciones × fichas).
-      const totals = new Set(), counts = new Map();
-      for (const card of cards) for (const x of facetValues(card, k)) totals.add(x);
-      for (const card of candidates) for (const x of facetValues(card, k)) counts.set(x, (counts.get(x) || 0) + 1);
+      const totals = totalsBy.get(k), counts = countsBy.get(k);
       for (const box of own) {
         const total = totals.has(box.value);
         const count = counts.get(box.value) || 0, label = box.closest('label');
         // Con un tipo de libro elegido solo quedan las opciones de ese tipo (Novela → sus géneros).
-        label.hidden = (!total || (typed && k !== 'grupo' && !count) || (query && !normalize(label.textContent).includes(query))) && !box.checked;
-        label.querySelector('[data-facet-count]').textContent = '(' + count + ')';
-        box.disabled = !count && !box.checked;
-        label.classList.toggle('is-empty', box.disabled);
-        label.dataset.count = count;
+        const hide = (!total || (typed && k !== 'grupo' && !count) || (query && !normalize(label.textContent).includes(query))) && !box.checked;
+        if (label.hidden !== hide) label.hidden = hide;
+        const badge = label.querySelector('[data-facet-count]'), text = '(' + count + ')';
+        if (badge.textContent !== text) badge.textContent = text;
+        const off = !count && !box.checked;
+        if (box.disabled !== off) box.disabled = off;
+        label.classList.toggle('is-empty', off);
+        if (label.dataset.count !== String(count)) label.dataset.count = count;
       }
       const chosen = own.filter(b => b.checked).length;
       // Marcadas, luego con libros, vacías al final.
@@ -280,7 +307,7 @@
   function apply(save = true) {
     const v = values();
     const nullable = (x, y, desc = false) => x == null ? (y == null ? 0 : 1) : y == null ? -1 : desc ? y - x : x - y;
-    const dateOf = card => card.dataset.published || card.dataset.publishedMonth || card.dataset.year ? Date.parse(card.dataset.published || (card.dataset.publishedMonth ? card.dataset.publishedMonth + '-01' : card.dataset.year + '-01-01')) : null;
+    const dateOf = card => { const m = memoFor(card); if (m.date === undefined) m.date = card.dataset.published || card.dataset.publishedMonth || card.dataset.year ? Date.parse(card.dataset.published || (card.dataset.publishedMonth ? card.dataset.publishedMonth + '-01' : card.dataset.year + '-01-01')) : null; return m.date; };
     const rating = card => ratingFor(card.dataset.bookId)?.puntuacion ?? null;
     const compare = (a, b) => {
       // Orden por defecto adaptado: con un filtro de valoración, de menos a más estrellas (3, 3,5, 4…);
@@ -297,17 +324,18 @@
         default: return 0;
       }
     };
-    const grid = root.querySelector('.catalogue-grid'), sorted = [...cards].sort((a, b) => compare(a, b) || originalOrder.get(a) - originalOrder.get(b));
-    if (grid && sorted.some((card, i) => grid.children[i] !== card)) { const fragment = document.createDocumentFragment(); sorted.forEach(card => fragment.append(card)); grid.replaceChildren(fragment); }
-    const found = sorted.filter(card => matches(card, v)), visible = found.length;
+    // Filtrar antes de ordenar: solo se ordenan los resultados.
+    const grid = root.querySelector('.catalogue-grid'), found = cards.filter(card => matches(card, v)).sort((a, b) => compare(a, b) || originalOrder.get(a) - originalOrder.get(b)), visible = found.length;
     // Recuentos de facetas tras el pintado (INP).
     const job = ++facetJob;
     root.dataset.facetsPending = 'true';
     requestAnimationFrame(() => setTimeout(() => { if (job === facetJob) { renderFacets(values()); delete root.dataset.facetsPending; } }, 0));
     const pages = Math.max(1, Math.ceil(visible / pageSize));
     currentPage = Math.min(currentPage, pages);
-    const shown = new Set(found.slice((currentPage - 1) * pageSize, currentPage * pageSize));
-    for (const card of cards) card.hidden = !shown.has(card);
+    const page = found.slice((currentPage - 1) * pageSize, currentPage * pageSize), shown = new Set(page);
+    // Mover todas las fichas en cada clic hacía que Clarity reserializara ~90.000 nodos: solo se mueven las de la página.
+    if (grid && page.some((card, i) => grid.children[i] !== card)) grid.prepend(...page);
+    for (const card of cards) { const hide = !shown.has(card); if (card.hidden !== hide) card.hidden = hide; }
     renderPagination(pages, visible);
     if (form) {
       const refineCount = root.querySelector('[data-catalogue-refine-count]');
@@ -477,7 +505,9 @@
     const count = root.querySelector('[data-catalogue-count]');
     if (count) count.textContent = 'Preparando la búsqueda en todo el catálogo…';
     if (!await hydrate()) { enableControls(false); return; }
-    hydrated = true; indexCards(); adoptMarket(); renderNovelty(); renderMarket();
+    // Una tarea por paso: todo seguido bloqueaba el primer filtro más de un segundo en móviles.
+    const pause = () => new Promise(resolve => setTimeout(resolve, 0));
+    hydrated = true; await pause(); indexCards(); pruneOffers(); await pause(); adoptMarket(); renderNovelty(); await pause(); renderMarket(); await pause();
   }
   if (form) {
     enableControls(true);
