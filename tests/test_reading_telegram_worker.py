@@ -188,6 +188,34 @@ class EditorialTelegramTests(unittest.TestCase):
                 else:
                     self.assertEqual(report["resolved"], 0)
 
+    def test_books_seeded_from_todostuslibros_are_verified_on_its_record(self):
+        url = "https://www.todostuslibros.com/libros/libro_9788401042751"
+        book = {
+            **self.book,
+            "fuente_publicacion_url": url,
+            "formatos_compra": [
+                {
+                    "formato": "tapa-blanda",
+                    "fuente_url": "https://www.amazon.es/dp/8401042751",
+                    "fecha_verificacion": "2026-10-31",
+                }
+            ],
+        }
+        source = {
+            "id": "todostuslibros-altas",
+            "provider": "todostuslibros",
+            "enabled": True,
+            "hosts": ["www.todostuslibros.com"],
+        }
+        with patch("reading_telegram_worker.ttl_edition", return_value=self.edition):
+            _, report = verified_snapshot(
+                {"libros": [book]},
+                {**self.intake, "sources": [source]},
+                date(2026, 11, 1),
+                lambda u, s: "<p>Ficha CEGAL</p>",
+            )
+        self.assertEqual(report["verified"][0]["asin"], "8401042751")
+
     def test_budget_goes_to_todays_books_first(self):
         books = [
             {**self.book, "id": d, "fecha_publicacion": d}

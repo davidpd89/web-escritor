@@ -28,6 +28,7 @@ from reading_editorial_sources import (
 from reading_generic_source import generic_edition, reviewed_hosts
 from reading_intake_core import isbn13, normalize_text
 from reading_planeta_source import planeta_edition
+from reading_ttl_source import HOST as TTL_HOST, ttl_edition
 from reading_telegram import (
     amazon_url,
     digest_key,
@@ -66,6 +67,9 @@ def editorial_product(document, url, book, source, today=None):
         edition = penguin_edition(document, url)
     elif provider == "planeta" and urlsplit(url).hostname == "www.planetadelibros.com":
         edition = planeta_edition(document, url)
+    elif provider == "todostuslibros" and urlsplit(url).hostname == TTL_HOST:
+        # Books seeded by release date: CEGAL record, no Amazon link on the page.
+        edition = ttl_edition(document, url)
     elif provider == "generic":
         edition = generic_edition(source, document, url)
     else:
@@ -206,6 +210,8 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None):
                 hosts = ("www.penguinlibros.com",)
             elif provider == "planeta":
                 hosts = ("www.planetadelibros.com",)
+            elif provider == "todostuslibros":
+                hosts = (TTL_HOST,)
             else:
                 hosts, _ = reviewed_hosts(source)
             clients[sid] = CachedHTTP(
