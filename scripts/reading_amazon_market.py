@@ -454,6 +454,18 @@ def needs_discovery(book,now):
     return not searched or now.date()-date.fromisoformat(searched)>=wait
 
 
+RELEASE_WATCH_DAYS=3
+
+
+def releases_soon(book,now):
+    """Out today (the run starts before midnight UTC) or in the next few days."""
+    try:
+        published=date.fromisoformat(str(book.get('fecha_publicacion') or ''))
+    except ValueError:
+        return False
+    return now.date()<=published<=now.date()+timedelta(days=RELEASE_WATCH_DAYS)
+
+
 def price_asins(book,batched=True):
     """ASINs that price this book: the verified ones or, for a 978 book still without
     one, its ISBN-10 (the ASIN of the printed edition; the ISBN check in select_offers
@@ -748,9 +760,13 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
     share=max(unpriced,-(-len(books)//max(1,sweep_days)))
     # Un lote encadenado la misma noche no repite lo que otro ya revisó hoy.
     due=[b for b in books[:share] if b.get('precios_amazon_revision')!=day]
+    # A book coming out these days is re-read every night, not on its weekly turn:
+    # its release-day announcement only links an Amazon product checked in the last two days.
+    due+=[b for b in books[share:] if b.get('precios_amazon_revision')!=day and releases_soon(b,now)]
     if hasattr(provider,'discover'):
         # A missing Kindle or audiobook is looked for the first night, not when the price turn comes.
-        due+=[b for b in books[share:] if needs_discovery(b,now)]
+        taken={b['id'] for b in due}
+        due+=[b for b in books[share:] if b['id'] not in taken and needs_discovery(b,now)]
     stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[],'sin_oferta':[],'errores_amazon':{},'formato_discrepante':[]}
     answers={}
     ranks={}

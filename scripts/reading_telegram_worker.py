@@ -59,7 +59,7 @@ def main_json(name):
     return data
 
 
-def editorial_product(document, url, book, source):
+def editorial_product(document, url, book, source, today=None):
     """Accept a unique direct Amazon link on the verified selected edition page."""
     provider = source.get("provider")
     if provider == "penguin" and urlsplit(url).hostname == "www.penguinlibros.com":
@@ -83,14 +83,33 @@ def editorial_product(document, url, book, source):
     products = {
         asin for a in parser.links if (asin := asin_from_url(urljoin(url, a["url"])))
     }
-    if len(products) != 1:
-        raise SourceError("No unique direct Amazon product on editorial edition page")
     published = edition["fecha_publicacion_edicion"]
     date.fromisoformat(published)  # Partial dates fail closed.
-    return next(iter(products)), published
+    if len(products) == 1:
+        return next(iter(products)), published
+    if not products and today is not None:
+        # Many publishers never link Amazon: the edition and date are verified here,
+        # the product comes from the nightly Amazon check of this same book.
+        asin = catalogue_print_asin(book, today)
+        if asin:
+            return asin, published
+    raise SourceError("No unique direct Amazon product on editorial edition page")
 
 
 AMAZON_FRESH_DAYS = 2
+
+
+def catalogue_print_asin(book, today):
+    """The single print product the catalogue re-read on Amazon recently, if any."""
+    since = (today - timedelta(days=AMAZON_FRESH_DAYS)).isoformat()
+    found = {
+        asin
+        for offer in book.get("formatos_compra") or []
+        if offer.get("formato") not in {"ebook", "audiolibro"}
+        and str(offer.get("fecha_verificacion") or "") >= since
+        and (asin := asin_from_url(offer.get("fuente_url") or offer.get("url") or ""))
+    }
+    return next(iter(found)) if len(found) == 1 else None
 
 
 def amazon_product(book, url, today):
@@ -142,7 +161,9 @@ def verified_snapshot(catalogue, intake, today, fetch):
                     raise SourceError("Edition source not configured")
                 report["checked"] += 1
                 document = fetch(url, source)
-                asin, actual_date = editorial_product(document, url, book, source)
+                asin, actual_date = editorial_product(
+                    document, url, book, source, today
+                )
             book["fecha_publicacion"] = actual_date
             book["url_amazon_afiliada"] = amazon_url(asin, tag)
             report["resolved"] += 1

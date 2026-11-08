@@ -153,6 +153,41 @@ class EditorialTelegramTests(unittest.TestCase):
                     result["libros"][0]["estado"], "pendiente_verificacion_telegram"
                 )
 
+    def test_editorial_without_amazon_link_uses_fresh_print_offer(self):
+        def offer(fmt, asin, checked):
+            return {
+                "formato": fmt,
+                "fuente_url": f"https://www.amazon.es/dp/{asin}",
+                "fecha_verificacion": checked,
+            }
+
+        cases = [
+            ([offer("tapa-blanda", "8401042751", "2026-10-31")], "8401042751"),
+            ([offer("tapa-blanda", "8401042751", "2026-10-25")], None),
+            ([offer("ebook", "B0HC7BJS7K", "2026-11-01")], None),
+            (
+                [
+                    offer("tapa-blanda", "8401042751", "2026-11-01"),
+                    offer("tapa-dura", "8401042760", "2026-11-01"),
+                ],
+                None,
+            ),
+        ]
+        for offers, expected in cases:
+            with self.subTest(offers=offers), patch(
+                "reading_telegram_worker.penguin_edition", return_value=self.edition
+            ):
+                result, report = verified_snapshot(
+                    {"libros": [{**self.book, "formatos_compra": offers}]},
+                    self.intake,
+                    date(2026, 11, 1),
+                    lambda u, s: "<p>Sin enlaces</p>",
+                )
+                if expected:
+                    self.assertEqual(report["verified"][0]["asin"], expected)
+                else:
+                    self.assertEqual(report["resolved"], 0)
+
     def test_budget_goes_to_todays_books_first(self):
         books = [
             {**self.book, "id": d, "fecha_publicacion": d}
