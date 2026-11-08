@@ -979,7 +979,7 @@ def person(name):
             and not re.fullmatch(r'(?:jr|sr|hijo|ii|iii|iv|varios|otros)\.?', key(parts[1]))):  # «Juan Pérez, Jr.» ya está bien
         name = parts[1] + ' ' + parts[0]
     folded = re.sub(r'[\W_]', '', key(name))
-    if folded in {'aavv', 'vvaa', 'varios', 'variosautores'}:
+    if folded in {'aavv', 'vvaa', 'varios', 'variosautores', 'vautores', 'vvautores', 'autoresvarios'}:
         return 'Varios autores'
     if folded in {'anonimo', 'anonima', 'anonymous'}:
         return 'Anónimo'
@@ -1246,14 +1246,13 @@ def pending_creation_path():
 
 
 def priorizar(candidates, day, limit, waiting=None):
-    """Altas de esta pasada: primero hoy y los días siguientes (hasta 6 meses vista), de la fecha más cercana a la más
-    lejana; después, si queda cupo, los días pasados (hasta 60 días), de ayer hacia atrás. En cada tramo, una primera
-    vuelta de un libro por día y género (el más vendido): así cada día de la página de novedades tiene de todo antes
-    de que un género llene el cupo. Hasta el 07/11 iba de la fecha más lejana a la más cercana; hasta el 08/11
-    alternaba futuro y pasado por distancia (hoy, mañana, ayer…), y el pasado quitaba sitio a los próximos días.
-    Después el fondo, del más vendido en Amazon al menos (sin ranking, al final y por fecha). El resto se aplaza
-    (vuelve a la cola de pendientes). Para que el fondo no espere para siempre detrás de las novedades, una cuarta
-    parte del cupo es de los que llevan aplazados desde antes (`waiting`: ASIN → primer día en cola)."""
+    """Altas de esta pasada: primero novedades y preventas (de 60 días atrás a 6 meses vista), de la fecha más
+    cercana a hoy a la más lejana, y en una primera vuelta un libro por día y género (el más vendido): así cada día
+    de la página de novedades tiene de todo antes de que un género llene el cupo. Hasta el 07/11 iba de la fecha
+    más lejana a la más cercana y las preventas de mayo pasaban delante de los libros de esta semana. Después el
+    fondo, del más vendido en Amazon al menos (sin ranking, al final y por fecha). El resto se aplaza (vuelve a la
+    cola de pendientes). Para que el fondo no espere para siempre detrás de las novedades, una cuarta parte del
+    cupo es de los que llevan aplazados desde antes (`waiting`: ASIN → primer día en cola)."""
     today = date.fromisoformat(day)
     waiting, since = waiting or {}, {}
     for record in candidates:
@@ -1269,22 +1268,15 @@ def priorizar(candidates, day, limit, waiting=None):
         published = record['fecha_publicacion_edicion']
         distance = abs((date.fromisoformat(published[:10]) - today).days) if re.fullmatch(r'\d{4}-\d{2}-\d{2}', published[:10]) else 999
         return (distance, [-ord(c) for c in published], sales_rank(record))
-
-    def by_day_and_genre(records):
-        """Primera vuelta de un libro por (día, género), de la fecha más cercana a la más lejana; después el resto."""
-        firsts, rest, slots = [], [], set()
-        for record in sorted(records, key=closeness):
-            slot = (record['fecha_publicacion_edicion'][:10], ((record.get('materias') or [''])[0]))
-            (rest if slot in slots else firsts).append(record)
-            slots.add(slot)
-        return firsts + rest
-    fresh = [r for r in candidates if is_fresh(r)]
-    # «2026-12» (solo mes) cuenta como futuro si su mes no ha empezado; el mes en curso, con el pasado.
-    upcoming = [r for r in fresh if r['fecha_publicacion_edicion'][:10] >= day]
-    past = [r for r in fresh if r['fecha_publicacion_edicion'][:10] < day]
+    fresh = sorted((r for r in candidates if is_fresh(r)), key=closeness)
+    firsts, rest, slots = [], [], set()
+    for record in fresh:
+        slot = (record['fecha_publicacion_edicion'][:10], ((record.get('materias') or [''])[0]))
+        (rest if slot in slots else firsts).append(record)
+        slots.add(slot)
     backlist = sorted((r for r in candidates if not is_fresh(r)),
                       key=lambda r: (sales_rank(r), [-ord(c) for c in r.get('fecha_publicacion_edicion') or '']))
-    ordered = by_day_and_genre(upcoming) + by_day_and_genre(past) + backlist
+    ordered = sorted(firsts, key=closeness) + rest + backlist
     oldest = sorted((r for r in ordered if id(r) in since), key=lambda r: since[id(r)])[:limit // 4]
     first = {id(r) for r in oldest}
     ordered = oldest + [r for r in ordered if id(r) not in first]

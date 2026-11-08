@@ -57470,24 +57470,6 @@
       "sourceFile": "recomendaciones/autores/simona-rosario-acosta/index.html"
     },
     {
-      "id": "reading-author-ed-jose-rico-paves",
-      "url": "/recomendaciones/autores/ed-jose-rico-paves/",
-      "label": "(Ed.) Jose Rico Paves",
-      "shortLabel": "(Ed.) Jose Rico Paves",
-      "type": "article",
-      "territory": "recomendaciones",
-      "parentId": "recommendations-hub",
-      "hubId": "recommendations-hub",
-      "discoverability": "secondary",
-      "audience": [
-        "reader"
-      ],
-      "jobs": [
-        "buscar-lecturas"
-      ],
-      "sourceFile": "recomendaciones/autores/ed-jose-rico-paves/index.html"
-    },
-    {
       "id": "reading-author-jose-rico-paves",
       "url": "/recomendaciones/autores/jose-rico-paves/",
       "label": "Jose Rico Paves",
@@ -59232,6 +59214,42 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/autores/ramon-andres-feenstra/index.html"
+    },
+    {
+      "id": "reading-author-sagar",
+      "url": "/recomendaciones/autores/sagar/",
+      "label": "SAGAR",
+      "shortLabel": "SAGAR",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/sagar/index.html"
+    },
+    {
+      "id": "reading-author-jorge-garcia",
+      "url": "/recomendaciones/autores/jorge-garcia/",
+      "label": "Jorge García",
+      "shortLabel": "Jorge García",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/jorge-garcia/index.html"
     },
     {
       "id": "reading-publisher-aguilar",
