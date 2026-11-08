@@ -26,6 +26,7 @@ Uso:
 """
 from __future__ import annotations
 
+import html
 import io
 import re
 import sys
@@ -95,7 +96,6 @@ JS_STRING_RE = re.compile(
 SCRIPT_STYLE_RE = re.compile(r"<(script|style)\b.*?</\1>", re.S | re.I)
 COMMENT_RE = re.compile(r"<!--.*?-->", re.S)
 TAG_RE = re.compile(r"<[^>]+>")
-ENTITY_RE = re.compile(r"&[a-z#0-9]+;", re.I)
 
 
 def html_visible_text(src: str) -> list[tuple[int, str, str]]:
@@ -107,12 +107,12 @@ def html_visible_text(src: str) -> list[tuple[int, str, str]]:
     for m in TAG_RE.finditer(cleaned):
         chunk = cleaned[pos:m.start()]
         if chunk.strip():
-            clean = ENTITY_RE.sub(" ", chunk)
+            clean = html.unescape(chunk)  # «Juliette&#x27;s» es «Juliette's», no «Juliette s»
             out.append((cleaned[:pos].count("\n") + 1, clean, clean))
         pos = m.end()
     tail = cleaned[pos:]
     if tail.strip():
-        clean = ENTITY_RE.sub(" ", tail)
+        clean = html.unescape(tail)
         out.append((cleaned[:pos].count("\n") + 1, clean, clean))
     return out
 
@@ -152,17 +152,45 @@ def is_technical_use(text: str, word: str, context: str = "") -> bool:
     haystack = (context or text).lower()
     if accented and accented.lower() in haystack:
         return True
-    for m in re.finditer(re.escape(word), text, re.IGNORECASE):
-        before = text[max(0, m.start() - 1):m.start()]
-        after = text[m.end():m.end() + 5]
-        if before in ("/", "-", "_", "."):
-            continue
-        if re.match(r"[-_/.][a-z0-9]", after, re.I):
-            continue
-        if m.group()[0].isupper() and re.match(r"\s+[A-ZÁÉÍÓÚÑ]", text[m.end():m.end() + 3]):
-            continue  # nombre propio: «Frances Burney»
-        return False  # al menos un uso es texto normal
+    for m in re.finditer(r"\b" + re.escape(word) + r"\b", text, re.IGNORECASE):
+        if not technical_occurrence(text, m):
+            return False  # al menos un uso es texto normal
     return True
+
+
+def technical_occurrence(text: str, m: re.Match) -> bool:
+    """Una aparición concreta donde la forma sin tilde es la correcta (ver is_technical_use)."""
+    before = text[max(0, m.start() - 1):m.start()]
+    after = text[m.end():m.end() + 5]
+    if before in ("/", "-", "_", "."):
+        return True
+    if re.match(r"[-_/.][a-z0-9]", after, re.I):
+        return True
+    if m.group()[0].isupper() and re.match(r"\s+[A-ZÁÉÍÓÚÑ]", text[m.end():m.end() + 3]):
+        return True  # nombre propio: «Frances Burney»
+    if re.search(r"\w['’]s\s+$", text[:m.start()]):
+        return True  # inglés tras un posesivo: «Juliette's version» (lote 42444782344, título de HarperCollins)
+    return False
+
+
+def _cased(word: str, accented: str) -> str:
+    if word.isupper() and len(word) > 1:
+        return accented.upper()
+    return accented[0].upper() + accented[1:] if word[0].isupper() else accented
+
+
+def restore_accents(text: str) -> str:
+    """El mismo texto con las tildes que este comprobador exige; idempotente.
+
+    Para datos que llegan de fuentes externas sin tildes («Nueva edicion integral», sync 42444782344): la
+    ingesta los repara con esta función en vez de fallar en la CI de la PR. Solo toca las apariciones que
+    main() señalaría, con la misma lista y las mismas excepciones."""
+    def fix(m: re.Match) -> str:
+        if technical_occurrence(text, m):
+            return m.group()
+        return _cased(m.group(), ACCENTED_FORM[m.group().lower()])
+
+    return WORD_RE.sub(fix, text)
 
 
 def files():
