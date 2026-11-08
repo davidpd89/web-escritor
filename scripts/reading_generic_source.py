@@ -97,7 +97,7 @@ def _nodes(document: str) -> list[dict]:
     found: list[dict] = []
     for raw in JSONLD.findall(document):
         try:
-            data = json.loads(raw)
+            data = json.loads(raw, strict=False)  # control chars sin escapar en webs de terceros
         except ValueError:
             continue
         stack = list(data) if isinstance(data, list) else [data]

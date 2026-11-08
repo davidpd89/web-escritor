@@ -92,7 +92,7 @@ def extract_books(html: str, source_url: str, *, expected_isbn: str | None = Non
     observed: set[str] = set()
     for block in parser.entries:
         try:
-            parsed = json.loads(block)
+            parsed = json.loads(block, strict=False)  # control chars sin escapar en webs de terceros
         except (ValueError, TypeError):
             continue
         for item in _nodes(parsed):
