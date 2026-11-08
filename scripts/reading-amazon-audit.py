@@ -14,7 +14,7 @@ import json
 import subprocess
 import sys
 import time
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -123,6 +123,37 @@ def days_from(book, today):
         return 10 ** 6
 
 
+RATING_DAYS = 30  # como las de Goodreads: el bucle vuelve a auditar cada libro antes de que caduque
+
+
+def stamp(moment):
+    return moment.isoformat(timespec='seconds').replace('+00:00', 'Z')
+
+
+def apply_ratings(tree, published, tag):
+    """Estrellas de la ficha de Amazon que la auditoría ya descargó: una valoración «amazon» por libro, fechada el
+    día de la auditoría. Las de otras fuentes no se tocan. Devuelve cuántos libros tienen nota de Amazon."""
+    found = {}
+    for book, record in published:
+        rating, asin = record.get('valoracion'), record.get('asin')
+        if record.get('estado') != 'ok' or not isinstance(rating, dict) or not asin:
+            continue
+        start = datetime.fromisoformat(record['fecha']).replace(tzinfo=timezone.utc)
+        found[book['id']] = {'libro_id': book['id'], 'puntuacion': rating['puntuacion'],
+                             'numero_valoraciones': rating['numero_valoraciones'], 'fuente': 'amazon',
+                             'url': f'https://www.amazon.es/dp/{asin}?tag={tag}#customerReviews',
+                             'actualizado_en': stamp(start), 'caduca_en': stamp(start + timedelta(days=RATING_DAYS))}
+    if not found:
+        return 0
+    from reading_ratings_refresh import write_changed
+    path = tree / 'assets/reading-market.json'
+    market = read_json(path, {'schema_version': 1, 'offers': [], 'ratings': []})
+    kept = [r for r in market.get('ratings', []) if not (r.get('fuente') == 'amazon' and r.get('libro_id') in found)]
+    market['ratings'] = kept + [found[k] for k in sorted(found)]
+    write_changed(path, market)
+    return len(found)
+
+
 def apply_records(tree, records, tag, fetch_bytes=fetch_amazon_image, convert=None, today=None, covers=COVERS_PER_PUBLISH):
     """Lleva el registro al catálogo del árbol: formatos que faltan y portada real donde la nuestra es generada.
     La portada se decide por el libro tal como está en main, no por lo que decía el registro al auditarlo: antes
@@ -148,6 +179,7 @@ def apply_records(tree, records, tag, fetch_bytes=fetch_amazon_image, convert=No
             continue
         replace_cover(book, tree, image, small, size, record['portada_amazon'], record['fecha'])
         stats['covers_replaced'] += 1
+    stats['ratings'] = apply_ratings(tree, published, tag)
     public = {}
     for book, record in published:
         shown = [o['formato'] for o in book.get('formatos_compra', [])]

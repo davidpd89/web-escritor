@@ -617,3 +617,49 @@ class AmazonSalesRankTests(unittest.TestCase):
     def test_rank_lifetime_never_exceeds_the_portal_contract(self):
         market,_=refresh_offers({'libros':[copy.deepcopy(BOOK)]},{'offers':[]},lambda b:ranked(9),'contrato-21',NOW,sweep_days=30)
         self.assertEqual(market['sales_ranks'][0]['caduca_en'],'2026-10-29T10:00:00Z')
+
+
+class AmazonApiCoverTests(unittest.TestCase):
+    """La cubierta llega en la misma respuesta de precios (images.primary.large): ninguna tipográfica se queda
+    si Amazon tiene imagen, sin depender de la ficha web ni del captcha (David, 2026-11-08)."""
+    GENERATED={'portada_fuente_url':'https://www.amazon.es/dp/8498382378','portada_local':'/assets/isbn-9788498382372.webp',
+               'autorizacion_o_base_uso':'Portada tipográfica propia generada con los datos bibliográficos; no reproduce la cubierta editorial'}
+
+    def with_image(self,url='https://m.media-amazon.com/images/I/51qFSR41gJL._SL500_.jpg'):
+        payload=response()
+        payload['searchResult']['items'][0]['images']={'primary':{'large':{'url':url,'width':329,'height':500}}}
+        return payload
+
+    def test_api_cover_is_full_size_and_only_from_amazon_cdn(self):
+        self.assertIn('images.primary.large',reading_amazon_market.RESOURCES)
+        item=self.with_image()['searchResult']['items'][0]
+        self.assertEqual(reading_amazon_market.api_cover_url(item),'https://m.media-amazon.com/images/I/51qFSR41gJL.jpg')
+        for bad in ['https://evil.example/images/I/51qFSR41gJL.jpg','http://m.media-amazon.com/images/I/x.jpg',None,12]:
+            item['images']['primary']['large']['url']=bad
+            self.assertIsNone(reading_amazon_market.api_cover_url(item),bad)
+        self.assertIsNone(reading_amazon_market.api_cover_url({'asin':'8498382378'}))
+
+    def test_nightly_sweep_swaps_the_typographic_cover_for_the_api_one(self):
+        book={**copy.deepcopy(BOOK),**self.GENERATED,'formatos_compra':[]}
+        editorial={**copy.deepcopy(BOOK),'id':'lib-2','portada_fuente_url':'https://www.penguinlibros.com/c.jpg',
+                   'autorizacion_o_base_uso':'Cubierta proporcionada en la ficha oficial de la edición','formatos_compra':[]}
+        swapped=[]
+        _,stats=refresh_offers({'libros':[book,editorial]},{'offers':[]},lambda b:self.with_image(),'contrato-21',NOW,
+                               cover=lambda b,url:swapped.append((b['id'],url)) or True)
+        self.assertEqual(swapped,[('lib-1','https://m.media-amazon.com/images/I/51qFSR41gJL.jpg')],
+                         'solo la tipográfica; la cubierta editorial no se toca')
+        self.assertEqual(stats['portadas_api'],1)
+
+    def test_swap_cover_writes_files_or_keeps_the_typographic_one(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            (root/'assets').mkdir()
+            book={**copy.deepcopy(BOOK),**self.GENERATED}
+            def reject(raw):
+                raise ValueError('marcador sin cubierta')
+            self.assertFalse(reading_amazon_market.swap_cover(book,root,'https://m.media-amazon.com/images/I/x.jpg',lambda u:b'raw',reject,'2026-11-08'))
+            self.assertNotIn('portada_sustituida',book)
+            self.assertTrue(reading_amazon_market.swap_cover(book,root,'https://m.media-amazon.com/images/I/x.jpg',lambda u:b'raw',
+                                                             lambda raw:(b'big',b'small',(650,988)),'2026-11-08'))
+            self.assertEqual((root/'assets/isbn-9788498382372.webp').read_bytes(),b'big')
+            self.assertEqual((cover_kind(book),book['portada_fuente_url']),('amazon','https://m.media-amazon.com/images/I/x.jpg'))

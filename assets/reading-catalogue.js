@@ -94,14 +94,15 @@
   // Puesto en Libros de Amazon.es; renderMarket revalida la caducidad cada minuto.
   const validRank = r => fresh(r, 216) && r.fuente === 'amazon_es_books' && Number.isSafeInteger(r.posicion) && r.posicion > 0 && r.posicion < 1e8;
   const rankFor = id => ranksIndex.get(id)?.posicion ?? null;
-  const ratingSource = r => ['google_books', 'hardcover'].includes(r.fuente) ? r.fuente : !r.fuente || r.fuente === 'goodreads' ? 'goodreads' : null;
-  const ratingLabel = r => ratingSource(r) === 'google_books' ? 'Google Books' : ratingSource(r) === 'hardcover' ? 'Hardcover' : 'Goodreads';
+  const ratingSource = r => ['google_books', 'hardcover', 'amazon'].includes(r.fuente) ? r.fuente : !r.fuente || r.fuente === 'goodreads' ? 'goodreads' : null;
+  const ratingLabel = r => ({google_books: 'Google Books', hardcover: 'Hardcover', amazon: 'Amazon'})[ratingSource(r)] || 'Goodreads';
   const validRating = r => {
     if (!fresh(r, 720) || !Number.isFinite(r.puntuacion) || r.puntuacion < 1 || r.puntuacion > 5 || !Number.isSafeInteger(r.numero_valoraciones) || r.numero_valoraciones < 5) return false; // una sola valoración no es una referencia
     const source = ratingSource(r);
     if (source === 'goodreads') return Boolean(safeURL(r.url, ['www.goodreads.com', 'goodreads.com'], /^\/book\/show\/\d/));
     if (source === 'google_books') { const link = safeURL(r.url, ['books.google.com'], /^\/books$/); return Boolean(link && /^[A-Za-z0-9_-]{1,150}$/.test(link.searchParams.get('id') || '')); }
     if (source === 'hardcover') return Boolean(safeURL(r.url, ['hardcover.app', 'www.hardcover.app'], /^\/books\/[a-z0-9]+(?:-[a-z0-9]+)*$/));
+    if (source === 'amazon') return Boolean(safeURL(r.url, ['www.amazon.es', 'amazon.es'], /^\/dp\/[A-Z0-9]{10}$/));
     return false;
   };
   // Muestra de 1–4 valoraciones con fuente y vigencia válidas: existe, pero no es una nota fiable.
@@ -168,7 +169,7 @@
       if (!offersIndex.has(offer.libro_id)) offersIndex.set(offer.libro_id, []);
       offersIndex.get(offer.libro_id).push(offer);
     }
-    const priority = {goodreads: 0, hardcover: 1, google_books: 2};
+    const priority = {goodreads: 0, amazon: 1, hardcover: 2, google_books: 3};
     for (const rating of market.ratings.filter(validRating).sort((a, b) => priority[ratingSource(a)] - priority[ratingSource(b)])) {
       if (!ratingsIndex.has(rating.libro_id)) ratingsIndex.set(rating.libro_id, []);
       ratingsIndex.get(rating.libro_id).push(rating);
@@ -185,8 +186,9 @@
         // Sin nota verificada vigente no se pinta nota (ni estrellas vacías ni «0,0 (0)»).
         const thin = thinNow;
         const isbn = /^\d{13}$/.test(box.dataset.isbn) && box.dataset.isbn;
-        // Nota verificada o enlace a Goodreads por ISBN (igual en tarjeta y ficha).
-        if (thin || isbn) {
+        // Sin nota verificada, la tarjeta no muestra nada; la ficha ofrece el enlace a Goodreads por ISBN (David, 2026-11-08).
+        if (box.closest('.catalogue-card')) box.hidden = true;
+        else if (thin || isbn) {
           const ref = document.createElement('a'); ref.target = '_blank'; ref.rel = 'noopener noreferrer'; ref.className = 'catalogue-rating__ref';
           if (thin) { ref.href = thin.url; ref.dataset.ratingState = 'insufficient'; ref.textContent = ratingLabel(thin) + ' · menos de 5 valoraciones'; ref.title = 'Muestra demasiado pequeña para mostrar una nota. Consultado el ' + new Date(thin.actualizado_en).toLocaleDateString('es-ES'); }
           else { ref.href = 'https://www.goodreads.com/book/isbn/' + isbn; ref.dataset.ratingState = 'unavailable'; ref.textContent = 'Goodreads · ver opiniones'; }

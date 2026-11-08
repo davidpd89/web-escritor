@@ -45,8 +45,9 @@ try {
     assert.ok(all.length > 20, 'el catálogo debe tener tarjetas con valoración');
     for (const b of all) {
       unverifiedOk(b, market === 'fail' ? 'proveedor caído' : 'sin dato');
-      // Tarjeta y ficha muestran lo mismo: con ISBN, el enlace neutro a Goodreads (decisión de David, 2026-11-06).
-      if (b.isbn.length === 13) {
+      // Sin nota verificada la tarjeta no muestra nada; la ficha, con ISBN, el enlace neutro a Goodreads (David, 2026-11-08).
+      if (b.card) { assert.equal(b.text, '', `${b.id}: la tarjeta sin nota no enlaza a Goodreads`); assert.equal(b.hidden, true); }
+      else if (b.isbn.length === 13) {
         assert.equal(b.text, 'Goodreads · ver opiniones');
         assert.equal(b.state, 'unavailable');
         assert.equal(b.href, `https://www.goodreads.com/book/isbn/${b.isbn}`);
@@ -77,19 +78,12 @@ try {
     assert.equal(by[verified].hidden, false, `${width}px: la nota verificada queda oculta`);
     assert.equal(Math.round(parseFloat(by[verified].fill)), 84);
     assert.equal(by[verified].label, null);
-    // 1–4 opiniones: se dice que la muestra es pequeña, sin nota y con su propia fuente.
-    for (const [id, text, href] of [[thin, 'Goodreads · menos de 5 valoraciones', gr(102)], [oneVote, 'Hardcover · menos de 5 valoraciones', 'https://hardcover.app/books/qa-uno']]) {
-      unverifiedOk(by[id], `${width}px muestra pequeña`);
-      assert.equal(by[id].state, 'insufficient');
-      assert.equal(by[id].text, text);
-      assert.equal(by[id].href, href);
-    }
-    // Caducado, fuente falsificada y sin dato: ni nota ni fuente ajena, solo el enlace neutro.
-    for (const id of [expired, forged, none]) {
+    // 1–4 opiniones, caducado, fuente falsificada y sin dato: en la tarjeta no se pinta nada (ni nota ni enlace).
+    for (const id of [thin, oneVote, expired, forged, none]) {
       unverifiedOk(by[id], `${width}px ${id}`);
       assert.equal(by[id].card, true);
-      assert.equal(by[id].text, 'Goodreads · ver opiniones');
-      assert.equal(by[id].state, 'unavailable');
+      assert.equal(by[id].text, '');
+      assert.equal(by[id].hidden, true);
     }
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     assert.ok(overflow <= 0, `${width}px: scroll horizontal de ${overflow} px`);
