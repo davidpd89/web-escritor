@@ -105,7 +105,9 @@ def _dd(document: str, label: str) -> str:
 def _book(document: str) -> dict:
     for raw in JSONLD.findall(document):
         try:
-            data = json.loads(raw)
+            # strict=False: la web vuelca la sinopsis con saltos de línea y tabuladores sin escapar. En modo
+            # estricto se perdía el bloque Book entero y el libro salía «no castellano» (606 libros, 08/11).
+            data = json.loads(raw, strict=False)
         except ValueError:
             continue
         for node in data if isinstance(data, list) else [data]:
@@ -152,6 +154,8 @@ def ttl_edition(document: str, url: str) -> dict:
     parts = urlsplit(page)
     if parts.scheme != 'https' or parts.hostname != HOST or not PRODUCT_PATH.fullmatch(parts.path):
         raise SourceError('Ficha de todostuslibros no reconocida')
+    if not book:  # sin datos estructurados no se sabe el idioma: transitorio, nunca «no castellano»
+        raise SourceError('Ficha sin datos estructurados de la edición')
     edition = next((w for w in book.get('workExample') or [] if isinstance(w, dict)), {})
     isbn = isbn13(str(edition.get('isbn', '')).replace('-', '')) or isbn13(_dd(document, 'EAN'))
     if not isbn or isbn != url_isbn(page) or (url_isbn(url) and url_isbn(url) != isbn):

@@ -60,6 +60,15 @@ class TTLEditionTests(unittest.TestCase):
             with self.subTest(name), self.assertRaises(SourceError):
                 ttl_edition(doc, url)
 
+    def test_raw_line_breaks_in_jsonld_still_read_as_spanish(self):
+        # 08/11: 606 fichas en castellano apartadas como «no castellano» por un \n\t sin escapar en la sinopsis.
+        doc = document().replace('"name": "Obra de prueba"', '"name": "Obra de prueba", "description": "Primera.\n\tSegunda."')
+        self.assertIn('\n\t', doc)
+        self.assertEqual(ttl_edition(doc, PAGE)['isbn13'], ISBN)
+        broken = doc.replace('"@type": "Book"', '"@type": "Book",,')
+        with self.assertRaisesRegex(SourceError, 'sin datos estructurados'):  # nunca «no castellano» sin leerla
+            ttl_edition(broken, PAGE)
+
     def test_url_helpers(self):
         self.assertEqual(ttl_url('978-84-00-00001-1'), 'https://www.todostuslibros.com/libros/x_' + ISBN)
         self.assertEqual(url_isbn(PAGE), ISBN)

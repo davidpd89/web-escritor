@@ -434,6 +434,22 @@ FINAL_REASONS = ('fuera de la ventana', 'no bibliográfico', 'no identificada co
 # cada tres días (en la prueba del 05/11, la mitad eran ediciones en catalán, gallego o euskera).
 LASTING_REASONS = FINAL_REASONS + ('encuadernación desconocida', 'isbn fuera del registro', 'autoedición')
 LASTING_DAYS = 180
+# Revisión de las reglas de lectura. Cada rechazo duradero guarda la suya; al corregir un lector (p. ej. el
+# JSON-LD de todostuslibros con saltos de línea sin escapar, que daba 606 libros «no castellano» el 08/11) se
+# sube la fecha y esos rechazos se releen una vez, por tandas, aunque su `retry_after` siga lejos.
+READER_REVISION = '2026-11-08'
+STALE_RETRY = 120  # rechazos de una revisión anterior que se releen por carga
+
+
+def stale_rejection(item):
+    return (item.get('estado_ingesta') == 'pendiente_datos' and item.get('lectura', '') < READER_REVISION
+            and any(r in item.get('motivo', '').lower() for r in LASTING_REASONS))
+
+
+def waiting(item, today):
+    return item.get('retry_after', '') > today and not stale_rejection(item)
+
+
 # Sellos de autoedición de pago: la ficha no la respalda una editorial.
 SELF_PUBLISHING = ('letrame', 'universo de letras', 'circulo rojo', 'caligrama', 'bubok', 'tregolam')
 
@@ -441,12 +457,15 @@ SELF_PUBLISHING = ('letrame', 'universo de letras', 'circulo rojo', 'caligrama',
 def retry_pending(state, queue, today):
     """Pendientes vencidos cuya ficha ya no aparece en los índices: sin esto solo se reintentaban si la editorial
     los volvía a listar, y un fallo de lectura ya corregido (p. ej. el UTF-8 de Penguin del 20/10) no se recuperaba.
-    Se eligen los de reintento más antiguo, con tope fijo por carga, y se omiten los motivos definitivos."""
+    Se eligen los de reintento más antiguo, con tope fijo por carga, y se omiten los motivos definitivos,
+    salvo los decididos con unas reglas de lectura ya corregidas (`stale_rejection`), con su propio tope."""
+    stale = sorted((v.get('primera_deteccion', ''), v['fuente']) for v in state['items'].values()
+                   if stale_rejection(v) and v.get('fuente', '').startswith('https://') and v['fuente'] not in queue)
     due = sorted((v.get('retry_after', ''), v['fuente']) for v in state['items'].values()
                  if v.get('estado_ingesta') == 'pendiente_datos' and v.get('fuente', '').startswith('https://')
                  and v.get('retry_after', '') <= today and v['fuente'] not in queue
                  and not any(r in v.get('motivo', '').lower() for r in FINAL_REASONS))
-    return [url for _, url in due[:RETRY_PENDING]]
+    return [url for _, url in due[:RETRY_PENDING]] + [url for _, url in stale[:STALE_RETRY]]
 
 
 def read_candidates(queue, refresh_urls, http, limit, existing, known_urls, state, today):
@@ -467,7 +486,7 @@ def read_candidates(queue, refresh_urls, http, limit, existing, known_urls, stat
             break
         isbn = candidate_isbn(url, source, known_urls)
         key = 'isbn13:' + isbn if isbn else 'url:' + url
-        if (isbn in existing and url not in refresh_urls) or state['items'].get(key, {}).get('retry_after', '') > today:
+        if (isbn in existing and url not in refresh_urls) or waiting(state['items'].get(key, {}), today):
             continue
         try:
             documents[url] = read_edition(source, http.get(url, ttl=7 * 86400).decode('utf-8', errors='replace'), url)
@@ -586,7 +605,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 continue
             key = 'isbn13:' + isbn if isbn else 'url:' + url
             previous = state['items'].get(key, {})
-            if previous.get('retry_after', '') > today or url not in documents:
+            if waiting(previous, today) or url not in documents:
                 continue
             stats['examined'] += 1
             if stats['examined'] % 10 == 0:
@@ -723,7 +742,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 elif isinstance(exc, DeferredError) or any(r in reason.lower() for r in LASTING_REASONS):
                     until = exc.until if isinstance(exc, DeferredError) else (day + timedelta(days=LASTING_DAYS)).isoformat()
                     # Sin la ficha guardada: con miles de altas por carga, el estado crecería sin aportar nada.
-                    state['items'][key] = {'isbn13': isbn, 'estado_ingesta': 'pendiente_datos', 'primera_deteccion': previous.get('primera_deteccion', today), 'retry_after': until, 'motivo': reason, 'fuente': url, 'intentos': attempts}
+                    state['items'][key] = {'isbn13': isbn, 'estado_ingesta': 'pendiente_datos', 'primera_deteccion': previous.get('primera_deteccion', today), 'retry_after': until, 'motivo': reason, 'fuente': url, 'intentos': attempts, 'lectura': READER_REVISION}
                 else:
                     state['items'][key] = {'isbn13': isbn, 'estado_ingesta': 'pendiente_datos', 'primera_deteccion': previous.get('primera_deteccion', today), 'retry_after': (day + timedelta(days=3)).isoformat(), 'motivo': reason, 'fuente': url, 'intentos': attempts, **({'datos': record} if record else {})}
                 stats['pending'] += 1

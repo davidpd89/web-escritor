@@ -504,12 +504,25 @@ class PendingRetryTests(unittest.TestCase):
         state = {'items': {
             'a': item('https://www.penguinlibros.com/es/a-1', '2026-10-23'),
             'b': item('https://www.penguinlibros.com/es/b-2', '2026-11-09'),
-            'c': item('https://www.penguinlibros.com/es/c-3', '2026-10-01', 'Edición fuera de la ventana de selección'),
+            'c': {**item('https://www.penguinlibros.com/es/c-3', '2026-10-01', 'Edición fuera de la ventana de selección'),
+                  'lectura': pipeline.READER_REVISION},
             'd': item('https://www.penguinlibros.com/es/d-4', '2026-10-20'),
             'e': {'estado_ingesta': 'publicado', 'fuente': 'https://www.penguinlibros.com/es/e-5', 'retry_after': ''},
         }}
         due = pipeline.retry_pending(state, {'https://www.penguinlibros.com/es/d-4': {}}, '2026-11-04')
         self.assertEqual(due, ['https://www.penguinlibros.com/es/a-1'])  # d ya está en cola, b no ha vencido, c es definitivo
+
+    def test_lasting_rejections_from_an_older_reader_are_read_again(self):
+        # 08/11: 606 rechazos «no castellano» por un fallo del lector, con retry_after a 180 días.
+        old = {'estado_ingesta': 'pendiente_datos', 'retry_after': '2027-05-01', 'primera_deteccion': '2026-11-01',
+               'motivo': 'Edición no identificada como castellano', 'fuente': 'https://www.todostuslibros.com/libros/x_978'}
+        current = {**old, 'fuente': old['fuente'] + '1', 'lectura': pipeline.READER_REVISION}
+        state = {'items': {'old': old, 'current': current}}
+        self.assertFalse(pipeline.waiting(old, '2026-11-08'))
+        self.assertTrue(pipeline.waiting(current, '2026-11-08'))
+        self.assertEqual(pipeline.retry_pending(state, {}, '2026-11-08'), [old['fuente']])
+        many = {'items': {str(i): {**old, 'fuente': f'https://x.test/{i}'} for i in range(pipeline.STALE_RETRY + 5)}}
+        self.assertEqual(len(pipeline.retry_pending(many, {}, '2026-11-08')), pipeline.STALE_RETRY)
 
     def test_retries_are_capped_per_run(self):
         state = {'items': {str(i): {'estado_ingesta': 'pendiente_datos', 'fuente': f'https://x.test/{i}',
