@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "propiedad": "https://davidportodiaz.com/",
+  "nota": "Inventario basado en archivos del repositorio. Los estados no certifican sesiones iniciadas ni datos actuales. No contiene claves, cookies ni tokens.",
+  "grupos": [
+    "seo",
+    "comportamiento",
+    "social",
+    "ventas",
+    "operaciones"
+  ],
+  "servicios": [
+    {
+      "id": "gsc",
+      "nombre": "Google Search Console",
+      "grupos": [
+        "seo"
+      ],
+      "url": "https://search.google.com/search-console",
+      "inicio": true,
+      "estado": "documentado; acceso actual por verificar",
+      "evidencia": "docs/search-console/README.md",
+      "mirar": "Clics, impresiones, CTR, consultas, páginas, indexación, sitemap, CWV, acciones manuales"
+    },
+    {
+      "id": "bing",
+      "nombre": "Bing Webmaster Tools",
+      "grupos": [
+        "seo"
+      ],
+      "url": "https://www.bing.com/webmasters/",
+      "inicio": true,
+      "estado": "datos históricos referenciados; acceso actual por verificar",
+      "evidencia": "docs/pending/ahrefs-free.md",
+      "mirar": "Clics y consultas Bing, indexación, sitemap, AI Performance, errores"
+    },
+    {
+      "id": "ahrefs",
+      "nombre": "Ahrefs Webmaster Tools",
+      "grupos": [
+        "seo"
+      ],
+      "url": "https://app.ahrefs.com/",
+      "inicio": true,
+      "estado": "propiedad verificada en revisión 2026-09-09; revalidar",
+      "evidencia": "docs/pending/ahrefs-free.md",
+      "mirar": "Site Audit, enlaces entrantes, dominios, palabras clave, incidencias accionables"
+    },
+    {
+      "id": "goatcounter",
+      "nombre": "GoatCounter",
+      "grupos": [
+        "comportamiento"
+      ],
+      "url": "https://davidportodiaz.goatcounter.com/",
+      "inicio": true,
+      "estado": "tracker y taxonomía presentes; login del panel no verificado",
+      "evidencia": "data/analytics-events.json",
+      "mirar": "Visitas, procedencias, páginas, eventos de newsletter y clics salientes (no compras)"
+    },
+    {
+      "id": "clarity",
+      "nombre": "Microsoft Clarity",
+      "grupos": [
+        "comportamiento"
+      ],
+      "url": "https://clarity.microsoft.com/",
+      "inicio": true,
+      "estado": "tracker presente sujeto a consentimiento; login no verificado",
+      "evidencia": "script.js",
+      "mirar": "Mapas de calor, grabaciones consentidas, puntos de fricción y navegación"
+    },
+    {
+      "id": "github",
+      "nombre": "GitHub Actions y Pages",
+      "grupos": [
+        "operaciones"
+      ],
+      "url": "https://github.com/davidpd89/web-escritor/actions",
+      "inicio": true,
+      "estado": "workflows y repositorio presentes; datos de ejecuciones consultables",
+      "evidencia": ".github/workflows",
+      "mirar": "CI, PR bloqueadas, deploys, errores repetidos, rendimiento y disponibilidad"
+    },
+    {
+      "id": "amazon",
+      "nombre": "Amazon Afiliados España",
+      "grupos": [
+        "ventas"
+      ],
+      "url": "https://afiliados.amazon.es/",
+      "inicio": false,
+      "estado": "enlaces de afiliado en el sitio; cuenta e informes no verificados ahora",
+      "evidencia": "scripts/audit-amazon-links.py",
+      "mirar": "Clics, pedidos, productos enviados, conversión y comisiones (datos de Amazon, no de GoatCounter)"
+    },
+    {
+      "id": "pinterest",
+      "nombre": "Pinterest Analytics",
+      "grupos": [
+        "social"
+      ],
+      "url": "https://www.pinterest.com/business/hub/",
+      "inicio": false,
+      "estado": "SEO/feeds Pinterest presentes; sesión y métricas actuales por verificar",
+      "evidencia": "docs/pinterest-rss-libros-2026-10-20.md",
+      "mirar": "Impresiones, guardados, clics salientes, rendimiento por pin y tablero"
+    },
+    {
+      "id": "metricool",
+      "nombre": "Metricool",
+      "grupos": [
+        "social",
+        "comportamiento"
+      ],
+      "url": "https://app.metricool.com/",
+      "inicio": false,
+      "estado": "script de medición presente; cuentas conectadas por verificar",
+      "evidencia": "script.js",
+      "mirar": "Evolución de redes y publicaciones; no duplicar métricas de GoatCounter sin propósito"
+    },
+    {
+      "id": "brevo",
+      "nombre": "Brevo",
+      "grupos": [
+        "ventas"
+      ],
+      "url": "https://app.brevo.com/",
+      "inicio": false,
+      "estado": "integración de newsletter documentada; panel y configuración actuales por verificar",
+      "evidencia": "docs/claude-toolbox/09-MCP-API-KEYS-OAUTH-Y-SECRETOS.md",
+      "mirar": "Altas confirmadas, DOI, bajas, rebotes, entregabilidad y clics relevantes"
+    },
+    {
+      "id": "cloudflare",
+      "nombre": "Cloudflare",
+      "grupos": [
+        "operaciones"
+      ],
+      "url": "https://dash.cloudflare.com/",
+      "inicio": false,
+      "estado": "workers/configuración Cloudflare en repo; acceso a cuenta no verificado",
+      "evidencia": "wrangler.assistant.jsonc",
+      "mirar": "DNS, Worker, errores, seguridad y métricas reales cuando estén disponibles"
+    },
+    {
+      "id": "pagespeed",
+      "nombre": "PageSpeed Insights",
+      "grupos": [
+        "seo",
+        "operaciones"
+      ],
+      "url": "https://pagespeed.web.dev/",
+      "inicio": false,
+      "estado": "herramienta pública; sin cuenta requerida",
+      "evidencia": "lighthouserc.json",
+      "mirar": "LCP, CLS, INP, datos de campo si existen; diferenciar de Lighthouse CI"
+    },
+    {
+      "id": "webpagetest",
+      "nombre": "WebPageTest",
+      "grupos": [
+        "seo",
+        "operaciones"
+      ],
+      "url": "https://www.webpagetest.org/",
+      "inicio": false,
+      "estado": "herramienta pública o diagnóstico adicional; disponibilidad y límites por verificar",
+      "evidencia": "lighthouserc.json",
+      "mirar": "Waterfall y velocidad de carga, primera visita, TTFB, LCP, dependencias lentas"
+    },
+    {
+      "id": "gtmetrix",
+      "nombre": "GTmetrix",
+      "grupos": [
+        "seo",
+        "operaciones"
+      ],
+      "url": "https://gtmetrix.com/",
+      "inicio": false,
+      "estado": "herramienta pública o diagnóstico adicional; disponibilidad y límites por verificar",
+      "evidencia": "lighthouserc.json",
+      "mirar": "Análisis de carga y filmstrip; comparar solo hallazgos reales con Lighthouse"
+    },
+    {
+      "id": "rich-results",
+      "nombre": "Google Rich Results Test",
+      "grupos": [
+        "seo"
+      ],
+      "url": "https://search.google.com/test/rich-results",
+      "inicio": false,
+      "estado": "herramienta pública o diagnóstico adicional; disponibilidad y límites por verificar",
+      "evidencia": "docs/search-console/README.md",
+      "mirar": "Elegibilidad y errores en resultados enriquecidos para URLs concretas"
+    },
+    {
+      "id": "schema-validator",
+      "nombre": "Schema.org Validator",
+      "grupos": [
+        "seo"
+      ],
+      "url": "https://validator.schema.org/",
+      "inicio": false,
+      "estado": "herramienta pública o diagnóstico adicional; disponibilidad y límites por verificar",
+      "evidencia": "schemas",
+      "mirar": "Validar JSON-LD y estructuras; no confundir con elegibilidad Google"
+    },
+    {
+      "id": "google-trends",
+      "nombre": "Google Trends",
+      "grupos": [
+        "seo"
+      ],
+      "url": "https://trends.google.com/trends/",
+      "inicio": false,
+      "estado": "herramienta pública o diagnóstico adicional; disponibilidad y límites por verificar",
+      "evidencia": "docs/search-console/README.md",
+      "mirar": "Demanda y estacionalidad de temas del Cuaderno y libros; no equivale a tráfico de la web"
+    }
+  ]
+}
