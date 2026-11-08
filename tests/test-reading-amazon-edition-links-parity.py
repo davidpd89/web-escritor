@@ -35,6 +35,9 @@ for book in catalogue['libros']:
     parser.feed(path.read_text(encoding='utf-8'))
     hrefs = {a.get('href') for a in parser.anchors}
     for option in options:
+        # Igual que purchase_formats: un formato hermano sin precio de la API se busca en Amazon, no se enlaza.
+        if not option.get('precio_centimos') and option.get('formato') != book.get('formato_edicion'):
+            continue
         checked += 1
         expected = option['url']
         parsed = urlsplit(expected)
