@@ -34,9 +34,14 @@ class DecideTest(unittest.TestCase):
         self.assertTrue(backup.decide([{'id': 1, 'status': 'completed', 'intake': 'failure'},
                                        {'id': 2, 'status': 'completed', 'intake': 'cancelled'}])[0])
 
-    def test_una_en_verde_entre_fallidas_basta(self):
+    def test_decide_la_ultima_carga(self):
+        # Reintento que salió bien: no se repite.
         self.assertFalse(backup.decide([{'id': 1, 'status': 'completed', 'intake': 'failure'},
                                         {'id': 2, 'status': 'completed', 'intake': 'success'}])[0])
+        # 08/11: lote encadenado fallido tras uno en verde → la cadena se retoma (orden de la API, del más nuevo).
+        self.assertTrue(backup.decide([{'id': 7, 'status': 'completed', 'intake': None},
+                                       {'id': 6, 'status': 'completed', 'intake': 'failure'},
+                                       {'id': 5, 'status': 'completed', 'intake': 'success'}])[0])
 
 
 class MainTest(unittest.TestCase):

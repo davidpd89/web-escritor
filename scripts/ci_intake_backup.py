@@ -4,8 +4,9 @@
 La carga tiene un cron principal (00:17 UTC) y dos de respaldo (01:47 y 03:17 UTC). GitHub descarta crons
 cuando hay carga (07/11: el de las 00:17 no saltó y esa noche no entró ningún libro) y retrasa otros horas
 (06/11: uno a las 03:52). Cada cron carga solo si desde las 00:00 UTC de hoy ninguna otra ejecución del
-workflow está en curso o en cola, ni ha terminado con el job `intake` en verde: así un cron retrasado no
-repite la carga de un respaldo. Si las cargas de esta noche fallaron, el siguiente cron reintenta.
+workflow está en curso o en cola y la última carga de la noche no terminó con el job `intake` en verde: así
+un cron retrasado no repite la carga de un respaldo, y si la última carga (o un lote encadenado) falló, el
+siguiente cron reintenta.
 
 Cuenta el job `intake` y no la ejecución entera: una ejecución en la que el reloj decidió no cargar
 termina en verde sin haber cargado nada.
@@ -30,12 +31,19 @@ INTAKE_JOB = 'intake'
 
 def decide(runs: list[dict]) -> tuple[bool, str]:
     """runs: ejecuciones de hoy sin contar esta, con `id`, `status` y, si terminaron, `intake` (conclusión del
-    job intake o None si no llegó a correr)."""
+    job intake o None si no llegó a correr).
+
+    Decide la última carga real de la noche, no cualquiera: 08/11 un lote encadenado falló (42436110753) después
+    de uno en verde y la cadena quedó cortada sin que ningún respaldo la retomara."""
     for run in runs:
         if run.get('status') != 'completed':
             return False, f"la ejecución {run['id']} sigue en curso ({run.get('status')})"
-        if run.get('intake') == 'success':
-            return False, f"la ejecución {run['id']} ya cargó esta noche"
+    loads = sorted((run for run in runs if run.get('intake') in ('success', 'failure', 'cancelled', 'timed_out')),
+                   key=lambda run: int(run['id']), reverse=True)
+    if loads and loads[0]['intake'] == 'success':
+        return False, f"la última carga de esta noche ({loads[0]['id']}) terminó en verde"
+    if loads:
+        return True, f"la última carga de esta noche ({loads[0]['id']}) terminó en {loads[0]['intake']}: se reintenta"
     return True, f'ninguna carga en verde ni en curso esta noche ({len(runs)} ejecuciones previas)'
 
 
