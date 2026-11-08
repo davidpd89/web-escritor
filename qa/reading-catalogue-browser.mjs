@@ -94,12 +94,8 @@ try {
       await page.waitForFunction(n => new RegExp('^' + n + ' libros?(?: |$)').test(document.querySelector('[data-catalogue-count]').textContent) || (n === 0 && !document.querySelector('[data-catalogue-empty]').hidden), expected);
       console.log(`descuento >= ${threshold} %: ${expected} libros`);
     }
-    // «Prime Day y Black Friday» (Temporada) = current Amazon offers of 10 % or more.
-    await page.locator('[data-filter="descuento"]').evaluate(el => { el.value = ''; for (const t of ['input', 'change']) el.dispatchEvent(new Event(t, { bubbles: true })); });
-    await page.locator('[data-facet="temporada"][value="ofertas-amazon"]').evaluate(el => { el.checked = true; for (const t of ['input', 'change']) el.dispatchEvent(new Event(t, { bubbles: true })); });
-    const primeDay = best.filter(pct => pct >= 10).length;
-    await page.waitForFunction(n => new RegExp('^' + n + ' libros?(?: |$)').test(document.querySelector('[data-catalogue-count]').textContent), primeDay);
-    console.log(`temporada Prime Day: ${primeDay} libros`);
+    // Las ofertas se filtran solo con «Ofertas» (descuento de Amazon); no hay temporadas propias (David, 08/11).
+    assert.equal(await page.locator('[data-facet="temporada"], [data-facet="tematica"], [data-facet="contenido"]').count(), 0);
     await context.close();
   }
   for (const width of [320, 390, 768, 1024, 1440]) {
@@ -250,8 +246,7 @@ try {
   await page.goto(`${BASE}/recomendaciones/`);
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 2);
   await openFilters(page);
-  await page.locator('details[data-facet-group="genero"]').evaluate(d => { d.open = true; }); await page.locator('details[data-facet-group="temporada"]').evaluate(d => { d.open = true; }); await page.locator('input[data-facet="genero"][value="romantasy"]').check();
-  await page.locator('input[data-facet="temporada"][value="halloween"]').check();
+  await page.locator('details[data-facet-group="genero"]').evaluate(d => { d.open = true; }); await page.locator('input[data-facet="genero"][value="romantasy"]').check();
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
   const href = await page.locator('[data-catalogue-book]:visible .catalogue-card__ficha').getAttribute('href');
   await page.locator('input[data-facet="genero"][value="romantasy"]').uncheck(); await page.locator('input[data-facet="genero"][value="fantasia"]').check();

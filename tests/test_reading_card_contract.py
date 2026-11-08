@@ -27,7 +27,9 @@ class CardContractTest(unittest.TestCase):
         count = lambda html: html.count('<li>')
         self.assertEqual(count(m.tags(cats, compact=True)), m.CARD_TAGS)
         self.assertEqual(count(m.tags(cats, limit=m.DETAIL_TAGS)), m.DETAIL_TAGS)
-        self.assertEqual(count(m.tags(cats)), len(cats))  # autores y editoriales: sin tope
+        # Autores y editoriales: sin tope, pero solo tipos de fuente fiable (sin temática ni época propias).
+        self.assertEqual(count(m.tags(cats)), len(m.public(cats)))
+        self.assertNotIn('tematica-0', m.tags(cats))
         self.assertNotIn('edad', m.tags(cats, compact=True))
         self.assertIn('genero-0', m.tags(cats, compact=True))
 

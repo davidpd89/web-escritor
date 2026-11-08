@@ -1095,3 +1095,33 @@ class PublisherKey(unittest.TestCase):
         self.assertEqual(index[ca.publisher_key('Grijalbo Comercial, S.a.')], ('grijalbo', 'directorio'))
         self.assertEqual(index[ca.publisher_key('Molino,editorial')], ('molino', 'catalogo'))
         self.assertNotIn(ca.publisher_key('Sur'), index)
+
+
+class PortadaDeLaApi(unittest.TestCase):
+    """La carga pide images.primary.large y usa la cubierta de la edición; la tipográfica es solo el respaldo."""
+    def record(self, url='https://m.media-amazon.com/images/I/71abc+Xy-Z._SL500_.jpg'):
+        found = item()
+        if url:
+            found['images'] = {'primary': {'large': {'url': url}}}
+        return {'isbn13': isbn('978841234567'), 'portada_fuente_url': 'https://www.amazon.es/dp/B000000001',
+                'cover_use_basis': ca.COVER_BASIS, 'item': found}
+
+    def test_intake_asks_amazon_for_the_cover(self):
+        self.assertIn('images.primary.large', ca.RESOURCES)
+
+    def test_real_cover_wins_and_typographic_is_the_fallback(self):
+        fetched = []
+        typographic = lambda record: (b't', b'ts', (600, 900))  # noqa: E731
+        record = self.record()
+        out = ca.cover_for(record, lambda url: fetched.append(url) or b'raw', lambda raw: (b'big', b'small', (650, 988)), typographic)
+        self.assertEqual(out, (b'big', b'small', (650, 988), True))
+        self.assertEqual(fetched, ['https://m.media-amazon.com/images/I/71abc+Xy-Z.jpg'], 'a tamaño completo, sin ._SL500_')
+        self.assertEqual(record['portada_fuente_url'], fetched[0])
+        self.assertEqual(record['cover_use_basis'], ca.AMAZON_COVER_BASIS)
+
+        def placeholder(raw):
+            raise ValueError('cuadrada o pequeña')
+        for record, convert in [(self.record(), placeholder), (self.record(url=None), None)]:
+            self.assertEqual(ca.cover_for(record, lambda url: b'raw', convert, typographic), (b't', b'ts', (600, 900), False))
+            self.assertEqual(record['cover_use_basis'], ca.COVER_BASIS)
+            self.assertEqual(record['portada_fuente_url'], 'https://www.amazon.es/dp/B000000001')

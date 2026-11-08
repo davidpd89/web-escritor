@@ -15,7 +15,9 @@ from reading_ratings_refresh import isbn13, title_matches, author_matches, key
 RESOURCES=['itemInfo.title','itemInfo.byLineInfo','itemInfo.externalIds',
            'itemInfo.classifications','offersV2.listings.price',
            'offersV2.listings.condition','offersV2.listings.availability',
-           'offersV2.listings.dealDetails','offersV2.listings.type','browseNodeInfo.websiteSalesRank']
+           'offersV2.listings.dealDetails','offersV2.listings.type','browseNodeInfo.websiteSalesRank',
+           # La cubierta viene en la misma respuesta: sin ella, 1398 libros seguían con la tipográfica (08/11).
+           'images.primary.large']
 PRINT_FORMATS={'tapa-blanda','tapa-dura'}
 SALES_RANK_SOURCE='amazon_es_books'
 # Contrato con assets/reading-catalogue.js (validRank, 216 h): un puesto nunca vive más de 8 días.
@@ -581,6 +583,71 @@ def discover_page_formats(catalogue,fetch,tag,now,limit=60):
 
 
 COVER_HOSTS=('www.todostuslibros.com',)
+GENERATED_BASIS='Portada tipográfica propia'
+AMAZON_COVER_BASIS='Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica'
+
+
+def generated_cover(book):
+    """Portada tipográfica nuestra aún sin sustituir: la de todostuslibros y la de la ingesta de Amazon, que no trae
+    imagen y la guarda con la URL de la ficha (www.amazon.es/dp/…). Mirar solo el host dejaba fuera estas últimas:
+    el 08/11 eran 1398 libros con portada predefinida que nunca se cambiaban por la real."""
+    if book.get('portada_sustituida'):
+        return False
+    return urlsplit(book.get('portada_fuente_url') or '').hostname in COVER_HOSTS or         (book.get('autorizacion_o_base_uso') or '').startswith(GENERATED_BASIS)
+
+
+def replace_cover(book,root,image,small,dimensions,source,day):
+    """Pone la cubierta real de Amazon en lugar de la tipográfica: ficheros, medidas, fuente y base de uso."""
+    path=root/book['portada_local'].lstrip('/')
+    path.write_bytes(image)
+    path.with_name(path.name.replace('.webp','-320.webp')).write_bytes(small)
+    book.update(portada_fuente_url=source,portada_ancho=dimensions[0],portada_alto=dimensions[1],portada_fecha_revision=day,
+                portada_sustituida=True,autorizacion_o_base_uso=AMAZON_COVER_BASIS,portadas_amazon_buscadas=day)
+
+
+API_COVER=re.compile(r'https://m\.media-amazon\.com/images/I/([A-Za-z0-9+%-]+)(?:\.[^/?#]*?)?\.(jpg|png)')
+
+
+def api_cover_url(item):
+    """Cubierta a tamaño completo de un resultado de la Creators API (images.primary.large), sin el sufijo
+    de tamaño (._SL500_): la misma imagen que page_cover_url saca de la ficha, sin pasar por la página."""
+    large=amazon_dict(amazon_dict(amazon_dict(amazon_dict(item).get('images')).get('primary')).get('large'))
+    found=API_COVER.fullmatch(large.get('url')) if isinstance(large.get('url'),str) else None
+    return f'https://m.media-amazon.com/images/I/{found.group(1)}.{found.group(2)}' if found else None
+
+
+def item_cover_url(book,payload):
+    """Cubierta de la API para este libro: la de su edición impresa; la Kindle solo si no hay impresa."""
+    payload=amazon_dict(payload)
+    container=next((value for field in ('searchResult','itemsResult','itemResults')
+                    if isinstance((value:=payload.get(field)),dict)),{})
+    wanted=isbn13(book.get('isbn13'))
+    known=verified_formats(book)
+    best=None
+    for item in amazon_list(container.get('items')):
+        item=amazon_dict(item)
+        info=amazon_dict(item.get('itemInfo'))
+        if not (item.get('asin','') in known or (wanted and item_isbn_match(info,wanted))):
+            continue
+        url=api_cover_url(item)
+        if not url:
+            continue
+        binding=amazon_dict(amazon_dict(info.get('classifications')).get('binding')).get('displayValue','')
+        fmt=known.get(item.get('asin','')) or BINDINGS.get(key(binding) if isinstance(binding,str) else '')
+        if fmt in PRINT_FORMATS:
+            return url
+        best=best or url
+    return best
+
+
+def swap_cover(book,root,url,fetch_bytes,convert,day):
+    """Cambia la tipográfica por la cubierta descargada; si la imagen no vale (marcador, pequeña, rara), no toca nada."""
+    try:
+        image,small,dimensions=convert(fetch_bytes(url))
+    except Exception:  # noqa: BLE001 - la tipográfica se queda; el monitor la sigue contando
+        return False
+    replace_cover(book,root,image,small,dimensions,url,day)
+    return True
 
 
 def page_cover_url(document):
@@ -602,7 +669,7 @@ def discover_real_covers(catalogue,root,fetch,fetch_bytes,convert,now,limit=20):
     """Swaps generated typographic covers for the edition's real cover from its Amazon page.
     `convert` validates and resizes the image (same rules as editorial covers)."""
     day=now.astimezone(timezone.utc).date().isoformat()
-    books=[b for b in catalogue['libros'] if urlsplit(b.get('portada_fuente_url') or '').hostname in COVER_HOSTS
+    books=[b for b in catalogue['libros'] if generated_cover(b)
            and b.get('portadas_amazon_buscadas','')<(now-PAGE_REDISCOVER_AFTER).date().isoformat()]
     books.sort(key=lambda b:b.get('portadas_amazon_buscadas',''))
     stats={'checked':0,'covers_replaced':0,'blocked':0,'errors':0}
@@ -629,11 +696,7 @@ def discover_real_covers(catalogue,root,fetch,fetch_bytes,convert,now,limit=20):
         except Exception:  # Placeholder, tiny or odd-shaped image: keep the typographic cover.
             stats['errors']+=1
             continue
-        path=root/book['portada_local'].lstrip('/')
-        path.write_bytes(image)
-        path.with_name(path.name.replace('.webp','-320.webp')).write_bytes(small)
-        book.update(portada_fuente_url=image_url,portada_ancho=dimensions[0],portada_alto=dimensions[1],
-                    portada_fecha_revision=day,portada_sustituida=True)
+        replace_cover(book,root,image,small,dimensions,image_url,day)
         stats['covers_replaced']+=1
     return stats
 
@@ -643,10 +706,33 @@ def page_title(document):
     return html.unescape(' '.join(m.group(1).split())) if m else ''
 
 
+STAR_TEXT=re.compile(r'([1-5](?:[.,]\d)?)\s+de\s+5\s+estrellas',re.I)
+REVIEW_COUNT=re.compile(r'\d{1,3}(?:[.\s\u00a0]\d{3})+|\d+')
+
+
+def page_rating(document):
+    """Nota media y número de valoraciones que muestra la ficha (`acrPopover` y `acrCustomerReviewText`).
+    None si la ficha no las muestra: una novedad sin valoraciones no tiene nota, ni 0 ni vacía."""
+    popover=re.search(r'<span[^>]*id="acrPopover"[^>]*>',document)
+    stars=STAR_TEXT.search(html.unescape(popover.group(0))) if popover else None
+    if not stars:
+        block=re.search(r'id="averageCustomerReviews"(.{0,4000})',document,re.S)
+        stars=STAR_TEXT.search(html.unescape(block.group(1))) if block else None
+    count=re.search(r'<span[^>]*id="acrCustomerReviewText"([^>]*)>([^<]*)<',document)
+    if not stars or not count:
+        return None
+    label=re.search(r'aria-label="([^"]*)"',count.group(1))
+    number=REVIEW_COUNT.search(html.unescape(label.group(1) if label else count.group(2)))
+    if not number:
+        return None
+    value,total=float(stars.group(1).replace(',','.')),int(re.sub(r'\D','',number.group(0)))
+    return {'puntuacion':value,'numero_valoraciones':total} if 1<=value<=5 and total>0 else None
+
+
 def cover_kind(book):
     if book.get('portada_sustituida'):
         return 'amazon'
-    return 'generada' if urlsplit(book.get('portada_fuente_url') or '').hostname in COVER_HOSTS else 'editorial'
+    return 'generada' if generated_cover(book) else 'editorial'
 
 
 def audit_asin(book):
@@ -680,7 +766,8 @@ def audit_book(book,fetch,day):
     record['amazon']={f:amazon[f] for f in FORMAT_ORDER if f in amazon}
     record['faltan']=[f for f in record['amazon'] if f not in shown]
     record['sin_confirmar']=[f for f in shown if f not in record['amazon']]
-    return {**record,'estado':'ok','portada_amazon':page_cover_url(document)}
+    rating=page_rating(document)
+    return {**record,'estado':'ok','portada_amazon':page_cover_url(document),**({'valoracion':rating} if rating else {})}
 
 
 def apply_audit(book,record,tag):
@@ -782,12 +869,13 @@ def merge_sales_ranks(market,ranks,catalogue_ids,now,ttl_days):
     return market
 
 
-def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,sweep_days=7):
+def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,sweep_days=7,cover=None):
     """Nightly sweep: books never priced plus the ones checked longest ago, so the
     whole catalogue comes round every sweep_days. ASINs are priced ten per request
     across PRICE_GROUP books (a 978 book without ASIN goes by its ISBN-10); books
     without ASIN are searched by ISBN on 979 or on their format-search nights. Prices go into the books;
-    market only keeps the Amazon.es sales rank of the printed editions seen, for sweep_days+1 days."""
+    market only keeps the Amazon.es sales rank of the printed editions seen, for sweep_days+1 days.
+    `cover(book,url)` swaps a still typographic cover for the one the same answer brings (images.primary.large)."""
     if not 0<=budget<=AMAZON_DAILY_LIMIT:
         raise ValueError('Price refresh budget outside the Amazon daily limit')
     now=now.astimezone(timezone.utc)
@@ -805,8 +893,9 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
         # A missing Kindle or audiobook is looked for the first night, not when the price turn comes.
         taken={b['id'] for b in due}
         due+=[b for b in books[share:] if b['id'] not in taken and needs_discovery(b,now)]
-    stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[],'sin_oferta':[],'errores_amazon':{},'formato_discrepante':[]}
+    stats={'attempted':0,'updated':0,'prices':0,'requests':0,'formats_added':0,'failures':[],'sin_oferta':[],'errores_amazon':{},'formato_discrepante':[],'portadas_api':0}
     answers={}
+    covers={}
     ranks={}
 
     def ask(call,*args):
@@ -825,6 +914,8 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
 
     def keep(found,book,payload):
         answers.setdefault(book['id'],[]).append(payload)
+        if book['id'] not in covers and (url:=item_cover_url(book,payload)):
+            covers[book['id']]=url
         rank=item_sales_rank(book,payload)
         if rank and (book['id'] not in ranks or rank<ranks[book['id']]):
             ranks[book['id']]=rank
@@ -882,6 +973,8 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
             book['precios_amazon_revision']=day
             stats['updated']+=1
             stats['prices']+=len(found[book['id']])
+            if cover and covers.get(book['id']) and generated_cover(book):
+                stats['portadas_api']+=bool(cover(book,covers[book['id']]))
             if not book.get('formatos_compra'):
                 stats['sin_oferta'].append({'book_id':book['id'],'motivo':miss_reason(book,answers.get(book['id'],[]))})
     # Solo cuentan los grupos guardados: el cortado a medias vuelve mañana entero.

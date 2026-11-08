@@ -310,13 +310,17 @@ def market_refresh(config):
     amazon_id=os.getenv('AMAZON_CREATORS_CLIENT_ID','').strip()
     amazon_secret=os.getenv('AMAZON_CREATORS_CLIENT_SECRET','').strip()
     if amazon_config.get('enabled') and amazon_id and amazon_secret:
-        from reading_amazon_market import CreatorsPrices, refresh_offers
+        from reading_amazon_market import CreatorsPrices, fetch_amazon_image, refresh_offers, swap_cover
+        from reading_intake_pipeline import cover_bytes
         books=read_json(ROOT/'data/reading-catalogue.json')
         tag=config['amazon_partner_tag']
+        now=datetime.now(timezone.utc)
         # Nightly sweep: prices are written into formatos_compra and the pages are
-        # rebuilt below; prices stay published until a newer one replaces them.
+        # rebuilt below; prices stay published until a newer one replaces them. The same answer
+        # brings the edition's cover: a book still on its typographic cover gets the real one.
         market,price_stats=refresh_offers(books,market,CreatorsPrices(amazon_id,amazon_secret,tag),tag,
-                                         datetime.now(timezone.utc),sweep_days=int(amazon_config.get('sweep_days',7)))
+                                         now,sweep_days=int(amazon_config.get('sweep_days',7)),
+                                         cover=lambda book,url:swap_cover(book,ROOT,url,fetch_amazon_image,cover_bytes,now.date().isoformat()))
         write_if_changed(ROOT/'.ci/reading-intake/prices-report.json',price_stats)
         print('Precios Amazon: '+json.dumps(price_stats,ensure_ascii=True),flush=True)
         changed_ratings=write_changed(ROOT/'data/reading-catalogue.json',books) or changed_ratings

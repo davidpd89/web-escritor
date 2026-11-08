@@ -46,7 +46,7 @@ with tempfile.TemporaryDirectory(prefix='reading-scale-') as directory:
         data['libros'].append(book)
         cats=['fantasia' if i%2==0 else 'cocina','adultos']
         if i%4==0:
-            cats+=['halloween']
+            cats+=['terror']  # segundo género: cruza grupos (novela) con un filtro público
         if i%10==9:
             cats+=['clasicos']
         data['libro_categorias'] += [{'libro_id':book['id'],'categoria_id':c} for c in cats]

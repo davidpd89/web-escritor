@@ -14,13 +14,13 @@ import json
 import subprocess
 import sys
 import time
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
-from reading_amazon_market import audit_book, apply_audit, fetch_amazon_image, fetch_amazon_page  # noqa: E402
+from reading_amazon_market import audit_book, apply_audit, cover_kind, fetch_amazon_image, fetch_amazon_page, replace_cover  # noqa: E402
 
 LOCAL = ROOT / '.local/reading-amazon-audit'
 RECORD = LOCAL / 'audit.json'
@@ -29,6 +29,8 @@ AUDIT_AFTER = timedelta(days=7)  # un libro auditado bien se repasa cada semana
 RETRY_AFTER = timedelta(days=1)  # sin ASIN todavía (la API lo busca cada noche), sin ficha o error: al día siguiente
 PAUSE = 15  # segundos entre fichas, además de los 2 de fetch_amazon_page
 MADRID = ZoneInfo('Europe/Madrid')
+# Portadas reales por publicación (~65 kB cada una con su miniatura): unas 50 MB por PR; el resto, en la siguiente.
+COVERS_PER_PUBLISH = 800
 
 
 def read_json(path, default=None):
@@ -110,34 +112,79 @@ def start_publish():
                             creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
 
 
-def apply_records(tree, records, tag, fetch_bytes=fetch_amazon_image, convert=None):
-    """Lleva el registro al catálogo del árbol: formatos que faltan y portada real donde la nuestra es generada."""
+def days_from(book, today):
+    """Distancia en días entre la fecha de publicación (completa, solo mes o solo año) y hoy; sin fecha, al final."""
+    value = (book.get('fecha_publicacion') or '')[:10]
+    if len(value) in (4, 7):
+        value += '-01-01'[len(value) - 4:]
+    try:
+        return abs((date.fromisoformat(value) - today).days)
+    except ValueError:
+        return 10 ** 6
+
+
+RATING_DAYS = 30  # como las de Goodreads: el bucle vuelve a auditar cada libro antes de que caduque
+
+
+def stamp(moment):
+    return moment.isoformat(timespec='seconds').replace('+00:00', 'Z')
+
+
+def apply_ratings(tree, published, tag):
+    """Estrellas de la ficha de Amazon que la auditoría ya descargó: una valoración «amazon» por libro, fechada el
+    día de la auditoría. Las de otras fuentes no se tocan. Devuelve cuántos libros tienen nota de Amazon."""
+    found = {}
+    for book, record in published:
+        rating, asin = record.get('valoracion'), record.get('asin')
+        if record.get('estado') != 'ok' or not isinstance(rating, dict) or not asin:
+            continue
+        start = datetime.fromisoformat(record['fecha']).replace(tzinfo=timezone.utc)
+        found[book['id']] = {'libro_id': book['id'], 'puntuacion': rating['puntuacion'],
+                             'numero_valoraciones': rating['numero_valoraciones'], 'fuente': 'amazon',
+                             'url': f'https://www.amazon.es/dp/{asin}?tag={tag}#customerReviews',
+                             'actualizado_en': stamp(start), 'caduca_en': stamp(start + timedelta(days=RATING_DAYS))}
+    if not found:
+        return 0
+    from reading_ratings_refresh import write_changed
+    path = tree / 'assets/reading-market.json'
+    market = read_json(path, {'schema_version': 1, 'offers': [], 'ratings': []})
+    kept = [r for r in market.get('ratings', []) if not (r.get('fuente') == 'amazon' and r.get('libro_id') in found)]
+    market['ratings'] = kept + [found[k] for k in sorted(found)]
+    write_changed(path, market)
+    return len(found)
+
+
+def apply_records(tree, records, tag, fetch_bytes=fetch_amazon_image, convert=None, today=None, covers=COVERS_PER_PUBLISH):
+    """Lleva el registro al catálogo del árbol: formatos que faltan y portada real donde la nuestra es generada.
+    La portada se decide por el libro tal como está en main, no por lo que decía el registro al auditarlo: antes
+    de reconocer las tipográficas de la ingesta de Amazon, 1449 quedaron registradas como «editorial».
+    Con más portadas que el tope, primero las de los libros que salen o salieron más cerca de hoy."""
     if convert is None:
         from reading_intake_pipeline import cover_bytes as convert
+    today = today or datetime.now(MADRID).date()
     data = read_json(tree / 'data/reading-catalogue.json')
     stats = {'formats_added': 0, 'covers_replaced': 0}
-    public = {}
-    for book in data['libros']:
-        record = records.get(book['id'])
-        if book.get('estado') != 'publicado' or not record:
-            continue
+    published = [(book, records[book['id']]) for book in data['libros']
+                 if book.get('estado') == 'publicado' and records.get(book['id'])]
+    for book, record in published:
         stats['formats_added'] += apply_audit(book, record, tag)
-        if record.get('portada') == 'generada' and record.get('portada_amazon') and book.get('portada_local'):
-            try:
-                image, small, size = convert(fetch_bytes(record['portada_amazon']))
-            except Exception:  # marcador, imagen pequeña o proporción rara: se queda la tipográfica
-                pass
-            else:
-                path = tree / book['portada_local'].lstrip('/')
-                path.write_bytes(image)
-                path.with_name(path.name.replace('.webp', '-320.webp')).write_bytes(small)
-                book.update(portada_fuente_url=record['portada_amazon'], portada_ancho=size[0], portada_alto=size[1],
-                            portada_fecha_revision=record['fecha'], portada_sustituida=True)
-                book['portadas_amazon_buscadas'] = record['fecha']
-                stats['covers_replaced'] += 1
+    pending = [(book, record) for book, record in published
+               if cover_kind(book) == 'generada' and record.get('portada_amazon') and book.get('portada_local')]
+    for book, record in sorted(pending, key=lambda pair: days_from(pair[0], today)):
+        if stats['covers_replaced'] >= covers:
+            break
+        try:
+            image, small, size = convert(fetch_bytes(record['portada_amazon']))
+        except Exception:  # marcador, imagen pequeña o proporción rara: se queda la tipográfica
+            continue
+        replace_cover(book, tree, image, small, size, record['portada_amazon'], record['fecha'])
+        stats['covers_replaced'] += 1
+    stats['ratings'] = apply_ratings(tree, published, tag)
+    public = {}
+    for book, record in published:
         shown = [o['formato'] for o in book.get('formatos_compra', [])]
         public[book['id']] = {**record, 'mostrados': shown, 'faltan': [f for f in record['amazon'] if f not in shown],
-                              'portada': 'amazon' if book.get('portada_sustituida') else record['portada']}
+                              'portada': cover_kind(book)}
     write_json(tree / 'data/reading-catalogue.json', data)
     write_json(tree / PUBLISHED, {'nota': 'Registro por libro de la ficha de Amazon frente a lo que muestra la web; '
                                           'lo escribe scripts/reading-amazon-audit.py.',
@@ -157,12 +204,8 @@ def publish():
     if not records:
         print('Sin registro que publicar')
         return False
-    tree = LOCAL / 'main'
-    git('fetch', '-q', 'origin', 'main')
-    if not tree.exists():
-        git('worktree', 'add', '--detach', str(tree), 'origin/main')
-    git('reset', '-q', '--hard', 'origin/main', cwd=tree)
-    git('clean', '-qfd', cwd=tree)
+    publisher = load_module('publish_reading_refresh', 'scripts/publish-reading-refresh.py')
+    tree = publisher.clean_main_tree(ROOT, LOCAL / 'main')
     config = read_json(tree / 'data/reading-intake-config.json')
     stats = apply_records(tree, records, config['amazon_partner_tag'])
     print('Auditoría aplicada: ' + json.dumps(stats), flush=True)
@@ -177,7 +220,6 @@ def publish():
     if not paths:
         print('La auditoría ya está en main')
         return False
-    publisher = load_module('publish_reading_refresh', 'scripts/publish-reading-refresh.py')
     outside = [p for p in paths if not publisher.allowed_path(p)]
     if outside:
         raise ValueError('Cambios fuera de los artefactos permitidos: ' + str(outside))

@@ -3,7 +3,9 @@
 import argparse
 import importlib.util
 import json
+import os
 import re
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,6 +29,41 @@ def allowed_path(path):
         r'assets/pinterest/feeds/[a-z0-9-]+\.xml|'
         r'data/reading-texts/(?:isbn-97[89][0-9]{10}|lib-[0-9]{4})\.json|'
         r'pagefind/[A-Za-z0-9_./-]+)', path)) and '..' not in path.split('/')
+
+
+def clean_main_tree(root, tree):
+    """Árbol de origin/main limpio para publicar desde este equipo, con las dependencias de Node del checkout principal.
+
+    git clean no toca node_modules (está ignorado) y un worktree nuevo no lo trae: sin él Pagefind no corre y la
+    publicación se para. Así se paró la auditoría de Amazon del 07/11 con 603 formatos y 116 portadas ya aplicados.
+    """
+    def git(*args, cwd=root):
+        subprocess.run(['git', *args], cwd=cwd, check=True)
+    git('fetch', '-q', 'origin', 'main')
+    if not tree.exists():
+        git('worktree', 'add', '--detach', str(tree), 'origin/main')
+    git('reset', '-q', '--hard', 'origin/main', cwd=tree)
+    git('clean', '-qfd', cwd=tree)
+    link_node_modules(tree)
+    return tree
+
+
+def link_node_modules(tree):
+    """Enlaza tree/node_modules al node_modules del checkout principal del repositorio (no lo copia)."""
+    common = subprocess.check_output(['git', 'rev-parse', '--path-format=absolute', '--git-common-dir'],
+                                     cwd=tree, text=True).strip()
+    source, link = Path(common).parent / 'node_modules', Path(tree) / 'node_modules'
+    if link.exists() or not source.is_dir():
+        return
+    if os.path.lexists(link):  # enlace roto
+        if os.name == 'nt':
+            os.rmdir(link)
+        else:
+            link.unlink()
+    if os.name == 'nt':
+        subprocess.run(['cmd', '/c', 'mklink', '/J', str(link), str(source)], check=True, stdout=subprocess.DEVNULL)
+    else:
+        link.symlink_to(source, target_is_directory=True)
 
 
 def resume_pending(branch):

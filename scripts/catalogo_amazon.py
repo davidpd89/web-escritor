@@ -49,7 +49,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 
-from reading_amazon_market import (BINDINGS, CreatorsPrices, NotFound, amazon_dict, amazon_list,  # noqa: E402
+from reading_amazon_market import (AMAZON_COVER_BASIS, BINDINGS, CreatorsPrices, NotFound,  # noqa: E402
+                                   amazon_dict, amazon_list, api_cover_url, fetch_amazon_image,
                                    select_offers, store_prices)
 from reading_amazon_radar import BOOKS_NODE, SPANISH  # noqa: E402
 from reading_ratings_refresh import isbn13, key  # noqa: E402
@@ -70,7 +71,9 @@ RESOURCES = ['itemInfo.title', 'itemInfo.byLineInfo', 'itemInfo.contentInfo', 'i
              # no. Ranking de ventas para ordenar el fondo; productInfo trae releaseDate cuando falta publicationDate.
              'browseNodeInfo.browseNodes.ancestor', 'browseNodeInfo.websiteSalesRank', 'itemInfo.productInfo',
              'offersV2.listings.price', 'offersV2.listings.condition', 'offersV2.listings.availability',
-             'offersV2.listings.dealDetails', 'offersV2.listings.type']
+             'offersV2.listings.dealDetails', 'offersV2.listings.type',
+             # Cubierta de la edición: sin pedirla, cada libro nuevo salía con la tipográfica (08/11).
+             'images.primary.large']
 # Nodos que no dicen nada del libro: no son materia.
 GENERIC_NODES = {'libros', 'categorias', 'books', 'tienda kindle', 'ebooks kindle', 'literatura y ficcion',
                  'libros en espanol', 'libros en idiomas extranjeros', 'novedades', 'mas vendidos',
@@ -1370,10 +1373,24 @@ def price_book(book, offers, day):
     book['precios_amazon_revision'] = day
 
 
-def aplicar(day, tag, candidates, transform_failures, root=ROOT):
+def cover_for(record, fetch_image, convert, typographic):
+    """Cubierta de la edición que trae la API (images.primary.large, a tamaño completo); la tipográfica solo
+    si Amazon no da imagen o la que da no vale. Devuelve (imagen, miniatura, medidas, real)."""
+    url = api_cover_url(record.get('item'))
+    if url:
+        try:
+            image, small, dimensions = convert(fetch_image(url))
+            record['portada_fuente_url'], record['cover_use_basis'] = url, AMAZON_COVER_BASIS
+            return image, small, dimensions, True
+        except Exception:  # noqa: BLE001 - imagen marcador, pequeña o caída del CDN: tipográfica
+            pass
+    return (*typographic(record), False)
+
+
+def aplicar(day, tag, candidates, transform_failures, root=ROOT, fetch_image=fetch_amazon_image):
     from reading_catalogue_publishers import display_name
     from reading_intake_core import normalize_text, publisher_slug
-    from reading_intake_pipeline import builder, classify, make_book, texts
+    from reading_intake_pipeline import builder, classify, cover_bytes, make_book, texts
     from reading_intake_publishers import resolve_publishers
     from reading_taxonomy import apply_derived
     from reading_ttl_source import typographic_cover
@@ -1433,9 +1450,11 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT):
         try:
             publisher = publisher_for(record['editorial'])
             record['editorial'] = publisher['name']
-            image, small, dimensions = typographic_cover(record)
+            image, small, dimensions, real = cover_for(record, fetch_image, cover_bytes, typographic_cover)
             path = '/assets/reading-covers/isbn-' + record['isbn13'] + '.webp'
             book = make_book(record, publisher, tag, day, path, dimensions)
+            if real:
+                book['portada_sustituida'] = True
             if not publisher['slug']:
                 book.pop('editorial_slug', None)
             offers = []

@@ -1,6 +1,7 @@
 """Generated-book boundaries, pagination and branch-policy checks; no mutations."""
 import importlib.util
 import json
+import os
 from pathlib import Path
 from unittest.mock import patch
 
@@ -52,6 +53,27 @@ for bad in [{'filename': 'scripts/dangerous.py'}, {'filename': 'pagefind/good.js
         except ValueError:
             pass
     assert not any(c[:2] == ('workflow', 'run') for c in calls)
+
+# Árbol local de publicación (auditoría de Amazon y textos): un worktree nuevo no trae node_modules y sin él
+# Pagefind no corre (07/11). Se enlaza al del checkout principal; repetirlo no hace nada.
+import subprocess
+import tempfile
+with tempfile.TemporaryDirectory() as tmp:
+    repo, tree = Path(tmp) / 'repo', Path(tmp) / 'repo/.local/main'
+    repo.mkdir()
+    quiet = {'cwd': repo, 'check': True, 'stdout': subprocess.DEVNULL, 'stderr': subprocess.DEVNULL}
+    subprocess.run(['git', 'init', '-q'], **quiet)
+    subprocess.run(['git', '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '--allow-empty', '-m', 'x'], **quiet)
+    (repo / 'node_modules/pagefind').mkdir(parents=True)
+    (repo / 'node_modules/pagefind/package.json').write_text('{}', encoding='utf-8')
+    subprocess.run(['git', 'worktree', 'add', '-q', '--detach', str(tree)], **quiet)
+    m.link_node_modules(tree)
+    m.link_node_modules(tree)
+    assert (tree / 'node_modules/pagefind/package.json').exists()
+    assert (repo / 'node_modules/pagefind/package.json').exists()
+    if os.name == 'nt':
+        os.rmdir(tree / 'node_modules')  # quitar la junction sin tocar su destino antes de borrar el temporal
+    subprocess.run(['git', 'worktree', 'remove', '--force', str(tree)], **quiet)
 
 deploy = (ROOT / '.github/workflows/deploy-pages.yml').read_text(encoding='utf-8')
 assert 'github.event.before || inputs.before_sha' in deploy

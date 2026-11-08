@@ -19,6 +19,7 @@ on:
       - 'qa/catalogue-pagination-shareable-url.mjs'
       - 'qa/catalogue-device-matrix.mjs'
       - 'qa/catalogue-facet-count-parity.mjs'
+      - 'qa/reading-upcoming-browser.mjs'
       - 'qa/build-reading-scale-fixture.py'
       - 'assets/reading-market.json'
       - 'data/reading-authors.json'
@@ -107,6 +108,7 @@ jobs:
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-pagination-shareable-url.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-device-matrix.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-facet-count-parity.mjs
+          node qa/reading-upcoming-browser.mjs
       - name: Use lockfile-pinned Lighthouse CI
         if: always()
         run: echo "$PWD/node_modules/.bin" >> "$GITHUB_PATH"

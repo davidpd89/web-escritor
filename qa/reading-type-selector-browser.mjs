@@ -65,7 +65,8 @@ try {
     assert.equal(await visibleBooks().count(), Math.min(either, 24), 'Recuperar la URL restaura la selección múltiple');
     await page.waitForFunction(() => [...document.querySelectorAll('[data-rating-book]')].every(box => box.hidden || box.textContent.trim()));
     const ratings = (await page.locator('[data-rating-book] a').allTextContents()).map(t => t.replace(/\s+/g, ' ').trim());
-    assert.ok(ratings.length > 0 && ratings.every(text => /^(Goodreads|Hardcover|Google Books)/.test(text) && (/\d,\d+\s+\(\d/.test(text) || /· (ver opiniones|menos de 5 valoraciones)$/.test(text)) && !/0,0 \(0\)/.test(text)), 'Valoración: fuente y nota (n) verificada, o enlace neutro; nunca 0,0 (0)');
+    // Las tarjetas sin nota verificada no pintan nada (David, 2026-11-08): puede no haber ninguna en esta página.
+    assert.ok(ratings.every(text => /^(Goodreads|Amazon|Hardcover|Google Books)/.test(text) && (/\d,\d+\s+\(\d/.test(text) || /· (ver opiniones|menos de 5 valoraciones)$/.test(text)) && !/0,0 \(0\)/.test(text)), 'Valoración: fuente y nota (n) verificada, o enlace neutro; nunca 0,0 (0)');
     const tagCounts = await page.locator('[data-catalogue-book] .catalogue-tags li').evaluateAll(list => list.length);
     assert.ok(await page.locator('[data-catalogue-book]').evaluateAll(cards => cards.every(c => c.querySelectorAll('.catalogue-tags li').length <= 3)), 'Máximo 3 categorías por tarjeta');
     assert.ok(tagCounts >= 0);

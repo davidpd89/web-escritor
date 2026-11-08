@@ -40,9 +40,9 @@ try {
   await field('orden').selectOption('fecha_asc'); assert.deepEqual(await ids(), ['contrato-dos', 'contrato-uno']);
   await field('orden').selectOption('editorial'); assert.deepEqual(await ids(), ['contrato-uno', 'contrato-dos']);
   assert.equal(await field('orden').locator('option[value="titulo"], option[value="titulo_desc"], option[value="autor"]').count(), 0, 'Sin ordenaciones por título o autor');
-  await field('valoracion').selectOption('4'); assert.deepEqual(await ids(), ['contrato-uno']);
-  await field('valoracion').selectOption('4.5'); assert.deepEqual(await ids(), []);
-  await field('valoracion').selectOption(''); await field('hasta').fill('1990-12-31'); assert.deepEqual(await ids(), ['contrato-dos']);
+  // La Creators API no da valoraciones: ni filtro ni orden por nota (David, 08/11).
+  assert.equal(await page.locator('[data-filter="valoracion"], option[value="valoracion_desc"]').count(), 0);
+  await field('hasta').fill('1990-12-31'); assert.deepEqual(await ids(), ['contrato-dos']);
   await field('hasta').fill('');
   await page.clock.fastForward(25 * 3600000);
   await page.evaluate(() => window.dispatchEvent(new Event('pageshow')));
@@ -50,39 +50,25 @@ try {
   assert.equal(await page.locator('[data-price-book]:not([hidden])').count(), 0);
   market = { schema_version: 1, offers: [offer('contrato-uno', 'ebook', 1, { moneda: 'USD' }), offer('contrato-dos', 'ebook', 1, { url: 'https://amazon.es.evil.invalid/dp/B000000001?tag=contrato-21' }), offer('contrato-uno', 'ebook', 1, { actualizado_en: '2027-01-01T00:00:00Z', caduca_en: '2027-01-02T00:00:00Z' })], ratings: [{ ...payload.ratings[0], puntuacion: 6 }] };
   await page.goto(`${base}/recomendaciones/?utm_source=prueba`); await page.waitForLoadState('networkidle');
-  assert(await field('descuento').isDisabled()); assert(await field('valoracion').isDisabled());
+  assert(await field('descuento').isDisabled());
   assert.equal(await page.locator('[data-price-book]:not([hidden])').count(), 0);
-  assert.ok((await page.locator('[data-rating-book] a').evaluateAll(els => els.map(el => el.dataset.ratingState + ' ' + el.textContent))).every(t => /^(unavailable Goodreads · ver opiniones|insufficient .* · menos de 5 valoraciones)$/.test(t)), 'Sin valoraciones válidas no se pinta ninguna nota, solo un enlace neutro');
-  assert.equal(await page.locator('[data-rating-book] .catalogue-stars').count(), 0, 'Sin valoraciones válidas no hay estrellas');
+  assert.equal(await page.locator('[data-rating-book]').count(), 0, 'Las tarjetas no llevan valoración');
+  assert.equal(await page.locator('.catalogue-stars').count(), 0, 'Ninguna estrella');
   assert.deepEqual(errors, []);
   await context.close();
-  // Official external ratings sources must render with their OWN attribution.
-  // Never label Google Books/Hardcover numbers as Goodreads or trust forged hosts.
+  // Aunque el mercado traiga notas (Google Books, Hardcover…), fuera de la ficha no se pinta ninguna (David, 08/11).
   const sourceContext = await browser.newContext();
   const sourcePage = await sourceContext.newPage();
   await sourcePage.clock.install({ time: now });
   await sourceContext.route('**/recomendaciones/?*', route => route.fulfill({ contentType: 'text/html', body: fixture.hub }));
   await sourceContext.route('**/assets/reading-market.json', route => route.fulfill({ json: {
     schema_version: 1, offers: [], ratings: [
-      { ...dated, libro_id: 'contrato-uno', puntuacion: 4.3,
-        numero_valoraciones: 78, fuente: 'google_books',
-        url: 'https://books.google.com/books?id=ABCD_123' },
-      { ...dated, libro_id: 'contrato-dos', puntuacion: 3.9,
-        numero_valoraciones: 201, fuente: 'hardcover',
-        url: 'https://hardcover.app/books/contrato-dos' },
-      { ...dated, libro_id: 'contrato-dos', puntuacion: 5,
-        numero_valoraciones: 1000, fuente: 'google_books',
-        url: 'https://books.google.com.evil.invalid/books?id=UNTRUSTED' },
+      { ...dated, libro_id: 'contrato-uno', puntuacion: 4.3, numero_valoraciones: 78, fuente: 'google_books', url: 'https://books.google.com/books?id=ABCD_123' },
+      { ...dated, libro_id: 'contrato-dos', puntuacion: 3.9, numero_valoraciones: 201, fuente: 'hardcover', url: 'https://hardcover.app/books/contrato-dos' },
     ] } }));
   await sourcePage.goto(`${base}/recomendaciones/?utm_source=fuentes`, { waitUntil: 'networkidle' });
-  await sourcePage.waitForFunction(() => [...document.querySelectorAll('[data-rating-book] a:has(.catalogue-stars)')].length === 2);
-  const labels = await sourcePage.locator('[data-rating-book] a:has(.catalogue-stars)').evaluateAll(els => els.map(el => ({ text: el.textContent, href: el.href })));
-  assert(labels.some(x => x.text.includes('Google Books') && x.href === 'https://books.google.com/books?id=ABCD_123'));
-  assert(labels.some(x => x.text.includes('Hardcover') && x.href === 'https://hardcover.app/books/contrato-dos'));
-  assert(labels.every(x => !x.text.includes('Goodreads')), 'Must attribute imported ratings correctly');
-  // A replacement aria-label previously differed from the visible score,
-  // breaking voice control's "label in name" contract. Keep the visible text.
-  assert(await sourcePage.locator('[data-rating-book] a:has(.catalogue-stars)').evaluateAll(els => els.every(el => !el.hasAttribute('aria-label') && el.querySelector('.catalogue-stars')?.getAttribute('aria-hidden') === 'true')));
+  assert.equal(await sourcePage.locator('[data-rating-book], .catalogue-stars').count(), 0);
+  assert(!/Google Books|Hardcover|★/.test(await sourcePage.locator('main').innerText()), 'Sin notas en el listado');
   await sourceContext.close();
   const monthContext = await browser.newContext();
   const monthPage = await monthContext.newPage();
@@ -103,8 +89,12 @@ try {
   await live.goto(`${base}/`);
   assert.deepEqual(await live.locator('#masthead-submenu-recommendations-hub a').allTextContents(), ['Catálogo de libros', 'Autores', 'Editoriales', 'Atlas literario', 'Concursos']);
   await live.goto(`${base}/recomendaciones/libros/coraline/`);
-  const ratingLink = live.locator('[data-rating-book] a:has(.catalogue-stars)');
+  // La ficha solo enlaza a Goodreads por ISBN, aunque el mercado traiga una nota (David, 08/11).
+  const ratingLink = live.locator('[data-rating-book] a');
   await ratingLink.waitFor();
+  assert.match(await ratingLink.getAttribute('href'), /^https:\/\/www\.goodreads\.com\/book\/isbn\/\d{13}$/);
+  assert.equal(await ratingLink.innerText(), 'Goodreads · ver opiniones');
+  assert.equal(await live.locator('.catalogue-stars').count(), 0);
   const target = await ratingLink.boundingBox();
   assert(target.width >= 44 && target.height >= 44, 'Goodreads must be a usable touch target');
   const formats = await live.locator('[data-purchase-format]').evaluateAll(links => links.map(a => ({ format: a.dataset.purchaseFormat, href: a.href, rel: a.rel })));

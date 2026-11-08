@@ -104,7 +104,8 @@ with tempfile.TemporaryDirectory() as tmp:
     assert hub.count('data-catalogue-book ') == 1
     # Con enlace de Amazon, portada y título van a Amazon y solo «Ver ficha» apunta a la ficha.
     assert hub.count('href="' + m.url(b) + '"') == (1 if m.amazon_destination(b) else 3)
-    assert all(c in hub for c in ('fantasia', 'romantasy', 'halloween', 'juvenil'))
+    assert all(c in hub for c in ('fantasia', 'romantasy', 'juvenil'))
+    assert 'halloween' not in hub, 'temporada: regla propia, ni etiqueta ni filtro (David, 08/11)'
     assert len(m.registry_entries([b])) == 1
     human_map = m.render_map('<main><a href="/cuaderno/">Cuaderno</a></main>', [b])
     assert m.url(b) in human_map and m.render_map(human_map, [b]) == human_map

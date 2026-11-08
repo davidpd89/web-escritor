@@ -67,11 +67,13 @@ try {
     assert.match(await page.locator('.catalogue-quiz__now').innerText(),/^Mostrar ya los resultados \(\d+ libros?\)$/);
     if(/tipo de libro/.test(await page.locator('.catalogue-quiz__panel h2').innerText())) await page.getByRole('button',{name:'Me da igual, continuar',exact:true}).click();
     await page.getByRole('button',{name:'Sí, una novedad',exact:true}).click();
-    await page.getByRole('button',{name:'Halloween',exact:true}).click();
-    assert.equal(await page.locator('.catalogue-quiz__choices').getByRole('button',{name:'Cocina',exact:true}).count(),0,'Halloween must not offer unrelated cuisine');
+    // Sin preguntas de temporada ni de temática: eran reglas propias (David, 08/11).
+    assert.match(await page.locator('.catalogue-quiz__panel h2').innerText(),/género/);
+    await page.getByRole('button',{name:'Terror',exact:true}).click();
+    assert.equal(await page.locator('.catalogue-quiz__choices').getByRole('button',{name:'Cocina',exact:true}).count(),0,'Terror must not offer unrelated cuisine');
     await page.getByRole('button',{name:'← Volver',exact:true}).click();
-    assert.match(await page.locator('.catalogue-quiz__panel h2').innerText(),/temporada/);
-    await page.getByRole('button',{name:'Halloween',exact:true}).click();
+    assert.match(await page.locator('.catalogue-quiz__panel h2').innerText(),/género/);
+    await page.getByRole('button',{name:'Terror',exact:true}).click();
     for(let step=0;step<12;step++) {
       if(await page.getByRole('button',{name:'Ver mis resultados',exact:true}).count()) break;
       assert(!/presupuesto/.test(await page.locator('.catalogue-quiz__panel h2').innerText()),'Skip absent prices');
@@ -80,14 +82,15 @@ try {
       await page.getByRole('button',{name:'Me da igual, continuar',exact:true}).click();
     }
     await page.getByRole('button',{name:'Ver mis resultados',exact:true}).click();
-    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
+    assert(await page.locator('input[data-facet="genero"][value="terror"]').isChecked());
     assert.equal(await page.locator('[data-filter="novedad"]').inputValue(),'15');
     assert(await page.locator('[data-catalogue-book]:visible').count()>0);
     const selected=await page.locator('[data-catalogue-book]:visible').evaluateAll(es=>es.map(e=>({cats:e.dataset.categories,date:e.dataset.published})));
-    assert(selected.every(b=>b.cats.split(' ').includes('halloween')));
+    assert(selected.every(b=>b.cats.split(' ').includes('terror')));
     await page.reload({waitUntil:'networkidle'});
     await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
-    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
+    assert(await page.locator('input[data-facet="genero"][value="terror"]').isChecked());
+    assert.equal(await page.locator('[data-facet="temporada"], [data-facet="tematica"], [data-facet="contenido"], [data-filter="valoracion"]').count(),0,'Solo filtros de fuente fiable');
     assert.deepEqual(errors,[]);
     results.push({books:count,filter_ms:Math.round(ms),quiz_results:selected.length});
     await context.close();
@@ -107,7 +110,7 @@ try {
     await page.goto(base+'/recomendaciones/',{waitUntil:'networkidle'});
     await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     const records=await page.locator('[data-catalogue-book]').evaluateAll(cards=>cards.map(card=>({
-      id:card.dataset.bookId,group:card.dataset.group,cats:card.dataset.categories.split(' '),search:[card.dataset.title,card.dataset.author,card.querySelector("[data-isbn]")?.dataset.isbn].join(" ")
+      id:card.dataset.bookId,group:card.dataset.group,cats:card.dataset.categories.split(' '),search:[card.dataset.title,card.dataset.author,card.dataset.isbn||card.querySelector("[data-isbn]")?.dataset.isbn].join(" ")
     })));
     assert.equal(records.length,100);
     assert(records.some(r=>r.group==='novela')&&records.some(r=>r.group==='cocina'));
@@ -137,34 +140,34 @@ try {
     // A zero-result option is correctly disabled for new selections. A
     // previously shared URL can still contain that combination and must
     // remain recoverable; do not click an intentionally disabled checkbox.
-    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isDisabled());
-    await page.goto(base+'/recomendaciones/#grupo=cocina&temporada=halloween',{waitUntil:'networkidle'});
+    assert(await page.locator('input[data-facet="genero"][value="terror"]').isDisabled());
+    await page.goto(base+'/recomendaciones/#grupo=cocina&genero=terror',{waitUntil:'networkidle'});
     await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     await page.waitForFunction(()=>!document.querySelector('[data-facets-pending]'));
-    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
-    assert.equal(await verify(['cocina'],['halloween']),0);
+    assert(await page.locator('input[data-facet="genero"][value="terror"]').isChecked());
+    assert.equal(await verify(['cocina'],['terror']),0);
     const cooking=page.locator('input[data-facet="grupo"][value="cocina"]');
     assert(await cooking.isChecked()&&!await cooking.isDisabled(),'Selected zero-result facet stays removable');
     assert.equal(await cooking.locator('xpath=..').locator('[data-facet-count]').innerText(),'(0)');
     assert.equal(await page.locator('input[data-facet="grupo"][value="novela"]').locator('xpath=..').locator('[data-facet-count]').innerText(),'(25)');
-    await set('grupo','novela',true); assert.equal(await verify(['cocina','novela'],['halloween']),25);
-    await set('grupo','cocina',false); assert.equal(await verify(['novela'],['halloween']),25);
-    await set('temporada','halloween',false); assert.equal(await verify(['novela']),50);
+    await set('grupo','novela',true); assert.equal(await verify(['cocina','novela'],['terror']),25);
+    await set('grupo','cocina',false); assert.equal(await verify(['novela'],['terror']),25);
+    await set('genero','terror',false); assert.equal(await verify(['novela']),50);
     await set('grupo','cocina',true); assert.equal(await verify(['novela','cocina']),100);
-    await set('temporada','halloween',true); assert.equal(await verify(['novela','cocina'],['halloween']),25);
-    await set('grupo','cocina',false); assert.equal(await verify(['novela'],['halloween']),25);
+    await set('genero','terror',true); assert.equal(await verify(['novela','cocina'],['terror']),25);
+    await set('grupo','cocina',false); assert.equal(await verify(['novela'],['terror']),25);
     await page.locator('[data-filter="q"]').fill('Prueba técnica 000');
-    assert.equal(await verify(['novela'],['halloween'],'Prueba técnica 000'),1);
+    assert.equal(await verify(['novela'],['terror'],'Prueba técnica 000'),1);
     const hash=new URLSearchParams(new URL(page.url()).hash.slice(1));
     assert.deepEqual(hash.getAll('grupo'),['novela']);
-    assert.deepEqual(hash.getAll('temporada'),['halloween']);
+    assert.deepEqual(hash.getAll('genero'),['terror']);
     assert.equal(hash.get('q'),'Prueba técnica 000');
     await page.reload({waitUntil:'networkidle'});
     await page.waitForFunction(() => { const root = document.querySelector('[data-reading-catalogue]'); if (root?.dataset.catalogueReady) return true; window.dispatchEvent(new HashChangeEvent('hashchange')); return false; }, null, { polling: 250 });
     assert(await page.locator('input[data-facet="grupo"][value="novela"]').isChecked());
-    assert(await page.locator('input[data-facet="temporada"][value="halloween"]').isChecked());
+    assert(await page.locator('input[data-facet="genero"][value="terror"]').isChecked());
     assert.equal(await page.locator('[data-filter="q"]').inputValue(),'Prueba técnica 000');
-    assert.equal(await verify(['novela'],['halloween'],'Prueba técnica 000'),1);
+    assert.equal(await verify(['novela'],['terror'],'Prueba técnica 000'),1);
     assert.deepEqual(errors,[]);
     results.push({area:'facet-metamorphic',books:100,transitions:10,oracle:'card data'});
     await context.close();
