@@ -54,6 +54,7 @@ from reading_amazon_market import (AMAZON_COVER_BASIS, BINDINGS, CreatorsPrices,
                                    select_offers, store_prices)
 from reading_amazon_radar import BOOKS_NODE, SPANISH  # noqa: E402
 from reading_ratings_refresh import isbn13, key  # noqa: E402
+from reading_titles import proper_words, tidy_title  # noqa: E402,F401
 
 WORK = ROOT / '.local/catalogo'
 SEARCH = 'https://creatorsapi.amazon/catalog/v1/searchItems'
@@ -983,62 +984,6 @@ def person(name):
     if folded in {'anonimo', 'anonima', 'anonymous'}:
         return 'Anónimo'
     return clean_author(name)
-
-
-ARTICLE_AT_END = re.compile(r'^(.+?),\s*(el|la|los|las|lo|un|una|unos|unas)$', re.I)
-ROMAN = re.compile(r'^(?=[ivxlc]+$)c{0,3}(?:xc|xl|l?x{0,3})(?:ix|iv|v?i{0,3})$', re.I)
-SHORT_WORDS = set('de la el en un mi tu su se no lo le al es me te si ya yo ni os ha he oh ay ti da ve va'.split())
-SENTENCE_START = re.compile(r'(^|[.:!?¡¿«"(]\s*)(\w)')
-
-
-def proper_words(catalogue):
-    """Palabras que el catálogo escribe con mayúscula en mitad de un título o en un nombre: «Lorca», «Dios»."""
-    # Solo cuenta una palabra que el catálogo nunca escribe en minúscula: así «Al», «De» o «The» de los títulos
-    # en estilo inglés (Mayúscula En Cada Palabra) no se cuelan como nombres propios.
-    upper, lower = {}, set()
-    for book in catalogue['libros']:
-        title = book.get('titulo', '')
-        if title.upper() == title:
-            continue
-        for word in re.findall(r'(?<=[\w,;] )\w+', title):
-            if word[:1].isupper() and (not word.isupper() or 3 <= len(word) <= 6):
-                upper.setdefault(key(word), word)  # nombre propio, o sigla escrita así fuera de mayúsculas: ONU
-            elif word.islower():
-                lower.add(key(word))
-    for book in catalogue['libros']:
-        for name in book.get('autores', []):
-            if name.upper() != name:
-                for word in name.split():
-                    if word[:1].isupper() and word.isalpha() and len(word) > 2:
-                        upper.setdefault(key(word), word)
-    return {k: v for k, v in upper.items() if k not in lower and len(k) > 2}
-
-
-def tidy_title(title, proper=None):
-    """Título entero en mayúsculas → mayúscula inicial (norma del español), con los nombres propios que el
-    catálogo ya conoce y los numerales romanos; el artículo pospuesto de catálogo («MUNDO, EL») vuelve delante."""
-    proper = proper or {}
-    letters = [c for c in title if c.isalpha()]
-    if len(letters) >= 4 and all(c.isupper() for c in letters):
-        words = []
-        for word in title.split(' '):
-            core = re.sub(r'^\W+|\W+$', '', word)
-            if core and ROMAN.match(core) and len(core) <= 4 and core.lower() not in {'mi', 'di', 'li', 'ci'}:
-                words.append(word)
-            elif len(core) == 2 and core.isalpha() and core.lower() not in SHORT_WORDS:
-                words.append(word)  # sigla: IA, UE, TV
-            elif core and key(core) in proper:
-                words.append(word.replace(core, proper[key(core)]))
-            else:
-                words.append(word.lower())
-        title = SENTENCE_START.sub(lambda m: m.group(1) + m.group(2).upper(), ' '.join(words))
-    moved = ARTICLE_AT_END.match(title)
-    if moved:
-        rest = moved.group(1)
-        if key(rest.split(' ')[0]) not in proper:
-            rest = rest[:1].lower() + rest[1:]
-        title = moved.group(2).capitalize() + ' ' + rest
-    return title
 
 
 def item_isbn(info):

@@ -114,8 +114,27 @@ class ToRecord(unittest.TestCase):
         self.assertEqual(record['fecha_publicacion_edicion'], '2027-08-31')
 
     def test_all_caps_title_and_author_get_spanish_casing(self):
-        proper = ca.proper_words({'libros': [{'titulo': 'Poemas de Federico García Lorca', 'autores': ['Ana Dios']},
-                                             {'titulo': 'Cien años de soledad', 'autores': []}]})
+        proper = ca.proper_words({'libros': [{'titulo': 'Poemas del amor oscuro', 'autores': ['Federico García Lorca']},
+                                             {'titulo': 'Cien años de soledad', 'autores': ['Ana Ruta']},
+                                             {'titulo': 'Los genios creen en Dios', 'autores': []},
+                                             {'titulo': 'Diccionario Conciso de Teología', 'autores': []},
+                                             {'titulo': 'Al alba / The Walking Dead', 'autores': ['San Agustin']}]})
+        cases = {
+            # casi en mayúsculas: Amazon añade la colección o «Vol.» en minúscula
+            'LOS MICROBIOS DE LEONARDO (Divulgación Científica)': 'Los microbios de leonardo (Divulgación Científica)',
+            'NI ORIENTE NI OCCIDENTE (Andalucía)': 'Ni oriente ni occidente (Andalucía)',
+            'EL GUERRERO DEL ANTIFAZ Vol. 11': 'El guerrero del antifaz Vol. 11',
+            'SIN CITY 07. IDA Y VUELTA': 'Sin city 07. Ida y vuelta',  # una letra sigue la norma
+            # apellido suelto = palabra común; título en estilo inglés o traducción no dan nombres propios
+            'LA SENCILLA RUTA A LA SANTIDAD': 'La sencilla ruta a la santidad',
+            'IA Y TEOLOGÍA': 'IA y teología',
+            'THE WALKING DEAD': 'The walking dead',
+            'HIJOS DE UN DIOS MEZQUINO': 'Hijos de un Dios mezquino',
+            'SOBRE AGUSTÍN': 'Sobre agustín',  # tilde de la fuente, no la del nombre conocido
+            'EL AMOR SEGÚN SAN AGUSTÍN': 'El amor según San Agustín',
+        }
+        for shouted, tidy in cases.items():
+            self.assertEqual(ca.tidy_title(shouted, proper), tidy)
         self.assertEqual(ca.tidy_title('AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA', proper),
                          'Agustín penón y Federico García Lorca')
         self.assertEqual(ca.tidy_title('MUNDO EN MI MALETA, EL'), 'El mundo en mi maleta')
