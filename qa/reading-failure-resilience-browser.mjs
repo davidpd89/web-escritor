@@ -87,7 +87,7 @@ async function runCase(width,mode){
         fill: box.querySelector('.catalogue-stars')?.style.getPropertyValue('--rating')
       })));
       assert(ratings.every(r => !r.text || (r.text === 'Goodreads · ver opiniones' && !r.fill && !r.label)),'Without verified ratings only a neutral Goodreads link may appear, never a 0/5 score');
-      assert(await page.locator('[data-filter="valoracion"]').isDisabled(),'No active rating filter without verified ratings');
+      assert.equal(await page.locator('[data-filter="valoracion"]').count(),0,'Sin filtro de valoración: la API no da notas');
       assert(await page.locator('[data-filter="precio_max"]').isEnabled(),'Static Amazon price filtering stays available without market data');
       const maximum = Math.ceil(Math.min(...(selected.formatos_compra||[]).map(o=>o.precio_centimos).filter(Boolean)) / 100);
       if (Number.isFinite(maximum)) {

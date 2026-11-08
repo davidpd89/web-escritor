@@ -72,14 +72,15 @@
   const indexCards = () => {
     cards = [...root.querySelectorAll('[data-catalogue-book]')];
     // Reuse full title, authors and ISBN. Support cached HTML with data-search.
-    searchIndex = new Map(cards.map(card => [card, normalize(card.dataset.search || `${card.dataset.title} ${card.dataset.author} ${card.querySelector('[data-isbn]')?.dataset.isbn || ''}`)]));
+    searchIndex = new Map(cards.map(card => [card, normalize(card.dataset.search || `${card.dataset.title} ${card.dataset.author} ${card.dataset.isbn || card.querySelector('[data-isbn]')?.dataset.isbn || ''}`)]));
     originalOrder = new Map(cards.map((card, i) => [card, i]));
     hasDiscounts = cards.some(card => card.dataset.formatDiscounts);
   };
   indexCards();
   const fields = form ? [...form.elements].filter(f => f.dataset.filter) : [];
   // Filtros con varias opciones a la vez (OR dentro de cada uno, AND entre ellos), como casillas.
-  const FACETS = ['grupo', 'genero', 'tematica', 'temporada', 'edad', 'contenido', 'formato'];
+  // Solo filtros de fuente fiable (David, 08/11): temática, temporada y contenido eran reglas propias.
+  const FACETS = ['grupo', 'genero', 'edad', 'formato'];
   const boxes = form ? [...form.querySelectorAll('input[data-facet]')] : [];
   const FIXED_ORDER = ['grupo', 'edad', 'formato'];
   const pick = x => Array.isArray(x) ? x : x ? [x] : [];
@@ -138,11 +139,10 @@
   const OFFER_MAX_DAYS = 3;
   const offerCurrent = checked => /^\d{4}-\d{2}-\d{2}$/.test(checked || '') && (Date.parse(madridDate.format(new Date())) - Date.parse(checked)) / 864e5 <= OFFER_MAX_DAYS;
   const formatDiscounts = card => (card.dataset.formatDiscounts || '').split(' ').filter(Boolean).map(x => x.split(':')).filter(([, , checked]) => offerCurrent(checked)).map(([formato, pct]) => ({formato, pct: Number(pct)}));
-  // Temporada: oferta vigente de 10 % o más.
   // Caché por versión de mercado (renderMarket la invalida): recalcular en cada clic disparaba el INP.
   let memo = new Map();
   const memoFor = card => { let m = memo.get(card); if (!m) memo.set(card, m = {}); return m; };
-  const cardCategories = card => { const m = memoFor(card); return m.cats || (m.cats = [...card.dataset.categories.split(' '), ...(formatDiscounts(card).some(o => o.pct >= 10) ? ['ofertas-amazon'] : [])]); };
+  const cardCategories = card => { const m = memoFor(card); return m.cats || (m.cats = card.dataset.categories.split(' ')); };
   const cardFormats = card => { const m = memoFor(card); return m.formats || (m.formats = new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)])); };
   // Insignias de oferta sin reconfirmar: fuera en la página inicial y en las fichas que trae la hidratación.
   const pruneOffers = () => { for (const badge of root.querySelectorAll('[data-offer-checked]')) if (!offerCurrent(badge.dataset.offerChecked)) badge.remove(); };
@@ -174,31 +174,16 @@
       if (!ratingsIndex.has(rating.libro_id)) ratingsIndex.set(rating.libro_id, []);
       ratingsIndex.get(rating.libro_id).push(rating);
     }
+    // La Creators API no da valoraciones: sin nota en ningún sitio; la ficha enlaza a Goodreads por ISBN (David, 08/11).
     for (const box of root.querySelectorAll('[data-rating-book]')) {
-      const r = ratingFor(box.dataset.ratingBook);
-      const thinNow = r ? null : market.ratings.find(x => x.libro_id === box.dataset.ratingBook && thinRating(x));
-      // Mismo contenido que en la pasada anterior: no se toca el DOM (cada minuto se revalida la caducidad).
-      const key = r ? ['v', r.url, r.puntuacion, r.numero_valoraciones, r.actualizado_en, ratingSource(r)].join('|') : thinNow ? ['t', thinNow.url, thinNow.actualizado_en, ratingSource(thinNow)].join('|') : 'n|' + (box.dataset.isbn || '');
-      if (ratingKeys.get(box) === key) continue;
-      ratingKeys.set(box, key);
-      box.replaceChildren(); box.hidden = false;
-      if (!r) {
-        // Sin nota verificada vigente no se pinta nota (ni estrellas vacías ni «0,0 (0)»).
-        const thin = thinNow;
-        const isbn = /^\d{13}$/.test(box.dataset.isbn) && box.dataset.isbn;
-        // Sin nota verificada, la tarjeta no muestra nada; la ficha ofrece el enlace a Goodreads por ISBN (David, 2026-11-08).
-        if (box.closest('.catalogue-card')) box.hidden = true;
-        else if (thin || isbn) {
-          const ref = document.createElement('a'); ref.target = '_blank'; ref.rel = 'noopener noreferrer'; ref.className = 'catalogue-rating__ref';
-          if (thin) { ref.href = thin.url; ref.dataset.ratingState = 'insufficient'; ref.textContent = ratingLabel(thin) + ' · menos de 5 valoraciones'; ref.title = 'Muestra demasiado pequeña para mostrar una nota. Consultado el ' + new Date(thin.actualizado_en).toLocaleDateString('es-ES'); }
-          else { ref.href = 'https://www.goodreads.com/book/isbn/' + isbn; ref.dataset.ratingState = 'unavailable'; ref.textContent = 'Goodreads · ver opiniones'; }
-          box.append(ref);
-        } else box.hidden = true;
-        continue;
-      }
-      const link = document.createElement('a'); link.href = r.url; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.dataset.ratingState = 'verified';
-      const stars = document.createElement('span'); stars.className = 'catalogue-stars'; stars.setAttribute('aria-hidden', 'true'); stars.style.setProperty('--rating', r.puntuacion / 5 * 100 + '%'); stars.textContent = '★★★★★';
-      link.append(ratingLabel(r) + ' ', stars, ' ' + r.puntuacion.toLocaleString('es-ES', {minimumFractionDigits: 1}) + ' (' + r.numero_valoraciones.toLocaleString('es-ES') + ')'); link.title = 'Consultado el ' + new Date(r.actualizado_en).toLocaleDateString('es-ES'); box.append(link);
+      if (box.dataset.ratingDone) continue;
+      box.dataset.ratingDone = 'true';
+      const isbn = /^\d{13}$/.test(box.dataset.isbn || '') && box.dataset.isbn;
+      box.replaceChildren(); box.hidden = Boolean(box.closest('.catalogue-card')) || !isbn;
+      if (box.hidden) continue;
+      const ref = document.createElement('a'); ref.target = '_blank'; ref.rel = 'noopener noreferrer'; ref.className = 'catalogue-rating__ref';
+      ref.href = 'https://www.goodreads.com/book/isbn/' + isbn; ref.dataset.ratingState = 'unavailable'; ref.textContent = 'Goodreads · ver opiniones';
+      box.append(ref);
     }
     for (const f of root.querySelectorAll('[data-market-control]')) {
       f.disabled = !(f.dataset.marketControl === 'offers' && hasDiscounts) && !market[f.dataset.marketControl].some(f.dataset.marketControl === 'offers' ? validOffer : validRating);
@@ -406,13 +391,10 @@
       {key: 'novedad', question: '¿Buscas algo recién publicado?', options: () => [
         {label: 'Sí, una novedad', values: {novedad: '15'}},
         {label: 'Un próximo lanzamiento', values: {estado: 'proximos'}}]},
-      {key: 'temporada', question: '¿Te apetece una lectura de temporada?', options: () => optionsFrom('temporada')},
       {key: 'genero', question: '¿Qué género te apetece?', options: () => optionsFrom('genero')},
-      {key: 'tematica', question: '¿Hay algún tema que te interese?', options: () => optionsFrom('tematica')},
       {key: 'edad', question: '¿Para quién buscas el libro?', options: () => optionsFrom('edad')},
       {key: 'paginas', question: '¿Cuánto te apetece leer?', options: () => optionsFrom('paginas')},
       {key: 'formato', question: '¿Tienes un formato en mente?', options: () => optionsFrom('formato')},
-      {key: 'valoracion', question: '¿Quieres priorizar las valoraciones de lectores?', options: () => optionsFrom('valoracion')},
       // El presupuesto se aplica al formato elegido antes (si lo hay), nunca mezclando Kindle y papel en silencio.
       {key: 'precio_max', question: () => criteria.formato ? '¿Qué presupuesto prefieres en ' + optionsFrom('formato').find(o => o.values.formato === criteria.formato).label.toLocaleLowerCase('es') + '?' : '¿Qué presupuesto prefieres (en cualquier formato)?', options: () => [10, 20, 30].map(price => ({label: 'Hasta ' + price + ' €', values: {precio_max: String(price)}}))}
     ];
@@ -478,7 +460,7 @@
   // Solo datos de mercado de libros presentes en la página (se recalcula al añadir el resto del catálogo).
   const adoptMarket = () => {
     if (!payload) return;
-    const ids = new Set([...root.querySelectorAll('[data-rating-book]')].map(el => el.dataset.ratingBook)), known = x => x && typeof x === 'object' && ids.has(x.libro_id);
+    const ids = new Set([...root.querySelectorAll('[data-catalogue-book]')].map(el => el.dataset.bookId)), known = x => x && typeof x === 'object' && ids.has(x.libro_id);
     market = { offers: payload.offers.filter(known), ratings: payload.ratings.filter(known), sales_ranks: (Array.isArray(payload.sales_ranks) ? payload.sales_ranks : []).filter(known) };
   };
   const refresh = () => { renderNovelty(); renderMarket(); if (ready) apply(false); };

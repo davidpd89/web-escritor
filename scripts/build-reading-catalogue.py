@@ -26,6 +26,15 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://davidportodiaz.com"
 SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 TYPES = {"genero": "Género", "tematica": "Temática", "temporada": "Temporada", "edad": "Edad", "contenido": "Contenido", "epoca": "Época"}
+# Lo único que se enseña y se filtra: género (materias de Amazon y de la editorial) y edad (la declarada).
+# Temática, temporada, contenido y época son reglas propias sobre palabras clave: «Día de la Madre» salía
+# en cualquier libro de crianza y San Valentín en cualquier romance (David, 08/11). Siguen en los datos
+# solo para agrupar (Tipo de libro) y relacionar fichas; nunca como etiqueta, filtro ni texto.
+PUBLIC_TYPES = ("genero", "edad")
+
+
+def public(cats):
+    return [c for c in cats if c["tipo"] in PUBLIC_TYPES]
 PRICE_FIELDS = {'precio_centimos', 'precio_referencia_centimos'}
 # Una oferta solo se muestra si Amazon la confirmó hace como mucho estos días; después desaparece sola.
 OFFER_MAX_DAYS = 3
@@ -261,6 +270,7 @@ NOVELTY_DAYS = 30       # «Novedad» desde el día de salida hasta un mes despu
 
 
 def tags(cats, compact=False, limit=None):
+    cats = public(cats)
     def group(items):
         # La época ya no es filtro del catálogo: se muestra como etiqueta sin enlace.
         return '<ul class="catalogue-tags' + (' catalogue-tags--compact' if compact else '') + '">' + ''.join(f'<li><span>{esc(c["nombre"])}</span></li>' if c['tipo'] == 'epoca' else f'<li><a href="/recomendaciones/#{esc(c["tipo"])}={esc(c["id"])}">{esc(c["nombre"])}</a></li>' for c in items) + '</ul>'
@@ -819,7 +829,7 @@ MONTHS_ES = ('', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio',
 
 ICS_PATH = 'recomendaciones/proximos-lanzamientos.ics'
 DEALS_PATH = 'recomendaciones/ofertas.json'
-DEALS_SEASON = 'ofertas-amazon'  # opción de «Temporada» calculada en el navegador (assets/reading-catalogue.js)
+DEALS_SEASON = 'ofertas-amazon'  # antigua opción de «Temporada»; las ofertas se filtran con «Ofertas» (no debe volver)
 
 
 def render_deals(books):
@@ -926,7 +936,7 @@ def render_llms_index(data, books, authors, publishers):
         edition = '. '.join(f.rstrip('.') for f in edition if f)
         facts = llms_authors(b['autores'], max(40, LLMS_FACTS_END - len(head) - len(edition) - 4)) + '. ' + edition
         age = b.get('edad_recomendada') or ', '.join(c['nombre'] for c in cats if c['tipo'] == 'edad')
-        extras = [label + ': ' + ', '.join(names) for label, tipo in (('Género', 'genero'), ('Temas', 'tematica'))
+        extras = [label + ': ' + ', '.join(names) for label, tipo in (('Género', 'genero'),)
                   if (names := [c['nombre'] for c in cats if c['tipo'] == tipo])] + [age and 'Edad: ' + age]
         for extra in extras:
             if extra and len(head) + len(facts) + len(extra) + 2 <= LLMS_FACTS_END:
@@ -990,17 +1000,14 @@ def render_filters(data, type_options):
     used = {r['categoria_id'] for r in data['libro_categorias']}
     facets = facet_group('grupo', 'Tipo de libro', type_options, True)
     for kind, label in TYPES.items():
-        if kind == 'epoca':
-            continue  # «Época» no ayudaba a elegir: casi todo el catálogo es actual.
+        if kind not in PUBLIC_TYPES:
+            continue
         # Una categoría sin libros solo añadiría una casilla muerta al filtro.
         choices = sorted((c for c in data['categorias'] if c['tipo'] == kind and c['activa'] and c['id'] in used), key=age_order if kind == 'edad' else lambda c: (c['orden'], c['id']))
         if not choices:
             continue
         options = [(c['id'], c['nombre']) for c in choices]
-        if kind == 'temporada':
-            # Prime Day y Black Friday no son un tema: son los libros con una oferta vigente de Amazon (≥10 %),
-            # que el navegador calcula con las fechas de comprobación; aparece y desaparece sola con las ofertas.
-            options.append((DEALS_SEASON, 'Prime Day y Black Friday'))
+        # Las ofertas de Amazon se filtran con «Ofertas» (descuento vigente), no como temporada.
         facets += facet_group(kind, label, options)
     facets += facet_group('formato', 'Formato', list(FORMATS.items()))
     price_format = '<label class="catalogue-price-range__format">Formato<select name="precio_formato" data-filter="precio_formato">' + '<option value="">Cualquier formato</option>' + ''.join(f'<option value="{k}">{esc(FORMATS[k])}</option>' for k in BOX_ORDER) + '</select></label>'
@@ -1011,7 +1018,6 @@ def render_filters(data, type_options):
     for key,label in [('desde', 'Publicado desde'), ('hasta', 'Publicado hasta')]:
         advanced += f'<label>{label}<input type="date" name="{key}" data-filter="{key}" min="1000-01-01" max="2100-12-31"></label>'
     advanced += select('descuento', 'Ofertas', [('', 'Todos los precios'), ('1', 'Con descuento o bajada de precio'), ('5', '5 % o más'), ('10', '10 % o más'), ('25', '25 % o más'), ('50', '50 % o más')], 'data-market-control="offers" disabled')
-    advanced += select('valoracion', 'Valoración de lectores', [('', 'Todas las valoraciones'), ('menos-3', 'Menos de 3 estrellas'), ('3', '3 estrellas o más'), ('4', '4 estrellas o más'), ('4.5', '4,5 estrellas o más'), ('5', '5 estrellas')], 'data-market-control="ratings" disabled')
     advanced += '</div>'
     # En móvil (≤900 px) solo la búsqueda queda a la vista; el resto de filtros se pliega tras
     # «Filtros» para que los libros aparezcan en la primera pantalla. En escritorio el panel
@@ -1089,9 +1095,9 @@ def render_hub(data, books, template, page_number=1):
         formats = ' '.join(sorted(set([o['formato'] for o in purchase_formats(b)] + ([b['formato_edicion']] if b.get('formato_edicion') else []))))
         published = b.get('fecha_publicacion', '')
         year = '' if published or b.get('fecha_publicacion_parcial') else b.get('anio_publicacion', '')
-        attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}" data-format-prices="{format_prices(b)}" data-format-discounts="{format_discounts(b, anchor)}"'
+        attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in public(cats)))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-isbn="{esc(b.get("isbn13", ""))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}" data-format-prices="{format_prices(b)}" data-format-discounts="{format_discounts(b, anchor)}"'
         # Missing optional values have the same runtime meaning as empty ones.
-        attrs = re.sub(r' data-(?:published|published-month|year|pages|format-prices|format-discounts)=""', '', attrs)
+        attrs = re.sub(r' data-(?:isbn|published|published-month|year|pages|format-prices|format-discounts)=""', '', attrs)
         affiliate_link = amazon_destination(b)
         affiliate_cta = ('<a class="catalogue-buy-link catalogue-card__buy" href="' + esc(affiliate_link) + '" target="_blank" aria-label="' + esc(amazon_action_label(b)) + ': ' + esc(b["titulo"]) + ' (otra pestaña)" rel="sponsored nofollow noopener noreferrer">' + esc(amazon_action_label(b)) + ' <span aria-hidden="true">↗</span></a>') if affiliate_link else ''
         # Portada y título llevan directamente a Amazon con la etiqueta de afiliado; «Ver ficha» abre la ficha propia.
@@ -1103,8 +1109,8 @@ def render_hub(data, books, template, page_number=1):
         else:
             cover_link = f'href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)"'
             title_link = f'href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña"'
-        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" {cover_link}>{image(b,i>1)}</a><div><p class="eyebrow catalogue-when">{release_line(b)}</p>{tags(cats, compact=True)}<h3><a {title_link}>{esc(card_title(b))}</a></h3><p class="catalogue-author">{author_links(b, compact=True)}</p>{byline(b)}<p class="catalogue-card__description">{esc(card_synopsis(b, anchor=anchor))}</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}" data-isbn="{esc(b.get("isbn13", ""))}"></div>{format_box(b, compact=True, anchor=anchor)}<a class="text-action catalogue-card__ficha" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
-    sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="fecha_asc">Publicación · más antigua primero</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option>' + ''.join(f'<option value="precio_{k}">{esc(FORMATS[k])} · del más barato al más caro</option>' for k in BOX_ORDER) + '<option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option><option value="ventas" data-sort-market="sales_ranks" disabled hidden>Amazon.es · más vendidos</option></select></label>'
+        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" {cover_link}>{image(b,i>1)}</a><div><p class="eyebrow catalogue-when">{release_line(b)}</p>{tags(cats, compact=True)}<h3><a {title_link}>{esc(card_title(b))}</a></h3><p class="catalogue-author">{author_links(b, compact=True)}</p>{byline(b)}<p class="catalogue-card__description">{esc(card_synopsis(b, anchor=anchor))}</p>{format_box(b, compact=True, anchor=anchor)}<a class="text-action catalogue-card__ficha" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
+    sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="fecha_asc">Publicación · más antigua primero</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option>' + ''.join(f'<option value="precio_{k}">{esc(FORMATS[k])} · del más barato al más caro</option>' for k in BOX_ORDER) + '<option value="ventas" data-sort-market="sales_ranks" disabled hidden>Amazon.es · más vendidos</option></select></label>'
     # Lo primero que se ve son los libros ya publicados (los más recientes arriba); los próximos lanzamientos van aparte.
     show = '<label>Mostrar<select name="estado" data-filter="estado" form="catalogue-search-form" disabled><option value="">Ya publicados</option><option value="proximos" id="estado=proximos">Próximos lanzamientos</option><option value="todos">Todos</option></select></label>'
     upcoming = '<a class="catalogue-upcoming-link" href="#estado=proximos" data-catalogue-upcoming>Ver los próximos lanzamientos →</a>'

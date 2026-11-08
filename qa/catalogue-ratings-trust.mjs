@@ -1,18 +1,18 @@
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 
-// Confianza editorial de las valoraciones (#1005): sin una valoración verificada vigente el
-// catálogo no pinta una nota. En main, 62 de 88 tarjetas mostraban «Goodreads ★★★★★ 0,0 (0)»
-// con el aria-label «aún sin valoraciones públicas», un hecho que el catálogo no conoce.
+// Valoraciones (David, 2026-11-08): la Creators API no las da, así que no se pinta ninguna nota en ningún
+// sitio. Fuera de la ficha no hay nada (ni caja, ni estrellas, ni filtro, ni orden); la ficha solo enlaza a
+// Goodreads por ISBN, aunque reading-market.json traiga una nota «verificada». Antes (#1005) 62 de 88
+// tarjetas mostraban «Goodreads ★★★★★ 0,0 (0)».
 const origin = process.env.QA_ORIGIN || 'http://127.0.0.1:4173';
 const now = Date.parse('2026-10-30T12:00:00Z');
 const iso = ms => new Date(ms).toISOString().replace('.000Z', 'Z');
 const dated = { actualizado_en: iso(now - 3600000), caduca_en: iso(now + 72 * 3600000) };
 const stale = { actualizado_en: iso(now - 200 * 3600000), caduca_en: iso(now - 32 * 3600000) };
-const gr = id => `https://www.goodreads.com/book/show/${id}`;
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 
-async function open(market, { width = 1280, javaScriptEnabled = true } = {}) {
+async function open(market, { width = 1280, javaScriptEnabled = true, path = '/recomendaciones/#orden=titulo' } = {}) {
   const context = await browser.newContext({ viewport: { width, height: 900 }, javaScriptEnabled });
   const external = [];
   await context.route('**/*', route => {
@@ -23,90 +23,60 @@ async function open(market, { width = 1280, javaScriptEnabled = true } = {}) {
   });
   const page = await context.newPage();
   if (javaScriptEnabled) await page.clock.install({ time: now });
-  await page.goto(`${origin}/recomendaciones/#orden=titulo`, { waitUntil: 'networkidle' });
+  await page.goto(origin + path, { waitUntil: 'networkidle' });
   return { context, page, external };
 }
-const boxes = page => page.locator('[data-rating-book]').evaluateAll(list => list.map(box => {
-  const a = box.querySelector('a');
-  return { id: box.dataset.ratingBook, card: Boolean(box.closest('.catalogue-card')), shown: !box.closest('.catalogue-card')?.hidden, hidden: box.hidden, isbn: box.dataset.isbn || '', text: box.textContent.replace(/\s+/g, ' ').trim(), state: a?.dataset.ratingState || '', label: a?.getAttribute('aria-label') ?? null, href: a?.href || '', stars: Boolean(box.querySelector('.catalogue-stars')), fill: box.querySelector('.catalogue-stars')?.style.getPropertyValue('--rating') || '' };
-}));
-const unverifiedOk = (b, where) => {
-  assert.doesNotMatch(b.text, /0,0|\(0\)|★/, `${where}: ${b.id} pinta una nota sin verificar: «${b.text}»`);
-  assert.equal(b.stars, false, `${where}: ${b.id} pinta estrellas sin valoración verificada`);
-  assert.equal(b.label, null, `${where}: ${b.id} lleva un aria-label distinto del texto visible`);
-  assert.doesNotMatch(b.text, /sin valoraciones/i, `${where}: ${b.id} afirma que la fuente no tiene opiniones`);
+const noScores = async (page, where) => {
+  assert.equal(await page.locator('.catalogue-stars').count(), 0, `${where}: estrellas`);
+  assert.doesNotMatch(await page.locator('main').innerText(), /★|\d,\d \(\d/, `${where}: una nota a la vista`);
 };
+const cards = page => page.locator('.catalogue-card:not([hidden])').evaluateAll(list => list.map(c => ({ id: c.dataset.bookId, href: c.querySelector('.catalogue-card__ficha')?.getAttribute('href') })));
 
 try {
-  // 1. Proveedor caído (503) y mercado vacío: ninguna tarjeta muestra nota; con ISBN queda un enlace neutro.
-  for (const market of ['fail', { schema_version: 1, offers: [], ratings: [] }]) {
-    const { context, page, external } = await open(market);
-    const all = await boxes(page);
-    assert.ok(all.length > 20, 'el catálogo debe tener tarjetas con valoración');
-    for (const b of all) {
-      unverifiedOk(b, market === 'fail' ? 'proveedor caído' : 'sin dato');
-      // Sin nota verificada la tarjeta no muestra nada; la ficha, con ISBN, el enlace neutro a Goodreads (David, 2026-11-08).
-      if (b.card) { assert.equal(b.text, '', `${b.id}: la tarjeta sin nota no enlaza a Goodreads`); assert.equal(b.hidden, true); }
-      else if (b.isbn.length === 13) {
-        assert.equal(b.text, 'Goodreads · ver opiniones');
-        assert.equal(b.state, 'unavailable');
-        assert.equal(b.href, `https://www.goodreads.com/book/isbn/${b.isbn}`);
-      } else assert.equal(b.text, '', `${b.id}: sin ISBN no hay enlace que ofrecer`);
-    }
-    assert.equal(await page.locator('[data-filter="valoracion"]').isDisabled(), true, 'sin valoraciones verificadas el filtro no se ofrece');
-    assert.deepEqual(external, [], 'no se piden recursos externos');
-    await context.close();
-  }
-
-  // 2. Estados mezclados sobre tarjetas reales y visibles (los próximos lanzamientos van ocultos por defecto).
-  const ids = await (async () => { const { context, page } = await open({ schema_version: 1, offers: [], ratings: [] }); const all = await boxes(page); await context.close(); return all.filter(b => b.isbn.length === 13 && b.card && b.shown).slice(0, 6).map(b => b.id); })();
-  const [verified, thin, oneVote, expired, forged, none] = ids;
+  const visible = await (async () => { const { context, page } = await open({ schema_version: 1, offers: [], ratings: [] }); const all = await cards(page); await context.close(); return all; })();
+  assert.ok(visible.length > 20, 'el catálogo debe tener tarjetas');
+  const ids = visible.slice(0, 6).map(c => c.id);
   const market = { schema_version: 1, offers: [], ratings: [
-    { ...dated, libro_id: verified, fuente: 'goodreads', puntuacion: 4.2, numero_valoraciones: 12345, url: gr(101) },
-    { ...dated, libro_id: thin, fuente: 'goodreads', puntuacion: 5, numero_valoraciones: 4, url: gr(102) },
-    { ...dated, libro_id: oneVote, fuente: 'hardcover', puntuacion: 1, numero_valoraciones: 1, url: 'https://hardcover.app/books/qa-uno' },
-    { ...stale, libro_id: expired, fuente: 'goodreads', puntuacion: 4.8, numero_valoraciones: 900, url: gr(104) },
-    { ...dated, libro_id: forged, fuente: 'goodreads', puntuacion: 4.9, numero_valoraciones: 700, url: 'https://goodreads.com.evil.invalid/book/show/1' },
+    { ...dated, libro_id: ids[0], fuente: 'goodreads', puntuacion: 4.2, numero_valoraciones: 12345, url: 'https://www.goodreads.com/book/show/101' },
+    { ...dated, libro_id: ids[1], fuente: 'amazon', puntuacion: 4.6, numero_valoraciones: 900, url: 'https://www.amazon.es/dp/B000000001' },
+    { ...dated, libro_id: ids[2], fuente: 'hardcover', puntuacion: 1, numero_valoraciones: 1, url: 'https://hardcover.app/books/qa-uno' },
   ] };
-  for (const width of [390, 768, 1280]) {
-    const { context, page, external } = await open(market, { width });
-    const by = Object.fromEntries((await boxes(page)).map(b => [b.id, b]));
-    // ≥5 opiniones vigentes: nota, recuento y estrellas; nombre accesible = texto visible.
-    assert.equal(by[verified].state, 'verified');
-    assert.equal(by[verified].text, 'Goodreads ★★★★★ 4,2 (12.345)');
-    // El primer pintado (antes de llegar reading-market.json) oculta las cajas vacías; al llegar la nota debe volver a verse.
-    assert.equal(by[verified].hidden, false, `${width}px: la nota verificada queda oculta`);
-    assert.equal(Math.round(parseFloat(by[verified].fill)), 84);
-    assert.equal(by[verified].label, null);
-    // 1–4 opiniones, caducado, fuente falsificada y sin dato: en la tarjeta no se pinta nada (ni nota ni enlace).
-    for (const id of [thin, oneVote, expired, forged, none]) {
-      unverifiedOk(by[id], `${width}px ${id}`);
-      assert.equal(by[id].card, true);
-      assert.equal(by[id].text, '');
-      assert.equal(by[id].hidden, true);
+
+  // 1. Listado: con proveedor caído, sin datos o con notas en el mercado, ninguna valoración, filtro ni orden.
+  for (const [where, m] of [['proveedor caído', 'fail'], ['sin dato', { schema_version: 1, offers: [], ratings: [] }], ['con notas', market]]) {
+    for (const width of where === 'con notas' ? [390, 768, 1280] : [1280]) {
+      const { context, page, external } = await open(m, { width });
+      assert.equal(await page.locator('[data-rating-book]').count(), 0, `${where}: caja de valoración en el listado`);
+      assert.equal(await page.locator('[data-filter="valoracion"], option[value="valoracion_desc"]').count(), 0, `${where}: filtro u orden por valoración`);
+      await noScores(page, `${where} @${width}`);
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+      assert.ok(overflow <= 0, `${width}px: scroll horizontal de ${overflow} px`);
+      assert.deepEqual(external, [], 'no se piden recursos externos');
+      await context.close();
     }
-    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-    assert.ok(overflow <= 0, `${width}px: scroll horizontal de ${overflow} px`);
-    assert.deepEqual(external, []);
-    await context.close();
   }
 
-  // 3. Filtro y orden solo cuentan la valoración verificada.
+  // 2. Ficha: solo el enlace a Goodreads por ISBN, aunque el mercado traiga una nota.
   {
-    const { context, page } = await open(market);
-    assert.equal(await page.locator('[data-filter="valoracion"]').isEnabled(), true);
-    await page.locator('[data-filter="valoracion"]').evaluate(e => { const d = e.closest('details'); if (d) d.open = true; });
-    await page.selectOption('[data-filter="valoracion"]', '4');
-    const shown = await page.locator('.catalogue-card:not([hidden])').evaluateAll(cards => cards.map(c => c.dataset.bookId));
-    assert.deepEqual(shown, [verified], 'el filtro de valoración solo deja la valoración verificada');
-    await page.selectOption('[data-filter="valoracion"]', '');
-    await page.selectOption('[data-filter="orden"]', 'valoracion_desc');
-    const first = await page.locator('.catalogue-card:not([hidden])').first().getAttribute('data-book-id');
-    assert.equal(first, verified, 'ordenar por valoración pone primero la verificada, no las muestras pequeñas');
-    await context.close();
+    const href = visible.find(c => c.id === ids[0])?.href;
+    assert.ok(href, 'la tarjeta enlaza a su ficha');
+    for (const m of [market, 'fail']) {
+      const { context, page } = await open(m, { path: new URL(href, origin).pathname });
+      const box = page.locator('[data-rating-book]');
+      assert.equal(await box.count(), 1);
+      const isbn = await box.getAttribute('data-isbn');
+      if (/^\d{13}$/.test(isbn || '')) {
+        const link = box.locator('a');
+        await link.waitFor();
+        assert.equal(await link.innerText(), 'Goodreads · ver opiniones');
+        assert.equal(await link.getAttribute('href'), `https://www.goodreads.com/book/isbn/${isbn}`);
+      } else assert.equal(await box.isHidden(), true, 'sin ISBN no hay enlace que ofrecer');
+      await noScores(page, 'ficha');
+      await context.close();
+    }
   }
 
-  // 3b. Más vendidos: solo se ofrece con puestos vigentes de Amazon.es; con puesto primero (1, 2…), el resto después.
+  // 3. Más vendidos: solo se ofrece con puestos vigentes de Amazon.es; con puesto primero (1, 2…), el resto después.
   {
     const option = page => page.locator('[data-filter="orden"] option[value="ventas"]');
     const empty = await open({ schema_version: 1, offers: [], ratings: [] });
@@ -122,18 +92,18 @@ try {
     const { context, page } = await open(ranks);
     assert.equal(await option(page).evaluate(o => !o.disabled && !o.hidden), true, 'con puestos vigentes se ofrece «más vendidos»');
     await page.selectOption('[data-filter="orden"]', 'ventas');
-    const order = await page.locator('.catalogue-card:not([hidden])').evaluateAll(cards => cards.slice(0, 2).map(c => c.dataset.bookId));
+    const order = await page.locator('.catalogue-card:not([hidden])').evaluateAll(list => list.slice(0, 2).map(c => c.dataset.bookId));
     assert.deepEqual(order, [top, second], 'los más vendidos van primero, del menor puesto al mayor; caducados y otras fuentes no cuentan');
     await context.close();
   }
 
-  // 4. Sin JS no hay notas fabricadas.
+  // 4. Sin JS tampoco hay notas.
   {
     const { context, page } = await open(market, { javaScriptEnabled: false });
-    for (const b of await boxes(page)) unverifiedOk(b, 'sin JS');
+    await noScores(page, 'sin JS');
     await context.close();
   }
 } finally {
   await browser.close();
 }
-console.log('PASS catalogue ratings trust: verified, small sample, expired, forged source, no data, provider failure');
+console.log('PASS catalogue ratings: no scores anywhere; the book page only links to Goodreads by ISBN');

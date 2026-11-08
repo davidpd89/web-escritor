@@ -97,13 +97,38 @@ class CatalogueDealsAndFilters(unittest.TestCase):
         self.assertGreater(expected, 0)
         self.assertEqual(html.count('class="catalogue-format__off"'), expected)
 
-    def test_prime_day_season_is_live_amazon_offers(self):
-        # GPT 2026-11-05: «Temporadas: falta Prime Day». It is the current Amazon offers (≥10 %), computed in the browser.
-        hub = (ROOT / 'recomendaciones/index.html').read_text(encoding='utf-8')
-        self.assertIn(f'value="{builder.DEALS_SEASON}" data-facet="temporada"', hub)
+    def test_only_reliable_filters_and_no_scores_are_public(self):
+        # David 2026-11-08: «Día de la Madre» mostraba cualquier libro de crianza. Temática, temporada, contenido
+        # y época son reglas propias sobre palabras clave: ni etiqueta, ni filtro, ni texto. Y la Creators API
+        # no da valoraciones: ni caja en la tarjeta, ni filtro, ni orden por nota.
+        pages = [ROOT / 'recomendaciones/index.html', *sorted((ROOT / 'recomendaciones/pagina').glob('*/index.html'))]
+        hub = ''.join(p.read_text(encoding='utf-8') for p in pages)
+        data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+        kinds = {c['id']: c['tipo'] for c in data['categorias']}
+        for hidden in ('temporada', 'tematica', 'contenido', 'epoca'):
+            self.assertNotIn(f'data-facet="{hidden}"', hub)
+            self.assertNotIn(f'data-facet-group="{hidden}"', hub)
+        self.assertNotIn('data-filter="valoracion"', hub)
+        self.assertNotIn('valoracion_desc', hub)
+        self.assertNotIn('data-rating-book', hub)
+        self.assertNotIn(builder.DEALS_SEASON, hub)
+        shown = {c for found in re.findall(r'data-categories="([^"]*)"', hub) for c in found.split()}
+        self.assertTrue(shown)
+        self.assertEqual({kinds.get(c) for c in shown} - {'genero', 'edad'}, set(), 'data-categories solo con género y edad')
         script = (ROOT / 'assets/reading-catalogue.js').read_text(encoding='utf-8')
-        self.assertIn("o.pct >= 10) ? ['ofertas-amazon']", script)
-        self.assertEqual(script.count('cardCategories(card)'), 2)
+        self.assertIn("const FACETS = ['grupo', 'genero', 'edad', 'formato'];", script)
+        for key in ('temporada', 'tematica', 'valoracion'):
+            self.assertNotIn("{key: '" + key + "'", script)
+
+    def test_public_categories_and_tags_keep_only_genre_and_age(self):
+        cats = [{'id': 'fantasia', 'nombre': 'Fantasía', 'tipo': 'genero'}, {'id': 'adultos', 'nombre': 'Adultos', 'tipo': 'edad'},
+                {'id': 'dia-de-la-madre', 'nombre': 'Día de la Madre', 'tipo': 'temporada'},
+                {'id': 'familia-y-crianza', 'nombre': 'Familia', 'tipo': 'tematica'}, {'id': 'clasicos', 'nombre': 'Clásicos', 'tipo': 'epoca'}]
+        self.assertEqual([c['id'] for c in builder.public(cats)], ['fantasia', 'adultos'])
+        html = builder.tags(cats)
+        self.assertIn('Fantasía', html)
+        self.assertNotIn('Día de la Madre', html)
+        self.assertNotIn('Familia', html)
 
     def test_discount_rounds_like_amazon_and_ignores_kindle_print_price(self):
         # 2026-11-04: «-4 %» where Amazon shows the legal 5 %, and ebooks at «-50 %» against the print price.
@@ -125,5 +150,7 @@ class CatalogueDealsAndFilters(unittest.TestCase):
         self.assertNotIn('data-facet-group="epoca"', html)
         self.assertNotIn('Páginas sin confirmar', html)
         self.assertIn('data-filter="estado"', html)
-        self.assertIn('value="menos-3"', html)
-        self.assertIn('value="5"', html)
+        # Sin valoraciones fuera de la ficha (David, 08/11): ni «Menos de 3 estrellas» ni «5 estrellas».
+        self.assertNotIn('value="menos-3"', html)
+        self.assertNotIn('estrellas</option>', html)
+        self.assertIn('value="5">5 % o más', html)
