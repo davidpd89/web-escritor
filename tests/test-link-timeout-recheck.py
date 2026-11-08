@@ -80,6 +80,46 @@ with tempfile.TemporaryDirectory() as tmp:
     (tmp/'q.json').write_text('{not json', encoding='utf-8')
     with redirect_stdout(io.StringIO()):
         assert module.run(tmp/'out.md', tmp/'res.json', tmp/'q.json') == 1
+# Third-party server faults (2026-11-08, akelarreediciones.com certificate expired): external 403 and bad
+# certificates are rechecked and, if they persist, only warn. Our own domain and every other error stay fatal.
+cert = ('| Errors | 2 |\n'
+        '* [ERROR] <https://www.akelarreediciones.com/> (at 200:351) | SSL certificate expired. Site needs to renew certificate\n'
+        '* [403] <https://www.maeva.es/> (at 10:5) | Forbidden\n')
+assert module.timeout_urls(cert) == ['https://www.akelarreediciones.com/', 'https://www.maeva.es/']
+assert module.third_party_faults(cert) == {'https://www.akelarreediciones.com/': 'certificado TLS del sitio caducado o inválido',
+                                           'https://www.maeva.es/': 'HTTP 403 al runner'}
+for invalid in ['| Errors | 1 |\n* [403] <https://davidportodiaz.com/x/>',
+                '| Errors | 1 |\n* [403] <https://www.davidportodiaz.com/x/>',
+                '| Errors | 1 |\n* [ERROR] <https://davidportodiaz.com/> | SSL certificate expired. Site needs to renew certificate',
+                '| Errors | 1 |\n* [403] <file:///x>',
+                '| Errors | 1 |\n* [401] <https://example.org/x>',
+                cert.replace('Errors | 2', 'Errors | 3')]:
+    try:
+        module.timeout_urls(invalid)
+        raise AssertionError(f'own-domain faults, other 4xx and unknown counts stay fatal: {invalid!r}')
+    except ValueError:
+        pass
+import io, json, os, tempfile
+from contextlib import redirect_stdout
+with tempfile.TemporaryDirectory() as tmp:
+    tmp = Path(tmp)
+    def run_report(report, results):
+        (tmp/'out.md').write_text(report, encoding='utf-8')
+        by_url = {r['url']: r for r in results}
+        with patch.object(module, 'check_url', side_effect=lambda u: dict(by_url[u])), patch.dict(os.environ, {'GITHUB_STEP_SUMMARY': str(tmp/'summary.md')}), redirect_stdout(io.StringIO()):
+            return module.run(tmp/'out.md', tmp/'res.json')
+    expired = {'url': 'https://www.akelarreediciones.com/', 'ok': False, 'status': '000', 'exit': 60}
+    blocked = {'url': 'https://www.maeva.es/', 'ok': False, 'status': '403', 'exit': 22}
+    assert run_report(cert, [expired, blocked]) == 0, 'third-party faults warn, never fail'
+    saved = {r['url']: r for r in json.loads((tmp/'res.json').read_text(encoding='utf-8'))}
+    assert saved['https://www.maeva.es/']['third_party'] == 'HTTP 403 al runner'
+    assert 'akelarreediciones.com' in (tmp/'summary.md').read_text(encoding='utf-8')
+    assert run_report(cert, [dict(expired, ok=True, status='200', exit=0), dict(blocked, ok=True, status='200', exit=0)]) == 0
+    assert run_report(cert, [expired, dict(blocked, status='404')]) == 1, 'a 403 that rechecks as 404 is a gone page'
+    assert run_report(cert, [dict(expired, status='404', exit=22), blocked]) == 1, 'a fixed certificate serving 404 fails'
+    timeout = '| Errors | 0 |\n* [TIMEOUT] <https://example.org/slow>\n'
+    assert run_report(timeout, [{'url': 'https://example.org/slow', 'ok': False, 'status': '404', 'exit': 22}]) == 1, \
+        'a timeout that rechecks as 404 still fails'
 # The committed quarantine itself must be valid.
 module.load_quarantine(ROOT/'.linkcheck-quarantine.json', date.today())
 print('PASS link timeout recheck: only actual 2xx clears timeout/transport errors; HTTP errors, loops and unknown reports stay fatal; quarantine only excuses listed unreachable hosts until it expires')
