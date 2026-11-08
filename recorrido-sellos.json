@@ -478,75 +478,30 @@
     "runna nova",
     "novo codex editions",
     "runa allpa sumac",
-    "cedar run publications"
+    "cedar run publications",
+    "harper collins iberica editorial",
+    "grupo lettera",
+    "plaza jana c s",
+    "stefano books",
+    "a t corporacion editorial",
+    "t r editorial",
+    "ecuador f b t cia ltda",
+    "l t servicios editoriales",
+    "t r",
+    "transit children s editions",
+    "narciso transito",
+    "ilustrados",
+    "richmond ingles",
+    "prh grupo editorial",
+    "santillana educacion s l",
+    "random comic",
+    "penguin random house audio",
+    "literatura random house",
+    "penguin random house",
+    "kokila",
+    "step into reading"
   ],
   "cola": [
-    {
-      "consulta": "Runas",
-      "nivel": 1,
-      "nodo": "902721031",
-      "ruta": [
-        "Sociedad y ciencias sociales"
-      ],
-      "sello": "Runas"
-    },
-    "Gamon Fantasy",
-    "Los Libros del Salvaje",
-    "Siruela",
-    "Txalaparta",
-    "HarperCollins Ibérica",
-    "Obscura Editorial",
-    "Gigamesh",
-    "Cerbero",
-    "Suseya Ediciones",
-    "Grupo Almuzara",
-    "Almuzara",
-    "Berenice",
-    "Roca Editorial",
-    "Suma de Letras",
-    "Plaza & Janés",
-    "Ediciones B",
-    "Orciny Press",
-    "Con Pluma y Píxel",
-    "Pez de Plata",
-    "Titanium Editorial",
-    "Puck",
-    "Titania",
-    "Dolmen Editorial",
-    "Hic Sic",
-    "Silver Books",
-    "Raven",
-    "Matchstories",
-    "Cetro",
-    "LOM Ediciones",
-    "Valhalla Ediciones",
-    "T&T",
-    "Numak Ediciones",
-    "Labnar",
-    "Adel Editores",
-    "Periférica",
-    "minúscula",
-    "Libros del Asteroide",
-    "Tránsito",
-    "Galaxia Gutenberg",
-    "Barrett",
-    "Navona Editorial",
-    "Versátil",
-    "Fulgencio Pimentel",
-    "Odelia editora",
-    "Cetus Editorial",
-    "Maeva",
-    "La Huerta Grande",
-    "Páginas de Espuma",
-    "Sexto Piso",
-    "Impedimenta",
-    "Nórdica Libros",
-    "Candaya",
-    "Pepitas de calabaza",
-    "NdeNovela",
-    "Anagrama",
-    "Alfaguara",
-    "Random House",
     "Reservoir Books",
     "Salamandra",
     "Grijalbo",
@@ -961,17 +916,134 @@
     "RUNNA NOVA",
     "Novo Codex Editions",
     "RUNA ALLPA SUMAC",
-    "Cedar Run Publications"
+    "Cedar Run Publications",
+    "Harper collins iberica editorial",
+    "Grupo Lettera",
+    "Plaza & Jana(c)S",
+    "Stefano Books",
+    "Editorial Matchstories",
+    "A.T.Corporacion Editorial",
+    "T&R editorial",
+    "Ecuador F.B.T. Cía. Ltda.",
+    "L.T. Servicios Editoriales",
+    "T&R",
+    "Transit Children's Editions",
+    "Narciso Tránsito",
+    "Ilustrados",
+    "RICHMOND (INGLES)",
+    "PRH Grupo Editorial",
+    "Santillana Educación, S.L.",
+    "Random Cómic",
+    "Penguin Random House Audio",
+    "Literatura Random House",
+    "Penguin Random House",
+    "Kokila",
+    "Step into Reading"
   ],
   "dia": "2026-11-08",
   "errores": [],
-  "grupos": {
-    "runas": {
-      "libros_es": 2,
-      "pendientes": 1
-    }
-  },
+  "grupos": {},
   "hijos": {
+    "28166967031": [
+      [
+        "202398619031",
+        "Adaptaciones"
+      ],
+      [
+        "202398618031",
+        "Antologías"
+      ],
+      [
+        "202398616031",
+        "Biografías"
+      ],
+      [
+        "202398621031",
+        "Humorístico"
+      ],
+      [
+        "202398617031",
+        "Literaria y ficticia"
+      ],
+      [
+        "202398620031",
+        "No ficción"
+      ]
+    ],
+    "5382015031": [
+      [
+        "5273746031",
+        "Acción y aventura"
+      ],
+      [
+        "16172035031",
+        "Adaptaciones de TV, películas y videojuegos"
+      ],
+      [
+        "13355862031",
+        "Animales"
+      ],
+      [
+        "5274096031",
+        "Clásicos"
+      ],
+      [
+        "13355976031",
+        "Coches, trenes y otros vehículos"
+      ],
+      [
+        "13356116031",
+        "Colecciones de cuentos cortos"
+      ],
+      [
+        "211757958031",
+        "Comunidad y vecinos"
+      ],
+      [
+        "13356117031",
+        "Crítica literaria y colecciones"
+      ],
+      [
+        "206206085031",
+        "Cuentos de embaucadores"
+      ],
+      [
+        "13356025031",
+        "Desarrollo y cuestiones personales y sociales"
+      ],
+      [
+        "16172002031",
+        "Drama"
+      ],
+      [
+        "902641031",
+        "Ficción histórica"
+      ],
+      [
+        "13356129031",
+        "Ficción religiosa"
+      ],
+      [
+        "13356134031",
+        "Novelas ligeras"
+      ],
+      [
+        "13356121031",
+        "Oeste americano"
+      ],
+      [
+        "5273764031",
+        "Poesía"
+      ],
+      [
+        "13356130031",
+        "Primeras lecturas y lectores"
+      ],
+      [
+        "16172034031",
+        "Viajes"
+      ]
+    ],
     "599365031": [
       [
         "902486031",
@@ -1082,6 +1154,279 @@
         "Sociedad y ciencias sociales"
       ]
     ],
+    "902516031": [
+      [
+        "28166967031",
+        "Cómics y novelas gráficas"
+      ],
+      [
+        "14759429031",
+        "Cómo crear cómics y manga"
+      ],
+      [
+        "28166968031",
+        "Manga"
+      ]
+    ],
+    "902595031": [
+      [
+        "203568962031",
+        "Bitcoin y criptomonedas"
+      ],
+      [
+        "902596031",
+        "Economía"
+      ],
+      [
+        "902597031",
+        "Empresa, estrategia y gestión"
+      ],
+      [
+        "902598031",
+        "Industria y sectores económicos"
+      ]
+    ],
+    "902597031": [],
+    "902621031": [
+      [
+        "5272307031",
+        "Actividades, manualidades y juegos"
+      ],
+      [
+        "5272178031",
+        "Animales y mascotas"
+      ],
+      [
+        "902632031",
+        "Aprendizaje temprano"
+      ],
+      [
+        "5272146031",
+        "Arte, música y fotografía"
+      ],
+      [
+        "13355923031",
+        "Biografías"
+      ],
+      [
+        "5272177031",
+        "Ciencia, naturaleza y cómo funciona"
+      ],
+      [
+        "5272181031",
+        "Coches, trenes y otros vehículos"
+      ],
+      [
+        "5273743031",
+        "Cuentos, fábulas y mitos"
+      ],
+      [
+        "902622031",
+        "Cómics y novelas gráficas"
+      ],
+      [
+        "5272297031",
+        "Deporte y juegos al aire libre"
+      ],
+      [
+        "902626031",
+        "Desarrollo y cuestiones personales y sociales"
+      ],
+      [
+        "902623031",
+        "Educación y consulta"
+      ],
+      [
+        "1349108031",
+        "Fantasía y ciencia ficción"
+      ],
+      [
+        "5272184031",
+        "Historia"
+      ],
+      [
+        "5272306031",
+        "Humor"
+      ],
+      [
+        "5382015031",
+        "Literatura y ficción"
+      ],
+      [
+        "5272187031",
+        "Lugares y culturas"
+      ],
+      [
+        "13356163031",
+        "Misterios y detectives"
+      ],
+      [
+        "5328472031",
+        "Ordenadores y tecnología"
+      ],
+      [
+        "5272188031",
+        "Religión"
+      ],
+      [
+        "13356180031",
+        "Vacaciones y celebraciones"
+      ]
+    ],
+    "902626031": [
+      [
+        "13356014031",
+        "Amistad, situaciones sociales y vida escolar"
+      ],
+      [
+        "16171996031",
+        "LGBTQ+"
+      ],
+      [
+        "5272840031",
+        "Salud"
+      ],
+      [
+        "13356037031",
+        "Temas sensibles"
+      ],
+      [
+        "5272844031",
+        "Vida familiar"
+      ]
+    ],
+    "902632031": [
+      [
+        "13355889031",
+        "Alfabeto"
+      ],
+      [
+        "13355890031",
+        "Colores"
+      ],
+      [
+        "13355892031",
+        "El cuerpo humano"
+      ],
+      [
+        "13355893031",
+        "El tiempo"
+      ],
+      [
+        "13355894031",
+        "Estaciones"
+      ],
+      [
+        "206205995031",
+        "Idioma"
+      ],
+      [
+        "13355891031",
+        "Números y contar"
+      ],
+      [
+        "13355895031",
+        "Opuestos"
+      ],
+      [
+        "13355896031",
+        "Palabras"
+      ],
+      [
+        "13355900031",
+        "Rimas y versos"
+      ],
+      [
+        "13355897031",
+        "Sentidos y sensaciones"
+      ],
+      [
+        "13355898031",
+        "Sonidos"
+      ],
+      [
+        "13355899031",
+        "Tamaños y formas"
+      ]
+    ],
+    "902674031": [
+      [
+        "902675031",
+        "Acción y aventura"
+      ],
+      [
+        "14177597031",
+        "Ensayos y correspondencia"
+      ],
+      [
+        "902679031",
+        "Ficción clásica"
+      ],
+      [
+        "902680031",
+        "Ficción contemporánea"
+      ],
+      [
+        "13440889031",
+        "Ficción erótica"
+      ],
+      [
+        "14177602031",
+        "Ficción femenina"
+      ],
+      [
+        "902682031",
+        "Ficción histórica"
+      ],
+      [
+        "14177618031",
+        "Ficción por género"
+      ],
+      [
+        "30465606031",
+        "Ficción sobre discapacidad"
+      ],
+      [
+        "902690031",
+        "Historia, teoría literaria y crítica"
+      ],
+      [
+        "14177706031",
+        "Historias cortas y antologías"
+      ],
+      [
+        "14177707031",
+        "Humor y sátira"
+      ],
+      [
+        "14177711031",
+        "Literaria"
+      ],
+      [
+        "14177712031",
+        "Literatura antigua y medieval"
+      ],
+      [
+        "14177717031",
+        "Literatura española"
+      ],
+      [
+        "14177718031",
+        "Literatura mundial"
+      ],
+      [
+        "902684031",
+        "Mitos, leyendas y sagas"
+      ],
+      [
+        "902691031",
+        "Poesía"
+      ],
+      [
+        "902692031",
+        "Teatro"
+      ]
+    ],
     "902716031": [
       [
         "902717031",
@@ -1099,17 +1444,24 @@
         "902720031",
         "Mente, cuerpo y espiritualidad"
       ]
-    ]
+    ],
+    "902718031": [],
+    "902719031": []
   },
-  "libros_es": 337,
-  "origen": {},
-  "particiones": 85,
-  "peticiones": 137,
+  "libros_es": 2955,
+  "origen": {
+    "Editorial Matchstories": "Matchstories"
+  },
+  "particiones": 259,
+  "peticiones": 616,
   "reintentos": 518,
   "reintentos_dia": "2026-11-08",
-  "segundos": 154,
-  "sellos_leidos": 7,
-  "sellos_llenos": 4,
-  "sellos_nuevos": 10,
-  "variantes_probadas": []
+  "segundos": 533,
+  "sellos_leidos": 61,
+  "sellos_llenos": 23,
+  "sellos_nuevos": 31,
+  "sellos_saltados": 3,
+  "variantes_probadas": [
+    "matchstories|editorial matchstories"
+  ]
 }
