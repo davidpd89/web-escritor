@@ -1016,6 +1016,14 @@
       "primera_deteccion": "2026-11-01",
       "publicado_en": "2026-11-01"
     },
+    "isbn13:9780241838075": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9780241838075",
+      "libro_id": "isbn-9780241838075",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9780241839362": {
       "datos": {
         "autores": [
@@ -1239,6 +1247,14 @@
       "libro_id": "isbn-9781668270493",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9782811699475": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9782811699475",
+      "libro_id": "isbn-9782811699475",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9786073860284": {
       "estado_ingesta": "publicado",
@@ -1616,6 +1632,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9786073878746": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9786073878746",
+      "libro_id": "isbn-9786073878746",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9786073878760": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -1687,6 +1711,14 @@
       "libro_id": "isbn-9786073879156",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9786073879200": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9786073879200",
+      "libro_id": "isbn-9786073879200",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9786073879293": {
       "estado_ingesta": "publicado",
@@ -2200,6 +2232,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9786310182353": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9786310182353",
+      "libro_id": "isbn-9786310182353",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9786316863201": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -2652,12 +2692,14 @@
       "publicado_en": "2026-11-02"
     },
     "isbn13:9788401039898": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libro-de-biografias/637733-libro-martin-vigil-el-amigo-amable-9788401039898",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 1,
       "isbn13": "9788401039898",
+      "libro_id": "isbn-9788401039898",
       "motivo": "The read operation timed out",
       "primera_deteccion": "2026-11-05",
+      "publicado_en": "2026-11-08",
       "retry_after": "2026-11-08"
     },
     "isbn13:9788401039928": {
@@ -2875,6 +2917,14 @@
       "libro_id": "isbn-9788401040740",
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9788401040894": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788401040894",
+      "libro_id": "isbn-9788401040894",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788401041723": {
       "datos": {
@@ -3238,6 +3288,14 @@
       "libro_id": "isbn-9788402431486",
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-21"
+    },
+    "isbn13:9788402431554": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788402431554",
+      "libro_id": "isbn-9788402431554",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788402431578": {
       "datos": {
@@ -4203,6 +4261,14 @@
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
     },
+    "isbn13:9788408064336": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408064336",
+      "libro_id": "isbn-9788408064336",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788408074496": {
       "datos": {
         "autores": [
@@ -4430,6 +4496,14 @@
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
+    "isbn13:9788408311454": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408311454",
+      "libro_id": "isbn-9788408311454",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788408313762": {
       "datos": {
         "autores": [
@@ -4511,6 +4585,30 @@
       "libro_id": "isbn-9788408313779",
       "primera_deteccion": "2026-11-04",
       "publicado_en": "2026-11-04"
+    },
+    "isbn13:9788408314592": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408314592",
+      "libro_id": "isbn-9788408314592",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788408315186": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408315186",
+      "libro_id": "isbn-9788408315186",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788408316022": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408316022",
+      "libro_id": "isbn-9788408316022",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788408316572": {
       "datos": {
@@ -4609,12 +4707,14 @@
       "publicado_en": "2026-11-08"
     },
     "isbn13:9788408318163": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/el-gran-libro-de-los-colores-de-osito-tito_978-84-08-31816-3",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 1,
       "isbn13": "9788408318163",
+      "libro_id": "isbn-9788408318163",
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
+      "publicado_en": "2026-11-08",
       "retry_after": "2027-05-05"
     },
     "isbn13:9788408319238": {
@@ -4663,6 +4763,14 @@
       "libro_id": "isbn-9788408319238",
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9788408319337": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408319337",
+      "libro_id": "isbn-9788408319337",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788408319931": {
       "datos": {
@@ -4758,6 +4866,14 @@
       "libro_id": "isbn-9788408320890",
       "primera_deteccion": "2026-11-01",
       "publicado_en": "2026-11-01"
+    },
+    "isbn13:9788408321255": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408321255",
+      "libro_id": "isbn-9788408321255",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788408321361": {
       "datos": {
@@ -7718,6 +7834,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788408327905": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408327905",
+      "libro_id": "isbn-9788408327905",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788408327967": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -7725,6 +7849,14 @@
       "libro_id": "isbn-9788408327967",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788408327998": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408327998",
+      "libro_id": "isbn-9788408327998",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788408328018": {
       "estado_ingesta": "publicado",
@@ -7782,6 +7914,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788408328322": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408328322",
+      "libro_id": "isbn-9788408328322",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788408328384": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -7797,6 +7937,14 @@
       "libro_id": "isbn-9788408328407",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788408328414": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408328414",
+      "libro_id": "isbn-9788408328414",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788408328421": {
       "estado_ingesta": "publicado",
@@ -7835,6 +7983,22 @@
       "fuente": "amazon_catalogo",
       "isbn13": "9788408328575",
       "libro_id": "isbn-9788408328575",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788408328582": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408328582",
+      "libro_id": "isbn-9788408328582",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788408328599": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408328599",
+      "libro_id": "isbn-9788408328599",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -8308,12 +8472,14 @@
         "sinopsis_completa": "¡Celebra el Carnaval con Teo!\n\n¡La fiesta más divertida del año está a la vuelta de la esquina! Una fiesta en la que las travesuras están permitidas y todo el mundo sale a la calle a saltar, cantar y bailar con su disfraz. En el colegio de Teo ya lo tienen casi todo preparado... ¿Acompañas a Teo a disfrutar de esta época tan especial?\n\nTeo descubre el mundo es una colección con más de 40...",
         "titulo": "Teo se disfraza"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.planetadelibros.com/libro-teo-se-disfraza/462671",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 7,
       "isbn13": "9788408329657",
+      "libro_id": "isbn-9788408329657",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-02",
+      "publicado_en": "2026-11-08",
       "retry_after": "2026-11-09"
     },
     "isbn13:9788408329831": {
@@ -9464,6 +9630,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788408331599": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788408331599",
+      "libro_id": "isbn-9788408331599",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788408331612": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -9800,6 +9974,30 @@
       "primera_deteccion": "2026-11-04",
       "retry_after": "2027-01-22"
     },
+    "isbn13:9788409884339": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409884339",
+      "libro_id": "isbn-9788409884339",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409912865": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409912865",
+      "libro_id": "isbn-9788409912865",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409917600": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409917600",
+      "libro_id": "isbn-9788409917600",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788409921065": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -9824,11 +10022,83 @@
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
+    "isbn13:9788409923762": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409923762",
+      "libro_id": "isbn-9788409923762",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409926671": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409926671",
+      "libro_id": "isbn-9788409926671",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409927210": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409927210",
+      "libro_id": "isbn-9788409927210",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788409927340": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
       "isbn13": "9788409927340",
       "libro_id": "isbn-9788409927340",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409929177": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409929177",
+      "libro_id": "isbn-9788409929177",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409929757": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409929757",
+      "libro_id": "isbn-9788409929757",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409930685": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409930685",
+      "libro_id": "isbn-9788409930685",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409934010": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409934010",
+      "libro_id": "isbn-9788409934010",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409934409": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409934409",
+      "libro_id": "isbn-9788409934409",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409936601": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409936601",
+      "libro_id": "isbn-9788409936601",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -9840,11 +10110,59 @@
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
+    "isbn13:9788409938865": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409938865",
+      "libro_id": "isbn-9788409938865",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409938964": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409938964",
+      "libro_id": "isbn-9788409938964",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409939756": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409939756",
+      "libro_id": "isbn-9788409939756",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788409942466": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
       "isbn13": "9788409942466",
       "libro_id": "isbn-9788409942466",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409943098": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409943098",
+      "libro_id": "isbn-9788409943098",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409943760": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409943760",
+      "libro_id": "isbn-9788409943760",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788409945122": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788409945122",
+      "libro_id": "isbn-9788409945122",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -9865,6 +10183,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9788410033030": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410033030",
+      "libro_id": "isbn-9788410033030",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788410050594": {
       "estado_ingesta": "publicado",
@@ -10617,6 +10943,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788410180604": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410180604",
+      "libro_id": "isbn-9788410180604",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788410182523": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/el-umbral-y-el-libro-de-cuentas_978-84-10182-52-3",
@@ -10634,6 +10968,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9788410192300": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410192300",
+      "libro_id": "isbn-9788410192300",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788410192386": {
       "estado_ingesta": "publicado",
@@ -10753,6 +11095,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788410206991": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410206991",
+      "libro_id": "isbn-9788410206991",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788410212725": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/una-lengua-siempre-extranjera_978-84-10212-72-5",
@@ -10770,6 +11120,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9788410252684": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410252684",
+      "libro_id": "isbn-9788410252684",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788410254367": {
       "estado_ingesta": "pendiente_datos",
@@ -10858,11 +11216,27 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788410279612": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410279612",
+      "libro_id": "isbn-9788410279612",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788410279629": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
       "isbn13": "9788410279629",
       "libro_id": "isbn-9788410279629",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788410279636": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410279636",
+      "libro_id": "isbn-9788410279636",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -10904,6 +11278,14 @@
       "fuente": "amazon_catalogo",
       "isbn13": "9788410301214",
       "libro_id": "isbn-9788410301214",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788410305106": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410305106",
+      "libro_id": "isbn-9788410305106",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -11046,6 +11428,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788410315594": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410315594",
+      "libro_id": "isbn-9788410315594",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788410316386": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/shakespearek-ez-zuen-inoiz-egin_978-84-10316-38-6",
@@ -11054,6 +11444,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9788410318526": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410318526",
+      "libro_id": "isbn-9788410318526",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788410318557": {
       "datos": {
@@ -11379,6 +11777,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788410362338": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410362338",
+      "libro_id": "isbn-9788410362338",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788410362604": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -11447,6 +11853,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788410380219": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410380219",
+      "libro_id": "isbn-9788410380219",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788410387362": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/besties-fastigoses_978-84-10387-36-2",
@@ -11490,6 +11904,14 @@
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
+    "isbn13:9788410391796": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410391796",
+      "libro_id": "isbn-9788410391796",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788410391802": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -11497,6 +11919,22 @@
       "libro_id": "isbn-9788410391802",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788410391826": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410391826",
+      "libro_id": "isbn-9788410391826",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788410391888": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410391888",
+      "libro_id": "isbn-9788410391888",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788410398191": {
       "estado_ingesta": "pendiente_datos",
@@ -11525,6 +11963,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788410399327": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410399327",
+      "libro_id": "isbn-9788410399327",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788410399426": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -11541,6 +11987,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9788410404366": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410404366",
+      "libro_id": "isbn-9788410404366",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788410404403": {
       "estado_ingesta": "publicado",
@@ -11573,6 +12027,14 @@
       "fuente": "amazon_catalogo",
       "isbn13": "9788410418622",
       "libro_id": "isbn-9788410418622",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788410424524": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410424524",
+      "libro_id": "isbn-9788410424524",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -11707,12 +12169,14 @@
       "publicado_en": "2026-11-06"
     },
     "isbn13:9788410438491": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/tios-y-tias_978-84-10438-49-1",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 1,
       "isbn13": "9788410438491",
+      "libro_id": "isbn-9788410438491",
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
+      "publicado_en": "2026-11-08",
       "retry_after": "2027-05-05"
     },
     "isbn13:9788410439498": {
@@ -11830,6 +12294,14 @@
       "libro_id": "isbn-9788410442856",
       "primera_deteccion": "2026-11-05",
       "publicado_en": "2026-11-05"
+    },
+    "isbn13:9788410463523": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410463523",
+      "libro_id": "isbn-9788410463523",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788410466470": {
       "datos": {
@@ -12069,6 +12541,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788410476608": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410476608",
+      "libro_id": "isbn-9788410476608",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788410476653": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/memorias-de-sobremesa_978-84-10476-65-3",
@@ -12186,6 +12666,14 @@
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-21",
       "retry_after": "2026-10-24"
+    },
+    "isbn13:9788410496569": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410496569",
+      "libro_id": "isbn-9788410496569",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788410523906": {
       "estado_ingesta": "publicado",
@@ -12582,6 +13070,14 @@
       "fuente": "amazon_catalogo",
       "isbn13": "9788410648371",
       "libro_id": "isbn-9788410648371",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788410648777": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410648777",
+      "libro_id": "isbn-9788410648777",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -13411,6 +13907,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788410908550": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410908550",
+      "libro_id": "isbn-9788410908550",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788410929241": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/tu-cuerpo-no-es-el-problema_978-84-1092-924-1",
@@ -13654,6 +14158,22 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788410944091": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410944091",
+      "libro_id": "isbn-9788410944091",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788410944107": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410944107",
+      "libro_id": "isbn-9788410944107",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788410944114": {
       "datos": {
         "autores": [
@@ -13832,6 +14352,14 @@
       "libro_id": "isbn-9788410944183",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788410944206": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788410944206",
+      "libro_id": "isbn-9788410944206",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788410944329": {
       "datos": {
@@ -14392,6 +14920,14 @@
       "libro_id": "isbn-9788411078474",
       "primera_deteccion": "2026-10-25",
       "publicado_en": "2026-10-25"
+    },
+    "isbn13:9788411078504": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788411078504",
+      "libro_id": "isbn-9788411078504",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788411078535": {
       "estado_ingesta": "publicado",
@@ -15132,6 +15668,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788411239554": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788411239554",
+      "libro_id": "isbn-9788411239554",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788411326421": {
       "datos": {
         "autores": [
@@ -15362,6 +15906,14 @@
       "primera_deteccion": "2026-11-04",
       "publicado_en": "2026-11-04"
     },
+    "isbn13:9788411490801": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788411490801",
+      "libro_id": "isbn-9788411490801",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788411575706": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/gente-al-dia-3-edicion-hibrida-para-estudiantes_978-84-1157-570-6",
@@ -15535,6 +16087,14 @@
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
+    "isbn13:9788411724449": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788411724449",
+      "libro_id": "isbn-9788411724449",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788411732475": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/com-guanyar-els-fatxes_978-84-1173-247-5",
@@ -15669,6 +16229,14 @@
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
+    "isbn13:9788411782982": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788411782982",
+      "libro_id": "isbn-9788411782982",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788411783095": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/sota-la-lluna-de-l-olivera_978-84-1178-309-5",
@@ -15713,6 +16281,14 @@
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
+    "isbn13:9788412486483": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788412486483",
+      "libro_id": "isbn-9788412486483",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788412513059": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/los-pajaros-seran-arboles_978-84-125130-5-9",
@@ -15730,6 +16306,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9788412792584": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788412792584",
+      "libro_id": "isbn-9788412792584",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788412828061": {
       "datos": {
@@ -15767,6 +16351,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788412851564": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788412851564",
+      "libro_id": "isbn-9788412851564",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788412856798": {
       "datos": {
         "autores": [
@@ -15802,6 +16394,14 @@
       "libro_id": "isbn-9788412856798",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788412872781": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788412872781",
+      "libro_id": "isbn-9788412872781",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788412944068": {
       "estado_ingesta": "pendiente_datos",
@@ -15848,6 +16448,22 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788412963595": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788412963595",
+      "libro_id": "isbn-9788412963595",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788412972566": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788412972566",
+      "libro_id": "isbn-9788412972566",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788412977677": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/como-se-hace-oir-el-mundo_978-84-129776-7-7",
@@ -15857,11 +16473,43 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2026-11-09"
     },
+    "isbn13:9788412983449": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788412983449",
+      "libro_id": "isbn-9788412983449",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788412986938": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
       "isbn13": "9788412986938",
       "libro_id": "isbn-9788412986938",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788412988833": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788412988833",
+      "libro_id": "isbn-9788412988833",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788412993479": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788412993479",
+      "libro_id": "isbn-9788412993479",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788412994957": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788412994957",
+      "libro_id": "isbn-9788412994957",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -16096,6 +16744,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9788413434568": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788413434568",
+      "libro_id": "isbn-9788413434568",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788413434575": {
       "estado_ingesta": "pendiente_datos",
@@ -16336,11 +16992,13 @@
         "sinopsis_completa": "Tres guías imprescindibles que cambiarán tu forma de vivir la menopausia\n\nLejos de vivir la menopausia como un final, Marta Marcè propone entenderla como una oportunidad para conocerte mejor, cuidar de tu salud y construir una nueva etapa llena de confort. A partir de la evidencia científica y de su propia experiencia, pone a tu alcance las herramientas necesarias para comprender los cambios...",
         "titulo": "Estuche Vive tu menopausia"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.planetadelibros.com/libro-estuche-vive-tu-menopausia/461612",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "isbn13": "9788413445717",
+      "libro_id": "isbn-9788413445717",
       "motivo": "Estuche o pack: requiere relación de obras comprobada",
       "primera_deteccion": "2026-11-02",
+      "publicado_en": "2026-11-08",
       "retry_after": "2026-11-06"
     },
     "isbn13:9788413445793": {
@@ -16630,6 +17288,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788413617732": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788413617732",
+      "libro_id": "isbn-9788413617732",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788413617879": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/nadie-elige-cuando-nace_978-84-1361-787-9",
@@ -16755,6 +17421,22 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788413643687": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788413643687",
+      "libro_id": "isbn-9788413643687",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788413643694": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788413643694",
+      "libro_id": "isbn-9788413643694",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788413643700": {
       "datos": {
         "autores": [
@@ -16864,6 +17546,62 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788413686523": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788413686523",
+      "libro_id": "isbn-9788413686523",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788413686561": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788413686561",
+      "libro_id": "isbn-9788413686561",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788414071038": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788414071038",
+      "libro_id": "isbn-9788414071038",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788414072721": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788414072721",
+      "libro_id": "isbn-9788414072721",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788414074916": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788414074916",
+      "libro_id": "isbn-9788414074916",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788414075043": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788414075043",
+      "libro_id": "isbn-9788414075043",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788414360262": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788414360262",
+      "libro_id": "isbn-9788414360262",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788414362952": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -16915,6 +17653,14 @@
       "motivo": "Materia editorial no clasificada; queda pendiente",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2026-11-09"
+    },
+    "isbn13:9788415955559": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788415955559",
+      "libro_id": "isbn-9788415955559",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788415955627": {
       "estado_ingesta": "publicado",
@@ -17146,6 +17892,22 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788417575847": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788417575847",
+      "libro_id": "isbn-9788417575847",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788417624279": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788417624279",
+      "libro_id": "isbn-9788417624279",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788417645298": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/los-espantajos_978-84-17645-29-8",
@@ -17190,6 +17952,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9788418052095": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788418052095",
+      "libro_id": "isbn-9788418052095",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788418053696": {
       "datos": {
@@ -17377,6 +18147,22 @@
       "primera_deteccion": "2026-11-02",
       "retry_after": "2027-11-06"
     },
+    "isbn13:9788418308369": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788418308369",
+      "libro_id": "isbn-9788418308369",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788418335952": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788418335952",
+      "libro_id": "isbn-9788418335952",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788418347986": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -17412,12 +18198,14 @@
       "retry_after": "2027-05-05"
     },
     "isbn13:9788418431432": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/pensad-en-flebas_978-84-18431-43-2",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 1,
       "isbn13": "9788418431432",
+      "libro_id": "isbn-9788418431432",
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
+      "publicado_en": "2026-11-08",
       "retry_after": "2027-05-05"
     },
     "isbn13:9788418538100": {
@@ -17656,6 +18444,14 @@
       "libro_id": "isbn-9788418567933",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788418607820": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788418607820",
+      "libro_id": "isbn-9788418607820",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788418680717": {
       "estado_ingesta": "pendiente_datos",
@@ -17947,6 +18743,14 @@
       "primera_deteccion": "2026-11-05",
       "retry_after": "2027-11-06"
     },
+    "isbn13:9788419018892": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419018892",
+      "libro_id": "isbn-9788419018892",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788419026347": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/el-obispo-leproso_978-84-19026-34-7",
@@ -18029,6 +18833,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9788419135650": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419135650",
+      "libro_id": "isbn-9788419135650",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788419168986": {
       "estado_ingesta": "pendiente_datos",
@@ -18453,6 +19265,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788419426574": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419426574",
+      "libro_id": "isbn-9788419426574",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788419434210": {
       "datos": {
         "autores": [
@@ -18850,6 +19670,14 @@
       "primera_deteccion": "2026-11-05",
       "publicado_en": "2026-11-05"
     },
+    "isbn13:9788419441928": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419441928",
+      "libro_id": "isbn-9788419441928",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788419456007": {
       "datos": {
         "autores": [
@@ -18903,6 +19731,14 @@
       "libro_id": "isbn-9788419456007",
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-20"
+    },
+    "isbn13:9788419461438": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419461438",
+      "libro_id": "isbn-9788419461438",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788419483867": {
       "datos": {
@@ -19049,6 +19885,14 @@
       "primera_deteccion": "2026-11-01",
       "retry_after": "2026-11-07"
     },
+    "isbn13:9788419509666": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419509666",
+      "libro_id": "isbn-9788419509666",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788419509680": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/rumores-sobre-mi-muerte_978-84-19509-68-0",
@@ -19057,6 +19901,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9788419510983": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419510983",
+      "libro_id": "isbn-9788419510983",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788419514318": {
       "datos": {
@@ -19286,6 +20138,22 @@
       "fuente": "amazon_catalogo",
       "isbn13": "9788419605528",
       "libro_id": "isbn-9788419605528",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788419608581": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419608581",
+      "libro_id": "isbn-9788419608581",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788419670373": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419670373",
+      "libro_id": "isbn-9788419670373",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -19539,11 +20407,27 @@
       "primera_deteccion": "2026-11-05",
       "publicado_en": "2026-11-05"
     },
+    "isbn13:9788419831774": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419831774",
+      "libro_id": "isbn-9788419831774",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788419831897": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
       "isbn13": "9788419831897",
       "libro_id": "isbn-9788419831897",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788419831958": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419831958",
+      "libro_id": "isbn-9788419831958",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -19784,6 +20668,14 @@
       "primera_deteccion": "2026-10-31",
       "publicado_en": "2026-10-31"
     },
+    "isbn13:9788419868800": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419868800",
+      "libro_id": "isbn-9788419868800",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788419868992": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -19918,6 +20810,22 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788419913982": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419913982",
+      "libro_id": "isbn-9788419913982",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788419930279": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419930279",
+      "libro_id": "isbn-9788419930279",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788419943538": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/cesura_978-84-19943-53-8",
@@ -19926,6 +20834,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9788419943576": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788419943576",
+      "libro_id": "isbn-9788419943576",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788419943590": {
       "estado_ingesta": "publicado",
@@ -20626,6 +21542,14 @@
       "libro_id": "isbn-9788423370894",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788423370917": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788423370917",
+      "libro_id": "isbn-9788423370917",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788423370931": {
       "datos": {
@@ -21358,6 +22282,14 @@
       "libro_id": "isbn-9788423441495",
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9788424677763": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788424677763",
+      "libro_id": "isbn-9788424677763",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788424678982": {
       "datos": {
@@ -22697,6 +23629,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788425375989": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788425375989",
+      "libro_id": "isbn-9788425375989",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788425376184": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -22843,6 +23783,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788425451669": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788425451669",
+      "libro_id": "isbn-9788425451669",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788425452901": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -22888,6 +23836,14 @@
       "libro_id": "isbn-9788425453304",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788425454042": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788425454042",
+      "libro_id": "isbn-9788425454042",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788425454189": {
       "datos": {
@@ -23083,6 +24039,14 @@
       "libro_id": "isbn-9788426433282",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788426433909": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788426433909",
+      "libro_id": "isbn-9788426433909",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788426434272": {
       "datos": {
@@ -23333,6 +24297,22 @@
       "fuente": "amazon_catalogo",
       "isbn13": "9788426742575",
       "libro_id": "isbn-9788426742575",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788426742810": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788426742810",
+      "libro_id": "isbn-9788426742810",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788426742841": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788426742841",
+      "libro_id": "isbn-9788426742841",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -24869,6 +25849,22 @@
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
+    "isbn13:9788428377355": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788428377355",
+      "libro_id": "isbn-9788428377355",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788428377393": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788428377393",
+      "libro_id": "isbn-9788428377393",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788428572705": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/oraciones-de-siempre_978-84-285-7270-5",
@@ -25151,6 +26147,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2026-11-09"
     },
+    "isbn13:9788428575928": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788428575928",
+      "libro_id": "isbn-9788428575928",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788428575997": {
       "datos": {
         "autores": [
@@ -25237,6 +26241,22 @@
       "fuente": "amazon_catalogo",
       "isbn13": "9788429030372",
       "libro_id": "isbn-9788429030372",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788429030389": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788429030389",
+      "libro_id": "isbn-9788429030389",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788429030396": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788429030396",
+      "libro_id": "isbn-9788429030396",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -25385,6 +26405,14 @@
       "fuente": "amazon_catalogo",
       "isbn13": "9788430628438",
       "libro_id": "isbn-9788430628438",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788430628636": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788430628636",
+      "libro_id": "isbn-9788430628636",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -25912,6 +26940,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788432175237": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788432175237",
+      "libro_id": "isbn-9788432175237",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788432175299": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/nuestra-mirada-ciega-ante-la-luz_978-84-321-7529-9",
@@ -26272,6 +27308,14 @@
       "libro_id": "isbn-9788433947017",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788433948854": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788433948854",
+      "libro_id": "isbn-9788433948854",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788433949394": {
       "datos": {
@@ -27273,6 +28317,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788434031616": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788434031616",
+      "libro_id": "isbn-9788434031616",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788434440937": {
       "datos": {
         "autores": [
@@ -27772,6 +28824,22 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788437508726": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788437508726",
+      "libro_id": "isbn-9788437508726",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788437650586": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788437650586",
+      "libro_id": "isbn-9788437650586",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788439746621": {
       "datos": {
         "autores": [
@@ -28050,6 +29118,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9788441445352": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788441445352",
+      "libro_id": "isbn-9788441445352",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788441445369": {
       "datos": {
         "autores": [
@@ -28296,6 +29372,14 @@
       "libro_id": "isbn-9788445022061",
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
+    },
+    "isbn13:9788445022085": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788445022085",
+      "libro_id": "isbn-9788445022085",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788445022481": {
       "datos": {
@@ -29817,6 +30901,14 @@
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
     },
+    "isbn13:9788448874858": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788448874858",
+      "libro_id": "isbn-9788448874858",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788448874865": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -30160,6 +31252,14 @@
       "libro_id": "isbn-9788448875435",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788448875541": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788448875541",
+      "libro_id": "isbn-9788448875541",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788448875640": {
       "estado_ingesta": "publicado",
@@ -30698,6 +31798,14 @@
       "libro_id": "isbn-9788449346446",
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
+    },
+    "isbn13:9788449602122": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788449602122",
+      "libro_id": "isbn-9788449602122",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788466246262": {
       "datos": {
@@ -31404,6 +32512,14 @@
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-11-05"
     },
+    "isbn13:9788466392112": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788466392112",
+      "libro_id": "isbn-9788466392112",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788466392143": {
       "datos": {
         "autores": [
@@ -31836,6 +32952,14 @@
       "primera_deteccion": "2026-11-05",
       "publicado_en": "2026-11-05"
     },
+    "isbn13:9788466393843": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788466393843",
+      "libro_id": "isbn-9788466393843",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788466393850": {
       "datos": {
         "autores": [
@@ -32093,6 +33217,14 @@
       "libro_id": "isbn-9788466394703",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788466394758": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788466394758",
+      "libro_id": "isbn-9788466394758",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788466394963": {
       "estado_ingesta": "publicado",
@@ -32642,6 +33774,14 @@
       "primera_deteccion": "2026-11-02",
       "publicado_en": "2026-11-02"
     },
+    "isbn13:9788466684088": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788466684088",
+      "libro_id": "isbn-9788466684088",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788466684101": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -33052,6 +34192,14 @@
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
     },
+    "isbn13:9788466685863": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788466685863",
+      "libro_id": "isbn-9788466685863",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788466685979": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -33169,6 +34317,14 @@
       "libro_id": "isbn-9788466686884",
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-11-01"
+    },
+    "isbn13:9788466687140": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788466687140",
+      "libro_id": "isbn-9788466687140",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788466687188": {
       "datos": {
@@ -33294,6 +34450,14 @@
       "libro_id": "isbn-9788467081480",
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
+    },
+    "isbn13:9788467082296": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788467082296",
+      "libro_id": "isbn-9788467082296",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788467082975": {
       "estado_ingesta": "publicado",
@@ -33995,6 +35159,14 @@
       "primera_deteccion": "2026-11-03",
       "publicado_en": "2026-11-03"
     },
+    "isbn13:9788467084061": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788467084061",
+      "libro_id": "isbn-9788467084061",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788467084085": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -34153,6 +35325,22 @@
       "primera_deteccion": "2026-11-04",
       "publicado_en": "2026-11-04"
     },
+    "isbn13:9788467084382": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788467084382",
+      "libro_id": "isbn-9788467084382",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788467084429": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788467084429",
+      "libro_id": "isbn-9788467084429",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788467084443": {
       "datos": {
         "autores": [
@@ -34272,6 +35460,14 @@
       "libro_id": "isbn-9788467084498",
       "primera_deteccion": "2026-11-04",
       "publicado_en": "2026-11-04"
+    },
+    "isbn13:9788467084511": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788467084511",
+      "libro_id": "isbn-9788467084511",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788467084542": {
       "datos": {
@@ -34997,6 +36193,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9788467979534": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788467979534",
+      "libro_id": "isbn-9788467979534",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9788467979688": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -35251,6 +36455,14 @@
       "libro_id": "isbn-9788467984422",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788467984439": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788467984439",
+      "libro_id": "isbn-9788467984439",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788467984507": {
       "estado_ingesta": "pendiente_datos",
@@ -35542,13 +36754,23 @@
       "retry_after": "2027-05-05"
     },
     "isbn13:9788467985955": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/matteo-edicion-integral_978-84-679-8595-5",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 1,
       "isbn13": "9788467985955",
+      "libro_id": "isbn-9788467985955",
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
+      "publicado_en": "2026-11-08",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9788467985962": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788467985962",
+      "libro_id": "isbn-9788467985962",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788467985986": {
       "estado_ingesta": "pendiente_datos",
@@ -35617,6 +36839,22 @@
       "libro_id": "isbn-9788467986358",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9788467986365": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788467986365",
+      "libro_id": "isbn-9788467986365",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788468379272": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788468379272",
+      "libro_id": "isbn-9788468379272",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788469647158": {
       "estado_ingesta": "publicado",
@@ -36686,6 +37924,22 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9788491459552": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788491459552",
+      "libro_id": "isbn-9788491459552",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9788491459569": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9788491459569",
+      "libro_id": "isbn-9788491459569",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9788491459705": {
       "datos": {
@@ -38204,6 +39458,14 @@
       "publicado_en": "2026-11-08",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9791370205362": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791370205362",
+      "libro_id": "isbn-9791370205362",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791370205393": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/guia-misteriosa-de-triana_979-13-7020-539-3",
@@ -38353,6 +39615,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9791370205881": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791370205881",
+      "libro_id": "isbn-9791370205881",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791370205973": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/la-espanolidad-de-ceuta-y-melilla_979-13-7020-597-3",
@@ -38361,6 +39631,22 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9791370206079": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791370206079",
+      "libro_id": "isbn-9791370206079",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9791370206093": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791370206093",
+      "libro_id": "isbn-9791370206093",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9791370310189": {
       "datos": {
@@ -38633,6 +39919,14 @@
       "motivo": "Faltan título, autoría o sello",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2026-11-09"
+    },
+    "isbn13:9791370313531": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791370313531",
+      "libro_id": "isbn-9791370313531",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9791370340148": {
       "datos": {
@@ -41276,11 +42570,27 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9791387605964": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791387605964",
+      "libro_id": "isbn-9791387605964",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791387624392": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
       "isbn13": "9791387624392",
       "libro_id": "isbn-9791387624392",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9791387624484": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791387624484",
+      "libro_id": "isbn-9791387624484",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -41933,6 +43243,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9791387688165": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791387688165",
+      "libro_id": "isbn-9791387688165",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9791387690632": {
       "estado_ingesta": "publicado",
@@ -42913,6 +44231,22 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9791387748166": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791387748166",
+      "libro_id": "isbn-9791387748166",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9791387748845": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791387748845",
+      "libro_id": "isbn-9791387748845",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791387749316": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -43803,12 +45137,14 @@
         "sinopsis_completa": "Vive nuevas aventuras junto con Lilo y Stitch con este libro y proyecta imágenes a medida que lees\n\n¡Prepárate para unas cuantas travesuras con Stitch! Ya sea compitiendo en un concurso canino, celebrando el Día de las Mascotas en la escuela o desafiando las olas en una competición de surf en las playas hawaianas, acompaña a la familia Pelekai en cada una de estas emocionantes aventuras con...",
         "titulo": "Stitch. Cine en casa"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.planetadelibros.com/libro-stitch-cine-en-casa/444061",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "intentos": 7,
       "isbn13": "9791387901400",
+      "libro_id": "isbn-9791387901400",
       "motivo": "Cubierta ausente, pequeña o proporción incompatible",
       "primera_deteccion": "2026-11-04",
+      "publicado_en": "2026-11-08",
       "retry_after": "2026-11-09"
     },
     "isbn13:9791387901813": {
@@ -44369,6 +45705,14 @@
       "libro_id": "isbn-9791387904968",
       "primera_deteccion": "2026-11-01",
       "publicado_en": "2026-11-01"
+    },
+    "isbn13:9791387905064": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791387905064",
+      "libro_id": "isbn-9791387905064",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9791387905309": {
       "datos": {
@@ -46936,6 +48280,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9791387969608": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791387969608",
+      "libro_id": "isbn-9791387969608",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791387972110": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -48057,6 +49409,14 @@
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
+    "isbn13:9791388002045": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388002045",
+      "libro_id": "isbn-9791388002045",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791388003172": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/ms-tree-3-un-plato-frio_979-13-88003-17-2",
@@ -48249,6 +49609,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9791388032714": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388032714",
+      "libro_id": "isbn-9791388032714",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791388032721": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -48257,6 +49625,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9791388032752": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388032752",
+      "libro_id": "isbn-9791388032752",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791388032882": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -48264,6 +49640,14 @@
       "libro_id": "isbn-9791388032882",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9791388032998": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388032998",
+      "libro_id": "isbn-9791388032998",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9791388034510": {
       "estado_ingesta": "publicado",
@@ -49419,6 +50803,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9791388051135": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388051135",
+      "libro_id": "isbn-9791388051135",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9791388054303": {
       "estado_ingesta": "publicado",
@@ -51595,6 +52987,14 @@
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
+    "isbn13:9791388136474": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388136474",
+      "libro_id": "isbn-9791388136474",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791388136610": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -52164,6 +53564,14 @@
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
+    "isbn13:9791388154638": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388154638",
+      "libro_id": "isbn-9791388154638",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791388154645": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/star-wars-y-la-ciencia_979-13-88154-64-5",
@@ -52258,6 +53666,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9791388154973": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388154973",
+      "libro_id": "isbn-9791388154973",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9791388155284": {
       "estado_ingesta": "pendiente_datos",
@@ -52784,6 +54200,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9791388205576": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388205576",
+      "libro_id": "isbn-9791388205576",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791388205590": {
       "datos": {
         "autores": [
@@ -52828,6 +54252,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9791388205774": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388205774",
+      "libro_id": "isbn-9791388205774",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791388205866": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -52841,6 +54273,14 @@
       "fuente": "amazon_catalogo",
       "isbn13": "9791388205873",
       "libro_id": "isbn-9791388205873",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9791388211126": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388211126",
+      "libro_id": "isbn-9791388211126",
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
@@ -55583,6 +57023,14 @@
       "primera_deteccion": "2026-10-31",
       "publicado_en": "2026-10-31"
     },
+    "isbn13:9791388306198": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388306198",
+      "libro_id": "isbn-9791388306198",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791388306242": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -55773,6 +57221,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9791388306365": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388306365",
+      "libro_id": "isbn-9791388306365",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9791388306389": {
       "datos": {
@@ -56011,12 +57467,22 @@
       "primera_deteccion": "2026-11-08",
       "publicado_en": "2026-11-08"
     },
+    "isbn13:9791388337154": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388337154",
+      "libro_id": "isbn-9791388337154",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791388337192": {
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.todostuslibros.com/libros/x_9791388337192",
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
       "isbn13": "9791388337192",
+      "libro_id": "isbn-9791388337192",
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-04",
+      "publicado_en": "2026-11-08",
       "retry_after": "2026-11-07"
     },
     "isbn13:9791388337215": {
@@ -56768,6 +58234,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9791388412042": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388412042",
+      "libro_id": "isbn-9791388412042",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791388412066": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -56992,6 +58466,14 @@
       "motivo": "Portada editorial ausente",
       "primera_deteccion": "2026-10-21",
       "retry_after": "2026-11-08"
+    },
+    "isbn13:9791388437427": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791388437427",
+      "libro_id": "isbn-9791388437427",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9791388439124": {
       "datos": {
@@ -57980,6 +59462,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9791399122985": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791399122985",
+      "libro_id": "isbn-9791399122985",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791399126082": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.todostuslibros.com/libros/play-boy_979-13-991260-8-2",
@@ -58805,6 +60295,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9791399211467": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791399211467",
+      "libro_id": "isbn-9791399211467",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791399213232": {
       "datos": {
         "autores": [
@@ -58911,6 +60409,14 @@
       "motivo": "Edición no identificada como castellano",
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
+    },
+    "isbn13:9791399224603": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791399224603",
+      "libro_id": "isbn-9791399224603",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9791399229998": {
       "estado_ingesta": "pendiente_datos",
@@ -59163,6 +60669,14 @@
       "primera_deteccion": "2026-11-06",
       "retry_after": "2027-05-05"
     },
+    "isbn13:9791399258516": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9791399258516",
+      "libro_id": "isbn-9791399258516",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9791399263237": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -59398,6 +60912,14 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9798237728583": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9798237728583",
+      "libro_id": "isbn-9798237728583",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9798384561019": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -59562,6 +61084,22 @@
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
     },
+    "isbn13:9798890989369": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9798890989369",
+      "libro_id": "isbn-9798890989369",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
+    "isbn13:9798890989383": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9798890989383",
+      "libro_id": "isbn-9798890989383",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
+    },
     "isbn13:9798890989406": {
       "estado_ingesta": "publicado",
       "fuente": "amazon_catalogo",
@@ -59585,6 +61123,14 @@
       "libro_id": "isbn-9798890989451",
       "primera_deteccion": "2026-11-06",
       "publicado_en": "2026-11-06"
+    },
+    "isbn13:9798890989468": {
+      "estado_ingesta": "publicado",
+      "fuente": "amazon_catalogo",
+      "isbn13": "9798890989468",
+      "libro_id": "isbn-9798890989468",
+      "primera_deteccion": "2026-11-08",
+      "publicado_en": "2026-11-08"
     },
     "isbn13:9798890989536": {
       "estado_ingesta": "publicado",
