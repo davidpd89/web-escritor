@@ -87,15 +87,19 @@ async function assertStructure(page,key){
   const headings=await page.locator('h1,h2,h3').evaluateAll(nodes=>nodes.map(n=>({level:Number(n.tagName[1]),text:n.textContent.trim()})));
   let prev=1; for(const h of headings){assert(h.text,`${key}: heading vacío`);assert(h.level<=prev+1,`${key}: salto de heading H${prev}->H${h.level}`);prev=h.level;}
   // Closed native details retain useful anchors in HTML without rendered text.
-  const links=page.locator('a[href]'); for(let i=0;i<await links.count();i++)assert((await links.nth(i).textContent()).trim()||await links.nth(i).getAttribute('aria-label'),`${key}: enlace sin propósito textual`);
+  // One evaluateAll per page, not one round trip per link: the sitemap has 3,500+ links and grows with every
+  // publisher, and the per-link loop (x7 viewports) pushed this job past its 20-minute timeout (#1223, 2026-11-08).
+  const unnamed=await page.locator('a[href]').evaluateAll(ns=>ns.filter(n=>!n.textContent.trim()&&!n.getAttribute('aria-label')).map(n=>n.getAttribute('href')));
+  assert.deepEqual(unnamed,[],`${key}: enlace sin propósito textual`);
 }
 async function checkTouchTargets(page,key){
-  const targets=page.locator('.findability-links a,.directory-list a,.findability-primary,.findability-plain-list a');
-  for(let i=0;i<await targets.count();i++){
-    if(!await targets.nth(i).isVisible())continue;
-    const box=await targets.nth(i).boundingBox();
-    assert(box&&box.height>=40,`${key}: target <40px: ${(await targets.nth(i).innerText()).trim()} ${box?.height}`);
-  }
+  // Same measurement as Playwright's isVisible()/boundingBox(), in a single evaluateAll (see assertStructure).
+  const small=await page.locator('.findability-links a,.directory-list a,.findability-primary,.findability-plain-list a').evaluateAll(ns=>ns.flatMap(n=>{
+    const box=n.getBoundingClientRect(),style=getComputedStyle(n);
+    if(!box.width||!box.height||style.visibility!=='visible')return [];
+    return box.height>=40?[]:[`${n.innerText.trim()} ${box.height}`];
+  }));
+  assert.deepEqual(small,[],`${key}: target <40px`);
 }
 async function checkFocus(page,key){
   await page.keyboard.press('Tab');
