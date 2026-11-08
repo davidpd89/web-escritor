@@ -19,8 +19,6 @@ import textwrap
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from PIL import Image, ImageDraw, ImageFont
-
 from reading_editorial_sources import SourceError, editorial_excerpt, editorial_synopsis
 from reading_generic_source import _euros, _format, _text
 from reading_intake_core import clean_title, edition_date, isbn13, normalize_text
@@ -200,6 +198,7 @@ def ttl_edition(document: str, url: str) -> dict:
 
 
 def _font(size: int, path: Path = SANS):
+    from PIL import ImageFont  # PIL solo para dibujar: quien lee fichas (Telegram, ingesta) no lo necesita
     return ImageFont.truetype(str(path), size)
 
 
@@ -213,6 +212,7 @@ def _lines(draw, text: str, font, width: int, limit: int) -> list[str]:
 
 def typographic_cover(record: dict) -> tuple[bytes, bytes, tuple[int, int]]:
     """Cubierta propia (título, autoría y sello sobre un color fijo por ISBN): sin imagen de terceros."""
+    from PIL import Image, ImageDraw
     width, height = 800, 1200
     seed = hashlib.sha256(record['isbn13'].encode()).digest()
     background = PALETTE[seed[0] % len(PALETTE)]
