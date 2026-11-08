@@ -61,7 +61,9 @@ class MultiBookContractTests(unittest.TestCase):
                     {"formato": "ebook",
                      "url": f"https://www.amazon.es/dp/B00000000{i+1}?tag=davidporto-21",
                      "fuente_url": f"https://example.org/ebook/{i+1}",
-                     "fecha_verificacion": "2026-10-20"}
+                     "fecha_verificacion": "2026-10-20",
+                     # Sin precio de la API un formato hermano no se enlaza (purchase_formats).
+                     "precio_centimos": 999}
                 ],
             })
             for optional in ("audio_descripcion", "audio_voz", "resenas",

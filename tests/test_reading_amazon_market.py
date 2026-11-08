@@ -51,7 +51,34 @@ class AmazonPriceTests(unittest.TestCase):
                             ('externalIds',{'eans':{'displayValues':['9788425374012']}}),
                             ('classifications',{'binding':{'displayValue':'Unknown'}})]:
             payload=response(); payload['searchResult']['items'][0]['itemInfo'][field]=value
-            self.assertEqual(select_offers(BOOK,payload,'contrato-21',NOW),[])
+            self.assertEqual(select_offers(dict(BOOK,formato_edicion=None),payload,'contrato-21',NOW),[])
+
+    def test_exact_ean_with_untranslated_binding_preorder_date_or_collective_author_is_priced(self):
+        # 08/11: 90 libros publicados sin ningún formato con precio. Tres causas de método con el EAN exacto:
+        # encuadernación que no traducimos («Libro de cartón»), preventa AVAILABLE_DATE y «AA. VV.» por «Varios autores».
+        payload=response(); payload['searchResult']['items'][0]['itemInfo']['classifications']={'binding':{'displayValue':'Libro de cartón'}}
+        self.assertEqual([o['formato'] for o in select_offers(dict(BOOK,formato_edicion='tapa-dura'),payload,'contrato-21',NOW)],['tapa-dura'])
+        payload=response(); payload['searchResult']['items'][0]['offersV2']['listings'][0]['availability']['type']='AVAILABLE_DATE'
+        self.assertEqual(len(select_offers(BOOK,payload,'contrato-21',NOW)),1)
+        book=dict(BOOK,autores=['Varios autores'])
+        for name in ('AA. VV.','AA.VV.','VV.AA.'):
+            payload=response(); payload['searchResult']['items'][0]['itemInfo']['byLineInfo']={'contributors':[{'name':name,'role':'Author'}]}
+            self.assertEqual(len(select_offers(book,payload,'contrato-21',NOW)),1,name)
+        # «¡Ya es Navidad!»: Amazon solo acredita a la editorial.
+        payload=response(); payload['searchResult']['items'][0]['itemInfo']['byLineInfo']={'contributors':[{'name':'Penguin Random House Grupo Editorial, S.A.U.','role':'Traductor'}]}
+        self.assertEqual(len(select_offers(book,payload,'contrato-21',NOW)),1)
+        payload['searchResult']['items'][0]['itemInfo']['title']={'displayValue':'Otro libro'}
+        self.assertEqual(select_offers(book,payload,'contrato-21',NOW),[])
+        payload=response(); payload['searchResult']['items'][0]['itemInfo']['byLineInfo']={'contributors':[{'name':'AA. VV.','role':'Author'}]}
+        # Sin el EAN exacto, ni la encuadernación ni el autor colectivo bastan.
+        payload['searchResult']['items'][0]['itemInfo']['externalIds']={'eans':{'displayValues':['9788425374012']}}
+        self.assertEqual(select_offers(book,payload,'contrato-21',NOW),[])
+        payload=response(); info=payload['searchResult']['items'][0]['itemInfo']
+        info['classifications']={'binding':{'displayValue':'Libro de cartón'}}; info['externalIds']={'eans':{'displayValues':['9788425374012']}}
+        self.assertEqual(select_offers(BOOK,payload,'contrato-21',NOW),[])
+        # Un autor colectivo no vale por una persona concreta.
+        payload=response(); payload['searchResult']['items'][0]['itemInfo']['byLineInfo']={'contributors':[{'name':'AA. VV.','role':'Author'}]}
+        self.assertEqual(select_offers(BOOK,payload,'contrato-21',NOW),[])
 
     def test_exact_ean_tolerates_series_order_and_longer_names(self):
         # Con el EAN exacto: «Saga 1. Título» frente a «Título (Saga 1)», un segundo apellido
@@ -93,6 +120,30 @@ class AmazonPriceTests(unittest.TestCase):
         self.assertEqual(prune_foreign_editions(other),0)
         own=dict(BOOK,formatos_compra=[{'formato':'tapa-blanda','url':'https://www.amazon.es/dp/8498382378'}])
         self.assertEqual(prune_foreign_editions(own),0)
+
+    def test_known_asin_tolerates_reordered_title_but_not_other_edition_or_volume(self):
+        # 08/11: 31 de 39 «Ver precio» tenían precio en la API; el filtro los tiraba por el título en otro orden.
+        def priced(titulo,amazon_title,eans=(),name='Jeff Kinney',asin='B0TESTGREG',known=True):
+            book=dict(BOOK,titulo=titulo,autores=['Jeff Kinney'],
+                      formatos_compra=[{'formato':'ebook','url':f'https://www.amazon.es/dp/{asin}'}] if known else [])
+            payload=response(); item=payload['searchResult']['items'][0]; info=item['itemInfo']
+            item['asin']=asin; info['title']={'displayValue':amazon_title}
+            info['byLineInfo']={'contributors':[{'name':name,'role':'Author'}]}
+            info['externalIds']={'eans':{'displayValues':list(eans)}}
+            info['classifications']['binding']['displayValue']='Versión Kindle'
+            return len(select_offers(book,payload,'contrato-21',NOW))
+        self.assertEqual(priced('Diario de Greg 21 - Montando un pollo','Montando un pollo: Diario de Greg 21'),1)
+        self.assertEqual(priced('Alas de escarcha y oro (El canto del cisne)','Alas de escarcha y oro'),1)
+        # La ficha de una edición especial agrupa la normal: su precio no es el de esta edición.
+        self.assertEqual(priced('Perdiendo el control (edición especial)','Perdiendo el control (Windy City 1)'),0)
+        self.assertEqual(priced('Neuromante (Edición especial)','Neuromante (NE)'),0)
+        # Otro tomo de la serie con un ASIN mal guardado.
+        self.assertEqual(priced('Mentiras y secretos (Perfectos mentirosos 2)','Perfectos mentirosos 1. Mentiras y secretos'),0)
+        # Con su EAN exacto y el título bien, Amazon puede escribir el autor de otra manera.
+        self.assertEqual(priced('Coraline','Coraline',eans=['9788498382372'],name='Editorial Salamandra'),1)
+        self.assertEqual(priced('Coraline','Coraline',name='Editorial Salamandra'),0)
+        # Un ASIN que no es de este libro sigue con el filtro estricto.
+        self.assertEqual(priced('Diario de Greg 21 - Montando un pollo','Montando un pollo: Diario de Greg 21',known=False),0)
 
     def test_used_subscription_and_prime_prices_are_not_general_prices(self):
         for update in [{'condition':{'value':'Used'}},{'type':'SUBSCRIBEAND_SAVE'},

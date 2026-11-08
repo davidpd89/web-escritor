@@ -12,6 +12,7 @@ spec.loader.exec_module(m)
 URL = 'https://www.amazon.es/dp/B0TEST1234?tag=davidporto-21'
 BOOK = {'id': 'lib-1', 'titulo': 'El volumen del tiempo', 'autores': ['Solvej Balle'], 'editorial': 'Anagrama',
         'fecha_publicacion': '2999-01-01', 'fecha_actualizacion': '2026-11-01', 'slug': 'el-volumen-del-tiempo',
+        'formato_edicion': 'tapa-blanda',
         'formatos_compra': [{'formato': 'ebook', 'url': URL, 'precio_centimos': 1044},
                             {'formato': 'tapa-blanda', 'url': URL.replace('B0TEST1234', '8433929000')}]}
 
@@ -41,7 +42,7 @@ class FormatBoxTest(unittest.TestCase):
         self.assertEqual(box.count('is-primary'), 1)
         self.assertIn('catalogue-format is-primary" data-purchase-format="tapa-blanda"', box)
         self.assertNotIn('is-primary', m.format_box(BOOK, compact=True))
-        search = {**BOOK, 'formatos_compra': [], 'amazon_busqueda_isbn': 'https://www.amazon.es/s?k=9788433929000&tag=davidporto-21'}
+        search = {**BOOK, 'formatos_compra': [], 'formato_edicion': None, 'amazon_busqueda_isbn': 'https://www.amazon.es/s?k=9788433929000&tag=davidporto-21'}
         self.assertIsNone(m.primary_format(search))
         self.assertNotIn('is-primary', m.format_box(search))
 
@@ -66,6 +67,19 @@ class FormatBoxTest(unittest.TestCase):
         self.assertIn('i=digital-text&amp;tag=davidporto-21', box)
         self.assertIn('i=audible', box)
         self.assertEqual(m.primary_format(book), 'tapa-dura')
+
+    def test_sibling_format_without_price_is_searched_not_linked(self):
+        # 08/11: formatos añadidos desde la ficha de Amazon sin precio (agotados u otra edición) salían como «Ver
+        # precio» con enlace a otra edición. Sin precio y sin ser el formato propio, la casilla busca en su sección.
+        book = {**BOOK, 'formato_edicion': 'ebook', 'amazon_busqueda_isbn': 'https://www.amazon.es/s?k=9788433929000&tag=davidporto-21'}
+        self.assertEqual([o['formato'] for o in m.purchase_formats(book)], ['ebook'])
+        box = m.format_box(book)
+        self.assertNotIn('Ver precio', box)
+        self.assertNotIn('8433929000?', box)
+        self.assertIn('data-missing-format="tapa-blanda"', box)
+        self.assertEqual(m.primary_format(book), 'ebook')
+        # El formato propio sin precio sí se enlaza: su ISBN es esta edición.
+        self.assertIn('<strong>Ver precio</strong>', m.format_box(BOOK))
 
     def test_amazon_links_ask_for_spanish(self):
         self.assertEqual(m.amazon_es(URL), URL + '&language=es_ES')
