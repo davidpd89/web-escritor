@@ -581,6 +581,26 @@ def discover_page_formats(catalogue,fetch,tag,now,limit=60):
 
 
 COVER_HOSTS=('www.todostuslibros.com',)
+GENERATED_BASIS='Portada tipográfica propia'
+AMAZON_COVER_BASIS='Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica'
+
+
+def generated_cover(book):
+    """Portada tipográfica nuestra aún sin sustituir: la de todostuslibros y la de la ingesta de Amazon, que no trae
+    imagen y la guarda con la URL de la ficha (www.amazon.es/dp/…). Mirar solo el host dejaba fuera estas últimas:
+    el 08/11 eran 1398 libros con portada predefinida que nunca se cambiaban por la real."""
+    if book.get('portada_sustituida'):
+        return False
+    return urlsplit(book.get('portada_fuente_url') or '').hostname in COVER_HOSTS or         (book.get('autorizacion_o_base_uso') or '').startswith(GENERATED_BASIS)
+
+
+def replace_cover(book,root,image,small,dimensions,source,day):
+    """Pone la cubierta real de Amazon en lugar de la tipográfica: ficheros, medidas, fuente y base de uso."""
+    path=root/book['portada_local'].lstrip('/')
+    path.write_bytes(image)
+    path.with_name(path.name.replace('.webp','-320.webp')).write_bytes(small)
+    book.update(portada_fuente_url=source,portada_ancho=dimensions[0],portada_alto=dimensions[1],portada_fecha_revision=day,
+                portada_sustituida=True,autorizacion_o_base_uso=AMAZON_COVER_BASIS,portadas_amazon_buscadas=day)
 
 
 def page_cover_url(document):
@@ -602,7 +622,7 @@ def discover_real_covers(catalogue,root,fetch,fetch_bytes,convert,now,limit=20):
     """Swaps generated typographic covers for the edition's real cover from its Amazon page.
     `convert` validates and resizes the image (same rules as editorial covers)."""
     day=now.astimezone(timezone.utc).date().isoformat()
-    books=[b for b in catalogue['libros'] if urlsplit(b.get('portada_fuente_url') or '').hostname in COVER_HOSTS
+    books=[b for b in catalogue['libros'] if generated_cover(b)
            and b.get('portadas_amazon_buscadas','')<(now-PAGE_REDISCOVER_AFTER).date().isoformat()]
     books.sort(key=lambda b:b.get('portadas_amazon_buscadas',''))
     stats={'checked':0,'covers_replaced':0,'blocked':0,'errors':0}
@@ -629,11 +649,7 @@ def discover_real_covers(catalogue,root,fetch,fetch_bytes,convert,now,limit=20):
         except Exception:  # Placeholder, tiny or odd-shaped image: keep the typographic cover.
             stats['errors']+=1
             continue
-        path=root/book['portada_local'].lstrip('/')
-        path.write_bytes(image)
-        path.with_name(path.name.replace('.webp','-320.webp')).write_bytes(small)
-        book.update(portada_fuente_url=image_url,portada_ancho=dimensions[0],portada_alto=dimensions[1],
-                    portada_fecha_revision=day,portada_sustituida=True)
+        replace_cover(book,root,image,small,dimensions,image_url,day)
         stats['covers_replaced']+=1
     return stats
 
@@ -646,7 +662,7 @@ def page_title(document):
 def cover_kind(book):
     if book.get('portada_sustituida'):
         return 'amazon'
-    return 'generada' if urlsplit(book.get('portada_fuente_url') or '').hostname in COVER_HOSTS else 'editorial'
+    return 'generada' if generated_cover(book) else 'editorial'
 
 
 def audit_asin(book):

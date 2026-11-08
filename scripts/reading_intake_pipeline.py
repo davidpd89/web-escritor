@@ -667,6 +667,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                     if old_book.get('portada_sustituida'):
                         # The generated cover was replaced by the edition's real one: keep it.
                         record['portada_fuente_url'] = old_book['portada_fuente_url']
+                        record['cover_use_basis'] = old_book.get('autorizacion_o_base_uso', record['cover_use_basis'])
                     if record['autores'] != old_book['autores'] or record['portada_fuente_url'] != old_book['portada_fuente_url']:
                         raise SourceError('Cambio de autoría o cubierta: requiere revisión editorial')
                     image = (root / old_book['portada_local'].lstrip('/')).read_bytes()

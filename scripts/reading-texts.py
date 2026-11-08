@@ -689,12 +689,7 @@ def publish(out=OUT):
     if batch:
         print(f'Carga del catálogo en CI ({batch}): los textos esperan a la siguiente publicación', flush=True)
         return False
-    tree = ROOT / '.local/reading-texts/main'
-    git('fetch', '-q', 'origin', 'main')
-    if not tree.exists():
-        git('worktree', 'add', '--detach', str(tree), 'origin/main')
-    git('reset', '-q', '--hard', 'origin/main', cwd=tree)
-    git('clean', '-qfd', cwd=tree)
+    tree = publisher.clean_main_tree(ROOT, ROOT / '.local/reading-texts/main')
     data = read_json(tree / 'data/reading-catalogue.json')
     catalogue.index_categories(data)
     ids = {b['id'] for b in published(data)}

@@ -80,6 +80,49 @@ class AmazonAuditTests(unittest.TestCase):
             self.assertEqual((public['faltan'], public['portada']), ([], 'amazon'))
             self.assertEqual(public['mostrados'], ['tapa-blanda', 'ebook', 'audiolibro'])
 
+    def tree_with(self, tmp, books):
+        tree = Path(tmp)
+        (tree / 'data').mkdir()
+        (tree / 'assets/reading-covers').mkdir(parents=True)
+        (tree / 'data/reading-catalogue.json').write_text(json.dumps({'libros': books}), encoding='utf-8')
+        return tree
+
+    def test_cover_follows_the_book_in_main_not_the_kind_stored_in_the_record(self):
+        # Registros del 04-07/11: la tipográfica de la ingesta de Amazon quedó como «editorial» y nunca se sustituía.
+        typographic = {**BOOK, 'portada_fuente_url': 'https://www.amazon.es/dp/8498382378',
+                       'autorizacion_o_base_uso': 'Portada tipográfica propia generada con los datos bibliográficos',
+                       'portada_local': '/assets/reading-covers/isbn-9788498382372.webp'}
+        editorial = {**BOOK, 'id': 'lib-2', 'portada_fuente_url': 'https://www.penguinlibros.com/c.jpg',
+                     'autorizacion_o_base_uso': 'Cubierta proporcionada en la ficha oficial de la edición',
+                     'portada_local': '/assets/reading-covers/isbn-9788498382373.webp'}
+        with tempfile.TemporaryDirectory() as tmp:
+            tree = self.tree_with(tmp, [typographic, editorial])
+            record = {**audit_book(typographic, lambda url: PAGE, '2026-11-03'), 'portada': 'editorial'}
+            stats = audit.apply_records(tree, {'lib-1': record, 'lib-2': record}, 'davidporto-21', fetch_bytes=lambda url: b'img',
+                                        convert=lambda raw: (b'big', b'small', (800, 1200)))
+            self.assertEqual(stats['covers_replaced'], 1)
+            saved = {b['id']: b for b in json.loads((tree / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros']}
+            self.assertTrue(saved['lib-1']['portada_sustituida'])
+            self.assertTrue(saved['lib-1']['autorizacion_o_base_uso'].startswith('Cubierta de la edición tomada de su ficha de Amazon'))
+            self.assertNotIn('portada_sustituida', saved['lib-2'])
+            self.assertFalse((tree / 'assets/reading-covers/isbn-9788498382373.webp').exists())
+            public = json.loads((tree / 'data/reading-amazon-audit.json').read_text(encoding='utf-8'))['libros']
+            self.assertEqual((public['lib-1']['portada'], public['lib-2']['portada']), ('amazon', 'editorial'))
+
+    def test_cover_cap_goes_to_the_books_closest_to_today(self):
+        dates = {'lib-far': '2024-03-01', 'lib-today': '2026-11-07', 'lib-month': '2026-12', 'lib-none': ''}
+        books = [{**BOOK, 'id': i, 'fecha_publicacion': d, 'portada_fuente_url': 'https://www.todostuslibros.com/x',
+                  'portada_local': f'/assets/reading-covers/{i}.webp'} for i, d in dates.items()]
+        with tempfile.TemporaryDirectory() as tmp:
+            tree = self.tree_with(tmp, books)
+            record = audit_book(books[0], lambda url: PAGE, '2026-11-03')
+            stats = audit.apply_records(tree, {i: record for i in dates}, 'davidporto-21', fetch_bytes=lambda url: b'img',
+                                        convert=lambda raw: (b'big', b'small', (800, 1200)),
+                                        today=datetime(2026, 11, 8).date(), covers=2)
+            self.assertEqual(stats['covers_replaced'], 2)
+            saved = json.loads((tree / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros']
+            self.assertEqual(sorted(b['id'] for b in saved if b.get('portada_sustituida')), ['lib-month', 'lib-today'])
+
 
 if __name__ == '__main__':
     unittest.main()

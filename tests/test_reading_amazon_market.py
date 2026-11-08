@@ -9,7 +9,7 @@ from unittest.mock import patch
 from urllib.error import HTTPError
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents,discovery_index,miss_reason,discover_page_formats,swatch_formats,discover_real_covers,page_cover_url,isbn10,store_prices,prune_foreign_editions,reconcile_edition_binding
+from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents,discovery_index,miss_reason,discover_page_formats,swatch_formats,discover_real_covers,page_cover_url,isbn10,store_prices,prune_foreign_editions,reconcile_edition_binding,cover_kind,AMAZON_COVER_BASIS
 import reading_amazon_market
 import tempfile
 
@@ -508,6 +508,24 @@ class AmazonRealCoverTests(unittest.TestCase):
             self.assertEqual((book['portada_ancho'],book['portada_sustituida']),(650,True))
             self.assertEqual(discover_real_covers({'libros':[book]},root,lambda url:COVER_PAGE,lambda url:b'',
                                                   lambda raw:(b'',b'',(1,1)),NOW)['checked'],0)
+
+    def test_typographic_cover_from_the_amazon_intake_is_generated_too(self):
+        # La ingesta de Amazon no trae imagen: guarda la URL de la ficha y una portada tipográfica propia.
+        typographic={**BOOK,'portada_fuente_url':'https://www.amazon.es/dp/8409923432',
+                     'autorizacion_o_base_uso':'Portada tipográfica propia generada con los datos bibliográficos; no reproduce la cubierta editorial'}
+        editorial={**BOOK,'portada_fuente_url':'https://www.penguinlibros.com/c.jpg',
+                   'autorizacion_o_base_uso':'Cubierta proporcionada en la ficha oficial de la edición'}
+        self.assertEqual([cover_kind(b) for b in (typographic,editorial,{**typographic,'portada_sustituida':True})],
+                         ['generada','editorial','amazon'])
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            (root/'assets').mkdir()
+            typographic['portada_local']='/assets/isbn-9788409923434.webp'
+            stats=discover_real_covers({'libros':[typographic,editorial]},root,lambda url:COVER_PAGE,lambda url:b'raw',
+                                       lambda raw:(b'big',b'small',(650,988)),NOW)
+            self.assertEqual(stats['covers_replaced'],1)
+            self.assertEqual(typographic['autorizacion_o_base_uso'],AMAZON_COVER_BASIS)
+            self.assertEqual(cover_kind(typographic),'amazon')
 
     def test_rejected_image_keeps_generated_cover(self):
         book={**BOOK,'portada_local':'/assets/x.webp','portada_fuente_url':'https://www.todostuslibros.com/libros/x'}
