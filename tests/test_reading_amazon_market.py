@@ -274,6 +274,19 @@ class AmazonFormatDiscoveryTests(unittest.TestCase):
         _,stats=refresh_offers(many,{'offers':[]},lambda b:response(),'contrato-21',NOW,budget=3)
         self.assertEqual(stats['requests'],3,'nunca por encima del límite de Amazon')
 
+    def test_books_coming_out_soon_are_priced_every_night(self):
+        many={'libros':[dict(BOOK,id=f'lib-{i}',formatos_compra=[],fecha_publicacion='2026-09-01') for i in range(70)]}
+        refresh_offers(many,{'offers':[]},lambda b:response(),'contrato-21',NOW)
+        many['libros'][40]['fecha_publicacion']='2026-10-23'
+        many['libros'][41]['fecha_publicacion']='2026-10-30'
+        for night in (1,2):
+            seen=[]
+            refresh_offers(many,{'offers':[]},lambda b:(seen.append(b['id']) or response()),
+                           'contrato-21',NOW+timedelta(days=night))
+            self.assertIn('lib-40',seen,'sale en los próximos días: precio de esta noche')
+            self.assertNotIn('lib-41',seen,'sale dentro de semanas: espera su turno')
+            self.assertEqual(len(seen),len(set(seen)))
+
     def test_books_without_ebook_are_searched_in_the_kindle_store(self):
         # Ten results across all departments miss the Kindle of a saga's fourth volume.
         self.assertEqual(discovery_index(dict(BOOK,formatos_compra=[{'formato':'tapa-blanda'}])),'KindleStore')

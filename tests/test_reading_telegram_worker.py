@@ -153,6 +153,87 @@ class EditorialTelegramTests(unittest.TestCase):
                     result["libros"][0]["estado"], "pendiente_verificacion_telegram"
                 )
 
+    def test_editorial_without_amazon_link_uses_fresh_print_offer(self):
+        def offer(fmt, asin, checked):
+            return {
+                "formato": fmt,
+                "fuente_url": f"https://www.amazon.es/dp/{asin}",
+                "fecha_verificacion": checked,
+            }
+
+        cases = [
+            ([offer("tapa-blanda", "8401042751", "2026-10-31")], "8401042751"),
+            ([offer("tapa-blanda", "8401042751", "2026-10-25")], None),
+            ([offer("ebook", "B0HC7BJS7K", "2026-11-01")], None),
+            (
+                [
+                    offer("tapa-blanda", "8401042751", "2026-11-01"),
+                    offer("tapa-dura", "8401042760", "2026-11-01"),
+                ],
+                None,
+            ),
+        ]
+        for offers, expected in cases:
+            with self.subTest(offers=offers), patch(
+                "reading_telegram_worker.penguin_edition", return_value=self.edition
+            ):
+                result, report = verified_snapshot(
+                    {"libros": [{**self.book, "formatos_compra": offers}]},
+                    self.intake,
+                    date(2026, 11, 1),
+                    lambda u, s: "<p>Sin enlaces</p>",
+                )
+                if expected:
+                    self.assertEqual(report["verified"][0]["asin"], expected)
+                else:
+                    self.assertEqual(report["resolved"], 0)
+
+    def test_books_seeded_from_todostuslibros_are_verified_on_its_record(self):
+        url = "https://www.todostuslibros.com/libros/libro_9788401042751"
+        book = {
+            **self.book,
+            "fuente_publicacion_url": url,
+            "formatos_compra": [
+                {
+                    "formato": "tapa-blanda",
+                    "fuente_url": "https://www.amazon.es/dp/8401042751",
+                    "fecha_verificacion": "2026-10-31",
+                }
+            ],
+        }
+        source = {
+            "id": "todostuslibros-altas",
+            "provider": "todostuslibros",
+            "enabled": True,
+            "hosts": ["www.todostuslibros.com"],
+        }
+        with patch("reading_telegram_worker.ttl_edition", return_value=self.edition):
+            _, report = verified_snapshot(
+                {"libros": [book]},
+                {**self.intake, "sources": [source]},
+                date(2026, 11, 1),
+                lambda u, s: "<p>Ficha CEGAL</p>",
+            )
+        self.assertEqual(report["verified"][0]["asin"], "8401042751")
+
+    def test_budget_goes_to_todays_books_first(self):
+        books = [
+            {**self.book, "id": d, "fecha_publicacion": d}
+            for d in ("2026-11-30", "2026-10-30", "2026-11-02", "2026-11-01", "2026-10-31")
+        ]
+
+        def fetch(url, source):
+            raise OSError("offline")
+
+        with patch("reading_telegram_worker.editorial_product"):
+            _, report = verified_snapshot(
+                {"libros": books}, self.intake, date(2026, 11, 1), fetch
+            )
+        order = [p["id"] for p in report["pending"]]
+        self.assertEqual(
+            order, ["2026-11-01", "2026-11-02", "2026-11-30", "2026-10-31", "2026-10-30"]
+        )
+
     def test_old_books_do_not_generate_editorial_requests(self):
         book = {**self.book, "fecha_publicacion": "2009-06-01"}
         with patch("reading_telegram_worker.editorial_product") as parser:

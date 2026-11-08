@@ -28,6 +28,7 @@ from reading_editorial_sources import (
 from reading_generic_source import generic_edition, reviewed_hosts
 from reading_intake_core import isbn13, normalize_text
 from reading_planeta_source import planeta_edition
+from reading_ttl_source import HOST as TTL_HOST, ttl_edition
 from reading_telegram import (
     amazon_url,
     digest_key,
@@ -59,13 +60,16 @@ def main_json(name):
     return data
 
 
-def editorial_product(document, url, book, source):
+def editorial_product(document, url, book, source, today=None):
     """Accept a unique direct Amazon link on the verified selected edition page."""
     provider = source.get("provider")
     if provider == "penguin" and urlsplit(url).hostname == "www.penguinlibros.com":
         edition = penguin_edition(document, url)
     elif provider == "planeta" and urlsplit(url).hostname == "www.planetadelibros.com":
         edition = planeta_edition(document, url)
+    elif provider == "todostuslibros" and urlsplit(url).hostname == TTL_HOST:
+        # Books seeded by release date: CEGAL record, no Amazon link on the page.
+        edition = ttl_edition(document, url)
     elif provider == "generic":
         edition = generic_edition(source, document, url)
     else:
@@ -83,14 +87,33 @@ def editorial_product(document, url, book, source):
     products = {
         asin for a in parser.links if (asin := asin_from_url(urljoin(url, a["url"])))
     }
-    if len(products) != 1:
-        raise SourceError("No unique direct Amazon product on editorial edition page")
     published = edition["fecha_publicacion_edicion"]
     date.fromisoformat(published)  # Partial dates fail closed.
-    return next(iter(products)), published
+    if len(products) == 1:
+        return next(iter(products)), published
+    if not products and today is not None:
+        # Many publishers never link Amazon: the edition and date are verified here,
+        # the product comes from the nightly Amazon check of this same book.
+        asin = catalogue_print_asin(book, today)
+        if asin:
+            return asin, published
+    raise SourceError("No unique direct Amazon product on editorial edition page")
 
 
 AMAZON_FRESH_DAYS = 2
+
+
+def catalogue_print_asin(book, today):
+    """The single print product the catalogue re-read on Amazon recently, if any."""
+    since = (today - timedelta(days=AMAZON_FRESH_DAYS)).isoformat()
+    found = {
+        asin
+        for offer in book.get("formatos_compra") or []
+        if offer.get("formato") not in {"ebook", "audiolibro"}
+        and str(offer.get("fecha_verificacion") or "") >= since
+        and (asin := asin_from_url(offer.get("fuente_url") or offer.get("url") or ""))
+    }
+    return next(iter(found)) if len(found) == 1 else None
 
 
 def amazon_product(book, url, today):
@@ -114,15 +137,20 @@ def verified_snapshot(catalogue, intake, today, fetch):
     report = {"checked": 0, "resolved": 0, "pending": [], "verified": []}
     sources = [s for s in intake["sources"] if s.get("enabled")]
     tag = intake["amazon_partner_tag"]
+    window = []
     for book in result["libros"]:
         try:
             published = date.fromisoformat(book.get("fecha_publicacion", ""))
         except (TypeError, ValueError):
             continue
-        if book.get("estado") != "publicado" or not today - timedelta(
+        if book.get("estado") == "publicado" and today - timedelta(
             days=3
         ) <= published <= today + timedelta(days=30):
-            continue
+            window.append((book, published))
+    # The per-source request budget is finite: spend it on today's books first,
+    # then upcoming dates in order, and only then the recent past (already announced).
+    window.sort(key=lambda item: (item[1] < today, abs((item[1] - today).days)))
+    for book, published in window:
         # Until checked today, a due book cannot fall back to stale product/date data.
         url = book.get("fuente_publicacion_url", "")
         source = next(
@@ -137,7 +165,9 @@ def verified_snapshot(catalogue, intake, today, fetch):
                     raise SourceError("Edition source not configured")
                 report["checked"] += 1
                 document = fetch(url, source)
-                asin, actual_date = editorial_product(document, url, book, source)
+                asin, actual_date = editorial_product(
+                    document, url, book, source, today
+                )
             book["fecha_publicacion"] = actual_date
             book["url_amazon_afiliada"] = amazon_url(asin, tag)
             report["resolved"] += 1
@@ -180,6 +210,8 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None):
                 hosts = ("www.penguinlibros.com",)
             elif provider == "planeta":
                 hosts = ("www.planetadelibros.com",)
+            elif provider == "todostuslibros":
+                hosts = (TTL_HOST,)
             else:
                 hosts, _ = reviewed_hosts(source)
             clients[sid] = CachedHTTP(
