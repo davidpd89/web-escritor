@@ -95,8 +95,9 @@ async function assertStructure(page,key){
 async function checkTouchTargets(page,key){
   // Same measurement as Playwright's isVisible()/boundingBox(), in a single evaluateAll (see assertStructure).
   const small=await page.locator('.findability-links a,.directory-list a,.findability-primary,.findability-plain-list a').evaluateAll(ns=>ns.flatMap(n=>{
-    const box=n.getBoundingClientRect(),style=getComputedStyle(n);
-    if(!box.width||!box.height||style.visibility!=='visible')return [];
+    // checkVisibility() also hides links inside a closed <details> (content-visibility), like isVisible() does.
+    const box=n.getBoundingClientRect();
+    if(!box.width||!box.height||!n.checkVisibility({visibilityProperty:true}))return [];
     return box.height>=40?[]:[`${n.innerText.trim()} ${box.height}`];
   }));
   assert.deepEqual(small,[],`${key}: target <40px`);
