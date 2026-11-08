@@ -154,7 +154,28 @@ def repair_catalogue_publishers(books, root, today):
     return fixed  # libros cuyo sello vuelve a existir
 
 
-REPAIRS = (repair_catalogue_publishers,)
+_tildes_spec = importlib.util.spec_from_file_location('check_copy_tildes', ROOT / 'scripts/check-copy-tildes.py')
+tildes = importlib.util.module_from_spec(_tildes_spec)
+_tildes_spec.loader.exec_module(tildes)
+PROSE_FIELDS = ('titulo', 'descripcion_breve', 'sinopsis_breve', 'sinopsis_completa', 'edad_recomendada')
+
+
+def repair_title_accents(books, root, today):
+    """«"edicion" debería ser "edición"»: el texto de la fuente recupera las tildes que exige check-copy-tildes.
+
+    Origen (sync 42444782344 / #1228): títulos de Norma, Sillón Orejero y HarperCollins sin tildes («Nueva edicion
+    integral», «nueva edicion») tumbaron content-index-check con 38 avisos en fichas, relacionados y mapa."""
+    fixed = 0
+    for book in books:
+        for field in PROSE_FIELDS:
+            value = book.get(field)
+            if isinstance(value, str) and value != (repaired := tildes.restore_accents(value)):
+                book[field] = repaired
+                fixed += 1
+    return fixed
+
+
+REPAIRS = (repair_catalogue_publishers, repair_title_accents)
 
 
 def apply(root=ROOT, today=None):
@@ -162,11 +183,12 @@ def apply(root=ROOT, today=None):
     today = today or date.today().isoformat()
     path, held_path = root / CATALOGUE, root / QUARANTINE
     data = json.loads(path.read_text(encoding='utf-8'))
+    original = json.loads(json.dumps(data))
     held = json.loads(held_path.read_text(encoding='utf-8'))['libros'] if held_path.exists() else []
     for repair in REPAIRS:
         repair(data['libros'] + [h['libro'] for h in held], root, today)
     clean, out = isolate(data, root, committed(root), held, today=today)
-    if clean != data:  # mismo formato que el último escritor del catálogo (precios), sin reordenar claves
+    if clean != original:  # mismo formato que el último escritor del catálogo (precios), sin reordenar claves
         write_changed(path, clean)
     if out or held_path.exists():
         write_if_changed(held_path, {'schema_version': 1, 'libros': out})

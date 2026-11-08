@@ -172,6 +172,28 @@ class QuarantineTest(unittest.TestCase):
         with self.assertRaisesRegex(q.build.ValidationError, re.escape(book['id'] + ': sin categoría activa')):
             q.build.validate(data, ROOT)
 
+    def test_source_text_without_accents_is_repaired_for_every_book(self):
+        # sync 42444782344 / #1228: 38 avisos de check-copy-tildes en content-index-check por tres títulos.
+        books = [{'titulo': 'Matteo. Edicion integral: 1', 'descripcion_breve': 'Matteo. Edicion integral: 1, de Gibrat.'},
+                 {'titulo': 'La balada del norte 03 (nueva edicion)', 'sinopsis_breve': 'Novela historica y EDICION nueva.'},
+                 {'titulo': "En mi Era Pistacho: Juliette's version"},
+                 {'titulo': 'Las versiones de Frances Burney', 'fuente_publicacion_url': 'https://x.es/edicion-especial'}]
+        self.assertEqual(q.repair_title_accents(books, ROOT, '2026-11-08'), 4)  # campos reparados
+        self.assertEqual(books[0]['titulo'], 'Matteo. Edición integral: 1')
+        self.assertEqual(books[0]['descripcion_breve'], 'Matteo. Edición integral: 1, de Gibrat.')
+        self.assertEqual(books[1]['titulo'], 'La balada del norte 03 (nueva edición)')
+        self.assertEqual(books[1]['sinopsis_breve'], 'Novela histórica y EDICIÓN nueva.')
+        self.assertEqual(books[2]['titulo'], "En mi Era Pistacho: Juliette's version")  # inglés tras posesivo
+        self.assertEqual(books[3]['titulo'], 'Las versiones de Frances Burney')  # plural y nombre propio
+        self.assertEqual(q.repair_title_accents(books, ROOT, '2026-11-08'), 0)  # idempotente
+
+    def test_checker_reads_entities_as_the_reader_does(self):
+        page = '<p>En mi Era Pistacho: Juliette&#x27;s version</p><p>Nueva edicion</p>'
+        pieces = [text for _, text, _ in q.tildes.html_visible_text(page)]
+        self.assertEqual(pieces[0], "En mi Era Pistacho: Juliette's version")
+        flagged = [w for t in pieces for w in q.tildes.WORD_RE.findall(t) if not q.tildes.is_technical_use(t, w.lower())]
+        self.assertEqual(flagged, ['edicion'])
+
 
 if __name__ == '__main__':
     unittest.main()
