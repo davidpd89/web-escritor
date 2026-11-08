@@ -883,6 +883,20 @@ def render_release_ics(books):
 LLMS_PATH = 'recomendaciones/llms.txt'
 
 
+LLMS_FACTS_END = 480  # con el mínimo de «Para quién es» (40) y de sinopsis (60) la línea sigue bajo 700
+
+
+def llms_authors(names, limit=250):
+    """Todos los autores mientras quepan; una antología de 40 firmas se resume en «…, y N más»."""
+    shown = []
+    for name in names:
+        if shown and len(', '.join(shown + [name])) > limit:
+            break
+        shown.append(name)
+    rest = len(names) - len(shown)
+    return ', '.join(shown) + (f' y {rest} más' if rest else '')
+
+
 def render_llms_index(data, books, authors, publishers):
     """Índice en texto plano (formato llms.txt) de todas las fichas, para buscadores y asistentes de IA."""
     formats = {'tapa-dura': 'tapa dura', 'tapa-blanda': 'tapa blanda', 'ebook': 'ebook', 'audiolibro': 'audiolibro'}
@@ -897,16 +911,23 @@ def render_llms_index(data, books, authors, publishers):
              f'## Libros ({len(books)})', '']
     for b in sorted(books, key=lambda b: (b['titulo'].casefold(), b['id'])):
         cats = categories(data, b)
-        facts = [', '.join(b['autores']), b.get('editorial'), b.get('anio_publicacion') and str(b['anio_publicacion']), formats.get(b.get('formato_edicion')),
-                 b.get('numero_paginas') and f"{b['numero_paginas']} páginas", b.get('isbn13') and 'ISBN ' + b['isbn13']]
-        facts += [label + ': ' + ', '.join(names) for label, tipo in (('Género', 'genero'), ('Temas', 'tematica'))
-                  if (names := [c['nombre'] for c in cats if c['tipo'] == tipo])]
-        age = b.get('edad_recomendada') or ', '.join(c['nombre'] for c in cats if c['tipo'] == 'edad')
-        who = own_summary(b)
-        facts += [age and 'Edad: ' + age]
         # Corchetes del título escapados: «Harry Potter [edición…]» rompía el enlace Markdown (2026-11-06).
-        link_text = b['titulo'].replace('[', '\\[').replace(']', '\\]')
-        head = f"- [{link_text}]({SITE}{url(b)}): " + '. '.join(f.rstrip('.') for f in facts if f) + '. '
+        link_text = clip(b['titulo'], 160).replace('[', '\\[').replace(']', '\\]')
+        head = f"- [{link_text}]({SITE}{url(b)}): "
+        # Los datos de la edición van siempre enteros; los autores ceden sitio («y N más») y género, temas y edad
+        # entran solo si caben. Lote 42436110753: una antología desbordó la línea (1224) y se revirtió la ingesta.
+        edition = [b.get('editorial'), b.get('anio_publicacion') and str(b['anio_publicacion']), formats.get(b.get('formato_edicion')),
+                   b.get('numero_paginas') and f"{b['numero_paginas']} páginas", b.get('isbn13') and 'ISBN ' + b['isbn13']]
+        edition = '. '.join(f.rstrip('.') for f in edition if f)
+        facts = llms_authors(b['autores'], max(40, LLMS_FACTS_END - len(head) - len(edition) - 4)) + '. ' + edition
+        age = b.get('edad_recomendada') or ', '.join(c['nombre'] for c in cats if c['tipo'] == 'edad')
+        extras = [label + ': ' + ', '.join(names) for label, tipo in (('Género', 'genero'), ('Temas', 'tematica'))
+                  if (names := [c['nombre'] for c in cats if c['tipo'] == tipo])] + [age and 'Edad: ' + age]
+        for extra in extras:
+            if extra and len(head) + len(facts) + len(extra) + 2 <= LLMS_FACTS_END:
+                facts += '. ' + extra.rstrip('.')
+        head += facts + '. '
+        who = own_summary(b)
         # El «Para quién es» cede espacio para que la sinopsis conserve al menos 60 caracteres sin pasar de 690.
         label = 'Sinopsis de la editorial: ' if b.get('sinopsis_breve') else 'Descripción: '
         who = who and clip(who, max(40, 690 - 60 - len(head) - len('Para quién es: . ' + label)))
@@ -1220,7 +1241,9 @@ def related_books(data, book):
         other,other_age=pool['publics'][candidate['id']],pool['ages'][candidate['id']]
         if not same_author and ((public and other and public!=other) or (age is not None and other_age is not None and abs(age-other_age)>4)):
             continue
-        ranked.append((same_author,sum(math.log(total/df[c]) for c in sorted(shared)),candidate))  # orden fijo: el redondeo no depende del hash
+        # Orden fijo (no depende del hash) y redondeo a 9 decimales: empates reales que math.log resolvía por el
+        # último bit distinto en Windows y en Linux cambiaban los relacionados entre local y CI (PR #1227).
+        ranked.append((same_author,round(sum(math.log(total/df[c]) for c in sorted(shared)),9),candidate))
     ranked.sort(key=lambda row:(-row[0],-row[1],row[2]['titulo'].casefold(),row[2]['id']))
     if not ranked:
         return ''
