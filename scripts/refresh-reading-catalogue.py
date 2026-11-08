@@ -217,11 +217,25 @@ def refresh(*, publish=False):
     follow_main()
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
     saved = save_checkpoint(day)
+    health_report(config)
     if amazon:
         # Solo ahora: los libros ya están a salvo en la rama de datos (o no había nada), así que la cola de
         # semillas puede avanzar sin perder ninguno si después falla la PR.
         estado.guardar(f'Estado de la ingesta {day}: {len(report["new_books"])} altas')
     return assemble(report, changed=changed, checkpoint=saved)
+
+
+def health_report(config):
+    """Salud del catálogo (scripts/catalogue-health-report.py): solo informa y nunca para la carga.
+
+    Va antes de estado.guardar para que su copia (.local/catalogo/salud.json) viaje en la rama catalogo-estado y la
+    noche siguiente compare con esta."""
+    budget = str(int(config.get('salud_catalogo', {}).get('consultas_amazon', 20)))
+    try:
+        subprocess.run([sys.executable, 'scripts/catalogue-health-report.py', '--amazon', budget], cwd=ROOT,
+                       check=False, timeout=900)
+    except Exception as exc:  # noqa: BLE001 - un informe roto no puede tumbar la publicación
+        print(f'Informe de salud no generado: {exc}', flush=True)
 
 
 def amazon_intake(config, publish):
