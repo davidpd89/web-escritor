@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Recheck Lychee timeouts/transient 5xx/transport errors independently; require actual HTTP 2xx."""
+"""Recheck Lychee timeouts/transient 5xx/transport errors independently; require actual HTTP 2xx.
+
+Third-party server faults on external hosts (expired/invalid TLS certificate, 403 to the runner) are rechecked too,
+but if they persist they are reported as warnings instead of failing the job: they say nothing about our data and
+kept every PR red (Coruña, Apeiron, Maeva 403s; akelarreediciones.com certificate expired on 2026-11-08)."""
 from __future__ import annotations
 
 import argparse
@@ -15,8 +19,39 @@ from urllib.parse import urlsplit
 UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36'
 
 
+OWN_HOSTS = ('davidportodiaz.com',)
+# Lychee's wording for a certificate the site itself must renew or fix ("SSL certificate expired. Site needs to
+# renew certificate"). A generic "TLS handshake failed" is not included: it stays fatal like DNS errors.
+CERTIFICATE = re.compile(r'\|\s*SSL certificate\b', re.I)
+
+
+def report_lines(report: str) -> list[tuple[str, str, str]]:
+    return re.findall(r'^\* \[([^\]]+)\] <([^>]+)>(.*)$', report, re.M)
+
+
+def own_url(url: str) -> bool:
+    host = (urlsplit(url).hostname or '').lower()
+    return any(host == own or host.endswith('.' + own) for own in OWN_HOSTS)
+
+
+def third_party_faults(report: str) -> dict[str, str]:
+    """External URLs whose failure is the other server's fault: 403 to the runner or a bad certificate.
+
+    Our own domain never qualifies: a 403 or an expired certificate there is our problem."""
+    faults = {}
+    for status, url, detail in report_lines(report):
+        if not url.startswith(('https://', 'http://')) or own_url(url):
+            continue
+        if status == '403':
+            faults[url] = 'HTTP 403 al runner'
+        elif status == 'ERROR' and CERTIFICATE.search(detail):
+            faults[url] = 'certificado TLS del sitio caducado o inválido'
+    return faults
+
+
 def timeout_urls(report: str) -> list[str]:
-    lines = re.findall(r'^\* \[([^\]]+)\] <([^>]+)>(.*)$', report, re.M)
+    lines = report_lines(report)
+    third_party = third_party_faults(report)
     # Never hide HTTP errors, unsupported URLs or an unexpected report format.
     retryable = {'TIMEOUT', '500', '502', '503', '504'}
     # Lychee reports transport failures as [ERROR] with no HTTP status. Only
@@ -24,12 +59,13 @@ def timeout_urls(report: str) -> list[str]:
     # cached copy of an earlier one; lychee's generic "Connection failed" is the
     # connect error unesco.org gave on 2026-11-04 while serving 200 to curl);
     # the recheck still demands a real 2xx, so a host that stays down keeps
-    # failing. Other [ERROR]s (DNS, TLS, invalid URL) are not retried.
+    # failing. Other [ERROR]s (DNS, TLS handshake, invalid URL) are not retried;
+    # third_party_faults() above lets external 403s and certificate errors through.
     transport = re.compile(r'\|\s*(?:Connection (?:refused|reset|closed|failed)\b|Error \(cached\)\s*$)', re.I)
     failures = [(status, url) for status, url, _ in lines]
     if not lines or any(
         not url.startswith(('https://', 'http://'))
-        or (status not in retryable and not (status == 'ERROR' and transport.search(detail)))
+        or (status not in retryable and not (status == 'ERROR' and transport.search(detail)) and url not in third_party)
         for status, url, detail in lines
     ):
         raise ValueError('Only timeout, transient 5xx or transport failures can be rechecked')
@@ -65,8 +101,9 @@ def check_url(url: str) -> dict:
 # main and on every PR. Copied from lychee-action's non-blocking report
 # pattern, but scoped: only exact hosts listed in .linkcheck-quarantine.json,
 # reviewed by PR, for at most MAX_DAYS, and only for an unreachable host or a
-# 5xx. Any HTTP 4xx/3xx from the curl recheck stays fatal, and so does every
-# DNS/TLS/invalid-URL error (timeout_urls never lets them through). When the
+# 5xx. Any HTTP 404/3xx from the curl recheck stays fatal, and so does every
+# DNS/TLS-handshake/invalid-URL error (timeout_urls never lets them through);
+# external 403s and bad certificates are warnings via third_party_faults. When the
 # entry expires the failure is fatal again: fix the data (website_url,
 # submission_url...) or renew it explicitly in a PR.
 MAX_DAYS = 14
@@ -100,7 +137,9 @@ def quarantined(result: dict, active: dict[str, dict]) -> dict | None:
 
 def run(report: Path, output: Path, quarantine: Path | None = None, today: date | None = None) -> int:
     try:
-        urls = timeout_urls(report.read_text(encoding='utf-8'))
+        text = report.read_text(encoding='utf-8')
+        urls = timeout_urls(text)
+        third_party = third_party_faults(text)
         active = load_quarantine(quarantine, today or date.today()) if quarantine else {}
     except (ValueError, OSError, KeyError, TypeError) as error:
         print(f'FAIL: {error}')
@@ -121,18 +160,32 @@ def run(report: Path, output: Path, quarantine: Path | None = None, today: date 
             result['quarantine'] = entry
             warnings.append(f'- `{result["url"]}` HTTP {result.get("status") or "000"}: '
                             f'{entry["reason"]} (cuarentena hasta {entry["expires"]})')
+    external = []
+    for result in results:
+        status = str(result.get('status') or '000')
+        # The curl recheck must confirm the same fault: a 403 that now answers 404 is a gone page, not a block.
+        confirmed = status == '403' if third_party.get(result['url'], '').startswith('HTTP 403') else status == '000'
+        if not result['ok'] and 'quarantine' not in result and result['url'] in third_party and confirmed:
+            result['third_party'] = third_party[result['url']]
+            external.append(f'- `{result["url"]}`: {result["third_party"]} (recomprobado: HTTP '
+                            f'{result.get("status") or "000"})')
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(results, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     for result in results:
-        label = 'PASS' if result['ok'] else 'WARN quarantined' if 'quarantine' in result else 'FAIL'
+        label = ('PASS' if result['ok'] else 'WARN quarantined' if 'quarantine' in result
+                 else 'WARN third-party' if 'third_party' in result else 'FAIL')
         print(f'{label} native recheck: {result["url"]} HTTP {result.get("status", "unavailable")}')
     summary = os.environ.get('GITHUB_STEP_SUMMARY')
-    if warnings and summary:
+    if summary and (warnings or external):
         with open(summary, 'a', encoding='utf-8') as handle:
-            handle.write('## Hosts externos en cuarentena (no bloquean hasta que caduque)\n\n' + '\n'.join(warnings) + '\n')
-    for line in warnings:
+            if warnings:
+                handle.write('## Hosts externos en cuarentena (no bloquean hasta que caduque)\n\n' + '\n'.join(warnings) + '\n')
+            if external:
+                handle.write('\n## Fallos del servidor de un tercero (no bloquean; revisar el dato si persiste)\n\n'
+                             + '\n'.join(external) + '\n')
+    for line in warnings + external:
         print(f'::warning::{line}')
-    return 0 if all(result['ok'] or 'quarantine' in result for result in results) else 1
+    return 0 if all(result['ok'] or 'quarantine' in result or 'third_party' in result for result in results) else 1
 
 
 if __name__ == '__main__':
