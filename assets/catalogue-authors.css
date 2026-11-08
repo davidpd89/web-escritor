@@ -1,0 +1,12 @@
+/* Índices de autores y de editoriales: mismo panel de filtros que el catálogo de libros. */
+html.v1 .catalogue-authors-filters .catalogue-filter-grid{grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));}
+html.v1 .catalogue-authors-filters .catalogue-filter-actions{margin-top:1rem;}
+html.v1 .catalogue-authors-index .catalogue-results-head{grid-template-columns:minmax(0,1fr);}
+html.v1 .catalogue-authors-index .catalogue-author-books li[hidden]{display:none;}
+html.v1 .catalogue-authors-index .catalogue-author-books li{content-visibility:auto;contain-intrinsic-size:auto 340px;}
+html.v1 .catalogue-authors-index .catalogue-author-books .catalogue-when{margin:0;font-size:.72rem;}
+html.v1 .catalogue-authors-empty{margin:1.5rem 0;padding:1rem;border:1px dashed var(--catalogue-rule);}
+html.v1 .catalogue-authors-empty button{margin-left:.5rem;}
+@media(max-width:700px){html.v1 .catalogue-authors-filters .catalogue-filter-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:450px){html.v1 .catalogue-authors-filters .catalogue-filter-grid{grid-template-columns:minmax(0,1fr);}}
+@media print{html.v1 .catalogue-authors-filters{display:none!important;}}
