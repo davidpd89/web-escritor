@@ -90,10 +90,36 @@ def clean_author(value: str) -> str:
 
 _AUTHOR_SEPARATOR = re.compile(r"\s+/\s+|\s*;\s*")
 _HANDLE = re.compile(r"\s*\(?@[\w.]+\)?")
+# Rol editorial pegado al nombre: «(Ed.) José Rico Pavés», «Ana Gil (coord.)», «trad. Luis Paz». No es parte del nombre.
+_ROLE = re.compile(r"\s*[\(\[]\s*(?:eds?|ed\.?\s*lit|coords?|dirs?|comps?|trads?|ilustr?|il|pr[oó]l|sel|ed\.\s*a\s*cargo\s*de)\.?\s*[\)\]]\s*"
+                   r"|^\s*(?:eds?|coords?|dirs?|comps?|trads?|ilustr?)\.\s+"
+                   r"|,?\s+\(?(?:editor|editora|coordinador|coordinadora|traductor|traductora|ilustrador|ilustradora)\)?\s*$", re.I)
+_PAREN = re.compile(r"^(?P<name>[^()]+?)\s*\((?P<alias>[^()]+)\)$")
+
+
+def _drop_role(name: str) -> str:
+    """Quita el rol y el paréntesis que repite el nombre («Patri Psicóloga (Patri Psicóloga)»). Un seudónimo
+    distinto entre paréntesis («Laura Álvarez (La pediatra Laura)») se conserva."""
+    name = _ROLE.sub(" ", name).strip()
+    match = _PAREN.match(name)
+    if match and _fold(match["name"]) == _fold(match["alias"]):
+        return match["name"].strip()
+    return name
+
 
 
 def _fold(word: str) -> str:
     return "".join(ch for ch in unicodedata.normalize("NFKD", word.lower()) if ch.isalnum() and not unicodedata.combining(ch))
+
+
+_COLLECTIVE = {"aavv": "Varios autores", "vvaa": "Varios autores", "varios": "Varios autores",
+               "variosautores": "Varios autores", "vautores": "Varios autores", "vvautores": "Varios autores",
+               "autoresvarios": "Varios autores", "anonimo": "Anónimo", "anonima": "Anónimo", "anonymous": "Anónimo"}
+
+
+def _collective(name: str) -> str:
+    """«AA. VV.», «V. Autores», «VV.AA.» → «Varios autores»; «ANÓNIMO» → «Anónimo». Una sola ficha por forma."""
+    return _COLLECTIVE.get(_fold(name), name)
 
 
 def _drop_concatenated(name: str) -> str:
@@ -125,10 +151,10 @@ def split_authors(names) -> list[str]:
     («Úrsula Perona @ursulaperonapsicologa») o repiten el nombre pegado. Idempotente."""
     out: list[str] = []
     for raw in names or []:
-        for piece in _AUTHOR_SEPARATOR.split(_HANDLE.sub("", str(raw))):
+        for piece in _AUTHOR_SEPARATOR.split(_drop_role(_HANDLE.sub("", str(raw)))):
             for pair in _split_pair(clean_title(piece), r"\s+y\s+"):
                 for part in _split_pair(pair, r"\s*,\s+"):
-                    name = _drop_concatenated(clean_author(part.strip(" ,;/")))
+                    name = _collective(_drop_concatenated(clean_author(part.strip(" ,;/"))))
                     if name and _fold(name) not in {_fold(n) for n in out}:
                         out.append(name)
     return out

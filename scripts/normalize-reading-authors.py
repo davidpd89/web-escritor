@@ -5,7 +5,8 @@ Aplica `split_authors` a los libros ya publicados («A / B», «A y B», usuario
 repetidos). Las fichas bibliográficas que se quedan sin libros se retiran, y las nuevas se crean
 con la misma función que usa la ingesta. Las biografías manuales no se tocan.
 Cada ficha retirada queda anotada en `data/reading-author-retirements.json` con las fichas que la
-sustituyen; el control de enlaces (qa/findability-inventory.mjs) acepta su baja si existen.
+sustituyen; el control de enlaces (qa/findability-inventory.mjs) acepta su baja si existen, y
+su página se borra para que el build no la tome por una ficha huérfana.
 `--check` falla si queda algo por normalizar (contrato de datos).
 """
 from __future__ import annotations
@@ -48,6 +49,24 @@ def record_retirements(retired, changed, authors, today):
                                          'sustituidaPor': heirs})
     payload['retiradas'].sort(key=lambda r: r['url'])
     write(RETIREMENTS, payload)
+    return {r['url'] for r in payload['retiradas']}
+
+
+def remove_retired_pages(retired, recorded, root=ROOT):
+    """Borra la página de cada ficha retirada con sustitutas anotadas.
+
+    Sin sustitutas no hay baja anotada: la página se queda y el build la señala para revisarla.
+    """
+    removed = []
+    for author in retired:
+        url = AUTHOR_URL.format(author['slug'])
+        page = root / url.strip('/') / 'index.html'
+        if url in recorded and page.exists():
+            page.unlink()
+            if not any(page.parent.iterdir()):
+                page.parent.rmdir()
+            removed.append(url)
+    return removed
 
 
 def main():
@@ -81,10 +100,12 @@ def main():
     # Mismo serializador que el refresco de precios: conserva el orden de claves del catálogo.
     write_changed(cat_path, catalogue)
     write_if_changed(auth_path, authors)
-    record_retirements(retired, changed, authors, date.today().isoformat())
+    recorded = record_retirements(retired, changed, authors, date.today().isoformat())
+    removed = remove_retired_pages(retired, recorded)
     for ident, old, new in changed:
         print(f'{ident}: {old} -> {new}')
-    print(f'{len(changed)} libros normalizados; fichas retiradas: {[a["nombre"] for a in retired]}')
+    print(f'{len(changed)} libros normalizados; fichas retiradas: {[a["nombre"] for a in retired]}; '
+          f'páginas borradas: {removed}')
     return 0
 
 
