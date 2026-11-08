@@ -31,6 +31,7 @@ from reading_catalogue_publishers import catalogue_publisher, PublisherError
 from reading_generic_source import generic_edition, generic_links, reviewed_hosts
 from reading_planeta_source import COVER_HOSTS as PLANETA_COVER_HOSTS, planeta_edition, planeta_links
 from reading_ttl_source import sitemap_children, sitemap_products, ttl_edition, ttl_url, typographic_cover, url_isbn
+from reading_titles import proper_words, tidy_title
 from urllib.parse import urlsplit
 from reading_author_wikipedia import WikipediaSummaries, fill_missing_bios
 
@@ -532,6 +533,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
     by_isbn = {b.get('isbn13'): b for b in catalogue['libros']}
     known_urls = {b['fuente_bibliografica_url']: b['isbn13'] for b in catalogue['libros'] if b.get('fuente_bibliografica_url')}
     works = {work_key(b['titulo'], b['autores']) for b in catalogue['libros']}
+    proper = proper_words(catalogue)
     state = read_json(root / 'data/reading-intake-state.json', {'schema_version': 1, 'items': {}})
     cached_state = read_json(cache / 'state.json', {'schema_version': 1, 'items': {}})
     # Pending attempts survive in Actions cache; only published content is Git authority.
@@ -657,6 +659,8 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 if normalize_text(record['titulo']).startswith(('estuche ', 'pack ', 'caja ')):
                     raise SourceError('Estuche o pack: requiere relación de obras comprobada')
                 record['autores'] = split_authors(record['autores'])
+                # Misma norma que la vía de Amazon: las fichas CEGAL llegan en mayúsculas («DESTAPE GAY, EL»).
+                record['titulo'] = tidy_title(record['titulo'], proper)
                 work = work_key(record['titulo'], record['autores'])
                 if work in works and (not refresh or work != work_key(old_book['titulo'], old_book['autores'])):
                     raise SourceError('Otra edición de una obra ya incluida; no se duplica la URL')

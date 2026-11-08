@@ -315,7 +315,9 @@ class ContractTests(unittest.TestCase):
             (root / 'data/reading-catalogue.json').write_text(json.dumps(source), encoding='utf-8')
             (root / 'data/reading-authors.json').write_text(json.dumps({'schema_version': 1, 'autores': []}), encoding='utf-8')
             shutil.copy(ROOT / 'data/editoriales.json', root / 'data/editoriales.json')
-            responses = {'https://www.todostuslibros.com/libros/x_' + ISBN: ttl_document().encode()}
+            # Las fichas CEGAL llegan en mayúsculas y con el artículo pospuesto.
+            sheet = ttl_document().replace('"Obra de prueba"', '"DESTAPE GAY, EL"')
+            responses = {'https://www.todostuslibros.com/libros/x_' + ISBN: sheet.encode()}
             class FakeHTTP:
                 def __init__(self, *args, **kwargs):
                     self.requests = self.hits = 0; self.budget = 80
@@ -332,6 +334,7 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(result['stats']['accepted'], 1, result['state'])
             book = json.loads((root / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros'][0]
             self.assertEqual((book['isbn13'], book['fuente_bibliografica_url'], book['pvp_centimos']), (ISBN, PAGE, 1990))
+            self.assertEqual(book['titulo'], 'El destape gay')
             with Image.open(root / book['portada_local'].lstrip('/')) as cover:
                 self.assertEqual((cover.format, cover.size), ('WEBP', (800, 1200)))
 
