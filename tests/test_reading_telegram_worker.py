@@ -153,6 +153,24 @@ class EditorialTelegramTests(unittest.TestCase):
                     result["libros"][0]["estado"], "pendiente_verificacion_telegram"
                 )
 
+    def test_budget_goes_to_todays_books_first(self):
+        books = [
+            {**self.book, "id": d, "fecha_publicacion": d}
+            for d in ("2026-11-30", "2026-10-30", "2026-11-02", "2026-11-01", "2026-10-31")
+        ]
+
+        def fetch(url, source):
+            raise OSError("offline")
+
+        with patch("reading_telegram_worker.editorial_product"):
+            _, report = verified_snapshot(
+                {"libros": books}, self.intake, date(2026, 11, 1), fetch
+            )
+        order = [p["id"] for p in report["pending"]]
+        self.assertEqual(
+            order, ["2026-11-01", "2026-11-02", "2026-11-30", "2026-10-31", "2026-10-30"]
+        )
+
     def test_old_books_do_not_generate_editorial_requests(self):
         book = {**self.book, "fecha_publicacion": "2009-06-01"}
         with patch("reading_telegram_worker.editorial_product") as parser:

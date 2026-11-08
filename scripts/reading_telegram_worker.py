@@ -114,15 +114,20 @@ def verified_snapshot(catalogue, intake, today, fetch):
     report = {"checked": 0, "resolved": 0, "pending": [], "verified": []}
     sources = [s for s in intake["sources"] if s.get("enabled")]
     tag = intake["amazon_partner_tag"]
+    window = []
     for book in result["libros"]:
         try:
             published = date.fromisoformat(book.get("fecha_publicacion", ""))
         except (TypeError, ValueError):
             continue
-        if book.get("estado") != "publicado" or not today - timedelta(
+        if book.get("estado") == "publicado" and today - timedelta(
             days=3
         ) <= published <= today + timedelta(days=30):
-            continue
+            window.append((book, published))
+    # The per-source request budget is finite: spend it on today's books first,
+    # then upcoming dates in order, and only then the recent past (already announced).
+    window.sort(key=lambda item: (item[1] < today, abs((item[1] - today).days)))
+    for book, published in window:
         # Until checked today, a due book cannot fall back to stale product/date data.
         url = book.get("fuente_publicacion_url", "")
         source = next(
