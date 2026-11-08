@@ -462,9 +462,27 @@ class Priorizar(unittest.TestCase):
         rows = [{'isbn13': d, 'fecha_publicacion_edicion': d} for d in
                 ('2019-05-01', '2026-10-01', '2027-02-01', '2028-06-01', '2026-11-20')]
         chosen, deferred = ca.priorizar(rows, '2026-11-06', 4)
-        # Novedades de la más cercana a hoy a la más lejana (antes del 07/11, la preventa de febrero iba primera).
-        self.assertEqual([r['isbn13'] for r in chosen], ['2026-11-20', '2026-10-01', '2027-02-01', '2028-06-01'])
+        # Próximos días de la fecha más cercana a la más lejana, después el pasado reciente y luego el fondo.
+        # (Antes del 07/11 la preventa de febrero iba primera; antes del 08/11, octubre pasaba delante de febrero.)
+        self.assertEqual([r['isbn13'] for r in chosen], ['2026-11-20', '2027-02-01', '2026-10-01', '2028-06-01'])
         self.assertEqual([r['isbn13'] for r in deferred], ['2019-05-01'])
+
+    def test_today_and_upcoming_days_fill_the_quota_before_any_past_day(self):
+        rows = [{'isbn13': d, 'fecha_publicacion_edicion': d} for d in
+                ('2026-11-07', '2026-11-08', '2026-11-05', '2026-11-09', '2026-12', '2026-11', '2026-11-10')]
+        chosen, deferred = ca.priorizar(rows, '2026-11-08', 5)
+        # Hoy, mañana, pasado… y el mes que aún no ha empezado; ayer espera aunque esté a un día.
+        self.assertEqual([r['isbn13'] for r in chosen], ['2026-11-08', '2026-11-09', '2026-11-10', '2026-12', '2026-11-07'])
+        self.assertEqual([r['isbn13'] for r in deferred], ['2026-11-05', '2026-11'])
+
+    def test_past_days_enter_only_with_quota_left_from_upcoming_ones(self):
+        upcoming = [{'isbn13': f'P{i}', 'fecha_publicacion_edicion': '2026-11-10', 'materias': [f'G{i}']} for i in range(3)]
+        past = [{'isbn13': 'Y', 'fecha_publicacion_edicion': '2026-11-07'}]
+        chosen, deferred = ca.priorizar(past + upcoming, '2026-11-08', 3)
+        self.assertEqual({r['isbn13'] for r in chosen}, {'P0', 'P1', 'P2'})
+        self.assertEqual([r['isbn13'] for r in deferred], ['Y'])
+        chosen, _ = ca.priorizar(past + upcoming, '2026-11-08', 4)
+        self.assertEqual(chosen[-1]['isbn13'], 'Y')
 
     def test_a_quarter_of_the_quota_goes_to_the_longest_waiting(self):
         # Sin esto, un libro de fondo aplazado perdería siempre frente a las novedades de cada noche.
@@ -484,10 +502,10 @@ class Priorizar(unittest.TestCase):
                 row('T3', '2026-11-07', 'Thriller', 30), row('R1', '2026-11-07', 'Romántica', 500),
                 row('T8', '2026-11-08', 'Thriller', 5), row('A5', '2026-11-05', 'Autoayuda', 900)]
         chosen, deferred = ca.priorizar(rows, '2026-11-06', 4)
-        # Mañana: el thriller más vendido y la romántica; luego ayer (empate a un día: primero el posterior)
-        # y pasado mañana; los otros dos thrillers de mañana, después.
-        self.assertEqual([r['isbn13'] for r in chosen], ['T1', 'R1', 'A5', 'T8'])
-        self.assertEqual([r['isbn13'] for r in deferred], ['T2', 'T3'])
+        # Mañana: el thriller más vendido y la romántica; pasado mañana, su thriller; después los otros thrillers
+        # de mañana. Ayer (A5) espera a que acaben los próximos días.
+        self.assertEqual([r['isbn13'] for r in chosen], ['T1', 'R1', 'T8', 'T2'])
+        self.assertEqual([r['isbn13'] for r in deferred], ['T3', 'A5'])
 
     def test_backlist_goes_by_amazon_sales_rank_after_new_releases(self):
         ranked = lambda d, r: {'isbn13': d, 'fecha_publicacion_edicion': d,
