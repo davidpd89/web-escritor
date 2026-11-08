@@ -50,7 +50,10 @@ class CatalogueGEO(unittest.TestCase):
             # Entero, salvo cuando la línea llega al tope de 700: entonces cede espacio, pero empieza igual.
             self.assertIn('Para quién es: ' + (who if len(line) < 640 else who[:40]), line, b['id'])
             self.assertLessEqual(len(line), 700, b['id'])
-            self.assertLess(line.index('Para quién es:'), line.index('Sinopsis de la editorial:'), b['id'])
+            # Misma etiqueta que el generador: sin sinopsis breve de la editorial, el texto es una «Descripción».
+            # La publicación de textos del 07/11 se paró aquí con el primer texto propio de un libro sin sinopsis.
+            label = 'Sinopsis de la editorial:' if b.get('sinopsis_breve') else 'Descripción:'
+            self.assertLess(line.index('Para quién es:'), line.index(label), b['id'])
         self.assertNotIn('sinopsis propia', text)
 
     def test_own_meta_descriptions_fit_without_cutting_a_sentence(self):
