@@ -1374,41 +1374,116 @@ def first_sentence(text, limit=160):
     return sentence if len(sentence) <= limit else sentence[:limit - 1].rsplit(' ', 1)[0].rstrip(' ,;:') + '…'
 
 
-def render_authors_index(authors, books, template):
+AUTHOR_SORTS = (('nombre', 'Nombre · A–Z'), ('proximo', 'Próximo libro · el más cercano primero'), ('reciente', 'Último libro · el más reciente primero'), ('libros', 'Número de libros · de más a menos'))
+AUTHOR_STATES = (('', 'Todos los autores'), ('proximos', 'Con próximos lanzamientos'), ('novedad', 'Con novedad en los últimos 30 días'))
+AUTHORS_ASSET_VERSION = '2'
+
+
+def render_authors_index(authors, books, template, data=None):
     canonical = SITE + '/recomendaciones/autores/'
+    anchor = data_anchor(books)
     rows = sorted(((a, [b for b in books if a['nombre'] in b['autores']]) for a in authors), key=lambda r: r[0]['nombre'].casefold())
     rows = [(a, bs) for a, bs in rows if bs]
-    items = ''.join('<li><a href="' + author_url(a) + '">' + image(_newest_first(bs)[0], True, '120px', 'catalogue-index__image', '') + '<span>' + esc(a['nombre']) + '</span></a><p>' + str(len(bs)) + (' libro' if len(bs) == 1 else ' libros') + ' · ' + esc(', '.join(b['titulo'] for b in _newest_first(bs)[:2])) + ('…' if len(bs) > 2 else '') + '</p>' + ('<p class="catalogue-index__bio">' + esc(first_sentence(a['biografia_breve'])) + '</p>' if a.get('biografia_breve') else '') + '</li>' for a, bs in rows)
+    groups, items = {}, []
+    for a, bs in rows:
+        newest = _newest_first(bs)
+        upcoming = sorted((b for b in bs if b.get('fecha_publicacion', '') > anchor), key=lambda b: b['fecha_publicacion'])
+        latest = next((b for b in newest if b.get('fecha_publicacion', '') <= anchor), None)
+        # Portal de novedades: cada autor dice cuándo sale su próximo libro o cuándo salió el último.
+        when = ('Próximo libro · ' + publication_date_label(upcoming[0])) if upcoming else ('Último libro · ' + publication_date_label(latest)) if latest and publication_date_label(latest) else ''
+        kinds = sorted({book_group(categories(data, b)) for b in bs}) if data else []
+        for kind in kinds:
+            groups[kind] = groups.get(kind, 0) + 1
+        dates = ' '.join(sorted({b['fecha_publicacion'] for b in bs if b.get('fecha_publicacion')}))
+        attrs = ' data-groups="' + ' '.join(kinds) + '" data-books="' + str(len(bs)) + '"' + (' data-dates="' + dates + '"' if dates else '')
+        items.append('<li' + attrs + '><a href="' + author_url(a) + '">' + image(newest[0], True, '120px', 'catalogue-index__image', '') + '<span>' + esc(a['nombre']) + '</span></a>'
+                     + ('<p class="eyebrow catalogue-when">' + esc(when) + '</p>' if when else '')
+                     + '<p>' + str(len(bs)) + (' libro' if len(bs) == 1 else ' libros') + ' · ' + esc(', '.join(b['titulo'] for b in newest[:2])) + ('…' if len(bs) > 2 else '') + '</p>'
+                     + ('<p class="catalogue-index__bio">' + esc(first_sentence(a['biografia_breve'])) + '</p>' if a.get('biografia_breve') else '') + '</li>')
     summary = 'Autores de los libros recomendados: ' + str(len(rows)) + ' fichas con sus libros, ediciones y editoriales.'
-    main = ('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Autores</li></ol></nav>'
+    kinds = [('', 'Todos los tipos')] + [(gid, label + ' (' + str(groups[gid]) + ')') for gid, label in group_options(groups)]
+    upcoming = any(b.get('fecha_publicacion', '') > anchor for b in books)
+    # Sin JS el formulario queda desactivado y la lista completa sigue a la vista (enlaces rastreables).
+    filters = ('<form class="catalogue-filters catalogue-authors-filters" data-index-filters data-noun="autores" role="search" aria-label="Filtrar autores"><fieldset disabled><legend>Encuentra autores</legend><div class="catalogue-filter-grid">'
+               '<label class="catalogue-search">Buscar por autor o título<input type="search" name="q" data-index-filter="q" maxlength="120" autocomplete="off" placeholder="Nombre del autor o de un libro"></label>'
+               + (_index_select('tipo', 'Tipo de libro', kinds) if groups else '') + _index_select('estado', 'Mostrar', AUTHOR_STATES) + _index_select('orden', 'Ordenar por', AUTHOR_SORTS)
+               + '</div><div class="catalogue-filter-actions"><button type="submit">Buscar autores</button>' + ('<button type="button" class="catalogue-upcoming-link" data-index-shortcut>Autores con próximos lanzamientos →</button>' if upcoming else '') + '<button type="reset">Restablecer</button></div></fieldset></form>')
+    main = ('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page catalogue-authors-index" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Autores</li></ol></nav>'
             '<header class="catalogue-author-hero"><p class="eyebrow">Libros recomendados</p><h1>Autores</h1><p>' + esc(summary) + '</p></header>'
-            '<section aria-labelledby="authors-list"><h2 id="authors-list">Todos los autores</h2><ul class="catalogue-author-books">' + items + '</ul></section>'
+            + filters +
+            '<section aria-labelledby="authors-list"><div class="catalogue-results-head"><h2 id="authors-list">Todos los autores</h2><p role="status" aria-live="polite" data-index-count>' + str(len(rows)) + ' autores</p></div>'
+            '<p class="catalogue-authors-empty" data-index-empty hidden>Ningún autor coincide con esos filtros. <button type="button" data-index-reset>Quitar filtros</button></p>'
+            '<ul class="catalogue-author-books" data-index-list>' + ''.join(items) + '</ul></section>'
             '<div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
     schema = {'@context': 'https://schema.org', '@graph': [{'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Autores de los libros recomendados', 'dateModified': collection_modified({}, books), 'hasPart': [{'@id': SITE + author_url(a) + '#person'} for a, _ in rows]},
                                                   _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Autores', '/recomendaciones/autores/')])]}
-    return render_detail_page(template, main, canonical, 'Autores de los libros recomendados | David Porto Díaz', summary, schema, None)
+    page = render_detail_page(template, main, canonical, 'Autores de los libros recomendados | David Porto Díaz', summary, schema, None)
+    page = page.replace('</head>', '<link rel="stylesheet" href="/assets/catalogue-authors.css?v=' + AUTHORS_ASSET_VERSION + '">\n</head>', 1)
+    return page.replace('</body>', '<script defer src="/assets/catalogue-authors.js?v=' + AUTHORS_ASSET_VERSION + '"></script>\n</body>', 1)
 
 
-def render_publishers_index(catalogue_publishers, books, template):
-    """Sellos con libros en el catálogo: los del directorio enlazan a su ficha de manuscritos."""
+PUBLISHER_SORTS = (('nombre', 'Nombre · A–Z'), ('proximo', 'Próximo libro · el más cercano primero'), ('reciente', 'Último libro · el más reciente primero'), ('libros', 'Número de libros · de más a menos'))
+PUBLISHER_STATES = (('', 'Todos los sellos'), ('proximos', 'Con próximos lanzamientos'), ('novedad', 'Con novedad en los últimos 30 días'))
+
+
+def _index_select(key, label, options):
+    return '<label>' + label + '<select name="' + key + '" data-index-filter="' + key + '">' + ''.join('<option value="' + esc(v) + '">' + esc(t) + '</option>' for v, t in options) + '</select></label>'
+
+
+def render_publishers_index(catalogue_publishers, books, template, data=None):
+    """Sellos con libros en el catálogo: los del directorio enlazan a su ficha de manuscritos.
+    Mismos filtros que el índice de autores: el portal de novedades también se recorre por sello."""
     canonical = SITE + '/recomendaciones/editoriales/'
+    anchor = data_anchor(books)
+    by_slug = {p['slug']: p for p in catalogue_publishers}
     entries = {}
     for b in books:
         if b.get('editorial_catalogo_slug'):
-            p = next(p for p in catalogue_publishers if p['slug'] == b['editorial_catalogo_slug'])
-            entries.setdefault(p['slug'], [p['nombre'], publisher_url(p), 0, b, p['grupo']])[2] += 1
+            p = by_slug[b['editorial_catalogo_slug']]
+            entries.setdefault(p['slug'], [p['nombre'], publisher_url(p), [], p['grupo']])[2].append(b)
         elif b.get('editorial_slug'):
-            entries.setdefault(b['editorial_slug'], [b['editorial'], '/editoriales/' + b['editorial_slug'] + '/', 0, b, ''])[2] += 1
+            entries.setdefault(b['editorial_slug'], [b['editorial'], '/editoriales/' + b['editorial_slug'] + '/', [], ''])[2].append(b)
     ordered = sorted(entries.values(), key=lambda e: e[0].casefold())
-    items = ''.join('<li><a href="' + e[1] + '">' + image(e[3], True, '120px', 'catalogue-index__image', '') + '<span>' + esc(e[0]) + '</span></a><p>' + str(e[2]) + (' libro' if e[2] == 1 else ' libros') + ' en el catálogo' + (' · ' + esc(e[4]) if e[4] else '') + '</p></li>' for e in ordered)
+    groups, owners, items = {}, {}, []
+    for name, href, bs, owner in ordered:
+        newest = _newest_first(bs)
+        upcoming = sorted((b for b in bs if b.get('fecha_publicacion', '') > anchor), key=lambda b: b['fecha_publicacion'])
+        latest = next((b for b in newest if b.get('fecha_publicacion', '') <= anchor), None)
+        when = ('Próximo libro · ' + publication_date_label(upcoming[0])) if upcoming else ('Último libro · ' + publication_date_label(latest)) if latest and publication_date_label(latest) else ''
+        kinds = sorted({book_group(categories(data, b)) for b in bs}) if data else []
+        for kind in kinds:
+            groups[kind] = groups.get(kind, 0) + 1
+        owner_id = re.sub(r'\W+', '-', owner.casefold()).strip('-')
+        if owner_id:
+            owners.setdefault(owner_id, [owner, 0])[1] += 1
+        dates = ' '.join(sorted({b['fecha_publicacion'] for b in bs if b.get('fecha_publicacion')}))
+        attrs = ' data-groups="' + ' '.join(kinds) + '" data-owner="' + owner_id + '" data-books="' + str(len(bs)) + '"' + (' data-dates="' + dates + '"' if dates else '')
+        items.append('<li' + attrs + '><a href="' + href + '">' + image(newest[0], True, '120px', 'catalogue-index__image', '') + '<span>' + esc(name) + '</span></a>'
+                     + ('<p class="eyebrow catalogue-when">' + esc(when) + '</p>' if when else '')
+                     + '<p>' + str(len(bs)) + (' libro' if len(bs) == 1 else ' libros') + ' en el catálogo' + (' · ' + esc(owner) if owner else '') + '</p>'
+                     + '<p class="catalogue-index__bio">' + esc(', '.join(b['titulo'] for b in newest[:2])) + ('…' if len(bs) > 2 else '') + '</p></li>')
     summary = 'Editoriales de los libros recomendados: ' + str(len(ordered)) + ' sellos con sus libros.'
-    main = ('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Editoriales del catálogo</li></ol></nav>'
+    kinds = [('', 'Todos los tipos')] + [(gid, label + ' (' + str(groups[gid]) + ')') for gid, label in group_options(groups)]
+    owner_options = [('', 'Todos los grupos')] + [(oid, o[0] + ' (' + str(o[1]) + ')') for oid, o in sorted(owners.items(), key=lambda kv: kv[1][0].casefold())]
+    upcoming = any(b.get('fecha_publicacion', '') > anchor for b in books)
+    # Sin JS el formulario queda desactivado y la lista completa sigue a la vista (enlaces rastreables).
+    filters = ('<form class="catalogue-filters catalogue-authors-filters" data-index-filters data-noun="sellos" role="search" aria-label="Filtrar editoriales"><fieldset disabled><legend>Encuentra editoriales</legend><div class="catalogue-filter-grid">'
+               '<label class="catalogue-search">Buscar por sello o título<input type="search" name="q" data-index-filter="q" maxlength="120" autocomplete="off" placeholder="Nombre del sello o de un libro"></label>'
+               + (_index_select('tipo', 'Tipo de libro', kinds) if groups else '') + (_index_select('grupo', 'Grupo editorial', owner_options) if owners else '')
+               + _index_select('estado', 'Mostrar', PUBLISHER_STATES) + _index_select('orden', 'Ordenar por', PUBLISHER_SORTS)
+               + '</div><div class="catalogue-filter-actions"><button type="submit">Buscar editoriales</button>' + ('<button type="button" class="catalogue-upcoming-link" data-index-shortcut>Sellos con próximos lanzamientos →</button>' if upcoming else '') + '<button type="reset">Restablecer</button></div></fieldset></form>')
+    main = ('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page catalogue-authors-index" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Editoriales del catálogo</li></ol></nav>'
             '<header class="catalogue-author-hero"><p class="eyebrow">Libros recomendados</p><h1>Editoriales del catálogo</h1><p>' + esc(summary) + '</p></header>'
-            '<section aria-labelledby="publishers-list"><h2 id="publishers-list">Todos los sellos</h2><ul class="catalogue-author-books">' + items + '</ul></section>'
+            + filters +
+            '<section aria-labelledby="publishers-list"><div class="catalogue-results-head"><h2 id="publishers-list">Todos los sellos</h2><p role="status" aria-live="polite" data-index-count>' + str(len(ordered)) + ' sellos</p></div>'
+            '<p class="catalogue-authors-empty" data-index-empty hidden>Ningún sello coincide con esos filtros. <button type="button" data-index-reset>Quitar filtros</button></p>'
+            '<ul class="catalogue-author-books" data-index-list>' + ''.join(items) + '</ul></section>'
             '<div class="catalogue-end"><a class="text-action" href="/editoriales/">Directorio de editoriales que aceptan manuscritos</a> · <a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
     schema = {'@context': 'https://schema.org', '@graph': [{'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Editoriales del catálogo', 'dateModified': collection_modified({}, books)},
                                                   _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Editoriales del catálogo', '/recomendaciones/editoriales/')])]}
-    return render_detail_page(template, main, canonical, 'Editoriales de los libros recomendados | David Porto Díaz', summary, schema, None)
+    page = render_detail_page(template, main, canonical, 'Editoriales de los libros recomendados | David Porto Díaz', summary, schema, None)
+    page = page.replace('</head>', '<link rel="stylesheet" href="/assets/catalogue-authors.css?v=' + AUTHORS_ASSET_VERSION + '">\n</head>', 1)
+    return page.replace('</body>', '<script defer src="/assets/catalogue-authors.js?v=' + AUTHORS_ASSET_VERSION + '"></script>\n</body>', 1)
 
 
 def registry_entries(books):
@@ -1454,12 +1529,12 @@ def render_outputs(root, data):
     active_authors = [a for a in authors if any(a['nombre'] in b['autores'] for b in books)]
     for a in active_authors:
         outputs[author_url(a).lstrip('/') + 'index.html'] = render_author(a, data, books, template, active_authors)
-    outputs['recomendaciones/autores/index.html'] = render_authors_index(active_authors, books, template)
+    outputs['recomendaciones/autores/index.html'] = render_authors_index(active_authors, books, template, data)
     catalogue_publishers = publisher_records(root)
     active_publishers = [p for p in catalogue_publishers if any(b.get('editorial_catalogo_slug') == p['slug'] for b in books)]
     for p in active_publishers:
         outputs[publisher_url(p).lstrip('/') + 'index.html'] = render_publisher(p, data, books, template, {a['nombre'] for a in authors}, active_authors)
-    outputs['recomendaciones/editoriales/index.html'] = render_publishers_index(catalogue_publishers, books, template)
+    outputs['recomendaciones/editoriales/index.html'] = render_publishers_index(catalogue_publishers, books, template, data)
     outputs[ICS_PATH] = render_release_ics(books)
     outputs[DEALS_PATH] = render_deals(books)
     outputs[LLMS_PATH] = render_llms_index(data, books, active_authors, active_publishers)
