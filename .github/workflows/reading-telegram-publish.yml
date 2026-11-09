@@ -84,7 +84,7 @@ jobs:
           rows = data.get('deliveries', [])
           counts = {state: sum(row['status'].split(':', 1)[0] == state for row in rows)
                     for state in ['sent', 'skipped', 'uncertain', 'retry', 'rejected']}
-          # Por estado completo ("skipped:rejected" = rechazado en un ciclo anterior de hoy), sin chats ni ASIN.
+          # Por estado completo ("skipped:rejected" = rechazado y ya avisado en un ciclo anterior; no vuelve a poner el ciclo en rojo), sin chats ni ASIN.
           detail = {}
           for row in rows:
               state = 'retry' if row['status'].startswith('retry:') else row['status'].split(':retry:')[0]

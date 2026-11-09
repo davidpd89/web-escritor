@@ -13,6 +13,7 @@ import json
 import os
 import re
 import sqlite3
+import time
 from contextlib import closing
 from pathlib import Path
 
@@ -116,21 +117,45 @@ class GitHubState:
                 sort_keys=True,
             ).encode()
         ).decode()
-        response = self.session.put(
-            self.url,
-            headers=self.headers,
-            json={
-                "message": "Checkpoint Telegram delivery state",
-                "branch": self.branch,
-                "sha": self.sha,
-                "content": content,
-            },
-            timeout=30,
-        )
-        if response.status_code != 200:
-            raise RuntimeError("Remote delivery checkpoint failed; sending is blocked")
-        self.sha = response.json()["content"]["sha"]
-        self.entries = updated
+        body = {
+            "message": "Checkpoint Telegram delivery state",
+            "branch": self.branch,
+            "sha": self.sha,
+            "content": content,
+        }
+        # 09/11: a single failed PUT right after a real send killed the cycle and left the remote row at
+        # 'sending' for the rest of the day. Transient failures (network, 5xx, 429) are retried with the
+        # same CAS sha; a 409 is accepted only when the remote store already holds exactly our write (the
+        # previous attempt landed but its response was lost). Any foreign change still blocks sending.
+        for attempt, pause in enumerate((2, 5, 10, None)):
+            try:
+                response = self.session.put(self.url, headers=self.headers, json=body, timeout=30)
+                code = response.status_code
+            except requests.RequestException:
+                response, code = None, None
+            if code == 200:
+                self.sha = response.json()["content"]["sha"]
+                self.entries = updated
+                return
+            if code == 409 and attempt and self._landed(updated):
+                return
+            if (code is None or code == 429 or code >= 500) and pause is not None:
+                time.sleep(pause)
+                continue
+            break
+        raise RuntimeError("Remote delivery checkpoint failed; sending is blocked")
+
+    def _landed(self, updated):
+        try:
+            current = GitHubState.__new__(GitHubState)
+            current.__dict__.update(self.__dict__)
+            current.load()
+        except (requests.RequestException, RuntimeError, ValueError):
+            return False
+        if current.entries != updated:
+            return False
+        self.sha, self.entries = current.sha, updated
+        return True
 
 
 def remote_state(namespace="daily"):

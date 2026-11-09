@@ -336,6 +336,20 @@ def run(
                 ):
                     db.execute("DELETE FROM deliveries WHERE chat=? AND asin=?", key)
                     row = None
+            if row and row[0] == "sending":
+                # A claim left by an earlier cycle that died mid-send: the message may or may not have
+                # gone out. Never resend; record it once as 'uncertain' (reported in this cycle) so later
+                # cycles skip it quietly instead of staying red for the whole day.
+                db.execute(
+                    "UPDATE deliveries SET status='uncertain' WHERE chat=? AND asin=?", key
+                )
+                db.commit()
+                if checkpoint:
+                    checkpoint(db_path)
+                results.append(
+                    {"chat_id": key[0], "asin": key[1], "status": "uncertain:stale-claim"}
+                )
+                continue
             if row:
                 db.commit()
                 results.append(
@@ -472,9 +486,7 @@ def main() -> None:
                             "uncertain",
                             "rejected",
                             "retry",
-                            "skipped:uncertain",
                             "skipped:sending",
-                            "skipped:rejected",
                             "skipped:retry",
                         )
                     )
