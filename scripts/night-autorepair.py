@@ -252,7 +252,10 @@ def puerta_local(wt):
     salida = (r.stdout or '') + (r.stderr or '')
     m = re.search(r'(\d+) fallos? nuevos?', salida)
     nuevos = int(m.group(1)) if m else (0 if r.returncode == 0 else 1)
-    return nuevos == 0, salida[-3000:]
+    # Lo útil son las secciones «## comando» de cada fallo nuevo y el recuento final; la cola cruda las cortaba.
+    fallos = re.findall(r'^## .*\n.*', salida, re.M)
+    resumen = '\n'.join(fallos + salida.strip().splitlines()[-1:])
+    return nuevos == 0, resumen[-3000:]
 
 
 def reparar(flujo, run, dry):
@@ -286,7 +289,7 @@ def reparar(flujo, run, dry):
                 log(f"{flujo}: {nombre} rechazado ({motivo})"); sh(['git', 'reset', '-q'], cwd=wt); deshacer(wt); continue
             pasa, salida_puerta = puerta_local(wt)
             if not pasa:
-                log(f"{flujo}: {nombre} no pasa la puerta local:\n{salida_puerta[-800:]}"); sh(['git', 'reset', '-q'], cwd=wt); deshacer(wt); continue
+                log(f"{flujo}: {nombre} no pasa la puerta local:\n{salida_puerta[-1500:]}"); sh(['git', 'reset', '-q'], cwd=wt); deshacer(wt); continue
             titulo = (resumen.splitlines() or [f'Reparar {flujo}'])[0].lstrip('# ').strip()[:90] or f'Reparar {flujo}'
             cuerpo = '\n'.join(resumen.splitlines()[1:]).strip()
             mensaje = f"{titulo}\n\nReparación automática del turno de noche ({nombre}) tras dos fallos de {flujo}.\n{run['url']}\n\n{cuerpo}".strip()
