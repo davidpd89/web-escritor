@@ -205,7 +205,21 @@ def refresh(*, publish=False):
                              {'recuperado_de': saved, 'new_books': carried, 'stats': {'accepted': len(carried)}})
             return assemble({'new_books': carried, 'updated_books': [], 'stats': {}}, changed=True, checkpoint=saved)
     amazon = config.get('amazon_catalogo', {}).get('enabled')
-    if amazon:
+    failure = None
+    if amazon and publish:
+        # Un fallo de las altas no puede dejar la noche sin precios ni portadas (09/11: un ISBN repetido tumbó
+        # refresh() antes de market_refresh). Se deshacen sus escrituras, siguen precios y portadas y al final se
+        # sale con error para que el fallo siga a la vista (y lo recoja la autorreparación nocturna).
+        try:
+            report = amazon_intake(config, publish)
+        except Exception as exc:  # noqa: BLE001
+            failure = exc
+            print(f'::error::Altas de Amazon fallidas ({type(exc).__name__}: {exc}); se descartan y siguen precios y portadas',
+                  flush=True)
+            discard_intake_writes()
+            report = {'new_books': [], 'updated_books': [], 'stats': {'accepted': 0, 'fuente': 'amazon_catalogo',
+                                                                      'error': f'{type(exc).__name__}: {exc}'}}
+    elif amazon:
         report = amazon_intake(config, publish)
     else:
         report = ingest(config, ROOT, ROOT / '.ci/reading-editorial-cache', apply=publish, isbns=radar_isbns(config))
@@ -218,11 +232,26 @@ def refresh(*, publish=False):
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
     saved = save_checkpoint(day)
     health_report(config)
-    if amazon:
+    if amazon and not failure:
         # Solo ahora: los libros ya están a salvo en la rama de datos (o no había nada), así que la cola de
         # semillas puede avanzar sin perder ninguno si después falla la PR.
         estado.guardar(f'Estado de la ingesta {day}: {len(report["new_books"])} altas')
-    return assemble(report, changed=changed, checkpoint=saved)
+    result = assemble(report, changed=changed, checkpoint=saved)
+    if failure:
+        raise RuntimeError('Las altas de Amazon fallaron; precios y portadas sí se publicaron') from failure
+    return result
+
+
+INTAKE_PATHS = ('data', 'assets/reading-covers')
+
+
+def discard_intake_writes(root=ROOT):
+    """Deshace lo que una ingesta a medias dejó en el catálogo y las portadas (seguidos y nuevos)."""
+    tracked = [p for p in INTAKE_PATHS if subprocess.run(['git', 'ls-files', '--', p], cwd=root, check=True,
+                                                         capture_output=True, text=True).stdout.strip()]
+    if tracked:
+        subprocess.run(['git', 'checkout', 'HEAD', '--', *tracked], cwd=root, check=True)
+    subprocess.run(['git', 'clean', '-fdq', '--', *INTAKE_PATHS], cwd=root, check=True)
 
 
 def health_report(config):
