@@ -18,6 +18,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import threading
 import time
 import urllib.request
@@ -198,7 +199,9 @@ class Servers:
             return False
 
     def __enter__(self):
+        self.lock_file = ports_lock()
         if busy_ports():
+            release(self.lock_file)
             raise SystemExit(f'Puertos ocupados por otro servidor: {busy_ports()}; ciérralo antes de la puerta.')
         for port in PORTS:
             self.start(port)
@@ -217,9 +220,58 @@ class Servers:
                     self.start(port)
 
     def __exit__(self, *exc):
-        for proc in self.procs.values():
-            proc.terminate()
-            proc.wait()
+        try:
+            for proc in self.procs.values():
+                proc.terminate()
+                proc.wait()
+        finally:
+            release(self.lock_file)
+
+
+PORTS_LOCK = Path(tempfile.gettempdir()) / 'web-escritor-local-ci-ports.lock'
+
+
+def ports_lock(path=PORTS_LOCK, wait=3 * 3600):
+    """Cerrojo de máquina sobre los puertos 4173/4175.
+
+    Dos puertas a la vez (la de la autorreparación y otra a mano, en worktrees distintos) compartían los puertos: en
+    Windows http.server usa SO_REUSEADDR, así que la segunda no veía el puerto ocupado y, al cerrar sus servidores,
+    tumbaba los de la otra. Ahora la segunda espera su turno.
+    """
+    handle = open(path, 'a+b')
+    start, said = time.time(), False
+    while True:
+        try:
+            if os.name == 'nt':
+                import msvcrt
+                handle.seek(0)
+                msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+            else:
+                import fcntl
+                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            return handle
+        except OSError:
+            if time.time() - start > wait:
+                handle.close()
+                raise SystemExit('Otra puerta local lleva más de 3 h con los puertos de QA; revísala.')
+            if not said:
+                print('Otra puerta local usa los puertos de QA: espero mi turno…', flush=True)
+                said = True
+            time.sleep(5)
+
+
+def release(handle):
+    try:
+        if os.name == 'nt':
+            import msvcrt
+            handle.seek(0)
+            msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+        else:
+            import fcntl
+            fcntl.flock(handle, fcntl.LOCK_UN)
+    except OSError:
+        pass
+    handle.close()
 
 
 def kill_tree(proc):

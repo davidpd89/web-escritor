@@ -64,3 +64,15 @@ class ServidoresVigilados(unittest.TestCase):
                 self.assertTrue(servers.alive(port))
         finally:
             local_ci.PORTS = old
+
+
+class CerrojoDePuertos(unittest.TestCase):
+    def test_una_segunda_puerta_espera(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / 'ports.lock'
+            first = local_ci.ports_lock(path)
+            with self.assertRaises(SystemExit):
+                local_ci.ports_lock(path, wait=0)
+            local_ci.release(first)
+            local_ci.release(local_ci.ports_lock(path, wait=0))
