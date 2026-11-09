@@ -360,10 +360,15 @@ def ci_python():
     digest = hashlib.sha256(reqs.read_bytes()).hexdigest()[:12]
     venv = ROOT / '.local/local-ci' / f'venv-{digest}'
     exe = venv / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
-    if not exe.exists():
+    # La marca se escribe solo tras un pip install completo: un entorno a medias (puerta cortada durante la
+    # instalación, 2026-11-09) tenía python.exe sin Pillow y hacía fallar 28 comandos en la rama y en main.
+    listo = venv / '.instalado'
+    if not listo.exists():
         print(f'Creando el entorno del CI ({venv.name})…', flush=True)
+        shutil.rmtree(venv, ignore_errors=True)
         subprocess.run([sys.executable, '-m', 'venv', str(venv)], check=True)
         subprocess.run([str(exe), '-m', 'pip', 'install', '-q', '-r', str(reqs)], check=True)
+        listo.write_text(digest, encoding='utf-8')
     return exe.as_posix()
 
 

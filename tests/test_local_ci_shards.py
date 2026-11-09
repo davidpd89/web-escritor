@@ -65,6 +65,35 @@ class ServidoresVigilados(unittest.TestCase):
             local_ci.PORTS = old
 
 
+class EntornoDelCI(unittest.TestCase):
+    def test_un_entorno_a_medias_se_rehace(self):
+        import tempfile
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / 'scripts').mkdir()
+            (root / 'scripts/requirements.txt').write_text('Pillow==12.3.0\n', encoding='utf-8')
+            pips = []
+
+            def run(cmd, **_):
+                if 'venv' in cmd:
+                    exe = Path(cmd[-1]) / ('Scripts/python.exe' if local_ci.os.name == 'nt' else 'bin/python')
+                    exe.parent.mkdir(parents=True)
+                    exe.write_text('')
+                elif 'pip' in cmd:
+                    pips.append(cmd)
+                    if len(pips) == 1:
+                        raise KeyboardInterrupt  # puerta cortada a mitad del pip install
+
+            with mock.patch.object(local_ci, 'ROOT', root), mock.patch.object(local_ci.subprocess, 'run', run):
+                with self.assertRaises(KeyboardInterrupt):
+                    local_ci.ci_python()
+                local_ci.ci_python()                    # python.exe existe pero sin marca: se rehace
+                self.assertEqual(len(pips), 2)
+                local_ci.ci_python()                    # con la marca no se reinstala
+                self.assertEqual(len(pips), 2)
+
+
 class CerrojoDePuertos(unittest.TestCase):
     def test_una_segunda_puerta_espera(self):
         import tempfile
