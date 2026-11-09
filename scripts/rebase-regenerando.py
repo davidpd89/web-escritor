@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # Salidas de los builders. Los datos (data/**, assets/reading-covers/**) NO están aquí: un conflicto en ellos es real.
 GENERADOS = (
     'pagefind/*', 'recomendaciones/*.html', 'editoriales/*.html', 'editoriales-sitemap.xml', 'sitemap*.xml',
-    'mapa-del-sitio/index.html', 'assets/page-order.generated.js',
+    'mapa-del-sitio/index.html', 'assets/page-order.generated.js', 'reports/performance-budget.json',
 )
 BUILDERS = (
     ('build-reading-catalogue.py',),
