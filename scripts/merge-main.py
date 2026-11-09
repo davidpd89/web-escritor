@@ -7,19 +7,13 @@ desde los datos ya fusionados; un conflicto en cualquier otro fichero aborta la 
 
   python scripts/merge-main.py           # fusiona, regenera, comprueba y deja el commit hecho
 """
-import re
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-GENERATED = re.compile(r'^(pagefind/|recomendaciones/|editoriales/|editoriales-sitemap\.xml$|sitemap[^/]*\.xml$'
-                       r'|mapa-del-sitio/|assets/page-order\.generated\.js$|data/content-registry\.json$)')
-# Mismo orden que refresh-reading-catalogue.py: las fichas de editorial leen el catálogo y el sitemap y
-# Pagefind leen las fichas; si falta uno, la PR sale con páginas desincronizadas.
-BUILDERS = (('build-reading-catalogue.py',),
-            ('build-editoriales.py', '--data', 'data/editoriales.json', '--output', '.'),
-            ('build-page-order.py',), ('build-site-shell.py',), ('build-sitemap.py',), ('build-pagefind-index.py',))
+sys.path.insert(0, str(ROOT / 'scripts'))
+import materializar_generados as materializar  # noqa: E402
 
 
 def git(*args, check=True):
@@ -32,7 +26,7 @@ def main():
     git('fetch', '-q', 'origin', 'main')
     if git('merge', '--no-edit', '--no-ff', 'origin/main', check=False).returncode:
         conflicts = git('diff', '--name-only', '--diff-filter=U').stdout.split()
-        manual = [f for f in conflicts if not GENERATED.match(f)]
+        manual = [f for f in conflicts if not materializar.generado(f)]
         if manual:
             git('merge', '--abort')
             raise SystemExit('Conflictos en ficheros no generados, resuélvelos a mano: ' + ', '.join(manual))
@@ -49,10 +43,8 @@ def main():
                 git('checkout', '--theirs', '--', f)
                 git('add', '--', f)
         print(f'{len(conflicts)} conflictos en generados: versión de main, se regeneran.', flush=True)
-    for script, *args in BUILDERS:
-        subprocess.run([sys.executable, 'scripts/' + script, *args], cwd=ROOT, check=True)
-    for script, *args in BUILDERS:
-        subprocess.run([sys.executable, 'scripts/' + script, *args, '--check'], cwd=ROOT, check=True)
+    materializar.construir(ROOT)
+    materializar.comprobar(ROOT, assets=False)
     git('add', '-A', '--', 'pagefind', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio',
         'assets/page-order.generated.js')
     git('add', '-u')

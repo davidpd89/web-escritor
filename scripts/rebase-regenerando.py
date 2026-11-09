@@ -15,32 +15,16 @@ Uso: python scripts/rebase-regenerando.py [--onto origin/main] [--sin-fetch]
 from __future__ import annotations
 
 import argparse
-import fnmatch
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-# Salidas de los builders. Los datos (data/**, assets/reading-covers/**) NO están aquí: un conflicto en ellos es real.
-GENERADOS = (
-    'pagefind/*', 'recomendaciones/*.html', 'editoriales/*.html', 'editoriales-sitemap.xml', 'sitemap*.xml',
-    'mapa-del-sitio/index.html', 'assets/page-order.generated.js',
-)
-BUILDERS = (
-    ('build-reading-catalogue.py',),
-    ('build-editoriales.py', '--data', 'data/editoriales.json', '--output', '.'),
-    ('build-page-order.py',),
-    ('build-site-shell.py',),
-    ('build-sitemap.py',),
-    ('build-pagefind-index.py',),
-)
-CHECKS = ('build-reading-catalogue.py', 'build-page-order.py', 'build-site-shell.py', 'build-sitemap.py',
-          'build-pagefind-index.py')
+sys.path.insert(0, str(ROOT / 'scripts'))
+import materializar_generados as materializar  # noqa: E402
 
-
-def generado(path: str) -> bool:
-    return any(fnmatch.fnmatch(path, patron) for patron in GENERADOS)
+generado = materializar.generado
 
 
 def clasificar(estado: list[str]) -> tuple[list[str], list[str]]:
@@ -86,12 +70,8 @@ def rebasar(onto: str) -> None:
 
 
 def regenerar() -> None:
-    for builder in BUILDERS:
-        print('  ' + ' '.join(builder))
-        subprocess.run([sys.executable, 'scripts/' + builder[0], *builder[1:]], cwd=ROOT, check=True)
-    for script in CHECKS:
-        subprocess.run([sys.executable, 'scripts/' + script, '--check'], cwd=ROOT, check=True)
-    subprocess.run([sys.executable, 'scripts/check-asset-versions.py'], cwd=ROOT, check=True)
+    materializar.construir(ROOT)
+    materializar.comprobar(ROOT)
 
 
 def main() -> int:
