@@ -75,6 +75,30 @@ class QuarantineTest(unittest.TestCase):
         with self.assertRaises(q.build.ValidationError):
             q.isolate(data, ROOT, DATA)
 
+    def test_duplicate_cover_blames_the_changed_book(self):
+        # Ingesta 42588397174: el tomo que cambió tomó la portada de otro ya publicado; se apartaba al publicado
+        # (sin cambios) y la carga entera fallaba.
+        data = copy.deepcopy(DATA)
+        for key in ('portada_local', 'portada_ancho', 'portada_alto'):
+            data['libros'][0][key] = data['libros'][5][key]
+        clean, out = q.isolate(data, ROOT, DATA)
+        self.assertEqual([h['libro']['id'] for h in out], [DATA['libros'][0]['id']])
+        self.assertIn('igual que', out[0]['motivo'])
+        self.assertEqual(clean, DATA)
+
+    def test_restore_cover_brings_back_the_published_file(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cover = root / 'assets/reading-covers/isbn-1.webp'
+            cover.parent.mkdir(parents=True)
+            cover.write_bytes(b'publicada')
+            for cmd in (['init', '-q'], ['add', '.'], ['-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'x']):
+                subprocess.run(['git', *cmd], cwd=root, check=True)
+            cover.write_bytes(b'nueva de amazon')
+            q.restore_cover(root, {'portada_local': '/assets/reading-covers/isbn-1.webp'})
+            self.assertEqual(cover.read_bytes(), b'publicada')
+
     def test_culprit_is_a_known_book_id(self):
         first = DATA['libros'][0]['id']
         self.assertEqual(q.culprit(f'{first}: falta edicion', DATA), first)

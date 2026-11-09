@@ -177,8 +177,8 @@ def apply_records(tree, records, tag, fetch_bytes=fetch_amazon_image, convert=No
             image, small, size = convert(fetch_bytes(record['portada_amazon']))
         except Exception:  # marcador, imagen pequeña o proporción rara: se queda la tipográfica
             continue
-        replace_cover(book, tree, image, small, size, record['portada_amazon'], record['fecha'])
-        stats['covers_replaced'] += 1
+        if replace_cover(book, tree, image, small, size, record['portada_amazon'], record['fecha']):
+            stats['covers_replaced'] += 1
     stats['ratings'] = apply_ratings(tree, published, tag)
     public = {}
     for book, record in published:

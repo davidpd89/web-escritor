@@ -65,6 +65,21 @@ def limit(data, previous):
     return max(MAX_BOOKS, int(batch * MAX_SHARE))
 
 
+def restore_cover(root, book):
+    """Al volver a la versión publicada de un libro vuelve también su portada: la carga pudo sobrescribir el fichero
+    (misma ruta) y revertir solo el JSON dejaba la imagen nueva con las medidas viejas o duplicada."""
+    for rel in (book.get('portada_local', ''), book.get('portada_local', '').replace('.webp', '-320.webp')):
+        if not rel.startswith('/assets/reading-covers/'):
+            continue
+        try:
+            old = subprocess.run(['git', 'show', 'HEAD:' + rel.lstrip('/')], cwd=root, capture_output=True, check=True).stdout
+        except (subprocess.CalledProcessError, OSError):
+            continue
+        path = Path(root) / rel.lstrip('/')
+        if not path.is_file() or path.read_bytes() != old:
+            path.write_bytes(old)
+
+
 def isolate(data, root, previous=None, held=(), today=None):
     """Valida `data` apartando libros hasta que pasa. Devuelve (data, apartados) o lanza ValidationError."""
     today = today or date.today().isoformat()
@@ -88,6 +103,11 @@ def isolate(data, root, previous=None, held=(), today=None):
             return data, out
         except build.ValidationError as exc:
             book_id = culprit(str(exc), data)
+            twin = re.search(r'portada duplicada \(igual que ([a-z0-9-]+)\)', str(exc))
+            if book_id and twin and twin[1] not in reverted and (book_id in reverted or good.get(book_id) == next(
+                    b for b in data['libros'] if b['id'] == book_id)) and any(b['id'] == twin[1] for b in data['libros']):
+                # De dos portadas iguales, la culpable es la que ha cambiado, no la que ya estaba publicada así.
+                book_id = twin[1]
             # Sin libro, su versión buena también falla o la publicada falla sin cambios: es la regla, no el dato.
             if not book_id or book_id in reverted or good.get(book_id) == next(
                     b for b in data['libros'] if b['id'] == book_id):
@@ -107,6 +127,7 @@ def isolate(data, root, previous=None, held=(), today=None):
             if book_id in good:
                 # Ya publicado: sigue en línea con su última versión buena; si esa también falla, la regla está rota.
                 data['libros'][at] = good[book_id]
+                restore_cover(root, good[book_id])
                 if mine != good_rel.get(book_id, []):
                     data['libro_categorias'] = [r for r in data['libro_categorias'] if r['libro_id'] != book_id] + good_rel.get(book_id, [])
                 reverted.add(book_id)

@@ -596,13 +596,31 @@ def generated_cover(book):
     return urlsplit(book.get('portada_fuente_url') or '').hostname in COVER_HOSTS or         (book.get('autorizacion_o_base_uso') or '').startswith(GENERATED_BASIS)
 
 
+def cover_taken(root,path,image):
+    """¿Otra portada del catálogo ya tiene exactamente estos bytes? Amazon da a veces la misma imagen de serie a
+    varios tomos (ingesta 42588397174: «La luna en una noche de lluvia» 1 y 9); publicarla dos veces rompe la
+    validación «portada duplicada». Solo se comparan los ficheros del mismo tamaño."""
+    folder=path.parent
+    if not folder.is_dir():
+        return False
+    for other in folder.iterdir():
+        if other!=path and not other.name.endswith('-320.webp') and other.is_file() and other.stat().st_size==len(image) and other.read_bytes()==image:
+            return True
+    return False
+
+
 def replace_cover(book,root,image,small,dimensions,source,day):
-    """Pone la cubierta real de Amazon en lugar de la tipográfica: ficheros, medidas, fuente y base de uso."""
+    """Pone la cubierta real de Amazon en lugar de la tipográfica: ficheros, medidas, fuente y base de uso.
+    Devuelve False sin tocar nada si esa imagen ya es la portada de otro libro."""
     path=root/book['portada_local'].lstrip('/')
+    if cover_taken(root,path,image):
+        book['portadas_amazon_buscadas']=day
+        return False
     path.write_bytes(image)
     path.with_name(path.name.replace('.webp','-320.webp')).write_bytes(small)
     book.update(portada_fuente_url=source,portada_ancho=dimensions[0],portada_alto=dimensions[1],portada_fecha_revision=day,
                 portada_sustituida=True,autorizacion_o_base_uso=AMAZON_COVER_BASIS,portadas_amazon_buscadas=day)
+    return True
 
 
 API_COVER=re.compile(r'https://m\.media-amazon\.com/images/I/([A-Za-z0-9+%-]+)(?:\.[^/?#]*?)?\.(jpg|png)')
@@ -646,8 +664,7 @@ def swap_cover(book,root,url,fetch_bytes,convert,day):
         image,small,dimensions=convert(fetch_bytes(url))
     except Exception:  # noqa: BLE001 - la tipográfica se queda; el monitor la sigue contando
         return False
-    replace_cover(book,root,image,small,dimensions,url,day)
-    return True
+    return replace_cover(book,root,image,small,dimensions,url,day)
 
 
 def page_cover_url(document):
@@ -696,8 +713,8 @@ def discover_real_covers(catalogue,root,fetch,fetch_bytes,convert,now,limit=20):
         except Exception:  # Placeholder, tiny or odd-shaped image: keep the typographic cover.
             stats['errors']+=1
             continue
-        replace_cover(book,root,image,small,dimensions,image_url,day)
-        stats['covers_replaced']+=1
+        if replace_cover(book,root,image,small,dimensions,image_url,day):
+            stats['covers_replaced']+=1
     return stats
 
 

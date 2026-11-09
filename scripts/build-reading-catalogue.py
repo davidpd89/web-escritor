@@ -92,6 +92,7 @@ def validate(data, root):
         require(c["tipo"] in TYPES and type(c["activa"]) is bool and type(c["orden"]) is int, "Categoría: tipo/orden/activa inválidos")
         ids.add(c["id"]); slugs.add(c["slug"])
     book_ids, book_slugs, isbns, covers, hashes, amazon_urls, works, descriptions = (set() for _ in range(8))
+    hash_owner = {}
     for b in books:
         require(isinstance(b, dict) and not set(b) - BOOK_FIELDS, "Libro: campos desconocidos")
         for key in ("id", "slug", "titulo", "estado"):
@@ -168,8 +169,8 @@ def validate(data, root):
         file = (root / cover.lstrip("/")).resolve()
         require(file.is_relative_to(root.resolve()) and file.is_file(), f"{name}: portada local inexistente")
         digest = hashlib.sha256(file.read_bytes()).hexdigest()
-        require(cover not in covers and digest not in hashes, f"{name}: portada duplicada")
-        covers.add(cover); hashes.add(digest)
+        require(cover not in covers and digest not in hash_owner, f"{name}: portada duplicada (igual que {hash_owner.get(digest, 'otra ruta')})")
+        covers.add(cover); hash_owner[digest] = b.get("id", name)
         require(all(type(b.get(k)) is int and b[k] > 0 for k in ("portada_ancho", "portada_alto")), f"{name}: dimensiones de portada obligatorias")
         try:
             with Image.open(file) as img:
