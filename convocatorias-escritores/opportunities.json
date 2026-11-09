@@ -1,25 +1,6 @@
 {
-  "generated_for": "2026-11-04",
+  "generated_for": "2026-11-09",
   "items": [
-    {
-      "id": "valores-para-unir-modalidad-b-2026",
-      "title": "XIV Premio Intergeneracional de Ensayo y Relato Breves «Valores para Unir» — Modalidad B",
-      "type": "concurso",
-      "organizer": "Fundación para el Progreso UNIR",
-      "deadline": "2026-11-08",
-      "genres": [
-        "ensayo",
-        "relato breve"
-      ],
-      "source_url": "https://www.escritores.org/concursos/Bases%20concurso%202026UNIR.pdf",
-      "verified_at": "2026-10-19",
-      "published": true,
-      "fee_eur": null,
-      "eligibility": "Modalidad B: personas de 31 a 54 años a 8 de agosto de 2026, de cualquier nacionalidad. Una obra inédita en español de 3 a 5 páginas sobre valores en la sociedad actual.",
-      "prize": "Escultura de A. Anglada para ganador y accésit; diploma a finalistas. Sin dotación en metálico.",
-      "submission_mode": "Dos archivos Word, obra con lema/seudónimo y datos, a info@fundacionunir.org, indicando modalidad B.",
-      "editorial_note": "Cierre el 8 de noviembre. Sin participación simultánea en otros premios. Las bases contemplan cesión de derechos de publicación a la fundación; incluyen otras tres modalidades de edad. PDF alojado en Escritores.org."
-    },
     {
       "id": "proyecto-mariposa-relato-2026",
       "title": "I Certamen de Relato Breve Proyecto Mariposa — «Menos plásticos en tu cuerpo, más salud para tu vida»",
@@ -224,6 +205,62 @@
     }
   ],
   "expired": [
+    {
+      "id": "valores-para-unir-modalidad-b-2026",
+      "title": "XIV Premio Intergeneracional de Ensayo y Relato Breves «Valores para Unir» — Modalidad B",
+      "type": "concurso",
+      "organizer": "Fundación para el Progreso UNIR",
+      "deadline": "2026-11-08",
+      "genres": [
+        "ensayo",
+        "relato breve"
+      ],
+      "source_url": "https://www.escritores.org/concursos/Bases%20concurso%202026UNIR.pdf",
+      "verified_at": "2026-10-19",
+      "published": true,
+      "fee_eur": null,
+      "eligibility": "Modalidad B: personas de 31 a 54 años a 8 de agosto de 2026, de cualquier nacionalidad. Una obra inédita en español de 3 a 5 páginas sobre valores en la sociedad actual.",
+      "prize": "Escultura de A. Anglada para ganador y accésit; diploma a finalistas. Sin dotación en metálico.",
+      "submission_mode": "Dos archivos Word, obra con lema/seudónimo y datos, a info@fundacionunir.org, indicando modalidad B.",
+      "editorial_note": "Cierre el 8 de noviembre. Sin participación simultánea en otros premios. Las bases contemplan cesión de derechos de publicación a la fundación; incluyen otras tres modalidades de edad. PDF alojado en Escritores.org."
+    },
+    {
+      "id": "lardero-violencia-genero-relatos-2026",
+      "title": "IV Concurso Literario contra la Violencia de Género de Lardero",
+      "type": "concurso",
+      "organizer": "Ayuntamiento de Lardero",
+      "deadline": "2026-11-06",
+      "genres": [
+        "relato corto"
+      ],
+      "eligibility": "Mayores de 16 años residentes en España; relatos en castellano, inéditos y no premiados, de 5 a 12 páginas, sobre violencia de género.",
+      "prize": "300 € primer premio; 150 € premio regional; 150 € premio local",
+      "fee_eur": null,
+      "submission_mode": "Correo electrónico a apuntate@aytolardero.org con relato y plica en dos PDF separados.",
+      "source_url": "https://www.aytolardero.org/iv-concurso-literario-contra-la-violencia-de-genero/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "El Ayuntamiento fija el cierre el 6 de noviembre de 2026 a las 14:00 y el fallo para el 20 de noviembre.",
+      "published": true
+    },
+    {
+      "id": "diversidad-umbral-tinieblas-2026",
+      "title": "II Concurso de microrrelatos «Umbral de las tinieblas» 2026",
+      "type": "concurso",
+      "organizer": "Diversidad Literaria",
+      "deadline": "2026-11-05",
+      "genres": [
+        "microrrelato",
+        "terror"
+      ],
+      "eligibility": "Mayores de 18 años de cualquier país; una obra original e inédita, no premiada previamente.",
+      "prize": "Premio editorial y ejemplares/curso según bases; sin premio económico indicado",
+      "fee_eur": 0,
+      "submission_mode": "Formulario web oficial; el texto se introduce directamente, sin adjuntos.",
+      "source_url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/i-concurso-de-microrrelatos-sobre-halloween--umbral-de-las-tinieblas",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Convocatoria oficial para microrrelatos de Halloween, máximo 500 caracteres. Cierra a las 23:59 del 5 de noviembre de 2026.",
+      "published": true
+    },
     {
       "id": "premio-alfaguara-novela-2027",
       "title": "XXX Premio Alfaguara de novela 2027",
