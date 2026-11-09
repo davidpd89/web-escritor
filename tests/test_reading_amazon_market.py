@@ -563,7 +563,7 @@ class AmazonRealCoverTests(unittest.TestCase):
             (root/'assets').mkdir()
             provider=Provider()
             stats=recheck_generated_covers({'libros':[con_asin,sin_imagen,sin_asin,editorial,hoy]},root,provider,fetch_bytes,
-                                           lambda raw:(b'big',b'small',(500,780)),NOW,fetch_json=lambda url:{})
+                                           lambda raw,n=iter(range(99)):(b'big%d'%next(n),b'small',(500,780)),NOW,fetch_json=lambda url:{})
             self.assertEqual(provider.calls,[('items',('8498382378','B0HNWJ3LX2')),('search','9788430625963')])
             self.assertEqual((stats['amazon'],stats['otras_fuentes'],stats['sin_imagen'],stats['revisadas']),(2,1,0,3))
             self.assertEqual(con_asin['autorizacion_o_base_uso'],AMAZON_COVER_BASIS)
