@@ -175,8 +175,10 @@ class Servers:
     comprueba que contestan y, si alguno cayó, se relanza.
     """
 
-    def __init__(self, root):
+    def __init__(self, root, lock_path=None):
+        # lock_path: los tests usan uno propio; con el de la máquina esperarían a la puerta que los ejecuta.
         self.root, self.procs, self.lock = root, {}, threading.Lock()
+        self.lock_path = lock_path
         self.logs = ROOT / '.local/local-ci'
         self.logs.mkdir(parents=True, exist_ok=True)
         self.restarts = 0
@@ -199,7 +201,7 @@ class Servers:
             return False
 
     def __enter__(self):
-        self.lock_file = ports_lock()
+        self.lock_file = ports_lock(self.lock_path or PORTS_LOCK)
         if busy_ports():
             release(self.lock_file)
             raise SystemExit(f'Puertos ocupados por otro servidor: {busy_ports()}; ciérralo antes de la puerta.')

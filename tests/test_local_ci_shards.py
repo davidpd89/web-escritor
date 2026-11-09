@@ -23,8 +23,6 @@ class Lotes(unittest.TestCase):
         self.assertEqual(sorted(repartidos), files)
 
 
-if __name__ == '__main__':
-    unittest.main()
 
 
 class ScopedTest(unittest.TestCase):
@@ -55,7 +53,8 @@ class ServidoresVigilados(unittest.TestCase):
         old = local_ci.PORTS
         local_ci.PORTS = (port,)
         try:
-            with tempfile.TemporaryDirectory() as root, local_ci.Servers(root) as servers:
+            with tempfile.TemporaryDirectory() as root, \
+                    local_ci.Servers(root, lock_path=Path(root) / 'ports.lock') as servers:
                 self.assertTrue(servers.alive(port))
                 servers.procs[port].kill()
                 servers.procs[port].wait()
@@ -76,3 +75,7 @@ class CerrojoDePuertos(unittest.TestCase):
                 local_ci.ports_lock(path, wait=0)
             local_ci.release(first)
             local_ci.release(local_ci.ports_lock(path, wait=0))
+
+
+if __name__ == '__main__':
+    unittest.main()
