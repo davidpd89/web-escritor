@@ -159,7 +159,7 @@ class AmazonAuditTests(unittest.TestCase):
             tree = self.tree_with(tmp, books)
             record = audit_book(books[0], lambda url: PAGE, '2026-11-03')
             stats = audit.apply_records(tree, {i: record for i in dates}, 'davidporto-21', fetch_bytes=lambda url: b'img',
-                                        convert=lambda raw: (b'big', b'small', (800, 1200)),
+                                        convert=lambda raw, n=iter(range(99)): (b'big%d' % next(n), b'small', (800, 1200)),
                                         today=datetime(2026, 11, 8).date(), covers=2)
             self.assertEqual(stats['covers_replaced'], 2)
             saved = json.loads((tree / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros']
