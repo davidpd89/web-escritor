@@ -66,7 +66,7 @@ try {
     assert.equal(await page.locator('.catalogue-quiz__progress:visible').count(),0);
     assert.match(await page.locator('.catalogue-quiz__now').innerText(),/^Mostrar ya los resultados \(\d+ libros?\)$/);
     if(/tipo de libro/.test(await page.locator('.catalogue-quiz__panel h2').innerText())) await page.getByRole('button',{name:'Me da igual, continuar',exact:true}).click();
-    await page.getByRole('button',{name:'Sí, una novedad',exact:true}).click();
+    await page.getByRole('button',{name:'Sí, de los últimos 30 días',exact:true}).click();
     // Sin preguntas de temporada ni de temática: eran reglas propias (David, 08/11).
     assert.match(await page.locator('.catalogue-quiz__panel h2').innerText(),/género/);
     await page.getByRole('button',{name:'Terror',exact:true}).click();
@@ -83,7 +83,7 @@ try {
     }
     await page.getByRole('button',{name:'Ver mis resultados',exact:true}).click();
     assert(await page.locator('input[data-facet="genero"][value="terror"]').isChecked());
-    assert.equal(await page.locator('[data-filter="novedad"]').inputValue(),'15');
+    assert.match(await page.locator('[data-filter="desde"]').inputValue(),/^\d{4}-\d\d-\d\d$/);
     assert(await page.locator('[data-catalogue-book]:visible').count()>0);
     const selected=await page.locator('[data-catalogue-book]:visible').evaluateAll(es=>es.map(e=>({cats:e.dataset.categories,date:e.dataset.published})));
     assert(selected.every(b=>b.cats.split(' ').includes('terror')));
@@ -201,7 +201,6 @@ try {
       assert(await page.locator('main').evaluate(e=>e.classList.contains('catalogue-fonts-ready')));
     }
     await openFilters(page);
-    await page.locator('.catalogue-more-filters>summary').click();
     assert(await page.locator('[data-filter="desde"]').isVisible());
     await page.screenshot({path:`${out}/hub-${width}.png`,fullPage:true});
     await page.goto(base+'/recomendaciones/libros/coraline/',{waitUntil:'networkidle'});

@@ -83,7 +83,8 @@ try {
     assert.doesNotMatch(await page.locator('[data-catalogue-count]').innerText(), /No se pudo/);
     // Discount filter over the whole catalogue: 5/10/25/50 % must match the red badges Amazon confirmed (static data only).
     const madrid = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Madrid' }).format(new Date());
-    const best = await page.locator('[data-catalogue-book]').evaluateAll(cards => cards.map(card => Math.max(0, ...[...card.querySelectorAll('[data-offer-checked]')].map(e => Number(e.textContent.replace(/\D/g, ''))))));
+    // Las fichas hidratadas se rellenan al mostrarse: el descuento confirmado se lee de data-format-discounts («formato:%:fecha»).
+    const best = await page.locator('[data-catalogue-book]').evaluateAll((cards, today) => cards.map(card => Math.max(0, ...(card.dataset.formatDiscounts || '').split(' ').filter(Boolean).map(x => x.split(':')).filter(([, , d]) => (Date.parse(today) - Date.parse(d)) / 864e5 <= 3).map(([, pct]) => Number(pct)))), madrid);
     const badges = await page.locator('[data-catalogue-book] [data-offer-checked]').count();
     assert.ok(badges > 0, 'no discount badges rendered');
     for (const checked of await page.locator('[data-offer-checked]').evaluateAll(els => els.map(e => e.dataset.offerChecked))) assert.ok((Date.parse(madrid) - Date.parse(checked)) / 864e5 <= 3, `expired badge ${checked}`);
@@ -258,11 +259,25 @@ try {
   assert.equal(await page.locator('[data-filter="q"]').inputValue(), 'TITULO');
   await openFilters(page);
   await page.getByRole('button', { name: 'Restablecer' }).click();
-  await page.locator('[data-filter="novedad"]').selectOption('180');
+  // «Novedades» se quitó (09/11): un enlace antiguo #novedad=180 equivale a «Publicado desde» hace 180 días.
+  assert.equal(await page.locator('[data-filter="novedad"]').count(), 0);
+  await page.goto('about:blank'); await page.goto(`${BASE}/recomendaciones/#novedad=180`);
+  await page.waitForFunction(() => document.querySelector('[data-filter="desde"]').value !== '');
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
-  await page.clock.setSystemTime(new Date('2027-10-20T12:00:00Z'));
-  await page.evaluate(() => window.dispatchEvent(new Event('pageshow')));
-  assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 0);
+  // Resumen de filtros: etiqueta con ×, «Eliminar filtros» junto al recuento y «Eliminar todos».
+  assert.match(await page.locator('.catalogue-chip').first().innerText(), /^Publicado desde \d\d\/\d\d\/\d{4}/);
+  assert(await page.locator('[data-catalogue-clear]').isVisible());
+  await page.locator('.catalogue-chip').first().click();
+  assert.equal(await page.locator('[data-filter="desde"]').inputValue(), '');
+  assert.equal(await page.locator('[data-catalogue-active]').isVisible(), false);
+  assert.equal(await page.locator('[data-catalogue-clear]').isVisible(), false);
+  await openFilters(page);
+  await page.locator('[data-filter="paginas"]').selectOption({ index: 1 });
+  await page.locator('[data-filter="q"]').fill('a');
+  assert.equal(await page.locator('.catalogue-chip').count(), 2);
+  await page.getByRole('button', { name: 'Eliminar todos', exact: true }).click();
+  assert.equal(await page.locator('.catalogue-chip').count(), 0);
+  assert.equal(await page.locator('[data-filter="paginas"]').inputValue(), '');
   await page.getByRole('button', { name: 'Restablecer' }).click();
   await page.locator('[data-filter="q"]').fill('zzzz');
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 0);
