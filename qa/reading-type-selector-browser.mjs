@@ -80,8 +80,10 @@ try {
     await page.waitForFunction(() => !document.querySelector('[data-facets-pending]'));
     const disabledNow = await page.locator('input[data-facet="genero"]:disabled').evaluateAll(list => list.map(o => o.value));
     assert.ok(disabledNow.length > 0, 'Con «Cocina» hay géneros sin libros desactivados');
+    // Como en la vista por defecto, cuentan los ya publicados: un próximo lanzamiento no reactiva la opción.
+    const releasedIn = (group, value) => page.locator(`[data-catalogue-book][data-group="${group}"][data-categories~="${value}"]`).evaluateAll(cards => cards.filter(c => { const d = c.dataset.published || c.dataset.publishedMonth || c.dataset.year || ''; return !d || d <= new Date().toISOString().slice(0, 10); }).length);
     for (const value of disabledNow.slice(0, 5)) {
-      assert.equal(await page.locator(`[data-catalogue-book][data-group="cocina"][data-categories~="${value}"]`).count(), 0, `La opción desactivada ${value} no tiene libros de cocina`);
+      assert.equal(await releasedIn('cocina', value), 0, `La opción desactivada ${value} no tiene libros de cocina publicados`);
     }
     await box('grupo', 'cocina').uncheck();
     await page.waitForFunction(() => !document.querySelector('[data-facets-pending]'));

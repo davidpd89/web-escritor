@@ -1045,8 +1045,18 @@ BOOK_GROUPS = (
 )
 
 
+# «Nutrición y bienestar» sale de palabras clave editoriales como «salud», que también aparecen en cuentos
+# infantiles y novelas: sin «cocina», no saca de su tipo a un libro de ficción, infantil o poesía.
+WEAK_COOKING = 'nutricion-y-bienestar'
+OVER_WEAK_COOKING = ('novela', 'infantil', 'poesia')
+
+
 def book_group(cats):
     ids = {c['id'] for c in cats}
+    if WEAK_COOKING in ids and 'cocina' not in ids:
+        other = next((gid for gid, _label, members in BOOK_GROUPS if gid != 'cocina' and ids & members), None)
+        if other in OVER_WEAK_COOKING:
+            return other
     # Sin cajón «Otros»: lo que no encaja en ningún tipo es no ficción (crónica, actualidad, religión…).
     return next((gid for gid, _label, members in BOOK_GROUPS if ids & members), 'ensayo')
 

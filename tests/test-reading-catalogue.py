@@ -138,6 +138,11 @@ with tempfile.TemporaryDirectory() as tmp:
     assert m.book_group([{'id': 'cocina'}, {'id': 'desarrollo-personal'}]) == 'cocina' and m.book_group([{'id': 'adultos'}]) == 'ensayo'
     assert m.book_group([{'id': 'poesia'}]) == 'poesia' and m.book_group([{'id': 'tema-viajes'}]) == 'viajes'
     assert m.book_group([{'id': 'biografias-y-memorias'}]) == 'ensayo' and m.book_group([{'id': 'tema-amor-y-pareja'}]) == 'novela'
+    # «Nutrición y bienestar» sola no manda a Cocina una novela, un cuento infantil o un poemario (Estuche Time Keeper).
+    weak = {'id': 'nutricion-y-bienestar'}
+    assert m.book_group([weak, {'id': 'fantasia'}, {'id': 'romance'}]) == 'novela' and m.book_group([weak, {'id': 'infantil'}]) == 'infantil'
+    assert m.book_group([weak]) == 'cocina' and m.book_group([weak, {'id': 'desarrollo-personal'}]) == 'cocina'
+    assert m.book_group([weak, {'id': 'cocina'}, {'id': 'fantasia'}]) == 'cocina'
     future = copy.deepcopy(b)
     future.update(fecha_publicacion='2999-01-01', fecha_actualizacion='2026-10-21')
     page = m.render_book(data, future, template)
