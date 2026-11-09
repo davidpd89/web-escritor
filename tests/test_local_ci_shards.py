@@ -1,4 +1,5 @@
 import importlib.util
+import importlib.util as _iu
 import unittest
 from pathlib import Path
 
@@ -9,6 +10,7 @@ spec.loader.exec_module(local_ci)
 
 
 class Lotes(unittest.TestCase):
+    @unittest.skipUnless(_iu.find_spec('yaml'), 'sin PyYAML no se leen los workflows')
     def test_la_suite_completa_se_reparte_en_lotes(self):
         commands = [c for c, _, _ in local_ci.collect(set(), True)]
         self.assertNotIn(local_ci.SUITE, commands)

@@ -23,7 +23,6 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 PORTS = (4173, 4175)
@@ -94,6 +93,7 @@ def loop_lines(run):
 
 def collect(changed, everything):
     """Comandos únicos de los workflows activados, con su entorno."""
+    import yaml  # aquí y no arriba: los tests de lotes importan este módulo en runners sin PyYAML
     commands = {}
     for path in sorted((ROOT / '.github/workflows').glob('*.yml')):
         flow = yaml.safe_load(path.read_text(encoding='utf-8'))
