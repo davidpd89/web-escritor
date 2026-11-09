@@ -246,16 +246,11 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None):
         deliveries = smoke(catalog, test_asin, db_path, live, checkpoint=checkpoint)
     else:
         deliveries = run(catalog, today, db_path, live, checkpoint=checkpoint)
+    # Ambiguous or rejected deliveries alert in the cycle where they happen; afterwards they are
+    # 'skipped:*' (already reported, never resent) and must not keep every cycle of the day red.
     attention = any(
-        r["status"]
-        in {
-            "uncertain",
-            "rejected",
-            "skipped:sending",
-            "skipped:uncertain",
-            "skipped:rejected",
-        }
-        or r["status"].startswith(("retry:", "skipped:retry:"))
+        r["status"] in {"uncertain", "rejected", "skipped:sending"}
+        or r["status"].startswith(("uncertain:", "retry:", "skipped:retry:"))
         for r in deliveries
     )
     report = {

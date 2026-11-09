@@ -7,7 +7,9 @@ import hashlib
 import hmac
 from pathlib import Path
 import sys
+import sqlite3
 import tempfile
+from contextlib import closing
 import unittest
 from unittest.mock import Mock, patch
 
@@ -195,6 +197,76 @@ class RemoteTelegramStateTests(unittest.TestCase):
             )
         self.assertEqual(self.session.puts, [])
 
+
+    def test_transient_checkpoint_failures_are_retried(self):
+        import requests
+        self.store.restore(self.db, self.catalog)
+        real_put = self.session.put
+        failures = [requests.ConnectionError("boom"), Mock(status_code=502)]
+
+        def flaky(*args, **kwargs):
+            if failures:
+                f = failures.pop(0)
+                if isinstance(f, Exception):
+                    raise f
+                return f
+            return real_put(*args, **kwargs)
+
+        self.session.put = flaky
+        with (
+            patch.dict("os.environ", {"TEST_TOKEN": "test"}),
+            patch("reading_telegram_state.time.sleep") as pause,  # same module as reading_telegram.time
+        ):
+            result = run(self.catalog, date(2026, 11, 1), self.db, True,
+                         sender=Mock(return_value=("sent", 1)),
+                         checkpoint=self.store.checkpoint)
+        self.assertEqual(result[0]["status"], "sent")
+        self.assertEqual([c.args for c in pause.call_args_list][:2], [(2,), (5,)])
+        self.assertEqual(list(self.session.data["deliveries"].values()), ["sent"])
+
+    def test_lost_response_after_landed_write_is_accepted(self):
+        import requests
+        self.store.restore(self.db, self.catalog)
+        real_put = self.session.put
+        calls = []
+
+        def lost(*args, **kwargs):
+            calls.append(1)
+            if len(calls) == 1:
+                real_put(*args, **kwargs)  # the write lands but the response never arrives
+                raise requests.Timeout("lost")
+            return real_put(*args, **kwargs)  # retry with the old sha -> 409
+
+        self.session.put = lost
+        with patch("reading_telegram_state.time.sleep"):
+            with closing(sqlite3.connect(self.db)) as db:
+                db.execute("CREATE TABLE IF NOT EXISTS deliveries (chat TEXT, asin TEXT, status TEXT, message_id INTEGER, PRIMARY KEY(chat, asin))")
+                db.execute("INSERT INTO deliveries VALUES ('@c', 'A', 'sent', 1)")
+                db.commit()
+            self.store.checkpoint(self.db)
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(self.store.sha, self.session.sha)
+
+    def test_stale_sending_claim_becomes_uncertain_once_and_is_never_resent(self):
+        self.store.restore(self.db, self.catalog)
+        with patch.dict("os.environ", {"TEST_TOKEN": "test"}), self.assertRaises(RuntimeError):
+            run(self.catalog, date(2026, 11, 1), self.db, True,
+                sender=Mock(side_effect=RuntimeError()), checkpoint=self.store.checkpoint)
+        self.assertEqual(list(self.session.data["deliveries"].values()), ["sending"])
+        restarted = GitHubState("owner/repo", "github", "private-stable-key-" * 3,
+                                session=self.session).load()
+        fresh = self.db.with_name("after-crash.db")
+        restarted.restore(fresh, self.catalog)
+        sender = Mock(side_effect=AssertionError("duplicate"))
+        with patch.dict("os.environ", {"TEST_TOKEN": "test"}):
+            first = run(self.catalog, date(2026, 11, 1), fresh, True, sender=sender,
+                        checkpoint=restarted.checkpoint)
+            later = run(self.catalog, date(2026, 11, 1), fresh, True, sender=sender,
+                        checkpoint=restarted.checkpoint)
+        self.assertEqual([r["status"] for r in first], ["uncertain:stale-claim"])
+        self.assertEqual([r["status"] for r in later], ["skipped:uncertain"])
+        self.assertEqual(list(self.session.data["deliveries"].values()), ["uncertain"])
+        sender.assert_not_called()
 
 if __name__ == "__main__":
     unittest.main()
