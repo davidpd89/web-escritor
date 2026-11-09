@@ -663,3 +663,9 @@ class AmazonApiCoverTests(unittest.TestCase):
                                                              lambda raw:(b'big',b'small',(650,988)),'2026-11-08'))
             self.assertEqual((root/'assets/isbn-9788498382372.webp').read_bytes(),b'big')
             self.assertEqual((cover_kind(book),book['portada_fuente_url']),('amazon','https://m.media-amazon.com/images/I/x.jpg'))
+            # La misma imagen ya es la portada de otro libro (imagen de serie de Amazon): no se publica dos veces.
+            other={**copy.deepcopy(BOOK),**self.GENERATED,'id':'isbn-9788498382389','portada_local':'/assets/isbn-9788498382389.webp'}
+            self.assertFalse(reading_amazon_market.swap_cover(other,root,'https://m.media-amazon.com/images/I/x.jpg',lambda u:b'raw',
+                                                              lambda raw:(b'big',b'small',(650,988)),'2026-11-08'))
+            self.assertNotIn('portada_sustituida',other)
+            self.assertFalse((root/'assets/isbn-9788498382389.webp').exists())
