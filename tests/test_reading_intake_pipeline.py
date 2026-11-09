@@ -11,7 +11,7 @@ import shutil
 from unittest.mock import patch
 from urllib.request import Request
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
@@ -145,6 +145,19 @@ class SourceTests(unittest.TestCase):
         for size in ((60, 49), (300, 300), (1000, 300)):  # marcador, miniatura, banner
             with self.assertRaises(SourceError):
                 cover_bytes(png(size), amazon=True)
+
+    def test_amazon_no_image_placeholder_is_rejected(self):
+        # Amazon sirve «Imagen no disponible» como un JPG vertical normal; se publicó así el 06/11.
+        placeholder = (Path(__file__).parent / 'fixtures' / 'covers' / 'amazon-imagen-no-disponible.png').read_bytes()
+        with self.assertRaisesRegex(SourceError, 'Imagen no disponible'):
+            cover_bytes(placeholder, amazon=True)
+        # Una portada blanca de verdad, con título y dibujo, sí vale.
+        image = Image.new('RGB', (650, 930), 'white')
+        draw = ImageDraw.Draw(image)
+        draw.rectangle((120, 150, 530, 560), fill='#2a4d7a')
+        draw.rectangle((80, 700, 570, 760), fill='#202020')
+        out = io.BytesIO(); image.save(out, 'PNG')
+        self.assertEqual(cover_bytes(out.getvalue(), amazon=True)[2], (650, 930))
 
 
 class ContractTests(unittest.TestCase):
