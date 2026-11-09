@@ -18,6 +18,7 @@ import re
 import shutil
 import subprocess
 import sys
+import threading
 import time
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -165,25 +166,60 @@ def busy_ports():
     return busy
 
 
-def serve(root):
-    if busy_ports():
-        raise SystemExit(f'Puertos ocupados por otro servidor: {busy_ports()}; ciérralo antes de la puerta.')
-    procs = [subprocess.Popen([sys.executable, '-m', 'http.server', str(port), '--bind', '127.0.0.1'], cwd=root,
-                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) for port in PORTS]
-    for port in PORTS:
+class Servers:
+    """Los servidores 4173/4175 de la QA de navegador, vigilados.
+
+    Si uno muere a mitad de la puerta, cada prueba posterior daba ERR_CONNECTION_REFUSED y contaba como fallo de la
+    rama (30 «fallos» falsos el 9/11). Ahora su salida va a .local/local-ci/server-<puerto>.log, antes de cada prueba se
+    comprueba que contestan y, si alguno cayó, se relanza.
+    """
+
+    def __init__(self, root):
+        self.root, self.procs, self.lock = root, {}, threading.Lock()
+        self.logs = ROOT / '.local/local-ci'
+        self.logs.mkdir(parents=True, exist_ok=True)
+        self.restarts = 0
+
+    def start(self, port):
+        log = open(self.logs / f'server-{port}.log', 'a', encoding='utf-8')
+        self.procs[port] = subprocess.Popen([sys.executable, '-m', 'http.server', str(port), '--bind', '127.0.0.1'],
+                                            cwd=self.root, stdout=log, stderr=subprocess.STDOUT)
         for _ in range(50):
-            try:
-                urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=2)
-                break
-            except OSError:
-                time.sleep(0.2)
-    return procs
+            if self.alive(port):
+                return
+            time.sleep(0.2)
 
+    @staticmethod
+    def alive(port):
+        try:
+            urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=5)
+            return True
+        except OSError:
+            return False
 
-def stop(procs):
-    for proc in procs:
-        proc.terminate()
-        proc.wait()
+    def __enter__(self):
+        if busy_ports():
+            raise SystemExit(f'Puertos ocupados por otro servidor: {busy_ports()}; ciérralo antes de la puerta.')
+        for port in PORTS:
+            self.start(port)
+        return self
+
+    def ensure(self):
+        with self.lock:
+            for port in PORTS:
+                proc = self.procs.get(port)
+                if proc is None or proc.poll() is not None or not self.alive(port):
+                    code = None if proc is None else proc.poll()
+                    print(f'  servidor {port} caído (salida {code}); se relanza', flush=True)
+                    if proc is not None and proc.poll() is None:
+                        kill_tree(proc)
+                    self.restarts += 1
+                    self.start(port)
+
+    def __exit__(self, *exc):
+        for proc in self.procs.values():
+            proc.terminate()
+            proc.wait()
 
 
 def kill_tree(proc):
@@ -211,16 +247,26 @@ def run_one(command, env, root, timeout=TIMEOUT):
 
 def needs_server(items):
     """Solo la QA de navegador (node) o lo que cite los puertos usa los servidores: el resto corre sin ellos."""
-    return any(re.search(r'(^|[\s/])node|417[35]', command) for command, *_ in items)
+    return any(re.search(r'(^|[\s/])node|417[35]', command) for command, *_ in items)
 
 
 def run_all(items, root, jobs, timeout=TIMEOUT):
-    procs = serve(root) if needs_server(items) else []
-    try:
+    if not needs_server(items):
         with ThreadPoolExecutor(jobs) as pool:
-            results = list(pool.map(lambda item: run_one(item[0], item[1], root, timeout), items))
-    finally:
-        stop(procs)
+            return list(pool.map(lambda item: run_one(item[0], item[1], root, timeout), items))
+    with Servers(root) as servers:
+        def one(item):
+            servers.ensure()
+            res = run_one(item[0], item[1], root, timeout)
+            # Si el servidor cayó durante la prueba, el fallo es del entorno: se repite una vez con él relanzado.
+            if res[0] != 0 and 'ERR_CONNECTION_REFUSED' in res[1]:
+                servers.ensure()
+                res = run_one(item[0], item[1], root, timeout)
+            return res
+        with ThreadPoolExecutor(jobs) as pool:
+            results = list(pool.map(one, items))
+        if servers.restarts:
+            print(f'Servidores relanzados {servers.restarts} vez/veces; causa en .local/local-ci/server-*.log', flush=True)
     return results
 
 

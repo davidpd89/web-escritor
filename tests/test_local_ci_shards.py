@@ -43,3 +43,24 @@ class ScopedTest(unittest.TestCase):
 
     def test_otro_fichero_va_por_la_via_completa(self):
         self.assertIsNone(self.ci.scoped({'scripts/x.py', 'data/reading-books.json'}, refs=lambda s: set()))
+
+
+class ServidoresVigilados(unittest.TestCase):
+    def test_un_servidor_caido_se_relanza(self):
+        import socket
+        import tempfile
+        with socket.socket() as s:
+            s.bind(('127.0.0.1', 0))
+            port = s.getsockname()[1]
+        old = local_ci.PORTS
+        local_ci.PORTS = (port,)
+        try:
+            with tempfile.TemporaryDirectory() as root, local_ci.Servers(root) as servers:
+                self.assertTrue(servers.alive(port))
+                servers.procs[port].kill()
+                servers.procs[port].wait()
+                servers.ensure()
+                self.assertEqual(servers.restarts, 1)
+                self.assertTrue(servers.alive(port))
+        finally:
+            local_ci.PORTS = old
