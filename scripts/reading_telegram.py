@@ -201,6 +201,16 @@ def to_discord(text: str) -> str:
     return "\n".join(lines)[:DISCORD_MAX_CHARS]
 
 
+def failure_reason(platform: str, method: str, code, description) -> None:
+    """Print why a delivery was not confirmed, so a red run says what happened.
+
+    Only the HTTP code and the API description ("Forbidden: bot is not a member of the channel chat"),
+    never the request URL (it carries the bot token), the webhook or the chat.
+    """
+    text = re.sub(r"\s+", " ", str(description or ""))[:160]
+    print(f"{platform} {method}: HTTP {code} {text}".rstrip(), file=sys.stderr)
+
+
 def send_discord(
     webhook: str, chat_id: str, text: str, photo_url: str | None = None
 ) -> tuple[str, int | None]:
@@ -222,10 +232,11 @@ def send_discord(
             except (ValueError, TypeError, AttributeError):
                 delay = 900
             return f"retry:{int(time.time()) + delay}", None
+        failure_reason("Discord", "webhook", response.status_code, None)
         if 400 <= response.status_code < 500:
             return "rejected", None
-    except (requests.RequestException, ValueError, AttributeError, TypeError):
-        pass
+    except (requests.RequestException, ValueError, AttributeError, TypeError) as exc:
+        failure_reason("Discord", "request", None, type(exc).__name__)
     return "uncertain", None
 
 
@@ -259,10 +270,11 @@ def send(
             except (ValueError, TypeError, AttributeError):
                 delay = 900
             return f"retry:{int(time.time()) + delay}", None
+        failure_reason("Telegram", method, response.status_code, data.get("description"))
         if 400 <= response.status_code < 500 and data.get("ok") is False:
             return "rejected", None
-    except (requests.RequestException, ValueError, AttributeError, TypeError):
-        pass
+    except (requests.RequestException, ValueError, AttributeError, TypeError) as exc:
+        failure_reason("Telegram", "request", None, type(exc).__name__)
     return "uncertain", None
 
 

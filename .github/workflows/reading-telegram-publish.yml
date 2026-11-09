@@ -84,7 +84,17 @@ jobs:
           rows = data.get('deliveries', [])
           counts = {state: sum(row['status'].split(':', 1)[0] == state for row in rows)
                     for state in ['sent', 'skipped', 'uncertain', 'retry', 'rejected']}
+          # Por estado completo ("skipped:rejected" = rechazado en un ciclo anterior de hoy), sin chats ni ASIN.
+          detail = {}
+          for row in rows:
+              state = 'retry' if row['status'].startswith('retry:') else row['status'].split(':retry:')[0]
+              detail[state] = detail.get(state, 0) + 1
+          pending_today = [p for p in data.get('verification', {}).get('pending', [])
+                           if p.get('release_date') == data.get('at', '')[:10]]
+          print('Telegram cycle:', data['status'], json.dumps(detail, sort_keys=True),
+                'pendientes de verificar hoy:', len(pending_today))
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as out:
               out.write('Telegram cycle: ' + str(data['status']) + '\n\n')
               out.write(json.dumps(counts) + '\n')
+              out.write(json.dumps(detail, sort_keys=True) + '\n')
               out.write('Durable state is checkpointed before and after each send. No private runtime artifacts uploaded.\n')
