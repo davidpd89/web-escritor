@@ -249,9 +249,17 @@ def make_book(record, publisher, tag, today, cover, dimensions):
     return book
 
 
-def cover_bytes(raw):
+def cover_bytes(raw, amazon=False):
+    """Valida y reduce una cubierta. Las de webs editoriales deben ser verticales (un cuadrado suele ser un logo).
+    Las de Amazon son siempre la cubierta del producto, y los cartonés infantiles y los álbumes apaisados son
+    cuadrados o anchos: el 09/11 se descartaban así 110 cubiertas reales («Buenas noches, hada», «Hiroshima»…)."""
     with Image.open(io.BytesIO(raw)) as image:
-        if image.width < 320 or image.height < 400 or image.width * image.height > 30_000_000 or not .4 < image.width / image.height < .9:
+        w, h = image.size
+        if amazon:
+            bad = min(w, h) < 220 or max(w, h) < 400 or not .4 < w / h < 2.2
+        else:
+            bad = w < 250 or h < 380 or not .4 < w / h < .9
+        if bad or w * h > 30_000_000:
             raise SourceError('Cubierta ausente, pequeña o proporción incompatible')
         image = ImageOps.exif_transpose(image).convert('RGB')
         image.thumbnail((800, 1300))
@@ -263,6 +271,10 @@ def cover_bytes(raw):
         preview = io.BytesIO()
         small.save(preview, 'WEBP', quality=80, method=6)
         return out.getvalue(), preview.getvalue(), dimensions
+
+
+def amazon_cover_bytes(raw):
+    return cover_bytes(raw, amazon=True)
 
 
 def update_authors(payload, catalogue, new_books, today):

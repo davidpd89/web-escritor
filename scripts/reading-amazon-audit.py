@@ -160,7 +160,7 @@ def apply_records(tree, records, tag, fetch_bytes=fetch_amazon_image, convert=No
     de reconocer las tipográficas de la ingesta de Amazon, 1449 quedaron registradas como «editorial».
     Con más portadas que el tope, primero las de los libros que salen o salieron más cerca de hoy."""
     if convert is None:
-        from reading_intake_pipeline import cover_bytes as convert
+        from reading_intake_pipeline import amazon_cover_bytes as convert
     today = today or datetime.now(MADRID).date()
     data = read_json(tree / 'data/reading-catalogue.json')
     stats = {'formats_added': 0, 'covers_replaced': 0}

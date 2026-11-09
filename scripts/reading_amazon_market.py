@@ -609,8 +609,8 @@ def cover_taken(root,path,image):
     return False
 
 
-def replace_cover(book,root,image,small,dimensions,source,day):
-    """Pone la cubierta real de Amazon en lugar de la tipográfica: ficheros, medidas, fuente y base de uso.
+def replace_cover(book,root,image,small,dimensions,source,day,basis=AMAZON_COVER_BASIS):
+    """Pone la cubierta real en lugar de la tipográfica: ficheros, medidas, fuente y base de uso.
     Devuelve False sin tocar nada si esa imagen ya es la portada de otro libro."""
     path=root/book['portada_local'].lstrip('/')
     if cover_taken(root,path,image):
@@ -619,7 +619,7 @@ def replace_cover(book,root,image,small,dimensions,source,day):
     path.write_bytes(image)
     path.with_name(path.name.replace('.webp','-320.webp')).write_bytes(small)
     book.update(portada_fuente_url=source,portada_ancho=dimensions[0],portada_alto=dimensions[1],portada_fecha_revision=day,
-                portada_sustituida=True,autorizacion_o_base_uso=AMAZON_COVER_BASIS,portadas_amazon_buscadas=day)
+                portada_sustituida=True,autorizacion_o_base_uso=basis,portadas_amazon_buscadas=day)
     return True
 
 
@@ -665,6 +665,90 @@ def swap_cover(book,root,url,fetch_bytes,convert,day):
     except Exception:  # noqa: BLE001 - la tipográfica se queda; el monitor la sigue contando
         return False
     return replace_cover(book,root,image,small,dimensions,url,day)
+
+
+COVER_FALLBACK_BASIS='Cubierta de la edición localizada por su ISBN en {fuente} para su identificación bibliográfica'
+COVER_IMAGE_HOSTS={'m.media-amazon.com','covers.openlibrary.org','books.google.com','books.googleusercontent.com'}
+
+
+def fallback_cover_urls(book,fetch_json):
+    """Otras fuentes por ISBN cuando Amazon no tiene imagen (su marcador es un GIF de 60x49):
+    Open Library (devuelve 404 si no la tiene) y Google Books (solo el volumen con ese mismo ISBN)."""
+    isbn=isbn13(book.get('isbn13'))
+    if not isbn:
+        return []
+    found=[('Open Library',f'https://covers.openlibrary.org/b/isbn/{isbn}-L.jpg?default=false')]
+    try:
+        data=fetch_json(f'https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}')
+    except Exception:  # noqa: BLE001 - cuota o red: esa fuente se salta hoy y se repite mañana
+        data={}
+    for item in amazon_list(amazon_dict(data).get('items')):
+        info=amazon_dict(amazon_dict(item).get('volumeInfo'))
+        ids={amazon_dict(x).get('identifier') for x in amazon_list(info.get('industryIdentifiers'))}
+        thumb=amazon_dict(info.get('imageLinks')).get('thumbnail')
+        if isbn in ids and isinstance(thumb,str) and urlsplit(thumb).hostname in COVER_IMAGE_HOSTS:
+            thumb=thumb.replace('http://','https://').replace('&edge=curl','')
+            found.append(('Google Books',thumb+'&fife=w800'))
+            break
+    return found
+
+
+def recheck_generated_covers(catalogue,root,provider,fetch_bytes,convert,now,fetch_json=None,limit=3000,max_requests=600):
+    """Pasada propia de portadas, cada noche y aparte del barrido de precios (que solo veía los libros a los que
+    tocaba precio ese día): todo libro con portada tipográfica se pregunta a la Creators API (diez ASIN por
+    petición; por ISBN si no tiene ASIN) y, si Amazon no tiene imagen o no vale, a otras fuentes por ISBN.
+    Los que siguen sin portada se vuelven a mirar la noche siguiente: una preventa recibe su cubierta días después."""
+    day=now.astimezone(timezone.utc).date().isoformat()
+    books=[b for b in catalogue['libros'] if generated_cover(b) and b.get('portada_local') and b.get('portadas_amazon_buscadas','')<day]
+    books.sort(key=lambda b:b.get('portadas_amazon_buscadas',''))
+    books=books[:limit]
+    stats={'revisadas':0,'amazon':0,'otras_fuentes':0,'sin_imagen':0,'imagen_no_valida':0,'peticiones':0,'error':''}
+    urls={}
+
+    def ask(call,arg):
+        if stats['peticiones']>=max_requests:
+            raise DailyLimitReached
+        stats['peticiones']+=1
+        return amazon_dict(call(arg))
+
+    try:
+        with_asin=[b for b in books if verified_formats(b)]
+        if hasattr(provider,'items'):
+            pairs=[(b,a) for b in with_asin for a in verified_formats(b)]
+            for i in range(0,len(pairs),10):
+                chunk=pairs[i:i+10]
+                payload=ask(provider.items,[a for _,a in chunk])
+                for book in {b['id']:b for b,_ in chunk}.values():
+                    if book['id'] not in urls and (url:=item_cover_url(book,payload)):
+                        urls[book['id']]=url
+        for book in books:
+            if book['id'] not in urls and (not verified_formats(book) or not hasattr(provider,'items')) and isbn13(book.get('isbn13')):
+                if url:=item_cover_url(book,ask(provider,book)):
+                    urls[book['id']]=url
+    except DailyLimitReached:
+        stats['error']='cupo de la pasada agotado'
+    except Exception as exc:  # noqa: BLE001 - Amazon caído: se usa lo ya leído y las otras fuentes
+        stats['error']=f'{type(exc).__name__}: {str(exc)[:120]}'
+    for book in books:
+        stats['revisadas']+=1
+        url=urls.get(book['id'])
+        if url and swap_cover(book,root,url,fetch_bytes,convert,day):
+            stats['amazon']+=1
+            continue
+        replaced=False
+        for source,candidate in (fallback_cover_urls(book,fetch_json) if fetch_json else []):
+            try:
+                image,small,dimensions=convert(fetch_bytes(candidate))
+            except Exception:  # noqa: BLE001 - 404, marcador o tamaño raro: siguiente fuente
+                continue
+            if replace_cover(book,root,image,small,dimensions,candidate,day,COVER_FALLBACK_BASIS.format(fuente=source)):
+                stats['otras_fuentes']+=1
+                replaced=True
+                break
+        if not replaced:
+            stats['imagen_no_valida' if url else 'sin_imagen']+=1
+            book['portadas_amazon_buscadas']=day
+    return stats
 
 
 def page_cover_url(document):
@@ -808,8 +892,8 @@ def apply_audit(book,record,tag):
 
 def fetch_amazon_image(url):
     request=Request(url,headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36'})
-    if urlsplit(url).hostname!='m.media-amazon.com':
-        raise ValueError('Imagen fuera del CDN de Amazon')
+    if urlsplit(url).hostname not in COVER_IMAGE_HOSTS:
+        raise ValueError('Imagen fuera de las fuentes de cubiertas')
     with urlopen(request,timeout=30) as response:
         return response.read(10_000_000)
 

@@ -1334,7 +1334,7 @@ def cover_for(record, fetch_image, convert, typographic):
 def aplicar(day, tag, candidates, transform_failures, root=ROOT, fetch_image=fetch_amazon_image):
     from reading_catalogue_publishers import display_name
     from reading_intake_core import normalize_text, publisher_slug
-    from reading_intake_pipeline import builder, classify, cover_bytes, make_book, texts
+    from reading_intake_pipeline import amazon_cover_bytes, builder, classify, make_book, texts
     from reading_intake_publishers import resolve_publishers
     from reading_taxonomy import apply_derived
     from reading_ttl_source import typographic_cover
@@ -1400,7 +1400,7 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT, fetch_image=fet
         try:
             publisher = publisher_for(record['editorial'])
             record['editorial'] = publisher['name']
-            image, small, dimensions, real = cover_for(record, fetch_image, cover_bytes, typographic_cover)
+            image, small, dimensions, real = cover_for(record, fetch_image, amazon_cover_bytes, typographic_cover)
             path = '/assets/reading-covers/isbn-' + record['isbn13'] + '.webp'
             book = make_book(record, publisher, tag, day, path, dimensions)
             if real:

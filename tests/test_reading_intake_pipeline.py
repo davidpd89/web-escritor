@@ -135,6 +135,17 @@ class SourceTests(unittest.TestCase):
         with self.assertRaises((SourceError, OSError)):
             cover_bytes(b'<html>no cover</html>')
 
+    def test_amazon_square_and_landscape_covers_are_accepted(self):
+        def png(size):
+            out = io.BytesIO(); Image.new('RGB', size, '#654321').save(out, 'PNG'); return out.getvalue()
+        for size in ((497, 500), (800, 613), (500, 234)):  # cartoné infantil, álbum apaisado, imagen de 500 px
+            self.assertEqual(cover_bytes(png(size), amazon=True)[2], size)
+            with self.assertRaises(SourceError):  # en webs editoriales, un cuadrado suele ser un logo
+                cover_bytes(png(size))
+        for size in ((60, 49), (300, 300), (1000, 300)):  # marcador, miniatura, banner
+            with self.assertRaises(SourceError):
+                cover_bytes(png(size), amazon=True)
+
 
 class ContractTests(unittest.TestCase):
     def setUp(self):
