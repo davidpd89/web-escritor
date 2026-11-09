@@ -94,6 +94,29 @@ class EntornoDelCI(unittest.TestCase):
                 self.assertEqual(len(pips), 2)
 
 
+class NodeModulesDelWorktree(unittest.TestCase):
+    def test_un_worktree_nuevo_enlaza_los_del_checkout_principal(self):
+        import subprocess
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            principal, wt = Path(d) / 'principal', Path(d) / 'wt'
+            principal.mkdir()
+            git = lambda *a, cwd=principal: subprocess.run(['git', *a], cwd=cwd, check=True, capture_output=True)
+            git('init', '-q')
+            (principal / 'package-lock.json').write_text('{}', encoding='utf-8')
+            git('add', '.')
+            git('-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '-m', 'x')
+            (principal / 'node_modules/playwright').mkdir(parents=True)
+            git('worktree', 'add', '-q', '--detach', str(wt))
+            local_ci.node_modules_listos(wt)
+            self.assertTrue((wt / 'node_modules/playwright').exists())
+            local_ci.node_modules_listos(wt)            # ya están: no hace nada
+            if local_ci.os.name == 'nt':                # quitar la unión sin borrar el destino
+                subprocess.run(['cmd', '/c', 'rmdir', str(wt / 'node_modules')], check=True)
+            else:
+                (wt / 'node_modules').unlink()
+
+
 class CerrojoDePuertos(unittest.TestCase):
     def test_una_segunda_puerta_espera(self):
         import tempfile

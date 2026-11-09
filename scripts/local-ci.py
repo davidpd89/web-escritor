@@ -342,12 +342,34 @@ def baseline_tree():
     git('reset', '-q', '--hard', 'origin/main', cwd=tree)
     modules = tree / 'node_modules'
     if (ROOT / 'node_modules').exists() and not modules.exists():
-        if os.name == 'nt':
-            subprocess.run(['cmd', '/c', 'mklink', '/J', str(modules), str(ROOT / 'node_modules')], check=True,
-                           stdout=subprocess.DEVNULL)
-        else:
-            modules.symlink_to(ROOT / 'node_modules')
+        enlazar(modules, ROOT / 'node_modules')
     return tree
+
+
+def enlazar(dst, src):
+    if os.name == 'nt':
+        subprocess.run(['cmd', '/c', 'mklink', '/J', str(dst), str(src)], check=True, stdout=subprocess.DEVNULL)
+    else:
+        dst.symlink_to(src)
+
+
+def node_modules_listos(root=None):
+    """Un worktree nuevo no trae node_modules: sin esto, todo test de navegador cae en el import (2026-11-09, 13
+    comandos «MAL 0s» en la rama y en main). Se enlazan los del checkout principal si el lock coincide; si no, npm ci."""
+    root = Path(root or ROOT)
+    if (root / 'node_modules').exists() or not (root / 'package-lock.json').exists():
+        return
+    common = subprocess.run(['git', 'rev-parse', '--path-format=absolute', '--git-common-dir'], cwd=root,
+                            capture_output=True, text=True, check=True).stdout.strip()
+    principal = Path(common).parent
+    lock = principal / 'package-lock.json'
+    if (principal / 'node_modules').exists() and lock.exists() and \
+            lock.read_bytes() == (root / 'package-lock.json').read_bytes():
+        print(f'Enlazando node_modules de {principal}', flush=True)
+        enlazar(root / 'node_modules', principal / 'node_modules')
+    else:
+        print('Instalando node_modules (npm ci)…', flush=True)
+        subprocess.run('npm ci --no-audit --no-fund', cwd=root, shell=True, check=True)
 
 
 def ci_python():
@@ -419,6 +441,8 @@ def main(argv=None):
     if any(command.startswith(venv) for command, *_ in items):
         py = ci_python()
         items = [(f'"{py}"' + c[len('python'):] if c.startswith(venv) else c, e, f) for c, e, f in items]
+    if any(command.startswith('node ') for command, *_ in items):
+        node_modules_listos()
     results = run_all(items, ROOT, args.jobs, args.timeout)
     failed = [(item, res) for item, res in zip(items, results) if res[0] != 0]
     for (command, _, flow), (code, _, secs) in zip(items, results):
