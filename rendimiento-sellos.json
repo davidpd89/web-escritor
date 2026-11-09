@@ -9,6 +9,11 @@
     "nombre": "Adel Editores",
     "ultima": "2026-11-08"
   },
+  "adn": {
+    "libros_es": 15,
+    "nombre": "AdN",
+    "ultima": "2026-11-09"
+  },
   "adn alianza de novelas": {
     "libros_es": 2,
     "nombre": "AdN · Alianza de Novelas",
@@ -48,6 +53,11 @@
       "ultima": "2026-11-08"
     },
     "ultima": "2026-11-08"
+  },
+  "alianza de novelas": {
+    "libros_es": 3,
+    "nombre": "Alianza de Novelas",
+    "ultima": "2026-11-09"
   },
   "alienta editorial": {
     "libros_es": 17,
@@ -117,7 +127,7 @@
   "andromeda": {
     "libros_es": 2,
     "nombre": "Andrómeda",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "antigona": {
     "libros_es": 8,
@@ -404,9 +414,9 @@
     "ultima": "2026-11-06"
   },
   "contraluz": {
-    "libros_es": 12,
+    "libros_es": 17,
     "nombre": "Contraluz",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "contrasena": {
     "libros_es": 10,
@@ -440,9 +450,9 @@
     "ultima": "2026-11-06"
   },
   "crononauta": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Crononauta",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "crossbooks": {
     "libros_es": 27,
@@ -585,7 +595,7 @@
   "duomo ediciones": {
     "libros_es": 32,
     "nombre": "Duomo Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "edaf": {
     "libros_es": 13,
@@ -593,9 +603,9 @@
     "ultima": "2026-11-06"
   },
   "edhasa": {
-    "libros_es": 8,
+    "libros_es": 9,
     "nombre": "Edhasa",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "ediciones b": {
     "libros_es": 55,
@@ -927,9 +937,13 @@
     "ultima": "2026-11-06"
   },
   "grijalbo": {
-    "libros_es": 83,
+    "libros_es": 82,
     "nombre": "Grijalbo",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 497,
+      "ultima": "2026-11-09"
+    },
+    "ultima": "2026-11-09"
   },
   "grupo almuzara": {
     "libros_es": 3,
@@ -1044,9 +1058,9 @@
     "ultima": "2026-11-06"
   },
   "insolita editorial": {
-    "libros_es": 10,
+    "libros_es": 19,
     "nombre": "Insólita Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "istoria": {
     "libros_es": 5,
@@ -1144,7 +1158,7 @@
   "la consentida editorial": {
     "libros_es": 10,
     "nombre": "La Consentida Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "la esfera de los libros": {
     "libros_es": 42,
@@ -1400,9 +1414,9 @@
     "ultima": "2026-11-06"
   },
   "menoscuarto ediciones": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Menoscuarto Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "menoslobos": {
     "libros_es": 10,
@@ -1594,9 +1608,9 @@
     "ultima": "2026-11-08"
   },
   "oz editorial": {
-    "libros_es": 8,
+    "libros_es": 15,
     "nombre": "Oz Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "pacifistas sin fronteras": {
     "libros_es": 0,
@@ -1642,9 +1656,9 @@
     "ultima": "2026-11-06"
   },
   "pato ediciones": {
-    "libros_es": 4,
+    "libros_es": 10,
     "nombre": "Pato Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "penguin bolsillo": {
     "libros_es": 100,
@@ -1829,9 +1843,9 @@
     "ultima": "2026-11-06"
   },
   "rayo verde editorial": {
-    "libros_es": 10,
+    "libros_es": 15,
     "nombre": "Rayo Verde Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "rba integral": {
     "libros_es": 10,
@@ -1857,7 +1871,7 @@
   "reservoir books": {
     "libros_es": 31,
     "nombre": "Reservoir Books",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "reverte": {
     "libros_es": 15,
@@ -1947,9 +1961,9 @@
     "ultima": "2026-11-06"
   },
   "salamandra": {
-    "libros_es": 53,
+    "libros_es": 52,
     "nombre": "Salamandra",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "san pablo": {
     "libros_es": 29,
@@ -2258,9 +2272,9 @@
     "ultima": "2026-11-06"
   },
   "viento norte editorial": {
-    "libros_es": 1,
+    "libros_es": 2,
     "nombre": "Viento Norte Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "vintage espanol": {
     "libros_es": 36,
