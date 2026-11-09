@@ -5,6 +5,7 @@ las fichas nuevas antes de los builders que leen `git ls-files` (site-shell, Pag
 
     python scripts/materializar_generados.py            # construye y comprueba
     python scripts/materializar_generados.py --check    # solo comprueba que lo versionado está al día
+    python scripts/materializar_generados.py --solo-construir   # CI (.github/actions/materializar): sin comprobar
 """
 from __future__ import annotations
 
@@ -76,7 +77,8 @@ def comprobar(root: Path = ROOT, assets: bool = True) -> None:
 def main(argv: list[str]) -> int:
     if '--check' not in argv:
         construir()
-    comprobar()
+    if '--solo-construir' not in argv:
+        comprobar()
     return 0
 
 

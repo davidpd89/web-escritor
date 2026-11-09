@@ -40,6 +40,68 @@ class UnaSolaCadena(unittest.TestCase):
             self.assertGreater(nombres.index(indexa), nombres.index('build-page-order.py'))
 
 
+# Workflows que sirven el árbol con http.server y aún no materializan con la acción. Trinquete: solo puede encoger.
+# Al adoptar la acción en uno, se quita de aquí; uno nuevo con http.server debe nacer usándola.
+PENDIENTES_DE_MATERIALIZAR = {
+    'a11y-regressions-browser-qa.yml',
+    'assistant-hardening-qa.yml',
+    'atlas-catalogue-qa.yml',
+    'autor-browser-qa.yml',
+    'content-parity-manecillas.yml',
+    'convocatorias-browser-qa.yml',
+    'cross-engine-smoke.yml',
+    'cuaderno-browser-qa.yml',
+    'cuaderno-topics-browser-qa.yml',
+    'design-evidence-hardening.yml',
+    'editoriales-browser-qa.yml',
+    'eventos-browser-qa.yml',
+    'ferias-archive-parity-qa.yml',
+    'ferias-browser-qa.yml',
+    'findability-browser-qa.yml',
+    'global-discoverability-closure-qa.yml',
+    'home-map-interaction-qa.yml',
+    'identity-public-browser-qa.yml',
+    'machine-authority-check.yml',
+    'manecillas-fragments-nav-qa.yml',
+    'mejoras-web-preview.yml',
+    'metodologia-editorial-browser-qa.yml',
+    'newsletter-consent-qa.yml',
+    'pa11y-baseline.yml',
+    'postdeploy-deep-audit.yml',
+    'premios-browser-qa.yml',
+    'prensa-browser-qa.yml',
+    'privacy-legal-browser-qa.yml',
+    'pro-resources-qa.yml',
+    'reading-failure-resilience.yml',
+    'recommendations-browser-qa.yml',
+    'samuel-ecosystem-browser-qa.yml',
+    'sitewide-reflow-qa.yml',
+    'tools-browser-qa.yml',
+    'tools-events-memory-browser-qa.yml',
+    'tools-publishing-browser-qa.yml',
+    'tools-structure-browser-qa.yml',
+}
+ACCION = './.github/actions/materializar'
+
+
+class AccionMaterializar(unittest.TestCase):
+    def test_la_accion_usa_la_cadena_unica(self):
+        texto = (ROOT / '.github/actions/materializar/action.yml').read_text(encoding='utf-8')
+        self.assertIn('scripts/materializar_generados.py --solo-construir', texto)
+        self.assertIn('actions/cache/restore', texto)
+
+    def test_trinquete_de_workflows_con_http_server(self):
+        sin_accion = set()
+        for wf in (ROOT / '.github/workflows').glob('*.yml'):
+            texto = wf.read_text(encoding='utf-8')
+            if 'http.server' in texto and ACCION not in texto:
+                sin_accion.add(wf.name)
+        self.assertEqual(sin_accion - PENDIENTES_DE_MATERIALIZAR, set(),
+                         'workflow nuevo con http.server sin la acción materializar')
+        self.assertEqual(PENDIENTES_DE_MATERIALIZAR - sin_accion, set(),
+                         'ya usa la acción (o no existe): quítalo de PENDIENTES_DE_MATERIALIZAR')
+
+
 class RutasNuevas(unittest.TestCase):
     def test_una_ficha_nueva_la_ve_ls_files_antes_de_indexar(self):
         with tempfile.TemporaryDirectory() as d:
