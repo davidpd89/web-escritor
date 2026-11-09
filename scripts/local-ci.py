@@ -23,7 +23,6 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 PORTS = (4173, 4175)
@@ -35,6 +34,9 @@ COMMAND = re.compile(r'^((?:[A-Z_][A-Z0-9_]*=\S+\s+)*)(node (?:--check \S+|--tes
                      r'|tests/\S+.*|scripts/(?:check|audit)[-_]\S+\.py.*|scripts/\S+.*--check.*))$')
 # Dependen de artefactos que en CI crea un paso anterior (dist de vista previa, zip, informe de lychee).
 NEEDS_BUILD = ('.preview-dist', 'qa-artifacts/', 'lychee/')
+# La suite unittest completa pasa de 15 min en un solo proceso: se reparte en lotes que corren en paralelo.
+SUITE = "python -m unittest discover -s tests -p 'test_*.py'"
+SHARDS = 8
 BASH = shutil.which('bash') or r'C:\Program Files\Git\bin\bash.exe'
 
 
@@ -91,6 +93,7 @@ def loop_lines(run):
 
 def collect(changed, everything):
     """Comandos únicos de los workflows activados, con su entorno."""
+    import yaml  # aquí y no arriba: los tests de lotes importan este módulo en runners sin PyYAML
     commands = {}
     for path in sorted((ROOT / '.github/workflows').glob('*.yml')):
         flow = yaml.safe_load(path.read_text(encoding='utf-8'))
@@ -108,6 +111,11 @@ def collect(changed, everything):
                             or any(n in line for n in NEEDS_BUILD):
                         continue
                     key = re.sub(r'^python3 ', 'python ', m.group(2))
+                    if key == SUITE:
+                        for i in range(SHARDS):
+                            shard = f'python scripts/local-ci.py --unittest-shard {i}/{SHARDS}'
+                            commands.setdefault(shard, (m.group(1) + shard, {}, path.name))
+                        continue
                     if key not in commands:
                         env = {**plain_env(flow.get('env')), **plain_env(job.get('env')), **plain_env(step.get('env'))}
                         commands[key] = (m.group(1) + key, env, path.name)
@@ -211,6 +219,35 @@ def baseline_tree():
     return tree
 
 
+def ci_python():
+    """Python con solo scripts/requirements.txt, como el job python-tests del CI (cacheado por hash del fichero).
+
+    Sin esto, un test que importa un paquete instalado aquí pero no en el runner (PyYAML, 2026-11-09) pasa la puerta
+    local y cae en el CI."""
+    import hashlib
+    reqs = ROOT / 'scripts/requirements.txt'
+    digest = hashlib.sha256(reqs.read_bytes()).hexdigest()[:12]
+    venv = ROOT / '.local/local-ci' / f'venv-{digest}'
+    exe = venv / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
+    if not exe.exists():
+        print(f'Creando el entorno del CI ({venv.name})…', flush=True)
+        subprocess.run([sys.executable, '-m', 'venv', str(venv)], check=True)
+        subprocess.run([str(exe), '-m', 'pip', 'install', '-q', '-r', str(reqs)], check=True)
+    return exe.as_posix()
+
+
+def unittest_shard(spec):
+    """Un lote de `discover -s tests -p 'test_*.py'`: los ficheros i, i+n, i+2n… (reparto por turno, parejo)."""
+    import unittest
+    index, total = (int(x) for x in spec.split('/'))
+    files = sorted(p.name for p in (ROOT / 'tests').glob('test_*.py'))[index::total]
+    loader = unittest.TestLoader()
+    suite = unittest.TestSuite(loader.discover(str(ROOT / 'tests'), pattern=name, top_level_dir=str(ROOT / 'tests'))
+                               for name in files)
+    result = unittest.TextTestRunner(verbosity=1).run(suite)
+    return 0 if result.wasSuccessful() else 1
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--all', action='store_true', help='todos los pasos de QA, sin filtrar por rutas')
@@ -219,7 +256,10 @@ def main(argv=None):
     parser.add_argument('--timeout', type=int, default=TIMEOUT, help='segundos por comando')
     parser.add_argument('--only', help='solo los comandos que contengan este texto')
     parser.add_argument('--list', action='store_true', help='enseña qué correría y sale')
+    parser.add_argument('--unittest-shard', metavar='I/N', help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
+    if args.unittest_shard:
+        return unittest_shard(args.unittest_shard)
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
     subprocess.run(['git', 'fetch', '-q', 'origin', 'main'], cwd=ROOT)
@@ -235,10 +275,17 @@ def main(argv=None):
             print(f'  {flow}: {command}')
         return 0
 
+    if any('--unittest-shard' in command for command, *_ in items):
+        py = ci_python()
+        items = [(c.replace('python scripts/local-ci.py --unittest-shard', f'"{py}" scripts/local-ci.py --unittest-shard'),
+                  e, f) for c, e, f in items]
     results = run_all(items, ROOT, args.jobs, args.timeout)
     failed = [(item, res) for item, res in zip(items, results) if res[0] != 0]
     for (command, _, flow), (code, _, secs) in zip(items, results):
         print(f"{'ok ' if code == 0 else 'MAL'} {secs:5.0f}s {command}")
+    # Un tiempo agotado no se compara con main (same_failure nunca lo daría por conocido): repetirlo solo gasta 15 min.
+    timed_out = [(item, res) for item, res in failed if res[0] == 124]
+    failed = [(item, res) for item, res in failed if res[0] != 124]
     if failed and args.baseline:
         print(f'Repitiendo {len(failed)} fallos sobre origin/main…', flush=True)
         again = run_all([item for item, _ in failed], baseline_tree(), args.jobs, args.timeout)
@@ -247,6 +294,7 @@ def main(argv=None):
         known = [item[0] for (item, res), old in zip(failed, again) if same_failure(res, old)]
     else:
         new, known = failed, []
+    new += timed_out
     # Agotar el tiempo no es un fallo de la rama ni un aprobado: queda sin verificar (salida 2) y lo decide el CI.
     slow = [item[0] for item, res in new if res[0] == 124]
     new = [(item, res) for item, res in new if res[0] != 124]
@@ -256,7 +304,7 @@ def main(argv=None):
         print(f'  ya falla igual en main: {command}')
     for command in slow:
         print(f'  sin verificar (agotó {args.timeout} s): {command}')
-    print(f'\n{len(items) - len(failed)} bien, {len(new)} fallos nuevos' + (f', {len(known)} ya fallaban en main' if known else '')
+    print(f'\n{len(items) - len(failed) - len(timed_out)} bien, {len(new)} fallos nuevos' + (f', {len(known)} ya fallaban en main' if known else '')
           + (f', {len(slow)} sin verificar' if slow else ''))
     return 1 if new else 2 if slow else 0
 

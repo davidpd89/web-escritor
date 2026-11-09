@@ -53,8 +53,11 @@ def agentes(cuenta2: Path | None = None):
     return lista
 
 
-def decidir(run: dict | None, previo: dict | None, ahora: dt.datetime, intentos_hoy: int) -> str:
+def decidir(run: dict | None, previo: dict | None, ahora: dt.datetime, intentos_hoy: int, infra: bool = False) -> str:
     """Qué hacer con la última ejecución de un flujo. Pura, para poder probarla.
+
+    `infra`: el fallo es de GitHub (caída de Actions, ejecución sin trabajos), no del código. Eso nunca se
+    «repara» con IA: se reintenta cada hora hasta que GitHub vuelva.
 
     Devuelve: 'nada', 'olvidar' (salió verde: se borra el estado), 'relanzar', 'reparar', 'esperar_pr', 'agotado'."""
     if not run or run.get('status') != 'completed':
@@ -67,6 +70,11 @@ def decidir(run: dict | None, previo: dict | None, ahora: dt.datetime, intentos_
     if ahora - creado > dt.timedelta(hours=VENTANA_H):
         return 'nada'
     previo = previo or {}
+    if infra:
+        relanzado = previo.get('relanzado')
+        if relanzado and ahora - dt.datetime.fromisoformat(relanzado) < dt.timedelta(minutes=50):
+            return 'nada'
+        return 'relanzar'
     if previo.get('pr') and not previo.get('pr_cerrada'):
         return 'esperar_pr'
     # Se relanza con un dispatch nuevo sobre main (no `rerun`, que repite el commit viejo y volvería a fallar por
@@ -79,6 +87,17 @@ def decidir(run: dict | None, previo: dict | None, ahora: dt.datetime, intentos_
     if intentos_hoy >= MAX_INTENTOS_DIA:
         return 'agotado'
     return 'reparar'
+
+
+def carga_perdida(ultima: dict | None, ahora: dt.datetime, lanzada_hoy: bool) -> bool:
+    """El cron de la carga (00:17 UTC) no llegó a crear ejecución: GitHub a veces se salta crons, sobre todo en
+    incidencias. A partir de las 02:00 UTC, si hoy no hay ninguna carga, se lanza una (una vez al día)."""
+    if lanzada_hoy or ahora.hour < 2:
+        return False
+    if not ultima:
+        return True
+    creado = dt.datetime.fromisoformat(ultima['createdAt'].replace('Z', '+00:00'))
+    return creado.date() < ahora.date()
 
 
 def sin_cuota(salida: str) -> bool:
@@ -140,6 +159,33 @@ def ultima_ejecucion(flujo):
     runs = gh_json('run', 'list', '--workflow', flujo, '--branch', 'main', '--limit', '1',
                    '--json', 'databaseId,status,conclusion,attempt,url,createdAt,event')
     return runs[0] if runs else None
+
+
+def actions_caido():
+    """Descripción de la incidencia si GitHub Actions no está operativo; None si va bien o no se puede saber."""
+    import urllib.request
+    try:
+        with urllib.request.urlopen('https://www.githubstatus.com/api/v2/summary.json', timeout=20) as r:
+            datos = json.load(r)
+    except Exception:
+        return None
+    for c in datos.get('components', []):
+        if c.get('name') == 'Actions' and c.get('status') not in ('operational', None):
+            return c['status']
+    return None
+
+
+def fallo_de_infraestructura(run_id) -> bool:
+    """Una ejecución fallida sin trabajos, o cuyos trabajos fallaron sin llegar a ejecutar ningún paso, es GitHub
+    (caída, «workflow file issue» durante incidencias, runner perdido), no el código."""
+    try:
+        jobs = gh_json('run', 'view', str(run_id), '--json', 'jobs')['jobs']
+    except Exception:
+        return False
+    fallidos = [j for j in jobs if j.get('conclusion') in ('failure', 'timed_out', 'startup_failure', None)]
+    if not jobs:
+        return True
+    return bool(fallidos) and all(not any(s.get('conclusion') == 'failure' for s in j.get('steps', [])) for j in fallidos)
 
 
 def ingesta_en_marcha():
@@ -266,6 +312,17 @@ def pasada(dry=False, solo=None):
     estado = cargar_estado()
     ahora = dt.datetime.now(dt.timezone.utc)
     hoy = ahora.date().isoformat()
+    caida = actions_caido()
+    if caida:
+        log(f"GitHub Actions en incidencia ({caida}): no relanzo ni reparo nada; reintento en la siguiente pasada")
+    if not solo or solo == INGESTA:
+        try:
+            if not caida and carga_perdida(ultima_ejecucion(INGESTA), ahora, estado.get('carga_perdida') == hoy):
+                log(f"{'[dry] ' if dry else ''}{INGESTA}: hoy no se ha lanzado la carga nocturna; la lanzo")
+                dry or sh(['gh', 'workflow', 'run', INGESTA, '--ref', 'main', '--repo', GH_REPO], check=True)
+                estado['carga_perdida'] = hoy
+        except Exception as exc:
+            log(f"{INGESTA}: no pude comprobar si la carga se lanzó: {exc}")
     for flujo in [solo] if solo else VIGILADOS:
         try:
             run = ultima_ejecucion(flujo)
@@ -280,7 +337,16 @@ def pasada(dry=False, solo=None):
                 if pr['state'] == 'CLOSED':
                     previo['pr_cerrada'] = True
             intentos = sum(1 for x in (previo or {}).get('intentos', []) if x.startswith(hoy))
-            accion = decidir(run, previo, ahora, intentos)
+            fallido = run and run.get('status') == 'completed' and run.get('conclusion') in ('failure', 'timed_out', 'startup_failure')
+            infra = bool(fallido) and fallo_de_infraestructura(run['databaseId'])
+            accion = decidir(run, previo, ahora, intentos, infra)
+            if caida and accion in ('relanzar', 'reparar'):
+                continue
+            if infra and accion == 'relanzar':
+                log(f"{'[dry] ' if dry else ''}{flujo}: fallo de GitHub, no del código; relanzo {run['url']}")
+                dry or sh(['gh', 'workflow', 'run', flujo, '--ref', 'main', '--repo', GH_REPO], check=True)
+                estado.setdefault(flujo, {})['relanzado'] = ahora.isoformat()
+                continue
             if accion == 'nada':
                 continue
             if accion == 'olvidar':
