@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # Salidas de los builders. Los datos (data/**, assets/reading-covers/**) NO están aquí: un conflicto en ellos es real.
 GENERADOS = (
     'pagefind/*', 'recomendaciones/*.html', 'editoriales/*.html', 'editoriales-sitemap.xml', 'sitemap*.xml',
-    'mapa-del-sitio/index.html', 'assets/page-order.generated.js', 'reports/performance-budget.json',
+    'mapa-del-sitio/index.html', 'assets/page-order.generated.js',
 )
 BUILDERS = (
     ('build-reading-catalogue.py',),
@@ -97,10 +97,15 @@ def main() -> int:
     rebasar(a.onto)
     print('Regenerando artefactos')
     regenerar()
-    cambios = [l[3:] for l in git('status', '--porcelain', '--untracked-files=all').stdout.splitlines()]
+    estado = git('status', '--porcelain', '--untracked-files=all').stdout.splitlines()
+    # Un fichero nuevo solo entra si es generado: informes sueltos (reports/…) que deja un builder no se versionan.
+    cambios = [l[3:] for l in estado if not l.startswith('??') or generado(l[3:])]
+    sueltos = [l[3:] for l in estado if l.startswith('??') and not generado(l[3:])]
     fuera = [p for p in cambios if not generado(p) and not p.startswith(('data/', 'assets/'))]
     if fuera:
         print('Aviso: los builders tocaron ficheros fuera de lo generado: ' + ', '.join(fuera[:8]))
+    if sueltos:
+        print('Sin versionar (no son generados): ' + ', '.join(sueltos[:8]))
     if cambios:
         git('add', '-A', '--', *cambios)
         git('commit', '-q', '-m', f'Regenerar artefactos sobre {git("rev-parse", "--short", a.onto).stdout.strip()}')
