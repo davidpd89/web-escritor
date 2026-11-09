@@ -43,6 +43,16 @@ def generado(path: str) -> bool:
     return any(fnmatch.fnmatch(path, patron) for patron in GENERADOS)
 
 
+def clasificar(estado: list[str]) -> tuple[list[str], list[str]]:
+    """Separa la salida de `git status --porcelain` en (a versionar, sueltos).
+
+    Un fichero nuevo solo entra si es generado: informes sueltos (reports/…) que deja un builder no se versionan.
+    """
+    cambios = [l[3:] for l in estado if not l.startswith('??') or generado(l[3:])]
+    sueltos = [l[3:] for l in estado if l.startswith('??') and not generado(l[3:])]
+    return cambios, sueltos
+
+
 def git(*args, check=True) -> subprocess.CompletedProcess:
     return subprocess.run(['git', *args], cwd=ROOT, text=True, capture_output=True, check=check, encoding='utf-8')
 
@@ -97,10 +107,7 @@ def main() -> int:
     rebasar(a.onto)
     print('Regenerando artefactos')
     regenerar()
-    estado = git('status', '--porcelain', '--untracked-files=all').stdout.splitlines()
-    # Un fichero nuevo solo entra si es generado: informes sueltos (reports/…) que deja un builder no se versionan.
-    cambios = [l[3:] for l in estado if not l.startswith('??') or generado(l[3:])]
-    sueltos = [l[3:] for l in estado if l.startswith('??') and not generado(l[3:])]
+    cambios, sueltos = clasificar(git('status', '--porcelain', '--untracked-files=all').stdout.splitlines())
     fuera = [p for p in cambios if not generado(p) and not p.startswith(('data/', 'assets/'))]
     if fuera:
         print('Aviso: los builders tocaron ficheros fuera de lo generado: ' + ', '.join(fuera[:8]))

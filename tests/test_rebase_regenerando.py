@@ -2,22 +2,29 @@ import importlib.util
 import unittest
 from pathlib import Path
 
-spec = importlib.util.spec_from_file_location('rebase_regenerando', Path(__file__).resolve().parents[1] / 'scripts' / 'rebase-regenerando.py')
-rr = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(rr)
+SPEC = importlib.util.spec_from_file_location(
+    'rebase_regenerando', Path(__file__).resolve().parents[1] / 'scripts' / 'rebase-regenerando.py')
+rr = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(rr)
 
 
-class Generado(unittest.TestCase):
-    def test_salidas_de_builders(self):
-        for p in ('pagefind/fragment/es_1.pf_fragment', 'recomendaciones/index.html', 'recomendaciones/libro/x/index.html',
-                  'editoriales/anagrama/index.html', 'sitemap.xml', 'editoriales-sitemap.xml', 'mapa-del-sitio/index.html',
-                  'assets/page-order.generated.js'):
-            self.assertTrue(rr.generado(p), p)
+class ClasificarTest(unittest.TestCase):
+    def test_nuevo_no_generado_no_se_versiona(self):
+        cambios, sueltos = rr.clasificar([
+            ' M recomendaciones/index.html',
+            ' M data/reading-books.json',
+            '?? pagefind/fragment/nuevo.pf_fragment',
+            '?? reports/performance-budget.json',
+        ])
+        self.assertEqual(cambios, ['recomendaciones/index.html', 'data/reading-books.json',
+                                   'pagefind/fragment/nuevo.pf_fragment'])
+        self.assertEqual(sueltos, ['reports/performance-budget.json'])
 
-    def test_codigo_y_datos_no(self):
-        for p in ('scripts/build-reading-catalogue.py', 'data/reading-catalogue.json', 'assets/reading-covers/x.webp',
-                  'recomendaciones/reading-catalogue.js', 'assets/reading-catalogue.css', 'mapa-del-sitio/otro.html'):
-            self.assertFalse(rr.generado(p), p)
+    def test_generado(self):
+        self.assertTrue(rr.generado('sitemap-libros.xml'))
+        self.assertTrue(rr.generado('assets/page-order.generated.js'))
+        self.assertFalse(rr.generado('data/reading-books.json'))
+        self.assertFalse(rr.generado('scripts/build-sitemap.py'))
 
 
 if __name__ == '__main__':
