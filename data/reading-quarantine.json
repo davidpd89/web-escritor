@@ -1,4 +1,343 @@
 {
-  "libros": [],
+  "libros": [
+    {
+      "categorias": [
+        "comic-y-novela-grafica",
+        "narrativa",
+        "romance",
+        "san-valentin",
+        "tema-amor-y-pareja"
+      ],
+      "causa": "portada duplicada (igual que isbn-<isbn>)",
+      "desde": "2026-11-09",
+      "fuente": "https://www.amazon.es/dp/8419686301",
+      "intentos": 1,
+      "isbn": "9788419686305",
+      "libro": {
+        "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788419686305&tag=davidporto-21",
+        "anio_publicacion": 2027,
+        "autores": [
+          "Kuzushiro"
+        ],
+        "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
+        "descripcion_breve": "La luna en una noche de lluvia 9 (Yuri), de Kuzushiro. Edición de Distrito Manga en castellano, en tapa blanda. Consta de 144 páginas. La editorial la incluye en cómic y novela gráfica, narrativa contemporánea, romance. Publicación editorial: 2027-01-21.",
+        "descripcion_original_confirmada": true,
+        "edicion": "Tapa blanda · Distrito Manga",
+        "editorial": "Distrito Manga",
+        "editorial_catalogo_slug": "distrito-manga",
+        "estado": "publicado",
+        "fecha_actualizacion": "2026-11-06",
+        "fecha_publicacion": "2027-01-21",
+        "fecha_verificacion": "2026-11-06",
+        "formato_edicion": "tapa-blanda",
+        "formatos_amazon_buscados": "2026-11-08",
+        "formatos_compra": [
+          {
+            "fecha_verificacion": "2026-11-09",
+            "formato": "tapa-blanda",
+            "fuente_url": "https://www.amazon.es/dp/8419686301",
+            "precio_centimos": 945,
+            "precio_referencia_centimos": 995,
+            "url": "https://www.amazon.es/dp/8419686301?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          }
+        ],
+        "fuente_bibliografica_url": "https://www.amazon.es/dp/8419686301",
+        "fuente_publicacion_url": "https://www.amazon.es/dp/8419686301",
+        "id": "isbn-9788419686305",
+        "idioma": "es",
+        "isbn13": "9788419686305",
+        "numero_paginas": 144,
+        "portada_alto": 930,
+        "portada_ancho": 650,
+        "portada_edicion_verificada": true,
+        "portada_fecha_revision": "2026-11-09",
+        "portada_fuente_url": "https://m.media-amazon.com/images/I/41BYu3E77ML.jpg",
+        "portada_local": "/assets/reading-covers/isbn-9788419686305.webp",
+        "portada_sustituida": true,
+        "portadas_amazon_buscadas": "2026-11-09",
+        "precios_amazon_revision": "2026-11-09",
+        "resenas": [
+          {
+            "fecha_verificacion": "2026-11-06",
+            "titulo": "Buscar reseñas en Goodreads",
+            "url": "https://www.goodreads.com/search?q=9788419686305"
+          }
+        ],
+        "slug": "la-luna-en-una-noche-de-lluvia-9-yuri-9788419686305",
+        "titulo": "La luna en una noche de lluvia 9 (Yuri)"
+      },
+      "motivo": "isbn-9788419686305: portada duplicada (igual que isbn-9788427256354)",
+      "ultimo_intento": "2026-11-09"
+    },
+    {
+      "categorias": [
+        "comic-y-novela-grafica",
+        "fantasia",
+        "halloween",
+        "misterio-y-thriller",
+        "terror"
+      ],
+      "causa": "portada duplicada (igual que isbn-<isbn>)",
+      "desde": "2026-11-09",
+      "fuente": "https://www.amazon.es/dp/8410305836",
+      "intentos": 1,
+      "isbn": "9788410305830",
+      "libro": {
+        "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410305830&tag=davidporto-21",
+        "anio_publicacion": 2027,
+        "autores": [
+          "ryoko"
+        ],
+        "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
+        "descripcion_breve": "Caminando con la muerte 4 (Seinen), de ryoko. Edición de Distrito Manga en castellano, en tapa blanda. Consta de 224 páginas. La editorial la incluye en cómic y novela gráfica, misterio, terror. Publicación editorial: 2027-01-21.",
+        "descripcion_original_confirmada": true,
+        "edicion": "Tapa blanda · Distrito Manga",
+        "editorial": "Distrito Manga",
+        "editorial_catalogo_slug": "distrito-manga",
+        "estado": "publicado",
+        "fecha_actualizacion": "2026-11-06",
+        "fecha_publicacion": "2027-01-21",
+        "fecha_verificacion": "2026-11-06",
+        "formato_edicion": "tapa-blanda",
+        "formatos_amazon_buscados": "2026-11-08",
+        "formatos_compra": [
+          {
+            "fecha_verificacion": "2026-11-09",
+            "formato": "tapa-blanda",
+            "fuente_url": "https://www.amazon.es/dp/8410305836",
+            "precio_centimos": 946,
+            "precio_referencia_centimos": 995,
+            "url": "https://www.amazon.es/dp/8410305836?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          }
+        ],
+        "fuente_bibliografica_url": "https://www.amazon.es/dp/8410305836",
+        "fuente_publicacion_url": "https://www.amazon.es/dp/8410305836",
+        "id": "isbn-9788410305830",
+        "idioma": "es",
+        "isbn13": "9788410305830",
+        "numero_paginas": 224,
+        "portada_alto": 930,
+        "portada_ancho": 650,
+        "portada_edicion_verificada": true,
+        "portada_fecha_revision": "2026-11-09",
+        "portada_fuente_url": "https://m.media-amazon.com/images/I/41BYu3E77ML.jpg",
+        "portada_local": "/assets/reading-covers/isbn-9788410305830.webp",
+        "portada_sustituida": true,
+        "portadas_amazon_buscadas": "2026-11-09",
+        "precios_amazon_revision": "2026-11-09",
+        "resenas": [
+          {
+            "fecha_verificacion": "2026-11-06",
+            "titulo": "Buscar reseñas en Goodreads",
+            "url": "https://www.goodreads.com/search?q=9788410305830"
+          }
+        ],
+        "slug": "caminando-con-la-muerte-4-seinen-9788410305830",
+        "titulo": "Caminando con la muerte 4 (Seinen)"
+      },
+      "motivo": "isbn-9788410305830: portada duplicada (igual que isbn-9788427256354)",
+      "ultimo_intento": "2026-11-09"
+    },
+    {
+      "categorias": [
+        "comic-y-novela-grafica",
+        "romance",
+        "san-valentin"
+      ],
+      "causa": "portada duplicada (igual que isbn-<isbn>)",
+      "desde": "2026-11-09",
+      "fuente": "https://www.amazon.es/dp/B0HK4G49KC",
+      "intentos": 1,
+      "isbn": "9791387962067",
+      "libro": {
+        "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387962067&tag=davidporto-21",
+        "anio_publicacion": 2027,
+        "autores": [
+          "KKAM",
+          "3_jokseom"
+        ],
+        "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
+        "descripcion_breve": "Para Dafne 3 (Distrito Manhwa), de KKAM, 3_jokseom. Edición de Distrito Manga en castellano, en tapa blanda. Consta de 288 páginas. La editorial la incluye en cómic y novela gráfica, romance. Publicación editorial: 2027-01-21.",
+        "descripcion_original_confirmada": true,
+        "edicion": "Tapa blanda · Distrito Manga",
+        "editorial": "Distrito Manga",
+        "editorial_catalogo_slug": "distrito-manga",
+        "estado": "publicado",
+        "fecha_actualizacion": "2026-11-06",
+        "fecha_publicacion": "2027-01-21",
+        "fecha_verificacion": "2026-11-06",
+        "formato_edicion": "tapa-blanda",
+        "formatos_amazon_buscados": "2026-11-08",
+        "formatos_compra": [
+          {
+            "fecha_verificacion": "2026-11-09",
+            "formato": "tapa-blanda",
+            "fuente_url": "https://www.amazon.es/dp/B0HK4G49KC",
+            "precio_centimos": 1705,
+            "precio_referencia_centimos": 1795,
+            "url": "https://www.amazon.es/dp/B0HK4G49KC?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          }
+        ],
+        "fuente_bibliografica_url": "https://www.amazon.es/dp/B0HK4G49KC",
+        "fuente_publicacion_url": "https://www.amazon.es/dp/B0HK4G49KC",
+        "id": "isbn-9791387962067",
+        "idioma": "es",
+        "isbn13": "9791387962067",
+        "numero_paginas": 288,
+        "portada_alto": 930,
+        "portada_ancho": 650,
+        "portada_edicion_verificada": true,
+        "portada_fecha_revision": "2026-11-09",
+        "portada_fuente_url": "https://m.media-amazon.com/images/I/41BYu3E77ML.jpg",
+        "portada_local": "/assets/reading-covers/isbn-9791387962067.webp",
+        "portada_sustituida": true,
+        "portadas_amazon_buscadas": "2026-11-09",
+        "precios_amazon_revision": "2026-11-09",
+        "resenas": [
+          {
+            "fecha_verificacion": "2026-11-06",
+            "titulo": "Buscar reseñas en Goodreads",
+            "url": "https://www.goodreads.com/search?q=9791387962067"
+          }
+        ],
+        "slug": "para-dafne-3-distrito-manhwa-9791387962067",
+        "titulo": "Para Dafne 3 (Distrito Manhwa)"
+      },
+      "motivo": "isbn-9791387962067: portada duplicada (igual que isbn-9788427256354)",
+      "ultimo_intento": "2026-11-09"
+    },
+    {
+      "categorias": [
+        "misterio-y-thriller"
+      ],
+      "causa": "portada duplicada (igual que isbn-<isbn>)",
+      "desde": "2026-11-09",
+      "fuente": "https://www.amazon.es/dp/B0HK13P6HT",
+      "intentos": 1,
+      "isbn": "9791387905873",
+      "libro": {
+        "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387905873&tag=davidporto-21",
+        "anio_publicacion": 2027,
+        "autores": [
+          "María Boado Olabarrieta"
+        ],
+        "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
+        "descripcion_breve": "Los silencios cómplices (Novela), de María Boado Olabarrieta. Edición de Roca Editorial en castellano, en tapa blanda. Consta de 544 páginas. La editorial la incluye en misterio. Publicación editorial: 2027-01-14.",
+        "descripcion_original_confirmada": true,
+        "edicion": "Tapa blanda · Roca Editorial",
+        "editorial": "Roca Editorial",
+        "editorial_slug": "roca-editorial",
+        "estado": "publicado",
+        "fecha_actualizacion": "2026-11-06",
+        "fecha_publicacion": "2027-01-14",
+        "fecha_verificacion": "2026-11-06",
+        "formato_edicion": "tapa-blanda",
+        "formatos_amazon_buscados": "2026-11-08",
+        "formatos_compra": [
+          {
+            "fecha_verificacion": "2026-11-09",
+            "formato": "tapa-blanda",
+            "fuente_url": "https://www.amazon.es/dp/B0HK13P6HT",
+            "precio_centimos": 2270,
+            "precio_referencia_centimos": 2390,
+            "url": "https://www.amazon.es/dp/B0HK13P6HT?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          }
+        ],
+        "fuente_bibliografica_url": "https://www.amazon.es/dp/B0HK13P6HT",
+        "fuente_publicacion_url": "https://www.amazon.es/dp/B0HK13P6HT",
+        "id": "isbn-9791387905873",
+        "idioma": "es",
+        "isbn13": "9791387905873",
+        "numero_paginas": 544,
+        "portada_alto": 930,
+        "portada_ancho": 650,
+        "portada_edicion_verificada": true,
+        "portada_fecha_revision": "2026-11-09",
+        "portada_fuente_url": "https://m.media-amazon.com/images/I/41BYu3E77ML.jpg",
+        "portada_local": "/assets/reading-covers/isbn-9791387905873.webp",
+        "portada_sustituida": true,
+        "portadas_amazon_buscadas": "2026-11-09",
+        "precios_amazon_revision": "2026-11-09",
+        "resenas": [
+          {
+            "fecha_verificacion": "2026-11-06",
+            "titulo": "Buscar reseñas en Goodreads",
+            "url": "https://www.goodreads.com/search?q=9791387905873"
+          }
+        ],
+        "slug": "los-silencios-complices-novela-9791387905873",
+        "titulo": "Los silencios cómplices (Novela)"
+      },
+      "motivo": "isbn-9791387905873: portada duplicada (igual que isbn-9788427256354)",
+      "ultimo_intento": "2026-11-09"
+    },
+    {
+      "categorias": [
+        "aventuras",
+        "comic-y-novela-grafica",
+        "narrativa"
+      ],
+      "causa": "portada duplicada (igual que isbn-<isbn>)",
+      "desde": "2026-11-09",
+      "fuente": "https://www.amazon.es/dp/B0HK4G2PXK",
+      "intentos": 1,
+      "isbn": "9791387962623",
+      "libro": {
+        "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387962623&tag=davidporto-21",
+        "anio_publicacion": 2027,
+        "autores": [
+          "Satoru Nii"
+        ],
+        "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
+        "descripcion_breve": "Wind Breaker 17 (Shônen), de Satoru Nii. Edición de Distrito Manga en castellano, en tapa blanda. Consta de 192 páginas. La editorial la incluye en aventuras, cómic y novela gráfica, narrativa contemporánea. Publicación editorial: 2027-01-14.",
+        "descripcion_original_confirmada": true,
+        "edicion": "Tapa blanda · Distrito Manga",
+        "editorial": "Distrito Manga",
+        "editorial_catalogo_slug": "distrito-manga",
+        "estado": "publicado",
+        "fecha_actualizacion": "2026-11-06",
+        "fecha_publicacion": "2027-01-14",
+        "fecha_verificacion": "2026-11-06",
+        "formato_edicion": "tapa-blanda",
+        "formatos_amazon_buscados": "2026-11-08",
+        "formatos_compra": [
+          {
+            "fecha_verificacion": "2026-11-09",
+            "formato": "tapa-blanda",
+            "fuente_url": "https://www.amazon.es/dp/B0HK4G2PXK",
+            "precio_centimos": 945,
+            "precio_referencia_centimos": 995,
+            "url": "https://www.amazon.es/dp/B0HK4G2PXK?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          }
+        ],
+        "fuente_bibliografica_url": "https://www.amazon.es/dp/B0HK4G2PXK",
+        "fuente_publicacion_url": "https://www.amazon.es/dp/B0HK4G2PXK",
+        "id": "isbn-9791387962623",
+        "idioma": "es",
+        "isbn13": "9791387962623",
+        "numero_paginas": 192,
+        "portada_alto": 930,
+        "portada_ancho": 650,
+        "portada_edicion_verificada": true,
+        "portada_fecha_revision": "2026-11-09",
+        "portada_fuente_url": "https://m.media-amazon.com/images/I/41BYu3E77ML.jpg",
+        "portada_local": "/assets/reading-covers/isbn-9791387962623.webp",
+        "portada_sustituida": true,
+        "portadas_amazon_buscadas": "2026-11-09",
+        "precios_amazon_revision": "2026-11-09",
+        "resenas": [
+          {
+            "fecha_verificacion": "2026-11-06",
+            "titulo": "Buscar reseñas en Goodreads",
+            "url": "https://www.goodreads.com/search?q=9791387962623"
+          }
+        ],
+        "slug": "wind-breaker-17-shonen-9791387962623",
+        "titulo": "Wind Breaker 17 (Shônen)"
+      },
+      "motivo": "isbn-9791387962623: portada duplicada (igual que isbn-9788427256354)",
+      "ultimo_intento": "2026-11-09"
+    }
+  ],
   "schema_version": 1
 }
