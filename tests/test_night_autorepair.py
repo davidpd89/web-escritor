@@ -52,6 +52,42 @@ class Decidir(unittest.TestCase):
         self.assertEqual(na.decidir(None, None, AHORA, 0), 'nada')
 
 
+    def test_fallo_de_github_nunca_se_repara_con_ia(self):
+        hace3h = (AHORA - dt.timedelta(hours=3)).isoformat()
+        hace20m = (AHORA - dt.timedelta(minutes=20)).isoformat()
+        # Sin infraestructura iría a reparar; con fallo de GitHub solo se reintenta, cada hora como mucho.
+        self.assertEqual(na.decidir(run(horas=2), {'relanzado': hace3h}, AHORA, 0, infra=True), 'relanzar')
+        self.assertEqual(na.decidir(run(horas=2), {'relanzado': hace20m}, AHORA, 0, infra=True), 'nada')
+        self.assertEqual(na.decidir(run(horas=2), {'relanzado': hace3h}, AHORA, na.MAX_INTENTOS_DIA, infra=True), 'relanzar')
+
+
+class CargaPerdida(unittest.TestCase):
+    def test_sin_carga_hoy_se_lanza_una_vez(self):
+        ayer = {'createdAt': '2026-11-08T00:20:00Z'}
+        self.assertTrue(na.carga_perdida(ayer, AHORA, False))
+        self.assertFalse(na.carga_perdida(ayer, AHORA, True))
+        self.assertFalse(na.carga_perdida(ayer, AHORA.replace(hour=1), False))
+        self.assertFalse(na.carga_perdida({'createdAt': '2026-11-09T00:21:00Z'}, AHORA, False))
+
+
+class Infraestructura(unittest.TestCase):
+    def _jobs(self, jobs):
+        from unittest import mock
+        return mock.patch.object(na, 'gh_json', return_value={'jobs': jobs})
+
+    def test_sin_trabajos_es_github(self):
+        with self._jobs([]):
+            self.assertTrue(na.fallo_de_infraestructura(1))
+
+    def test_trabajo_sin_pasos_fallidos_es_github(self):
+        with self._jobs([{'conclusion': 'failure', 'steps': []}]):
+            self.assertTrue(na.fallo_de_infraestructura(1))
+
+    def test_paso_fallido_es_codigo(self):
+        with self._jobs([{'conclusion': 'failure', 'steps': [{'conclusion': 'success'}, {'conclusion': 'failure'}]}]):
+            self.assertFalse(na.fallo_de_infraestructura(1))
+
+
 class Filtros(unittest.TestCase):
     def test_cuota_agotada(self):
         for t in ("You've hit your limit · resets 3am", 'Error: 429 Too Many Requests', 'usage limit reached', "You've exceeded your quota"):
