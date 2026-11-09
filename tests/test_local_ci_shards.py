@@ -25,3 +25,21 @@ class Lotes(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class ScopedTest(unittest.TestCase):
+    ci = local_ci
+
+    def test_script_suelto_corre_solo_sus_tests(self):
+        refs = {'rebase-regenerando': {'scripts/rebase-regenerando.py', 'tests/test_rebase_regenerando.py'}}
+        items = self.ci.scoped({'scripts/rebase-regenerando.py'}, refs=lambda s: refs[s])
+        self.assertEqual([c for c, *_ in items], [
+            'python -m py_compile scripts/rebase-regenerando.py',
+            'python -m unittest discover -s tests -p test_rebase_regenerando.py'])
+
+    def test_script_usado_por_un_workflow_va_por_la_via_completa(self):
+        refs = {'build-sitemap': {'.github/workflows/content-index-check.yml', 'tests/test_sitemap.py'}}
+        self.assertIsNone(self.ci.scoped({'scripts/build-sitemap.py'}, refs=lambda s: refs[s]))
+
+    def test_otro_fichero_va_por_la_via_completa(self):
+        self.assertIsNone(self.ci.scoped({'scripts/x.py', 'data/reading-books.json'}, refs=lambda s: set()))

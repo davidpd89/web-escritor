@@ -122,6 +122,37 @@ def collect(changed, everything):
     return list(commands.values())
 
 
+def referencias(stem):
+    """Ficheros versionados que nombran un script (con guion o guion bajo), sin contar docs ni informes."""
+    names = {stem, stem.replace('-', '_'), stem.replace('_', '-')}
+    out = subprocess.run(['git', 'grep', '-l', '-F', *[a for n in names for a in ('-e', n)]], cwd=ROOT,
+                         text=True, capture_output=True, encoding='utf-8').stdout
+    return {f for f in out.splitlines() if not f.endswith('.md') and not f.startswith(('docs/', '.ci/'))}
+
+
+def scoped(changed, refs=referencias):
+    """Comandos mínimos cuando todo lo cambiado es un script suelto y sus tests; None si hay que correr el CI entero.
+
+    Un script de scripts/ que no nombra ningún workflow, builder, QA ni otro script solo puede romper sus propios
+    tests: correr los 500 comandos de la vía completa por él solo alarga el ciclo de cambio.
+    """
+    scripts = [f for f in changed if re.fullmatch(r'scripts/[\w.-]+\.py', f)]
+    tests = {f for f in changed if re.fullmatch(r'tests/test[_-][\w.-]+\.py', f)}
+    if not changed or len(scripts) + len(tests) != len(changed):
+        return None
+    for script in scripts:
+        users = refs(Path(script).stem) - set(changed) - {script}
+        if any(not u.startswith('tests/') for u in users):
+            return None
+        tests |= {u for u in users if re.fullmatch(r'tests/test[_-][\w.-]+\.py', u)}
+    commands = [(f'python -m py_compile {s}', {}, 'alcance') for s in sorted(scripts)]
+    for t in sorted(tests):
+        name = Path(t).name
+        command = f'python -m unittest discover -s tests -p {name}' if name.startswith('test_') else f'python {t}'
+        commands.append((command, {}, 'alcance'))
+    return commands
+
+
 def busy_ports():
     """En Windows http.server usa SO_REUSEADDR: un servidor previo en el puerto contestaría por el nuestro."""
     busy = []
@@ -266,7 +297,11 @@ def main(argv=None):
     base = git('merge-base', 'HEAD', 'origin/main')
     changed = set(git('diff', '--name-only', base).splitlines())
     changed |= {l[3:] for l in git('status', '--porcelain', '--untracked-files=all').splitlines() if l}
-    items = collect(changed, args.all)
+    items = None if args.all else scoped(changed)
+    if items is not None:
+        print('Solo scripts sueltos y sus tests: puerta por alcance (el CI de GitHub sigue corriendo todo)')
+    else:
+        items = collect(changed, args.all)
     if args.only:
         items = [i for i in items if args.only in i[0]]
     print(f'{len(changed)} ficheros cambiados; {len(items)} comandos de CI', flush=True)
@@ -275,10 +310,10 @@ def main(argv=None):
             print(f'  {flow}: {command}')
         return 0
 
-    if any('--unittest-shard' in command for command, *_ in items):
+    venv = ('python scripts/local-ci.py --unittest-shard', 'python -m unittest discover -s tests -p ')
+    if any(command.startswith(venv) for command, *_ in items):
         py = ci_python()
-        items = [(c.replace('python scripts/local-ci.py --unittest-shard', f'"{py}" scripts/local-ci.py --unittest-shard'),
-                  e, f) for c, e, f in items]
+        items = [(f'"{py}"' + c[len('python'):] if c.startswith(venv) else c, e, f) for c, e, f in items]
     results = run_all(items, ROOT, args.jobs, args.timeout)
     failed = [(item, res) for item, res in zip(items, results) if res[0] != 0]
     for (command, _, flow), (code, _, secs) in zip(items, results):
