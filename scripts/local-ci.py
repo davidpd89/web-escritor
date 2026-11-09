@@ -219,6 +219,23 @@ def baseline_tree():
     return tree
 
 
+def ci_python():
+    """Python con solo scripts/requirements.txt, como el job python-tests del CI (cacheado por hash del fichero).
+
+    Sin esto, un test que importa un paquete instalado aquí pero no en el runner (PyYAML, 2026-11-09) pasa la puerta
+    local y cae en el CI."""
+    import hashlib
+    reqs = ROOT / 'scripts/requirements.txt'
+    digest = hashlib.sha256(reqs.read_bytes()).hexdigest()[:12]
+    venv = ROOT / '.local/local-ci' / f'venv-{digest}'
+    exe = venv / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
+    if not exe.exists():
+        print(f'Creando el entorno del CI ({venv.name})…', flush=True)
+        subprocess.run([sys.executable, '-m', 'venv', str(venv)], check=True)
+        subprocess.run([str(exe), '-m', 'pip', 'install', '-q', '-r', str(reqs)], check=True)
+    return exe.as_posix()
+
+
 def unittest_shard(spec):
     """Un lote de `discover -s tests -p 'test_*.py'`: los ficheros i, i+n, i+2n… (reparto por turno, parejo)."""
     import unittest
@@ -258,6 +275,10 @@ def main(argv=None):
             print(f'  {flow}: {command}')
         return 0
 
+    if any('--unittest-shard' in command for command, *_ in items):
+        py = ci_python()
+        items = [(c.replace('python scripts/local-ci.py --unittest-shard', f'"{py}" scripts/local-ci.py --unittest-shard'),
+                  e, f) for c, e, f in items]
     results = run_all(items, ROOT, args.jobs, args.timeout)
     failed = [(item, res) for item, res in zip(items, results) if res[0] != 0]
     for (command, _, flow), (code, _, secs) in zip(items, results):
