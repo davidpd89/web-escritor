@@ -33,8 +33,9 @@ assert "p.startswith('editoriales/') and p.endswith('.html')" in publisher
 assert '            .lycheeignore \\\n' in workflow
 assert "'.lycheeignore'}" in (ROOT/'scripts/publish-radar-refresh.py').read_text(encoding='utf-8')
 
-def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocked=(), lagging_job=0):
+def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocked=(), lagging_job=0, carga=0):
     calls = []
+    carga = {'left': carga}
     lag = {'left': lagging_job}
     dispatched = set()
     def gh(*args):
@@ -53,6 +54,12 @@ def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocke
             return json.dumps({'number':1,'headRefOid':'expected-sha','baseRefName':'main','state':'OPEN'})
         if args[:2] == ('run','list'):
             name = args[3]
+            if '--status' in args:
+                # Carga nocturna en curso las primeras `carga` consultas; la propia ejecución (GITHUB_RUN_ID) no cuenta.
+                if carga['left']:
+                    carga['left'] -= 1
+                    return json.dumps([{'databaseId': 99}, {'databaseId': 4242}])
+                return json.dumps([{'databaseId': 4242}])
             if args[args.index('--event') + 1] == 'pull_request':
                 if name in blocked:
                     # Waiting for approval or cancelled: never executes, so it must not be reused.
@@ -90,7 +97,8 @@ def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocke
                                        'html_url':'https://github.com/owner/repo/actions/runs/2/job/1'}
                                       for name in module.REQUIRED_JOBS.values()]})
         return ''
-    with patch.object(module, 'gh', gh), patch.object(module.time, 'sleep', lambda _s: None):
+    with patch.object(module, 'gh', gh), patch.object(module.time, 'sleep', lambda _s: None), \
+            patch.dict(module.os.environ, {'GITHUB_RUN_ID': '4242'}):
         if conflict:
             try:
                 module.run('automation/radar-clock-test')
@@ -134,4 +142,25 @@ scenario(pr_runs=reused[2:], blocked=reused[:2])
 scenario(conflict=True)
 # A job record that lags behind its completed run is awaited, not reported as failed.
 scenario(lagging_job=2)
+# Con la carga en curso no se fusiona hasta que termine: espera, consulta otra vez y entonces fusiona.
+scenario(carga=3)
+# Si la carga no termina antes del plazo, la PR queda abierta y no se fusiona ni se despliega.
+def sin_fin():
+    calls = []
+    def gh(*args):
+        calls.append(args)
+        return json.dumps([{'databaseId': 99}])
+    with patch.object(module, 'gh', gh), patch.object(module.time, 'sleep', lambda _s: None):
+        try:
+            module.esperar_escritores(module.CARGA, deadline=0)
+            raise AssertionError('una carga eterna no puede dejar fusionar')
+        except TimeoutError as exc:
+            assert 'PR abierta' in str(exc)
+    assert not any(c[:2] == ('pr', 'merge') for c in calls)
+    # Sin nada a lo que ceder (la propia carga publicando) no se consulta nada.
+    calls.clear()
+    with patch.object(module, 'gh', gh):
+        module.esperar_escritores((), deadline=0)
+    assert not calls
+sin_fin()
 print('PASS radar publication: all real workflows required, exact SHA, failed CI never merges/deploys')
