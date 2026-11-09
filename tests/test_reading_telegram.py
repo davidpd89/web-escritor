@@ -346,7 +346,28 @@ class ReadingTelegramTests(unittest.TestCase):
             patch("builtins.print") as output,
         ):
             self.assertEqual(send("secret", "@test", "text"), ("uncertain", None))
-            output.assert_not_called()
+            # Only the exception type reaches the log, never its message (it can carry the token URL).
+            printed = repr(output.call_args_list)
+            self.assertIn("Timeout", printed)
+            self.assertNotIn("secret", printed)
+        with (
+            patch(
+                "reading_telegram.requests.post",
+                return_value=Mock(
+                    status_code=403,
+                    json=lambda: {
+                        "ok": False,
+                        "description": "Forbidden: bot is not a member of the channel chat",
+                    },
+                ),
+            ),
+            patch("builtins.print") as output,
+        ):
+            self.assertEqual(send("secret", "@test", "text"), ("rejected", None))
+            printed = repr(output.call_args_list)
+            self.assertIn("HTTP 403 Forbidden: bot is not a member", printed)
+            self.assertNotIn("secret", printed)
+            self.assertNotIn("@test", printed)
 
 
 if __name__ == "__main__":
