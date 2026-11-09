@@ -66,8 +66,10 @@ await pool(pages,12,async x=>{
 
     const visible=strip(body);
     assert.ok(visible.length>80,x.url+' soft-empty visible content');
-    // «404» solo cuenta en título/h1: en el texto es dato de catálogo («Juventud: 404», «36.404 sospechosos»; deep audit 2026-11-08).
-    assert.doesNotMatch(title(body)+' '+h1(body),/\b404\b/,x.url+' soft-404 signal (title/h1)');
+    // «404» solo cuenta en título/h1 y solo si la build local no lo lleva: en títulos de libros es dato de catálogo
+    // («Infancia, adolescencia, juventud (404 El Acantilado)», «36.404 sospechosos»; deep audit 2026-11-08 y 09).
+    const heads=s=>title(s)+' '+h1(s);
+    if(!/\b404\b/.test(heads(local))) assert.doesNotMatch(heads(body),/\b404\b/,x.url+' soft-404 signal (title/h1)');
     assert.doesNotMatch(visible,/página no encontrada|page not found/i,x.url+' soft-404 signal');
     assert.ok(!/id=["']not-found-title["']/.test(body),x.url+' soft-404 signal (404 shell)');
   }catch(e){failures.push(String(e?.message||e))}

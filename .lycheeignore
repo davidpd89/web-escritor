@@ -207,11 +207,3 @@ https?://(www\.)?altamarea\.es/.*
 # comprobado desde fuera. Solo estas URLs:
 ^https://www\.coruna\.gal/informacionxuvenil/gl/convocatorias/concursos-e-premios/detalle-concursos/xxi-certame-de-narrativa-curta-o-exame/suceso/1453918739931$
 ^https://www\.coruna\.gal/informacionjuvenil/es/convocatorias/concursos-y-premios\?argIdioma=es&argPag=2&categoriaID=1220003419689$
-
-# Apeiron Ediciones (CI 42404656424, 2026-11-07): 403 intermitente a GitHub Actions
-# (dos runs anteriores de la misma rama en verde) y 200 comprobado desde fuera.
-^https://www\.apeironediciones\.com/(envio-de-originales)?$
-
-# Maeva (CI de #1217, 2026-11-07): 403 a GitHub Actions; 200 desde fuera incluso sin
-# cabeceras de navegador, así que el bloqueo es por IP del runner.
-^https://www\.maeva\.es/(contacto)?$

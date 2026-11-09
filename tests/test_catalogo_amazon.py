@@ -1100,6 +1100,19 @@ class PublisherKey(unittest.TestCase):
         self.assertNotIn(ca.publisher_key('Sur'), index)
 
 
+    def test_two_asins_with_one_isbn_and_different_titles_give_one_candidate(self):
+        """09/11: dos ASIN con el mismo ISBN y títulos distintos llegaron a aplicar con la misma id y tumbaron la carga."""
+        same = isbn('979138835111')
+        rows = [item('C1', same, title='Quién mató a Max'), item('C2', same, title='Quién mató a Max: calendario')]
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            (Path(tmp) / 'raw').mkdir()
+            (Path(tmp) / 'raw' / '2026-11-09.jsonl').write_text(
+                ''.join(json.dumps({'nodo': '1', 'ruta': [], 'item': r}) + chr(10) for r in rows), encoding='utf-8')
+            out = ca.transformar('2026-11-09', {'libros': []})
+        self.assertEqual(out['candidatos'], 1)
+        self.assertEqual([f['motivo'] for f in out['fallos']], ['mismo ISBN que otro candidato de la tanda'])
+
 class PortadaDeLaApi(unittest.TestCase):
     """La carga pide images.primary.large y usa la cubierta de la edición; la tipográfica es solo el respaldo."""
     def record(self, url='https://m.media-amazon.com/images/I/71abc+Xy-Z._SL500_.jpg'):

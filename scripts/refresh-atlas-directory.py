@@ -19,9 +19,12 @@ BRANCH_RE = re.compile(r'automation/atlas-directory-[a-zA-Z0-9-]+')
 
 
 def allowed_path(path):
-    """El directorio solo cambia la lista de datos, el hub y el índice de búsqueda."""
-    return path in {'data/atlas/directory.json', 'atlas-literario/index.html'} or bool(
-        re.fullmatch(r'pagefind/[A-Za-z0-9_./-]+', path)) and '..' not in path.split('/')
+    """El directorio cambia la lista de datos, el hub, las páginas de destino (sus lugares nuevos), el mapa del
+    sitio y el índice de búsqueda. Las páginas de destino faltaban: 02/11 y 09/11 falló por Dublín y Oxford."""
+    if '..' in path.split('/'):
+        return False
+    return path in {'data/atlas/directory.json', 'atlas-literario/index.html', 'sitemap.xml'} or bool(
+        re.fullmatch(r'pagefind/[A-Za-z0-9_./-]+', path) or re.fullmatch(r'atlas-literario/[a-z0-9-]+/index\.html', path))
 
 
 def command(*args):
