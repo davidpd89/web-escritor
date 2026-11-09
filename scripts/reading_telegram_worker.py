@@ -13,6 +13,7 @@ import json
 import os
 from pathlib import Path
 import sys
+import traceback
 from urllib.parse import urljoin, urlsplit
 from zoneinfo import ZoneInfo
 
@@ -285,12 +286,20 @@ def main():
             return 2
         return 0
     except Exception as exc:
-        # Do not serialize requests exceptions or secrets, including in failure paths.
+        # Do not serialize requests exceptions or secrets, including in failure paths: only the type and
+        # where it happened (file:line function), never the message. 09/11 the run died after 6 min with
+        # no trace at all.
+        where = [
+            f"{Path(f.filename).name}:{f.lineno} {f.name}"
+            for f in traceback.extract_tb(exc.__traceback__)
+        ][-6:]
+        print(f"Telegram cycle failed: {type(exc).__name__} at " + " <- ".join(reversed(where)), file=sys.stderr)
         atomic_json(
             args.root / "last-run.json",
             {
                 "status": "failed",
                 "error_type": type(exc).__name__,
+                "where": where,
                 "at": datetime.now(ZoneInfo("Europe/Madrid")).isoformat(),
             },
         )

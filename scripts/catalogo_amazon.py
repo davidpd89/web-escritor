@@ -1182,11 +1182,18 @@ def transformar(day, catalogue, write_pending=True):
             failures.append({'asin': asin, 'isbn13': record['isbn13'], 'fase': 'transformar', 'motivo': 'otra edición de una obra del catálogo'})
             continue
         by_work[work].append(record)
-    candidates = []
+    candidates, chosen = [], set()
     for records in by_work.values():
         # Una ficha por obra: la edición en papel española; las demás aportan sus formatos y precios.
         records.sort(key=lambda r: (EDITION_PREFERENCE.index(r['formato_edicion']), not r['isbn13'].startswith(('97884', '97913'))))
         main, others = records[0], records[1:]
+        # Dos ASIN con el mismo ISBN y títulos distintos caen en obras distintas (09/11: isbn-9791388351112).
+        # La ficha se identifica por el ISBN: solo entra la primera; la otra iría a la misma id.
+        if main['isbn13'] in chosen:
+            failures.append({'asin': main.get('asin'), 'isbn13': main['isbn13'], 'fase': 'transformar',
+                             'motivo': 'mismo ISBN que otro candidato de la tanda'})
+            continue
+        chosen.add(main['isbn13'])
         main['otras_ediciones'] = [o['item'] for o in others]
         candidates.append(main)
     write_json(WORK / f'candidatos-{day}.json', candidates)
@@ -1383,7 +1390,13 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT, fetch_image=fet
         if len(entry['ejemplos']) < 3 and isbn not in entry['ejemplos']:
             entry['ejemplos'].append(isbn)
 
+    published = {b['id'] for b in catalogue['libros']}
     for record in candidates:
+        if 'isbn-' + str(record.get('isbn13')) in published | added.keys():
+            # Una id repetida rompería la cuarentena: al apartar una copia se borra la portada de la otra.
+            failures.append({'asin': record.get('asin'), 'isbn13': record.get('isbn13'), 'fase': 'aplicar',
+                             'motivo': 'id repetida en el catálogo o en la tanda'})
+            continue
         try:
             publisher = publisher_for(record['editorial'])
             record['editorial'] = publisher['name']
@@ -1434,6 +1447,8 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT, fetch_image=fet
                 target.write_bytes(content)
 
     def drop(book_id, reason):
+        if book_id not in added:  # ya apartado: nunca toca libros publicados
+            return
         catalogue['libros'] = [b for b in catalogue['libros'] if b['id'] != book_id]
         catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias'] if r['libro_id'] != book_id]
         path, _, _, record = added.pop(book_id)
@@ -1457,6 +1472,8 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT, fetch_image=fet
     for book in [b for b in catalogue['libros'] if b['id'] in added]:
         alone = {'schema_version': 1, 'categorias': catalogue['categorias'], 'libros': [book],
                  'libro_categorias': [r for r in catalogue['libro_categorias'] if r['libro_id'] == book['id']]}
+        if book['id'] not in added:
+            continue
         try:
             builder.validate(alone, root)
         except builder.ValidationError as exc:
