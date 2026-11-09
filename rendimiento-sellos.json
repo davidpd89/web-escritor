@@ -760,7 +760,7 @@
   "errata naturae": {
     "libros_es": 20,
     "nombre": "Errata naturae",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-09"
   },
   "escritores sin fronteras un viaje en prosa": {
     "libros_es": 0,
@@ -1716,9 +1716,13 @@
     "ultima": "2026-11-06"
   },
   "planeta": {
-    "libros_es": 1,
+    "libros_es": 0,
     "nombre": "Planeta",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 1437,
+      "ultima": "2026-11-09"
+    },
+    "ultima": "2026-11-09"
   },
   "planeta comic": {
     "libros_es": 41,

@@ -505,11 +505,19 @@
     "alianza de novela",
     "raig verd",
     "ledoria",
-    "pata de conejo ediciones"
+    "pata de conejo ediciones",
+    "planet earth publishing",
+    "epic planet project",
+    "planet hero kids",
+    "audible studios y planeta audio",
+    "blue planet ediciones",
+    "planetalector",
+    "memorias del planeta azul llc",
+    "grupo planeta",
+    "pages planet publishing",
+    "sukisuki planet"
   ],
   "cola": [
-    "Errata naturae",
-    "Planeta",
     "Destino",
     "Seix Barral",
     "Espasa",
@@ -933,12 +941,234 @@
     "LEDORIA",
     "Pata de Conejo Ediciones",
     "Editorial Kiwi",
-    "Editorial EDK bookverse"
+    "Editorial EDK bookverse",
+    "Planet Earth Publishing",
+    "Epic Planet Project",
+    "Planet Hero Kids",
+    "Audible Studios y Planeta Audio",
+    "Blue Planet Ediciones",
+    "Planetalector",
+    "Memorias del Planeta Azul, LLC",
+    "GRUPO PLANETA",
+    "Pages Planet Publishing",
+    "sukisuki planet"
   ],
   "dia": "2026-11-08",
   "errores": [],
   "grupos": {},
   "hijos": {
+    "12942013031": [
+      [
+        "12942014031",
+        "Arte, música y fotografía"
+      ],
+      [
+        "12942041031",
+        "Biografías"
+      ],
+      [
+        "12942346031",
+        "Ciencia ficción y fantasía"
+      ],
+      [
+        "12942139031",
+        "Ciencias sociales"
+      ],
+      [
+        "12942103031",
+        "Ciencia y tecnología"
+      ],
+      [
+        "12942194031",
+        "Cómics y novelas gráficas"
+      ],
+      [
+        "12942405031",
+        "Deportes y aire libre"
+      ],
+      [
+        "12942055031",
+        "Educación y consulta"
+      ],
+      [
+        "12942066031",
+        "Historia"
+      ],
+      [
+        "12942168031",
+        "Hobbies y juegos"
+      ],
+      [
+        "12942297031",
+        "Misterio y suspense"
+      ],
+      [
+        "12942149031",
+        "Novelas históricas"
+      ],
+      [
+        "12942337031",
+        "Novelas románticas"
+      ],
+      [
+        "12942184031",
+        "Novelas y ficción literaria"
+      ],
+      [
+        "12942111031",
+        "Ordenadoes"
+      ],
+      [
+        "12942320031",
+        "Religión y espiritualidad"
+      ],
+      [
+        "12942305031",
+        "Salud personal"
+      ],
+      [
+        "12942378031",
+        "Temas sociales y familiares"
+      ]
+    ],
+    "14177618031": [
+      [
+        "14177619031",
+        "Absurdo"
+      ],
+      [
+        "902675031",
+        "Acción y aventura"
+      ],
+      [
+        "14177620031",
+        "Adaptaciones de TV, cine y videojuegos"
+      ],
+      [
+        "14177728031",
+        "Afroamericana"
+      ],
+      [
+        "14177621031",
+        "Animales"
+      ],
+      [
+        "206206032031",
+        "Áreas suburbanas"
+      ],
+      [
+        "14177622031",
+        "Bélica"
+      ],
+      [
+        "14177623031",
+        "Biográfico y autoficción"
+      ],
+      [
+        "14177624031",
+        "Deportes"
+      ],
+      [
+        "14177625031",
+        "Epistolar"
+      ],
+      [
+        "902682031",
+        "Ficción histórica"
+      ],
+      [
+        "76051753031",
+        "GameLit y LitRPG"
+      ],
+      [
+        "14177626031",
+        "Gótica"
+      ],
+      [
+        "14177627031",
+        "Historias náuticas"
+      ],
+      [
+        "206206034031",
+        "Inmigración"
+      ],
+      [
+        "14177628031",
+        "Médica"
+      ],
+      [
+        "14177629031",
+        "Metafísica y visionaria"
+      ],
+      [
+        "211757831031",
+        "Muerte, dolor y duelo"
+      ],
+      [
+        "14177630031",
+        "Novelas ligeras"
+      ],
+      [
+        "14177631031",
+        "Oeste americano"
+      ],
+      [
+        "33552949031",
+        "Para sentirse bien"
+      ],
+      [
+        "14177632031",
+        "Política"
+      ],
+      [
+        "902683031",
+        "Religiosa y espiritual"
+      ],
+      [
+        "14177633031",
+        "Rural y ciudades pequeñas"
+      ],
+      [
+        "14177634031",
+        "Saga familiar"
+      ],
+      [
+        "14177710031",
+        "Sátira"
+      ],
+      [
+        "14177635031",
+        "Social"
+      ],
+      [
+        "902687031",
+        "Terror"
+      ],
+      [
+        "14177636031",
+        "Vacaciones"
+      ],
+      [
+        "14177637031",
+        "Versiones"
+      ],
+      [
+        "202413820031",
+        "Viajes en el tiempo"
+      ],
+      [
+        "211757834031",
+        "Viajes y vacaciones"
+      ],
+      [
+        "14177638031",
+        "Vida familiar"
+      ],
+      [
+        "14177639031",
+        "Vida urbana"
+      ]
+    ],
     "28166967031": [
       [
         "202398619031",
@@ -963,6 +1193,110 @@
       [
         "202398620031",
         "No ficción"
+      ]
+    ],
+    "28166968031": [
+      [
+        "28166982031",
+        "Shōnen"
+      ],
+      [
+        "28166978031",
+        "Seinen"
+      ],
+      [
+        "28166973031",
+        "Shōjo"
+      ],
+      [
+        "28166977031",
+        "Josei"
+      ],
+      [
+        "28166972031",
+        "Acción y aventuras"
+      ],
+      [
+        "28166979031",
+        "Ciencia ficción"
+      ],
+      [
+        "28166981031",
+        "Deportes"
+      ],
+      [
+        "28166971031",
+        "Fantasía"
+      ],
+      [
+        "28166976031",
+        "Histórico"
+      ],
+      [
+        "28166983031",
+        "Humorístico"
+      ],
+      [
+        "28166974031",
+        "LGBTQ+"
+      ],
+      [
+        "28166984031",
+        "Misterio, suspense y crimen"
+      ],
+      [
+        "28166980031",
+        "Romance"
+      ],
+      [
+        "28166975031",
+        "Terror"
+      ],
+      [
+        "28166969031",
+        "Yaoi"
+      ],
+      [
+        "28166970031",
+        "Yuri"
+      ]
+    ],
+    "5272187031": [
+      [
+        "13356138031",
+        "Arqueología"
+      ],
+      [
+        "13356139031",
+        "Dónde vivimos"
+      ],
+      [
+        "13356144031",
+        "Emigrantes, inmigrantes y refugiados"
+      ],
+      [
+        "13356145031",
+        "Estudios culturales"
+      ],
+      [
+        "13356148031",
+        "Explora el mundo"
+      ],
+      [
+        "13356159031",
+        "Historias multiculturales"
+      ],
+      [
+        "13356160031",
+        "Piratas"
+      ],
+      [
+        "13356161031",
+        "Realeza"
+      ],
+      [
+        "13356162031",
+        "Viajes"
       ]
     ],
     "5382015031": [
@@ -1443,20 +1777,20 @@
     "902718031": [],
     "902719031": []
   },
-  "libros_es": 4083,
+  "libros_es": 6835,
   "origen": {
     "Editorial EDK bookverse": "EDK bookverse",
     "Editorial Kiwi": "Kiwi",
     "Editorial Matchstories": "Matchstories"
   },
-  "particiones": 286,
-  "peticiones": 736,
+  "particiones": 451,
+  "peticiones": 1159,
   "reintentos": 3642,
   "reintentos_dia": "2026-11-09",
-  "segundos": 135,
-  "sellos_leidos": 80,
-  "sellos_llenos": 24,
-  "sellos_nuevos": 37,
+  "segundos": 471,
+  "sellos_leidos": 82,
+  "sellos_llenos": 34,
+  "sellos_nuevos": 47,
   "sellos_saltados": 3,
   "variantes_probadas": [
     "matchstories|editorial matchstories",

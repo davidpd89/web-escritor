@@ -1,23 +1,21 @@
 {
- "generado": "2026-11-09T09:30:51+00:00",
- "publicados": 2440,
+ "generado": "2026-11-09T14:47:52+00:00",
+ "publicados": 2441,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 537,
-   "proximos": 412,
+   "total": 542,
+   "proximos": 416,
    "por_mes": {
     "2027-05": 5,
     "2027-04": 11,
     "2027-03": 16,
     "2027-02": 113,
-    "2027-01": 97,
-    "2026-12": 33,
-    "2026-11": 196,
-    "2026-10": 34,
-    "2026-09": 21,
-    "2026-07": 2,
-    "2026-06": 1,
-    "2026-05": 3
+    "2027-01": 102,
+    "2026-12": 36,
+    "2026-11": 181,
+    "2026-10": 60,
+    "2026-09": 17,
+    "2026-07": 1
    },
    "muestra": [
     {
@@ -173,20 +171,20 @@
      "fuente": "https://www.todostuslibros.com/libros/carlos-acutis-la-sencilla-ruta-a-la-santidad_978-84-220-2462-0"
     },
     {
+     "id": "isbn-9788422024583",
+     "titulo": "IA y teología: Una relación a construir",
+     "isbn13": "9788422024583",
+     "editorial": "Biblioteca Autores Cristianos",
+     "fecha_publicacion": "2026-10-12",
+     "fuente": "https://www.todostuslibros.com/libros/ia-y-teologia-una-relacion-a-construir_978-84-220-2458-3"
+    },
+    {
      "id": "isbn-9791370342043",
      "titulo": "Colores",
      "isbn13": "9791370342043",
      "editorial": "Susaeta Ediciones",
      "fecha_publicacion": "2026-10-08",
      "fuente": "https://www.todostuslibros.com/libros/colores_979-13-7034-204-3"
-    },
-    {
-     "id": "isbn-9788418567933",
-     "titulo": "Agustín penón y Federico García Lorca",
-     "isbn13": "9788418567933",
-     "editorial": "Alvarellos Editora",
-     "fecha_publicacion": "2026-10-07",
-     "fuente": "https://www.todostuslibros.com/libros/agustin-penon-y-federico-garcia-lorca_978-84-18567-93-3"
     },
     {
      "id": "isbn-9791387605858",
@@ -460,7 +458,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 42,
+   "total": 39,
    "muestra": [
     {
      "id": "isbn-9788408326861",
@@ -640,21 +638,18 @@
    ]
   },
   "sin_texto": {
-   "total": 1597,
-   "proximos": 1286,
+   "total": 1598,
+   "proximos": 1295,
    "por_mes": {
     "2027-05": 10,
     "2027-04": 14,
     "2027-03": 51,
     "2027-02": 249,
-    "2027-01": 353,
-    "2026-12": 100,
-    "2026-11": 726,
-    "2026-10": 35,
-    "2026-09": 31,
-    "2026-08": 2,
-    "2026-07": 4,
-    "2026-06": 1
+    "2027-01": 351,
+    "2026-12": 106,
+    "2026-11": 677,
+    "2026-10": 120,
+    "2026-09": 20
    },
    "muestra": [
     {
@@ -839,7 +834,13 @@
    "muestra": []
   }
  },
- "cambio": {},
+ "cambio": {
+  "portadas_tipograficas": 5,
+  "formatos_sin_precio": 0,
+  "sin_formatos_de_compra": -3,
+  "sin_texto": 1,
+  "portada_sin_fichero": 0
+ },
  "amazon": {
   "consultados": 20,
   "amazon_la_tiene": 11,
@@ -887,14 +888,6 @@
     "portada_amazon": "https://m.media-amazon.com/images/I/31kdT5ref8L.jpg"
    },
    {
-    "id": "isbn-9791388132575",
-    "titulo": "Mi papá y yo (NUBEOCHO)",
-    "isbn13": "9791388132575",
-    "editorial": "Nubeocho",
-    "fecha_publicacion": "2026-11-09",
-    "portada_amazon": "https://m.media-amazon.com/images/I/61yxF1oRI9L.jpg"
-   },
-   {
     "id": "isbn-9788410439498",
     "titulo": "El expreso a cualquier lugar (Plata)",
     "isbn13": "9788410439498",
@@ -909,6 +902,14 @@
     "editorial": "Books4pocket",
     "fecha_publicacion": "2026-11-10",
     "portada_amazon": "https://m.media-amazon.com/images/I/51xNbc-nlaL.jpg"
+   },
+   {
+    "id": "isbn-9788430123186",
+    "titulo": "La Palabra de Dios cada día - 2027: 194 (Nueva Alianza)",
+    "isbn13": "9788430123186",
+    "editorial": "Ediciones Sígueme",
+    "fecha_publicacion": "2026-11-10",
+    "portada_amazon": "https://m.media-amazon.com/images/I/41b8TeIZ5tL.jpg"
    },
    {
     "id": "isbn-9791387811679",
@@ -958,17 +959,10 @@
     "fecha_publicacion": "2026-11-09"
    },
    {
-    "id": "isbn-9789509509504",
-    "titulo": "Banksy: I want to be what you saw in me (MISCELANEAS)",
-    "isbn13": "9789509509504",
-    "editorial": "La Marca Editora",
-    "fecha_publicacion": "2026-11-09"
-   },
-   {
-    "id": "isbn-9791399181883",
-    "titulo": "La ciudad de la Bestia: El Londres de Aleister Crowley: 1 (Caronte)",
-    "isbn13": "9791399181883",
-    "editorial": "Aurora Dorada",
+    "id": "isbn-9789877901528",
+    "titulo": "Otra vida (ZONA DE FICCIONES)",
+    "isbn13": "9789877901528",
+    "editorial": "Interzona",
     "fecha_publicacion": "2026-11-09"
    },
    {
@@ -997,6 +991,13 @@
     "titulo": "La luna en el cuenco roto: 6 (Artemisa de poesía)",
     "isbn13": "9788410279636",
     "editorial": "Calixto Torres Perales",
+    "fecha_publicacion": "2026-11-10"
+   },
+   {
+    "id": "isbn-9788412972566",
+    "titulo": "Mi escrito taurino",
+    "isbn13": "9788412972566",
+    "editorial": "Letras de Almagre",
     "fecha_publicacion": "2026-11-10"
    }
   ]
