@@ -13,6 +13,7 @@ from zoneinfo import ZoneInfo
 
 import reading_quarantine
 import catalogo_estado as estado
+import materializar_generados as materializar
 from reading_intake_pipeline import ingest
 from reading_intake_fetch import read_json, write_if_changed
 from reading_ratings_refresh import refresh as refresh_ratings, google_response, hardcover_response, write_changed
@@ -419,18 +420,15 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
         drop_checkpoint(checkpoint)
         return
     # Register new routes before builders that deliberately consume git ls-files.
-    command(sys.executable, 'scripts/build-reading-catalogue.py')
-    command(sys.executable, 'scripts/build-editoriales.py', '--data', 'data/editoriales.json', '--output', '.')
-    command(sys.executable, 'scripts/build-page-order.py')
     # La cuarentena solo existe si alguna vez apartó un libro: git add falla con una ruta que no existe.
     staged = ('assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-publishers.json', 'data/reading-intake-state.json',
               'data/reading-quarantine.json', 'data/content-registry.json', 'assets/reading-covers', 'assets/reading-audio', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio/index.html')
-    command('git', 'add', '--', *[p for p in staged if (ROOT / p).exists()])
-    command('git','add','--','assets/pinterest/feeds')
-    for script in ('build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
-        command(sys.executable, 'scripts/' + script)
-    for script in ('build-reading-catalogue.py', 'build-page-order.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
-        command(sys.executable, 'scripts/' + script, '--check')
+    def registrar(_root):
+        command('git', 'add', '--', *[p for p in staged if (ROOT / p).exists()])
+        command('git','add','--','assets/pinterest/feeds')
+    # Misma cadena que rebase-regenerando y merge-main (scripts/materializar_generados.py).
+    materializar.construir(ROOT, antes_de_indexar=registrar)
+    materializar.comprobar(ROOT, assets=False)
     # Solo los contratos de datos: el código ya lo probó la batería completa del Required merge gate en main.
     command(sys.executable, 'scripts/check-reading-data.py')
     command('git', 'diff', '--check')

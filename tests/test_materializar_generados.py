@@ -19,9 +19,9 @@ def _load(name, file):
 
 class UnaSolaCadena(unittest.TestCase):
     def test_los_llamadores_usan_el_modulo(self):
-        for file in ('rebase-regenerando.py', 'merge-main.py'):
+        for file in ('rebase-regenerando.py', 'merge-main.py', 'refresh-reading-catalogue.py'):
             texto = (ROOT / 'scripts' / file).read_text(encoding='utf-8')
-            self.assertIn('materializar.construir(ROOT)', texto, file)
+            self.assertIn('materializar.construir(ROOT', texto, file)
             self.assertNotIn("('build-pagefind-index.py',)", texto, f'{file} vuelve a copiar la cadena')
 
     def test_el_codigo_de_recomendaciones_no_es_generado(self):
