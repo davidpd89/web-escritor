@@ -9,7 +9,7 @@ from unittest.mock import patch
 from urllib.error import HTTPError
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents,discovery_index,miss_reason,discover_page_formats,swatch_formats,discover_real_covers,page_cover_url,isbn10,store_prices,prune_foreign_editions,reconcile_edition_binding,cover_kind,AMAZON_COVER_BASIS
+from reading_amazon_market import select_offers,refresh_offers,CreatorsPrices,money_cents,discovery_index,miss_reason,discover_page_formats,swatch_formats,discover_real_covers,page_cover_url,isbn10,store_prices,prune_foreign_editions,reconcile_edition_binding,cover_kind,AMAZON_COVER_BASIS,recheck_generated_covers,fallback_cover_urls
 import reading_amazon_market
 import tempfile
 
@@ -526,6 +526,79 @@ class AmazonRealCoverTests(unittest.TestCase):
             self.assertEqual(stats['covers_replaced'],1)
             self.assertEqual(typographic['autorizacion_o_base_uso'],AMAZON_COVER_BASIS)
             self.assertEqual(cover_kind(typographic),'amazon')
+
+    def test_nightly_cover_pass_checks_every_typographic_cover(self):
+        # 09/11: 1580 tipográficas porque solo se miraba la portada de los libros a los que tocaba precio ese día.
+        tipo={'portada_fuente_url':'https://www.amazon.es/dp/x','autorizacion_o_base_uso':'Portada tipográfica propia generada'}
+        def item(asin,image,ean=None):
+            info={'classifications':{'binding':{'displayValue':'Tapa blanda'}}}
+            if ean:
+                info['externalIds']={'eans':{'displayValues':[ean]}}
+            return {'asin':asin,'images':{'primary':{'large':{'url':image}}},'itemInfo':info}
+        con_asin={**BOOK,**tipo,'id':'a','portada_local':'/assets/a.webp','url_amazon_afiliada':'https://www.amazon.es/dp/8498382378'}
+        sin_imagen={**BOOK,**tipo,'id':'b','isbn13':'9791388322914','portada_local':'/assets/b.webp','url_amazon_afiliada':'https://www.amazon.es/dp/B0HNWJ3LX2'}
+        sin_asin={**BOOK,**tipo,'id':'c','isbn13':'9788430625963','portada_local':'/assets/c.webp'}
+        editorial={**BOOK,'id':'d','portada_local':'/assets/d.webp','portada_fuente_url':'https://editorial.example/c.jpg'}
+        hoy={**BOOK,**tipo,'id':'e','portada_local':'/assets/e.webp','portadas_amazon_buscadas':NOW.date().isoformat()}
+
+        class Provider:
+            def __init__(self):
+                self.calls=[]
+            def items(self,asins):
+                self.calls.append(('items',tuple(asins)))
+                return {'itemsResult':{'items':[item('8498382378','https://m.media-amazon.com/images/I/51real._SL500_.jpg'),
+                                                item('B0HNWJ3LX2','https://m.media-amazon.com/images/I/01GmVhVRioL._SL500_.gif')]}}
+            def __call__(self,book):
+                self.calls.append(('search',book['isbn13']))
+                return {'searchResult':{'items':[item('843062596X','https://m.media-amazon.com/images/I/41otra.jpg','9788430625963')]}}
+
+        images={'https://m.media-amazon.com/images/I/51real.jpg':b'ok','https://m.media-amazon.com/images/I/41otra.jpg':b'ok',
+                'https://covers.openlibrary.org/b/isbn/9791388322914-L.jpg?default=false':b'ok'}
+        def fetch_bytes(url):
+            if url not in images:
+                raise OSError('404')
+            return images[url]
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            (root/'assets').mkdir()
+            provider=Provider()
+            stats=recheck_generated_covers({'libros':[con_asin,sin_imagen,sin_asin,editorial,hoy]},root,provider,fetch_bytes,
+                                           lambda raw,n=iter(range(99)):(b'big%d'%next(n),b'small',(500,780)),NOW,fetch_json=lambda url:{})
+            self.assertEqual(provider.calls,[('items',('8498382378','B0HNWJ3LX2')),('search','9788430625963')])
+            self.assertEqual((stats['amazon'],stats['otras_fuentes'],stats['sin_imagen'],stats['revisadas']),(2,1,0,3))
+            self.assertEqual(con_asin['autorizacion_o_base_uso'],AMAZON_COVER_BASIS)
+            self.assertTrue(sin_imagen['autorizacion_o_base_uso'].startswith('Cubierta de la edición localizada por su ISBN en Open Library'))
+            self.assertEqual(sin_asin['portada_fuente_url'],'https://m.media-amazon.com/images/I/41otra.jpg')
+            self.assertEqual((root/'assets/b-320.webp').read_bytes(),b'small')
+            self.assertNotIn('portada_sustituida',editorial)
+            self.assertNotIn('portada_sustituida',hoy)
+            # Sin imagen en ninguna fuente: se apunta la fecha y se vuelve a mirar mañana, no se pierde el libro.
+            otra={**BOOK,**tipo,'id':'f','isbn13':'9788419943590','portada_local':'/assets/f.webp'}
+            stats=recheck_generated_covers({'libros':[otra]},root,Provider(),lambda url:(_ for _ in ()).throw(OSError('404')),
+                                           lambda raw:(b'',b'',(1,1)),NOW,fetch_json=lambda url:{})
+            self.assertEqual((stats['sin_imagen'],otra['portadas_amazon_buscadas']),(1,'2026-10-21'))
+            self.assertEqual(recheck_generated_covers({'libros':[otra]},root,Provider(),fetch_bytes,lambda raw:(b'',b'',(1,1)),NOW)['revisadas'],0)
+
+    def test_amazon_outage_still_tries_other_sources(self):
+        book={**BOOK,'id':'a','portada_local':'/assets/a.webp','portada_fuente_url':'https://www.todostuslibros.com/libros/x'}
+        class Down:
+            def __call__(self,book):
+                raise RuntimeError('Amazon Creators unavailable')
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp)/'assets').mkdir()
+            stats=recheck_generated_covers({'libros':[book]},Path(tmp),Down(),lambda url:b'ok',lambda raw:(b'b',b's',(500,780)),NOW,
+                                           fetch_json=lambda url:{})
+        self.assertEqual((stats['otras_fuentes'],stats['error'][:12]),(1,'RuntimeErro'+'r'))
+
+    def test_google_books_only_for_the_same_isbn(self):
+        data={'items':[{'volumeInfo':{'industryIdentifiers':[{'identifier':'9780000000000'}],'imageLinks':{'thumbnail':'http://books.google.com/books/content?id=X&zoom=1'}}},
+                       {'volumeInfo':{'industryIdentifiers':[{'identifier':'9788498382372'}],'imageLinks':{'thumbnail':'http://books.google.com/books/content?id=Y&zoom=1&edge=curl'}}}]}
+        self.assertEqual(fallback_cover_urls(BOOK,lambda url:data),
+                         [('Open Library','https://covers.openlibrary.org/b/isbn/9788498382372-L.jpg?default=false'),
+                          ('Google Books','https://books.google.com/books/content?id=Y&zoom=1&fife=w800')])
+        def quota(url):
+            raise OSError('429')
+        self.assertEqual(len(fallback_cover_urls(BOOK,quota)),1)
 
     def test_rejected_image_keeps_generated_cover(self):
         book={**BOOK,'portada_local':'/assets/x.webp','portada_fuente_url':'https://www.todostuslibros.com/libros/x'}

@@ -5,6 +5,7 @@ import importlib.util
 import json
 import os
 import subprocess
+import urllib.request
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -344,7 +345,7 @@ def market_refresh(config):
         changed_ratings=write_changed(ROOT/'data/reading-catalogue.json',books) or changed_ratings
     if amazon_config.get('real_covers_per_run'):
         from reading_amazon_market import discover_real_covers, fetch_amazon_image, fetch_amazon_page
-        from reading_intake_pipeline import cover_bytes
+        from reading_intake_pipeline import amazon_cover_bytes as cover_bytes
         books=read_json(ROOT/'data/reading-catalogue.json')
         cover_stats=discover_real_covers(books,ROOT,fetch_amazon_page,fetch_amazon_image,cover_bytes,
                                          datetime.now(timezone.utc),limit=int(amazon_config['real_covers_per_run']))
@@ -354,14 +355,21 @@ def market_refresh(config):
     amazon_secret=os.getenv('AMAZON_CREATORS_CLIENT_SECRET','').strip()
     if amazon_config.get('enabled') and amazon_id and amazon_secret:
         from reading_amazon_market import CreatorsPrices, fetch_amazon_image, refresh_offers, swap_cover
-        from reading_intake_pipeline import cover_bytes
+        from reading_intake_pipeline import amazon_cover_bytes as cover_bytes
         books=read_json(ROOT/'data/reading-catalogue.json')
         tag=config['amazon_partner_tag']
         now=datetime.now(timezone.utc)
+        provider=CreatorsPrices(amazon_id,amazon_secret,tag)
+        if amazon_config.get('cover_recheck_requests',600):
+            # Portadas aparte del barrido de precios: cada noche se repasan todas las tipográficas.
+            from reading_amazon_market import recheck_generated_covers
+            cover_stats=recheck_generated_covers(books,ROOT,provider,fetch_amazon_image,cover_bytes,now,fetch_json=fetch_cover_json,
+                                                 max_requests=int(amazon_config.get('cover_recheck_requests',600)))
+            print('Portadas (repaso): '+json.dumps(cover_stats,ensure_ascii=True),flush=True)
         # Nightly sweep: prices are written into formatos_compra and the pages are
         # rebuilt below; prices stay published until a newer one replaces them. The same answer
         # brings the edition's cover: a book still on its typographic cover gets the real one.
-        market,price_stats=refresh_offers(books,market,CreatorsPrices(amazon_id,amazon_secret,tag),tag,
+        market,price_stats=refresh_offers(books,market,provider,tag,
                                          now,sweep_days=int(amazon_config.get('sweep_days',7)),
                                          cover=lambda book,url:swap_cover(book,ROOT,url,fetch_amazon_image,cover_bytes,now.date().isoformat()))
         write_if_changed(ROOT/'.ci/reading-intake/prices-report.json',price_stats)
@@ -370,6 +378,14 @@ def market_refresh(config):
         # Puestos de «más vendidos»: dato de mercado con caducidad, fuera de la ficha del libro.
         changed_ratings=write_changed(market_path,market) or changed_ratings
     return changed_ratings
+
+
+def fetch_cover_json(url):
+    """JSON de Google Books para buscar cubiertas por ISBN; con GOOGLE_BOOKS_API_KEY no comparte la cuota anónima."""
+    key=os.getenv('GOOGLE_BOOKS_API_KEY','').strip()
+    request=urllib.request.Request(url+(f'&key={key}' if key else ''),headers={'User-Agent':'web-escritor-portadas/1.0'})
+    with urllib.request.urlopen(request,timeout=20) as response:
+        return json.loads(response.read(2_000_000))
 
 
 def quarantine_summary(quarantined, released):

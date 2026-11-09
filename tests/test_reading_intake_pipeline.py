@@ -11,7 +11,7 @@ import shutil
 from unittest.mock import patch
 from urllib.request import Request
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
@@ -134,6 +134,30 @@ class SourceTests(unittest.TestCase):
         self.assertEqual(Image.open(io.BytesIO(cover)).format, 'WEBP')
         with self.assertRaises((SourceError, OSError)):
             cover_bytes(b'<html>no cover</html>')
+
+    def test_amazon_square_and_landscape_covers_are_accepted(self):
+        def png(size):
+            out = io.BytesIO(); Image.new('RGB', size, '#654321').save(out, 'PNG'); return out.getvalue()
+        for size in ((497, 500), (800, 613), (500, 234)):  # cartoné infantil, álbum apaisado, imagen de 500 px
+            self.assertEqual(cover_bytes(png(size), amazon=True)[2], size)
+            with self.assertRaises(SourceError):  # en webs editoriales, un cuadrado suele ser un logo
+                cover_bytes(png(size))
+        for size in ((60, 49), (300, 300), (1000, 300)):  # marcador, miniatura, banner
+            with self.assertRaises(SourceError):
+                cover_bytes(png(size), amazon=True)
+
+    def test_amazon_no_image_placeholder_is_rejected(self):
+        # Amazon sirve «Imagen no disponible» como un JPG vertical normal; se publicó así el 06/11.
+        placeholder = (Path(__file__).parent / 'fixtures' / 'covers' / 'amazon-imagen-no-disponible.png').read_bytes()
+        with self.assertRaisesRegex(SourceError, 'Imagen no disponible'):
+            cover_bytes(placeholder, amazon=True)
+        # Una portada blanca de verdad, con título y dibujo, sí vale.
+        image = Image.new('RGB', (650, 930), 'white')
+        draw = ImageDraw.Draw(image)
+        draw.rectangle((120, 150, 530, 560), fill='#2a4d7a')
+        draw.rectangle((80, 700, 570, 760), fill='#202020')
+        out = io.BytesIO(); image.save(out, 'PNG')
+        self.assertEqual(cover_bytes(out.getvalue(), amazon=True)[2], (650, 930))
 
 
 class ContractTests(unittest.TestCase):
