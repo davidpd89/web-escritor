@@ -9,20 +9,40 @@
   const continuation = [...(staticNav?.querySelectorAll('a[data-catalogue-page]') || [])];
   // El catálogo completo (todas las páginas) se descarga e indexa al primer uso de filtros, buscador o test, o al
   // cargar con un estado en la URL (#…). Antes, la primera página ya lleva novedad, valoraciones y precios del día.
+  const lazyCards = new WeakMap();
   const hydrate = async () => {
     const localCards = [...root.querySelectorAll('[data-catalogue-book]')];
     // Páginas en paralelo y con un reintento: en serie, un móvil tardaba ~10 s en poder filtrar.
+    // Sin DOMParser: analizar 23 páginas completas costaba ~3 s de CPU en un móvil al primer clic. Se cortan las fichas
+    // del texto y cada una queda como <li> vacío con sus data-* (bastan para filtrar, contar y ordenar); su contenido
+    // se crea al mostrarse (materialize). El generador escapa <, >, & y comillas en los atributos (html.escape).
+    const MARK = '<li class="catalogue-card" data-catalogue-book';
+    const decode = s => s.replace(/&(?:#x([0-9a-f]+)|#(\d+)|(amp|lt|gt|quot|apos));/gi, (m, hex, dec, name) => hex ? String.fromCodePoint(parseInt(hex, 16)) : dec ? String.fromCodePoint(Number(dec)) : ({amp: '&', lt: '<', gt: '>', quot: '"', apos: "'"})[name.toLowerCase()]);
+    const splitCards = text => {
+      const start = text.indexOf('<ul class="catalogue-grid">'), nav = text.indexOf('data-catalogue-static-pagination', start), end = text.lastIndexOf('</ul>', nav);
+      if (start < 0 || nav < 0 || end < start) throw new Error('Invalid catalogue page');
+      const out = [];
+      for (let at = text.indexOf(MARK, start); at >= 0 && at < end;) {
+        const next = text.indexOf(MARK, at + MARK.length), stop = next >= 0 && next < end ? next : end;
+        const chunk = text.slice(at, stop).trimEnd(), close = chunk.indexOf('>');
+        if (close < 0 || !chunk.endsWith('</li>')) throw new Error('Invalid catalogue page');
+        const attrs = [...chunk.slice(3, close).matchAll(/([a-z][a-z0-9-]*)(?:="([^"]*)")?/g)].map(m => [m[1], decode(m[2] || '')]);
+        out.push({attrs, html: chunk.slice(close + 1, -5)});
+        at = stop === end ? -1 : stop;
+      }
+      return out;
+    };
     const readPage = async (link, attempt = 0) => {
       const url = new URL(link.href, location.href);
       if (url.origin !== location.origin || !/^\/recomendaciones\/pagina\/[1-9]\d*\/$/.test(url.pathname) || url.search || url.hash) throw new Error('Invalid catalogue page');
       try {
         const response = await fetch(url.href, { cache: 'no-cache', signal: AbortSignal.timeout(30000) });
         if (!response.ok || !response.headers.get('content-type')?.includes('text/html')) throw new Error('Catalogue unavailable');
-        const page = new DOMParser().parseFromString(await response.text(), 'text/html');
+        const text = await response.text();
         const canonical = new URL(url.pathname, document.querySelector('link[rel=canonical]').href).href;
-        const version = page.querySelector('[data-catalogue-version]')?.dataset.catalogueVersion;
-        if (page.querySelector('link[rel=canonical]')?.href !== canonical) throw new Error('Invalid catalogue page');
-        return { version, cards: [...page.querySelectorAll('.catalogue-grid > [data-catalogue-book]')] };
+        const version = text.match(/data-catalogue-version="([^"]*)"/)?.[1];
+        if (decode(text.match(/<link rel="canonical" href="([^"]*)"/)?.[1] || '') !== canonical) throw new Error('Invalid catalogue page');
+        return { version, cards: splitCards(text) };
       } catch (error) {
         if (attempt || error.message === 'Invalid catalogue page') throw error;
         return readPage(link, 1);
@@ -41,7 +61,12 @@
         throw new Error('Catalogue changed');
       }
       try { sessionStorage.removeItem('catalogue-reload'); } catch { /* opcional */ }
-      const parts = pages.flatMap(page => page.cards);
+      const parts = pages.flatMap(page => page.cards).map(({attrs, html}) => {
+        const card = document.createElement('li');
+        for (const [name, value] of attrs) card.setAttribute(name, value);
+        lazyCards.set(card, html);
+        return card;
+      });
       const original = [...root.querySelectorAll('[data-catalogue-book]')];
       const ids = new Set([...original, ...parts].map(card => card.dataset.bookId));
       if (ids.has(undefined) || ids.size !== original.length + parts.length || ids.size !== Number(root.dataset.catalogueTotal)) throw new Error('Incomplete catalogue');
@@ -122,8 +147,8 @@
   };
   const ageDays = s => /^\d{4}-\d{2}-\d{2}$/.test(s || '') ? (Date.parse(today() + 'T00:00:00Z') - Date.parse(s + 'T00:00:00Z')) / 86400000 : NaN;
   const isNew = (s, window) => { const days = ageDays(s); return window === 'proximamente' ? days < 0 : days >= 0 && (window === '15' ? days < 15 : days <= Number(window)); };
-  function renderNovelty() {
-    for (const label of root.querySelectorAll('[data-release-label]')) {
+  function renderNovelty(scope = root) {
+    for (const label of scope.querySelectorAll('[data-release-label]')) {
       const fresh = isNew(label.dataset.releaseLabel, '30'),  // contrato: «Novedad» un mes (NOVELTY_DAYS)
       upcoming = !fresh && isNew(label.dataset.releaseLabel, 'proximamente');
       const text = fresh ? 'Novedad' : upcoming ? 'Pr\u00f3ximamente' : '';
@@ -145,7 +170,7 @@
   const cardCategories = card => { const m = memoFor(card); return m.cats || (m.cats = card.dataset.categories.split(' ')); };
   const cardFormats = card => { const m = memoFor(card); return m.formats || (m.formats = new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)])); };
   // Insignias de oferta sin reconfirmar: fuera en la página inicial y en las fichas que trae la hidratación.
-  const pruneOffers = () => { for (const badge of root.querySelectorAll('[data-offer-checked]')) if (!offerCurrent(badge.dataset.offerChecked)) badge.remove(); };
+  const pruneOffers = (scope = root) => { for (const badge of scope.querySelectorAll('[data-offer-checked]')) if (!offerCurrent(badge.dataset.offerChecked)) badge.remove(); };
   pruneOffers();
   const matchingOffers = (card, v) => [...offersFor(card.dataset.bookId).map(o => ({formato: o.formato, pct: discount(o)})), ...formatDiscounts(card)].filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.descuento || o.pct >= Number(v.descuento)));
   // Por defecto, solo publicados; los próximos se piden o se buscan.
@@ -161,6 +186,25 @@
     const min = v.precio_min ? Math.round(Number(v.precio_min) * 100) : 0, max = v.precio_max ? Math.round(Number(v.precio_max) * 100) : Infinity, formats = priceFormats(v);
     return [...formatPrices(card)].some(([f, c]) => (!formats.length || formats.includes(f)) && c >= min && c <= max);
   };
+  function renderRatingBoxes(scope) {
+    for (const box of scope.querySelectorAll('[data-rating-book]')) {
+      if (box.dataset.ratingDone) continue;
+      box.dataset.ratingDone = 'true';
+      const isbn = /^\d{13}$/.test(box.dataset.isbn || '') && box.dataset.isbn;
+      box.replaceChildren(); box.hidden = Boolean(box.closest('.catalogue-card')) || !isbn;
+      if (box.hidden) continue;
+      const ref = document.createElement('a'); ref.target = '_blank'; ref.rel = 'noopener noreferrer'; ref.className = 'catalogue-rating__ref';
+      ref.href = 'https://www.goodreads.com/book/isbn/' + isbn; ref.dataset.ratingState = 'unavailable'; ref.textContent = 'Goodreads · ver opiniones';
+      box.append(ref);
+    }
+  }
+  // Contenido de una ficha traída por la hidratación, la primera vez que se muestra.
+  const materialize = card => {
+    const html = lazyCards.get(card);
+    if (html === undefined) return;
+    lazyCards.delete(card); card.innerHTML = html;
+    pruneOffers(card); renderNovelty(card); renderRatingBoxes(card);
+  };
   const ratingKeys = new WeakMap();
   function renderMarket() {
     offersIndex = new Map(); ratingsIndex = new Map(); ranksIndex = new Map(); memo = new Map();
@@ -175,16 +219,7 @@
       ratingsIndex.get(rating.libro_id).push(rating);
     }
     // La Creators API no da valoraciones: sin nota en ningún sitio; la ficha enlaza a Goodreads por ISBN (David, 08/11).
-    for (const box of root.querySelectorAll('[data-rating-book]')) {
-      if (box.dataset.ratingDone) continue;
-      box.dataset.ratingDone = 'true';
-      const isbn = /^\d{13}$/.test(box.dataset.isbn || '') && box.dataset.isbn;
-      box.replaceChildren(); box.hidden = Boolean(box.closest('.catalogue-card')) || !isbn;
-      if (box.hidden) continue;
-      const ref = document.createElement('a'); ref.target = '_blank'; ref.rel = 'noopener noreferrer'; ref.className = 'catalogue-rating__ref';
-      ref.href = 'https://www.goodreads.com/book/isbn/' + isbn; ref.dataset.ratingState = 'unavailable'; ref.textContent = 'Goodreads · ver opiniones';
-      box.append(ref);
-    }
+    renderRatingBoxes(root);
     for (const f of root.querySelectorAll('[data-market-control]')) {
       f.disabled = !(f.dataset.marketControl === 'offers' && hasDiscounts) && !market[f.dataset.marketControl].some(f.dataset.marketControl === 'offers' ? validOffer : validRating);
       f.closest('label').hidden = f.disabled;
@@ -203,7 +238,7 @@
   const lowerOf = card => boundsOf(card).lower;
   const rangeOf = card => { const pages = Number(card.dataset.pages); return !pages ? '' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga'; };
   // Condiciones que no son casillas: búsqueda, estado, extensión, fechas, nota, precio y descuento.
-  const baseMatch = (card, v) => searchIndex.get(card).includes(queryOf(v)) && (v.estado === 'todos' || (!v.estado && v.q) || (v.estado === 'proximos' ? !released(lowerOf(card)) : released(lowerOf(card)))) && (!v.paginas || v.paginas === rangeOf(card)) && (!v.novedad || isNew(card.dataset.published, v.novedad)) && (!v.desde || (boundsOf(card).upper && boundsOf(card).upper >= v.desde)) && (!v.hasta || (lowerOf(card) && lowerOf(card) <= v.hasta)) && ratingOk(card, v) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
+  const baseMatch = (card, v) => searchIndex.get(card).includes(queryOf(v)) && (v.estado === 'todos' || (!v.estado && v.q) || (v.estado === 'proximos' ? !released(lowerOf(card)) : released(lowerOf(card)))) && (!v.paginas || v.paginas === rangeOf(card)) && (!v.desde || (boundsOf(card).upper && boundsOf(card).upper >= v.desde)) && (!v.hasta || (lowerOf(card) && lowerOf(card) <= v.hasta)) && ratingOk(card, v) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
   const facetMatch = (card, v, k) => {
     const chosen = pick(v[k]);
     if (!chosen.length) return true;
@@ -321,6 +356,7 @@
     currentPage = Math.min(currentPage, pages);
     const page = found.slice((currentPage - 1) * pageSize, currentPage * pageSize), shown = new Set(page);
     // Mover todas las fichas en cada clic hacía que Clarity reserializara ~90.000 nodos: solo se mueven las de la página.
+    page.forEach(materialize);
     if (grid && page.some((card, i) => grid.children[i] !== card)) grid.prepend(...page);
     for (const card of cards) { const hide = !shown.has(card); if (card.hidden !== hide) card.hidden = hide; }
     renderPagination(pages, visible);
@@ -329,6 +365,7 @@
       const upcomingLink = root.querySelector('[data-catalogue-upcoming]'); if (upcomingLink) upcomingLink.hidden = v.estado === 'proximos' || v.estado === 'todos';
       if (refineCount) { const active = fields.filter(f => !['q', 'orden', 'estado'].includes(f.dataset.filter) && f.value && !f.disabled).length + boxes.filter(b => b.checked).length; refineCount.textContent = active ? '· ' + active + (active === 1 ? ' activo' : ' activos') : ''; }
       root.querySelector('[data-catalogue-count]').textContent = visible + (visible === 1 ? ' libro' : ' libros') + (pages > 1 ? ' · página ' + currentPage + ' de ' + pages : ''); root.querySelector('[data-catalogue-empty]').hidden = visible !== 0;
+      renderActive(v);
       if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => !FACETS.includes(k) && value && !(k === 'orden' && value === 'editorial'))); for (const k of FACETS) for (const x of v[k]) hash.append(k, x); if (currentPage > 1) hash.set('pagina', String(currentPage)); history.replaceState(null, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
       else {
         // #pagina fuera de rango: se corrige sin historial ni hashchange.
@@ -337,13 +374,66 @@
       }
     }
   }
+  // Resumen de lo aplicado (David, 09/11): una etiqueta por filtro con su ×, «Eliminar filtros» junto al recuento y
+  // «Eliminar todos» al final. Ordenar no es filtrar; «Mostrar» solo cuenta si no es el de siempre (ya publicados).
+  const textOf = el => el.textContent.replace(/\s+/g, ' ').trim();
+  const dateText = iso => { const [y, m, d] = iso.split('-'); return d + '/' + m + '/' + y; };
+  function activeFilters(v) {
+    const out = [];
+    for (const f of fields) {
+      const k = f.dataset.filter, value = f.value;
+      if (!value || f.disabled || k === 'orden') continue;
+      // El formato del precio solo acota junto a un mínimo o un máximo: solo, no filtra nada.
+      if (k === 'precio_formato' && !v.precio_min && !v.precio_max) continue;
+      const name = textOf(f.closest('label')?.firstChild || f);
+      let text;
+      if (k === 'q') text = '«' + value + '»';
+      else if (k === 'precio_min') text = 'Desde ' + value.replace('.', ',') + ' €';
+      else if (k === 'precio_max') text = 'Hasta ' + value.replace('.', ',') + ' €';
+      else if (k === 'precio_formato') { const t = textOf(f.selectedOptions[0]); text = 'Precio en ' + (t === 'Kindle' ? t : t.toLocaleLowerCase('es')); }
+      else if (k === 'estado') text = value === 'todos' ? 'Publicados y próximos' : textOf(f.selectedOptions[0]);
+      else if (f.type === 'date') text = name + ' ' + dateText(value);
+      else if (f.tagName === 'SELECT') text = textOf(f.selectedOptions[0]);
+      else text = name + ': ' + value;
+      out.push({text, clear: () => { f.value = ''; }});
+    }
+    for (const box of boxes) if (box.checked) out.push({text: textOf(box.nextElementSibling), clear: () => { box.checked = false; }});
+    return out;
+  }
+  function renderActive(v) {
+    const holder = root.querySelector('[data-catalogue-active]'), link = root.querySelector('[data-catalogue-clear]');
+    if (!holder) return;
+    const active = activeFilters(v);
+    holder.replaceChildren(); holder.hidden = !active.length; if (link) link.hidden = !active.length;
+    if (!active.length) return;
+    const list = document.createElement('ul'); list.className = 'catalogue-active__list'; list.setAttribute('aria-label', 'Filtros aplicados');
+    for (const item of active) {
+      const li = document.createElement('li'), chip = document.createElement('button');
+      chip.type = 'button'; chip.className = 'catalogue-chip'; chip.setAttribute('aria-label', 'Quitar el filtro ' + item.text);
+      const label = document.createElement('span'); label.textContent = item.text;
+      const x = document.createElement('span'); x.setAttribute('aria-hidden', 'true'); x.className = 'catalogue-chip__x'; x.textContent = '×';
+      chip.append(label, x);
+      chip.addEventListener('click', () => { item.clear(); currentPage = 1; apply(); (root.querySelector('.catalogue-chip') || root.querySelector('.catalogue-results-head h2')).focus({preventScroll: true}); });
+      li.append(chip); list.append(li);
+    }
+    const all = document.createElement('button'); all.type = 'button'; all.className = 'catalogue-clear-link'; all.textContent = 'Eliminar todos';
+    all.addEventListener('click', clearAll);
+    holder.append(list, all);
+  }
+  function clearAll() {
+    for (const f of fields) f.value = f.dataset.filter === 'orden' ? f.value : '';
+    for (const box of boxes) box.checked = false;
+    currentPage = 1; apply();
+    const heading = root.querySelector('.catalogue-results-head h2'); heading.tabIndex = -1; heading.focus({preventScroll: true});
+  }
   function restore() {
     const params = new URLSearchParams(location.hash.slice(1));
     currentPage = Math.max(1, Math.min(100000, Number.parseInt(params.get('pagina'), 10) || 1));
     for (const f of fields) { const v = params.get(f.dataset.filter) || (f.dataset.filter === 'orden' ? 'editorial' : ''); f.value = f.tagName === 'SELECT' && ![...f.options].some(o => o.value === v) ? (f.dataset.filter === 'orden' ? 'editorial' : '') : v; }
     for (const box of boxes) box.checked = params.getAll(box.dataset.facet).includes(box.value);
-    const advanced = form?.querySelector('.catalogue-more-filters');
-    if (advanced && fields.some(f => advanced.contains(f) && f.value && !f.disabled)) advanced.open = true;
+    // Enlaces antiguos con #novedad=N: el filtro se quitó (09/11) y equivale a «Publicado desde» hace N días.
+    const legacy = Number.parseInt(params.get('novedad'), 10), since = form?.querySelector('[data-filter="desde"]');
+    if (legacy > 0 && since && !since.value) since.value = new Date(Date.now() - legacy * 86400000).toISOString().slice(0, 10);
     apply(false);
   }
   function renderPagination(pages) {
@@ -389,7 +479,7 @@
     const steps = [
       {key: 'grupo', question: '¿Qué tipo de libro buscas?', options: () => optionsFrom('grupo')},
       {key: 'novedad', question: '¿Buscas algo recién publicado?', options: () => [
-        {label: 'Sí, una novedad', values: {novedad: '15'}},
+        {label: 'Sí, de los últimos 30 días', values: {desde: new Date(Date.now() - 30 * 86400000).toISOString().slice(0, 10)}},
         {label: 'Un próximo lanzamiento', values: {estado: 'proximos'}}]},
       {key: 'genero', question: '¿Qué género te apetece?', options: () => optionsFrom('genero')},
       {key: 'edad', question: '¿Para quién buscas el libro?', options: () => optionsFrom('edad')},
@@ -511,6 +601,7 @@
       // Al elegir tipo se abre solo «Género».
       if (b.dataset.facet === 'grupo' && b.checked) for (const group of form.querySelectorAll('[data-facet-group]')) if (group.dataset.facetGroup !== 'grupo') group.open = group.dataset.facetGroup === 'genero' || group.querySelector('input:checked') !== null;
     }));
+    root.querySelector('[data-catalogue-clear]')?.addEventListener('click', clearAll);
     form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; apply(); }); form.addEventListener('reset', () => setTimeout(() => { currentPage = 1; apply(); }, 0)); window.addEventListener('hashchange', restore);
     if (touched && !location.hash.slice(1)) { currentPage = 1; apply(); } else restore();
   }

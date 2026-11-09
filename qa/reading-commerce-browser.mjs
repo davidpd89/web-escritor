@@ -23,7 +23,7 @@ try {
   const errors = []; page.on('pageerror', e => errors.push(e.message));
   const field = name => page.locator(`[data-filter="${name}"]`);
   const ids = () => page.locator('[data-catalogue-book]:not([hidden])').evaluateAll(nodes => nodes.map(n => n.dataset.bookId));
-  const open = async () => { await page.goto(`${base}/recomendaciones/?utm_source=prueba`); await field('descuento').waitFor({ state: 'attached' }); await page.waitForFunction(() => !document.querySelector('[data-filter="descuento"]').disabled); await page.locator('details.catalogue-more-filters summary').click(); await page.locator('details[data-facet-group="formato"]').evaluate(d => { d.open = true; }); };
+  const open = async () => { await page.goto(`${base}/recomendaciones/?utm_source=prueba`); await field('descuento').waitFor({ state: 'attached' }); await page.waitForFunction(() => !document.querySelector('[data-filter="descuento"]').disabled); await page.locator('details[data-facet-group="formato"]').evaluate(d => { d.open = true; }); };
   await open();
   await page.locator('input[data-facet="formato"][value="tapa-dura"]').check();
   assert.deepEqual(await ids(), ['contrato-uno'], 'Solo contrato-uno tiene una oferta en tapa dura');
@@ -75,7 +75,6 @@ try {
   await monthPage.route('**/recomendaciones/', route => route.fulfill({ contentType: 'text/html', body: fixture.hub.replace('data-published="1990-01-01"', 'data-published-month="1990-06"') }));
   await monthPage.route('**/assets/reading-market.json', route => route.fulfill({ json: { schema_version: 1, offers: [], ratings: [] } }));
   await monthPage.goto(`${base}/recomendaciones/`);
-  await monthPage.locator('.catalogue-more-filters summary').click();
   await monthPage.locator('[data-filter="desde"]').fill('1990-07-01');
   assert.equal(await monthPage.locator('[data-book-id="contrato-dos"]').isVisible(), false, 'June edition must not match a July lower bound');
   await monthPage.locator('[data-filter="desde"]').fill('');
