@@ -13,6 +13,7 @@ allí ya estaba roto y no bloquea este cambio.
 Salida: 0 sin fallos nuevos, 1 con fallos nuevos, 2 si algo agotó el tiempo y queda sin verificar.
 """
 import argparse
+import hashlib
 import os
 import re
 import shutil
@@ -293,8 +294,19 @@ def kill_tree(proc):
         os.killpg(proc.pid, 9)
 
 
+def private_dist(command, root):
+    """Carpeta de distribución propia para cada comando. Tres pruebas comparten por defecto .preview-dist-sitewide-qa:
+    una la borra al acabar y las otras la construyen solo si no existe, así que en paralelo leían un sitio a medias
+    (10/11: «llms.txt missing», 236 fallos del contrato, Traceback)."""
+    key = hashlib.sha1(f'{Path(root).resolve()}|{command}'.encode()).hexdigest()[:12]
+    return Path(tempfile.gettempdir()) / 'local-ci-dist' / key
+
+
 def run_one(command, env, root, timeout=TIMEOUT):
     start = time.time()
+    dist = private_dist(command, root)
+    shutil.rmtree(dist, ignore_errors=True)
+    env = {'SITEWIDE_DIST': str(dist), **env}
     proc = subprocess.Popen([BASH, '-c', command], cwd=root, env={**os.environ, 'PYTHONUTF8': '1', **env}, stdout=subprocess.PIPE,
                             stderr=subprocess.STDOUT, text=True, encoding='utf-8', errors='replace',
                             start_new_session=os.name != 'nt')
@@ -305,6 +317,8 @@ def run_one(command, env, root, timeout=TIMEOUT):
         kill_tree(proc)
         output, _ = proc.communicate()
         code, output = 124, f'sin terminar en {timeout} s\n{output}'
+    shutil.rmtree(dist, ignore_errors=True)
+    Path(f'{dist}-manifest.json').unlink(missing_ok=True)
     return code, output, time.time() - start
 
 

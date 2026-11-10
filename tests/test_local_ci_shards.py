@@ -150,6 +150,13 @@ class EntornoCiego(unittest.TestCase):
             finally:
                 local_ci.PORTS = old
 
+    def test_cada_comando_construye_su_propia_distribucion(self):
+        a = local_ci.private_dist('node tests/test-seo-discoverability-smoke.mjs', ROOT)
+        b = local_ci.private_dist('node qa/sitewide-console-errors-browser.mjs', ROOT)
+        self.assertNotEqual(a, b)
+        code, output, _ = local_ci.run_one('echo "$SITEWIDE_DIST"', {}, ROOT)
+        self.assertEqual(output.strip().replace('\\', '/'), str(local_ci.private_dist('echo "$SITEWIDE_DIST"', ROOT)).replace('\\', '/'))
+
     def test_un_fallo_del_entorno_no_se_da_por_conocido_aunque_main_falle_igual(self):
         for output in ("ModuleNotFoundError: No module named 'PIL'",
                        "Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'playwright'",
