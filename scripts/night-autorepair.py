@@ -279,11 +279,20 @@ def pasos_fallidos(registro):
     return list(dict.fromkeys(pasos))
 
 
+def dejar_como_el_indice(wt):
+    """Los pasos de la puerta construyen (`build-public-dist`, `build-reading-pinterest-rss --assign`) y escriben en el
+    árbol. El arreglo del agente está en el índice (`git add -A` antes de la puerta): se vuelve a él, para que lo escrito
+    por la puerta no acabe en el commit ni en el diff del siguiente agente."""
+    sh(['git', 'checkout', '-q', '--', '.'], cwd=wt)
+    sh(['git', 'clean', '-fdq', '--', '.', ':!node_modules'], cwd=wt)
+
+
 def puerta_local(wt, registro=''):
     # Puerta por impacto (local-ci la elige sola) más los pasos que fallaron en el workflow. 10/11: la vía completa
     # rechazó tres arreglos correctos por falsos fallos del entorno y la carga pasó 4 h sin publicar.
     extra = [a for paso in pasos_fallidos(registro) for a in ('--tambien', paso)]
     r = sh([sys.executable, 'scripts/local-ci.py', '--baseline', *extra], cwd=wt, timeout=3 * 3600)
+    dejar_como_el_indice(wt)
     salida = (r.stdout or '') + (r.stderr or '')
     return veredicto_puerta(r.returncode, salida, pasos_fallidos(registro))
 

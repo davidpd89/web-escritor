@@ -36,6 +36,10 @@ TIMEOUT = 900
 COMMAND = re.compile(r'^((?:[A-Z_][A-Z0-9_]*=\S+\s+)*)(node (?:--check \S+|--test \S+|(?:qa|tests)/\S+\.mjs.*'
                      r'|scripts/test-\S+\.mjs.*|scripts/\S+\.mjs.*--check.*)|python3? (?:-m (?:unittest|py_compile|compileall).*'
                      r'|tests/\S+.*|scripts/(?:check|audit)[-_]\S+\.py.*|scripts/\S+.*--check.*))$')
+# Una línea que construye (`python scripts/build-public-dist.py`) y las siguientes del mismo paso, que leen lo
+# construido (`--check-contents`): en GitHub corren en orden dentro de un bash -e. Antes se partían y la comprobación
+# corría sola, sin lo construido: «ya fallaba en main» siempre.
+PRODUCTOR = re.compile(r'^(python3?|node) scripts/build[-_][^\s$]+(?: [^$|;&>]*)?$')
 # Dependen de artefactos que en CI crea un paso anterior (dist de vista previa, zip, informe de lychee).
 NEEDS_BUILD = ('.preview-dist', 'qa-artifacts/', 'lychee/')
 # La suite unittest completa pasa de 15 min en un solo proceso: se reparte en lotes que corren en paralelo.
@@ -151,13 +155,17 @@ def collect(changed, everything):
             continue
         for job in (flow.get('jobs') or {}).values():
             for step in job.get('steps') or []:
+                previos = []
                 for line in loop_lines(step.get('run') or '') + (step.get('run') or '').splitlines():
                     m = COMMAND.match(line.strip())
+                    if not m and PRODUCTOR.match(line.strip()):
+                        previos.append(re.sub(r'^python3 ', 'python ', line.strip()))
+                        continue
                     # qa/production-*: miden la web desplegada, no esta rama.
                     if not m or '$' in line or '--update' in line or 'qa/production-' in line \
                             or any(n in line for n in NEEDS_BUILD):
                         continue
-                    key = re.sub(r'^python3 ', 'python ', m.group(2))
+                    key = ' && '.join(previos + [re.sub(r'^python3 ', 'python ', m.group(2))])
                     if key == SUITE:
                         for i in range(SHARDS):
                             shard = f'python scripts/local-ci.py --unittest-shard {i}/{SHARDS}'

@@ -211,6 +211,18 @@ class FallosInestables(unittest.TestCase):
         self.assertEqual([i[0] for i, _ in siguen], ['python tests/test-x.py'])
 
 
+class PasoQueConstruyeYComprueba(unittest.TestCase):
+    def test_la_comprobacion_corre_tras_lo_que_construye_su_paso(self):
+        cmds = {c for c, _, _ in local_ci.collect(set(), True)}
+        self.assertIn('python scripts/build-public-dist.py && python scripts/build-public-dist.py --check-contents', cmds)
+        self.assertNotIn('python scripts/build-public-dist.py --check-contents', cmds)
+
+    def test_solo_un_builder_es_productor(self):
+        self.assertTrue(local_ci.PRODUCTOR.match('python3 scripts/build-feed.py'))
+        self.assertFalse(local_ci.PRODUCTOR.match('python scripts/build-x.py --out "$DIR"'))
+        self.assertFalse(local_ci.PRODUCTOR.match('python scripts/check-x.py'))
+
+
 class PuertaPorImpacto(unittest.TestCase):
     WORKFLOW = [('python scripts/check-reading-data.py', {}, 'carga.yml'),
                 ('node qa/otra-cosa.mjs', {}, 'otra.yml'),

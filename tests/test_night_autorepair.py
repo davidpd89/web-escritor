@@ -114,6 +114,22 @@ class Filtros(unittest.TestCase):
         for trozo in ('x.yml', 'https://r', 'KeyError: isbn', 'AUTOREPAIR_SUMMARY.md', 'AUTOREPAIR_NOFIX.md', 'No hagas commit'):
             self.assertIn(trozo, p)
 
+class PuertaDejaElArbol(unittest.TestCase):
+    def test_lo_que_escribe_la_puerta_no_entra_en_el_arreglo(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as d:
+            wt = Path(d)
+            git = lambda *a: subprocess.run(['git', '-c', 'user.email=t@t', '-c', 'user.name=t', *a], cwd=wt, check=True,
+                                            capture_output=True)
+            git('init', '-q'); (wt / 'datos.json').write_text('1'); git('add', '.'); git('commit', '-qm', 'x')
+            (wt / 'arreglo.py').write_text('fix'); (wt / 'datos.json').write_text('2'); git('add', '-A')
+            (wt / 'datos.json').write_text('escrito por la puerta'); (wt / 'dist.html').write_text('build')
+            na.dejar_como_el_indice(wt)
+            self.assertEqual((wt / 'datos.json').read_text(), '2')  # el arreglo, no lo de la puerta
+            self.assertEqual((wt / 'arreglo.py').read_text(), 'fix')
+            self.assertFalse((wt / 'dist.html').exists())
+
+
 class PuertaDelArreglo(unittest.TestCase):
     REGISTRO = (
         "subprocess.CalledProcessError: Command '('/opt/hostedtoolcache/Python/3.12/x64/bin/python', "
