@@ -67,14 +67,12 @@ def _materializar_si_falta(root: Path) -> None:
     Antes del corte (testigo versionado) o con lo generado ya en disco no hace nada. La salida del builder va a
     stderr para no mezclarse con el listado (la CLI imita a `git ls-files`).
     """
-    if (root / TESTIGO).exists():
-        return
+    script = root / 'scripts' / 'materializar_generados.py'
+    if (root / TESTIGO).exists() or not script.exists():
+        return   # ya materializado, u otro repo (tests con repos temporales): no hay builder que llamar
     versionado = subprocess.run(['git', 'ls-files', '--', TESTIGO], cwd=root, capture_output=True)
     if versionado.returncode != 0 or versionado.stdout.strip():
         return
-    script = root / 'scripts' / 'materializar_generados.py'
-    if not script.exists():
-        return   # otro repo (tests con repos temporales): no hay builder que llamar
     resumen = os.environ.get('GITHUB_STEP_SUMMARY')
     if resumen:   # en CI es correcto pero lento: el job debería usar .github/actions/materializar (con caché)
         with open(resumen, 'a', encoding='utf-8', newline='\n') as f:
