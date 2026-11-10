@@ -120,7 +120,29 @@ def superseding_pages(repo, merged_sha, after_id):
     return None
 
 
-def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_before=False, pr_wait=120):
+# La carga nocturna lleva su propia PR por ~75 min de CI: cada avance de main se la repite (2026-11-09: el radar
+# fusionó #1239 a las 02:12 UTC en mitad de la carga). Un publicador automático que no es la carga cede el paso:
+# espera a que no haya carga en curso antes de fusionar; si main avanza mientras, el StaleMerge de siempre regenera.
+CARGA = ('reading-catalogue-sync.yml',)
+
+
+def esperar_escritores(ceder_a, deadline, poll=60):
+    propio = os.environ.get('GITHUB_RUN_ID', '')
+    while True:
+        activos = [f"{wf}#{item['databaseId']}" for wf in ceder_a
+                   for item in json.loads(gh('run', 'list', '--workflow', wf, '--status', 'in_progress',
+                                             '--limit', '20', '--json', 'databaseId') or '[]')
+                   if str(item['databaseId']) != propio]
+        if not activos:
+            return
+        if time.monotonic() >= deadline:
+            raise TimeoutError(f'La carga sigue en curso ({", ".join(activos)}); PR abierta, la fusiona el siguiente cron')
+        print(f'ESPERA: carga en curso ({", ".join(activos)}); no se fusiona hasta que termine', flush=True)
+        time.sleep(poll)
+
+
+def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_before=False, pr_wait=120,
+                      ceder_a=()):
     repo = gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner')
     pr = json.loads(gh('pr', 'view', branch, '--json', 'number,headRefOid,baseRefName,baseRefOid,state'))
     if pr['baseRefName'] != 'main' or pr['state'] != 'OPEN':
@@ -210,6 +232,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         if pending:
             time.sleep(30)
 
+    esperar_escritores(ceder_a, deadline)
     # A concurrent edit or newer main must pass normal branch rules too.
     # No --admin or bypass; every reported success above has real job evidence.
     try:
@@ -268,7 +291,8 @@ def run(branch: str, timeout: int = 5400):
     allowed = {'convocatorias-escritores/index.html', 'convocatorias-escritores/opportunities.json',
                'convocatorias-escritores/deadlines.ics', '.lycheeignore'}
     publish_generated(branch, lambda p: p in allowed or p.startswith('pagefind/')
-                      or (p.startswith('editoriales/') and p.endswith('.html')), WORKFLOWS, timeout=timeout)
+                      or (p.startswith('editoriales/') and p.endswith('.html')), WORKFLOWS, timeout=timeout,
+                      ceder_a=CARGA)
 
 
 if __name__ == '__main__':

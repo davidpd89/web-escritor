@@ -87,7 +87,8 @@ def refresh(*, publish=False):
                     'de main antes de fusionar; después se despliega y se comprueba producción.\n', encoding='utf-8')
     publication.gh('pr', 'create', '--base', 'main', '--head', branch, '--title', 'Actualizar el directorio del Atlas ' + day,
                    '--body-file', str(body))
-    publication.publish_generated(branch, allowed_path, publication.WORKFLOWS, deploy_before=True)
+    publication.publish_generated(branch, allowed_path, publication.WORKFLOWS, deploy_before=True,
+                                  ceder_a=publication.CARGA)
 
 
 def main(publish):
