@@ -202,6 +202,15 @@ class ContextoDeGitHubEnLocal(unittest.TestCase):
         self.assertEqual(sin_valor, [])
 
 
+class FallosInestables(unittest.TestCase):
+    def test_lo_que_pasa_al_repetirlo_es_inestable_y_no_bloquea(self):
+        new = [(('node qa/manecillas.mjs', {}, 'a.yml'), (1, 'TimeoutError', 9)),
+               (('python tests/test-x.py', {}, 'b.yml'), (1, 'AssertionError: 3 != 4', 2))]
+        siguen, flaky = local_ci.inestables(new, [(0, 'ok', 8), (1, 'AssertionError: 3 != 4', 2)])
+        self.assertEqual(flaky, ['node qa/manecillas.mjs'])
+        self.assertEqual([i[0] for i, _ in siguen], ['python tests/test-x.py'])
+
+
 class PuertaPorImpacto(unittest.TestCase):
     WORKFLOW = [('python scripts/check-reading-data.py', {}, 'carga.yml'),
                 ('node qa/otra-cosa.mjs', {}, 'otra.yml'),

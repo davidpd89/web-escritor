@@ -397,6 +397,12 @@ def same_failure(branch, main):
             and norm(branch) == norm(main))
 
 
+def inestables(new, again):
+    """Separa los fallos que pasan al repetirlos (inestables) de los que se repiten (nuevos de verdad)."""
+    return ([(item, res) for (item, res), r in zip(new, again) if r[0] != 0],
+            [item[0] for (item, _), r in zip(new, again) if r[0] == 0])
+
+
 def baseline_tree():
     tree = ROOT / '.local/local-ci/main'
     if not tree.exists():
@@ -618,14 +624,23 @@ def main(argv=None):
     # Agotar el tiempo no es un fallo de la rama ni un aprobado: queda sin verificar (salida 2) y lo decide el CI.
     slow = [item[0] for item, res in new if res[0] == 124]
     new = [(item, res) for item, res in new if res[0] != 124]
+    flaky = []
+    if new:
+        # Como flaky_test_attempts de Bazel o pytest-rerunfailures: cada fallo nuevo se repite una vez en la rama. Si
+        # pasa, es inestable: se informa y no bloquea (el 10/11, manecillas TimeoutError, el lote 0/8 y un CLS
+        # rechazaron arreglos correctos). El CI de GitHub lo vuelve a correr igualmente.
+        print(f'Repitiendo {len(new)} fallos nuevos en la rama…', flush=True)
+        new, flaky = inestables(new, run_all([item for item, _ in new], ROOT, args.jobs, args.timeout))
     for (command, _, flow), (code, output, _) in new:
         print(f'\n## {command}  ({flow}, código {code})\n{failure_line(output)}')
     for command in known:
         print(f'  ya falla igual en main: {command}')
+    for command in flaky:
+        print(f'  inestable (falló y pasó al repetirlo): {command}')
     for command in slow:
         print(f'  sin verificar (agotó {args.timeout} s): {command}')
     print(f'\n{len(items) - len(failed) - len(timed_out)} bien, {len(new)} fallos nuevos' + (f', {len(known)} ya fallaban en main' if known else '')
-          + (f', {len(slow)} sin verificar' if slow else ''))
+          + (f', {len(flaky)} inestables' if flaky else '') + (f', {len(slow)} sin verificar' if slow else ''))
     return 1 if new else 2 if slow else 0
 
 
