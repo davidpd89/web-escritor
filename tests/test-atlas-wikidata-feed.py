@@ -86,11 +86,62 @@ class FeedTest(unittest.TestCase):
             {"qid": "Q2", "name": "Caducada", "city": "A", "country_iso2": "ES", "place_type": "library", "sitelinks": 9, "last_seen": "2026-08-01", "first_seen": "2026-08-01"},
         ]}
         fresh = [{"qid": f"Q{n}", "name": f"N{n}", "city": "B", "country_iso2": "ES", "place_type": "bookshop", "sitelinks": 5} for n in range(10, 15)]
-        merged = feed.merge(old, fresh, "2026-10-28", {"keep_days": 30, "max_new_per_run": 3})
+        merged = feed.merge(old, fresh, "2026-10-28", {"keep_days": 30, "max_new_per_run": 3}, url_ok=lambda _: True)
         qids = {p["qid"] for p in merged["places"]}
         self.assertIn("Q1", qids)
         self.assertNotIn("Q2", qids)
         self.assertEqual(len([q for q in qids if q.startswith("Q1") and len(q) == 3]), 3)
+
+    def test_merge_only_adds_websites_that_respond(self) -> None:
+        old = {"places": [{"qid": "Q1", "name": "Vista", "city": "A", "country_iso2": "ES", "place_type": "library",
+                           "sitelinks": 9, "official_url": "https://vieja.example/", "last_seen": "2026-10-20", "first_seen": "2026-10-01"}]}
+        fresh = [
+            {"qid": "Q1", "name": "Vista", "city": "A", "country_iso2": "ES", "place_type": "library", "sitelinks": 9, "official_url": "https://muerta.example/"},
+            {"qid": "Q10", "name": "Rota", "city": "B", "country_iso2": "ES", "place_type": "museum", "sitelinks": 5, "official_url": "https://404.example/"},
+            {"qid": "Q11", "name": "Viva", "city": "B", "country_iso2": "ES", "place_type": "museum", "sitelinks": 5, "official_url": "https://viva.example/"},
+        ]
+        merged = feed.merge(old, fresh, "2026-10-28", {"keep_days": 30, "max_new_per_run": 1},
+                            url_ok=lambda url: url == "https://viva.example/")
+        places = {p["qid"]: p for p in merged["places"]}
+        self.assertNotIn("Q10", places)                                     # no entra, y no gasta el cupo de altas
+        self.assertEqual(places["Q11"]["first_seen"], "2026-10-28")
+        self.assertEqual(places["Q1"]["official_url"], "https://vieja.example/")   # la web nueva no responde: se queda la vieja
+        self.assertEqual(places["Q1"]["last_seen"], "2026-10-28")
+
+    def test_url_responds_follows_the_link_checker_rules(self) -> None:
+        from unittest import mock
+        import urllib.error
+
+        def opener(code):
+            def urlopen(request, timeout, context=None):
+                self.assertEqual(request.get_header("User-agent"), feed.LINK_CHECK_UA)
+                if code >= 400:
+                    raise urllib.error.HTTPError(request.full_url, code, "x", {}, None)
+                class R:
+                    status = code
+                    def __enter__(s): return s
+                    def __exit__(s, *a): return False
+                return R()
+            return urlopen
+        for code, ok in ((200, True), (429, True), (403, False), (404, False), (500, False)):
+            with mock.patch.object(feed.urllib.request, "urlopen", opener(code)):
+                self.assertEqual(feed.url_responds("https://x.example/"), ok, code)
+        with mock.patch.object(feed.urllib.request, "urlopen", side_effect=TimeoutError):
+            self.assertFalse(feed.url_responds("https://x.example/"))
+        import ssl
+        calls = []
+
+        def cadena_incompleta(request, timeout, context=None):   # bne.es: Python no valida el certificado
+            calls.append(context)
+            if context is None:
+                raise urllib.error.URLError(ssl.SSLCertVerificationError("unable to get local issuer certificate"))
+            return opener(200)(request, timeout)
+        with mock.patch.object(feed.urllib.request, "urlopen", cadena_incompleta):
+            self.assertTrue(feed.url_responds("https://x.example/"))
+        self.assertEqual(len(calls), 2)
+        with mock.patch.object(feed, "lychee_ignore", lambda: [r"https?://(www\.)?bne\.es/.*"]), \
+                mock.patch.object(feed.urllib.request, "urlopen", side_effect=AssertionError("no debe consultar")):
+            self.assertTrue(feed.url_responds("https://www.bne.es/"))   # lychee la ignora: no puede tumbar el control
 
     def test_retry_honours_retry_after(self) -> None:
         waits = []

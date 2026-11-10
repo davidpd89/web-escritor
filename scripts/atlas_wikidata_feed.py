@@ -166,8 +166,49 @@ def collect(config: dict, query_fn=run_query, sleep=time.sleep, clock=time.monot
     return sorted(found.values(), key=lambda e: (e["country_iso2"], e["place_type"], -e["sitelinks"], e["name"])), errors
 
 
-def merge(previous: dict, fresh: list[dict], today: str, config: dict) -> dict:
-    """Conserva lo anterior: tope de altas por ejecución y baja solo tras `keep_days` sin verse."""
+# El mismo criterio que broken-links.yml (lychee): ese User-Agent y solo 2xx o 429 tras seguir redirecciones.
+LINK_CHECK_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                 "Chrome/141.0.0.0 Safari/537.36")
+
+
+def lychee_ignore(path: Path = ROOT / ".lycheeignore") -> list[str]:
+    if not path.is_file():
+        return []
+    return [line.strip() for line in path.read_text(encoding="utf-8").splitlines() if line.strip() and not line.startswith("#")]
+
+
+def url_responds(url: str, timeout: int = 30) -> bool:
+    """¿Pasaría la web el control de enlaces rotos? Wikidata trae webs oficiales muertas (404) o que vetan bots (403).
+
+    Un certificado que Python no valida (p. ej. bne.es sin el intermedio, que lychee sí acepta) no decide nada: se repite
+    sin verificar solo para saber si la página existe.
+    """
+    import ssl
+    if any(re.search(pattern, url) for pattern in lychee_ignore()):
+        return True     # lychee no la comprueba (veta bots): el control no puede tumbarla
+    request = urllib.request.Request(url, headers={"User-Agent": LINK_CHECK_UA})
+    for context in (None, ssl._create_unverified_context()):  # noqa: S323 - solo se lee el código de estado
+        try:
+            with urllib.request.urlopen(request, timeout=timeout, context=context) as response:  # noqa: S310
+                return 200 <= response.status < 300
+        except urllib.error.HTTPError as error:
+            return error.code == 429
+        except urllib.error.URLError as error:
+            if isinstance(error.reason, ssl.SSLCertVerificationError):
+                continue
+            return False
+        except Exception:  # noqa: BLE001 - tiempo agotado, DNS: no entra hoy, se reintenta en la siguiente ejecución
+            return False
+    return False
+
+
+def merge(previous: dict, fresh: list[dict], today: str, config: dict, url_ok=url_responds) -> dict:
+    """Conserva lo anterior: tope de altas por ejecución y baja solo tras `keep_days` sin verse.
+
+    Una web nueva (alta o cambio de `official_url`) solo entra si responde: el 2026-11-09 seis webs muertas de
+    Wikidata tumbaron broken-links y la PR del atlas entera. Si no responde, se queda lo anterior (o nada) y se
+    reintenta en la siguiente ejecución.
+    """
     old = {e["qid"]: e for e in previous.get("places", [])}
     keep_days = int(config.get("keep_days", 30))
     max_new = int(config.get("max_new_per_run", 60))
@@ -176,10 +217,12 @@ def merge(previous: dict, fresh: list[dict], today: str, config: dict) -> dict:
     for entry in fresh:
         known = old.get(entry["qid"])
         if known is None:
-            if added >= max_new:
+            if added >= max_new or not url_ok(entry.get("official_url", "")):
                 continue
             added += 1
             entry = {**entry, "first_seen": today}
+        elif entry.get("official_url") != known.get("official_url") and not url_ok(entry.get("official_url", "")):
+            entry = {**known}
         else:
             entry = {**entry, "first_seen": known.get("first_seen", today)}
         merged[entry["qid"]] = {**entry, "last_seen": today}
