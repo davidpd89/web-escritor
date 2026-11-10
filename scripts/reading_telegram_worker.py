@@ -40,6 +40,13 @@ from reading_telegram import (
 
 MAIN = "https://raw.githubusercontent.com/davidpd89/web-escritor/main/data/"
 
+# Sanity ceiling for the project's own data files, not a catalogue-size limit: it guards
+# against a corrupt or runaway response, never against the catalogue growing. The catalogue
+# grows every night with the ingesta, so a cap near its real size is a time bomb (it broke
+# the scheduled publisher the day it crossed 8 MB). Keep it well above the real file; the
+# regression test in tests/ fails first in the local gate when the catalogue nears it.
+MAX_MAIN_JSON_BYTES = 64_000_000
+
 
 def atomic_json(path, data):
     path = Path(path)
@@ -53,7 +60,7 @@ def atomic_json(path, data):
 
 def main_json(name):
     response = requests.get(MAIN + name, timeout=30, allow_redirects=False)
-    if response.status_code != 200 or len(response.content) > 8_000_000:
+    if response.status_code != 200 or len(response.content) > MAX_MAIN_JSON_BYTES:
         raise ValueError("Main catalogue/configuration unavailable")
     data = response.json()
     if not isinstance(data, dict):
