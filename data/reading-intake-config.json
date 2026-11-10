@@ -259,6 +259,12 @@
     "enabled": true,
     "peticiones": 600,
     "altas": 200,
-    "notes": "Fuente de altas nocturnas: scripts/catalogo_amazon.py (semillas ISBN del sitemap de todostuslibros y novedades por sello en Creators API). Estado entre noches en la rama catalogo-estado (scripts/catalogo_estado.py), guardado solo tras poner los libros a salvo en una rama de datos. altas acota cada PR; la cadena nocturna lanza otro lote mientras entren libros. Sustituye a la ingesta editorial y al radar."
+    "notes": "Fuente de altas nocturnas: scripts/catalogo_amazon.py (semillas ISBN del sitemap de todostuslibros y novedades por sello en Creators API). Estado entre noches en la rama catalogo-estado (scripts/catalogo_estado.py), guardado solo tras poner los libros a salvo en una rama de datos. altas acota cada PR; la cadena nocturna lanza otro lote mientras entren libros. Sustituye a la ingesta editorial y al radar.",
+    "semillas_fechas": {
+      "peticiones": 450,
+      "adelante": 30,
+      "atras": 60,
+      "notes": "Listados por fecha de todostuslibros, por rondas de cercanía a hoy (hoy y mañana antes que nada). El futuro (hoy+30) ya está cubierto; atras=60 rellena el pasado con el cupo que sobra. Coincide con la ventana de resolución (−60/+183)."
+    }
   }
 }
