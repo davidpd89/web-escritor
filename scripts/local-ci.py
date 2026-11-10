@@ -329,10 +329,23 @@ def failure_line(output):
     return (lines or output.strip().splitlines()[-1:] or [''])[0].strip()[:200]
 
 
+# Fallos del entorno, no del código: un paquete o módulo que no está instalado. Si fallan igual en main no prueban
+# nada (los dos lados están ciegos). El 10/11, un venv a medio crear y un worktree sin node_modules dieron
+# «0 fallos nuevos» con 27 comprobaciones sin correr de verdad.
+ENVIRONMENT = re.compile(r"ModuleNotFoundError|No module named|Cannot find (module|package)|ERR_MODULE_NOT_FOUND"
+                         r"|npx canceled due to missing packages|Executable doesn't exist|is not recognized as an internal")
+
+
+def environment_failure(output):
+    return bool(ENVIRONMENT.search(output))
+
+
 def same_failure(branch, main):
-    """Main falla igual: mismo error, sin contar números ni rutas. Un tiempo agotado no prueba nada."""
+    """Main falla igual: mismo error, sin contar números ni rutas. Un tiempo agotado no prueba nada, y un fallo del
+    entorno tampoco."""
     norm = lambda res: re.sub(r'\d+|/tmp/\S+|[A-Za-z]:[\\/]\S+', '#', failure_line(res[1]))
-    return main[0] != 0 and 124 not in (branch[0], main[0]) and norm(branch) == norm(main)
+    return (main[0] != 0 and 124 not in (branch[0], main[0]) and not environment_failure(branch[1])
+            and norm(branch) == norm(main))
 
 
 def baseline_tree():

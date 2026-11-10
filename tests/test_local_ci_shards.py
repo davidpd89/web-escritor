@@ -129,5 +129,19 @@ class CerrojoDePuertos(unittest.TestCase):
             local_ci.release(local_ci.ports_lock(path, wait=0))
 
 
+class EntornoCiego(unittest.TestCase):
+    """10/11: venv sin Pillow ni requests y worktree sin node_modules → 27 comprobaciones «ya fallan en main»."""
+
+    def test_un_fallo_del_entorno_no_se_da_por_conocido_aunque_main_falle_igual(self):
+        for output in ("ModuleNotFoundError: No module named 'PIL'",
+                       "Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'playwright'",
+                       'npm error npx canceled due to missing packages and no YES option: ["pagefind@1.6.0"]'):
+            self.assertFalse(local_ci.same_failure((1, output, 0), (1, output, 0)), output)
+
+    def test_un_fallo_real_igual_en_main_sigue_siendo_conocido(self):
+        output = 'AssertionError: 3 != 4'
+        self.assertTrue(local_ci.same_failure((1, output, 0), (1, output, 0)))
+
+
 if __name__ == '__main__':
     unittest.main()
