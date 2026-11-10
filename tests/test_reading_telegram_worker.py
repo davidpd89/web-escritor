@@ -7,7 +7,15 @@ import unittest
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from reading_telegram_worker import editorial_product, verified_snapshot
+import reading_telegram_worker
+from reading_telegram_worker import (
+    MAX_MAIN_JSON_BYTES,
+    editorial_product,
+    main_json,
+    verified_snapshot,
+)
+
+DATA = Path(__file__).resolve().parents[1] / "data"
 
 
 class EditorialTelegramTests(unittest.TestCase):
@@ -242,6 +250,49 @@ class EditorialTelegramTests(unittest.TestCase):
             )
         parser.assert_not_called()
         self.assertEqual(report["checked"], 0)
+
+
+class MainJsonSizeGuardTests(unittest.TestCase):
+    """The nightly publisher fetches main's data files; its sanity cap must stay above
+    the real, growing catalogue. On 2026-11-10 the catalogue crossed 8 MB and the fixed
+    cap rejected it, turning every scheduled cycle red. This gate goes red first, in the
+    local gate, while there is still runway to react."""
+
+    class _Resp:
+        def __init__(self, content, status=200):
+            self.content = content
+            self.status_code = status
+
+        def json(self):
+            return {"libros": []}
+
+    def test_real_data_files_fit_under_cap_with_margin(self):
+        # 75 % of the cap leaves weeks of ingesta runway before the publisher would break.
+        headroom = int(MAX_MAIN_JSON_BYTES * 0.75)
+        for name in ("reading-catalogue.json", "reading-intake-config.json"):
+            size = (DATA / name).stat().st_size
+            self.assertLessEqual(
+                size,
+                headroom,
+                f"{name} ({size} B) nears the main_json cap ({MAX_MAIN_JSON_BYTES} B): "
+                "raise MAX_MAIN_JSON_BYTES before the scheduled publisher rejects it.",
+            )
+
+    def test_real_catalogue_size_is_accepted_by_main_json(self):
+        size = (DATA / "reading-catalogue.json").stat().st_size
+        resp = self._Resp(b"x" * size)
+        with patch.object(reading_telegram_worker.requests, "get", return_value=resp):
+            self.assertEqual(main_json("reading-catalogue.json"), {"libros": []})
+
+    def test_oversized_or_error_response_is_rejected(self):
+        oversized = self._Resp(b"x" * (MAX_MAIN_JSON_BYTES + 1))
+        not_found = self._Resp(b"{}", status=404)
+        for resp in (oversized, not_found):
+            with patch.object(
+                reading_telegram_worker.requests, "get", return_value=resp
+            ):
+                with self.assertRaises(ValueError):
+                    main_json("reading-catalogue.json")
 
 
 if __name__ == "__main__":
