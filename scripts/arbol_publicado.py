@@ -22,7 +22,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from materializar_generados import GENERADOS  # noqa: E402  (una sola lista de lo generado)
+from materializar_generados import GENERADOS, TESTIGO  # noqa: E402  (una sola lista de lo generado)
 
 
 def _coincide(ruta: str, patron: str) -> bool:
@@ -61,8 +61,28 @@ def generados_en_disco(root: Path) -> set[str]:
     return encontrados
 
 
+def _materializar_si_falta(root: Path) -> None:
+    """Tras el corte, un job que no materializó vería el sitio sin fichas y pasaría en vacío: materializa aquí.
+
+    Antes del corte (testigo versionado) o con lo generado ya en disco no hace nada. La salida del builder va a
+    stderr para no mezclarse con el listado (la CLI imita a `git ls-files`).
+    """
+    if (root / TESTIGO).exists():
+        return
+    versionado = subprocess.run(['git', 'ls-files', '--', TESTIGO], cwd=root, capture_output=True)
+    if versionado.returncode != 0 or versionado.stdout.strip():
+        return
+    script = root / 'scripts' / 'materializar_generados.py'
+    if not script.exists():
+        return   # otro repo (tests con repos temporales): no hay builder que llamar
+    subprocess.run([sys.executable, str(script), '--asegurar'], cwd=root, stdout=sys.stderr, check=True)
+    if not (root / TESTIGO).exists():
+        raise RuntimeError(f'materializar_generados.py --asegurar no dejó {TESTIGO}: el árbol publicado estaría incompleto')
+
+
 def listar(root: Path, *patrones: str) -> list[str]:
     """`git ls-files -- patrones` ∪ lo generado en disco que casa con ellos. Ordenado como git, sin repetidos."""
+    _materializar_si_falta(Path(root))
     salida = subprocess.run(['git', 'ls-files', '-z', '--', *patrones], cwd=root, capture_output=True, check=True)
     versionado = {p for p in salida.stdout.decode('utf-8').split('\0') if p}
     extra = {p for p in generados_en_disco(root) if not patrones or any(_coincide(p, x) for x in patrones)}

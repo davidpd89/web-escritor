@@ -90,6 +90,23 @@ class Repo(unittest.TestCase):
             arbol_publicado.run(['git', 'rev-parse', '--verify', 'no-existe'], cwd=self.dir, capture_output=True,
                                 check=True)
 
+    def test_tras_el_corte_sin_materializar_materializa_antes_de_listar(self):
+        _git(self.dir, 'rm', '-r', '-q', '--cached', 'recomendaciones', 'assets/page-order.generated.js')
+        shutil.rmtree(self.dir / 'recomendaciones')
+        (self.dir / 'assets/page-order.generated.js').unlink()
+        builder = self.dir / 'scripts' / 'materializar_generados.py'
+        builder.parent.mkdir()
+        builder.write_text(
+            "import pathlib\n"
+            "print('construyendo')\n"
+            "for r in ('recomendaciones/a/index.html', 'assets/page-order.generated.js'):\n"
+            "    pathlib.Path(r).parent.mkdir(parents=True, exist_ok=True)\n"
+            "    pathlib.Path(r).write_text('x')\n", encoding='utf-8')
+        cli = subprocess.run([sys.executable, str(ROOT / 'scripts' / 'arbol_publicado.py'), '*.html'],
+                             cwd=self.dir, capture_output=True, check=True)
+        self.assertIn(b'recomendaciones/a/index.html', cli.stdout.splitlines())
+        self.assertNotIn(b'construyendo', cli.stdout)   # la salida del builder no ensucia el listado
+
     def test_la_cli_da_lo_mismo_que_git(self):
         cli = subprocess.check_output([sys.executable, str(ROOT / 'scripts' / 'arbol_publicado.py'), '-z', '*.html'],
                                       cwd=self.dir)
