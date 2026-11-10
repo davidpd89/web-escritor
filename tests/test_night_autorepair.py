@@ -114,6 +114,38 @@ class Filtros(unittest.TestCase):
         for trozo in ('x.yml', 'https://r', 'KeyError: isbn', 'AUTOREPAIR_SUMMARY.md', 'AUTOREPAIR_NOFIX.md', 'No hagas commit'):
             self.assertIn(trozo, p)
 
+class PuertaDelArreglo(unittest.TestCase):
+    REGISTRO = (
+        "subprocess.CalledProcessError: Command '('/opt/hostedtoolcache/Python/3.12/x64/bin/python', "
+        "'scripts/check-reading-data.py')' returned non-zero exit status 1.\n"
+        "FAIL: test_sin_gritos (test_reading_editorial_shouting.PublishedCatalogueTests.test_sin_gritos)\n")
+
+    def test_pasos_fallidos_saca_el_script_y_el_modulo_de_test(self):
+        self.assertEqual(na.pasos_fallidos(self.REGISTRO), [
+            'python scripts/check-reading-data.py',
+            'python -m unittest discover -s tests -p test_reading_editorial_shouting.py'])
+
+    def test_decide_por_el_codigo_de_salida_no_por_el_texto(self):
+        # 10/11: «0 fallos nuevos» en el texto con salida 1 no puede pasar, y salida 0 pasa diga lo que diga.
+        self.assertFalse(na.veredicto_puerta(1, '0 fallos nuevos')[0])
+        self.assertTrue(na.veredicto_puerta(0, '3 bien')[0])
+
+    def test_sin_verificar_pasa_salvo_si_es_el_paso_que_fallo(self):
+        ajeno = '  sin verificar (agotó 900 s): node qa/otra.mjs\n9 bien, 0 fallos nuevos, 1 sin verificar'
+        propio = '  sin verificar (agotó 900 s): python scripts/check-reading-data.py\n9 bien, 0 fallos nuevos, 1 sin verificar'
+        pasos = na.pasos_fallidos(self.REGISTRO)
+        self.assertTrue(na.veredicto_puerta(2, ajeno, pasos)[0])
+        self.assertFalse(na.veredicto_puerta(2, propio, pasos)[0])
+
+    def test_el_siguiente_agente_parte_del_arreglo_anterior(self):
+        p = na.prompt_continuar('BASE', 'claude', '## python x.py\nAssertionError')
+        self.assertIn('Intento anterior (claude)', p)
+        self.assertIn('AssertionError', p)
+        # Un tercer intento sustituye la sección, no la acumula.
+        p2 = na.prompt_continuar(p, 'claude-cuenta2', 'otro fallo')
+        self.assertEqual(p2.count('## Intento anterior'), 1)
+        self.assertTrue(p2.startswith('BASE'))
+
 
 if __name__ == '__main__':
     unittest.main()

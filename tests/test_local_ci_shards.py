@@ -174,5 +174,40 @@ class EntornoCiego(unittest.TestCase):
         self.assertTrue(local_ci.same_failure((1, output, 0), (1, output, 0)))
 
 
+class PuertaPorImpacto(unittest.TestCase):
+    WORKFLOW = [('python scripts/check-reading-data.py', {}, 'carga.yml'),
+                ('node qa/otra-cosa.mjs', {}, 'otra.yml'),
+                ('python tests/test-lector.py', {}, 'gate.yml')]
+    REFS = {'modulo': {'scripts/lector.py', 'tests/test_modulo.py'},
+            'lector': {'tests/test-lector.py'},
+            'datos.json': {'scripts/check-reading-data.py'},
+            'check-reading-data': set(),
+            'test_modulo': set(), 'huerfano.json': set()}
+
+    def impacto(self, changed):
+        return local_ci.impacto(changed, refs=lambda s: set(self.REFS.get(s, set())), workflow=self.WORKFLOW)
+
+    def test_un_cambio_global_va_por_la_via_completa(self):
+        self.assertIsNone(self.impacto(['.github/workflows/x.yml']))
+        self.assertIsNone(self.impacto(['scripts/local-ci.py']))
+
+    def test_un_modulo_arrastra_sus_tests_y_los_de_quien_lo_importa(self):
+        cmds = [c for c, _, _ in self.impacto(['scripts/modulo.py'])]
+        self.assertIn('python -m unittest discover -s tests -p test_modulo.py', cmds)
+        self.assertIn('python tests/test-lector.py', cmds)  # en la forma del workflow
+        self.assertNotIn('node qa/otra-cosa.mjs', cmds)
+
+    def test_un_dato_arrastra_el_paso_que_lo_lee(self):
+        cmds = [c for c, _, _ in self.impacto(['data/datos.json'])]
+        self.assertIn('python scripts/check-reading-data.py', cmds)
+
+    def test_un_dato_que_nada_nombra_va_por_la_via_completa(self):
+        self.assertIsNone(self.impacto(['data/huerfano.json']))
+
+    def test_un_fichero_central_va_por_la_via_completa(self):
+        self.REFS = {**self.REFS, 'modulo': {f'scripts/s{i}.py' for i in range(local_ci.CENTRAL + 1)}}
+        self.assertIsNone(self.impacto(['scripts/modulo.py']))
+
+
 if __name__ == '__main__':
     unittest.main()

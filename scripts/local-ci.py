@@ -437,6 +437,80 @@ def materializar(root):
             mod.asegurar(Path(root))
 
 
+# Cambian el comportamiento de todo el CI: con ellos no hay impacto acotado posible.
+GLOBAL = re.compile(r'(\.github/|package(-lock)?\.json$|scripts/requirements[\w.-]*\.txt$|scripts/local-ci\.py$)')
+PY_TEST = re.compile(r'tests/test[_-][\w.-]+\.py')
+NODE_TEST = re.compile(r'(?:tests|qa)/[\w./-]+\.mjs')
+CODE = ('.py', '.mjs', '.js')
+CENTRAL = 60  # un fichero que nombran más de 60 ficheros es central: mejor la vía completa
+
+
+def test_command(path):
+    name = Path(path).name
+    if path.endswith('.mjs'):
+        return f'node {path}'
+    return f'python -m unittest discover -s tests -p {name}' if name.startswith('test_') else f'python {path}'
+
+
+def impacto(changed, refs=referencias, workflow=None):
+    """Puerta por impacto (test impact analysis, como `nx affected` o pytest-testmon, pero por nombres).
+
+    Corre las pruebas que nombran lo cambiado, las de los scripts que lo importan (hasta 40 ficheros) y los pasos de
+    los workflows que ejecutan esos scripts. Devuelve None, y se usa la vía completa, si cambia algo global
+    (workflows, dependencias, esta puerta), un fichero central o un fichero de datos que ninguna prueba nombra.
+
+    10/11: la vía completa (560 comandos, 45–90 min, con falsos fallos del entorno) rechazó tres arreglos correctos
+    de la autorreparación y la carga estuvo 4 h sin publicar. El CI de GitHub sigue corriendo todo antes del merge.
+    """
+    if not changed or any(GLOBAL.match(f) for f in changed):
+        return None
+    tests, compiles, stems = set(), set(), set()
+    pending, seen = [(f, 0) for f in sorted(changed)], set()
+    while pending:
+        f, depth = pending.pop()
+        if f in seen:
+            continue
+        seen.add(f)
+        if PY_TEST.fullmatch(f) or NODE_TEST.fullmatch(f):
+            tests.add(f)
+            continue
+        if f.endswith('.py'):
+            compiles.add(f)
+        stem = Path(f).stem if f.endswith(CODE) else Path(f).name
+        users = refs(stem) - {f}
+        if len(users) > CENTRAL:
+            return None
+        stems.add(stem)
+        named = {u for u in users if PY_TEST.fullmatch(u) or NODE_TEST.fullmatch(u)}
+        readers = [u for u in users if re.fullmatch(r'scripts/[\w.-]+\.(?:py|mjs)', u)]
+        if not named and not readers and not f.endswith(CODE):
+            return None  # datos o HTML que nada nombra: no sabemos qué los cubre
+        tests |= named
+        if depth == 0:
+            # quien importa el módulo o lee el dato directamente: sus pruebas y sus pasos también. Solo un nivel:
+            # seguir a los que importan a los que importan llevaba un cambio en el núcleo a 116 comandos.
+            pending += [(r, 1) for r in readers]
+    if workflow is None:
+        workflow = collect(set(), True)
+    by_test = {}
+    items = []
+    for command, env, flow in workflow:
+        words = re.split(r'[\s/]', command)
+        if any(Path(w).stem in stems for w in words if w):
+            items.append((command, env, flow))
+        for t in tests:
+            if t in command:
+                by_test.setdefault(t, (command, env, flow))
+    if compiles:
+        items.append(('python -m py_compile ' + ' '.join(sorted(compiles)), {}, 'impacto'))
+    for t in sorted(tests):
+        items.append(by_test.get(t) or (test_command(t), {}, 'impacto'))
+    unique = {}
+    for item in items:
+        unique.setdefault(item[0], item)
+    return list(unique.values())
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--all', action='store_true', help='todos los pasos de QA, sin filtrar por rutas')
@@ -445,6 +519,9 @@ def main(argv=None):
     parser.add_argument('--timeout', type=int, default=TIMEOUT, help='segundos por comando')
     parser.add_argument('--only', help='solo los comandos que contengan este texto')
     parser.add_argument('--list', action='store_true', help='enseña qué correría y sale')
+    parser.add_argument('--completa', action='store_true', help='la vía completa de los workflows, sin puerta por impacto')
+    parser.add_argument('--tambien', action='append', default=[], metavar='CMD',
+                        help='añade un comando (p. ej. el paso que falló en el workflow); se puede repetir')
     parser.add_argument('--unittest-shard', metavar='I/N', help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
     if args.unittest_shard:
@@ -458,8 +535,11 @@ def main(argv=None):
     items = None if args.all else scoped(changed)
     if items is not None:
         print('Solo scripts sueltos y sus tests: puerta por alcance (el CI de GitHub sigue corriendo todo)')
+    elif not (args.all or args.completa) and (items := impacto(changed)) is not None:
+        print('Puerta por impacto: pruebas y pasos que tocan lo cambiado (el CI de GitHub sigue corriendo todo)')
     else:
         items = collect(changed, args.all)
+    items += [(c, {}, 'también') for c in args.tambien if c not in {i[0] for i in items}]
     if args.only:
         items = [i for i in items if args.only in i[0]]
     print(f'{len(changed)} ficheros cambiados; {len(items)} comandos de CI', flush=True)
