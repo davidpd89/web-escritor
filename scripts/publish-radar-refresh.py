@@ -267,7 +267,8 @@ def run(branch: str, timeout: int = 5400):
         raise ValueError('Only generated radar-clock branches are accepted')
     allowed = {'convocatorias-escritores/index.html', 'convocatorias-escritores/opportunities.json',
                'convocatorias-escritores/deadlines.ics', '.lycheeignore'}
-    publish_generated(branch, lambda p: p in allowed or p.startswith('pagefind/'), WORKFLOWS, timeout=timeout)
+    publish_generated(branch, lambda p: p in allowed or p.startswith('pagefind/')
+                      or (p.startswith('editoriales/') and p.endswith('.html')), WORKFLOWS, timeout=timeout)
 
 
 if __name__ == '__main__':

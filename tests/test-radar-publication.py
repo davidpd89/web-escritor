@@ -18,7 +18,18 @@ assert 'gh pr merge --auto' not in workflow
 # the refresh prunes it, and workflow allowlist, git add and publisher all accept it.
 prune = workflow.index('python tests/test-lychee-ignore-hygiene.py --prune-unused')
 assert workflow.index('python scripts/build-pagefind-index.py') < prune < workflow.index('name: Validate regenerated artifacts')
-assert 'deadlines.ics|.lycheeignore|pagefind/*)' in workflow
+assert 'deadlines.ics|.lycheeignore|pagefind/*|editoriales/*.html)' in workflow
+# The editorial stale warnings (>90 days) also follow the real clock and the merge gate checks them with the real
+# date (check-professional-resources). The clock refresh detects that drift, regenerates and publishes them: on 10/11
+# the intake that used to regenerate them failed and every PR went red at release-readiness.
+clock = workflow[workflow.index('name: Resolve Madrid civil date'):workflow.index('name: Regenerate deterministic')]
+assert 'python scripts/check-professional-resources.py' in clock
+regen = workflow[workflow.index('name: Regenerate deterministic'):workflow.index('name: Detect whether')]
+assert 'python scripts/build-editoriales.py --data data/editoriales.json --output .' in regen
+assert '            editoriales/ \
+' in workflow
+publisher = (ROOT/'scripts/publish-radar-refresh.py').read_text(encoding='utf-8')
+assert "p.startswith('editoriales/') and p.endswith('.html')" in publisher
 assert '            .lycheeignore \\\n' in workflow
 assert "'.lycheeignore'}" in (ROOT/'scripts/publish-radar-refresh.py').read_text(encoding='utf-8')
 
