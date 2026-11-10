@@ -212,6 +212,7 @@ class FallosInestables(unittest.TestCase):
 
 
 class PasoQueConstruyeYComprueba(unittest.TestCase):
+    @unittest.skipUnless(_iu.find_spec('yaml'), 'sin PyYAML no se leen los workflows')
     def test_la_comprobacion_corre_tras_lo_que_construye_su_paso(self):
         cmds = {c for c, _, _ in local_ci.collect(set(), True)}
         self.assertIn('python scripts/build-public-dist.py && python scripts/build-public-dist.py --check-contents', cmds)
@@ -228,6 +229,7 @@ class PasoQueConstruyeYComprueba(unittest.TestCase):
         self.assertFalse(local_ci.PREPARA.match('mkdir -p "$OUT"'))
         self.assertFalse(local_ci.PREPARA.match('rm -rf artifacts'))
 
+    @unittest.skipUnless(_iu.find_spec('yaml'), 'sin PyYAML no se leen los workflows')
     def test_todo_tee_a_una_carpeta_la_crea_antes(self):
         # trinquete: el 10/11 global-discoverability salía «inestable» porque el mkdir -p del paso se descartaba
         for cmd, _, flow in local_ci.collect(set(), True):
