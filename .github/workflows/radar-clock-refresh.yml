@@ -68,7 +68,11 @@ jobs:
           PY
           )"
           echo "today=$today" >> "$GITHUB_OUTPUT"
-          if python scripts/check-radar-clock-current.py --today "$today"; then
+          # Two artifacts follow the real clock: the radar (deadlines) and the editorial
+          # stale warnings (>90 days since verification). Until 10/11 only the nightly
+          # intake regenerated the editorials; when it failed, the first editorial to
+          # reach day 91 turned check-professional-resources red for every PR.
+          if python scripts/check-radar-clock-current.py --today "$today" && python scripts/check-professional-resources.py; then
             echo "refresh=false" >> "$GITHUB_OUTPUT"
           else
             echo "refresh=true" >> "$GITHUB_OUTPUT"
@@ -83,13 +87,14 @@ jobs:
             --data data/radar-opportunities.json \
             --out convocatorias-escritores \
             --today "${{ steps.clock.outputs.today }}"
+          python scripts/build-editoriales.py --data data/editoriales.json --output .
 
       - name: Detect whether searchable HTML changed
         if: steps.clock.outputs.refresh == 'true'
         id: html
         shell: bash
         run: |
-          if git diff --quiet -- convocatorias-escritores/index.html; then
+          if git diff --quiet -- convocatorias-escritores/index.html editoriales/; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -133,7 +138,7 @@ jobs:
           bad=0
           while IFS= read -r path; do
             case "$path" in
-              convocatorias-escritores/index.html|convocatorias-escritores/opportunities.json|convocatorias-escritores/deadlines.ics|.lycheeignore|pagefind/*)
+              convocatorias-escritores/index.html|convocatorias-escritores/opportunities.json|convocatorias-escritores/deadlines.ics|.lycheeignore|pagefind/*|editoriales/*.html)
                 ;;
               *)
                 echo "Unexpected generated change: $path"
@@ -171,6 +176,7 @@ jobs:
             convocatorias-escritores/opportunities.json \
             convocatorias-escritores/deadlines.ics \
             .lycheeignore \
+            editoriales/ \
             pagefind/
           git commit -m "chore(resources): refresh radar clock ${today}"
           git push origin "HEAD:refs/heads/$branch"

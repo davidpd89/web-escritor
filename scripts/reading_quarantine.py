@@ -80,8 +80,12 @@ def restore_cover(root, book):
             path.write_bytes(old)
 
 
-def isolate(data, root, previous=None, held=(), today=None):
-    """Valida `data` apartando libros hasta que pasa. Devuelve (data, apartados) o lanza ValidationError."""
+def isolate(data, root, previous=None, held=(), today=None, flagged=None):
+    """Valida `data` apartando libros hasta que pasa. Devuelve (data, apartados) o lanza ValidationError.
+
+    `flagged` ({id: motivo}) son libros que un contrato de datos (check-reading-data) señaló tras construir: cuentan
+    como un error de validación de ese libro, con la misma regla (nuevo sale, publicado vuelve a su versión buena,
+    publicado sin cambios o demasiados = regla rota)."""
     today = today or date.today().isoformat()
     before = {h['libro']['id']: h for h in held}
     data = json.loads(json.dumps(data))
@@ -99,6 +103,9 @@ def isolate(data, root, previous=None, held=(), today=None):
     out, reverted = [], set()
     while True:
         try:
+            for book_id, why in (flagged or {}).items():
+                if book_id not in reverted and any(b['id'] == book_id for b in data['libros']):
+                    raise build.ValidationError(f'{book_id}: {why}')
             build.validate(data, root)
             return data, out
         except build.ValidationError as exc:
@@ -134,6 +141,21 @@ def isolate(data, root, previous=None, held=(), today=None):
             else:
                 del data['libros'][at]
                 data['libro_categorias'] = [r for r in data['libro_categorias'] if r['libro_id'] != book_id]
+
+
+def flagged_books(failures, data):
+    """De los fallos de los contratos de datos, {id: motivo} si TODOS nombran algún libro del catálogo; si alguno no
+    nombra ninguno es una regla rota (o código), no un dato, y se devuelve None para que la carga pare."""
+    ids = {b['id'] for b in data['libros']}
+    out = {}
+    for failure in failures:
+        named = [t for t in dict.fromkeys(re.findall(r'[a-z0-9]+(?:-[a-z0-9]+)+', failure['texto'])) if t in ids]
+        if not named:
+            return None
+        last = [line for line in failure['texto'].strip().splitlines() if line.strip()][-1:] or ['']
+        for book_id in named:
+            out.setdefault(book_id, f"contrato de datos {failure['test'].split('.')[-1]}: {last[0].strip()[:240]}")
+    return out
 
 
 # --- Reparaciones de reglas generales -------------------------------------------------------------------------
@@ -199,7 +221,7 @@ def repair_title_accents(books, root, today):
 REPAIRS = (repair_catalogue_publishers, repair_title_accents)
 
 
-def apply(root=ROOT, today=None):
+def apply(root=ROOT, today=None, flagged=None):
     """Aplica la cuarentena a los datos del árbol de trabajo. Devuelve la lista de libros apartados."""
     today = today or date.today().isoformat()
     path, held_path = root / CATALOGUE, root / QUARANTINE
@@ -208,7 +230,7 @@ def apply(root=ROOT, today=None):
     held = json.loads(held_path.read_text(encoding='utf-8'))['libros'] if held_path.exists() else []
     for repair in REPAIRS:
         repair(data['libros'] + [h['libro'] for h in held], root, today)
-    clean, out = isolate(data, root, committed(root), held, today=today)
+    clean, out = isolate(data, root, committed(root), held, today=today, flagged=flagged)
     if clean != original:  # mismo formato que el último escritor del catálogo (precios), sin reordenar claves
         write_changed(path, clean)
     if out or held_path.exists():

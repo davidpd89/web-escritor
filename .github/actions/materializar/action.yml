@@ -1,0 +1,42 @@
+name: Materializar generados
+description: >
+  Deja en el árbol el HTML generado (fichas, editoriales, orden, shell, sitemap, Pagefind) desde la caché si las
+  fuentes no cambiaron; si cambiaron, lo construye con scripts/materializar_generados.py y lo guarda. Mientras lo
+  generado siga versionado, un acierto restaura lo mismo que ya trae el checkout; tras el corte (fase 5 de
+  docs/arquitectura-catalogo) es lo único que lo produce.
+outputs:
+  cache-hit:
+    description: true si vino de la caché
+    value: ${{ steps.restore.outputs.cache-hit }}
+runs:
+  using: composite
+  steps:
+    - id: restore
+      uses: actions/cache/restore@v5
+      with:
+        path: |
+          recomendaciones
+          editoriales
+          editoriales-sitemap.xml
+          sitemap*.xml
+          mapa-del-sitio/index.html
+          assets/page-order.generated.js
+          pagefind
+          data/content-registry.json
+        key: generados-v1-${{ hashFiles('data/**', 'scripts/build-*.py', 'scripts/site_shell.py', 'scripts/reading*.py', 'scripts/templates/**', 'scripts/materializar_generados.py', '**/*.html.tmpl') }}
+    - if: steps.restore.outputs.cache-hit != 'true'
+      shell: bash
+      run: python3 scripts/materializar_generados.py --solo-construir
+    - if: steps.restore.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v5
+      with:
+        path: |
+          recomendaciones
+          editoriales
+          editoriales-sitemap.xml
+          sitemap*.xml
+          mapa-del-sitio/index.html
+          assets/page-order.generated.js
+          pagefind
+          data/content-registry.json
+        key: ${{ steps.restore.outputs.cache-primary-key }}

@@ -13,11 +13,14 @@ allí ya estaba roto y no bloquea este cambio.
 Salida: 0 sin fallos nuevos, 1 con fallos nuevos, 2 si algo agotó el tiempo y queda sin verificar.
 """
 import argparse
+import hashlib
 import os
 import re
 import shutil
 import subprocess
 import sys
+import tempfile
+import threading
 import time
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -122,6 +125,37 @@ def collect(changed, everything):
     return list(commands.values())
 
 
+def referencias(stem):
+    """Ficheros versionados que nombran un script (con guion o guion bajo), sin contar docs ni informes."""
+    names = {stem, stem.replace('-', '_'), stem.replace('_', '-')}
+    out = subprocess.run(['git', 'grep', '-l', '-F', *[a for n in names for a in ('-e', n)]], cwd=ROOT,
+                         text=True, capture_output=True, encoding='utf-8').stdout
+    return {f for f in out.splitlines() if not f.endswith('.md') and not f.startswith(('docs/', '.ci/'))}
+
+
+def scoped(changed, refs=referencias):
+    """Comandos mínimos cuando todo lo cambiado es un script suelto y sus tests; None si hay que correr el CI entero.
+
+    Un script de scripts/ que no nombra ningún workflow, builder, QA ni otro script solo puede romper sus propios
+    tests: correr los 500 comandos de la vía completa por él solo alarga el ciclo de cambio.
+    """
+    scripts = [f for f in changed if re.fullmatch(r'scripts/[\w.-]+\.py', f)]
+    tests = {f for f in changed if re.fullmatch(r'tests/test[_-][\w.-]+\.py', f)}
+    if not changed or len(scripts) + len(tests) != len(changed):
+        return None
+    for script in scripts:
+        users = refs(Path(script).stem) - set(changed) - {script}
+        if any(not u.startswith('tests/') for u in users):
+            return None
+        tests |= {u for u in users if re.fullmatch(r'tests/test[_-][\w.-]+\.py', u)}
+    commands = [(f'python -m py_compile {s}', {}, 'alcance') for s in sorted(scripts)]
+    for t in sorted(tests):
+        name = Path(t).name
+        command = f'python -m unittest discover -s tests -p {name}' if name.startswith('test_') else f'python {t}'
+        commands.append((command, {}, 'alcance'))
+    return commands
+
+
 def busy_ports():
     """En Windows http.server usa SO_REUSEADDR: un servidor previo en el puerto contestaría por el nuestro."""
     busy = []
@@ -134,25 +168,122 @@ def busy_ports():
     return busy
 
 
-def serve(root):
-    if busy_ports():
-        raise SystemExit(f'Puertos ocupados por otro servidor: {busy_ports()}; ciérralo antes de la puerta.')
-    procs = [subprocess.Popen([sys.executable, '-m', 'http.server', str(port), '--bind', '127.0.0.1'], cwd=root,
-                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) for port in PORTS]
-    for port in PORTS:
+# `python -m http.server` escucha con una cola de 5 conexiones: con varias pruebas de navegador a la vez, Windows
+# rechaza el resto (ERR_CONNECTION_REFUSED) aunque el proceso siga vivo. 10/11: 40 pruebas caídas en 3 s.
+SERVER_CODE = ('import sys, http.server as h\n'
+               'class S(h.ThreadingHTTPServer):\n'
+               '    request_queue_size = 512\n'
+               '    daemon_threads = True\n'
+               'S(("127.0.0.1", int(sys.argv[1])), h.SimpleHTTPRequestHandler).serve_forever()\n')
+
+
+class Servers:
+    """Los servidores 4173/4175 de la QA de navegador, vigilados.
+
+    Si uno muere a mitad de la puerta, cada prueba posterior daba ERR_CONNECTION_REFUSED y contaba como fallo de la
+    rama (30 «fallos» falsos el 9/11). Ahora su salida va a .local/local-ci/server-<puerto>.log, antes de cada prueba se
+    comprueba que contestan y, si alguno cayó, se relanza.
+    """
+
+    def __init__(self, root, lock_path=None):
+        # lock_path: los tests usan uno propio; con el de la máquina esperarían a la puerta que los ejecuta.
+        self.root, self.procs, self.lock = root, {}, threading.Lock()
+        self.lock_path = lock_path
+        self.logs = ROOT / '.local/local-ci'
+        self.logs.mkdir(parents=True, exist_ok=True)
+        self.restarts = 0
+
+    def start(self, port):
+        log = open(self.logs / f'server-{port}.log', 'a', encoding='utf-8')
+        self.procs[port] = subprocess.Popen([sys.executable, '-c', SERVER_CODE, str(port)],
+                                            cwd=self.root, stdout=log, stderr=subprocess.STDOUT)
         for _ in range(50):
-            try:
-                urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=2)
-                break
-            except OSError:
-                time.sleep(0.2)
-    return procs
+            if self.alive(port):
+                return
+            time.sleep(0.2)
+
+    @staticmethod
+    def alive(port):
+        try:
+            urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=5)
+            return True
+        except OSError:
+            return False
+
+    def __enter__(self):
+        self.lock_file = ports_lock(self.lock_path or PORTS_LOCK)
+        if busy_ports():
+            release(self.lock_file)
+            raise SystemExit(f'Puertos ocupados por otro servidor: {busy_ports()}; ciérralo antes de la puerta.')
+        for port in PORTS:
+            self.start(port)
+        return self
+
+    def ensure(self):
+        with self.lock:
+            for port in PORTS:
+                proc = self.procs.get(port)
+                if proc is None or proc.poll() is not None or not self.alive(port):
+                    code = None if proc is None else proc.poll()
+                    print(f'  servidor {port} caído (salida {code}); se relanza', flush=True)
+                    if proc is not None and proc.poll() is None:
+                        kill_tree(proc)
+                    self.restarts += 1
+                    self.start(port)
+
+    def __exit__(self, *exc):
+        try:
+            for proc in self.procs.values():
+                proc.terminate()
+                proc.wait()
+        finally:
+            release(self.lock_file)
 
 
-def stop(procs):
-    for proc in procs:
-        proc.terminate()
-        proc.wait()
+PORTS_LOCK = Path(tempfile.gettempdir()) / 'web-escritor-local-ci-ports.lock'
+
+
+def ports_lock(path=PORTS_LOCK, wait=3 * 3600):
+    """Cerrojo de máquina sobre los puertos 4173/4175.
+
+    Dos puertas a la vez (la de la autorreparación y otra a mano, en worktrees distintos) compartían los puertos: en
+    Windows http.server usa SO_REUSEADDR, así que la segunda no veía el puerto ocupado y, al cerrar sus servidores,
+    tumbaba los de la otra. Ahora la segunda espera su turno.
+    """
+    handle = open(path, 'a+b')
+    start, said = time.time(), False
+    while True:
+        try:
+            if os.name == 'nt':
+                import msvcrt
+                handle.seek(0)
+                msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+            else:
+                import fcntl
+                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            return handle
+        except OSError:
+            if time.time() - start > wait:
+                handle.close()
+                raise SystemExit('Otra puerta local lleva más de 3 h con los puertos de QA; revísala.')
+            if not said:
+                print('Otra puerta local usa los puertos de QA: espero mi turno…', flush=True)
+                said = True
+            time.sleep(5)
+
+
+def release(handle):
+    try:
+        if os.name == 'nt':
+            import msvcrt
+            handle.seek(0)
+            msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+        else:
+            import fcntl
+            fcntl.flock(handle, fcntl.LOCK_UN)
+    except OSError:
+        pass
+    handle.close()
 
 
 def kill_tree(proc):
@@ -163,8 +294,19 @@ def kill_tree(proc):
         os.killpg(proc.pid, 9)
 
 
+def private_dist(command, root):
+    """Carpeta de distribución propia para cada comando. Tres pruebas comparten por defecto .preview-dist-sitewide-qa:
+    una la borra al acabar y las otras la construyen solo si no existe, así que en paralelo leían un sitio a medias
+    (10/11: «llms.txt missing», 236 fallos del contrato, Traceback)."""
+    key = hashlib.sha1(f'{Path(root).resolve()}|{command}'.encode()).hexdigest()[:12]
+    return Path(tempfile.gettempdir()) / 'local-ci-dist' / key
+
+
 def run_one(command, env, root, timeout=TIMEOUT):
     start = time.time()
+    dist = private_dist(command, root)
+    shutil.rmtree(dist, ignore_errors=True)
+    env = {'SITEWIDE_DIST': str(dist), **env}
     proc = subprocess.Popen([BASH, '-c', command], cwd=root, env={**os.environ, 'PYTHONUTF8': '1', **env}, stdout=subprocess.PIPE,
                             stderr=subprocess.STDOUT, text=True, encoding='utf-8', errors='replace',
                             start_new_session=os.name != 'nt')
@@ -175,21 +317,33 @@ def run_one(command, env, root, timeout=TIMEOUT):
         kill_tree(proc)
         output, _ = proc.communicate()
         code, output = 124, f'sin terminar en {timeout} s\n{output}'
+    shutil.rmtree(dist, ignore_errors=True)
+    Path(f'{dist}-manifest.json').unlink(missing_ok=True)
     return code, output, time.time() - start
 
 
 def needs_server(items):
     """Solo la QA de navegador (node) o lo que cite los puertos usa los servidores: el resto corre sin ellos."""
-    return any(re.search(r'(^|[\s/])node|417[35]', command) for command, *_ in items)
+    return any(re.search(r'(^|[\s/])node|417[35]', command) for command, *_ in items)
 
 
 def run_all(items, root, jobs, timeout=TIMEOUT):
-    procs = serve(root) if needs_server(items) else []
-    try:
+    if not needs_server(items):
         with ThreadPoolExecutor(jobs) as pool:
-            results = list(pool.map(lambda item: run_one(item[0], item[1], root, timeout), items))
-    finally:
-        stop(procs)
+            return list(pool.map(lambda item: run_one(item[0], item[1], root, timeout), items))
+    with Servers(root) as servers:
+        def one(item):
+            servers.ensure()
+            res = run_one(item[0], item[1], root, timeout)
+            # Si el servidor cayó durante la prueba, el fallo es del entorno: se repite una vez con él relanzado.
+            if res[0] != 0 and 'ERR_CONNECTION_REFUSED' in res[1]:
+                servers.ensure()
+                res = run_one(item[0], item[1], root, timeout)
+            return res
+        with ThreadPoolExecutor(jobs) as pool:
+            results = list(pool.map(one, items))
+        if servers.restarts:
+            print(f'Servidores relanzados {servers.restarts} vez/veces; causa en .local/local-ci/server-*.log', flush=True)
     return results
 
 
@@ -198,10 +352,23 @@ def failure_line(output):
     return (lines or output.strip().splitlines()[-1:] or [''])[0].strip()[:200]
 
 
+# Fallos del entorno, no del código: un paquete o módulo que no está instalado. Si fallan igual en main no prueban
+# nada (los dos lados están ciegos). El 10/11, un venv a medio crear y un worktree sin node_modules dieron
+# «0 fallos nuevos» con 27 comprobaciones sin correr de verdad.
+ENVIRONMENT = re.compile(r"ModuleNotFoundError|No module named|Cannot find (module|package)|ERR_MODULE_NOT_FOUND"
+                         r"|npx canceled due to missing packages|Executable doesn't exist|is not recognized as an internal")
+
+
+def environment_failure(output):
+    return bool(ENVIRONMENT.search(output))
+
+
 def same_failure(branch, main):
-    """Main falla igual: mismo error, sin contar números ni rutas. Un tiempo agotado no prueba nada."""
+    """Main falla igual: mismo error, sin contar números ni rutas. Un tiempo agotado no prueba nada, y un fallo del
+    entorno tampoco."""
     norm = lambda res: re.sub(r'\d+|/tmp/\S+|[A-Za-z]:[\\/]\S+', '#', failure_line(res[1]))
-    return main[0] != 0 and 124 not in (branch[0], main[0]) and norm(branch) == norm(main)
+    return (main[0] != 0 and 124 not in (branch[0], main[0]) and not environment_failure(branch[1])
+            and norm(branch) == norm(main))
 
 
 def baseline_tree():
@@ -211,12 +378,34 @@ def baseline_tree():
     git('reset', '-q', '--hard', 'origin/main', cwd=tree)
     modules = tree / 'node_modules'
     if (ROOT / 'node_modules').exists() and not modules.exists():
-        if os.name == 'nt':
-            subprocess.run(['cmd', '/c', 'mklink', '/J', str(modules), str(ROOT / 'node_modules')], check=True,
-                           stdout=subprocess.DEVNULL)
-        else:
-            modules.symlink_to(ROOT / 'node_modules')
+        enlazar(modules, ROOT / 'node_modules')
     return tree
+
+
+def enlazar(dst, src):
+    if os.name == 'nt':
+        subprocess.run(['cmd', '/c', 'mklink', '/J', str(dst), str(src)], check=True, stdout=subprocess.DEVNULL)
+    else:
+        dst.symlink_to(src)
+
+
+def node_modules_listos(root=None):
+    """Un worktree nuevo no trae node_modules: sin esto, todo test de navegador cae en el import (2026-11-09, 13
+    comandos «MAL 0s» en la rama y en main). Se enlazan los del checkout principal si el lock coincide; si no, npm ci."""
+    root = Path(root or ROOT)
+    if (root / 'node_modules').exists() or not (root / 'package-lock.json').exists():
+        return
+    common = subprocess.run(['git', 'rev-parse', '--path-format=absolute', '--git-common-dir'], cwd=root,
+                            capture_output=True, text=True, check=True).stdout.strip()
+    principal = Path(common).parent
+    lock = principal / 'package-lock.json'
+    if (principal / 'node_modules').exists() and lock.exists() and \
+            lock.read_bytes() == (root / 'package-lock.json').read_bytes():
+        print(f'Enlazando node_modules de {principal}', flush=True)
+        enlazar(root / 'node_modules', principal / 'node_modules')
+    else:
+        print('Instalando node_modules (npm ci)…', flush=True)
+        subprocess.run('npm ci --no-audit --no-fund', cwd=root, shell=True, check=True)
 
 
 def ci_python():
@@ -229,10 +418,15 @@ def ci_python():
     digest = hashlib.sha256(reqs.read_bytes()).hexdigest()[:12]
     venv = ROOT / '.local/local-ci' / f'venv-{digest}'
     exe = venv / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
-    if not exe.exists():
+    # La marca se escribe solo tras un pip install completo: un entorno a medias (puerta cortada durante la
+    # instalación, 2026-11-09) tenía python.exe sin Pillow y hacía fallar 28 comandos en la rama y en main.
+    listo = venv / '.instalado'
+    if not listo.exists():
         print(f'Creando el entorno del CI ({venv.name})…', flush=True)
+        shutil.rmtree(venv, ignore_errors=True)
         subprocess.run([sys.executable, '-m', 'venv', str(venv)], check=True)
         subprocess.run([str(exe), '-m', 'pip', 'install', '-q', '-r', str(reqs)], check=True)
+        listo.write_text(digest, encoding='utf-8')
     return exe.as_posix()
 
 
@@ -266,7 +460,11 @@ def main(argv=None):
     base = git('merge-base', 'HEAD', 'origin/main')
     changed = set(git('diff', '--name-only', base).splitlines())
     changed |= {l[3:] for l in git('status', '--porcelain', '--untracked-files=all').splitlines() if l}
-    items = collect(changed, args.all)
+    items = None if args.all else scoped(changed)
+    if items is not None:
+        print('Solo scripts sueltos y sus tests: puerta por alcance (el CI de GitHub sigue corriendo todo)')
+    else:
+        items = collect(changed, args.all)
     if args.only:
         items = [i for i in items if args.only in i[0]]
     print(f'{len(changed)} ficheros cambiados; {len(items)} comandos de CI', flush=True)
@@ -275,10 +473,12 @@ def main(argv=None):
             print(f'  {flow}: {command}')
         return 0
 
-    if any('--unittest-shard' in command for command, *_ in items):
+    venv = ('python scripts/local-ci.py --unittest-shard', 'python -m unittest discover -s tests -p ')
+    if any(command.startswith(venv) for command, *_ in items):
         py = ci_python()
-        items = [(c.replace('python scripts/local-ci.py --unittest-shard', f'"{py}" scripts/local-ci.py --unittest-shard'),
-                  e, f) for c, e, f in items]
+        items = [(f'"{py}"' + c[len('python'):] if c.startswith(venv) else c, e, f) for c, e, f in items]
+    if any(command.startswith('node ') for command, *_ in items):
+        node_modules_listos()
     results = run_all(items, ROOT, args.jobs, args.timeout)
     failed = [(item, res) for item, res in zip(items, results) if res[0] != 0]
     for (command, _, flow), (code, _, secs) in zip(items, results):

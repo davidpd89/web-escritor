@@ -8,7 +8,9 @@ fallaba, perdía el lote. Aquí van solo los contratos que leen data/reading-cat
 valida cada libro al construir; esto cubre lo que se ve entre páginas.
 
     python scripts/check-reading-data.py
+    python scripts/check-reading-data.py --fallos f.json   # además deja los fallos en JSON (la carga aparta sus libros)
 """
+import json
 import sys
 import time
 import unittest
@@ -41,6 +43,10 @@ def main():
     suite = unittest.defaultTestLoader.loadTestsFromNames(contracts())
     result = unittest.TextTestRunner(verbosity=1).run(suite)
     print(f'datos del catálogo: {result.testsRun} contratos en {time.monotonic() - start:.0f}s')
+    if '--fallos' in sys.argv:
+        path = Path(sys.argv[sys.argv.index('--fallos') + 1])
+        path.write_text(json.dumps([{'test': test.id(), 'texto': text} for test, text in result.failures + result.errors],
+                                   ensure_ascii=False, indent=1), encoding='utf-8')
     return 0 if result.wasSuccessful() else 1
 
 

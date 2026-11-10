@@ -89,10 +89,14 @@ def decidir(run: dict | None, previo: dict | None, ahora: dt.datetime, intentos_
     return 'reparar'
 
 
+CARGA_PERDIDA_DESDE_H = 1  # UTC; el cron es a las 00:17
+
+
 def carga_perdida(ultima: dict | None, ahora: dt.datetime, lanzada_hoy: bool) -> bool:
     """El cron de la carga (00:17 UTC) no llegó a crear ejecución: GitHub a veces se salta crons, sobre todo en
-    incidencias. A partir de las 02:00 UTC, si hoy no hay ninguna carga, se lanza una (una vez al día)."""
-    if lanzada_hoy or ahora.hour < 2:
+    incidencias. A partir de las 01:00 UTC, si hoy no hay ninguna carga, se lanza una (una vez al día). Con 02:00 la
+    carga del 2026-11-10 no salió hasta la pasada de las 02:20 UTC: una hora menos de margen hasta las 06:00 Madrid."""
+    if lanzada_hoy or ahora.hour < CARGA_PERDIDA_DESDE_H:
         return False
     if not ultima:
         return True
@@ -252,7 +256,10 @@ def puerta_local(wt):
     salida = (r.stdout or '') + (r.stderr or '')
     m = re.search(r'(\d+) fallos? nuevos?', salida)
     nuevos = int(m.group(1)) if m else (0 if r.returncode == 0 else 1)
-    return nuevos == 0, salida[-3000:]
+    # Lo útil son las secciones «## comando» de cada fallo nuevo y el recuento final; la cola cruda las cortaba.
+    fallos = re.findall(r'^## .*\n.*', salida, re.M)
+    resumen = '\n'.join(fallos + salida.strip().splitlines()[-1:])
+    return nuevos == 0, resumen[-3000:]
 
 
 def reparar(flujo, run, dry):
@@ -286,7 +293,7 @@ def reparar(flujo, run, dry):
                 log(f"{flujo}: {nombre} rechazado ({motivo})"); sh(['git', 'reset', '-q'], cwd=wt); deshacer(wt); continue
             pasa, salida_puerta = puerta_local(wt)
             if not pasa:
-                log(f"{flujo}: {nombre} no pasa la puerta local:\n{salida_puerta[-800:]}"); sh(['git', 'reset', '-q'], cwd=wt); deshacer(wt); continue
+                log(f"{flujo}: {nombre} no pasa la puerta local:\n{salida_puerta[-1500:]}"); sh(['git', 'reset', '-q'], cwd=wt); deshacer(wt); continue
             titulo = (resumen.splitlines() or [f'Reparar {flujo}'])[0].lstrip('# ').strip()[:90] or f'Reparar {flujo}'
             cuerpo = '\n'.join(resumen.splitlines()[1:]).strip()
             mensaje = f"{titulo}\n\nReparación automática del turno de noche ({nombre}) tras dos fallos de {flujo}.\n{run['url']}\n\n{cuerpo}".strip()
@@ -377,6 +384,10 @@ def pasada(dry=False, solo=None):
 
 
 def main():
+    # La tarea redirige la salida a salida.log con la página de códigos de Windows: un «→» tumbaba la pasada
+    # ('charmap' codec, 2026-11-09/10, en cada intento con Telegram).
+    for flujo in (sys.stdout, sys.stderr):
+        flujo.reconfigure(encoding='utf-8', errors='replace')
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument('--dry-run', action='store_true')
     ap.add_argument('--solo')
