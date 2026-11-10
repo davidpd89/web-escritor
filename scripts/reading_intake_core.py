@@ -165,15 +165,21 @@ _QUOTE = re.compile(r"^\s*[«“\"][^»”\"]{1,240}[»”\"]\s*")
 
 
 def _is_shout(word: str) -> bool:
+    """Palabra en mayúsculas: todas sus letras lo son, aunque lleve signos dentro (FILOSOFÍA&CO, L'ESPRIT, AC/DC).
+    Es la misma idea que la comprobación del catálogo publicado (test_reading_editorial_shouting); antes `_SHOUT_WORD`
+    no admitía signos internos y una sinopsis así llegaba a la comprobación y tumbaba la carga (10/11)."""
     letters = [ch for ch in word if ch.isalpha()]
-    return bool(_SHOUT_WORD.match(word)) and all(ch.isupper() for ch in letters)
+    if not letters:
+        return bool(_SHOUT_WORD.match(word))   # números sueltos («2024») siguen contando
+    return all(ch.isupper() for ch in letters)
 
 
 def strip_shouting(text: str) -> str:
     """Quita el marketing editorial pegado al inicio de un párrafo —titulares en mayúsculas
     de 3+ palabras y citas de prensa con su atribución— y pasa a minúscula los titulares que
     quedan dentro del texto («criar en EQUIPO DE VERDAD» → «criar en equipo de verdad»).
-    Si limpiar dejara menos de 10 palabras, devuelve el original."""
+    Si quitar el titular dejara menos de 10 palabras, conserva el texto entero pero con esos tramos
+    en minúscula: ninguna salida empieza gritando, sea cual sea la entrada."""
     words = clean_title(text).split(" ")
 
     def run_end(i):
@@ -199,7 +205,15 @@ def strip_shouting(text: str) -> str:
             j += 1
         if j > i and (j == len(words) or run_end(j) > j):
             i = j
-    rest = words[i:]
+    out = _lower_shouted_runs(words[i:])
+    if len(out) >= 10:
+        return " ".join(out)
+    # Quitar el titular dejaría el texto en nada: se conserva entero, pero nunca en mayúsculas.
+    return " ".join(_lower_shouted_runs(words))
+
+
+def _lower_shouted_runs(rest: list[str]) -> list[str]:
+    """Pasa a minúscula (con mayúscula inicial de frase) cada tramo de 3+ palabras en mayúsculas."""
     out, k = [], 0
     while k < len(rest):
         end = k
@@ -207,8 +221,10 @@ def strip_shouting(text: str) -> str:
             end += 1
         if sum(any(ch.isalpha() for ch in w) for w in rest[k:end]) >= 3:
             chunk = [w.lower() for w in rest[k:end]]
-            if not out or out[-1][-1:] in ".!?»":
-                chunk[0] = re.sub(r"^(\W*)(\w)", lambda m: m.group(1) + m.group(2).upper(), chunk[0])
+            for at, word in enumerate(chunk):   # mayúscula de frase al empezar y tras cada punto del tramo
+                before = chunk[at - 1] if at else (out[-1] if out else "")
+                if not before or before[-1:] in ".!?»":
+                    chunk[at] = re.sub(r"^(\W*)(\w)", lambda m: m.group(1) + m.group(2).upper(), word)
             if end < len(rest) and rest[end][:1].isupper() and chunk[-1][-1:].isalnum():
                 chunk[-1] += "."
             out.extend(chunk)
@@ -216,8 +232,7 @@ def strip_shouting(text: str) -> str:
         else:
             out.append(rest[k])
             k += 1
-    cleaned = " ".join(out)
-    return cleaned if len(out) >= 10 else clean_title(text)
+    return out
 
 
 def isbn13(value: str) -> str | None:

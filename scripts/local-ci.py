@@ -13,6 +13,7 @@ allí ya estaba roto y no bloquea este cambio.
 Salida: 0 sin fallos nuevos, 1 con fallos nuevos, 2 si algo agotó el tiempo y queda sin verificar.
 """
 import argparse
+import hashlib
 import os
 import re
 import shutil
@@ -167,6 +168,15 @@ def busy_ports():
     return busy
 
 
+# `python -m http.server` escucha con una cola de 5 conexiones: con varias pruebas de navegador a la vez, Windows
+# rechaza el resto (ERR_CONNECTION_REFUSED) aunque el proceso siga vivo. 10/11: 40 pruebas caídas en 3 s.
+SERVER_CODE = ('import sys, http.server as h\n'
+               'class S(h.ThreadingHTTPServer):\n'
+               '    request_queue_size = 512\n'
+               '    daemon_threads = True\n'
+               'S(("127.0.0.1", int(sys.argv[1])), h.SimpleHTTPRequestHandler).serve_forever()\n')
+
+
 class Servers:
     """Los servidores 4173/4175 de la QA de navegador, vigilados.
 
@@ -185,7 +195,7 @@ class Servers:
 
     def start(self, port):
         log = open(self.logs / f'server-{port}.log', 'a', encoding='utf-8')
-        self.procs[port] = subprocess.Popen([sys.executable, '-m', 'http.server', str(port), '--bind', '127.0.0.1'],
+        self.procs[port] = subprocess.Popen([sys.executable, '-c', SERVER_CODE, str(port)],
                                             cwd=self.root, stdout=log, stderr=subprocess.STDOUT)
         for _ in range(50):
             if self.alive(port):
@@ -284,8 +294,19 @@ def kill_tree(proc):
         os.killpg(proc.pid, 9)
 
 
+def private_dist(command, root):
+    """Carpeta de distribución propia para cada comando. Tres pruebas comparten por defecto .preview-dist-sitewide-qa:
+    una la borra al acabar y las otras la construyen solo si no existe, así que en paralelo leían un sitio a medias
+    (10/11: «llms.txt missing», 236 fallos del contrato, Traceback)."""
+    key = hashlib.sha1(f'{Path(root).resolve()}|{command}'.encode()).hexdigest()[:12]
+    return Path(tempfile.gettempdir()) / 'local-ci-dist' / key
+
+
 def run_one(command, env, root, timeout=TIMEOUT):
     start = time.time()
+    dist = private_dist(command, root)
+    shutil.rmtree(dist, ignore_errors=True)
+    env = {'SITEWIDE_DIST': str(dist), **env}
     proc = subprocess.Popen([BASH, '-c', command], cwd=root, env={**os.environ, 'PYTHONUTF8': '1', **env}, stdout=subprocess.PIPE,
                             stderr=subprocess.STDOUT, text=True, encoding='utf-8', errors='replace',
                             start_new_session=os.name != 'nt')
@@ -296,6 +317,8 @@ def run_one(command, env, root, timeout=TIMEOUT):
         kill_tree(proc)
         output, _ = proc.communicate()
         code, output = 124, f'sin terminar en {timeout} s\n{output}'
+    shutil.rmtree(dist, ignore_errors=True)
+    Path(f'{dist}-manifest.json').unlink(missing_ok=True)
     return code, output, time.time() - start
 
 
@@ -329,10 +352,23 @@ def failure_line(output):
     return (lines or output.strip().splitlines()[-1:] or [''])[0].strip()[:200]
 
 
+# Fallos del entorno, no del código: un paquete o módulo que no está instalado. Si fallan igual en main no prueban
+# nada (los dos lados están ciegos). El 10/11, un venv a medio crear y un worktree sin node_modules dieron
+# «0 fallos nuevos» con 27 comprobaciones sin correr de verdad.
+ENVIRONMENT = re.compile(r"ModuleNotFoundError|No module named|Cannot find (module|package)|ERR_MODULE_NOT_FOUND"
+                         r"|npx canceled due to missing packages|Executable doesn't exist|is not recognized as an internal")
+
+
+def environment_failure(output):
+    return bool(ENVIRONMENT.search(output))
+
+
 def same_failure(branch, main):
-    """Main falla igual: mismo error, sin contar números ni rutas. Un tiempo agotado no prueba nada."""
+    """Main falla igual: mismo error, sin contar números ni rutas. Un tiempo agotado no prueba nada, y un fallo del
+    entorno tampoco."""
     norm = lambda res: re.sub(r'\d+|/tmp/\S+|[A-Za-z]:[\\/]\S+', '#', failure_line(res[1]))
-    return main[0] != 0 and 124 not in (branch[0], main[0]) and norm(branch) == norm(main)
+    return (main[0] != 0 and 124 not in (branch[0], main[0]) and not environment_failure(branch[1])
+            and norm(branch) == norm(main))
 
 
 def baseline_tree():

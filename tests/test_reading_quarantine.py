@@ -86,6 +86,53 @@ class QuarantineTest(unittest.TestCase):
         self.assertIn('igual que', out[0]['motivo'])
         self.assertEqual(clean, DATA)
 
+    def test_book_flagged_by_a_data_contract_leaves_the_batch(self):
+        # 10/11: una sinopsis gritada falló en check-reading-data, fuera de la validación, y tumbó la carga entera.
+        before, book, cats = without(0)
+        clean, out = q.isolate(copy.deepcopy(DATA), ROOT, before, flagged={book['id']: 'contrato de datos x: sinopsis gritada'})
+        self.assertEqual([h['libro']['id'] for h in out], [book['id']])
+        self.assertIn('sinopsis gritada', out[0]['motivo'])
+        self.assertEqual(clean, before)
+
+    def test_flagged_published_book_without_changes_is_a_rule_problem(self):
+        with self.assertRaises(q.build.ValidationError):
+            q.isolate(DATA, ROOT, DATA, flagged={DATA['libros'][0]['id']: 'x'})
+
+    def test_flagged_books_only_when_every_failure_names_a_book(self):
+        book_id = DATA['libros'][0]['id']
+        failures = [{'test': 'test_reading_editorial_shouting.PublishedCatalogueTests.test_no_meta',
+                     'texto': f"Traceback...\nAssertionError: <re.Match> is not None : ('{book_id}', 'FILOSOFÍA&CO ESPECIAL')"}]
+        named = q.flagged_books(failures, DATA)
+        self.assertEqual(list(named), [book_id])
+        self.assertIn('test_no_meta', named[book_id])
+        self.assertIsNone(q.flagged_books(failures + [{'test': 't.x', 'texto': 'ImportError: no module'}], DATA))
+
+    def test_data_check_writes_its_failures_for_the_intake(self):
+        """check-reading-data --fallos deja cada fallo con su texto: de ahí la carga saca los libros a apartar."""
+        import importlib.util
+        from unittest import mock
+        spec = importlib.util.spec_from_file_location('check_reading_data', ROOT / 'scripts/check-reading-data.py')
+        check = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(check)
+        book_id = DATA['libros'][0]['id']
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, 'contrato_falso.py').write_text('\n'.join([
+                'import unittest',
+                'class T(unittest.TestCase):',
+                '    def test_x(self):',
+                f'        self.fail("({book_id!r}, TEXTO GRITADO)")',
+                '']), encoding='utf-8')
+            out = Path(tmp) / 'fallos.json'
+            sys.path.insert(0, tmp)
+            try:
+                with mock.patch.object(check, 'contracts', lambda: ['contrato_falso']), \
+                        mock.patch.object(sys, 'argv', ['check', '--fallos', str(out)]):
+                    self.assertEqual(check.main(), 1)
+            finally:
+                sys.path.remove(tmp)
+            failures = json.loads(out.read_text(encoding='utf-8'))
+        self.assertEqual(list(q.flagged_books(failures, DATA)), [book_id])
+
     def test_restore_cover_brings_back_the_published_file(self):
         import subprocess
         with tempfile.TemporaryDirectory() as tmp:

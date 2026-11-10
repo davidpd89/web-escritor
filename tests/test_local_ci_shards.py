@@ -129,5 +129,44 @@ class CerrojoDePuertos(unittest.TestCase):
             local_ci.release(local_ci.ports_lock(path, wait=0))
 
 
+class EntornoCiego(unittest.TestCase):
+    """10/11: venv sin Pillow ni requests y worktree sin node_modules → 27 comprobaciones «ya fallan en main»."""
+
+    def test_el_servidor_aguanta_muchas_conexiones_a_la_vez(self):
+        import socket, tempfile
+        from concurrent.futures import ThreadPoolExecutor
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, 'index.html').write_text('ok', encoding='utf-8')
+            with socket.socket() as probe:
+                probe.bind(('127.0.0.1', 0))
+                port = probe.getsockname()[1]
+            old = local_ci.PORTS
+            local_ci.PORTS = (port,)
+            try:
+                with local_ci.Servers(tmp, lock_path=Path(tmp) / 'ports.lock'):
+                    fetch = lambda _: local_ci.urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=20).status
+                    with ThreadPoolExecutor(64) as pool:
+                        self.assertEqual(set(pool.map(fetch, range(400))), {200})
+            finally:
+                local_ci.PORTS = old
+
+    def test_cada_comando_construye_su_propia_distribucion(self):
+        a = local_ci.private_dist('node tests/test-seo-discoverability-smoke.mjs', ROOT)
+        b = local_ci.private_dist('node qa/sitewide-console-errors-browser.mjs', ROOT)
+        self.assertNotEqual(a, b)
+        code, output, _ = local_ci.run_one('echo "$SITEWIDE_DIST"', {}, ROOT)
+        self.assertEqual(output.strip().replace('\\', '/'), str(local_ci.private_dist('echo "$SITEWIDE_DIST"', ROOT)).replace('\\', '/'))
+
+    def test_un_fallo_del_entorno_no_se_da_por_conocido_aunque_main_falle_igual(self):
+        for output in ("ModuleNotFoundError: No module named 'PIL'",
+                       "Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'playwright'",
+                       'npm error npx canceled due to missing packages and no YES option: ["pagefind@1.6.0"]'):
+            self.assertFalse(local_ci.same_failure((1, output, 0), (1, output, 0)), output)
+
+    def test_un_fallo_real_igual_en_main_sigue_siendo_conocido(self):
+        output = 'AssertionError: 3 != 4'
+        self.assertTrue(local_ci.same_failure((1, output, 0), (1, output, 0)))
+
+
 if __name__ == '__main__':
     unittest.main()
