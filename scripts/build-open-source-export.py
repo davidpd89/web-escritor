@@ -196,7 +196,7 @@ def main():
     if a.output.exists(): shutil.rmtree(a.output)
     a.output.mkdir(parents=True)
     records=[]
-    (a.output/'README.md').write_text(root_readme(d,tools),encoding='utf-8')
+    (a.output/'README.md').write_text(root_readme(d,tools),encoding='utf-8', newline="\n")
     for t,files,test_files in tools:
         dst=a.output/'tools'/t['slug'];dst.mkdir(parents=True)
         resolved_to_flatname={f.resolve():Path(rel).name for rel,f in files}
@@ -209,18 +209,18 @@ def main():
                 name=Path(rel).name
                 text=tf.read_text(encoding='utf-8')
                 rewritten=rewrite_local_imports(text,tf.parent,resolved_to_flatname)
-                out=tests_dst/name;out.write_text(rewritten,encoding='utf-8')
+                out=tests_dst/name;out.write_text(rewritten,encoding='utf-8', newline="\n")
                 records.append({'path':str(out.relative_to(a.output)),'sha256':sha256(out)})
                 test_names.append(name)
-        (dst/'README.md').write_text(tool_readme(t,test_names),encoding='utf-8')
+        (dst/'README.md').write_text(tool_readme(t,test_names),encoding='utf-8', newline="\n")
     notices=[]
     for t,_,_ in tools:
         for n in t.get('third_party',[]): notices.append(f'{t["slug"]}: {n}')
-    (a.output/'THIRD_PARTY_NOTICES.md').write_text('# Third-party notices\n\n'+('\n'.join(f'- {x}' for x in notices) if notices else 'Ninguno declarado.')+'\n',encoding='utf-8')
+    (a.output/'THIRD_PARTY_NOTICES.md').write_text('# Third-party notices\n\n'+('\n'.join(f'- {x}' for x in notices) if notices else 'Ninguno declarado.')+'\n',encoding='utf-8', newline="\n")
     if d.get('license') is None:
-        (a.output/'LICENSE-REQUIRED.txt').write_text('No publicar este staging como open source hasta elegir y añadir una licencia explícita (recomendación a decidir: MIT o Apache-2.0).\n',encoding='utf-8')
+        (a.output/'LICENSE-REQUIRED.txt').write_text('No publicar este staging como open source hasta elegir y añadir una licencia explícita (recomendación a decidir: MIT o Apache-2.0).\n',encoding='utf-8', newline="\n")
     export={'repository':d['repository_name'],'license':d.get('license'),'tools':[t['slug'] for t,_,_ in tools],'files':records}
-    (a.output/'EXPORT-MANIFEST.json').write_text(json.dumps(export,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    (a.output/'EXPORT-MANIFEST.json').write_text(json.dumps(export,ensure_ascii=False,indent=2)+'\n',encoding='utf-8', newline="\n")
     print(f'GENERATED: {len(tools)} herramientas, {len(records)} archivos')
     return 0
 if __name__=='__main__':

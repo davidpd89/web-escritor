@@ -4,6 +4,9 @@
 Scans tracked files for patterns likely to be API keys (sk-..., sk-proj-...)
 and reports redacted matches. Intended for manual use before commits.
 """
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import re
 import subprocess
 import sys
@@ -22,7 +25,7 @@ patterns = [
 ]
 
 def git_tracked_files():
-    p = subprocess.run(['git', 'ls-files'], capture_output=True, text=True)
+    p = arbol_publicado.run(['git', 'ls-files'], capture_output=True, text=True)
     return p.stdout.splitlines()
 
 def scan_file(path):

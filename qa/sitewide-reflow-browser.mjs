@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { chromium } from 'playwright';
+import { listarPublicado } from './arbol-publicado.mjs';
 import { auditTargetSizes } from './target-size-audit.mjs';
 import { auditFocusNotObscured } from './focus-not-obscured-audit.mjs';
 import { rotateDetailRoutes } from './reflow-detail-rotation.mjs';
@@ -112,11 +112,10 @@ function routeFromHtmlPath(filePath) {
 // de trabajo tiene carpetas de notas e ideas sin versionar con HTML suelto que
 // desbordaba cientos de px. En CI no aparecian —no estan en el repo— asi que
 // el gate salia verde por accidente, no por acuerdo. `git ls-files` da el
-// mismo conjunto en local y en CI: lo que de verdad se publica.
+// mismo conjunto en local y en CI: lo que de verdad se publica (con lo generado,
+// que tras el corte ya no esta en git: qa/arbol-publicado.mjs).
 function walkHtmlFiles(dirPath, out) {
-  const tracked = execFileSync('git', ['ls-files', '-z', '*.html'], { cwd: ROOT, encoding: 'utf8' })
-    .split('\u0000')
-    .filter(Boolean);
+  const tracked = listarPublicado(ROOT, '*.html');
   for (const rel of tracked) {
     const segments = rel.split('/');
     if (segments.some((segment) => IGNORE_DIRS.has(segment) || segment.startsWith('.'))) continue;

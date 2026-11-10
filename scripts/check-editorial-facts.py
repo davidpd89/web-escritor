@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 from argparse import ArgumentParser
 from datetime import date, datetime
 from pathlib import Path
@@ -198,7 +201,7 @@ def git_tracked_files() -> set[str]:
     so this still works in odd environments/CI without git in PATH.
     """
     try:
-        out = subprocess.run(
+        out = arbol_publicado.run(
             ["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True
         ).stdout
         return {line.strip() for line in out.splitlines() if line.strip()}

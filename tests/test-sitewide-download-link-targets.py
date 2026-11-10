@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import subprocess
 from html.parser import HTMLParser
 from pathlib import Path
@@ -16,7 +19,7 @@ class Downloads(HTMLParser):
         if tag == 'a' and 'download' in d and d.get('href'):
             self.urls.append(d['href'])
 
-names = subprocess.check_output(['git', 'ls-files', '-z', '*.html'], cwd=ROOT).decode().split('\0')
+names = arbol_publicado.check_output(['git', 'ls-files', '-z', '*.html'], cwd=ROOT).decode().split('\0')
 checked = 0
 errors = []
 for name in names:

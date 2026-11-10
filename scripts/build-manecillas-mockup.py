@@ -56,7 +56,7 @@ def render_screenshot() -> None:
     template = RECIPE.read_text(encoding="utf-8")
     cover_uri = COVER.resolve().as_uri()
     rendered = template.replace("COVER_URL_PLACEHOLDER", cover_uri)
-    BUILD_HTML.write_text(rendered, encoding="utf-8")
+    BUILD_HTML.write_text(rendered, encoding="utf-8", newline="\n")
 
     opts = Options()
     opts.add_argument("--headless=new")

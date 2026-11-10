@@ -28,6 +28,10 @@ Usage:
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
+
 import argparse
 import hashlib
 import html
@@ -71,7 +75,7 @@ class RobotsMetaParser(HTMLParser):
 
 
 def git_tracked_html(root: Path) -> list[str]:
-    result = subprocess.run(
+    result = arbol_publicado.run(
         ["git", "ls-files", "*.html"], cwd=root, capture_output=True, text=True, check=True
     )
     # Durante una fusión con conflictos ls-files repite cada ruta por etapa (1/2/3): sin set el índice
@@ -170,7 +174,7 @@ def build_src_tree(root: Path, pages: list[str], src_dir: Path) -> None:
         source = (root / rel).read_text(encoding="utf-8", errors="ignore")
         dst.write_text(
             inject_registry_search_title(source, by_source.get(rel)),
-            encoding="utf-8",
+            encoding="utf-8", newline="\n",
         )
 
 
@@ -246,7 +250,7 @@ def write_manifest(out_dir: Path, pages: list[str], root: Path) -> None:
         "artifact_sha256": artifact_hashes(out_dir),
     }
     (out_dir / MANIFEST_NAME).write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
     )
 
 
@@ -270,7 +274,7 @@ def _acquire_lock(out_dir: Path) -> Path | None:
             file=sys.stderr,
         )
         return None
-    with os.fdopen(fd, "w", encoding="utf-8") as handle:
+    with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(f"{os.getpid()}\n")
     return lock
 

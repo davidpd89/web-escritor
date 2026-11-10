@@ -1,3 +1,6 @@
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import importlib.util
 import json
 import subprocess
@@ -9,7 +12,7 @@ module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 manifest = json.loads((ROOT / 'pagefind/eligible-manifest.json').read_text(encoding='utf-8'))
 indexed = set(manifest['pages'])
-tracked = subprocess.check_output(['git', 'ls-files', '*.html'], cwd=ROOT, text=True).splitlines()
+tracked = arbol_publicado.check_output(['git', 'ls-files', '*.html'], cwd=ROOT, text=True).splitlines()
 blocked = []
 
 for relative in tracked:

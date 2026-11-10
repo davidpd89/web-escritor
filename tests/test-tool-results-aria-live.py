@@ -17,6 +17,9 @@ Uso:
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import io
 import re
 import subprocess
@@ -34,7 +37,7 @@ RESULTS_TAG_RE = re.compile(
     re.IGNORECASE,
 )
 
-tracked = subprocess.run(
+tracked = arbol_publicado.run(
     ["git", "ls-files", "herramientas/*/index.html"], cwd=ROOT, capture_output=True, text=True, check=True
 ).stdout.splitlines()
 

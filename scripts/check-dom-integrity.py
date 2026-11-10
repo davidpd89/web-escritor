@@ -15,6 +15,9 @@ Usage:
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import io
 import re
 import sys
@@ -160,7 +163,7 @@ def tracked_html(root: Path) -> list[Path]:
     git is unavailable, so the checker still works outside a clone.
     """
     try:
-        listed = subprocess.run(
+        listed = arbol_publicado.run(
             ["git", "ls-files", "*.html"],
             cwd=root, capture_output=True, text=True, check=True,
         ).stdout.splitlines()

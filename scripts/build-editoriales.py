@@ -663,7 +663,7 @@ def render_methodology(site: str, records: list[dict], today: date) -> str:
 
 def write_page(path: Path, html: str) -> None:
     """Escribe una página generada del directorio editorial V1."""
-    path.write_text(html, encoding="utf-8")
+    path.write_text(html, encoding="utf-8", newline="\n")
 
 
 def with_site_shell(html: str) -> str:
@@ -692,8 +692,8 @@ def build(data_path: Path, output: Path, today: date, check_only: bool) -> tuple
     )
 
     safe_payload = {"version": raw["version"], "publishers": records}
-    (target / "editoriales-data.json").write_text(json.dumps(safe_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (output / "editoriales-sitemap.xml").write_text(render_sitemap(raw["site"].rstrip('/'), records), encoding="utf-8")
+    (target / "editoriales-data.json").write_text(json.dumps(safe_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    (output / "editoriales-sitemap.xml").write_text(render_sitemap(raw["site"].rstrip('/'), records), encoding="utf-8", newline="\n")
     return len(records), warnings
 
 

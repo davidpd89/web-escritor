@@ -97,7 +97,7 @@ def main() -> int:
         print("OK: preview local actualizada, sin métodos de pago")
         return 0
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(html, encoding="utf-8")
+    OUTPUT.write_text(html, encoding="utf-8", newline="\n")
     print(f"PREVIEW LOCAL: {OUTPUT.relative_to(ROOT)} (no pública, sin cobro)")
     return 0
 

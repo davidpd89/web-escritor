@@ -127,6 +127,22 @@ def publish() -> int:
 publish.last_result = "none"
 
 
+def materializar_fichas() -> None:
+    """Deja en disco las fichas del sitio (recomendaciones/libros/*/index.html) para los pines de RRSS.
+
+    RRSS (tools/pinterest_landing.py) enlaza cada pin a la ficha que encuentra en este checkout. Tras el corte de la
+    fase 5 las fichas ya no se versionan y el `reset --hard` del runner las borraría; sin ellas, el pin cae al enlace
+    genérico. Antes del corte es un no-op. Nunca tumba el refresco: un fallo solo se anota.
+    """
+    script = REPO / "scripts" / "materializar_generados.py"
+    try:
+        r = subprocess.run([sys.executable, str(script), "--asegurar"], cwd=REPO, capture_output=True, text=True,
+                           encoding="utf-8", errors="replace", timeout=3600)
+        log("materializar: ok" if r.returncode == 0 else f"materializar falló rc={r.returncode}: {r.stderr[-400:]}")
+    except (OSError, subprocess.SubprocessError) as exc:
+        log(f"materializar falló: {exc}")
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--status", action="store_true")
@@ -162,6 +178,8 @@ def main(argv: list[str] | None = None) -> int:
                     status["last_publish"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
                 rc = prc or rc  # publication failure (4) outranks; reauth (2) survives a good publish
                 status["last_exit_code"] = rc
+        if args.publish:
+            materializar_fichas()
         write_status(status)
         log(f"finished rc={rc}")
         return rc

@@ -19,6 +19,9 @@ Usage:
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import argparse
 import json
 import re
@@ -36,7 +39,7 @@ PLACEHOLDER_RE = re.compile(r'\b(todo|tbd|pendiente de fuente|example\.com|ejemp
 
 
 def tracked_recommendation_guides(root: Path) -> list[Path]:
-    out = subprocess.run(
+    out = arbol_publicado.run(
         ["git", "ls-files", "-z", "recomendaciones/**/index.html"],
         cwd=root, capture_output=True, text=True, check=True,
     ).stdout

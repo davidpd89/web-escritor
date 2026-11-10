@@ -54,6 +54,9 @@ class RefreshRunnerTests(unittest.TestCase):
         p = mock.patch.dict(os.environ, {"SOCIAL_STATE_DIR": str(self.dir)})
         p.start()
         self.addCleanup(p.stop)
+        m = mock.patch.object(refresh, "materializar_fichas")   # tras el corte construiría el sitio entero
+        self.materializar = m.start()
+        self.addCleanup(m.stop)
 
     def test_lock_blocks_second_worker_and_recovers_from_stale_pid(self):
         first = refresh.acquire_lock()
@@ -85,11 +88,33 @@ class RefreshRunnerTests(unittest.TestCase):
         self.assertEqual(status["last_exit_code"], 4)
         self.assertFalse(status["last_publish_ok"])
         self.assertIn("last_success", status)  # collection itself worked
+        self.materializar.assert_called_once()   # fichas para los pines de RRSS, aunque falle la publicación
+
+    def test_without_publish_does_not_materialize(self):
+        with mock.patch.object(refresh, "attempt", return_value=0):
+            refresh.main(["--no-retry"])
+        self.materializar.assert_not_called()
 
     def test_lock_released_after_run(self):
         with mock.patch.object(refresh, "attempt", return_value=0):
             refresh.main(["--no-retry"])
         self.assertFalse((self.dir / "refresh.lock").exists())
+
+
+class MaterializarFichasTests(unittest.TestCase):
+    def test_failure_is_logged_never_raised(self):
+        for fallo in (OSError("sin python"), refresh.subprocess.TimeoutExpired("x", 1)):
+            with mock.patch.object(refresh.subprocess, "run", side_effect=fallo), \
+                    mock.patch.object(refresh, "log") as log:
+                refresh.materializar_fichas()
+            self.assertIn("materializar falló", log.call_args[0][0])
+
+    def test_runs_asegurar_in_this_checkout(self):
+        ok = refresh.subprocess.CompletedProcess([], 0, "", "")
+        with mock.patch.object(refresh.subprocess, "run", return_value=ok) as run, mock.patch.object(refresh, "log"):
+            refresh.materializar_fichas()
+        self.assertIn("--asegurar", run.call_args[0][0])
+        self.assertEqual(run.call_args[1]["cwd"], refresh.REPO)
 
 
 class PublicArtifactTests(unittest.TestCase):

@@ -6,6 +6,9 @@ No demuestra atribución/comisiones: completar con Link Checker e informes Amazo
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import argparse
 import json
 import re
@@ -22,7 +25,7 @@ ASIN_RE = re.compile(r"/(?:[^/]+/)?(?:dp|gp/product)/([A-Z0-9]{10})(?:/|$)", re.
 
 def html_paths(root: Path) -> list[Path]:
     try:
-        result = subprocess.run(
+        result = arbol_publicado.run(
             ["git", "ls-files", "*.html"], cwd=root, check=True,
             capture_output=True, text=True,
         )

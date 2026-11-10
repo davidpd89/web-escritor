@@ -133,7 +133,7 @@ def read_json(path: Path):
 
 
 def write_json(path: Path, data) -> None:
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
 def configured_channels(root: Path) -> list[dict]:
@@ -154,7 +154,7 @@ def activate(root: Path, channels: list[dict]) -> None:
         raise ValueError("Indica al menos un canal")
     write_json(root / LINKS, {"schema_version": 2, "channels": channels})
     (root / "apoyar").mkdir(exist_ok=True)
-    (root / PAGE).write_text(render(channels), encoding="utf-8")
+    (root / PAGE).write_text(render(channels), encoding="utf-8", newline="\n")
     reg_path = root / "data/content-registry.json"
     registry = read_json(reg_path)
     if not any(e.get("id") == ENTRY_ID for e in registry["entries"]):

@@ -3,12 +3,15 @@
 
 Todo <form data-newsletter-source> debe declarar method="post" (con JS lo intercepta el worker; sin JS no filtra el email).
 """
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import re
 import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-files = subprocess.check_output(["git", "ls-files", "-z", "*.html"], cwd=ROOT).decode().split("\0")
+files = arbol_publicado.check_output(["git", "ls-files", "-z", "*.html"], cwd=ROOT).decode().split("\0")
 errors, checked = [], 0
 for rel in files:
     if not rel or rel.startswith(("tests/", "qa/", "lab/", "pagefind/")):

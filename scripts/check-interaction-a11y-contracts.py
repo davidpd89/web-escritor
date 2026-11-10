@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import re
 import subprocess
 import sys
@@ -18,7 +21,7 @@ INTERACTIVE = {"a", "button", "input", "select", "textarea"}
 
 
 def tracked_html() -> list[Path]:
-    out = subprocess.check_output(
+    out = arbol_publicado.check_output(
         ["git", "ls-files", "-z", "*.html"], cwd=ROOT
     ).decode("utf-8").split("\0")
     paths = []

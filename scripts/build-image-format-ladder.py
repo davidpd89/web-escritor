@@ -194,7 +194,7 @@ def main() -> int:
             changed_manifest = True
 
     if changed_manifest and not args.check:
-        manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     for path in generated:
         print(f"REGENERATED {path}")

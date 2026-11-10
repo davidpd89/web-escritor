@@ -37,7 +37,7 @@ def main():
     if a.check:
         if not a.output.exists() or a.output.read_text(encoding='utf-8')!=out: print('FAIL: salida desactualizada',file=sys.stderr);return 1
         print(f'PASS: {len(items)} entradas');return 0
-    a.output.write_text(out,encoding='utf-8');print(f'GENERATED: {len(items)} entradas');return 0
+    a.output.write_text(out,encoding='utf-8', newline="\n");print(f'GENERATED: {len(items)} entradas');return 0
 if __name__=='__main__':
     try: raise SystemExit(main())
     except ValueError as e: print(f'FAIL: {e}',file=sys.stderr);raise SystemExit(1)

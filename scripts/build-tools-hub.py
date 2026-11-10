@@ -274,6 +274,6 @@ def main():
         if not target.exists() or target.read_text(encoding='utf-8') != out:
             print('OUTDATED', file=sys.stderr); return 2
         print(f'OK: {len(tools)} herramientas, {len(directories)} directorios'); return 0
-    target.write_text(out, encoding='utf-8'); print(f'GENERATED: {len(tools)} herramientas, {len(directories)} directorios'); return 0
+    target.write_text(out, encoding='utf-8', newline="\n"); print(f'GENERATED: {len(tools)} herramientas, {len(directories)} directorios'); return 0
 
 if __name__ == '__main__': raise SystemExit(main())

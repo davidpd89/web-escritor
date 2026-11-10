@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 from pathlib import Path
 import re
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-files = subprocess.check_output(['git', 'ls-files', '-z', '*.css'], cwd=ROOT).decode().split('\0')
+files = arbol_publicado.check_output(['git', 'ls-files', '-z', '*.css'], cwd=ROOT).decode().split('\0')
 files = [p for p in files if p and (p == 'styles.css' or p.startswith(('assets/', 'accesibilidad/')))]
 assert files, 'No hay hojas CSS públicas'
 errors = []

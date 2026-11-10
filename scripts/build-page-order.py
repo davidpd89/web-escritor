@@ -111,7 +111,7 @@ def main() -> int:
             return 1
         print("CHECK: assets/page-order.generated.js al día")
         return 0
-    OUTPUT.write_text(text, encoding="utf-8")
+    OUTPUT.write_text(text, encoding="utf-8", newline="\n")
     print(f"GENERATED: {OUTPUT.relative_to(ROOT)} ({len(text) // 1024} KiB)")
     return 0
 

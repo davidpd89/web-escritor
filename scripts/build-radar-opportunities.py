@@ -496,8 +496,8 @@ def main():
         return
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "index.html").write_text(build_html(items, today, watchlist), encoding="utf-8")
-    (out / "opportunities.json").write_text(public_json(items, today, watchlist), encoding="utf-8")
+    (out / "index.html").write_text(build_html(items, today, watchlist), encoding="utf-8", newline="\n")
+    (out / "opportunities.json").write_text(public_json(items, today, watchlist), encoding="utf-8", newline="\n")
     (out / "deadlines.ics").write_text(build_ics(items, today), encoding="utf-8", newline="")
     active = len(active_items(items, today))
     watch = len(watch_items(watchlist, today))

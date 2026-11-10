@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 from __future__ import annotations
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import re
 import subprocess
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 
 ROOT = Path(__file__).resolve().parents[1]
-files = subprocess.check_output(['git', 'ls-files', '-z', '*.css'], cwd=ROOT).decode().split('\0')
+files = arbol_publicado.check_output(['git', 'ls-files', '-z', '*.css'], cwd=ROOT).decode().split('\0')
 URL_RE = re.compile(r'url\(\s*[\x22\x27]?([^\x22\x27)]+)[\x22\x27]?\s*\)', re.I)
 IMPORT_RE = re.compile(r'@import\s+[\x22\x27]([^\x22\x27]+)[\x22\x27]', re.I)
 errors = []

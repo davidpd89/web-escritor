@@ -23,6 +23,9 @@ Usage:
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import argparse
 import fnmatch
 import json
@@ -271,7 +274,7 @@ def public_registry_sources(root: Path) -> tuple[str, ...]:
 
 
 def git_tracked_files(root: Path = ROOT) -> list[str]:
-    result = subprocess.run(
+    result = arbol_publicado.run(
         ["git", "ls-files"], cwd=root, capture_output=True, text=True, check=True
     )
     return [line.strip() for line in result.stdout.splitlines() if line.strip()]
@@ -363,7 +366,7 @@ def write_manifest(out_dir: Path) -> Path:
         items.append({"path": rel, "category": category})
     manifest_path.write_text(
         json.dumps({"schemaVersion": 1, "files": items}, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
+        encoding="utf-8", newline="\n",
     )
     return manifest_path
 
@@ -494,7 +497,7 @@ def emit_assetsignore(root: Path, check_only: bool) -> int:
         reason = "no existe" if current is None else "está desincronizado"
         print(f"FAIL: .assetsignore {reason}. Regenera con --emit-assetsignore.")
         return 1
-    path.write_text(expected, encoding="utf-8")
+    path.write_text(expected, encoding="utf-8", newline="\n")
     print(f"ESCRITO {path} ({len(assetsignore_lines(root))} reglas).")
     return 0
 

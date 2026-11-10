@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 """Enlaces y botones sin nombre accesible."""
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 from html.parser import HTMLParser
 from pathlib import Path
 import subprocess
@@ -31,7 +34,7 @@ class Audit(HTMLParser):
 
 errors = []
 checked = 0
-for rel in subprocess.check_output(['git', 'ls-files', '*.html'], cwd=ROOT, text=True).splitlines():
+for rel in arbol_publicado.check_output(['git', 'ls-files', '*.html'], cwd=ROOT, text=True).splitlines():
     if rel.startswith(EXCLUDED) or rel == 'video-ios-test/index.html':
         continue
     html = (ROOT / rel).read_text(encoding='utf-8', errors='replace')

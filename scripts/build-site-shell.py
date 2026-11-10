@@ -11,6 +11,9 @@ repository.
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import argparse
 import base64
 import hashlib
@@ -368,7 +371,7 @@ def tracked_html(root: Path) -> list[Path]:
     carpetas de trabajo sin versionar) y deja el gate comportándose distinto
     en local y en CI. Ya pasó con el gate de reflow.
     """
-    out = subprocess.run(
+    out = arbol_publicado.run(
         ["git", "ls-files", "-z", "*.html"],
         cwd=root, capture_output=True, text=True, check=True,
     ).stdout
@@ -1057,7 +1060,7 @@ def process_page(path: Path, nav: dict, by_id: dict[str, Entry], extras: dict, c
 
     changed = new_text != original
     if changed and not check:
-        path.write_text(new_text, encoding="utf-8")
+        path.write_text(new_text, encoding="utf-8", newline="\n")
     return changed, check and changed
 
 
@@ -1095,7 +1098,7 @@ def main() -> int:
         if updated != original:
             changed.append(rel)
             if not args.check:
-                standalone.write_text(updated, encoding="utf-8")
+                standalone.write_text(updated, encoding="utf-8", newline="\n")
 
     if args.check and changed:
         print("FAIL: shell desactualizado en:", file=sys.stderr)
