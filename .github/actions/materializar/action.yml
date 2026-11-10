@@ -24,10 +24,13 @@ runs:
           pagefind
           data/content-registry.json
         key: generados-v1-${{ hashFiles('data/**', 'scripts/build-*.py', 'scripts/site_shell.py', 'scripts/reading*.py', 'scripts/templates/**', 'scripts/materializar_generados.py', '**/*.html.tmpl') }}
-    - if: steps.restore.outputs.cache-hit != 'true'
+    # --asegurar no hace nada mientras lo generado esté versionado (el checkout ya lo trae) y, tras el corte,
+    # construye con la cadena única. Solo se guarda caché si de verdad construyó.
+    - id: build
+      if: steps.restore.outputs.cache-hit != 'true'
       shell: bash
-      run: python3 scripts/materializar_generados.py --solo-construir
-    - if: steps.restore.outputs.cache-hit != 'true'
+      run: python3 scripts/materializar_generados.py --asegurar
+    - if: steps.build.outputs.construido == 'true'
       uses: actions/cache/save@v5
       with:
         path: |

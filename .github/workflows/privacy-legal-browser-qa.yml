@@ -58,6 +58,9 @@ jobs:
       - name: Install Playwright OS deps only (browser cached)
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
+
       - name: Start static server
         run: |
           python -m http.server 4173 --bind 127.0.0.1 > /tmp/privacy-server.log 2>&1 &

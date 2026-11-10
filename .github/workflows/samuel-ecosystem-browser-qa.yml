@@ -80,6 +80,9 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq poppler-utils
 
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
+
       - name: Run Samuel ecosystem browser QA
         run: |
           set -e

@@ -40,67 +40,63 @@ class UnaSolaCadena(unittest.TestCase):
             self.assertGreater(nombres.index(indexa), nombres.index('build-page-order.py'))
 
 
-# Workflows que sirven el árbol con http.server y aún no materializan con la acción. Trinquete: solo puede encoger.
-# Al adoptar la acción en uno, se quita de aquí; uno nuevo con http.server debe nacer usándola.
-PENDIENTES_DE_MATERIALIZAR = {
-    'a11y-regressions-browser-qa.yml',
-    'assistant-hardening-qa.yml',
-    'atlas-catalogue-qa.yml',
-    'autor-browser-qa.yml',
-    'content-parity-manecillas.yml',
-    'convocatorias-browser-qa.yml',
-    'cross-engine-smoke.yml',
-    'cuaderno-browser-qa.yml',
-    'cuaderno-topics-browser-qa.yml',
-    'design-evidence-hardening.yml',
-    'editoriales-browser-qa.yml',
-    'eventos-browser-qa.yml',
-    'ferias-archive-parity-qa.yml',
-    'ferias-browser-qa.yml',
-    'findability-browser-qa.yml',
-    'global-discoverability-closure-qa.yml',
-    'home-map-interaction-qa.yml',
-    'identity-public-browser-qa.yml',
-    'machine-authority-check.yml',
-    'manecillas-fragments-nav-qa.yml',
-    'mejoras-web-preview.yml',
-    'metodologia-editorial-browser-qa.yml',
-    'newsletter-consent-qa.yml',
-    'pa11y-baseline.yml',
-    'postdeploy-deep-audit.yml',
-    'premios-browser-qa.yml',
-    'prensa-browser-qa.yml',
-    'privacy-legal-browser-qa.yml',
-    'pro-resources-qa.yml',
-    'reading-failure-resilience.yml',
-    'recommendations-browser-qa.yml',
-    'samuel-ecosystem-browser-qa.yml',
-    'sitewide-reflow-qa.yml',
-    'tools-browser-qa.yml',
-    'tools-events-memory-browser-qa.yml',
-    'tools-publishing-browser-qa.yml',
-    'tools-structure-browser-qa.yml',
-}
 ACCION = './.github/actions/materializar'
 
 
 class AccionMaterializar(unittest.TestCase):
     def test_la_accion_usa_la_cadena_unica(self):
         texto = (ROOT / '.github/actions/materializar/action.yml').read_text(encoding='utf-8')
-        self.assertIn('scripts/materializar_generados.py --solo-construir', texto)
+        self.assertIn('scripts/materializar_generados.py --asegurar', texto)
         self.assertIn('actions/cache/restore', texto)
+        self.assertIn("steps.build.outputs.construido == 'true'", texto)
 
-    def test_trinquete_de_workflows_con_http_server(self):
-        sin_accion = set()
-        for wf in (ROOT / '.github/workflows').glob('*.yml'):
-            texto = wf.read_text(encoding='utf-8')
-            if 'http.server' in texto and ACCION not in texto:
-                sin_accion.add(wf.name)
-        self.assertEqual(sin_accion - PENDIENTES_DE_MATERIALIZAR, set(),
-                         'workflow nuevo con http.server sin la acción materializar')
-        self.assertEqual(PENDIENTES_DE_MATERIALIZAR - sin_accion, set(),
-                         'ya usa la acción (o no existe): quítalo de PENDIENTES_DE_MATERIALIZAR')
+    def test_todo_workflow_que_lee_lo_generado_materializa_antes(self):
+        """Paso 2/4: sirve el árbol (http.server) o construye la distribución (build-public-dist) → la acción va
+        antes, en el mismo job. Un workflow nuevo sin ella falla aquí; `python scripts/adoptar_materializar.py` la pone."""
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('adoptar', ROOT / 'scripts/adoptar_materializar.py')
+        adoptar = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(adoptar)
+        self.assertEqual(adoptar.pendientes(ROOT), [])
+        flujo = (ROOT / '.github/workflows/deploy-pages.yml').read_text(encoding='utf-8')
+        self.assertLess(flujo.index(ACCION), flujo.index('build-public-dist.py --out .preview-dist'))
+        self.assertIn('materializar_generados.py --asegurar', flujo.split('git worktree add')[1].split('build-public-dist')[0])
 
+    def test_versionado_la_accion_no_guarda_cache(self):
+        import os, sys, tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            salida = Path(tmp, 'out')
+            subprocess.run([sys.executable, str(ROOT / 'scripts/materializar_generados.py'), '--asegurar'], cwd=ROOT,
+                           check=True, env={**os.environ, 'GITHUB_OUTPUT': str(salida)}, capture_output=True)
+            self.assertEqual(salida.read_text(encoding='utf-8').strip(), 'construido=false')
+
+    def test_adoptar_inserta_antes_del_primer_lector_y_hereda_la_condicion(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('adoptar', ROOT / 'scripts/adoptar_materializar.py')
+        adoptar = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(adoptar)
+        flujo = """on: push
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+      - name: Servir
+        if: steps.sel.outputs.run == 'true'
+        run: python -m http.server 4173 &
+  otro:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hola
+"""
+        nuevo = adoptar.adoptar(flujo)
+        self.assertEqual(adoptar.adoptar(nuevo), nuevo)
+        qa = nuevo.split('  otro:')[0]
+        self.assertLess(qa.index('setup-python'), qa.index(ACCION))
+        self.assertLess(qa.index(ACCION), qa.index('http.server'))
+        self.assertIn("        if: steps.sel.outputs.run == 'true'\n        uses: " + ACCION, qa)
+        self.assertNotIn(ACCION, nuevo.split('  otro:')[1])
 
     def test_la_clave_de_cache_son_las_fuentes(self):
         import re

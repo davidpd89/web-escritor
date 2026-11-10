@@ -11,6 +11,7 @@ las fichas nuevas antes de los builders que leen `git ls-files` (site-shell, Pag
 from __future__ import annotations
 
 import fnmatch
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -115,7 +116,11 @@ def comprobar(root: Path = ROOT, assets: bool = True) -> None:
 
 def main(argv: list[str]) -> int:
     if '--asegurar' in argv:
-        asegurar()
+        construido = asegurar()
+        salida = os.environ.get('GITHUB_OUTPUT')
+        if salida:  # la acción materializar solo guarda caché si de verdad construyó
+            with open(salida, 'a', encoding='utf-8') as f:
+                f.write(f"construido={'true' if construido else 'false'}" + chr(10))
         return 0
     if '--check' not in argv:
         construir()

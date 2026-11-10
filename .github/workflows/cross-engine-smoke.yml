@@ -92,6 +92,9 @@ jobs:
       - name: Run cross-engine smoke (Chromium + Firefox + WebKit)
         run: node qa/cross-engine-smoke.mjs
 
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
+
       - name: Run Books index cross-engine design smoke
         shell: bash
         env:

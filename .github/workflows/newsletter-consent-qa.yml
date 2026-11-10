@@ -70,6 +70,9 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
+
       - name: Start local static server
         shell: bash
         run: |
