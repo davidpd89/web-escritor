@@ -178,28 +178,25 @@ def lychee_ignore(path: Path = ROOT / ".lycheeignore") -> list[str]:
 
 
 def url_responds(url: str, timeout: int = 30) -> bool:
-    """¿Pasaría la web el control de enlaces rotos? Wikidata trae webs oficiales muertas (404) o que vetan bots (403).
+    """¿Pasaría la web el control de enlaces rotos (lychee)? Wikidata trae webs oficiales muertas (404), que
+    vetan bots (403) o con el TLS roto (certificado caducado, autofirmado o de nombre equivocado).
 
-    Un certificado que Python no valida (p. ej. bne.es sin el intermedio, que lychee sí acepta) no decide nada: se repite
-    sin verificar solo para saber si la página existe.
+    Mismo criterio que broken-links.yml: GET con el User-Agent del navegador, solo 2xx o 429 tras seguir
+    redirecciones, y verificación estricta del certificado. No se reintenta sin verificar: un certificado que
+    lychee rechaza no debe publicarse como vivo (2026-11-09: una web con el TLS roto pasaba este filtro pero
+    tumbaba broken-links y la PR entera del Atlas). Los hosts con TLS problemático pero verificados a mano
+    están en `.lycheeignore`, y aquí se dan por vivos sin consultarlos, igual que lychee no los comprueba.
     """
-    import ssl
     if any(re.search(pattern, url) for pattern in lychee_ignore()):
-        return True     # lychee no la comprueba (veta bots): el control no puede tumbarla
+        return True     # lychee no la comprueba (veta bots o TLS acotado): el control no puede tumbarla
     request = urllib.request.Request(url, headers={"User-Agent": LINK_CHECK_UA})
-    for context in (None, ssl._create_unverified_context()):  # noqa: S323 - solo se lee el código de estado
-        try:
-            with urllib.request.urlopen(request, timeout=timeout, context=context) as response:  # noqa: S310
-                return 200 <= response.status < 300
-        except urllib.error.HTTPError as error:
-            return error.code == 429
-        except urllib.error.URLError as error:
-            if isinstance(error.reason, ssl.SSLCertVerificationError):
-                continue
-            return False
-        except Exception:  # noqa: BLE001 - tiempo agotado, DNS: no entra hoy, se reintenta en la siguiente ejecución
-            return False
-    return False
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:  # noqa: S310 - solo se lee el estado
+            return 200 <= response.status < 300
+    except urllib.error.HTTPError as error:
+        return error.code == 429
+    except Exception:  # noqa: BLE001 - TLS inválido, DNS, tiempo agotado o 5xx: hoy no entra, se reintenta luego
+        return False
 
 
 def merge(previous: dict, fresh: list[dict], today: str, config: dict, url_ok=url_responds) -> dict:
