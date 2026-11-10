@@ -5,3 +5,8 @@
 # minified template literals carry trailing whitespace that git diff --check
 # must not reject (it broke the intake run 41974714609 after the 1.6.0 bump).
 pagefind/** -whitespace
+# Todo lo de texto sale con LF también en Windows (core.autocrlf=true de Git for Windows). Los builders escriben LF y
+# sus --check comparan bytes: con CRLF en la copia de trabajo, feed.xml, el registro de fuentes y compañía «fallaban»
+# en la puerta local aunque el contenido fuera idéntico (10/11, 8 «ya fallaban en main»).
+* text=auto eol=lf
+research/vendor/** -text

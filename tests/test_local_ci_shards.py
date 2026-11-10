@@ -1,6 +1,7 @@
 import importlib.util
 import importlib.util as _iu
 import unittest
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -45,24 +46,49 @@ class ScopedTest(unittest.TestCase):
 
 class ServidoresVigilados(unittest.TestCase):
     def test_un_servidor_caido_se_relanza(self):
-        import socket
         import tempfile
-        with socket.socket() as s:
-            s.bind(('127.0.0.1', 0))
-            port = s.getsockname()[1]
-        old = local_ci.PORTS
-        local_ci.PORTS = (port,)
-        try:
-            with tempfile.TemporaryDirectory() as root, \
-                    local_ci.Servers(root, lock_path=Path(root) / 'ports.lock') as servers:
-                self.assertTrue(servers.alive(port))
-                servers.procs[port].kill()
-                servers.procs[port].wait()
-                servers.ensure()
-                self.assertEqual(servers.restarts, 1)
-                self.assertTrue(servers.alive(port))
-        finally:
-            local_ci.PORTS = old
+        with tempfile.TemporaryDirectory() as root, local_ci.Servers(root) as servers:
+            port = servers.ports[4173]
+            self.assertTrue(servers.alive(port))
+            servers.procs[4173].kill()
+            servers.procs[4173].wait()
+            servers.ensure()
+            self.assertEqual(servers.restarts, 1)
+            self.assertTrue(servers.alive(port))
+
+    def test_dos_puertas_a_la_vez_no_comparten_puertos(self):
+        """10/11: con 4173/4175 fijos solo cabía una puerta por máquina y las demás esperaban en cola."""
+        import tempfile
+        with tempfile.TemporaryDirectory() as root, local_ci.Servers(root) as a, local_ci.Servers(root) as b:
+            self.assertFalse(set(a.ports.values()) & set(b.ports.values()))
+            self.assertNotIn(4173, a.ports.values())
+        for servers in (a, b):
+            self.assertFalse(any(servers.alive(p) for p in servers.ports.values()))
+
+    def test_remap_lleva_el_puerto_real_al_comando_y_al_entorno(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as root:
+            qa = Path(root, 'qa')
+            qa.mkdir()
+            Path(qa, 'x.mjs').write_text("const B = process.env.FERIAS_BASE_URL || 'http://127.0.0.1:4173';\n"
+                                         "const C = process.env.QA_BASE_URL||'http://127.0.0.1:4175';\n", encoding='utf-8')
+            servers = local_ci.Servers(root)
+            servers.ports = {4173: 50001, 4175: 50002}
+            command, env = servers.remap('node qa/x.mjs http://127.0.0.1:4173/a/', {'QA_ORIGIN': 'http://127.0.0.1:4173'})
+        self.assertEqual(command, 'node qa/x.mjs http://127.0.0.1:50001/a/')
+        self.assertEqual(env, {'QA_ORIGIN': 'http://127.0.0.1:50001', 'FERIAS_BASE_URL': 'http://127.0.0.1:50001',
+                               'QA_BASE_URL': 'http://127.0.0.1:50002'})
+
+    def test_toda_prueba_que_cita_el_puerto_lo_lee_del_entorno(self):
+        """Trinquete: un literal 127.0.0.1:4173 sin variable de entorno en su línea ignoraría el puerto real."""
+        fijos = []
+        for pattern in ('qa/**/*.mjs', 'tests/**/*.mjs', 'scripts/*.mjs'):
+            for path in local_ci.ROOT.glob(pattern):
+                for n, line in enumerate(path.read_text(encoding='utf-8', errors='replace').splitlines(), 1):
+                    code = line.split('//')[0] if not line.lstrip().startswith('//') else ''
+                    if local_ci.LITERAL.search(code) and not local_ci.ENV_NAME.search(code) and 'argv' not in code:
+                        fijos.append(f'{path.relative_to(local_ci.ROOT)}:{n}')
+        self.assertEqual(fijos, [])
 
 
 class EntornoDelCI(unittest.TestCase):
@@ -117,38 +143,19 @@ class NodeModulesDelWorktree(unittest.TestCase):
                 (wt / 'node_modules').unlink()
 
 
-class CerrojoDePuertos(unittest.TestCase):
-    def test_una_segunda_puerta_espera(self):
-        import tempfile
-        with tempfile.TemporaryDirectory() as d:
-            path = Path(d) / 'ports.lock'
-            first = local_ci.ports_lock(path)
-            with self.assertRaises(SystemExit):
-                local_ci.ports_lock(path, wait=0)
-            local_ci.release(first)
-            local_ci.release(local_ci.ports_lock(path, wait=0))
-
-
 class EntornoCiego(unittest.TestCase):
     """10/11: venv sin Pillow ni requests y worktree sin node_modules → 27 comprobaciones «ya fallan en main»."""
 
     def test_el_servidor_aguanta_muchas_conexiones_a_la_vez(self):
-        import socket, tempfile
+        import tempfile
         from concurrent.futures import ThreadPoolExecutor
         with tempfile.TemporaryDirectory() as tmp:
             Path(tmp, 'index.html').write_text('ok', encoding='utf-8')
-            with socket.socket() as probe:
-                probe.bind(('127.0.0.1', 0))
-                port = probe.getsockname()[1]
-            old = local_ci.PORTS
-            local_ci.PORTS = (port,)
-            try:
-                with local_ci.Servers(tmp, lock_path=Path(tmp) / 'ports.lock'):
-                    fetch = lambda _: local_ci.urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=20).status
-                    with ThreadPoolExecutor(64) as pool:
-                        self.assertEqual(set(pool.map(fetch, range(400))), {200})
-            finally:
-                local_ci.PORTS = old
+            with local_ci.Servers(tmp) as servers:
+                port = servers.ports[4173]
+                fetch = lambda _: local_ci.urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=20).status
+                with ThreadPoolExecutor(64) as pool:
+                    self.assertEqual(set(pool.map(fetch, range(400))), {200})
 
     def test_cada_comando_construye_su_propia_distribucion(self):
         a = local_ci.private_dist('node tests/test-seo-discoverability-smoke.mjs', ROOT)
@@ -166,6 +173,104 @@ class EntornoCiego(unittest.TestCase):
     def test_un_fallo_real_igual_en_main_sigue_siendo_conocido(self):
         output = 'AssertionError: 3 != 4'
         self.assertTrue(local_ci.same_failure((1, output, 0), (1, output, 0)))
+
+
+class ContextoDeGitHubEnLocal(unittest.TestCase):
+    CTX = {'github.event.pull_request.base.sha': 'b4se', 'github.sha': 'h3ad', 'github.event_name': 'pull_request'}
+
+    def test_la_base_de_la_pr_llega_a_la_prueba(self):
+        env = local_ci.plain_env({'BASE_SHA': '${{ github.event.pull_request.base.sha }}', 'X': 'y'}, self.CTX)
+        self.assertEqual(env, {'BASE_SHA': 'b4se', 'X': 'y'})
+
+    def test_alternativas_y_condiciones(self):
+        env = local_ci.plain_env({
+            'A': "${{ github.event.workflow_run.head_sha || github.sha }}",
+            'B': "${{ github.event.inputs.mode || 'auto' }}",
+            'C': "${{ github.event_name == 'pull_request' && 'http://127.0.0.1:4173' || 'https://x.com' }}",
+            'D': "${{ github.event.pull_request.body }}"}, self.CTX)
+        self.assertEqual(env, {'A': 'h3ad', 'B': 'auto', 'C': 'http://127.0.0.1:4173'})
+
+    def test_toda_base_de_pr_de_los_workflows_se_resuelve_en_local(self):
+        """Trinquete: ninguna variable que un workflow saca de la base o la cabeza de la PR se queda sin valor."""
+        sin_valor = []
+        for wf in (ROOT / '.github/workflows').glob('*.yml'):
+            for k, v in re.findall(r'^\s+([A-Z_]+):\s*(\$\{\{.*?\}\})\s*$', wf.read_text(encoding='utf-8'), re.M):
+                if re.search(r'pull_request\.(base|head)\.sha|github\.(sha|event_name|head_ref)', v):
+                    if not local_ci.plain_env({k: v}, {**self.CTX, 'github.event.pull_request.head.sha': 'h3ad',
+                                                        'github.head_ref': 'r', 'github.ref_name': 'r'}):
+                        sin_valor.append(f'{wf.name}: {k}')
+        self.assertEqual(sin_valor, [])
+
+
+class FallosInestables(unittest.TestCase):
+    def test_lo_que_pasa_al_repetirlo_es_inestable_y_no_bloquea(self):
+        new = [(('node qa/manecillas.mjs', {}, 'a.yml'), (1, 'TimeoutError', 9)),
+               (('python tests/test-x.py', {}, 'b.yml'), (1, 'AssertionError: 3 != 4', 2))]
+        siguen, flaky = local_ci.inestables(new, [(0, 'ok', 8), (1, 'AssertionError: 3 != 4', 2)])
+        self.assertEqual(flaky, ['node qa/manecillas.mjs'])
+        self.assertEqual([i[0] for i, _ in siguen], ['python tests/test-x.py'])
+
+
+class PasoQueConstruyeYComprueba(unittest.TestCase):
+    @unittest.skipUnless(_iu.find_spec('yaml'), 'sin PyYAML no se leen los workflows')
+    def test_la_comprobacion_corre_tras_lo_que_construye_su_paso(self):
+        cmds = {c for c, _, _ in local_ci.collect(set(), True)}
+        self.assertIn('python scripts/build-public-dist.py && python scripts/build-public-dist.py --check-contents', cmds)
+        self.assertNotIn('python scripts/build-public-dist.py --check-contents', cmds)
+
+    def test_solo_un_builder_es_productor(self):
+        self.assertTrue(local_ci.PRODUCTOR.match('python3 scripts/build-feed.py'))
+        self.assertFalse(local_ci.PRODUCTOR.match('python scripts/build-x.py --out "$DIR"'))
+        self.assertFalse(local_ci.PRODUCTOR.match('python scripts/check-x.py'))
+
+    def test_la_preparacion_del_paso_va_delante(self):
+        self.assertTrue(local_ci.PREPARA.match('mkdir -p artifacts/global-discoverability'))
+        self.assertTrue(local_ci.PREPARA.match('set -o pipefail'))
+        self.assertFalse(local_ci.PREPARA.match('mkdir -p "$OUT"'))
+        self.assertFalse(local_ci.PREPARA.match('rm -rf artifacts'))
+
+    @unittest.skipUnless(_iu.find_spec('yaml'), 'sin PyYAML no se leen los workflows')
+    def test_todo_tee_a_una_carpeta_la_crea_antes(self):
+        # trinquete: el 10/11 global-discoverability salía «inestable» porque el mkdir -p del paso se descartaba
+        for cmd, _, flow in local_ci.collect(set(), True):
+            for destino in re.findall(r'tee (?:-a )?(\S+/)[^/\s]+', cmd):
+                with self.subTest(flow=flow, cmd=cmd):
+                    self.assertIn(f'mkdir -p {destino.rstrip("/")}', cmd)
+
+
+class PuertaPorImpacto(unittest.TestCase):
+    WORKFLOW = [('python scripts/check-reading-data.py', {}, 'carga.yml'),
+                ('node qa/otra-cosa.mjs', {}, 'otra.yml'),
+                ('python tests/test-lector.py', {}, 'gate.yml')]
+    REFS = {'modulo': {'scripts/lector.py', 'tests/test_modulo.py'},
+            'lector': {'tests/test-lector.py'},
+            'datos.json': {'scripts/check-reading-data.py'},
+            'check-reading-data': set(),
+            'test_modulo': set(), 'huerfano.json': set()}
+
+    def impacto(self, changed):
+        return local_ci.impacto(changed, refs=lambda s: set(self.REFS.get(s, set())), workflow=self.WORKFLOW)
+
+    def test_un_cambio_global_va_por_la_via_completa(self):
+        self.assertIsNone(self.impacto(['.github/workflows/x.yml']))
+        self.assertIsNone(self.impacto(['scripts/local-ci.py']))
+
+    def test_un_modulo_arrastra_sus_tests_y_los_de_quien_lo_importa(self):
+        cmds = [c for c, _, _ in self.impacto(['scripts/modulo.py'])]
+        self.assertIn('python -m unittest discover -s tests -p test_modulo.py', cmds)
+        self.assertIn('python tests/test-lector.py', cmds)  # en la forma del workflow
+        self.assertNotIn('node qa/otra-cosa.mjs', cmds)
+
+    def test_un_dato_arrastra_el_paso_que_lo_lee(self):
+        cmds = [c for c, _, _ in self.impacto(['data/datos.json'])]
+        self.assertIn('python scripts/check-reading-data.py', cmds)
+
+    def test_un_dato_que_nada_nombra_va_por_la_via_completa(self):
+        self.assertIsNone(self.impacto(['data/huerfano.json']))
+
+    def test_un_fichero_central_va_por_la_via_completa(self):
+        self.REFS = {**self.REFS, 'modulo': {f'scripts/s{i}.py' for i in range(local_ci.CENTRAL + 1)}}
+        self.assertIsNone(self.impacto(['scripts/modulo.py']))
 
 
 if __name__ == '__main__':

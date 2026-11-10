@@ -3,7 +3,7 @@
 
 Lee .github/workflows: los workflows de pull_request cuyas `paths` casan con los cambios frente a origin/main
 y, de sus pasos, las líneas `node qa/*.mjs`, `python … --check` y las pruebas. Las corre aquí en paralelo con los
-servidores que esperan (4173 y 4175) y, con --baseline, repite los fallos sobre origin/main: lo que también falla
+servidores que esperan (4173 y 4175, que se sirven en puertos libres para que quepan varias puertas a la vez) y, con --baseline, repite los fallos sobre origin/main: lo que también falla
 allí ya estaba roto y no bloquea este cambio.
 
   python scripts/local-ci.py                # lo que correría el CI para los cambios de esta rama
@@ -36,6 +36,13 @@ TIMEOUT = 900
 COMMAND = re.compile(r'^((?:[A-Z_][A-Z0-9_]*=\S+\s+)*)(node (?:--check \S+|--test \S+|(?:qa|tests)/\S+\.mjs.*'
                      r'|scripts/test-\S+\.mjs.*|scripts/\S+\.mjs.*--check.*)|python3? (?:-m (?:unittest|py_compile|compileall).*'
                      r'|tests/\S+.*|scripts/(?:check|audit)[-_]\S+\.py.*|scripts/\S+.*--check.*))$')
+# Una línea que construye (`python scripts/build-public-dist.py`) y las siguientes del mismo paso, que leen lo
+# construido (`--check-contents`): en GitHub corren en orden dentro de un bash -e. Antes se partían y la comprobación
+# corría sola, sin lo construido: «ya fallaba en main» siempre.
+PRODUCTOR = re.compile(r'^(python3?|node) scripts/build[-_][^\s$]+(?: [^$|;&>]*)?$')
+# Preparación del paso que también va delante del comando: `mkdir -p artifacts/x` antes de `| tee artifacts/x/log`
+# y `set -o pipefail`. Antes se descartaban: el tee fallaba en local sin la carpeta y salía «inestable».
+PREPARA = re.compile(r'^(?:mkdir -p [^$|;&>]+|set (?:-[eu]+|-o pipefail)(?: -o pipefail)?)$')
 # Dependen de artefactos que en CI crea un paso anterior (dist de vista previa, zip, informe de lychee).
 NEEDS_BUILD = ('.preview-dist', 'qa-artifacts/', 'lychee/')
 # La suite unittest completa pasa de 15 min en un solo proceso: se reparte en lotes que corren en paralelo.
@@ -80,9 +87,52 @@ def triggered(pr, changed):
     return True
 
 
-def plain_env(env):
-    """Variables del workflow que no dependen de expresiones ${{ }} (esas solo existen en GitHub)."""
-    return {k: str(v) for k, v in (env or {}).items() if '${{' not in str(v)}
+CONTEXTO = {}
+
+
+def contexto_pr(base):
+    """Lo que GitHub pone en `github.*` en una pull_request, con su equivalente local."""
+    head, rama = git('rev-parse', 'HEAD'), git('rev-parse', '--abbrev-ref', 'HEAD')
+    return {'github.event.pull_request.base.sha': base, 'github.event.pull_request.head.sha': head,
+            'github.sha': head, 'github.event_name': 'pull_request', 'github.head_ref': rama, 'github.ref_name': rama}
+
+
+def expresion(expr, contexto):
+    """`${{ a || b || 'x' }}` y `${{ cond && 'x' || 'y' }}`: la primera alternativa que da valor. None si no se puede
+    resolver en local (inputs, cuerpo de la PR…): esa variable no se pasa."""
+    for alt in expr.split('||'):
+        *conds, valor = [t.strip() for t in alt.split('&&')]
+        if all(evalua(c, contexto) for c in conds) and (v := termino(valor, contexto)):
+            return v
+    return None
+
+
+def termino(t, contexto):
+    return t[1:-1] if len(t) > 1 and t[0] == t[-1] == "'" else contexto.get(t)
+
+
+def evalua(cond, contexto):
+    m = re.fullmatch(r"(\S+)\s*(==|!=)\s*(\S+)", cond)
+    if not m:
+        return bool(termino(cond, contexto))
+    igual = termino(m[1], contexto) == termino(m[3], contexto)
+    return igual if m[2] == '==' else not igual
+
+
+def plain_env(env, contexto=None):
+    """Variables del workflow. Las que son expresiones `${{ github.* }}` se resuelven con su equivalente local
+    (base de la PR = merge-base con origin/main); antes se descartaban y findability-inventory y
+    publishing-metadata-preservation fallaban siempre con «BASE_SHA requerido», contadas como «ya fallaban en main»."""
+    contexto = CONTEXTO if contexto is None else contexto
+    out = {}
+    for k, v in (env or {}).items():
+        v = str(v)
+        if '${{' in v:
+            m = re.fullmatch(r'\s*\$\{\{(.*)\}\}\s*', v)
+            v = m and expresion(m[1], contexto)
+        if v is not None:
+            out[k] = v
+    return out
 
 
 def loop_lines(run):
@@ -108,13 +158,20 @@ def collect(changed, everything):
             continue
         for job in (flow.get('jobs') or {}).values():
             for step in job.get('steps') or []:
+                previos = []
                 for line in loop_lines(step.get('run') or '') + (step.get('run') or '').splitlines():
                     m = COMMAND.match(line.strip())
+                    if not m and PREPARA.match(line.strip()):
+                        previos.append(line.strip())
+                        continue
+                    if not m and PRODUCTOR.match(line.strip()):
+                        previos.append(re.sub(r'^python3 ', 'python ', line.strip()))
+                        continue
                     # qa/production-*: miden la web desplegada, no esta rama.
                     if not m or '$' in line or '--update' in line or 'qa/production-' in line \
                             or any(n in line for n in NEEDS_BUILD):
                         continue
-                    key = re.sub(r'^python3 ', 'python ', m.group(2))
+                    key = ' && '.join(previos + [re.sub(r'^python3 ', 'python ', m.group(2))])
                     if key == SUITE:
                         for i in range(SHARDS):
                             shard = f'python scripts/local-ci.py --unittest-shard {i}/{SHARDS}'
@@ -157,18 +214,6 @@ def scoped(changed, refs=referencias):
     return commands
 
 
-def busy_ports():
-    """En Windows http.server usa SO_REUSEADDR: un servidor previo en el puerto contestaría por el nuestro."""
-    busy = []
-    for port in PORTS:
-        try:
-            urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=1)
-            busy.append(port)
-        except OSError:
-            pass
-    return busy
-
-
 # `python -m http.server` escucha con una cola de 5 conexiones: con varias pruebas de navegador a la vez, Windows
 # rechaza el resto (ERR_CONNECTION_REFUSED) aunque el proceso siga vivo. 10/11: 40 pruebas caídas en 3 s.
 SERVER_CODE = ('import sys, http.server as h\n'
@@ -177,27 +222,73 @@ SERVER_CODE = ('import sys, http.server as h\n'
                '    daemon_threads = True\n'
                'S(("127.0.0.1", int(sys.argv[1])), h.SimpleHTTPRequestHandler).serve_forever()\n')
 
+LITERAL = re.compile(r'(127\.0\.0\.1|localhost):(417[35])\b')
+ENV_NAME = re.compile(r'process\.env\.([A-Z][A-Z0-9_]*)|environ(?:\.get\(|\[)[\'"]([A-Z][A-Z0-9_]*)')
+
+
+def free_port():
+    import socket
+    with socket.socket() as s:
+        s.bind(('127.0.0.1', 0))
+        return s.getsockname()[1]
+
+
+def origin_vars(root):
+    """Variables de entorno con las que cada prueba sustituye su origen por defecto (127.0.0.1:4173 o :4175).
+
+    Se descubren en el código: las que aparecen en la misma línea que el literal. Así una prueba nueva con su propia
+    variable (FERIAS_BASE_URL…) recibe el puerto real sin tocar esta lista."""
+    found = {}
+    for pattern in ('qa/**/*.mjs', 'tests/**/*.mjs', 'tests/**/*.py', 'scripts/*.mjs', 'scripts/*.py'):
+        for path in Path(root).glob(pattern):
+            try:
+                text = path.read_text(encoding='utf-8')
+            except (OSError, UnicodeDecodeError):
+                continue
+            for line in text.splitlines():
+                literal = LITERAL.search(line)
+                if literal:
+                    for a, b in ENV_NAME.findall(line):
+                        found.setdefault(a or b, int(literal.group(2)))
+    return found
+
 
 class Servers:
-    """Los servidores 4173/4175 de la QA de navegador, vigilados.
+    """Los servidores de la QA de navegador, en puertos libres y vigilados.
+
+    Los workflows y las pruebas citan 4173/4175. Con puertos fijos solo cabía una puerta por máquina (la del
+    autorrepair y las de otras ramas esperaban en cola, 10/11), y dos a la vez se tumbaban los servidores. Ahora cada
+    puerta elige puertos libres y `remap` pasa a cada comando el origen real: reescribe el literal en el comando y en
+    su entorno, y fija las variables de origen que las pruebas ya leen (`origin_vars`).
 
     Si uno muere a mitad de la puerta, cada prueba posterior daba ERR_CONNECTION_REFUSED y contaba como fallo de la
-    rama (30 «fallos» falsos el 9/11). Ahora su salida va a .local/local-ci/server-<puerto>.log, antes de cada prueba se
-    comprueba que contestan y, si alguno cayó, se relanza.
+    rama (30 «fallos» falsos el 9/11). Su salida va a .local/local-ci/server-<puerto>.log, antes de cada prueba se
+    comprueba que contestan y, si alguno cayó, se relanza en el mismo puerto.
     """
 
-    def __init__(self, root, lock_path=None):
-        # lock_path: los tests usan uno propio; con el de la máquina esperarían a la puerta que los ejecuta.
+    def __init__(self, root):
         self.root, self.procs, self.lock = root, {}, threading.Lock()
-        self.lock_path = lock_path
+        self.ports = {port: free_port() for port in PORTS}
+        self.vars = origin_vars(root)
         self.logs = ROOT / '.local/local-ci'
         self.logs.mkdir(parents=True, exist_ok=True)
         self.restarts = 0
 
-    def start(self, port):
-        log = open(self.logs / f'server-{port}.log', 'a', encoding='utf-8')
-        self.procs[port] = subprocess.Popen([sys.executable, '-c', SERVER_CODE, str(port)],
-                                            cwd=self.root, stdout=log, stderr=subprocess.STDOUT)
+    def origin(self, canonical):
+        return f'http://127.0.0.1:{self.ports[canonical]}'
+
+    def remap(self, command, env):
+        sub = lambda text: LITERAL.sub(lambda m: f'{m.group(1)}:{self.ports[int(m.group(2))]}', text)
+        env = {k: sub(v) for k, v in env.items()}
+        for name, canonical in self.vars.items():
+            env.setdefault(name, self.origin(canonical))
+        return sub(command), env
+
+    def start(self, canonical):
+        port = self.ports[canonical]
+        log = open(self.logs / f'server-{canonical}.log', 'a', encoding='utf-8')
+        self.procs[canonical] = subprocess.Popen([sys.executable, '-c', SERVER_CODE, str(port)],
+                                                 cwd=self.root, stdout=log, stderr=subprocess.STDOUT)
         for _ in range(50):
             if self.alive(port):
                 return
@@ -212,79 +303,26 @@ class Servers:
             return False
 
     def __enter__(self):
-        self.lock_file = ports_lock(self.lock_path or PORTS_LOCK)
-        if busy_ports():
-            release(self.lock_file)
-            raise SystemExit(f'Puertos ocupados por otro servidor: {busy_ports()}; ciérralo antes de la puerta.')
-        for port in PORTS:
-            self.start(port)
+        for canonical in PORTS:
+            self.start(canonical)
         return self
 
     def ensure(self):
         with self.lock:
-            for port in PORTS:
-                proc = self.procs.get(port)
-                if proc is None or proc.poll() is not None or not self.alive(port):
+            for canonical in PORTS:
+                proc = self.procs.get(canonical)
+                if proc is None or proc.poll() is not None or not self.alive(self.ports[canonical]):
                     code = None if proc is None else proc.poll()
-                    print(f'  servidor {port} caído (salida {code}); se relanza', flush=True)
+                    print(f'  servidor {self.ports[canonical]} caído (salida {code}); se relanza', flush=True)
                     if proc is not None and proc.poll() is None:
                         kill_tree(proc)
                     self.restarts += 1
-                    self.start(port)
+                    self.start(canonical)
 
     def __exit__(self, *exc):
-        try:
-            for proc in self.procs.values():
-                proc.terminate()
-                proc.wait()
-        finally:
-            release(self.lock_file)
-
-
-PORTS_LOCK = Path(tempfile.gettempdir()) / 'web-escritor-local-ci-ports.lock'
-
-
-def ports_lock(path=PORTS_LOCK, wait=3 * 3600):
-    """Cerrojo de máquina sobre los puertos 4173/4175.
-
-    Dos puertas a la vez (la de la autorreparación y otra a mano, en worktrees distintos) compartían los puertos: en
-    Windows http.server usa SO_REUSEADDR, así que la segunda no veía el puerto ocupado y, al cerrar sus servidores,
-    tumbaba los de la otra. Ahora la segunda espera su turno.
-    """
-    handle = open(path, 'a+b')
-    start, said = time.time(), False
-    while True:
-        try:
-            if os.name == 'nt':
-                import msvcrt
-                handle.seek(0)
-                msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
-            else:
-                import fcntl
-                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
-            return handle
-        except OSError:
-            if time.time() - start > wait:
-                handle.close()
-                raise SystemExit('Otra puerta local lleva más de 3 h con los puertos de QA; revísala.')
-            if not said:
-                print('Otra puerta local usa los puertos de QA: espero mi turno…', flush=True)
-                said = True
-            time.sleep(5)
-
-
-def release(handle):
-    try:
-        if os.name == 'nt':
-            import msvcrt
-            handle.seek(0)
-            msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
-        else:
-            import fcntl
-            fcntl.flock(handle, fcntl.LOCK_UN)
-    except OSError:
-        pass
-    handle.close()
+        for proc in self.procs.values():
+            proc.terminate()
+            proc.wait()
 
 
 def kill_tree(proc):
@@ -335,11 +373,12 @@ def run_all(items, root, jobs, timeout=TIMEOUT):
     with Servers(root) as servers:
         def one(item):
             servers.ensure()
-            res = run_one(item[0], item[1], root, timeout)
+            command, env = servers.remap(item[0], item[1])
+            res = run_one(command, env, root, timeout)
             # Si el servidor cayó durante la prueba, el fallo es del entorno: se repite una vez con él relanzado.
             if res[0] != 0 and 'ERR_CONNECTION_REFUSED' in res[1]:
                 servers.ensure()
-                res = run_one(item[0], item[1], root, timeout)
+                res = run_one(command, env, root, timeout)
             return res
         with ThreadPoolExecutor(jobs) as pool:
             results = list(pool.map(one, items))
@@ -370,6 +409,12 @@ def same_failure(branch, main):
     norm = lambda res: re.sub(r'\d+|/tmp/\S+|[A-Za-z]:[\\/]\S+', '#', failure_line(res[1]))
     return (main[0] != 0 and 124 not in (branch[0], main[0]) and not environment_failure(branch[1])
             and norm(branch) == norm(main))
+
+
+def inestables(new, again):
+    """Separa los fallos que pasan al repetirlos (inestables) de los que se repiten (nuevos de verdad)."""
+    return ([(item, res) for (item, res), r in zip(new, again) if r[0] != 0],
+            [item[0] for (item, _), r in zip(new, again) if r[0] == 0])
 
 
 def baseline_tree():
@@ -455,6 +500,80 @@ def materializar(root):
             mod.asegurar(Path(root))
 
 
+# Cambian el comportamiento de todo el CI: con ellos no hay impacto acotado posible.
+GLOBAL = re.compile(r'(\.github/|package(-lock)?\.json$|scripts/requirements[\w.-]*\.txt$|scripts/local-ci\.py$)')
+PY_TEST = re.compile(r'tests/test[_-][\w.-]+\.py')
+NODE_TEST = re.compile(r'(?:tests|qa)/[\w./-]+\.mjs')
+CODE = ('.py', '.mjs', '.js')
+CENTRAL = 60  # un fichero que nombran más de 60 ficheros es central: mejor la vía completa
+
+
+def test_command(path):
+    name = Path(path).name
+    if path.endswith('.mjs'):
+        return f'node {path}'
+    return f'python -m unittest discover -s tests -p {name}' if name.startswith('test_') else f'python {path}'
+
+
+def impacto(changed, refs=referencias, workflow=None):
+    """Puerta por impacto (test impact analysis, como `nx affected` o pytest-testmon, pero por nombres).
+
+    Corre las pruebas que nombran lo cambiado, las de los scripts que lo importan (hasta 40 ficheros) y los pasos de
+    los workflows que ejecutan esos scripts. Devuelve None, y se usa la vía completa, si cambia algo global
+    (workflows, dependencias, esta puerta), un fichero central o un fichero de datos que ninguna prueba nombra.
+
+    10/11: la vía completa (560 comandos, 45–90 min, con falsos fallos del entorno) rechazó tres arreglos correctos
+    de la autorreparación y la carga estuvo 4 h sin publicar. El CI de GitHub sigue corriendo todo antes del merge.
+    """
+    if not changed or any(GLOBAL.match(f) for f in changed):
+        return None
+    tests, compiles, stems = set(), set(), set()
+    pending, seen = [(f, 0) for f in sorted(changed)], set()
+    while pending:
+        f, depth = pending.pop()
+        if f in seen:
+            continue
+        seen.add(f)
+        if PY_TEST.fullmatch(f) or NODE_TEST.fullmatch(f):
+            tests.add(f)
+            continue
+        if f.endswith('.py'):
+            compiles.add(f)
+        stem = Path(f).stem if f.endswith(CODE) else Path(f).name
+        users = refs(stem) - {f}
+        if len(users) > CENTRAL:
+            return None
+        stems.add(stem)
+        named = {u for u in users if PY_TEST.fullmatch(u) or NODE_TEST.fullmatch(u)}
+        readers = [u for u in users if re.fullmatch(r'scripts/[\w.-]+\.(?:py|mjs)', u)]
+        if not named and not readers and not f.endswith(CODE):
+            return None  # datos o HTML que nada nombra: no sabemos qué los cubre
+        tests |= named
+        if depth == 0:
+            # quien importa el módulo o lee el dato directamente: sus pruebas y sus pasos también. Solo un nivel:
+            # seguir a los que importan a los que importan llevaba un cambio en el núcleo a 116 comandos.
+            pending += [(r, 1) for r in readers]
+    if workflow is None:
+        workflow = collect(set(), True)
+    by_test = {}
+    items = []
+    for command, env, flow in workflow:
+        words = re.split(r'[\s/]', command)
+        if any(Path(w).stem in stems for w in words if w):
+            items.append((command, env, flow))
+        for t in tests:
+            if t in command:
+                by_test.setdefault(t, (command, env, flow))
+    if compiles:
+        items.append(('python -m py_compile ' + ' '.join(sorted(compiles)), {}, 'impacto'))
+    for t in sorted(tests):
+        items.append(by_test.get(t) or (test_command(t), {}, 'impacto'))
+    unique = {}
+    for item in items:
+        unique.setdefault(item[0], item)
+    return list(unique.values())
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--all', action='store_true', help='todos los pasos de QA, sin filtrar por rutas')
@@ -463,6 +582,9 @@ def main(argv=None):
     parser.add_argument('--timeout', type=int, default=TIMEOUT, help='segundos por comando')
     parser.add_argument('--only', help='solo los comandos que contengan este texto')
     parser.add_argument('--list', action='store_true', help='enseña qué correría y sale')
+    parser.add_argument('--completa', action='store_true', help='la vía completa de los workflows, sin puerta por impacto')
+    parser.add_argument('--tambien', action='append', default=[], metavar='CMD',
+                        help='añade un comando (p. ej. el paso que falló en el workflow); se puede repetir')
     parser.add_argument('--unittest-shard', metavar='I/N', help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
     if args.unittest_shard:
@@ -471,13 +593,17 @@ def main(argv=None):
 
     subprocess.run(['git', 'fetch', '-q', 'origin', 'main'], cwd=ROOT)
     base = git('merge-base', 'HEAD', 'origin/main')
+    CONTEXTO.update(contexto_pr(base))
     changed = set(git('diff', '--name-only', base).splitlines())
     changed |= {l[3:] for l in git('status', '--porcelain', '--untracked-files=all').splitlines() if l}
     items = None if args.all else scoped(changed)
     if items is not None:
         print('Solo scripts sueltos y sus tests: puerta por alcance (el CI de GitHub sigue corriendo todo)')
+    elif not (args.all or args.completa) and (items := impacto(changed)) is not None:
+        print('Puerta por impacto: pruebas y pasos que tocan lo cambiado (el CI de GitHub sigue corriendo todo)')
     else:
         items = collect(changed, args.all)
+    items += [(c, {}, 'también') for c in args.tambien if c not in {i[0] for i in items}]
     if args.only:
         items = [i for i in items if args.only in i[0]]
     print(f'{len(changed)} ficheros cambiados; {len(items)} comandos de CI', flush=True)
@@ -512,14 +638,23 @@ def main(argv=None):
     # Agotar el tiempo no es un fallo de la rama ni un aprobado: queda sin verificar (salida 2) y lo decide el CI.
     slow = [item[0] for item, res in new if res[0] == 124]
     new = [(item, res) for item, res in new if res[0] != 124]
+    flaky = []
+    if new:
+        # Como flaky_test_attempts de Bazel o pytest-rerunfailures: cada fallo nuevo se repite una vez en la rama. Si
+        # pasa, es inestable: se informa y no bloquea (el 10/11, manecillas TimeoutError, el lote 0/8 y un CLS
+        # rechazaron arreglos correctos). El CI de GitHub lo vuelve a correr igualmente.
+        print(f'Repitiendo {len(new)} fallos nuevos en la rama…', flush=True)
+        new, flaky = inestables(new, run_all([item for item, _ in new], ROOT, args.jobs, args.timeout))
     for (command, _, flow), (code, output, _) in new:
         print(f'\n## {command}  ({flow}, código {code})\n{failure_line(output)}')
     for command in known:
         print(f'  ya falla igual en main: {command}')
+    for command in flaky:
+        print(f'  inestable (falló y pasó al repetirlo): {command}')
     for command in slow:
         print(f'  sin verificar (agotó {args.timeout} s): {command}')
     print(f'\n{len(items) - len(failed) - len(timed_out)} bien, {len(new)} fallos nuevos' + (f', {len(known)} ya fallaban en main' if known else '')
-          + (f', {len(slow)} sin verificar' if slow else ''))
+          + (f', {len(flaky)} inestables' if flaky else '') + (f', {len(slow)} sin verificar' if slow else ''))
     return 1 if new else 2 if slow else 0
 
 

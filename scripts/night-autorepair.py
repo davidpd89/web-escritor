@@ -140,6 +140,19 @@ Tarea: encuentra la causa raíz y arréglala de forma definitiva en este worktre
 Responde siempre en español."""
 
 
+def prompt_continuar(prompt: str, agente: str, puerta: str) -> str:
+    base = prompt.split('\n\n## Intento anterior')[0]
+    return base + f"""
+
+## Intento anterior ({agente})
+Su arreglo sigue en el worktree (mira `git diff`). La puerta local lo rechazó con esto:
+```
+{puerta[-2500:]}
+```
+Parte de ese arreglo: corrígelo o complétalo; no lo rehagas desde cero salvo que esté mal. Si los fallos no tienen que ver
+con lo cambiado (puertos, servidores, entorno), explícalo en AUTOREPAIR_SUMMARY.md con la prueba de que también fallan en main."""
+
+
 # --- efectos (gh, git, CLIs) ---------------------------------------------------------------------------------------
 
 def sh(args, cwd=REPO, timeout=600, env=None, check=False, entrada=None):
@@ -251,15 +264,51 @@ def deshacer(wt):
     sh(['git', 'clean', '-fdq', '-e', 'node_modules'], cwd=wt)
 
 
-def puerta_local(wt):
-    r = sh([sys.executable, 'scripts/local-ci.py', '--baseline'], cwd=wt, timeout=3 * 3600)
+def pasos_fallidos(registro):
+    """Los comandos que fallaron en el workflow, para que la puerta los repita sobre el arreglo.
+
+    Reconoce el `CalledProcessError: Command '(python, scripts/x.py, …)'` de los scripts de carga y los
+    `FAIL: test_x (test_modulo.Clase.test_x)` de unittest."""
+    pasos = []
+    for m in re.finditer(r"Command '\('[^']*python[^']*', ((?:'[^']*'(?:, )?)+)\)'", registro):
+        args = re.findall(r"'([^']*)'", m.group(1))
+        if args and re.fullmatch(r'scripts/[\w.-]+\.py', args[0]):
+            pasos.append('python ' + ' '.join(args))
+    for modulo in re.findall(r'^.*?(?:FAIL|ERROR): \w+ \((test_\w+)\.', registro, re.M):
+        pasos.append(f'python -m unittest discover -s tests -p {modulo}.py')
+    return list(dict.fromkeys(pasos))
+
+
+def dejar_como_el_indice(wt):
+    """Los pasos de la puerta construyen (`build-public-dist`, `build-reading-pinterest-rss --assign`) y escriben en el
+    árbol. El arreglo del agente está en el índice (`git add -A` antes de la puerta): se vuelve a él, para que lo escrito
+    por la puerta no acabe en el commit ni en el diff del siguiente agente."""
+    sh(['git', 'checkout', '-q', '--', '.'], cwd=wt)
+    sh(['git', 'clean', '-fdq', '--', '.', ':!node_modules'], cwd=wt)
+
+
+def puerta_local(wt, registro=''):
+    # Puerta por impacto (local-ci la elige sola) más los pasos que fallaron en el workflow. 10/11: la vía completa
+    # rechazó tres arreglos correctos por falsos fallos del entorno y la carga pasó 4 h sin publicar.
+    extra = [a for paso in pasos_fallidos(registro) for a in ('--tambien', paso)]
+    r = sh([sys.executable, 'scripts/local-ci.py', '--baseline', *extra], cwd=wt, timeout=3 * 3600)
+    dejar_como_el_indice(wt)
     salida = (r.stdout or '') + (r.stderr or '')
-    m = re.search(r'(\d+) fallos? nuevos?', salida)
-    nuevos = int(m.group(1)) if m else (0 if r.returncode == 0 else 1)
+    return veredicto_puerta(r.returncode, salida, pasos_fallidos(registro))
+
+
+def veredicto_puerta(codigo, salida, pasos=()):
+    """Decide por el código de salida de local-ci, no por el texto: 0 pasa, 1 (fallos nuevos) no pasa.
+
+    2 = algo agotó el tiempo y quedó sin verificar: pasa solo si no es uno de los pasos que fallaron en el workflow
+    (esos tienen que verificarse aquí); el resto lo corre el CI obligatorio de GitHub antes del merge.
+    """
+    lentos = re.findall(r'sin verificar \(agotó [^)]*\): (.+)', salida)
+    pasa = codigo == 0 or (codigo == 2 and not any(p in l or l in p for p in pasos for l in lentos))
     # Lo útil son las secciones «## comando» de cada fallo nuevo y el recuento final; la cola cruda las cortaba.
     fallos = re.findall(r'^## .*\n.*', salida, re.M)
-    resumen = '\n'.join(fallos + salida.strip().splitlines()[-1:])
-    return nuevos == 0, resumen[-3000:]
+    resumen = '\n'.join(fallos + [f'sin verificar: {l}' for l in lentos] + salida.strip().splitlines()[-1:])
+    return pasa, resumen[-3000:]
 
 
 def reparar(flujo, run, dry):
@@ -291,9 +340,12 @@ def reparar(flujo, run, dry):
             ok, motivo = diff_valido(sh(['git', 'diff', '--cached'], cwd=wt).stdout)
             if not ok:
                 log(f"{flujo}: {nombre} rechazado ({motivo})"); sh(['git', 'reset', '-q'], cwd=wt); deshacer(wt); continue
-            pasa, salida_puerta = puerta_local(wt)
+            pasa, salida_puerta = puerta_local(wt, registro)
             if not pasa:
-                log(f"{flujo}: {nombre} no pasa la puerta local:\n{salida_puerta[-1500:]}"); sh(['git', 'reset', '-q'], cwd=wt); deshacer(wt); continue
+                # No se tira el arreglo: el siguiente agente parte de él y de lo que dijo la puerta (10/11: tres
+                # arreglos correctos rehechos desde cero, uno tras otro).
+                log(f"{flujo}: {nombre} no pasa la puerta local:\n{salida_puerta[-1500:]}"); sh(['git', 'reset', '-q'], cwd=wt)
+                prompt = prompt_continuar(prompt, nombre, salida_puerta); continue
             titulo = (resumen.splitlines() or [f'Reparar {flujo}'])[0].lstrip('# ').strip()[:90] or f'Reparar {flujo}'
             cuerpo = '\n'.join(resumen.splitlines()[1:]).strip()
             mensaje = f"{titulo}\n\nReparación automática del turno de noche ({nombre}) tras dos fallos de {flujo}.\n{run['url']}\n\n{cuerpo}".strip()
@@ -302,7 +354,7 @@ def reparar(flujo, run, dry):
             sh(['git', 'commit', '-q', '-F', '-'], cwd=wt, entrada=mensaje, check=True)
             sh(['git', 'push', '-q', '-u', 'origin', rama], cwd=wt, check=True, timeout=600)
             body = (f"## Qué falló\n`{flujo}` falló dos veces seguidas en main: {run['url']}\n\n## Arreglo ({nombre})\n{cuerpo or titulo}\n\n"
-                    f"## Comprobado\n- `python scripts/local-ci.py --baseline`: sin fallos nuevos.\n- Al entrar en main, el turno de noche relanza `{flujo}`.\n\n{PIE_PR}")
+                    f"## Comprobado\n- Puerta local por impacto (`local-ci.py --baseline` + los pasos que fallaron): sin fallos nuevos.\n- Al entrar en main, el turno de noche relanza `{flujo}`.\n\n{PIE_PR}")
             url = sh(['gh', 'pr', 'create', '--repo', GH_REPO, '--base', 'main', '--head', rama, '--title', titulo, '--body-file', '-'],
                      cwd=wt, entrada=body, check=True).stdout.strip().splitlines()[-1]
             numero = int(url.rstrip('/').rsplit('/', 1)[-1])
