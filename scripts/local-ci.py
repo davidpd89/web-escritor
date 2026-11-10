@@ -40,6 +40,9 @@ COMMAND = re.compile(r'^((?:[A-Z_][A-Z0-9_]*=\S+\s+)*)(node (?:--check \S+|--tes
 # construido (`--check-contents`): en GitHub corren en orden dentro de un bash -e. Antes se partían y la comprobación
 # corría sola, sin lo construido: «ya fallaba en main» siempre.
 PRODUCTOR = re.compile(r'^(python3?|node) scripts/build[-_][^\s$]+(?: [^$|;&>]*)?$')
+# Preparación del paso que también va delante del comando: `mkdir -p artifacts/x` antes de `| tee artifacts/x/log`
+# y `set -o pipefail`. Antes se descartaban: el tee fallaba en local sin la carpeta y salía «inestable».
+PREPARA = re.compile(r'^(?:mkdir -p [^$|;&>]+|set (?:-[eu]+|-o pipefail)(?: -o pipefail)?)$')
 # Dependen de artefactos que en CI crea un paso anterior (dist de vista previa, zip, informe de lychee).
 NEEDS_BUILD = ('.preview-dist', 'qa-artifacts/', 'lychee/')
 # La suite unittest completa pasa de 15 min en un solo proceso: se reparte en lotes que corren en paralelo.
@@ -158,6 +161,9 @@ def collect(changed, everything):
                 previos = []
                 for line in loop_lines(step.get('run') or '') + (step.get('run') or '').splitlines():
                     m = COMMAND.match(line.strip())
+                    if not m and PREPARA.match(line.strip()):
+                        previos.append(line.strip())
+                        continue
                     if not m and PRODUCTOR.match(line.strip()):
                         previos.append(re.sub(r'^python3 ', 'python ', line.strip()))
                         continue

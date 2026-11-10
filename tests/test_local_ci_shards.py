@@ -222,6 +222,19 @@ class PasoQueConstruyeYComprueba(unittest.TestCase):
         self.assertFalse(local_ci.PRODUCTOR.match('python scripts/build-x.py --out "$DIR"'))
         self.assertFalse(local_ci.PRODUCTOR.match('python scripts/check-x.py'))
 
+    def test_la_preparacion_del_paso_va_delante(self):
+        self.assertTrue(local_ci.PREPARA.match('mkdir -p artifacts/global-discoverability'))
+        self.assertTrue(local_ci.PREPARA.match('set -o pipefail'))
+        self.assertFalse(local_ci.PREPARA.match('mkdir -p "$OUT"'))
+        self.assertFalse(local_ci.PREPARA.match('rm -rf artifacts'))
+
+    def test_todo_tee_a_una_carpeta_la_crea_antes(self):
+        # trinquete: el 10/11 global-discoverability salía «inestable» porque el mkdir -p del paso se descartaba
+        for cmd, _, flow in local_ci.collect(set(), True):
+            for destino in re.findall(r'tee (?:-a )?(\S+/)[^/\s]+', cmd):
+                with self.subTest(flow=flow, cmd=cmd):
+                    self.assertIn(f'mkdir -p {destino.rstrip("/")}', cmd)
+
 
 class PuertaPorImpacto(unittest.TestCase):
     WORKFLOW = [('python scripts/check-reading-data.py', {}, 'carga.yml'),
