@@ -89,10 +89,14 @@ def decidir(run: dict | None, previo: dict | None, ahora: dt.datetime, intentos_
     return 'reparar'
 
 
+CARGA_PERDIDA_DESDE_H = 1  # UTC; el cron es a las 00:17
+
+
 def carga_perdida(ultima: dict | None, ahora: dt.datetime, lanzada_hoy: bool) -> bool:
     """El cron de la carga (00:17 UTC) no llegó a crear ejecución: GitHub a veces se salta crons, sobre todo en
-    incidencias. A partir de las 02:00 UTC, si hoy no hay ninguna carga, se lanza una (una vez al día)."""
-    if lanzada_hoy or ahora.hour < 2:
+    incidencias. A partir de las 01:00 UTC, si hoy no hay ninguna carga, se lanza una (una vez al día). Con 02:00 la
+    carga del 2026-11-10 no salió hasta la pasada de las 02:20 UTC: una hora menos de margen hasta las 06:00 Madrid."""
+    if lanzada_hoy or ahora.hour < CARGA_PERDIDA_DESDE_H:
         return False
     if not ultima:
         return True
@@ -380,6 +384,10 @@ def pasada(dry=False, solo=None):
 
 
 def main():
+    # La tarea redirige la salida a salida.log con la página de códigos de Windows: un «→» tumbaba la pasada
+    # ('charmap' codec, 2026-11-09/10, en cada intento con Telegram).
+    for flujo in (sys.stdout, sys.stderr):
+        flujo.reconfigure(encoding='utf-8', errors='replace')
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument('--dry-run', action='store_true')
     ap.add_argument('--solo')
