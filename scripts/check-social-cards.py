@@ -10,6 +10,9 @@ Python standard library only.
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import argparse
 import struct
 import subprocess
@@ -251,7 +254,7 @@ def audit_page(path: Path, root: Path, origin: str) -> PageAudit | None:
 def html_inventory(root):
     """Audit the published source set, excluding local browser/worktree copies."""
     if (root / '.git').exists():
-        listed = subprocess.run(['git', 'ls-files', '-z', '--', '*.html'], cwd=root,
+        listed = arbol_publicado.run(['git', 'ls-files', '-z', '--', '*.html'], cwd=root,
                                 check=True, capture_output=True).stdout.decode('utf-8')
         return sorted(root / p for p in listed.split('\0') if p and (root / p).is_file())
     pages = []

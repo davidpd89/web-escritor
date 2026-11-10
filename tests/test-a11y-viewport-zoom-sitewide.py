@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 """Politica de ampliacion movil WCAG 1.4.4."""
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 from html.parser import HTMLParser
 from pathlib import Path
 import subprocess
@@ -21,7 +24,7 @@ class Audit(HTMLParser):
         if a.get('name', '').lower() == 'viewport':
             self.viewports.append(a.get('content', ''))
 
-paths = subprocess.check_output(['git', 'ls-files', '*.html'], cwd=ROOT, text=True).splitlines()
+paths = arbol_publicado.check_output(['git', 'ls-files', '*.html'], cwd=ROOT, text=True).splitlines()
 errors = []
 checked = 0
 for rel in paths:

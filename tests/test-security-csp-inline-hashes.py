@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import base64
 import hashlib
 import re
@@ -32,7 +35,7 @@ class Scripts(HTMLParser):
 STYLE_RE = re.compile(r'<style(?![^>]*\bsrc=)[^>]*>([\s\S]*?)</style>', re.I)
 styles_checked = 0
 
-files = subprocess.check_output(['git', 'ls-files', '-z', '*.html'], cwd=ROOT).decode().split('\0')
+files = arbol_publicado.check_output(['git', 'ls-files', '-z', '*.html'], cwd=ROOT).decode().split('\0')
 errors = []
 checked = 0
 for rel in files:

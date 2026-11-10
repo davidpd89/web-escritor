@@ -28,6 +28,9 @@ Usage:
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import argparse
 from html import unescape
 import subprocess
@@ -37,7 +40,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def tracked_html(root: Path) -> list[Path]:
-    out = subprocess.run(
+    out = arbol_publicado.run(
         ["git", "ls-files", "-z", "*.html"], cwd=root, capture_output=True, text=True, check=True,
     ).stdout
     return [root / rel for rel in out.split("\0") if rel]

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 """Contrato de la vía rápida de contenido: misma política que el publicador, fail-closed y red semanal."""
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import importlib.util
 import re
 import subprocess
@@ -118,7 +121,7 @@ finally:
     lane.git = real_git
 
 # 4. Los globs equivalen a la política, sobre todos los ficheros del repo.
-tracked = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True).stdout.splitlines()
+tracked = arbol_publicado.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True).stdout.splitlines()
 for f in tracked:
     permitido, cubierto = lane.allowed_path(f), any(rx.match(f) for rx in GLOBS)
     if permitido and not cubierto:

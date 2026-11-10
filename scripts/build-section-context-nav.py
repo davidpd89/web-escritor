@@ -22,6 +22,9 @@ Follows the same marker + --check workflow as build-site-shell.py.
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import argparse
 import re
 import subprocess
@@ -283,7 +286,7 @@ def canonical_path_from_html(text: str) -> str | None:
 
 
 def tracked_html(root: Path) -> list[Path]:
-    out = subprocess.run(
+    out = arbol_publicado.run(
         ["git", "ls-files", "-z", "*.html"],
         cwd=root, capture_output=True, text=True, check=True,
     ).stdout

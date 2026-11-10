@@ -10,6 +10,9 @@ misordered base stack.
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import posixpath
 import subprocess
 from html.parser import HTMLParser
@@ -56,7 +59,7 @@ def resolve_stylesheet(href: str, page_rel: str) -> str:
 
 
 def tracked_public_html() -> list[Path]:
-    result = subprocess.run(
+    result = arbol_publicado.run(
         ["git", "ls-files", "-z", "*.html"],
         cwd=ROOT,
         check=True,

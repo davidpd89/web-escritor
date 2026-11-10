@@ -9,6 +9,10 @@ import re
 import subprocess
 from pathlib import Path
 
+import sys as _sys
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
+
 
 def git(root, *args):
     return subprocess.check_output(['git', *args], cwd=root).decode('utf-8')
@@ -27,7 +31,7 @@ def public_html(paths):
 
 
 def select(root, event_name, event, ref, full_scan=False):
-    all_files=public_html(git(root,'ls-files','-z','--','*.html').split('\0'))
+    all_files=public_html(arbol_publicado.listar(root, '*.html'))
     if not all_files:
         raise ValueError('No HTML inputs; refusing an empty link check')
     base=None

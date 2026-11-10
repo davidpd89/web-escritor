@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 from html.parser import HTMLParser
 from pathlib import Path
 import subprocess
@@ -16,7 +19,7 @@ class Audit(HTMLParser):
         if tag == 'meta' and (a.get('http-equiv') or '').lower() == 'content-security-policy':
             self.policies.append(a.get('content') or '')
 
-tracked = subprocess.check_output(['git', 'ls-files', '-z', '*.html'], cwd=ROOT).decode('utf-8').split('\0')
+tracked = arbol_publicado.check_output(['git', 'ls-files', '-z', '*.html'], cwd=ROOT).decode('utf-8').split('\0')
 files = [p for p in tracked if p and (p.split('/')[0] in FAMILIES or p in ROOT_PAGES)]
 assert files, 'No se encontraron páginas publicadas'
 errors = []

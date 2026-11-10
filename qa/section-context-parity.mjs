@@ -19,14 +19,13 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
+import { listarPublicado } from './arbol-publicado.mjs';
 
 const ROOT = process.cwd();
 
 function discoverPages() {
-  const tracked = execFileSync('git', ['ls-files', '-z', '*.html'], { cwd: ROOT, encoding: 'utf8' })
-    .split('\0').filter(Boolean);
+  const tracked = listarPublicado(ROOT, '*.html');
   return tracked.filter((rel) => {
     if (rel.startsWith('lab/')) return false;
     const text = fs.readFileSync(path.join(ROOT, rel), 'utf8');

@@ -21,6 +21,9 @@ Two modes:
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import argparse
 import json
 import re
@@ -58,7 +61,7 @@ QID_RE = re.compile(r"wikidata\.org/wiki/(Q\d+)")
 
 
 def git_tracked_html():
-    result = subprocess.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True, text=True, check=True)
+    result = arbol_publicado.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True, text=True, check=True)
     for line in result.stdout.splitlines():
         line = line.strip()
         if line:

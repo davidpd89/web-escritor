@@ -13,13 +13,16 @@ copy-pasting the old markup can't reintroduce the CLS source silently.
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import re
 from pathlib import Path
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 
-tracked_html = subprocess.run(
+tracked_html = arbol_publicado.run(
     ["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True, text=True, check=True
 ).stdout.splitlines()
 

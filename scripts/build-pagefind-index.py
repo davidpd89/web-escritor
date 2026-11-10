@@ -28,6 +28,10 @@ Usage:
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
+
 import argparse
 import hashlib
 import html
@@ -71,7 +75,7 @@ class RobotsMetaParser(HTMLParser):
 
 
 def git_tracked_html(root: Path) -> list[str]:
-    result = subprocess.run(
+    result = arbol_publicado.run(
         ["git", "ls-files", "*.html"], cwd=root, capture_output=True, text=True, check=True
     )
     # Durante una fusión con conflictos ls-files repite cada ruta por etapa (1/2/3): sin set el índice

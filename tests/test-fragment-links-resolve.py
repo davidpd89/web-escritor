@@ -17,6 +17,9 @@ Uso:
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import html
 import io
 import re
@@ -38,7 +41,7 @@ NAME_RE = re.compile(r'<a\b[^>]*\bname="([^"]+)"')
 
 
 def load_html_files() -> list[str]:
-    out = subprocess.run(
+    out = arbol_publicado.run(
         ["git", "-c", "core.quotepath=false", "ls-files", "-z", "*.html"],
         cwd=ROOT, capture_output=True, check=True,
     ).stdout.decode("utf-8").split("\0")

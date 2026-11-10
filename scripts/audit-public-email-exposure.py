@@ -12,6 +12,9 @@ CI so future pages cannot regress to a static address/mailto.
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import argparse
 import html
 import importlib.util
@@ -84,7 +87,7 @@ def _tracked_files(root: Path) -> list[str] | None:
     import subprocess
 
     try:
-        out = subprocess.run(
+        out = arbol_publicado.run(
             ["git", "ls-files"],
             cwd=root,
             capture_output=True,

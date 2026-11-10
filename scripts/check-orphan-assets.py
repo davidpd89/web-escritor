@@ -40,6 +40,9 @@ Usage:
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import argparse
 import importlib.util
 import subprocess
@@ -88,7 +91,7 @@ def git_tracked_files() -> list[Path] | None:
     dist output) without needing to keep SKIP_PARTS in sync with .gitignore
     by hand. Falls back to a filesystem walk if git isn't available."""
     try:
-        out = subprocess.run(
+        out = arbol_publicado.run(
             ["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True
         ).stdout
     except (OSError, subprocess.CalledProcessError):

@@ -23,6 +23,9 @@ Usage:
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import argparse
 import fnmatch
 import json
@@ -271,7 +274,7 @@ def public_registry_sources(root: Path) -> tuple[str, ...]:
 
 
 def git_tracked_files(root: Path = ROOT) -> list[str]:
-    result = subprocess.run(
+    result = arbol_publicado.run(
         ["git", "ls-files"], cwd=root, capture_output=True, text=True, check=True
     )
     return [line.strip() for line in result.stdout.splitlines() if line.strip()]

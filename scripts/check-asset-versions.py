@@ -57,6 +57,9 @@ Usage:
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import hashlib
 import json
 import re
@@ -226,7 +229,7 @@ JS_REF_RE = re.compile(r'(?:href\s*=\s*|import\(|from\s+)["\']\.?/?assets/(' + '
 
 
 def git_tracked_html():
-    result = subprocess.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True, text=True, check=True)
+    result = arbol_publicado.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True, text=True, check=True)
     for line in result.stdout.splitlines():
         line = line.strip()
         if line:
@@ -234,7 +237,7 @@ def git_tracked_html():
 
 
 def git_tracked_js():
-    result = subprocess.run(["git", "ls-files", "*.js"], cwd=ROOT, capture_output=True, text=True, check=True)
+    result = arbol_publicado.run(["git", "ls-files", "*.js"], cwd=ROOT, capture_output=True, text=True, check=True)
     for line in result.stdout.splitlines():
         line = line.strip()
         if line:

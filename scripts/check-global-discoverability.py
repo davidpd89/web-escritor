@@ -8,6 +8,9 @@ those exceptions instead of silently forcing them into the general template.
 """
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import importlib.util
 import json
 import re
@@ -60,7 +63,7 @@ LEGAL_PUBLIC_NOINDEX = {"/privacidad.html", "/aviso-legal.html"}
 
 
 def tracked_files() -> list[str]:
-    output = subprocess.check_output(["git", "ls-files"], cwd=ROOT, text=True)
+    output = arbol_publicado.check_output(["git", "ls-files"], cwd=ROOT, text=True)
     return [line.strip() for line in output.splitlines() if line.strip()]
 
 

@@ -2,6 +2,9 @@
 """Small, offline HTML audits. Findings are advisory; exit 1 preserves visibility."""
 from __future__ import annotations
 
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 import argparse
 import json
 import posixpath
@@ -188,7 +191,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, default=ROOT / '.ci/small-ui-audit')
     args = parser.parse_args()
-    files = set(subprocess.check_output(['git', 'ls-files', '-z'], cwd=ROOT).decode('utf-8').split('\0')) - {''}
+    files = set(arbol_publicado.check_output(['git', 'ls-files', '-z'], cwd=ROOT).decode('utf-8').split('\0')) - {''}
     pages = sorted(p for p in files if p.endswith('.html') and not p.startswith(('tests/', 'qa/', 'lab/', 'data/')))
     findings = []
     counts = dict(disclosures=0, selects=0, suggestion_lists=0, downloads=0, numeric_inputs=0, form_references=0)
