@@ -1,6 +1,7 @@
 import importlib.util
 import importlib.util as _iu
 import unittest
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -172,6 +173,33 @@ class EntornoCiego(unittest.TestCase):
     def test_un_fallo_real_igual_en_main_sigue_siendo_conocido(self):
         output = 'AssertionError: 3 != 4'
         self.assertTrue(local_ci.same_failure((1, output, 0), (1, output, 0)))
+
+
+class ContextoDeGitHubEnLocal(unittest.TestCase):
+    CTX = {'github.event.pull_request.base.sha': 'b4se', 'github.sha': 'h3ad', 'github.event_name': 'pull_request'}
+
+    def test_la_base_de_la_pr_llega_a_la_prueba(self):
+        env = local_ci.plain_env({'BASE_SHA': '${{ github.event.pull_request.base.sha }}', 'X': 'y'}, self.CTX)
+        self.assertEqual(env, {'BASE_SHA': 'b4se', 'X': 'y'})
+
+    def test_alternativas_y_condiciones(self):
+        env = local_ci.plain_env({
+            'A': "${{ github.event.workflow_run.head_sha || github.sha }}",
+            'B': "${{ github.event.inputs.mode || 'auto' }}",
+            'C': "${{ github.event_name == 'pull_request' && 'http://127.0.0.1:4173' || 'https://x.com' }}",
+            'D': "${{ github.event.pull_request.body }}"}, self.CTX)
+        self.assertEqual(env, {'A': 'h3ad', 'B': 'auto', 'C': 'http://127.0.0.1:4173'})
+
+    def test_toda_base_de_pr_de_los_workflows_se_resuelve_en_local(self):
+        """Trinquete: ninguna variable que un workflow saca de la base o la cabeza de la PR se queda sin valor."""
+        sin_valor = []
+        for wf in (ROOT / '.github/workflows').glob('*.yml'):
+            for k, v in re.findall(r'^\s+([A-Z_]+):\s*(\$\{\{.*?\}\})\s*$', wf.read_text(encoding='utf-8'), re.M):
+                if re.search(r'pull_request\.(base|head)\.sha|github\.(sha|event_name|head_ref)', v):
+                    if not local_ci.plain_env({k: v}, {**self.CTX, 'github.event.pull_request.head.sha': 'h3ad',
+                                                        'github.head_ref': 'r', 'github.ref_name': 'r'}):
+                        sin_valor.append(f'{wf.name}: {k}')
+        self.assertEqual(sin_valor, [])
 
 
 class PuertaPorImpacto(unittest.TestCase):

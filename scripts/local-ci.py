@@ -80,9 +80,52 @@ def triggered(pr, changed):
     return True
 
 
-def plain_env(env):
-    """Variables del workflow que no dependen de expresiones ${{ }} (esas solo existen en GitHub)."""
-    return {k: str(v) for k, v in (env or {}).items() if '${{' not in str(v)}
+CONTEXTO = {}
+
+
+def contexto_pr(base):
+    """Lo que GitHub pone en `github.*` en una pull_request, con su equivalente local."""
+    head, rama = git('rev-parse', 'HEAD'), git('rev-parse', '--abbrev-ref', 'HEAD')
+    return {'github.event.pull_request.base.sha': base, 'github.event.pull_request.head.sha': head,
+            'github.sha': head, 'github.event_name': 'pull_request', 'github.head_ref': rama, 'github.ref_name': rama}
+
+
+def expresion(expr, contexto):
+    """`${{ a || b || 'x' }}` y `${{ cond && 'x' || 'y' }}`: la primera alternativa que da valor. None si no se puede
+    resolver en local (inputs, cuerpo de la PR…): esa variable no se pasa."""
+    for alt in expr.split('||'):
+        *conds, valor = [t.strip() for t in alt.split('&&')]
+        if all(evalua(c, contexto) for c in conds) and (v := termino(valor, contexto)):
+            return v
+    return None
+
+
+def termino(t, contexto):
+    return t[1:-1] if len(t) > 1 and t[0] == t[-1] == "'" else contexto.get(t)
+
+
+def evalua(cond, contexto):
+    m = re.fullmatch(r"(\S+)\s*(==|!=)\s*(\S+)", cond)
+    if not m:
+        return bool(termino(cond, contexto))
+    igual = termino(m[1], contexto) == termino(m[3], contexto)
+    return igual if m[2] == '==' else not igual
+
+
+def plain_env(env, contexto=None):
+    """Variables del workflow. Las que son expresiones `${{ github.* }}` se resuelven con su equivalente local
+    (base de la PR = merge-base con origin/main); antes se descartaban y findability-inventory y
+    publishing-metadata-preservation fallaban siempre con «BASE_SHA requerido», contadas como «ya fallaban en main»."""
+    contexto = CONTEXTO if contexto is None else contexto
+    out = {}
+    for k, v in (env or {}).items():
+        v = str(v)
+        if '${{' in v:
+            m = re.fullmatch(r'\s*\$\{\{(.*)\}\}\s*', v)
+            v = m and expresion(m[1], contexto)
+        if v is not None:
+            out[k] = v
+    return out
 
 
 def loop_lines(run):
@@ -530,6 +573,7 @@ def main(argv=None):
 
     subprocess.run(['git', 'fetch', '-q', 'origin', 'main'], cwd=ROOT)
     base = git('merge-base', 'HEAD', 'origin/main')
+    CONTEXTO.update(contexto_pr(base))
     changed = set(git('diff', '--name-only', base).splitlines())
     changed |= {l[3:] for l in git('status', '--porcelain', '--untracked-files=all').splitlines() if l}
     items = None if args.all else scoped(changed)
