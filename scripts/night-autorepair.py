@@ -323,7 +323,8 @@ def reparar(flujo, run, dry):
             log(f"{flujo}: probando {nombre}")
             args = [exe(argv[0]), *argv[1:]] + (['-C', str(wt), '-'] if nombre == 'codex' else [])
             try:
-                r = sh(args, cwd=wt, timeout=90 * 60, env=env, entrada=prompt)
+                r = sh(args, cwd=wt, timeout=90 * 60, env={**sin_escritura(ESTADO_DIR / 'gh-sin-credenciales'), **env},
+                       entrada=prompt)
                 salida = (r.stdout or '') + (r.stderr or '')
             except subprocess.TimeoutExpired:
                 log(f"{flujo}: {nombre} superó 90 min"); deshacer(wt); continue
@@ -433,6 +434,20 @@ def pasada(dry=False, solo=None):
             log(f"{flujo}: error del turno de noche: {exc}")
         finally:
             dry or guardar_estado(estado)
+
+
+def sin_escritura(vacio):
+    """Entorno del agente sin credenciales de escritura: ni push ni gh autenticado.
+
+    El agente solo edita el worktree; el push, la PR y el auto-merge los hace el orquestador tras la puerta local.
+    Antes heredaba el gh y el git de la máquina y podía empujar o mergear saltándose la puerta.
+    """
+    vacio.mkdir(parents=True, exist_ok=True)
+    return {'GH_CONFIG_DIR': str(vacio), 'GH_TOKEN': '', 'GITHUB_TOKEN': '', 'GH_ENTERPRISE_TOKEN': '',
+            'GIT_TERMINAL_PROMPT': '0', 'GCM_INTERACTIVE': 'never',
+            'GIT_CONFIG_COUNT': '2',
+            'GIT_CONFIG_KEY_0': 'remote.origin.pushurl', 'GIT_CONFIG_VALUE_0': 'sin-push://lo-hace-el-orquestador',
+            'GIT_CONFIG_KEY_1': 'credential.helper', 'GIT_CONFIG_VALUE_1': ''}
 
 
 def tomar_cerrojo(ruta):

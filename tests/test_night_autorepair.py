@@ -203,3 +203,28 @@ class CerrojoDeProceso(unittest.TestCase):
             g = na.tomar_cerrojo(ruta)
             self.assertIsNotNone(g)
             g.close()
+
+
+class AgenteSinEscritura(unittest.TestCase):
+    """El agente no puede empujar: el push lo hace el orquestador tras la puerta local."""
+
+    def test_el_agente_no_puede_empujar_y_el_orquestador_si(self):
+        import os, subprocess
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            git = lambda *a, env=None, cwd=tmp / 'wt': subprocess.run(['git', *a], cwd=cwd, capture_output=True, text=True,
+                                                                     env={**os.environ, **(env or {})})
+            git('init', '-q', '--bare', str(tmp / 'remoto.git'), cwd=tmp)
+            git('clone', '-q', str(tmp / 'remoto.git'), str(tmp / 'wt'), cwd=tmp)
+            (tmp / 'wt' / 'a.txt').write_text('x')
+            git('add', 'a.txt')
+            git('-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'x')
+            agente = git('push', '-q', 'origin', 'HEAD:main', env=na.sin_escritura(tmp / 'gh'))
+            self.assertNotEqual(agente.returncode, 0)
+            self.assertEqual(git('push', '-q', 'origin', 'HEAD:main').returncode, 0)
+
+    def test_gh_queda_sin_sesion(self):
+        env = na.sin_escritura(Path(tempfile.mkdtemp()) / 'gh')
+        self.assertEqual(env['GH_TOKEN'], '')
+        self.assertTrue(Path(env['GH_CONFIG_DIR']).is_dir())
+        self.assertEqual(list(Path(env['GH_CONFIG_DIR']).iterdir()), [])
