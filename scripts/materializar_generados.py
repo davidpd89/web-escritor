@@ -6,6 +6,7 @@ las fichas nuevas antes de los builders que leen `git ls-files` (site-shell, Pag
     python scripts/materializar_generados.py            # construye y comprueba
     python scripts/materializar_generados.py --check    # solo comprueba que lo versionado está al día
     python scripts/materializar_generados.py --solo-construir   # CI (.github/actions/materializar): sin comprobar
+    python scripts/materializar_generados.py --asegurar   # antes de una suite: construye solo si hace falta
 """
 from __future__ import annotations
 
@@ -38,6 +39,11 @@ BUILDERS = CREAN_RUTAS + INDEXAN
 CHECKS = ('build-reading-catalogue.py', 'build-page-order.py', 'build-site-shell.py', 'build-sitemap.py',
           'build-pagefind-index.py')
 RUTAS_NUEVAS = ('recomendaciones', 'editoriales', 'mapa-del-sitio')
+# Entradas de los builders: la misma lista que la clave de caché de .github/actions/materializar (lo comprueba un test).
+FUENTES = ('data/**', 'scripts/build-*.py', 'scripts/site_shell.py', 'scripts/reading*.py', 'scripts/templates/**',
+           'scripts/materializar_generados.py', '**/*.html.tmpl')
+TESTIGO = 'assets/page-order.generated.js'   # si está versionado, lo generado sigue en git (antes del corte)
+HUELLA = Path('.local') / 'materializado.huella'
 
 
 def generado(path: str) -> bool:
@@ -67,6 +73,39 @@ def construir(root: Path = ROOT, antes_de_indexar=None) -> None:
         _py(root, script, *args)
 
 
+def _git(root: Path, *args: str) -> str:
+    return subprocess.run(['git', *args], cwd=root, capture_output=True, text=True, encoding='utf-8').stdout
+
+
+def huella(root: Path = ROOT) -> str:
+    """Hash de las fuentes versionadas (ruta + contenido). Lo generado no entra aunque viva en data/."""
+    import hashlib
+    h = hashlib.sha256()
+    for path in sorted(p for p in _git(root, 'ls-files', '-z', '--', *(':(glob)' + f for f in FUENTES)).split('\0')
+                       if p and not generado(p)):
+        h.update(path.encode() + b'\0' + (root / path).read_bytes() + b'\0')
+    return h.hexdigest()
+
+
+def asegurar(root: Path = ROOT) -> bool:
+    """Deja lo generado al día antes de una suite que lo lee; devuelve si construyó.
+
+    Mientras lo generado esté versionado (antes del corte) no hace nada: el checkout ya lo trae. Tras el corte,
+    construye solo si cambiaron las fuentes desde la última vez (huella en .local/), así los tests no tienen que
+    construir cada uno en un directorio temporal: se materializa una vez, igual que en CI con la acción.
+    """
+    if _git(root, 'ls-files', '--', TESTIGO).strip():
+        return False
+    actual, marca = huella(root), root / HUELLA
+    if (root / TESTIGO).exists() and marca.exists() and marca.read_text(encoding='utf-8') == actual:
+        return False
+    print('Materializando lo generado (cambiaron las fuentes)…', flush=True)
+    construir(root)
+    marca.parent.mkdir(parents=True, exist_ok=True)
+    marca.write_text(actual, encoding='utf-8')
+    return True
+
+
 def comprobar(root: Path = ROOT, assets: bool = True) -> None:
     for script in CHECKS:
         _py(root, script, '--check')
@@ -75,6 +114,9 @@ def comprobar(root: Path = ROOT, assets: bool = True) -> None:
 
 
 def main(argv: list[str]) -> int:
+    if '--asegurar' in argv:
+        asegurar()
+        return 0
     if '--check' not in argv:
         construir()
     if '--solo-construir' not in argv:

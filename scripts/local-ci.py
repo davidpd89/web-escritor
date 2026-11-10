@@ -14,6 +14,7 @@ Salida: 0 sin fallos nuevos, 1 con fallos nuevos, 2 si algo agotó el tiempo y q
 """
 import argparse
 import hashlib
+import importlib.util
 import os
 import re
 import shutil
@@ -379,6 +380,7 @@ def baseline_tree():
     modules = tree / 'node_modules'
     if (ROOT / 'node_modules').exists() and not modules.exists():
         enlazar(modules, ROOT / 'node_modules')
+    materializar(tree)
     return tree
 
 
@@ -442,6 +444,17 @@ def unittest_shard(spec):
     return 0 if result.wasSuccessful() else 1
 
 
+def materializar(root):
+    """Lo generado al día antes de la suite (paso 3 de docs/arquitectura-catalogo): sin efecto mientras esté en git."""
+    script = Path(root) / 'scripts' / 'materializar_generados.py'
+    if script.exists():
+        spec = importlib.util.spec_from_file_location('materializar_generados', script)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        if hasattr(mod, 'asegurar'):
+            mod.asegurar(Path(root))
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--all', action='store_true', help='todos los pasos de QA, sin filtrar por rutas')
@@ -479,6 +492,7 @@ def main(argv=None):
         items = [(f'"{py}"' + c[len('python'):] if c.startswith(venv) else c, e, f) for c, e, f in items]
     if any(command.startswith('node ') for command, *_ in items):
         node_modules_listos()
+    materializar(ROOT)
     results = run_all(items, ROOT, args.jobs, args.timeout)
     failed = [(item, res) for item, res in zip(items, results) if res[0] != 0]
     for (command, _, flow), (code, _, secs) in zip(items, results):

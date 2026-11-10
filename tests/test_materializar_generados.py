@@ -102,6 +102,57 @@ class AccionMaterializar(unittest.TestCase):
                          'ya usa la acción (o no existe): quítalo de PENDIENTES_DE_MATERIALIZAR')
 
 
+    def test_la_clave_de_cache_son_las_fuentes(self):
+        import re
+        texto = (ROOT / '.github/actions/materializar/action.yml').read_text(encoding='utf-8')
+        clave = re.search(r"hashFiles\((.*?)\) \}\}", texto).group(1)
+        self.assertEqual(tuple(re.findall(r"'([^']+)'", clave)), mat.FUENTES)
+
+
+class AsegurarAntesDeLaSuite(unittest.TestCase):
+    """Paso 3: la suite lee lo generado del árbol; tras el corte se materializa una vez, no test a test."""
+
+    def _repo(self, d, versionar_generado):
+        root = Path(d)
+        git = lambda *a: subprocess.run(['git', *a], cwd=root, check=True, capture_output=True)
+        git('init', '-q')
+        (root / 'data').mkdir()
+        (root / 'data/reading-books.json').write_text('[]', encoding='utf-8')
+        (root / 'assets').mkdir()
+        if versionar_generado:
+            (root / mat.TESTIGO).write_text('//', encoding='utf-8')
+        git('add', '.')
+        git('-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '-m', 'x')
+        return root, git
+
+    def _asegurar(self, root, construidas):
+        from unittest import mock
+        def construir(r, antes_de_indexar=None):
+            construidas.append(r)
+            (r / mat.TESTIGO).write_text('//', encoding='utf-8')
+        with mock.patch.object(mat, 'construir', construir):
+            return mat.asegurar(root)
+
+    def test_versionado_no_construye(self):
+        with tempfile.TemporaryDirectory() as d:
+            root, _ = self._repo(d, versionar_generado=True)
+            construidas = []
+            self.assertFalse(self._asegurar(root, construidas))
+            self.assertEqual(construidas, [])
+
+    def test_tras_el_corte_construye_solo_si_cambian_las_fuentes(self):
+        with tempfile.TemporaryDirectory() as d:
+            root, git = self._repo(d, versionar_generado=False)
+            construidas = []
+            self.assertTrue(self._asegurar(root, construidas))
+            self.assertFalse(self._asegurar(root, construidas))     # mismas fuentes: nada
+            (root / 'data/reading-books.json').write_text('[{}]', encoding='utf-8')
+            self.assertTrue(self._asegurar(root, construidas))      # cambió un dato (aún sin commitear)
+            (root / mat.TESTIGO).unlink()
+            self.assertTrue(self._asegurar(root, construidas))      # falta lo generado: se rehace
+            self.assertEqual(len(construidas), 3)
+
+
 class RutasNuevas(unittest.TestCase):
     def test_una_ficha_nueva_la_ve_ls_files_antes_de_indexar(self):
         with tempfile.TemporaryDirectory() as d:
