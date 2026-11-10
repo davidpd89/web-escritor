@@ -37,14 +37,18 @@ def refresh(*, publish=False):
     opened = json.loads(publication.gh('pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName'))
     pending = [p['headRefName'] for p in opened if BRANCH_RE.fullmatch(p['headRefName'])]
     for branch in pending:
-        info = json.loads(publication.gh('pr', 'view', branch, '--json', 'number,mergeStateStatus,author'))
-        stale = info.get('mergeStateStatus') in {'DIRTY', 'BEHIND'}
+        info = json.loads(publication.gh('pr', 'view', branch, '--json', 'number,mergeStateStatus,author,statusCheckRollup'))
+        # Detrás de main o con un check en rojo (2026-11-09: webs muertas en broken-links): conservarla bloquea cada
+        # sincronización siguiente; se cierra y se regenera con los datos y el código de hoy.
+        failed = any((c.get('conclusion') or c.get('state')) in {'FAILURE', 'TIMED_OUT', 'ERROR'}
+                     for c in info.get('statusCheckRollup') or [])
+        stale = info.get('mergeStateStatus') in {'DIRTY', 'BEHIND'} or failed
         by_bot = info['author'].get('is_bot') and info['author'].get('login') == 'app/github-actions'
         if not (stale and by_bot):
             print('Carga pendiente conservada: ' + branch)
             return
         publication.gh('pr', 'close', str(info['number']), '--comment',
-                       'La rama quedó detrás de main: se cierra y se regenera desde main en esta ejecución.')
+                       'La rama quedó detrás de main o con un check en rojo: se cierra y se regenera desde main en esta ejecución.')
     command(sys.executable, 'scripts/atlas_wikidata_feed.py', '--apply')
     changed = subprocess.check_output(['git', 'status', '--porcelain', '--', 'data/atlas/directory.json'], cwd=ROOT, text=True).strip()
     if not changed:

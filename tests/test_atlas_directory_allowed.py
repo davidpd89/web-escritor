@@ -26,5 +26,44 @@ class AllowedPath(unittest.TestCase):
                 self.assertFalse(mod.allowed_path(path))
 
 
+class PendingBotPr(unittest.TestCase):
+    """09/11: la PR #1250 cayó en broken-links y se conservaba, así que bloqueaba cada sincronización siguiente."""
+
+    def _refresh(self, merge_state, checks):
+        import json
+        from unittest import mock
+        calls = []
+
+        def gh(*args):
+            calls.append(args)
+            if args[:2] == ('pr', 'list'):
+                return json.dumps([{'headRefName': 'automation/atlas-directory-2026-11-09-1'}])
+            if args[:2] == ('pr', 'view'):
+                return json.dumps({'number': 1250, 'mergeStateStatus': merge_state, 'statusCheckRollup': checks,
+                                   'author': {'is_bot': True, 'login': 'app/github-actions'}})
+            return ''
+
+        class Stop(Exception):
+            pass
+
+        def command(*args):
+            raise Stop   # tras decidir sobre la PR pendiente, la regeneración no interesa aquí
+        with mock.patch.object(mod.publication, 'gh', gh), mock.patch.object(mod, 'command', command):
+            try:
+                mod.refresh(publish=False)
+            except Stop:
+                pass
+        return [c for c in calls if c[:2] == ('pr', 'close')]
+
+    def test_a_red_check_closes_and_regenerates(self):
+        self.assertTrue(self._refresh('BLOCKED', [{'name': 'check-links', 'conclusion': 'FAILURE'}]))
+
+    def test_a_pr_still_running_is_kept(self):
+        self.assertFalse(self._refresh('BLOCKED', [{'name': 'check-links', 'conclusion': None, 'status': 'IN_PROGRESS'}]))
+
+    def test_behind_main_closes(self):
+        self.assertTrue(self._refresh('BEHIND', []))
+
+
 if __name__ == '__main__':
     unittest.main()
