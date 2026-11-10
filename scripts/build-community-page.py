@@ -28,8 +28,8 @@ PAGE = "comunidad/index.html"
 URL = "https://davidportodiaz.com/comunidad/"
 TITLE = "Comunidad lectora en Telegram y Discord | David Porto Díaz"
 META_DESCRIPTION = (
-    "Únete gratis a los canales de Telegram y al servidor de Discord: novedades editoriales "
-    "del día, ofertas de libros, los más votados y grupos por género."
+    "Únete gratis a los canales de Telegram y al servidor de Discord: resumen diario de "
+    "novedades editoriales a las 11:30, libro a libro, próximos lanzamientos y canales por género."
 )
 INVITE_HOSTS = {
     "telegram": {"t.me", "telegram.me"},
@@ -50,7 +50,9 @@ FAQ = [
     ("¿Verán los demás mi número de teléfono?",
      "En los canales de Telegram, no: solo publica el canal y las personas suscritas no ven quién más está dentro."),
     ("¿Cuántos mensajes voy a recibir?",
-     "Como máximo un envío al día por canal, siempre a la misma hora: de lunes a viernes a las 11:30 y los fines de semana a las 18:30 (hora de Madrid). Próximos lanzamientos sale los lunes y Los más votados, los sábados. Puedes silenciar cualquier canal sin salir de él."),
+     "Depende del canal. Resumen del día envía un solo mensaje diario; Próximos lanzamientos, uno cada lunes; Novedades del día y los canales por género publican un mensaje por libro. Todo sale a las 11:30 (hora de Madrid) y, si un día no hay libros nuevos, no se publica nada. Puedes silenciar cualquier canal sin salir de él."),
+    ("¿Qué canal me conviene?",
+     "Si quieres pocos avisos, únete a Resumen del día: un mensaje con todos los libros que salen hoy y un enlace para verlos juntos en Amazon. Si prefieres ver cada portada y su sinopsis, elige Novedades del día o solo los géneros que te gustan."),
     ("¿Los enlaces a libros son de afiliado?",
      "Sí. Los enlaces a Amazon llevan un código de afiliado: si compras, la web recibe una pequeña comisión sin que el precio cambie para ti."),
     ("¿Puedo proponer un canal nuevo?",
@@ -252,7 +254,7 @@ def render(config: dict) -> str:
   <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-shell.css?v=21" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
-  <link rel="stylesheet" href="/assets/v1-community.css?v=2" />
+  <link rel="stylesheet" href="/assets/v1-community.css?v=3" />
   <script type="application/ld+json">
   {json_ld(config)}
   </script>
@@ -266,7 +268,12 @@ def render(config: dict) -> str:
     <section class="community-hero" aria-labelledby="community-title">
       <p class="community-eyebrow">Telegram · Discord</p>
       <h1 id="community-title">Únete a la comunidad lectora</h1>
-      <p class="community-lead">Novedades editoriales del día, ofertas de libros, los más votados y canales por género. Elige tu plataforma y quédate solo con lo que te interesa.</p>
+      <p class="community-lead">Los libros que salen hoy a la venta en España, cada día a las 11:30: en un solo mensaje, libro a libro o solo de tus géneros favoritos. Elige tu plataforma y quédate solo con lo que te interesa.</p>
+      <ul class="community-rhythm">
+        <li><strong>1 mensaje al día</strong> Resumen del día: todos los libros de hoy y un enlace para verlos juntos.</li>
+        <li><strong>1 mensaje a la semana</strong> Próximos lanzamientos, los lunes: lo que sale en los próximos 7 días.</li>
+        <li><strong>Libro a libro</strong> Novedades del día y canales por género: portada, autor, editorial y sinopsis.</li>
+      </ul>
       <p class="community-switch"><a href="#telegram">{ICONS["telegram"]}<span>Telegram</span></a><a href="#discord">{ICONS["discord"]}<span>Discord</span></a></p>
     </section>
     {render_telegram(config)}

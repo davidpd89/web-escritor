@@ -26,9 +26,15 @@ AVATARS = {
     "novedades": (["NOVEDADES"], 15),
     "terror": (["TERROR"], 25),
     "comic": (["CÓMIC"], 40),
-    "ofertas-hoy": (["OFERTAS"], 58),
+    "resumen": (["RESUMEN", "DEL DÍA"], 58),
+    "humor": (["HUMOR"], 112),
+    "aventuras": (["AVENTURAS"], 138),
+    "economia": (["ECONOMÍA"], 162),
+    "biografias": (["BIOGRAFÍAS"], 188),
+    "desarrollo-personal": (["DESARROLLO", "PERSONAL"], 210),
+    "arte-ocio": (["ARTE", "Y OCIO"], 343),
     "historica": (["HISTÓRICA"], 78),
-    "mas-votados": (["MÁS", "VOTADOS"], 98),
+    "narrativa": (["NARRATIVA"], 98),
     "cocina": (["COCINA"], 125),
     "infantil-juvenil": (["INFANTIL", "JUVENIL"], 150),
     "ensayo": (["ENSAYO"], 175),
@@ -43,7 +49,7 @@ AVATARS = {
     "romantica": (["ROMÁNTICA"], 355),
 }
 # Terror y thriller más oscuros: se distinguen de sus vecinos y encajan con el género.
-LIGHTNESS = {"terror": 0.32, "thriller": 0.32, "historica": 0.42, "mas-votados": 0.42}
+LIGHTNESS = {"terror": 0.32, "thriller": 0.32, "historica": 0.42, "narrativa": 0.42}
 
 
 def oklch(l: float, c: float, h: float) -> tuple[int, int, int]:

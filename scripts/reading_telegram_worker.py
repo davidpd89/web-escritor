@@ -12,6 +12,7 @@ from datetime import date, datetime, timedelta
 import json
 import os
 from pathlib import Path
+import re
 import sys
 import traceback
 from urllib.parse import urljoin, urlsplit
@@ -31,11 +32,13 @@ from reading_intake_core import isbn13, normalize_text
 from reading_planeta_source import planeta_edition
 from reading_ttl_source import HOST as TTL_HOST, ttl_edition
 from reading_telegram import (
+    SEND_AT,
     amazon_url,
     digest_key,
     from_reading_catalogue,
     run,
     smoke,
+    weekly_key,
 )
 
 MAIN = "https://raw.githubusercontent.com/davidpd89/web-escritor/main/data/"
@@ -202,8 +205,73 @@ def verified_snapshot(catalogue, intake, today, fetch):
     return result, report
 
 
+MIN_COVER_BYTES = 5000  # Amazon answers a missing cover with a ~1 KB placeholder GIF
+
+
+def real_cover_url(url, get=requests.get):
+    """True when the URL serves a real image (not a placeholder, not an error page)."""
+    try:
+        response = get(url, timeout=10, allow_redirects=True)
+    except requests.RequestException:
+        return False
+    kind = response.headers.get("Content-Type", "")
+    return (
+        response.status_code == 200
+        and kind.startswith("image/")
+        and "gif" not in kind
+        and len(response.content) >= MIN_COVER_BYTES
+    )
+
+
+def cover_resolver(fixes, get=requests.get, fetch_json=None):
+    """For books that still carry our typographic cover, look for the real one before posting.
+
+    Order: Amazon image of that ASIN, then Open Library and Google Books by ISBN. When one exists the
+    post uses it and the fix is reported as «fallo nuestro» (the nightly cover pass missed it); when
+    none exists the typographic cover is the right one and is kept."""
+    from reading_amazon_market import fallback_cover_urls
+
+    if fetch_json is None:
+        def fetch_json(url):
+            return get(url, timeout=10).json()
+
+    memo = {}
+
+    def resolve(book):
+        if not book.get("generated_cover"):
+            return None
+        key = book.get("id") or book["asin"]
+        if key in memo:
+            return memo[key]
+        candidates = []
+        if re.fullmatch(r"[0-9]{9}[0-9X]", book.get("asin", "")):
+            candidates.append(
+                ("Amazon", f"https://images-na.ssl-images-amazon.com/images/P/{book['asin']}.01.LZZZZZZZ.jpg")
+            )
+        candidates += fallback_cover_urls({"isbn13": book.get("isbn13")}, fetch_json)
+        found = next(((name, url) for name, url in candidates if real_cover_url(url, get)), None)
+        memo[key] = found[1] if found else None
+        fixes.append(
+            {
+                "id": book.get("id"),
+                "title": book.get("title"),
+                "source": found[0] if found else None,
+                "verdict": "fallo nuestro: había portada real" if found else "sin portada real: tipográfica",
+            }
+        )
+        return memo[key]
+
+    return resolve
+
+
 def cycle(root: Path, live=False, github_state=False, test_asin=None):
     root = root.resolve()
+    now = datetime.now(ZoneInfo("Europe/Madrid"))
+    if not test_asin and now.time() < SEND_AT:
+        # The day goes out at 11:30 Madrid; earlier cycles do no work at all.
+        report = {"at": now.isoformat(), "live": live, "status": "waiting", "deliveries": []}
+        atomic_json(root / "last-run.json", report)
+        return report
     # The scheduler serializes cycles, in addition to SQLite delivery claims.
     catalogue = main_json("reading-catalogue.json")
     intake = main_json("reading-intake-config.json")
@@ -233,8 +301,19 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None):
         root / "editorial-verification.json",
         {"date": today.isoformat(), **verification},
     )
-    catalog = from_reading_catalogue(root / "catalogue.json", root / "channels.json")
-    catalog["digests"] = [digest_key(today.isoformat())]
+    groups = {
+        g["id"]: g
+        for g in main_json("communities.json").get("groups", [])
+        if isinstance(g, dict) and g.get("id")
+    }
+    catalog = from_reading_catalogue(
+        root / "catalogue.json", root / "channels.json", groups
+    )
+    catalog["digests"] = [
+        digest_key(today.isoformat()),
+        weekly_key(today.isoformat()),
+    ]
+    cover_fixes = []
     store = None
     if live:
         # This private token file never enters command arguments, reports or Git.
@@ -252,7 +331,15 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None):
     if test_asin:
         deliveries = smoke(catalog, test_asin, db_path, live, checkpoint=checkpoint)
     else:
-        deliveries = run(catalog, today, db_path, live, checkpoint=checkpoint)
+        deliveries = run(
+            catalog,
+            today,
+            db_path,
+            live,
+            checkpoint=checkpoint,
+            now=now,
+            cover_resolver=cover_resolver(cover_fixes) if live else None,
+        )
     # Ambiguous or rejected deliveries alert in the cycle where they happen; afterwards they are
     # 'skipped:*' (already reported, never resent) and must not keep every cycle of the day red.
     attention = any(
@@ -270,6 +357,7 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None):
         "eligible": len(catalog["books"]),
         "verification": verification,
         "deliveries": deliveries,
+        "cover_fixes": cover_fixes,
     }
     atomic_json(root / "last-run.json", report)
     return report

@@ -123,7 +123,7 @@ class ReadingTelegramTests(unittest.TestCase):
         result = smoke(self.catalog(), "8498382378", self.root / "smoke.db")
         self.assertIn("PRUEBA", result[0]["text"])
         self.assertNotIn("Novedad de hoy", result[0]["text"])
-        self.assertIn("2026-11-01", result[0]["text"])
+        self.assertIn("1 de noviembre de 2026", result[0]["text"])
         self.assertFalse((self.root / "smoke.db").exists())
 
     def test_smoke_delivery_and_dedup(self):
@@ -210,8 +210,10 @@ class ReadingTelegramTests(unittest.TestCase):
         digests = [r for r in result if r["chat_id"] == "@novedades"]
         self.assertEqual(len(digests), 1)
         text = digests[0]["text"]
-        self.assertIn("Novedades de hoy (2)", text)
-        self.assertIn("rh=p_66%3A9788498382372%7C9788401042751", text)
+        self.assertIn("Aquí tienes las publicaciones del día 1 de noviembre", text)
+        self.assertIn("2 libros", text)
+        self.assertIn("#publicidad", text)
+        self.assertIn("rh=p_66:9788498382372|9788401042751", text)
         self.assertIn("tag=davidporto-21", text)
         self.assertIn("&lt;uno&gt;", text)
         self.assertEqual(len([r for r in result if r["chat_id"] == "@general"]), 2)
@@ -235,17 +237,27 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertEqual(discord.call_args.args[0], hook)
         self.assertNotIn(hook, json.dumps(result))
 
-    def test_discord_text_is_markdown_and_fits_2000_chars(self):
-        from reading_telegram import to_discord
-
+    def test_discord_text_is_markdown_and_split_in_2000_char_parts(self):
+        from reading_telegram import discord_parts
         html = "📚 <b>Novedades de hoy (2)</b>\n\n" + "\n".join(
             f"• <b>T&amp;{i}</b> — A" + "x" * 300 for i in range(12)
         ) + '\n\n<a href="https://www.amazon.es/s?i=stripbooks&amp;rh=p_66%3A1">Ver todas en Amazon</a>'
-        text = to_discord(html)
-        self.assertLessEqual(len(text), 2000)
-        self.assertTrue(text.startswith("📚 **Novedades de hoy (2)**"))
-        self.assertIn("**T&0**", text)
-        self.assertTrue(text.endswith("[Ver todas en Amazon](<https://www.amazon.es/s?i=stripbooks&rh=p_66%3A1>)"))
+        parts = discord_parts(html)
+        self.assertGreater(len(parts), 1)
+        self.assertTrue(all(len(p) <= 2000 for p in parts))
+        self.assertTrue(parts[0].startswith("📚 **Novedades de hoy (2)**"))
+        joined = "\n".join(parts)
+        for i in range(12):
+            self.assertIn(f"**T&{i}**", joined)  # nothing is dropped, only split
+        self.assertTrue(parts[-1].endswith("[Ver todas en Amazon](<https://www.amazon.es/s?i=stripbooks&rh=p_66%3A1>)"))
+
+    def test_edition_note_describes_book_without_synopsis(self):
+        from reading_telegram import edition_note
+        book = {"titulo": "La madre", "autores": ["José María Zavala"],
+                "descripcion_breve": "La madre, de José María Zavala. Edición de Ediciones B en castellano, "
+                "en tapa dura. Consta de 536 páginas. Publicación editorial: 2026-11-10."}
+        self.assertEqual(edition_note(book), "Edición de Ediciones B en castellano, en tapa dura. Consta de 536 páginas.")
+        self.assertEqual(edition_note({"titulo": "X", "autores": []}), "")
 
     def test_discord_channel_requires_a_real_webhook(self):
         self.config["channels"] = [
@@ -323,6 +335,124 @@ class ReadingTelegramTests(unittest.TestCase):
                 self.assertEqual(
                     db.execute("SELECT status FROM deliveries").fetchone()[0], "sending"
                 )
+
+    def add_book(self, ident, isbn, day, categories=("fantasia",)):
+        self.source["libros"].append({
+            **self.source["libros"][0], "id": ident, "titulo": f"Libro {ident}",
+            "isbn13": isbn, "fecha_publicacion": day,
+            "url_amazon_afiliada": f"https://www.amazon.es/dp/B{isbn[-9:]}?tag=davidporto-21",
+        })
+        self.source["libro_categorias"] += [{"libro_id": ident, "categoria_id": c} for c in categories]
+
+    def test_nothing_is_sent_before_1130_madrid(self):
+        from datetime import datetime
+        catalog = self.catalog()
+        self.assertEqual(run(catalog, date(2026, 11, 1), self.root / "a.db",
+                             now=datetime(2026, 11, 1, 11, 29)), [])
+        self.assertEqual(len(run(catalog, date(2026, 11, 1), self.root / "a.db",
+                                 now=datetime(2026, 11, 1, 11, 30))), 2)
+
+    def test_weekly_digest_only_on_monday_covers_next_seven_days(self):
+        self.source["libros"][0]["isbn13"] = "9788498382372"
+        self.source["libros"][0]["fecha_publicacion"] = "2026-11-02"
+        self.add_book("b", "9788401042751", "2026-11-08")
+        self.add_book("c", "9788401042768", "2026-11-09")  # next week: not repeated
+        self.config["channels"] = [
+            {"chat_id": "@proximos", "token_env": "TEST_TOKEN", "mode": "digest", "period": "weekly"}
+        ]
+        catalog = self.catalog()
+        self.assertEqual(run(catalog, date(2026, 11, 3), self.root / "w.db"), [])
+        result = run(catalog, date(2026, 11, 2), self.root / "w.db")
+        self.assertEqual(len(result), 1)
+        text = result[0]["text"]
+        self.assertIn("Próximos lanzamientos del 2 de noviembre al 8 de noviembre", text)
+        self.assertIn("8 de noviembre: <b>Libro b</b>", text)
+        self.assertIn("9788498382372|9788401042751", text)
+        self.assertNotIn("9788401042768", text)
+        next_week = run(catalog, date(2026, 11, 9), self.root / "w.db")
+        self.assertIn("9788401042768", next_week[0]["text"])
+        self.assertNotIn("9788401042751", next_week[0]["text"])
+
+    def test_weekly_channel_must_be_a_digest(self):
+        self.config["channels"] = [{"chat_id": "@x", "token_env": "T", "period": "weekly"}]
+        with self.assertRaises(ValueError):
+            self.catalog()
+
+    def test_group_gives_categories_and_label(self):
+        self.source["libros"][0]["isbn13"] = "9788498382372"
+        self.add_book("terror", "9788401042751", "2026-11-01", categories=())
+        self.config["channels"] = [
+            {"chat_id": "@fan", "token_env": "T", "group": "fantasia", "mode": "digest"}
+        ]
+        for name, data in [("catalog.json", self.source), ("channels.json", self.config)]:
+            (self.root / name).write_text(json.dumps(data), encoding="utf-8")
+        groups = {"fantasia": {"name": "Fantasía", "categories": ["fantasia"]}}
+        catalog = from_reading_catalogue(self.root / "catalog.json", self.root / "channels.json", groups)
+        text = run(catalog, date(2026, 11, 1), self.root / "g.db")[0]["text"]
+        self.assertIn("Fantasía · 1 libro", text)
+        self.assertNotIn("Libro terror", text)
+        with self.assertRaises(ValueError):
+            from_reading_catalogue(self.root / "catalog.json", self.root / "channels.json", {})
+
+    def test_large_day_is_batched_paced_and_interleaved(self):
+        for n in range(30):
+            self.add_book(f"n{n}", f"97884010{n:05d}", "2026-11-01")
+        self.config["channels"].append(
+            {"chat_id": "@resumen", "token_env": "TEST_TOKEN", "mode": "digest"}
+        )
+        checkpoints, order = [], []
+        sender = Mock(side_effect=lambda t, chat, text, photo=None: (order.append(chat), ("sent", 1))[1])
+        with (
+            patch.dict("os.environ", {"TEST_TOKEN": "test"}),
+            patch("reading_telegram.time.sleep"),
+        ):
+            result = run(self.catalog(), date(2026, 11, 1), self.root / "big.db", True,
+                         sender=sender, checkpoint=checkpoints.append)
+        self.assertEqual(len(result), 63)
+        self.assertTrue(all(r["status"] == "sent" for r in result))
+        self.assertEqual(order[0], "@resumen")  # the digest goes first
+        self.assertEqual(order[1:3], ["@general", "@fantasia"])  # then round robin
+        self.assertLessEqual(len(checkpoints), 2 * (63 // 25 + 1))  # per batch, not per message
+
+    def test_rate_limit_releases_rest_of_channel_for_next_cycle(self):
+        for n in range(3):
+            self.add_book(f"n{n}", f"97884010{n:05d}", "2026-11-01")
+        self.config["channels"] = self.config["channels"][:1]
+        sender = Mock(side_effect=[("sent", 1), ("retry:99999999999", None)])
+        with (
+            patch.dict("os.environ", {"TEST_TOKEN": "test"}),
+            patch("reading_telegram.time.sleep"),
+        ):
+            result = run(self.catalog(), date(2026, 11, 1), self.root / "rl.db", True, sender=sender)
+            self.assertEqual([r["status"][:5] for r in result], ["sent", "retry"])
+            sender.side_effect = None
+            sender.return_value = ("sent", 2)
+            again = run(self.catalog(), date(2026, 11, 1), self.root / "rl.db", True, sender=sender)
+        self.assertEqual(sorted(r["status"][:7] for r in again),
+                         ["sent", "sent", "skipped", "skipped"])
+
+    def test_cover_resolver_replaces_generated_cover(self):
+        self.config["channels"] = self.config["channels"][:1]
+        sender = Mock(return_value=("sent", 1))
+        with (
+            patch.dict("os.environ", {"TEST_TOKEN": "test"}),
+            patch("reading_telegram.time.sleep"),
+        ):
+            run(self.catalog(), date(2026, 11, 1), self.root / "cv.db", True, sender=sender,
+                cover_resolver=lambda book: "https://m.media-amazon.com/images/I/real.jpg")
+        self.assertEqual(sender.call_args.args[3], "https://m.media-amazon.com/images/I/real.jpg")
+
+    def test_discord_long_digest_goes_in_parts_and_partial_failure_is_uncertain(self):
+        from reading_telegram import send_discord
+        hook = "https://discord.com/api/webhooks/123/abc"
+        text = "\n".join("• <b>Título</b> — " + "x" * 300 for _ in range(12))
+        ok = Mock(status_code=200, json=lambda: {"id": "11"})
+        with patch("reading_telegram.requests.post", side_effect=[ok] * 5) as post,                 patch("reading_telegram.time.sleep"):
+            self.assertEqual(send_discord(hook, "d", text), ("sent", 11))
+        self.assertGreater(post.call_count, 1)
+        bad = Mock(status_code=500, json=lambda: {})
+        with patch("reading_telegram.requests.post", side_effect=[ok, bad]),                 patch("reading_telegram.time.sleep"), patch("builtins.print"):
+            self.assertEqual(send_discord(hook, "d", text), ("uncertain", 11))
 
     def test_transport_validates_response_and_redacts_errors(self):
         with patch(

@@ -100,6 +100,19 @@ html.v1 .catalogue-results-controls select{width:100%;overflow:hidden;text-overf
 @media(max-width:450px){html.v1 .catalogue-results-head{gap:.6rem;padding-bottom:.75rem;} html.v1 .catalogue-results-controls{gap:.5rem;font-size:.85rem;} html.v1 .catalogue-results-controls label{gap:.2rem;}}
 html.v1 .catalogue-upcoming-link{grid-column:1/-1;justify-self:start;color:var(--catalogue-blue);font:600 .9rem/1.5 var(--font-ui);text-decoration-color:var(--catalogue-gold);}
 html.v1 .catalogue-upcoming-link[hidden]{display:none;}
+html.v1 .catalogue-shortcuts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.25rem 1.5rem;margin:0;}
+html.v1 .catalogue-community{margin-block:1.5rem 0;padding:1.25rem 1.5rem;border:1px solid var(--catalogue-rule);border-top:3px solid var(--catalogue-blue);box-shadow:inset 0 2px 0 var(--catalogue-gold);background:#fff;font:1rem/1.55 var(--font-ui);}
+html.v1 .catalogue-community h2{margin:0 0 .5rem;color:var(--catalogue-deep);font:700 1.2rem/1.3 var(--font-ui);}
+html.v1 .catalogue-community p{margin:.5rem 0;}
+html.v1 .catalogue-community__options{margin:.5rem 0 1rem;padding-left:1.25rem;}
+html.v1 .catalogue-community__options li{margin-block:.25rem;}
+html.v1 .catalogue-community__actions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.25rem;}
+html.v1 .catalogue-community__join{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1.1rem;border-radius:999px;color:#fff;text-align:center;font-weight:700;text-decoration:none;}
+html.v1 .catalogue-community__join--telegram{background:#136b94;}
+html.v1 .catalogue-community__join--discord{background:#3d47c4;}
+html.v1 .catalogue-community__join:hover,html.v1 .catalogue-community__join:focus-visible{filter:brightness(1.12);color:#fff;}
+html.v1 .catalogue-community__note{color:#4b5563;font-size:.875rem;}
+@media (max-width:450px){html.v1 .catalogue-community{padding:1rem;} html.v1 .catalogue-community__join{width:100%;justify-content:center;}}
 html.v1 .catalogue-layout{display:grid;grid-template-columns:minmax(15rem,18.5rem) minmax(0,1fr);gap:0 2rem;align-items:start;}
 html.v1 .catalogue-sidebar{position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow:auto;min-width:0;}
 html.v1 .catalogue-sidebar .catalogue-filters{margin:1rem 0;padding:1rem;}

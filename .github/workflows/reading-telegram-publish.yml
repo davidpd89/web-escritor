@@ -2,6 +2,10 @@ name: Reading Telegram publish
 
 on:
   schedule:
+    # El día sale a las 11:30 de Madrid (09:30 UTC en verano, 10:30 UTC en invierno); antes de esa hora
+    # el ciclo no hace nada. Los ciclos de cada cuarto de hora recogen lo que quede pendiente.
+    - cron: '30 9 * * *'
+    - cron: '30 10 * * *'
     - cron: '7,22,37,52 * * * *'
   workflow_run:
     workflows: ['Reading catalogue intake']
@@ -24,7 +28,7 @@ jobs:
   publish:
     if: vars.READING_TELEGRAM_ENABLED == 'true' && github.ref == 'refs/heads/main' && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v5
         with:
@@ -97,4 +101,9 @@ jobs:
               out.write('Telegram cycle: ' + str(data['status']) + '\n\n')
               out.write(json.dumps(counts) + '\n')
               out.write(json.dumps(detail, sort_keys=True) + '\n')
-              out.write('Durable state is checkpointed before and after each send. No private runtime artifacts uploaded.\n')
+              fixes = data.get('cover_fixes', [])
+              if fixes:
+                  out.write('\nPortadas tipográficas revisadas al publicar:\n')
+                  for fix in fixes[:200]:
+                      out.write(f"- {fix.get('title')}: {fix.get('verdict')} ({fix.get('source') or '-'})\n")
+              out.write('Durable state is checkpointed per batch of sends. No private runtime artifacts uploaded.\n')

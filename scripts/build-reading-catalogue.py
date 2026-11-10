@@ -24,6 +24,31 @@ from reading_intake_core import strip_shouting, decode_text_entities
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://davidportodiaz.com"
+COMMUNITIES = ROOT / "data" / "communities.json"
+
+
+def community_cta() -> str:
+    """Llamada a unirse a Telegram o Discord. Los enlaces salen de data/communities.json (los mismos de /comunidad/)."""
+    config = json.loads(COMMUNITIES.read_text(encoding="utf-8"))
+    groups = {g["id"]: g for g in config["groups"]}
+    digest = groups["todos"]
+    telegram = digest.get("invite") or config["platforms"]["telegram"]["invite"]
+    discord = config["platforms"]["discord"]["invite"]
+    return (
+        '<aside class="catalogue-community" id="comunidad" aria-labelledby="catalogue-community-title">'
+        '<h2 id="catalogue-community-title">Únete a la comunidad de Telegram o Discord</h2>'
+        '<p>Cada día a las 11:30 avisamos de los libros que salen a la venta en España. Tú eliges cuántos mensajes recibes:</p>'
+        '<ul class="catalogue-community__options">'
+        f'<li><strong>1 mensaje al día.</strong> {html.escape(digest["name"])}: todos los libros de hoy y un enlace para verlos juntos en Amazon.</li>'
+        '<li><strong>1 mensaje los lunes.</strong> Próximos lanzamientos: lo que sale en los 7 días siguientes.</li>'
+        '<li><strong>Libro a libro.</strong> Portada, editorial y sinopsis de cada novedad, también solo de tus géneros (thriller, romántica, fantasía, histórica…).</li>'
+        '</ul><p class="catalogue-community__actions">'
+        f'<a class="catalogue-community__join catalogue-community__join--telegram" href="{html.escape(telegram)}" rel="noopener">Telegram · 1 mensaje al día</a>'
+        f'<a class="catalogue-community__join catalogue-community__join--discord" href="{html.escape(discord)}" rel="noopener">Entrar en Discord</a>'
+        '<a class="text-action" href="/comunidad/">Ver todos los canales y elegir</a></p>'
+        '<p class="catalogue-community__note">Gratis. Si un día no hay libros nuevos, no se publica nada. Puedes silenciar o abandonar cualquier canal cuando quieras.</p>'
+        '</aside>'
+    )
 SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 TYPES = {"genero": "Género", "tematica": "Temática", "temporada": "Temporada", "edad": "Edad", "contenido": "Contenido", "epoca": "Época"}
 # Lo único que se enseña y se filtra: género (materias de Amazon y de la editorial) y edad (la declarada).
@@ -1122,7 +1147,8 @@ def render_hub(data, books, template, page_number=1):
     sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="fecha_asc">Publicación · más antigua primero</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option>' + ''.join(f'<option value="precio_{k}">{esc(FORMATS[k])} · del más barato al más caro</option>' for k in BOX_ORDER) + '<option value="ventas" data-sort-market="sales_ranks" disabled hidden>Amazon.es · más vendidos</option></select></label>'
     # Lo primero que se ve son los libros ya publicados (los más recientes arriba); los próximos lanzamientos van aparte.
     show = '<label>Mostrar<select name="estado" data-filter="estado" form="catalogue-search-form" disabled><option value="">Ya publicados</option><option value="proximos" id="estado=proximos">Próximos lanzamientos</option><option value="todos">Todos</option></select></label>'
-    upcoming = '<a class="catalogue-upcoming-link" href="#estado=proximos" data-catalogue-upcoming>Ver los próximos lanzamientos →</a>'
+    upcoming = ('<p class="catalogue-shortcuts"><a class="catalogue-upcoming-link" href="#estado=proximos" data-catalogue-upcoming>Ver los próximos lanzamientos →</a>'
+                '<a class="catalogue-upcoming-link catalogue-community-link" href="#comunidad">Recíbelos en Telegram o Discord →</a></p>')
     filters = render_filters(data, group_options(groups)).replace('<form class=', '<form id="catalogue-search-form" class=',1)
     if page_number > 1:
         filters = show = sort = upcoming = ''
@@ -1131,7 +1157,8 @@ def render_hub(data, books, template, page_number=1):
     if page_number > 1:
         catalogue = '<p><a class="text-action" href="/recomendaciones/#catalogo" target="_self">Buscar en todo el catálogo</a></p>' + catalogue
     quiz='<details class="catalogue-quiz"><summary>¿Qué te apetece leer? Haz el test y encuentra tu próximo libro</summary><div class="catalogue-quiz__panel"><p>Puedes recorrer las páginas del catálogo para consultar todas las fichas.</p></div></details>' if books and page_number == 1 else ''
-    page=template.replace('{{catalogue}}',quiz+catalogue)
+    community = community_cta() if page_number == 1 else ''
+    page=template.replace('{{catalogue}}',quiz+community+catalogue)
     page = page.replace('data-reading-catalogue data-family=', f'data-reading-catalogue data-catalogue-total="{len(books)}" data-catalogue-version="{version}" data-family=')
     modified=max((b['fecha_actualizacion'] for b in books),default='2026-10-20')
     page=re.sub(r'("dateModified":\s*")[^"]*',lambda match:match[1]+modified,page,count=1)

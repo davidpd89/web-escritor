@@ -1,57 +1,45 @@
 {
   "schema_version": 1,
-  "_comment": "Grupos públicos de la página /comunidad/. Solo enlaces públicos de unión (t.me, t.me/addlist, discord.gg); nunca tokens, chat_id ni webhooks. status: active (con invite muestra botón; sin invite, 'Enlace muy pronto', salvo en Discord, donde se entra por la invitación del servidor) o planned ('Próximamente'). categories reutiliza los slugs de data/reading-catalogue.json, igual que la configuración del bot. Horario de publicación: L-V 11:30 y sáb-dom 18:30 (Europe/Madrid).",
+  "_comment": "Grupos públicos de la página /comunidad/. Solo enlaces públicos de unión (t.me, t.me/addlist, discord.gg); nunca tokens, chat_id ni webhooks. status: active (con invite muestra botón; sin invite, 'Enlace muy pronto', salvo en Discord, donde se entra por la invitación del servidor) o planned ('Próximamente'). categories reutiliza los slugs de data/reading-catalogue.json, igual que la configuración del bot. Horario de publicación: todos los días a las 11:30 (Europe/Madrid); Próximos lanzamientos, los lunes a las 11:30. Si un día no hay libros nuevos, no se publica nada.",
   "platforms": {
     "telegram": {
       "name": "Telegram",
       "kind": "Canales de avisos",
-      "summary": "Canales de solo lectura: recibes las publicaciones, nadie ve tu número y puedes silenciarlos o salir cuando quieras. Con la carpeta «Libros DP» te unes a los 17 de una vez.",
+      "summary": "Canales de solo lectura: recibes las publicaciones, nadie ve tu número y puedes silenciarlos o salir cuando quieras. Con la carpeta «Libros DP» te unes a todos de una vez.",
       "invite": "https://t.me/addlist/lja92v39DGE4YmM0",
       "invite_label": "Unirme a todos (carpeta)"
     },
     "discord": {
       "name": "Discord",
       "kind": "Servidor de conversación",
-      "summary": "Club de lectura · David Porto: los mismos avisos que en Telegram, más foros para pedir recomendaciones, un club de lectura con votaciones y charla entre lectores.",
+      "summary": "Club de lectura · David Porto: los mismos avisos que en Telegram, separados en canales que puedes silenciar uno a uno, más foros para pedir recomendaciones, un club de lectura con votaciones y charla entre lectores.",
       "invite": "https://discord.gg/g7dEWxj3F",
       "invite_label": "Entrar al servidor"
     }
   },
   "groups": [
     {
-      "id": "novedades",
-      "platform": "telegram",
-      "section": "al-dia",
-      "name": "Novedades del día",
-      "description": "Los libros que salen hoy a la venta en España, con portada, autor, fecha y género.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
-      "status": "active",
-      "invite": "https://t.me/novedades_libros_dp",
-      "avatar": "/assets/community-avatars/novedades.webp",
-      "categories": []
-    },
-    {
       "id": "todos",
       "platform": "telegram",
       "section": "al-dia",
-      "name": "Todos los libros nuevos",
-      "description": "Cada libro que entra en el catálogo, de todos los géneros, en un único envío diario.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "name": "Resumen del día",
+      "description": "Un solo mensaje al día: la lista de los libros que salen hoy y un enlace de Amazon con todos ellos. Ideal si quieres pocos avisos.",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "https://t.me/todos_libros_dp",
-      "avatar": "/assets/community-avatars/todos.webp",
+      "avatar": "/assets/community-avatars/resumen.webp",
       "categories": []
     },
     {
-      "id": "ofertas-hoy",
+      "id": "novedades",
       "platform": "telegram",
       "section": "al-dia",
-      "name": "Ofertas de hoy",
-      "description": "Bajadas reales de precio en Amazon.es, con el precio anterior y el actual.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "name": "Novedades del día, libro a libro",
+      "description": "Un mensaje por cada libro que sale hoy, con portada, autor, editorial, género y sinopsis. Varios mensajes al día.",
+      "cadence": "Todos los días 11:30",
       "status": "active",
-      "invite": "https://t.me/ofertas_libros_dp",
-      "avatar": "/assets/community-avatars/ofertas-hoy.webp",
+      "invite": "https://t.me/novedades_libros_dp",
+      "avatar": "/assets/community-avatars/novedades.webp",
       "categories": []
     },
     {
@@ -59,23 +47,11 @@
       "platform": "telegram",
       "section": "al-dia",
       "name": "Próximos lanzamientos",
-      "description": "Lo que sale a la venta en los próximos 7 días, en un resumen semanal.",
+      "description": "Un mensaje cada lunes con lo que sale a la venta en los próximos 7 días y un enlace de Amazon con todos. Sin repetir libros de una semana a otra.",
       "cadence": "Lunes 11:30",
       "status": "active",
       "invite": "https://t.me/proximos_libros_dp",
       "avatar": "/assets/community-avatars/proximos.webp",
-      "categories": []
-    },
-    {
-      "id": "mas-votados",
-      "platform": "telegram",
-      "section": "al-dia",
-      "name": "Los más votados",
-      "description": "Ranking de los libros del catálogo mejor valorados en Goodreads, con nota y número de valoraciones.",
-      "cadence": "Sábados 18:30",
-      "status": "active",
-      "invite": "https://t.me/masvotados_libros_dp",
-      "avatar": "/assets/community-avatars/mas-votados.webp",
       "categories": []
     },
     {
@@ -84,14 +60,15 @@
       "section": "temas",
       "name": "Thriller y novela negra",
       "description": "Misterio, intriga, policiaca y novela negra.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "https://t.me/thriller_libros_dp",
       "avatar": "/assets/community-avatars/thriller.webp",
       "categories": [
         "misterio-y-thriller",
         "misterio",
-        "tema-novela-negra"
+        "tema-novela-negra",
+        "tema-thriller-juvenil"
       ]
     },
     {
@@ -100,7 +77,7 @@
       "section": "temas",
       "name": "Romántica",
       "description": "Novela romántica, romantasy e historias de amor.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "https://t.me/romantica_libros_dp",
       "avatar": "/assets/community-avatars/romantica.webp",
@@ -116,7 +93,7 @@
       "section": "temas",
       "name": "Fantasía",
       "description": "Fantasía épica, oscura, urbana y juvenil.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "https://t.me/fantasia_libros_dp",
       "avatar": "/assets/community-avatars/fantasia.webp",
@@ -124,7 +101,8 @@
         "fantasia",
         "fantasia-juvenil",
         "fantasia-oscura",
-        "romantasy"
+        "romantasy",
+        "tema-novela-fantastica-juvenil"
       ]
     },
     {
@@ -133,7 +111,7 @@
       "section": "temas",
       "name": "Terror",
       "description": "Miedo, horror y lo sobrenatural.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "https://t.me/terror_libros_dp",
       "avatar": "/assets/community-avatars/terror.webp",
@@ -147,7 +125,7 @@
       "section": "temas",
       "name": "Ciencia ficción",
       "description": "Futuros posibles, distopías y viajes espaciales.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "https://t.me/cienciaficcion_libros_dp",
       "avatar": "/assets/community-avatars/ciencia-ficcion.webp",
@@ -161,7 +139,7 @@
       "section": "temas",
       "name": "Novela histórica e historia",
       "description": "Novela histórica y ensayos de historia.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "https://t.me/+o4rRZyoa_FI5YWJk",
       "avatar": "/assets/community-avatars/historica.webp",
@@ -176,14 +154,16 @@
       "section": "temas",
       "name": "Infantil y juvenil",
       "description": "Lecturas por edades, de primeros lectores a juvenil.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "https://t.me/+WTCbM3V0y0UxMzY0",
       "avatar": "/assets/community-avatars/infantil-juvenil.webp",
       "categories": [
         "infantil",
         "juvenil",
-        "fantasia-juvenil"
+        "fantasia-juvenil",
+        "narrativa-juvenil",
+        "tema-novelas-juveniles"
       ]
     },
     {
@@ -191,15 +171,21 @@
       "platform": "telegram",
       "section": "temas",
       "name": "Ensayo y no ficción",
-      "description": "Ensayo, filosofía, divulgación, biografías y no ficción.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "description": "Ensayo, filosofía, divulgación científica, política y actualidad.",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "https://t.me/+uqLn9zJ0hpEyZjFk",
       "avatar": "/assets/community-avatars/ensayo.webp",
       "categories": [
         "ensayo",
         "filosofia",
-        "divulgacion-cientifica"
+        "divulgacion-cientifica",
+        "tema-poder-y-politica",
+        "tema-actualidad",
+        "tema-ciencias-humanas-y-sociales",
+        "tema-economia-politica-sociedad-y-actualidad",
+        "tema-naturaleza",
+        "tema-ciencia-y-tecnologia"
       ]
     },
     {
@@ -208,13 +194,14 @@
       "section": "temas",
       "name": "Cocina y bienestar",
       "description": "Recetarios, nutrición, salud y vida sana.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "https://t.me/+7qXWVZC7n-5kYWE8",
       "avatar": "/assets/community-avatars/cocina.webp",
       "categories": [
         "cocina",
-        "nutricion-y-bienestar"
+        "nutricion-y-bienestar",
+        "tema-cocina-vegetal"
       ]
     },
     {
@@ -223,7 +210,7 @@
       "section": "temas",
       "name": "Cómic y novela gráfica",
       "description": "Cómic, manga y novela gráfica.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "https://t.me/+CBzgic-FjhM1NGI0",
       "avatar": "/assets/community-avatars/comic.webp",
@@ -237,7 +224,7 @@
       "section": "temas",
       "name": "Poesía",
       "description": "Poemarios y antologías.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "https://t.me/+_I4XCaiZB3VjNmVk",
       "avatar": "/assets/community-avatars/poesia.webp",
@@ -251,12 +238,127 @@
       "section": "temas",
       "name": "Religión y espiritualidad",
       "description": "Fe, espiritualidad y pensamiento religioso.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "https://t.me/+gzb9SRE--281Yzhk",
       "avatar": "/assets/community-avatars/religion.webp",
       "categories": [
-        "tema-religion-y-espiritualidad"
+        "tema-religion-y-espiritualidad",
+        "tema-religion",
+        "tema-esoterismo"
+      ]
+    },
+    {
+      "id": "narrativa",
+      "platform": "telegram",
+      "section": "temas",
+      "name": "Narrativa y clásicos",
+      "description": "Novela contemporánea, relatos y clásicos.",
+      "cadence": "Todos los días 11:30",
+      "status": "active",
+      "invite": "https://t.me/+8wbmTHPmWwFhYjI0",
+      "avatar": "/assets/community-avatars/narrativa.webp",
+      "categories": [
+        "narrativa",
+        "relatos",
+        "clasicos"
+      ]
+    },
+    {
+      "id": "desarrollo-personal",
+      "platform": "telegram",
+      "section": "temas",
+      "name": "Desarrollo personal y psicología",
+      "description": "Psicología, crianza, superación y bienestar emocional.",
+      "cadence": "Todos los días 11:30",
+      "status": "active",
+      "invite": "https://t.me/+JublwHrGgt4xYzA8",
+      "avatar": "/assets/community-avatars/desarrollo-personal.webp",
+      "categories": [
+        "desarrollo-personal",
+        "psicologia",
+        "familia-y-crianza",
+        "tema-superacion-y-duelo"
+      ]
+    },
+    {
+      "id": "aventuras",
+      "platform": "telegram",
+      "section": "temas",
+      "name": "Aventuras",
+      "description": "Novelas de aventuras y viajes por lo desconocido.",
+      "cadence": "Todos los días 11:30",
+      "status": "active",
+      "invite": "https://t.me/+8b_jp3X1RQk2NWJk",
+      "avatar": "/assets/community-avatars/aventuras.webp",
+      "categories": [
+        "aventuras"
+      ]
+    },
+    {
+      "id": "biografias",
+      "platform": "telegram",
+      "section": "temas",
+      "name": "Biografías y memorias",
+      "description": "Vidas, memorias y crónicas en primera persona.",
+      "cadence": "Todos los días 11:30",
+      "status": "active",
+      "invite": "https://t.me/+v3p_tpoCy604ZTI0",
+      "avatar": "/assets/community-avatars/biografias.webp",
+      "categories": [
+        "biografias-y-memorias",
+        "tema-memoria",
+        "tema-cronica"
+      ]
+    },
+    {
+      "id": "humor",
+      "platform": "telegram",
+      "section": "temas",
+      "name": "Humor",
+      "description": "Libros para reír.",
+      "cadence": "Todos los días 11:30",
+      "status": "active",
+      "invite": "https://t.me/+oyJzEj_bfjI1NjI0",
+      "avatar": "/assets/community-avatars/humor.webp",
+      "categories": [
+        "humor"
+      ]
+    },
+    {
+      "id": "economia",
+      "platform": "telegram",
+      "section": "temas",
+      "name": "Economía y empresa",
+      "description": "Economía, empresa, finanzas y derecho.",
+      "cadence": "Todos los días 11:30",
+      "status": "active",
+      "invite": "https://t.me/+zeEDsQyd3fxjZjE8",
+      "avatar": "/assets/community-avatars/economia.webp",
+      "categories": [
+        "tema-economia-y-empresa",
+        "tema-derecho"
+      ]
+    },
+    {
+      "id": "arte-ocio",
+      "platform": "telegram",
+      "section": "temas",
+      "name": "Arte, cine y ocio",
+      "description": "Arte, diseño, música, cine, viajes, deporte y estilo de vida.",
+      "cadence": "Todos los días 11:30",
+      "status": "active",
+      "invite": "https://t.me/+eh_10QVm3AA2Yzc0",
+      "avatar": "/assets/community-avatars/arte-ocio.webp",
+      "categories": [
+        "tema-arte-y-diseno",
+        "tema-arte",
+        "tema-arte-cine-y-musica",
+        "tema-ocio-y-tiempo-libre",
+        "tema-viajes",
+        "tema-deporte",
+        "tema-peliculas-y-series",
+        "tema-estilo-de-vida"
       ]
     },
     {
@@ -264,8 +366,8 @@
       "platform": "discord",
       "section": "discord",
       "name": "Avisos del día",
-      "description": "#novedades, #todos-los-libros, #ofertas, #proximos-lanzamientos y #mas-votados: los mismos avisos que en Telegram.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "description": "#resumen-del-dia (1 mensaje al día), #novedades-del-dia (libro a libro) y #proximos-lanzamientos (los lunes). Silencia los que no quieras.",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "",
       "avatar": "/assets/community-avatars/novedades.webp",
@@ -275,9 +377,9 @@
       "id": "discord-generos",
       "platform": "discord",
       "section": "discord",
-      "name": "Un canal por género",
-      "description": "Thriller, romántica, fantasía, terror, ciencia ficción, histórica, infantil, ensayo, cocina, cómic, poesía y espiritualidad.",
-      "cadence": "L-V 11:30 · sáb-dom 18:30",
+      "name": "Dos canales por género",
+      "description": "Para cada género, un canal con el resumen diario en un solo mensaje y otro libro a libro con portada y ficha. 19 géneros y temáticas.",
+      "cadence": "Todos los días 11:30",
       "status": "active",
       "invite": "",
       "avatar": "/assets/community-avatars/thriller.webp",
