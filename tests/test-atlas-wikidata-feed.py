@@ -129,16 +129,21 @@ class FeedTest(unittest.TestCase):
         with mock.patch.object(feed.urllib.request, "urlopen", side_effect=TimeoutError):
             self.assertFalse(feed.url_responds("https://x.example/"))
         import ssl
-        calls = []
-
-        def cadena_incompleta(request, timeout, context=None):   # bne.es: Python no valida el certificado
-            calls.append(context)
-            if context is None:
-                raise urllib.error.URLError(ssl.SSLCertVerificationError("unable to get local issuer certificate"))
-            return opener(200)(request, timeout)
-        with mock.patch.object(feed.urllib.request, "urlopen", cadena_incompleta):
-            self.assertTrue(feed.url_responds("https://x.example/"))
-        self.assertEqual(len(calls), 2)
+        # Un certificado que lychee rechaza (caducado, autofirmado, nombre equivocado o cadena incompleta) no
+        # se da por vivo: no se reintenta sin verificar aunque el servidor conteste 200 sin validar el TLS.
+        # 2026-11-09: una web así pasaba el filtro y tumbaba broken-links y la PR entera del Atlas.
+        def tls_roto(mensaje):
+            def urlopen(request, timeout, context=None):
+                if context is None:   # verificado: como lychee, el certificado no vale
+                    raise urllib.error.URLError(ssl.SSLCertVerificationError(mensaje))
+                return opener(200)(request, timeout)   # sin verificar sí respondería: no debe consultarse así
+            return urlopen
+        for mensaje in ("certificate has expired", "self-signed certificate",
+                        "Hostname mismatch, certificate is not valid for 'x.example'",
+                        "unable to get local issuer certificate", "unable to get issuer certificate"):
+            with mock.patch.object(feed.urllib.request, "urlopen", tls_roto(mensaje)):
+                self.assertFalse(feed.url_responds("https://x.example/"), mensaje)
+        # Los hosts con TLS problemático pero verificados a mano van en .lycheeignore: ni se consultan ni caen.
         with mock.patch.object(feed, "lychee_ignore", lambda: [r"https?://(www\.)?bne\.es/.*"]), \
                 mock.patch.object(feed.urllib.request, "urlopen", side_effect=AssertionError("no debe consultar")):
             self.assertTrue(feed.url_responds("https://www.bne.es/"))   # lychee la ignora: no puede tumbar el control
