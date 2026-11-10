@@ -102,6 +102,10 @@ jobs:
         if: steps.scope.outputs.run == 'true'
         run: npm install --global pa11y-ci@5.0.0
 
+      - name: Materializar generados
+        if: steps.scope.outputs.run == 'true'
+        uses: ./.github/actions/materializar
+
       - name: Start local static server
         if: steps.scope.outputs.run == 'true'
         run: |

@@ -66,6 +66,9 @@ jobs:
       - name: Global public-route and shell contract
         run: python scripts/check-global-discoverability.py
 
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
+
       - name: Staging/gated publication gate (real dist + fixture regression)
         run: |
           python tests/test-staging-publication-gate.py
@@ -157,6 +160,9 @@ jobs:
           set -o pipefail
           mkdir -p artifacts/global-discoverability
           node qa/global-discoverability-browser.mjs 2>&1 | tee artifacts/global-discoverability/browser.log
+
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
 
       - name: Start static server for existing sitewide reflow gate
         shell: bash

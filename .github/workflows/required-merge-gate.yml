@@ -162,6 +162,9 @@ jobs:
       - name: Verify generated staging publication policy
         run: python scripts/build-public-dist.py --check-assetsignore
 
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
+
       - name: Build final public artifact
         run: python scripts/build-public-dist.py --out .preview-dist
 

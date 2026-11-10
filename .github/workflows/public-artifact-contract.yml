@@ -33,6 +33,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
+
       - name: Compile public artifact builder
         run: python -m py_compile scripts/build-public-dist.py tests/test-public-artifact-contract.py
 

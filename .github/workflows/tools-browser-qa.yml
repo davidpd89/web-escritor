@@ -80,6 +80,9 @@ jobs:
           mkdir -p qa-artifacts/herramientas-hub
           cp herramientas/index.html qa-artifacts/herramientas-hub/generated-index.html
 
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
+
       - name: Start local static server
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tools-qa-server.log 2>&1 &

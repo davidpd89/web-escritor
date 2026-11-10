@@ -40,6 +40,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
+
       - name: Build public artifact (allowlist-first)
         run: python scripts/build-public-dist.py --out .preview-dist
 
@@ -64,6 +67,11 @@ jobs:
           before_root="$RUNNER_TEMP/indexnow-before-src"
           before_dist="$RUNNER_TEMP/indexnow-before-dist"
           git worktree add --detach "$before_root" "$BEFORE_SHA"
+          # Tras el corte, el árbol «antes» no trae lo generado: se materializa igual que el actual (antes del
+          # corte, --asegurar no hace nada; un commit anterior a --asegurar trae lo generado versionado).
+          if grep -q -- '--asegurar' "$before_root/scripts/materializar_generados.py" 2>/dev/null; then
+            (cd "$before_root" && GITHUB_OUTPUT=/dev/null python scripts/materializar_generados.py --asegurar)
+          fi
           python "$before_root/scripts/build-public-dist.py" --out "$before_dist"
           python scripts/indexnow.py derive \
             --before-dist "$before_dist" \

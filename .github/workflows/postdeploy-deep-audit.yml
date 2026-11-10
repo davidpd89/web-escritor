@@ -279,6 +279,10 @@ jobs:
         if: steps.playwright-focus-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
+      - name: Materializar generados
+        if: github.event_name == 'pull_request'
+        uses: ./.github/actions/materializar
+
       - name: Start local branch server for pull-request focus audit
         if: github.event_name == 'pull_request'
         shell: bash
