@@ -182,6 +182,8 @@ def build_report(output: Path) -> int:
                 "status": status_label(code),
                 "exit_code": code,
                 "output": clip(out),
+                # El final, no el principio: el error está en la última línea y clip() lo cortaba.
+                "tail": "\n".join(out.splitlines()[-12:]),
             }
         )
         if code != 0:
@@ -283,6 +285,14 @@ def build_report(output: Path) -> int:
     lines.append("- This report does not deploy.")
 
     output.write_text("\n".join(lines).strip() + "\n", encoding="utf-8")
+    # El informe se queda en el runner: sin esto, el log del CI solo decía «BLOCKED» y averiguar qué comprobación
+    # fallaba exigía repetirla en local (10/11, check-professional-resources).
+    for item in checks_data:
+        if item["status"] != "PASS":
+            print(f"BLOQUEA: {item['label']} (`{item['command']}`, exit {item['exit_code']})\n{item['tail']}", flush=True)
+    for route, mode, status in route_results:
+        if status != "PASS":
+            print(f"BLOQUEA: ruta {route} ({mode}) no encontrada", flush=True)
     return 0 if failures == 0 else 1
 
 
