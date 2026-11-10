@@ -5,6 +5,7 @@ import importlib.util
 import json
 import os
 import subprocess
+import tempfile
 import urllib.request
 import sys
 from datetime import datetime, timezone
@@ -401,6 +402,28 @@ def quarantine_summary(quarantined, released):
     return ''.join(lines) + ('\n' if lines else '')
 
 
+def data_contract_failures():
+    """Corre los contratos de datos; devuelve sus fallos ([{test, texto}], vacío si pasan)."""
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / 'fallos.json'
+        code = subprocess.run([sys.executable, 'scripts/check-reading-data.py', '--fallos', str(out)], cwd=ROOT).returncode
+        failures = json.loads(out.read_text(encoding='utf-8')) if out.exists() else []
+    if code and not failures:
+        raise RuntimeError(f'check-reading-data salió con {code} sin fallos de contrato (error de carga de los tests)')
+    return failures
+
+
+def drop_orphan_pages(quarantined):
+    """La página de un libro nuevo apartado ya se generó y registró: el builder no borra, así que se quita aquí."""
+    live = {b['slug'] for b in read_json(ROOT / reading_quarantine.CATALOGUE)['libros']}
+    for h in quarantined:
+        slug = h['libro'].get('slug')
+        page = f'recomendaciones/libros/{slug}/index.html'
+        if slug and slug not in live and not subprocess.run(['git', 'cat-file', '-e', 'HEAD:' + page], cwd=ROOT).returncode == 0:
+            subprocess.run(['git', 'rm', '-q', '--cached', '--ignore-unmatch', '--', page], cwd=ROOT, check=True)
+            (ROOT / page).unlink(missing_ok=True)
+
+
 def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     """Reconstruye todo lo derivado sobre el checkout actual, abre la PR y la publica por main protegido."""
     changed_ratings = changed
@@ -419,18 +442,34 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     if not (report['new_books'] or report['updated_books'] or released or changed_ratings or report['stats'].get('author_profiles_updated') or rss_changed):
         drop_checkpoint(checkpoint)
         return
-    # Register new routes before builders that deliberately consume git ls-files.
+    # Un contrato de datos que nombra libros (p. ej. una sinopsis que empieza gritando) los aparta y se reconstruye;
+    # si un fallo no nombra ningún libro, o vuelve a señalar los mismos, es una regla rota y la carga para (10/11).
     # La cuarentena solo existe si alguna vez apartó un libro: git add falla con una ruta que no existe.
     staged = ('assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-publishers.json', 'data/reading-intake-state.json',
               'data/reading-quarantine.json', 'data/content-registry.json', 'assets/reading-covers', 'assets/reading-audio', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio/index.html')
+    # Register new routes before builders that deliberately consume git ls-files.
     def registrar(_root):
         command('git', 'add', '--', *[p for p in staged if (ROOT / p).exists()])
         command('git','add','--','assets/pinterest/feeds')
-    # Misma cadena que rebase-regenerando y merge-main (scripts/materializar_generados.py).
-    materializar.construir(ROOT, antes_de_indexar=registrar)
-    materializar.comprobar(ROOT, assets=False)
-    # Solo los contratos de datos: el código ya lo probó la batería completa del Required merge gate en main.
-    command(sys.executable, 'scripts/check-reading-data.py')
+    flagged = {}
+    for _ in range(3):
+        # Misma cadena que rebase-regenerando y merge-main (scripts/materializar_generados.py).
+        materializar.construir(ROOT, antes_de_indexar=registrar)
+        materializar.comprobar(ROOT, assets=False)
+        # Solo los contratos de datos: el código ya lo probó la batería completa del Required merge gate en main.
+        failures = data_contract_failures()
+        if not failures:
+            break
+        named = reading_quarantine.flagged_books(failures, read_json(ROOT / reading_quarantine.CATALOGUE))
+        if named is None or set(named) <= set(flagged):
+            raise RuntimeError('check-reading-data falló en contratos que no se resuelven apartando libros: '
+                               + '; '.join(f['test'] for f in failures)[:600])
+        flagged.update(named)
+        quarantined = reading_quarantine.apply(ROOT, flagged=flagged)
+        released = held_before - {h['libro']['id'] for h in quarantined}
+        drop_orphan_pages(quarantined)
+    else:
+        raise RuntimeError('check-reading-data sigue fallando tras apartar libros en 3 rondas')
     command('git', 'diff', '--check')
     changed = subprocess.check_output(
         ['git', 'status', '--porcelain', '--untracked-files=all'], cwd=ROOT, text=True)

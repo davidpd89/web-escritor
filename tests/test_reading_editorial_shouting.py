@@ -32,7 +32,27 @@ class StripShoutingTests(unittest.TestCase):
     def test_acronyms_normal_text_and_short_leftovers_are_untouched(self):
         for text in ("La ONU y la OTAN firmaron en EEUU un acuerdo que cambió la política de toda Europa.", PLOT):
             self.assertEqual(strip_shouting(text), text)
-        self.assertEqual(strip_shouting("EL GRAN LIBRO DEL AÑO Corto."), "EL GRAN LIBRO DEL AÑO Corto.")
+
+    def test_short_text_is_kept_whole_but_never_shouting(self):
+        # Quitar el titular lo dejaría en nada: se conserva, pero en minúscula (antes se devolvía tal cual
+        # y la comprobación del catálogo publicado tumbaba la carga, 10/11).
+        self.assertEqual(strip_shouting("EL GRAN LIBRO DEL AÑO Corto."), "El gran libro del año. Corto.")
+        self.assertEqual(strip_shouting("FILOSOFÍA&CO ESPECIAL FOUCAULT: Pensamiento, vida y obra del filósofo más citado"),
+                         "Filosofía&co especial foucault: Pensamiento, vida y obra del filósofo más citado")
+        self.assertEqual(strip_shouting("PON A PRUEBA TU INGENIO. SIGUE LAS PISTAS. ¿PODRÁS? Un reto."),
+                         "Pon a prueba tu ingenio. Sigue las pistas. ¿Podrás? Un reto.")
+
+    def test_no_output_opens_shouting_whatever_the_input(self):
+        """La invariante que comprueba el catálogo publicado se cumple por construcción, no libro a libro."""
+        import itertools
+        shout = re.compile(PublishedCatalogueTests.SHOUT)
+        tokens = ("FILOSOFÍA&CO", "L'ESPRIT", "AC/DC", "ESPECIAL", "FOUCAULT:", "2024", "Y", "«GRAN»", "NOVELA.", "ÉXITO!")
+        tails = ("", "Corto.", "Pensamiento, vida y obra.", PLOT)
+        for n in (3, 4):
+            for combo in itertools.permutations(tokens, n):
+                for tail in tails:
+                    text = (" ".join(combo) + " " + tail).strip()
+                    self.assertIsNone(shout.match(strip_shouting(text)), text)
 
 
 class CleanAuthorTests(unittest.TestCase):
@@ -47,6 +67,8 @@ class CleanAuthorTests(unittest.TestCase):
 
 
 class PublishedCatalogueTests(unittest.TestCase):
+    SHOUT = r"^(?:\S*[A-ZÁÉÍÓÚÑ]{2,}\S*\s+){3}"
+
     @classmethod
     def setUpClass(cls):
         spec = importlib.util.spec_from_file_location("builder", ROOT / "scripts/build-reading-catalogue.py")
@@ -55,7 +77,7 @@ class PublishedCatalogueTests(unittest.TestCase):
         cls.data = json.loads((ROOT / "data/reading-catalogue.json").read_text(encoding="utf-8"))
 
     def test_no_meta_description_or_card_opens_with_a_shouted_tagline(self):
-        shout = re.compile(r"^(?:\S*[A-ZÁÉÍÓÚÑ]{2,}\S*\s+){3}")
+        shout = re.compile(self.SHOUT)
         for b in self.data["libros"]:
             if b["estado"] != "publicado":
                 continue
