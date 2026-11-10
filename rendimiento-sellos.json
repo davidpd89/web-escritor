@@ -41,9 +41,13 @@
     "ultima": "2026-11-06"
   },
   "alfabeto": {
-    "libros_es": 2,
+    "libros_es": 0,
     "nombre": "Alfabeto",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 19,
+      "ultima": "2026-11-10"
+    },
+    "ultima": "2026-11-10"
   },
   "alfaguara": {
     "libros_es": 86,
@@ -297,9 +301,9 @@
     "ultima": "2026-11-06"
   },
   "caballo de troya": {
-    "libros_es": 7,
+    "libros_es": 13,
     "nombre": "Caballo de Troya",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-10"
   },
   "calla canalla": {
     "libros_es": 3,
@@ -506,9 +510,13 @@
     "ultima": "2026-11-06"
   },
   "destino": {
-    "libros_es": 69,
+    "libros_es": 58,
     "nombre": "Destino",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 359,
+      "ultima": "2026-11-10"
+    },
+    "ultima": "2026-11-10"
   },
   "destino infantil juvenil": {
     "libros_es": 62,
@@ -774,9 +782,9 @@
     "ultima": "2026-11-06"
   },
   "espasa": {
-    "libros_es": 76,
+    "libros_es": 75,
     "nombre": "Espasa",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-10"
   },
   "eunsa ediciones universidad de navarra": {
     "libros_es": 28,
@@ -815,14 +823,14 @@
     "ultima": "2026-11-06"
   },
   "fanes": {
-    "libros_es": 3,
+    "libros_es": 4,
     "nombre": "Fanes",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-10"
   },
   "fatcap": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Fatcap",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-10"
   },
   "fce de espana": {
     "libros_es": 10,
@@ -1338,9 +1346,9 @@
     "ultima": "2026-11-06"
   },
   "lumen": {
-    "libros_es": 19,
+    "libros_es": 18,
     "nombre": "Lumen",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-10"
   },
   "lumo studios": {
     "libros_es": 0,
@@ -1441,7 +1449,7 @@
   "mercurio editorial": {
     "libros_es": 9,
     "nombre": "Mercurio Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-10"
   },
   "milky way ediciones": {
     "libros_es": 30,
@@ -1914,9 +1922,9 @@
     "ultima": "2026-11-06"
   },
   "romantic ediciones": {
-    "libros_es": 3,
+    "libros_es": 9,
     "nombre": "Romantic Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-10"
   },
   "rosameron": {
     "libros_es": 6,
@@ -1990,9 +1998,9 @@
     "ultima": "2026-11-06"
   },
   "seix barral": {
-    "libros_es": 12,
+    "libros_es": 9,
     "nombre": "Seix Barral",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-10"
   },
   "sexto piso": {
     "libros_es": 14,
@@ -2016,9 +2024,9 @@
     "ultima": "2026-11-06"
   },
   "siren books": {
-    "libros_es": 2,
+    "libros_es": 6,
     "nombre": "Siren Books",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-10"
   },
   "siruela": {
     "libros_es": 62,
@@ -2031,9 +2039,9 @@
     "ultima": "2026-11-06"
   },
   "sportula": {
-    "libros_es": 7,
+    "libros_es": 15,
     "nombre": "Spórtula",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-10"
   },
   "sua edizioak": {
     "libros_es": 10,
@@ -2175,9 +2183,9 @@
     "ultima": "2026-11-06"
   },
   "tusquets editores": {
-    "libros_es": 20,
+    "libros_es": 28,
     "nombre": "Tusquets Editores",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-10"
   },
   "txalaparta": {
     "libros_es": 20,
