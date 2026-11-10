@@ -435,6 +435,32 @@ def pasada(dry=False, solo=None):
             dry or guardar_estado(estado)
 
 
+def tomar_cerrojo(ruta):
+    """Cerrojo del sistema sobre el fichero: lo suelta el sistema al morir el proceso, sin caducidad.
+
+    Antes valía la antigüedad del fichero (6 h): una pasada viva más de 6 h dejaba entrar otra a la vez, y una que
+    moría sin borrar el fichero bloqueaba las siguientes hasta que caducaba. Devuelve el fichero abierto (cerrarlo lo
+    suelta) o None si otro proceso lo tiene.
+    """
+    f = open(ruta, 'a+')
+    try:
+        if os.name == 'nt':
+            import msvcrt
+            f.seek(0)
+            msvcrt.locking(f.fileno(), msvcrt.LK_NBLCK, 1)
+        else:
+            import fcntl
+            fcntl.flock(f.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        f.close()
+        return None
+    f.seek(0)
+    f.truncate()
+    f.write(str(os.getpid()))
+    f.flush()
+    return f
+
+
 def main():
     # La tarea redirige la salida a salida.log con la página de códigos de Windows: un «→» tumbaba la pasada
     # ('charmap' codec, 2026-11-09/10, en cada intento con Telegram).
@@ -445,14 +471,13 @@ def main():
     ap.add_argument('--solo')
     a = ap.parse_args()
     ESTADO_DIR.mkdir(parents=True, exist_ok=True)
-    cerrojo = ESTADO_DIR / 'lock'
-    if cerrojo.exists() and time.time() - cerrojo.stat().st_mtime < 6 * 3600:
+    cerrojo = tomar_cerrojo(ESTADO_DIR / 'lock')
+    if cerrojo is None:
         print('Otra pasada sigue en marcha'); return 0
-    cerrojo.write_text(str(os.getpid()))
     try:
         pasada(a.dry_run, a.solo)
     finally:
-        cerrojo.unlink(missing_ok=True)
+        cerrojo.close()
     return 0
 
 

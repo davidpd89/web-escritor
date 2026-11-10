@@ -165,3 +165,41 @@ class PuertaDelArreglo(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class CerrojoDeProceso(unittest.TestCase):
+    """El cerrojo es del proceso: otro no entra mientras vive, y entra en cuanto muere, sin esperar caducidad."""
+
+    SOSTENER = ('import importlib.util, sys, time\n'
+                'spec = importlib.util.spec_from_file_location("na", sys.argv[1])\n'
+                'na = importlib.util.module_from_spec(spec); spec.loader.exec_module(na)\n'
+                'f = na.tomar_cerrojo(sys.argv[2]); print("dentro" if f else "fuera", flush=True)\n'
+                'time.sleep(60)\n')
+
+    def test_otro_proceso_no_entra_y_entra_al_morir_el_primero(self):
+        import subprocess, sys
+        script = Path(__file__).resolve().parents[1] / 'scripts' / 'night-autorepair.py'
+        with tempfile.TemporaryDirectory() as tmp:
+            ruta = Path(tmp) / 'lock'
+            primero = subprocess.Popen([sys.executable, '-c', self.SOSTENER, str(script), str(ruta)],
+                                       stdout=subprocess.PIPE, text=True)
+            try:
+                self.assertEqual(primero.stdout.readline().strip(), 'dentro')
+                self.assertIsNone(na.tomar_cerrojo(ruta))
+            finally:
+                primero.kill()
+                primero.wait()
+                primero.stdout.close()
+            f = na.tomar_cerrojo(ruta)  # muerto sin borrar el fichero: se entra ya
+            self.assertIsNotNone(f)
+            f.close()
+
+    def test_cerrar_lo_suelta(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            ruta = Path(tmp) / 'lock'
+            f = na.tomar_cerrojo(ruta)
+            self.assertIsNotNone(f)
+            f.close()
+            g = na.tomar_cerrojo(ruta)
+            self.assertIsNotNone(g)
+            g.close()
