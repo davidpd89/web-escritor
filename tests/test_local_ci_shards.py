@@ -45,24 +45,49 @@ class ScopedTest(unittest.TestCase):
 
 class ServidoresVigilados(unittest.TestCase):
     def test_un_servidor_caido_se_relanza(self):
-        import socket
         import tempfile
-        with socket.socket() as s:
-            s.bind(('127.0.0.1', 0))
-            port = s.getsockname()[1]
-        old = local_ci.PORTS
-        local_ci.PORTS = (port,)
-        try:
-            with tempfile.TemporaryDirectory() as root, \
-                    local_ci.Servers(root, lock_path=Path(root) / 'ports.lock') as servers:
-                self.assertTrue(servers.alive(port))
-                servers.procs[port].kill()
-                servers.procs[port].wait()
-                servers.ensure()
-                self.assertEqual(servers.restarts, 1)
-                self.assertTrue(servers.alive(port))
-        finally:
-            local_ci.PORTS = old
+        with tempfile.TemporaryDirectory() as root, local_ci.Servers(root) as servers:
+            port = servers.ports[4173]
+            self.assertTrue(servers.alive(port))
+            servers.procs[4173].kill()
+            servers.procs[4173].wait()
+            servers.ensure()
+            self.assertEqual(servers.restarts, 1)
+            self.assertTrue(servers.alive(port))
+
+    def test_dos_puertas_a_la_vez_no_comparten_puertos(self):
+        """10/11: con 4173/4175 fijos solo cabía una puerta por máquina y las demás esperaban en cola."""
+        import tempfile
+        with tempfile.TemporaryDirectory() as root, local_ci.Servers(root) as a, local_ci.Servers(root) as b:
+            self.assertFalse(set(a.ports.values()) & set(b.ports.values()))
+            self.assertNotIn(4173, a.ports.values())
+        for servers in (a, b):
+            self.assertFalse(any(servers.alive(p) for p in servers.ports.values()))
+
+    def test_remap_lleva_el_puerto_real_al_comando_y_al_entorno(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as root:
+            qa = Path(root, 'qa')
+            qa.mkdir()
+            Path(qa, 'x.mjs').write_text("const B = process.env.FERIAS_BASE_URL || 'http://127.0.0.1:4173';\n"
+                                         "const C = process.env.QA_BASE_URL||'http://127.0.0.1:4175';\n", encoding='utf-8')
+            servers = local_ci.Servers(root)
+            servers.ports = {4173: 50001, 4175: 50002}
+            command, env = servers.remap('node qa/x.mjs http://127.0.0.1:4173/a/', {'QA_ORIGIN': 'http://127.0.0.1:4173'})
+        self.assertEqual(command, 'node qa/x.mjs http://127.0.0.1:50001/a/')
+        self.assertEqual(env, {'QA_ORIGIN': 'http://127.0.0.1:50001', 'FERIAS_BASE_URL': 'http://127.0.0.1:50001',
+                               'QA_BASE_URL': 'http://127.0.0.1:50002'})
+
+    def test_toda_prueba_que_cita_el_puerto_lo_lee_del_entorno(self):
+        """Trinquete: un literal 127.0.0.1:4173 sin variable de entorno en su línea ignoraría el puerto real."""
+        fijos = []
+        for pattern in ('qa/**/*.mjs', 'tests/**/*.mjs', 'scripts/*.mjs'):
+            for path in local_ci.ROOT.glob(pattern):
+                for n, line in enumerate(path.read_text(encoding='utf-8', errors='replace').splitlines(), 1):
+                    code = line.split('//')[0] if not line.lstrip().startswith('//') else ''
+                    if local_ci.LITERAL.search(code) and not local_ci.ENV_NAME.search(code) and 'argv' not in code:
+                        fijos.append(f'{path.relative_to(local_ci.ROOT)}:{n}')
+        self.assertEqual(fijos, [])
 
 
 class EntornoDelCI(unittest.TestCase):
@@ -117,38 +142,19 @@ class NodeModulesDelWorktree(unittest.TestCase):
                 (wt / 'node_modules').unlink()
 
 
-class CerrojoDePuertos(unittest.TestCase):
-    def test_una_segunda_puerta_espera(self):
-        import tempfile
-        with tempfile.TemporaryDirectory() as d:
-            path = Path(d) / 'ports.lock'
-            first = local_ci.ports_lock(path)
-            with self.assertRaises(SystemExit):
-                local_ci.ports_lock(path, wait=0)
-            local_ci.release(first)
-            local_ci.release(local_ci.ports_lock(path, wait=0))
-
-
 class EntornoCiego(unittest.TestCase):
     """10/11: venv sin Pillow ni requests y worktree sin node_modules → 27 comprobaciones «ya fallan en main»."""
 
     def test_el_servidor_aguanta_muchas_conexiones_a_la_vez(self):
-        import socket, tempfile
+        import tempfile
         from concurrent.futures import ThreadPoolExecutor
         with tempfile.TemporaryDirectory() as tmp:
             Path(tmp, 'index.html').write_text('ok', encoding='utf-8')
-            with socket.socket() as probe:
-                probe.bind(('127.0.0.1', 0))
-                port = probe.getsockname()[1]
-            old = local_ci.PORTS
-            local_ci.PORTS = (port,)
-            try:
-                with local_ci.Servers(tmp, lock_path=Path(tmp) / 'ports.lock'):
-                    fetch = lambda _: local_ci.urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=20).status
-                    with ThreadPoolExecutor(64) as pool:
-                        self.assertEqual(set(pool.map(fetch, range(400))), {200})
-            finally:
-                local_ci.PORTS = old
+            with local_ci.Servers(tmp) as servers:
+                port = servers.ports[4173]
+                fetch = lambda _: local_ci.urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=20).status
+                with ThreadPoolExecutor(64) as pool:
+                    self.assertEqual(set(pool.map(fetch, range(400))), {200})
 
     def test_cada_comando_construye_su_propia_distribucion(self):
         a = local_ci.private_dist('node tests/test-seo-discoverability-smoke.mjs', ROOT)

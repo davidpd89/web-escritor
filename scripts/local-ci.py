@@ -3,7 +3,7 @@
 
 Lee .github/workflows: los workflows de pull_request cuyas `paths` casan con los cambios frente a origin/main
 y, de sus pasos, las líneas `node qa/*.mjs`, `python … --check` y las pruebas. Las corre aquí en paralelo con los
-servidores que esperan (4173 y 4175) y, con --baseline, repite los fallos sobre origin/main: lo que también falla
+servidores que esperan (4173 y 4175, que se sirven en puertos libres para que quepan varias puertas a la vez) y, con --baseline, repite los fallos sobre origin/main: lo que también falla
 allí ya estaba roto y no bloquea este cambio.
 
   python scripts/local-ci.py                # lo que correría el CI para los cambios de esta rama
@@ -157,18 +157,6 @@ def scoped(changed, refs=referencias):
     return commands
 
 
-def busy_ports():
-    """En Windows http.server usa SO_REUSEADDR: un servidor previo en el puerto contestaría por el nuestro."""
-    busy = []
-    for port in PORTS:
-        try:
-            urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=1)
-            busy.append(port)
-        except OSError:
-            pass
-    return busy
-
-
 # `python -m http.server` escucha con una cola de 5 conexiones: con varias pruebas de navegador a la vez, Windows
 # rechaza el resto (ERR_CONNECTION_REFUSED) aunque el proceso siga vivo. 10/11: 40 pruebas caídas en 3 s.
 SERVER_CODE = ('import sys, http.server as h\n'
@@ -177,27 +165,73 @@ SERVER_CODE = ('import sys, http.server as h\n'
                '    daemon_threads = True\n'
                'S(("127.0.0.1", int(sys.argv[1])), h.SimpleHTTPRequestHandler).serve_forever()\n')
 
+LITERAL = re.compile(r'(127\.0\.0\.1|localhost):(417[35])\b')
+ENV_NAME = re.compile(r'process\.env\.([A-Z][A-Z0-9_]*)|environ(?:\.get\(|\[)[\'"]([A-Z][A-Z0-9_]*)')
+
+
+def free_port():
+    import socket
+    with socket.socket() as s:
+        s.bind(('127.0.0.1', 0))
+        return s.getsockname()[1]
+
+
+def origin_vars(root):
+    """Variables de entorno con las que cada prueba sustituye su origen por defecto (127.0.0.1:4173 o :4175).
+
+    Se descubren en el código: las que aparecen en la misma línea que el literal. Así una prueba nueva con su propia
+    variable (FERIAS_BASE_URL…) recibe el puerto real sin tocar esta lista."""
+    found = {}
+    for pattern in ('qa/**/*.mjs', 'tests/**/*.mjs', 'tests/**/*.py', 'scripts/*.mjs', 'scripts/*.py'):
+        for path in Path(root).glob(pattern):
+            try:
+                text = path.read_text(encoding='utf-8')
+            except (OSError, UnicodeDecodeError):
+                continue
+            for line in text.splitlines():
+                literal = LITERAL.search(line)
+                if literal:
+                    for a, b in ENV_NAME.findall(line):
+                        found.setdefault(a or b, int(literal.group(2)))
+    return found
+
 
 class Servers:
-    """Los servidores 4173/4175 de la QA de navegador, vigilados.
+    """Los servidores de la QA de navegador, en puertos libres y vigilados.
+
+    Los workflows y las pruebas citan 4173/4175. Con puertos fijos solo cabía una puerta por máquina (la del
+    autorrepair y las de otras ramas esperaban en cola, 10/11), y dos a la vez se tumbaban los servidores. Ahora cada
+    puerta elige puertos libres y `remap` pasa a cada comando el origen real: reescribe el literal en el comando y en
+    su entorno, y fija las variables de origen que las pruebas ya leen (`origin_vars`).
 
     Si uno muere a mitad de la puerta, cada prueba posterior daba ERR_CONNECTION_REFUSED y contaba como fallo de la
-    rama (30 «fallos» falsos el 9/11). Ahora su salida va a .local/local-ci/server-<puerto>.log, antes de cada prueba se
-    comprueba que contestan y, si alguno cayó, se relanza.
+    rama (30 «fallos» falsos el 9/11). Su salida va a .local/local-ci/server-<puerto>.log, antes de cada prueba se
+    comprueba que contestan y, si alguno cayó, se relanza en el mismo puerto.
     """
 
-    def __init__(self, root, lock_path=None):
-        # lock_path: los tests usan uno propio; con el de la máquina esperarían a la puerta que los ejecuta.
+    def __init__(self, root):
         self.root, self.procs, self.lock = root, {}, threading.Lock()
-        self.lock_path = lock_path
+        self.ports = {port: free_port() for port in PORTS}
+        self.vars = origin_vars(root)
         self.logs = ROOT / '.local/local-ci'
         self.logs.mkdir(parents=True, exist_ok=True)
         self.restarts = 0
 
-    def start(self, port):
-        log = open(self.logs / f'server-{port}.log', 'a', encoding='utf-8')
-        self.procs[port] = subprocess.Popen([sys.executable, '-c', SERVER_CODE, str(port)],
-                                            cwd=self.root, stdout=log, stderr=subprocess.STDOUT)
+    def origin(self, canonical):
+        return f'http://127.0.0.1:{self.ports[canonical]}'
+
+    def remap(self, command, env):
+        sub = lambda text: LITERAL.sub(lambda m: f'{m.group(1)}:{self.ports[int(m.group(2))]}', text)
+        env = {k: sub(v) for k, v in env.items()}
+        for name, canonical in self.vars.items():
+            env.setdefault(name, self.origin(canonical))
+        return sub(command), env
+
+    def start(self, canonical):
+        port = self.ports[canonical]
+        log = open(self.logs / f'server-{canonical}.log', 'a', encoding='utf-8')
+        self.procs[canonical] = subprocess.Popen([sys.executable, '-c', SERVER_CODE, str(port)],
+                                                 cwd=self.root, stdout=log, stderr=subprocess.STDOUT)
         for _ in range(50):
             if self.alive(port):
                 return
@@ -212,79 +246,26 @@ class Servers:
             return False
 
     def __enter__(self):
-        self.lock_file = ports_lock(self.lock_path or PORTS_LOCK)
-        if busy_ports():
-            release(self.lock_file)
-            raise SystemExit(f'Puertos ocupados por otro servidor: {busy_ports()}; ciérralo antes de la puerta.')
-        for port in PORTS:
-            self.start(port)
+        for canonical in PORTS:
+            self.start(canonical)
         return self
 
     def ensure(self):
         with self.lock:
-            for port in PORTS:
-                proc = self.procs.get(port)
-                if proc is None or proc.poll() is not None or not self.alive(port):
+            for canonical in PORTS:
+                proc = self.procs.get(canonical)
+                if proc is None or proc.poll() is not None or not self.alive(self.ports[canonical]):
                     code = None if proc is None else proc.poll()
-                    print(f'  servidor {port} caído (salida {code}); se relanza', flush=True)
+                    print(f'  servidor {self.ports[canonical]} caído (salida {code}); se relanza', flush=True)
                     if proc is not None and proc.poll() is None:
                         kill_tree(proc)
                     self.restarts += 1
-                    self.start(port)
+                    self.start(canonical)
 
     def __exit__(self, *exc):
-        try:
-            for proc in self.procs.values():
-                proc.terminate()
-                proc.wait()
-        finally:
-            release(self.lock_file)
-
-
-PORTS_LOCK = Path(tempfile.gettempdir()) / 'web-escritor-local-ci-ports.lock'
-
-
-def ports_lock(path=PORTS_LOCK, wait=3 * 3600):
-    """Cerrojo de máquina sobre los puertos 4173/4175.
-
-    Dos puertas a la vez (la de la autorreparación y otra a mano, en worktrees distintos) compartían los puertos: en
-    Windows http.server usa SO_REUSEADDR, así que la segunda no veía el puerto ocupado y, al cerrar sus servidores,
-    tumbaba los de la otra. Ahora la segunda espera su turno.
-    """
-    handle = open(path, 'a+b')
-    start, said = time.time(), False
-    while True:
-        try:
-            if os.name == 'nt':
-                import msvcrt
-                handle.seek(0)
-                msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
-            else:
-                import fcntl
-                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
-            return handle
-        except OSError:
-            if time.time() - start > wait:
-                handle.close()
-                raise SystemExit('Otra puerta local lleva más de 3 h con los puertos de QA; revísala.')
-            if not said:
-                print('Otra puerta local usa los puertos de QA: espero mi turno…', flush=True)
-                said = True
-            time.sleep(5)
-
-
-def release(handle):
-    try:
-        if os.name == 'nt':
-            import msvcrt
-            handle.seek(0)
-            msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
-        else:
-            import fcntl
-            fcntl.flock(handle, fcntl.LOCK_UN)
-    except OSError:
-        pass
-    handle.close()
+        for proc in self.procs.values():
+            proc.terminate()
+            proc.wait()
 
 
 def kill_tree(proc):
@@ -335,11 +316,12 @@ def run_all(items, root, jobs, timeout=TIMEOUT):
     with Servers(root) as servers:
         def one(item):
             servers.ensure()
-            res = run_one(item[0], item[1], root, timeout)
+            command, env = servers.remap(item[0], item[1])
+            res = run_one(command, env, root, timeout)
             # Si el servidor cayó durante la prueba, el fallo es del entorno: se repite una vez con él relanzado.
             if res[0] != 0 and 'ERR_CONNECTION_REFUSED' in res[1]:
                 servers.ensure()
-                res = run_one(item[0], item[1], root, timeout)
+                res = run_one(command, env, root, timeout)
             return res
         with ThreadPoolExecutor(jobs) as pool:
             results = list(pool.map(one, items))
