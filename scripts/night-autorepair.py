@@ -323,7 +323,8 @@ def reparar(flujo, run, dry):
             log(f"{flujo}: probando {nombre}")
             args = [exe(argv[0]), *argv[1:]] + (['-C', str(wt), '-'] if nombre == 'codex' else [])
             try:
-                r = sh(args, cwd=wt, timeout=90 * 60, env=env, entrada=prompt)
+                r = sh(args, cwd=wt, timeout=90 * 60, env={**sin_escritura(ESTADO_DIR / 'gh-sin-credenciales'), **env},
+                       entrada=prompt)
                 salida = (r.stdout or '') + (r.stderr or '')
             except subprocess.TimeoutExpired:
                 log(f"{flujo}: {nombre} superó 90 min"); deshacer(wt); continue
@@ -435,6 +436,46 @@ def pasada(dry=False, solo=None):
             dry or guardar_estado(estado)
 
 
+def sin_escritura(vacio):
+    """Entorno del agente sin credenciales de escritura: ni push ni gh autenticado.
+
+    El agente solo edita el worktree; el push, la PR y el auto-merge los hace el orquestador tras la puerta local.
+    Antes heredaba el gh y el git de la máquina y podía empujar o mergear saltándose la puerta.
+    """
+    vacio.mkdir(parents=True, exist_ok=True)
+    return {'GH_CONFIG_DIR': str(vacio), 'GH_TOKEN': '', 'GITHUB_TOKEN': '', 'GH_ENTERPRISE_TOKEN': '',
+            'GIT_TERMINAL_PROMPT': '0', 'GCM_INTERACTIVE': 'never',
+            'GIT_CONFIG_COUNT': '2',
+            'GIT_CONFIG_KEY_0': 'remote.origin.pushurl', 'GIT_CONFIG_VALUE_0': 'sin-push://lo-hace-el-orquestador',
+            'GIT_CONFIG_KEY_1': 'credential.helper', 'GIT_CONFIG_VALUE_1': ''}
+
+
+def tomar_cerrojo(ruta):
+    """Cerrojo del sistema sobre el fichero: lo suelta el sistema al morir el proceso, sin caducidad.
+
+    Antes valía la antigüedad del fichero (6 h): una pasada viva más de 6 h dejaba entrar otra a la vez, y una que
+    moría sin borrar el fichero bloqueaba las siguientes hasta que caducaba. Devuelve el fichero abierto (cerrarlo lo
+    suelta) o None si otro proceso lo tiene.
+    """
+    f = open(ruta, 'a+')
+    try:
+        if os.name == 'nt':
+            import msvcrt
+            f.seek(0)
+            msvcrt.locking(f.fileno(), msvcrt.LK_NBLCK, 1)
+        else:
+            import fcntl
+            fcntl.flock(f.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        f.close()
+        return None
+    f.seek(0)
+    f.truncate()
+    f.write(str(os.getpid()))
+    f.flush()
+    return f
+
+
 def main():
     # La tarea redirige la salida a salida.log con la página de códigos de Windows: un «→» tumbaba la pasada
     # ('charmap' codec, 2026-11-09/10, en cada intento con Telegram).
@@ -445,14 +486,13 @@ def main():
     ap.add_argument('--solo')
     a = ap.parse_args()
     ESTADO_DIR.mkdir(parents=True, exist_ok=True)
-    cerrojo = ESTADO_DIR / 'lock'
-    if cerrojo.exists() and time.time() - cerrojo.stat().st_mtime < 6 * 3600:
+    cerrojo = tomar_cerrojo(ESTADO_DIR / 'lock')
+    if cerrojo is None:
         print('Otra pasada sigue en marcha'); return 0
-    cerrojo.write_text(str(os.getpid()))
     try:
         pasada(a.dry_run, a.solo)
     finally:
-        cerrojo.unlink(missing_ok=True)
+        cerrojo.close()
     return 0
 
 

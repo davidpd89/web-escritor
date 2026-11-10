@@ -165,3 +165,66 @@ class PuertaDelArreglo(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class CerrojoDeProceso(unittest.TestCase):
+    """El cerrojo es del proceso: otro no entra mientras vive, y entra en cuanto muere, sin esperar caducidad."""
+
+    SOSTENER = ('import importlib.util, sys, time\n'
+                'spec = importlib.util.spec_from_file_location("na", sys.argv[1])\n'
+                'na = importlib.util.module_from_spec(spec); spec.loader.exec_module(na)\n'
+                'f = na.tomar_cerrojo(sys.argv[2]); print("dentro" if f else "fuera", flush=True)\n'
+                'time.sleep(60)\n')
+
+    def test_otro_proceso_no_entra_y_entra_al_morir_el_primero(self):
+        import subprocess, sys
+        script = Path(__file__).resolve().parents[1] / 'scripts' / 'night-autorepair.py'
+        with tempfile.TemporaryDirectory() as tmp:
+            ruta = Path(tmp) / 'lock'
+            primero = subprocess.Popen([sys.executable, '-c', self.SOSTENER, str(script), str(ruta)],
+                                       stdout=subprocess.PIPE, text=True)
+            try:
+                self.assertEqual(primero.stdout.readline().strip(), 'dentro')
+                self.assertIsNone(na.tomar_cerrojo(ruta))
+            finally:
+                primero.kill()
+                primero.wait()
+                primero.stdout.close()
+            f = na.tomar_cerrojo(ruta)  # muerto sin borrar el fichero: se entra ya
+            self.assertIsNotNone(f)
+            f.close()
+
+    def test_cerrar_lo_suelta(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            ruta = Path(tmp) / 'lock'
+            f = na.tomar_cerrojo(ruta)
+            self.assertIsNotNone(f)
+            f.close()
+            g = na.tomar_cerrojo(ruta)
+            self.assertIsNotNone(g)
+            g.close()
+
+
+class AgenteSinEscritura(unittest.TestCase):
+    """El agente no puede empujar: el push lo hace el orquestador tras la puerta local."""
+
+    def test_el_agente_no_puede_empujar_y_el_orquestador_si(self):
+        import os, subprocess
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            git = lambda *a, env=None, cwd=tmp / 'wt': subprocess.run(['git', *a], cwd=cwd, capture_output=True, text=True,
+                                                                     env={**os.environ, **(env or {})})
+            git('init', '-q', '--bare', str(tmp / 'remoto.git'), cwd=tmp)
+            git('clone', '-q', str(tmp / 'remoto.git'), str(tmp / 'wt'), cwd=tmp)
+            (tmp / 'wt' / 'a.txt').write_text('x')
+            git('add', 'a.txt')
+            git('-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'x')
+            agente = git('push', '-q', 'origin', 'HEAD:main', env=na.sin_escritura(tmp / 'gh'))
+            self.assertNotEqual(agente.returncode, 0)
+            self.assertEqual(git('push', '-q', 'origin', 'HEAD:main').returncode, 0)
+
+    def test_gh_queda_sin_sesion(self):
+        env = na.sin_escritura(Path(tempfile.mkdtemp()) / 'gh')
+        self.assertEqual(env['GH_TOKEN'], '')
+        self.assertTrue(Path(env['GH_CONFIG_DIR']).is_dir())
+        self.assertEqual(list(Path(env['GH_CONFIG_DIR']).iterdir()), [])

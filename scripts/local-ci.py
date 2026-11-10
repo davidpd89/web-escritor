@@ -653,7 +653,7 @@ def main(argv=None):
         print(f'  inestable (falló y pasó al repetirlo): {command}')
     for command in slow:
         print(f'  sin verificar (agotó {args.timeout} s): {command}')
-    print(f'\n{len(items) - len(failed) - len(timed_out)} bien, {len(new)} fallos nuevos' + (f', {len(known)} ya fallaban en main' if known else '')
+    print(f'\n{sum(1 for r in results if r[0] == 0)} bien, {len(new)} fallos nuevos' + (f', {len(known)} ya fallaban en main' if known else '')
           + (f', {len(flaky)} inestables' if flaky else '') + (f', {len(slow)} sin verificar' if slow else ''))
     return 1 if new else 2 if slow else 0
 
