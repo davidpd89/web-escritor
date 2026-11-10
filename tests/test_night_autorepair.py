@@ -130,6 +130,36 @@ class PuertaDejaElArbol(unittest.TestCase):
             self.assertFalse((wt / 'dist.html').exists())
 
 
+    def test_una_carpeta_huerfana_no_bloquea_el_worktree(self):
+        # 10/11: quedó C:/GIT/wt-autorepair-<run> con solo el enlace a node_modules y sin registro en git;
+        # `worktree add` falló cada hora con «already exists» y atlas no volvió a repararse.
+        import os, subprocess
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d); repo = d / 'repo'; repo.mkdir(); vivo = d / 'node_modules_vivo'; vivo.mkdir()
+            (vivo / 'paquete.js').write_text('no se borra')
+            git = lambda *a: subprocess.run(['git', '-c', 'user.email=t@t', '-c', 'user.name=t', *a], cwd=repo,
+                                            check=True, capture_output=True)
+            git('init', '-q'); (repo / 'a').write_text('1'); git('add', '.'); git('commit', '-qm', 'x')
+            wt = d / 'wt-autorepair-1'; wt.mkdir()
+            # Lo que dejó de verdad: el enlace propio y el de la línea base de local-ci, con su venv.
+            base = wt / '.local' / 'local-ci' / 'main'; base.mkdir(parents=True); (base / 'venv.txt').write_text('x')
+            for enlace in (wt / 'node_modules', base / 'node_modules'):
+                if os.name == 'nt':
+                    subprocess.run(['cmd', '/c', 'mklink', '/J', str(enlace), str(vivo)], check=True, capture_output=True)
+                else:
+                    enlace.symlink_to(vivo)
+            original = na.sh
+            na.sh = lambda args, cwd=None, **k: original(args, cwd=cwd or repo, **k)
+            try:
+                na.quitar_worktree(wt)
+            finally:
+                na.sh = original
+            self.assertFalse(wt.exists())
+            self.assertEqual((vivo / 'paquete.js').read_text(), 'no se borra')
+            git('worktree', 'add', '-q', '-b', 'r', str(wt), 'HEAD')
+            self.assertTrue((wt / 'a').exists())
+            git('worktree', 'remove', '--force', str(wt))
+
 class PuertaDelArreglo(unittest.TestCase):
     REGISTRO = (
         "subprocess.CalledProcessError: Command '('/opt/hostedtoolcache/Python/3.12/x64/bin/python', "

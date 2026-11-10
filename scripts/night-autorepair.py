@@ -244,8 +244,9 @@ def preparar_worktree(flujo, run_id):
     rama = f"autorepair/{flujo.removesuffix('.yml')}-{run_id}"
     wt = WT_BASE / f"wt-autorepair-{run_id}"
     sh(['git', 'fetch', '-q', 'origin', 'main'], check=True, timeout=300)
-    if wt.exists():
-        sh(['git', 'worktree', 'remove', '--force', str(wt)])
+    quitar_worktree(wt)
+    if wt.exists():   # algo la sigue teniendo abierta: otra ruta antes que perder la reparación
+        wt = wt.with_name(f'{wt.name}-{int(time.time())}')
     sh(['git', 'branch', '-D', rama])
     sh(['git', 'worktree', 'add', '-q', '-b', rama, str(wt), 'origin/main'], check=True, timeout=600)
     nm = REPO / 'node_modules'
@@ -254,9 +255,25 @@ def preparar_worktree(flujo, run_id):
     return wt, rama
 
 
-def limpiar_worktree(wt):
-    (wt / 'node_modules').exists() and os.name == 'nt' and sh(['cmd', '/c', 'rmdir', str(wt / 'node_modules')])
+def quitar_worktree(wt):
+    """Deja la ruta libre para `git worktree add`, quede como quede la pasada anterior.
+
+    10/11: un `worktree remove` a medias (ficheros abiertos al cortar la pasada) dejó la carpeta con solo el enlace a
+    node_modules y sin registro en git; `remove` ya no la reconocía y atlas falló cada hora con «already exists».
+    """
+    nm = wt / 'node_modules'
+    if os.path.lexists(nm):
+        # Primero el enlace, sin seguirlo: borrar su contenido sería borrar el node_modules del repo vivo.
+        sh(['cmd', '/c', 'rmdir', str(nm)]) if os.name == 'nt' else nm.unlink()
     sh(['git', 'worktree', 'remove', '--force', str(wt)])
+    sh(['git', 'worktree', 'prune'])
+    if wt.exists() and not os.path.lexists(nm):
+        shutil.rmtree(wt, ignore_errors=True)
+    sh(['git', 'worktree', 'prune'])
+
+
+def limpiar_worktree(wt):
+    quitar_worktree(wt)
 
 
 def deshacer(wt):
@@ -294,7 +311,19 @@ def puerta_local(wt, registro=''):
     r = sh([sys.executable, 'scripts/local-ci.py', '--baseline', *extra], cwd=wt, timeout=3 * 3600)
     dejar_como_el_indice(wt)
     salida = (r.stdout or '') + (r.stderr or '')
+    guardar_puerta(wt, salida)
     return veredicto_puerta(r.returncode, salida, pasos_fallidos(registro))
+
+
+def guardar_puerta(wt, salida, conservar=30):
+    """La salida entera de cada puerta, con el detalle de cada fallo: el log solo lleva un resumen de 3000 caracteres.
+
+    10/11: tres arreglos rechazados con 81–91 «ya fallaban en main» y nada que permitiera saber por qué."""
+    carpeta = ESTADO_DIR / 'puertas'
+    carpeta.mkdir(parents=True, exist_ok=True)
+    (carpeta / f"{dt.datetime.now():%Y%m%dT%H%M%S}-{wt.name}.log").write_text(salida, encoding='utf-8')
+    for viejo in sorted(carpeta.glob('*.log'))[:-conservar]:
+        viejo.unlink(missing_ok=True)
 
 
 def veredicto_puerta(codigo, salida, pasos=()):
