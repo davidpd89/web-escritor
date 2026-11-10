@@ -167,6 +167,15 @@ def busy_ports():
     return busy
 
 
+# `python -m http.server` escucha con una cola de 5 conexiones: con varias pruebas de navegador a la vez, Windows
+# rechaza el resto (ERR_CONNECTION_REFUSED) aunque el proceso siga vivo. 10/11: 40 pruebas caídas en 3 s.
+SERVER_CODE = ('import sys, http.server as h\n'
+               'class S(h.ThreadingHTTPServer):\n'
+               '    request_queue_size = 512\n'
+               '    daemon_threads = True\n'
+               'S(("127.0.0.1", int(sys.argv[1])), h.SimpleHTTPRequestHandler).serve_forever()\n')
+
+
 class Servers:
     """Los servidores 4173/4175 de la QA de navegador, vigilados.
 
@@ -185,7 +194,7 @@ class Servers:
 
     def start(self, port):
         log = open(self.logs / f'server-{port}.log', 'a', encoding='utf-8')
-        self.procs[port] = subprocess.Popen([sys.executable, '-m', 'http.server', str(port), '--bind', '127.0.0.1'],
+        self.procs[port] = subprocess.Popen([sys.executable, '-c', SERVER_CODE, str(port)],
                                             cwd=self.root, stdout=log, stderr=subprocess.STDOUT)
         for _ in range(50):
             if self.alive(port):
