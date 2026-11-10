@@ -66,7 +66,8 @@ class CargaPerdida(unittest.TestCase):
         ayer = {'createdAt': '2026-11-08T00:20:00Z'}
         self.assertTrue(na.carga_perdida(ayer, AHORA, False))
         self.assertFalse(na.carga_perdida(ayer, AHORA, True))
-        self.assertFalse(na.carga_perdida(ayer, AHORA.replace(hour=1), False))
+        self.assertTrue(na.carga_perdida(ayer, AHORA.replace(hour=1), False))
+        self.assertFalse(na.carga_perdida(ayer, AHORA.replace(hour=0, minute=50), False))
         self.assertFalse(na.carga_perdida({'createdAt': '2026-11-09T00:21:00Z'}, AHORA, False))
 
 
