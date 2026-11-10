@@ -141,7 +141,7 @@ def main() -> int:
         print(f"PASS: {args.output} matches {args.facts.name}")
         return 0
 
-    args.output.write_text(rendered, encoding="utf-8")
+    args.output.write_text(rendered, encoding="utf-8", newline="\n")
     print(f"WROTE: {args.output}")
     return 0
 

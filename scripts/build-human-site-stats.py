@@ -268,7 +268,7 @@ def inject(target: Path, fragment: str, check: bool) -> int:
             print(f'FAIL: {target} desactualizado respecto a las estadísticas actuales', file=sys.stderr)
             return 1
         return 0
-    target.write_text(new_text, encoding='utf-8')
+    target.write_text(new_text, encoding='utf-8', newline="\n")
     print(f'INJECTED: {target}')
     return 0
 
@@ -335,10 +335,10 @@ def main() -> int:
         return 0
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(markup, encoding='utf-8')
+    args.output.write_text(markup, encoding='utf-8', newline="\n")
     if args.json_output:
         args.json_output.parent.mkdir(parents=True, exist_ok=True)
-        args.json_output.write_text(payload, encoding='utf-8')
+        args.json_output.write_text(payload, encoding='utf-8', newline="\n")
     if args.inject_into:
         rc = inject(args.inject_into, markup, check=False)
         if rc != 0:

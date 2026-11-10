@@ -527,11 +527,11 @@ def build(data_path: Path, root: Path, check_only: bool) -> tuple[int, int]:
         return len(collections), len(ready)
 
     index_target.parent.mkdir(parents=True, exist_ok=True)
-    index_target.write_text(index_html, encoding="utf-8")
+    index_target.write_text(index_html, encoding="utf-8", newline="\n")
     for slug, html_out in hub_html.items():
         path = root / "cuaderno" / "temas" / slug / "index.html"
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(html_out, encoding="utf-8")
+        path.write_text(html_out, encoding="utf-8", newline="\n")
     print(f"GENERATED: {len(collections)} colección(es) validadas, {len(ready)} hub(s) publicado(s)")
     return len(collections), len(ready)
 

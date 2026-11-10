@@ -254,7 +254,7 @@ def main():
             print("FAIL: salida desactualizada",file=sys.stderr); return 3
         print(f"PASS: {len(data['tools'])} herramientas; salida actualizada"); return 0
     if a.output:
-        a.output.write_text(out,encoding="utf-8"); print(f"OK: {a.output} ({len(data['tools'])} herramientas)")
+        a.output.write_text(out,encoding="utf-8", newline="\n"); print(f"OK: {a.output} ({len(data['tools'])} herramientas)")
     else: print(out)
     return 0
 if __name__=="__main__": raise SystemExit(main())

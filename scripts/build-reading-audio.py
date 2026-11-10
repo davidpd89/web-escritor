@@ -50,7 +50,7 @@ def main():
     item=next(r for r in review['reviews'].values() if r.get('portada_local')==book['portada_local'])
     item['audio_fragmento' if args.content == 'fragmento' else 'audio_descripcion']=rel
     item['audio_voz']='Voz sintética · '+('Elvira (español de España)' if args.voice=='es-ES-ElviraNeural' else args.voice)
-    reviewpath.write_text(json.dumps(review,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    reviewpath.write_text(json.dumps(review,ensure_ascii=False,indent=2)+'\n',encoding='utf-8', newline="\n")
     print(f'Audio generado: {rel} ({target.stat().st_size} bytes)')
 
 

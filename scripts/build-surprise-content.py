@@ -86,5 +86,5 @@ def main():
         if not a.output.exists() or a.output.read_text(encoding="utf-8")!=out:
             print("OUTDATED",file=sys.stderr); return 2
         print(f"PASS: {len(ready)} destinos listos"); return 0
-    a.output.write_text(out,encoding="utf-8"); print(f"GENERATED: {len(ready)} destinos"); return 0
+    a.output.write_text(out,encoding="utf-8", newline="\n"); print(f"GENERATED: {len(ready)} destinos"); return 0
 if __name__=="__main__": raise SystemExit(main())

@@ -1060,7 +1060,7 @@ def process_page(path: Path, nav: dict, by_id: dict[str, Entry], extras: dict, c
 
     changed = new_text != original
     if changed and not check:
-        path.write_text(new_text, encoding="utf-8")
+        path.write_text(new_text, encoding="utf-8", newline="\n")
     return changed, check and changed
 
 
@@ -1098,7 +1098,7 @@ def main() -> int:
         if updated != original:
             changed.append(rel)
             if not args.check:
-                standalone.write_text(updated, encoding="utf-8")
+                standalone.write_text(updated, encoding="utf-8", newline="\n")
 
     if args.check and changed:
         print("FAIL: shell desactualizado en:", file=sys.stderr)

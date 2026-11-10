@@ -366,7 +366,7 @@ def write_manifest(out_dir: Path) -> Path:
         items.append({"path": rel, "category": category})
     manifest_path.write_text(
         json.dumps({"schemaVersion": 1, "files": items}, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
+        encoding="utf-8", newline="\n",
     )
     return manifest_path
 
@@ -497,7 +497,7 @@ def emit_assetsignore(root: Path, check_only: bool) -> int:
         reason = "no existe" if current is None else "está desincronizado"
         print(f"FAIL: .assetsignore {reason}. Regenera con --emit-assetsignore.")
         return 1
-    path.write_text(expected, encoding="utf-8")
+    path.write_text(expected, encoding="utf-8", newline="\n")
     print(f"ESCRITO {path} ({len(assetsignore_lines(root))} reglas).")
     return 0
 

@@ -107,6 +107,19 @@ class Repo(unittest.TestCase):
         self.assertIn(b'recomendaciones/a/index.html', cli.stdout.splitlines())
         self.assertNotIn(b'construyendo', cli.stdout)   # la salida del builder no ensucia el listado
 
+    def test_en_ci_avisa_en_el_resumen_del_job(self):
+        _git(self.dir, 'rm', '-r', '-q', '--cached', 'assets/page-order.generated.js')
+        (self.dir / 'assets/page-order.generated.js').unlink()
+        builder = self.dir / 'scripts' / 'materializar_generados.py'
+        builder.parent.mkdir()
+        builder.write_text("import pathlib\npathlib.Path('assets/page-order.generated.js').write_text('x')\n",
+                           encoding='utf-8')
+        resumen = self.dir / 'resumen.md'
+        entorno = {**os.environ, 'GITHUB_STEP_SUMMARY': str(resumen), 'GITHUB_WORKFLOW': 'QA', 'GITHUB_JOB': 'enlaces'}
+        subprocess.run([sys.executable, str(ROOT / 'scripts' / 'arbol_publicado.py'), '*.html'], cwd=self.dir,
+                       capture_output=True, check=True, env=entorno)
+        self.assertIn('`QA` / `enlaces`', resumen.read_text(encoding='utf-8'))
+
     def test_la_cli_da_lo_mismo_que_git(self):
         cli = subprocess.check_output([sys.executable, str(ROOT / 'scripts' / 'arbol_publicado.py'), '-z', '*.html'],
                                       cwd=self.dir)

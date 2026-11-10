@@ -75,6 +75,11 @@ def _materializar_si_falta(root: Path) -> None:
     script = root / 'scripts' / 'materializar_generados.py'
     if not script.exists():
         return   # otro repo (tests con repos temporales): no hay builder que llamar
+    resumen = os.environ.get('GITHUB_STEP_SUMMARY')
+    if resumen:   # en CI es correcto pero lento: el job debería usar .github/actions/materializar (con caché)
+        with open(resumen, 'a', encoding='utf-8', newline='\n') as f:
+            f.write(f'> ⚠️ `{os.environ.get("GITHUB_WORKFLOW", "?")}` / `{os.environ.get("GITHUB_JOB", "?")}`: '
+                    'lista el árbol sin haber materializado; añade `./.github/actions/materializar` al job.\n')
     subprocess.run([sys.executable, str(script), '--asegurar'], cwd=root, stdout=sys.stderr, check=True)
     if not (root / TESTIGO).exists():
         raise RuntimeError(f'materializar_generados.py --asegurar no dejó {TESTIGO}: el árbol publicado estaría incompleto')

@@ -174,7 +174,7 @@ def build_src_tree(root: Path, pages: list[str], src_dir: Path) -> None:
         source = (root / rel).read_text(encoding="utf-8", errors="ignore")
         dst.write_text(
             inject_registry_search_title(source, by_source.get(rel)),
-            encoding="utf-8",
+            encoding="utf-8", newline="\n",
         )
 
 
@@ -250,7 +250,7 @@ def write_manifest(out_dir: Path, pages: list[str], root: Path) -> None:
         "artifact_sha256": artifact_hashes(out_dir),
     }
     (out_dir / MANIFEST_NAME).write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
     )
 
 
@@ -274,7 +274,7 @@ def _acquire_lock(out_dir: Path) -> Path | None:
             file=sys.stderr,
         )
         return None
-    with os.fdopen(fd, "w", encoding="utf-8") as handle:
+    with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(f"{os.getpid()}\n")
     return lock
 

@@ -314,7 +314,7 @@ def main() -> int:
         print(f"SITEMAP OK: {len(urls)} URLs")
         return 0
 
-    output.write_text(generated, encoding="utf-8")
+    output.write_text(generated, encoding="utf-8", newline="\n")
     print(f"GENERATED: {len(urls)} URLs -> {output}")
     return 0
 

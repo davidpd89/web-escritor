@@ -53,7 +53,7 @@ def main():
             "fecha": b.get("fecha_publicacion"),
         })
     out = {"schema_version": 1, "categorias": nombres, "libros": libros}
-    OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8", newline="\n")
     print(f"{OUT.relative_to(ROOT)}: {len(libros)} libros, {OUT.stat().st_size // 1024} KB")
 
 

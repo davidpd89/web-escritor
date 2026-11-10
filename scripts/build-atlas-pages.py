@@ -560,7 +560,7 @@ def sync_registry(root: Path, atlas: Atlas, write: bool) -> bool:
     missing = [e for e in registry_entries(atlas) if e["id"] not in have]
     if missing and write:
         registry["entries"].extend(missing)
-        path.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        path.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     return not missing
 
 
@@ -613,7 +613,7 @@ def build(data_path: Path, root: Path, check_only: bool) -> tuple[int, bool]:
                 drift.append(rel)
         else:
             path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(content, encoding="utf-8")
+            path.write_text(content, encoding="utf-8", newline="\n")
     if not sync_registry(root, atlas, write=not check_only) and check_only:
         drift.append("data/content-registry.json (faltan entradas del Atlas)")
     atlas_dir = root / "atlas-literario"

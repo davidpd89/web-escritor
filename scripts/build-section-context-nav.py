@@ -363,7 +363,7 @@ def main() -> int:
         if new_text != original:
             changed.append(rel)
             if not args.check:
-                path.write_text(new_text, encoding="utf-8")
+                path.write_text(new_text, encoding="utf-8", newline="\n")
 
     if args.check and changed:
         print("FAIL: section-context desactualizado en:", file=sys.stderr)

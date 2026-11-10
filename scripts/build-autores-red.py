@@ -253,7 +253,7 @@ def main() -> int:
     for rel, content in outputs.items():
         p = root / rel
         p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(content, encoding="utf-8")
+        p.write_text(content, encoding="utf-8", newline="\n")
         print("write", rel)
     return 0
 

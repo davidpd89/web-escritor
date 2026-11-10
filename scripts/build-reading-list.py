@@ -114,5 +114,5 @@ def main():
     if a.check:
         if not a.output.exists() or a.output.read_text(encoding='utf-8')!=out: print('FAIL: salida desactualizada',file=sys.stderr); return 1
         print(f'PASS: {len(items)} lecturas publicables'); return 0
-    a.output.write_text(out,encoding='utf-8'); print(f'GENERATED: {len(items)} lecturas'); return 0
+    a.output.write_text(out,encoding='utf-8', newline="\n"); print(f'GENERATED: {len(items)} lecturas'); return 0
 if __name__=='__main__': raise SystemExit(main())
