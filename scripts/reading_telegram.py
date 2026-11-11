@@ -245,7 +245,7 @@ def digest(
     books = sorted(books, key=lambda b: (b["release_date"], b["title"])) if until else books
     lines = [
         (f"• {human_date(b['release_date'])}: " if until else "• ")
-        + f"<b>{escape(b['title'])}</b> — {escape(b['author'])}"
+        + f"<b>{escape(shorten(b['title'], 140))}</b> — {escape(shorten(b['author'], 100))}"
         for b in books[:DIGEST_MAX_TITLES]
     ]
     if len(books) > DIGEST_MAX_TITLES:
@@ -294,14 +294,16 @@ def message(book: dict, tag: str) -> str:
     if book.get("digest"):
         return book["text"]
     url = book.get("amazon_url") or amazon_url(book["asin"], tag)
-    genres = book.get("genres", [])
+    genres = shorten(", ".join(book.get("genres", [])[:3]), 120)
+    title = shorten(book["title"], 360)
+    author = shorten(book["author"], 280)
     meta = [f"📅 {human_date(book['release_date'], year=True)}"]
     if book.get("publisher"):
-        meta.insert(0, f"🏢 {escape(book['publisher'])}")
+        meta.insert(0, f"🏢 {escape(shorten(book['publisher'], 100))}")
     head = (
-        f"📚 <b>Novedad de hoy</b>\n\n<b>{escape(book['title'])}</b>\n"
-        f"✍️ {escape(book['author'])}\n" + " · ".join(meta) + "\n"
-        + (f"🏷️ {escape(', '.join(genres[:3]))}\n" if genres else "")
+        f"📚 <b>Novedad de hoy</b>\n\n<b>{escape(title)}</b>\n"
+        f"✍️ {escape(author)}\n" + " · ".join(meta) + "\n"
+        + (f"🏷️ {escape(genres)}\n" if genres else "")
     )
     tail = f'\n<a href="{escape(url, quote=True)}">Ver en Amazon</a> · #publicidad'
     if book.get("web_url"):

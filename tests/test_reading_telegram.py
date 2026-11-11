@@ -53,6 +53,20 @@ class ReadingTelegramTests(unittest.TestCase):
                     else:
                         self.assertEqual(jobs, [own])
 
+    def test_long_credit_line_stays_within_telegram_caption_limit(self):
+        from reading_telegram import CAPTION_LIMIT, message, visible_length
+
+        text = message({
+            "asin": "1234567890", "title": "Título & edición",
+            "author": "Nombre Apellido, " * 80, "release_date": "2026-11-11",
+            "genres": ["Fantasía " * 20], "publisher": "Editorial " * 20,
+            "web_url": "https://davidportodiaz.com/recomendaciones/libros/titulo/",
+        }, "example")
+        self.assertLessEqual(visible_length(text), CAPTION_LIMIT)
+        self.assertIn("Título &amp; edición", text)
+        self.assertIn("Ver en Amazon", text)
+        self.assertIn("Ficha</a>", text)
+
     def test_only_verified_site_cover_is_used(self):
         book = {
             "portada_edicion_verificada": True,
