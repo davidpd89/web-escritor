@@ -15,8 +15,15 @@ class PendingTextsTests(unittest.TestCase):
     def test_texts_proposal_is_not_a_pending_batch(self):
         opened = [{'headRefName': 'automation/reading-catalogue-textos-2026-11-02-163627'},
                   {'headRefName': 'automation/reading-catalogue-2026-11-02-1'},
+                  {'headRefName': 'automation/reading-catalogue-amazon-2026-11-10-181614'},
+                  {'headRefName': 'automation/reading-catalogue-futuro-bucle'},
                   {'headRefName': 'feat/otra-cosa'}]
         self.assertEqual(refresh.pending_batches(opened), ['automation/reading-catalogue-2026-11-02-1'])
+
+    def test_own_branch_shape_matches_the_writer(self):
+        src = (ROOT / 'scripts/refresh-reading-catalogue.py').read_text(encoding='utf-8')
+        self.assertIn("fresh_branch('automation/reading-catalogue-' + day + '-'", src)
+        self.assertTrue(refresh.OWN_BATCH.fullmatch('automation/reading-catalogue-2026-11-11-3'))
 
     def test_texts_prefix_matches_the_texts_loop(self):
         src = (ROOT / 'scripts/reading-texts.py').read_text(encoding='utf-8')
