@@ -295,5 +295,48 @@ class MainJsonSizeGuardTests(unittest.TestCase):
                     main_json("reading-catalogue.json")
 
 
+class CoverResolverTests(unittest.TestCase):
+    @staticmethod
+    def response(kind, size, code=200):
+        from unittest.mock import Mock
+        return Mock(status_code=code, headers={"Content-Type": kind}, content=b"x" * size)
+
+    def test_real_amazon_cover_replaces_typographic_and_is_reported_once(self):
+        from reading_telegram_worker import cover_resolver
+        fixes = []
+        get = lambda url, **kw: self.response("image/jpeg", 40000)
+        resolve = cover_resolver(fixes, get=get, fetch_json=lambda url: {})
+        book = {"id": "b", "title": "Libro", "asin": "8401042755", "isbn13": "9788401042751",
+                "generated_cover": True}
+        url = resolve(book)
+        self.assertIn("/images/P/8401042755.01.", url)
+        self.assertEqual(resolve(book), url)
+        self.assertEqual(fixes, [{"id": "b", "title": "Libro", "source": "Amazon",
+                                  "verdict": "fallo nuestro: había portada real"}])
+        self.assertIsNone(resolve({**book, "id": "c", "generated_cover": False}))
+
+    def test_placeholder_everywhere_keeps_our_cover(self):
+        from reading_telegram_worker import cover_resolver
+        fixes = []
+        get = lambda url, **kw: (self.response("image/gif", 800) if "amazon" in url
+                                 else self.response("text/html", 0, 404))
+        resolve = cover_resolver(fixes, get=get, fetch_json=lambda url: {})
+        book = {"id": "p", "title": "Peces voladores", "asin": "B0ABCDEFGH",
+                "isbn13": "9788401042751", "generated_cover": True}
+        self.assertIsNone(resolve(book))
+        self.assertEqual(fixes[0]["verdict"], "sin portada real: tipográfica")
+
+    def test_cycle_waits_until_1130_without_any_request(self):
+        import tempfile
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        with tempfile.TemporaryDirectory() as tmp, \
+                patch.object(reading_telegram_worker, "main_json", side_effect=AssertionError), \
+                patch.object(reading_telegram_worker, "datetime") as clock:
+            clock.now.return_value = datetime(2026, 11, 10, 9, 0, tzinfo=ZoneInfo("Europe/Madrid"))
+            report = reading_telegram_worker.cycle(Path(tmp), live=True)
+        self.assertEqual(report["status"], "waiting")
+
+
 if __name__ == "__main__":
     unittest.main()
