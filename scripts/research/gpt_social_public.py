@@ -15,6 +15,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 import json
+import os
 import re
 import sys
 from urllib.request import Request, urlopen
@@ -31,6 +32,13 @@ COUNT_RE = re.compile(r"(?<![\d.,])(\d{1,3}(?:[.,   ]\d{3})*|\d+)\s+seguidore
 EMBEDDED = {"tiktok": re.compile(r'"followerCount":(\d+)'),
             "pinterest": re.compile(r'"follower_count":(\d+)')}
 X_API = "https://api.fxtwitter.com/{handle}"
+# Networks the operator has paused (comma list, e.g. "instagram"): no request of any kind
+# is sent to them, and the snapshot keeps Metricool or the last-good value instead.
+SKIP_ENV = "WEB_SOCIAL_PUBLIC_SKIP"
+
+
+def skipped() -> set[str]:
+    return {name.strip().lower() for name in os.environ.get(SKIP_ENV, "").split(",") if name.strip()}
 
 
 def source_name(network: str) -> str:
@@ -111,17 +119,23 @@ def read(now: datetime, errors: list[str]) -> list[dict]:
     """Return compose-ready records for every network that could be read right now."""
     stamp = now.astimezone(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
     counts: dict[str, int] = {}
+    skip = skipped()
     for network in EMBEDDED:
+        if network in skip:
+            continue
         try:
             counts[network] = read_embedded(network)
         except Exception as exc:
             errors.append(f"{network} public: {exc}")
+    if "x" not in skip:
+        try:
+            counts["x"] = read_x()
+        except Exception as exc:
+            errors.append(f"x public: {exc}")
+    rendered = tuple(network for network in RENDERED if network not in skip)
     try:
-        counts["x"] = read_x()
-    except Exception as exc:
-        errors.append(f"x public: {exc}")
-    try:
-        counts.update(read_rendered(RENDERED, errors))
+        if rendered:
+            counts.update(read_rendered(rendered, errors))
     except Exception as exc:  # Playwright missing or browser failed to start
         errors.append(f"rendered public profiles: {exc}")
     return [{"id": network, "source": source_name(network), "status": "ok",
