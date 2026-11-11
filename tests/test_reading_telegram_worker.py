@@ -10,7 +10,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 import reading_telegram_worker
 from reading_telegram_worker import (
     MAX_MAIN_JSON_BYTES,
+    SourceError,
     editorial_product,
+    is_transient,
     main_json,
     verified_snapshot,
 )
@@ -122,6 +124,15 @@ class EditorialTelegramTests(unittest.TestCase):
             result["libros"][0]["estado"], "pendiente_verificacion_telegram"
         )
         self.assertEqual(len(report["pending"]), 1)
+        self.assertTrue(report["pending"][0]["transient"])
+
+    def test_only_retryable_failures_are_transient(self):
+        # Retryable failures keep the cycle red until a later cycle verifies the book; a verdict on
+        # the edition just excludes it from today's posts.
+        self.assertTrue(is_transient(OSError("offline")))
+        self.assertTrue(is_transient(SourceError("Presupuesto diario de solicitudes agotado")))
+        self.assertFalse(is_transient(SourceError("Editorial edition identity changed")))
+        self.assertFalse(is_transient(SourceError("Portada editorial ausente")))
 
     def test_amazon_intake_book_uses_its_product_page_without_requests(self):
         book = {
