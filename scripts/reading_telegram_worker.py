@@ -120,7 +120,7 @@ def catalogue_print_asin(book, today):
     found = {
         asin
         for offer in book.get("formatos_compra") or []
-        if offer.get("formato") not in {"ebook", "audiolibro"}
+        if offer.get("formato") in {"tapa-blanda", "tapa-dura"}
         and str(offer.get("fecha_verificacion") or "") >= since
         and (asin := asin_from_url(offer.get("fuente_url") or offer.get("url") or ""))
     }

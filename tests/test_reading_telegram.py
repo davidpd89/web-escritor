@@ -12,10 +12,61 @@ import unittest
 from unittest.mock import Mock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from reading_telegram import from_reading_catalogue, run, send, smoke, cover_url
+from reading_telegram import from_reading_catalogue, run, send, smoke, cover_url, resolve_groups, channel_jobs
 
 
 class ReadingTelegramTests(unittest.TestCase):
+    def test_public_channel_assignments_match_the_web(self):
+        path = Path(__file__).resolve().parents[1] / "data" / "communities.json"
+        groups = {
+            group["id"]: group
+            for group in json.loads(path.read_text(encoding="utf-8"))["groups"]
+            if group["platform"] == "telegram" and group["status"] == "active"
+        }
+        today = date(2026, 11, 11)
+        for index, (name, group) in enumerate(groups.items()):
+            with self.subTest(group=name):
+                for platform in ("telegram", "discord"):
+                    channel = resolve_groups([{
+                        "chat_id": -1000 - index, "group": name,
+                        "platform": platform, "categories": ["incorrecta"],
+                    }], groups)[0]
+                    self.assertEqual(channel["chat_id"], str(-1000 - index))
+                    self.assertEqual(channel["categories"], group["categories"])
+                    own = {
+                        "asin": "1234567890", "title": "De hoy", "author": "Autora",
+                        "isbn13": "9788408326496", "release_date": today.isoformat(),
+                        "categories": group["categories"][:1],
+                    }
+                    other = {**own, "asin": "1234567891", "categories": ["incorrecta"]}
+                    old = {**own, "asin": "1234567892", "release_date": "2026-11-10"}
+                    future = {**own, "asin": "1234567893", "release_date": "2026-11-12"}
+                    jobs = channel_jobs(channel, [own, other, old, future], today, "")
+                    if name == "proximos":
+                        self.assertEqual(jobs, [])
+                        self.assertEqual(len(channel_jobs(channel, [own, future], date(2026, 11, 9), "")), 1)
+                    elif name == "todos":
+                        self.assertEqual(len(jobs), 1)
+                        self.assertTrue(jobs[0]["digest"])
+                    elif name == "novedades":
+                        self.assertEqual(jobs, [own, other])
+                    else:
+                        self.assertEqual(jobs, [own])
+
+    def test_long_credit_line_stays_within_telegram_caption_limit(self):
+        from reading_telegram import CAPTION_LIMIT, message, visible_length
+
+        text = message({
+            "asin": "1234567890", "title": "Título & edición",
+            "author": "Nombre Apellido, " * 80, "release_date": "2026-11-11",
+            "genres": ["Fantasía " * 20], "publisher": "Editorial " * 20,
+            "web_url": "https://davidportodiaz.com/recomendaciones/libros/titulo/",
+        }, "example")
+        self.assertLessEqual(visible_length(text), CAPTION_LIMIT)
+        self.assertIn("Título &amp; edición", text)
+        self.assertIn("Ver en Amazon", text)
+        self.assertIn("Ficha</a>", text)
+
     def test_only_verified_site_cover_is_used(self):
         book = {
             "portada_edicion_verificada": True,
@@ -441,6 +492,18 @@ class ReadingTelegramTests(unittest.TestCase):
             run(self.catalog(), date(2026, 11, 1), self.root / "cv.db", True, sender=sender,
                 cover_resolver=lambda book: "https://m.media-amazon.com/images/I/real.jpg")
         self.assertEqual(sender.call_args.args[3], "https://m.media-amazon.com/images/I/real.jpg")
+
+    def test_discord_daily_digest_uses_one_message_even_with_long_links(self):
+        from reading_telegram import send_discord
+
+        text = "📚 <b>Aquí tienes las publicaciones del día 11 de noviembre</b>\n124 libros\n"
+        text += "\n".join(f'<a href="https://www.amazon.es/s?rh={i * 650}">Amazon</a>' for i in ("1", "2", "3", "4"))
+        ok = Mock(status_code=200, json=lambda: {"id": "11"})
+        with patch("reading_telegram.requests.post", return_value=ok) as post:
+            self.assertEqual(send_discord("https://discord.com/api/webhooks/123/abc", "d", text), ("sent", 11))
+        post.assert_called_once()
+        descriptions = [item["description"] for item in post.call_args.kwargs["json"]["embeds"]]
+        self.assertEqual(sum(part.count("[Amazon]") for part in descriptions), 4)
 
     def test_discord_long_digest_goes_in_parts_and_partial_failure_is_uncertain(self):
         from reading_telegram import send_discord
