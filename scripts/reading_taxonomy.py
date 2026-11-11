@@ -12,7 +12,7 @@ from reading_intake_core import normalize_text
 # (patrón sobre texto normalizado, id, nombre, tipo). El orden fija la prioridad si hay tope.
 RULES = (
     (r'\b(thriller|novela negra|suspense|intriga|misterio)\b', 'misterio-y-thriller', 'Misterio y thriller', 'genero'),
-    (r'\bfantasia\b|\bmagia\b|\bdragon', 'fantasia', 'Fantasía', 'genero'),
+    (r'\bfantasia\b|\bromantasy\b|\bnovela fantastica\b|\bliteratura fantastica\b', 'fantasia', 'Fantasía', 'genero'),
     (r'\bromance\b|novela romantica|\bromantasy\b', 'romance', 'Romance', 'genero'),
     (r'ciencia ficcion|distopi', 'ciencia-ficcion', 'Ciencia ficción', 'genero'),
     (r'\bterror\b', 'terror', 'Terror', 'genero'),
@@ -50,6 +50,15 @@ RULES = (
     (r'siglo xix|decimononic', 'epoca-siglo-xix', 'Siglo XIX', 'epoca'),
     (r'siglo xx\b|guerra civil|posguerra|franquis', 'epoca-siglo-xx', 'Siglo XX', 'epoca'),
 )
+
+# Reviewed against the editions' descriptions. Existing catalogue imports can still
+# carry the old automatic match until their classifications are regenerated.
+REVIEWED_CATEGORY_EXCLUSIONS = {
+    "9789403247854": {"fantasia"},  # La magia de las luces: el baile de las princesas
+    "9789403247878": {"fantasia"},  # La magia de las luces: un día con los bomberos
+    "9788411214315": {"fantasia"},  # Astrología, filosofía y magia (ensayo de práctica espiritual)
+}
+
 
 MAX_EXTRA = 6
 

@@ -84,6 +84,7 @@ class RemoteTelegramStateTests(unittest.TestCase):
         self.assertNotEqual(digest, smoke.key("private-channel", "B0HC3Y2XLT"))
 
     def test_durable_claim_then_complete_and_restore_after_restart(self):
+        self.catalog["channels"][0]["chat_id"] = -1001234567890
         self.store.restore(self.db, self.catalog)
 
         def sender(*args):
@@ -106,7 +107,11 @@ class RemoteTelegramStateTests(unittest.TestCase):
             )
         self.assertEqual(list(self.session.data["deliveries"].values()), ["sent"])
         exported = json.dumps(self.session.data)
-        for private in ["private-channel", "B0HC3Y2XLT", "123", "test-github-token"]:
+        self.assertEqual(
+            self.store.key(-1001234567890, "B0HC3Y2XLT"),
+            self.store.key("-1001234567890", "B0HC3Y2XLT"),
+        )
+        for private in ["-1001234567890", "B0HC3Y2XLT", "test-github-token"]:
             self.assertNotIn(private, exported)
         fresh_db = self.db.with_name("fresh.db")
         restarted = GitHubState(

@@ -4,6 +4,12 @@ on:
   pull_request:
     paths:
       - 'scripts/reading_intake_*.py'
+      - 'scripts/reading_telegram*.py'
+      - 'scripts/reading_taxonomy.py'
+      - 'tests/test_reading_telegram*.py'
+      - 'tests/test_reading_taxonomy.py'
+      - 'data/communities.json'
+      - '.github/workflows/reading-telegram-publish.yml'
       - 'scripts/reading_editorial_metadata.py'
       - 'scripts/reading_editorial_sources.py'
       - 'scripts/reading_planeta_source.py'

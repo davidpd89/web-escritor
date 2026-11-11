@@ -2,20 +2,14 @@ name: Reading Telegram publish
 
 on:
   schedule:
-    # El día sale a las 11:30 de Madrid (09:30 UTC en verano, 10:30 UTC en invierno); antes de esa hora
-    # el ciclo no hace nada. Los ciclos de cada cuarto de hora recogen lo que quede pendiente.
-    - cron: '30 9 * * *'
-    - cron: '30 10 * * *'
-    - cron: '7,22,37,52 * * * *'
-  workflow_run:
-    workflows: ['Reading catalogue intake']
-    types: [completed]
+    - cron: '30 11 * * *'
+      timezone: Europe/Madrid
   workflow_dispatch:
     inputs:
       test_asin:
-        description: 'Optional labelled example edition; independent delivery history'
+        description: 'Labelled example edition; independent delivery history'
         type: string
-        default: ''
+        required: true
 
 permissions:
   contents: write
@@ -26,7 +20,7 @@ concurrency:
 
 jobs:
   publish:
-    if: vars.READING_TELEGRAM_ENABLED == 'true' && github.ref == 'refs/heads/main' && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
+    if: vars.READING_TELEGRAM_ENABLED == 'true' && github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || inputs.test_asin != '')
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:

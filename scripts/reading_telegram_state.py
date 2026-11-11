@@ -47,8 +47,9 @@ class GitHubState:
         self.entries = {}
 
     def key(self, chat, asin):
+        # SQLite stores chat IDs as TEXT. Keep the same key when JSON supplies an integer.
         payload = json.dumps(
-            ["telegram-delivery-v1", self.namespace, chat, asin], separators=(",", ":")
+            ["telegram-delivery-v1", self.namespace, str(chat), asin], separators=(",", ":")
         ).encode()
         return hmac.new(self.secret, payload, hashlib.sha256).hexdigest()
 

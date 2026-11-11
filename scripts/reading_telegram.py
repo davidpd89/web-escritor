@@ -20,6 +20,8 @@ from zoneinfo import ZoneInfo
 import requests
 from reading_amazon_market import asin_from_url, generated_cover
 
+from reading_taxonomy import REVIEWED_CATEGORY_EXCLUSIONS
+
 
 def cover_url(book: dict) -> str | None:
     """Portada publicada en la web. La tipográfica propia vale siempre (la hacemos nosotros con el título
@@ -66,13 +68,25 @@ def resolve_groups(channels: list[dict], groups: dict | None) -> list[dict]:
     resolved = []
     for channel in channels:
         channel = dict(channel)
+        destination = channel.get("chat_id")
+        if type(destination) not in (str, int) or not str(destination).strip():
+            raise ValueError("Missing channel configuration")
+        channel["chat_id"] = str(destination).strip()
         if channel.get("group"):
             group = (groups or {}).get(channel["group"])
             if group is None:
                 raise ValueError("Channel names an unknown community group")
-            channel.setdefault("categories", list(group.get("categories", [])))
-            if group.get("categories"):
+            if group.get("platform") == "discord":
+                resolved.append(channel)
+                continue  # Discord entries on the web describe several destinations.
+            channel["categories"] = list(group.get("categories", []))
+            if channel["categories"]:
                 channel.setdefault("label", group.get("name", ""))
+            elif channel["group"] in {"todos", "novedades", "proximos"}:
+                channel["mode"] = "books" if channel["group"] == "novedades" else "digest"
+                channel["period"] = "weekly" if channel["group"] == "proximos" else "daily"
+                if channel["period"] == "weekly":
+                    channel["weekday"] = 0
         resolved.append(channel)
     return resolved
 
@@ -133,6 +147,9 @@ def from_reading_catalogue(path: Path, channels_path: Path, groups: dict | None 
         if asin in seen:
             raise ValueError("Duplicate product edition in source catalogue")
         seen.add(asin)
+        excluded = set(book.get("categorias_excluidas") or [])
+        excluded.update(REVIEWED_CATEGORY_EXCLUSIONS.get(str(book.get("isbn13") or ""), ()))
+        assigned = [category for category in categories.get(book["id"], []) if category not in excluded]
         books.append(
             {
                 "asin": asin,
@@ -140,11 +157,11 @@ def from_reading_catalogue(path: Path, channels_path: Path, groups: dict | None 
                 "author": ", ".join(book["autores"]),
                 "release_date": published,
                 "isbn13": str(book.get("isbn13") or ""),
-                "categories": categories.get(book["id"], []),
+                "categories": assigned,
                 "genres": list(
                     dict.fromkeys(
                         genre_names[c]
-                        for c in categories.get(book["id"], [])
+                        for c in assigned
                         if c in genre_names
                     )
                 ),
@@ -349,9 +366,21 @@ def send_discord(
     """Never expose requests exceptions: the webhook URL is the credential."""
     first_id, delivered = None, 0
     parts = discord_parts(text)
+    digest_embeds = []
+    if text.startswith(("📚 <b>Aquí tienes las publicaciones del día", "🗓️ <b>Próximos lanzamientos del")) and len(parts) > 1:
+        markdown = to_discord(text)
+        if len(markdown) > 6000:
+            # Preserve the count and show the catalogue when even embeds cannot fit every link.
+            summary = "\n".join(markdown.splitlines()[:2])
+            summary += "\n\n[Ver el catálogo](https://davidportodiaz.com/recomendaciones/) · #publicidad"
+            parts = [summary]
+        digest_embeds = [{"description": part} for part in parts]
+        parts = [""]
     try:
         for n, content in enumerate(parts):
             payload = {"content": content, "allowed_mentions": {"parse": []}}
+            if digest_embeds:
+                payload["embeds"] = digest_embeds
             if photo_url and n == len(parts) - 1:
                 payload["embeds"] = [{"image": {"url": photo_url}}]
             response = requests.post(
