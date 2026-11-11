@@ -254,7 +254,11 @@ def main(argv=None):
     if args.cmd == 'run':
         loop(args)
     else:
-        publish()
+        # La autorreparación vigila esta publicación como un workflow más (scripts/estado_local.py).
+        import estado_local
+        with estado_local.vigilado('publicacion-amazon', LOCAL / 'publish.log',
+                                   [sys.executable, '-u', str(Path(__file__).resolve()), 'publish'], ROOT):
+            publish()
 
 
 if __name__ == '__main__':
