@@ -27,10 +27,10 @@ atlas = (ROOT / ".github" / "workflows" / "atlas-directory-sync.yml").read_text(
 assert re.search(r"cron:\s*'0 0 \* \* 1'", atlas), "el sync del Atlas va a la 01:00 de Madrid"
 # Bots y auditorías programadas, de madrugada (00:00-05:59 UTC = 01:00-07:00 en Madrid en invierno)
 # para no ocupar runners mientras se trabaja. Excepciones con motivo: el radar cambia de fecha a
-# medianoche, los libros publican también de día, Telegram publica cada 15 min y el monitor vigila
-# producción cada 6 h.
+# medianoche, los libros publican también de día, Telegram publica cada 15 min, su reloj despierta
+# antes de las 11:30 para lanzar el envío diario y el monitor vigila producción cada 6 h.
 DAYTIME_OK = {"radar-clock-refresh.yml", "reading-catalogue-sync.yml", "reading-telegram-publish.yml",
-              "production-smoke-monitor.yml"}
+              "reading-telegram-clock.yml", "production-smoke-monitor.yml"}
 daytime = []
 for path in sorted((ROOT / ".github" / "workflows").glob("*.yml")):
     if path.name in DAYTIME_OK:

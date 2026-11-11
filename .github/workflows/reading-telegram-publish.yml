@@ -95,12 +95,18 @@ jobs:
               detail[state] = detail.get(state, 0) + 1
           pending_today = [p for p in data.get('verification', {}).get('pending', [])
                            if p.get('release_date') == data.get('at', '')[:10]]
+          retrying = [p for p in pending_today if p.get('transient', True)]
+          excluded = [p for p in pending_today if not p.get('transient', True)]
           print('Telegram cycle:', data['status'], json.dumps(detail, sort_keys=True),
-                'pendientes de verificar hoy:', len(pending_today))
+                'pendientes de verificar hoy:', len(retrying), '| excluidos hoy:', len(excluded))
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as out:
               out.write('Telegram cycle: ' + str(data['status']) + '\n\n')
               out.write(json.dumps(counts) + '\n')
               out.write(json.dumps(detail, sort_keys=True) + '\n')
+              if excluded:
+                  out.write('\nLibros de hoy excluidos (la edición no se puede verificar):\n')
+                  for p in excluded:
+                      out.write(f"- {p['id']}: {p.get('reason')}\n")
               fixes = data.get('cover_fixes', [])
               if fixes:
                   out.write('\nPortadas tipográficas revisadas al publicar:\n')
