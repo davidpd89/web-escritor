@@ -52,35 +52,79 @@ function noteRateLimited(retryAfter, attempt) {
 
 process.on('exit', () => {
   if (fetchStats.rateLimited) {
-    console.log(`production-fetch: ${fetchStats.rateLimited} respuestas 429 en ${fetchStats.requests} peticiones; separación máxima ${fetchStats.maxGapMs} ms`);
+    console.log(`production-fetch: ${fetchStats.rateLimited} respuestas 429 en ${fetchStats.requests} peticiones; separación máxima ${fetchStats.maxGapMs} ms; carril lento ${fetchStats.slowRecovered}/${fetchStats.slowLane} recuperadas`);
   }
 });
 
+// 4. Carril lento: una URL que agota sus intentos con 429 no es un fallo de la web, es la cuota de GitHub
+//    Pages (las URL fallidas responden 200 sueltas). Antes de rendirse, todo el proceso se detiene un
+//    enfriamiento común (uno por tormenta, no por URL) y esas URL se reintentan de una en una.
+//    El 11/11/2026 la auditoría semántica (≈4000 peticiones) falló así 6 veces en 3 días.
+const SLOW_COOLDOWN_MS = Number(process.env.QA_SLOW_COOLDOWN_MS) || 60000;
+let slowChain = Promise.resolve();
+let slowCooldownUntil = 0;
+fetchStats.slowLane = 0;
+fetchStats.slowRecovered = 0;
+
+function serial(fn) {
+  const run = slowChain.then(fn, fn);
+  slowChain = run.catch(() => {});
+  return run;
+}
+
+async function once(url, init, read, timeoutMs) {
+  fetchStats.requests++;
+  const r = await fetch(url, { ...init, signal: AbortSignal.timeout(timeoutMs) });
+  let body = null;
+  if (read === 'buffer') body = Buffer.from(await r.arrayBuffer());
+  else if (read === 'none') await r.body?.cancel().catch(() => {});
+  else body = await r.text();
+  return { status: r.status, headers: r.headers, body, url: r.url };
+}
+
 // Devuelve {status, headers, body, url}. Con un estado transitorio (429 o 5xx) reintenta hasta `attempts`
-// veces y, si no se recupera, devuelve el último para que el script lo informe. Lanza solo si ningún
-// intento obtuvo respuesta (timeout o error de red).
+// veces; si el último es 429, pasa al carril lento (`slowAttempts` intentos en serie tras el enfriamiento).
+// Si no se recupera, devuelve el último para que el script lo informe. Lanza solo si ningún intento obtuvo
+// respuesta (timeout o error de red).
 // read: 'text' (por defecto), 'buffer' o 'none' (descarta el cuerpo).
-export async function fetchWithBackoff(url, init = {}, { attempts = 8, read = 'text', timeoutMs = 20000 } = {}) {
+export async function fetchWithBackoff(url, init = {}, { attempts = 8, slowAttempts = 4, read = 'text', timeoutMs = 20000 } = {}) {
   let last;
   for (let attempt = 0; attempt < attempts; attempt++) {
     await waitTurn();
     try {
-      fetchStats.requests++;
-      const r = await fetch(url, { ...init, signal: AbortSignal.timeout(timeoutMs) });
-      let body = null;
-      if (read === 'buffer') body = Buffer.from(await r.arrayBuffer());
-      else if (read === 'none') await r.body?.cancel().catch(() => {});
-      else body = await r.text();
-      last = { status: r.status, headers: r.headers, body, url: r.url };
-      if (!isTransientStatus(r.status)) {
+      last = await once(url, init, read, timeoutMs);
+      if (!isTransientStatus(last.status)) {
         if (gapMs > 0) gapMs = Math.max(0, gapMs - 2);
         return last;
       }
-      if (r.status === 429) noteRateLimited(r.headers.get('retry-after'), attempt);
+      if (last.status === 429) noteRateLimited(last.headers.get('retry-after'), attempt);
     } catch (e) {
       last = e;
     }
     if (attempt < attempts - 1) await sleep(Math.min(500 * 2 ** attempt, 8000) + Math.random() * 250);
+  }
+  if (last?.status === 429 && slowAttempts > 0) {
+    fetchStats.slowLane++;
+    gapMs = MAX_GAP_MS;
+    if (Date.now() >= slowCooldownUntil) slowCooldownUntil = Date.now() + SLOW_COOLDOWN_MS;
+    pausedUntil = Math.max(pausedUntil, slowCooldownUntil);
+    last = await serial(async () => {
+      let r = last;
+      for (let i = 0; i < slowAttempts; i++) {
+        await waitTurn();
+        try {
+          r = await once(url, init, read, timeoutMs);
+          if (!isTransientStatus(r.status)) {
+            fetchStats.slowRecovered++;
+            return r;
+          }
+          if (r.status === 429) noteRateLimited(r.headers.get('retry-after'), attempts + i);
+        } catch (e) {
+          r = e;
+        }
+      }
+      return r;
+    });
   }
   if (last?.status !== undefined) return last;
   throw last;

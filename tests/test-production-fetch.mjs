@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import http from 'node:http';
 process.env.EXPECTED_RELEASE_SHA='ABC123';
+process.env.QA_SLOW_COOLDOWN_MS='300';
 const { auditUrl, fetchStats, fetchWithBackoff, isTransientStatus } = await import('../qa/production-fetch.mjs');
 
 // Clave anti-caché común por release: conserva la query y usa el SHA auditado.
@@ -9,7 +10,7 @@ assert.equal(auditUrl('https://example.test/x/').href,'https://example.test/x/?_
 
 // Servidor local: /rate da 429 con Retry-After: 1 la primera vez; /other anota cuándo llega cada petición.
 const hits={};
-let rateLimitedAt=0, otherAt=0, signalRateLimited;
+let rateLimitedAt=0, otherAt=0, signalRateLimited, laneInFlight=0, laneMax=0;
 const rateLimited=new Promise(r=>{signalRateLimited=r});
 const srv=http.createServer((q,s)=>{
   const p=q.url.split('?')[0];
@@ -20,6 +21,14 @@ const srv=http.createServer((q,s)=>{
     return signalRateLimited();
   }
   if(p==='/other') otherAt=Date.now();
+  // Cuota de GitHub Pages: 429 más veces que los intentos normales y luego 200.
+  if(p==='/stubborn'&&hits[p]<=2){s.statusCode=429;s.setHeader('retry-after','1');return s.end('slow down')}
+  if(p==='/always429'){s.statusCode=429;s.setHeader('retry-after','1');return s.end('slow down')}
+  if(p.startsWith('/lane')){
+    if(hits[p]===1){s.statusCode=429;s.setHeader('retry-after','1');return s.end('slow down')}
+    laneInFlight++;laneMax=Math.max(laneMax,laneInFlight);
+    return setTimeout(()=>{laneInFlight--;s.end(`ok ${p}`)},200);
+  }
   if(p==='/missing'){s.statusCode=404;return s.end('no')}
   if(p==='/down'){s.statusCode=503;return s.end('down')}
   s.end(`ok ${p}`);
@@ -56,6 +65,22 @@ assert.equal(hits['/rate'],2);
 // Ritmo adaptativo: el 429 abrió una separación mínima entre peticiones.
 assert.equal(fetchStats.rateLimited,1);
 assert.equal(fetchStats.maxGapMs,50);
+
+// Carril lento: un 429 que dura más que los intentos normales no se da por fallo de la web.
+const stubborn=await fetchWithBackoff(`${o}/stubborn`,{},{attempts:2});
+assert.equal(stubborn.status,200,'el 429 persistente debe recuperarse en el carril lento');
+assert.equal(hits['/stubborn'],3);
+assert.equal(fetchStats.slowRecovered,1);
+
+// Si la cuota no cede, devuelve el 429 tras los intentos del carril lento (no lanza ni se queda colgado).
+const always=await fetchWithBackoff(`${o}/always429`,{},{attempts:1,slowAttempts:2});
+assert.equal(always.status,429);
+assert.equal(hits['/always429'],3);
+
+// En el carril lento las URL van de una en una.
+const lanes=await Promise.all(['/lane-a','/lane-b','/lane-c'].map(p=>fetchWithBackoff(`${o}${p}`,{},{attempts:1})));
+assert.deepEqual(lanes.map(x=>x.status),[200,200,200]);
+assert.equal(laneMax,1,`el carril lento solapó ${laneMax} peticiones`);
 
 // read:'none' descarta el cuerpo.
 assert.equal((await fetchWithBackoff(`${o}/x`,{},{read:'none'})).body,null);
