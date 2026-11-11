@@ -15,11 +15,15 @@ BRANCH = 'automation/reading-catalogue-2026-10-21-123'
 class PendingPublicationTests(unittest.TestCase):
     BOT_EMAIL = '41898282+github-actions[bot]@users.noreply.github.com'
 
-    def check_case(self, *, behind=1, bot=True, paths=None, changed=False, failed=False, commit_email=None):
+    def check_case(self, *, behind=1, bot=True, paths=None, changed=False, failed=False, commit_email=None,
+                   commits=None):
         calls = []
         # El login del autor de la PR ya no decide nada (lo fija el token que abre la PR); lo que manda es quién
         # firma los commits. Por defecto los firma la carga aunque la abriera una credencial de usuario.
         commit_email = commit_email or self.BOT_EMAIL
+        # Un commit de contenido normal (un solo padre). update-branch añadiría otro con dos padres (merge).
+        commits = commits if commits is not None else [{'commit': {'author': {'email': commit_email}},
+                                                        'parents': [{'sha': 'p0'}]}]
         pr = {'number': 674, 'headRefOid': 'a' * 40, 'baseRefName': 'main',
               'state': 'OPEN', 'author': {'is_bot': bot,
                   'login': 'app/github-actions' if bot else 'davidpd89'}}
@@ -35,7 +39,7 @@ class PendingPublicationTests(unittest.TestCase):
             if args[0] == 'api' and args[-1].endswith('/status'):
                 return json.dumps({'statuses': [{'context': 'reflow-sitewide', 'state': 'failure' if failed else 'success'}]})
             if args[0] == 'api' and '/commits' in args[-1]:
-                return json.dumps([[{'commit': {'author': {'email': commit_email}}}]])
+                return json.dumps([commits])
             if args[0] == 'api':
                 return json.dumps([[{'filename': path} for path in
                     (paths if paths is not None else ['data/reading-catalogue.json',
@@ -85,6 +89,30 @@ class PendingPublicationTests(unittest.TestCase):
         calls, gh = self.check_case(behind=1, bot=False)
         with patch.object(publisher.publication, 'gh', side_effect=gh), patch.object(publisher, 'run') as run:
             self.assertEqual(publisher.resume_pending(BRANCH), 'carry')
+        run.assert_not_called()
+        self.assertFalse(any(c[:2] == ('pr', 'close') for c in calls))
+
+    def test_github_update_branch_merge_commit_is_not_human_work(self):
+        # Run 42958539544: una propuesta del bot quedó BEHIND y run() llamó a update-branch; GitHub añadió un
+        # merge «Merge branch 'main'…» firmado por su cuenta, no por bot_identity. Exigir que TODOS los commits
+        # fueran del bot encallaba la carga cada noche. Ese merge (dos padres) es maquinaria: se traslada (carry).
+        merge = {'commit': {'author': {'email': 'noreply@github.com'}}, 'parents': [{'sha': 'p1'}, {'sha': 'p2'}]}
+        bot_commit = {'commit': {'author': {'email': self.BOT_EMAIL}}, 'parents': [{'sha': 'p0'}]}
+        calls, gh = self.check_case(behind=1, commits=[bot_commit, merge])
+        with patch.object(publisher.publication, 'gh', side_effect=gh), patch.object(publisher, 'run') as run:
+            self.assertEqual(publisher.resume_pending(BRANCH), 'carry')
+        run.assert_not_called()
+        self.assertFalse(any(c[:2] == ('pr', 'close') for c in calls))
+
+    def test_human_commit_alongside_a_merge_is_still_rejected(self):
+        # Un merge de update-branch no blanquea un commit humano que sí aporta cambios (un solo padre): sigue
+        # rechazándose para no cerrar ni regenerar trabajo de una persona.
+        merge = {'commit': {'author': {'email': 'noreply@github.com'}}, 'parents': [{'sha': 'p1'}, {'sha': 'p2'}]}
+        human = {'commit': {'author': {'email': 'davidpd89@users.noreply.github.com'}}, 'parents': [{'sha': 'p0'}]}
+        calls, gh = self.check_case(behind=1, commits=[human, merge])
+        with patch.object(publisher.publication, 'gh', side_effect=gh), patch.object(publisher, 'run') as run:
+            with self.assertRaises(ValueError):
+                publisher.resume_pending(BRANCH)
         run.assert_not_called()
         self.assertFalse(any(c[:2] == ('pr', 'close') for c in calls))
 
