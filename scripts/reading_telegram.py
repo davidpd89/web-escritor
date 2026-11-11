@@ -4,8 +4,11 @@ from __future__ import annotations
 
 import argparse
 from contextlib import closing
+from functools import lru_cache
+from io import BytesIO
 from datetime import date, datetime, time as dtime, timedelta
 from html import escape, unescape
+from html.parser import HTMLParser
 import math
 import json
 import os
@@ -18,6 +21,7 @@ from urllib.parse import parse_qs, urlencode, urlsplit
 from zoneinfo import ZoneInfo
 
 import requests
+from PIL import Image, ImageOps
 from reading_amazon_market import asin_from_url, generated_cover
 
 from reading_taxonomy import REVIEWED_CATEGORY_EXCLUSIONS
@@ -172,9 +176,6 @@ def from_reading_catalogue(path: Path, channels_path: Path, groups: dict | None 
                 "publisher": str(book.get("editorial") or ""),
                 "synopsis": str(book.get("sinopsis_breve") or "")
                 or edition_note(book),
-                "web_url": f"https://davidportodiaz.com/recomendaciones/libros/{book['slug']}/"
-                if re.fullmatch(r"[a-z0-9-]+", str(book.get("slug") or ""))
-                else "",
             }
         )
     return {
@@ -243,11 +244,13 @@ def digest(
         return None
     tag = tag or tag_from_books(books)
     books = sorted(books, key=lambda b: (b["release_date"], b["title"])) if until else books
-    lines = [
-        (f"• {human_date(b['release_date'])}: " if until else "• ")
-        + f"<b>{escape(shorten(b['title'], 140))}</b> — {escape(shorten(b['author'], 100))}"
-        for b in books[:DIGEST_MAX_TITLES]
-    ]
+    lines = []
+    for book in books[:DIGEST_MAX_TITLES]:
+        prefix = f"• {human_date(book['release_date'])}: " if until else "• "
+        title = escape(shorten(book["title"], 140))
+        author = escape(shorten(book["author"], 100))
+        url = escape(amazon_url(book["asin"], tag), quote=True)
+        lines.append(f'{prefix}<a href="{url}">{title}</a> — {author}')
     if len(books) > DIGEST_MAX_TITLES:
         lines.append(f"…y {len(books) - DIGEST_MAX_TITLES} más")
     chunks = [isbns[i : i + DIGEST_MAX_ISBNS] for i in range(0, len(isbns), DIGEST_MAX_ISBNS)]
@@ -256,15 +259,14 @@ def digest(
         if len(chunks) == 1:
             text = f"Ver los {len(chunk)} en Amazon" if len(chunk) > 1 else "Ver en Amazon"
         else:
-            first = n * DIGEST_MAX_ISBNS + 1
-            text = f"Ver en Amazon ({first}–{first + len(chunk) - 1})"
+            text = f"Ver lote {n + 1} en Amazon ({len(chunk)} libros)"
         links.append(f'👉 <a href="{escape(isbn_search_url(chunk, tag), quote=True)}">{text}</a>')
     count = f"{len(books)} libro" + ("s" if len(books) != 1 else "")
     if until:
-        head = f"🗓️ <b>Próximos lanzamientos del {human_date(day)} al {human_date(until)}</b>"
+        head = f"<b>Próximos lanzamientos del {human_date(day)} al {human_date(until)}</b>"
         key = weekly_key(day)
     else:
-        head = f"📚 <b>Aquí tienes las publicaciones del día {human_date(day)}</b>"
+        head = f"📚 <b>Aquí tienes las publicaciones del día {human_date(day)}</b> · #Novedades"
         key = digest_key(day)
     sub = f"{escape(label)} · {count}" if label else count
     text = (
@@ -297,17 +299,15 @@ def message(book: dict, tag: str) -> str:
     genres = shorten(", ".join(book.get("genres", [])[:3]), 120)
     title = shorten(book["title"], 360)
     author = shorten(book["author"], 280)
-    meta = [f"📅 {human_date(book['release_date'], year=True)}"]
+    meta = [human_date(book["release_date"], year=True)]
     if book.get("publisher"):
         meta.insert(0, f"🏢 {escape(shorten(book['publisher'], 100))}")
     head = (
-        f"📚 <b>Novedad de hoy</b>\n\n<b>{escape(title)}</b>\n"
+        f"📚 <b>#Novedades</b>\n\n<b>{escape(title)}</b>\n"
         f"✍️ {escape(author)}\n" + " · ".join(meta) + "\n"
         + (f"🏷️ {escape(genres)}\n" if genres else "")
     )
     tail = f'\n<a href="{escape(url, quote=True)}">Ver en Amazon</a> · #publicidad'
-    if book.get("web_url"):
-        tail += f' · <a href="{escape(book["web_url"], quote=True)}">Ficha</a>'
     room = CAPTION_LIMIT - 24 - visible_length(head + tail)
     blurb = shorten(book.get("synopsis", ""), min(320, room)) if room > 40 else ""
     return head + (f"\n<i>{escape(blurb)}</i>\n" if blurb else "") + tail
@@ -375,7 +375,7 @@ def send_discord(
     first_id, delivered = None, 0
     parts = discord_parts(text)
     digest_embeds = []
-    if text.startswith(("📚 <b>Aquí tienes las publicaciones del día", "🗓️ <b>Próximos lanzamientos del")) and len(parts) > 1:
+    if text.startswith(("📚 <b>Aquí tienes las publicaciones del día", "<b>Próximos lanzamientos del")) and len(parts) > 1:
         markdown = to_discord(text)
         if len(markdown) > 6000:
             # Preserve the count and show the catalogue when even embeds cannot fit every link.
@@ -428,22 +428,94 @@ def send_discord(
     return "uncertain", first_id
 
 
+class TelegramMarkup(HTMLParser):
+    """Convert the bot's generated HTML to Telegram text and UTF-16 entities."""
+
+    def __init__(self, markup: str):
+        super().__init__()
+        self.parts = []
+        self.entities = []
+        self.open_tags = []
+        self.offset = 0
+        self.feed(markup)
+        self.close()
+
+    def handle_data(self, data):
+        self.parts.append(data)
+        for match in re.finditer(r"(?<!\w)#(?:Novedades|publicidad)\b", data):
+            self.entities.append({
+                "type": "hashtag",
+                "offset": self.offset + len(data[:match.start()].encode("utf-16-le")) // 2,
+                "length": len(match.group()),
+            })
+        self.offset += len(data.encode("utf-16-le")) // 2
+
+    def handle_starttag(self, tag, attrs):
+        kind = {"b": "bold", "i": "italic", "a": "text_link"}.get(tag)
+        if kind:
+            entity = {"type": kind, "offset": self.offset}
+            if tag == "a":
+                entity["url"] = dict(attrs)["href"]
+            self.open_tags.append(entity)
+
+    def handle_endtag(self, tag):
+        if tag in {"a", "b", "i"} and self.open_tags:
+            entity = self.open_tags.pop()
+            entity["length"] = self.offset - entity["offset"]
+            if entity["length"]:
+                self.entities.append(entity)
+
+
+@lru_cache(maxsize=64)
+def telegram_cover(url: str) -> bytes | None:
+    """Fit the whole cover inside a padded square for Telegram previews."""
+    try:
+        with requests.get(url, timeout=5, stream=True) as response:
+            response.raise_for_status()
+            data = BytesIO()
+            for chunk in response.iter_content(chunk_size=65536):
+                data.write(chunk)
+                if data.tell() > 5_000_000:
+                    return None
+        data.seek(0)
+        with Image.open(data) as image:
+            if image.width * image.height > 16_000_000:
+                return None
+            cover = ImageOps.exif_transpose(image).convert("RGBA")
+            cover.thumbnail((576, 576), Image.Resampling.LANCZOS)
+        canvas = Image.new("RGB", (800, 800), "#f4f1ec")
+        canvas.paste(cover, ((800 - cover.width) // 2, (800 - cover.height) // 2), cover)
+        output = BytesIO()
+        canvas.save(output, "JPEG", quality=90)
+        return output.getvalue()
+    except (OSError, ValueError, Image.DecompressionBombError, requests.RequestException):
+        return None
+
+
 def send(
     token: str, chat_id: str, text: str, photo_url: str | None = None
 ) -> tuple[str, int | None]:
     """Never expose requests exceptions: they can contain the bot token in the URL."""
     try:
         method = "sendPhoto" if photo_url else "sendMessage"
-        payload = {"chat_id": chat_id, "parse_mode": "HTML"}
+        markup = TelegramMarkup(text)
+        plain = "".join(markup.parts)
+        entities = sorted(markup.entities, key=lambda entity: (entity["offset"], -entity["length"], entity["type"] == "hashtag"))
+        payload = {"chat_id": chat_id}
+        endpoint = f"https://api.telegram.org/bot{token}/{method}"
         if photo_url:
-            payload.update(photo=photo_url, caption=text)
+            payload.update(caption=plain, caption_entities=entities)
+            photo = telegram_cover(photo_url)
+            if photo:
+                payload["caption_entities"] = json.dumps(entities)
+                response = requests.post(
+                    endpoint, data=payload, files={"photo": ("portada.jpg", photo, "image/jpeg")}, timeout=15
+                )
+            else:
+                response = requests.post(endpoint, json={**payload, "photo": photo_url}, timeout=15)
         else:
-            payload.update(text=text, link_preview_options={"is_disabled": True})
-        response = requests.post(
-            f"https://api.telegram.org/bot{token}/{method}",
-            json=payload,
-            timeout=15,
-        )
+            payload.update(text=plain, entities=entities, link_preview_options={"is_disabled": True})
+            response = requests.post(endpoint, json=payload, timeout=15)
         data = response.json()
         if response.status_code == 200 and data.get("ok") is True:
             mid = data.get("result", {}).get("message_id")
@@ -661,7 +733,7 @@ def smoke(
 
     def test_text(text):
         return text.replace(
-            "📚 <b>Novedad de hoy</b>",
+            "📚 <b>#Novedades</b>",
             "🧪 <b>PRUEBA · ficha de libro</b>\nNo es una novedad de hoy.",
             1,
         )

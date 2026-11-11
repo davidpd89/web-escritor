@@ -65,7 +65,9 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertLessEqual(visible_length(text), CAPTION_LIMIT)
         self.assertIn("Título &amp; edición", text)
         self.assertIn("Ver en Amazon", text)
-        self.assertIn("Ficha</a>", text)
+        self.assertNotIn("Ficha</a>", text)
+        self.assertNotIn("📅", text)
+        self.assertIn("#Novedades", text)
 
     def test_only_verified_site_cover_is_used(self):
         book = {
@@ -84,13 +86,50 @@ class ReadingTelegramTests(unittest.TestCase):
             self.assertIsNone(cover_url({**book, "portada_local": path}))
         self.assertIsNone(cover_url({**book, "portada_edicion_verificada": False}))
 
+    def test_telegram_links_are_native_entities_with_exact_query(self):
+        url = "https://www.amazon.es/s?i=stripbooks&rh=p_66:9788498382372&tag=davidporto-21"
+        markup = f'📚 <a href="{url.replace("&", "&amp;")}">Amazon</a>'
+        response = Mock(status_code=200, json=lambda: {"ok": True, "result": {"message_id": 12}})
+        with patch("reading_telegram.requests.post", return_value=response) as post:
+            self.assertEqual(send("secret", "@test", markup), ("sent", 12))
+        payload = post.call_args.kwargs["json"]
+        self.assertEqual(payload["text"], "📚 Amazon")
+        self.assertEqual(payload["entities"], [
+            {"type": "text_link", "offset": 3, "length": 6, "url": url}
+        ])
+
+    def test_cover_preview_keeps_both_edges_of_a_tall_cover(self):
+        from io import BytesIO
+        from PIL import Image
+        self.cover_transport.stop()
+        from reading_telegram import telegram_cover
+
+        source = Image.new("RGB", (300, 600), "red")
+        source.paste("blue", (0, 500, 300, 600))
+        buffer = BytesIO()
+        source.save(buffer, "PNG")
+        response = Mock()
+        response.iter_content.return_value = [buffer.getvalue()]
+        context = Mock()
+        context.__enter__ = Mock(return_value=response)
+        context.__exit__ = Mock(return_value=False)
+        telegram_cover.cache_clear()
+        self.addCleanup(telegram_cover.cache_clear)
+        with patch("reading_telegram.requests.get", return_value=context):
+            prepared = telegram_cover("https://example.org/tall-test.png")
+        with Image.open(BytesIO(prepared)) as result:
+            self.assertEqual(result.size, (800, 800))
+            self.assertGreater(result.getpixel((400, 125))[0], 200)
+            self.assertGreater(result.getpixel((400, 665))[2], 200)
+            self.assertGreater(result.getpixel((400, 50))[1], 210)
+
     def test_photo_transport_uses_caption_and_returns_message_id(self):
         post = Mock(
             return_value=Mock(
                 status_code=200, json=lambda: {"ok": True, "result": {"message_id": 99}}
             )
         )
-        with patch("reading_telegram.requests.post", post):
+        with patch("reading_telegram.requests.post", post), patch("reading_telegram.telegram_cover", return_value=b"jpeg"):
             self.assertEqual(
                 send(
                     "secret",
@@ -101,7 +140,8 @@ class ReadingTelegramTests(unittest.TestCase):
                 ("sent", 99),
             )
         self.assertTrue(post.call_args.args[0].endswith("/sendPhoto"))
-        self.assertEqual(post.call_args.kwargs["json"]["caption"], "caption")
+        self.assertEqual(post.call_args.kwargs["data"]["caption"], "caption")
+        self.assertEqual(post.call_args.kwargs["files"]["photo"][1], b"jpeg")
 
     def test_rejected_photo_falls_back_to_text(self):
         responses = [
@@ -236,6 +276,9 @@ class ReadingTelegramTests(unittest.TestCase):
             self.assertEqual(sender.call_count, 2)
 
     def setUp(self):
+        self.cover_transport = patch("reading_telegram.telegram_cover", return_value=None)
+        self.cover_transport.start()
+        self.addCleanup(self.cover_transport.stop)
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
@@ -310,6 +353,7 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertIn("2 libros", text)
         self.assertIn("#publicidad", text)
         self.assertIn("rh=p_66:9788498382372|9788401042751", text)
+        self.assertIn("/dp/8401042755?tag=davidporto-21", text)
         self.assertIn("tag=davidporto-21", text)
         self.assertIn("&lt;uno&gt;", text)
         self.assertEqual(len([r for r in result if r["chat_id"] == "@general"]), 2)
