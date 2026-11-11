@@ -77,6 +77,7 @@ jobs:
 
       - name: Install poppler-utils
         run: |
+          bash scripts/ci/apt-ready.sh || true
           sudo apt-get update -qq
           sudo apt-get install -y -qq poppler-utils
 
