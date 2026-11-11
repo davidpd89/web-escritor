@@ -11,6 +11,14 @@ de los CLI). Para cada flujo vigilado mira la última ejecución en main:
 3. Con cambios: puerta local (`local-ci.py --baseline`), commit, PR con auto-merge.
 4. Cuando la PR entra en main, relanza el flujo y deja de vigilar ese fallo cuando sale verde.
 
+Por método (11/11: dos arreglos seguidos sobre una hipótesis falsa, tres noches de textos sin publicar y nadie se enteró):
+- Cada intento queda en un historial que recibe el siguiente agente: si un arreglo ya entró en main y el fallo se repite,
+  se le dice que la premisa era falsa. También recibe el estado real (PR abiertas con su rama y autor, últimas
+  ejecuciones, últimos commits de main): sin gh no podía verlo y adivinaba.
+- Las publicaciones locales (textos, auditoría de Amazon) se vigilan igual que los workflows (scripts/estado_local.py).
+- Una PR de reparación que no puede entrar (CI rojo) se cierra y cuenta como intento fallido, en vez de esperar siempre.
+- Al agotar los intentos del día se abre (o se comenta) una issue y salta un aviso en el escritorio.
+
 Excepción explícita a «no mergear de 00:00 a 06:00»: David pidió reparar y relanzar la nocturna sin esperar. Sí respeta
 «no mergear durante la ingesta»: si la carga del catálogo está en marcha, la PR espera a la siguiente pasada.
 
@@ -22,18 +30,25 @@ from __future__ import annotations
 import argparse, datetime as dt, json, os, re, shutil, subprocess, sys, time
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import estado_local  # noqa: E402
+
 # El Programador de tareas ejecuta la copia de origin/main (ver night-autorepair.cmd); el repo vivo se indica aparte.
 REPO = Path(os.environ.get('AUTOREPAIR_REPO') or Path(__file__).resolve().parents[1])
 GH_REPO = 'davidpd89/web-escritor'
-ESTADO_DIR = Path(os.environ.get('LOCALAPPDATA') or Path.home()) / 'web-escritor-autorepair'
+ESTADO_DIR = estado_local.ESTADO_DIR   # %LOCALAPPDATA%/web-escritor-autorepair
 WT_BASE = Path(os.environ.get('AUTOREPAIR_WT_BASE') or REPO.parent)
 VIGILADOS = (
     'reading-catalogue-sync.yml', 'atlas-directory-sync.yml', 'reading-telegram-publish.yml', 'postdeploy-deep-audit.yml',
     'radar-clock-refresh.yml', 'radar-source-monitor.yml', 'production-smoke-monitor.yml', 'broken-links.yml', 'weekly-full-audit.yml',
 )
 INGESTA = 'reading-catalogue-sync.yml'
+LOCAL = 'local:'         # flujos que corren en este equipo; su estado lo deja scripts/estado_local.py
+PR_BLOQUEADA_MIN = 30    # todas las comprobaciones acabadas en rojo durante 30 min: la PR no va a entrar
+PR_CADUCA_H = 4          # una PR de reparación que no entra en 4 h no va a entrar
+HISTORIAL_MAX = 10
 VENTANA_H = 36           # fallos más viejos no se tocan: otra ejecución posterior ya habrá dicho algo
-MAX_INTENTOS_DIA = 2     # reparaciones con IA por flujo y día
+MAX_INTENTOS_DIA = 3     # reparaciones con IA por flujo y día; cada una sabe qué falló en las anteriores
 LIMITE = re.compile(r"usage limit|hit your limit|limit reached|rate.?limit|out of (extra )?usage|credit balance|quota|\b429\b", re.I)
 # Un «arreglo» que solo apaga el síntoma no vale: se rechaza el diff y se prueba con la siguiente IA.
 PROHIBIDO = re.compile(r"^\+.*(continue-on-error:\s*true|\|\|\s*true\b|@pytest\.mark\.skip|\.skip\(|test\.skip|xfail)", re.M)
@@ -117,18 +132,51 @@ def diff_valido(diff: str) -> tuple[bool, str]:
     return True, ''
 
 
-def prompt_reparacion(flujo: str, run: dict, registro: str) -> str:
+def es_local(flujo: str) -> bool:
+    return flujo.startswith(LOCAL)
+
+
+def describir(flujo: str, run: dict) -> str:
+    if es_local(flujo):
+        comando = ' '.join(Path(a).name if i < 3 else a for i, a in enumerate(run.get('argv') or []))
+        return (f"La publicación local `{flujo.removeprefix(LOCAL)}` (corre en el equipo de David: `{comando}`; "
+                f"registro en {run.get('url')})")
+    return f"El flujo programado `.github/workflows/{flujo}` (ejecución {run.get('url')})"
+
+
+def historial_texto(historial: list[dict] | None) -> str:
+    """Lo que ya se intentó con este mismo fallo, para que el siguiente agente no repita una hipótesis falsa."""
+    if not historial:
+        return ''
+    lineas = []
+    for h in historial[-6:]:
+        pr = f"PR #{h['pr']} «{h.get('titulo', '')}»" if h.get('pr') else h.get('titulo', '')
+        lineas.append(f"- {h.get('fecha', '')[:16]} {h.get('agente', '?')}: {pr} → {h.get('resultado', '')}")
+    aviso = ''
+    if any(h.get('resultado', '').startswith('mergeada') for h in historial):
+        aviso = ("\nUn arreglo anterior YA ESTÁ EN MAIN y el fallo se repitió: su hipótesis era falsa o incompleta. "
+                 "No la repitas ni la refuerces. Vuelve a la premisa: contrasta el registro con el estado real de abajo "
+                 "(PR abiertas, ramas, autores, commits) y busca qué otra cosa produce exactamente este error.")
+    if any(h.get('resultado', '').startswith('CI rojo') for h in historial):
+        aviso += "\nUn arreglo anterior no pasó el CI de su PR: el tuyo tiene que pasar también esas comprobaciones."
+    return "\n\n## Intentos anteriores de este mismo fallo\n" + '\n'.join(lineas) + aviso
+
+
+def prompt_reparacion(flujo: str, run: dict, registro: str, historial: list[dict] | None = None, estado: str = '') -> str:
     return f"""Eres el turno de noche del repositorio web-escritor (sitio estático de David Porto, desplegado desde main).
-El flujo programado `.github/workflows/{flujo}` ha fallado dos veces seguidas en main (la segunda tras relanzarlo).
-Ejecución: {run.get('url')}
+{describir(flujo, run)} ha fallado dos veces seguidas con el código de main (la segunda tras relanzarlo).
 
 Últimas líneas del registro del fallo:
 ```
 {registro}
 ```
 
+{historial_texto(historial)}{estado}
+
 Tarea: encuentra la causa raíz y arréglala de forma definitiva en este worktree (rama nueva desde origin/main).
-- Reproduce el fallo en local si se puede y añade o ajusta una prueba en tests/ o qa/ que lo habría detectado.
+- Arregla la clase de fallo, no el caso: si el error viene de una suposición (un prefijo de rama, un formato de dato, un
+  límite de longitud), corrige la suposición para todos los casos parecidos, no solo para el que salió hoy.
+- Reproduce el fallo en local y añade o ajusta una prueba en tests/ o qa/ que falle sin tu arreglo y pase con él.
 - Ejecuta las comprobaciones relacionadas con lo que toques y confirma que pasan.
 - Prohibido: desactivar o saltar pruebas, `continue-on-error`, `|| true`, subir umbrales para que pase, tocar secretos,
   borrar datos del catálogo para esquivar el error. Un reintento solo vale si el fallo es de red y ya hay prueba de ello.
@@ -172,7 +220,14 @@ def gh_json(*args):
     return json.loads(r.stdout or 'null')
 
 
+def flujos_locales(carpeta: Path | None = None) -> list[str]:
+    carpeta = carpeta or estado_local.LOCALES
+    return sorted(LOCAL + p.stem for p in carpeta.glob('*.json')) if carpeta.is_dir() else []
+
+
 def ultima_ejecucion(flujo):
+    if es_local(flujo):
+        return estado_local.leer(flujo.removeprefix(LOCAL))
     runs = gh_json('run', 'list', '--workflow', flujo, '--branch', 'main', '--limit', '1',
                    '--json', 'databaseId,status,conclusion,attempt,url,createdAt,event')
     return runs[0] if runs else None
@@ -210,7 +265,9 @@ def ingesta_en_marcha():
     return any(r['status'] in ('in_progress', 'queued', 'waiting', 'pending') for r in runs)
 
 
-def registro_fallo(run_id, lineas=250):
+def registro_fallo(run_id, lineas=250, run=None):
+    if run is not None and 'registro' in run:   # publicación local: la cola de su publish.log y la traza
+        return '\n'.join(l for l in run['registro'].splitlines() if l.strip())[-24000:]
     r = sh(['gh', 'run', 'view', str(run_id), '--log-failed', '--repo', GH_REPO], timeout=300)
     texto = re.sub(r'\x1b\[[0-9;]*m', '', r.stdout or r.stderr or '')
     # Fuera fechas y ruido de setup: lo que importa está al final.
@@ -240,9 +297,14 @@ def guardar_estado(estado):
     tmp.replace(ESTADO_DIR / 'state.json')
 
 
+def ident(texto) -> str:
+    """Apto para nombre de rama y carpeta: los flujos locales llevan «:» y su id es una fecha ISO."""
+    return re.sub(r'[^A-Za-z0-9._-]+', '-', str(texto)).strip('-')
+
+
 def preparar_worktree(flujo, run_id):
-    rama = f"autorepair/{flujo.removesuffix('.yml')}-{run_id}"
-    wt = WT_BASE / f"wt-autorepair-{run_id}"
+    rama = f"autorepair/{ident(flujo.removesuffix('.yml'))}-{ident(run_id)}"
+    wt = WT_BASE / f"wt-autorepair-{ident(run_id)}"
     sh(['git', 'fetch', '-q', 'origin', 'main'], check=True, timeout=300)
     quitar_worktree(wt)
     if wt.exists():   # algo la sigue teniendo abierta: otra ruta antes que perder la reparación
@@ -340,13 +402,45 @@ def veredicto_puerta(codigo, salida, pasos=()):
     return pasa, resumen[-3000:]
 
 
-def reparar(flujo, run, dry):
-    registro = registro_fallo(run['databaseId'])
+def instantanea(flujo) -> str:
+    """Estado real que el agente no puede consultar (va sin credenciales de gh): lo pone el turno de noche en el prompt.
+
+    11/11: dos agentes «arreglaron» el reconocimiento de la propuesta del bot cuando lo que bloqueaba la carga era otra
+    PR abierta (la de Amazon, con el mismo prefijo de rama). Con la lista de PR abiertas delante se veía a la primera."""
+    partes = []
+    try:
+        prs = gh_json('pr', 'list', '--state', 'open', '--limit', '40', '--json', 'number,headRefName,author,createdAt,title')
+        partes.append('PR abiertas (número, rama, autor, creada, título):\n' + ('\n'.join(
+            f"#{p['number']} {p['headRefName']} {(p.get('author') or {}).get('login', '?')} {p['createdAt'][:16]} {p['title'][:90]}"
+            for p in prs) or '(ninguna)'))
+    except Exception as exc:
+        partes.append(f'PR abiertas: no disponibles ({exc})')
+    if not es_local(flujo):
+        try:
+            runs = gh_json('run', 'list', '--workflow', flujo, '--limit', '8',
+                           '--json', 'createdAt,event,headBranch,headSha,status,conclusion')
+            partes.append(f'Últimas ejecuciones de {flujo} (fecha, evento, rama, commit, resultado):\n' + '\n'.join(
+                f"{r['createdAt'][:16]} {r['event']} {r['headBranch']} {r['headSha'][:10]} {r['conclusion'] or r['status']}"
+                for r in runs))
+        except Exception as exc:
+            partes.append(f'Ejecuciones: no disponibles ({exc})')
+    try:
+        commits = sh(['git', 'log', '--format=%h %ad %s', '--date=format:%m-%d %H:%M', '-15', 'origin/main']).stdout.strip()
+    except Exception:
+        commits = ''
+    partes.append('Últimos commits de main:\n' + (commits or '(no disponibles)'))
+    return ("\n\n## Estado real ahora (lo consulta el turno de noche; tú no tienes gh)\n```\n"
+            + '\n\n'.join(partes)[-8000:] + "\n```")
+
+
+def reparar(flujo, run, dry, historial=None):
+    registro = registro_fallo(run['databaseId'], run=run if es_local(flujo) else None)
     if dry:
-        log(f"[dry] {flujo}: repararía con {[a[0] for a in agentes()]}; registro {len(registro)} caracteres")
+        log(f"[dry] {flujo}: repararía con {[a[0] for a in agentes()]}; registro {len(registro)} caracteres; "
+            f"{len(historial or [])} intentos anteriores")
         return None
     wt, rama = preparar_worktree(flujo, run['databaseId'])
-    prompt = prompt_reparacion(flujo, run, registro)
+    prompt = prompt_reparacion(flujo, run, registro, historial, instantanea(flujo))
     try:
         for nombre, argv, env, trailer in agentes():
             log(f"{flujo}: probando {nombre}")
@@ -390,7 +484,7 @@ def reparar(flujo, run, dry):
             numero = int(url.rstrip('/').rsplit('/', 1)[-1])
             sh(['gh', 'pr', 'merge', str(numero), '--repo', GH_REPO, '--auto', '--squash'])
             log(f"{flujo}: PR {url} con auto-merge ({nombre})")
-            return {'pr': numero, 'agente': nombre}
+            return {'pr': numero, 'agente': nombre, 'titulo': titulo}
         log(f"{flujo}: ninguna IA dejó un arreglo válido")
         return {'fallido': True}
     finally:
@@ -412,28 +506,36 @@ def pasada(dry=False, solo=None):
                 estado['carga_perdida'] = hoy
         except Exception as exc:
             log(f"{INGESTA}: no pude comprobar si la carga se lanzó: {exc}")
-    for flujo in [solo] if solo else VIGILADOS:
+    for flujo in [solo] if solo else [*VIGILADOS, *flujos_locales()]:
         try:
             run = ultima_ejecucion(flujo)
             previo = estado.get(flujo)
             if previo and previo.get('pr') and not previo.get('pr_cerrada'):
-                pr = gh_json('pr', 'view', str(previo['pr']), '--json', 'state')
+                pr = gh_json('pr', 'view', str(previo['pr']), '--json', 'state,createdAt,statusCheckRollup')
                 if pr['state'] == 'MERGED':
                     log(f"{flujo}: PR #{previo['pr']} en main → relanzo el flujo")
-                    dry or sh(['gh', 'workflow', 'run', flujo, '--ref', 'main', '--repo', GH_REPO], check=True)
+                    dry or relanzar(flujo, run)
                     previo.update(pr_cerrada=True, relanzado=ahora.isoformat())
+                    anotar(previo, 'mergeada; se relanza el flujo para comprobarla')
                     continue
                 if pr['state'] == 'CLOSED':
                     previo['pr_cerrada'] = True
+                    anotar(previo, 'PR cerrada sin entrar')
+                elif (motivo := pr_atascada(pr, ahora)):
+                    log(f"{flujo}: PR #{previo['pr']} no puede entrar ({motivo}); la cierro y cuento el intento como fallido")
+                    dry or sh(['gh', 'pr', 'close', str(previo['pr']), '--repo', GH_REPO, '--delete-branch', '--comment',
+                               f'Cerrada por el turno de noche: {motivo}. El siguiente intento parte de este historial.'])
+                    previo['pr_cerrada'] = True
+                    anotar(previo, motivo)
             intentos = sum(1 for x in (previo or {}).get('intentos', []) if x.startswith(hoy))
             fallido = run and run.get('status') == 'completed' and run.get('conclusion') in ('failure', 'timed_out', 'startup_failure')
-            infra = bool(fallido) and fallo_de_infraestructura(run['databaseId'])
+            infra = bool(fallido) and not es_local(flujo) and fallo_de_infraestructura(run['databaseId'])
             accion = decidir(run, previo, ahora, intentos, infra)
             if caida and accion in ('relanzar', 'reparar'):
                 continue
             if infra and accion == 'relanzar':
                 log(f"{'[dry] ' if dry else ''}{flujo}: fallo de GitHub, no del código; relanzo {run['url']}")
-                dry or sh(['gh', 'workflow', 'run', flujo, '--ref', 'main', '--repo', GH_REPO], check=True)
+                dry or relanzar(flujo, run)
                 estado.setdefault(flujo, {})['relanzado'] = ahora.isoformat()
                 continue
             if accion == 'nada':
@@ -444,25 +546,121 @@ def pasada(dry=False, solo=None):
                 continue
             if accion == 'agotado':
                 if (previo or {}).get('avisado') != hoy:
-                    log(f"{flujo}: {MAX_INTENTOS_DIA} reparaciones hoy sin éxito; queda para David ({run['url']})")
-                    estado.setdefault(flujo, {})['avisado'] = hoy
+                    log(f"{flujo}: {MAX_INTENTOS_DIA} reparaciones hoy sin éxito; aviso a David ({run['url']})")
+                    e = estado.setdefault(flujo, {})
+                    e['avisado'] = hoy
+                    if not dry:
+                        e['issue'] = avisar(flujo, run, e.get('historial'), e.get('issue'))
                 continue
             if accion == 'relanzar':
                 log(f"{'[dry] ' if dry else ''}{flujo}: primer fallo, relanzo {run['url']}")
-                dry or sh(['gh', 'workflow', 'run', flujo, '--ref', 'main', '--repo', GH_REPO], check=True)
+                dry or relanzar(flujo, run)
                 estado.setdefault(flujo, {})['relanzado'] = ahora.isoformat()
                 continue
             if flujo != INGESTA and ingesta_en_marcha():
                 log(f"{flujo}: la carga del catálogo está en marcha; reparo en la siguiente pasada"); continue
-            res = reparar(flujo, run, dry)
+            res = reparar(flujo, run, dry, (previo or {}).get('historial'))
             if res is not None:
-                e = estado.setdefault(flujo, {})
-                e.setdefault('intentos', []).append(ahora.isoformat())
-                e.update({k: v for k, v in res.items()}, run=run['databaseId'])
+                registrar_intento(estado.setdefault(flujo, {}), res, run, ahora)
         except Exception as exc:   # un flujo roto no puede parar la vigilancia de los demás
             log(f"{flujo}: error del turno de noche: {exc}")
         finally:
             dry or guardar_estado(estado)
+
+
+def registrar_intento(e: dict, res: dict, run: dict, ahora: dt.datetime):
+    e.setdefault('intentos', []).append(ahora.isoformat())
+    for k in ('sin_arreglo', 'fallido', 'pr', 'agente', 'titulo'):
+        e.pop(k, None)
+    e.update(res, run=run['databaseId'], pr_cerrada=not res.get('pr'))
+    if res.get('pr'):
+        resultado = 'PR abierta con auto-merge'
+    elif res.get('sin_arreglo'):
+        resultado = 'sin arreglo en código: ' + str(res['sin_arreglo'])[:200]
+    else:
+        resultado = 'ninguna IA dejó un arreglo que pasara la puerta local'
+    e.setdefault('historial', []).append({'fecha': ahora.isoformat(), 'agente': res.get('agente', '-'), 'pr': res.get('pr'),
+                                          'titulo': res.get('titulo', ''), 'run': run.get('url'), 'resultado': resultado})
+    del e['historial'][:-HISTORIAL_MAX]
+
+
+def anotar(previo: dict, resultado: str):
+    """Completa el último intento del historial con lo que pasó después con su PR."""
+    if previo.get('historial'):
+        previo['historial'][-1]['resultado'] = resultado
+
+
+def pr_atascada(pr: dict, ahora: dt.datetime) -> str:
+    """Motivo para dar por perdida una PR de reparación abierta, o '' si aún puede entrar.
+
+    Antes se esperaba sin límite: una PR con el CI rojo dejaba el flujo en «esperar_pr» para siempre, sin más intentos."""
+    edad = ahora - dt.datetime.fromisoformat(pr['createdAt'].replace('Z', '+00:00'))
+    checks = pr.get('statusCheckRollup') or []
+    concl = lambda c: (c.get('conclusion') or c.get('state') or '').upper()
+    pendientes = [c for c in checks if (c.get('status') or 'COMPLETED').upper() != 'COMPLETED'
+                  or concl(c) in ('PENDING', 'EXPECTED', '')]
+    rojos = sorted({c.get('name') or c.get('context') or '?' for c in checks
+                    if concl(c) in ('FAILURE', 'ERROR', 'TIMED_OUT', 'STARTUP_FAILURE', 'ACTION_REQUIRED')})
+    if rojos and not pendientes and edad > dt.timedelta(minutes=PR_BLOQUEADA_MIN):
+        return 'CI rojo en la PR: ' + ', '.join(rojos)[:300]
+    if edad > dt.timedelta(hours=PR_CADUCA_H):
+        return f'CI rojo o atascado: {PR_CADUCA_H} h sin entrar' + (' (' + ', '.join(rojos)[:200] + ')' if rojos else '')
+    return ''
+
+
+def relanzar(flujo, run):
+    """Workflow: dispatch nuevo sobre main. Local: el mismo comando con el código de main (el bucle solo actualiza su
+    copia al arrancar, una vez al día: sin esto, un arreglo ya mergeado no se probaba hasta el día siguiente)."""
+    if not es_local(flujo):
+        sh(['gh', 'workflow', 'run', flujo, '--ref', 'main', '--repo', GH_REPO], check=True)
+        return
+    cwd = Path(run['cwd'])
+    sh(['git', 'fetch', '-q', 'origin', 'main'], cwd=cwd, timeout=300)
+    sh(['git', 'checkout', '-q', '--detach', 'origin/main'], cwd=cwd)
+    with open(run['registro_ruta'], 'a', encoding='utf-8') as salida:
+        salida.write(f"--- {dt.datetime.now():%Y-%m-%d %H:%M} relanzada por la autorreparación\n")
+        salida.flush()
+        banderas = (0x00000008 | 0x00000200) if os.name == 'nt' else 0   # DETACHED_PROCESS | CREATE_NEW_PROCESS_GROUP
+        subprocess.Popen(run['argv'], cwd=cwd, stdout=salida, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
+                         creationflags=banderas, start_new_session=os.name != 'nt')
+
+
+def avisar(flujo, run, historial, issue=None):
+    """Intentos agotados: issue en GitHub (visible y persistente) y aviso en el escritorio de este equipo.
+    Antes solo se escribía «queda para David» en un log que nadie leía."""
+    titulo = f'Autorreparación agotada: {flujo}'
+    cuerpo = (f"{describir(flujo, run)} sigue fallando tras {MAX_INTENTOS_DIA} reparaciones automáticas hoy."
+              f"{historial_texto(historial)}\n\nEstado y registros en este equipo: `%LOCALAPPDATA%/web-escritor-autorepair` "
+              f"(autorepair.log, puertas/). El turno de noche lo vuelve a intentar mañana.\n\n{PIE_PR}")
+    numero = issue
+    try:
+        if issue and gh_json('issue', 'view', str(issue), '--json', 'state')['state'] == 'OPEN':
+            sh(['gh', 'issue', 'comment', str(issue), '--repo', GH_REPO, '--body-file', '-'], entrada=cuerpo, check=True)
+        else:
+            url = sh(['gh', 'issue', 'create', '--repo', GH_REPO, '--title', titulo, '--body-file', '-'],
+                     entrada=cuerpo, check=True).stdout.strip().splitlines()[-1]
+            numero = int(url.rstrip('/').rsplit('/', 1)[-1])
+        log(f"{flujo}: aviso en la issue #{numero}")
+    except Exception as exc:
+        log(f"{flujo}: no pude abrir la issue de aviso: {exc}")
+    aviso_escritorio(titulo, f'Issue #{numero}' if numero else 'Mira autorepair.log')
+    return numero
+
+
+def aviso_escritorio(titulo, texto):
+    if os.name != 'nt':
+        return
+    limpio = lambda t: re.sub(r"[^\w .:#()/-]", '', t)
+    ps = ("[Windows.UI.Notifications.ToastNotificationManager,Windows.UI.Notifications,ContentType=WindowsRuntime]|Out-Null;"
+          "$x=[Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent("
+          "[Windows.UI.Notifications.ToastTemplateType]::ToastText02);$t=$x.GetElementsByTagName('text');"
+          f"$t.Item(0).InnerText='{limpio(titulo)}';$t.Item(1).InnerText='{limpio(texto)}';"
+          "[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('Windows PowerShell')"
+          ".Show([Windows.UI.Notifications.ToastNotification]::new($x))")
+    try:
+        sh(['powershell', '-NoProfile', '-Command', ps], timeout=60)
+    except Exception:
+        pass
 
 
 def sin_escritura(vacio):

@@ -842,7 +842,12 @@ def main(argv=None):
     elif args.cmd == 'run':
         loop(args)
     elif args.cmd == 'publish':
-        publish()
+        # La autorreparación vigila esta publicación como un workflow más (scripts/estado_local.py).
+        sys.path.insert(0, str(ROOT / 'scripts'))
+        import estado_local
+        with estado_local.vigilado('publicacion-textos', ROOT / '.local/reading-texts/publish.log',
+                                   [sys.executable, '-u', str(Path(__file__).resolve()), 'publish'], ROOT):
+            publish()
     return 0
 
 

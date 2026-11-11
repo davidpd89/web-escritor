@@ -193,6 +193,160 @@ class PuertaDelArreglo(unittest.TestCase):
         self.assertTrue(p2.startswith('BASE'))
 
 
+class PublicacionesLocales(unittest.TestCase):
+    """Los textos fallaron tres noches (09-11/11) sin que nadie lo viera: solo se vigilaban workflows de GitHub."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.carpeta = Path(self.tmp.name)
+        self.log = self.carpeta / 'publish.log'
+        self.log.write_text('construyendo\nAssertionError: 17 metas de más de 160 caracteres\n', encoding='utf-8')
+        self.addCleanup(self.tmp.cleanup)
+
+    def test_vigilado_deja_exito(self):
+        with na.estado_local.vigilado('publicacion-textos', self.log, ['py', 'x.py', 'publish'], self.carpeta, self.carpeta):
+            self.assertEqual(na.estado_local.leer('publicacion-textos', self.carpeta)['status'], 'in_progress')
+        r = na.estado_local.leer('publicacion-textos', self.carpeta)
+        self.assertEqual((r['status'], r['conclusion']), ('completed', 'success'))
+
+    def test_vigilado_deja_fallo_con_registro_y_traza(self):
+        with self.assertRaises(SystemExit):
+            with na.estado_local.vigilado('publicacion-textos', self.log, ['py', 'x.py', 'publish'], self.carpeta, self.carpeta):
+                raise SystemExit(1)
+        r = na.estado_local.leer('publicacion-textos', self.carpeta)
+        self.assertEqual(r['conclusion'], 'failure')
+        self.assertIn('17 metas', r['registro'])
+        self.assertIn('SystemExit', r['registro'])
+        self.assertIn('17 metas', na.registro_fallo(r['databaseId'], run=r))
+
+    def test_la_vigilancia_incluye_las_locales(self):
+        with na.estado_local.vigilado('publicacion-amazon', self.log, ['py'], self.carpeta, self.carpeta):
+            pass
+        self.assertEqual(na.flujos_locales(self.carpeta), ['local:publicacion-amazon'])
+        viejo, na.estado_local.LOCALES = na.estado_local.LOCALES, self.carpeta
+        try:
+            r = na.ultima_ejecucion('local:publicacion-amazon')
+        finally:
+            na.estado_local.LOCALES = viejo
+        self.assertEqual(r['conclusion'], 'success')
+
+    def test_decidir_entiende_la_fecha_local(self):
+        r = {'status': 'completed', 'conclusion': 'failure', 'databaseId': 'x',
+             'createdAt': (AHORA - dt.timedelta(hours=1)).isoformat(timespec='seconds')}
+        self.assertEqual(na.decidir(r, None, AHORA, 0), 'relanzar')
+
+    def test_rama_y_carpeta_validas(self):
+        self.assertEqual(na.ident('local:publicacion-textos-2026-11-11T19:00:00+00:00'),
+                         'local-publicacion-textos-2026-11-11T19-00-00-00-00')
+
+    def test_relanzar_local_actualiza_a_main_y_lanza_el_mismo_comando(self):
+        llamadas, lanzados = [], []
+        sh, popen = na.sh, na.subprocess.Popen
+        na.sh = lambda args, **kw: llamadas.append((args, kw.get('cwd')))
+        na.subprocess.Popen = lambda argv, **kw: lanzados.append((argv, kw['cwd']))
+        try:
+            na.relanzar('local:publicacion-textos', {'argv': ['py', '-u', 'x.py', 'publish'], 'cwd': str(self.carpeta),
+                                                      'registro_ruta': str(self.log)})
+        finally:
+            na.sh, na.subprocess.Popen = sh, popen
+        self.assertEqual([a[:3] for a, _ in llamadas], [['git', 'fetch', '-q'], ['git', 'checkout', '-q']])
+        self.assertEqual(lanzados, [(['py', '-u', 'x.py', 'publish'], self.carpeta)])
+        self.assertIn('relanzada por la autorreparación', self.log.read_text(encoding='utf-8'))
+
+
+class Historial(unittest.TestCase):
+    """11/11: el segundo agente no sabía que el arreglo del primero ya estaba en main y repitió la hipótesis falsa."""
+
+    def test_el_prompt_lleva_los_intentos_y_cuestiona_la_premisa(self):
+        historial = [{'fecha': '2026-11-11T03:00', 'agente': 'claude', 'pr': 1270, 'titulo': 'Reconocer la propuesta del bot',
+                      'resultado': 'mergeada; se relanza el flujo para comprobarla'}]
+        p = na.prompt_reparacion('reading-catalogue-sync.yml', run(), 'Refusing to replace', historial, '\nPR abiertas: #1268')
+        self.assertIn('PR #1270', p)
+        self.assertIn('YA ESTÁ EN MAIN', p)
+        self.assertIn('#1268', p)
+        self.assertIn('falle sin tu arreglo', p)
+        self.assertNotIn('YA ESTÁ EN MAIN', na.prompt_reparacion('x.yml', run(), 'r'))
+
+    def test_registrar_intento(self):
+        e = {}
+        na.registrar_intento(e, {'pr': 7, 'agente': 'claude', 'titulo': 'T'}, run(), AHORA)
+        self.assertFalse(e['pr_cerrada'])
+        self.assertEqual(e['historial'][-1]['resultado'], 'PR abierta con auto-merge')
+        na.anotar(e, 'CI rojo en la PR: python-tests')
+        na.registrar_intento(e, {'fallido': True}, run(), AHORA)
+        self.assertTrue(e['pr_cerrada'])
+        self.assertNotIn('pr', e)
+        self.assertEqual([h['resultado'][:7] for h in e['historial']], ['CI rojo', 'ninguna'])
+        for _ in range(20):
+            na.registrar_intento(e, {'sin_arreglo': 'es de GitHub', 'agente': 'codex'}, run(), AHORA)
+        self.assertEqual(len(e['historial']), na.HISTORIAL_MAX)
+
+
+class PrAtascada(unittest.TestCase):
+    """Antes una PR de reparación en rojo dejaba el flujo en «esperar_pr» para siempre."""
+
+    def pr(self, minutos, *checks):
+        return {'createdAt': (AHORA - dt.timedelta(minutes=minutos)).isoformat().replace('+00:00', 'Z'),
+                'statusCheckRollup': [{'name': n, 'status': s, 'conclusion': c} for n, s, c in checks]}
+
+    def test_rojo_terminado_se_cierra(self):
+        self.assertIn('python-tests', na.pr_atascada(self.pr(40, ('python-tests', 'COMPLETED', 'FAILURE'),
+                                                             ('lint', 'COMPLETED', 'SUCCESS')), AHORA))
+
+    def test_aun_corriendo_o_reciente_espera(self):
+        self.assertEqual(na.pr_atascada(self.pr(40, ('a', 'COMPLETED', 'FAILURE'), ('b', 'IN_PROGRESS', None)), AHORA), '')
+        self.assertEqual(na.pr_atascada(self.pr(10, ('a', 'COMPLETED', 'FAILURE')), AHORA), '')
+        self.assertEqual(na.pr_atascada(self.pr(60, ('a', 'COMPLETED', 'SUCCESS')), AHORA), '')
+
+    def test_caduca(self):
+        self.assertTrue(na.pr_atascada(self.pr(na.PR_CADUCA_H * 60 + 1, ('b', 'IN_PROGRESS', None)), AHORA))
+
+
+class Pasada(unittest.TestCase):
+    def setUp(self):
+        self.estado, self.hechos = {}, []
+        guardar = {k: getattr(na, k) for k in ('cargar_estado', 'guardar_estado', 'actions_caido', 'ultima_ejecucion',
+                                                'gh_json', 'sh', 'relanzar', 'avisar', 'log', 'ingesta_en_marcha',
+                                                'fallo_de_infraestructura')}
+        self.addCleanup(lambda: [setattr(na, k, v) for k, v in guardar.items()])
+        na.cargar_estado = lambda: self.estado
+        na.guardar_estado = lambda e: None
+        na.actions_caido = lambda: ''
+        na.log = lambda m: None
+        na.ingesta_en_marcha = lambda: False
+        na.relanzar = lambda f, r: self.hechos.append(('relanzar', f))
+        na.avisar = lambda f, r, h, i=None: self.hechos.append(('avisar', f)) or 99
+        na.sh = lambda args, **kw: self.hechos.append(tuple(args[:3]))
+
+    def test_pr_mergeada_relanza_y_lo_anota(self):
+        self.estado['local:publicacion-textos'] = {'pr': 5, 'historial': [{'resultado': 'PR abierta con auto-merge'}]}
+        na.ultima_ejecucion = lambda f: run()
+        na.gh_json = lambda *a: {'state': 'MERGED'}
+        na.pasada(solo='local:publicacion-textos')
+        self.assertIn(('relanzar', 'local:publicacion-textos'), self.hechos)
+        self.assertTrue(self.estado['local:publicacion-textos']['historial'][-1]['resultado'].startswith('mergeada'))
+
+    def test_pr_en_rojo_se_cierra_y_libera_el_flujo(self):
+        self.estado['x.yml'] = {'pr': 5, 'historial': [{'resultado': 'PR abierta con auto-merge'}]}
+        na.ultima_ejecucion = lambda f: run(status='in_progress')
+        creada = (AHORA - dt.timedelta(hours=5)).isoformat()
+        na.gh_json = lambda *a: {'state': 'OPEN', 'createdAt': creada, 'statusCheckRollup': []}
+        na.pasada(solo='x.yml')
+        self.assertIn(('gh', 'pr', 'close'), self.hechos)
+        self.assertTrue(self.estado['x.yml']['pr_cerrada'])
+
+    def test_agotado_avisa_una_vez_al_dia(self):
+        hoy = dt.datetime.now(dt.timezone.utc)
+        self.estado['x.yml'] = {'relanzado': (hoy - dt.timedelta(hours=3)).isoformat(),
+                                'intentos': [hoy.isoformat()] * na.MAX_INTENTOS_DIA, 'pr_cerrada': True}
+        na.ultima_ejecucion = lambda f: {**run(), 'createdAt': (hoy - dt.timedelta(hours=1)).isoformat()}
+        na.fallo_de_infraestructura = lambda i: False
+        na.pasada(solo='x.yml')
+        na.pasada(solo='x.yml')
+        self.assertEqual(self.hechos.count(('avisar', 'x.yml')), 1)
+        self.assertEqual(self.estado['x.yml']['issue'], 99)
+
+
 if __name__ == '__main__':
     unittest.main()
 
