@@ -526,150 +526,168 @@
     "palabra s a",
     "alfabetica",
     "lumo parsec",
-    "lumia"
+    "lumia",
+    "familia lumara",
+    "editora lumen"
   ],
   "cola": [
     {
       "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902498031",
+      "nivel": 2,
+      "nodo": "12942346031",
       "ruta": [
-        "Biografías, diarios y hechos reales"
+        "Juvenil",
+        "Ciencia ficción y fantasía"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902503031",
+      "nivel": 2,
+      "nodo": "12942139031",
       "ruta": [
-        "Ciencias, tecnología y medicina"
+        "Juvenil",
+        "Ciencias sociales"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902613031",
+      "nivel": 2,
+      "nodo": "12942103031",
       "ruta": [
-        "Cocina, bebida y hospitalidad"
+        "Juvenil",
+        "Ciencia y tecnología"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902517031",
+      "nivel": 2,
+      "nodo": "12942194031",
       "ruta": [
-        "Consulta"
+        "Juvenil",
+        "Cómics y novelas gráficas"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902516031",
+      "nivel": 2,
+      "nodo": "12942405031",
       "ruta": [
-        "Cómics, manga y novelas gráficas"
-      ],
-      "sello": "Lumen"
-    },
-    {
-      "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902520031",
-      "ruta": [
+        "Juvenil",
         "Deportes y aire libre"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902590031",
+      "nivel": 2,
+      "nodo": "12942055031",
       "ruta": [
-        "Derecho"
+        "Juvenil",
+        "Educación y consulta"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902595031",
+      "nivel": 2,
+      "nodo": "12942066031",
       "ruta": [
-        "Economía y empresa"
-      ],
-      "sello": "Lumen"
-    },
-    {
-      "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902681031",
-      "ruta": [
-        "Erótica"
-      ],
-      "sello": "Lumen"
-    },
-    {
-      "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "1349107031",
-      "ruta": [
-        "Fantasía y ciencia ficción"
-      ],
-      "sello": "Lumen"
-    },
-    {
-      "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902600031",
-      "ruta": [
+        "Juvenil",
         "Historia"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902610031",
+      "nivel": 2,
+      "nodo": "12942168031",
       "ruta": [
-        "Hogar, manualidades y estilos de vida"
+        "Juvenil",
+        "Hobbies y juegos"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902620031",
+      "nivel": 2,
+      "nodo": "12942297031",
       "ruta": [
-        "Humor"
+        "Juvenil",
+        "Misterio y suspense"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902621031",
+      "nivel": 2,
+      "nodo": "12942149031",
       "ruta": [
-        "Infantil"
+        "Juvenil",
+        "Novelas históricas"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "902652031",
+      "nivel": 2,
+      "nodo": "12942337031",
       "ruta": [
-        "Informática, internet y medios digitales"
+        "Juvenil",
+        "Novelas románticas"
       ],
       "sello": "Lumen"
     },
     {
       "consulta": "Lumen",
-      "nivel": 1,
-      "nodo": "12942013031",
+      "nivel": 2,
+      "nodo": "12942184031",
       "ruta": [
-        "Juvenil"
+        "Juvenil",
+        "Novelas y ficción literaria"
+      ],
+      "sello": "Lumen"
+    },
+    {
+      "consulta": "Lumen",
+      "nivel": 2,
+      "nodo": "12942111031",
+      "ruta": [
+        "Juvenil",
+        "Ordenadoes"
+      ],
+      "sello": "Lumen"
+    },
+    {
+      "consulta": "Lumen",
+      "nivel": 2,
+      "nodo": "12942320031",
+      "ruta": [
+        "Juvenil",
+        "Religión y espiritualidad"
+      ],
+      "sello": "Lumen"
+    },
+    {
+      "consulta": "Lumen",
+      "nivel": 2,
+      "nodo": "12942305031",
+      "ruta": [
+        "Juvenil",
+        "Salud personal"
+      ],
+      "sello": "Lumen"
+    },
+    {
+      "consulta": "Lumen",
+      "nivel": 2,
+      "nodo": "12942378031",
+      "ruta": [
+        "Juvenil",
+        "Temas sociales y familiares"
       ],
       "sello": "Lumen"
     },
@@ -1192,13 +1210,15 @@
     "Editorial Plomo Ediciones",
     "Editorial La Magnifica",
     "Lumo Parsec",
-    "Lumia"
+    "Lumia",
+    "Familia Lumara",
+    "Editora Lúmen"
   ],
   "dia": "2026-11-08",
   "errores": [],
   "grupos": {
     "lumen": {
-      "libros_es": 26,
+      "libros_es": 108,
       "pendientes": 26
     }
   },
@@ -1275,6 +1295,16 @@
       [
         "12942378031",
         "Temas sociales y familiares"
+      ]
+    ],
+    "1349107031": [
+      [
+        "902676031",
+        "Ciencia ficción"
+      ],
+      [
+        "902678031",
+        "Fantasía"
       ]
     ],
     "14177618031": [
@@ -1729,6 +1759,94 @@
         "Sociedad y ciencias sociales"
       ]
     ],
+    "902503031": [
+      [
+        "902504031",
+        "Agricultura y ganadería"
+      ],
+      [
+        "902505031",
+        "Astronomía"
+      ],
+      [
+        "902506031",
+        "Biología"
+      ],
+      [
+        "902507031",
+        "Ciencias de la Tierra"
+      ],
+      [
+        "902508031",
+        "Física"
+      ],
+      [
+        "902510031",
+        "Matemáticas"
+      ],
+      [
+        "902511031",
+        "Medicina"
+      ],
+      [
+        "902512031",
+        "Medio ambiente"
+      ],
+      [
+        "902513031",
+        "Química"
+      ],
+      [
+        "902514031",
+        "Tecnología e ingeniería"
+      ],
+      [
+        "902515031",
+        "Transporte y automóviles"
+      ],
+      [
+        "4893907031",
+        "Veterinaria"
+      ]
+    ],
+    "902510031": [
+      [
+        "4893806031",
+        "Álgebra"
+      ],
+      [
+        "4893810031",
+        "Combinatoria y teoría de grafos"
+      ],
+      [
+        "4893807031",
+        "Cálculo"
+      ],
+      [
+        "4893809031",
+        "Estadística y probabilidad"
+      ],
+      [
+        "4893805031",
+        "Filosofía e historia de las matemáticas"
+      ],
+      [
+        "4893808031",
+        "Geometría"
+      ],
+      [
+        "4893811031",
+        "Matemáticas aplicadas"
+      ],
+      [
+        "4893813031",
+        "Material didáctico y consulta"
+      ],
+      [
+        "4893812031",
+        "Teoría matemática"
+      ]
+    ],
     "902516031": [
       [
         "28166967031",
@@ -1743,6 +1861,29 @@
         "Manga"
       ]
     ],
+    "902590031": [
+      [
+        "902591031",
+        "Derecho internacional"
+      ],
+      [
+        "902592031",
+        "Derecho privado"
+      ],
+      [
+        "902593031",
+        "Derecho público"
+      ],
+      [
+        "90130433031",
+        "Ley medioambiental y de recursos naturales"
+      ],
+      [
+        "902594031",
+        "Procesos y práctica legal"
+      ]
+    ],
+    "902594031": [],
     "902595031": [
       [
         "203568962031",
@@ -1762,6 +1903,106 @@
       ]
     ],
     "902597031": [],
+    "902610031": [
+      [
+        "902611031",
+        "Antigüedades y coleccionables"
+      ],
+      [
+        "902612031",
+        "Artesanía, artes decorativas y manualidades"
+      ],
+      [
+        "902614031",
+        "Guías de estilos personales y estilos de vida"
+      ],
+      [
+        "902615031",
+        "Jardinería"
+      ],
+      [
+        "902616031",
+        "Juegos y adivinanzas"
+      ],
+      [
+        "902617031",
+        "Mantenimiento del hogar y la vivienda"
+      ],
+      [
+        "902618031",
+        "Maquetas y trenes eléctricos"
+      ],
+      [
+        "902619031",
+        "Mascotas"
+      ]
+    ],
+    "902612031": [
+      [
+        "27906320031",
+        "Libros para colorear para adultos"
+      ]
+    ],
+    "902613031": [
+      [
+        "83953868031",
+        "Bebidas y vino"
+      ],
+      [
+        "83953856031",
+        "Bollería"
+      ],
+      [
+        "83953865031",
+        "Cocina por ingredientes"
+      ],
+      [
+        "83953861031",
+        "Conservas y enlatados"
+      ],
+      [
+        "83953863031",
+        "Dieta especial"
+      ],
+      [
+        "83953858031",
+        "Educación y referencias culinarias"
+      ],
+      [
+        "83953864031",
+        "Personajes famosos y programas de televisión"
+      ],
+      [
+        "83953857031",
+        "Platos principales y guarniciones"
+      ],
+      [
+        "83953860031",
+        "Postres"
+      ],
+      [
+        "83953866031",
+        "Rápida y fácil"
+      ],
+      [
+        "83953867031",
+        "Regional e internacional"
+      ],
+      [
+        "83953859031",
+        "Vegana"
+      ],
+      [
+        "83953862031",
+        "Vegetariana"
+      ]
+    ],
+    "902616031": [
+      [
+        "90130434031",
+        "Juegos de fiesta"
+      ]
+    ],
     "902621031": [
       [
         "5272307031",
@@ -2002,6 +2243,122 @@
         "Teatro"
       ]
     ],
+    "902676031": [
+      [
+        "202413825031",
+        "Adaptaciones para series, cine y videojuegos"
+      ],
+      [
+        "211757928031",
+        "Androides, robots e inteligencias artificiales"
+      ],
+      [
+        "202413818031",
+        "Antologías"
+      ],
+      [
+        "202413827031",
+        "Ciberpunk"
+      ],
+      [
+        "202413837031",
+        "Ciencia ficción dura"
+      ],
+      [
+        "202413833031",
+        "Colonización"
+      ],
+      [
+        "202413836031",
+        "Crimen y misterio"
+      ],
+      [
+        "202413829031",
+        "Distopía"
+      ],
+      [
+        "202413819031",
+        "Exploración"
+      ],
+      [
+        "202413835031",
+        "Historia y crítica"
+      ],
+      [
+        "202413834031",
+        "Humorística"
+      ],
+      [
+        "202413832031",
+        "Imperio galáctico"
+      ],
+      [
+        "202413831031",
+        "Ingeniería genética"
+      ],
+      [
+        "202413830031",
+        "Invasión extraterrestre"
+      ],
+      [
+        "202413838031",
+        "LGBTQ+"
+      ],
+      [
+        "202413823031",
+        "Militar"
+      ],
+      [
+        "202413826031",
+        "Posapocalíptica"
+      ],
+      [
+        "202413821031",
+        "Primer contacto"
+      ],
+      [
+        "202413822031",
+        "Relatos breves"
+      ],
+      [
+        "202413824031",
+        "Space opera"
+      ],
+      [
+        "202413828031",
+        "Steampunk"
+      ]
+    ],
+    "902681031": [
+      [
+        "13440881031",
+        "Arte y fotografía"
+      ],
+      [
+        "13440884031",
+        "Calendarios"
+      ],
+      [
+        "13440885031",
+        "Cómics y manga"
+      ],
+      [
+        "13440917031",
+        "Guías sexuales"
+      ],
+      [
+        "13440889031",
+        "Literatura y ficción"
+      ],
+      [
+        "13440915031",
+        "Masajes"
+      ],
+      [
+        "13440916031",
+        "Recetas"
+      ]
+    ],
     "902702031": [
       [
         "902703031",
@@ -2137,7 +2494,7 @@
       ]
     ]
   },
-  "libros_es": 7687,
+  "libros_es": 7793,
   "origen": {
     "Editorial EDK bookverse": "EDK bookverse",
     "Editorial Kiwi": "Kiwi",
@@ -2145,14 +2502,14 @@
     "Editorial Matchstories": "Matchstories",
     "Editorial Plomo Ediciones": "Plomo Ediciones"
   },
-  "particiones": 563,
-  "peticiones": 1341,
-  "reintentos": 5120,
-  "reintentos_dia": "2026-11-10",
-  "segundos": 204,
+  "particiones": 660,
+  "peticiones": 1461,
+  "reintentos": 5405,
+  "reintentos_dia": "2026-11-11",
+  "segundos": 133,
   "sellos_leidos": 97,
-  "sellos_llenos": 41,
-  "sellos_nuevos": 58,
+  "sellos_llenos": 56,
+  "sellos_nuevos": 60,
   "sellos_saltados": 5,
   "variantes_probadas": [
     "matchstories|editorial matchstories",

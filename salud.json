@@ -1,19 +1,19 @@
 {
- "generado": "2026-11-10T02:58:37+00:00",
- "publicados": 2640,
+ "generado": "2026-11-11T10:27:23+00:00",
+ "publicados": 2839,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 259,
+   "total": 280,
    "proximos": 213,
    "por_mes": {
     "2027-08": 1,
     "2027-05": 4,
-    "2027-04": 9,
+    "2027-04": 8,
     "2027-03": 4,
-    "2027-02": 94,
-    "2027-01": 52,
-    "2026-12": 12,
-    "2026-11": 66,
+    "2027-02": 93,
+    "2027-01": 51,
+    "2026-12": 11,
+    "2026-11": 91,
     "2026-10": 9,
     "2026-09": 1,
     "2026-08": 3,
@@ -75,14 +75,6 @@
      "editorial": "Vintage Espanol",
      "fecha_publicacion": "2027-05-04",
      "fuente": "https://www.amazon.es/dp/B0GXN4B62M"
-    },
-    {
-     "id": "isbn-9786287832657",
-     "titulo": "Dentro de casa. Rituales de bienestar / Inside the Home: Rituals of Well-Being",
-     "isbn13": "9786287832657",
-     "editorial": "Grijalbo",
-     "fecha_publicacion": "2027-04-06",
-     "fuente": "https://www.amazon.es/dp/6287832657"
     },
     {
      "id": "isbn-9786287880658",
@@ -219,6 +211,14 @@
      "editorial": "Reservoir Books",
      "fecha_publicacion": "2027-02-25",
      "fuente": "https://www.amazon.es/dp/B0HNWGQ52M"
+    },
+    {
+     "id": "isbn-9791387740344",
+     "titulo": "Rebels (Reservoir Gráfica)",
+     "isbn13": "9791387740344",
+     "editorial": "Reservoir Books",
+     "fecha_publicacion": "2027-02-25",
+     "fuente": "https://www.amazon.es/dp/B0HNWD6Q9K"
     }
    ]
   },
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 52,
+   "total": 59,
    "muestra": [
     {
      "id": "isbn-9788408326861",
@@ -631,17 +631,17 @@
      "fecha_publicacion": "2026-11-10"
     },
     {
-     "id": "isbn-9788410632967",
-     "titulo": "Libros proféticos: La Biblia Hebrea en perspectiva latinoamericana. Introducción al Antiguo Testamento (vol. II)",
-     "isbn13": "9788410632967",
-     "editorial": "Editorial Verbo Divino",
-     "fecha_publicacion": "2026-11-06"
+     "id": "isbn-9791387708528",
+     "titulo": "Kama Sutra mágico",
+     "isbn13": "9791387708528",
+     "editorial": "LU Ediciones",
+     "fecha_publicacion": "2026-11-05"
     }
    ]
   },
   "sin_texto": {
-   "total": 1797,
-   "proximos": 1357,
+   "total": 1996,
+   "proximos": 1436,
    "por_mes": {
     "2027-09": 1,
     "2027-08": 1,
@@ -651,7 +651,7 @@
     "2027-02": 249,
     "2027-01": 351,
     "2026-12": 106,
-    "2026-11": 842,
+    "2026-11": 1041,
     "2026-10": 120,
     "2026-09": 24,
     "2026-08": 4
@@ -840,9 +840,9 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": -283,
+  "portadas_tipograficas": 21,
   "formatos_sin_precio": 0,
-  "sin_formatos_de_compra": 13,
+  "sin_formatos_de_compra": 7,
   "sin_texto": 199,
   "portada_sin_fichero": 0
  },
@@ -853,6 +853,27 @@
   "errores": {},
   "oportunidades": [],
   "sin_portada_en_amazon": [
+   {
+    "id": "isbn-9788419461438",
+    "titulo": "Casos clínicos internacionales en salud de la mujer",
+    "isbn13": "9788419461438",
+    "editorial": "International Marketing & Communication, S.a. (im&c)",
+    "fecha_publicacion": "2026-11-11"
+   },
+   {
+    "id": "isbn-9789877713367",
+    "titulo": "El malestar en la cultura del soglo XXI",
+    "isbn13": "9789877713367",
+    "editorial": "Homo Sapiens Argentina",
+    "fecha_publicacion": "2026-11-11"
+   },
+   {
+    "id": "isbn-9791399279115",
+    "titulo": "Un hilo interminable: Principios psíquicos del Trauma Transgeneracional",
+    "isbn13": "9791399279115",
+    "editorial": "Talaiar Edicions",
+    "fecha_publicacion": "2026-11-11"
+   },
    {
     "id": "isbn-9788410192416",
     "titulo": "Clave para identificar anfibios",
@@ -873,6 +894,13 @@
     "isbn13": "9791399305111",
     "editorial": "Castellón Digital SL",
     "fecha_publicacion": "2026-11-10"
+   },
+   {
+    "id": "isbn-9791399308709",
+    "titulo": "Diversos: Antología de relatos - Primer Premio de Relatos ­Fundación Las Fuentes: 1",
+    "isbn13": "9791399308709",
+    "editorial": "Editorial Graviola",
+    "fecha_publicacion": "2026-11-12"
    },
    {
     "id": "isbn-9788410279636",
@@ -896,18 +924,46 @@
     "fecha_publicacion": "2026-11-10"
    },
    {
+    "id": "isbn-9791399320206",
+    "titulo": "Las baterías del amor",
+    "isbn13": "9791399320206",
+    "editorial": "Nueva Eva",
+    "fecha_publicacion": "2026-11-12"
+   },
+   {
+    "id": "isbn-9791388581106",
+    "titulo": "Pero no se lo digas: 148 (VdB Teatro contemporáneo)",
+    "isbn13": "9791388581106",
+    "editorial": "Uvedebe",
+    "fecha_publicacion": "2026-11-10"
+   },
+   {
+    "id": "isbn-9788410172968",
+    "titulo": "Paisaje, conocimiento e identidad. Visiones emergentes entrelazadas: 25 (Vestigios de un mismo mundo)",
+    "isbn13": "9788410172968",
+    "editorial": "Editum. Ediciones de la Universidad de Murcia",
+    "fecha_publicacion": "2026-11-10"
+   },
+   {
+    "id": "isbn-9788428575713",
+    "titulo": "Mis amigos del cielo (Pequelibros)",
+    "isbn13": "9788428575713",
+    "editorial": "Editorial San Pablo",
+    "fecha_publicacion": "2026-11-10"
+   },
+   {
+    "id": "isbn-9788410279643",
+    "titulo": "El reloj del minotauro: 6 (Artemisa de primer poemario)",
+    "isbn13": "9788410279643",
+    "editorial": "Calixto Torres Perales",
+    "fecha_publicacion": "2026-11-10"
+   },
+   {
     "id": "isbn-9788412986938",
     "titulo": "El Inicio de una nueva historia y la aparición del hombre nuevo",
     "isbn13": "9788412986938",
     "editorial": "Editorial Cuadernos para la Paz",
     "fecha_publicacion": "2026-11-09"
-   },
-   {
-    "id": "isbn-9788437508726",
-    "titulo": "¡No me mires! (Popular)",
-    "isbn13": "9788437508726",
-    "editorial": "FCE de España",
-    "fecha_publicacion": "2026-11-11"
    },
    {
     "id": "isbn-9788412792584",
@@ -924,73 +980,17 @@
     "fecha_publicacion": "2026-11-09"
    },
    {
-    "id": "isbn-9788419461438",
-    "titulo": "Casos clínicos internacionales en salud de la mujer",
-    "isbn13": "9788419461438",
-    "editorial": "International Marketing & Communication, S.a. (im&c)",
-    "fecha_publicacion": "2026-11-11"
-   },
-   {
-    "id": "isbn-9789877901528",
-    "titulo": "Otra vida (ZONA DE FICCIONES)",
-    "isbn13": "9789877901528",
-    "editorial": "Interzona",
-    "fecha_publicacion": "2026-11-09"
-   },
-   {
-    "id": "isbn-9791399293517",
-    "titulo": "Ecos de Medianoche: Cuentos clásicos del siniestro fantástico: 1 (Ultravioleta)",
-    "isbn13": "9791399293517",
-    "editorial": "Apache Libros",
-    "fecha_publicacion": "2026-11-09"
-   },
-   {
-    "id": "isbn-9789877713367",
-    "titulo": "El malestar en la cultura del soglo XXI",
-    "isbn13": "9789877713367",
-    "editorial": "Homo Sapiens Argentina",
-    "fecha_publicacion": "2026-11-11"
-   },
-   {
-    "id": "isbn-9791399279115",
-    "titulo": "Un hilo interminable: Principios psíquicos del Trauma Transgeneracional",
-    "isbn13": "9791399279115",
-    "editorial": "Talaiar Edicions",
-    "fecha_publicacion": "2026-11-11"
-   },
-   {
-    "id": "isbn-9789509509504",
-    "titulo": "Banksy: I want to be what you saw in me (MISCELANEAS)",
-    "isbn13": "9789509509504",
-    "editorial": "La Marca Editora",
-    "fecha_publicacion": "2026-11-09"
-   },
-   {
-    "id": "isbn-9791399308709",
-    "titulo": "Diversos: Antología de relatos - Primer Premio de Relatos ­Fundación Las Fuentes: 1",
-    "isbn13": "9791399308709",
-    "editorial": "Editorial Graviola",
-    "fecha_publicacion": "2026-11-12"
-   },
-   {
-    "id": "isbn-9791399320206",
-    "titulo": "Las baterías del amor",
-    "isbn13": "9791399320206",
-    "editorial": "Nueva Eva",
-    "fecha_publicacion": "2026-11-12"
-   },
-   {
-    "id": "isbn-9788419943590",
-    "titulo": "Diez diálogos espirituales con grandes maestros (Fragmentos): y tres entrevistas con E. S. sobre la esencia del ajedrez: 1 (Biblioteca Eduardo Scala)",
-    "isbn13": "9788419943590",
-    "editorial": "Libros de la Resistencia",
-    "fecha_publicacion": "2026-11-07"
-   },
-   {
     "id": "isbn-9788419930279",
     "titulo": "Madres: 20 (Clásicos modernos)",
     "isbn13": "9788419930279",
     "editorial": "Caleidoscopio de Libros, S.l.",
+    "fecha_publicacion": "2026-11-13"
+   },
+   {
+    "id": "isbn-9788449602122",
+    "titulo": "Madrid siglo 21: Arquitectura Urbanismo Paisaje",
+    "isbn13": "9788449602122",
+    "editorial": "Tanais.architecta",
     "fecha_publicacion": "2026-11-13"
    }
   ]
