@@ -188,6 +188,7 @@ jobs:
           node --check qa/production-radar-timezone.mjs
           node --check qa/production-late-widget-audit.mjs
           node --check qa/production-script-failure-resilience.mjs
+          node tests/test-production-fetch.mjs
 
       - name: Re-run global static contracts after main integration
         shell: bash
@@ -312,7 +313,8 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    # 30: el carril lento de production-fetch puede añadir minutos cuando GitHub Pages limita (429)
+    timeout-minutes: 30
     env:
       SITE_BASE_URL: https://davidportodiaz.com
       EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
