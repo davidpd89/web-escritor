@@ -4,6 +4,7 @@ import argparse
 import importlib.util
 import json
 import os
+import re
 import subprocess
 import tempfile
 import urllib.request
@@ -163,10 +164,18 @@ def radar_isbns(config):
     return isbns
 
 
+# Rama de una carga del propio escritor: 'automation/reading-catalogue-' + día + '-' (ver fresh_branch más abajo).
+OWN_BATCH = re.compile(r'automation/reading-catalogue-\d{4}-\d{2}-\d{2}-[A-Za-z0-9-]+')
+
+
 def pending_batches(opened):
-    """Cargas del propio escritor; las PR de textos las regenera su bucle y no frenan los libros."""
-    return [p['headRefName'] for p in opened if p['headRefName'].startswith('automation/reading-catalogue-')
-            and not p['headRefName'].startswith(TEXTS_PREFIX)]
+    """Cargas del propio escritor, reconocidas por su forma de rama y no por exclusión.
+
+    Otros bucles comparten el prefijo (textos, auditoría de Amazon) y gestionan sus propias PR. Excluirlos uno a uno
+    dejó pasar la auditoría de Amazon: la PR #1268, firmada con la identidad local, se tomó como carga pendiente y
+    resume_pending abortó las cuatro ejecuciones de la noche del 11/11 sin cargar nada.
+    """
+    return [p['headRefName'] for p in opened if OWN_BATCH.fullmatch(p['headRefName'])]
 
 
 def refresh(*, publish=False):

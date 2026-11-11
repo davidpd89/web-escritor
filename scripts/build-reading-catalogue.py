@@ -455,15 +455,33 @@ def own_meta_description(b):
                        age_phrase(b.get('edad_recomendada', '')))
     # Cabe en 160 sin cortar frases: primero cae el segundo tema y después la nota de edición o la serie del título;
     # si aún no cabe (autorías largas), los datos de la edición se recortan: páginas, formato y por último la edad.
-    for parts in ((fmt, pages, age), (fmt, age), (age,), ()):
-        facts = ', '.join(f for f in parts if f)
-        for name in short_titles(b['titulo']):
-            for n in (2, 1):
-                topics = ' y '.join(MODULE_TITLES[x['modulo']].lower() for x in t['bloques'][:n])
-                text = f"{name}, de {', '.join(b['autores'])}" + (': ' + facts if facts else '') + '. Antes de elegirlo: ' + topics + '.'
-                if len(text) <= 160:
-                    return text
+    # Si ni así cabe (obras colectivas, títulos bilingües «… / …»), la autoría pasa a «primer autor y otros» y el
+    # título pierde la traducción y, en último caso, palabras del final. La publicación de textos se paró las noches
+    # del 09 y 10/11 con 17 y 33 metas largas, y el número solo crecía con el catálogo.
+    first = b['autores'][0] if b['autores'] else ''
+    authors = [', '.join(b['autores'])] + ([first + ' y otros'] if len(b['autores']) > 1 else [])
+    titles = short_titles(b['titulo'])
+    plain = titles + [n.split(' / ')[0].strip() for n in titles if ' / ' in n]
+    # Etapas: autoría completa, «y otros», título sin traducción y, solo al final, título recortado por palabras.
+    stages = [(who, titles) for who in authors] + [(who, plain) for who in authors]
+    stages += [(who, [clip_words(plain[-1], 160 - len(f", de {who}. Antes de elegirlo: para quién es."))]) for who in authors[-1:]]
+    for who, names in stages:
+        for parts in ((fmt, pages, age), (fmt, age), (age,), ()):
+            facts = ', '.join(f for f in parts if f)
+            for name in names:
+                for n in (2, 1):
+                    topics = ' y '.join(MODULE_TITLES[x['modulo']].lower() for x in t['bloques'][:n])
+                    text = f"{name}, de {who}" + (': ' + facts if facts else '') + '. Antes de elegirlo: ' + topics + '.'
+                    if len(text) <= 160:
+                        return text
     return text
+
+
+def clip_words(text, limit):
+    """Recorta por palabra completa y marca el corte con «…»; sin cambios si ya cabe."""
+    if len(text) <= limit:
+        return text
+    return text[:max(limit - 1, 1)].rsplit(' ', 1)[0].rstrip(' ,;:.-–—(') + '…' 
 
 
 

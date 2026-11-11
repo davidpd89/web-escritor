@@ -128,6 +128,11 @@ for f in tracked:
         falla(f"{f} es contenido para el publicador pero ningún glob lo excluye")
     if cubierto and not permitido:
         falla(f"{f} lo excluye un glob pero el publicador no lo admite")
+# Las rutas exactas de la política, existan o no: un fichero que el publicador crea por primera vez
+# (data/reading-amazon-audit.json, PR #1268) no está en git ls-files hasta que su PR ya ha caído en rojo.
+for f in sorted(lane._policy.EXACT):
+    if not any(rx.match(f) for rx in GLOBS):
+        falla(f"{f} es ruta exacta del publicador pero ningún glob la excluye")
 
 # 5. Cada workflow excluido usa exactamente CONTENT_GLOBS y la auditoría nocturna lo relanza.
 weekly = (ROOT / ".github/workflows/weekly-full-audit.yml").read_text(encoding="utf-8")
