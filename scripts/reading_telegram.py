@@ -206,7 +206,7 @@ def isbn_search_url(isbns: list[str], tag: str = "") -> str:
     query = {"i": "stripbooks", "rh": "p_66:" + "|".join(isbns[:DIGEST_MAX_ISBNS])}
     if tag:
         query["tag"] = tag
-    return "https://www.amazon.es/s?" + urlencode(query, safe="|:")
+    return "https://www.amazon.es/s?" + urlencode(query)
 
 
 def digest_key(day: str) -> str:
@@ -436,7 +436,7 @@ class TelegramMarkup(HTMLParser):
         self.parts = []
         self.entities = []
         self.open_tags = []
-        self.offset = 0
+        self.utf16_offset = 0
         self.feed(markup)
         self.close()
 
@@ -445,15 +445,15 @@ class TelegramMarkup(HTMLParser):
         for match in re.finditer(r"(?<!\w)#(?:Novedades|publicidad)\b", data):
             self.entities.append({
                 "type": "hashtag",
-                "offset": self.offset + len(data[:match.start()].encode("utf-16-le")) // 2,
+                "offset": self.utf16_offset + len(data[:match.start()].encode("utf-16-le")) // 2,
                 "length": len(match.group()),
             })
-        self.offset += len(data.encode("utf-16-le")) // 2
+        self.utf16_offset += len(data.encode("utf-16-le")) // 2
 
     def handle_starttag(self, tag, attrs):
         kind = {"b": "bold", "i": "italic", "a": "text_link"}.get(tag)
         if kind:
-            entity = {"type": kind, "offset": self.offset}
+            entity = {"type": kind, "offset": self.utf16_offset}
             if tag == "a":
                 entity["url"] = dict(attrs)["href"]
             self.open_tags.append(entity)
@@ -461,7 +461,7 @@ class TelegramMarkup(HTMLParser):
     def handle_endtag(self, tag):
         if tag in {"a", "b", "i"} and self.open_tags:
             entity = self.open_tags.pop()
-            entity["length"] = self.offset - entity["offset"]
+            entity["length"] = self.utf16_offset - entity["offset"]
             if entity["length"]:
                 self.entities.append(entity)
 

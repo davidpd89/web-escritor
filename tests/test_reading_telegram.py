@@ -352,7 +352,7 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertIn("Aquí tienes las publicaciones del día 1 de noviembre", text)
         self.assertIn("2 libros", text)
         self.assertIn("#publicidad", text)
-        self.assertIn("rh=p_66:9788498382372|9788401042751", text)
+        self.assertIn("rh=p_66%3A9788498382372%7C9788401042751", text)
         self.assertIn("/dp/8401042755?tag=davidporto-21", text)
         self.assertIn("tag=davidporto-21", text)
         self.assertIn("&lt;uno&gt;", text)
@@ -506,7 +506,7 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertEqual(len(result), 1)
         text = result[0]["text"]
         self.assertIn("Próximos lanzamientos del 2 de noviembre al 8 de noviembre", text)
-        self.assertIn("8 de noviembre: <b>Libro b</b>", text)
+        self.assertRegex(text, r'8 de noviembre: <a href="https://www\.amazon\.es/dp/[^"]+">Libro b</a>')
         self.assertIn("9788498382372|9788401042751", text)
         self.assertNotIn("9788401042768", text)
         next_week = run(catalog, date(2026, 11, 9), self.root / "w.db")
