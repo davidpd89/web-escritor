@@ -284,7 +284,6 @@ def render(config: dict) -> str:
         <li><strong>Gratis y sin registro aquí.</strong> Te unes desde la propia app de Telegram o Discord.</li>
         <li><strong>Avisos automáticos.</strong> Salen del <a href="/recomendaciones/">catálogo de libros recomendados</a>, el mismo que ves en la web.</li>
         <li><strong>Tú decides el ritmo.</strong> Únete solo a los géneros que te interesan y silencia o abandona cualquier canal cuando quieras.</li>
-        <li><strong>Transparencia.</strong> Los enlaces a Amazon son de afiliado y así se indica.</li>
       </ul>
     </section>
     {render_faq()}
@@ -293,6 +292,7 @@ def render(config: dict) -> str:
       <ul>
         <li><a href="/recomendaciones/">Libros recomendados</a></li>
         <li><a href="/redes-sociales/">Redes sociales</a></li>
+        <li><a href="https://www.amazon.es/stores/author/B0GZFP1JV3?tag=davidporto-21" target="_blank" rel="sponsored nofollow noopener noreferrer">Perfil de autor en Amazon</a></li>
       </ul>
     </section>
   </main>

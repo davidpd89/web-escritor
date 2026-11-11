@@ -143,6 +143,22 @@ def amazon_product(book, url, today):
     return asin, published
 
 
+# Failures that a later cycle can fix (network, request budget, robots.txt unreachable, cut response).
+# Everything else is a verdict on the edition itself (no single Amazon product, changed identity,
+# missing cover...): the book is excluded from today's posts on purpose, which is not an incident.
+TRANSIENT_SOURCE_ERRORS = (
+    "Presupuesto diario de solicitudes agotado",
+    "No se ha podido verificar robots.txt",
+    "Respuesta editorial incompleta",
+)
+
+
+def is_transient(exc) -> bool:
+    if isinstance(exc, SourceError):
+        return str(exc) in TRANSIENT_SOURCE_ERRORS
+    return isinstance(exc, OSError)
+
+
 def verified_snapshot(catalogue, intake, today, fetch):
     result = copy.deepcopy(catalogue)
     report = {"checked": 0, "resolved": 0, "pending": [], "verified": []}
@@ -200,6 +216,7 @@ def verified_snapshot(catalogue, intake, today, fetch):
                     "reason": str(exc)
                     if isinstance(exc, SourceError)
                     else type(exc).__name__,
+                    "transient": is_transient(exc),
                 }
             )
     return result, report
@@ -352,7 +369,10 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None):
         "live": live,
         "status": "needs_attention"
         if attention
-        or any(p["release_date"] == today.isoformat() for p in verification["pending"])
+        or any(
+            p["release_date"] == today.isoformat() and p.get("transient", True)
+            for p in verification["pending"]
+        )
         else "ok",
         "eligible": len(catalog["books"]),
         "verification": verification,
