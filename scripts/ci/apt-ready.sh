@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Deja apt listo aunque el espejo de Azure de los runners no resuelva. Sale 0 si apt tiene algún espejo
-# con DNS (cambiando a archive.ubuntu.com si hace falta) y 1, en ~20 s, si no resuelve ninguno.
+# con DNS (cambiando a archive.ubuntu.com si hace falta) y 1, en menos de 1 min, si no resuelve ninguno.
 #
 # 11/11/2026: «Temporary failure resolving 'azure.archive.ubuntu.com'» durante horas. apt reintentaba ese espejo
 # en cada paquete (5-8 min por intento) y los trabajos agotaban su límite antes de llegar a la prueba.
@@ -8,7 +8,8 @@ set -u
 etc=${APT_ETC:-/etc/apt}
 pause=${APT_PROBE_PAUSE:-10}
 azure=azure.archive.ubuntu.com
-resolves() { getent hosts "$1" >/dev/null 2>&1; }
+# Tope de 3 s por host: con el DNS caído cada getent esperaba ~20 s y el sondeo se comía 3 min.
+resolves() { timeout 3 getent hosts "$1" >/dev/null 2>&1; }
 
 for n in 1 2 3; do
   resolves "$azure" && exit 0
